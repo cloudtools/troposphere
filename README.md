@@ -28,9 +28,11 @@ Todo:
   - AWS::SQS
 
 Duplicating a single instance sample would look like this:
+
 https://s3.amazonaws.com/cloudformation-templates-us-east-1/EC2InstanceSample.template
 
-```from troposphere import Base64, FindInMap, GetAtt
+```
+from troposphere import Base64, FindInMap, GetAtt
 from troposphere import Parameter, Output, Ref, Template
 import troposphere.ec2 as ec2
 
@@ -88,4 +90,5 @@ template.outputs.update({
     ),
 })
 
-print template.to_json()```
+print template.to_json()
+```
