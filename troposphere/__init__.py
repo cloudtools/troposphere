@@ -42,17 +42,21 @@ class AWSObject(object):
         elif name in self.propnames:
             # Check the type of the object and compare against what
             # we were expecting. Special case AWS helper functions.
-            if isinstance(value, self.props[name][0]) or \
+            expected_type = self.props[name][0]
+            if isinstance(value, expected_type) or \
                 isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
             else:
-                raise ValueError
-        raise AttributeError
+                raise TypeError('%s is %s, expected %s' %
+                        (name, type(value), expected_type))
+        raise AttributeError("%s object does not support attribute %s" %
+                (self.type, name))
 
     def JSONrepr(self):
         for k, v in self.props.items():
             if v[1] and k not in self.properties:
-                print "Resource %s required in type %s" % (k, self.type)
+                raise ValueError("Resource %s required in type %s" %
+                        (k, self.type))
         return self.resource
 
 

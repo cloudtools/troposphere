@@ -3,7 +3,38 @@ troposphere - library to create AWS CloudFormation descriptions
 The troposphere library allows for easier creation of the AWS CloudFormation
 JSON by writing Python code to describe the AWS resources. To facilitate
 catching CloudFormation or JSON errors early the library has property and type
-checking built into the classes.
+checking built into the classes. Examples of the error checking
+(full tracebacks removed for clarity):
+
+Incorrect property being set on AWS resource:
+```
+>>> import troposphere.ec2 as ec2
+>>> ec2.Instance("ec2instance", image="i-XXXX")
+Traceback (most recent call last):
+...
+AttributeError: AWS::EC2::Instance object does not support attribute image
+```
+
+Incorrect type for AWS resource property:
+```
+>>> ec2.Instance("ec2instance", ImageId=1)
+Traceback (most recent call last):
+...
+TypeError: ImageId is <type 'int'>, expected <type 'basestring'>
+```
+
+Missing required property for the AWS resource:
+```
+>>> from troposphere import Template
+>>> import troposphere.ec2 as ec2
+>>> t = Template()
+>>> t.add_resource(ec2.Instance("ec2instance", ImageId="ami-3bcc9e7e"))
+<troposphere.ec2.Instance object at 0x109ee2e50>
+>>> print t.to_json()
+Traceback (most recent call last):
+...
+ValueError: Resource InstanceType required in type AWS::EC2::Instance
+```
 
 Currently supported AWS resource types:
 - AWS::AutoScaling
