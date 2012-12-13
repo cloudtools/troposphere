@@ -231,6 +231,22 @@ class SecurityGroupIngress(AWSObject):
         sup.__init__(None, props=self.props, **kwargs)
 
 
+class SecurityGroupRule(AWSObject):
+    props = {
+        'IpProtocol': (basestring, True),
+        'CidrIp': (basestring, False),
+        'SourceSecurityGroupName': (basestring, False),
+        'SourceSecurityGroupId': (basestring, False),
+        'SourceSecurityGroupOwnerId': (basestring, False),
+        'FromPort': (basestring, True),
+        'ToPort': (basestring, True),
+    }
+
+    def __init__(self, **kwargs):
+        sup = super(SecurityGroupRule, self)
+        sup.__init__(None, props=self.props, **kwargs)
+
+
 class SecurityGroup(AWSObject):
     props = {
         'GroupDescription': (basestring, True),
