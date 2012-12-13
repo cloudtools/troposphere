@@ -234,7 +234,7 @@ class SecurityGroupIngress(AWSObject):
 class SecurityGroup(AWSObject):
     props = {
         'GroupDescription': (basestring, True),
-        'SecurityGroupEngress': (list, False),
+        'SecurityGroupEgress': (list, False),
         'SecurityGroupIngress': (list, False),
         'VpcId': (basestring, False),
     }
