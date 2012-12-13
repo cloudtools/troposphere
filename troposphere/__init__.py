@@ -8,16 +8,18 @@ import json
 
 
 class AWSObject(object):
-    def __init__(self, type=None, name=None, props={}, **kwargs):
+    def __init__(self, name, type=None, dictname=None, props={}, **kwargs):
         self.name = name
         self.type = type
         self.props = props
-        self.names = props.keys()
+        # Cache the keys for validity checks
+        self.propnames = props.keys()
+
         # Create the list of properties set on this object by the user
         self.properties = {}
-        if name:
+        if dictname:
             self.resource = {
-                    name: self.properties,
+                    dictname: self.properties,
             }
         else:
             self.resource = self.properties
@@ -37,7 +39,7 @@ class AWSObject(object):
     def __setattr__(self, name, value):
         if '_AWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
-        elif name in self.names:
+        elif name in self.propnames:
             # Check the type of the object and compare against what
             # we were expecting. Special case AWS helper functions.
             if isinstance(value, self.props[name][0]) or \
@@ -55,7 +57,11 @@ class AWSObject(object):
 
 
 class AWSHelperFn(object):
-    pass
+    def getdata(self, data):
+        if isinstance(data, AWSObject):
+            return data.name
+        else:
+            return data
 
 
 class Base64(AWSHelperFn):
@@ -68,7 +74,7 @@ class Base64(AWSHelperFn):
 
 class FindInMap(AWSHelperFn):
     def __init__(self, map, key, value):
-        self.data = {'Fn::FindInMap': [map, key, value]}
+        self.data = {'Fn::FindInMap': [self.getdata(map), key, value]}
 
     def JSONrepr(self):
         return self.data
@@ -76,7 +82,7 @@ class FindInMap(AWSHelperFn):
 
 class GetAtt(AWSHelperFn):
     def __init__(self, logicalName, attrName):
-        self.data = {'Fn::GetAtt': [logicalName, attrName]}
+        self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
 
     def JSONrepr(self):
         return self.data
@@ -108,7 +114,7 @@ class Select(AWSHelperFn):
 
 class Ref(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Ref': data}
+        self.data = {'Ref': self.getdata(data)}
 
     def JSONrepr(self):
         return self.data
@@ -132,19 +138,52 @@ class Template(object):
     }
 
     def __init__(self):
+        self.description = None
         self.mappings = {}
         self.outputs = {}
         self.parameters = {}
         self.resources = {}
 
+    def add_description(self, description):
+        self.description = description
+
+    def add_output(self, output):
+        if isinstance(output, list):
+            for o in output:
+                self.outputs[o.name] = o
+        else:
+            self.outputs[output.name] = output
+        return output
+
+    def add_mapping(self, name, mapping):
+        self.mappings[name] = mapping
+
+    def add_parameter(self, parameter):
+        if isinstance(parameter, list):
+            for p in parameter:
+                self.parameters[p.name] = p
+        else:
+            self.parameters[parameter.name] = parameter
+        return parameter
+
+    def add_resource(self, resource):
+        if isinstance(resource, list):
+            for r in resource:
+                self.resources[r.name] = r
+        else:
+            self.resources[resource.name] = resource
+        return resource
+
     def to_json(self, indent=4, sort_keys=True):
         t = {}
+        if self.description:
+            t['Description'] = self.description
+        if self.mappings:
+            t['Mappings'] = self.mappings
         if self.outputs:
             t['Outputs'] = self.outputs
         if self.parameters:
             t['Parameters'] = self.parameters
-        if self.mappings:
-            t['Mappings'] = self.mappings
         t['Resources'] = self.resources
 
         return json.dumps(t, cls=awsencode, indent=indent, sort_keys=sort_keys)
@@ -159,10 +198,9 @@ class Output(AWSObject):
         'Value': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
-        self.type = None
+    def __init__(self, name, **kwargs):
         sup = super(Output, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(name, None, props=self.props, **kwargs)
 
 
 class Parameter(AWSObject):
@@ -180,7 +218,7 @@ class Parameter(AWSObject):
         'ConstraintDescription': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = None
         sup = super(Parameter, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(name, props=self.props, **kwargs)

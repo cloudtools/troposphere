@@ -1,36 +1,3 @@
-troposphere - library to create AWS CloudFormation descriptions
-
-The troposphere library allows for easier creation of the AWS CloudFormation
-JSON by writing Python code to describe the AWS resources. To facilitate
-catching CloudFormation or JSON errors early the library has property and type
-checking built into the classes.
-
-Currently supported AWS resource types:
-- AWS::AutoScaling
-- AWS::EC2
-- AWS::ElasticLoadBalancing
-
-Todo:
-- Add additional validity checks
-- Don't allow AWS helper override for list typed objects
-- Add missing AWS resource types:
-  - AWS::CloudFormation
-  - AWS::CloudFront
-  - AWS::CloudWatch
-  - AWS::DynamoDB
-  - AWS::ElastiCache
-  - AWS::ElasticBeanstalk
-  - AWS::IAM
-  - AWS::RDS
-  - AWS::Route53
-  - AWS::S3
-  - AWS::SDB
-  - AWS::SNS
-  - AWS::SQS
-
-Duplicating a single instance sample would look like this:
-
-```
 # Converted from EC2InstanceSample.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
@@ -93,4 +60,3 @@ template.add_output([
 ])
 
 print template.to_json()
-```

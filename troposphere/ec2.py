@@ -15,10 +15,10 @@ class CustomGateway(AWSObject):
         'Type': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::CustomGateway"
         sup = super(CustomGateway, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class DHCPOptions(AWSObject):
@@ -31,10 +31,10 @@ class DHCPOptions(AWSObject):
         'Tags': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::DHCPOptions"
         sup = super(DHCPOptions, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class EIP(AWSObject):
@@ -43,10 +43,10 @@ class EIP(AWSObject):
         'Domain': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::EIP"
         sup = super(EIP, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class EIPAssociation(AWSObject):
@@ -57,10 +57,10 @@ class EIPAssociation(AWSObject):
         'NetworkInterfaceId': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::EIPAssociation"
         sup = super(EIPAssociation, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class Instance(AWSObject):
@@ -88,10 +88,10 @@ class Instance(AWSObject):
         'Volumes': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::Instance"
         sup = super(Instance, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class InternetGateway(AWSObject):
@@ -99,10 +99,10 @@ class InternetGateway(AWSObject):
         'Tags': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::InternetGateway"
         sup = super(InternetGateway, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class NetworkAcl(AWSObject):
@@ -111,10 +111,10 @@ class NetworkAcl(AWSObject):
         'VpcId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::NetworkAcl"
         sup = super(NetworkAcl, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class ICMP(AWSObject):
@@ -124,9 +124,8 @@ class ICMP(AWSObject):
     }
 
     def __init__(self, **kwargs):
-        self.type = None
         sup = super(ICMP, self)
-        sup.__init__(self.type, "ICMP", self.props, **kwargs)
+        sup.__init__(None, None, "ICMP", self.props, **kwargs)
 
 
 class PortRange(AWSObject):
@@ -136,9 +135,8 @@ class PortRange(AWSObject):
     }
 
     def __init__(self, **kwargs):
-        self.type = None
         sup = super(PortRange, self)
-        sup.__init__(self.type, "PortRange", self.props, **kwargs)
+        sup.__init__(None, None, "PortRange", self.props, **kwargs)
 
 
 class NetworkAclEntry(AWSObject):
@@ -153,10 +151,10 @@ class NetworkAclEntry(AWSObject):
         'PortRange': (PortRange, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::NetworkAclEntry"
         sup = super(NetworkAclEntry, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class NetworkInterface(AWSObject):
@@ -169,10 +167,10 @@ class NetworkInterface(AWSObject):
         'Tags': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::NetworkInterface"
         sup = super(NetworkInterface, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class Route(AWSObject):
@@ -184,10 +182,10 @@ class Route(AWSObject):
         'RouteTableId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::Route"
         sup = super(Route, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class RouteTable(AWSObject):
@@ -196,10 +194,10 @@ class RouteTable(AWSObject):
         'VpcId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::RouteTable"
         sup = super(RouteTable, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class SecurityGroupEgress(AWSObject):
@@ -214,7 +212,7 @@ class SecurityGroupEgress(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(SecurityGroupEgress, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(None, props=self.props, **kwargs)
 
 
 class SecurityGroupIngress(AWSObject):
@@ -230,7 +228,7 @@ class SecurityGroupIngress(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(SecurityGroupIngress, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(None, props=self.props, **kwargs)
 
 
 class SecurityGroup(AWSObject):
@@ -241,10 +239,10 @@ class SecurityGroup(AWSObject):
         'VpcId': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::SecurityGroup"
         sup = super(SecurityGroup, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class Subnet(AWSObject):
@@ -255,10 +253,10 @@ class Subnet(AWSObject):
         'VpcId': (Ref, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::Subnet"
         sup = super(Subnet, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class SubnetNetworkAclAssociation(AWSObject):
@@ -267,10 +265,10 @@ class SubnetNetworkAclAssociation(AWSObject):
         'NetworkAclId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::SubnetNetworkAclAssociation"
         sup = super(SubnetNetworkAclAssociation, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class SubnetRouteTableAssociation(AWSObject):
@@ -279,10 +277,10 @@ class SubnetRouteTableAssociation(AWSObject):
         'SubnetId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::SubnetRouteTableAssociation"
         sup = super(SubnetRouteTableAssociation, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class Volume(AWSObject):
@@ -295,10 +293,10 @@ class Volume(AWSObject):
         'VolumeType': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::Volume"
         sup = super(Volume, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VolumeAttachment(AWSObject):
@@ -308,10 +306,10 @@ class VolumeAttachment(AWSObject):
         'VolumeId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::VolumeAttachment"
         sup = super(VolumeAttachment, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VPC(AWSObject):
@@ -321,10 +319,10 @@ class VPC(AWSObject):
         'Tags': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::VPC"
         sup = super(VPC, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VPCDHCPOptionsAssociation(AWSObject):
@@ -333,10 +331,10 @@ class VPCDHCPOptionsAssociation(AWSObject):
         'DhcpOptionsId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::VPCDHCPOptionsAssociation"
         sup = super(VPCDHCPOptionsAssociation, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VPCGatewayAttachment(AWSObject):
@@ -346,10 +344,10 @@ class VPCGatewayAttachment(AWSObject):
         'VpnGatewayId': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::VPCGatewayAttachment"
         sup = super(VPCGatewayAttachment, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VPNConnection(AWSObject):
@@ -359,10 +357,10 @@ class VPNConnection(AWSObject):
         'VpnGatewayId': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::VPNConnection"
         sup = super(VPNConnection, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VPNGateway(AWSObject):
@@ -371,7 +369,7 @@ class VPNGateway(AWSObject):
         'Tags': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::VPNGateway"
         sup = super(VPNGateway, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

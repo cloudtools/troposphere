@@ -24,10 +24,10 @@ class AutoScalingGroup(AWSObject):
         'VPCZoneIdentifier': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::AutoScaling::AutoScalingGroup"
         sup = super(AutoScalingGroup, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class LaunchConfiguration(AWSObject):
@@ -45,10 +45,10 @@ class LaunchConfiguration(AWSObject):
         'UserData': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::AutoScaling::LaunchConfiguration"
         sup = super(LaunchConfiguration, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class ScalingPolicy(AWSObject):
@@ -59,10 +59,10 @@ class ScalingPolicy(AWSObject):
         'ScalingAdjustment': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::AutoScaling::ScalingPolicy"
         sup = super(ScalingPolicy, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class Trigger(AWSObject):
@@ -81,7 +81,7 @@ class Trigger(AWSObject):
         'UpperThreshold': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::AutoScaling::Trigger"
         sup = super(UpperThreshold, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

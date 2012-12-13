@@ -16,7 +16,7 @@ class AppCookieStickinessPolicy(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(AppCookieStickinessPolicy, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(None, props=self.props, **kwargs)
 
 
 class HealthCheck(AWSObject):
@@ -30,7 +30,7 @@ class HealthCheck(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(HealthCheck, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(None, props=self.props, **kwargs)
 
 
 class LBCookieStickinessPolicy(AWSObject):
@@ -41,7 +41,7 @@ class LBCookieStickinessPolicy(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(LBCookieStickinessPolicy, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(None, props=self.props, **kwargs)
 
 
 class Listener(AWSObject):
@@ -56,7 +56,7 @@ class Listener(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(Listener, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(None, props=self.props, **kwargs)
 
 
 class Policy(AWSObject):
@@ -70,7 +70,7 @@ class Policy(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(Policy, self)
-        sup.__init__(props=self.props, **kwargs)
+        sup.__init__(None, props=self.props, **kwargs)
 
 
 class LoadBalancer(AWSObject):
@@ -87,7 +87,7 @@ class LoadBalancer(AWSObject):
         'Subnets': (list, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
         self.type = "AWS::ElasticLoadBalancing::LoadBalancer"
         sup = super(LoadBalancer, self)
-        sup.__init__(self.type, "Properties", self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
