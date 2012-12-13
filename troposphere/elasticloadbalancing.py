@@ -47,7 +47,7 @@ class LBCookieStickinessPolicy(AWSObject):
 class Listener(AWSObject):
     props = {
         'InstancePort': (basestring, True),
-        'InstanceProtocol': (basestring, True),
+        'InstanceProtocol': (basestring, False),
         'LoadBalancerPort': (basestring, True),
         'PolicyNames': (list, False),
         'Protocol': (basestring, True),
