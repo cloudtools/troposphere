@@ -8,6 +8,18 @@ import json
 from . import AWSObject
 
 
+class Tag(AWSHelperFn):
+    def __init__(self, key, value, propogate):
+        self.data = {
+            'Key': key,
+            'Value': value,
+            'PropagateAtLaunch': propogate,
+        }
+
+    def JSONrepr(self):
+        return self.data
+
+
 class AutoScalingGroup(AWSObject):
     props = {
         'AvailabilityZones': (list, True),
