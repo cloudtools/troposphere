@@ -49,13 +49,13 @@ def main():
         ec2.SecurityGroup("InstanceSecurityGroup",
             GroupDescription="Enable SSH and HTTP access on the inbound port",
             SecurityGroupIngress=[
-                ec2.SecurityGroupIngress(
+                ec2.SecurityGroupRule(
                     IpProtocol="tcp",
                     FromPort="22",
                     ToPort="22",
                     CidrIp="0.0.0.0/0",
                 ),
-                ec2.SecurityGroupIngress(
+                ec2.SecurityGroupRule(
                     IpProtocol="tcp",
                     FromPort=Ref(webport_param),
                     ToPort=Ref(webport_param),
