@@ -8,7 +8,7 @@ import json
 from . import AWSHelperFn, AWSObject, Ref
 
 
-class Tags(AWSHelperFn):
+class Tag(AWSHelperFn):
     def __init__(self, key, value):
         self.data = {'Key': key, 'Value': value}
 
