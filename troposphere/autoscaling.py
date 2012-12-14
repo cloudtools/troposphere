@@ -5,7 +5,7 @@
 
 import json
 
-from . import AWSObject
+from . import AWSHelperFn, AWSObject
 
 
 class Tag(AWSHelperFn):
