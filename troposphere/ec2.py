@@ -5,7 +5,15 @@
 
 import json
 
-from . import AWSObject, Ref
+from . import AWSHelperFn, AWSObject, Ref
+
+
+class Tags(AWSHelperFn):
+    def __init__(self, key, value):
+        self.data = {'Key': key, 'Value': value}
+
+    def JSONrepr(self):
+        return self.data
 
 
 class CustomGateway(AWSObject):
