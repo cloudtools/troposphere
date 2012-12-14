@@ -206,29 +206,33 @@ class SecurityGroupEgress(AWSObject):
         'IpProtocol': (basestring, True),
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
-        'FromPort': (basestring, False),
-        'ToPort': (basestring, False),
+        'FromPort': (basestring, True),
+        'ToPort': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
+        self.type = "AWS::EC2::SecurityGroupEgress"
         sup = super(SecurityGroupEgress, self)
-        sup.__init__(None, props=self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class SecurityGroupIngress(AWSObject):
     props = {
+        'GroupName': (basestring, False),
+        'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'CidrIp': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'FromPort': (basestring, True),
-        'ToPort': (basestring, True),
+        'FromPort': (basestring, False),
+        'ToPort': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
+    def __init__(self, name, **kwargs):
+        self.type = "AWS::EC2::SecurityGroupIngress"
         sup = super(SecurityGroupIngress, self)
-        sup.__init__(None, props=self.props, **kwargs)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class SecurityGroupRule(AWSObject):
