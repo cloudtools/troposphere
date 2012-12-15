@@ -147,6 +147,7 @@ class Template(object):
         self.outputs = {}
         self.parameters = {}
         self.resources = {}
+        self.version = None
 
     def add_description(self, description):
         self.description = description
@@ -178,6 +179,12 @@ class Template(object):
             self.resources[resource.name] = resource
         return resource
 
+    def add_version(self, version=None):
+        if version:
+            self.version = version
+        else:
+            self.version = "2010-09-09"
+
     def to_json(self, indent=4, sort_keys=True):
         t = {}
         if self.description:
@@ -188,6 +195,8 @@ class Template(object):
             t['Outputs'] = self.outputs
         if self.parameters:
             t['Parameters'] = self.parameters
+        if self.version:
+            t['AWSTemplateFormatVersion'] = self.version
         t['Resources'] = self.resources
 
         return json.dumps(t, cls=awsencode, indent=indent, sort_keys=sort_keys)
