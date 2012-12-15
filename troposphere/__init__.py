@@ -57,7 +57,12 @@ class AWSObject(object):
             if v[1] and k not in self.properties:
                 raise ValueError("Resource %s required in type %s" %
                         (k, self.type))
-        return self.resource
+        # If no other properties are set, only return the Type.
+        # Mainly used to not have an empty "Properties".
+        if self.properties:
+            return self.resource
+        else:
+            return {'Type': self.type}
 
 
 class AWSHelperFn(object):

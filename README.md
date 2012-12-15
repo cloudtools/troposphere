@@ -48,7 +48,6 @@ Todo:
   - AWS::CloudFormation
   - AWS::CloudFront
   - AWS::CloudWatch
-  - AWS::DynamoDB
   - AWS::ElastiCache
   - AWS::ElasticBeanstalk
   - AWS::IAM
@@ -56,8 +55,6 @@ Todo:
   - AWS::Route53
   - AWS::S3
   - AWS::SDB
-  - AWS::SNS
-  - AWS::SQS
 
 Duplicating a single instance sample would look like this:
 
