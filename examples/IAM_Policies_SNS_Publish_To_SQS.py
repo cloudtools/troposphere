@@ -29,20 +29,19 @@ t.add_resource(QueuePolicy("AllowSNS2SQSPolicy",
     PolicyDocument={
         "Version": "2008-10-17",
         "Id": "PublicationPolicy",
-        "Statement" : [{
+        "Statement": [{
             "Sid": "Allow-SNS-SendMessage",
-            "Effect": "Allow",          
-            "Principal" : {
+            "Effect": "Allow",
+            "Principal": {
               "AWS": "*"
              },
             "Action": ["sqs:SendMessage"],
             "Resource": GetAtt(sqsqueue, "Arn"),
-            "Condition" : {
-                "ArnEquals" : {"aws:SourceArn": Ref(snstopic)}
+            "Condition": {
+                "ArnEquals": {"aws:SourceArn": Ref(snstopic)}
              }
         }]
     }
 ))
 
 print t.to_json()
-
