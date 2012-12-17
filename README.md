@@ -77,8 +77,12 @@ ValueError: Resource InstanceType required in type AWS::EC2::Instance
 
 Currently supported AWS resource types:
 - AWS::AutoScaling
+- AWS::DynamoDB
 - AWS::EC2
 - AWS::ElasticLoadBalancing
+- AWS::IAM
+- AWS::SNS
+- AWS::SQS
 
 Todo:
 - Add additional validity checks
