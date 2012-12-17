@@ -50,7 +50,6 @@ Todo:
   - AWS::CloudWatch
   - AWS::ElastiCache
   - AWS::ElasticBeanstalk
-  - AWS::IAM
   - AWS::RDS
   - AWS::Route53
   - AWS::S3
