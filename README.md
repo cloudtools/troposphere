@@ -3,8 +3,47 @@ troposphere - library to create AWS CloudFormation descriptions
 The troposphere library allows for easier creation of the AWS CloudFormation
 JSON by writing Python code to describe the AWS resources. To facilitate
 catching CloudFormation or JSON errors early the library has property and type
-checking built into the classes. Examples of the error checking
-(full tracebacks removed for clarity):
+checking built into the classes.
+
+A simple example to create an instance would look like this:
+```
+>>> from troposphere import Ref, Template
+>>> import troposphere.ec2 as ec2
+>>> t = Template()
+>>> instance = ec2.Instance("myinstance")
+>>> instance.ImageId = "ami-951945d0"
+>>> instance.InstanceType = "t1.micro"
+>>> t.add_resource(instance)
+<troposphere.ec2.Instance object at 0x101bf3390>
+>>> print t.to_json()
+{
+    "Resources": {
+        "myinstance": {
+            "Properties": {
+                "ImageId": "ami-951945d0", 
+                "InstanceType": "t1.micro"
+            }, 
+            "Type": "AWS::EC2::Instance"
+        }
+    }
+}
+```
+
+Alternatively, parameters can be used instead of properties:
+```
+>>> instance = ec2.Instance("myinstance", ImageId="ami-951945d0", InstanceType="t1.micro")
+>>> t.add_resource(instance)
+<troposphere.ec2.Instance object at 0x101bf3550>
+```
+
+And add_resource() returns the object to make it easy to use with Ref():
+```
+>>> instance = t.add_resource(ec2.Instance("myinstance", ImageId="ami-951945d0", InstanceType="t1.micro"))
+>>> Ref(instance)
+<troposphere.Ref object at 0x101bf3490>
+```
+
+Examples of the error checking (full tracebacks removed for clarity):
 
 Incorrect property being set on AWS resource:
 ```
