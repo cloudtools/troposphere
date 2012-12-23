@@ -1,4 +1,4 @@
-troposphere - library to create [AWS][] [CloudFormation][] descriptions
+troposphere - library to create [AWS CloudFormation][] descriptions
 
 The troposphere library allows for easier creation of the AWS CloudFormation
 JSON by writing Python code to describe the AWS resources. To facilitate
@@ -165,5 +165,4 @@ template.add_output([
 print template.to_json()
 ```
 
-[AWS]: http://aws.amazon.com
-[CloudFormation]: http://aws.amazon.com/cloudformation
+[AWS CloudFormation]: http://aws.amazon.com/cloudformation
