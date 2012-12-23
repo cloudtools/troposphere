@@ -77,6 +77,7 @@ ValueError: Resource InstanceType required in type AWS::EC2::Instance
 
 Currently supported AWS resource types:
 - AWS::AutoScaling
+- AWS::CloudFront
 - AWS::DynamoDB
 - AWS::EC2
 - AWS::ElasticLoadBalancing
@@ -90,7 +91,6 @@ Todo:
 - Don't allow AWS helper override for list typed objects
 - Add missing AWS resource types:
   - AWS::CloudFormation
-  - AWS::CloudFront
   - AWS::CloudWatch
   - AWS::ElastiCache
   - AWS::ElasticBeanstalk
