@@ -81,6 +81,7 @@ Currently supported AWS resource types:
 - AWS::EC2
 - AWS::ElasticLoadBalancing
 - AWS::IAM
+- AWS::Route53
 - AWS::SNS
 - AWS::SQS
 
@@ -94,7 +95,6 @@ Todo:
   - AWS::ElastiCache
   - AWS::ElasticBeanstalk
   - AWS::RDS
-  - AWS::Route53
   - AWS::S3
   - AWS::SDB
 
