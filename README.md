@@ -83,6 +83,7 @@ Currently supported AWS resource types:
 - AWS::ElasticLoadBalancing
 - AWS::IAM
 - AWS::Route53
+- AWS::SDB
 - AWS::SNS
 - AWS::SQS
 
@@ -96,7 +97,6 @@ Todo:
   - AWS::ElasticBeanstalk
   - AWS::RDS
   - AWS::S3
-  - AWS::SDB
 
 Duplicating a single instance sample would look like this:
 
