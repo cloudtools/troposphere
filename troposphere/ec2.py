@@ -82,7 +82,7 @@ class Instance(AWSObject):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (basestring, False),
-        'NetworkInterfaces': (basestring, False),
+        'NetworkInterfaces': (list, False),
         'PlacementGroupName': (basestring, False),
         'PrivateIpAddress': (basestring, False),
         'RamdiskId': (basestring, False),
