@@ -65,6 +65,17 @@ class AWSObject(object):
             return {'Type': self.type}
 
 
+class AWSProperty(AWSObject):
+    """
+    Used for CloudFormation Resource Property objects
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-product-property-reference.html
+    """
+
+    def __init__(self, **kwargs):
+        sup = super(AWSProperty, self)
+        sup.__init__(None, props=self.props, **kwargs)
+
+
 class AWSHelperFn(object):
     def getdata(self, data):
         if isinstance(data, AWSObject):

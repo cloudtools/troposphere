@@ -5,7 +5,7 @@
 
 import json
 
-from . import AWSHelperFn, AWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty
 
 
 class Tag(AWSHelperFn):
@@ -97,3 +97,18 @@ class Trigger(AWSObject):
         self.type = "AWS::AutoScaling::Trigger"
         sup = super(UpperThreshold, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
+
+
+class EBSBlockDevice(AWSProperty):
+    props = {
+        'SnapshotId': (basestring, False),
+        'VolumeSize': (basestring, False),
+    }
+
+
+class BlockDeviceMapping(AWSProperty):
+    props = {
+        'DeviceName': (basestring, True),
+        'Ebs': (EBSBlockDevice, False),
+        'VirtualName': (basestring, False),
+    }
