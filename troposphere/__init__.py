@@ -7,6 +7,12 @@
 import json
 
 
+# constants for DeletionPolicy
+Delete = 'Delete'
+Retain = 'Retain'
+Snapshot = 'Snapshot'
+
+
 class AWSObject(object):
     def __init__(self, name, type=None, dictname=None, props={}, **kwargs):
         self.name = name
@@ -14,6 +20,7 @@ class AWSObject(object):
         self.props = props
         # Cache the keys for validity checks
         self.propnames = props.keys()
+        self.attributes = ['DependsOn', 'DeletionPolicy', 'Metadata']
 
         # Create the list of properties set on this object by the user
         self.properties = {}
@@ -26,9 +33,14 @@ class AWSObject(object):
         if self.type:
             self.resource['Type'] = self.type
         self.__initialized = True
+
         # Now that it is initialized, populate it with the kwargs
         for k, v in kwargs.items():
-            self.__setattr__(k, v)
+            # Special case Resource Attributes
+            if k in self.attributes:
+                self.resource[k] = v
+            else:
+                self.__setattr__(k, v)
 
     def __getattr__(self, name):
         try:
@@ -68,7 +80,8 @@ class AWSObject(object):
 class AWSProperty(AWSObject):
     """
     Used for CloudFormation Resource Property objects
-    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-product-property-reference.html
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
+    aws-product-property-reference.html
     """
 
     def __init__(self, **kwargs):
@@ -119,6 +132,14 @@ class GetAZs(AWSHelperFn):
 class Join(AWSHelperFn):
     def __init__(self, delimiter, values):
         self.data = {'Fn::Join': [delimiter, values]}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class Name(AWSHelperFn):
+    def __init__(self, data):
+        self.data = self.getdata(data)
 
     def JSONrepr(self):
         return self.data
