@@ -102,6 +102,13 @@ class Instance(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
+class MountPoint(AWSProperty):
+    props = {
+        'Device': (basestring, True),
+        'VolumeId': (basestring, True),
+    }
+
+
 class InternetGateway(AWSObject):
     props = {
         'Tags': (list, False),
