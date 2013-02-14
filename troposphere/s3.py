@@ -6,6 +6,14 @@
 from . import AWSObject, AWSProperty, Tags
 
 
+Private = "Private"
+PublicRead = "PublicRead"
+PublicReadWrite = "PublicReadWrite"
+AuthenticatedRead = "AuthenticatedRead"
+BucketOwnerRead = "BucketOwnerRead"
+BucketOwnerFullControl = "BucketOwnerFullControl"
+
+
 class WebsiteConfiguration(AWSProperty):
     props = {
         'IndexDocument': (basestring, False),
@@ -21,12 +29,12 @@ class Bucket(AWSObject):
     }
 
     access_control_types = [
-        'Private',
-        'PublicRead',
-        'PublicReadWrite',
-        'AuthenticatedRead',
-        'BucketOwnerRead',
-        'BucketOwnerFullControl',
+        Private,
+        PublicRead,
+        PublicReadWrite,
+        AuthenticatedRead,
+        BucketOwnerRead,
+        BucketOwnerFullControl,
     ]
 
     def __init__(self, name, **kwargs):
@@ -40,3 +48,13 @@ class Bucket(AWSObject):
                     ', '.join(self.access_control_types)))
 
 
+class BucketPolicy(AWSObject):
+    props = {
+        'Bucket': (basestring, True),
+        'PolicyDocument': (dict, True),
+    }
+
+    def __init__(self, name, **kwargs):
+        self.type = "AWS::S3::BucketPolicy"
+        sup = super(BucketPolicy, self)
+        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

@@ -15,6 +15,7 @@ Snapshot = 'Snapshot'
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
+
 class AWSObject(object):
     def __init__(self, name, type=None, dictname=None, props={}, **kwargs):
         self.name = name
@@ -32,7 +33,7 @@ class AWSObject(object):
         self.properties = {}
         if dictname:
             self.resource = {
-                    dictname: self.properties,
+                dictname: self.properties,
             }
         else:
             self.resource = self.properties
@@ -62,19 +63,19 @@ class AWSObject(object):
             # we were expecting. Special case AWS helper functions.
             expected_type = self.props[name][0]
             if isinstance(value, expected_type) or \
-                isinstance(value, AWSHelperFn):
+                    isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
             else:
                 raise TypeError('%s is %s, expected %s' %
-                        (name, type(value), expected_type))
+                                (name, type(value), expected_type))
         raise AttributeError("%s object does not support attribute %s" %
-                (self.type, name))
+                            (self.type, name))
 
     def JSONrepr(self):
         for k, v in self.props.items():
             if v[1] and k not in self.properties:
                 raise ValueError("Resource %s required in type %s" %
-                        (k, self.type))
+                                 (k, self.type))
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
@@ -177,7 +178,7 @@ class awsencode(json.JSONEncoder):
 class Tags(object):
     def __init__(self, **kwargs):
         self.tags = []
-        for k,v in kwargs.iteritems():
+        for k, v in kwargs.iteritems():
             self.tags.append({
                 'Key': k,
                 'Value': v,
