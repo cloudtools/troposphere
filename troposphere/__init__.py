@@ -24,7 +24,8 @@ class AWSObject(object):
         self.propnames = props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy', 'Metadata']
 
-        if not valid_names.match(name):
+        # unset/None is also legal
+        if name and not valid_names.match(name):
             raise ValueError('Name not alphanumeric')
 
         # Create the list of properties set on this object by the user
