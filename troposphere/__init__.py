@@ -168,6 +168,19 @@ class awsencode(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
+class Tags(object):
+    def __init__(self, **kwargs):
+        self.tags = []
+        for k,v in kwargs.iteritems():
+            self.tags.append({
+                'Key': k,
+                'Value': v,
+            })
+
+    def JSONrepr(self):
+        return self.tags
+
+
 class Template(object):
     props = {
         'AWSTemplateFormatVersion': (basestring, False),
