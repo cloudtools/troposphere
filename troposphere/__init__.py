@@ -1,10 +1,11 @@
-# Copyright (c) 2011-2012, Mark Peek <mark@peek.org>
+# Copyright (c) 2011-2013, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
 
 
 import json
+import re
 
 
 # constants for DeletionPolicy
@@ -12,6 +13,7 @@ Delete = 'Delete'
 Retain = 'Retain'
 Snapshot = 'Snapshot'
 
+valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 class AWSObject(object):
     def __init__(self, name, type=None, dictname=None, props={}, **kwargs):
@@ -21,6 +23,9 @@ class AWSObject(object):
         # Cache the keys for validity checks
         self.propnames = props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy', 'Metadata']
+
+        if not valid_names.match(name):
+            raise ValueError('Name not alphanumeric')
 
         # Create the list of properties set on this object by the user
         self.properties = {}
