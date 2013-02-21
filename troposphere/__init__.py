@@ -23,7 +23,8 @@ class AWSObject(object):
         self.props = props
         # Cache the keys for validity checks
         self.propnames = props.keys()
-        self.attributes = ['DependsOn', 'DeletionPolicy', 'Metadata']
+        self.attributes = ['DependsOn', 'DeletionPolicy',
+                           'Metadata', 'UpdatePolicy']
 
         # unset/None is also legal
         if name and not valid_names.match(name):
@@ -94,6 +95,18 @@ class AWSProperty(AWSObject):
     def __init__(self, **kwargs):
         sup = super(AWSProperty, self)
         sup.__init__(None, props=self.props, **kwargs)
+
+
+class UpdatePolicy(AWSObject):
+    props = {
+        'MaxBatchSize': (basestring, False),
+        'MinInstancesInService': (basestring, False),
+        'PauseTime': (basestring, False),
+    }
+
+    def __init__(self, name, **kwargs):
+        sup = super(UpdatePolicy, self)
+        sup.__init__(None, None, name, self.props, **kwargs)
 
 
 class AWSHelperFn(object):
