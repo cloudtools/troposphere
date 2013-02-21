@@ -32,7 +32,7 @@ class AutoScalingGroup(AWSObject):
         'MaxSize': (basestring, True),
         'MinSize': (basestring, True),
         'NotificationConfiguration': (basestring, False),
-        'Tags': (list, True),
+        'Tags': (list, False),  # Although docs say these are required
         'VPCZoneIdentifier': (list, False),
     }
 
