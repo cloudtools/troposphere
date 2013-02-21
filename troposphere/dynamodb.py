@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 import json
-from . import AWSHelperFn, AWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty
 
 
 class Element(AWSHelperFn):
@@ -18,15 +18,11 @@ class Element(AWSHelperFn):
         return self.data
 
 
-class PrimaryKey(AWSObject):
+class PrimaryKey(AWSProperty):
     props = {
         'HashKeyElement': (Element, True),
         'RangeKeyElement': (Element, False),
     }
-
-    def __init__(self, **kwargs):
-        sup = super(PrimaryKey, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
 
 class ProvisionedThroughput(AWSHelperFn):

@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty
 
 
 class ForwardedValues(AWSHelperFn):
@@ -18,7 +18,7 @@ class ForwardedValues(AWSHelperFn):
         return self.data
 
 
-class DefaultCacheBehavior(AWSObject):
+class DefaultCacheBehavior(AWSProperty):
     props = {
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, False),
@@ -26,10 +26,6 @@ class DefaultCacheBehavior(AWSObject):
         'ViewerProtocolPolicy': (basestring, False),
         'MinTTL': (basestring, False),
     }
-
-    def __init__(self, **kwargs):
-        sup = super(DefaultCacheBehavior, self)
-        sup.__init__(None, None, None, self.props, **kwargs)
 
 
 class S3Origin(AWSHelperFn):
@@ -44,19 +40,15 @@ class S3Origin(AWSHelperFn):
         return self.data
 
 
-class CustomOrigin(AWSObject):
+class CustomOrigin(AWSProperty):
     props = {
         'HTTPPort': (basestring, False),
         'HTTPSPort': (basestring, False),
         'OriginProtocolPolicy': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(CustomOrigin, self)
-        sup.__init__(None, None, None, self.props, **kwargs)
 
-
-class Origin(AWSObject):
+class Origin(AWSProperty):
     props = {
         'DomainName': (basestring, True),
         'Id': (basestring, True),
@@ -64,23 +56,15 @@ class Origin(AWSObject):
         'CustomOriginConfig': (CustomOrigin, False),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(Origin, self)
-        sup.__init__(None, None, None, self.props, **kwargs)
 
-
-class Logging(AWSObject):
+class Logging(AWSProperty):
     props = {
         'Bucket': (basestring, True),
         'Prefix': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(Logging, self)
-        sup.__init__(None, None, None, self.props, **kwargs)
 
-
-class DistributionConfig(AWSObject):
+class DistributionConfig(AWSProperty):
     props = {
         'Aliases': (list, False),
         'CacheBehaviors': (list, False),
@@ -91,10 +75,6 @@ class DistributionConfig(AWSObject):
         'Logging': (Logging, False),
         'Origins': (list, True),
     }
-
-    def __init__(self, **kwargs):
-        sup = super(DistributionConfig, self)
-        sup.__init__(None, None, None, self.props, **kwargs)
 
 
 class Distribution(AWSObject):

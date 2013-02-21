@@ -5,21 +5,17 @@
 
 import json
 
-from . import AWSObject
+from . import AWSObject, AWSProperty
 
 
-class AppCookieStickinessPolicy(AWSObject):
+class AppCookieStickinessPolicy(AWSProperty):
     props = {
         'CookieName': (basestring, True),
         'PolicyName': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(AppCookieStickinessPolicy, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
-
-class HealthCheck(AWSObject):
+class HealthCheck(AWSProperty):
     props = {
         'HealthyThreshold': (basestring, True),
         'Interval': (basestring, True),
@@ -28,23 +24,15 @@ class HealthCheck(AWSObject):
         'UnhealthyThreshold': (basestring, True),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(HealthCheck, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
-
-class LBCookieStickinessPolicy(AWSObject):
+class LBCookieStickinessPolicy(AWSProperty):
     props = {
         'CookieExpirationPeriod': (basestring, False),
         'PolicyName': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(LBCookieStickinessPolicy, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
-
-class Listener(AWSObject):
+class Listener(AWSProperty):
     props = {
         'InstancePort': (basestring, True),
         'InstanceProtocol': (basestring, False),
@@ -54,12 +42,8 @@ class Listener(AWSObject):
         'SSLCertificateId': (basestring, False),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(Listener, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
-
-class Policy(AWSObject):
+class Policy(AWSProperty):
     props = {
         'Attributes': (dict, False),
         'InstancePorts': (list, False),
@@ -67,10 +51,6 @@ class Policy(AWSObject):
         'PolicyName': (basestring, True),
         'PolicyType': (basestring, True),
     }
-
-    def __init__(self, **kwargs):
-        sup = super(Policy, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
 
 class LoadBalancer(AWSObject):

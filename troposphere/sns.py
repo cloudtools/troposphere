@@ -4,18 +4,14 @@
 # See LICENSE file for full license.
 
 import json
-from . import AWSHelperFn, AWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty
 
 
-class Subscription(AWSObject):
+class Subscription(AWSProperty):
     props = {
         'Endpoint': (basestring, True),
         'Protocol': (basestring, True),
     }
-
-    def __init__(self, **kwargs):
-        sup = super(Subscription, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
 
 class TopicPolicy(AWSObject):

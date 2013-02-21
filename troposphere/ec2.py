@@ -132,26 +132,18 @@ class NetworkAcl(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
-class ICMP(AWSObject):
+class ICMP(AWSProperty):
     props = {
         'Code': (int, False),
         'Type': (int, False),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(ICMP, self)
-        sup.__init__(None, None, "ICMP", self.props, **kwargs)
 
-
-class PortRange(AWSObject):
+class PortRange(AWSProperty):
     props = {
         'From': (int, False),
         'To': (int, False),
     }
-
-    def __init__(self, **kwargs):
-        sup = super(PortRange, self)
-        sup.__init__(None, None, "PortRange", self.props, **kwargs)
 
 
 class NetworkAclEntry(AWSObject):
@@ -250,7 +242,7 @@ class SecurityGroupIngress(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
-class SecurityGroupRule(AWSObject):
+class SecurityGroupRule(AWSProperty):
     props = {
         'IpProtocol': (basestring, True),
         'CidrIp': (basestring, False),
@@ -260,10 +252,6 @@ class SecurityGroupRule(AWSObject):
         'FromPort': (basestring, True),
         'ToPort': (basestring, True),
     }
-
-    def __init__(self, **kwargs):
-        sup = super(SecurityGroupRule, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
 
 class SecurityGroup(AWSObject):
