@@ -19,6 +19,16 @@ class Tag(AWSHelperFn):
     def JSONrepr(self):
         return self.data
 
+class NotificationConfiguration(AWSObject):
+
+    props = {
+        'TopicARN': (basestring, True),
+        'NotificationTypes': (list, True),
+    }
+
+    def __init__(self, **kwargs):
+        sup = super(NotificationConfiguration, self)
+        sup.__init__(None, props=self.props, **kwargs)
 
 class AutoScalingGroup(AWSObject):
     props = {
@@ -31,7 +41,7 @@ class AutoScalingGroup(AWSObject):
         'LoadBalancerNames': (list, False),
         'MaxSize': (basestring, True),
         'MinSize': (basestring, True),
-        'NotificationConfiguration': (basestring, False),
+        'NotificationConfiguration': (NotificationConfiguration, False),
         'Tags': (list, False),  # Although docs say these are required
         'VPCZoneIdentifier': (list, False),
     }
