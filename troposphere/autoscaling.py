@@ -45,6 +45,7 @@ class AutoScalingGroup(AWSObject):
 class LaunchConfiguration(AWSObject):
     props = {
         'BlockDeviceMappings': (list, False),
+        'EbsOptimized': (bool, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
         'InstanceMonitoring': (bool, False),
