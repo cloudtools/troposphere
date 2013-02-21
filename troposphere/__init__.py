@@ -8,6 +8,8 @@ import json
 import re
 
 
+__version__ = "0.1.1"
+
 # constants for DeletionPolicy
 Delete = 'Delete'
 Retain = 'Retain'
