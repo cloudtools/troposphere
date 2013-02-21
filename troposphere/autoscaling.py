@@ -19,16 +19,12 @@ class Tag(AWSHelperFn):
     def JSONrepr(self):
         return self.data
 
-class NotificationConfiguration(AWSObject):
-
+class NotificationConfiguration(AWSProperty):
     props = {
         'TopicARN': (basestring, True),
         'NotificationTypes': (list, True),
     }
 
-    def __init__(self, **kwargs):
-        sup = super(NotificationConfiguration, self)
-        sup.__init__(None, props=self.props, **kwargs)
 
 class AutoScalingGroup(AWSObject):
     props = {
