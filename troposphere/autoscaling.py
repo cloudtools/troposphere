@@ -8,6 +8,13 @@ import json
 from . import AWSHelperFn, AWSObject, AWSProperty
 
 
+EC2_INSTANCE_LAUNCH = "autoscaling:EC2_INSTANCE_LAUNCH"
+EC2_INSTANCE_LAUNCH_ERROR = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR"
+EC2_INSTANCE_TERMINATE = "autoscaling:EC2_INSTANCE_TERMINATE"
+EC2_INSTANCE_TERMINATE_ERROR = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
+TEST_NOTIFICATION = "autoscaling:TEST_NOTIFICATION"
+
+
 class Tag(AWSHelperFn):
     def __init__(self, key, value, propogate):
         self.data = {
@@ -18,6 +25,7 @@ class Tag(AWSHelperFn):
 
     def JSONrepr(self):
         return self.data
+
 
 class NotificationConfiguration(AWSProperty):
     props = {
