@@ -44,4 +44,4 @@ t.add_resource(QueuePolicy("AllowSNS2SQSPolicy",
     }
 ))
 
-print t.to_json()
+print(t.to_json())

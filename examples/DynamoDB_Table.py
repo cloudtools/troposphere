@@ -60,4 +60,4 @@ t.add_output(Output("TableName",
     Description="Table name of the newly create DynamoDB table",
 ))
 
-print t.to_json()
+print(t.to_json())

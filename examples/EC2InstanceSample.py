@@ -59,4 +59,4 @@ template.add_output([
     ),
 ])
 
-print template.to_json()
+print(template.to_json())

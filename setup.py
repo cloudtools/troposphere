@@ -8,4 +8,5 @@ setup(name='troposphere',
       url="https://github.com/cloudtools/troposphere",
       license="New BSD license",
       packages=['troposphere'],
+      use_2to3=True,
 )

@@ -24,4 +24,4 @@ t.add_output(Output("BucketName",
     Description="Name of S3 bucket to hold website content"
 ))
 
-print t.to_json()
+print(t.to_json())

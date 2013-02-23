@@ -58,4 +58,4 @@ t.add_output(Output("SecretKey",
     Description="AWSSecretKey of new user",
 ))
 
-print t.to_json()
+print(t.to_json())

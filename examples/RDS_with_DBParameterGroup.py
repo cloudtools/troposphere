@@ -61,4 +61,4 @@ mydb = t.add_resource(DBInstance(
     DBParameterGroupName=Ref(myrdsparamgroup),
 ))
 
-print t.to_json()
+print(t.to_json())
