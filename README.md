@@ -82,9 +82,11 @@ Currently supported AWS resource types:
 - AWS::CloudWatch
 - AWS::DynamoDB
 - AWS::EC2
+- AWS::ElastiCache
 - AWS::ElasticBeanstalk
 - AWS::ElasticLoadBalancing
 - AWS::IAM
+- AWS::RDS
 - AWS::Route53
 - AWS::S3
 - AWS::SDB
@@ -98,8 +100,6 @@ Todo:
   - AWS::CloudFormation::Authentication
   - AWS::CloudFormation::CustomResource
   - AWS::CloudFormation::Init
-  - AWS::ElastiCache
-  - AWS::RDS
 
 Duplicating a single instance sample would look like this:
 
