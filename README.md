@@ -15,7 +15,7 @@ A simple example to create an instance would look like this:
 >>> instance.InstanceType = "t1.micro"
 >>> t.add_resource(instance)
 <troposphere.ec2.Instance object at 0x101bf3390>
->>> print t.to_json()
+>>> print(t.to_json())
 {
     "Resources": {
         "myinstance": {
@@ -69,7 +69,7 @@ Missing required property for the AWS resource:
 >>> t = Template()
 >>> t.add_resource(ec2.Instance("ec2instance", ImageId="ami-3bcc9e7e"))
 <troposphere.ec2.Instance object at 0x109ee2e50>
->>> print t.to_json()
+>>> print(t.to_json())
 Traceback (most recent call last):
 ...
 ValueError: Resource InstanceType required in type AWS::EC2::Instance
@@ -114,7 +114,8 @@ import troposphere.ec2 as ec2
 
 template = Template()
 
-keyname_param = template.add_parameter(Parameter("KeyName",
+keyname_param = template.add_parameter(Parameter(
+    "KeyName",
     Description="Name of an existing EC2 KeyPair to enable SSH "
                 "access to the instance",
     Type="String",
@@ -130,7 +131,8 @@ template.add_mapping('RegionMap', {
     "ap-northeast-1": {"AMI": "ami-dcfa4edd"}
 })
 
-ec2_instance = template.add_resource(ec2.Instance("Ec2Instance",
+ec2_instance = template.add_resource(ec2.Instance(
+    "Ec2Instance",
     ImageId=FindInMap("RegionMap", Ref("AWS::Region"), "AMI"),
     InstanceType="t1.micro",
     KeyName=Ref(keyname_param),
@@ -139,33 +141,39 @@ ec2_instance = template.add_resource(ec2.Instance("Ec2Instance",
 ))
 
 template.add_output([
-    Output("InstanceId",
+    Output(
+        "InstanceId",
         Description="InstanceId of the newly created EC2 instance",
         Value=Ref(ec2_instance),
     ),
-    Output("AZ",
+    Output(
+        "AZ",
         Description="Availability Zone of the newly created EC2 instance",
         Value=GetAtt(ec2_instance, "AvailabilityZone"),
     ),
-    Output("PublicIP",
+    Output(
+        "PublicIP",
         Description="Public IP address of the newly created EC2 instance",
         Value=GetAtt(ec2_instance, "PublicIp"),
     ),
-    Output("PrivateIP",
+    Output(
+        "PrivateIP",
         Description="Private IP address of the newly created EC2 instance",
         Value=GetAtt(ec2_instance, "PrivateIp"),
     ),
-    Output("PublicDNS",
+    Output(
+        "PublicDNS",
         Description="Public DNSName of the newly created EC2 instance",
         Value=GetAtt(ec2_instance, "PublicDnsName"),
     ),
-    Output("PrivateDNS",
+    Output(
+        "PrivateDNS",
         Description="Private DNSName of the newly created EC2 instance",
         Value=GetAtt(ec2_instance, "PrivateDnsName"),
     ),
 ])
 
-print template.to_json()
+print(template.to_json())
 ```
 
 [AWS CloudFormation]: http://aws.amazon.com/cloudformation
