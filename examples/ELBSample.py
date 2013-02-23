@@ -19,14 +19,16 @@ def main():
     AddAMI(template)
 
     # Add the Parameters
-    keyname_param = template.add_parameter(Parameter("KeyName",
+    keyname_param = template.add_parameter(Parameter(
+        "KeyName",
         Type="String",
         Default="mark",
-        Description="Name of an existing EC2 KeyPair to " \
+        Description="Name of an existing EC2 KeyPair to "
                     "enable SSH access to the instance",
     ))
 
-    instancetype_param = template.add_parameter(Parameter("InstanceType",
+    instancetype_param = template.add_parameter(Parameter(
+        "InstanceType",
         Type="String",
         Description="WebServer EC2 instance type",
         Default="m1.small",
@@ -38,7 +40,8 @@ def main():
         ConstraintDescription="must be a valid EC2 instance type.",
     ))
 
-    webport_param = template.add_parameter(Parameter("WebServerPort",
+    webport_param = template.add_parameter(Parameter(
+        "WebServerPort",
         Type="String",
         Default="8888",
         Description="TCP/IP port of the web server",
@@ -46,7 +49,8 @@ def main():
 
     # Define the instance security group
     instance_sg = template.add_resource(
-        ec2.SecurityGroup("InstanceSecurityGroup",
+        ec2.SecurityGroup(
+            "InstanceSecurityGroup",
             GroupDescription="Enable SSH and HTTP access on the inbound port",
             SecurityGroupIngress=[
                 ec2.SecurityGroupRule(
@@ -62,12 +66,14 @@ def main():
                     CidrIp="0.0.0.0/0",
                 ),
             ]
-    ))
+        )
+    )
 
     # Add the web server instances
     web_instances = []
     for name in ("Ec2Instance1", "Ec2Instance2"):
-        instance = template.add_resource(ec2.Instance(name,
+        instance = template.add_resource(ec2.Instance(
+            name,
             SecurityGroups=[Ref(instance_sg)],
             KeyName=Ref(keyname_param),
             InstanceType=Ref("InstanceType"),
@@ -76,7 +82,8 @@ def main():
         ))
         web_instances.append(instance)
 
-    elasticLB = template.add_resource(elb.LoadBalancer('ElasticLoadBalancer',
+    elasticLB = template.add_resource(elb.LoadBalancer(
+        'ElasticLoadBalancer',
         AvailabilityZones=GetAZs(""),
         Instances=[Ref(r) for r in web_instances],
         Listeners=[
@@ -95,7 +102,8 @@ def main():
         )
     ))
 
-    template.add_output(Output("URL",
+    template.add_output(Output(
+        "URL",
         Description="URL of the sample website",
         Value=Join("", ["http://", GetAtt(elasticLB, "DNSName")])
     ))

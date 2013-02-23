@@ -11,49 +11,56 @@ t = Template()
 t.add_description("AWS CloudFormation Sample Template: This template "
                   "demonstrates the creation of IAM User/Group.")
 
-cfnuser = t.add_resource(User("CFNUser",
+cfnuser = t.add_resource(User(
+    "CFNUser",
     LoginProfile=LoginProfile("Password"))
 )
 
 cfnusergroup = t.add_resource(Group("CFNUserGroup"))
 cfnadmingroup = t.add_resource(Group("CFNAdminGroup"))
 
-cfnkeys = t.add_resource(AccessKey("CFNKeys",
+cfnkeys = t.add_resource(AccessKey(
+    "CFNKeys",
     UserName=Ref(cfnuser))
 )
 
-users = t.add_resource(UserToGroupAddition("Users",
+users = t.add_resource(UserToGroupAddition(
+    "Users",
     GroupName=Ref(cfnusergroup),
     Users=Ref(cfnuser),
 ))
 
-admins = t.add_resource(UserToGroupAddition("Admins",
+admins = t.add_resource(UserToGroupAddition(
+    "Admins",
     GroupName=Ref(cfnadmingroup),
     Users=Ref(cfnuser),
 ))
 
-t.add_resource(PolicyType("CFNUserPolicies",
+t.add_resource(PolicyType(
+    "CFNUserPolicies",
     PolicyName="CFNUsers",
     PolicyDocument={
         "Statement": [{
             "Effect": "Allow",
             "Action": [
-              "cloudformation:Describe*",
-              "cloudformation:List*",
-              "cloudformation:Get*"
-              ],
+                "cloudformation:Describe*",
+                "cloudformation:List*",
+                "cloudformation:Get*"
+            ],
             "Resource": "*"
-          }],
+        }],
         "Groups": Ref(cfnadmingroup),
     }
 ))
 
-t.add_output(Output("AccessKey",
+t.add_output(Output(
+    "AccessKey",
     Value=Ref(cfnkeys),
     Description="AWSAccessKeyId of new user",
 ))
 
-t.add_output(Output("SecretKey",
+t.add_output(Output(
+    "SecretKey",
     Value=GetAtt(cfnkeys, "SecretAccessKey"),
     Description="AWSSecretKey of new user",
 ))

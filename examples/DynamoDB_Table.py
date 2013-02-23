@@ -11,7 +11,8 @@ t = Template()
 t.add_description("AWS CloudFormation Sample Template: This template "
                   "demonstrates the creation of a DynamoDB table.")
 
-hashkeyname = t.add_parameter(Parameter("HaskKeyElementName",
+hashkeyname = t.add_parameter(Parameter(
+    "HaskKeyElementName",
     Description="HashType PrimaryKey Name",
     Type="String",
     AllowedPattern="[a-zA-Z0-9]*",
@@ -20,7 +21,8 @@ hashkeyname = t.add_parameter(Parameter("HaskKeyElementName",
     ConstraintDescription="must contain only alphanumberic characters"
 ))
 
-hashkeytype = t.add_parameter(Parameter("HaskKeyElementType",
+hashkeytype = t.add_parameter(Parameter(
+    "HaskKeyElementType",
     Description="HashType PrimaryKey Type",
     Type="String",
     Default="S",
@@ -30,7 +32,8 @@ hashkeytype = t.add_parameter(Parameter("HaskKeyElementType",
     ConstraintDescription="must be either S or N"
 ))
 
-readunits = t.add_parameter(Parameter("ReadCapacityUnits",
+readunits = t.add_parameter(Parameter(
+    "ReadCapacityUnits",
     Description="Provisioned read throughput",
     Type="Number",
     Default="5",
@@ -39,7 +42,8 @@ readunits = t.add_parameter(Parameter("ReadCapacityUnits",
     ConstraintDescription="should be between 5 and 10000"
 ))
 
-writeunits = t.add_parameter(Parameter("WriteCapacityUnits",
+writeunits = t.add_parameter(Parameter(
+    "WriteCapacityUnits",
     Description="Provisioned write throughput",
     Type="Number",
     Default="10",
@@ -48,14 +52,16 @@ writeunits = t.add_parameter(Parameter("WriteCapacityUnits",
     ConstraintDescription="should be between 5 and 10000"
 ))
 
-myDynamoDB = t.add_resource(Table("myDynamoDBTable",
+myDynamoDB = t.add_resource(Table(
+    "myDynamoDBTable",
     KeySchema=PrimaryKey(
         HashKeyElement=Element(Ref(hashkeyname), Ref(hashkeytype))),
     ProvisionedThroughput=ProvisionedThroughput(
         Ref(readunits), Ref(writeunits)),
 ))
 
-t.add_output(Output("TableName",
+t.add_output(Output(
+    "TableName",
     Value=Ref(myDynamoDB),
     Description="Table name of the newly create DynamoDB table",
 ))

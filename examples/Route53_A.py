@@ -9,14 +9,16 @@ from troposphere.route53 import RecordSetType
 
 t = Template()
 
-t.add_description("AWS CloudFormation Sample Template Route53_A: "
+t.add_description(
+    "AWS CloudFormation Sample Template Route53_A: "
     "Sample template showing how to create an Amazon Route 53 A record that "
     "maps to the public IP address of an EC2 instance. It assumes that you "
     "already have a Hosted Zone registered with Amazon Route 53. **WARNING** "
     "This template creates an Amazon EC2 instance. You will be billed for "
     "the AWS resources used if you create a stack from this template.")
 
-hostedzone = t.add_parameter(Parameter("HostedZone",
+hostedzone = t.add_parameter(Parameter(
+    "HostedZone",
     Description="The DNS name of an existing Amazon Route 53 hosted zone",
     Type="String",
 ))
@@ -31,12 +33,14 @@ t.add_mapping('RegionMap', {
     "ap-northeast-1": {"AMI": "ami-dcfa4edd"}
 })
 
-instance = t.add_resource(Instance("Ec2Instance",
+instance = t.add_resource(Instance(
+    "Ec2Instance",
     ImageId=FindInMap("RegionMap", Ref("AWS::Region"), "AMI"),
     InstanceType="m1.small",
 ))
 
-myDNSRecord = t.add_resource(RecordSetType("myDNSRecord",
+myDNSRecord = t.add_resource(RecordSetType(
+    "myDNSRecord",
     HostedZoneName=Join("", [Ref(hostedzone), "."]),
     Comment="DNS name for my instance.",
     Name=Join("", [Ref(instance), ".", Ref("AWS::Region"), ".",
@@ -47,7 +51,6 @@ myDNSRecord = t.add_resource(RecordSetType("myDNSRecord",
 ))
 
 
-t.add_output(Output("DomainName",
-    Value=Ref(myDNSRecord)))
+t.add_output(Output("DomainName", Value=Ref(myDNSRecord)))
 
 print(t.to_json())

@@ -13,18 +13,22 @@ t.add_description("AWS CloudFormation Sample Template: This template "
 
 sqsqueue = t.add_resource(Queue("SQSQueue"))
 
-snstopic = t.add_resource(Topic("SNSTopic",
+snstopic = t.add_resource(Topic(
+    "SNSTopic",
     Subscription=[Subscription(
         Protocol="sqs",
         Endpoint=GetAtt(sqsqueue, "Arn")
     )]
 ))
 
-t.add_output(Output("QueueArn",
+t.add_output(Output(
+    "QueueArn",
     Value=GetAtt(sqsqueue, "Arn"),
     Description="ARN of SQS Queue",
 ))
-t.add_resource(QueuePolicy("AllowSNS2SQSPolicy",
+
+t.add_resource(QueuePolicy(
+    "AllowSNS2SQSPolicy",
     Queues=[Ref(sqsqueue)],
     PolicyDocument={
         "Version": "2008-10-17",
@@ -34,12 +38,12 @@ t.add_resource(QueuePolicy("AllowSNS2SQSPolicy",
             "Effect": "Allow",
             "Principal": {
               "AWS": "*"
-             },
+            },
             "Action": ["sqs:SendMessage"],
             "Resource": GetAtt(sqsqueue, "Arn"),
             "Condition": {
                 "ArnEquals": {"aws:SourceArn": Ref(snstopic)}
-             }
+            }
         }]
     }
 ))

@@ -17,13 +17,15 @@ t.add_description(
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
 
-s3dnsname = t.add_parameter(Parameter("S3DNSNAme",
+s3dnsname = t.add_parameter(Parameter(
+    "S3DNSNAme",
     Description="The DNS name of an existing S3 bucket to use as the "
                 "Cloudfront distribution origin",
     Type="String",
 ))
 
-myDistribution = t.add_resource(Distribution("myDistribution",
+myDistribution = t.add_resource(Distribution(
+    "myDistribution",
     DistributionConfig=DistributionConfig(
         Origins=[Origin(Id="Origin 1", DomainName=Ref(s3dnsname))],
         Enabled=True
@@ -32,7 +34,8 @@ myDistribution = t.add_resource(Distribution("myDistribution",
 
 t.add_output([
     Output("DistributionId", Value=Ref(myDistribution)),
-    Output("DistributionName",
+    Output(
+        "DistributionName",
         Value=Join("", ["http://", GetAtt(myDistribution, "DomainName")])),
 ])
 

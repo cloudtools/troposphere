@@ -17,12 +17,14 @@ t.add_description(
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
 
-hostedzone = t.add_parameter(Parameter("HostedZone",
+hostedzone = t.add_parameter(Parameter(
+    "HostedZone",
     Description="The DNS name of an existing Amazon Route 53 hosted zone",
     Type="String",
 ))
 
-myDNSRecord = t.add_resource(RecordSetType("myDNSRecord",
+myDNSRecord = t.add_resource(RecordSetType(
+    "myDNSRecord",
     HostedZoneName=Join("", [Ref(hostedzone), "."]),
     Comment="CNAME redirect to aws.amazon.com.",
     Name=Join("", [Ref("AWS::StackName"), ".", Ref("AWS::Region"), ".",
@@ -33,7 +35,6 @@ myDNSRecord = t.add_resource(RecordSetType("myDNSRecord",
 ))
 
 
-t.add_output(Output("DomainName",
-    Value=Ref(myDNSRecord)))
+t.add_output(Output("DomainName", Value=Ref(myDNSRecord)))
 
 print(t.to_json())

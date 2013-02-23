@@ -17,21 +17,24 @@ t.add_description(
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
 
-s3bucket = t.add_resource(Bucket("S3Bucket",
+s3bucket = t.add_resource(Bucket(
+    "S3Bucket",
     AccessControl=PublicRead,
     WebsiteConfiguration=WebsiteConfiguration(
         IndexDocument="index.html",
-        ErrorDocument="error.html"      
+        ErrorDocument="error.html"
     )
 ))
 # XXX - Add "DeletionPolicy" : "Retain" to the resource
 
 t.add_output([
-    Output("WebsiteURL",
+    Output(
+        "WebsiteURL",
         Value=GetAtt(s3bucket, "WebsiteURL"),
         Description="URL for website hosted on S3"
     ),
-    Output("S3BucketSecureURL",
+    Output(
+        "S3BucketSecureURL",
         Value=Join("", ["http://", GetAtt(s3bucket, "DomainName")]),
         Description="Name of S3 bucket to hold website content"
     ),

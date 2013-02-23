@@ -19,12 +19,14 @@ t.add_description(
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
 
-hostedzone = t.add_parameter(Parameter("HostedZone",
+hostedzone = t.add_parameter(Parameter(
+    "HostedZone",
     Description="The DNS name of an existing Amazon Route 53 hosted zone",
     Type="String",
 ))
 
-myDNSRecord = t.add_resource(RecordSetGroup("myDNSRecord",
+myDNSRecord = t.add_resource(RecordSetGroup(
+    "myDNSRecord",
     HostedZoneName=Join("", [Ref(hostedzone), "."]),
     Comment="Contrived example to redirect to aws.amazon.com 75% of the time "
             "and www.amazon.com 25% of the time.",
@@ -32,7 +34,7 @@ myDNSRecord = t.add_resource(RecordSetGroup("myDNSRecord",
         RecordSet(
             SetIdentifier=Join(" ", [Ref("AWS::StackName"), "AWS"]),
             Name=Join("", [Ref("AWS::StackName"), ".", Ref("AWS::Region"), ".",
-              Ref(hostedzone), "."]),
+                      Ref(hostedzone), "."]),
             Type="CNAME",
             TTL="900",
             ResourceRecords=["aws.amazon.com"],
@@ -41,7 +43,7 @@ myDNSRecord = t.add_resource(RecordSetGroup("myDNSRecord",
         RecordSet(
             SetIdentifier=Join(" ", [Ref("AWS::StackName"), "Amazon"]),
             Name=Join("", [Ref("AWS::StackName"), ".", Ref("AWS::Region"), ".",
-              Ref(hostedzone), "."]),
+                      Ref(hostedzone), "."]),
             Type="CNAME",
             TTL="900",
             ResourceRecords=["www.amazon.com"],
