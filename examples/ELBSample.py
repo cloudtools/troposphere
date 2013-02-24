@@ -3,7 +3,6 @@
 
 from troposphere import Base64, FindInMap, GetAtt, GetAZs, Join, Output
 from troposphere import Parameter, Ref, Template
-import troposphere.autoscaling as autoscale
 import troposphere.ec2 as ec2
 import troposphere.elasticloadbalancing as elb
 
@@ -27,7 +26,7 @@ def main():
                     "enable SSH access to the instance",
     ))
 
-    instancetype_param = template.add_parameter(Parameter(
+    template.add_parameter(Parameter(
         "InstanceType",
         Type="String",
         Description="WebServer EC2 instance type",

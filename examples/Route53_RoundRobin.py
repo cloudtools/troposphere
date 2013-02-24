@@ -1,9 +1,8 @@
 # Converted from Route53_RoundRobin.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import FindInMap, GetAtt, Join, Output
+from troposphere import Join
 from troposphere import Parameter, Ref, Template
-from troposphere.ec2 import Instance
 from troposphere.route53 import RecordSet, RecordSetGroup
 
 

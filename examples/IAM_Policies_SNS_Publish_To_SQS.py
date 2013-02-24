@@ -1,7 +1,7 @@
 # Converted from IAM_Policies_SNS_Publish_To_SQS.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import GetAtt, Output, Parameter, Ref, Template
+from troposphere import GetAtt, Output, Ref, Template
 from troposphere.sns import Subscription, Topic
 from troposphere.sqs import Queue, QueuePolicy
 

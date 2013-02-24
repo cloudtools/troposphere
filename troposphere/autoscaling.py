@@ -3,8 +3,6 @@
 #
 # See LICENSE file for full license.
 
-import json
-
 from . import AWSHelperFn, AWSObject, AWSProperty
 
 
@@ -110,7 +108,7 @@ class Trigger(AWSObject):
 
     def __init__(self, name, **kwargs):
         self.type = "AWS::AutoScaling::Trigger"
-        sup = super(UpperThreshold, self)
+        sup = super(Trigger, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 

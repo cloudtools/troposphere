@@ -1,8 +1,7 @@
 # Converted from SQS_With_CloudWatch_Alarms.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import FindInMap, GetAtt, Join, Output
-from troposphere import Parameter, Ref, Template
+from troposphere import GetAtt, Output, Parameter, Ref, Template
 from troposphere.cloudwatch import Alarm, MetricDimension
 from troposphere.sns import Subscription, Topic
 from troposphere.sqs import Queue

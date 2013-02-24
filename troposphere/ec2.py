@@ -3,8 +3,6 @@
 #
 # See LICENSE file for full license.
 
-import json
-
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
 
 

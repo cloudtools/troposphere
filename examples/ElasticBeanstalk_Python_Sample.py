@@ -1,7 +1,7 @@
 # Converted from ElasticBeanstalk_Python_Sample.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import FindInMap, GetAtt, Join, Output
+from troposphere import GetAtt, Join, Output
 from troposphere import Parameter, Ref, Template
 from troposphere.elasticbeanstalk import Application, Environment
 from troposphere.elasticbeanstalk import ApplicationVersion, OptionSettings

@@ -1,8 +1,7 @@
 # Converted from S3_Bucket.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import FindInMap, GetAtt, Join, Output
-from troposphere import Parameter, Ref, Template
+from troposphere import Output, Ref, Template
 from troposphere.s3 import Bucket, PublicRead
 
 

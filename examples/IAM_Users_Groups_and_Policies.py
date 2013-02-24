@@ -1,9 +1,9 @@
 # Converted from IAM_Users_Groups_and_Policies.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import GetAtt, Output, Parameter, Ref, Template
+from troposphere import GetAtt, Output, Ref, Template
 from troposphere.iam import AccessKey, Group, LoginProfile, PolicyType
-from troposphere.iam import Role, User, UserToGroupAddition
+from troposphere.iam import User, UserToGroupAddition
 
 
 t = Template()

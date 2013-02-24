@@ -3,8 +3,7 @@
 #
 # See LICENSE file for full license.
 
-import json
-from . import AWSHelperFn, AWSObject
+from . import AWSObject
 
 
 class Domain(AWSObject):

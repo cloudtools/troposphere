@@ -1,8 +1,7 @@
 # Converted from S3_Website_Bucket_With_Retain_On_Delete.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import FindInMap, GetAtt, Join, Output
-from troposphere import Parameter, Ref, Template
+from troposphere import GetAtt, Join, Output, Template
 from troposphere.s3 import Bucket, PublicRead, WebsiteConfiguration
 
 

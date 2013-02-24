@@ -1,10 +1,10 @@
 # Converted from CloudFront_S3.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import FindInMap, GetAtt, Join, Output
+from troposphere import GetAtt, Join, Output
 from troposphere import Parameter, Ref, Template
 from troposphere.cloudfront import Distribution, DistributionConfig
-from troposphere.cloudfront import Origin, S3Origin
+from troposphere.cloudfront import Origin
 
 
 t = Template()

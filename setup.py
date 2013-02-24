@@ -1,4 +1,4 @@
-from setuptools import setup, Extension, find_packages
+from setuptools import setup
 
 setup(
     name='troposphere',
