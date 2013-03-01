@@ -29,6 +29,7 @@ class DBInstance(AWSObject):
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'Tags': (list, False),
+        'VPCSecurityGroups': (basestring, False),
     }
 
     def __init__(self, name, **kwargs):
