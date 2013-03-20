@@ -13,14 +13,14 @@ class Alarm(AWSObject):
         'AlarmDescription': (basestring, False),
         'ComparisonOperator': (basestring, True),
         'Dimensions': (list, False),
-        'EvaluationPeriods': (basestring, True),
+        'EvaluationPeriods': (int, True),
         'InsufficientDataActions': (list, False),
         'MetricName': (basestring, True),
         'Namespace': (basestring, True),
         'OKActions': (list, False),
-        'Period': (basestring, True),
+        'Period': (int, True),
         'Statistic': (basestring, True),
-        'Threshold': (basestring, True),
+        'Threshold': (float, True),
         'Unit': (basestring, False),
     }
 

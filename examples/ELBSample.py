@@ -87,17 +87,17 @@ def main():
         Instances=[Ref(r) for r in web_instances],
         Listeners=[
             elb.Listener(
-                LoadBalancerPort="80",
+                LoadBalancerPort=80,
                 InstancePort=Ref(webport_param),
                 Protocol="HTTP",
             ),
         ],
         HealthCheck=elb.HealthCheck(
             Target=Join("", ["HTTP:", Ref(webport_param), "/"]),
-            HealthyThreshold="3",
-            UnhealthyThreshold="5",
-            Interval="30",
-            Timeout="5",
+            HealthyThreshold=3,
+            UnhealthyThreshold=5,
+            Interval=30,
+            Timeout=5,
         )
     ))
 

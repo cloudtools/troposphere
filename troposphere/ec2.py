@@ -74,7 +74,7 @@ class EBSBlockDevice(AWSProperty):
         'DeleteOnTermination': (bool, False),
         'Iops': (int, False),  # Conditional
         'SnapshotId': (basestring, False),  # Conditional
-        'VolumeSize': (basestring, False),  # Conditional
+        'VolumeSize': (int, False),         # Conditional
         'VolumeType': (basestring, False),
     }
 

@@ -27,7 +27,7 @@ class BaseRecordSet(AWSObject):
         'Region': (basestring, False),
         'ResourceRecords': (list, False),
         'SetIdentifier': (basestring, False),
-        'TTL': (basestring, False),
+        'TTL': (int, False),
         'Type': (basestring, True),
         'Weight': (int, False),
     }

@@ -46,7 +46,7 @@ myDNSRecord = t.add_resource(RecordSetType(
     Name=Join("", [Ref(instance), ".", Ref("AWS::Region"), ".",
               Ref(hostedzone), "."]),
     Type="A",
-    TTL="900",
+    TTL=900,
     ResourceRecords=[GetAtt("Ec2Instance", "PublicIp")],
 ))
 

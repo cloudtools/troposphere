@@ -15,11 +15,11 @@ class AppCookieStickinessPolicy(AWSProperty):
 
 class HealthCheck(AWSProperty):
     props = {
-        'HealthyThreshold': (basestring, True),
-        'Interval': (basestring, True),
+        'HealthyThreshold': (int, True),
+        'Interval': (int, True),
         'Target': (basestring, True),
-        'Timeout': (basestring, True),
-        'UnhealthyThreshold': (basestring, True),
+        'Timeout': (int, True),
+        'UnhealthyThreshold': (int, True),
     }
 
 
@@ -32,9 +32,9 @@ class LBCookieStickinessPolicy(AWSProperty):
 
 class Listener(AWSProperty):
     props = {
-        'InstancePort': (basestring, True),
+        'InstancePort': (int, True),
         'InstanceProtocol': (basestring, False),
-        'LoadBalancerPort': (basestring, True),
+        'LoadBalancerPort': (int, True),
         'PolicyNames': (list, False),
         'Protocol': (basestring, True),
         'SSLCertificateId': (basestring, False),

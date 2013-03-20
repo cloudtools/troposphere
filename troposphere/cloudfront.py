@@ -24,7 +24,7 @@ class DefaultCacheBehavior(AWSProperty):
         'ForwardedValues': (ForwardedValues, False),
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (basestring, True),
-        'MinTTL': (basestring, False),
+        'MinTTL': (int, False),
     }
 
 
@@ -42,8 +42,8 @@ class S3Origin(AWSHelperFn):
 
 class CustomOrigin(AWSProperty):
     props = {
-        'HTTPPort': (basestring, False),
-        'HTTPSPort': (basestring, False),
+        'HTTPPort': (int, False),
+        'HTTPSPort': (int, False),
         'OriginProtocolPolicy': (basestring, True),
     }
 
