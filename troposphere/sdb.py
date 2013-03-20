@@ -7,9 +7,7 @@ from . import AWSObject
 
 
 class Domain(AWSObject):
-    props = {
-        'Description': (basestring, False),
-    }
+    props = {}
 
     def __init__(self, name, **kwargs):
         self.type = "AWS::SDB::Domain"

@@ -8,7 +8,7 @@ from . import AWSObject
 
 class Queue(AWSObject):
     props = {
-        'VisibilityTimeout': (basestring, False),
+        'VisibilityTimeout': (int, False),
     }
 
     def __init__(self, name, **kwargs):

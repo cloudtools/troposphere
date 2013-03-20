@@ -12,7 +12,7 @@ Inactive = "Inactive"
 
 class AccessKey(AWSObject):
     props = {
-        'Serial': (basestring, False),
+        'Serial': (int, False),
         # XXX - Is Status required? Docs say yes, examples say no
         'Status': (basestring, False),
         'UserName': (basestring, True),

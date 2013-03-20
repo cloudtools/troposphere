@@ -24,7 +24,7 @@ class DBInstance(AWSObject):
         'LicenseModel': (basestring, False),
         'MasterUsername': (basestring, True),
         'MasterUserPassword': (basestring, True),
-        'MultiAZ': (basestring, False),
+        'MultiAZ': (bool, False),
         'Port': (basestring, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),

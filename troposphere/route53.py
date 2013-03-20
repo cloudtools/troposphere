@@ -29,7 +29,7 @@ class BaseRecordSet(AWSObject):
         'SetIdentifier': (basestring, False),
         'TTL': (basestring, False),
         'Type': (basestring, True),
-        'Weight': (basestring, False),
+        'Weight': (int, False),
     }
 
     def __init__(self, name, type, propname, **kwargs):

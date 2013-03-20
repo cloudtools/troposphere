@@ -54,7 +54,7 @@ class Policy(AWSProperty):
 class LoadBalancer(AWSObject):
     props = {
         'AppCookieStickinessPolicy': (list, False),
-        'AvailabilityZones': (basestring, False),
+        'AvailabilityZones': (list, False),
         'HealthCheck': (HealthCheck, False),
         'Instances': (list, False),
         'LBCookieStickinessPolicy': (list, False),

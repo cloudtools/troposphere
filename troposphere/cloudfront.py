@@ -23,7 +23,7 @@ class DefaultCacheBehavior(AWSProperty):
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, False),
         'TrustedSigners': (list, False),
-        'ViewerProtocolPolicy': (basestring, False),
+        'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (basestring, False),
     }
 
@@ -69,7 +69,7 @@ class DistributionConfig(AWSProperty):
         'Aliases': (list, False),
         'CacheBehaviors': (list, False),
         'Comment': (basestring, False),
-        'DefaultCacheBehavior': (DefaultCacheBehavior, False),
+        'DefaultCacheBehavior': (DefaultCacheBehavior, True),
         'DefaultRootObject': (basestring, False),
         'Enabled': (bool, True),
         'Logging': (Logging, False),

@@ -14,7 +14,7 @@ class Tag(AWSHelperFn):
         return self.data
 
 
-class CustomGateway(AWSObject):
+class CustomerGateway(AWSObject):
     props = {
         'BgpAsn': (int, True),
         'IpAddress': (basestring, True),
@@ -23,7 +23,7 @@ class CustomGateway(AWSObject):
 
     def __init__(self, name, **kwargs):
         self.type = "AWS::EC2::CustomGateway"
-        sup = super(CustomGateway, self)
+        sup = super(CustomerGateway, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
@@ -31,9 +31,9 @@ class DHCPOptions(AWSObject):
     props = {
         'DomainName': (basestring, False),
         'DomainNameServers': (list, False),
-        'NTPServers': (basestring, False),
-        'NetbiosNameServers': (basestring, False),
-        'NetbiosNodeType': (list, False),
+        'NetbiosNameServers': (list, False),
+        'NetbiosNodeType': (int, False),
+        'NTPServers': (list, False),
         'Tags': (list, False),
     }
 
@@ -69,9 +69,36 @@ class EIPAssociation(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
+class EBSBlockDevice(AWSProperty):
+    props = {
+        'DeleteOnTermination': (bool, False),
+        'Iops': (int, False),  # Conditional
+        'SnapshotId': (basestring, False),  # Conditional
+        'VolumeSize': (basestring, False),  # Conditional
+        'VolumeType': (basestring, False),
+    }
+
+
+class BlockDeviceMapping(AWSProperty):
+    props = {
+        'DeviceName': (basestring, True),
+        'Ebs': (EBSBlockDevice, False),      # Conditional
+        'NoDevice': (dict, False),
+        'VirtualName': (basestring, False),  # Conditional
+    }
+
+
+class MountPoint(AWSProperty):
+    props = {
+        'Device': (basestring, True),
+        'VolumeId': (basestring, True),
+    }
+
+
 class Instance(AWSObject):
     props = {
         'AvailabilityZone': (basestring, False),
+        'BlockDeviceMappings': (list, False),
         'DisableApiTermination': (bool, False),
         'EbsOptimized': (bool, False),
         'IamInstanceProfile': (basestring, False),
@@ -79,7 +106,7 @@ class Instance(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
-        'Monitoring': (basestring, False),
+        'Monitoring': (bool, False),
         'NetworkInterfaces': (list, False),
         'PlacementGroupName': (basestring, False),
         'PrivateIpAddress': (basestring, False),
@@ -98,13 +125,6 @@ class Instance(AWSObject):
         self.type = "AWS::EC2::Instance"
         sup = super(Instance, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
-
-class MountPoint(AWSProperty):
-    props = {
-        'Device': (basestring, True),
-        'VolumeId': (basestring, True),
-    }
 
 
 class InternetGateway(AWSObject):
@@ -146,14 +166,14 @@ class PortRange(AWSProperty):
 
 class NetworkAclEntry(AWSObject):
     props = {
+        'CidrBlock': (basestring, True),
+        'Egress': (bool, True),
+        'Icmp': (ICMP, False),  # Conditional
         'NetworkAclId': (basestring, True),
-        'RuleNumber': (int, True),
+        'PortRange': (PortRange, True),
         'Protocol': (int, True),
         'RuleAction': (basestring, True),
-        'Egress': (basestring, True),
-        'CidrBlock': (basestring, True),
-        'Icmp': (ICMP, True),
-        'PortRange': (PortRange, True),
+        'RuleNumber': (int, True),
     }
 
     def __init__(self, name, **kwargs):
@@ -207,12 +227,12 @@ class RouteTable(AWSObject):
 
 class SecurityGroupEgress(AWSObject):
     props = {
-        'GroupId': (basestring, True),
-        'IpProtocol': (basestring, True),
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
-        'FromPort': (basestring, True),
-        'ToPort': (basestring, True),
+        'FromPort': (int, True),
+        'GroupId': (basestring, True),
+        'IpProtocol': (basestring, True),
+        'ToPort': (int, True),
     }
 
     def __init__(self, name, **kwargs):
@@ -230,8 +250,8 @@ class SecurityGroupIngress(AWSObject):
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'FromPort': (basestring, False),
-        'ToPort': (basestring, False),
+        'FromPort': (int, False),
+        'ToPort': (int, False),
     }
 
     def __init__(self, name, **kwargs):
@@ -242,13 +262,13 @@ class SecurityGroupIngress(AWSObject):
 
 class SecurityGroupRule(AWSProperty):
     props = {
-        'IpProtocol': (basestring, True),
         'CidrIp': (basestring, False),
-        'SourceSecurityGroupName': (basestring, False),
+        'FromPort': (int, True),
+        'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
+        'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'FromPort': (basestring, True),
-        'ToPort': (basestring, True),
+        'ToPort': (int, True),
     }
 
 
@@ -348,8 +368,8 @@ class VPC(AWSObject):
 
 class VPCDHCPOptionsAssociation(AWSObject):
     props = {
-        'VpcId': (basestring, True),
         'DhcpOptionsId': (basestring, True),
+        'VpcId': (basestring, True),
     }
 
     def __init__(self, name, **kwargs):
@@ -360,8 +380,8 @@ class VPCDHCPOptionsAssociation(AWSObject):
 
 class VPCGatewayAttachment(AWSObject):
     props = {
-        'VpcId': (basestring, True),
         'InternetGatewayId': (basestring, False),
+        'VpcId': (basestring, True),
         'VpnGatewayId': (basestring, False),
     }
 

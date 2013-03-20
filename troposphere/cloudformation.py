@@ -21,9 +21,9 @@ class Stack(AWSObject):
 
 class WaitCondition(AWSObject):
     props = {
+        'Count': (basestring, False),
         'Handle': (Ref, True),
         'Timeout': (basestring, True),
-        'Count': (basestring, False),
     }
 
     def __init__(self, name, **kwargs):

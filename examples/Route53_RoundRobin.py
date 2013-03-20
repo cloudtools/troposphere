@@ -37,7 +37,7 @@ myDNSRecord = t.add_resource(RecordSetGroup(
             Type="CNAME",
             TTL="900",
             ResourceRecords=["aws.amazon.com"],
-            Weight="3",
+            Weight=3,
         ),
         RecordSet(
             SetIdentifier=Join(" ", [Ref("AWS::StackName"), "Amazon"]),
@@ -46,7 +46,7 @@ myDNSRecord = t.add_resource(RecordSetGroup(
             Type="CNAME",
             TTL="900",
             ResourceRecords=["www.amazon.com"],
-            Weight="1",
+            Weight=1,
         ),
     ],
 ))

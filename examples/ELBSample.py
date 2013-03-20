@@ -54,8 +54,8 @@ def main():
             SecurityGroupIngress=[
                 ec2.SecurityGroupRule(
                     IpProtocol="tcp",
-                    FromPort="22",
-                    ToPort="22",
+                    FromPort=22,
+                    ToPort=22,
                     CidrIp="0.0.0.0/0",
                 ),
                 ec2.SecurityGroupRule(
