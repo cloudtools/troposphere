@@ -225,23 +225,26 @@ class RouteTable(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
-class SecurityGroupEgress(AWSObject):
+class SecurityGroupEgress(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (int, True),
-        'GroupId': (basestring, True),
+        'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'ToPort': (int, True),
+        #
+        # Workaround for a bug in CloudFormation and EC2 where the
+        # DestinationSecurityGroupId property is ignored causing
+        # egress rules targeting a security group to be ignored.
+        # Using SourceSecurityGroupId instead works fine even in
+        # egress rules. AWS have known about this bug for a while.
+        #
+        'SourceSecurityGroupId': (basestring, False),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::EC2::SecurityGroupEgress"
-        sup = super(SecurityGroupEgress, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
-
-class SecurityGroupIngress(AWSObject):
+class SecurityGroupIngress(AWSProperty):
     props = {
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
@@ -253,11 +256,6 @@ class SecurityGroupIngress(AWSObject):
         'FromPort': (int, False),
         'ToPort': (int, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::EC2::SecurityGroupIngress"
-        sup = super(SecurityGroupIngress, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class SecurityGroupRule(AWSProperty):
