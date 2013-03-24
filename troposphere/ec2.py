@@ -15,7 +15,7 @@ class Tag(AWSHelperFn):
         return self.data
 
 
-class CustomGateway(AWSObject):
+class CustomerGateway(AWSObject):
     props = {
         'BgpAsn': (int, True),
         'IpAddress': (basestring, True),
@@ -23,8 +23,8 @@ class CustomGateway(AWSObject):
     }
 
     def __init__(self, name, **kwargs):
-        self.type = "AWS::EC2::CustomGateway"
-        sup = super(CustomGateway, self)
+        self.type = "AWS::EC2::CustomerGateway"
+        sup = super(CustomerGateway, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
