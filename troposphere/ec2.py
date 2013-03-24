@@ -226,23 +226,18 @@ class RouteTable(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
-class SecurityGroupEgress(AWSObject):
+class SecurityGroupEgress(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
-        'GroupId': (basestring, True),
+        'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'ToPort': (network_port, True),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::EC2::SecurityGroupEgress"
-        sup = super(SecurityGroupEgress, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
-
-class SecurityGroupIngress(AWSObject):
+class SecurityGroupIngress(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'FromPort': (network_port, False),
@@ -254,11 +249,6 @@ class SecurityGroupIngress(AWSObject):
         'SourceSecurityGroupOwnerId': (basestring, False),
         'ToPort': (network_port, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::EC2::SecurityGroupIngress"
-        sup = super(SecurityGroupIngress, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class SecurityGroupRule(AWSProperty):
