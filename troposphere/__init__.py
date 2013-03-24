@@ -65,20 +65,42 @@ class AWSObject(object):
             return dict.__setattr__(self, name, value)
         elif name in self.propnames:
             # Check the type of the object and compare against what we were
-            # expecting. If it is a function, call it and assume the value
-            # will be checked there. Special case AWS helper functions.
+            # expecting.
             expected_type = self.props[name][0]
+
+            # If it's a function, call it...
             if isinstance(expected_type, types.FunctionType):
                 value = expected_type(value)
                 return self.properties.__setitem__(name, value)
+
+            # If it's a list of types, check against those types...
+            elif isinstance(expected_type, list):
+                # If we're expecting a list, then make sure it is a list
+                if not isinstance(value, list):
+                    self._raise_type(name, value, expected_type)
+
+                # Iterate over the list and make sure it matches our
+                # type checks
+                for v in value:
+                    if not isinstance(v, tuple(expected_type)):
+                        self._raise_type(name, v, expected_type)
+                # Validated so assign it
+                return self.properties.__setitem__(name, value)
+
+            # Single type so check the type of the object and compare against
+            # what we were expecting. Special case AWS helper functions.
             elif isinstance(value, expected_type) or \
                     isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
             else:
-                raise TypeError('%s is %s, expected %s' %
-                                (name, type(value), expected_type))
+                self._raise_type(name, value, expected_type)
+
         raise AttributeError("%s object does not support attribute %s" %
                             (self.type, name))
+
+    def _raise_type(self, name, value, expected_type):
+        raise TypeError('%s is %s, expected %s' %
+                        (name, type(value), expected_type))
 
     def JSONrepr(self):
         for k, v in self.props.items():

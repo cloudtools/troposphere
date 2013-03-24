@@ -95,7 +95,6 @@ Currently supported AWS resource types:
 
 Todo:
 - Add additional validity checks
-- Don't allow AWS helper override for list typed objects
 - Add missing AWS resource types:
   - AWS::CloudFormation::Authentication
   - AWS::CloudFormation::CustomResource
