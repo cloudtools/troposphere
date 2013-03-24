@@ -6,7 +6,9 @@
 
 import json
 import re
+import types
 
+from . import util
 
 __version__ = "0.2.0"
 
@@ -62,10 +64,14 @@ class AWSObject(object):
         if '_AWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
         elif name in self.propnames:
-            # Check the type of the object and compare against what
-            # we were expecting. Special case AWS helper functions.
+            # Check the type of the object and compare against what we were
+            # expecting. If it is a function, call it and assume the value
+            # will be checked there. Special case AWS helper functions.
             expected_type = self.props[name][0]
-            if isinstance(value, expected_type) or \
+            if isinstance(expected_type, types.FunctionType):
+                value = expected_type(value)
+                return self.properties.__setitem__(name, value)
+            elif isinstance(value, expected_type) or \
                     isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
             else:
@@ -295,10 +301,10 @@ class Parameter(AWSObject):
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
         'AllowedPattern': (basestring, False),
-        'MaxLength': (basestring, False),
-        'MinLength': (basestring, False),
-        'MaxValue': (basestring, False),
-        'MinValue': (basestring, False),
+        'MaxLength': (util.positive_integer, False),
+        'MinLength': (util.positive_integer, False),
+        'MaxValue': (util.integer, False),
+        'MinValue': (util.integer, False),
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
