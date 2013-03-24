@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject
+from .util import integer
 
 
 class CacheCluster(AWSObject):
@@ -15,7 +16,7 @@ class CacheCluster(AWSObject):
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
         'NotificationTopicArn': (basestring, False),
-        'NumCacheNodes': (basestring, False),
+        'NumCacheNodes': (integer, False),
         'Port': (int, False),
         'PreferredAvailabilityZone': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),

@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty
+from .util import integer, network_port
 
 
 class ForwardedValues(AWSHelperFn):
@@ -23,8 +24,8 @@ class DefaultCacheBehavior(AWSProperty):
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, False),
         'TrustedSigners': (list, False),
-        'ViewerProtocolPolicy': (basestring, False),
-        'MinTTL': (basestring, False),
+        'ViewerProtocolPolicy': (basestring, True),
+        'MinTTL': (integer, False),
     }
 
 
@@ -42,8 +43,8 @@ class S3Origin(AWSHelperFn):
 
 class CustomOrigin(AWSProperty):
     props = {
-        'HTTPPort': (basestring, False),
-        'HTTPSPort': (basestring, False),
+        'HTTPPort': (network_port, False),
+        'HTTPSPort': (network_port, False),
         'OriginProtocolPolicy': (basestring, True),
     }
 

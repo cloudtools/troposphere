@@ -4,11 +4,12 @@
 # See LICENSE file for full license.
 
 from . import AWSObject
+from .util import integer
 
 
 class Queue(AWSObject):
     props = {
-        'VisibilityTimeout': (basestring, False),
+        'VisibilityTimeout': (integer, False),
     }
 
     def __init__(self, name, **kwargs):

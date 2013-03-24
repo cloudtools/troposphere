@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .util import boolean
 
 
 class DBInstance(AWSObject):
@@ -24,7 +25,7 @@ class DBInstance(AWSObject):
         'LicenseModel': (basestring, False),
         'MasterUsername': (basestring, True),
         'MasterUserPassword': (basestring, True),
-        'MultiAZ': (basestring, False),
+        'MultiAZ': (boolean, False),
         'Port': (basestring, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),

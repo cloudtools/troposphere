@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .util import integer
 
 
 class Alarm(AWSObject):
@@ -13,14 +14,14 @@ class Alarm(AWSObject):
         'AlarmDescription': (basestring, False),
         'ComparisonOperator': (basestring, True),
         'Dimensions': (list, False),
-        'EvaluationPeriods': (basestring, True),
+        'EvaluationPeriods': (integer, True),
         'InsufficientDataActions': (list, False),
         'MetricName': (basestring, True),
         'Namespace': (basestring, True),
         'OKActions': (list, False),
-        'Period': (basestring, True),
+        'Period': (integer, True),
         'Statistic': (basestring, True),
-        'Threshold': (basestring, True),
+        'Threshold': (integer, True),
         'Unit': (basestring, False),
     }
 

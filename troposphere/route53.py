@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject
+from .util import integer
 
 
 class AliasTarget(AWSHelperFn):
@@ -27,9 +28,9 @@ class BaseRecordSet(AWSObject):
         'Region': (basestring, False),
         'ResourceRecords': (list, False),
         'SetIdentifier': (basestring, False),
-        'TTL': (basestring, False),
+        'TTL': (integer, False),
         'Type': (basestring, True),
-        'Weight': (basestring, False),
+        'Weight': (integer, False),
     }
 
     def __init__(self, name, type, propname, **kwargs):

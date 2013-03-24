@@ -4,12 +4,13 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, Ref
+from .util import integer
 
 
 class Stack(AWSObject):
     props = {
         'TemplateURL': (basestring, True),
-        'TimeoutInMinutes': (basestring, False),
+        'TimeoutInMinutes': (integer, False),
         'Parameters': (dict, False),
     }
 
@@ -21,9 +22,9 @@ class Stack(AWSObject):
 
 class WaitCondition(AWSObject):
     props = {
+        'Count': (integer, False),
         'Handle': (Ref, True),
-        'Timeout': (basestring, True),
-        'Count': (basestring, False),
+        'Timeout': (integer, True),
     }
 
     def __init__(self, name, **kwargs):

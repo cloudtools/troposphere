@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject
-
+from .util import integer
 
 Active = "Active"
 Inactive = "Inactive"
@@ -12,7 +12,7 @@ Inactive = "Inactive"
 
 class AccessKey(AWSObject):
     props = {
-        'Serial': (basestring, False),
+        'Serial': (integer, False),
         # XXX - Is Status required? Docs say yes, examples say no
         'Status': (basestring, False),
         'UserName': (basestring, True),

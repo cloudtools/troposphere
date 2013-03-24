@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .util import integer, network_port
 
 
 class AppCookieStickinessPolicy(AWSProperty):
@@ -15,11 +16,11 @@ class AppCookieStickinessPolicy(AWSProperty):
 
 class HealthCheck(AWSProperty):
     props = {
-        'HealthyThreshold': (basestring, True),
-        'Interval': (basestring, True),
+        'HealthyThreshold': (integer, True),
+        'Interval': (integer, True),
         'Target': (basestring, True),
-        'Timeout': (basestring, True),
-        'UnhealthyThreshold': (basestring, True),
+        'Timeout': (integer, True),
+        'UnhealthyThreshold': (integer, True),
     }
 
 
@@ -32,9 +33,9 @@ class LBCookieStickinessPolicy(AWSProperty):
 
 class Listener(AWSProperty):
     props = {
-        'InstancePort': (basestring, True),
+        'InstancePort': (network_port, True),
         'InstanceProtocol': (basestring, False),
-        'LoadBalancerPort': (basestring, True),
+        'LoadBalancerPort': (network_port, True),
         'PolicyNames': (list, False),
         'Protocol': (basestring, True),
         'SSLCertificateId': (basestring, False),
@@ -54,7 +55,7 @@ class Policy(AWSProperty):
 class LoadBalancer(AWSObject):
     props = {
         'AppCookieStickinessPolicy': (list, False),
-        'AvailabilityZones': (basestring, False),
+        'AvailabilityZones': (list, False),
         'HealthCheck': (HealthCheck, False),
         'Instances': (list, False),
         'LBCookieStickinessPolicy': (list, False),

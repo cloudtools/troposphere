@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from .util import boolean, network_port
 
 
 class Tag(AWSHelperFn):
@@ -31,9 +32,9 @@ class DHCPOptions(AWSObject):
     props = {
         'DomainName': (basestring, False),
         'DomainNameServers': (list, False),
-        'NTPServers': (basestring, False),
-        'NetbiosNameServers': (basestring, False),
-        'NetbiosNodeType': (list, False),
+        'NetbiosNameServers': (list, False),
+        'NetbiosNodeType': (int, False),
+        'NTPServers': (list, False),
         'Tags': (list, False),
     }
 
@@ -72,6 +73,7 @@ class EIPAssociation(AWSObject):
 class Instance(AWSObject):
     props = {
         'AvailabilityZone': (basestring, False),
+        'BlockDeviceMappings': (list, False),
         'DisableApiTermination': (bool, False),
         'EbsOptimized': (bool, False),
         'IamInstanceProfile': (basestring, False),
@@ -79,7 +81,7 @@ class Instance(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
-        'Monitoring': (basestring, False),
+        'Monitoring': (boolean, False),
         'NetworkInterfaces': (list, False),
         'PlacementGroupName': (basestring, False),
         'PrivateIpAddress': (basestring, False),
@@ -146,14 +148,14 @@ class PortRange(AWSProperty):
 
 class NetworkAclEntry(AWSObject):
     props = {
+        'CidrBlock': (basestring, True),
+        'Egress': (boolean, True),
+        'Icmp': (ICMP, False),  # Conditional
         'NetworkAclId': (basestring, True),
-        'RuleNumber': (int, True),
+        'PortRange': (PortRange, True),
         'Protocol': (int, True),
         'RuleAction': (basestring, True),
-        'Egress': (basestring, True),
-        'CidrBlock': (basestring, True),
-        'Icmp': (ICMP, True),
-        'PortRange': (PortRange, True),
+        'RuleNumber': (int, True),
     }
 
     def __init__(self, name, **kwargs):
@@ -207,12 +209,12 @@ class RouteTable(AWSObject):
 
 class SecurityGroupEgress(AWSObject):
     props = {
-        'GroupId': (basestring, True),
-        'IpProtocol': (basestring, True),
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
-        'FromPort': (basestring, True),
-        'ToPort': (basestring, True),
+        'FromPort': (network_port, True),
+        'GroupId': (basestring, True),
+        'IpProtocol': (basestring, True),
+        'ToPort': (network_port, True),
     }
 
     def __init__(self, name, **kwargs):
@@ -223,15 +225,15 @@ class SecurityGroupEgress(AWSObject):
 
 class SecurityGroupIngress(AWSObject):
     props = {
+        'CidrIp': (basestring, False),
+        'FromPort': (network_port, False),
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
-        'CidrIp': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'FromPort': (basestring, False),
-        'ToPort': (basestring, False),
+        'ToPort': (network_port, False),
     }
 
     def __init__(self, name, **kwargs):
@@ -242,13 +244,13 @@ class SecurityGroupIngress(AWSObject):
 
 class SecurityGroupRule(AWSProperty):
     props = {
-        'IpProtocol': (basestring, True),
         'CidrIp': (basestring, False),
-        'SourceSecurityGroupName': (basestring, False),
+        'FromPort': (network_port, True),
+        'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
+        'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'FromPort': (basestring, True),
-        'ToPort': (basestring, True),
+        'ToPort': (network_port, True),
     }
 
 
@@ -348,8 +350,8 @@ class VPC(AWSObject):
 
 class VPCDHCPOptionsAssociation(AWSObject):
     props = {
-        'VpcId': (basestring, True),
         'DhcpOptionsId': (basestring, True),
+        'VpcId': (basestring, True),
     }
 
     def __init__(self, name, **kwargs):
@@ -360,8 +362,8 @@ class VPCDHCPOptionsAssociation(AWSObject):
 
 class VPCGatewayAttachment(AWSObject):
     props = {
-        'VpcId': (basestring, True),
         'InternetGatewayId': (basestring, False),
+        'VpcId': (basestring, True),
         'VpnGatewayId': (basestring, False),
     }
 
