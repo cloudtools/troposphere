@@ -70,7 +70,7 @@ class DistributionConfig(AWSProperty):
         'Aliases': (list, False),
         'CacheBehaviors': (list, False),
         'Comment': (basestring, False),
-        'DefaultCacheBehavior': (DefaultCacheBehavior, False),
+        'DefaultCacheBehavior': (DefaultCacheBehavior, True),
         'DefaultRootObject': (basestring, False),
         'Enabled': (bool, True),
         'Logging': (Logging, False),

@@ -4,7 +4,7 @@
 from troposphere import GetAtt, Join, Output
 from troposphere import Parameter, Ref, Template
 from troposphere.cloudfront import Distribution, DistributionConfig
-from troposphere.cloudfront import Origin
+from troposphere.cloudfront import Origin, DefaultCacheBehavior
 
 
 t = Template()
@@ -28,6 +28,9 @@ myDistribution = t.add_resource(Distribution(
     "myDistribution",
     DistributionConfig=DistributionConfig(
         Origins=[Origin(Id="Origin 1", DomainName=Ref(s3dnsname))],
+        DefaultCacheBehavior=DefaultCacheBehavior(
+            TargetOriginId="Origin 1",
+            ViewerProtocolPolicy="allow-all"),
         Enabled=True
     )
 ))
