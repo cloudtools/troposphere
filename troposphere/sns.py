@@ -28,7 +28,7 @@ class TopicPolicy(AWSObject):
 class Topic(AWSObject):
     props = {
         'DisplayName': (basestring, False),
-        'Subscription': (list, True),
+        'Subscription': ([Subscription], True),
     }
 
     def __init__(self, name, **kwargs):
