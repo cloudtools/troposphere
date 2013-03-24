@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .util import boolean, network_port
+from .util import boolean, integer, network_port
 
 
 class Tag(AWSHelperFn):
@@ -70,6 +70,32 @@ class EIPAssociation(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
+class EBSBlockDevice(AWSProperty):
+    props = {
+        'DeleteOnTermination': (bool, False),
+        'Iops': (int, False),  # Conditional
+        'SnapshotId': (basestring, False),  # Conditional
+        'VolumeSize': (integer, False),  # Conditional
+        'VolumeType': (basestring, False),
+    }
+
+
+class BlockDeviceMapping(AWSProperty):
+    props = {
+        'DeviceName': (basestring, True),
+        'Ebs': (EBSBlockDevice, False),      # Conditional
+        'NoDevice': (dict, False),
+        'VirtualName': (basestring, False),  # Conditional
+    }
+
+
+class MountPoint(AWSProperty):
+    props = {
+        'Device': (basestring, True),
+        'VolumeId': (basestring, True),
+    }
+
+
 class Instance(AWSObject):
     props = {
         'AvailabilityZone': (basestring, False),
@@ -100,13 +126,6 @@ class Instance(AWSObject):
         self.type = "AWS::EC2::Instance"
         sup = super(Instance, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
-
-class MountPoint(AWSProperty):
-    props = {
-        'Device': (basestring, True),
-        'VolumeId': (basestring, True),
-    }
 
 
 class InternetGateway(AWSObject):
