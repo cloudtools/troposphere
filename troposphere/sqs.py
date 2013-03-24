@@ -3,7 +3,25 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
+from . import AWSObject, AWSProperty, AWSHelperFn
+from iam import PolicyDocument
+
+# SQS policy action constants.
+AddPermission = "sqs:AddPermission"
+ChangeMessageVisibility = "sqs:ChangeMessageVisibility"
+ChangeMessageVisibilityBatch = "sqs:ChangeMessageVisibilityBatch"
+CreateQueue = "sqs:CreateQueue"
+DeleteMessage = "sqs:DeleteMessage"
+DeleteMessageBatch = "sqs:DeleteMessageBatch"
+DeleteQueue = "sqs:DeleteQueue"
+GetQueueAttributes = "sqs:GetQueueAttributes"
+GetQueueUrl = "sqs:GetQueueUrl"
+ListQueues = "sqs:ListQueues"
+ReceiveMessage = "sqs:ReceiveMessage"
+RemovePermission = "sqs:RemovePermission"
+SendMessage = "sqs:SendMessage"
+SendMessageBatch = "sqs:SendMessageBatch"
+SetQueueAttributes = "sqs:SetQueueAttributes"
 
 
 class Queue(AWSObject):
@@ -19,7 +37,7 @@ class Queue(AWSObject):
 
 class QueuePolicy(AWSObject):
     props = {
-        'PolicyDocument': (dict, False),
+        'PolicyDocument': (PolicyDocument, False),
         'Queues': (list, True),
     }
 

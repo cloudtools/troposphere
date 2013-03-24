@@ -5,6 +5,20 @@
 
 from . import AWSObject, AWSProperty
 
+# SNS policy condition key constants.
+EndPoint = "sns:EndPoint"
+Protocol = "sns:Protocol"
+
+# SNS policy action constants.
+AddPermission = "sns:AddPermission"
+DeleteTopic = "sns:DeleteTopic"
+GetTopicAttributes = "sns:GetTopicAttributes"
+ListSubscriptionsByTopic = "sns:ListSubscriptionsByTopic"
+Publish = "sns:Publish"
+RemovePermission = "sns:RemovePermission"
+SetTopicAttributes = "sns:SetTopicAttributes"
+Subscribe = "sns:Subscribe"
+
 
 class Subscription(AWSProperty):
     props = {

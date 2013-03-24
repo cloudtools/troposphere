@@ -3,11 +3,54 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty
 
 
 Active = "Active"
 Inactive = "Inactive"
+
+# Policy effect constants.
+Allow = "Allow"
+Deny = "Deny"
+
+# Policy principal constants.
+Everybody = "*"
+
+# Policy condition key constants.
+CurrentTime = "aws:CurrentTime"
+EpochTime = "aws:EpochTime"
+MultiFactorAuthAge = "aws:MultiFactorAuthAge"
+Referer = "aws:Referer"
+SecureTransport = "aws:SecureTransport"
+SourceArn = "aws:SourceArn"
+SourceIp = "aws:SourceIp"
+UserAgent = "aws:UserAgent"
+
+# Policy condition operator constants.
+ArnEquals = "ArnEquals"
+ArnNotEquals = "ArnNotEquals"
+ArnLike = "ArnLike"
+ArnNotLike = "ArnNotLike"
+Bool = "Bool"
+DateEquals = "DateEquals"
+DateNotEquals = "DateNotEquals"
+DateLessThan = "DateLessThan"
+DateLessThanEquals = "DateLessThanEquals"
+DateGreaterThan = "DateGreaterThan"
+DateGreaterThanEquals = "DateGreaterThanEquals"
+IpAddress = "IpAddress"
+NotIpAddress = "NotIpAddress"
+NumericEquals = "NumericEquals"
+NumericNotEquals = "NumericNotEquals"
+NumericLessThan = "NumericLessThan"
+NumericLessThanEquals = "NumericLessThanEquals"
+NumericGreaterThan = "NumericGreaterThan"
+NumericGreaterThanEquals = "NumericGreaterThanEquals"
+StringEquals = "StringEquals"
+StringNotEquals = "StringNotEquals"
+StringEqualsIgnoresCase = "StringEqualsIgnoresCase"
+StringLike = "StringLike"
+StringNotLike = "StringNotLike"
 
 
 class AccessKey(AWSObject):
@@ -24,10 +67,40 @@ class AccessKey(AWSObject):
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
+class Principal(AWSHelperFn):
+    def __init__(self, principals):
+        self.data = {'AWS': [principals]}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class Statement(AWSProperty):
+    props = {
+        'Action': (list, False),
+        'Condition': (dict, False),
+        'Effect': (basestring, True),
+        'NotAction': (list, False),
+        'NotPrincipal': (list, False),
+        'Principal': (Principal, False),
+        'Resource': (list, False),
+        'NotResource': (list, False),
+        'Sid': (basestring, False),
+    }
+
+
+class PolicyDocument(AWSProperty):
+    props = {
+        'Id': (basestring, False),
+        'Statement': (list, True),
+        'Version': (basestring, False),
+    }
+
+
 class BasePolicy(AWSObject):
     props = {
         'Groups': (list, False),
-        'PolicyDocument': (dict, True),
+        'PolicyDocument': (PolicyDocument, True),
         'PolicyName': (basestring, True),
         'Roles': (list, False),
         'User': (list, False),
