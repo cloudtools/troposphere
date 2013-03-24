@@ -29,7 +29,7 @@ myDNSRecord = t.add_resource(RecordSetType(
     Name=Join("", [Ref("AWS::StackName"), ".", Ref("AWS::Region"), ".",
               Ref(hostedzone), "."]),
     Type="CNAME",
-    TTL="900",
+    TTL=900,
     ResourceRecords=["aws.amazon.com"]
 ))
 

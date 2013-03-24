@@ -26,7 +26,7 @@ mywaitcondition = t.add_resource(
     WaitCondition(
         "myWaitCondition",
         Handle=Ref(mywaithandle),
-        Timeout="300",
+        Timeout=300,
     )
 )
 

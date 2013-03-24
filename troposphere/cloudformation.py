@@ -9,7 +9,7 @@ from . import AWSObject, Ref
 class Stack(AWSObject):
     props = {
         'TemplateURL': (basestring, True),
-        'TimeoutInMinutes': (basestring, False),
+        'TimeoutInMinutes': (int, False),
         'Parameters': (dict, False),
     }
 
@@ -21,9 +21,9 @@ class Stack(AWSObject):
 
 class WaitCondition(AWSObject):
     props = {
+        'Count': (int, False),
         'Handle': (Ref, True),
-        'Timeout': (basestring, True),
-        'Count': (basestring, False),
+        'Timeout': (int, True),
     }
 
     def __init__(self, name, **kwargs):

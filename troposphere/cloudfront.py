@@ -23,8 +23,8 @@ class DefaultCacheBehavior(AWSProperty):
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, False),
         'TrustedSigners': (list, False),
-        'ViewerProtocolPolicy': (basestring, False),
-        'MinTTL': (basestring, False),
+        'ViewerProtocolPolicy': (basestring, True),
+        'MinTTL': (int, False),
     }
 
 
@@ -42,8 +42,8 @@ class S3Origin(AWSHelperFn):
 
 class CustomOrigin(AWSProperty):
     props = {
-        'HTTPPort': (basestring, False),
-        'HTTPSPort': (basestring, False),
+        'HTTPPort': (int, False),
+        'HTTPSPort': (int, False),
         'OriginProtocolPolicy': (basestring, True),
     }
 
@@ -69,7 +69,7 @@ class DistributionConfig(AWSProperty):
         'Aliases': (list, False),
         'CacheBehaviors': (list, False),
         'Comment': (basestring, False),
-        'DefaultCacheBehavior': (DefaultCacheBehavior, False),
+        'DefaultCacheBehavior': (DefaultCacheBehavior, True),
         'DefaultRootObject': (basestring, False),
         'Enabled': (bool, True),
         'Logging': (Logging, False),

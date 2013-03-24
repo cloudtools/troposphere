@@ -8,7 +8,7 @@ import json
 import re
 
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -295,10 +295,10 @@ class Parameter(AWSObject):
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
         'AllowedPattern': (basestring, False),
-        'MaxLength': (basestring, False),
-        'MinLength': (basestring, False),
-        'MaxValue': (basestring, False),
-        'MinValue': (basestring, False),
+        'MaxLength': (int, False),
+        'MinLength': (int, False),
+        'MaxValue': (int, False),
+        'MinValue': (int, False),
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }

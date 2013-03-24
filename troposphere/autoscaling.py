@@ -35,14 +35,14 @@ class NotificationConfiguration(AWSProperty):
 class AutoScalingGroup(AWSObject):
     props = {
         'AvailabilityZones': (list, True),
-        'Cooldown': (basestring, False),
-        'DesiredCapacity': (basestring, False),
+        'Cooldown': (int, False),
+        'DesiredCapacity': (int, False),
         'HealthCheckGracePeriod': (int, False),
         'HealthCheckType': (basestring, False),
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),
-        'MaxSize': (basestring, True),
-        'MinSize': (basestring, True),
+        'MaxSize': (int, True),
+        'MinSize': (int, True),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'Tags': (list, False),  # Although docs say these are required
         'VPCZoneIdentifier': (list, False),
@@ -80,7 +80,7 @@ class ScalingPolicy(AWSObject):
     props = {
         'AdjustmentType': (basestring, True),
         'AutoScalingGroupName': (basestring, True),
-        'Cooldown': (basestring, False),
+        'Cooldown': (int, False),
         'ScalingAdjustment': (basestring, True),
     }
 
@@ -93,17 +93,17 @@ class ScalingPolicy(AWSObject):
 class Trigger(AWSObject):
     props = {
         'AutoScalingGroupName': (basestring, True),
-        'BreachDuration': (basestring, True),
+        'BreachDuration': (int, True),
         'Dimensions': (list, True),
-        'LowerBreachScaleIncrement': (basestring, False),
-        'LowerThreshold': (basestring, True),
+        'LowerBreachScaleIncrement': (int, False),
+        'LowerThreshold': (int, True),
         'MetricName': (basestring, True),
         'Namespace': (basestring, True),
-        'Period': (basestring, True),
+        'Period': (int, True),
         'Statistic': (basestring, True),
         'Unit': (basestring, False),
-        'UpperBreachScaleIncrement': (basestring, False),
-        'UpperThreshold': (basestring, True),
+        'UpperBreachScaleIncrement': (int, False),
+        'UpperThreshold': (int, True),
     }
 
     def __init__(self, name, **kwargs):
@@ -115,7 +115,7 @@ class Trigger(AWSObject):
 class EBSBlockDevice(AWSProperty):
     props = {
         'SnapshotId': (basestring, False),
-        'VolumeSize': (basestring, False),
+        'VolumeSize': (int, False),
     }
 
 
