@@ -9,7 +9,7 @@ class TestUtil(unittest.TestCase):
         for x in [True, "True", "true", 1, "1"]:
             self.assertEqual(boolean(x), True, repr(x))
         for x in [False, "False", "false", 0, "0"]:
-            self.assertEquals(boolean(x), False, repr(x))
+            self.assertEqual(boolean(x), False, repr(x))
         for x in ["000", "111", "abc"]:
             with self.assertRaises(ValueError):
                 boolean(x)
@@ -18,7 +18,7 @@ class TestUtil(unittest.TestCase):
         for x in [-1, "-1", 0, "0", 65535, "65535"]:
             integer(x)
         for x in [False, "False", "false", 0, "0"]:
-            self.assertEquals(boolean(x), False, repr(x))
+            self.assertEqual(boolean(x), False, repr(x))
 
     def test_positive_integer(self):
         for x in [0, 1, 65535]:

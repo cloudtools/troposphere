@@ -13,11 +13,14 @@ class TestExamples(unittest.TestCase):
 def test_file(filename):
     # Ignore the output
     saved = sys.stdout
-    sys.stdout = open('/dev/null', 'w')
-    try:
-        execfile(filename)
-    finally:
-        sys.stdout = saved
+    with open('/dev/null', 'w') as stdout:
+        sys.stdout = stdout
+        try:
+            with open(filename) as f:
+                code = compile(f.read(), filename, 'exec')
+                exec(code)
+        finally:
+            sys.stdout = saved
 
 
 def add_tests():
