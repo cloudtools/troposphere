@@ -44,6 +44,7 @@ class FakeAWSObject(AWSObject):
         sup = super(FakeAWSObject, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
+
 class TestValidators(unittest.TestCase):
 
     def test_callcorrect(self):
