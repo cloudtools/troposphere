@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .util import integer
+from .validators import integer
 
 
 class Alarm(AWSObject):

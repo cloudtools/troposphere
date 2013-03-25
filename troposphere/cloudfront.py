@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty
-from .util import integer, network_port
+from .validators import integer, network_port
 
 
 class ForwardedValues(AWSHelperFn):

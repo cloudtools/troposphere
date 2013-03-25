@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .util import boolean, integer, network_port
+from .validators import boolean, integer, network_port
 
 
 class Tag(AWSHelperFn):

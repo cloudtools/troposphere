@@ -1,9 +1,10 @@
 import unittest
 from troposphere import Parameter, Ref
-from troposphere.util import boolean, integer, positive_integer, network_port
+from troposphere.validators import boolean, integer
+from troposphere.validators import positive_integer, network_port
 
 
-class TestUtil(unittest.TestCase):
+class TestValidators(unittest.TestCase):
 
     def test_boolean(self):
         for x in [True, "True", "true", 1, "1"]:

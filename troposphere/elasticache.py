@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject
-from .util import integer
+from .validators import integer
 
 
 class CacheCluster(AWSObject):

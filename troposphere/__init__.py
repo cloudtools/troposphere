@@ -8,7 +8,7 @@ import json
 import re
 import types
 
-from . import util
+from . import validators
 
 __version__ = "0.2.0"
 
@@ -327,10 +327,10 @@ class Parameter(AWSObject):
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
         'AllowedPattern': (basestring, False),
-        'MaxLength': (util.positive_integer, False),
-        'MinLength': (util.positive_integer, False),
-        'MaxValue': (util.integer, False),
-        'MinValue': (util.integer, False),
+        'MaxLength': (validators.positive_integer, False),
+        'MinLength': (validators.positive_integer, False),
+        'MaxValue': (validators.integer, False),
+        'MinValue': (validators.integer, False),
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }

@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .util import boolean
+from .validators import boolean
 
 
 class DBInstance(AWSObject):

@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject
-from .util import integer
+from .validators import integer
 
 Active = "Active"
 Inactive = "Inactive"
