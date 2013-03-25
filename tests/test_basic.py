@@ -44,6 +44,16 @@ class FakeAWSObject(AWSObject):
         sup = super(FakeAWSObject, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
+    def validate(self):
+        properties = self.properties
+        name = self.name
+        type = self.type
+        if 'callcorrect' in properties and 'singlelist' in properties:
+            raise ValueError(
+                ("Cannot specify both 'callcorrect and 'singlelist' in "
+                 "object %s (type %s)" % (name, type))
+            )
+
 
 class TestValidators(unittest.TestCase):
 
@@ -69,6 +79,14 @@ class TestValidators(unittest.TestCase):
             FakeAWSObject('fake', multilist=True)
         with self.assertRaises(TypeError):
             FakeAWSObject('fake', multilist=[1, 'a'])
+
+    def test_mutualexclusion(self):
+        t = Template()
+        t.add_resource(FakeAWSObject(
+            'fake', callcorrect=True, singlelist=[10])
+        )
+        with self.assertRaises(ValueError):
+            t.to_json()
 
 
 if __name__ == '__main__':

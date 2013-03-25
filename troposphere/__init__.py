@@ -102,11 +102,15 @@ class AWSObject(object):
         raise TypeError('%s is %s, expected %s' %
                         (name, type(value), expected_type))
 
+    def validate(self):
+        pass
+
     def JSONrepr(self):
         for k, v in self.props.items():
             if v[1] and k not in self.properties:
                 raise ValueError("Resource %s required in type %s" %
                                  (k, self.type))
+        self.validate()
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
