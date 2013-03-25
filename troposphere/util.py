@@ -29,6 +29,12 @@ def positive_integer(x):
 
 
 def network_port(x):
+    from . import AWSHelperFn
+
+    # Network ports can be Ref items
+    if isinstance(x, AWSHelperFn):
+        return x
+
     x = integer(x)
     if x < -1 or x > 65535:
         raise ValueError

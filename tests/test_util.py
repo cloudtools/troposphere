@@ -1,4 +1,5 @@
 import unittest
+from troposphere import Parameter, Ref
 from troposphere.util import boolean, integer, positive_integer, network_port
 
 
@@ -33,6 +34,9 @@ class TestUtil(unittest.TestCase):
             with self.assertRaises(ValueError):
                 network_port(x)
 
+    def test_network_port_ref(self):
+        p = Parameter('myport')
+        network_port(Ref(p))
 
 if __name__ == '__main__':
     unittest.main()
