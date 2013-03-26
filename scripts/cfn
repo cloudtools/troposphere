@@ -1,0 +1,101 @@
+#!/usr/bin/env python
+
+import argparse
+import sys
+import time
+
+try:
+    import boto
+    import boto.cloudformation
+except ImportError:
+    print("boto 2.8.0+ is required")
+    sys.exit(1)
+
+
+def create_stack(conn, stackname, template_file, params):
+    template = open(template_file).read()
+    try:
+        stack_id = conn.create_stack(stackname, template, parameters=params)
+    except boto.exception.BotoServerError as e:
+        print(e.error_message)
+        raise
+    print("Created stack %s: %s" % (stackname, stack_id))
+
+
+def describe_resources(conn, stackname):
+    print(conn.describe_stack_resources(stackname))
+
+
+def get_events(conn, stackname):
+    """Get the events in batches and return in chronological order"""
+    next = None
+    event_list = []
+    while 1:
+        events = conn.describe_stack_events(stackname, next)
+        event_list.append(events)
+        if events.next_token is None:
+            break
+        next = events.next_token
+        time.sleep(1)
+    return reversed(sum(event_list, []))
+
+
+def tail(conn, stack_name):
+    """Show and then tail the event log"""
+    def tail_print(e):
+        print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
+
+    # First dump the full list of events in chronological order and keep
+    # track of the events we've seen already
+    seen = set()
+    initial_events = get_events(conn, stack_name)
+    for e in initial_events:
+        tail_print(e)
+        seen.add(e.event_id)
+
+    # Now keep looping through and dump the new events
+    next = None
+    while 1:
+        events = get_events(conn, stack_name)
+        events = conn.describe_stack_events(stack_name, next)
+        for e in events:
+            if e.event_id not in seen:
+                tail_print(e)
+            seen.add(e.event_id)
+        time.sleep(5)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-c", "--create", help="Create stack using template",
+                        dest="create", )
+    parser.add_argument("-d", "--debug", help="Turn on boto debug logging",
+                        dest="debug", required=False, action='store_true')
+    parser.add_argument("-p", "--parameter", help="stack parameters",
+                        dest="params", action='append')
+    parser.add_argument("-r", "--region", help="Region (default us-east-1)",
+                        dest="region", default="us-east-1")
+    parser.add_argument("-R", "--resources", help="describe stack resources",
+                        dest="resources", required=False, action='store_true')
+    parser.add_argument("-t", "--tail", help="tail event log",
+                        dest="tail", required=False, action='store_true')
+    parser.add_argument("stack")
+    values = parser.parse_args()
+
+    if values.params:
+        values.params = [x.split('=') for x in values.params]
+
+    if values.debug:
+        import logging
+        logging.basicConfig(filename="boto.log", level=logging.DEBUG)
+
+    conn = boto.cloudformation.connect_to_region(values.region)
+
+    if values.create:
+        create_stack(conn, values.stack, values.create, values.params)
+
+    if values.resources:
+        describe_resources(conn, values.stack)
+
+    if values.tail:
+        tail(conn, values.stack)
