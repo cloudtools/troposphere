@@ -234,6 +234,14 @@ class SecurityGroupEgress(AWSProperty):
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'ToPort': (network_port, True),
+        #
+        # Workaround for a bug in CloudFormation and EC2 where the
+        # DestinationSecurityGroupId property is ignored causing
+        # egress rules targeting a security group to be ignored.
+        # Using SourceSecurityGroupId instead works fine even in
+        # egress rules. AWS have known about this bug for a while.
+        #
+        'SourceSecurityGroupId': (basestring, False),
     }
 
 
