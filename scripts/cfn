@@ -3,6 +3,7 @@
 import argparse
 import sys
 import time
+from ast import literal_eval
 
 try:
     import boto
@@ -17,8 +18,12 @@ def create_stack(conn, stackname, template_file, params):
     try:
         stack_id = conn.create_stack(stackname, template, parameters=params)
     except boto.exception.BotoServerError as e:
-        print(e.error_message)
-        raise
+        # XXX - need to figure out why this isn't getting parsed from boto.
+        print("Error: %s" %
+            (literal_eval(e.error_message)['Error']['Message'],)
+        )
+        print("Exiting...")
+        sys.exit(1)
     print("Created stack %s: %s" % (stackname, stack_id))
 
 
@@ -84,6 +89,8 @@ if __name__ == "__main__":
 
     if values.params:
         values.params = [x.split('=') for x in values.params]
+    else:
+        values.params = []
 
     if values.debug:
         import logging
