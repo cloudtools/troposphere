@@ -4,6 +4,11 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
+try:
+    from awacs.aws import Policy
+    policytypes = (dict, Policy)
+except ImportError:
+    policytypes = dict,
 
 
 Private = "Private"
@@ -51,7 +56,7 @@ class Bucket(AWSObject):
 class BucketPolicy(AWSObject):
     props = {
         'Bucket': (basestring, True),
-        'PolicyDocument': (dict, True),
+        'PolicyDocument': (policytypes, True),
     }
 
     def __init__(self, name, **kwargs):

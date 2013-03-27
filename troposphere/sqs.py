@@ -5,6 +5,11 @@
 
 from . import AWSObject
 from .validators import integer
+try:
+    from awacs.aws import Policy
+    policytypes = (dict, Policy)
+except ImportError:
+    policytypes = dict,
 
 
 class Queue(AWSObject):
@@ -20,7 +25,7 @@ class Queue(AWSObject):
 
 class QueuePolicy(AWSObject):
     props = {
-        'PolicyDocument': (dict, False),
+        'PolicyDocument': (policytypes, False),
         'Queues': (list, True),
     }
 

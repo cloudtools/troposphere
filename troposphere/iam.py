@@ -5,6 +5,12 @@
 
 from . import AWSHelperFn, AWSObject
 from .validators import integer
+try:
+    from awacs.aws import Policy
+    policytypes = (dict, Policy)
+except ImportError:
+    policytypes = dict,
+
 
 Active = "Active"
 Inactive = "Inactive"
@@ -27,7 +33,7 @@ class AccessKey(AWSObject):
 class BasePolicy(AWSObject):
     props = {
         'Groups': (list, False),
-        'PolicyDocument': (dict, True),
+        'PolicyDocument': (policytypes, True),
         'PolicyName': (basestring, True),
         'Roles': (list, False),
         'User': (list, False),
@@ -79,7 +85,7 @@ class InstanceProfile(AWSObject):
 
 class Role(AWSObject):
     props = {
-        'AssumeRolePolicyDocument': (dict, True),
+        'AssumeRolePolicyDocument': (policytypes, True),
         'Path': (basestring, True),
         'Policies': (list, False),
     }

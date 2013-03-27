@@ -4,6 +4,11 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+try:
+    from awacs.aws import Policy
+    policytypes = (dict, Policy)
+except ImportError:
+    policytypes = dict,
 
 
 class Subscription(AWSProperty):
@@ -15,7 +20,7 @@ class Subscription(AWSProperty):
 
 class TopicPolicy(AWSObject):
     props = {
-        'PolicyDocument': (dict, True),
+        'PolicyDocument': (policytypes, True),
         'Topics': (list, True),
     }
 
