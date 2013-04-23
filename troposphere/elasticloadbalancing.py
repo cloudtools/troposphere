@@ -44,7 +44,7 @@ class Listener(AWSProperty):
 
 class Policy(AWSProperty):
     props = {
-        'Attributes': (dict, False),
+        'Attributes': ([dict], False),
         'InstancePorts': (list, False),
         'LoadBalancerPorts': (list, True),
         'PolicyName': (basestring, True),
