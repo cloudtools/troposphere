@@ -10,7 +10,7 @@ class TestExamples(unittest.TestCase):
     pass
 
 
-def test_file(filename):
+def _test_file(filename):
     # Ignore the output
     saved = sys.stdout
     with open('/dev/null', 'w') as stdout:
@@ -32,7 +32,7 @@ def add_tests():
     # Add new test functions to the TestExamples class
     for f in example_filesnames:
         testname = 'test_' + f[:-3]
-        testfunc = partial(test_file, examples + '/' + f)
+        testfunc = partial(_test_file, examples + '/' + f)
         # Get rid of partial() __doc__
         testfunc.__doc__ = None
         setattr(TestExamples, testname, testfunc)
