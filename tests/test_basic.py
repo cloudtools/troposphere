@@ -1,6 +1,7 @@
 import unittest
-from troposphere import AWSObject, Template
+from troposphere import AWSObject, Template, UpdatePolicy
 from troposphere.ec2 import Instance
+from troposphere.autoscaling import AutoScalingGroup
 
 
 class TestBasic(unittest.TestCase):
@@ -94,6 +95,54 @@ class TestValidators(unittest.TestCase):
         FakeAWSObject('fake', multituple=10)
         with self.assertRaises(TypeError):
             FakeAWSObject('fake', multituple=0.1)
+
+
+class TestUpdatePolicy(unittest.TestCase):
+
+    def test_pausetime(self):
+        with self.assertRaises(ValueError):
+            UpdatePolicy('AutoScalingRollingUpdate', PauseTime='90')
+
+    def test_type(self):
+        with self.assertRaises(ValueError):
+            UpdatePolicy('MyCoolPolicy')
+
+    def test_works(self):
+        policy = UpdatePolicy('AutoScalingRollingUpdate',
+            PauseTime='PT1M5S',
+            MinInstancesInService='2',
+            MaxBatchSize='1',
+        )
+        self.assertEqual(policy.PauseTime, 'PT1M5S')
+
+    def test_mininstances(self):
+        group = AutoScalingGroup('mygroup',
+            LaunchConfigurationName="I'm a test",
+            MaxSize="1",
+            MinSize="1",
+            UpdatePolicy=UpdatePolicy('AutoScalingRollingUpdate',
+                PauseTime='PT1M5S',
+                MinInstancesInService='1',
+                MaxBatchSize='1',
+            )
+        )
+        with self.assertRaises(ValueError):
+            self.assertTrue(group.validate())
+
+    def test_working(self):
+        group = AutoScalingGroup('mygroup',
+            LaunchConfigurationName="I'm a test",
+            MaxSize="4",
+            MinSize="2",
+            UpdatePolicy=UpdatePolicy('AutoScalingRollingUpdate',
+                PauseTime='PT1M5S',
+                MinInstancesInService='2',
+                MaxBatchSize='1',
+            )
+        )
+        self.assertTrue(group.validate())
+
+
 
 
 if __name__ == '__main__':
