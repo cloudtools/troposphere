@@ -54,6 +54,15 @@ class AutoScalingGroup(AWSObject):
         sup = super(AutoScalingGroup, self)
         sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
+    def validate(self):
+        if 'UpdatePolicy' in self.resource:
+            update_policy = self.resource['UpdatePolicy']
+            if int(update_policy.MinInstancesInService) > int(self.MinSize):
+                raise ValueError("The UpdatePolicy attribute "
+                    "MinInstancesInService must be less than the "
+                    "autoscaling group's MaxSize")
+        return True
+
 
 class LaunchConfiguration(AWSObject):
     props = {
