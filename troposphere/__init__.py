@@ -131,16 +131,29 @@ class AWSProperty(AWSObject):
         sup.__init__(None, props=self.props, **kwargs)
 
 
+def validate_pausetime(pausetime):
+    if not pausetime.startswith('PT'):
+        raise ValueError('PauseTime should look like PT#H#M#S')
+
+
 class UpdatePolicy(AWSObject):
     props = {
         'MaxBatchSize': (basestring, False),
         'MinInstancesInService': (basestring, False),
-        'PauseTime': (basestring, False),
+        'PauseTime': (validate_pausetime, False),
     }
+
+    valid_update_policies = (
+        'AutoScalingRollingUpdate',
+    )
 
     def __init__(self, name, **kwargs):
         sup = super(UpdatePolicy, self)
         sup.__init__(None, None, name, self.props, **kwargs)
+
+        if name not in self.valid_update_policies:
+            raise ValueError('UpdatePolicy name must be one of %r' % (
+                self.valid_update_policies,))
 
 
 class AWSHelperFn(object):
