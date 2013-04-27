@@ -46,7 +46,7 @@ class Policy(AWSProperty):
     props = {
         'Attributes': ([dict], False),
         'InstancePorts': (list, False),
-        'LoadBalancerPorts': (list, True),
+        'LoadBalancerPorts': (list, False),
         'PolicyName': (basestring, True),
         'PolicyType': (basestring, True),
     }
