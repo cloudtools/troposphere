@@ -33,11 +33,9 @@ class TestValidators(unittest.TestCase):
         between_ten_and_twenty(10)
         between_ten_and_twenty(15)
         between_ten_and_twenty(20)
-        with self.assertRaises(ValueError):
-            between_ten_and_twenty(-1)
-            between_ten_and_twenty(9)
-            between_ten_and_twenty(21)
-            between_ten_and_twenty(111111111)
+        for i in (-1, 9, 21, 1111111):
+            with self.assertRaises(ValueError):
+                between_ten_and_twenty(i)
 
     def test_network_port(self):
         for x in [-1, 0, 1, 1024, 65535]:
