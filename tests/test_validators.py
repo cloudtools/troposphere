@@ -1,6 +1,6 @@
 import unittest
 from troposphere import Parameter, Ref
-from troposphere.validators import boolean, integer
+from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
 
 
@@ -27,6 +27,17 @@ class TestValidators(unittest.TestCase):
         for x in [-1, -10]:
             with self.assertRaises(ValueError):
                 positive_integer(x)
+
+    def test_integer_range(self):
+        between_ten_and_twenty = integer_range(10, 20)
+        between_ten_and_twenty(10)
+        between_ten_and_twenty(15)
+        between_ten_and_twenty(20)
+        with self.assertRaises(ValueError):
+            between_ten_and_twenty(-1)
+            between_ten_and_twenty(9)
+            between_ten_and_twenty(21)
+            between_ten_and_twenty(111111111)
 
     def test_network_port(self):
         for x in [-1, 0, 1, 1024, 65535]:
