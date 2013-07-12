@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import integer, network_port
+from .validators import integer, integer_range, positive_integer, network_port
 
 
 class AppCookieStickinessPolicy(AWSProperty):
@@ -16,11 +16,13 @@ class AppCookieStickinessPolicy(AWSProperty):
 
 class HealthCheck(AWSProperty):
     props = {
-        'HealthyThreshold': (integer, True),
-        'Interval': (integer, True),
+        # XXX I don't actually know what the max is on healthy threshold. 20
+        # seems reasonable?
+        'HealthyThreshold': (integer_range(2, 20), True),
+        'Interval': (positive_integer, True),
         'Target': (basestring, True),
-        'Timeout': (integer, True),
-        'UnhealthyThreshold': (integer, True),
+        'Timeout': (positive_integer, True),
+        'UnhealthyThreshold': (positive_integer, True),
     }
 
 

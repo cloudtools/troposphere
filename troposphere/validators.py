@@ -28,6 +28,16 @@ def positive_integer(x):
     return x
 
 
+def integer_range(minimum_val, maximum_val):
+    def integer_range_checker(x):
+        x = integer(x)
+        if x < minimum_val or x > maximum_val:
+            raise ValueError('Integer must be between %d and %d' % (
+                minimum_val, maximum_val))
+
+    return integer_range_checker
+
+
 def network_port(x):
     from . import AWSHelperFn
 

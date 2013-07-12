@@ -2,6 +2,7 @@ import unittest
 from troposphere import AWSObject, Template, UpdatePolicy
 from troposphere.ec2 import Instance
 from troposphere.autoscaling import AutoScalingGroup
+from troposphere.elasticloadbalancing import HealthCheck
 
 
 class TestBasic(unittest.TestCase):
@@ -95,6 +96,28 @@ class TestValidators(unittest.TestCase):
         FakeAWSObject('fake', multituple=10)
         with self.assertRaises(TypeError):
             FakeAWSObject('fake', multituple=0.1)
+
+
+class TestHealthCheck(unittest.TestCase):
+    def test_healthy_interval_ok(self):
+        HealthCheck(
+            HealthyThreshold='2',
+            Interval='2',
+            Target='HTTP:80/index.html',
+            Timeout='4',
+            UnhealthyThreshold='9'
+        )
+
+    def test_healthy_interval_too_low(self):
+        with self.assertRaises(ValueError):
+            HealthCheck(
+                HealthyThreshold='1',
+                Interval='2',
+                Target='HTTP:80/index.html',
+                Timeout='4',
+                UnhealthyThreshold='9'
+            )
+
 
 
 class TestUpdatePolicy(unittest.TestCase):
