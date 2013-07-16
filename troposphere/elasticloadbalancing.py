@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import integer, integer_range, positive_integer, network_port
+from .validators import integer_range, positive_integer, network_port
 
 
 class AppCookieStickinessPolicy(AWSProperty):
