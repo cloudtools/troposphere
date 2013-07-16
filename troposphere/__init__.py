@@ -68,8 +68,14 @@ class AWSObject(object):
             # expecting.
             expected_type = self.props[name][0]
 
+            # If the value is a AWSHelperFn we can't do much validation
+            # we'll have to leave that to Amazon.  Maybe there's another way
+            # to deal with this that we'll come up with eventually
+            if isinstance(value, AWSHelperFn):
+                return self.properties.__setitem__(name, value)
+
             # If it's a function, call it...
-            if isinstance(expected_type, types.FunctionType):
+            elif isinstance(expected_type, types.FunctionType):
                 value = expected_type(value)
                 return self.properties.__setitem__(name, value)
 
@@ -89,8 +95,7 @@ class AWSObject(object):
 
             # Single type so check the type of the object and compare against
             # what we were expecting. Special case AWS helper functions.
-            elif isinstance(value, expected_type) or \
-                    isinstance(value, AWSHelperFn):
+            elif isinstance(value, expected_type):
                 return self.properties.__setitem__(name, value)
             else:
                 self._raise_type(name, value, expected_type)

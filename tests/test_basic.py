@@ -1,8 +1,9 @@
 import unittest
-from troposphere import AWSObject, Template, UpdatePolicy
+from troposphere import AWSObject, Template, UpdatePolicy, Ref
 from troposphere.ec2 import Instance
 from troposphere.autoscaling import AutoScalingGroup
 from troposphere.elasticloadbalancing import HealthCheck
+from troposphere.validators import positive_integer
 
 
 class TestBasic(unittest.TestCase):
@@ -40,6 +41,7 @@ class FakeAWSObject(AWSObject):
         'singlelist': (list, False),
         'multilist': ([bool, int, float], False),
         'multituple': ((basestring, int), False),
+        'helperfun': (positive_integer, False),
     }
 
     def __init__(self, name, **kwargs):
@@ -96,6 +98,9 @@ class TestValidators(unittest.TestCase):
         FakeAWSObject('fake', multituple=10)
         with self.assertRaises(TypeError):
             FakeAWSObject('fake', multituple=0.1)
+
+    def test_helperfun(self):
+        FakeAWSObject('fake', helperfun=Ref('fake_ref'))
 
 
 class TestHealthCheck(unittest.TestCase):
