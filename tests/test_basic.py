@@ -124,7 +124,6 @@ class TestHealthCheck(unittest.TestCase):
             )
 
 
-
 class TestUpdatePolicy(unittest.TestCase):
 
     def test_pausetime(self):
@@ -136,7 +135,8 @@ class TestUpdatePolicy(unittest.TestCase):
             UpdatePolicy('MyCoolPolicy')
 
     def test_works(self):
-        policy = UpdatePolicy('AutoScalingRollingUpdate',
+        policy = UpdatePolicy(
+            'AutoScalingRollingUpdate',
             PauseTime='PT1M5S',
             MinInstancesInService='2',
             MaxBatchSize='1',
@@ -144,11 +144,13 @@ class TestUpdatePolicy(unittest.TestCase):
         self.assertEqual(policy.PauseTime, 'PT1M5S')
 
     def test_mininstances(self):
-        group = AutoScalingGroup('mygroup',
+        group = AutoScalingGroup(
+            'mygroup',
             LaunchConfigurationName="I'm a test",
             MaxSize="1",
             MinSize="1",
-            UpdatePolicy=UpdatePolicy('AutoScalingRollingUpdate',
+            UpdatePolicy=UpdatePolicy(
+                'AutoScalingRollingUpdate',
                 PauseTime='PT1M5S',
                 MinInstancesInService='1',
                 MaxBatchSize='1',
@@ -158,19 +160,19 @@ class TestUpdatePolicy(unittest.TestCase):
             self.assertTrue(group.validate())
 
     def test_working(self):
-        group = AutoScalingGroup('mygroup',
+        group = AutoScalingGroup(
+            'mygroup',
             LaunchConfigurationName="I'm a test",
             MaxSize="4",
             MinSize="2",
-            UpdatePolicy=UpdatePolicy('AutoScalingRollingUpdate',
+            UpdatePolicy=UpdatePolicy(
+                'AutoScalingRollingUpdate',
                 PauseTime='PT1M5S',
                 MinInstancesInService='2',
                 MaxBatchSize='1',
             )
         )
         self.assertTrue(group.validate())
-
-
 
 
 if __name__ == '__main__':
