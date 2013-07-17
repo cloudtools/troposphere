@@ -34,6 +34,7 @@ def integer_range(minimum_val, maximum_val):
         if x < minimum_val or x > maximum_val:
             raise ValueError('Integer must be between %d and %d' % (
                 minimum_val, maximum_val))
+        return x
 
     return integer_range_checker
 

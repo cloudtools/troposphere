@@ -30,9 +30,9 @@ class TestValidators(unittest.TestCase):
 
     def test_integer_range(self):
         between_ten_and_twenty = integer_range(10, 20)
-        between_ten_and_twenty(10)
-        between_ten_and_twenty(15)
-        between_ten_and_twenty(20)
+        self.assertEqual(between_ten_and_twenty(10), 10)
+        self.assertEqual(between_ten_and_twenty(15), 15)
+        self.assertEqual(between_ten_and_twenty(20), 20)
         for i in (-1, 9, 21, 1111111):
             with self.assertRaises(ValueError):
                 between_ten_and_twenty(i)
