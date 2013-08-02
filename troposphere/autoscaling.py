@@ -57,7 +57,7 @@ class AutoScalingGroup(AWSObject):
     def validate(self):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
-            if hasattr(update_policy, MinInstancesInService):
+            if hasattr(update_policy, 'MinInstancesInService'):
                 if int(update_policy.MinInstancesInService) >= \
                         int(self.MaxSize):
                     raise ValueError(
