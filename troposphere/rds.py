@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import boolean
 
 
@@ -30,7 +30,7 @@ class DBInstance(AWSObject):
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'Tags': (list, False),
-        'VPCSecurityGroups': (list, False),
+        'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
     }
 
     def __init__(self, name, **kwargs):
