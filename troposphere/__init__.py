@@ -132,9 +132,8 @@ class AWSProperty(AWSObject):
     aws-product-property-reference.html
     """
 
-    def __init__(self, **kwargs):
-        sup = super(AWSProperty, self)
-        sup.__init__(None, **kwargs)
+    def __init__(self, name=None, **kwargs):
+        super(AWSProperty, self).__init__(name, **kwargs)
 
 
 def validate_pausetime(pausetime):
