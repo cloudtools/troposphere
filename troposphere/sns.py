@@ -19,24 +19,18 @@ class Subscription(AWSProperty):
 
 
 class TopicPolicy(AWSObject):
+    type = "AWS::SNS::TopicPolicy"
+
     props = {
         'PolicyDocument': (policytypes, True),
         'Topics': (list, True),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::SNS::TopicPolicy"
-        sup = super(TopicPolicy, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class Topic(AWSObject):
+    type = "AWS::SNS::Topic"
+
     props = {
         'DisplayName': (basestring, False),
         'Subscription': ([Subscription], True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::SNS::Topic"
-        sup = super(Topic, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

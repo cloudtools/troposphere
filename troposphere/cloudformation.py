@@ -8,35 +8,26 @@ from .validators import integer
 
 
 class Stack(AWSObject):
+    type = "AWS::CloudFormation::Stack"
+
     props = {
         'TemplateURL': (basestring, True),
         'TimeoutInMinutes': (integer, False),
         'Parameters': (dict, False),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::CloudFormation::Stack"
-        sup = super(Stack, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class WaitCondition(AWSObject):
+    type = "AWS::CloudFormation::WaitCondition"
+
     props = {
         'Count': (integer, False),
         'Handle': (Ref, True),
         'Timeout': (integer, True),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::CloudFormation::WaitCondition"
-        sup = super(WaitCondition, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class WaitConditionHandle(AWSObject):
-    props = {}
+    type = "AWS::CloudFormation::WaitConditionHandle"
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::CloudFormation::WaitConditionHandle"
-        sup = super(WaitConditionHandle, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
+    props = {}

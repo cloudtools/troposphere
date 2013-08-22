@@ -33,35 +33,22 @@ class BaseRecordSet(AWSObject):
         'Weight': (integer, False),
     }
 
-    def __init__(self, name, type, propname, **kwargs):
-        sup = super(BaseRecordSet, self)
-        sup.__init__(name, type, propname, self.props, **kwargs)
-
 
 class RecordSetType(BaseRecordSet):
     # This is a top-level resource
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::Route53::RecordSet"
-        sup = super(RecordSetType, self)
-        sup.__init__(name, self.type, "Properties", **kwargs)
+    type = "AWS::Route53::RecordSet"
 
 
 class RecordSet(BaseRecordSet):
     # This is for use in a list with RecordSetGroup (below)
-    def __init__(self, **kwargs):
-        sup = super(RecordSet, self)
-        sup.__init__(None, None, None, **kwargs)
 
 
 class RecordSetGroup(AWSObject):
+    type = "AWS::Route53::RecordSetGroup"
+
     props = {
         'HostedZoneId': (basestring, False),
         'HostedZoneName': (basestring, False),
         'RecordSets': (list, False),
         'Comment': (basestring, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::Route53::RecordSetGroup"
-        sup = super(RecordSetGroup, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

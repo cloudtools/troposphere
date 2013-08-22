@@ -21,12 +21,12 @@ valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
 class AWSObject(object):
-    def __init__(self, name, type=None, dictname=None, props={}, **kwargs):
+    dictname = 'Properties'
+
+    def __init__(self, name, **kwargs):
         self.name = name
-        self.type = type
-        self.props = props
         # Cache the keys for validity checks
-        self.propnames = props.keys()
+        self.propnames = self.props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy',
                            'Metadata', 'UpdatePolicy']
 
@@ -36,13 +36,14 @@ class AWSObject(object):
 
         # Create the list of properties set on this object by the user
         self.properties = {}
+        dictname = self.dictname
         if dictname:
             self.resource = {
                 dictname: self.properties,
             }
         else:
             self.resource = self.properties
-        if self.type:
+        if hasattr(self, 'type') and self.type is not None:
             self.resource['Type'] = self.type
         self.__initialized = True
 
@@ -133,7 +134,7 @@ class AWSProperty(AWSObject):
 
     def __init__(self, **kwargs):
         sup = super(AWSProperty, self)
-        sup.__init__(None, props=self.props, **kwargs)
+        sup.__init__(None, **kwargs)
 
 
 def validate_pausetime(pausetime):
@@ -154,8 +155,7 @@ class UpdatePolicy(AWSObject):
     )
 
     def __init__(self, name, **kwargs):
-        sup = super(UpdatePolicy, self)
-        sup.__init__(None, None, name, self.props, **kwargs)
+        super(UpdatePolicy, self).__init__(name, **kwargs)
 
         if name not in self.valid_update_policies:
             raise ValueError('UpdatePolicy name must be one of %r' % (
@@ -334,10 +334,6 @@ class Output(AWSObject):
         'Value': (basestring, True),
     }
 
-    def __init__(self, name, **kwargs):
-        sup = super(Output, self)
-        sup.__init__(name, None, props=self.props, **kwargs)
-
 
 class Parameter(AWSObject):
     props = {
@@ -353,8 +349,3 @@ class Parameter(AWSObject):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = None
-        sup = super(Parameter, self)
-        sup.__init__(name, props=self.props, **kwargs)

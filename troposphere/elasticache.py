@@ -8,6 +8,8 @@ from .validators import integer
 
 
 class CacheCluster(AWSObject):
+    type = "AWS::ElastiCache::CacheCluster"
+
     props = {
         'AutoMinorVersionUpgrade': (bool, False),
         'CacheNodeType': (basestring, True),
@@ -22,44 +24,30 @@ class CacheCluster(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::ElastiCache::CacheCluster"
-        sup = super(CacheCluster, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class ParameterGroup(AWSObject):
+    type = "AWS::ElastiCache::ParameterGroup"
+
     props = {
         'CacheParameterGroupFamily': (basestring, True),
         'Description': (basestring, True),
         'Properties': (dict, True),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::ElastiCache::ParameterGroup"
-        sup = super(ParameterGroup, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class SecurityGroup(AWSObject):
+    type = "AWS::ElastiCache::SecurityGroup"
+
     props = {
         'Description': (basestring, True),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::ElastiCache::SecurityGroup"
-        sup = super(SecurityGroup, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class SecurityGroupIngress(AWSObject):
+    type = "AWS::ElastiCache::SecurityGroupIngress"
+
     props = {
         'CacheSecurityGroupName': (basestring, True),
         'EC2SecurityGroupName': (basestring, True),
         'EC2SecurityGroupOwnerId': (basestring, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::ElastiCache::SecurityGroupIngress"
-        sup = super(SecurityGroupIngress, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

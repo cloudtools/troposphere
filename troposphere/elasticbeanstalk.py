@@ -39,19 +39,18 @@ class ConfigurationTemplate(AWSProperty):
 
 
 class Application(AWSObject):
+    type = "AWS::ElasticBeanstalk::Application"
+
     props = {
         'ApplicationVersions': (list, True),
         'ConfigurationTemplates': (list, False),
         'Description': (basestring, False),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::ElasticBeanstalk::Application"
-        sup = super(Application, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class Environment(AWSObject):
+    type = "AWS::ElasticBeanstalk::Environment"
+
     props = {
         'ApplicationName': (basestring, True),
         'CNAMEPrefix': (basestring, False),
@@ -62,8 +61,3 @@ class Environment(AWSObject):
         'TemplateName': (basestring, False),
         'VersionLabel': (basestring, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::ElasticBeanstalk::Environment"
-        sup = super(Environment, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

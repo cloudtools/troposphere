@@ -13,23 +13,17 @@ except ImportError:
 
 
 class Queue(AWSObject):
+    type = "AWS::SQS::Queue"
+
     props = {
         'VisibilityTimeout': (integer, False),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::SQS::Queue"
-        sup = super(Queue, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class QueuePolicy(AWSObject):
+    type = "AWS::SQS::QueuePolicy"
+
     props = {
         'PolicyDocument': (policytypes, False),
         'Queues': (list, True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::SQS::QueuePolicy"
-        sup = super(QueuePolicy, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

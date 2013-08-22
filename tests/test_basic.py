@@ -35,6 +35,8 @@ def call_incorrect(x):
 
 
 class FakeAWSObject(AWSObject):
+    type = "Fake::AWS::Object"
+
     props = {
         'callcorrect': (call_correct, False),
         'callincorrect': (call_incorrect, False),
@@ -43,11 +45,6 @@ class FakeAWSObject(AWSObject):
         'multituple': ((basestring, int), False),
         'helperfun': (positive_integer, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "Fake::AWS::Object"
-        sup = super(FakeAWSObject, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
     def validate(self):
         properties = self.properties
