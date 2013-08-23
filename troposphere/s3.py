@@ -45,7 +45,7 @@ class Bucket(AWSObject):
     ]
 
     def __init__(self, name, **kwargs):
-        super(Bucket, self).__init__(self, name, **kwargs)
+        super(Bucket, self).__init__(name, **kwargs)
 
         if 'AccessControl' in kwargs:
             if kwargs['AccessControl'] not in self.access_control_types:
