@@ -44,6 +44,7 @@ class PolicyType(BasePolicy):
 
 class Policy(BasePolicy):
     # This is for use in a list with Group (below)
+    pass
 
 
 class Group(AWSObject):
