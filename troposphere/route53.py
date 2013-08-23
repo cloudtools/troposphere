@@ -41,6 +41,9 @@ class RecordSetType(BaseRecordSet):
 
 class RecordSet(BaseRecordSet):
     # This is for use in a list with RecordSetGroup (below)
+    def __init__(self, **kwargs):
+        sup = super(RecordSet, self)
+        sup.__init__(None, **kwargs)
 
 
 class RecordSetGroup(AWSObject):
