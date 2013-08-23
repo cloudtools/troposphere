@@ -79,11 +79,8 @@ class DistributionConfig(AWSProperty):
 
 
 class Distribution(AWSObject):
+    type = "AWS::CloudFront::Distribution"
+
     props = {
         'DistributionConfig': (DistributionConfig, True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::CloudFront::Distribution"
-        sup = super(Distribution, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
