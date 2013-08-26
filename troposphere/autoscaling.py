@@ -34,6 +34,8 @@ class NotificationConfiguration(AWSProperty):
 
 
 class AutoScalingGroup(AWSObject):
+    type = "AWS::AutoScaling::AutoScalingGroup"
+
     props = {
         'AvailabilityZones': (list, True),
         'Cooldown': (integer, False),
@@ -49,11 +51,6 @@ class AutoScalingGroup(AWSObject):
         'VPCZoneIdentifier': (list, False),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::AutoScaling::AutoScalingGroup"
-        sup = super(AutoScalingGroup, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
     def validate(self):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
@@ -66,6 +63,8 @@ class AutoScalingGroup(AWSObject):
 
 
 class LaunchConfiguration(AWSObject):
+    type = "AWS::AutoScaling::LaunchConfiguration"
+
     props = {
         'BlockDeviceMappings': (list, False),
         'EbsOptimized': (bool, False),
@@ -81,13 +80,10 @@ class LaunchConfiguration(AWSObject):
         'UserData': (basestring, False),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::AutoScaling::LaunchConfiguration"
-        sup = super(LaunchConfiguration, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class ScalingPolicy(AWSObject):
+    type = "AWS::AutoScaling::ScalingPolicy"
+
     props = {
         'AdjustmentType': (basestring, True),
         'AutoScalingGroupName': (basestring, True),
@@ -95,13 +91,10 @@ class ScalingPolicy(AWSObject):
         'ScalingAdjustment': (basestring, True),
     }
 
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::AutoScaling::ScalingPolicy"
-        sup = super(ScalingPolicy, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
-
 
 class Trigger(AWSObject):
+    type = "AWS::AutoScaling::Trigger"
+
     props = {
         'AutoScalingGroupName': (basestring, True),
         'BreachDuration': (integer, True),
@@ -116,11 +109,6 @@ class Trigger(AWSObject):
         'UpperBreachScaleIncrement': (integer, False),
         'UpperThreshold': (integer, True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::AutoScaling::Trigger"
-        sup = super(Trigger, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class EBSBlockDevice(AWSProperty):

@@ -27,6 +27,8 @@ class WebsiteConfiguration(AWSProperty):
 
 
 class Bucket(AWSObject):
+    type = "AWS::S3::Bucket"
+
     props = {
         'AccessControl': (basestring, False),
         'Tags': (Tags, False),
@@ -43,9 +45,7 @@ class Bucket(AWSObject):
     ]
 
     def __init__(self, name, **kwargs):
-        self.type = "AWS::S3::Bucket"
-        sup = super(Bucket, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
+        super(Bucket, self).__init__(name, **kwargs)
 
         if 'AccessControl' in kwargs:
             if kwargs['AccessControl'] not in self.access_control_types:
@@ -54,12 +54,9 @@ class Bucket(AWSObject):
 
 
 class BucketPolicy(AWSObject):
+    type = "AWS::S3::BucketPolicy"
+
     props = {
         'Bucket': (basestring, True),
         'PolicyDocument': (policytypes, True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::S3::BucketPolicy"
-        sup = super(BucketPolicy, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

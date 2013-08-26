@@ -36,12 +36,9 @@ class ProvisionedThroughput(AWSHelperFn):
 
 
 class Table(AWSObject):
+    type = "AWS::DynamoDB::Table"
+
     props = {
         'KeySchema': (PrimaryKey, True),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::DynamoDB::Table"
-        sup = super(Table, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)

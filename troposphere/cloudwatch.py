@@ -8,6 +8,8 @@ from .validators import integer
 
 
 class Alarm(AWSObject):
+    type = "AWS::CloudWatch::Alarm"
+
     props = {
         'ActionsEnabled': (basestring, False),
         'AlarmActions': (list, False),
@@ -24,11 +26,6 @@ class Alarm(AWSObject):
         'Threshold': (integer, True),
         'Unit': (basestring, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::CloudWatch::Alarm"
-        sup = super(Alarm, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class MetricDimension(AWSProperty):

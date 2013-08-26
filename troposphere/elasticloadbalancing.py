@@ -55,6 +55,8 @@ class Policy(AWSProperty):
 
 
 class LoadBalancer(AWSObject):
+    type = "AWS::ElasticLoadBalancing::LoadBalancer"
+
     props = {
         'AppCookieStickinessPolicy': (list, False),
         'AvailabilityZones': (list, False),
@@ -67,8 +69,3 @@ class LoadBalancer(AWSObject):
         'SecurityGroups': (list, False),
         'Subnets': (list, False),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::ElasticLoadBalancing::LoadBalancer"
-        sup = super(LoadBalancer, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
