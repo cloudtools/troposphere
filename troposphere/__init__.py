@@ -23,8 +23,9 @@ valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 class AWSObject(object):
     dictname = 'Properties'
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name, template=None, **kwargs):
         self.name = name
+        self.template = template
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy',
@@ -54,6 +55,10 @@ class AWSObject(object):
                 self.resource[k] = v
             else:
                 self.__setattr__(k, v)
+
+        # Bound it to template if we know it
+        if self.template is not None:
+            self.template.add_resource(self)
 
     def __getattr__(self, name):
         try:
