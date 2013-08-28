@@ -25,6 +25,16 @@ class TestBasic(unittest.TestCase):
     def test_goodrequired(self):
         Instance('ec2instance', ImageId="ami-xxxx", InstanceType="m1.small")
 
+    def test_extraattribute(self):
+
+        class ExtendedInstance(Instance):
+            def __init__(self, *args, **kwargs):
+                self.attribute = None
+                super(ExtendedInstance, self).__init__(*args, **kwargs)
+
+        instance = ExtendedInstance('ec2instance', attribute='value')
+        self.assertEqual(instance.attribute, 'value')
+
 
 def call_correct(x):
     return x
