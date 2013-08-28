@@ -137,6 +137,7 @@ class AWSProperty(AWSObject):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
     aws-product-property-reference.html
     """
+    dictname = None
 
     def __init__(self, name=None, **kwargs):
         super(AWSProperty, self).__init__(name, **kwargs)
