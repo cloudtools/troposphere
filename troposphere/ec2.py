@@ -94,7 +94,7 @@ class Instance(AWSObject):
         'EbsOptimized': (bool, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
-        'InstanceType': (basestring, True),
+        'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (boolean, False),
