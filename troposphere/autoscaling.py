@@ -66,6 +66,7 @@ class LaunchConfiguration(AWSObject):
     type = "AWS::AutoScaling::LaunchConfiguration"
 
     props = {
+        'AssociatePublicIpAddress': (bool, False),
         'BlockDeviceMappings': (list, False),
         'EbsOptimized': (bool, False),
         'IamInstanceProfile': (basestring, False),
