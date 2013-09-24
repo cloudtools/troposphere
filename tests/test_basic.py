@@ -1,6 +1,7 @@
+import json
 import unittest
-from troposphere import AWSObject, Template, UpdatePolicy, Ref
-from troposphere.ec2 import Instance
+from troposphere import awsencode, AWSObject, Template, UpdatePolicy, Ref
+from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.autoscaling import AutoScalingGroup
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
@@ -170,6 +171,20 @@ class TestUpdatePolicy(unittest.TestCase):
             )
         )
         self.assertTrue(group.validate())
+
+
+class TestProperty(unittest.TestCase):
+
+    def test_noproperty(self):
+        t = SecurityGroupRule(
+            IpProtocol="tcp",
+            FromPort="22",
+            ToPort="22",
+            CidrIp="0.0.0.0/0",
+        )
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            _ = d['Properties']
 
 
 if __name__ == '__main__':

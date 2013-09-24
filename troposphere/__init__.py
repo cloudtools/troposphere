@@ -20,9 +20,7 @@ Snapshot = 'Snapshot'
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
-class AWSObject(object):
-    dictname = 'Properties'
-
+class BaseAWSObject(object):
     def __init__(self, name, **kwargs):
         self.name = name
         # Cache the keys for validity checks
@@ -36,7 +34,7 @@ class AWSObject(object):
 
         # Create the list of properties set on this object by the user
         self.properties = {}
-        dictname = self.dictname
+        dictname = getattr(self, 'dictname', None)
         if dictname:
             self.resource = {
                 dictname: self.properties,
@@ -62,7 +60,7 @@ class AWSObject(object):
             raise AttributeError(name)
 
     def __setattr__(self, name, value):
-        if '_AWSObject__initialized' not in self.__dict__:
+        if '_BaseAWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
         elif name in self.propnames:
             # Check the type of the object and compare against what we were
@@ -125,7 +123,11 @@ class AWSObject(object):
             return {'Type': self.type}
 
 
-class AWSProperty(AWSObject):
+class AWSObject(BaseAWSObject):
+    dictname = 'Properties'
+
+
+class AWSProperty(BaseAWSObject):
     """
     Used for CloudFormation Resource Property objects
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
