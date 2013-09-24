@@ -112,10 +112,10 @@ class AWSObject(object):
         pass
 
     def JSONrepr(self):
-        for k, v in self.props.items():
-            if v[1] and k not in self.properties:
-                raise ValueError("Resource %s required in type %s" %
-                                 (k, self.type))
+        for k, (prop_type, required) in self.props.items():
+            if required and k not in self.properties:
+                type = getattr(self, 'type', "<unknown type>")
+                raise ValueError("Resource %s required in type %s" % (k, type))
         self.validate()
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
