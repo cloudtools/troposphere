@@ -316,15 +316,12 @@ class VPC(AWSObject):
 
 
 class VPCDHCPOptionsAssociation(AWSObject):
+    type = "AWS::EC2::VPCDHCPOptionsAssociation"
+
     props = {
         'DhcpOptionsId': (basestring, True),
         'VpcId': (basestring, True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::EC2::VPCDHCPOptionsAssociation"
-        sup = super(VPCDHCPOptionsAssociation, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VPCGatewayAttachment(AWSObject):
