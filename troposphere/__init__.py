@@ -240,7 +240,7 @@ class awsencode(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
-class Tags(object):
+class Tags(AWSHelperFn):
     def __init__(self, **kwargs):
         self.tags = []
         for k, v in kwargs.iteritems():
