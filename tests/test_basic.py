@@ -212,5 +212,29 @@ class TestProperty(unittest.TestCase):
             _ = d['Properties']
 
 
+class TestDuplicate(unittest.TestCase):
+
+    def test_output(self):
+        t = Template()
+        o = Output("MyOutput", Value="myvalue")
+        t.add_output(o)
+        with self.assertRaises(ValueError):
+            t.add_output(o)
+
+    def test_parameter(self):
+        t = Template()
+        p = Parameter("MyParameter", Type="String")
+        t.add_parameter(p)
+        with self.assertRaises(ValueError):
+            t.add_parameter(p)
+
+    def test_resource(self):
+        t = Template()
+        r = FakeAWSObject('fake', callcorrect=True)
+        t.add_resource(r)
+        with self.assertRaises(ValueError):
+            t.add_resource(r)
+
+
 if __name__ == '__main__':
     unittest.main()

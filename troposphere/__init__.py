@@ -287,32 +287,32 @@ class Template(object):
     def add_description(self, description):
         self.description = description
 
-    def add_output(self, output):
-        if isinstance(output, list):
-            for o in output:
-                self.outputs[o.name] = o
+    def _duplicatekey(self, key):
+        raise ValueError('duplicate key "%s" detected' % key)
+
+    def _update(self, d, values):
+        if isinstance(values, list):
+            for v in values:
+                if v.name in d:
+                    self._duplicatekey(values.name)
+                d[v.name] = v
         else:
-            self.outputs[output.name] = output
-        return output
+            if values.name in d:
+                self._duplicatekey(values.name)
+            d[values.name] = values
+        return values
+
+    def add_output(self, output):
+        return self._update(self.outputs, output)
 
     def add_mapping(self, name, mapping):
         self.mappings[name] = mapping
 
     def add_parameter(self, parameter):
-        if isinstance(parameter, list):
-            for p in parameter:
-                self.parameters[p.name] = p
-        else:
-            self.parameters[parameter.name] = parameter
-        return parameter
+        return self._update(self.parameters, parameter)
 
     def add_resource(self, resource):
-        if isinstance(resource, list):
-            for r in resource:
-                self.resources[r.name] = r
-        else:
-            self.resources[resource.name] = resource
-        return resource
+        return self._update(self.resources, resource)
 
     def add_version(self, version=None):
         if version:
