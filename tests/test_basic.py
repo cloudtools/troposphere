@@ -1,6 +1,7 @@
 import json
 import unittest
-from troposphere import awsencode, AWSObject, Template, UpdatePolicy, Ref
+from troposphere import awsencode, AWSObject, Output, Parameter
+from troposphere import Template, UpdatePolicy, Ref
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.autoscaling import AutoScalingGroup
 from troposphere.elasticloadbalancing import HealthCheck
@@ -171,6 +172,30 @@ class TestUpdatePolicy(unittest.TestCase):
             )
         )
         self.assertTrue(group.validate())
+
+    def test_updatepolicy_noproperty(self):
+        t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            _ = d['Properties']
+
+
+class TestOutput(unittest.TestCase):
+
+    def test_noproperty(self):
+        t = Output("MyOutput", Value="myvalue")
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            _ = d['Properties']
+
+
+class TestParameter(unittest.TestCase):
+
+    def test_noproperty(self):
+        t = Parameter("MyParameter", Type="String")
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            _ = d['Properties']
 
 
 class TestProperty(unittest.TestCase):

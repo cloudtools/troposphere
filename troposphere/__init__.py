@@ -127,6 +127,17 @@ class AWSObject(BaseAWSObject):
     dictname = 'Properties'
 
 
+class AWSDeclaration(BaseAWSObject):
+    """
+    Used for CloudFormation Resource Property objects
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
+    aws-product-property-reference.html
+    """
+
+    def __init__(self, name, **kwargs):
+        super(AWSDeclaration, self).__init__(name, **kwargs)
+
+
 class AWSProperty(BaseAWSObject):
     """
     Used for CloudFormation Resource Property objects
@@ -144,7 +155,7 @@ def validate_pausetime(pausetime):
     return pausetime
 
 
-class UpdatePolicy(AWSObject):
+class UpdatePolicy(AWSProperty):
     props = {
         'MaxBatchSize': (basestring, False),
         'MinInstancesInService': (basestring, False),
@@ -329,14 +340,14 @@ class Template(object):
         return [self.parameters, self.mappings, self.resources]
 
 
-class Output(AWSObject):
+class Output(AWSDeclaration):
     props = {
         'Description': (basestring, False),
         'Value': (basestring, True),
     }
 
 
-class Parameter(AWSObject):
+class Parameter(AWSDeclaration):
     props = {
         'Type': (basestring, True),
         'Default': (basestring, False),
