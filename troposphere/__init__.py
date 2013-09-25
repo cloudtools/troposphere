@@ -287,18 +287,18 @@ class Template(object):
     def add_description(self, description):
         self.description = description
 
-    def _duplicatekey(self, key):
+    def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
 
     def _update(self, d, values):
         if isinstance(values, list):
             for v in values:
                 if v.name in d:
-                    self._duplicatekey(values.name)
+                    self.handle_duplicate_key(values.name)
                 d[v.name] = v
         else:
             if values.name in d:
-                self._duplicatekey(values.name)
+                self.handle_duplicate_key(values.name)
             d[values.name] = values
         return values
 
