@@ -155,7 +155,7 @@ def validate_pausetime(pausetime):
     return pausetime
 
 
-class UpdatePolicy(AWSProperty):
+class UpdatePolicy(BaseAWSObject):
     props = {
         'MaxBatchSize': (basestring, False),
         'MinInstancesInService': (basestring, False),
@@ -167,11 +167,11 @@ class UpdatePolicy(AWSProperty):
     )
 
     def __init__(self, name, **kwargs):
-        super(UpdatePolicy, self).__init__(name, **kwargs)
-
         if name not in self.valid_update_policies:
             raise ValueError('UpdatePolicy name must be one of %r' % (
                 self.valid_update_policies,))
+        self.dictname = name
+        super(UpdatePolicy, self).__init__(None, **kwargs)
 
 
 class AWSHelperFn(object):

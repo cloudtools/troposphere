@@ -179,6 +179,11 @@ class TestUpdatePolicy(unittest.TestCase):
         with self.assertRaises(KeyError):
             _ = d['Properties']
 
+    def test_updatepolicy_dictname(self):
+        t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
+        d = json.loads(json.dumps(t, cls=awsencode))
+        self.assertIn('AutoScalingRollingUpdate', d)
+
 
 class TestOutput(unittest.TestCase):
 
