@@ -241,5 +241,14 @@ class TestDuplicate(unittest.TestCase):
             t.add_resource(r)
 
 
+class TestRef(unittest.TestCase):
+
+    def test_ref(self):
+        param = Parameter("param", Description="description", Type="String")
+        t = Ref(param)
+        ref = json.loads(json.dumps(t, cls=awsencode))
+        self.assertEqual(ref['Ref'], 'param')
+
+
 if __name__ == '__main__':
     unittest.main()
