@@ -176,7 +176,7 @@ class UpdatePolicy(BaseAWSObject):
 
 class AWSHelperFn(object):
     def getdata(self, data):
-        if isinstance(data, AWSObject):
+        if isinstance(data, BaseAWSObject):
             return data.name
         else:
             return data
