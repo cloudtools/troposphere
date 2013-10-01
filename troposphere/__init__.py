@@ -17,7 +17,7 @@ Delete = 'Delete'
 Retain = 'Retain'
 Snapshot = 'Snapshot'
 
-valid_names = re.compile(r'^[a-zA-Z0-9]+$')
+valid_names = re.compile(r'^[a-zA-Z0-9:]+$')
 
 
 class BaseAWSObject(object):
@@ -30,7 +30,7 @@ class BaseAWSObject(object):
 
         # unset/None is also legal
         if name and not valid_names.match(name):
-            raise ValueError('Name not alphanumeric')
+            raise ValueError('Name not alphanumeric or colon')
 
         # Create the list of properties set on this object by the user
         self.properties = {}
