@@ -320,7 +320,7 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
-    def to_json(self, indent=4, sort_keys=True, separators=(',',' ',':')):
+    def to_json(self, indent=4, sort_keys=True, separators=(', ', ': ')):
         t = {}
         if self.description:
             t['Description'] = self.description
