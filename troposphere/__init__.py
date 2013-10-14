@@ -320,7 +320,7 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
-    def to_json(self, indent=4, sort_keys=True):
+    def to_json(self, indent=4, sort_keys=True, separators=(',',' ',':')):
         t = {}
         if self.description:
             t['Description'] = self.description
@@ -334,7 +334,7 @@ class Template(object):
             t['AWSTemplateFormatVersion'] = self.version
         t['Resources'] = self.resources
 
-        return json.dumps(t, cls=awsencode, indent=indent, sort_keys=sort_keys)
+        return json.dumps(t, cls=awsencode, indent=indent, sort_keys=sort_keys, separators=separators)
 
     def JSONrepr(self):
         return [self.parameters, self.mappings, self.resources]
