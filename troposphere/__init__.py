@@ -334,7 +334,8 @@ class Template(object):
             t['AWSTemplateFormatVersion'] = self.version
         t['Resources'] = self.resources
 
-        return json.dumps(t, cls=awsencode, indent=indent, sort_keys=sort_keys, separators=separators)
+        return json.dumps(t, cls=awsencode, indent=indent,
+                          sort_keys=sort_keys, separators=separators)
 
     def JSONrepr(self):
         return [self.parameters, self.mappings, self.resources]
