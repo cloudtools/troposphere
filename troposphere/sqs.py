@@ -16,6 +16,10 @@ class Queue(AWSObject):
     type = "AWS::SQS::Queue"
 
     props = {
+        'DelaySeconds': (integer, False),
+        'MaximumMessageSize': (integer, False),
+        'MessageRetentionPeriod': (integer, False),
+        'ReceiveMessageWaitTimeSeconds': (integer, False),
         'VisibilityTimeout': (integer, False),
     }
 
