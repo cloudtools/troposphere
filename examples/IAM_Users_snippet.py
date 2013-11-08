@@ -1,9 +1,8 @@
 # Converted from IAM_Users_Groups_and_Policies.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import GetAtt, Output, Ref, Template
-from troposphere.iam import AccessKey, Group, LoginProfile, Policy
-from troposphere.iam import User, UserToGroupAddition
+from troposphere import GetAtt, Ref, Template
+from troposphere.iam import LoginProfile, Policy, User
 import awacs
 import awacs.aws
 import awacs.sns
