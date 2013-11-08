@@ -31,6 +31,7 @@ class Bucket(AWSObject):
 
     props = {
         'AccessControl': (basestring, False),
+        'BucketName': (basestring, False),
         'Tags': (Tags, False),
         'WebsiteConfiguration': (WebsiteConfiguration, False)
     }

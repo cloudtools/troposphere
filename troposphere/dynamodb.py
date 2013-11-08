@@ -41,4 +41,5 @@ class Table(AWSObject):
     props = {
         'KeySchema': (PrimaryKey, True),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'TableName': (basestring, False),
     }

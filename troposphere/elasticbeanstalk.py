@@ -42,6 +42,7 @@ class Application(AWSObject):
     type = "AWS::ElasticBeanstalk::Application"
 
     props = {
+        'ApplicationName': (basestring, False),
         'ApplicationVersions': (list, True),
         'ConfigurationTemplates': (list, False),
         'Description': (basestring, False),
@@ -55,6 +56,7 @@ class Environment(AWSObject):
         'ApplicationName': (basestring, True),
         'CNAMEPrefix': (basestring, False),
         'Description': (basestring, False),
+        'EnvironmentName': (basestring, False),
         'OptionSettings': (list, False),
         'OptionsToRemove': (list, False),
         'SolutionStackName': (basestring, False),

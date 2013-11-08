@@ -33,4 +33,5 @@ class Topic(AWSObject):
     props = {
         'DisplayName': (basestring, False),
         'Subscription': ([Subscription], True),
+        'TopicName': (basestring, False),
     }
