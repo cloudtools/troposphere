@@ -1,0 +1,116 @@
+#!/usr/bin/env python
+
+
+import argparse
+import json
+import pprint
+
+
+def do_header(d):
+    print 'from troposphere import GetAtt, Join, Output'
+    print 'from troposphere import Parameter, Ref, Template'
+    print 'from troposphere.cloudfront import Distribution, DistributionConfig'
+    print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
+
+    # Loop over the resources to find imports
+    if 'Resources' in d:
+        seen = []
+        resources = d['Resources']
+        for k, v in resources.items():
+            (mod, objectname) = generate_object_name(v['Type'])
+            if objectname not in seen:
+                seen.append(objectname)
+                print 'from troposphere.%s import %s' % (mod, objectname,)
+    print
+    print
+    print "t = Template()"
+    print
+
+
+def do_awstemplateformatversion(d):
+    print 't.add_version("%s")' % (d['AWSTemplateFormatVersion'], )
+    print
+
+
+def do_description(d):
+    print 't.add_description("""\n%s""")' % (d['Description'], )
+
+
+def do_parameters(d):
+    params = d['Parameters']
+    for k, v in params.items():
+        print '%s = t.add_parameter(Parameter(' % (k,)
+        print '    "%s",' % (k, )
+        for pk, pv in v.items():
+            print '    %s="%s",' % (pk, pv)
+        print "))"
+        print
+
+
+def do_mappings(d):
+    mappings = d['Mappings']
+    for k, v in mappings.items():
+        print 't.add_mapping("%s",' % (k,)
+        pprint.pprint(v)
+        print ")"
+        print
+
+
+def generate_object_name(typename):
+    t = typename.split(':')
+    if len(t) == 5:
+        return (t[2].lower(), t[4])
+    else:
+        return ('', typename)
+
+
+def do_resources(d):
+    resources = d['Resources']
+    for k, v in resources.items():
+        (_, objectname) = generate_object_name(v['Type'])
+        print '%s = t.add_resource(%s(' % (k, objectname)
+        print '    "%s",' % (k, )
+        for pk, pv in v['Properties'].items():
+            print '    %s="%s",' % (pk, pv)
+        print "))"
+        print
+
+
+def do_outputs(d):
+    outputs = d['Outputs']
+    for k, v in outputs.items():
+        print '%s = t.add_output(Output(' % (k,)
+        print '    "%s",' % (k, )
+        for pk, pv in v.items():
+            print '    %s="%s",' % (pk, pv)
+        print "))"
+        print
+
+
+def do_trailer(d):
+    print 'print(t.to_json())'
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("filename", help="template to convert")
+    args = parser.parse_args()
+
+    d = json.load(open(args.filename))
+
+    do_header(d)
+
+    sections = [
+        'AWSTemplateFormatVersion',
+        'Description',
+        'Parameters',
+        'Mappings',
+        'Resources',
+        'Outputs',
+    ]
+
+    for s in sections:
+        if s in d.keys():
+            globals()["do_" + s.lower()](d)
+
+    do_trailer(d)
