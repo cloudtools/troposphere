@@ -7,7 +7,7 @@ import pprint
 
 
 def do_header(d):
-    print 'from troposphere import GetAtt, Join, Output'
+    print 'from troposphere import Base64, FindInMap, GetAtt, Join, Output'
     print 'from troposphere import Parameter, Ref, Template'
     print 'from troposphere.cloudfront import Distribution, DistributionConfig'
     print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
