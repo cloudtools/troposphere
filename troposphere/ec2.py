@@ -311,6 +311,8 @@ class VPC(AWSObject):
     props = {
         'CidrBlock': (basestring, True),
         'InstanceTenancy': (basestring, False),
+        'EnableDnsSupport': (boolean, False),
+        'EnableDnsHostnames': (boolean, False),
         'Tags': (list, False),
     }
 
