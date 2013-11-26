@@ -14,7 +14,7 @@ class CacheCluster(AWSObject):
         'AutoMinorVersionUpgrade': (bool, False),
         'CacheNodeType': (basestring, True),
         'CacheParameterGroupName': (basestring, False),
-        'CacheSecurityGroupNames': ([basestring], True),
+        'CacheSecurityGroupNames': ([basestring, Ref], True),
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
@@ -23,8 +23,8 @@ class CacheCluster(AWSObject):
         'Port': (int, False),
         'PreferredAvailabilityZone': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
-        'SnapshotArns': ([basestring], False),
-        'VpcSecurityGroupIds': ([basestring], False),
+        'SnapshotArns': ([basestring, Ref], False),
+        'VpcSecurityGroupIds': ([basestring, Ref], False),
     }
 
 
