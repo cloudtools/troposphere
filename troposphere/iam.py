@@ -29,11 +29,11 @@ class AccessKey(AWSObject):
 
 class PolicyProps():
     props = {
-        'Groups': ([basestring], False),
+        'Groups': ([basestring, Ref], False),
         'PolicyDocument': (policytypes, True),
         'PolicyName': (basestring, True),
-        'Roles': ([basestring], False),
-        'Users': ([basestring], False),
+        'Roles': ([basestring, Ref], False),
+        'Users': ([basestring, Ref], False),
     }
 
 
