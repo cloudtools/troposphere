@@ -82,7 +82,6 @@ def tail(conn, stack_name):
     next = None
     while 1:
         events = get_events(conn, stack_name)
-        events = conn.describe_stack_events(stack_name, next)
         for e in events:
             if e.event_id not in seen:
                 tail_print(e)
