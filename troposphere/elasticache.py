@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
+from . import AWSObject, Ref
 from .validators import integer
 
 
