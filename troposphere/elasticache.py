@@ -54,3 +54,12 @@ class SecurityGroupIngress(AWSObject):
         'EC2SecurityGroupName': (basestring, True),
         'EC2SecurityGroupOwnerId': (basestring, False),
     }
+
+
+class SubnetGroup(AWSObject):
+    type = "AWS::ElastiCache::SubnetGroup"
+
+    props = {
+        'Description': (basestring, True),
+        'SubnetIds': (list, True),
+    }
