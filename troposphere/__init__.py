@@ -9,6 +9,7 @@ import re
 import types
 
 from . import validators
+from .resolver import Resolver
 
 __version__ = "0.3.4"
 
@@ -18,9 +19,6 @@ Retain = 'Retain'
 Snapshot = 'Snapshot'
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
-ref_re = re.compile(r'_Ref\((\d+)\)')
-getatt_re = re.compile(r'_GetAtt\((\d+),(\w+)\)')
-
 
 
 class BaseAWSObject(object):
@@ -354,7 +352,8 @@ class Template(object):
         if self.version:
             t['AWSTemplateFormatVersion'] = self.version
         if self._half_baked:
-            self.resolve_references()
+            resolver = Resolver(self)
+            resolver.resolve_references()
         t['Resources'] = self.resources
 
         return json.dumps(t, cls=awsencode, indent=indent,
@@ -363,60 +362,6 @@ class Template(object):
     def JSONrepr(self):
         return [self.parameters, self.mappings, self.resources]
 
-    def resolve_references(self):
-        known = dict((id(v), k)
-            for k, v in self.parameters.iteritems())
-        known.update(dict((id(v), k)
-            for k, v in self.resources.iteritems()))
-        for k, v in self.resources.iteritems():
-            resolve_references_aws_object(known, v)
-        for k, v in self.outputs.iteritems():
-            resolve_references_aws_object(known, v)
-        self.outputs = dict((k, resolve_references_aws_object(known, v)) for k,v in
-                self.outputs.iteritems())
-
-def resolve_references_list(known, l):
-    for i, elem in enumerate(l):
-        l[i] = resolve_references_recursively(known, elem)
-
-def resolve_references_dict(known, d):
-    for k, v in d.iteritems():
-        d[k] = resolve_references_recursively(known, v)
-
-def resolve_references_string(known, s):
-    m = ref_re.match(s)
-    if m:
-        i = int(m.group(1))
-        return Ref(known[i])
-    m = getatt_re.match(s)
-    if m:
-        i, a = m.groups()
-        i = int(i)
-        return GetAtt(known[i], a)
-    return None
-
-def resolve_references_recursively(known, o):
-    if isinstance(o, (AWSObject, Parameter)):
-        r = Ref(o)
-        return resolve_references_recursively(known, r)
-    if hasattr(o, 'JSONrepr'):
-        return resolve_references_recursively(known, o.JSONrepr())
-    if isinstance(o, dict):
-        resolve_references_dict(known, o)
-        return o
-    if isinstance(o, list):
-        resolve_references_list(known, o)
-        return o
-    if isinstance(o, basestring):
-        resolved = resolve_references_string(known, o)
-        if resolved:
-            return resolve_references_recursively(known, resolved)
-        else:
-            return o
-    return o
-
-def resolve_references_aws_object(known, d):
-    resolve_references_recursively(known, d.properties)
 
 class Output(AWSDeclaration):
     props = {
