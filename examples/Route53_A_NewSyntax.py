@@ -38,10 +38,9 @@ Ec2Instance = Instance(
 )
 
 myDNSRecord = RecordSetType(
-    HostedZoneName=Join("", [Ref(HostedZone), "."]),
+    HostedZoneName="{}.".format(HostedZone),
     Comment="DNS name for my instance.",
-    Name=Join("", [Ec2Instance, ".", Ref("AWS::Region"), ".",
-              HostedZone, "."]),
+    Name="{}.{}.{}.".format(Ec2Instance, Ref("AWS::Region"), HostedZone),
     Type="A",
     TTL="900",
     ResourceRecords=[Ec2Instance.PublicIp],

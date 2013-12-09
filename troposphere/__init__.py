@@ -116,6 +116,9 @@ class BaseAWSObject(object):
     def validate(self):
         pass
 
+    def __format__(self, format_spec):
+        return "_BaseAWSObject(id={0})".format(id(self))
+
     def JSONrepr(self):
         for k, (prop_type, required) in self.props.items():
             if required and k not in self.properties:
@@ -207,10 +210,14 @@ class FindInMap(AWSHelperFn):
 
 class GetAtt(AWSHelperFn):
     def __init__(self, logicalName, attrName):
-        self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
+        self.logicalName = logicalName
+        self.attrName = attrName
 
     def JSONrepr(self):
-        return self.data
+        return {'Fn::GetAtt': [self.getdata(self.logicalName), self.attrName]}
+
+    #def __format__(self, format_spec):
+    #    return "_GetAtt(id={0},attrName={1})".format(id(self.logicalName))
 
 
 class GetAZs(AWSHelperFn):
@@ -251,6 +258,12 @@ class Ref(AWSHelperFn):
 
     def JSONrepr(self):
         return {'Ref': self.getdata(self.data)}
+
+    def __format__(self, format_spec):
+        if isinstance(self.data, BaseAWSObject):
+            return '_Ref(id={})'.format(id(self.data))
+        else:
+            return '_Ref(name={})'.format(self.data)
 
 
 class awsencode(json.JSONEncoder):

@@ -1,7 +1,9 @@
 import re
 
-ref_re = re.compile(r'_Ref\((\d+)\)')
+ref_id_re = re.compile(r'_Ref\(id=(\d+)\)')
+ref_name_re = re.compile(r'_Ref\(name=([^)]+)\)')
 getatt_re = re.compile(r'_GetAtt\((\d+),(\w+)\)')
+format_re = re.compile(r'_BaseAWSObject\(id=(\d+)\)')
 
 
 class Resolver(object):
@@ -19,16 +21,37 @@ class Resolver(object):
             d[k] = self._resolve_references_recursively(v)
 
     def _resolve_references_string(self, s):
-        from troposphere import Ref, GetAtt, AWSObject, Parameter
-        m = ref_re.match(s)
+        from troposphere import Ref, GetAtt, AWSObject, Parameter, Join
+
+        m = ref_id_re.match(s)
         if m:
+            i = m.group(1)
             i = int(m.group(1))
-            return Ref(self.known[i])
+            return Ref(self.known[i][1])
+
+        m = ref_name_re.match(s)
+        if m:
+            name = m.group(1)
+            return Ref(name)
+
         m = getatt_re.match(s)
         if m:
             i, a = m.groups()
             i = int(i)
-            return GetAtt(self.known[i], a)
+            return GetAtt(self.known[i][1], a)
+
+        parts = format_re.split(s)
+        if len(parts) != 1:
+            res = []
+            for text, i in zip(parts[::2], parts[1::2]):
+                if text:
+                    res.append(text)
+                i = int(i)
+                res.append(self.known[i][1])
+            if parts[-1]:
+                res.append(parts[-1])
+            return Join("", res)
+
         return None
 
     def _resolve_references_recursively(self, o):
@@ -56,9 +79,9 @@ class Resolver(object):
         self._resolve_references_recursively(d.properties)
 
     def _init_known(self):
-        known = dict((id(v), k)
+        known = dict((id(v), (k, v))
             for k, v in self.template.parameters.iteritems())
-        known.update(dict((id(v), k)
+        known.update(dict((id(v), (k, v))
             for k, v in self.template.resources.iteritems()))
 
         self.known = known
