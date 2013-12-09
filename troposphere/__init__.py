@@ -21,7 +21,7 @@ valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
 class BaseAWSObject(object):
-    def __init__(self, name, **kwargs):
+    def __init__(self, name=None, **kwargs):
         self.name = name
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
@@ -57,6 +57,8 @@ class BaseAWSObject(object):
         try:
             return self.properties.__getitem__(name)
         except KeyError:
+            if hasattr(self, 'ro_attributes') and name in self.ro_attributes:
+                return "_GetAtt(%s,%s)" % (id(self), name)
             raise AttributeError(name)
 
     def __setattr__(self, name, value):
@@ -66,6 +68,10 @@ class BaseAWSObject(object):
             # Check the type of the object and compare against what we were
             # expecting.
             expected_type = self.props[name][0]
+
+            if (expected_type == basestring
+                    and isinstance(value, (AWSObject, Parameter))):
+                return self.properties.__setitem__(name, "_Ref(%s)" % id(value))
 
             # If the value is a AWSHelperFn we can't do much validation
             # we'll have to leave that to Amazon.  Maybe there's another way
@@ -134,7 +140,7 @@ class AWSDeclaration(BaseAWSObject):
     aws-product-property-reference.html
     """
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name=None, **kwargs):
         super(AWSDeclaration, self).__init__(name, **kwargs)
 
 
@@ -283,6 +289,7 @@ class Template(object):
         self.parameters = {}
         self.resources = {}
         self.version = None
+        self._half_baked = False
 
     def add_description(self, description):
         self.description = description
@@ -320,6 +327,17 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
+    def add_half_baked(self, d):
+        for k, v in d.items():
+            if isinstance(v, (AWSDeclaration, AWSObject)): dict.__setattr__(v,'name',k)
+        self.add_parameter([p for p in d.values() if isinstance(p, Parameter)])
+        self.add_resource([r for r in d.values() if isinstance(r, AWSObject)])
+        self.add_output([o for o in d.values() if isinstance(o, Output)])
+        for k, v in d.items():
+            if isinstance(v, Mapping):
+                self.add_mapping(k, v)
+        self._half_baked = True
+
     def to_json(self, indent=4, sort_keys=True, separators=(', ', ': ')):
         t = {}
         if self.description:
@@ -332,6 +350,8 @@ class Template(object):
             t['Parameters'] = self.parameters
         if self.version:
             t['AWSTemplateFormatVersion'] = self.version
+        if self._half_baked:
+            self.resolve_references()
         t['Resources'] = self.resources
 
         return json.dumps(t, cls=awsencode, indent=indent,
@@ -340,6 +360,41 @@ class Template(object):
     def JSONrepr(self):
         return [self.parameters, self.mappings, self.resources]
 
+    def resolve_references(self):
+        known = dict((id(v), k)
+            for k, v in self.parameters.iteritems())
+        known.update(dict((id(v), k)
+            for k, v in self.resources.iteritems()))
+        for k, v in self.resources.iteritems():
+            resolve_references_aws_object(known, v)
+        for k, v in self.outputs.iteritems():
+            resolve_references_aws_object(known, v)
+        self.outputs = dict((k, resolve_references_aws_object(known, v)) for k,v in
+                self.outputs.iteritems())
+
+import re
+ref_re = re.compile(r'_Ref\((\d+)\)')
+getatt_re = re.compile(r'_GetAtt\((\d+),(\w+)\)')
+
+def resolve_references_dict(known, d):
+    for k, v in d.iteritems():
+        if hasattr(v, 'JSONrepr'):
+            d[k] = v = v.JSONrepr()
+        if isinstance(v, dict):
+            resolve_references_dict(known, v)
+        if isinstance(v, basestring):
+            m = ref_re.match(v)
+            if m:
+                i = int(m.group(1))
+                d[k] = Ref(known[i])
+            m = getatt_re.match(v)
+            if m:
+                i, a = m.groups()
+                i = int(i)
+                d[k] = GetAtt(known[i], a)
+
+def resolve_references_aws_object(known, d):
+    resolve_references_dict(known, d.properties)
 
 class Output(AWSDeclaration):
     props = {
@@ -362,3 +417,6 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+class Mapping(dict):
+    pass

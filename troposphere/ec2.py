@@ -86,6 +86,8 @@ class MountPoint(AWSProperty):
 
 class Instance(AWSObject):
     type = "AWS::EC2::Instance"
+    ro_attributes = ('AvailabilityZone', 'PublicIp', 'PrivateIp',
+            'PublicDnsName', 'PrivateDnsName')
 
     props = {
         'AvailabilityZone': (basestring, False),
