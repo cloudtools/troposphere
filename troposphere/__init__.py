@@ -18,6 +18,9 @@ Retain = 'Retain'
 Snapshot = 'Snapshot'
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
+ref_re = re.compile(r'_Ref\((\d+)\)')
+getatt_re = re.compile(r'_GetAtt\((\d+),(\w+)\)')
+
 
 
 class BaseAWSObject(object):
@@ -372,29 +375,48 @@ class Template(object):
         self.outputs = dict((k, resolve_references_aws_object(known, v)) for k,v in
                 self.outputs.iteritems())
 
-import re
-ref_re = re.compile(r'_Ref\((\d+)\)')
-getatt_re = re.compile(r'_GetAtt\((\d+),(\w+)\)')
+def resolve_references_list(known, l):
+    for i, elem in enumerate(l):
+        l[i] = resolve_references_recursively(known, elem)
 
 def resolve_references_dict(known, d):
     for k, v in d.iteritems():
-        if hasattr(v, 'JSONrepr'):
-            d[k] = v = v.JSONrepr()
-        if isinstance(v, dict):
-            resolve_references_dict(known, v)
-        if isinstance(v, basestring):
-            m = ref_re.match(v)
-            if m:
-                i = int(m.group(1))
-                d[k] = Ref(known[i])
-            m = getatt_re.match(v)
-            if m:
-                i, a = m.groups()
-                i = int(i)
-                d[k] = GetAtt(known[i], a)
+        d[k] = resolve_references_recursively(known, v)
+
+def resolve_references_string(known, s):
+    m = ref_re.match(s)
+    if m:
+        i = int(m.group(1))
+        return Ref(known[i])
+    m = getatt_re.match(s)
+    if m:
+        i, a = m.groups()
+        i = int(i)
+        return GetAtt(known[i], a)
+    return None
+
+def resolve_references_recursively(known, o):
+    if isinstance(o, (AWSObject, Parameter)):
+        r = Ref(o)
+        return resolve_references_recursively(known, r)
+    if hasattr(o, 'JSONrepr'):
+        return resolve_references_recursively(known, o.JSONrepr())
+    if isinstance(o, dict):
+        resolve_references_dict(known, o)
+        return o
+    if isinstance(o, list):
+        resolve_references_list(known, o)
+        return o
+    if isinstance(o, basestring):
+        resolved = resolve_references_string(known, o)
+        if resolved:
+            return resolve_references_recursively(known, resolved)
+        else:
+            return o
+    return o
 
 def resolve_references_aws_object(known, d):
-    resolve_references_dict(known, d.properties)
+    resolve_references_recursively(known, d.properties)
 
 class Output(AWSDeclaration):
     props = {
