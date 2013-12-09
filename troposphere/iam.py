@@ -32,7 +32,7 @@ class PolicyProps():
         'Groups': ([basestring, Ref], False),
         'PolicyDocument': (policytypes, True),
         'PolicyName': (basestring, True),
-        'Roles': ([basestring, Ref], False),
+        'Roles': (list, False),
         'Users': ([basestring, Ref], False),
     }
 
