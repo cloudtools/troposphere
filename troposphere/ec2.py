@@ -55,6 +55,7 @@ class EIPAssociation(AWSObject):
         'EIP': (basestring, False),
         'InstanceId': (basestring, False),
         'NetworkInterfaceId': (basestring, False),
+        'PrivateIpAddress': (basestring, False),
     }
 
 
@@ -159,18 +160,24 @@ class NetworkAclEntry(AWSObject):
     }
 
 
-class NetworkInterface(AWSObject):
-    type = "AWS::EC2::NetworkInterface"
-
+class NetworkInterfaceProperty(AWSProperty):
     props = {
         'Description': (basestring, False),
         'GroupSet': (list, False),
         'PrivateIpAddress': (basestring, False),
         'SourceDestCheck': (bool, False),
-        'SubnetId': (basestring, True),
+        'SubnetId': (basestring, False), # conditional
         'Tags': (list, False),
+        'SecondaryPrivateIpAddressCount': (int, False),
+        'NetworkInterfaceId': (basestring, False),
+        'DeviceIndex': (basestring, False),
     }
 
+
+class NetworkInterface(AWSObject):
+    props = NetworkInterfaceProperty.props
+
+    type = "AWS::EC2::NetworkInterface"
 
 class Route(AWSObject):
     type = "AWS::EC2::Route"
