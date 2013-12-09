@@ -247,10 +247,10 @@ class Select(AWSHelperFn):
 
 class Ref(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Ref': self.getdata(data)}
+        self.data = data
 
     def JSONrepr(self):
-        return self.data
+        return {'Ref': self.getdata(self.data)}
 
 
 class awsencode(json.JSONEncoder):
