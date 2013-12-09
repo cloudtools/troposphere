@@ -70,15 +70,15 @@ class BaseAWSObject(object):
             # expecting.
             expected_type = self.props[name][0]
 
-            if (expected_type == basestring
-                    and isinstance(value, (AWSObject, Parameter))):
-                return self.properties.__setitem__(name, "_Ref(%s)" % id(value))
-
             # If the value is a AWSHelperFn we can't do much validation
             # we'll have to leave that to Amazon.  Maybe there's another way
             # to deal with this that we'll come up with eventually
             if isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
+
+            # if value is an AWSObject or a Parameter it is meant as new-style Ref
+            if isinstance(value, (AWSObject, Parameter)):
+                return self.properties.__setitem__(name, Ref(value))
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
