@@ -14,7 +14,7 @@ class CacheCluster(AWSObject):
         'AutoMinorVersionUpgrade': (bool, False),
         'CacheNodeType': (basestring, True),
         'CacheParameterGroupName': (basestring, False),
-        'CacheSecurityGroupNames': ([basestring, Ref], True),
+        'CacheSecurityGroupNames': ([basestring, Ref], False),
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
