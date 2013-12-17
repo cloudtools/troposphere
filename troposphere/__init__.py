@@ -9,6 +9,7 @@ import re
 import types
 
 from . import validators
+from .resolver import Resolver
 
 __version__ = "0.3.4"
 
@@ -73,6 +74,10 @@ class BaseAWSObject(object):
             if isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
 
+            # If the value is a BaseAWSObject, we have an implicit Ref()
+            elif isinstance(value, BaseAWSObject):
+                return self.properties.__setitem__(name, Ref(value))
+
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
                 value = expected_type(value)
@@ -118,6 +123,7 @@ class BaseAWSObject(object):
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
+            Resolver().resolve_references(self)
             return self.resource
         else:
             return {'Type': self.type}
