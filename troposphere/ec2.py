@@ -342,7 +342,17 @@ class VPNConnection(AWSObject):
     props = {
         'Type': (basestring, True),
         'CustomerGatewayId': (basestring, True),
+	'StaticRoutesOnly' : (boolean, False),
         'VpnGatewayId': (basestring, True),
+        'Tags': (list, False),
+    }
+
+class VPNConnectionRoute(AWSObject):
+    type = "AWS::EC2::VPNConnectionRoute"
+
+    props = {
+        'DestinationCidrBlock': (basestring, True),
+        'VpnConnectionId': (basestring, True),
     }
 
 
