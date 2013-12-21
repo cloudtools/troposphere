@@ -33,9 +33,10 @@ def do_header(d):
     figure out the Resource imports needed by the template.
     """
     print 'from troposphere import Base64, FindInMap, GetAtt, Join, Output'
-    print 'from troposphere import Parameter, Ref, Template'
+    print 'from troposphere import Parameter, Ref, Tags, Template'
     print 'from troposphere.cloudfront import Distribution, DistributionConfig'
     print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
+    print 'from troposphere.ec2 import PortRange'
 
     # Loop over the resources to find imports
     if 'Resources' in d:
@@ -60,7 +61,7 @@ def do_awstemplateformatversion(d):
 
 def do_description(d):
     """Output the template Description"""
-    print 't.add_description("""\n%s""")' % (d['Description'], )
+    print 't.add_description("""\\\n%s""")' % (d['Description'], )
 
 
 def do_parameters(d):
@@ -97,6 +98,13 @@ def generate_troposphere_object(typename):
         return ('', typename)
 
 
+def output_dict(d):
+    out = []
+    for k,v in d.items():
+        out.append("%s=%s" % (k, output_value(v)))
+    return ", ".join(out)
+
+
 def do_resources(d):
     """Output the template Resources"""
     resources = d['Resources']
@@ -106,7 +114,15 @@ def do_resources(d):
         print '%s = t.add_resource(%s(' % (object_name, tropo_object)
         print '    "%s",' % (k, )
         for pk, pv in v['Properties'].items():
-            if isinstance(pv, basestring):
+            if pk == "Tags":
+                print '    Tags=Tags('
+                for d in pv:
+                    print "        %s=%s," % (
+                        d['Key'], output_value(d['Value']))
+                print '    )'
+            elif pk == 'PortRange':
+                print "    %s=%s(%s)," % (pk, pk, output_dict(pv))
+            elif isinstance(pv, basestring):
                 print '    %s="%s",' % (pk, pv)
             else:
                 print '    %s=%s,' % (pk, output_value(pv))
@@ -153,6 +169,11 @@ def output_value(v):
     """Output a value which may be a string or a set of function calls."""
     if isinstance(v, basestring):
         return '"%s"' % (v,)
+    elif isinstance(v, list):
+        out = []
+        for item in v:
+            out.append(output_value(item))
+        return "[" + ", ".join(out) + "]"
 
     # Should only be one of these...
     for fk, fv in v.items():
