@@ -16,6 +16,7 @@ class CacheCluster(AWSObject):
         'CacheParameterGroupName': (basestring, False),
         'CacheSecurityGroupNames': ([basestring, Ref], False),
         'CacheSubnetGroupName': (basestring, False),
+        'ClusterName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
         'NotificationTopicArn': (basestring, False),

@@ -16,6 +16,7 @@ class DBInstance(AWSObject):
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (basestring, False),
         'DBInstanceClass': (basestring, True),
+        'DBInstanceIdentifier': (basestring, False),
         'DBName': (basestring, False),
         'DBParameterGroupName': (basestring, False),
         'DBSecurityGroups': (list, False),
@@ -31,6 +32,7 @@ class DBInstance(AWSObject):
         'Port': (basestring, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'SourceDBInstanceIdentifier': (basestring, False),
         'Tags': (list, False),
         'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
     }
