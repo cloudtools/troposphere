@@ -365,3 +365,12 @@ class VPNGateway(AWSObject):
         'Type': (basestring, True),
         'Tags': (list, False),
     }
+
+
+class VPNGatewayRoutePropagation(AWSObject):
+    type = "AWS::EC2::VPNGatewayRoutePropagation"
+
+    props = {
+        'RouteTableIds': ([basestring], False),
+        'VpnGatewayId': (basestring, True),
+    }
