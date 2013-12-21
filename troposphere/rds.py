@@ -45,6 +45,7 @@ class DBParameterGroup(AWSObject):
         'Description': (basestring, False),
         'Family': (basestring, False),
         'Parameters': (dict, False),
+        'Tags': (list, False),
     }
 
 
@@ -54,6 +55,7 @@ class DBSubnetGroup(AWSObject):
     props = {
         'DBSubnetGroupDescription': (basestring, True),
         'SubnetIds': (list, True),
+        'Tags': (list, False),
     }
 
 
@@ -73,6 +75,7 @@ class DBSecurityGroup(AWSObject):
         'EC2VpcId': (basestring, False),
         'DBSecurityGroupIngress': (list, True),
         'GroupDescription': (basestring, True),
+        'Tags': (list, False),
     }
 
 
