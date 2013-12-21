@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import boolean, integer, network_port
+from .validators import boolean, integer, integer_range, network_port
 
 
 class Tag(AWSHelperFn):
@@ -19,8 +19,9 @@ class CustomerGateway(AWSObject):
     type = "AWS::EC2::CustomerGateway"
 
     props = {
-        'BgpAsn': (int, True),
+        'BgpAsn': (integer, True),
         'IpAddress': (basestring, True),
+        'Tags': (list, False),
         'Type': (basestring, True),
     }
 
@@ -139,8 +140,8 @@ class ICMP(AWSProperty):
 
 class PortRange(AWSProperty):
     props = {
-        'From': (int, False),
-        'To': (int, False),
+        'From': (network_port, False),
+        'To': (network_port, False),
     }
 
 
@@ -153,9 +154,9 @@ class NetworkAclEntry(AWSObject):
         'Icmp': (ICMP, False),  # Conditional
         'NetworkAclId': (basestring, True),
         'PortRange': (PortRange, True),
-        'Protocol': (int, True),
+        'Protocol': (network_port, True),
         'RuleAction': (basestring, True),
-        'RuleNumber': (int, True),
+        'RuleNumber': (integer_range(1, 32766), True),
     }
 
 
@@ -342,10 +343,11 @@ class VPNConnection(AWSObject):
     props = {
         'Type': (basestring, True),
         'CustomerGatewayId': (basestring, True),
-	'StaticRoutesOnly' : (boolean, False),
-        'VpnGatewayId': (basestring, True),
+        'StaticRoutesOnly': (boolean, False),
         'Tags': (list, False),
+        'VpnGatewayId': (basestring, True),
     }
+
 
 class VPNConnectionRoute(AWSObject):
     type = "AWS::EC2::VPNConnectionRoute"
