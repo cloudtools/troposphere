@@ -1,10 +1,8 @@
 # Converted from VPC_With_VPN_Connection.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import Base64, FindInMap, GetAtt, Join, Output
+from troposphere import Join, Output
 from troposphere import Parameter, Ref, Tags, Template
-from troposphere.cloudfront import Distribution, DistributionConfig
-from troposphere.cloudfront import Origin, DefaultCacheBehavior
 from troposphere.ec2 import PortRange
 from troposphere.ec2 import NetworkAcl
 from troposphere.ec2 import Route
