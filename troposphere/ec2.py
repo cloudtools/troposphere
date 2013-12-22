@@ -86,6 +86,28 @@ class MountPoint(AWSProperty):
     }
 
 
+class PrivateIpAddressSpecification(AWSProperty):
+    props = {
+        'Primary': (bool, True),
+        'PrivateIpAddress': (basestring, True),
+    }
+
+
+class NetworkInterfaceProperty(AWSProperty):
+    props = {
+        'AssociatePublicIpAddress': (bool, False),
+        'DeleteOnTermination': (bool, False),
+        'Description': (basestring, False),
+        'DeviceIndex': (basestring, True),
+        'GroupSet': ([basestring], False),
+        'NetworkInterfaceId': (basestring, False),
+        'PrivateIpAddress': (basestring, False),
+        'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
+        'SecondaryPrivateIpAddressCount': (int, False),
+        'SubnetId': (basestring, False),
+    }
+
+
 class Instance(AWSObject):
     type = "AWS::EC2::Instance"
 
@@ -100,7 +122,7 @@ class Instance(AWSObject):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (boolean, False),
-        'NetworkInterfaces': (list, False),
+        'NetworkInterfaces': ([NetworkInterfaceProperty], False),
         'PlacementGroupName': (basestring, False),
         'PrivateIpAddress': (basestring, False),
         'RamdiskId': (basestring, False),
@@ -161,24 +183,31 @@ class NetworkAclEntry(AWSObject):
     }
 
 
-class NetworkInterfaceProperty(AWSProperty):
+class NetworkInterface(AWSObject):
+    type = "AWS::EC2::NetworkInterface"
+
     props = {
         'Description': (basestring, False),
         'GroupSet': (list, False),
         'PrivateIpAddress': (basestring, False),
-        'SourceDestCheck': (bool, False),
-        'SubnetId': (basestring, False), # conditional
-        'Tags': (list, False),
+        'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (int, False),
-        'NetworkInterfaceId': (basestring, False),
-        'DeviceIndex': (basestring, False),
+        'SourceDestCheck': (bool, False),
+        'SubnetId': (basestring, True),
+        'Tags': (list, False),
     }
 
 
-class NetworkInterface(AWSObject):
-    props = NetworkInterfaceProperty.props
+class NetworkInterfaceAttachment(AWSObject):
+    type = "AWS::EC2::NetworkInterfaceAttachment"
 
-    type = "AWS::EC2::NetworkInterface"
+    props = {
+        'DeleteOnTermination': (bool, False),
+        'DeviceIndex': (basestring, True),
+        'InstanceId': (basestring, True),
+        'NetworkInterfaceId': (basestring, True),
+    }
+
 
 class Route(AWSObject):
     type = "AWS::EC2::Route"
@@ -318,9 +347,9 @@ class VPC(AWSObject):
 
     props = {
         'CidrBlock': (basestring, True),
-        'InstanceTenancy': (basestring, False),
         'EnableDnsSupport': (boolean, False),
         'EnableDnsHostnames': (boolean, False),
+        'InstanceTenancy': (basestring, False),
         'Tags': (list, False),
     }
 
