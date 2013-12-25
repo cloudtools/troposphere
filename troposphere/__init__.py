@@ -9,7 +9,6 @@ import re
 import types
 
 from . import validators
-from .resolver import Resolver
 
 __version__ = "0.3.4"
 
@@ -123,7 +122,7 @@ class BaseAWSObject(object):
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
-            Resolver().resolve_references(self)
+            _resolve_references_recursively(self.properties)
             return self.resource
         else:
             return {'Type': self.type}
@@ -368,3 +367,28 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+
+def _resolve_references_list(L):
+    for i, elem in enumerate(L):
+        L[i] = _resolve_references_recursively(elem)
+
+
+def _resolve_references_dict(d):
+    for k, v in d.iteritems():
+        d[k] = _resolve_references_recursively(v)
+
+
+def _resolve_references_recursively(o):
+    if isinstance(o, (BaseAWSObject, Parameter)):
+        r = Ref(o)
+        return _resolve_references_recursively(r)
+    if hasattr(o, "JSONrepr"):
+        return _resolve_references_recursively(o.JSONrepr())
+    if isinstance(o, dict):
+        _resolve_references_dict(o)
+        return o
+    if isinstance(o, list):
+        _resolve_references_list(o)
+        return o
+    return o
