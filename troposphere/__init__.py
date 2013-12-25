@@ -391,4 +391,8 @@ def _resolve_references_recursively(o):
     if isinstance(o, list):
         _resolve_references_list(o)
         return o
+    if isinstance(o, tuple):
+        L = list(o)
+        _resolve_references_list(L)
+        return tuple(L)
     return o
