@@ -15,6 +15,9 @@ def to_json(t, indent=4, sort_keys=True, separators=(', ', ': ')):
 
 class TestImplicitRef(unittest.TestCase):
 
+    def setUp(self):
+        self.maxDiff = 1000
+
     def assertJsonEquals(self, actual, expected):
         self.assertEqual(unicode(actual.to_json()),
                 unicode(to_json(expected)))
@@ -35,6 +38,32 @@ class TestImplicitRef(unittest.TestCase):
                         'prop1': {
                             'Ref': "P"
                             }
+                        }
+                    }
+                }
+            })
+
+    def test_implicit_ref_in_a_tuple(self):
+        t = Template()
+        r1 = FakeAWSObject('r1')
+        t.add_resource(r1)
+        r2 = FakeAWSObject('r2', listproperty=[1, (2, r1)])
+        t.add_resource(r2)
+        self.assertJsonEquals(t, {
+            'Resources': {
+                'r1': {
+                    'Type': "Fake::AWS::Object",
+                    },
+                'r2': {
+                    'Type': "Fake::AWS::Object",
+                    'Properties': {
+                        'listproperty': [
+                            1,
+                            [
+                                2,
+                                {'Ref': 'r1'}
+                                ]
+                            ]
                         }
                     }
                 }
