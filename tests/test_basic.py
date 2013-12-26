@@ -177,7 +177,7 @@ class TestUpdatePolicy(unittest.TestCase):
         t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
         d = json.loads(json.dumps(t, cls=awsencode))
         with self.assertRaises(KeyError):
-            _ = d['Properties']
+            d['Properties']
 
     def test_updatepolicy_dictname(self):
         t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
@@ -191,7 +191,7 @@ class TestOutput(unittest.TestCase):
         t = Output("MyOutput", Value="myvalue")
         d = json.loads(json.dumps(t, cls=awsencode))
         with self.assertRaises(KeyError):
-            _ = d['Properties']
+            d['Properties']
 
 
 class TestParameter(unittest.TestCase):
@@ -200,7 +200,7 @@ class TestParameter(unittest.TestCase):
         t = Parameter("MyParameter", Type="String")
         d = json.loads(json.dumps(t, cls=awsencode))
         with self.assertRaises(KeyError):
-            _ = d['Properties']
+            d['Properties']
 
 
 class TestProperty(unittest.TestCase):
@@ -214,7 +214,7 @@ class TestProperty(unittest.TestCase):
         )
         d = json.loads(json.dumps(t, cls=awsencode))
         with self.assertRaises(KeyError):
-            _ = d['Properties']
+            d['Properties']
 
 
 class TestDuplicate(unittest.TestCase):

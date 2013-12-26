@@ -1,11 +1,7 @@
 import json
 import unittest
 from troposphere import awsencode, AWSObject, Output, Parameter
-from troposphere import Template, UpdatePolicy, Ref, Join
-from troposphere.ec2 import Instance, SecurityGroupRule
-from troposphere.autoscaling import AutoScalingGroup
-from troposphere.elasticloadbalancing import HealthCheck
-from troposphere.validators import positive_integer
+from troposphere import Template, Join
 
 
 def to_json(t, indent=4, sort_keys=True, separators=(', ', ': ')):
