@@ -73,6 +73,10 @@ class BaseAWSObject(object):
             if isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
 
+            # If the value is a BaseAWSObject, we have an implicit Ref()
+            elif isinstance(value, BaseAWSObject):
+                return self.properties.__setitem__(name, Ref(value))
+
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
                 value = expected_type(value)
@@ -118,6 +122,7 @@ class BaseAWSObject(object):
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
+            _resolve_references_recursively(self.properties)
             return self.resource
         else:
             return {'Type': self.type}
@@ -362,3 +367,32 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+
+def _resolve_references_list(L):
+    for i, elem in enumerate(L):
+        L[i] = _resolve_references_recursively(elem)
+
+
+def _resolve_references_dict(d):
+    for k, v in d.iteritems():
+        d[k] = _resolve_references_recursively(v)
+
+
+def _resolve_references_recursively(o):
+    if isinstance(o, (BaseAWSObject, Parameter)):
+        r = Ref(o)
+        return _resolve_references_recursively(r)
+    if hasattr(o, "JSONrepr"):
+        return _resolve_references_recursively(o.JSONrepr())
+    if isinstance(o, dict):
+        _resolve_references_dict(o)
+        return o
+    if isinstance(o, list):
+        _resolve_references_list(o)
+        return o
+    if isinstance(o, tuple):
+        L = list(o)
+        _resolve_references_list(L)
+        return tuple(L)
+    return o
