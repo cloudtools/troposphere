@@ -1,4 +1,7 @@
 language: python
+install:
+  - pip install pep8
+  - pip install pyflakes
 before_script:
   - pep8 .
   - pyflakes .
