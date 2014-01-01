@@ -20,7 +20,7 @@ def _test_file(filename, expected_output):
         sys.stdout = stdout
         with open(filename) as f:
             code = compile(f.read(), filename, 'exec')
-            exec(code) # in {'__name__': '__main__'}
+            exec(code, {'__name__': '__main__'})
     finally:
         sys.stdout = saved
     # rewind fake stdout so we can read it
