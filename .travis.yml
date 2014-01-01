@@ -1,1 +1,2 @@
-language:  python
+language: python
+script: python setup.py test
