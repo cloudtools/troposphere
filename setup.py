@@ -11,5 +11,6 @@ setup(
     packages=['troposphere'],
     scripts=['scripts/cfn', 'scripts/cfn2py'],
     test_suite="tests",
+    tests_require=["awacs"],
     use_2to3=True,
 )
