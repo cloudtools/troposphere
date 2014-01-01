@@ -9,6 +9,7 @@ import re
 import types
 
 from . import validators
+from .resolver import Resolver
 
 __version__ = "0.3.4"
 
@@ -21,7 +22,7 @@ valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
 class BaseAWSObject(object):
-    def __init__(self, name, **kwargs):
+    def __init__(self, name=None, **kwargs):
         self.name = name
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
@@ -57,6 +58,8 @@ class BaseAWSObject(object):
         try:
             return self.properties.__getitem__(name)
         except KeyError:
+            if hasattr(self, 'ro_attributes') and name in self.ro_attributes:
+                return "_GetAtt(%s,%s)" % (id(self), name)
             raise AttributeError(name)
 
     def __setattr__(self, name, value):
@@ -72,6 +75,10 @@ class BaseAWSObject(object):
             # to deal with this that we'll come up with eventually
             if isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
+
+            # if value is an AWSObject or a Parameter it is meant as new-style Ref
+            if isinstance(value, (AWSObject, Parameter)):
+                return self.properties.__setitem__(name, Ref(value))
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
@@ -109,6 +116,9 @@ class BaseAWSObject(object):
     def validate(self):
         pass
 
+    def __format__(self, format_spec):
+        return "_BaseAWSObject(id={0})".format(id(self))
+
     def JSONrepr(self):
         for k, (prop_type, required) in self.props.items():
             if required and k not in self.properties:
@@ -134,7 +144,7 @@ class AWSDeclaration(BaseAWSObject):
     aws-product-property-reference.html
     """
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name=None, **kwargs):
         super(AWSDeclaration, self).__init__(name, **kwargs)
 
 
@@ -200,10 +210,14 @@ class FindInMap(AWSHelperFn):
 
 class GetAtt(AWSHelperFn):
     def __init__(self, logicalName, attrName):
-        self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
+        self.logicalName = logicalName
+        self.attrName = attrName
 
     def JSONrepr(self):
-        return self.data
+        return {'Fn::GetAtt': [self.getdata(self.logicalName), self.attrName]}
+
+    #def __format__(self, format_spec):
+    #    return "_GetAtt(id={0},attrName={1})".format(id(self.logicalName))
 
 
 class GetAZs(AWSHelperFn):
@@ -240,10 +254,16 @@ class Select(AWSHelperFn):
 
 class Ref(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Ref': self.getdata(data)}
+        self.data = data
 
     def JSONrepr(self):
-        return self.data
+        return {'Ref': self.getdata(self.data)}
+
+    def __format__(self, format_spec):
+        if isinstance(self.data, BaseAWSObject):
+            return '_Ref(id={})'.format(id(self.data))
+        else:
+            return '_Ref(name={})'.format(self.data)
 
 
 class awsencode(json.JSONEncoder):
@@ -283,6 +303,7 @@ class Template(object):
         self.parameters = {}
         self.resources = {}
         self.version = None
+        self._half_baked = False
 
     def add_description(self, description):
         self.description = description
@@ -320,6 +341,17 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
+    def add_half_baked(self, d):
+        for k, v in d.items():
+            if isinstance(v, (AWSDeclaration, AWSObject)): dict.__setattr__(v,'name',k)
+        self.add_parameter([p for p in d.values() if isinstance(p, Parameter)])
+        self.add_resource([r for r in d.values() if isinstance(r, AWSObject)])
+        self.add_output([o for o in d.values() if isinstance(o, Output)])
+        for k, v in d.items():
+            if isinstance(v, Mapping):
+                self.add_mapping(k, v)
+        self._half_baked = True
+
     def to_json(self, indent=4, sort_keys=True, separators=(', ', ': ')):
         t = {}
         if self.description:
@@ -332,6 +364,9 @@ class Template(object):
             t['Parameters'] = self.parameters
         if self.version:
             t['AWSTemplateFormatVersion'] = self.version
+        if self._half_baked:
+            resolver = Resolver(self)
+            resolver.resolve_references()
         t['Resources'] = self.resources
 
         return json.dumps(t, cls=awsencode, indent=indent,
@@ -362,3 +397,6 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+class Mapping(dict):
+    pass
