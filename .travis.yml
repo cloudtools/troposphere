@@ -1,2 +1,6 @@
 language: python
-script: python setup.py test
+before_script:
+  - pep8 .
+  - pyflakes .
+script:
+  - python setup.py test
