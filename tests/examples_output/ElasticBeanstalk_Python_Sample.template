@@ -1,0 +1,76 @@
+{
+    "Description": "AWS CloudFormation Sample Template ElasticBeanstalk_Python_Sample: Configure and launch the AWS Elastic Beanstalk Python sample application. **WARNING** This template creates one or more Amazon EC2 instances. You will be billed for the AWS resources used if you create a stack from this template.", 
+    "Outputs": {
+        "URL": {
+            "Description": "URL of the AWS Elastic Beanstalk Environment", 
+            "Value": {
+                "Fn::Join": [
+                    "", 
+                    [
+                        "http://", 
+                        {
+                            "Fn::GetAtt": [
+                                "sampleEnvironment", 
+                                "EndpointURL"
+                            ]
+                        }
+                    ]
+                ]
+            }
+        }
+    }, 
+    "Parameters": {
+        "KeyName": {
+            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the AWS Elastic Beanstalk instance", 
+            "Type": "String"
+        }
+    }, 
+    "Resources": {
+        "sampleApplication": {
+            "Properties": {
+                "ApplicationVersions": [
+                    {
+                        "Description": "Version 1.0", 
+                        "SourceBundle": {
+                            "S3Bucket": {
+                                "Fn::Join": [
+                                    "-", 
+                                    [
+                                        "elasticbeanstalk-samples", 
+                                        {
+                                            "Ref": "AWS::Region"
+                                        }
+                                    ]
+                                ]
+                            }, 
+                            "S3Key": "python-sample.zip"
+                        }, 
+                        "VersionLabel": "Initial Version"
+                    }
+                ], 
+                "Description": "AWS Elastic Beanstalk Python Sample Application"
+            }, 
+            "Type": "AWS::ElasticBeanstalk::Application"
+        }, 
+        "sampleEnvironment": {
+            "Properties": {
+                "ApplicationName": {
+                    "Ref": "sampleApplication"
+                }, 
+                "Description": "AWS Elastic Beanstalk Environment running Python Sample Application", 
+                "OptionSettings": [
+                    {
+                        "Namespace": "aws:autoscaling:launchconfiguration", 
+                        "OptionName": "EC2KeyName", 
+                        "Value": {
+                            "Ref": "KeyName"
+                        }
+                    }
+                ], 
+                "SolutionStackName": "64bit Amazon Linux running Python", 
+                "VersionLabel": "Initial Version"
+            }, 
+            "Type": "AWS::ElasticBeanstalk::Environment"
+        }
+    }
+}

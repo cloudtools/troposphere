@@ -1,0 +1,88 @@
+{
+    "Description": "AWS CloudFormation Sample Template: This template demonstrates the creation of IAM User/Group.", 
+    "Outputs": {
+        "AccessKey": {
+            "Description": "AWSAccessKeyId of new user", 
+            "Value": {
+                "Ref": "CFNKeys"
+            }
+        }, 
+        "SecretKey": {
+            "Description": "AWSSecretKey of new user", 
+            "Value": {
+                "Fn::GetAtt": [
+                    "CFNKeys", 
+                    "SecretAccessKey"
+                ]
+            }
+        }
+    }, 
+    "Resources": {
+        "Admins": {
+            "Properties": {
+                "GroupName": {
+                    "Ref": "CFNAdminGroup"
+                }, 
+                "Users": {
+                    "Ref": "CFNUser"
+                }
+            }, 
+            "Type": "AWS::IAM::UserToGroupAddition"
+        }, 
+        "CFNAdminGroup": {
+            "Type": "AWS::IAM::Group"
+        }, 
+        "CFNKeys": {
+            "Properties": {
+                "UserName": {
+                    "Ref": "CFNUser"
+                }
+            }, 
+            "Type": "AWS::IAM::AccessKey"
+        }, 
+        "CFNUser": {
+            "Properties": {
+                "LoginProfile": {
+                    "Password": "Password"
+                }
+            }, 
+            "Type": "AWS::IAM::User"
+        }, 
+        "CFNUserGroup": {
+            "Type": "AWS::IAM::Group"
+        }, 
+        "CFNUserPolicies": {
+            "Properties": {
+                "PolicyDocument": {
+                    "Groups": {
+                        "Ref": "CFNAdminGroup"
+                    }, 
+                    "Statement": [
+                        {
+                            "Action": [
+                                "cloudformation:Describe*", 
+                                "cloudformation:List*", 
+                                "cloudformation:Get*"
+                            ], 
+                            "Effect": "Allow", 
+                            "Resource": "*"
+                        }
+                    ]
+                }, 
+                "PolicyName": "CFNUsers"
+            }, 
+            "Type": "AWS::IAM::Policy"
+        }, 
+        "Users": {
+            "Properties": {
+                "GroupName": {
+                    "Ref": "CFNUserGroup"
+                }, 
+                "Users": {
+                    "Ref": "CFNUser"
+                }
+            }, 
+            "Type": "AWS::IAM::UserToGroupAddition"
+        }
+    }
+}
