@@ -1,4 +1,6 @@
 language: python
+install:
+  - pip install pep8 pyflakes --use-mirrors
 before_script:
   - pep8 .
   - pyflakes .
