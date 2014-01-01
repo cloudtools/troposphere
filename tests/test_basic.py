@@ -44,7 +44,7 @@ class FakeAWSObject(AWSObject):
         'callincorrect': (call_incorrect, False),
         'singlelist': (list, False),
         'multilist': ([bool, int, float], False),
-        'multituple': ((basestring, int), False),
+        'multituple': ((bool, int), False),
         'helperfun': (positive_integer, False),
     }
 
@@ -93,7 +93,7 @@ class TestValidators(unittest.TestCase):
             t.to_json()
 
     def test_tuples(self):
-        FakeAWSObject('fake', multituple='a')
+        FakeAWSObject('fake', multituple=True)
         FakeAWSObject('fake', multituple=10)
         with self.assertRaises(TypeError):
             FakeAWSObject('fake', multituple=0.1)
