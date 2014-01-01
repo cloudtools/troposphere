@@ -7,7 +7,7 @@ install:
   - pip install --use-mirrors pep8 pyflakes
 
 before_script:
-  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then 2to3 -n -w --no-diffs awacs; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then 2to3 -n -w --no-diffs troposphere; fi
   - pep8 .
   - pyflakes .
 
