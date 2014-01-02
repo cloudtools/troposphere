@@ -2,7 +2,6 @@ import os
 import re
 import sys
 import unittest
-import types
 from StringIO import StringIO
 
 from functools import partial
@@ -39,7 +38,7 @@ def add_tests():
     for f in example_filesnames:
         testname = 'test_' + f[:-3]
         expected_output = open('tests/examples_output/%s.template' %
-                f[:-3]).read()
+                               f[:-3]).read()
         testfunc = partial(_test_file, examples + '/' + f, expected_output)
         # Get rid of partial() __doc__
         testfunc.__doc__ = None
