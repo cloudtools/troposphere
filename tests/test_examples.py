@@ -2,7 +2,11 @@ import os
 import re
 import sys
 import unittest
-from StringIO import StringIO
+
+try:
+    import StringIO as io
+except ImportError:
+    import io
 
 from functools import partial
 
@@ -14,7 +18,7 @@ class TestExamples(unittest.TestCase):
 def _test_file(filename, expected_output):
     # capture the output
     saved = sys.stdout
-    stdout = StringIO()
+    stdout = io.StringIO()
     try:
         sys.stdout = stdout
         with open(filename) as f:
