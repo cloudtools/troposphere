@@ -17,6 +17,10 @@ except NameError:
 class TestExamples(unittest.TestCase):
     maxDiff = None
 
+    # those are set by create_test_class
+    filename = None
+    expected_output = None
+
     def test_example(self):
         saved = sys.stdout
         stdout = io.StringIO()
@@ -46,7 +50,6 @@ def load_tests(loader, tests, pattern):
 
     suite = unittest.TestSuite()
 
-    # Add new test functions to the TestExamples class
     for f in example_filesnames:
         testname = 'test_' + f[:-3]
         expected_output = open('tests/examples_output/%s.template' %
