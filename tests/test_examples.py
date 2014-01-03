@@ -8,47 +8,55 @@ try:
 except ImportError:
     import io
 
-from functools import partial
+try:
+    u = unicode
+except NameError:
+    u = str
 
 
 class TestExamples(unittest.TestCase):
-    pass
+    maxDiff = None
+
+    def test_example(self):
+        saved = sys.stdout
+        stdout = io.StringIO()
+        try:
+            sys.stdout = stdout
+            with open(self.filename) as f:
+                code = compile(f.read(), self.filename, 'exec')
+                exec(code, {'__name__': '__main__'})
+        finally:
+            sys.stdout = saved
+        # rewind fake stdout so we can read it
+        stdout.seek(0)
+        actual_output = stdout.read()
+        self.assertEqual(u(self.expected_output), u(actual_output))
 
 
-def _test_file(filename, expected_output):
-    # capture the output
-    saved = sys.stdout
-    stdout = io.StringIO()
-    try:
-        sys.stdout = stdout
-        with open(filename) as f:
-            code = compile(f.read(), filename, 'exec')
-            exec(code, {'__name__': '__main__'})
-    finally:
-        sys.stdout = saved
-    # rewind fake stdout so we can read it
-    stdout.seek(0)
-    actual_output = stdout.read()
-    assert expected_output == actual_output
+def create_test_class(testname, **kwargs):
+    klass = type(testname, (TestExamples,), kwargs)
+    return klass
 
 
-def add_tests():
+def load_tests(loader, tests, pattern):
     # Filter out all *.py files from the examples directory
     examples = 'examples'
     regex = re.compile(r'.py$', re.I)
     example_filesnames = filter(regex.search, os.listdir(examples))
+
+    suite = unittest.TestSuite()
 
     # Add new test functions to the TestExamples class
     for f in example_filesnames:
         testname = 'test_' + f[:-3]
         expected_output = open('tests/examples_output/%s.template' %
                                f[:-3]).read()
-        testfunc = partial(_test_file, examples + '/' + f, expected_output)
-        # Get rid of partial() __doc__
-        testfunc.__doc__ = None
-        setattr(TestExamples, testname, testfunc)
+        test_class = create_test_class(testname, filename=examples + '/' + f,
+                                       expected_output=expected_output)
+        tests = loader.loadTestsFromTestCase(test_class)
+        suite.addTests(tests)
 
-add_tests()
+    return suite
 
 if __name__ == '__main__':
     unittest.main()
