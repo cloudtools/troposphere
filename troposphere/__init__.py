@@ -214,6 +214,14 @@ class GetAZs(AWSHelperFn):
         return self.data
 
 
+class If(AWSHelperFn):
+    def __init__(self, cond, true, false):
+        self.data = {'Fn::If': [self.getdata(cond), true, false]}
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Join(AWSHelperFn):
     def __init__(self, delimiter, values):
         self.data = {'Fn::Join': [delimiter, values]}
@@ -278,6 +286,7 @@ class Template(object):
 
     def __init__(self):
         self.description = None
+        self.conditions = {}
         self.mappings = {}
         self.outputs = {}
         self.parameters = {}
@@ -286,6 +295,9 @@ class Template(object):
 
     def add_description(self, description):
         self.description = description
+
+    def add_condition(self, name, condition):
+        self.conditions[name] = condition
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
@@ -324,6 +336,8 @@ class Template(object):
         t = {}
         if self.description:
             t['Description'] = self.description
+        if self.conditions:
+            t['Conditions'] = self.conditions
         if self.mappings:
             t['Mappings'] = self.mappings
         if self.outputs:
