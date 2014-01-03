@@ -17,6 +17,10 @@ except NameError:
 class TestExamples(unittest.TestCase):
     maxDiff = None
 
+    # those are set by create_test_class
+    filename = None
+    expected_output = None
+
     def test_example(self):
         saved = sys.stdout
         stdout = io.StringIO()
