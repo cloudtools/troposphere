@@ -3,41 +3,63 @@ import re
 import sys
 import unittest
 
-from functools import partial
+try:
+    import StringIO as io
+except ImportError:
+    import io
+
+try:
+    u = unicode
+except NameError:
+    u = str
 
 
 class TestExamples(unittest.TestCase):
-    pass
+    maxDiff = None
 
+    # those are set by create_test_class
+    filename = None
+    expected_output = None
 
-def _test_file(filename):
-    # Ignore the output
-    saved = sys.stdout
-    with open('/dev/null', 'w') as stdout:
-        sys.stdout = stdout
+    def test_example(self):
+        saved = sys.stdout
+        stdout = io.StringIO()
         try:
-            with open(filename) as f:
-                code = compile(f.read(), filename, 'exec')
-                exec(code)
+            sys.stdout = stdout
+            with open(self.filename) as f:
+                code = compile(f.read(), self.filename, 'exec')
+                exec(code, {'__name__': '__main__'})
         finally:
             sys.stdout = saved
+        # rewind fake stdout so we can read it
+        stdout.seek(0)
+        actual_output = stdout.read()
+        self.assertEqual(u(self.expected_output), u(actual_output))
 
 
-def add_tests():
+def create_test_class(testname, **kwargs):
+    klass = type(testname, (TestExamples,), kwargs)
+    return klass
+
+
+def load_tests(loader, tests, pattern):
     # Filter out all *.py files from the examples directory
     examples = 'examples'
     regex = re.compile(r'.py$', re.I)
     example_filesnames = filter(regex.search, os.listdir(examples))
 
-    # Add new test functions to the TestExamples class
+    suite = unittest.TestSuite()
+
     for f in example_filesnames:
         testname = 'test_' + f[:-3]
-        testfunc = partial(_test_file, examples + '/' + f)
-        # Get rid of partial() __doc__
-        testfunc.__doc__ = None
-        setattr(TestExamples, testname, testfunc)
+        expected_output = open('tests/examples_output/%s.template' %
+                               f[:-3]).read()
+        test_class = create_test_class(testname, filename=examples + '/' + f,
+                                       expected_output=expected_output)
+        tests = loader.loadTestsFromTestCase(test_class)
+        suite.addTests(tests)
 
-add_tests()
+    return suite
 
 if __name__ == '__main__':
     unittest.main()
