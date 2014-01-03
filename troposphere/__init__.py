@@ -256,7 +256,7 @@ class awsencode(json.JSONEncoder):
 class Tags(AWSHelperFn):
     def __init__(self, **kwargs):
         self.tags = []
-        for k, v in kwargs.iteritems():
+        for k, v in sorted(kwargs.iteritems()):
             self.tags.append({
                 'Key': k,
                 'Value': v,
