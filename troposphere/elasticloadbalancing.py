@@ -16,13 +16,11 @@ class AppCookieStickinessPolicy(AWSProperty):
 
 class HealthCheck(AWSProperty):
     props = {
-        # XXX I don't actually know what the max is on healthy threshold. 20
-        # seems reasonable?
-        'HealthyThreshold': (integer_range(2, 20), True),
+        'HealthyThreshold': (integer_range(2, 10), True),
         'Interval': (positive_integer, True),
         'Target': (basestring, True),
         'Timeout': (positive_integer, True),
-        'UnhealthyThreshold': (positive_integer, True),
+        'UnhealthyThreshold': (integer_range(2, 10), True),
     }
 
 
