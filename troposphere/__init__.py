@@ -21,7 +21,7 @@ valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
 class BaseAWSObject(object):
-    def __init__(self, name, template=None,**kwargs):
+    def __init__(self, name, template=None, **kwargs):
         self.name = name
         self.template = template
         # Cache the keys for validity checks
