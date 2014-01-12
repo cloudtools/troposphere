@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
+from . import AWSObject, Ref
 from .validators import integer
 
 
@@ -14,7 +14,9 @@ class CacheCluster(AWSObject):
         'AutoMinorVersionUpgrade': (bool, False),
         'CacheNodeType': (basestring, True),
         'CacheParameterGroupName': (basestring, False),
-        'CacheSecurityGroupNames': (list, True),
+        'CacheSecurityGroupNames': ([basestring, Ref], False),
+        'CacheSubnetGroupName': (basestring, False),
+        'ClusterName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
         'NotificationTopicArn': (basestring, False),
@@ -22,6 +24,8 @@ class CacheCluster(AWSObject):
         'Port': (int, False),
         'PreferredAvailabilityZone': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'SnapshotArns': ([basestring, Ref], False),
+        'VpcSecurityGroupIds': ([basestring, Ref], False),
     }
 
 
@@ -50,4 +54,13 @@ class SecurityGroupIngress(AWSObject):
         'CacheSecurityGroupName': (basestring, True),
         'EC2SecurityGroupName': (basestring, True),
         'EC2SecurityGroupOwnerId': (basestring, False),
+    }
+
+
+class SubnetGroup(AWSObject):
+    type = "AWS::ElastiCache::SubnetGroup"
+
+    props = {
+        'Description': (basestring, True),
+        'SubnetIds': (list, True),
     }

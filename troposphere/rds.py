@@ -16,6 +16,7 @@ class DBInstance(AWSObject):
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (basestring, False),
         'DBInstanceClass': (basestring, True),
+        'DBInstanceIdentifier': (basestring, False),
         'DBName': (basestring, False),
         'DBParameterGroupName': (basestring, False),
         'DBSecurityGroups': (list, False),
@@ -31,6 +32,7 @@ class DBInstance(AWSObject):
         'Port': (basestring, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'SourceDBInstanceIdentifier': (basestring, False),
         'Tags': (list, False),
         'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
     }
@@ -43,6 +45,7 @@ class DBParameterGroup(AWSObject):
         'Description': (basestring, False),
         'Family': (basestring, False),
         'Parameters': (dict, False),
+        'Tags': (list, False),
     }
 
 
@@ -52,6 +55,7 @@ class DBSubnetGroup(AWSObject):
     props = {
         'DBSubnetGroupDescription': (basestring, True),
         'SubnetIds': (list, True),
+        'Tags': (list, False),
     }
 
 
@@ -71,6 +75,7 @@ class DBSecurityGroup(AWSObject):
         'EC2VpcId': (basestring, False),
         'DBSecurityGroupIngress': (list, True),
         'GroupDescription': (basestring, True),
+        'Tags': (list, False),
     }
 
 

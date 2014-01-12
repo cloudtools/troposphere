@@ -10,7 +10,7 @@ import types
 
 from . import validators
 
-__version__ = "0.3.0"
+__version__ = "0.3.4"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -20,10 +20,8 @@ Snapshot = 'Snapshot'
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
-class AWSObject(object):
-    dictname = 'Properties'
-
-    def __init__(self, name, template=None, **kwargs):
+class BaseAWSObject(object):
+    def __init__(self, name, template=None,**kwargs):
         self.name = name
         self.template = template
         # Cache the keys for validity checks
@@ -37,7 +35,7 @@ class AWSObject(object):
 
         # Create the list of properties set on this object by the user
         self.properties = {}
-        dictname = self.dictname
+        dictname = getattr(self, 'dictname', None)
         if dictname:
             self.resource = {
                 dictname: self.properties,
@@ -118,10 +116,10 @@ class AWSObject(object):
         pass
 
     def JSONrepr(self):
-        for k, v in self.props.items():
-            if v[1] and k not in self.properties:
-                raise ValueError("Resource %s required in type %s" %
-                                 (k, self.type))
+        for k, (prop_type, required) in self.props.items():
+            if required and k not in self.properties:
+                type = getattr(self, 'type', "<unknown type>")
+                raise ValueError("Resource %s required in type %s" % (k, type))
         self.validate()
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
@@ -131,7 +129,22 @@ class AWSObject(object):
             return {'Type': self.type}
 
 
-class AWSProperty(AWSObject):
+class AWSObject(BaseAWSObject):
+    dictname = 'Properties'
+
+
+class AWSDeclaration(BaseAWSObject):
+    """
+    Used for CloudFormation Resource Property objects
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
+    aws-product-property-reference.html
+    """
+
+    def __init__(self, name, **kwargs):
+        super(AWSDeclaration, self).__init__(name, **kwargs)
+
+
+class AWSProperty(BaseAWSObject):
     """
     Used for CloudFormation Resource Property objects
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
@@ -149,7 +162,7 @@ def validate_pausetime(pausetime):
     return pausetime
 
 
-class UpdatePolicy(AWSObject):
+class UpdatePolicy(BaseAWSObject):
     props = {
         'MaxBatchSize': (basestring, False),
         'MinInstancesInService': (basestring, False),
@@ -161,16 +174,16 @@ class UpdatePolicy(AWSObject):
     )
 
     def __init__(self, name, **kwargs):
-        super(UpdatePolicy, self).__init__(name, **kwargs)
-
         if name not in self.valid_update_policies:
             raise ValueError('UpdatePolicy name must be one of %r' % (
                 self.valid_update_policies,))
+        self.dictname = name
+        super(UpdatePolicy, self).__init__(None, **kwargs)
 
 
 class AWSHelperFn(object):
     def getdata(self, data):
-        if isinstance(data, AWSObject):
+        if isinstance(data, BaseAWSObject):
             return data.name
         else:
             return data
@@ -247,7 +260,7 @@ class awsencode(json.JSONEncoder):
         return json.JSONEncoder.default(self, obj)
 
 
-class Tags(object):
+class Tags(AWSHelperFn):
     def __init__(self, **kwargs):
         self.tags = []
         for k, v in kwargs.iteritems():
@@ -281,32 +294,32 @@ class Template(object):
     def add_description(self, description):
         self.description = description
 
-    def add_output(self, output):
-        if isinstance(output, list):
-            for o in output:
-                self.outputs[o.name] = o
+    def handle_duplicate_key(self, key):
+        raise ValueError('duplicate key "%s" detected' % key)
+
+    def _update(self, d, values):
+        if isinstance(values, list):
+            for v in values:
+                if v.name in d:
+                    self.handle_duplicate_key(values.name)
+                d[v.name] = v
         else:
-            self.outputs[output.name] = output
-        return output
+            if values.name in d:
+                self.handle_duplicate_key(values.name)
+            d[values.name] = values
+        return values
+
+    def add_output(self, output):
+        return self._update(self.outputs, output)
 
     def add_mapping(self, name, mapping):
         self.mappings[name] = mapping
 
     def add_parameter(self, parameter):
-        if isinstance(parameter, list):
-            for p in parameter:
-                self.parameters[p.name] = p
-        else:
-            self.parameters[parameter.name] = parameter
-        return parameter
+        return self._update(self.parameters, parameter)
 
     def add_resource(self, resource):
-        if isinstance(resource, list):
-            for r in resource:
-                self.resources[r.name] = r
-        else:
-            self.resources[resource.name] = resource
-        return resource
+        return self._update(self.resources, resource)
 
     def add_version(self, version=None):
         if version:
@@ -314,7 +327,7 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
-    def to_json(self, indent=4, sort_keys=True):
+    def to_json(self, indent=4, sort_keys=True, separators=(', ', ': ')):
         t = {}
         if self.description:
             t['Description'] = self.description
@@ -328,20 +341,21 @@ class Template(object):
             t['AWSTemplateFormatVersion'] = self.version
         t['Resources'] = self.resources
 
-        return json.dumps(t, cls=awsencode, indent=indent, sort_keys=sort_keys)
+        return json.dumps(t, cls=awsencode, indent=indent,
+                          sort_keys=sort_keys, separators=separators)
 
     def JSONrepr(self):
         return [self.parameters, self.mappings, self.resources]
 
 
-class Output(AWSObject):
+class Output(AWSDeclaration):
     props = {
         'Description': (basestring, False),
         'Value': (basestring, True),
     }
 
 
-class Parameter(AWSObject):
+class Parameter(AWSDeclaration):
     props = {
         'Type': (basestring, True),
         'Default': (basestring, False),

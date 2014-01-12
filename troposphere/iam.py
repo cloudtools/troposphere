@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty, Ref
 from .validators import integer
 try:
     from awacs.aws import Policy
@@ -27,22 +27,22 @@ class AccessKey(AWSObject):
     }
 
 
-class BasePolicy(AWSObject):
+class PolicyProps():
     props = {
-        'Groups': (list, False),
+        'Groups': ([basestring, Ref], False),
         'PolicyDocument': (policytypes, True),
         'PolicyName': (basestring, True),
-        'Roles': (list, False),
-        'User': (list, False),
+        'Roles': ([basestring, Ref], False),
+        'Users': ([basestring, Ref], False),
     }
 
 
-class PolicyType(BasePolicy):
+class PolicyType(AWSObject, PolicyProps):
     # This is a top-level resource
     type = "AWS::IAM::Policy"
 
 
-class Policy(BasePolicy):
+class Policy(AWSProperty, PolicyProps):
     # This is for use in a list with Group (below)
     pass
 
@@ -52,7 +52,7 @@ class Group(AWSObject):
 
     props = {
         'Path': (basestring, False),
-        'Policies': (list, False),
+        'Policies': ([Policy], False),
     }
 
 
@@ -71,7 +71,7 @@ class Role(AWSObject):
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
         'Path': (basestring, True),
-        'Policies': (list, False),
+        'Policies': ([Policy], False),
     }
 
 
@@ -88,9 +88,9 @@ class User(AWSObject):
 
     props = {
         'Path': (basestring, False),
-        'Groups': (list, False),
+        'Groups': ([Group], False),
         'LoginProfile': (LoginProfile, False),
-        'Policies': (list, False),
+        'Policies': ([Policy], False),
     }
 
 

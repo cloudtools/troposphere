@@ -14,6 +14,7 @@ class Alarm(AWSObject):
         'ActionsEnabled': (basestring, False),
         'AlarmActions': (list, False),
         'AlarmDescription': (basestring, False),
+        'AlarmName': (basestring, False),
         'ComparisonOperator': (basestring, True),
         'Dimensions': (list, False),
         'EvaluationPeriods': (integer, True),

@@ -1,6 +1,8 @@
+import json
 import unittest
-from troposphere import AWSObject, Template, UpdatePolicy, Ref
-from troposphere.ec2 import Instance
+from troposphere import awsencode, AWSObject, Output, Parameter
+from troposphere import Template, UpdatePolicy, Ref
+from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.autoscaling import AutoScalingGroup
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
@@ -52,7 +54,7 @@ class FakeAWSObject(AWSObject):
         'callincorrect': (call_incorrect, False),
         'singlelist': (list, False),
         'multilist': ([bool, int, float], False),
-        'multituple': ((basestring, int), False),
+        'multituple': ((bool, int), False),
         'helperfun': (positive_integer, False),
     }
 
@@ -101,7 +103,7 @@ class TestValidators(unittest.TestCase):
             t.to_json()
 
     def test_tuples(self):
-        FakeAWSObject('fake', multituple='a')
+        FakeAWSObject('fake', multituple=True)
         FakeAWSObject('fake', multituple=10)
         with self.assertRaises(TypeError):
             FakeAWSObject('fake', multituple=0.1)
@@ -180,6 +182,82 @@ class TestUpdatePolicy(unittest.TestCase):
             )
         )
         self.assertTrue(group.validate())
+
+    def test_updatepolicy_noproperty(self):
+        t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            d['Properties']
+
+    def test_updatepolicy_dictname(self):
+        t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
+        d = json.loads(json.dumps(t, cls=awsencode))
+        self.assertIn('AutoScalingRollingUpdate', d)
+
+
+class TestOutput(unittest.TestCase):
+
+    def test_noproperty(self):
+        t = Output("MyOutput", Value="myvalue")
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            d['Properties']
+
+
+class TestParameter(unittest.TestCase):
+
+    def test_noproperty(self):
+        t = Parameter("MyParameter", Type="String")
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            d['Properties']
+
+
+class TestProperty(unittest.TestCase):
+
+    def test_noproperty(self):
+        t = SecurityGroupRule(
+            IpProtocol="tcp",
+            FromPort="22",
+            ToPort="22",
+            CidrIp="0.0.0.0/0",
+        )
+        d = json.loads(json.dumps(t, cls=awsencode))
+        with self.assertRaises(KeyError):
+            d['Properties']
+
+
+class TestDuplicate(unittest.TestCase):
+
+    def test_output(self):
+        t = Template()
+        o = Output("MyOutput", Value="myvalue")
+        t.add_output(o)
+        with self.assertRaises(ValueError):
+            t.add_output(o)
+
+    def test_parameter(self):
+        t = Template()
+        p = Parameter("MyParameter", Type="String")
+        t.add_parameter(p)
+        with self.assertRaises(ValueError):
+            t.add_parameter(p)
+
+    def test_resource(self):
+        t = Template()
+        r = FakeAWSObject('fake', callcorrect=True)
+        t.add_resource(r)
+        with self.assertRaises(ValueError):
+            t.add_resource(r)
+
+
+class TestRef(unittest.TestCase):
+
+    def test_ref(self):
+        param = Parameter("param", Description="description", Type="String")
+        t = Ref(param)
+        ref = json.loads(json.dumps(t, cls=awsencode))
+        self.assertEqual(ref['Ref'], 'param')
 
 
 if __name__ == '__main__':

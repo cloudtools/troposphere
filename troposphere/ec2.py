@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import boolean, integer, network_port
+from .validators import boolean, integer, integer_range, network_port
 
 
 class Tag(AWSHelperFn):
@@ -19,8 +19,9 @@ class CustomerGateway(AWSObject):
     type = "AWS::EC2::CustomerGateway"
 
     props = {
-        'BgpAsn': (int, True),
+        'BgpAsn': (integer, True),
         'IpAddress': (basestring, True),
+        'Tags': (list, False),
         'Type': (basestring, True),
     }
 
@@ -55,6 +56,7 @@ class EIPAssociation(AWSObject):
         'EIP': (basestring, False),
         'InstanceId': (basestring, False),
         'NetworkInterfaceId': (basestring, False),
+        'PrivateIpAddress': (basestring, False),
     }
 
 
@@ -84,6 +86,28 @@ class MountPoint(AWSProperty):
     }
 
 
+class PrivateIpAddressSpecification(AWSProperty):
+    props = {
+        'Primary': (bool, True),
+        'PrivateIpAddress': (basestring, True),
+    }
+
+
+class NetworkInterfaceProperty(AWSProperty):
+    props = {
+        'AssociatePublicIpAddress': (bool, False),
+        'DeleteOnTermination': (bool, False),
+        'Description': (basestring, False),
+        'DeviceIndex': (basestring, True),
+        'GroupSet': ([basestring], False),
+        'NetworkInterfaceId': (basestring, False),
+        'PrivateIpAddress': (basestring, False),
+        'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
+        'SecondaryPrivateIpAddressCount': (int, False),
+        'SubnetId': (basestring, False),
+    }
+
+
 class Instance(AWSObject):
     type = "AWS::EC2::Instance"
 
@@ -94,11 +118,11 @@ class Instance(AWSObject):
         'EbsOptimized': (bool, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
-        'InstanceType': (basestring, True),
+        'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (boolean, False),
-        'NetworkInterfaces': (list, False),
+        'NetworkInterfaces': ([NetworkInterfaceProperty], False),
         'PlacementGroupName': (basestring, False),
         'PrivateIpAddress': (basestring, False),
         'RamdiskId': (basestring, False),
@@ -139,8 +163,8 @@ class ICMP(AWSProperty):
 
 class PortRange(AWSProperty):
     props = {
-        'From': (int, False),
-        'To': (int, False),
+        'From': (network_port, False),
+        'To': (network_port, False),
     }
 
 
@@ -153,9 +177,9 @@ class NetworkAclEntry(AWSObject):
         'Icmp': (ICMP, False),  # Conditional
         'NetworkAclId': (basestring, True),
         'PortRange': (PortRange, True),
-        'Protocol': (int, True),
+        'Protocol': (network_port, True),
         'RuleAction': (basestring, True),
-        'RuleNumber': (int, True),
+        'RuleNumber': (integer_range(1, 32766), True),
     }
 
 
@@ -166,9 +190,22 @@ class NetworkInterface(AWSObject):
         'Description': (basestring, False),
         'GroupSet': (list, False),
         'PrivateIpAddress': (basestring, False),
+        'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
+        'SecondaryPrivateIpAddressCount': (int, False),
         'SourceDestCheck': (bool, False),
         'SubnetId': (basestring, True),
         'Tags': (list, False),
+    }
+
+
+class NetworkInterfaceAttachment(AWSObject):
+    type = "AWS::EC2::NetworkInterfaceAttachment"
+
+    props = {
+        'DeleteOnTermination': (bool, False),
+        'DeviceIndex': (basestring, True),
+        'InstanceId': (basestring, True),
+        'NetworkInterfaceId': (basestring, True),
     }
 
 
@@ -310,21 +347,20 @@ class VPC(AWSObject):
 
     props = {
         'CidrBlock': (basestring, True),
+        'EnableDnsSupport': (boolean, False),
+        'EnableDnsHostnames': (boolean, False),
         'InstanceTenancy': (basestring, False),
         'Tags': (list, False),
     }
 
 
 class VPCDHCPOptionsAssociation(AWSObject):
+    type = "AWS::EC2::VPCDHCPOptionsAssociation"
+
     props = {
         'DhcpOptionsId': (basestring, True),
         'VpcId': (basestring, True),
     }
-
-    def __init__(self, name, **kwargs):
-        self.type = "AWS::EC2::VPCDHCPOptionsAssociation"
-        sup = super(VPCDHCPOptionsAssociation, self)
-        sup.__init__(name, self.type, "Properties", self.props, **kwargs)
 
 
 class VPCGatewayAttachment(AWSObject):
@@ -343,7 +379,18 @@ class VPNConnection(AWSObject):
     props = {
         'Type': (basestring, True),
         'CustomerGatewayId': (basestring, True),
+        'StaticRoutesOnly': (boolean, False),
+        'Tags': (list, False),
         'VpnGatewayId': (basestring, True),
+    }
+
+
+class VPNConnectionRoute(AWSObject):
+    type = "AWS::EC2::VPNConnectionRoute"
+
+    props = {
+        'DestinationCidrBlock': (basestring, True),
+        'VpnConnectionId': (basestring, True),
     }
 
 
@@ -353,4 +400,13 @@ class VPNGateway(AWSObject):
     props = {
         'Type': (basestring, True),
         'Tags': (list, False),
+    }
+
+
+class VPNGatewayRoutePropagation(AWSObject):
+    type = "AWS::EC2::VPNGatewayRoutePropagation"
+
+    props = {
+        'RouteTableIds': ([basestring], False),
+        'VpnGatewayId': (basestring, True),
     }

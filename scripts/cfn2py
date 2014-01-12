@@ -1,0 +1,229 @@
+#!/usr/bin/env python
+
+
+import argparse
+import json
+import pprint
+
+
+class object_registry(object):
+    """Keep track of objects being created as Parameters or Resources
+    in order to map back to due to use in intrinsic functions like
+    Ref() and GetAtt().
+    """
+    def __init__(self):
+        self.objects = {}
+
+    def add(self, o):
+        new_name = o.replace('-', '_')
+        self.objects[o] = new_name
+        return new_name
+
+    def lookup(self, o):
+        if o in self.objects:
+            return self.objects[o]
+        else:
+            return '"%s"' % o
+
+objects = object_registry()
+
+
+def do_header(d):
+    """Output a stock header for the new Python script and also try to
+    figure out the Resource imports needed by the template.
+    """
+    print 'from troposphere import Base64, FindInMap, GetAtt, Join, Output'
+    print 'from troposphere import Parameter, Ref, Tags, Template'
+    print 'from troposphere.cloudfront import Distribution, DistributionConfig'
+    print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
+    print 'from troposphere.ec2 import PortRange'
+
+    # Loop over the resources to find imports
+    if 'Resources' in d:
+        seen = []
+        resources = d['Resources']
+        for k, v in resources.items():
+            (mod, tropo_object) = generate_troposphere_object(v['Type'])
+            if tropo_object not in seen:
+                seen.append(tropo_object)
+                print 'from troposphere.%s import %s' % (mod, tropo_object,)
+    print
+    print
+    print "t = Template()"
+    print
+
+
+def do_awstemplateformatversion(d):
+    """Output the template version"""
+    print 't.add_version("%s")' % (d['AWSTemplateFormatVersion'], )
+    print
+
+
+def do_description(d):
+    """Output the template Description"""
+    print 't.add_description("""\\\n%s""")' % (d['Description'], )
+
+
+def do_parameters(d):
+    """Output the template Parameters"""
+    params = d['Parameters']
+    for k, v in params.items():
+        object_name = objects.add(k)
+        print '%s = t.add_parameter(Parameter(' % (object_name,)
+        print '    "%s",' % (k, )
+        for pk, pv in v.items():
+            print '    %s="%s",' % (pk, pv)
+        print "))"
+        print
+
+
+def do_mappings(d):
+    """Output the template Mappings"""
+    mappings = d['Mappings']
+    for k, v in mappings.items():
+        print 't.add_mapping("%s",' % (k,)
+        pprint.pprint(v)
+        print ")"
+        print
+
+
+def generate_troposphere_object(typename):
+    """Try to determine the troposphere object to create from the Type
+    specification from the Resource being converted.
+    """
+    t = typename.split(':')
+    if len(t) == 5:
+        return (t[2].lower(), t[4])
+    else:
+        return ('', typename)
+
+
+def output_dict(d):
+    out = []
+    for k,v in d.items():
+        out.append("%s=%s" % (k, output_value(v)))
+    return ", ".join(out)
+
+
+def do_resources(d):
+    """Output the template Resources"""
+    resources = d['Resources']
+    for k, v in resources.items():
+        object_name = objects.add(k)
+        (_, tropo_object) = generate_troposphere_object(v['Type'])
+        print '%s = t.add_resource(%s(' % (object_name, tropo_object)
+        print '    "%s",' % (k, )
+        for pk, pv in v['Properties'].items():
+            if pk == "Tags":
+                print '    Tags=Tags('
+                for d in pv:
+                    print "        %s=%s," % (
+                        d['Key'], output_value(d['Value']))
+                print '    )'
+            elif pk == 'PortRange':
+                print "    %s=%s(%s)," % (pk, pk, output_dict(pv))
+            elif isinstance(pv, basestring):
+                print '    %s="%s",' % (pk, pv)
+            else:
+                print '    %s=%s,' % (pk, output_value(pv))
+        print "))"
+        print
+
+
+def handle_no_objects(name, values):
+    """Handle intrinsic functions which do not have a named resource"""
+    ret = name + "("
+    for i, param in enumerate(values):
+        if i > 0:
+            ret += ", "
+        ret += output_value(param)
+    return ret + ")"
+
+
+def handle_one_object(name, values):
+    """Handle intrinsic functions which have a single named resource"""
+    ret = name + "("
+    for i, param in enumerate(values):
+        if i > 0:
+            ret += ", "
+        # First parameter might be an object name or pseudo parameter
+        if i == 0:
+            ret += objects.lookup(param)
+        else:
+            ret += output_value(param)
+    return ret + ")"
+
+
+function_map = {
+    'Fn::Base64': ("Base64", handle_no_objects),
+    'Fn::FindInMap': ("FindInMap", handle_no_objects),
+    'Fn::GetAtt': ("GetAtt", handle_one_object),
+    'Fn::GetAZs': ("GetAZs", handle_no_objects),
+    'Fn::Join': ("Join", handle_no_objects),
+    'Fn::Select': ("Select", handle_no_objects),
+    'Ref': ("Ref", handle_one_object),
+}
+
+
+def output_value(v):
+    """Output a value which may be a string or a set of function calls."""
+    if isinstance(v, basestring):
+        return '"%s"' % (v,)
+    elif isinstance(v, list):
+        out = []
+        for item in v:
+            out.append(output_value(item))
+        return "[" + ", ".join(out) + "]"
+
+    # Should only be one of these...
+    for fk, fv in v.items():
+        if fk in function_map:
+            (shortname, handler) = function_map[fk]
+            if isinstance(fv, basestring):
+                fv = [fv]
+            return handler(shortname, fv)
+
+
+def do_outputs(d):
+    """Output the template Outputs"""
+    outputs = d['Outputs']
+    for k, v in outputs.items():
+        print '%s = t.add_output(Output(' % (k,)
+        print '    "%s",' % (k, )
+        for pk, pv in v.items():
+            if isinstance(pv, basestring):
+                print '    %s="%s",' % (pk, pv)
+            else:
+                print '    %s=%s,' % (pk, output_value(pv))
+        print "))"
+        print
+
+
+def do_trailer(d):
+    """Output a trailer section for the new Python script."""
+    print 'print(t.to_json())'
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("filename", help="template to convert")
+    args = parser.parse_args()
+
+    d = json.load(open(args.filename))
+
+    do_header(d)
+
+    sections = [
+        'AWSTemplateFormatVersion',
+        'Description',
+        'Parameters',
+        'Mappings',
+        'Resources',
+        'Outputs',
+    ]
+
+    for s in sections:
+        if s in d.keys():
+            globals()["do_" + s.lower()](d)
+
+    do_trailer(d)

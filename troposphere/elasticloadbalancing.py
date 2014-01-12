@@ -60,9 +60,11 @@ class LoadBalancer(AWSObject):
     props = {
         'AppCookieStickinessPolicy': (list, False),
         'AvailabilityZones': (list, False),
+        'CrossZone': (bool, False),
         'HealthCheck': (HealthCheck, False),
         'Instances': (list, False),
         'LBCookieStickinessPolicy': (list, False),
+        'LoadBalancerName': (basestring, False),
         'Listeners': (list, True),
         'Policies': (list, False),
         'Scheme': (basestring, False),
