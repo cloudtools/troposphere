@@ -66,7 +66,7 @@ class BaseAWSObject(object):
 
     def __setattr__(self, name, value):
         if name in self.__dict__.keys() \
-                or '_AWSObject__initialized' not in self.__dict__:
+                or '_BaseAWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
         elif name in self.propnames:
             # Check the type of the object and compare against what we were
