@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import integer_range, positive_integer, network_port
+from .validators import boolean, integer_range, positive_integer, network_port
 
 
 class AppCookieStickinessPolicy(AWSProperty):
@@ -58,7 +58,7 @@ class LoadBalancer(AWSObject):
     props = {
         'AppCookieStickinessPolicy': (list, False),
         'AvailabilityZones': (list, False),
-        'CrossZone': (bool, False),
+        'CrossZone': (boolean, False),
         'HealthCheck': (HealthCheck, False),
         'Instances': (list, False),
         'LBCookieStickinessPolicy': (list, False),

@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty
-from .validators import integer, positive_integer
+from .validators import boolean, integer, positive_integer
 
 
 EC2_INSTANCE_LAUNCH = "autoscaling:EC2_INSTANCE_LAUNCH"
@@ -66,12 +66,12 @@ class LaunchConfiguration(AWSObject):
     type = "AWS::AutoScaling::LaunchConfiguration"
 
     props = {
-        'AssociatePublicIpAddress': (bool, False),
+        'AssociatePublicIpAddress': (boolean, False),
         'BlockDeviceMappings': (list, False),
-        'EbsOptimized': (bool, False),
+        'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
-        'InstanceMonitoring': (bool, False),
+        'InstanceMonitoring': (boolean, False),
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),

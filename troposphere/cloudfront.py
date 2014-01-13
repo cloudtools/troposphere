@@ -4,15 +4,13 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty
-from .validators import integer, network_port
+from .validators import boolean, integer, network_port
 
 
 class ForwardedValues(AWSHelperFn):
     def __init__(self, querystring):
-        if not isinstance(querystring, bool):
-            raise TypeError
         self.data = {
-            'QueryString': querystring,
+            'QueryString': boolean(querystring),
         }
 
     def JSONrepr(self):
@@ -72,7 +70,7 @@ class DistributionConfig(AWSProperty):
         'Comment': (basestring, False),
         'DefaultCacheBehavior': (DefaultCacheBehavior, True),
         'DefaultRootObject': (basestring, False),
-        'Enabled': (bool, True),
+        'Enabled': (boolean, True),
         'Logging': (Logging, False),
         'Origins': (list, True),
     }

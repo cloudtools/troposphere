@@ -12,7 +12,7 @@ class DBInstance(AWSObject):
 
     props = {
         'AllocatedStorage': (basestring, True),
-        'AutoMinorVersionUpgrade': (bool, False),
+        'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (basestring, False),
         'DBInstanceClass': (basestring, True),

@@ -62,7 +62,7 @@ class EIPAssociation(AWSObject):
 
 class EBSBlockDevice(AWSProperty):
     props = {
-        'DeleteOnTermination': (bool, False),
+        'DeleteOnTermination': (boolean, False),
         'Iops': (int, False),  # Conditional
         'SnapshotId': (basestring, False),  # Conditional
         'VolumeSize': (integer, False),  # Conditional
@@ -88,15 +88,15 @@ class MountPoint(AWSProperty):
 
 class PrivateIpAddressSpecification(AWSProperty):
     props = {
-        'Primary': (bool, True),
+        'Primary': (boolean, True),
         'PrivateIpAddress': (basestring, True),
     }
 
 
 class NetworkInterfaceProperty(AWSProperty):
     props = {
-        'AssociatePublicIpAddress': (bool, False),
-        'DeleteOnTermination': (bool, False),
+        'AssociatePublicIpAddress': (boolean, False),
+        'DeleteOnTermination': (boolean, False),
         'Description': (basestring, False),
         'DeviceIndex': (basestring, True),
         'GroupSet': ([basestring], False),
@@ -114,8 +114,8 @@ class Instance(AWSObject):
     props = {
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
-        'DisableApiTermination': (bool, False),
-        'EbsOptimized': (bool, False),
+        'DisableApiTermination': (boolean, False),
+        'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
         'InstanceType': (basestring, False),
@@ -128,7 +128,7 @@ class Instance(AWSObject):
         'RamdiskId': (basestring, False),
         'SecurityGroupIds': (list, False),
         'SecurityGroups': (list, False),
-        'SourceDestCheck': (bool, False),
+        'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, False),
         'Tags': (list, False),
         'Tenancy': (basestring, False),
@@ -192,7 +192,7 @@ class NetworkInterface(AWSObject):
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (int, False),
-        'SourceDestCheck': (bool, False),
+        'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, True),
         'Tags': (list, False),
     }
@@ -202,7 +202,7 @@ class NetworkInterfaceAttachment(AWSObject):
     type = "AWS::EC2::NetworkInterfaceAttachment"
 
     props = {
-        'DeleteOnTermination': (bool, False),
+        'DeleteOnTermination': (boolean, False),
         'DeviceIndex': (basestring, True),
         'InstanceId': (basestring, True),
         'NetworkInterfaceId': (basestring, True),

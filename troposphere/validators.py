@@ -5,12 +5,10 @@
 
 
 def boolean(x):
-    if isinstance(x, bool):
-        return x
-    if x in [1, '1', 'true', 'True']:
-        return True
-    if x in [0, '0', 'false', 'False']:
-        return False
+    if x in [True, 1, '1', 'true', 'True']:
+        return "true"
+    if x in [False, 0, '0', 'false', 'False']:
+        return "false"
     raise ValueError
 
 
