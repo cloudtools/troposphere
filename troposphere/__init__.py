@@ -21,8 +21,9 @@ valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
 class BaseAWSObject(object):
-    def __init__(self, name, **kwargs):
+    def __init__(self, name, template=None, **kwargs):
         self.name = name
+        self.template = template
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy',
@@ -53,6 +54,10 @@ class BaseAWSObject(object):
             else:
                 self.__setattr__(k, v)
 
+        # Bound it to template if we know it
+        if self.template is not None:
+            self.template.add_resource(self)
+
     def __getattr__(self, name):
         try:
             return self.properties.__getitem__(name)
@@ -60,7 +65,8 @@ class BaseAWSObject(object):
             raise AttributeError(name)
 
     def __setattr__(self, name, value):
-        if '_BaseAWSObject__initialized' not in self.__dict__:
+        if name in self.__dict__.keys() \
+                or '_BaseAWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
         elif name in self.propnames:
             # Check the type of the object and compare against what we were
@@ -144,6 +150,7 @@ class AWSProperty(BaseAWSObject):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
     aws-product-property-reference.html
     """
+    dictname = None
 
     def __init__(self, name=None, **kwargs):
         super(AWSProperty, self).__init__(name, **kwargs)
