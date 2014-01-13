@@ -50,7 +50,7 @@
                 "ResourceRecords": [
                     "aws.amazon.com"
                 ], 
-                "TTL": 900, 
+                "TTL": "900", 
                 "Type": "CNAME"
             }, 
             "Type": "AWS::Route53::RecordSet"

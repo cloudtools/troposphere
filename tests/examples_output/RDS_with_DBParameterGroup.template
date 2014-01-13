@@ -5,8 +5,8 @@
             "AllowedPattern": "[a-zA-Z0-9]*", 
             "ConstraintDescription": "must contain only alphanumeric characters.", 
             "Description": "The database admin account password", 
-            "MaxLength": 41, 
-            "MinLength": 1, 
+            "MaxLength": "41", 
+            "MinLength": "1", 
             "NoEcho": true, 
             "Type": "String"
         }, 
@@ -14,8 +14,8 @@
             "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*", 
             "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.", 
             "Description": "The database admin account username", 
-            "MaxLength": 16, 
-            "MinLength": 1, 
+            "MaxLength": "16", 
+            "MinLength": "1", 
             "NoEcho": true, 
             "Type": "String"
         }

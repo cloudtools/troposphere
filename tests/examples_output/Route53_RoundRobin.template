@@ -57,9 +57,9 @@
                                     ]
                                 ]
                             }, 
-                            "TTL": 900, 
+                            "TTL": "900", 
                             "Type": "CNAME", 
-                            "Weight": 3
+                            "Weight": "3"
                         }
                     }, 
                     {
@@ -97,9 +97,9 @@
                                     ]
                                 ]
                             }, 
-                            "TTL": 900, 
+                            "TTL": "900", 
                             "Type": "CNAME", 
-                            "Weight": 1
+                            "Weight": "1"
                         }
                     }
                 ]

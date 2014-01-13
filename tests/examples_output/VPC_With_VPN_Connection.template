@@ -21,8 +21,8 @@
             "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.", 
             "Default": "10.0.0.0/16", 
             "Description": "IP Address range for your existing infrastructure", 
-            "MaxLength": 18, 
-            "MinLength": 9, 
+            "MaxLength": "18", 
+            "MinLength": "9", 
             "Type": "String"
         }, 
         "SubnetCIDR": {
@@ -30,8 +30,8 @@
             "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.", 
             "Default": "10.1.0.0/24", 
             "Description": "IP Address range for the VPN connected Subnet", 
-            "MaxLength": 18, 
-            "MinLength": 9, 
+            "MaxLength": "18", 
+            "MinLength": "9", 
             "Type": "String"
         }, 
         "VPCCIDR": {
@@ -39,23 +39,23 @@
             "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.", 
             "Default": "10.1.0.0/16", 
             "Description": "IP Address range for the VPN connected VPC", 
-            "MaxLength": 18, 
-            "MinLength": 9, 
+            "MaxLength": "18", 
+            "MinLength": "9", 
             "Type": "String"
         }, 
         "VPNAddress": {
             "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})", 
             "ConstraintDescription": "must be a valid IP address of the form x.x.x.x", 
             "Description": "IP Address of your VPN device", 
-            "MaxLength": 15, 
-            "MinLength": 7, 
+            "MaxLength": "15", 
+            "MinLength": "7", 
             "Type": "String"
         }
     }, 
     "Resources": {
         "CustomerGateway": {
             "Properties": {
-                "BgpAsn": 65000, 
+                "BgpAsn": "65000", 
                 "IpAddress": {
                     "Ref": "VPNAddress"
                 }, 
@@ -88,34 +88,34 @@
         "InboundPrivateNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0", 
-                "Egress": false, 
+                "Egress": "false", 
                 "NetworkAclId": {
                     "Ref": "PrivateNetworkAcl"
                 }, 
                 "PortRange": {
-                    "From": 0, 
-                    "To": 65535
+                    "From": "0", 
+                    "To": "65535"
                 }, 
-                "Protocol": 6, 
+                "Protocol": "6", 
                 "RuleAction": "allow", 
-                "RuleNumber": 100
+                "RuleNumber": "100"
             }, 
             "Type": "AWS::EC2::NetworkAclEntry"
         }, 
         "OutBoundPrivateNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0", 
-                "Egress": true, 
+                "Egress": "true", 
                 "NetworkAclId": {
                     "Ref": "PrivateNetworkAcl"
                 }, 
                 "PortRange": {
-                    "From": 0, 
-                    "To": 65535
+                    "From": "0", 
+                    "To": "65535"
                 }, 
-                "Protocol": 6, 
+                "Protocol": "6", 
                 "RuleAction": "allow", 
-                "RuleNumber": 100
+                "RuleNumber": "100"
             }, 
             "Type": "AWS::EC2::NetworkAclEntry"
         }, 
@@ -221,8 +221,8 @@
                 "CidrBlock": {
                     "Ref": "VPCCIDR"
                 }, 
-                "EnableDnsHostnames": true, 
-                "EnableDnsSupport": true, 
+                "EnableDnsHostnames": "true", 
+                "EnableDnsSupport": "true", 
                 "Tags": [
                     {
                         "Key": "Application", 
@@ -243,7 +243,7 @@
                 "CustomerGatewayId": {
                     "Ref": "CustomerGateway"
                 }, 
-                "StaticRoutesOnly": true, 
+                "StaticRoutesOnly": "true", 
                 "Type": "ipsec.1", 
                 "VpnGatewayId": {
                     "Ref": "VPNGateway"

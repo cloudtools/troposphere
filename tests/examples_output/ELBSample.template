@@ -125,8 +125,8 @@
                     "Fn::GetAZs": ""
                 }, 
                 "HealthCheck": {
-                    "HealthyThreshold": 3, 
-                    "Interval": 30, 
+                    "HealthyThreshold": "3", 
+                    "Interval": "30", 
                     "Target": {
                         "Fn::Join": [
                             "", 
@@ -139,8 +139,8 @@
                             ]
                         ]
                     }, 
-                    "Timeout": 5, 
-                    "UnhealthyThreshold": 5
+                    "Timeout": "5", 
+                    "UnhealthyThreshold": "5"
                 }, 
                 "Instances": [
                     {
@@ -155,7 +155,7 @@
                         "InstancePort": {
                             "Ref": "WebServerPort"
                         }, 
-                        "LoadBalancerPort": 80, 
+                        "LoadBalancerPort": "80", 
                         "Protocol": "HTTP"
                     }
                 ]
@@ -168,9 +168,9 @@
                 "SecurityGroupIngress": [
                     {
                         "CidrIp": "0.0.0.0/0", 
-                        "FromPort": 22, 
+                        "FromPort": "22", 
                         "IpProtocol": "tcp", 
-                        "ToPort": 22
+                        "ToPort": "22"
                     }, 
                     {
                         "CidrIp": "0.0.0.0/0", 

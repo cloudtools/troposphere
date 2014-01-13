@@ -37,7 +37,7 @@
                         "TargetOriginId": "Origin 1", 
                         "ViewerProtocolPolicy": "allow-all"
                     }, 
-                    "Enabled": true, 
+                    "Enabled": "true", 
                     "Origins": [
                         {
                             "DomainName": {

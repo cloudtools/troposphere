@@ -34,8 +34,8 @@
             "ConstraintDescription": "must be between 5 and 1024Gb.", 
             "Default": "5", 
             "Description": "The size of the database (Gb)", 
-            "MaxValue": 1024, 
-            "MinValue": 5, 
+            "MaxValue": "1024", 
+            "MinValue": "5", 
             "Type": "Number"
         }, 
         "DBClass": {
@@ -57,16 +57,16 @@
             "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.", 
             "Default": "MyDatabase", 
             "Description": "The database name", 
-            "MaxLength": 64, 
-            "MinLength": 1, 
+            "MaxLength": "64", 
+            "MinLength": "1", 
             "Type": "String"
         }, 
         "DBPassword": {
             "AllowedPattern": "[a-zA-Z0-9]*", 
             "ConstraintDescription": "must contain only alphanumeric characters.", 
             "Description": "The database admin account password", 
-            "MaxLength": 41, 
-            "MinLength": 1, 
+            "MaxLength": "41", 
+            "MinLength": "1", 
             "NoEcho": true, 
             "Type": "String"
         }, 
@@ -74,8 +74,8 @@
             "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*", 
             "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.", 
             "Description": "The database admin account username", 
-            "MaxLength": 16, 
-            "MinLength": 1, 
+            "MaxLength": "16", 
+            "MinLength": "1", 
             "NoEcho": true, 
             "Type": "String"
         }, 

@@ -13,8 +13,8 @@
             "AllowedPattern": "[a-zA-Z0-9]*", 
             "ConstraintDescription": "must contain only alphanumberic characters", 
             "Description": "HashType PrimaryKey Name", 
-            "MaxLength": 2048, 
-            "MinLength": 1, 
+            "MaxLength": "2048", 
+            "MinLength": "1", 
             "Type": "String"
         }, 
         "HaskKeyElementType": {
@@ -22,24 +22,24 @@
             "ConstraintDescription": "must be either S or N", 
             "Default": "S", 
             "Description": "HashType PrimaryKey Type", 
-            "MaxLength": 1, 
-            "MinLength": 1, 
+            "MaxLength": "1", 
+            "MinLength": "1", 
             "Type": "String"
         }, 
         "ReadCapacityUnits": {
             "ConstraintDescription": "should be between 5 and 10000", 
             "Default": "5", 
             "Description": "Provisioned read throughput", 
-            "MaxValue": 10000, 
-            "MinValue": 5, 
+            "MaxValue": "10000", 
+            "MinValue": "5", 
             "Type": "Number"
         }, 
         "WriteCapacityUnits": {
             "ConstraintDescription": "should be between 5 and 10000", 
             "Default": "10", 
             "Description": "Provisioned write throughput", 
-            "MaxValue": 10000, 
-            "MinValue": 5, 
+            "MaxValue": "10000", 
+            "MinValue": "5", 
             "Type": "Number"
         }
     }, 

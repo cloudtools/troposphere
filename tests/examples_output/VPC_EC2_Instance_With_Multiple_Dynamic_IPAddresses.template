@@ -107,16 +107,16 @@
             "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.", 
             "Default": "0.0.0.0/0", 
             "Description": "The IP address range that can be used to SSH to the EC2 instances", 
-            "MaxLength": 18, 
-            "MinLength": 9, 
+            "MaxLength": "18", 
+            "MinLength": "9", 
             "Type": "String"
         }, 
         "SecondaryIPAddressCount": {
             "ConstraintDescription": "must be a number from 1 to 5.", 
             "Default": "1", 
             "Description": "Number of secondary IP addresses to assign to the network interface (1-5)", 
-            "MaxValue": 5, 
-            "MinValue": 1, 
+            "MaxValue": "5", 
+            "MinValue": "1", 
             "Type": "Number"
         }, 
         "SubnetId": {
@@ -197,7 +197,7 @@
                 "SecondaryPrivateIpAddressCount": {
                     "Ref": "SecondaryIPAddressCount"
                 }, 
-                "SourceDestCheck": true, 
+                "SourceDestCheck": "true", 
                 "SubnetId": {
                     "Ref": "SubnetId"
                 }, 
@@ -222,9 +222,9 @@
                         "CidrIp": {
                             "Ref": "SSHLocation"
                         }, 
-                        "FromPort": 22, 
+                        "FromPort": "22", 
                         "IpProtocol": "tcp", 
-                        "ToPort": 22
+                        "ToPort": "22"
                     }
                 ], 
                 "VpcId": {

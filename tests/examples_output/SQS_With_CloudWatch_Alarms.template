@@ -70,7 +70,7 @@
                         }
                     }
                 ], 
-                "EvaluationPeriods": 1, 
+                "EvaluationPeriods": "1", 
                 "InsufficientDataActions": [
                     {
                         "Ref": "AlarmTopic"
@@ -78,9 +78,9 @@
                 ], 
                 "MetricName": "ApproximateNumberOfMessagesVisible", 
                 "Namespace": "AWS/SQS", 
-                "Period": 300, 
+                "Period": "300", 
                 "Statistic": "Sum", 
-                "Threshold": 10
+                "Threshold": "10"
             }, 
             "Type": "AWS::CloudWatch::Alarm"
         }

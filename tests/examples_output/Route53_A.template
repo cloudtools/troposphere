@@ -95,7 +95,7 @@
                         ]
                     }
                 ], 
-                "TTL": 900, 
+                "TTL": "900", 
                 "Type": "A"
             }, 
             "Type": "AWS::Route53::RecordSet"
