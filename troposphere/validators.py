@@ -22,7 +22,7 @@ def integer(x):
 
 def positive_integer(x):
     p = integer(x)
-    if p < 0:
+    if int(p) < 0:
         raise ValueError
     return x
 
