@@ -169,6 +169,8 @@ def output_value(v):
     """Output a value which may be a string or a set of function calls."""
     if isinstance(v, basestring):
         return '"%s"' % (v,)
+    elif isinstance(v, bool):
+        return '"%s"' % (str(v).lower(),)
     elif isinstance(v, list):
         out = []
         for item in v:
