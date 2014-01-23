@@ -18,6 +18,7 @@
 - Check output of examples in test\_examples [GH-40]
 - Add support for conditions and for Fn::If() [GH-41]
 - Tweak ELB ranges to match ec2 console [GH-43]
+- Handle bool values better in cfn2py [GH-45]
 
 ## 0.3.4 (2013-12-05)
 - Adding separators options to print to json function [GH-19]
