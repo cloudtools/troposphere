@@ -297,7 +297,7 @@ class Subnet(AWSObject):
         'AvailabilityZone': (basestring, False),
         'CidrBlock': (basestring, True),
         'Tags': (list, False),
-        'VpcId': (Ref, True),
+        'VpcId': (basestring, True),
     }
 
 
