@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import boolean, integer, integer_range, network_port
 
 
