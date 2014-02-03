@@ -60,7 +60,7 @@ class InstanceProfile(AWSObject):
     type = "AWS::IAM::InstanceProfile"
 
     props = {
-        'Path': (basestring, True),
+        'Path': (basestring, False),
         'Roles': (list, True),
     }
 
