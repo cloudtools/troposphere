@@ -176,7 +176,7 @@ class NetworkAclEntry(AWSObject):
         'Egress': (boolean, True),
         'Icmp': (ICMP, False),  # Conditional
         'NetworkAclId': (basestring, True),
-        'PortRange': (PortRange, True),
+        'PortRange': (PortRange, False),  # Conditional
         'Protocol': (network_port, True),
         'RuleAction': (basestring, True),
         'RuleNumber': (integer_range(1, 32766), True),
