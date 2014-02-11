@@ -99,6 +99,7 @@ Todo:
   - AWS::CloudFormation::Authentication
   - AWS::CloudFormation::CustomResource
   - AWS::CloudFormation::Init
+- Need to implement AWS::AutoScaling::AutoScalingGroup TerminationPolicies
 
 Duplicating a single instance sample would look like this:
 
