@@ -20,6 +20,7 @@
 - Tweak ELB ranges to match ec2 console [GH-43]
 - Handle bool values better in cfn2py [GH-45]
 - Allow strings (as well as Refs) for Subnet VpcId [GH-47]
+- ec2.DHCPOptions NTPservers -> NtpServers [GH-54]
 
 ## 0.3.4 (2013-12-05)
 - Adding separators options to print to json function [GH-19]

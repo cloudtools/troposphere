@@ -34,7 +34,7 @@ class DHCPOptions(AWSObject):
         'DomainNameServers': (list, False),
         'NetbiosNameServers': (list, False),
         'NetbiosNodeType': (int, False),
-        'NTPServers': (list, False),
+        'NtpServers': (list, False),
         'Tags': (list, False),
     }
 
