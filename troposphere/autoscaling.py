@@ -95,6 +95,20 @@ class ScalingPolicy(AWSObject):
     }
 
 
+class ScheduledAction(AWSObject):
+    type = "AWS::AutoScaling::ScheduledAction"
+
+    props = {
+        'AutoScalingGroupName': (basestring, True),
+        'DesiredCapacity': (integer, False),
+        'EndTime': (basestring, True),
+        'MaxSize': (integer, False),
+        'MinSize': (integer, False),
+        'Recurrence': (basestring, True),
+        'StartTime': (basestring, True),
+    }
+
+
 class Trigger(AWSObject):
     type = "AWS::AutoScaling::Trigger"
 
