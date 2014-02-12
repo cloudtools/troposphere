@@ -287,6 +287,7 @@ class SecurityGroup(AWSObject):
         'SecurityGroupEgress': (list, False),
         'SecurityGroupIngress': (list, False),
         'VpcId': (basestring, False),
+        'Tags': (list, False),
     }
 
 
