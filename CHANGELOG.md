@@ -24,6 +24,7 @@
 - ec2.DHCPOptions NTPservers -> NtpServers [GH-54]
 - Add SQS dead letter queue from CloudFormation release 2014-01-29
 - Add AutoScaling ScheduledAction from release 2014-01-27
+- Add Tags for SecurityGroups [GH-55]
 
 ## 0.3.4 (2013-12-05)
 - Adding separators options to print to json function [GH-19]
