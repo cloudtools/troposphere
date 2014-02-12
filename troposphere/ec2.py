@@ -99,7 +99,7 @@ class NetworkInterfaceProperty(AWSProperty):
         'DeleteOnTermination': (boolean, False),
         'Description': (basestring, False),
         'DeviceIndex': (basestring, True),
-        'GroupSet': ([basestring], False),
+        'GroupSet': (list, False),
         'NetworkInterfaceId': (basestring, False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
