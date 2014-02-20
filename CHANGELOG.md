@@ -1,4 +1,4 @@
-## 0.4.0 (unreleased)
+## 0.4.0 (2014-02-19)
 - Allow to extend resource classes by adding custom attributes [GH-16]
 - Add AWS::ElastiCache::SubnetGroup [GH-27]
 - Fix examples/VPC\_EC2\_Instance\_With\_Multiple\_Dynamic\_IPAddresses.py [GH-29]
@@ -25,6 +25,8 @@
 - Add SQS dead letter queue from CloudFormation release 2014-01-29
 - Add AutoScaling ScheduledAction from release 2014-01-27
 - Add Tags for SecurityGroups [GH-55]
+- RecordSets in Route53 not formatted correctly [GH-51]
+- Allow Ref() in NetworkInterfaceProperty GroupSet list [GH-56]
 
 ## 0.3.4 (2013-12-05)
 - Adding separators options to print to json function [GH-19]
