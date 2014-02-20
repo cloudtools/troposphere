@@ -23,84 +23,80 @@
                 }, 
                 "RecordSets": [
                     {
-                        "Properties": {
-                            "Name": {
-                                "Fn::Join": [
-                                    "", 
-                                    [
-                                        {
-                                            "Ref": "AWS::StackName"
-                                        }, 
-                                        ".", 
-                                        {
-                                            "Ref": "AWS::Region"
-                                        }, 
-                                        ".", 
-                                        {
-                                            "Ref": "HostedZone"
-                                        }, 
-                                        "."
-                                    ]
+                        "Name": {
+                            "Fn::Join": [
+                                "", 
+                                [
+                                    {
+                                        "Ref": "AWS::StackName"
+                                    }, 
+                                    ".", 
+                                    {
+                                        "Ref": "AWS::Region"
+                                    }, 
+                                    ".", 
+                                    {
+                                        "Ref": "HostedZone"
+                                    }, 
+                                    "."
                                 ]
-                            }, 
-                            "ResourceRecords": [
-                                "aws.amazon.com"
-                            ], 
-                            "SetIdentifier": {
-                                "Fn::Join": [
-                                    " ", 
-                                    [
-                                        {
-                                            "Ref": "AWS::StackName"
-                                        }, 
-                                        "AWS"
-                                    ]
+                            ]
+                        }, 
+                        "ResourceRecords": [
+                            "aws.amazon.com"
+                        ], 
+                        "SetIdentifier": {
+                            "Fn::Join": [
+                                " ", 
+                                [
+                                    {
+                                        "Ref": "AWS::StackName"
+                                    }, 
+                                    "AWS"
                                 ]
-                            }, 
-                            "TTL": "900", 
-                            "Type": "CNAME", 
-                            "Weight": "3"
-                        }
+                            ]
+                        }, 
+                        "TTL": "900", 
+                        "Type": "CNAME", 
+                        "Weight": "3"
                     }, 
                     {
-                        "Properties": {
-                            "Name": {
-                                "Fn::Join": [
-                                    "", 
-                                    [
-                                        {
-                                            "Ref": "AWS::StackName"
-                                        }, 
-                                        ".", 
-                                        {
-                                            "Ref": "AWS::Region"
-                                        }, 
-                                        ".", 
-                                        {
-                                            "Ref": "HostedZone"
-                                        }, 
-                                        "."
-                                    ]
+                        "Name": {
+                            "Fn::Join": [
+                                "", 
+                                [
+                                    {
+                                        "Ref": "AWS::StackName"
+                                    }, 
+                                    ".", 
+                                    {
+                                        "Ref": "AWS::Region"
+                                    }, 
+                                    ".", 
+                                    {
+                                        "Ref": "HostedZone"
+                                    }, 
+                                    "."
                                 ]
-                            }, 
-                            "ResourceRecords": [
-                                "www.amazon.com"
-                            ], 
-                            "SetIdentifier": {
-                                "Fn::Join": [
-                                    " ", 
-                                    [
-                                        {
-                                            "Ref": "AWS::StackName"
-                                        }, 
-                                        "Amazon"
-                                    ]
+                            ]
+                        }, 
+                        "ResourceRecords": [
+                            "www.amazon.com"
+                        ], 
+                        "SetIdentifier": {
+                            "Fn::Join": [
+                                " ", 
+                                [
+                                    {
+                                        "Ref": "AWS::StackName"
+                                    }, 
+                                    "Amazon"
                                 ]
-                            }, 
-                            "TTL": "900", 
-                            "Type": "CNAME", 
-                            "Weight": "1"
-                        }
+                            ]
+                        }, 
+                        "TTL": "900", 
+                        "Type": "CNAME", 
+                        "Weight": "1"
                     }
                 ]
             }, 
