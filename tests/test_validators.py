@@ -16,8 +16,19 @@ class TestValidators(unittest.TestCase):
                 boolean(x)
 
     def test_integer(self):
-        for x in [-1, "-1", 0, "0", 65535, "65535"]:
-            integer(x)
+        self.assertEqual(integer(-1), -1)
+        self.assertEqual(integer("-1"), "-1")
+        self.assertEqual(integer(0), 0)
+        self.assertEqual(integer("0"), "0")
+        self.assertEqual(integer(65535), 65535)
+        self.assertEqual(integer("65535"), "65535")
+        self.assertEqual(integer(1L), 1L)
+        with self.assertRaises(ValueError):
+            integer("string")
+        with self.assertRaises(ValueError):
+            integer(object)
+        with self.assertRaises(ValueError):
+            integer(None)
 
     def test_positive_integer(self):
         for x in [0, 1, 65535]:
