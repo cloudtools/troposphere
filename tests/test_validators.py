@@ -22,7 +22,7 @@ class TestValidators(unittest.TestCase):
         self.assertEqual(integer("0"), "0")
         self.assertEqual(integer(65535), 65535)
         self.assertEqual(integer("65535"), "65535")
-        self.assertEqual(integer(1L), 1L)
+        self.assertEqual(integer(1.0), 1.0)
         with self.assertRaises(ValueError):
             integer("string")
         with self.assertRaises(ValueError):
