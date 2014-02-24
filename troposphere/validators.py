@@ -13,10 +13,11 @@ def boolean(x):
 
 
 def integer(x):
-    if isinstance(x, int):
-        return x
-    if isinstance(x, basestring):
+    try:
         int(x)
+    except (ValueError, TypeError):
+        raise ValueError("%r is not a valid integer" % x)
+    else:
         return x
 
 
