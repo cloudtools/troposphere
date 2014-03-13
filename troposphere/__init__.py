@@ -21,8 +21,8 @@ valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
 class BaseAWSObject(object):
-    def __init__(self, name, template=None, **kwargs):
-        self.name = name
+    def __init__(self, title, template=None, **kwargs):
+        self.title = title
         self.template = template
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
@@ -30,7 +30,7 @@ class BaseAWSObject(object):
                            'Metadata', 'UpdatePolicy']
 
         # unset/None is also legal
-        if name and not valid_names.match(name):
+        if title and not valid_names.match(title):
             raise ValueError('Name not alphanumeric')
 
         # Create the list of properties set on this object by the user
@@ -58,59 +58,59 @@ class BaseAWSObject(object):
         if self.template is not None:
             self.template.add_resource(self)
 
-    def __getattr__(self, name):
+    def __getattr__(self, title):
         try:
-            return self.properties.__getitem__(name)
+            return self.properties.__getitem__(title)
         except KeyError:
-            raise AttributeError(name)
+            raise AttributeError(title)
 
-    def __setattr__(self, name, value):
-        if name in self.__dict__.keys() \
+    def __setattr__(self, title, value):
+        if title in self.__dict__.keys() \
                 or '_BaseAWSObject__initialized' not in self.__dict__:
-            return dict.__setattr__(self, name, value)
-        elif name in self.propnames:
+            return dict.__setattr__(self, title, value)
+        elif title in self.propnames:
             # Check the type of the object and compare against what we were
             # expecting.
-            expected_type = self.props[name][0]
+            expected_type = self.props[title][0]
 
             # If the value is a AWSHelperFn we can't do much validation
             # we'll have to leave that to Amazon.  Maybe there's another way
             # to deal with this that we'll come up with eventually
             if isinstance(value, AWSHelperFn):
-                return self.properties.__setitem__(name, value)
+                return self.properties.__setitem__(title, value)
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
                 value = expected_type(value)
-                return self.properties.__setitem__(name, value)
+                return self.properties.__setitem__(title, value)
 
             # If it's a list of types, check against those types...
             elif isinstance(expected_type, list):
                 # If we're expecting a list, then make sure it is a list
                 if not isinstance(value, list):
-                    self._raise_type(name, value, expected_type)
+                    self._raise_type(title, value, expected_type)
 
                 # Iterate over the list and make sure it matches our
                 # type checks
                 for v in value:
                     if not isinstance(v, tuple(expected_type)):
-                        self._raise_type(name, v, expected_type)
+                        self._raise_type(title, v, expected_type)
                 # Validated so assign it
-                return self.properties.__setitem__(name, value)
+                return self.properties.__setitem__(title, value)
 
             # Single type so check the type of the object and compare against
             # what we were expecting. Special case AWS helper functions.
             elif isinstance(value, expected_type):
-                return self.properties.__setitem__(name, value)
+                return self.properties.__setitem__(title, value)
             else:
-                self._raise_type(name, value, expected_type)
+                self._raise_type(title, value, expected_type)
 
         raise AttributeError("%s object does not support attribute %s" %
-                            (self.type, name))
+                            (self.type, title))
 
-    def _raise_type(self, name, value, expected_type):
+    def _raise_type(self, title, value, expected_type):
         raise TypeError('%s is %s, expected %s' %
-                        (name, type(value), expected_type))
+                        (title, type(value), expected_type))
 
     def validate(self):
         pass
@@ -140,8 +140,8 @@ class AWSDeclaration(BaseAWSObject):
     aws-product-property-reference.html
     """
 
-    def __init__(self, name, **kwargs):
-        super(AWSDeclaration, self).__init__(name, **kwargs)
+    def __init__(self, title, **kwargs):
+        super(AWSDeclaration, self).__init__(title, **kwargs)
 
 
 class AWSProperty(BaseAWSObject):
@@ -152,8 +152,8 @@ class AWSProperty(BaseAWSObject):
     """
     dictname = None
 
-    def __init__(self, name=None, **kwargs):
-        super(AWSProperty, self).__init__(name, **kwargs)
+    def __init__(self, title=None, **kwargs):
+        super(AWSProperty, self).__init__(title, **kwargs)
 
 
 def validate_pausetime(pausetime):
@@ -173,18 +173,18 @@ class UpdatePolicy(BaseAWSObject):
         'AutoScalingRollingUpdate',
     )
 
-    def __init__(self, name, **kwargs):
-        if name not in self.valid_update_policies:
+    def __init__(self, title, **kwargs):
+        if title not in self.valid_update_policies:
             raise ValueError('UpdatePolicy name must be one of %r' % (
                 self.valid_update_policies,))
-        self.dictname = name
+        self.dictname = title
         super(UpdatePolicy, self).__init__(None, **kwargs)
 
 
 class AWSHelperFn(object):
     def getdata(self, data):
         if isinstance(data, BaseAWSObject):
-            return data.name
+            return data.title
         else:
             return data
 
@@ -303,8 +303,8 @@ class Template(object):
     def add_description(self, description):
         self.description = description
 
-    def add_condition(self, name, condition):
-        self.conditions[name] = condition
+    def add_condition(self, title, condition):
+        self.conditions[title] = condition
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
@@ -312,20 +312,20 @@ class Template(object):
     def _update(self, d, values):
         if isinstance(values, list):
             for v in values:
-                if v.name in d:
-                    self.handle_duplicate_key(values.name)
-                d[v.name] = v
+                if v.title in d:
+                    self.handle_duplicate_key(values.title)
+                d[v.title] = v
         else:
-            if values.name in d:
-                self.handle_duplicate_key(values.name)
-            d[values.name] = values
+            if values.title in d:
+                self.handle_duplicate_key(values.title)
+            d[values.title] = values
         return values
 
     def add_output(self, output):
         return self._update(self.outputs, output)
 
-    def add_mapping(self, name, mapping):
-        self.mappings[name] = mapping
+    def add_mapping(self, title, mapping):
+        self.mappings[title] = mapping
 
     def add_parameter(self, parameter):
         return self._update(self.parameters, parameter)
