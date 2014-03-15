@@ -1,3 +1,7 @@
+## Next release
+- Add openstack native types [GH-61]
+- Make `integer()` validator work with any integer-like object [GH-57]
+
 ## 0.4.0 (2014-02-19)
 - Allow to extend resource classes by adding custom attributes [GH-16]
 - Add AWS::ElastiCache::SubnetGroup [GH-27]
