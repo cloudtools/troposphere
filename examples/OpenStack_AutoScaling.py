@@ -6,7 +6,8 @@
 #   http://docs.openstack.org/developer/heat/template_guide/cfn.html
 
 from troposphere import Base64, GetAZs, Join, Ref, Template
-from troposphere import autoscaling, heat, neutron
+from troposphere import autoscaling
+from troposphere.openstack import heat, neutron
 
 
 template = Template()

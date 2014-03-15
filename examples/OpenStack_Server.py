@@ -3,7 +3,7 @@
 
 from troposphere import Base64, Join
 from troposphere import Parameter, Ref, Template
-from troposphere import neutron, nova
+from troposphere.openstack import neutron, nova
 
 
 template = Template()

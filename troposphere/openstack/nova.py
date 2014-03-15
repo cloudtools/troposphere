@@ -5,8 +5,8 @@
 # See LICENSE file for full license.
 
 
-from . import AWSObject, AWSProperty
-from .validators import boolean, integer, network_port
+from troposphere import AWSObject, AWSProperty
+from troposphere.validators import boolean, integer, network_port
 
 
 class BlockDeviceMapping(AWSProperty):

@@ -4,8 +4,8 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
-from .validators import integer
+from troposphere import AWSObject
+from troposphere.validators import integer
 
 
 # Due to the strange nature of the OpenStack compatability layer, some values

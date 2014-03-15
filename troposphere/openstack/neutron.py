@@ -5,9 +5,9 @@
 # See LICENSE file for full license.
 
 
-from . import AWSObject, AWSProperty
-from .validators import boolean, integer, integer_range, positive_integer
-from .validators import network_port
+from troposphere import AWSObject, AWSProperty
+from troposphere.validators import boolean, integer, integer_range
+from troposphere.validators import network_port, positive_integer
 
 
 class Firewall(AWSObject):
