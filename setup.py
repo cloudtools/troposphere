@@ -8,7 +8,7 @@ setup(
     author_email="mark@peek.org",
     url="https://github.com/cloudtools/troposphere",
     license="New BSD license",
-    packages=['troposphere'],
+    packages=['troposphere', 'troposphere.openstack'],
     scripts=['scripts/cfn', 'scripts/cfn2py'],
     test_suite="tests",
     tests_require=["awacs"],
