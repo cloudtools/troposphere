@@ -124,6 +124,10 @@
                 "AvailabilityZones": {
                     "Fn::GetAZs": ""
                 }, 
+                "ConnectionDrainingPolicy": {
+                    "Enabled": true, 
+                    "Timeout": 300
+                }, 
                 "HealthCheck": {
                     "HealthyThreshold": "3", 
                     "Interval": "30", 

@@ -52,12 +52,20 @@ class Policy(AWSProperty):
     }
 
 
+class ConnectionDrainingPolicy(AWSProperty):
+    props = {
+        'Enabled': (bool, True),
+        'Timeout': (int, False)
+    }
+
+
 class LoadBalancer(AWSObject):
     type = "AWS::ElasticLoadBalancing::LoadBalancer"
 
     props = {
         'AppCookieStickinessPolicy': (list, False),
         'AvailabilityZones': (list, False),
+        'ConnectionDrainingPolicy': (ConnectionDrainingPolicy, False),
         'CrossZone': (boolean, False),
         'HealthCheck': (HealthCheck, False),
         'Instances': (list, False),
