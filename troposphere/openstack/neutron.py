@@ -33,17 +33,93 @@ class FirewallPolicy(AWSObject):
     }
 
 
+class FirewallRule(AWSObject):
+    type = "OS::Neutron::FirewallRule"
+
+    props = {
+        'action': (basestring, False),
+        'description': (basestring, False),
+        'destination_ip_address': (basestring, False),
+        'destination_port': (network_port, False),
+        'enabled': (boolean, False),
+        'ip_version': (basestring, False),
+        'name': (basestring, False),
+        'protocol': (basestring, False),
+        'shared': (boolean, False),
+        'source_ip_address': (basestring, False),
+        'source_port': (network_port, False),
+    }
+
+    def validate(self):
+        if 'action' in self.resource:
+            action = self.resource['action']
+            if action not in ['allow', 'deny']:
+                raise ValueError(
+                    "The action attribute must be "
+                    "either allow or deny")
+
+        if 'ip_version' in self.resource:
+            ip_version = self.resource['ip_version']
+            if ip_version not in ['4', '6']:
+                raise ValueError(
+                    "The ip_version attribute must be "
+                    "either 4 or 6")
+
+        if 'protocol' in self.resource:
+            protocol = self.resource['protocol']
+            if protocol not in ['tcp', 'udp', 'icmp', None]:
+                raise ValueError(
+                    "The protocol attribute must be "
+                    "either tcp, udp, icmp or None")
+
+        return True
+
+
+class FloatingIP(AWSObject):
+    type = "OS::Neutron::FloatingIP"
+
+    props = {
+        'fixed_ip_address': (basestring, False),
+        'floating_network_id': (basestring, True),
+        'port_id': (basestring, False),
+        'value_specs': (dict, False),
+    }
+
+
+class FloatingIPAssociation(AWSObject):
+    type = "OS::Neutron::FloatingIPAssociation"
+
+    props = {
+        'fixed_ip_address': (basestring, False),
+        'floatingip_id': (basestring, True),
+        'port_id': (basestring, False),
+    }
+
+
 class HealthMonitor(AWSObject):
     type = "OS::Neutron::HealthMonitor"
 
     props = {
+        'admin_state_up': (boolean, False),
+        'delay': (positive_integer, True),
+        'expected_codes': (basestring, False),
+        'http_method': (basestring, False),
+        'max_retries': (integer, True),
+        'timeout': (integer, True),
         'type': (basestring, True),
         'url_path': (basestring, False),
-        'delay': (positive_integer, True),
-        'max_retries': (positive_integer, True),
-        'timeout': (positive_integer, True),
-        'expected_codes': (basestring, False),
     }
+
+    def validate(self):
+
+        if 'type' in self.resource:
+            mon_type = self.resource['type']
+            if mon_type not in ['PING', 'TCP', 'HTTP', 'HTTPS']:
+                raise ValueError(
+                    "The type attribute must be "
+                    "either PING, TCP, HTTP or HTTPS")
+
+        return True
 
 
 class SessionPersistence(AWSProperty):
@@ -115,6 +191,28 @@ class Pool(AWSObject):
         return True
 
 
+class LoadBalancer(AWSObject):
+    type = "OS::Neutron::LoadBalancer"
+
+    props = {
+        'members': (list, False),
+        'pool_id': (Pool, True),
+        'protocol_port': (network_port, True),
+    }
+
+
+class Net(AWSObject):
+    type = "OS::Neutron::Net"
+
+    props = {
+        'admin_state_up': (boolean, False),
+        'name': (basestring, False),
+        'shared': (boolean, False),
+        'tenant_id': (basestring, False),
+        'value_specs': (dict, False),
+    }
+
+
 class PoolMember(AWSObject):
     type = "OS::Neutron::PoolMember"
 
@@ -124,16 +222,6 @@ class PoolMember(AWSObject):
         'pool_id': (Pool, True),
         'protocol_port': (network_port, True),
         'weight': (integer_range(0, 256), False),
-    }
-
-
-class LoadBalancer(AWSObject):
-    type = "OS::Neutron::LoadBalancer"
-
-    props = {
-        'members': (list, False),
-        'pool_id': (Pool, True),
-        'protocol_port': (network_port, True),
     }
 
 
@@ -165,6 +253,16 @@ class Port(AWSObject):
         'network_id': (basestring, True),
         'security_groups': (list, False),
         'value_specs': (dict, False),
+    }
+
+
+class SecurityGroup(AWSObject):
+    type = "OS::Neutron::SecurityGroup"
+
+    props = {
+        'description': (basestring, True),
+        'name': (basestring, False),
+        'rules': (list, False),
     }
 
 
@@ -210,13 +308,3 @@ class SecurityGroupRule(AWSProperty):
                     "either remote_ip_prefix or remote_group_id")
 
         return True
-
-
-class SecurityGroup(AWSObject):
-    type = "OS::Neutron::SecurityGroup"
-
-    props = {
-        'description': (basestring, True),
-        'name': (basestring, False),
-        'rules': (list, False),
-    }

@@ -1,9 +1,11 @@
 troposphere - library to create [AWS CloudFormation][] descriptions
 
 The troposphere library allows for easier creation of the AWS CloudFormation
-JSON by writing Python code to describe the AWS resources. To facilitate
-catching CloudFormation or JSON errors early the library has property and type
-checking built into the classes.
+JSON by writing Python code to describe the AWS resources. Troposphere also
+includes some basic support for [OpenStack resources][] via heat.
+
+To facilitate catching CloudFormation or JSON errors early the library has
+property and type checking built into the classes.
 
 A simple example to create an instance would look like this:
 ```
@@ -93,6 +95,24 @@ Currently supported AWS resource types:
 - AWS::SNS
 - AWS::SQS
 
+Currently supported OpenStack resource types:
+- OS::Neutron::Firewall
+- OS::Neutron::FirewallPolicy
+- OS::Neutron::FirewallRule
+- OS::Neutron::FloatingIP
+- OS::Neutron::FloatingIPAssociation
+- OS::Neutron::HealthMonitor
+- OS::Neutron::Pool
+- OS::Neutron::LoadBalancer
+- OS::Neutron::Net
+- OS::Neutron::PoolMember
+- OS::Neutron::Port
+- OS::Neutron::SecurityGroup
+- OS::Nova::FloatingIP
+- OS::Nova::FloatingIPAssociation
+- OS::Nova::KeyPair
+- OS::Nova::Server
+
 Todo:
 - Add additional validity checks
 - Add missing AWS resource types:
@@ -177,3 +197,4 @@ print(template.to_json())
 ```
 
 [AWS CloudFormation]: http://aws.amazon.com/cloudformation
+[OpenStack resources]: http://docs.openstack.org/developer/heat/template_guide/openstack.html

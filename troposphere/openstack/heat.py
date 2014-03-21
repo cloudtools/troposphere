@@ -12,7 +12,7 @@ from troposphere.validators import integer
 # that should be integers fail to validate and need to be represented as
 # strings. For this reason, we duplicate the AWS::AutoScaling::AutoScalingGroup
 # and change these types.
-class AutoScalingGroup(AWSObject):
+class AWSAutoScalingGroup(AWSObject):
     type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {

@@ -97,7 +97,7 @@ launch_config = template.add_resource(autoscaling.LaunchConfiguration(
 # It's not a native heat type, but it's a clone of the AWS type with fixes to
 # work correctly on OpenStack.
 # VPCZoneIdentifier here is our OpenStack subnet ID.
-autoscaling_group = template.add_resource(heat.AutoScalingGroup(
+autoscaling_group = template.add_resource(heat.AWSAutoScalingGroup(
     "MyAutoScalingGroup",
     LaunchConfigurationName=Ref(launch_config),
     MinSize="1",
