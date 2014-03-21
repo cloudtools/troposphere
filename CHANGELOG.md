@@ -1,6 +1,8 @@
-## Next release
-- Add openstack native types [GH-61]
+## 0.5.0 (2014-03-21)
+- Add OpenStack native types [GH-61]
 - Make `integer()` validator work with any integer-like object [GH-57]
+- Add support to ELB ConnectionDrainingPolicy [GH-62]
+- Add more OpenStack resource types and validation [GH-63]
 
 ## 0.4.0 (2014-02-19)
 - Allow to extend resource classes by adding custom attributes [GH-16]
