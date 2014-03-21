@@ -84,6 +84,10 @@ def main():
     elasticLB = template.add_resource(elb.LoadBalancer(
         'ElasticLoadBalancer',
         AvailabilityZones=GetAZs(""),
+        ConnectionDrainingPolicy=elb.ConnectionDrainingPolicy(
+            Enabled=True,
+            Timeout=300,
+        ),
         Instances=[Ref(r) for r in web_instances],
         Listeners=[
             elb.Listener(
