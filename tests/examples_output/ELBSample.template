@@ -128,6 +128,7 @@
                     "Enabled": true, 
                     "Timeout": 300
                 }, 
+                "CrossZone": "true",
                 "HealthCheck": {
                     "HealthyThreshold": "3", 
                     "Interval": "30", 

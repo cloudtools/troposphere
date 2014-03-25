@@ -88,6 +88,7 @@ def main():
             Enabled=True,
             Timeout=300,
         ),
+        CrossZone=True,
         Instances=[Ref(r) for r in web_instances],
         Listeners=[
             elb.Listener(
