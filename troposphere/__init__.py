@@ -27,7 +27,8 @@ class BaseAWSObject(object):
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy',
-                           'Metadata', 'UpdatePolicy']
+                           'Metadata', 'UpdatePolicy',
+                           'Condition']
 
         # unset/None is also legal
         if title and not valid_names.match(title):
@@ -224,6 +225,14 @@ class GetAZs(AWSHelperFn):
 class If(AWSHelperFn):
     def __init__(self, cond, true, false):
         self.data = {'Fn::If': [self.getdata(cond), true, false]}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class Equals(AWSHelperFn):
+    def __init__(self, value_one, value_two):
+        self.data = {'Fn::Equals': [value_one, value_two]}
 
     def JSONrepr(self):
         return self.data
