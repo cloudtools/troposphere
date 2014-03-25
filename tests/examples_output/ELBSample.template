@@ -121,6 +121,12 @@
         }, 
         "ElasticLoadBalancer": {
             "Properties": {
+                "AccessLoggingPolicy": {
+                    "EmitInterval": 5, 
+                    "Enabled": true, 
+                    "S3BucketName": "logging", 
+                    "S3BucketPrefix": "myELB"
+                }, 
                 "AvailabilityZones": {
                     "Fn::GetAZs": ""
                 }, 
@@ -128,7 +134,7 @@
                     "Enabled": true, 
                     "Timeout": 300
                 }, 
-                "CrossZone": "true",
+                "CrossZone": "true", 
                 "HealthCheck": {
                     "HealthyThreshold": "3", 
                     "Interval": "30", 
