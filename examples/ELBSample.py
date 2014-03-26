@@ -83,11 +83,18 @@ def main():
 
     elasticLB = template.add_resource(elb.LoadBalancer(
         'ElasticLoadBalancer',
+        AccessLoggingPolicy=elb.AccessLoggingPolicy(
+            EmitInterval=5,
+            Enabled=True,
+            S3BucketName="logging",
+            S3BucketPrefix="myELB",
+        ),
         AvailabilityZones=GetAZs(""),
         ConnectionDrainingPolicy=elb.ConnectionDrainingPolicy(
             Enabled=True,
             Timeout=300,
         ),
+        CrossZone=True,
         Instances=[Ref(r) for r in web_instances],
         Listeners=[
             elb.Listener(

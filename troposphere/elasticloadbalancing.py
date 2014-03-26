@@ -59,10 +59,20 @@ class ConnectionDrainingPolicy(AWSProperty):
     }
 
 
+class AccessLoggingPolicy(AWSProperty):
+    props = {
+        'EmitInterval': (int, False),
+        'Enabled': (bool, True),
+        'S3BucketName': (basestring, False),
+        'S3BucketPrefix': (basestring, False),
+    }
+
+
 class LoadBalancer(AWSObject):
     type = "AWS::ElasticLoadBalancing::LoadBalancer"
 
     props = {
+        'AccessLoggingPolicy': (AccessLoggingPolicy, False),
         'AppCookieStickinessPolicy': (list, False),
         'AvailabilityZones': (list, False),
         'ConnectionDrainingPolicy': (ConnectionDrainingPolicy, False),
