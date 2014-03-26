@@ -101,7 +101,7 @@
                     "Ref": "DBName"
                 }, 
                 "DBSubnetGroupName": {
-                    "Ref": "myVPCSecurityGroup"
+                    "Ref": "MyDBSubnetGroup"
                 }, 
                 "Engine": "MySQL", 
                 "EngineVersion": "5.5", 
