@@ -107,7 +107,7 @@ mydb = t.add_resource(DBInstance(
     EngineVersion="5.5",
     MasterUsername=Ref(dbuser),
     MasterUserPassword=Ref(dbpassword),
-    DBSubnetGroupName=Ref(myvpcsecuritygroup),
+    DBSubnetGroupName=Ref(mydbsubnetgroup),
     VPCSecurityGroups=[Ref(myvpcsecuritygroup)],
 ))
 
