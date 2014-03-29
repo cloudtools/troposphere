@@ -167,6 +167,10 @@ def do_resources_content(k, v):
     else:
         do_output_function(k, k, v)
 
+top_level_aliases = {
+    "RecordSet": "RecordSetType",
+    "Policy":    "PolicyType",
+}
 
 def do_resources(d):
     """Output the template Resources"""
@@ -174,6 +178,8 @@ def do_resources(d):
     for k, v in resources.items():
         object_name = objects.add(k)
         (_, tropo_object) = generate_troposphere_object(v['Type'])
+        if(top_level_aliases.has_key(tropo_object)):
+            tropo_object = top_level_aliases[tropo_object]
         print '%s = t.add_resource(%s(' % (object_name, tropo_object)
         print '    "%s",' % (k, )
         if v.has_key('Properties'):
