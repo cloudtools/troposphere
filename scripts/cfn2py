@@ -120,7 +120,7 @@ def do_resources(d):
                     for d in pv:
                         print "        %s=%s," % (
                             d['Key'], output_value(d['Value']))
-                    print '    )'
+                    print '    ),'
                 elif pk == 'PortRange':
                     print "    %s=%s(%s)," % (pk, pk, output_dict(pv))
                 elif isinstance(pv, basestring):
