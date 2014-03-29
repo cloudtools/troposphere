@@ -72,7 +72,7 @@ def do_parameters(d):
         print '%s = t.add_parameter(Parameter(' % (object_name,)
         print '    "%s",' % (k, )
         for pk, pv in v.items():
-            print '    %s="%s",' % (pk, pv)
+            print '    %s=%s,' % (pk, output_value(pv))
         print "))"
         print
 
