@@ -27,6 +27,23 @@ class object_registry(object):
 
 objects = object_registry()
 
+object_functions = {
+    "Table":        [ "ProvisionedThroughput", "PrimaryKey", "Element" ],
+    "LoadBalancer": [ "HealthCheck" ],
+    "Queue":        [ "RedrivePolicy" ],
+    "Bucket":       [ "WebsiteConfiguration" ],
+    "User":         [ "LoginProfile" ],
+    "Topic":        [ "Subscription" ],
+    "Instance":     [ "NetworkInterfaceProperty" ],
+    "RecordSet":    [ "RecordSetType" ],
+    "Policy":       [ "PolicyType" ],
+}
+
+def additional_imports(o):
+    if object_functions.has_key(o):
+        return ", ".join([o] + object_functions[o])
+    else:
+        return o
 
 def do_header(d):
     """Output a stock header for the new Python script and also try to
@@ -46,7 +63,7 @@ def do_header(d):
             (mod, tropo_object) = generate_troposphere_object(v['Type'])
             if tropo_object not in seen:
                 seen.append(tropo_object)
-                print 'from troposphere.%s import %s' % (mod, tropo_object,)
+                print 'from troposphere.%s import %s' % (mod, additional_imports(tropo_object))
     print
     print
     print "t = Template()"
