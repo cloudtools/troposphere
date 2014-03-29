@@ -254,6 +254,8 @@ def output_value(v):
         return '"%s"' % (v.replace('\\', '\\\\').replace('\n', '\\n').replace("\"", "\\\""))
     elif isinstance(v, bool):
         return '%s' % (str(v))
+    elif isinstance(v, int):
+        return '%d' % (v)
     elif isinstance(v, list):
         return "[" + ", ".join(map(output_value, v)) + "]"
 
