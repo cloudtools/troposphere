@@ -169,6 +169,7 @@ def output_value(v):
     elif isinstance(v, list):
         return "[" + ", ".join(map(output_value, v)) + "]"
 
+    out = []
     # Should only be one of these...
     for fk, fv in v.items():
         if fk in function_map:
@@ -176,6 +177,9 @@ def output_value(v):
             if not isinstance(fv, list):
                 fv = [fv]
             return handler(shortname, fv)
+        else:
+            out.append( '"' + fk + '": ' + output_value(fv))
+    return "{ " + ", ".join(out) + " }"
 
 
 def do_outputs(d):
