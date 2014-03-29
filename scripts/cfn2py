@@ -23,7 +23,7 @@ class object_registry(object):
         if o in self.objects:
             return self.objects[o]
         else:
-            return '"%s"' % o
+            return output_value(o)
 
 objects = object_registry()
 
