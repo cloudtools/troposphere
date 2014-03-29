@@ -104,6 +104,69 @@ def output_dict(d):
         out.append("%s=%s" % (k, output_value(v)))
     return ", ".join(out)
 
+known_functions = {
+    "DistributionConfig":       1,
+    "DefaultCacheBehavior":     1,
+    "ProvisionedThroughput":    1,
+    "NetworkInterfaces":        1,
+    "WebsiteConfiguration":     1,
+    "RedrivePolicy":            1,
+    "Subscription":             1,
+    "KeySchema":                1,
+    "HashKeyElement":           1,
+    "HealthCheck":              1,
+    "LoginProfile":             1,
+}
+
+function_quirks = {
+    "KeySchema":          "PrimaryKey",
+    "HashKeyElement":     { "Element": ["AttributeName", "AttributeType"] },
+    "NetworkInterfaces":  [ "NetworkInterfaceProperty" ],
+    "Subscription":       [ "Subscription" ],
+    "LoginProfile":       { "LoginProfile": ["Password"] },
+}
+
+def do_output_function(k, f, v):
+    print '    %s=%s(' % (k, f)
+    for pk, pv in v.items():
+        if known_functions.has_key(pk):
+            do_resources_content(pk, pv)
+        else:
+            print "        %s=%s," % (pk, output_value(pv))
+    print '    ),'
+
+def do_output_quirk_list(k, f, v):
+    print '    %s=[' % (k)
+    for e in v:
+        print '    %s(' % (f)
+        for pk, pv in e.items():
+            if known_functions.has_key(pk):
+                do_resources_content(pk, pv)
+            else:
+                print "        %s=%s," % (pk, output_value(pv))
+        print '    ),'
+    print '    ],'
+
+def do_output_quirk_mapping(k, v):
+    m = function_quirks[k]
+    for pk in m.keys():
+        print '    %s=%s(' % (k, pk)
+        for e in m[pk]:
+            print "        %s," % (output_value(v[e]))
+        print '    ),'
+
+def do_resources_content(k, v):
+    if function_quirks.has_key(k):
+        x = function_quirks[k];
+        if(isinstance(x, dict)):
+           do_output_quirk_mapping(k, v)
+        elif(isinstance(x, list)):
+           do_output_quirk_list(k, function_quirks[k][0], v)
+        else:
+           do_output_function(k, function_quirks[k], v)
+    else:
+        do_output_function(k, k, v)
+
 
 def do_resources(d):
     """Output the template Resources"""
@@ -123,6 +186,8 @@ def do_resources(d):
                     print '    ),'
                 elif pk == 'PortRange':
                     print "    %s=%s(%s)," % (pk, pk, output_dict(pv))
+                elif known_functions.has_key(pk):
+                    do_resources_content(pk, pv)
                 elif isinstance(pv, basestring):
                     print '    %s="%s",' % (pk, pv)
                 else:
