@@ -32,7 +32,7 @@ def do_header(d):
     """Output a stock header for the new Python script and also try to
     figure out the Resource imports needed by the template.
     """
-    print 'from troposphere import Base64, FindInMap, GetAtt, Join, Output'
+    print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output'
     print 'from troposphere import Parameter, Ref, Tags, Template'
     print 'from troposphere.cloudfront import Distribution, DistributionConfig'
     print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
