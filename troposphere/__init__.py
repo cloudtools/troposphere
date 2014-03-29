@@ -243,6 +243,30 @@ class Equals(AWSHelperFn):
         return self.data
 
 
+class And(AWSHelperFn):
+    def __init__(self, cond_one, cond_two, *conds):
+        self.data = {'Fn::And': [cond_one, cond_two] + list(conds)}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class Or(AWSHelperFn):
+    def __init__(self, cond_one, cond_two, *conds):
+        self.data = {'Fn::Or': [cond_two, cond_two] + list(conds)}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class Not(AWSHelperFn):
+    def __init__(self, cond):
+        self.data = {'Fn::Not': [self.getdata(cond)]}
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Join(AWSHelperFn):
     def __init__(self, delimiter, values):
         self.data = {'Fn::Join': [delimiter, values]}
@@ -270,6 +294,14 @@ class Select(AWSHelperFn):
 class Ref(AWSHelperFn):
     def __init__(self, data):
         self.data = {'Ref': self.getdata(data)}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class Condition(AWSHelperFn):
+    def __init__(self, data):
+        self.data = {'Condition': self.getdata(data)}
 
     def JSONrepr(self):
         return self.data
