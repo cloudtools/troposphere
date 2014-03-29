@@ -113,19 +113,20 @@ def do_resources(d):
         (_, tropo_object) = generate_troposphere_object(v['Type'])
         print '%s = t.add_resource(%s(' % (object_name, tropo_object)
         print '    "%s",' % (k, )
-        for pk, pv in v['Properties'].items():
-            if pk == "Tags":
-                print '    Tags=Tags('
-                for d in pv:
-                    print "        %s=%s," % (
-                        d['Key'], output_value(d['Value']))
-                print '    )'
-            elif pk == 'PortRange':
-                print "    %s=%s(%s)," % (pk, pk, output_dict(pv))
-            elif isinstance(pv, basestring):
-                print '    %s="%s",' % (pk, pv)
-            else:
-                print '    %s=%s,' % (pk, output_value(pv))
+        if v.has_key('Properties'):
+            for pk, pv in v['Properties'].items():
+                if pk == "Tags":
+                    print '    Tags=Tags('
+                    for d in pv:
+                        print "        %s=%s," % (
+                            d['Key'], output_value(d['Value']))
+                    print '    )'
+                elif pk == 'PortRange':
+                    print "    %s=%s(%s)," % (pk, pk, output_dict(pv))
+                elif isinstance(pv, basestring):
+                    print '    %s="%s",' % (pk, pv)
+                else:
+                    print '    %s=%s,' % (pk, output_value(pv))
         print "))"
         print
 
