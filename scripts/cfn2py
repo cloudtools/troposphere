@@ -133,13 +133,7 @@ def do_resources(d):
 
 def handle_no_objects(name, values):
     """Handle intrinsic functions which do not have a named resource"""
-    ret = name + "("
-    for i, param in enumerate(values):
-        if i > 0:
-            ret += ", "
-        ret += output_value(param)
-    return ret + ")"
-
+    return name + "(" + ", ".join(map(output_value, values)) + ")"
 
 def handle_one_object(name, values):
     """Handle intrinsic functions which have a single named resource"""
