@@ -107,7 +107,7 @@ class BaseAWSObject(object):
                 self._raise_type(title, value, expected_type)
 
         raise AttributeError("%s object does not support attribute %s" %
-                            (self.type, title))
+                             (self.type, title))
 
     def _raise_type(self, title, value, expected_type):
         raise TypeError('%s is %s, expected %s' %
