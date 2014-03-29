@@ -173,7 +173,7 @@ def output_value(v):
     for fk, fv in v.items():
         if fk in function_map:
             (shortname, handler) = function_map[fk]
-            if isinstance(fv, basestring):
+            if not isinstance(fv, list):
                 fv = [fv]
             return handler(shortname, fv)
 
