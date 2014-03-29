@@ -167,10 +167,7 @@ def output_value(v):
     elif isinstance(v, bool):
         return '"%s"' % (str(v).lower(),)
     elif isinstance(v, list):
-        out = []
-        for item in v:
-            out.append(output_value(item))
-        return "[" + ", ".join(out) + "]"
+        return "[" + ", ".join(map(output_value, v)) + "]"
 
     # Should only be one of these...
     for fk, fv in v.items():
