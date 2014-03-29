@@ -243,7 +243,7 @@ function_map = {
     'Fn::GetAtt': ("GetAtt", handle_one_object),
     'Fn::GetAZs': ("GetAZs", handle_no_objects),
     'Fn::Join': ("Join", handle_no_objects),
-    'Fn::Select': ("Select", handle_no_objects),
+    'Fn::Select': ("Select", handle_one_object),
     'Ref': ("Ref", handle_one_object),
 }
 
