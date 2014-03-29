@@ -165,7 +165,7 @@ def output_value(v):
     if isinstance(v, basestring):
         return '"%s"' % (v,)
     elif isinstance(v, bool):
-        return '"%s"' % (str(v).lower(),)
+        return '%s' % (str(v))
     elif isinstance(v, list):
         return "[" + ", ".join(map(output_value, v)) + "]"
 
