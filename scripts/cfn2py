@@ -163,7 +163,7 @@ function_map = {
 def output_value(v):
     """Output a value which may be a string or a set of function calls."""
     if isinstance(v, basestring):
-        return '"%s"' % (v,)
+        return '"%s"' % (v.replace('\\', '\\\\').replace('\n', '\\n').replace("\"", "\\\""))
     elif isinstance(v, bool):
         return '%s' % (str(v))
     elif isinstance(v, list):
