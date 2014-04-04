@@ -63,6 +63,11 @@ class BaseAWSObject(object):
         try:
             return self.properties.__getitem__(title)
         except KeyError:
+            # Fall back to the name attribute in the object rather than
+            # in the properties dict. This is for non-OpenStack backwards
+            # compatibility since OpenStack objects use a "name" property.
+            if title == 'name':
+                return self.__getattribute__('title')
             raise AttributeError(title)
 
     def __setattr__(self, title, value):

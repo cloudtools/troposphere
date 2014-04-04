@@ -260,5 +260,14 @@ class TestRef(unittest.TestCase):
         self.assertEqual(ref['Ref'], 'param')
 
 
+class TestName(unittest.TestCase):
+
+    def test_ref(self):
+        name = 'fake'
+        t = Template()
+        resource = t.add_resource(Instance(name))
+        self.assertEqual(resource.name, name)
+
+
 if __name__ == '__main__':
     unittest.main()
