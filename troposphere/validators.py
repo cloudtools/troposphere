@@ -24,7 +24,7 @@ def integer(x):
 def positive_integer(x):
     p = integer(x)
     if int(p) < 0:
-        raise ValueError
+        raise ValueError("%r is not a positive integer" % x)
     return x
 
 
@@ -46,7 +46,7 @@ def network_port(x):
     if isinstance(x, AWSHelperFn):
         return x
 
-    i = int(x)
-    if i < -1 or i > 65535:
-        raise ValueError
+    i = integer(x)
+    if int(i) < -1 or int(i) > 65535:
+        raise ValueError("network port %r must been between 0 and 65535" % i)
     return x
