@@ -14,16 +14,16 @@ def boolean(x):
 
 def integer(x):
     try:
-        i = int(x)
+        int(x)
     except (ValueError, TypeError):
         raise ValueError("%r is not a valid integer" % x)
     else:
-        return i
+        return x
 
 
 def positive_integer(x):
     p = integer(x)
-    if p < 0:
+    if int(p) < 0:
         raise ValueError("%r is not a positive integer" % x)
     return x
 
@@ -47,6 +47,6 @@ def network_port(x):
         return x
 
     i = integer(x)
-    if i < -1 or i > 65535:
+    if int(i) < -1 or int(i) > 65535:
         raise ValueError("network port %r must been between 0 and 65535" % i)
     return x
