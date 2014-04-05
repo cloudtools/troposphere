@@ -59,64 +59,64 @@ class BaseAWSObject(object):
         if self.template is not None:
             self.template.add_resource(self)
 
-    def __getattr__(self, title):
+    def __getattr__(self, name):
         try:
-            return self.properties.__getitem__(title)
+            return self.properties.__getitem__(name)
         except KeyError:
             # Fall back to the name attribute in the object rather than
             # in the properties dict. This is for non-OpenStack backwards
             # compatibility since OpenStack objects use a "name" property.
-            if title == 'name':
+            if name == 'name':
                 return self.__getattribute__('title')
-            raise AttributeError(title)
+            raise AttributeError(name)
 
-    def __setattr__(self, title, value):
-        if title in self.__dict__.keys() \
+    def __setattr__(self, name, value):
+        if name in self.__dict__.keys() \
                 or '_BaseAWSObject__initialized' not in self.__dict__:
-            return dict.__setattr__(self, title, value)
-        elif title in self.propnames:
+            return dict.__setattr__(self, name, value)
+        elif name in self.propnames:
             # Check the type of the object and compare against what we were
             # expecting.
-            expected_type = self.props[title][0]
+            expected_type = self.props[name][0]
 
             # If the value is a AWSHelperFn we can't do much validation
             # we'll have to leave that to Amazon.  Maybe there's another way
             # to deal with this that we'll come up with eventually
             if isinstance(value, AWSHelperFn):
-                return self.properties.__setitem__(title, value)
+                return self.properties.__setitem__(name, value)
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
                 value = expected_type(value)
-                return self.properties.__setitem__(title, value)
+                return self.properties.__setitem__(name, value)
 
             # If it's a list of types, check against those types...
             elif isinstance(expected_type, list):
                 # If we're expecting a list, then make sure it is a list
                 if not isinstance(value, list):
-                    self._raise_type(title, value, expected_type)
+                    self._raise_type(name, value, expected_type)
 
                 # Iterate over the list and make sure it matches our
                 # type checks
                 for v in value:
                     if not isinstance(v, tuple(expected_type)):
-                        self._raise_type(title, v, expected_type)
+                        self._raise_type(name, v, expected_type)
                 # Validated so assign it
-                return self.properties.__setitem__(title, value)
+                return self.properties.__setitem__(name, value)
 
             # Single type so check the type of the object and compare against
             # what we were expecting. Special case AWS helper functions.
             elif isinstance(value, expected_type):
-                return self.properties.__setitem__(title, value)
+                return self.properties.__setitem__(name, value)
             else:
-                self._raise_type(title, value, expected_type)
+                self._raise_type(name, value, expected_type)
 
         raise AttributeError("%s object does not support attribute %s" %
-                             (self.type, title))
+                             (self.type, name))
 
-    def _raise_type(self, title, value, expected_type):
+    def _raise_type(self, name, value, expected_type):
         raise TypeError('%s is %s, expected %s' %
-                        (title, type(value), expected_type))
+                        (name, type(value), expected_type))
 
     def validate(self):
         pass
@@ -317,8 +317,8 @@ class Template(object):
     def add_description(self, description):
         self.description = description
 
-    def add_condition(self, title, condition):
-        self.conditions[title] = condition
+    def add_condition(self, name, condition):
+        self.conditions[name] = condition
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
@@ -338,8 +338,8 @@ class Template(object):
     def add_output(self, output):
         return self._update(self.outputs, output)
 
-    def add_mapping(self, title, mapping):
-        self.mappings[title] = mapping
+    def add_mapping(self, name, mapping):
+        self.mappings[name] = mapping
 
     def add_parameter(self, parameter):
         return self._update(self.parameters, parameter)
