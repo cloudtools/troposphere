@@ -1,3 +1,12 @@
+## Pending
+- Use subnet group for param, not vpc securitygroup [GH-65]
+- Add support for Equals function and Condition [GH-66]
+- Added ELB access logs and CrossZone test [GH-67]
+- Added support for more condition functions [GH-69]
+- Tweaked a few integer validation messages [GH-71]
+- Fix resource.name backward compatibility regression
+- Fix pep8 errors due to new pep8 1.5.x changes [GH-72]
+
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]
 - Make `integer()` validator work with any integer-like object [GH-57]
