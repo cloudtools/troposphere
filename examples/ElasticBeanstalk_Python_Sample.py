@@ -43,8 +43,8 @@ sampleApp = t.add_resource(Application(
 sampleEnv = t.add_resource(Environment(
     "sampleEnvironment",
     ApplicationName=Ref(sampleApp),
-    Description=
-    "AWS Elastic Beanstalk Environment running Python Sample Application",
+    Description="AWS Elastic Beanstalk Environment running "
+                "Python Sample Application",
     SolutionStackName="64bit Amazon Linux running Python",
     OptionSettings=[
         OptionSettings(
