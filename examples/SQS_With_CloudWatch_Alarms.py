@@ -20,8 +20,8 @@ alarmemail = t.add_parameter(
     Parameter(
         "AlarmEmail",
         Default="nobody@amazon.com",
-        Description=
-                "Email address to notify if there are any operational issues",
+        Description="Email address to notify if there are any "
+                    "operational issues",
         Type="String",
     )
 )

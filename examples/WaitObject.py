@@ -34,8 +34,8 @@ t.add_output([
     Output(
         "ApplicationData",
         Value=GetAtt(mywaitcondition, "Data"),
-        Description=
-        "The data passed back as part of signalling the WaitCondition"
+        Description="The data passed back as part of signalling the "
+                    "WaitCondition"
     )
 ])
 
