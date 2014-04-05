@@ -14,16 +14,16 @@ def boolean(x):
 
 def integer(x):
     try:
-        int(x)
+        i = int(x)
     except (ValueError, TypeError):
         raise ValueError("%r is not a valid integer" % x)
     else:
-        return x
+        return i
 
 
 def positive_integer(x):
     p = integer(x)
-    if int(p) < 0:
+    if p < 0:
         raise ValueError("%r is not a positive integer" % x)
     return x
 
