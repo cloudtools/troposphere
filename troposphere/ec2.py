@@ -408,6 +408,6 @@ class VPNGatewayRoutePropagation(AWSObject):
     type = "AWS::EC2::VPNGatewayRoutePropagation"
 
     props = {
-        'RouteTableIds': ([basestring], False),
+        'RouteTableIds': (list, False),
         'VpnGatewayId': (basestring, True),
     }
