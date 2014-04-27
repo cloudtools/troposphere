@@ -7,6 +7,7 @@
 - Fix resource.name backward compatibility regression
 - Fix pep8 errors due to new pep8 1.5.x changes [GH-72]
 - Allow Ref() in VPNGatewayRoutePropagation RouteTableIds list [GH-73]
+- Add OpsWorks Support [GH-74]
 
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]
