@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Ref
 from .validators import boolean, integer
 
 
@@ -28,11 +28,11 @@ class SslConfiguration(AWSProperty):
 
 class Recipes(AWSProperty):
     props = {
-        'Configure': (list, False),
-        'Deploy': (list, False),
-        'Setup': (list, False),
-        'Shutdown': (list, False),
-        'Undeploy': (list, False),
+        'Configure': ([basestring], False),
+        'Deploy': ([basestring], False),
+        'Setup': ([basestring], False),
+        'Shutdown': ([basestring], False),
+        'Undeploy': ([basestring], False),
     }
 
 
@@ -59,7 +59,7 @@ class App(AWSObject):
         'AppSource': (Source, False),
         'Attributes': (dict, False),
         'Description': (basestring, False),
-        'Domains': (list, False),
+        'Domains': ([basestring], False),
         'EnableSsl': (boolean, False),
         'Name': (basestring, True),
         'Shortname': (basestring, False),
@@ -87,7 +87,7 @@ class Instance(AWSObject):
         'AvailabilityZone': (basestring, False),
         'InstallUpdatesOnBoot': (boolean, False),
         'InstanceType': (basestring, True),
-        'LayerIds': (list, True),
+        'LayerIds': ([basestring, Ref], True),
         'Os': (basestring, False),
         'RootDeviceType': (basestring, False),
         'SshKeyName': (basestring, False),
@@ -105,11 +105,11 @@ class Layer(AWSObject):
         'AutoAssignPublicIps': (boolean, True),
         'CustomInstanceProfileArn': (basestring, False),
         'CustomRecipes': (Recipes, False),
-        'CustomSecurityGroupIds': (list, False),
+        'CustomSecurityGroupIds': ([basestring, Ref], False),
         'EnableAutoHealing': (boolean, True),
         'InstallUpdatesOnBoot': (boolean, False),
         'Name': (basestring, True),
-        'Packages': (list, False),
+        'Packages': ([basestring], False),
         'Shortname': (basestring, True),
         'StackId': (basestring, True),
         'Type': (basestring, True),
