@@ -55,7 +55,10 @@ class AutoScalingGroup(AWSObject):
     def validate(self):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
-            if int(update_policy.MinInstancesInService) >= int(self.MaxSize):
+            # Don't attempt to validate Ref()
+            if isinstance(update_policy.MinInstancesInService, AWSHelperFn):
+                return True
+            elif int(update_policy.MinInstancesInService) >= int(self.MaxSize):
                 raise ValueError(
                     "The UpdatePolicy attribute "
                     "MinInstancesInService must be less than the "
