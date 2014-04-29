@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Ref
 from .validators import boolean, integer, positive_integer
 
 
@@ -45,8 +45,8 @@ class AutoScalingGroup(AWSObject):
         'InstanceId': (basestring, False),
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),
-        'MaxSize': (positive_integer, True),
-        'MinSize': (positive_integer, True),
+        'MaxSize': ([positive_integer, Ref], True),
+        'MinSize': ([positive_integer, Ref], True),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'Tags': (list, False),  # Although docs say these are required
         'VPCZoneIdentifier': (list, False),
@@ -55,7 +55,12 @@ class AutoScalingGroup(AWSObject):
     def validate(self):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
-            if int(update_policy.MinInstancesInService) >= int(self.MaxSize):
+            # Don't attempt to validate Ref()
+            if isinstance(update_policy.MinInstancesInService, AWSHelperFn):
+                return True
+            elif isinstance(self.MaxSize, AWSHelperFn):
+                return True
+            elif int(update_policy.MinInstancesInService) >= int(self.MaxSize):
                 raise ValueError(
                     "The UpdatePolicy attribute "
                     "MinInstancesInService must be less than the "
