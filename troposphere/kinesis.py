@@ -6,6 +6,7 @@
 from . import AWSObject
 from .validators import integer
 
+
 class Stream(AWSObject):
     type = "AWS::Kinesis::Stream"
 

@@ -4,6 +4,7 @@ from troposphere import Output
 from troposphere import Ref, Template
 import troposphere.kinesis as kinesis
 
+
 template = Template()
 
 kinesis_stream = template.add_resource(kinesis.Stream(
