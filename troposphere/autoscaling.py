@@ -33,6 +33,13 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class MetricsCollection(AWSProperty):
+    props = {
+        'Granularity': (basestring, True),
+        'Metrics': (list, False),
+    }
+
+
 class AutoScalingGroup(AWSObject):
     type = "AWS::AutoScaling::AutoScalingGroup"
 
@@ -46,6 +53,7 @@ class AutoScalingGroup(AWSObject):
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),
         'MaxSize': (positive_integer, True),
+        'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (positive_integer, True),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'Tags': (list, False),  # Although docs say these are required
