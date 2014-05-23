@@ -53,7 +53,7 @@ class AutoScalingGroup(AWSObject):
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),
         'MaxSize': (positive_integer, True),
-        'MetricsCollection': (list, False),
+        'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (positive_integer, True),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'Tags': (list, False),  # Although docs say these are required
