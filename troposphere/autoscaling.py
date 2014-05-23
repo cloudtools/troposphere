@@ -63,12 +63,19 @@ class AutoScalingGroup(AWSObject):
     def validate(self):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
-            usingRefs = isinstance(update_policy.MinInstancesInService, Ref) or isinstance(self.MaxSize, Ref)
-            if not usingRefs and int(update_policy.MinInstancesInService) >= int(self.MaxSize):
-                raise ValueError(
-                    "The UpdatePolicy attribute "
-                    "MinInstancesInService must be less than the "
-                    "autoscaling group's MaxSize")
+
+            isMinRef = isinstance(update_policy.MinInstancesInService, Ref)
+            isMaxRef = isinstance(self.MaxSize, Ref)
+
+            if not isMinRef or isMaxRef:
+                minCount = int(update_policy.MinInstancesInService)
+                maxCount = int(self.MaxSize)
+
+                if minCount >= maxCount:
+                    raise ValueError(
+                        "The UpdatePolicy attribute "
+                        "MinInstancesInService must be less than the "
+                        "autoscaling group's MaxSize")
         return True
 
 
