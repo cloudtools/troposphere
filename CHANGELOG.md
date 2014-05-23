@@ -8,6 +8,9 @@
 - Fix pep8 errors due to new pep8 1.5.x changes [GH-72]
 - Allow Ref() in VPNGatewayRoutePropagation RouteTableIds list [GH-73]
 - Add OpsWorks Support [GH-74]
+- Add new property MetricsCollection [GH-79]
+- Patching Users class to use basestring or Ref type for Groups [GH-80]
+- Added support for Kinesis [GH-81]
 
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]
