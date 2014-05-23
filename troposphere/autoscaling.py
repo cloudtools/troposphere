@@ -52,7 +52,7 @@ class AutoScalingGroup(AWSObject):
         'InstanceId': (basestring, False),
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),
-        'MaxSize': (positive_integer, True),
+        'MaxSize': (basestring, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (positive_integer, True),
         'NotificationConfiguration': (NotificationConfiguration, False),
