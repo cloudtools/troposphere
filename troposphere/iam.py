@@ -88,7 +88,7 @@ class User(AWSObject):
 
     props = {
         'Path': (basestring, False),
-        'Groups': ([Group], False),
+        'Groups': ([basestring, Ref], False),
         'LoginProfile': (LoginProfile, False),
         'Policies': ([Policy], False),
     }
