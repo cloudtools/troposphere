@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Ref
 from .validators import boolean, integer, positive_integer
 
 
@@ -63,7 +63,7 @@ class AutoScalingGroup(AWSObject):
     def validate(self):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
-            usingRefs = isinstance(update_policy.MinInstancesInService, AWSHelperFn) or isinstance(self.MaxSize, AWSHelperFn)
+            usingRefs = isinstance(update_policy.MinInstancesInService, Ref) or isinstance(self.MaxSize, Ref)
             if not usingRefs and int(update_policy.MinInstancesInService) >= int(self.MaxSize):
                 raise ValueError(
                     "The UpdatePolicy attribute "
