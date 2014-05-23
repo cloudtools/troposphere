@@ -67,7 +67,7 @@ class AutoScalingGroup(AWSObject):
             isMinRef = isinstance(update_policy.MinInstancesInService, Ref)
             isMaxRef = isinstance(self.MaxSize, Ref)
 
-            if not isMinRef or isMaxRef:
+            if not (isMinRef or isMaxRef):
                 minCount = int(update_policy.MinInstancesInService)
                 maxCount = int(self.MaxSize)
 
