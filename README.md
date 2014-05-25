@@ -22,9 +22,9 @@ A simple example to create an instance would look like this:
     "Resources": {
         "myinstance": {
             "Properties": {
-                "ImageId": "ami-951945d0", 
+                "ImageId": "ami-951945d0",
                 "InstanceType": "t1.micro"
-            }, 
+            },
             "Type": "AWS::EC2::Instance"
         }
     }
@@ -88,7 +88,10 @@ Currently supported AWS resource types:
 - AWS::ElasticBeanstalk
 - AWS::ElasticLoadBalancing
 - AWS::IAM
+- AWS::KINESIS
+- AWS::OPSWORKS
 - AWS::RDS
+- AWS::REDSHIFT
 - AWS::Route53
 - AWS::S3
 - AWS::SDB
