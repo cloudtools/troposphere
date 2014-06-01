@@ -168,6 +168,44 @@ class TestUpdatePolicy(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.assertTrue(group.validate())
 
+    def test_mininstances_maxsize_is_ref(self):
+        paramMaxSize = Parameter(
+            "ParamMaxSize",
+            Type="String"
+        )
+        group = AutoScalingGroup(
+            'mygroup',
+            LaunchConfigurationName="I'm a test",
+            MaxSize=Ref(paramMaxSize),
+            MinSize="2",
+            UpdatePolicy=UpdatePolicy(
+                'AutoScalingRollingUpdate',
+                PauseTime='PT1M5S',
+                MinInstancesInService='2',
+                MaxBatchSize="1",
+            )
+        )
+        self.assertTrue(group.validate())
+
+    def test_mininstances_mininstancesinservice_is_ref(self):
+        paramMinInstancesInService = Parameter(
+            "ParamMinInstancesInService",
+            Type="String"
+        )
+        group = AutoScalingGroup(
+            'mygroup',
+            LaunchConfigurationName="I'm a test",
+            MaxSize="4",
+            MinSize="2",
+            UpdatePolicy=UpdatePolicy(
+                'AutoScalingRollingUpdate',
+                PauseTime='PT1M5S',
+                MinInstancesInService=Ref(paramMinInstancesInService),
+                MaxBatchSize="2",
+            )
+        )
+        self.assertTrue(group.validate())
+
     def test_working(self):
         group = AutoScalingGroup(
             'mygroup',
