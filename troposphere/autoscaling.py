@@ -13,6 +13,13 @@ EC2_INSTANCE_TERMINATE = "autoscaling:EC2_INSTANCE_TERMINATE"
 EC2_INSTANCE_TERMINATE_ERROR = "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
 TEST_NOTIFICATION = "autoscaling:TEST_NOTIFICATION"
 
+# Termination Policy constants
+Default = 'Default'
+OldestInstance = 'OldestInstance'
+NewestInstance = 'NewestInstance'
+OldestLaunchConfiguration = 'OldestLaunchConfiguration'
+ClosestToNextInstanceHour = 'ClosestToNextInstanceHour'
+
 
 class Tag(AWSHelperFn):
     def __init__(self, key, value, propogate):
@@ -57,6 +64,7 @@ class AutoScalingGroup(AWSObject):
         'MinSize': (positive_integer, True),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'Tags': (list, False),  # Although docs say these are required
+        'TerminationPolicies': ([basestring], False),
         'VPCZoneIdentifier': (list, False),
     }
 
