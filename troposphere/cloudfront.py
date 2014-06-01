@@ -17,6 +17,17 @@ class ForwardedValues(AWSHelperFn):
         return self.data
 
 
+class CacheBehavior(AWSProperty):
+    props = {
+        'TargetOriginId': (basestring, True),
+        'ForwardedValues': (ForwardedValues, True),
+        'TrustedSigners': ([basestring], False),
+        'ViewerProtocolPolicy': (basestring, True),
+        'MinTTL': (integer, False),
+        'PathPattern': (basestring, True),
+    }
+
+
 class DefaultCacheBehavior(AWSProperty):
     props = {
         'TargetOriginId': (basestring, True),
@@ -66,7 +77,7 @@ class Logging(AWSProperty):
 class DistributionConfig(AWSProperty):
     props = {
         'Aliases': (list, False),
-        'CacheBehaviors': (list, False),
+        'CacheBehaviors': ([CacheBehavior], False),
         'Comment': (basestring, False),
         'DefaultCacheBehavior': (DefaultCacheBehavior, True),
         'DefaultRootObject': (basestring, False),
