@@ -4,17 +4,18 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty
-from .validators import boolean
+from .validators import boolean, network_port, positive_integer
 
 
 class DBInstance(AWSObject):
     type = "AWS::RDS::DBInstance"
 
     props = {
-        'AllocatedStorage': (basestring, True),
+        'AllocatedStorage': (positive_integer, True),
+        'AllowMajorVersionUpgrade': (boolean, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
-        'BackupRetentionPeriod': (basestring, False),
+        'BackupRetentionPeriod': (positive_integer, False),
         'DBInstanceClass': (basestring, True),
         'DBInstanceIdentifier': (basestring, False),
         'DBName': (basestring, False),
@@ -29,7 +30,7 @@ class DBInstance(AWSObject):
         'MasterUsername': (basestring, True),
         'MasterUserPassword': (basestring, True),
         'MultiAZ': (boolean, False),
-        'Port': (basestring, False),
+        'Port': (network_port, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'SourceDBInstanceIdentifier': (basestring, False),
