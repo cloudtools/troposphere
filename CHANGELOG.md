@@ -8,9 +8,16 @@
 - Fix pep8 errors due to new pep8 1.5.x changes [GH-72]
 - Allow Ref() in VPNGatewayRoutePropagation RouteTableIds list [GH-73]
 - Add OpsWorks Support [GH-74]
+- Add AutoScalingGroup TerminationPolicies [GH-77, GH-87]
 - Add new property MetricsCollection [GH-79]
 - Patching Users class to use basestring or Ref type for Groups [GH-80]
 - Added support for Kinesis [GH-81]
+- Allow autoscaling group to support 'min instances in service' and 'max size' values that are Refs [GH-82]
+- Added support for Redshift [GH-84]
+- Add CloudFront CacheBehavior [GH-86]
+- Tweak UpdatePolicy properties [GH-88]
+- Tweaks to rds.DNInstance [GH-89]
+- Tweaks to EC2 DeviceIndex property values [GH-90]
 
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]
