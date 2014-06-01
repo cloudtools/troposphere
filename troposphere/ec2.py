@@ -98,7 +98,7 @@ class NetworkInterfaceProperty(AWSProperty):
         'AssociatePublicIpAddress': (boolean, False),
         'DeleteOnTermination': (boolean, False),
         'Description': (basestring, False),
-        'DeviceIndex': (basestring, True),
+        'DeviceIndex': (integer, True),
         'GroupSet': ([basestring, Ref], False),
         'NetworkInterfaceId': (basestring, False),
         'PrivateIpAddress': (basestring, False),
@@ -203,7 +203,7 @@ class NetworkInterfaceAttachment(AWSObject):
 
     props = {
         'DeleteOnTermination': (boolean, False),
-        'DeviceIndex': (basestring, True),
+        'DeviceIndex': (integer, True),
         'InstanceId': (basestring, True),
         'NetworkInterfaceId': (basestring, True),
     }
