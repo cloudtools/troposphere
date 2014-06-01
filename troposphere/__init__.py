@@ -170,8 +170,8 @@ def validate_pausetime(pausetime):
 
 class UpdatePolicy(BaseAWSObject):
     props = {
-        'MaxBatchSize': (basestring, False),
-        'MinInstancesInService': (basestring, False),
+        'MaxBatchSize': (validators.positive_integer, False),
+        'MinInstancesInService': (validators.integer, False),
         'PauseTime': (validate_pausetime, False),
     }
 
