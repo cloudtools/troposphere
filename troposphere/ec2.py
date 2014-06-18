@@ -325,6 +325,7 @@ class Volume(AWSObject):
 
     props = {
         'AvailabilityZone': (basestring, True),
+        'Encrypted': (boolean, False),
         'Iops': (int, False),
         'Size': (basestring, False),
         'SnapshotId': (basestring, False),
