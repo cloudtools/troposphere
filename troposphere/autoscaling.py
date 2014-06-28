@@ -153,15 +153,21 @@ class Trigger(AWSObject):
 
 
 class EBSBlockDevice(AWSProperty):
+    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html
     props = {
+        'DeleteOnTermination': (boolean, False),
+        'Iops': (integer, False),
         'SnapshotId': (basestring, False),
         'VolumeSize': (integer, False),
+        'VolumeType': (basestring, False),
     }
 
 
 class BlockDeviceMapping(AWSProperty):
+    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html
     props = {
         'DeviceName': (basestring, True),
         'Ebs': (EBSBlockDevice, False),
+        'NoDevice': (boolean, False),
         'VirtualName': (basestring, False),
     }
