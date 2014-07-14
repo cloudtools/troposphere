@@ -32,6 +32,33 @@
             "Type": "OS::Neutron::HealthMonitor"
         }, 
         "MyLaunchConfig": {
+            "Metadata": {
+                "AWS::CloudFormation::Init": {
+                    "config": {
+                        "files": {
+                            "file1": {
+                                "content": {
+                                    "Fn::Join": [
+                                        "\n", 
+                                        [
+                                            "This is a", 
+                                            "test file"
+                                        ]
+                                    ]
+                                }, 
+                                "context": {
+                                    "security_group_id": {
+                                        "Ref": "MySecurityGroup"
+                                    }
+                                }, 
+                                "group": "root", 
+                                "mode": "000755", 
+                                "owner": "root"
+                            }
+                        }
+                    }
+                }
+            }, 
             "Properties": {
                 "ImageId": "Ubuntu", 
                 "InstanceType": "t1.micro", 
