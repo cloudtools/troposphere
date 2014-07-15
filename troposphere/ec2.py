@@ -412,3 +412,13 @@ class VPNGatewayRoutePropagation(AWSObject):
         'RouteTableIds': ([basestring, Ref], False),
         'VpnGatewayId': (basestring, True),
     }
+
+
+class VPCPeeringConnection(AWSObject):
+    type = "AWS::EC2::VPCPeeringConnection"
+
+    props = {
+        'PeerVpcId': (basestring, True),
+        'VpcId': (basestring, True),
+        'Tags': (list, False),
+    }
