@@ -18,6 +18,9 @@
 - Tweak UpdatePolicy properties [GH-88]
 - Tweaks to rds.DNInstance [GH-89]
 - Tweaks to EC2 DeviceIndex property values [GH-90]
+- Add Encrypted option to AWS::EC2::Volume [GH-96]
+- Updating the block device options for AutoScalingGroups [GH-100]
+- Added VPCPeering class [GH-102]
 
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]
