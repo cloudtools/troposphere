@@ -417,7 +417,7 @@ class VPNGatewayRoutePropagation(AWSObject):
 class VPCPeeringConnection(AWSObject):
     type = "AWS::EC2::VPCPeeringConnection"
 
-    props = { 
+    props = {
         'PeerVpcId': (basestring, True),
         'VpcId': (basestring, True),
         'Tags': (list, False),
