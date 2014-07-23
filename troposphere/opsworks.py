@@ -124,7 +124,7 @@ class Stack(AWSObject):
         'Attributes': (dict, False),
         'ConfigurationManager': (StackConfigurationManager, False),
         'CustomCookbooksSource': (Source, False),
-        'CustomJson': (basestring, False),  # TODO: JSON object
+        'CustomJson': (dict, False),
         'DefaultAvailabilityZone': (basestring, False),
         'DefaultInstanceProfileArn': (basestring, True),
         'DefaultOs': (basestring, False),
