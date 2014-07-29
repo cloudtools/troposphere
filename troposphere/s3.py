@@ -19,6 +19,12 @@ BucketOwnerRead = "BucketOwnerRead"
 BucketOwnerFullControl = "BucketOwnerFullControl"
 
 
+class VersioningConfiguration(AWSProperty):
+    props = {
+        'Status': (basestring, False),
+    }
+
+
 class WebsiteConfiguration(AWSProperty):
     props = {
         'IndexDocument': (basestring, False),
@@ -33,7 +39,8 @@ class Bucket(AWSObject):
         'AccessControl': (basestring, False),
         'BucketName': (basestring, False),
         'Tags': (Tags, False),
-        'WebsiteConfiguration': (WebsiteConfiguration, False)
+        'WebsiteConfiguration': (WebsiteConfiguration, False),
+        'VersioningConfiguration': (VersioningConfiguration, False)
     }
 
     access_control_types = [
