@@ -21,6 +21,7 @@
 - Add Encrypted option to AWS::EC2::Volume [GH-96]
 - Updating the block device options for AutoScalingGroups [GH-100]
 - Added VPCPeering class [GH-102]
+- Added Logs resource type [GH-105]
 
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]
