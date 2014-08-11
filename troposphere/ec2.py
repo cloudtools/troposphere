@@ -277,6 +277,7 @@ class SecurityGroupRule(AWSProperty):
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
         'ToPort': (network_port, True),
+        'DestinationSecurityGroupId': (basestring, False),
     }
 
 
