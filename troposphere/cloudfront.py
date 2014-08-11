@@ -19,12 +19,14 @@ class ForwardedValues(AWSHelperFn):
 
 class CacheBehavior(AWSProperty):
     props = {
+        'AllowedMethods': ([basestring], False),
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, True),
         'TrustedSigners': ([basestring], False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
         'PathPattern': (basestring, True),
+        'SmoothStreaming': (boolean, False),
     }
 
 
@@ -36,6 +38,7 @@ class DefaultCacheBehavior(AWSProperty):
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
+        'SmoothStreaming': (boolean, False),
     }
 
 
