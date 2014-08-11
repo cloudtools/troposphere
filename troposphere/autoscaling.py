@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import boolean, integer, positive_integer
+from .validators import boolean, integer
 
 
 EC2_INSTANCE_LAUNCH = "autoscaling:EC2_INSTANCE_LAUNCH"
@@ -59,9 +59,9 @@ class AutoScalingGroup(AWSObject):
         'InstanceId': (basestring, False),
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),
-        'MaxSize': (basestring, True),
+        'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
-        'MinSize': (positive_integer, True),
+        'MinSize': (integer, True),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'PlacementGroup': (basestring, False),
         'Tags': (list, False),  # Although docs say these are required
