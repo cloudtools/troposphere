@@ -118,6 +118,7 @@ class Instance(AWSObject):
         'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
+        'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
