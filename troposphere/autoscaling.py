@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty, Ref, cloudformation
 from .validators import boolean, integer, positive_integer
 
 
@@ -102,6 +102,7 @@ class LaunchConfiguration(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'Metadata': (cloudformation.Init, False),
         'RamDiskId': (basestring, False),
         'SecurityGroups': (list, False),
         'SpotPrice': (basestring, False),
