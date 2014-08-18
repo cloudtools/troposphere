@@ -19,6 +19,7 @@ AuthenticatedRead = "AuthenticatedRead"
 BucketOwnerRead = "BucketOwnerRead"
 BucketOwnerFullControl = "BucketOwnerFullControl"
 
+
 class CorsRules(AWSProperty):
     props = {
         'AllowedHeaders': ([basestring], False),
@@ -29,10 +30,12 @@ class CorsRules(AWSProperty):
         'MaxAge': (positive_integer, False),
     }
 
+
 class CorsConfiguration(AWSProperty):
     props = {
         'CorsRules': ([CorsRules], True),
     }
+
 
 class VersioningConfiguration(AWSProperty):
     props = {
@@ -46,12 +49,14 @@ class WebsiteConfiguration(AWSProperty):
         'ErrorDocument': (basestring, False),
     }
 
+
 class LifecycleRuleTransition(AWSProperty):
     props = {
         'StorageClass': (basestring, True),
         'TransitionDate': (basestring, False),
         'TransitionInDays': (positive_integer, False),
     }
+
 
 class LifecycleRule(AWSProperty):
     props = {
@@ -63,10 +68,12 @@ class LifecycleRule(AWSProperty):
         'Transition': (LifecycleRuleTransition, False),
     }
 
+
 class LifecycleConfiguration(AWSProperty):
     props = {
         'Rules': ([LifecycleRule], True),
     }
+
 
 class LoggingConfiguration(AWSProperty):
     props = {
@@ -74,16 +81,19 @@ class LoggingConfiguration(AWSProperty):
         'LogFilePrefix': (basestring, False),
     }
 
+
 class TopicConfiguration(AWSProperty):
     props = {
         'Event': (basestring, True),
         'Topic': (basestring, True),
     }
 
+
 class NotificationConfiguration(AWSProperty):
     props = {
         'TopicConfigurations': ([TopicConfiguration], True),
     }
+
 
 class Bucket(AWSObject):
     type = "AWS::S3::Bucket"

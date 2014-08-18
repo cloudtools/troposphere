@@ -77,6 +77,7 @@ class Logging(AWSProperty):
         'Prefix': (basestring, False),
     }
 
+
 class CustomErrorResponse(AWSProperty):
     props = {
         'ErrorCachingMinTTL': (positive_integer, False),
@@ -85,16 +86,19 @@ class CustomErrorResponse(AWSProperty):
         'ResponsePagePath': (basestring, False),
     }
 
+
 class GeoRestriction(AWSProperty):
     props = {
         'Locations': ([basestring], False),
         'RestrictionType': (basestring, True),
     }
 
+
 class Restrictions(AWSProperty):
     props = {
         'GeoRestriction': (GeoRestriction, True),
     }
+
 
 class ViewerCertificate(AWSProperty):
     props = {
@@ -102,6 +106,7 @@ class ViewerCertificate(AWSProperty):
         'IamCertificateId': (basestring, False),
         'SslSupportMethod': (basestring, False),
     }
+
 
 class DistributionConfig(AWSProperty):
     props = {
