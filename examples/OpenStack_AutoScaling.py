@@ -6,7 +6,7 @@
 #   http://docs.openstack.org/developer/heat/template_guide/cfn.html
 
 from troposphere import Base64, GetAZs, Join, Ref, Template
-from troposphere import autoscaling
+from troposphere import autoscaling, cloudformation
 from troposphere.openstack import heat, neutron
 
 
@@ -84,6 +84,24 @@ launch_config = template.add_resource(autoscaling.LaunchConfiguration(
     InstanceType="t1.micro",
     ImageId="Ubuntu",
     SecurityGroups=[Ref(security_group)],
+    Metadata=cloudformation.Init({
+        "config": cloudformation.InitConfig(
+            files=cloudformation.InitFiles({
+                "file1": cloudformation.InitFile(
+                    content=Join('\n', [
+                        "This is a",
+                        "test file"
+                    ]),
+                    mode="000755",
+                    owner="root",
+                    group="root",
+                    context=cloudformation.InitFileContext({
+                        "security_group_id": Ref(security_group)
+                    })
+                )
+            })
+        )
+    }),
     UserData=Base64(Join('\n', [
         "#!/bin/bash",
         "echo \"Upgrade started at $(date)\"",
