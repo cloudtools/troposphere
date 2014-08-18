@@ -118,6 +118,7 @@ class Instance(AWSObject):
         'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
+        'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
@@ -277,6 +278,7 @@ class SecurityGroupRule(AWSProperty):
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
         'ToPort': (network_port, True),
+        'DestinationSecurityGroupId': (basestring, False),
     }
 
 
