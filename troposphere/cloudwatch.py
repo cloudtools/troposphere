@@ -4,33 +4,32 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import integer
+from .validators import integer, positive_integer, boolean
+
+class MetricDimension(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Value': (basestring, True),
+    }
 
 
 class Alarm(AWSObject):
     type = "AWS::CloudWatch::Alarm"
 
     props = {
-        'ActionsEnabled': (basestring, False),
-        'AlarmActions': (list, False),
+        'ActionsEnabled': (boolean, False),
+        'AlarmActions': ([basestring], False),
         'AlarmDescription': (basestring, False),
         'AlarmName': (basestring, False),
         'ComparisonOperator': (basestring, True),
-        'Dimensions': (list, False),
-        'EvaluationPeriods': (integer, True),
-        'InsufficientDataActions': (list, False),
+        'Dimensions': ([MetricDimension], False),
+        'EvaluationPeriods': (positive_integer, True),
+        'InsufficientDataActions': ([basestring], False),
         'MetricName': (basestring, True),
         'Namespace': (basestring, True),
-        'OKActions': (list, False),
-        'Period': (integer, True),
+        'OKActions': ([basestring], False),
+        'Period': (positive_integer, True),
         'Statistic': (basestring, True),
         'Threshold': (integer, True),
         'Unit': (basestring, False),
-    }
-
-
-class MetricDimension(AWSProperty):
-    props = {
-        'Name': (basestring, True),
-        'Value': (basestring, True),
     }
