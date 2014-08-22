@@ -18,6 +18,7 @@ PublicReadWrite = "PublicReadWrite"
 AuthenticatedRead = "AuthenticatedRead"
 BucketOwnerRead = "BucketOwnerRead"
 BucketOwnerFullControl = "BucketOwnerFullControl"
+LogDeliveryWrite="LogDeliveryWrite"
 
 
 class CorsRules(AWSProperty):
