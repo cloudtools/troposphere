@@ -18,7 +18,7 @@ PublicReadWrite = "PublicReadWrite"
 AuthenticatedRead = "AuthenticatedRead"
 BucketOwnerRead = "BucketOwnerRead"
 BucketOwnerFullControl = "BucketOwnerFullControl"
-LogDeliveryWrite="LogDeliveryWrite"
+LogDeliveryWrite = "LogDeliveryWrite"
 
 
 class CorsRules(AWSProperty):
@@ -151,6 +151,7 @@ class Bucket(AWSObject):
         AuthenticatedRead,
         BucketOwnerRead,
         BucketOwnerFullControl,
+        LogDeliveryWrite,
     ]
 
     def __init__(self, name, **kwargs):
