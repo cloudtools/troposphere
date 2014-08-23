@@ -38,6 +38,22 @@ class DBInstance(AWSObject):
         'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
     }
 
+    def validate(self):
+        if (
+            'DBSnapshotIdentifier' not in self.properties
+            and (
+                'MasterUsername' not in self.properties
+                or 'MasterUserPassword' not in self.properties
+            )
+        ):
+            raise ValueError(
+                'Either (MasterUsername and MasterUserPassword) or'
+                ' DBSnapshotIdentifier are required in type '
+                'AWS::RDS::DBInstance.'
+            )
+
+        return True
+
 
 class DBParameterGroup(AWSObject):
     type = "AWS::RDS::DBParameterGroup"
