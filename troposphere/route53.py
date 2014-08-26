@@ -8,11 +8,14 @@ from .validators import integer
 
 
 class AliasTarget(AWSHelperFn):
-    def __init__(self, hostedzoneid, dnsname):
+    def __init__(self, hostedzoneid, dnsname, evaluatetargethealth=None):
         self.data = {
             'HostedZoneId': hostedzoneid,
             'DNSName': dnsname,
         }
+        
+        if evaluatetargethealth is not None:
+            self.data['EvaluateTargetHealth'] = evaluatetargethealth
 
     def JSONrepr(self):
         return self.data
