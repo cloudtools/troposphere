@@ -32,6 +32,9 @@
 - Added Logs resource type [GH-105]
 - Add PlacementGroup param to AutoScalingGroup [GH-111]
 - Add VpcPeeringConnectionId parameter to EC2 Route [GH-113]
+- Make RDS DBInstance MasterUsername and MasterPassword optional [GH-116]
+- Add CloudTrail, tweaks to CloudWatch Alarm, and support route53 AliasTarger EvaluateTargetHealth [GH-117]
+- Add LogDeliveryWrite canned ACL for S3 bucket [GH-118]
 
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]
