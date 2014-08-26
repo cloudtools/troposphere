@@ -6,6 +6,7 @@
 from . import AWSObject, AWSProperty, Ref
 from .validators import integer, positive_integer, boolean
 
+
 class MetricDimension(AWSProperty):
     props = {
         'Name': (basestring, True),

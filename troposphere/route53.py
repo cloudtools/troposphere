@@ -13,7 +13,7 @@ class AliasTarget(AWSHelperFn):
             'HostedZoneId': hostedzoneid,
             'DNSName': dnsname,
         }
-        
+
         if evaluatetargethealth is not None:
             self.data['EvaluateTargetHealth'] = evaluatetargethealth
 
