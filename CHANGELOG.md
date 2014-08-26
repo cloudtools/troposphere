@@ -1,4 +1,6 @@
 ## Pending
+
+## 0.6.0 (2014-08-26)
 - Use subnet group for param, not vpc securitygroup [GH-65]
 - Add support for Equals function and Condition [GH-66]
 - Added ELB access logs and CrossZone test [GH-67]
