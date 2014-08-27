@@ -67,12 +67,12 @@ class InitFiles(AWSHelperFn):
 
 class InitConfig(AWSProperty):
     props = {
-        'groups': (dict, False), 
-        'users': (dict, False), 
-        'sources': (dict, False), 
-        'packages': (dict, False), 
+        'groups': (dict, False),
+        'users': (dict, False),
+        'sources': (dict, False),
+        'packages': (dict, False),
         'files': (dict, False),
-        'commands': (dict, False), 
+        'commands': (dict, False),
         'services': (dict, False)
     }
 
