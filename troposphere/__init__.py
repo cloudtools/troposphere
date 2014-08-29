@@ -131,8 +131,10 @@ class BaseAWSObject(object):
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
-        else:
+        elif hasattr(self, 'type'):
             return {'Type': self.type}
+        else:
+            return {}
 
 
 class AWSObject(BaseAWSObject):
