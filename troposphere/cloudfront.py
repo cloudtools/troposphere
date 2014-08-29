@@ -3,18 +3,22 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSObject, AWSProperty
 from .validators import boolean, integer, positive_integer, network_port
 
 
-class ForwardedValues(AWSHelperFn):
-    def __init__(self, querystring):
-        self.data = {
-            'QueryString': boolean(querystring),
-        }
+class Cookies(AWSProperty):
+    props = {
+        'Forward': (basestring, True),
+        'WhitelistedNames': ([basestring], False),
+    }
 
-    def JSONrepr(self):
-        return self.data
+
+class ForwardedValues(AWSProperty):
+    props = {
+        'Cookies': (Cookies, False),
+        'QueryString': (boolean, True),
+    }
 
 
 class CacheBehavior(AWSProperty):
