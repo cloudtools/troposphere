@@ -42,16 +42,10 @@ class DefaultCacheBehavior(AWSProperty):
     }
 
 
-class S3Origin(AWSHelperFn):
-    def __init__(self, originaccessidentity):
-        if not isinstance(originaccessidentity, basestring):
-            raise TypeError
-        self.data = {
-            'OriginAccessIdentity': originaccessidentity,
-        }
-
-    def JSONrepr(self):
-        return self.data
+class S3Origin(AWSProperty):
+    props = {
+        'OriginAccessIdentity': (basestring, False),
+    }
 
 
 class CustomOrigin(AWSProperty):
