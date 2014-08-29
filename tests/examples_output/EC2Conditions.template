@@ -92,7 +92,7 @@
         "OneEqualsFooOrBarEqualsTwo": {
             "Fn::Or": [
                 {
-                    "Condition": "BarEqualsTwo"
+                    "Condition": "OneEqualsFoo"
                 }, 
                 {
                     "Condition": "BarEqualsTwo"
