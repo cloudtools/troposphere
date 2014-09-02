@@ -117,3 +117,34 @@ CR1_8XLARGE = 'cr1.8xlarge'
 HI1_4XLARGE = 'hi1.4xlarge'
 
 T1_MICRO = 't1.micro'
+
+#
+# RDS DB instance classes
+#
+
+DB_M3_MEDIUM = 'db.m3.medium'
+DB_M3_LARGE = 'db.m3.large'
+DB_M3_XLARGE = 'db.m3.xlarge'
+DB_M3_2XLARGE = 'db.m3.2xlarge'
+
+DB_R3_LARGE = 'db.r3.large'
+DB_R3_XLARGE = 'db.r3.xlarge'
+DB_R3_2XLARGE = 'db.r3.2xlarge'
+DB_R3_4XLARGE = 'db.r3.4xlarge'
+DB_R3_8XLARGE = 'db.r3.8xlarge'
+
+DB_T2_MICRO = 'db.t2.micro'
+DB_T2_SMALL = 'db.t2.small'
+DB_T2_MEDIUM = 'db.t2.medium'
+
+DB_M1_SMALL = 'db.m1.small'
+DB_M1_MEDIUM = 'db.m1.medium'
+DB_M1_LARGE = 'db.m1.large'
+DB_M1_XLARGE = 'db.m1.xlarge'
+
+DB_M2_XLARGE = 'db.m2.xlarge'
+DB_M2_2XLARGE = 'db.m2.2xlarge'
+DB_M2_4XLARGE = 'db.m2.4xlarge'
+DB_CR1_8XLARGE = 'db.cr1.8xlarge'
+
+DB_T1_MICRO = 'db.t1.micro'
