@@ -62,6 +62,7 @@ US_WEST_2C = 'us-west-2c'
 #
 
 QUAD_ZERO = '0.0.0.0/0'
+VPC_CIDR_16 = '10.0.0.0/16'
 
 #
 # EC2 instance types
