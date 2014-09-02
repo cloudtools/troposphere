@@ -62,3 +62,57 @@ US_WEST_2C = 'us-west-2c'
 #
 
 QUAD_ZERO = '0.0.0.0/0'
+
+#
+# EC2 instance types
+#
+
+T2_MICRO = 't2.micro'
+T2_SMALL = 't2.small'
+T2_MEDIUM = 't2.medium'
+
+M3_MEDIUM = 'm3.medium'
+M3_LARGE = 'm3.large'
+M3_XLARGE = 'm3.xlarge'
+M3_2XLARGE = 'm3.2xlarge'
+
+C3_LARGE = 'c3.large'
+C3_XLARGE = 'c3.xlarge'
+C3_2XLARGE = 'c3.2xlarge'
+C3_4XLARGE = 'c3.4xlarge'
+C3_8XLARGE = 'c3.8xlarge'
+
+R3_LARGE = 'r3.large'
+R3_XLARGE = 'r3.xlarge'
+R3_2XLARGE = 'r3.2xlarge'
+R3_4XLARGE = 'r3.4xlarge'
+R3_8XLARGE = 'r3.8xlarge'
+
+G2_2XLARGE = 'g2.2xlarge'
+
+I2_XLARGE = 'i2.xlarge'
+I2_2XLARGE = 'i2.2xlarge'
+I2_4XLARGE = 'i2.4xlarge'
+I2_8XLARGE = 'i2.8xlarge'
+
+HS1_8XLARGE = 'hs1.8xlarge'
+
+M1_SMALL = 'm1.small'
+M1_MEDIUM = 'm1.medium'
+M1_LARGE = 'm1.large'
+M1_XLARGE = 'm1.xlarge'
+
+C1_MEDIUM = 'c1.medium'
+C1_XLARGE = 'c1.xlarge'
+CC2_8XLARGE = 'cc2.8xlarge'
+
+CG1_4XLARGE = 'cg1.4xlarge'
+
+M2_XLARGE = 'm2.xlarge'
+M2_2XLARGE = 'm2.2xlarge'
+M2_4XLARGE = 'm2.4xlarge'
+CR1_8XLARGE = 'cr1.8xlarge'
+
+HI1_4XLARGE = 'hi1.4xlarge'
+
+T1_MICRO = 't1.micro'
