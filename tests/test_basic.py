@@ -1,6 +1,6 @@
 import json
 import unittest
-from troposphere import awsencode, AWSObject, Output, Parameter
+from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
 from troposphere import Template, UpdatePolicy, Ref
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.autoscaling import AutoScalingGroup
@@ -67,6 +67,10 @@ class FakeAWSObject(AWSObject):
                 ("Cannot specify both 'callcorrect and 'singlelist' in "
                  "object %s (type %s)" % (title, type))
             )
+
+
+class FakeAWSProperty(AWSProperty):
+    props = {}
 
 
 class TestValidators(unittest.TestCase):
@@ -241,6 +245,11 @@ class TestOutput(unittest.TestCase):
         with self.assertRaises(KeyError):
             d['Properties']
 
+    def test_empty_awsproperty_outputs_empty_object(self):
+        t = FakeAWSProperty()
+        d = json.loads(json.dumps(t, cls=awsencode))
+        self.assertEquals(len(d), 0)
+
 
 class TestParameter(unittest.TestCase):
 
@@ -263,6 +272,13 @@ class TestProperty(unittest.TestCase):
         d = json.loads(json.dumps(t, cls=awsencode))
         with self.assertRaises(KeyError):
             d['Properties']
+
+    def test_awsproperty_invalid_property(self):
+        t = FakeAWSProperty()
+        with self.assertRaises(AttributeError) as context:
+            t.badproperty = 5
+        self.assertTrue('FakeAWSProperty' in context.exception.message)
+        self.assertTrue('badproperty' in context.exception.message)
 
 
 class TestDuplicate(unittest.TestCase):
