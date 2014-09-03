@@ -81,6 +81,7 @@ Currently supported AWS resource types:
 - AWS::AutoScaling
 - AWS::CloudFormation
 - AWS::CloudFront
+- AWS::CloudTrail
 - AWS::CloudWatch
 - AWS::DynamoDB
 - AWS::EC2
@@ -89,6 +90,7 @@ Currently supported AWS resource types:
 - AWS::ElasticLoadBalancing
 - AWS::IAM
 - AWS::KINESIS
+- AWS::Logs
 - AWS::OPSWORKS
 - AWS::RDS
 - AWS::REDSHIFT
