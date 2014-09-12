@@ -253,7 +253,7 @@ class And(AWSHelperFn):
 
 class Or(AWSHelperFn):
     def __init__(self, cond_one, cond_two, *conds):
-        self.data = {'Fn::Or': [cond_two, cond_two] + list(conds)}
+        self.data = {'Fn::Or': [cond_one, cond_two] + list(conds)}
 
     def JSONrepr(self):
         return self.data
