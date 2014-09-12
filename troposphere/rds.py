@@ -33,6 +33,7 @@ class DBInstance(AWSObject):
         'Port': (network_port, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
         'Tags': (list, False),
         'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
