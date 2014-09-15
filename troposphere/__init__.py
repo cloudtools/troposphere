@@ -111,8 +111,9 @@ class BaseAWSObject(object):
             else:
                 self._raise_type(name, value, expected_type)
 
+        type_name = getattr(self, 'type', self.__class__.__name__)
         raise AttributeError("%s object does not support attribute %s" %
-                             (self.type, name))
+                             (type_name, name))
 
     def _raise_type(self, name, value, expected_type):
         raise TypeError('%s is %s, expected %s' %
@@ -131,8 +132,10 @@ class BaseAWSObject(object):
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
-        else:
+        elif hasattr(self, 'type'):
             return {'Type': self.type}
+        else:
+            return {}
 
 
 class AWSObject(BaseAWSObject):
