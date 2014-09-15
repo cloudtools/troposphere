@@ -277,8 +277,8 @@ class TestProperty(unittest.TestCase):
         t = FakeAWSProperty()
         with self.assertRaises(AttributeError) as context:
             t.badproperty = 5
-        self.assertTrue('FakeAWSProperty' in context.exception.message)
-        self.assertTrue('badproperty' in context.exception.message)
+        self.assertTrue('FakeAWSProperty' in context.exception.args[0])
+        self.assertTrue('badproperty' in context.exception.args[0])
 
 
 class TestDuplicate(unittest.TestCase):
