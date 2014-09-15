@@ -78,6 +78,7 @@ class LoadBalancer(AWSObject):
         'ConnectionDrainingPolicy': (ConnectionDrainingPolicy, False),
         'CrossZone': (boolean, False),
         'HealthCheck': (HealthCheck, False),
+        'IdleTimeout': (positive_integer, False), # 1-3600
         'Instances': (list, False),
         'LBCookieStickinessPolicy': (list, False),
         'LoadBalancerName': (basestring, False),
