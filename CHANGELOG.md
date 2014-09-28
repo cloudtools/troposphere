@@ -1,4 +1,6 @@
 ## Pending
+
+## 0.6.0 (2014-09-28)
 - Use subnet group for param, not vpc securitygroup [GH-65]
 - Add support for Equals function and Condition [GH-66]
 - Added ELB access logs and CrossZone test [GH-67]
@@ -32,6 +34,9 @@
 - Added Logs resource type [GH-105]
 - Add PlacementGroup param to AutoScalingGroup [GH-111]
 - Add VpcPeeringConnectionId parameter to EC2 Route [GH-113]
+- Update InitConfig per AWS docs [GH-120]
+- S3 improvement + essential constants [GH-125]
+- Allow FindInMap() for ec2.NetworkInterfaceProperty.GroupSet [GH-128]
 
 ## 0.5.0 (2014-03-21)
 - Add OpenStack native types [GH-61]

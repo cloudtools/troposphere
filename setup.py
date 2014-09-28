@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='troposphere',
-    version='0.5.0',
+    version='0.6.0',
     description="AWS CloudFormation creation library",
     author="Mark Peek",
     author_email="mark@peek.org",
