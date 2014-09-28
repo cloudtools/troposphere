@@ -72,6 +72,7 @@ class Origin(AWSProperty):
 class Logging(AWSProperty):
     props = {
         'Bucket': (basestring, True),
+        'IncludeCookies': (boolean, False),
         'Prefix': (basestring, False),
     }
 

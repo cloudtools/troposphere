@@ -43,10 +43,43 @@ class VersioningConfiguration(AWSProperty):
     }
 
 
+class RedirectAllRequestsTo(AWSProperty):
+    props = {
+        'HostName': (basestring, True),
+        'Protocol': (basestring, False),
+    }
+
+
+class RedirectRule(AWSProperty):
+    props = {
+        'HostName': (basestring, False),
+        'HttpRedirectCode': (basestring, False),
+        'Protocol': (basestring, False),
+        'ReplaceKeyPrefixWith': (basestring, False),
+        'ReplaceKeyWith': (basestring, False),
+    }
+
+
+class RoutingRuleCondition(AWSProperty):
+    props = {
+        'HttpErrorCodeReturnedEquals': (basestring, False),
+        'KeyPrefixEquals': (basestring, False),
+    }
+
+
+class RoutingRule(AWSProperty):
+    props = {
+        'RedirectRule': (RedirectRule, True),
+        'RoutingRuleCondition': (RoutingRuleCondition, False),
+    }
+
+
 class WebsiteConfiguration(AWSProperty):
     props = {
         'IndexDocument': (basestring, False),
         'ErrorDocument': (basestring, False),
+        'RedirectAllRequestsTo': (RedirectAllRequestsTo, False),
+        'RoutingRules': ([RoutingRule], False),
     }
 
 
