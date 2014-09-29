@@ -17,6 +17,7 @@ class Cookies(AWSProperty):
 class ForwardedValues(AWSProperty):
     props = {
         'Cookies': (Cookies, False),
+        'Headers': ([basestring], False),
         'QueryString': (boolean, True),
     }
 
