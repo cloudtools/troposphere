@@ -137,3 +137,35 @@ DB_M2_4XLARGE = 'db.m2.4xlarge'
 DB_CR1_8XLARGE = 'db.cr1.8xlarge'
 
 DB_T1_MICRO = 'db.t1.micro'
+
+#
+# ElastiCache node types
+#
+
+CACHE_T2_MICRO = 'cache.t2.micro'
+CACHE_T2_SMALL = 'cache.t2.small'
+CACHE_T2_MEDIUM = 'cache.t2.medium'
+
+CACHE_M3_MEDIUM = 'cache.m3.medium'
+CACHE_M3_LARGE = 'cache.m3.large'
+CACHE_M3_XLARGE = 'cache.m3.xlarge'
+CACHE_M3_2XLARGE = 'cache.m3.2xlarge'
+
+CACHE_R3_LARGE = 'cache.r3.large'
+CACHE_R3_XLARGE = 'cache.r3.xlarge'
+CACHE_R3_2XLARGE = 'cache.r3.2xlarge'
+CACHE_R3_4XLARGE = 'cache.r3.4xlarge'
+CACHE_R3_8XLARGE = 'cache.r3.8xlarge'
+
+CACHE_M1_SMALL = 'cache.m1.small'
+CACHE_M1_MEDIUM = 'cache.m1.medium'
+CACHE_M1_LARGE = 'cache.m1.large'
+CACHE_M1_XLARGE = 'cache.m1.xlarge'
+
+CACHE_M2_XLARGE = 'cache.m2.xlarge'
+CACHE_M2_2XLARGE = 'cache.m2.2xlarge'
+CACHE_M2_4XLARGE = 'cache.m2.4xlarge'
+
+CACHE_C1_XLARGE = 'cache.c1.xlarge'
+
+CACHE_T1_MICRO = 'cache.t1.micro'
