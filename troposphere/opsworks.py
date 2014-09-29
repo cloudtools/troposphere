@@ -135,5 +135,6 @@ class Stack(AWSObject):
         'Name': (basestring, True),
         'ServiceRoleArn': (basestring, True),
         'UseCustomCookbooks': (boolean, False),
+        'UseOpsworksSecurityGroups': (boolean, False),
         'VpcId': (basestring, False),
     }
