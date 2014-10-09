@@ -26,6 +26,13 @@ class SslConfiguration(AWSProperty):
     }
 
 
+class ChefConfiguration(AWSProperty):
+    props = {
+        'BerkshelfVersion': (basestring, False),
+        'ManageBerkshelf': (boolean, False),
+    }
+
+
 class Recipes(AWSProperty):
     props = {
         'Configure': ([basestring], False),
@@ -122,6 +129,7 @@ class Stack(AWSObject):
 
     props = {
         'Attributes': (dict, False),
+        'ChefConfiguration': (ChefConfiguration, False),
         'ConfigurationManager': (StackConfigurationManager, False),
         'CustomCookbooksSource': (Source, False),
         'CustomJson': (dict, False),
@@ -135,5 +143,6 @@ class Stack(AWSObject):
         'Name': (basestring, True),
         'ServiceRoleArn': (basestring, True),
         'UseCustomCookbooks': (boolean, False),
+        'UseOpsworksSecurityGroups': (boolean, False),
         'VpcId': (basestring, False),
     }
