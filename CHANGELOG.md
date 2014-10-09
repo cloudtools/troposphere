@@ -1,5 +1,11 @@
 ## Pending
 
+## 0.6.2 (2014-10-09)
+- Update to 2014-09-29 AWS release [GH-132]
+- Add ElastiCache & Port # Constants [GH-132]
+- Add ELB Tag Support [GH-133]
+- Fix DBSecurityGroupIngress required properties [GH-134]
+
 ## 0.6.1 (2014-09-28)
 - Update InitConfig per AWS docs [GH-120]
 - S3 improvement + essential constants [GH-125]
