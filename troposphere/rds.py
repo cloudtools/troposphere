@@ -99,7 +99,7 @@ class DBSecurityGroupIngress(AWSObject):
     props = {
         'CIDRIP': (basestring, False),
         'DBSecurityGroupName': (basestring, True),
-        'EC2SecurityGroupId': (basestring, True),
-        'EC2SecurityGroupName': (basestring, True),
-        'EC2SecurityGroupOwnerId': (basestring, True),
+        'EC2SecurityGroupId': (basestring, False),
+        'EC2SecurityGroupName': (basestring, False),
+        'EC2SecurityGroupOwnerId': (basestring, False),
     }
