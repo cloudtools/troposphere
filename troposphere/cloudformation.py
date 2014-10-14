@@ -87,7 +87,7 @@ class Init(AWSHelperFn):
             raise ValueError('config property is required')
         if not isinstance(data['config'], InitConfig):
             raise ValueError(
-                'config property must be of type autoscaling.InitConfig'
+                'config property must be of type cloudformation.InitConfig'
             )
 
     def JSONrepr(self):
