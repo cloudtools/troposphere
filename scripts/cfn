@@ -87,6 +87,16 @@ def describe_resources(conn, stackname):
             print(conn.describe_stack_resources(stack.stack_name))
 
 
+def get_stack_id_if_exists(conn, stack_name):
+    try:
+        return conn.describe_stacks(stack_name)[0].stack_id
+    except boto.exception.BotoServerError, e:
+        if e.error_code == "ValidationError":
+            return None
+        else:
+            raise e
+
+
 class StackEventIterator:
     '''
     An iterator that blocks internally, polling AWS for new events.
@@ -157,6 +167,8 @@ if __name__ == "__main__":
                         help="Upload template to S3 bucket")
     parser.add_argument("-d", "--debug", action='store_true',
                         help="Turn on boto debug logging")
+    parser.add_argument("--delete", help="Delete the stack.",
+                        dest="delete", action='store_true')
     parser.add_argument("-n", "--name", dest="s3name",
                         help="Template name in S3 bucket")
     parser.add_argument("-p", "--parameter", dest="params", action='append',
@@ -181,6 +193,25 @@ if __name__ == "__main__":
         logging.basicConfig(filename="boto.log", level=logging.DEBUG)
 
     conn = boto.cloudformation.connect_to_region(values.region)
+
+    if values.delete:
+        stack_id = get_stack_id_if_exists(conn, values.stack)
+        if stack_id:
+            events = StackEventIterator(conn, stack_id)
+            events.read_existing()
+            conn.delete_stack(stack_id)
+
+            for event in events:
+                print_event(event)
+                if event.physical_resource_id == stack_id:
+                    if event.resource_status == 'DELETE_FAILED':
+                        print "Delete failed"
+                        sys.exit(1)
+                    elif event.resource_status == 'DELETE_COMPLETE':
+                        break
+        else:
+            print "Couldn't delete {0}: stack doesn't exist."\
+                .format(values.stack)
 
     if values.create:
         # Render or read the template file
