@@ -24,6 +24,14 @@ def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     return cfn_template_url
 
 
+def render_template(file):
+    # Render or read the template file
+    if file.endswith(".py"):
+        return render_python_template(file)
+    else:
+        return open(file).read()
+
+
 def render_python_template(file):
     # By convention, templates render out json using the print builtin when
     # they are executed.  Since the print builtin is tricky to override, let's
@@ -180,6 +188,8 @@ if __name__ == "__main__":
                              "all stacks if no stack is specified")
     parser.add_argument("-t", "--tail", action='store_true',
                         help="tail event log")
+    parser.add_argument("-u", "--update", help="Update an existing stack",
+                        dest="update")
     parser.add_argument("stack", nargs='?')
     values = parser.parse_args()
 
@@ -193,6 +203,26 @@ if __name__ == "__main__":
         logging.basicConfig(filename="boto.log", level=logging.DEBUG)
 
     conn = boto.cloudformation.connect_to_region(values.region)
+
+    if values.update:
+        template = render_template(values.update)
+        stack_id = conn.describe_stacks(values.stack)[0].stack_id
+
+        events = StackEventIterator(conn, stack_id)
+        events.read_existing()
+
+        conn.update_stack(values.stack, template_body=template,
+                          parameters=values.params,
+                          capabilities=values.capabilities)
+
+        for event in events:
+            print_event(event)
+            if event.physical_resource_id == stack_id:
+                if event.resource_status in ['UPDATE_ROLLBACK_COMPLETE',
+                                             'UPDATE_ROLLBACK_FAILED']:
+                    sys.exit(1)
+                if event.resource_status == 'UPDATE_COMPLETE':
+                    break
 
     if values.delete:
         stack_id = get_stack_id_if_exists(conn, values.stack)
@@ -214,11 +244,7 @@ if __name__ == "__main__":
                 .format(values.stack)
 
     if values.create:
-        # Render or read the template file
-        if values.create.endswith(".py"):
-            template = render_python_template(values.create)
-        else:
-            template = open(values.create).read()
+        template = render_template(values.create)
 
         # If needed, build an S3 name (key)
         if values.s3bucket and not values.s3name:
