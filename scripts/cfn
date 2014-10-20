@@ -23,6 +23,28 @@ def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     return cfn_template_url
 
 
+def render_python_template(file):
+    # By convention, templates render out json using the print builtin when
+    # they are executed.  Since the print builtin is tricky to override, let's
+    # just capture sys.stdout.
+
+    from cStringIO import StringIO
+    import sys
+    import runpy
+
+    capture = StringIO()
+
+    try:
+        sys.stdout = capture
+        runpy.run_path(file)
+    finally:
+        sys.stdout = sys.__stdout__
+        res = capture.getvalue()
+        capture.close()
+
+    return res
+
+
 def create_stack(conn, stackname, template=None, url=None, params=None,
                  capabilities=None):
     try:
@@ -48,6 +70,8 @@ def build_s3_name(stack_name):
     name = stack_name
     if stack_name.endswith('.json'):
         name = stack_name[:-5]
+    if stack_name.endswith('.py'):
+        name = stack_name[:-3]
     return '%s-%s.json' % (name, timestamp)
 
 
@@ -136,8 +160,11 @@ if __name__ == "__main__":
     conn = boto.cloudformation.connect_to_region(values.region)
 
     if values.create:
-        # Read in the template file
-        template = open(values.create).read()
+        # Render or read the template file
+        if values.create.endswith(".py"):
+            template = render_python_template(values.create)
+        else:
+            template = open(values.create).read()
 
         # If needed, build an S3 name (key)
         if values.s3bucket and not values.s3name:
