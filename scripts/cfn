@@ -23,14 +23,17 @@ def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     return cfn_template_url
 
 
-def create_stack(conn, stackname, template=None, url=None, params=None):
+def create_stack(conn, stackname, template=None, url=None, params=None,
+                 capabilities=None):
     try:
         if url:
-            stack_id = conn.create_stack(
-                stackname, template_url=url, parameters=params)
+            stack_id = conn.create_stack(stackname, template_url=url,
+                                         parameters=params,
+                                         capabilities=capabilities)
         else:
-            stack_id = conn.create_stack(
-                stackname, template, parameters=params)
+            stack_id = conn.create_stack(stackname, template,
+                                         parameters=params,
+                                         capabilities=capabilities)
     except boto.exception.BotoServerError as e:
         # XXX - need to figure out why this isn't getting parsed from boto.
         print("Error: %s" %
@@ -98,6 +101,11 @@ def tail(conn, stack_name):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--create", help="Create stack using template")
+    parser.add_argument("--capability",
+                        help="Capability to allow (example: 'iam')",
+                        dest="capabilities", action='append',
+                        type=lambda s: 'CAPABILITY_' + s.upper(),
+                        default=[])
     parser.add_argument("-b", "--bucket", dest="s3bucket",
                         help="Upload template to S3 bucket")
     parser.add_argument("-d", "--debug", action='store_true',
@@ -140,10 +148,12 @@ if __name__ == "__main__":
             s3conn = boto.s3.connect_to_region(values.region)
             url = upload_template_to_s3(
                 s3conn, values.region, values.s3bucket, values.s3name, template)
-            create_stack(conn, values.stack, None, url, values.params)
+            create_stack(conn, values.stack, None, url, values.params,
+                         values.capabilities)
         else:
             # Upload file as part of the stack creation
-            create_stack(conn, values.stack, template, None, values.params)
+            create_stack(conn, values.stack, template, None, values.params,
+                         values.capabilities)
 
     if values.resources:
         describe_resources(conn, values.stack)
