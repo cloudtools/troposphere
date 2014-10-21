@@ -35,6 +35,7 @@ class DBInstance(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
+        'StorageType': (basestring, False),
         'Tags': (list, False),
         'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
     }
