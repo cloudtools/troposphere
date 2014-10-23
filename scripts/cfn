@@ -38,16 +38,21 @@ def render_python_template(file):
     # just capture sys.stdout.
 
     from cStringIO import StringIO
-    import sys
+    import os
     import runpy
+    import sys
 
     capture = StringIO()
+    orig_path = sys.path
 
     try:
+        sys.path = sys.path[:]
+        sys.path[0] = os.path.dirname(file)
         sys.stdout = capture
         runpy.run_path(file)
     finally:
         sys.stdout = sys.__stdout__
+        sys.path = orig_path
         res = capture.getvalue()
         capture.close()
 
