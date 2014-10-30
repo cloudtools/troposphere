@@ -35,7 +35,9 @@ class OptionSettings(AWSProperty):
     }
 
 
-class ConfigurationTemplate(AWSProperty):
+class ConfigurationTemplate(AWSObject):
+    type = "AWS::ElasticBeanstalk::ConfigurationTemplate"
+
     props = {
         'TemplateName': (basestring, True),
         'Description': (basestring, False),
