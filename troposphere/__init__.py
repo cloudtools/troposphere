@@ -184,6 +184,8 @@ class UpdatePolicy(BaseAWSObject):
         'MaxBatchSize': (validators.positive_integer, False),
         'MinInstancesInService': (validators.integer, False),
         'PauseTime': (validate_pausetime, False),
+        'SuspendProcesses': ([basestring], False),
+        'WaitOnResourceSignals': (validators.boolean, False),
     }
 
     valid_update_policies = (
