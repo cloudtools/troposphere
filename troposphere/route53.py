@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty
-from .validators import integer
+from .validators import integer, positive_integer, network_port
 
 
 class AliasTarget(AWSHelperFn):
@@ -21,10 +21,21 @@ class AliasTarget(AWSHelperFn):
         return self.data
 
 
+class GeoLocation(AWSProperty):
+    props = {
+        'ContinentCode': (basestring, False),
+        'CountryCode': (basestring, False),
+        'SubdivisionCode': (basestring, False),
+    }
+
+
 class BaseRecordSet(object):
     props = {
         'AliasTarget': (AliasTarget, False),
         'Comment': (basestring, False),
+        'Failover': (basestring, False),
+        'GeoLocation': (GeoLocation, False),
+        'HealthCheckId': (basestring, False),
         'HostedZoneId': (basestring, False),
         'HostedZoneName': (basestring, False),
         'Name': (basestring, True),
@@ -55,4 +66,40 @@ class RecordSetGroup(AWSObject):
         'HostedZoneName': (basestring, False),
         'RecordSets': (list, False),
         'Comment': (basestring, False),
+    }
+
+
+class HealthCheckConfiguration(AWSProperty):
+    props = {
+        'FailureThreshold': (positive_integer, False),
+        'FullyQualifiedDomainName': (basestring, False),
+        'IPAddress': (basestring, False),
+        'Port': (network_port, False),
+        'RequestInterval': (positive_integer, False),
+        'ResourcePath': (basestring, False),
+        'SearchString': (basestring, False),
+        'Type': (basestring, True),
+    }
+
+
+class HealthCheck(AWSObject):
+    type = "AWS::Route53::HealthCheck"
+
+    props = {
+        'HealthCheckConfig': (HealthCheckConfiguration, True),
+    }
+
+
+class HostedZoneConfiguration(AWSProperty):
+    props = {
+        'Comment': (basestring, False),
+    }
+
+
+class HostedZone(AWSObject):
+    type = "AWS::Route53::HostedZone"
+
+    props = {
+        'HostedZoneConfig': (HostedZoneConfiguration, False),
+        'Name': (basestring, True),
     }
