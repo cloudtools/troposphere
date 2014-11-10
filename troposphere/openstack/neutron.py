@@ -245,7 +245,6 @@ class Port(AWSObject):
     props = {
         'admin_state_up': (boolean, False),
         'allowed_address_pairs': (list, False),
-        'security_groups': (list, True),
         'device_id': (basestring, False),
         'fixed_ips': (list, False),
         'mac_address': (basestring, False),
