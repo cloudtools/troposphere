@@ -48,7 +48,13 @@ def build_s3_name(stack_name):
 
 
 def describe_resources(conn, stackname):
-    print(conn.describe_stack_resources(stackname))
+    if stackname is not None:
+        print(conn.describe_stack_resources(stackname))
+    else:
+        stacks = conn.describe_stacks()
+        for stack in stacks:
+            print("Resources for stack {0}:".format(stack.stack_name))
+            print(conn.describe_stack_resources(stack.stack_name))
 
 
 def get_events(conn, stackname):
@@ -103,11 +109,11 @@ if __name__ == "__main__":
                         help="stack parameters in key=value form",)
     parser.add_argument("-r", "--region", help="Region (default us-east-1)",
                         dest="region", default="us-east-1")
-    parser.add_argument("-R", "--resources", help="describe stack resources",
+    parser.add_argument("-R", "--resources", help="describe stack resources, list resources for all stacks if no stack is specified",
                         dest="resources", required=False, action='store_true')
     parser.add_argument("-t", "--tail", help="tail event log",
                         dest="tail", required=False, action='store_true')
-    parser.add_argument("stack")
+    parser.add_argument("stack", nargs='?')
     values = parser.parse_args()
 
     if values.params:
