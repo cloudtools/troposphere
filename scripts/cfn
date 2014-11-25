@@ -85,7 +85,6 @@ def tail(conn, stack_name):
         seen.add(e.event_id)
 
     # Now keep looping through and dump the new events
-    next = None
     while 1:
         events = get_events(conn, stack_name)
         for e in events:
@@ -97,22 +96,22 @@ def tail(conn, stack_name):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-c", "--create", help="Create stack using template",
-                        dest="create", )
-    parser.add_argument("-b", "--bucket", help="Upload template to S3 bucket",
-                        dest="s3bucket", required=False)
-    parser.add_argument("-d", "--debug", help="Turn on boto debug logging",
-                        dest="debug", required=False, action='store_true')
-    parser.add_argument("-n", "--name", help="Template name in S3 bucket",
-                        dest="s3name", required=False)
+    parser.add_argument("-c", "--create", help="Create stack using template")
+    parser.add_argument("-b", "--bucket", dest="s3bucket",
+                        help="Upload template to S3 bucket")
+    parser.add_argument("-d", "--debug", action='store_true',
+                        help="Turn on boto debug logging")
+    parser.add_argument("-n", "--name", dest="s3name",
+                        help="Template name in S3 bucket")
     parser.add_argument("-p", "--parameter", dest="params", action='append',
-                        help="stack parameters in key=value form",)
-    parser.add_argument("-r", "--region", help="Region (default us-east-1)",
-                        dest="region", default="us-east-1")
-    parser.add_argument("-R", "--resources", help="describe stack resources, list resources for all stacks if no stack is specified",
-                        dest="resources", required=False, action='store_true')
-    parser.add_argument("-t", "--tail", help="tail event log",
-                        dest="tail", required=False, action='store_true')
+                        help="stack parameters in key=value form")
+    parser.add_argument("-r", "--region", default="us-east-1",
+                        help="Region (default %(default)s)")
+    parser.add_argument("-R", "--resources", action='store_true',
+                        help="describe stack resources, list resources for "
+                             "all stacks if no stack is specified")
+    parser.add_argument("-t", "--tail", action='store_true',
+                        help="tail event log")
     parser.add_argument("stack", nargs='?')
     values = parser.parse_args()
 
