@@ -372,7 +372,7 @@ class Template(object):
         if isinstance(values, list):
             for v in values:
                 if v.title in d:
-                    self.handle_duplicate_key(values.title)
+                    self.handle_duplicate_key(v.title)
                 d[v.title] = v
         else:
             if values.title in d:
