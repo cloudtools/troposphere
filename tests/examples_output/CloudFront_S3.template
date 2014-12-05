@@ -1,20 +1,20 @@
 {
-    "Description": "AWS CloudFormation Sample Template CloudFront_S3: Sample template showing how to create an Amazon CloudFront distribution using an S3 origin. **WARNING** This template creates a CloudFront distribution. You will be billed for the AWS resources used if you create a stack from this template.", 
+    "Description": "AWS CloudFormation Sample Template CloudFront_S3: Sample template showing how to create an Amazon CloudFront distribution using an S3 origin. **WARNING** This template creates a CloudFront distribution. You will be billed for the AWS resources used if you create a stack from this template.",
     "Outputs": {
         "DistributionId": {
             "Value": {
                 "Ref": "myDistribution"
             }
-        }, 
+        },
         "DistributionName": {
             "Value": {
                 "Fn::Join": [
-                    "", 
+                    "",
                     [
-                        "http://", 
+                        "http://",
                         {
                             "Fn::GetAtt": [
-                                "myDistribution", 
+                                "myDistribution",
                                 "DomainName"
                             ]
                         }
@@ -22,32 +22,32 @@
                 ]
             }
         }
-    }, 
+    },
     "Parameters": {
         "S3DNSNAme": {
-            "Description": "The DNS name of an existing S3 bucket to use as the Cloudfront distribution origin", 
+            "Description": "The DNS name of an existing S3 bucket to use as the Cloudfront distribution origin",
             "Type": "String"
         }
-    }, 
+    },
     "Resources": {
         "myDistribution": {
             "Properties": {
                 "DistributionConfig": {
                     "DefaultCacheBehavior": {
-                        "TargetOriginId": "Origin 1", 
+                        "TargetOriginId": "Origin 1",
                         "ViewerProtocolPolicy": "allow-all"
-                    }, 
-                    "Enabled": "true", 
+                    },
+                    "Enabled": "true",
                     "Origins": [
                         {
                             "DomainName": {
                                 "Ref": "S3DNSNAme"
-                            }, 
+                            },
                             "Id": "Origin 1"
                         }
                     ]
                 }
-            }, 
+            },
             "Type": "AWS::CloudFront::Distribution"
         }
     }

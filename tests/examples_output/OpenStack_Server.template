@@ -1,18 +1,18 @@
 {
     "Parameters": {
         "KeyName": {
-            "Description": "Name of an existing OpenStack KeyPair to enable SSH access to the instance", 
+            "Description": "Name of an existing OpenStack KeyPair to enable SSH access to the instance",
             "Type": "String"
         }
-    }, 
+    },
     "Resources": {
         "OpenStackInstance": {
             "Properties": {
-                "flavor": "t1.micro", 
-                "image": "MyImage", 
+                "flavor": "t1.micro",
+                "image": "MyImage",
                 "key_name": {
                     "Ref": "KeyName"
-                }, 
+                },
                 "networks": [
                     {
                         "Properties": {
@@ -20,50 +20,50 @@
                                 {
                                     "ip_address": "192.168.1.20"
                                 }
-                            ], 
-                            "network_id": "3e47c369-7007-472e-9e96-7dadb51e3e99", 
+                            ],
+                            "network_id": "3e47c369-7007-472e-9e96-7dadb51e3e99",
                             "security_groups": [
                                 {
                                     "Ref": "OpenStackSecurityGroup"
                                 }
                             ]
-                        }, 
+                        },
                         "Type": "OS::Neutron::Port"
                     }
-                ], 
+                ],
                 "user_data": {
                     "Fn::Base64": {
                         "Fn::Join": [
-                            "\n", 
+                            "\n",
                             [
-                                "#!/bin/bash", 
-                                "echo \"Upgrade started at $(date)\"", 
-                                "apt-get update", 
-                                "apt-get -y upgrade", 
+                                "#!/bin/bash",
+                                "echo \"Upgrade started at $(date)\"",
+                                "apt-get update",
+                                "apt-get -y upgrade",
                                 "echo \"Upgrade complete at $(date)\""
                             ]
                         ]
                     }
                 }
-            }, 
+            },
             "Type": "OS::Nova::Server"
-        }, 
+        },
         "OpenStackSecurityGroup": {
             "Properties": {
-                "description": "Instance Security Group", 
+                "description": "Instance Security Group",
                 "rules": [
                     {
-                        "port_range_max": 22, 
-                        "port_range_min": 22, 
-                        "protocol": "tcp", 
+                        "port_range_max": 22,
+                        "port_range_min": 22,
+                        "protocol": "tcp",
                         "remote_ip_prefix": "192.168.1.0/24"
-                    }, 
+                    },
                     {
-                        "protocol": "icmp", 
+                        "protocol": "icmp",
                         "remote_ip_prefix": "0.0.0.0/0"
                     }
                 ]
-            }, 
+            },
             "Type": "OS::Neutron::SecurityGroup"
         }
     }

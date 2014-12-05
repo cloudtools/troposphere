@@ -4,8 +4,8 @@
             "Properties": {
                 "LoginProfile": {
                     "Password": "myP@ssW0rd"
-                }, 
-                "Path": "/", 
+                },
+                "Path": "/",
                 "Policies": [
                     {
                         "PolicyDocument": {
@@ -13,54 +13,54 @@
                                 {
                                     "Action": [
                                         "sqs:*"
-                                    ], 
-                                    "Effect": "Allow", 
+                                    ],
+                                    "Effect": "Allow",
                                     "Resource": [
                                         {
                                             "Fn::GetAtt": [
-                                                "myqueue", 
+                                                "myqueue",
                                                 "Arn"
                                             ]
                                         }
                                     ]
-                                }, 
+                                },
                                 {
                                     "Action": [
                                         "sqs:*"
-                                    ], 
-                                    "Effect": "Deny", 
+                                    ],
+                                    "Effect": "Deny",
                                     "NotResource": [
                                         {
                                             "Fn::GetAtt": [
-                                                "myqueue", 
+                                                "myqueue",
                                                 "Arn"
                                             ]
                                         }
                                     ]
                                 }
                             ]
-                        }, 
+                        },
                         "PolicyName": "giveaccesstoqueueonly"
-                    }, 
+                    },
                     {
                         "PolicyDocument": {
                             "Statement": [
                                 {
                                     "Action": [
                                         "sns:*"
-                                    ], 
-                                    "Effect": "Allow", 
+                                    ],
+                                    "Effect": "Allow",
                                     "Resource": [
                                         {
                                             "Ref": "mytopic"
                                         }
                                     ]
-                                }, 
+                                },
                                 {
                                     "Action": [
                                         "sns:*"
-                                    ], 
-                                    "Effect": "Deny", 
+                                    ],
+                                    "Effect": "Deny",
                                     "NotResource": [
                                         {
                                             "Ref": "mytopic"
@@ -68,11 +68,11 @@
                                     ]
                                 }
                             ]
-                        }, 
+                        },
                         "PolicyName": "giveaccesstotopiconly"
                     }
                 ]
-            }, 
+            },
             "Type": "AWS::IAM::User"
         }
     }
