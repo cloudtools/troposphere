@@ -1,4 +1,16 @@
 ## Pending
+- Fixing ValueError message to refer the correct package [GH-135]
+- Change cfn to add -R with no argument lists all the Stacks [GH-138]
+- Add eu-central-1 region (Frankfurt) [GH-139]
+- ConfigurationTemplate is an Object [GH-140]
+- Release: AWS CloudFormation on 2014-11-06 [GH-141]
+- Remove duplicate security_group from port [GH-143]
+- UpdatePolicy and CreationPolicy [GH-144]
+- Fixes duplicate key error reporting [GH-145]
+- Fix warning in CloudFront example description [GH-148]
+- Cfn script create bucket in the specified region [GH-149]
+- Remove Unnecessary EOL whitespace [GH-150]
+  Note: this changes the default JSON separators.
 
 ## 0.6.2 (2014-10-09)
 - Update to 2014-09-29 AWS release [GH-132]
