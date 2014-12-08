@@ -200,5 +200,13 @@ template.add_output([
 print(template.to_json())
 ```
 
+# Community
+
+We have a google group, [cloudtools-dev][], where you can ask questions and
+engage with the troposphere community.  Issues & pull requests are always
+welcome!
+
+
 [AWS CloudFormation]: http://aws.amazon.com/cloudformation
 [OpenStack resources]: http://docs.openstack.org/developer/heat/template_guide/openstack.html
+[cloudtools-dev]: https://groups.google.com/forum/#!forum/cloudtools-dev
