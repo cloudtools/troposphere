@@ -9,6 +9,7 @@ from .validators import integer, boolean
 
 valid_encodings = ['plain', 'base64']
 
+
 class Stack(AWSObject):
     type = "AWS::CloudFormation::Stack"
 
@@ -42,10 +43,12 @@ class InitFileContext(AWSHelperFn):
     def JSONrepr(self):
         return self.data
 
+
 def validate_encoding(encoding):
     if encoding not in valid_encodings:
         raise ValueError('Encoding needs to be one of %r' % valid_encodings)
     return encoding
+
 
 class InitFile(AWSProperty):
     props = {
