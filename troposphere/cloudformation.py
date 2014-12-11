@@ -4,10 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import integer, boolean
-
-
-valid_encodings = ['plain', 'base64']
+from .validators import integer, boolean, encoding
 
 
 class Stack(AWSObject):
@@ -44,18 +41,12 @@ class InitFileContext(AWSHelperFn):
         return self.data
 
 
-def validate_encoding(encoding):
-    if encoding not in valid_encodings:
-        raise ValueError('Encoding needs to be one of %r' % valid_encodings)
-    return encoding
-
-
 class InitFile(AWSProperty):
     props = {
         'content': (basestring, False),
         'mode': (basestring, False),
         'owner': (basestring, False),
-        'encoding': (validate_encoding, False),
+        'encoding': (encoding, False),
         'group': (basestring, False),
         'source': (basestring, False),
         'authentication': (basestring, False),
@@ -82,6 +73,7 @@ class InitService(AWSProperty):
         'ensureRunning': (boolean, False),
         'enabled': (boolean, False),
         'files': (list, False),
+        'packages': (dict, False),
         'sources': (list, False),
         'commands': (list, False)
     }

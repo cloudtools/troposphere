@@ -50,3 +50,10 @@ def network_port(x):
     if int(i) < -1 or int(i) > 65535:
         raise ValueError("network port %r must been between 0 and 65535" % i)
     return x
+
+
+def encoding(encoding):
+    valid_encodings = ['plain', 'base64']
+    if encoding not in valid_encodings:
+        raise ValueError('Encoding needs to be one of %r' % valid_encodings)
+    return encoding
