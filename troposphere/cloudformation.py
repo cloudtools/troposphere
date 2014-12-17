@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import integer
+from .validators import integer, boolean, encoding
 
 
 class Stack(AWSObject):
@@ -43,10 +43,13 @@ class InitFileContext(AWSHelperFn):
 
 class InitFile(AWSProperty):
     props = {
-        'content': (basestring, True),
+        'content': (basestring, False),
         'mode': (basestring, False),
         'owner': (basestring, False),
+        'encoding': (encoding, False),
         'group': (basestring, False),
+        'source': (basestring, False),
+        'authentication': (basestring, False),
         'context': (InitFileContext, False)
     }
 
@@ -60,6 +63,33 @@ class InitFiles(AWSHelperFn):
         for k in data:
             if not isinstance(data[k], InitFile):
                 raise ValueError("File '" + k + "' must be of type InitFile")
+
+    def JSONrepr(self):
+        return self.data
+
+
+class InitService(AWSProperty):
+    props = {
+        'ensureRunning': (boolean, False),
+        'enabled': (boolean, False),
+        'files': (list, False),
+        'packages': (dict, False),
+        'sources': (list, False),
+        'commands': (list, False)
+    }
+
+
+class InitServices(AWSHelperFn):
+    def __init__(self, data):
+        self.validate(data)
+        self.data = data
+
+    def validate(self, data):
+        for k in data:
+            if not isinstance(data[k], InitService):
+                raise ValueError(
+                    "Service '" + k + "' must be of type InitService"
+                )
 
     def JSONrepr(self):
         return self.data
