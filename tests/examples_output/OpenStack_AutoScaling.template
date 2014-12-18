@@ -55,6 +55,17 @@
                                 "mode": "000755",
                                 "owner": "root"
                             }
+                        },
+                        "services": {
+                            "sysvinit": {
+                                "service1": {
+                                    "enabled": "true",
+                                    "ensureRunning": "true",
+                                    "files": [
+                                        "/etc/service1/somefile.conf"
+                                    ]
+                                }
+                            }
                         }
                     }
                 }

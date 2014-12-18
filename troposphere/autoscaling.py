@@ -48,6 +48,33 @@ class MetricsCollection(AWSProperty):
     }
 
 
+class Metadata(AWSHelperFn):
+    def __init__(self, init, authentication=None):
+        self.validate(init, authentication)
+        # get keys and values from init and authentication
+        # safe to use cause its always one key
+        initKey, initValue = init.data.popitem()
+        self.data = {initKey: initValue}
+        if authentication:
+            authKey, authValue = authentication.data.popitem()
+            self.data[authKey] = authValue
+
+    def validate(self, init, authentication):
+        if not isinstance(init, cloudformation.Init):
+            raise ValueError(
+                'init must be of type cloudformation.Init'
+            )
+
+        is_instance = isinstance(authentication, cloudformation.Authentication)
+        if authentication and not is_instance:
+            raise ValueError(
+                'authentication must be of type cloudformation.Authentication'
+            )
+
+    def JSONrepr(self):
+        return self.data
+
+
 class AutoScalingGroup(AWSObject):
     type = "AWS::AutoScaling::AutoScalingGroup"
 
@@ -103,7 +130,7 @@ class LaunchConfiguration(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
-        'Metadata': (cloudformation.Init, False),
+        'Metadata': (Metadata, False),
         'RamDiskId': (basestring, False),
         'SecurityGroups': (list, False),
         'SpotPrice': (basestring, False),
