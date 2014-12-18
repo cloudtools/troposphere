@@ -1,4 +1,4 @@
-from . import BaseAWSObject, AWSProperty, validate_pausetime
+from . import BaseAWSObject, AWSProperty, AWSAttribute, validate_pausetime
 from .validators import positive_integer, integer, boolean
 
 
@@ -18,7 +18,7 @@ class AutoScalingScheduledAction(AWSProperty):
     }
 
 
-class UpdatePolicy(BaseAWSObject):
+class UpdatePolicy(AWSAttribute):
     props = {
         'AutoScalingRollingUpdate': (AutoScalingRollingUpdate, False),
         'AutoScalingScheduledAction': (AutoScalingScheduledAction, False),
@@ -32,7 +32,7 @@ class ResourceSignal(AWSProperty):
     }
 
 
-class CreationPolicy(BaseAWSObject):
+class CreationPolicy(AWSAttribute):
     props = {
         'ResourceSignal': (ResourceSignal, True),
     }
