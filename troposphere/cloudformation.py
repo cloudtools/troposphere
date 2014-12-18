@@ -107,6 +107,43 @@ class InitConfig(AWSProperty):
     }
 
 
+def validate_authentication_type(auth_type):
+    valid_types = ['S3', 'basic']
+    if auth_type not in valid_types:
+        raise ValueError('Type needs to be one of %r' % valid_types)
+    return auth_type
+
+
+class AuthenticationBlock(AWSProperty):
+    props = {
+        "accessKeyId": (basestring, False),
+        "buckets": ([basestring], False),
+        "password": (basestring, False),
+        "secretKey": (basestring, False),
+        "type": (validate_authentication_type, False),
+        "uris": ([basestring], False),
+        "username": (basestring, False),
+        "roleName": (basestring, False)
+    }
+
+
+class Authentication(AWSHelperFn):
+    def __init__(self, data):
+        self.validate(data)
+        self.data = {"AWS::CloudFormation::Authentication": data}
+
+    def validate(self, data):
+        for k, v in data.iteritems():
+            if not isinstance(v, AuthenticationBlock):
+                raise ValueError(
+                    'authentication block must be of type'
+                    ' cloudformation.AuthenticationBlock'
+                )
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Init(AWSHelperFn):
     def __init__(self, data):
         self.validate(data)
