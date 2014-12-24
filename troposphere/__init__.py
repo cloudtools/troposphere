@@ -36,7 +36,7 @@ class BaseAWSObject(object):
         self.propnames = self.props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy',
                            'Metadata', 'UpdatePolicy',
-                           'Condition']
+                           'Condition', 'CreationPolicy']
 
         # unset/None is also legal
         if title and not valid_names.match(title):
@@ -171,6 +171,18 @@ class AWSProperty(BaseAWSObject):
 
     def __init__(self, title=None, **kwargs):
         super(AWSProperty, self).__init__(title, **kwargs)
+
+
+class AWSAttribute(BaseAWSObject):
+    dictname = None
+
+    """
+    Used for CloudFormation Resource Attribute objects
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
+    aws-product-attribute-reference.html
+    """
+    def __init__(self, title=None, **kwargs):
+        super(AWSAttribute, self).__init__(title, **kwargs)
 
 
 def validate_pausetime(pausetime):
