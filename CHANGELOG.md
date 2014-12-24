@@ -1,4 +1,6 @@
 ## Pending
+- Added new Google Group for discussion:
+  https://groups.google.com/forum/#!forum/cloudtools-dev
 - Fixing ValueError message to refer the correct package [GH-135]
 - Change cfn to add -R with no argument lists all the Stacks [GH-138]
 - Add eu-central-1 region (Frankfurt) [GH-139]
@@ -11,6 +13,9 @@
 - Cfn script create bucket in the specified region [GH-149]
 - Remove Unnecessary EOL whitespace [GH-150]
   Note: this changes the default JSON separators.
+- More metadata options [GH-153]
+- Metadata auth [GH-155]
+- Fixed CreationPolicy [GH-157] [GH-160]
 
 ## 0.6.2 (2014-10-09)
 - Update to 2014-09-29 AWS release [GH-132]
