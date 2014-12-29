@@ -59,6 +59,12 @@ class ConnectionDrainingPolicy(AWSProperty):
     }
 
 
+class ConnectionSettings(AWSProperty):
+    props = {
+        'IdleTimeout': (int, True),
+    }
+
+
 class AccessLoggingPolicy(AWSProperty):
     props = {
         'EmitInterval': (int, False),
@@ -76,6 +82,7 @@ class LoadBalancer(AWSObject):
         'AppCookieStickinessPolicy': (list, False),
         'AvailabilityZones': (list, False),
         'ConnectionDrainingPolicy': (ConnectionDrainingPolicy, False),
+        'ConnectionSettings': (ConnectionSettings, False),
         'CrossZone': (boolean, False),
         'HealthCheck': (HealthCheck, False),
         'Instances': (list, False),
