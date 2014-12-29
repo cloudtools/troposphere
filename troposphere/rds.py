@@ -30,6 +30,7 @@ class DBInstance(AWSObject):
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
         'MultiAZ': (boolean, False),
+        'OptionGroupName': (basestring, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
