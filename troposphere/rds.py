@@ -30,11 +30,13 @@ class DBInstance(AWSObject):
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
         'MultiAZ': (boolean, False),
+        'OptionGroupName': (basestring, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
+        'StorageType': (basestring, False),
         'Tags': (list, False),
         'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
     }
