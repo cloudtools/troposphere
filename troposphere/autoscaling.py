@@ -33,22 +33,23 @@ class Tag(AWSHelperFn):
     def JSONrepr(self):
         return self.data
 
+
 class Tags(AWSHelperFn):
-    defaultPropagateAtLaunch=True
-    manyType=[type([]), type(())]
+    defaultPropagateAtLaunch = True
+    manyType = [type([]), type(())]
 
     def __init__(self, **kwargs):
         self.tags = []
         for k, v in sorted(kwargs.iteritems()):
             if type(v) in self.manyType:
-              propagate=str(v[1]).lower()
-              v=v[0]
+                propagate = str(v[1]).lower()
+                v = v[0]
             else:
-              propagate=str(self.defaultPropagateAtLaunch).lower()
+                propagate = str(self.defaultPropagateAtLaunch).lower()
             self.tags.append({
                 'Key': k,
                 'Value': v,
-                'PropagateAtLaunch':propagate,
+                'PropagateAtLaunch': propagate,
             })
 
     def JSONrepr(self):
