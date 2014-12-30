@@ -34,6 +34,28 @@ class Tag(AWSHelperFn):
         return self.data
 
 
+class Tags(AWSHelperFn):
+    defaultPropagateAtLaunch = True
+    manyType = [type([]), type(())]
+
+    def __init__(self, **kwargs):
+        self.tags = []
+        for k, v in sorted(kwargs.iteritems()):
+            if type(v) in self.manyType:
+                propagate = str(v[1]).lower()
+                v = v[0]
+            else:
+                propagate = str(self.defaultPropagateAtLaunch).lower()
+            self.tags.append({
+                'Key': k,
+                'Value': v,
+                'PropagateAtLaunch': propagate,
+            })
+
+    def JSONrepr(self):
+        return self.tags
+
+
 class NotificationConfiguration(AWSProperty):
     props = {
         'TopicARN': (basestring, True),
