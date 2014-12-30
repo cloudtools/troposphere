@@ -16,6 +16,8 @@
 - More metadata options [GH-153]
 - Metadata auth [GH-155]
 - Fixed CreationPolicy [GH-157] [GH-160]
+- Addded AWS template VPC_Single_Instance_In_Subnet example [GH-162]
+- Add 2014-12-24 CloudFormation release changes [GH-167] [GH-168] [GH-169]
 
 ## 0.6.2 (2014-10-09)
 - Update to 2014-09-29 AWS release [GH-132]
