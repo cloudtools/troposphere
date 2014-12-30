@@ -131,7 +131,7 @@ class BaseAWSObject(object):
         pass
 
     def JSONrepr(self):
-        for k, (prop_type, required) in self.props.items():
+        for k, (_, required) in self.props.items():
             if required and k not in self.properties:
                 rtype = getattr(self, 'resource_type', "<unknown type>")
                 raise ValueError(
