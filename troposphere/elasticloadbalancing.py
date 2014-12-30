@@ -75,7 +75,7 @@ class AccessLoggingPolicy(AWSProperty):
 
 
 class LoadBalancer(AWSObject):
-    type = "AWS::ElasticLoadBalancing::LoadBalancer"
+    resource_type = "AWS::ElasticLoadBalancing::LoadBalancer"
 
     props = {
         'AccessLoggingPolicy': (AccessLoggingPolicy, False),

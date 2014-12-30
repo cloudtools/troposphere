@@ -28,7 +28,7 @@ class Network(AWSProperty):
 
 
 class FloatingIP(AWSObject):
-    type = "OS::Nova::FloatingIP"
+    resource_type = "OS::Nova::FloatingIP"
 
     props = {
         'pool': (basestring, False),
@@ -36,7 +36,7 @@ class FloatingIP(AWSObject):
 
 
 class FloatingIPAssociation(AWSObject):
-    type = "OS::Nova::FloatingIPAssociation"
+    resource_type = "OS::Nova::FloatingIPAssociation"
 
     props = {
         'floating_ip': (basestring, True),
@@ -45,7 +45,7 @@ class FloatingIPAssociation(AWSObject):
 
 
 class KeyPair(AWSObject):
-    type = "OS::Nova::KeyPair"
+    resource_type = "OS::Nova::KeyPair"
 
     props = {
         'name': (basestring, True),
@@ -55,7 +55,7 @@ class KeyPair(AWSObject):
 
 
 class Server(AWSObject):
-    type = "OS::Nova::Server"
+    resource_type = "OS::Nova::Server"
 
     props = {
         'admin_pass': (basestring, False),

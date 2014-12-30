@@ -17,7 +17,7 @@ Inactive = "Inactive"
 
 
 class AccessKey(AWSObject):
-    type = "AWS::IAM::AccessKey"
+    resource_type = "AWS::IAM::AccessKey"
 
     props = {
         'Serial': (integer, False),
@@ -39,7 +39,7 @@ class PolicyProps():
 
 class PolicyType(AWSObject, PolicyProps):
     # This is a top-level resource
-    type = "AWS::IAM::Policy"
+    resource_type = "AWS::IAM::Policy"
 
 
 class Policy(AWSProperty, PolicyProps):
@@ -48,7 +48,7 @@ class Policy(AWSProperty, PolicyProps):
 
 
 class Group(AWSObject):
-    type = "AWS::IAM::Group"
+    resource_type = "AWS::IAM::Group"
 
     props = {
         'Path': (basestring, False),
@@ -57,7 +57,7 @@ class Group(AWSObject):
 
 
 class InstanceProfile(AWSObject):
-    type = "AWS::IAM::InstanceProfile"
+    resource_type = "AWS::IAM::InstanceProfile"
 
     props = {
         'Path': (basestring, True),
@@ -66,7 +66,7 @@ class InstanceProfile(AWSObject):
 
 
 class Role(AWSObject):
-    type = "AWS::IAM::Role"
+    resource_type = "AWS::IAM::Role"
 
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
@@ -84,7 +84,7 @@ class LoginProfile(AWSHelperFn):
 
 
 class User(AWSObject):
-    type = "AWS::IAM::User"
+    resource_type = "AWS::IAM::User"
 
     props = {
         'Path': (basestring, False),
@@ -95,7 +95,7 @@ class User(AWSObject):
 
 
 class UserToGroupAddition(AWSObject):
-    type = "AWS::IAM::UserToGroupAddition"
+    resource_type = "AWS::IAM::UserToGroupAddition"
 
     props = {
         'GroupName': (basestring, True),

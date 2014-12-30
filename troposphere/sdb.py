@@ -7,6 +7,6 @@ from . import AWSObject
 
 
 class Domain(AWSObject):
-    type = "AWS::SDB::Domain"
+    resource_type = "AWS::SDB::Domain"
 
     props = {}

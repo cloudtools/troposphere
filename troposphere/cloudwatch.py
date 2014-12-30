@@ -15,7 +15,7 @@ class MetricDimension(AWSProperty):
 
 
 class Alarm(AWSObject):
-    type = "AWS::CloudWatch::Alarm"
+    resource_type = "AWS::CloudWatch::Alarm"
 
     props = {
         'ActionsEnabled': (boolean, False),

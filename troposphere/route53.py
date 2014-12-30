@@ -50,7 +50,7 @@ class BaseRecordSet(object):
 
 class RecordSetType(AWSObject, BaseRecordSet):
     # This is a top-level resource
-    type = "AWS::Route53::RecordSet"
+    resource_type = "AWS::Route53::RecordSet"
 
 
 class RecordSet(AWSProperty, BaseRecordSet):
@@ -59,7 +59,7 @@ class RecordSet(AWSProperty, BaseRecordSet):
 
 
 class RecordSetGroup(AWSObject):
-    type = "AWS::Route53::RecordSetGroup"
+    resource_type = "AWS::Route53::RecordSetGroup"
 
     props = {
         'HostedZoneId': (basestring, False),
@@ -83,7 +83,7 @@ class HealthCheckConfiguration(AWSProperty):
 
 
 class HealthCheck(AWSObject):
-    type = "AWS::Route53::HealthCheck"
+    resource_type = "AWS::Route53::HealthCheck"
 
     props = {
         'HealthCheckConfig': (HealthCheckConfiguration, True),
@@ -97,7 +97,7 @@ class HostedZoneConfiguration(AWSProperty):
 
 
 class HostedZone(AWSObject):
-    type = "AWS::Route53::HostedZone"
+    resource_type = "AWS::Route53::HostedZone"
 
     props = {
         'HostedZoneConfig': (HostedZoneConfiguration, False),

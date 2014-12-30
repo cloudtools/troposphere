@@ -130,7 +130,7 @@ class NotificationConfiguration(AWSProperty):
 
 
 class Bucket(AWSObject):
-    type = "AWS::S3::Bucket"
+    resource_type = "AWS::S3::Bucket"
 
     props = {
         'AccessControl': (basestring, False),
@@ -164,7 +164,7 @@ class Bucket(AWSObject):
 
 
 class BucketPolicy(AWSObject):
-    type = "AWS::S3::BucketPolicy"
+    resource_type = "AWS::S3::BucketPolicy"
 
     props = {
         'Bucket': (basestring, True),

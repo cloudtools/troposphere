@@ -3,7 +3,7 @@ from .validators import positive_integer
 
 
 class LogGroup(AWSObject):
-    type = "AWS::Logs::LogGroup"
+    resource_type = "AWS::Logs::LogGroup"
 
     props = {
         'RetentionInDays': (positive_integer, False),
@@ -19,7 +19,7 @@ class MetricTransformation(AWSProperty):
 
 
 class MetricFilter(AWSObject):
-    type = "AWS::Logs::MetricFilter"
+    resource_type = "AWS::Logs::MetricFilter"
 
     props = {
         'FilterPattern': ([basestring], True),

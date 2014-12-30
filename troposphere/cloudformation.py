@@ -8,7 +8,7 @@ from .validators import integer, boolean, encoding
 
 
 class Stack(AWSObject):
-    type = "AWS::CloudFormation::Stack"
+    resource_type = "AWS::CloudFormation::Stack"
 
     props = {
         'TemplateURL': (basestring, True),
@@ -18,7 +18,7 @@ class Stack(AWSObject):
 
 
 class WaitCondition(AWSObject):
-    type = "AWS::CloudFormation::WaitCondition"
+    resource_type = "AWS::CloudFormation::WaitCondition"
 
     props = {
         'Count': (integer, False),
@@ -28,7 +28,7 @@ class WaitCondition(AWSObject):
 
 
 class WaitConditionHandle(AWSObject):
-    type = "AWS::CloudFormation::WaitConditionHandle"
+    resource_type = "AWS::CloudFormation::WaitConditionHandle"
 
     props = {}
 

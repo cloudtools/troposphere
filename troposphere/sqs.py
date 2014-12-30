@@ -20,7 +20,7 @@ class RedrivePolicy(AWSProperty):
 
 
 class Queue(AWSObject):
-    type = "AWS::SQS::Queue"
+    resource_type = "AWS::SQS::Queue"
 
     props = {
         'DelaySeconds': (integer, False),
@@ -34,7 +34,7 @@ class Queue(AWSObject):
 
 
 class QueuePolicy(AWSObject):
-    type = "AWS::SQS::QueuePolicy"
+    resource_type = "AWS::SQS::QueuePolicy"
 
     props = {
         'PolicyDocument': (policytypes, False),

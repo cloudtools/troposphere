@@ -8,7 +8,7 @@ from .validators import boolean, integer
 
 
 class Cluster(AWSObject):
-    type = "AWS::Redshift::Cluster"
+    resource_type = "AWS::Redshift::Cluster"
 
     props = {
         'AllowVersionUpgrade': (boolean, False),
@@ -46,7 +46,7 @@ class AmazonRedshiftParameter(AWSProperty):
 
 
 class ClusterParameterGroup(AWSObject):
-    type = "AWS::Redshift::ClusterParameterGroup"
+    resource_type = "AWS::Redshift::ClusterParameterGroup"
 
     props = {
         'Description': (basestring, True),
@@ -56,7 +56,7 @@ class ClusterParameterGroup(AWSObject):
 
 
 class ClusterSecurityGroup(AWSObject):
-    type = "AWS::Redshift::ClusterSecurityGroup"
+    resource_type = "AWS::Redshift::ClusterSecurityGroup"
 
     props = {
         'Description': (basestring, True),
@@ -64,7 +64,7 @@ class ClusterSecurityGroup(AWSObject):
 
 
 class ClusterSecurityGroupIngress(AWSObject):
-    type = "AWS::Redshift::ClusterSecurityGroupIngress"
+    resource_type = "AWS::Redshift::ClusterSecurityGroupIngress"
 
     props = {
         'ClusterSecurityGroupName': (basestring, True),
@@ -75,7 +75,7 @@ class ClusterSecurityGroupIngress(AWSObject):
 
 
 class ClusterSubnetGroup(AWSObject):
-    type = "AWS::Redshift::ClusterSubnetGroup"
+    resource_type = "AWS::Redshift::ClusterSubnetGroup"
 
     props = {
         'Description': (basestring, True),
