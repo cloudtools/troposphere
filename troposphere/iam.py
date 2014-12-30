@@ -27,7 +27,7 @@ class AccessKey(AWSObject):
     }
 
 
-class PolicyProps():
+class PolicyProps(object):
     props = {
         'Groups': ([basestring, Ref], False),
         'PolicyDocument': (policytypes, True),
