@@ -46,8 +46,8 @@
     "Resources": {
         "myDynamoDBTable": {
             "Properties": {
-                "KeySchema": {
-                    "HashKeyElement": {
+                "AttributeDefinitions": [
+                    {
                         "AttributeName": {
                             "Ref": "HaskKeyElementName"
                         },
@@ -55,7 +55,15 @@
                             "Ref": "HaskKeyElementType"
                         }
                     }
-                },
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": {
+                            "Ref": "HaskKeyElementName"
+                        },
+                        "KeyType": "HASH"
+                    }
+                ],
                 "ProvisionedThroughput": {
                     "ReadCapacityUnits": {
                         "Ref": "ReadCapacityUnits"
