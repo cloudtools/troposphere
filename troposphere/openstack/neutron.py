@@ -11,7 +11,7 @@ from troposphere.validators import network_port, positive_integer
 
 
 class Firewall(AWSObject):
-    type = "OS::Neutron::Firewall"
+    resource_type = "OS::Neutron::Firewall"
 
     props = {
         'admin_state_up': (boolean, False),
@@ -22,7 +22,7 @@ class Firewall(AWSObject):
 
 
 class FirewallPolicy(AWSObject):
-    type = "OS::Neutron::FirewallPolicy"
+    resource_type = "OS::Neutron::FirewallPolicy"
 
     props = {
         'audited': (boolean, False),
@@ -34,7 +34,7 @@ class FirewallPolicy(AWSObject):
 
 
 class FirewallRule(AWSObject):
-    type = "OS::Neutron::FirewallRule"
+    resource_type = "OS::Neutron::FirewallRule"
 
     props = {
         'action': (basestring, False),
@@ -76,7 +76,7 @@ class FirewallRule(AWSObject):
 
 
 class FloatingIP(AWSObject):
-    type = "OS::Neutron::FloatingIP"
+    resource_type = "OS::Neutron::FloatingIP"
 
     props = {
         'fixed_ip_address': (basestring, False),
@@ -87,7 +87,7 @@ class FloatingIP(AWSObject):
 
 
 class FloatingIPAssociation(AWSObject):
-    type = "OS::Neutron::FloatingIPAssociation"
+    resource_type = "OS::Neutron::FloatingIPAssociation"
 
     props = {
         'fixed_ip_address': (basestring, False),
@@ -97,7 +97,7 @@ class FloatingIPAssociation(AWSObject):
 
 
 class HealthMonitor(AWSObject):
-    type = "OS::Neutron::HealthMonitor"
+    resource_type = "OS::Neutron::HealthMonitor"
 
     props = {
         'admin_state_up': (boolean, False),
@@ -157,7 +157,7 @@ class VIP(AWSProperty):
 
 
 class Pool(AWSObject):
-    type = "OS::Neutron::Pool"
+    resource_type = "OS::Neutron::Pool"
 
     props = {
         'admin_state_up': (boolean, False),
@@ -192,7 +192,7 @@ class Pool(AWSObject):
 
 
 class LoadBalancer(AWSObject):
-    type = "OS::Neutron::LoadBalancer"
+    resource_type = "OS::Neutron::LoadBalancer"
 
     props = {
         'members': (list, False),
@@ -202,7 +202,7 @@ class LoadBalancer(AWSObject):
 
 
 class Net(AWSObject):
-    type = "OS::Neutron::Net"
+    resource_type = "OS::Neutron::Net"
 
     props = {
         'admin_state_up': (boolean, False),
@@ -214,7 +214,7 @@ class Net(AWSObject):
 
 
 class PoolMember(AWSObject):
-    type = "OS::Neutron::PoolMember"
+    resource_type = "OS::Neutron::PoolMember"
 
     props = {
         'address': (basestring, True),
@@ -240,7 +240,7 @@ class FixedIP(AWSProperty):
 
 
 class Port(AWSObject):
-    type = "OS::Neutron::Port"
+    resource_type = "OS::Neutron::Port"
 
     props = {
         'admin_state_up': (boolean, False),
@@ -256,7 +256,7 @@ class Port(AWSObject):
 
 
 class SecurityGroup(AWSObject):
-    type = "OS::Neutron::SecurityGroup"
+    resource_type = "OS::Neutron::SecurityGroup"
 
     props = {
         'description': (basestring, True),

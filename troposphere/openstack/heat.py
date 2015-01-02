@@ -13,7 +13,7 @@ from troposphere.validators import integer
 # strings. For this reason, we duplicate the AWS::AutoScaling::AutoScalingGroup
 # and change these types.
 class AWSAutoScalingGroup(AWSObject):
-    type = "AWS::AutoScaling::AutoScalingGroup"
+    resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
         'AvailabilityZones': (list, True),

@@ -8,7 +8,7 @@ from .validators import boolean, integer
 
 
 class CacheCluster(AWSObject):
-    type = "AWS::ElastiCache::CacheCluster"
+    resource_type = "AWS::ElastiCache::CacheCluster"
 
     props = {
         'AutoMinorVersionUpgrade': (boolean, False),
@@ -30,7 +30,7 @@ class CacheCluster(AWSObject):
 
 
 class ParameterGroup(AWSObject):
-    type = "AWS::ElastiCache::ParameterGroup"
+    resource_type = "AWS::ElastiCache::ParameterGroup"
 
     props = {
         'CacheParameterGroupFamily': (basestring, True),
@@ -40,7 +40,7 @@ class ParameterGroup(AWSObject):
 
 
 class SecurityGroup(AWSObject):
-    type = "AWS::ElastiCache::SecurityGroup"
+    resource_type = "AWS::ElastiCache::SecurityGroup"
 
     props = {
         'Description': (basestring, True),
@@ -48,7 +48,7 @@ class SecurityGroup(AWSObject):
 
 
 class SecurityGroupIngress(AWSObject):
-    type = "AWS::ElastiCache::SecurityGroupIngress"
+    resource_type = "AWS::ElastiCache::SecurityGroupIngress"
 
     props = {
         'CacheSecurityGroupName': (basestring, True),
@@ -58,7 +58,7 @@ class SecurityGroupIngress(AWSObject):
 
 
 class SubnetGroup(AWSObject):
-    type = "AWS::ElastiCache::SubnetGroup"
+    resource_type = "AWS::ElastiCache::SubnetGroup"
 
     props = {
         'Description': (basestring, True),

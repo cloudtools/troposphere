@@ -51,8 +51,8 @@ class BaseAWSObject(object):
             }
         else:
             self.resource = self.properties
-        if hasattr(self, 'type') and self.type is not None:
-            self.resource['Type'] = self.type
+        if hasattr(self, 'resource_type') and self.resource_type is not None:
+            self.resource['Type'] = self.resource_type
         self.__initialized = True
 
         # Now that it is initialized, populate it with the kwargs
@@ -119,7 +119,7 @@ class BaseAWSObject(object):
             else:
                 self._raise_type(name, value, expected_type)
 
-        type_name = getattr(self, 'type', self.__class__.__name__)
+        type_name = getattr(self, 'resource_type', self.__class__.__name__)
         raise AttributeError("%s object does not support attribute %s" %
                              (type_name, name))
 
@@ -131,17 +131,18 @@ class BaseAWSObject(object):
         pass
 
     def JSONrepr(self):
-        for k, (prop_type, required) in self.props.items():
+        for k, (_, required) in self.props.items():
             if required and k not in self.properties:
-                type = getattr(self, 'type', "<unknown type>")
-                raise ValueError("Resource %s required in type %s" % (k, type))
+                rtype = getattr(self, 'resource_type', "<unknown type>")
+                raise ValueError(
+                    "Resource %s required in type %s" % (k, rtype))
         self.validate()
         # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
-        elif hasattr(self, 'type'):
-            return {'Type': self.type}
+        elif hasattr(self, 'resource_type'):
+            return {'Type': self.resource_type}
         else:
             return {}
 
@@ -229,8 +230,8 @@ class Base64(AWSHelperFn):
 
 
 class FindInMap(AWSHelperFn):
-    def __init__(self, map, key, value):
-        self.data = {'Fn::FindInMap': [self.getdata(map), key, value]}
+    def __init__(self, mapname, key, value):
+        self.data = {'Fn::FindInMap': [self.getdata(mapname), key, value]}
 
     def JSONrepr(self):
         return self.data

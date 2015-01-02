@@ -126,7 +126,7 @@ class DistributionConfig(AWSProperty):
 
 
 class Distribution(AWSObject):
-    type = "AWS::CloudFront::Distribution"
+    resource_type = "AWS::CloudFront::Distribution"
 
     props = {
         'DistributionConfig': (DistributionConfig, True),

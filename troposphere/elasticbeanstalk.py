@@ -36,7 +36,7 @@ class OptionSettings(AWSProperty):
 
 
 class ConfigurationTemplate(AWSObject):
-    type = "AWS::ElasticBeanstalk::ConfigurationTemplate"
+    resource_type = "AWS::ElasticBeanstalk::ConfigurationTemplate"
 
     props = {
         'TemplateName': (basestring, True),
@@ -47,7 +47,7 @@ class ConfigurationTemplate(AWSObject):
 
 
 class Application(AWSObject):
-    type = "AWS::ElasticBeanstalk::Application"
+    resource_type = "AWS::ElasticBeanstalk::Application"
 
     props = {
         'ApplicationName': (basestring, False),
@@ -80,7 +80,7 @@ class Tier(AWSProperty):
 
 
 class Environment(AWSObject):
-    type = "AWS::ElasticBeanstalk::Environment"
+    resource_type = "AWS::ElasticBeanstalk::Environment"
 
     props = {
         'ApplicationName': (basestring, True),

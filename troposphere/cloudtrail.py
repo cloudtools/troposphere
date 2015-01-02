@@ -3,7 +3,7 @@ from .validators import boolean
 
 
 class Trail(AWSObject):
-    type = "AWS::CloudTrail::Trail"
+    resource_type = "AWS::CloudTrail::Trail"
 
     props = {
         'IncludeGlobalServiceEvents': (boolean, False),

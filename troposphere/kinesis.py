@@ -8,7 +8,7 @@ from .validators import integer
 
 
 class Stream(AWSObject):
-    type = "AWS::Kinesis::Stream"
+    resource_type = "AWS::Kinesis::Stream"
 
     props = {
         'ShardCount': (integer, False),

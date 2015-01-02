@@ -77,7 +77,7 @@ class LocalSecondaryIndex(AWSHelperFn):
 
 
 class Table(AWSObject):
-    type = "AWS::DynamoDB::Table"
+    resource_type = "AWS::DynamoDB::Table"
 
     props = {
         'KeySchema': ([Key], True),

@@ -60,7 +60,7 @@ class StackConfigurationManager(AWSProperty):
 
 
 class App(AWSObject):
-    type = "AWS::OpsWorks::App"
+    resource_type = "AWS::OpsWorks::App"
 
     props = {
         'AppSource': (Source, False),
@@ -77,7 +77,7 @@ class App(AWSObject):
 
 
 class ElasticLoadBalancerAttachment(AWSObject):
-    type = "AWS::OpsWorks::ElasticLoadBalancerAttachment"
+    resource_type = "AWS::OpsWorks::ElasticLoadBalancerAttachment"
 
     props = {
         'ElasticLoadBalancerName': (basestring, True),
@@ -86,7 +86,7 @@ class ElasticLoadBalancerAttachment(AWSObject):
 
 
 class Instance(AWSObject):
-    type = "AWS::OpsWorks::Instance"
+    resource_type = "AWS::OpsWorks::Instance"
 
     props = {
         'AmiId': (basestring, False),
@@ -104,7 +104,7 @@ class Instance(AWSObject):
 
 
 class Layer(AWSObject):
-    type = "AWS::OpsWorks::Layer"
+    resource_type = "AWS::OpsWorks::Layer"
 
     props = {
         'Attributes': (dict, False),
@@ -125,7 +125,7 @@ class Layer(AWSObject):
 
 
 class Stack(AWSObject):
-    type = "AWS::OpsWorks::Stack"
+    resource_type = "AWS::OpsWorks::Stack"
 
     props = {
         'Attributes': (dict, False),

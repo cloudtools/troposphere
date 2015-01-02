@@ -98,7 +98,7 @@ class Metadata(AWSHelperFn):
 
 
 class AutoScalingGroup(AWSObject):
-    type = "AWS::AutoScaling::AutoScalingGroup"
+    resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
         'AvailabilityZones': (list, True),
@@ -139,7 +139,7 @@ class AutoScalingGroup(AWSObject):
 
 
 class LaunchConfiguration(AWSObject):
-    type = "AWS::AutoScaling::LaunchConfiguration"
+    resource_type = "AWS::AutoScaling::LaunchConfiguration"
 
     props = {
         'AssociatePublicIpAddress': (boolean, False),
@@ -161,7 +161,7 @@ class LaunchConfiguration(AWSObject):
 
 
 class ScalingPolicy(AWSObject):
-    type = "AWS::AutoScaling::ScalingPolicy"
+    resource_type = "AWS::AutoScaling::ScalingPolicy"
 
     props = {
         'AdjustmentType': (basestring, True),
@@ -172,7 +172,7 @@ class ScalingPolicy(AWSObject):
 
 
 class ScheduledAction(AWSObject):
-    type = "AWS::AutoScaling::ScheduledAction"
+    resource_type = "AWS::AutoScaling::ScheduledAction"
 
     props = {
         'AutoScalingGroupName': (basestring, True),
@@ -186,7 +186,7 @@ class ScheduledAction(AWSObject):
 
 
 class Trigger(AWSObject):
-    type = "AWS::AutoScaling::Trigger"
+    resource_type = "AWS::AutoScaling::Trigger"
 
     props = {
         'AutoScalingGroupName': (basestring, True),

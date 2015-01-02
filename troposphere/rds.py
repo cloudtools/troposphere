@@ -8,7 +8,7 @@ from .validators import boolean, network_port, positive_integer
 
 
 class DBInstance(AWSObject):
-    type = "AWS::RDS::DBInstance"
+    resource_type = "AWS::RDS::DBInstance"
 
     props = {
         'AllocatedStorage': (positive_integer, True),
@@ -55,7 +55,7 @@ class DBInstance(AWSObject):
 
 
 class DBParameterGroup(AWSObject):
-    type = "AWS::RDS::DBParameterGroup"
+    resource_type = "AWS::RDS::DBParameterGroup"
 
     props = {
         'Description': (basestring, False),
@@ -66,7 +66,7 @@ class DBParameterGroup(AWSObject):
 
 
 class DBSubnetGroup(AWSObject):
-    type = "AWS::RDS::DBSubnetGroup"
+    resource_type = "AWS::RDS::DBSubnetGroup"
 
     props = {
         'DBSubnetGroupDescription': (basestring, True),
@@ -85,7 +85,7 @@ class RDSSecurityGroup(AWSProperty):
 
 
 class DBSecurityGroup(AWSObject):
-    type = "AWS::RDS::DBSecurityGroup"
+    resource_type = "AWS::RDS::DBSecurityGroup"
 
     props = {
         'EC2VpcId': (basestring, False),
@@ -96,7 +96,7 @@ class DBSecurityGroup(AWSObject):
 
 
 class DBSecurityGroupIngress(AWSObject):
-    type = "AWS::RDS::DBSecurityGroupIngress"
+    resource_type = "AWS::RDS::DBSecurityGroupIngress"
 
     props = {
         'CIDRIP': (basestring, False),

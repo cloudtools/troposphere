@@ -16,7 +16,7 @@ class Tag(AWSHelperFn):
 
 
 class CustomerGateway(AWSObject):
-    type = "AWS::EC2::CustomerGateway"
+    resource_type = "AWS::EC2::CustomerGateway"
 
     props = {
         'BgpAsn': (integer, True),
@@ -27,7 +27,7 @@ class CustomerGateway(AWSObject):
 
 
 class DHCPOptions(AWSObject):
-    type = "AWS::EC2::DHCPOptions"
+    resource_type = "AWS::EC2::DHCPOptions"
 
     props = {
         'DomainName': (basestring, False),
@@ -40,7 +40,7 @@ class DHCPOptions(AWSObject):
 
 
 class EIP(AWSObject):
-    type = "AWS::EC2::EIP"
+    resource_type = "AWS::EC2::EIP"
 
     props = {
         'InstanceId': (basestring, False),
@@ -49,7 +49,7 @@ class EIP(AWSObject):
 
 
 class EIPAssociation(AWSObject):
-    type = "AWS::EC2::EIPAssociation"
+    resource_type = "AWS::EC2::EIPAssociation"
 
     props = {
         'AllocationId': (basestring, False),
@@ -109,7 +109,7 @@ class NetworkInterfaceProperty(AWSProperty):
 
 
 class Instance(AWSObject):
-    type = "AWS::EC2::Instance"
+    resource_type = "AWS::EC2::Instance"
 
     props = {
         'AvailabilityZone': (basestring, False),
@@ -139,7 +139,7 @@ class Instance(AWSObject):
 
 
 class InternetGateway(AWSObject):
-    type = "AWS::EC2::InternetGateway"
+    resource_type = "AWS::EC2::InternetGateway"
 
     props = {
         'Tags': (list, False),
@@ -147,7 +147,7 @@ class InternetGateway(AWSObject):
 
 
 class NetworkAcl(AWSObject):
-    type = "AWS::EC2::NetworkAcl"
+    resource_type = "AWS::EC2::NetworkAcl"
 
     props = {
         'Tags': (list, False),
@@ -170,7 +170,7 @@ class PortRange(AWSProperty):
 
 
 class NetworkAclEntry(AWSObject):
-    type = "AWS::EC2::NetworkAclEntry"
+    resource_type = "AWS::EC2::NetworkAclEntry"
 
     props = {
         'CidrBlock': (basestring, True),
@@ -185,7 +185,7 @@ class NetworkAclEntry(AWSObject):
 
 
 class NetworkInterface(AWSObject):
-    type = "AWS::EC2::NetworkInterface"
+    resource_type = "AWS::EC2::NetworkInterface"
 
     props = {
         'Description': (basestring, False),
@@ -200,7 +200,7 @@ class NetworkInterface(AWSObject):
 
 
 class NetworkInterfaceAttachment(AWSObject):
-    type = "AWS::EC2::NetworkInterfaceAttachment"
+    resource_type = "AWS::EC2::NetworkInterfaceAttachment"
 
     props = {
         'DeleteOnTermination': (boolean, False),
@@ -211,7 +211,7 @@ class NetworkInterfaceAttachment(AWSObject):
 
 
 class Route(AWSObject):
-    type = "AWS::EC2::Route"
+    resource_type = "AWS::EC2::Route"
 
     props = {
         'DestinationCidrBlock': (basestring, True),
@@ -224,7 +224,7 @@ class Route(AWSObject):
 
 
 class RouteTable(AWSObject):
-    type = "AWS::EC2::RouteTable"
+    resource_type = "AWS::EC2::RouteTable"
 
     props = {
         'Tags': (list, False),
@@ -233,7 +233,7 @@ class RouteTable(AWSObject):
 
 
 class SecurityGroupEgress(AWSObject):
-    type = "AWS::EC2::SecurityGroupEgress"
+    resource_type = "AWS::EC2::SecurityGroupEgress"
 
     props = {
         'CidrIp': (basestring, False),
@@ -254,7 +254,7 @@ class SecurityGroupEgress(AWSObject):
 
 
 class SecurityGroupIngress(AWSObject):
-    type = "AWS::EC2::SecurityGroupIngress"
+    resource_type = "AWS::EC2::SecurityGroupIngress"
 
     props = {
         'CidrIp': (basestring, False),
@@ -283,7 +283,7 @@ class SecurityGroupRule(AWSProperty):
 
 
 class SecurityGroup(AWSObject):
-    type = "AWS::EC2::SecurityGroup"
+    resource_type = "AWS::EC2::SecurityGroup"
 
     props = {
         'GroupDescription': (basestring, True),
@@ -295,7 +295,7 @@ class SecurityGroup(AWSObject):
 
 
 class Subnet(AWSObject):
-    type = "AWS::EC2::Subnet"
+    resource_type = "AWS::EC2::Subnet"
 
     props = {
         'AvailabilityZone': (basestring, False),
@@ -306,7 +306,7 @@ class Subnet(AWSObject):
 
 
 class SubnetNetworkAclAssociation(AWSObject):
-    type = "AWS::EC2::SubnetNetworkAclAssociation"
+    resource_type = "AWS::EC2::SubnetNetworkAclAssociation"
 
     props = {
         'SubnetId': (basestring, True),
@@ -315,7 +315,7 @@ class SubnetNetworkAclAssociation(AWSObject):
 
 
 class SubnetRouteTableAssociation(AWSObject):
-    type = "AWS::EC2::SubnetRouteTableAssociation"
+    resource_type = "AWS::EC2::SubnetRouteTableAssociation"
 
     props = {
         'RouteTableId': (basestring, True),
@@ -324,7 +324,7 @@ class SubnetRouteTableAssociation(AWSObject):
 
 
 class Volume(AWSObject):
-    type = "AWS::EC2::Volume"
+    resource_type = "AWS::EC2::Volume"
 
     props = {
         'AvailabilityZone': (basestring, True),
@@ -338,7 +338,7 @@ class Volume(AWSObject):
 
 
 class VolumeAttachment(AWSObject):
-    type = "AWS::EC2::VolumeAttachment"
+    resource_type = "AWS::EC2::VolumeAttachment"
 
     props = {
         'Device': (basestring, True),
@@ -348,7 +348,7 @@ class VolumeAttachment(AWSObject):
 
 
 class VPC(AWSObject):
-    type = "AWS::EC2::VPC"
+    resource_type = "AWS::EC2::VPC"
 
     props = {
         'CidrBlock': (basestring, True),
@@ -360,7 +360,7 @@ class VPC(AWSObject):
 
 
 class VPCDHCPOptionsAssociation(AWSObject):
-    type = "AWS::EC2::VPCDHCPOptionsAssociation"
+    resource_type = "AWS::EC2::VPCDHCPOptionsAssociation"
 
     props = {
         'DhcpOptionsId': (basestring, True),
@@ -369,7 +369,7 @@ class VPCDHCPOptionsAssociation(AWSObject):
 
 
 class VPCGatewayAttachment(AWSObject):
-    type = "AWS::EC2::VPCGatewayAttachment"
+    resource_type = "AWS::EC2::VPCGatewayAttachment"
 
     props = {
         'InternetGatewayId': (basestring, False),
@@ -379,7 +379,7 @@ class VPCGatewayAttachment(AWSObject):
 
 
 class VPNConnection(AWSObject):
-    type = "AWS::EC2::VPNConnection"
+    resource_type = "AWS::EC2::VPNConnection"
 
     props = {
         'Type': (basestring, True),
@@ -391,7 +391,7 @@ class VPNConnection(AWSObject):
 
 
 class VPNConnectionRoute(AWSObject):
-    type = "AWS::EC2::VPNConnectionRoute"
+    resource_type = "AWS::EC2::VPNConnectionRoute"
 
     props = {
         'DestinationCidrBlock': (basestring, True),
@@ -400,7 +400,7 @@ class VPNConnectionRoute(AWSObject):
 
 
 class VPNGateway(AWSObject):
-    type = "AWS::EC2::VPNGateway"
+    resource_type = "AWS::EC2::VPNGateway"
 
     props = {
         'Type': (basestring, True),
@@ -409,7 +409,7 @@ class VPNGateway(AWSObject):
 
 
 class VPNGatewayRoutePropagation(AWSObject):
-    type = "AWS::EC2::VPNGatewayRoutePropagation"
+    resource_type = "AWS::EC2::VPNGatewayRoutePropagation"
 
     props = {
         'RouteTableIds': ([basestring, Ref], False),
@@ -418,7 +418,7 @@ class VPNGatewayRoutePropagation(AWSObject):
 
 
 class VPCPeeringConnection(AWSObject):
-    type = "AWS::EC2::VPCPeeringConnection"
+    resource_type = "AWS::EC2::VPCPeeringConnection"
 
     props = {
         'PeerVpcId': (basestring, True),
