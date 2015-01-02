@@ -2,7 +2,8 @@
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
 from troposphere import Output, Parameter, Ref, Template
-from troposphere.dynamodb import Key, AttributeDefinition, ProvisionedThroughput
+from troposphere.dynamodb import (Key, AttributeDefinition,
+                                  ProvisionedThroughput)
 from troposphere.dynamodb import Table
 
 t = Template()

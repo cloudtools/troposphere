@@ -48,8 +48,10 @@ class Projection(AWSHelperFn):
     def JSONrepr(self):
         return self.data
 
+
 class GlobalSecondaryIndex(AWSHelperFn):
-    def __init__(self, IndexName, KeySchema, Projection, ProvisionedThroughput):
+    def __init__(self, IndexName, KeySchema, Projection,
+                 ProvisionedThroughput):
         self.data = {
             'IndexName': IndexName,
             'KeySchema': KeySchema,
@@ -62,7 +64,8 @@ class GlobalSecondaryIndex(AWSHelperFn):
 
 
 class LocalSecondaryIndex(AWSHelperFn):
-    def __init__(self, IndexName, KeySchema, Projection, ProvisionedThroughput):
+    def __init__(self, IndexName, KeySchema, Projection,
+                 ProvisionedThroughput):
         self.data = {
             'IndexName': IndexName,
             'KeySchema': KeySchema,

@@ -1,13 +1,16 @@
 #!/usr/bin/python
 
-from troposphere import Template, Ref, Output, Join, GetAtt, Parameter
-from troposphere.dynamodb import Key, AttributeDefinition, ProvisionedThroughput, Projection
+from troposphere import Template, Ref, Output, Parameter
+from troposphere.dynamodb import (Key, AttributeDefinition,
+                                  ProvisionedThroughput, Projection)
 from troposphere.dynamodb import Table, GlobalSecondaryIndex
 
 template = Template()
 
-template.add_description("Create a dynamodb table with a global secondary index")
-#N.B. If you remove the provisioning section this works for LocalSecondaryIndexes aswell.
+template.add_description("Create a dynamodb table with a global secondary "
+                         "index")
+# N.B. If you remove the provisioning section this works for
+# LocalSecondaryIndexes aswell.
 
 readunits = template.add_parameter(Parameter(
     "ReadCapacityUnits",
@@ -48,7 +51,8 @@ tableIndexDataType = template.add_parameter(Parameter(
     AllowedPattern="[S|N|B]",
     MinLength="1",
     MaxLength="1",
-    ConstraintDescription="S for string data, N for numeric data, or B for binary data"
+    ConstraintDescription="S for string data, N for numeric data, or B for "
+                          "binary data"
 ))
 
 secondaryIndexHashName = template.add_parameter(Parameter(
@@ -70,7 +74,8 @@ secondaryIndexHashDataType = template.add_parameter(Parameter(
     AllowedPattern="[S|N|B]",
     MinLength="1",
     MaxLength="1",
-    ConstraintDescription="S for string data, N for numeric data, or B for binary data"
+    ConstraintDescription="S for string data, N for numeric data, or B for "
+                          "binary data"
 ))
 
 secondaryIndexRangeName = template.add_parameter(Parameter(
@@ -92,7 +97,8 @@ secondaryIndexRangeDataType = template.add_parameter(Parameter(
     AllowedPattern="[S|N|B]",
     MinLength="1",
     MaxLength="1",
-    ConstraintDescription="S for string data, N for numeric data, or B for binary data"
+    ConstraintDescription="S for string data, N for numeric data, or B for "
+                          "binary data"
 ))
 
 
@@ -100,8 +106,10 @@ GSITable = template.add_resource(Table(
     "GSITable",
     AttributeDefinitions=[
         AttributeDefinition(Ref(tableIndexName), Ref(tableIndexDataType)),
-        AttributeDefinition(Ref(secondaryIndexHashName), Ref(secondaryIndexHashDataType)),
-        AttributeDefinition(Ref(secondaryIndexRangeName), Ref(secondaryIndexRangeDataType))       
+        AttributeDefinition(Ref(secondaryIndexHashName),
+                            Ref(secondaryIndexHashDataType)),
+        AttributeDefinition(Ref(secondaryIndexRangeName),
+                            Ref(secondaryIndexRangeDataType))
     ],
     KeySchema=[
         Key(Ref(tableIndexName), "HASH")
