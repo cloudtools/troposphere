@@ -1,4 +1,4 @@
-## Pending
+## 0.7.0 (2015-01-02)
 - Added new Google Group for discussion:
   https://groups.google.com/forum/#!forum/cloudtools-dev
 - Fixing ValueError message to refer the correct package [GH-135]
@@ -19,6 +19,7 @@
 - Addded AWS template VPC_Single_Instance_In_Subnet example [GH-162]
 - Add 2014-12-24 CloudFormation release changes [GH-167] [GH-168] [GH-169]
 - Add GSI & LSI Functionality [GH-161] [GH-172]
+- Fixed landscape.io issues [GH-170]
 
 ## 0.6.2 (2014-10-09)
 - Update to 2014-09-29 AWS release [GH-132]
