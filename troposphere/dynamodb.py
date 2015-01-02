@@ -6,7 +6,7 @@
 from . import AWSHelperFn, AWSObject, AWSProperty
 
 
-class Element(AWSHelperFn):
+class AttributeDefinition(AWSHelperFn):
     def __init__(self, name, type):
         self.data = {
             'AttributeName': name,
@@ -17,11 +17,15 @@ class Element(AWSHelperFn):
         return self.data
 
 
-class PrimaryKey(AWSProperty):
-    props = {
-        'HashKeyElement': (Element, True),
-        'RangeKeyElement': (Element, False),
-    }
+class Key(AWSProperty):
+    def __init__(self, AttributeName, KeyType):
+        self.data = {
+            'AttributeName': AttributeName,
+            'KeyType': KeyType,
+        }
+
+    def JSONrepr(self):
+        return self.data
 
 
 class ProvisionedThroughput(AWSHelperFn):
@@ -35,11 +39,51 @@ class ProvisionedThroughput(AWSHelperFn):
         return self.data
 
 
+class Projection(AWSHelperFn):
+    def __init__(self, ProjectionType):
+        self.data = {
+            'ProjectionType': ProjectionType,
+        }
+
+    def JSONrepr(self):
+        return self.data
+
+
+class GlobalSecondaryIndex(AWSHelperFn):
+    def __init__(self, IndexName, KeySchema, Projection,
+                 ProvisionedThroughput):
+        self.data = {
+            'IndexName': IndexName,
+            'KeySchema': KeySchema,
+            'Projection': Projection,
+            'ProvisionedThroughput': ProvisionedThroughput,
+        }
+
+    def JSONrepr(self):
+        return self.data
+
+
+class LocalSecondaryIndex(AWSHelperFn):
+    def __init__(self, IndexName, KeySchema, Projection,
+                 ProvisionedThroughput):
+        self.data = {
+            'IndexName': IndexName,
+            'KeySchema': KeySchema,
+            'Projection': Projection,
+        }
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Table(AWSObject):
     type = "AWS::DynamoDB::Table"
 
     props = {
-        'KeySchema': (PrimaryKey, True),
+        'KeySchema': ([Key], True),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'AttributeDefinitions': ([AttributeDefinition], False),
         'TableName': (basestring, False),
+        'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
+        'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
     }
