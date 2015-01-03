@@ -1,9 +1,10 @@
 from troposphere import Base64, Join
-from troposphere import Parameter, Ref, Template, UpdatePolicy
+from troposphere import Parameter, Ref, Template
 from troposphere import cloudformation, autoscaling
 from troposphere.autoscaling import AutoScalingGroup, Tag
 from troposphere.autoscaling import LaunchConfiguration
 from troposphere.elasticloadbalancing import LoadBalancer
+from troposphere.policies import UpdatePolicy, AutoScalingRollingUpdate
 import troposphere.ec2 as ec2
 import troposphere.elasticloadbalancing as elb
 
@@ -226,11 +227,12 @@ AutoscalingGroup = t.add_resource(AutoScalingGroup(
     AvailabilityZones=[Ref(VPCAvailabilityZone1), Ref(VPCAvailabilityZone2)],
     HealthCheckType="EC2",
     UpdatePolicy=UpdatePolicy(
-        'AutoScalingRollingUpdate',
-        PauseTime='PT5M',
-        MinInstancesInService="1",
-        MaxBatchSize='1',
-        WaitOnResourceSignals=True
+        AutoScalingRollingUpdate=AutoScalingRollingUpdate(
+            PauseTime='PT5M',
+            MinInstancesInService="1",
+            MaxBatchSize='1',
+            WaitOnResourceSignals=True
+        )
     )
 ))
 
