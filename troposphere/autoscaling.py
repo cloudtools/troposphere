@@ -123,18 +123,25 @@ class AutoScalingGroup(AWSObject):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
 
-            isMinRef = isinstance(update_policy.MinInstancesInService, Ref)
-            isMaxRef = isinstance(self.MaxSize, Ref)
+            if 'AutoScalingRollingUpdate' in update_policy.properties:
+                rolling_update = update_policy.AutoScalingRollingUpdate
 
-            if not (isMinRef or isMaxRef):
-                minCount = int(update_policy.MinInstancesInService)
-                maxCount = int(self.MaxSize)
+                isMinRef = isinstance(
+                    rolling_update.MinInstancesInService,
+                    Ref
+                )
+                isMaxRef = isinstance(self.MaxSize, Ref)
 
-                if minCount >= maxCount:
-                    raise ValueError(
-                        "The UpdatePolicy attribute "
-                        "MinInstancesInService must be less than the "
-                        "autoscaling group's MaxSize")
+                if not (isMinRef or isMaxRef):
+                    maxCount = int(self.MaxSize)
+                    minCount = int(rolling_update.MinInstancesInService)
+
+                    if minCount >= maxCount:
+                        raise ValueError(
+                            "The UpdatePolicy attribute "
+                            "MinInstancesInService must be less than the "
+                            "autoscaling group's MaxSize")
+
         launch_config = self.properties.get('LaunchConfigurationName')
         instance_id = self.properties.get('InstanceId')
         if launch_config and instance_id:
