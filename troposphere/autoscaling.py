@@ -107,7 +107,7 @@ class AutoScalingGroup(AWSObject):
         'HealthCheckGracePeriod': (int, False),
         'HealthCheckType': (basestring, False),
         'InstanceId': (basestring, False),
-        'LaunchConfigurationName': (basestring, True),
+        'LaunchConfigurationName': (basestring, False),
         'LoadBalancerNames': (list, False),
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
@@ -135,6 +135,16 @@ class AutoScalingGroup(AWSObject):
                         "The UpdatePolicy attribute "
                         "MinInstancesInService must be less than the "
                         "autoscaling group's MaxSize")
+        launch_config = self.properties.get('LaunchConfigurationName')
+        instance_id = self.properties.get('InstanceId')
+        if launch_config and instance_id:
+            raise ValueError("LaunchConfigurationName and InstanceId "
+                             "are mutually exclusive.")
+        if not launch_config and not instance_id:
+            raise ValueError("Must specify either LaunchConfigurationName or "
+                             "InstanceId: http://docs.aws.amazon.com/AWSCloud"
+                             "Formation/latest/UserGuide/aws-properties-as-gr"
+                             "oup.html#cfn-as-group-instanceid")
         return True
 
 
