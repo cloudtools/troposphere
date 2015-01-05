@@ -63,6 +63,7 @@ class EIPAssociation(AWSObject):
 class EBSBlockDevice(AWSProperty):
     props = {
         'DeleteOnTermination': (boolean, False),
+        'Encrypted': (boolean, False),
         'Iops': (int, False),  # Conditional
         'SnapshotId': (basestring, False),  # Conditional
         'VolumeSize': (integer, False),  # Conditional
