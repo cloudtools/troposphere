@@ -74,9 +74,15 @@ class Metadata(AWSHelperFn):
     def __init__(self, init, authentication=None):
         self.validate(init, authentication)
         # get keys and values from init and authentication
-        # safe to use cause its always one key
-        initKey, initValue = init.data.popitem()
-        self.data = {initKey: initValue}
+
+        # if there's only one data point, then we know its the default
+        # cfn-init; where the key is 'config'
+        if len(init.data) == 1:
+            initKey, initValue = init.data.popitem()
+            self.data = {initKey: initValue}
+        else:
+            self.data = init.data
+
         if authentication:
             authKey, authValue = authentication.data.popitem()
             self.data[authKey] = authValue
