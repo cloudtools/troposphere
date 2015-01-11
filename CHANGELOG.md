@@ -1,3 +1,8 @@
+## Pending
+- Fix UpdatePolicy validation [GH-173]
+- Add AWS::CloudFormation::Init ConfigSets support [GH-176]
+- Change CloudWatch Alarm's Threshold prop to be basestring [GH-178]
+
 ## 0.7.0 (2015-01-02)
 - Added new Google Group for discussion:
   https://groups.google.com/forum/#!forum/cloudtools-dev
