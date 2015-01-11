@@ -193,24 +193,11 @@ def validate_pausetime(pausetime):
 
 
 class UpdatePolicy(BaseAWSObject):
-    props = {
-        'MaxBatchSize': (validators.positive_integer, False),
-        'MinInstancesInService': (validators.integer, False),
-        'PauseTime': (validate_pausetime, False),
-        'SuspendProcesses': ([basestring], False),
-        'WaitOnResourceSignals': (validators.boolean, False),
-    }
-
-    valid_update_policies = (
-        'AutoScalingRollingUpdate',
-    )
-
     def __init__(self, title, **kwargs):
-        if title not in self.valid_update_policies:
-            raise ValueError('UpdatePolicy name must be one of %r' % (
-                self.valid_update_policies,))
-        self.dictname = title
-        super(UpdatePolicy, self).__init__(None, **kwargs)
+        raise DeprecationWarning(
+            "This UpdatePolicy class is deprecated, please switch to using "
+            "the more general UpdatePolicy in troposphere.policies.\n"
+        )
 
 
 class AWSHelperFn(object):

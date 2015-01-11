@@ -1,7 +1,8 @@
 import json
 import unittest
 
-from troposphere import awsencode
+from troposphere import awsencode, Parameter, Ref
+from troposphere.autoscaling import AutoScalingGroup
 from troposphere.policies import CreationPolicy, ResourceSignal, UpdatePolicy
 from troposphere.policies import AutoScalingRollingUpdate
 
@@ -54,6 +55,63 @@ class TestUpdatePolicy(unittest.TestCase):
         self.assertEqual(p.AutoScalingRollingUpdate.MinInstancesInService, 1)
         self.assertEqual(p.AutoScalingRollingUpdate.PauseTime, 'PT90S')
         self.assertTrue(p.AutoScalingRollingUpdate.WaitOnResourceSignals)
+
+    def test_mininstances(self):
+        group = AutoScalingGroup(
+            'mygroup',
+            LaunchConfigurationName="I'm a test",
+            MaxSize=1,
+            MinSize=1,
+            UpdatePolicy=UpdatePolicy(
+                AutoScalingRollingUpdate=AutoScalingRollingUpdate(
+                    PauseTime='PT1M5S',
+                    MinInstancesInService='1',
+                    MaxBatchSize='1'
+                )
+            )
+        )
+        with self.assertRaises(ValueError):
+            self.assertTrue(group.validate())
+
+    def test_mininstances_maxsize_is_ref(self):
+        paramMaxSize = Parameter(
+            "ParamMaxSize",
+            Type="String"
+        )
+        group = AutoScalingGroup(
+            'mygroup',
+            LaunchConfigurationName="I'm a test",
+            MaxSize=Ref(paramMaxSize),
+            MinSize="2",
+            UpdatePolicy=UpdatePolicy(
+                AutoScalingRollingUpdate=AutoScalingRollingUpdate(
+                    PauseTime='PT1M5S',
+                    MinInstancesInService='2',
+                    MaxBatchSize="1"
+                )
+            )
+        )
+        self.assertTrue(group.validate())
+
+    def test_mininstances_mininstancesinservice_is_ref(self):
+        paramMinInstancesInService = Parameter(
+            "ParamMinInstancesInService",
+            Type="String"
+        )
+        group = AutoScalingGroup(
+            'mygroup',
+            LaunchConfigurationName="I'm a test",
+            MaxSize="4",
+            MinSize="2",
+            UpdatePolicy=UpdatePolicy(
+                AutoScalingRollingUpdate=AutoScalingRollingUpdate(
+                    PauseTime='PT1M5S',
+                    MinInstancesInService=Ref(paramMinInstancesInService),
+                    MaxBatchSize="2",
+                )
+            )
+        )
+        self.assertTrue(group.validate())
 
     def test_json(self):
         p = UpdatePolicy(
