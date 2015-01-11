@@ -33,6 +33,17 @@ class WaitConditionHandle(AWSObject):
     props = {}
 
 
+class Metadata(AWSHelperFn):
+    def __init__(self, *args):
+        self.data = args
+
+    def JSONrepr(self):
+        t = []
+        for i in self.data:
+            t += i.JSONrepr().items()
+        return dict(t)
+
+
 class InitFileContext(AWSHelperFn):
     def __init__(self, data):
         self.data = data
@@ -95,6 +106,20 @@ class InitServices(AWSHelperFn):
         return self.data
 
 
+class InitConfigSets(AWSHelperFn):
+    def __init__(self, **kwargs):
+        self.validate(dict(kwargs))
+        self.data = kwargs
+
+    def validate(self, config_sets):
+        for k, v in config_sets.iteritems():
+            if not isinstance(v, list):
+                raise ValueError('configSets values must be of type list')
+
+    def JSONrepr(self):
+        return self.data
+
+
 class InitConfig(AWSProperty):
     props = {
         'groups': (dict, False),
@@ -145,17 +170,32 @@ class Authentication(AWSHelperFn):
 
 
 class Init(AWSHelperFn):
-    def __init__(self, data):
-        self.validate(data)
-        self.data = {"AWS::CloudFormation::Init": data}
+    def __init__(self, data, **kwargs):
+        self.validate(data, dict(kwargs))
 
-    def validate(self, data):
-        if 'config' not in data:
-            raise ValueError('config property is required')
-        if not isinstance(data['config'], InitConfig):
-            raise ValueError(
-                'config property must be of type cloudformation.InitConfig'
-            )
+        if isinstance(data, InitConfigSets):
+            self.data = {
+                'AWS::CloudFormation::Init': dict({'configSets': data},
+                                                  **kwargs)
+            }
+        else:
+            self.data = {'AWS::CloudFormation::Init': data}
+
+    def validate(self, data, config_sets):
+        if isinstance(data, InitConfigSets):
+            for k, v in sorted(config_sets.iteritems()):
+                if not isinstance(v, InitConfig):
+                    raise ValueError(
+                        'init configs must of type ',
+                        'cloudformation.InitConfigSet'
+                    )
+        else:
+            if 'config' not in data:
+                raise ValueError('config property is required')
+            if not isinstance(data['config'], InitConfig):
+                raise ValueError(
+                    'config property must be of type cloudformation.InitConfig'
+                )
 
     def JSONrepr(self):
         return self.data
