@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Ref
-from .validators import integer, positive_integer, boolean
+from .validators import positive_integer, boolean
 
 
 class MetricDimension(AWSProperty):
@@ -31,6 +31,6 @@ class Alarm(AWSObject):
         'OKActions': ([basestring, Ref], False),
         'Period': (positive_integer, True),
         'Statistic': (basestring, True),
-        'Threshold': (integer, True),
+        'Threshold': (basestring, True),
         'Unit': (basestring, False),
     }
