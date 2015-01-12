@@ -1,4 +1,7 @@
-## Pending
+## pending
+
+
+## 0.7.1 (2015-01-11)
 - Fix UpdatePolicy validation [GH-173]
 - Add AWS::CloudFormation::Init ConfigSets support [GH-176]
 - Change CloudWatch Alarm's Threshold prop to be basestring [GH-178]
