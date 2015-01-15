@@ -105,9 +105,11 @@ class BaseAWSObject(object):
                     self._raise_type(name, value, expected_type)
 
                 # Iterate over the list and make sure it matches our
-                # type checks
+                # type checks (as above accept AWSHelperFn because
+                # we can't do the validation ourselves)
                 for v in value:
-                    if not isinstance(v, tuple(expected_type)):
+                    if not isinstance(v, tuple(expected_type)) \
+                           and not isinstance(v, AWSHelperFn):
                         self._raise_type(name, v, expected_type)
                 # Validated so assign it
                 return self.properties.__setitem__(name, value)
