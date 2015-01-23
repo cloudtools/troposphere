@@ -1,3 +1,5 @@
+# About
+
 troposphere - library to create [AWS CloudFormation][] descriptions
 
 The troposphere library allows for easier creation of the AWS CloudFormation
@@ -6,6 +8,21 @@ includes some basic support for [OpenStack resources][] via heat.
 
 To facilitate catching CloudFormation or JSON errors early the library has
 property and type checking built into the classes.
+
+# Installation Instructions
+troposphere can be installed using the pip distribution system for python by issuing
+
+```
+$ pip install troposphere
+```
+
+Alternatively, you can run use setup.py to install by cloning this repository and issuing
+
+```
+# python setup.py install
+```
+
+# Examples
 
 A simple example to create an instance would look like this:
 ```
