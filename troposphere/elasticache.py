@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Ref
+from . import AWSObject, Ref, AWSHelperFn
 from .validators import boolean, integer
 
 
@@ -25,7 +25,7 @@ class CacheCluster(AWSObject):
         'PreferredAvailabilityZone': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'SnapshotArns': ([basestring, Ref], False),
-        'VpcSecurityGroupIds': ([basestring, Ref], False),
+        'VpcSecurityGroupIds': ([basestring, AWSHelperFn], False),
     }
 
 
