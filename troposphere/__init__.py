@@ -25,10 +25,10 @@ AWS_REGION = 'AWS::Region'
 AWS_STACK_ID = 'AWS::StackId'
 AWS_STACK_NAME = 'AWS::StackName'
 
-valid_names = re.compile(r'^[a-zA-Z0-9]+$')
-
 
 class BaseAWSObject(object):
+    valid_names = re.compile(r'^[a-zA-Z0-9]+$')
+
     def __init__(self, title, template=None, **kwargs):
         self.title = title
         self.template = template
@@ -39,8 +39,8 @@ class BaseAWSObject(object):
                            'Condition', 'CreationPolicy']
 
         # unset/None is also legal
-        if title and not valid_names.match(title):
-            raise ValueError('Name "%s" not alphanumeric' % title)
+        if title and not self.valid_names.match(title):
+            raise ValueError('Name "%s" is not valid ()' % (title, self.valid_names.pattern))
 
         # Create the list of properties set on this object by the user
         self.properties = {}

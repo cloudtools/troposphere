@@ -3,6 +3,8 @@
 #
 # See LICENSE file for full license.
 
+import re
+
 from . import AWSHelperFn, AWSObject, AWSProperty
 
 
@@ -78,6 +80,8 @@ class LocalSecondaryIndex(AWSHelperFn):
 
 class Table(AWSObject):
     resource_type = "AWS::DynamoDB::Table"
+
+    valid_names = re.compile(r'^[a-zA-Z0-9._-]+$')
 
     props = {
         'KeySchema': ([Key], True),
