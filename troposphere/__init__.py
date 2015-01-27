@@ -40,7 +40,7 @@ class BaseAWSObject(object):
 
         # unset/None is also legal
         if title and not self.valid_names.match(title):
-            raise ValueError('Name "%s" not alphanumeric' % title)
+            raise ValueError('Name "%s" is not valid ()' % (title, self.valid_names.pattern))
 
         # Create the list of properties set on this object by the user
         self.properties = {}
