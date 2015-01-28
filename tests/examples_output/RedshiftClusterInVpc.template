@@ -155,13 +155,10 @@
                 "GroupDescription": "Security Group",
                 "SecurityGroupIngress": [
                     {
-                        "Properties": {
-                            "CidrIp": "10.0.0.0/16",
-                            "FromPort": "80",
-                            "IpProtocol": "tcp",
-                            "ToPort": "80"
-                        },
-                        "Type": "AWS::EC2::SecurityGroupIngress"
+                        "CidrIp": "10.0.0.0/16",
+                        "FromPort": "80",
+                        "IpProtocol": "tcp",
+                        "ToPort": "80"
                     }
                 ],
                 "VpcId": {
