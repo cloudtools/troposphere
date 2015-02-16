@@ -1,5 +1,9 @@
 ## pending
-
+- Support AWS helper functions in lists during validation [GH-179]
+- Update README [GH-183]
+- Fixing RedshiftClusterInVpc example; incorrect SG setup [GH-186]
+- Add optional NonKeyAttributes to DynamoDB Projection class [GH-188]
+- Change AutoScaling ScheduledAction StartTime, EndTime, and Recurrence to optional [GH-189]
 
 ## 0.7.1 (2015-01-11)
 - Fix UpdatePolicy validation [GH-173]
