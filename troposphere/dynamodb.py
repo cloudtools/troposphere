@@ -40,10 +40,12 @@ class ProvisionedThroughput(AWSHelperFn):
 
 
 class Projection(AWSHelperFn):
-    def __init__(self, ProjectionType):
+    def __init__(self, ProjectionType, NonKeyAttributes=None):
         self.data = {
-            'ProjectionType': ProjectionType,
+            'ProjectionType': ProjectionType
         }
+        if NonKeyAttributes is not None:
+            self.data['NonKeyAttributes'] = NonKeyAttributes
 
     def JSONrepr(self):
         return self.data
