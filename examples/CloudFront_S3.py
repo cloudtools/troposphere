@@ -5,6 +5,7 @@ from troposphere import GetAtt, Join, Output
 from troposphere import Parameter, Ref, Template
 from troposphere.cloudfront import Distribution, DistributionConfig
 from troposphere.cloudfront import Origin, DefaultCacheBehavior
+from troposphere.cloudfront import ForwardedValues
 
 
 t = Template()
@@ -30,6 +31,9 @@ myDistribution = t.add_resource(Distribution(
         Origins=[Origin(Id="Origin 1", DomainName=Ref(s3dnsname))],
         DefaultCacheBehavior=DefaultCacheBehavior(
             TargetOriginId="Origin 1",
+            ForwardedValues=ForwardedValues(
+                QueryString=False
+            ),
             ViewerProtocolPolicy="allow-all"),
         Enabled=True
     )
