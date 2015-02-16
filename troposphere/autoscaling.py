@@ -203,7 +203,7 @@ class ScheduledAction(AWSObject):
         'EndTime': (basestring, False),
         'MaxSize': (integer, False),
         'MinSize': (integer, False),
-        'Recurrence': (basestring, True),
+        'Recurrence': (basestring, False),
         'StartTime': (basestring, False),
     }
 
