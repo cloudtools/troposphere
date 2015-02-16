@@ -200,11 +200,11 @@ class ScheduledAction(AWSObject):
     props = {
         'AutoScalingGroupName': (basestring, True),
         'DesiredCapacity': (integer, False),
-        'EndTime': (basestring, True),
+        'EndTime': (basestring, False),
         'MaxSize': (integer, False),
         'MinSize': (integer, False),
         'Recurrence': (basestring, True),
-        'StartTime': (basestring, True),
+        'StartTime': (basestring, False),
     }
 
 
