@@ -84,7 +84,7 @@ class Table(AWSObject):
     props = {
         'KeySchema': ([Key], True),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
-        'AttributeDefinitions': ([AttributeDefinition], False),
+        'AttributeDefinitions': ([AttributeDefinition], True),
         'TableName': (basestring, False),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
