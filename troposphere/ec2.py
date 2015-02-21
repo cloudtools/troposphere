@@ -240,7 +240,7 @@ class SecurityGroupEgress(AWSObject):
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
-        'GroupId': (basestring, False),
+        'GroupId': (basestring, True),
         'IpProtocol': (basestring, True),
         'ToPort': (network_port, True),
         #
@@ -413,7 +413,7 @@ class VPNGatewayRoutePropagation(AWSObject):
     resource_type = "AWS::EC2::VPNGatewayRoutePropagation"
 
     props = {
-        'RouteTableIds': ([basestring, Ref], False),
+        'RouteTableIds': ([basestring, Ref], True),
         'VpnGatewayId': (basestring, True),
     }
 
