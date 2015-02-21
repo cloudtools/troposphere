@@ -4,6 +4,9 @@
 - Fixing RedshiftClusterInVpc example; incorrect SG setup [GH-186]
 - Add optional NonKeyAttributes to DynamoDB Projection class [GH-188]
 - Change AutoScaling ScheduledAction StartTime, EndTime, and Recurrence to optional [GH-189]
+- CloudFront forwarded values required on cache behavior [GH-191]
+- DynamoDB attribute definitions required [GH-192]
+- Add some ec2 required fields [GH-193]
 
 ## 0.7.1 (2015-01-11)
 - Fix UpdatePolicy validation [GH-173]
