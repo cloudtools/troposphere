@@ -1,3 +1,9 @@
+troposphere
+===========
+
+[![Latest Version](https://pypip.in/version/troposphere/badge.svg?text=version&style=flat)](https://pypi.python.org/pypi/troposphere)
+[![Build Status](https://travis-ci.org/cloudtools/troposphere.png?branch=master)](https://travis-ci.org/cloudtools/troposphere) 
+
 # About
 
 troposphere - library to create [AWS CloudFormation][] descriptions
@@ -138,9 +144,7 @@ Currently supported OpenStack resource types:
 Todo:
 - Add additional validity checks
 - Add missing AWS resource types:
-  - AWS::CloudFormation::Authentication
   - AWS::CloudFormation::CustomResource
-  - AWS::CloudFormation::Init
 
 Duplicating a single instance sample would look like this:
 
