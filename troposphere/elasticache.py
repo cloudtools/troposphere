@@ -20,7 +20,7 @@ class CacheCluster(AWSObject):
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
         'NotificationTopicArn': (basestring, False),
-        'NumCacheNodes': (integer, False),
+        'NumCacheNodes': (integer, True),
         'Port': (int, False),
         'PreferredAvailabilityZone': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
@@ -43,7 +43,7 @@ class SecurityGroup(AWSObject):
     resource_type = "AWS::ElastiCache::SecurityGroup"
 
     props = {
-        'Description': (basestring, True),
+        'Description': (basestring, False),
     }
 
 
