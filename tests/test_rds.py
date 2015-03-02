@@ -1,4 +1,3 @@
-import copy
 import unittest
 import troposphere.rds as rds
 
@@ -68,43 +67,77 @@ class TestRDS(unittest.TestCase):
             'SomeTitle',
             SourceDBInstanceIdentifier='masterdb',
             DBInstanceClass='db.m1.small',
+            MultiAZ=False,
         )
 
-        rdsobj = copy.copy(rds_instance)
-        rdsobj.MultiAZ = False
-        rdsobj.JSONrepr()
+        rds_instance.JSONrepr()
+
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            SourceDBInstanceIdentifier='masterdb',
+            DBInstanceClass='db.m1.small',
+            MultiAZ=True,
+        )
 
         with self.assertRaises(ValueError):
-            rdsobj = copy.copy(rds_instance)
-            rdsobj.MultiAZ = True
-            rdsobj.JSONrepr()
+            rds_instance.JSONrepr()
+
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            SourceDBInstanceIdentifier='masterdb',
+            DBInstanceClass='db.m1.small',
+            DBSnapshotIdentifier='dbident',
+        )
 
         with self.assertRaises(ValueError):
-            rdsobj = copy.copy(rds_instance)
-            rdsobj.DBSnapshotIdentifier = 'dbident'
-            rdsobj.JSONrepr()
+            rds_instance.JSONrepr()
+
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            SourceDBInstanceIdentifier='masterdb',
+            DBInstanceClass='db.m1.small',
+            BackupRetentionPeriod='30',
+        )
 
         with self.assertRaises(ValueError):
-            rdsobj = copy.copy(rds_instance)
-            rdsobj.BackupRetentionPeriod = '30'
-            rdsobj.JSONrepr()
+            rds_instance.JSONrepr()
+
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            SourceDBInstanceIdentifier='masterdb',
+            DBInstanceClass='db.m1.small',
+            DBName='dbname',
+        )
 
         with self.assertRaises(ValueError):
-            rdsobj = copy.copy(rds_instance)
-            rdsobj.DBName = 'dbname'
-            rdsobj.JSONrepr()
+            rds_instance.JSONrepr()
+
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            SourceDBInstanceIdentifier='masterdb',
+            DBInstanceClass='db.m1.small',
+            MasterUsername='username',
+        )
 
         with self.assertRaises(ValueError):
-            rdsobj = copy.copy(rds_instance)
-            rdsobj.MasterUsername = 'username'
-            rdsobj.JSONrepr()
+            rds_instance.JSONrepr()
+
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            SourceDBInstanceIdentifier='masterdb',
+            DBInstanceClass='db.m1.small',
+            MasterUserPassword='password',
+        )
 
         with self.assertRaises(ValueError):
-            rdsobj = copy.copy(rds_instance)
-            rdsobj.MasterUserPassword = 'password'
-            rdsobj.JSONrepr()
+            rds_instance.JSONrepr()
+
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            SourceDBInstanceIdentifier='masterdb',
+            DBInstanceClass='db.m1.small',
+            PreferredBackupWindow='backupwindow',
+        )
 
         with self.assertRaises(ValueError):
-            rdsobj = copy.copy(rds_instance)
-            rdsobj.PreferredBackupWindow = 'backupwindow'
-            rdsobj.JSONrepr()
+            rds_instance.JSONrepr()
