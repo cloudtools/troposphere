@@ -11,7 +11,7 @@ class DBInstance(AWSObject):
     resource_type = "AWS::RDS::DBInstance"
 
     props = {
-        'AllocatedStorage': (positive_integer, True),
+        'AllocatedStorage': (positive_integer, False),
         'AllowMajorVersionUpgrade': (boolean, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
@@ -23,7 +23,7 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
-        'Engine': (basestring, True),
+        'Engine': (basestring, False),
         'EngineVersion': (basestring, False),
         'Iops': (int, False),
         'LicenseModel': (basestring, False),
@@ -42,15 +42,37 @@ class DBInstance(AWSObject):
     }
 
     def validate(self):
-        if 'DBSnapshotIdentifier' not in self.properties and \
-            ('MasterUsername' not in self.properties or
-             'MasterUserPassword' not in self.properties):
-            raise ValueError(
-                'Either (MasterUsername and MasterUserPassword) or'
-                ' DBSnapshotIdentifier are required in type '
-                'AWS::RDS::DBInstance.'
-            )
+        p = self.properties
 
+        if 'SourceDBInstanceIdentifier' in p:
+            # Specifying a read replica
+            if 'MultiAZ' in p and p['MultiAZ'] is not 'false':
+                raise ValueError('Do not set MultiAZ in a read replica')
+
+            if 'DBSnapshotIdentifier' in p:
+                raise ValueError(
+                    'Cannot create a read replica from a DBSnapshotIdentifier'
+                )
+            invalid_props = [
+                'BackupRetentionPeriod', 'DBName', 'MasterUsername',
+                'MasterUserPassword', 'PreferredBackupWindow'
+            ]
+            for i in invalid_props:
+                if i in p:
+                    raise ValueError('Do not set %s in a read replica' % i)
+        else:
+            if 'DBSnapshotIdentifier' not in self.properties and \
+                ('MasterUsername' not in self.properties or
+                 'MasterUserPassword' not in self.properties):
+                raise ValueError(
+                    'Either (MasterUsername and MasterUserPassword) or'
+                    ' DBSnapshotIdentifier are required in type '
+                    'AWS::RDS::DBInstance.'
+                )
+            required = ['AllocatedStorage', 'Engine']
+            for r in required:
+                if r not in p:
+                    raise ValueError('%s property is required' % r)
         return True
 
 
