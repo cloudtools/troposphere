@@ -22,7 +22,7 @@ class MetricFilter(AWSObject):
     resource_type = "AWS::Logs::MetricFilter"
 
     props = {
-        'FilterPattern': ([basestring], True),
+        'FilterPattern': (basestring, True),
         'LogGroupName': (basestring, True),
         'MetricTransformations': ([MetricTransformation], True),
     }
