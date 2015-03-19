@@ -19,11 +19,10 @@ class SourceBundle(AWSProperty):
     }
 
 
-class ApplicationVersion(AWSProperty):
+class SourceConfiguration(AWSProperty):
     props = {
-        'Description': (basestring, False),
-        'SourceBundle': (SourceBundle, False),
-        'VersionLabel': (basestring, True),
+        'ApplicationName': (basestring, True),
+        'TemplateName': (basestring, True),
     }
 
 
@@ -35,25 +34,35 @@ class OptionSettings(AWSProperty):
     }
 
 
-class ConfigurationTemplate(AWSObject):
-    resource_type = "AWS::ElasticBeanstalk::ConfigurationTemplate"
-
-    props = {
-        'TemplateName': (basestring, True),
-        'Description': (basestring, False),
-        'OptionSettings': (list, False),
-        'SolutionStackName': (basestring, False),
-    }
-
-
 class Application(AWSObject):
     resource_type = "AWS::ElasticBeanstalk::Application"
 
     props = {
         'ApplicationName': (basestring, False),
-        'ApplicationVersions': (list, True),
-        'ConfigurationTemplates': (list, False),
         'Description': (basestring, False),
+    }
+
+
+class ApplicationVersion(AWSObject):
+    resource_type = "AWS::ElasticBeanstalk::ApplicationVersion"
+
+    props = {
+        'ApplicationName': (basestring, True),
+        'Description': (basestring, False),
+        'SourceBundle': (SourceBundle, False),
+    }
+
+
+class ConfigurationTemplate(AWSObject):
+    resource_type = "AWS::ElasticBeanstalk::ConfigurationTemplate"
+
+    props = {
+        'ApplicationName': (basestring, True),
+        'Description': (basestring, False),
+        'EnvironmentId': (basestring, False),
+        'OptionSettings': ([OptionSettings], False),
+        'SolutionStackName': (basestring, False),
+        'SourceConfiguration': (SourceConfiguration, False),
     }
 
 
