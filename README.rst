@@ -153,6 +153,7 @@ Todo:
 
 - Add additional validity checks
 - Add missing AWS resource types:
+
   - AWS::CloudFormation::CustomResource
 
 Duplicating a single instance sample would look like this
