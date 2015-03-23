@@ -1,4 +1,6 @@
 ## pending
+
+## 0.7.2 (2015-03-23)
 - Support AWS helper functions in lists during validation [GH-179]
 - Update README [GH-183]
 - Fixing RedshiftClusterInVpc example; incorrect SG setup [GH-186]
