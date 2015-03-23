@@ -12,7 +12,7 @@ from troposphere.elasticbeanstalk import (
 )
 
 from troposphere.iam import Role, InstanceProfile
-from troposphere.iam import Policy as IAMPolicy
+from troposphere.iam import PolicyType as IAMPolicy
 
 from awacs.aws import Allow, Statement, Action, Principal, Policy
 from awacs.sts import AssumeRole

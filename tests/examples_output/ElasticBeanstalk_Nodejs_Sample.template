@@ -183,23 +183,26 @@
             "Type": "AWS::IAM::Role"
         },
         "WebServerRolePolicy": {
-            "PolicyDocument": {
-                "Statement": [
+            "Properties": {
+                "PolicyDocument": {
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "NotAction": "iam:*",
+                            "Resource": [
+                                "*"
+                            ]
+                        }
+                    ]
+                },
+                "PolicyName": "WebServerRole",
+                "Roles": [
                     {
-                        "Effect": "Allow",
-                        "NotAction": "iam:*",
-                        "Resource": [
-                            "*"
-                        ]
+                        "Ref": "WebServerRole"
                     }
                 ]
             },
-            "PolicyName": "WebServerRole",
-            "Roles": [
-                {
-                    "Ref": "WebServerRole"
-                }
-            ]
+            "Type": "AWS::IAM::Policy"
         }
     }
 }
