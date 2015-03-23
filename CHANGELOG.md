@@ -7,6 +7,8 @@
 - CloudFront forwarded values required on cache behavior [GH-191]
 - DynamoDB attribute definitions required [GH-192]
 - Add some ec2 required fields [GH-193]
+- Fix ElasticBeanstalk resources [GH-213]
+- Fix iam Policy Resource/Property bug [GH-214]
 
 ## 0.7.1 (2015-01-11)
 - Fix UpdatePolicy validation [GH-173]
