@@ -27,7 +27,9 @@ class AccessKey(AWSObject):
     }
 
 
-class PolicyProps(object):
+class Policy(AWSObject):
+    resource_type = "AWS::IAM::Policy"
+
     props = {
         'Groups': ([basestring, Ref], False),
         'PolicyDocument': (policytypes, True),
@@ -37,14 +39,15 @@ class PolicyProps(object):
     }
 
 
-class PolicyType(AWSObject, PolicyProps):
-    # This is a top-level resource
-    resource_type = "AWS::IAM::Policy"
+# For backwards compatibility
+PolicyType = Policy
 
 
-class Policy(AWSProperty, PolicyProps):
-    # This is for use in a list with Group (below)
-    pass
+class PolicyProperty(AWSProperty):
+    props = {
+        'PolicyDocument': (policytypes, True),
+        'PolicyName': (basestring, True),
+    }
 
 
 class Group(AWSObject):
