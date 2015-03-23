@@ -1,10 +1,16 @@
+===========
 troposphere
 ===========
 
-[![Latest Version](https://pypip.in/version/troposphere/badge.svg?text=version&style=flat)](https://pypi.python.org/pypi/troposphere)
-[![Build Status](https://travis-ci.org/cloudtools/troposphere.png?branch=master)](https://travis-ci.org/cloudtools/troposphere) 
+.. image: https://pypip.in/version/troposphere/badge.svg?text=version&style=flat
+    :target: https://pypi.python.org/pypi/troposphere
 
-# About
+.. image: https://travis-ci.org/cloudtools/troposphere.png?branch=master
+    :target: https://travis-ci.org/cloudtools/troposphere
+
+
+About
+=====
 
 troposphere - library to create [AWS CloudFormation][] descriptions
 
