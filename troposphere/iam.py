@@ -27,7 +27,7 @@ class AccessKey(AWSObject):
     }
 
 
-class Policy(AWSObject):
+class PolicyType(AWSObject):
     resource_type = "AWS::IAM::Policy"
 
     props = {
@@ -39,15 +39,13 @@ class Policy(AWSObject):
     }
 
 
-# For backwards compatibility
-PolicyType = Policy
-
-
-class PolicyProperty(AWSProperty):
+class Policy(AWSProperty):
     props = {
         'PolicyDocument': (policytypes, True),
         'PolicyName': (basestring, True),
     }
+
+PolicyProperty = Policy
 
 
 class Group(AWSObject):
