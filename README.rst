@@ -2,10 +2,10 @@
 troposphere
 ===========
 
-.. image: https://pypip.in/version/troposphere/badge.svg?text=version&style=flat
+.. image:: https://pypip.in/version/troposphere/badge.svg?text=version&style=flat
     :target: https://pypi.python.org/pypi/troposphere
 
-.. image: https://travis-ci.org/cloudtools/troposphere.png?branch=master
+.. image:: https://travis-ci.org/cloudtools/troposphere.png?branch=master
     :target: https://travis-ci.org/cloudtools/troposphere
 
 
