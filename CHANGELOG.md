@@ -1,4 +1,5 @@
 ## pending
+- Add interim MinimumProtocolVersion to CloudFront ViewerCertificate [GH-218]
 
 ## 0.7.2 (2015-03-23)
 - Support AWS helper functions in lists during validation [GH-179]
