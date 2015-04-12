@@ -64,7 +64,7 @@ class CustomOrigin(AWSProperty):
 class Origin(AWSProperty):
     props = {
         'DomainName': (basestring, True),
-        'OriginPath' : (basestring, False),
+        'OriginPath': (basestring, False),
         'Id': (basestring, True),
         'S3OriginConfig': (S3Origin, False),
         'CustomOriginConfig': (CustomOrigin, False),
