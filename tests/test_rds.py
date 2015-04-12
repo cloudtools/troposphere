@@ -72,9 +72,9 @@ class TestRDS(unittest.TestCase):
 
         with self.assertRaisesRegexp(
                 ValueError,
-                'MultiAZ, DBSubnetGroupName, MasterUsername, '
-                'MasterUserPassword, PreferredBackupWindow, '
-                'DBSnapshotIdentifier, DBName, BackupRetentionPeriod '
+                'BackupRetentionPeriod, DBName, DBSnapshotIdentifier, '
+                'DBSubnetGroupName, MasterUserPassword, MasterUsername, '
+                'MultiAZ, PreferredBackupWindow '
                 'properties can\'t be provided when '
                 'SourceDBInstanceIdentifier is present '
                 'AWS::RDS::DBInstance.'

@@ -58,7 +58,7 @@ class DBInstance(AWSObject):
                     ('{0} properties can\'t be provided when '
                      'SourceDBInstanceIdentifier is present '
                      'AWS::RDS::DBInstance.'
-                     ).format(', '.join(invalid_properties)))
+                     ).format(', '.join(sorted(invalid_properties))))
 
         if ('DBSnapshotIdentifier' not in self.properties and
             'SourceDBInstanceIdentifier' not in self.properties) and \
