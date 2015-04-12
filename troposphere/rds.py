@@ -56,7 +56,7 @@ class DBInstance(AWSObject):
             if invalid_properties:
                 raise ValueError(
                     ('{0} properties can\'t be provided when '
-                     ' SourceDBInstanceIdentifier is present '
+                     'SourceDBInstanceIdentifier is present '
                      'AWS::RDS::DBInstance.'
                      ).format(', '.join(invalid_properties)))
 
