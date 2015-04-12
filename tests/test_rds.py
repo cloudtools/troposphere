@@ -74,8 +74,9 @@ class TestRDS(unittest.TestCase):
                 ValueError,
                 'MultiAZ, DBSubnetGroupName, MasterUsername, '
                 'MasterUserPassword, PreferredBackupWindow, '
-                'DBSnapshotIdentifier, DBName, BackupRetentionPeriod properties'
-                ' can\'t be provided when  SourceDBInstanceIdentifier is '
-                'present AWS::RDS::DBInstance.'
+                'DBSnapshotIdentifier, DBName, BackupRetentionPeriod '
+                'properties can\'t be provided when '
+                'SourceDBInstanceIdentifier is present '
+                'AWS::RDS::DBInstance.'
                 ):
             rds_instance.JSONrepr()

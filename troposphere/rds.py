@@ -50,14 +50,15 @@ class DBInstance(AWSObject):
                 'DBSnapshotIdentifier', 'DBSubnetGroupName',
             )
 
-            invalid_properties = [s for s in self.properties.keys() if \
+            invalid_properties = [s for s in self.properties.keys() if
                                   s in invalid_replica_properties]
 
             if invalid_properties:
-                raise ValueError(('{0} properties can\'t be provided when '
-                    ' SourceDBInstanceIdentifier is present '
-                    'AWS::RDS::DBInstance.'
-                ).format(', '.join(invalid_properties)))
+                raise ValueError(
+                    ('{0} properties can\'t be provided when '
+                     ' SourceDBInstanceIdentifier is present '
+                     'AWS::RDS::DBInstance.'
+                     ).format(', '.join(invalid_properties)))
 
         if ('DBSnapshotIdentifier' not in self.properties and
             'SourceDBInstanceIdentifier' not in self.properties) and \
