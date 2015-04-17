@@ -80,3 +80,21 @@ class TestRDS(unittest.TestCase):
                 'AWS::RDS::DBInstance.'
                 ):
             rds_instance.JSONrepr()
+
+    def test_it_rds_instances_require_encryption_if_kms_key_provided(self):
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            AllocatedStorage=1,
+            DBInstanceClass='db.m1.small',
+            Engine='MySQL',
+            MasterUsername='SomeUsername',
+            MasterUserPassword='SomePassword',
+            KmsKeyId='arn:aws:kms:us-east-1:123456789012:key/'
+                     '12345678-1234-1234-1234-123456789012'
+        )
+
+        with self.assertRaisesRegexp(
+                ValueError,
+                'If KmsKeyId is provided, StorageEncrypted is required'
+                ):
+            rds_instance.JSONrepr()
