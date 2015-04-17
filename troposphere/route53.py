@@ -96,10 +96,26 @@ class HostedZoneConfiguration(AWSProperty):
     }
 
 
+class HostedZoneVPCs(AWSProperty):
+    props = {
+        'VPCId': (basestring, True),
+        'VPCRegion': (basestring, True),
+    }
+
+
+class HostedZoneTags(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
 class HostedZone(AWSObject):
     resource_type = "AWS::Route53::HostedZone"
 
     props = {
         'HostedZoneConfig': (HostedZoneConfiguration, False),
+        'HostedZoneTags': ([HostedZoneTags], False),
         'Name': (basestring, True),
+        'VPCs': ([HostedZoneVPCs], False),
     }
