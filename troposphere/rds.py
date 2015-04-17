@@ -55,7 +55,7 @@ class DBInstance(AWSObject):
             )
 
         if 'KmsKeyId' in self.properties and \
-            'StorageEncrypted' not in self.properties:
+           'StorageEncrypted' not in self.properties:
             raise ValueError(
                 'If KmsKeyId is provided, StorageEncrypted is required '
                 'AWS::RDS::DBInstance.'
