@@ -16,6 +16,7 @@ class DBInstance(AWSObject):
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (positive_integer, False),
+        'CharacterSetName': (basestring, False),
         'DBInstanceClass': (basestring, True),
         'DBInstanceIdentifier': (basestring, False),
         'DBName': (basestring, False),
