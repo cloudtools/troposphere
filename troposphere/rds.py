@@ -26,6 +26,7 @@ class DBInstance(AWSObject):
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
         'Iops': (int, False),
+        'KmsKeyId': (basestring, False),
         'LicenseModel': (basestring, False),
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
@@ -36,6 +37,7 @@ class DBInstance(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
+        'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': (list, False),
         'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
@@ -48,6 +50,13 @@ class DBInstance(AWSObject):
             raise ValueError(
                 'Either (MasterUsername and MasterUserPassword) or'
                 ' DBSnapshotIdentifier are required in type '
+                'AWS::RDS::DBInstance.'
+            )
+
+        if 'KmsKeyId' in self.properties and \
+            'StorageEncrypted' not in self.properties:
+            raise ValueError(
+                'If KmsKeyId is provided, StorageEncrypted is required '
                 'AWS::RDS::DBInstance.'
             )
 
