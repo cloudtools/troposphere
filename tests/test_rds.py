@@ -41,3 +41,42 @@ class TestRDS(unittest.TestCase):
                 ' DBSnapshotIdentifier are required'
                 ):
             rds_instance.JSONrepr()
+
+    def test_it_allows_an_rds_replica(self):
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            AllocatedStorage=1,
+            DBInstanceClass='db.m1.small',
+            Engine='MySQL',
+            SourceDBInstanceIdentifier='SomeSourceDBInstanceIdentifier'
+        )
+
+        rds_instance.JSONrepr()
+
+    def test_replica_settings_are_inherited(self):
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            AllocatedStorage=1,
+            DBInstanceClass='db.m1.small',
+            Engine='MySQL',
+            SourceDBInstanceIdentifier='SomeSourceDBInstanceIdentifier',
+            BackupRetentionPeriod="1",
+            DBName="SomeName",
+            MasterUsername="SomeUsername",
+            MasterUserPassword="SomePassword",
+            PreferredBackupWindow="SomeBackupWindow",
+            MultiAZ=True,
+            DBSnapshotIdentifier="SomeDBSnapshotIdentifier",
+            DBSubnetGroupName="SomeDBSubnetGroupName",
+        )
+
+        with self.assertRaisesRegexp(
+                ValueError,
+                'BackupRetentionPeriod, DBName, DBSnapshotIdentifier, '
+                'DBSubnetGroupName, MasterUserPassword, MasterUsername, '
+                'MultiAZ, PreferredBackupWindow '
+                'properties can\'t be provided when '
+                'SourceDBInstanceIdentifier is present '
+                'AWS::RDS::DBInstance.'
+                ):
+            rds_instance.JSONrepr()
