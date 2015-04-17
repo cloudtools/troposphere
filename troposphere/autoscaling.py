@@ -208,6 +208,21 @@ class ScheduledAction(AWSObject):
     }
 
 
+class LifecycleHook(AWSObject):
+    resource_type = "AWS::AutoScaling::LifecycleHook"
+
+    props = {
+        'AutoScalingGroupName': (basestring, True),
+        'DefaultResult': (basestring, False),
+        'HeartbeatTimeout': (integer, False),
+        'LifecycleHookName': (basestring, False),
+        'LifecycleTransition': (basestring, True),
+        'NotificationMetadata': (basestring, False),
+        'NotificationTargetARN': (basestring, True),
+        'RoleARN': (basestring, True),
+    }
+
+
 class Trigger(AWSObject):
     resource_type = "AWS::AutoScaling::Trigger"
 
