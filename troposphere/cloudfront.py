@@ -25,6 +25,7 @@ class ForwardedValues(AWSProperty):
 class CacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
+        'CachedMethods': ([basestring], False),
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, True),
         'TrustedSigners': ([basestring], False),
