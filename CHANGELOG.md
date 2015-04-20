@@ -5,6 +5,7 @@
 - Fix DBInstance constraints in order to allow the creation of RDS read-only replicas  [GH-221]
 - Add properties CharacterSetName, KmsKeyId, and StorageEncrypted to AWS::RDS::DBInstance [GH-224]
 - Add Route53 HostedZoneVPCs, HostedZoneTags, HealthCheckTags
+- Add new properties from 2015-04-16 CloudFormation release [GH-225]
 
 ## 0.7.2 (2015-03-23)
 - Support AWS helper functions in lists during validation [GH-179]
