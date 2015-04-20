@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import integer, positive_integer, network_port
 
 
@@ -87,6 +87,7 @@ class HealthCheck(AWSObject):
 
     props = {
         'HealthCheckConfig': (HealthCheckConfiguration, True),
+        'HealthCheckTags': (Tags, False),
     }
 
 
