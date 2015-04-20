@@ -12,6 +12,7 @@ class CacheCluster(AWSObject):
 
     props = {
         'AutoMinorVersionUpgrade': (boolean, False),
+        'AZMode': (basestring, False),
         'CacheNodeType': (basestring, True),
         'CacheParameterGroupName': (basestring, False),
         'CacheSecurityGroupNames': ([basestring, Ref], False),
@@ -23,8 +24,11 @@ class CacheCluster(AWSObject):
         'NumCacheNodes': (integer, True),
         'Port': (int, False),
         'PreferredAvailabilityZone': (basestring, False),
+        'PreferredAvailabilityZones': ([basestring], False),
         'PreferredMaintenanceWindow': (basestring, False),
         'SnapshotArns': ([basestring, Ref], False),
+        'SnapshotRetentionLimit': (int, False),
+        'SnapshotWindow': (basestring, False),
         'VpcSecurityGroupIds': ([basestring, Ref, GetAtt], False),
     }
 
