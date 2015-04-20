@@ -331,6 +331,7 @@ class Volume(AWSObject):
         'AvailabilityZone': (basestring, True),
         'Encrypted': (boolean, False),
         'Iops': (int, False),
+        'KmsKeyId': (basestring, False),
         'Size': (basestring, False),
         'SnapshotId': (basestring, False),
         'Tags': (list, False),
