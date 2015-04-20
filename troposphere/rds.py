@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Ref
 from .validators import boolean, network_port, positive_integer
 
 
@@ -133,4 +133,16 @@ class DBSecurityGroupIngress(AWSObject):
         'EC2SecurityGroupId': (basestring, False),
         'EC2SecurityGroupName': (basestring, False),
         'EC2SecurityGroupOwnerId': (basestring, False),
+    }
+
+
+class EventSubscription(AWSObject):
+    resource_type = "AWS::RDS::EventSubscription"
+
+    props = {
+        'Enabled': (boolean, False),
+        'EventCategories': ([basestring], False),
+        'SnsTopicArn': (basestring, True),
+        'SourceIds': ([basestring, Ref], False),
+        'SourceType': (basestring, False),
     }
