@@ -1,5 +1,10 @@
 ## pending
+- Fix two elasticache properties [GH-196]
 - Add interim MinimumProtocolVersion to CloudFront ViewerCertificate [GH-218]
+- Missing OriginPath in cloudfront.py [GH-220]
+- Fix DBInstance constraints in order to allow the creation of RDS read-only replicas  [GH-221]
+- Add properties CharacterSetName, KmsKeyId, and StorageEncrypted to AWS::RDS::DBInstance [GH-224]
+- Add Route53 HostedZoneVPCs, HostedZoneTags, HealthCheckTags
 
 ## 0.7.2 (2015-03-23)
 - Support AWS helper functions in lists during validation [GH-179]
