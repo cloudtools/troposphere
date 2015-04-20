@@ -134,3 +134,15 @@ class DBSecurityGroupIngress(AWSObject):
         'EC2SecurityGroupName': (basestring, False),
         'EC2SecurityGroupOwnerId': (basestring, False),
     }
+
+
+class EventSubscription(AWSObject):
+    resource_type = "AWS::RDS::EventSubscription"
+
+    props = {
+        'Enabled': (boolean, False),
+        'EventCategories': ([basestring], False),
+        'SnsTopicArn': (basestring, True),
+        'SourceIds': ([basestring, Ref], False),
+        'SourceType': (basestring, False),
+    }
