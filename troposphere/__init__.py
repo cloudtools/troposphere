@@ -235,7 +235,7 @@ class GetAtt(AWSHelperFn):
 
 
 class GetAZs(AWSHelperFn):
-    def __init__(self, region):
+    def __init__(self, region=""):
         self.data = {'Fn::GetAZs': region}
 
     def JSONrepr(self):
