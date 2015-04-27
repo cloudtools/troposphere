@@ -193,6 +193,7 @@ class ScalingPolicy(AWSObject):
         'AdjustmentType': (basestring, True),
         'AutoScalingGroupName': (basestring, True),
         'Cooldown': (integer, False),
+        'MinAdjustmentStep': (integer, False),
         'ScalingAdjustment': (basestring, True),
     }
 
