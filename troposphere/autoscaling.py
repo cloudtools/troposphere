@@ -56,7 +56,7 @@ class Tags(AWSHelperFn):
         return self.tags
 
 
-class NotificationConfiguration(AWSProperty):
+class NotificationConfigurations(AWSProperty):
     props = {
         'TopicARN': (basestring, True),
         'NotificationTypes': (list, True),
@@ -118,7 +118,7 @@ class AutoScalingGroup(AWSObject):
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
-        'NotificationConfiguration': (NotificationConfiguration, False),
+        'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
         'Tags': (list, False),  # Although docs say these are required
         'TerminationPolicies': ([basestring], False),
