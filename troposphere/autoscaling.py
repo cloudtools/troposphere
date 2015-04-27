@@ -167,6 +167,8 @@ class LaunchConfiguration(AWSObject):
     props = {
         'AssociatePublicIpAddress': (boolean, False),
         'BlockDeviceMappings': (list, False),
+        'ClassicLinkVPCId': (basestring, False),
+        'ClassicLinkVPCSecurityGroups': ([basestring], False),
         'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
@@ -176,6 +178,7 @@ class LaunchConfiguration(AWSObject):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Metadata': (Metadata, False),
+        'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),
         'SecurityGroups': (list, False),
         'SpotPrice': (basestring, False),
