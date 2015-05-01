@@ -26,6 +26,7 @@ class TestAutoScalingGroup(unittest.TestCase):
     def test_instanceid(self):
         group = AutoScalingGroup(
             'mygroup',
+            AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
             InstanceId="i-1234",
             MaxSize="1",
             MinSize="1",
@@ -35,6 +36,7 @@ class TestAutoScalingGroup(unittest.TestCase):
     def test_launchconfigurationname(self):
         group = AutoScalingGroup(
             'mygroup',
+            AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
             LaunchConfigurationName="I'm a test",
             MaxSize="1",
             MinSize="1",

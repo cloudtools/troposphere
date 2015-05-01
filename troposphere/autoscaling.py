@@ -107,7 +107,7 @@ class AutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
-        'AvailabilityZones': (list, True),
+        'AvailabilityZones': (list, False),
         'Cooldown': (integer, False),
         'DesiredCapacity': (integer, False),
         'HealthCheckGracePeriod': (int, False),
@@ -158,6 +158,14 @@ class AutoScalingGroup(AWSObject):
                              "InstanceId: http://docs.aws.amazon.com/AWSCloud"
                              "Formation/latest/UserGuide/aws-properties-as-gr"
                              "oup.html#cfn-as-group-instanceid")
+
+        availability_zones = self.properties.get('AvailabilityZones')
+        vpc_zone_identifier = self.properties.get('VPCZoneIdentifier')
+        if not availability_zones and not vpc_zone_identifier:
+            raise ValueError("Must specify AvailabilityZones and/or "
+                             "VPCZoneIdentifier: http://docs.aws.amazon.com/A"
+                             "WSCloudFormation/latest/UserGuide/aws-propertie"
+                             "s-as-group.html#cfn-as-group-vpczoneidentifier")
         return True
 
 
