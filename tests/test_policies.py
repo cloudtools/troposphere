@@ -80,6 +80,7 @@ class TestUpdatePolicy(unittest.TestCase):
         )
         group = AutoScalingGroup(
             'mygroup',
+            AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
             LaunchConfigurationName="I'm a test",
             MaxSize=Ref(paramMaxSize),
             MinSize="2",
@@ -100,6 +101,7 @@ class TestUpdatePolicy(unittest.TestCase):
         )
         group = AutoScalingGroup(
             'mygroup',
+            AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
             LaunchConfigurationName="I'm a test",
             MaxSize="4",
             MinSize="2",
