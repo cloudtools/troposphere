@@ -120,7 +120,7 @@ class AutoScalingGroup(AWSObject):
         'MinSize': (integer, True),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'PlacementGroup': (basestring, False),
-        'Tags': (list, False),  # Although docs say these are required
+        'Tags': (list, False),
         'TerminationPolicies': ([basestring], False),
         'VPCZoneIdentifier': (list, False),
     }
