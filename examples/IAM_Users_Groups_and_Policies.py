@@ -27,13 +27,13 @@ cfnkeys = t.add_resource(AccessKey(
 users = t.add_resource(UserToGroupAddition(
     "Users",
     GroupName=Ref(cfnusergroup),
-    Users=Ref(cfnuser),
+    Users=[Ref(cfnuser)],
 ))
 
 admins = t.add_resource(UserToGroupAddition(
     "Admins",
     GroupName=Ref(cfnadmingroup),
-    Users=Ref(cfnuser),
+    Users=[Ref(cfnuser)],
 ))
 
 t.add_resource(PolicyType(
