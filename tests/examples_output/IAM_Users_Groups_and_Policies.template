@@ -23,9 +23,11 @@
                 "GroupName": {
                     "Ref": "CFNAdminGroup"
                 },
-                "Users": {
-                    "Ref": "CFNUser"
-                }
+                "Users": [
+                    {
+                        "Ref": "CFNUser"
+                    }
+                ]
             },
             "Type": "AWS::IAM::UserToGroupAddition"
         },
@@ -78,9 +80,11 @@
                 "GroupName": {
                     "Ref": "CFNUserGroup"
                 },
-                "Users": {
-                    "Ref": "CFNUser"
-                }
+                "Users": [
+                    {
+                        "Ref": "CFNUser"
+                    }
+                ]
             },
             "Type": "AWS::IAM::UserToGroupAddition"
         }
