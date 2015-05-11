@@ -137,6 +137,7 @@ known_functions = {
     "ConnectionDrainingPolicy": 1,
     "AccessLoggingPolicy":      1,
     "AWS::CloudFormation::Init":1,
+    "PrivateIpAddresses"       :1,
 }
 
 function_quirks = {
@@ -146,6 +147,7 @@ function_quirks = {
     "Subscription":       [ "Subscription" ],
     "LoginProfile":       { "LoginProfile": ["Password"] },
     "AWS::CloudFormation::Init": {"Init": []},
+    "PrivateIpAddresses" : ["PrivateIpAddressSpecification"],
 }
 
 def do_output_function(k, f, v):
@@ -184,7 +186,7 @@ def do_output_quirk_metadata(k, v):
         print "        %s," % (output_value(v))
         print '    ),'
 
-def do_resources_content(k, v, p):
+def do_resources_content(k, v, p=""):
     if function_quirks.has_key(k):
         x = function_quirks[k];
         if(isinstance(x, dict)):
