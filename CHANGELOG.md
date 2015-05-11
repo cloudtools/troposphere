@@ -6,6 +6,7 @@
 - Add properties CharacterSetName, KmsKeyId, and StorageEncrypted to AWS::RDS::DBInstance [GH-224]
 - Add Route53 HostedZoneVPCs, HostedZoneTags, HealthCheckTags
 - Add new properties from 2015-04-16 CloudFormation release [GH-225]
+- Allow default region for GetAZs() [GH-232]
 - Make AvailabilityZones parameter optional in AutoScalingGroup
 
 ## 0.7.2 (2015-03-23)
