@@ -39,6 +39,7 @@ class CacheBehavior(AWSProperty):
 class DefaultCacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
+        'CachedMethods': ([basestring], False),
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, True),
         'TrustedSigners': (list, False),

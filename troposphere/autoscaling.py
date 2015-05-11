@@ -56,7 +56,7 @@ class Tags(AWSHelperFn):
         return self.tags
 
 
-class NotificationConfiguration(AWSProperty):
+class NotificationConfigurations(AWSProperty):
     props = {
         'TopicARN': (basestring, True),
         'NotificationTypes': (list, True),
@@ -118,7 +118,7 @@ class AutoScalingGroup(AWSObject):
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
-        'NotificationConfiguration': (NotificationConfiguration, False),
+        'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
         'Tags': (list, False),
         'TerminationPolicies': ([basestring], False),
@@ -175,6 +175,8 @@ class LaunchConfiguration(AWSObject):
     props = {
         'AssociatePublicIpAddress': (boolean, False),
         'BlockDeviceMappings': (list, False),
+        'ClassicLinkVPCId': (basestring, False),
+        'ClassicLinkVPCSecurityGroups': ([basestring], False),
         'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
@@ -184,6 +186,7 @@ class LaunchConfiguration(AWSObject):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Metadata': (Metadata, False),
+        'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),
         'SecurityGroups': (list, False),
         'SpotPrice': (basestring, False),
@@ -198,6 +201,7 @@ class ScalingPolicy(AWSObject):
         'AdjustmentType': (basestring, True),
         'AutoScalingGroupName': (basestring, True),
         'Cooldown': (integer, False),
+        'MinAdjustmentStep': (integer, False),
         'ScalingAdjustment': (basestring, True),
     }
 
