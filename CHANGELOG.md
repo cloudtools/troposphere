@@ -1,13 +1,20 @@
 ## pending
+
+## 1.0.0 (2015-05-11)
 - Fix two elasticache properties [GH-196]
 - Add interim MinimumProtocolVersion to CloudFront ViewerCertificate [GH-218]
 - Missing OriginPath in cloudfront.py [GH-220]
 - Fix DBInstance constraints in order to allow the creation of RDS read-only replicas  [GH-221]
 - Add properties CharacterSetName, KmsKeyId, and StorageEncrypted to AWS::RDS::DBInstance [GH-224]
 - Add Route53 HostedZoneVPCs, HostedZoneTags, HealthCheckTags
-- Add new properties from 2015-04-16 CloudFormation release [GH-225]
+- Add new properties from 2015-04-16 CloudFormation release [GH-225, GH-240]
 - Allow default region for GetAZs() [GH-232]
 - Make AvailabilityZones parameter optional in AutoScalingGroup
+- EventSubscription resource + EC2 types [GH-227]
+- Python 3.4 support [GH-228]
+- examples fix: users is list [GH-237]
+- SNS Topic fields are not required [GH-230]
+- Make AvailabilityZones parameter optional in AutoScalingGroup [GH-236]
 
 ## 0.7.2 (2015-03-23)
 - Support AWS helper functions in lists during validation [GH-179]
