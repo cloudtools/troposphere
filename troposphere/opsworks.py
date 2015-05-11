@@ -43,19 +43,67 @@ class Recipes(AWSProperty):
     }
 
 
+def validate_volume_type(volume_type):
+    volume_types = ('standard', 'io1', 'gp2')
+    if volume_type not in volume_types:
+        raise ValueError("VolumeType (given: %s) must be one of: %s" % (
+            volume_type, ', '.join(volume_types)))
+
+
 class VolumeConfiguration(AWSProperty):
     props = {
+        'Iops': (int, False),
         'MountPoint': (basestring, True),
         'NumberOfDisks': (integer, True),
         'RaidLevel': (integer, False),
         'Size': (integer, True),
+        'VolumeType': (validate_volume_type, False)
     }
+
+    def validate(self):
+        volume_type = self.properties.get('VolumeType')
+        iops = self.properties.get('Iops')
+        if volume_type == 'io1' and not iops:
+            raise ValueError("Must specify Iops if VolumeType is 'io1'.")
+        if volume_type != 'io1' and iops:
+            raise ValueError("Cannot specify Iops if VolumeType is not 'io1'.")
 
 
 class StackConfigurationManager(AWSProperty):
     props = {
         'Name': (basestring, False),
         'Version': (basestring, False),
+    }
+
+
+class TimeBasedAutoScaling(AWSProperty):
+    props = {
+        'Monday': (dict, False),
+        'Tuesday': (dict, False),
+        'Wednesday': (dict, False),
+        'Thursday': (dict, False),
+        'Friday': (dict, False),
+        'Saturday': (dict, False),
+        'Sunday': (dict, False),
+    }
+
+
+class AutoScalingThresholds(AWSProperty):
+    props = {
+        'CpuThreshold': (float, False),
+        'IgnoreMetricsTime': (int, False),
+        'InstanceCount': (int, False),
+        'LoadThreshold': (float, False),
+        'MemoryThreshold': (float, False),
+        'ThresholdWaitTime': (int, False),
+    }
+
+
+class LoadBasedAutoScaling(AWSProperty):
+    props = {
+        'DownScaling': (AutoScalingThresholds, False),
+        'Enable': (bool, False),
+        'UpScaling': (AutoScalingThresholds, False),
     }
 
 
@@ -100,6 +148,7 @@ class Instance(AWSObject):
         'SshKeyName': (basestring, False),
         'StackId': (basestring, True),
         'SubnetId': (basestring, False),
+        'TimeBasedAutoScaling': (TimeBasedAutoScaling, False),
     }
 
 
@@ -115,6 +164,7 @@ class Layer(AWSObject):
         'CustomSecurityGroupIds': ([basestring, Ref], False),
         'EnableAutoHealing': (boolean, True),
         'InstallUpdatesOnBoot': (boolean, False),
+        'LoadBasedAutoScaling': (LoadBasedAutoScaling, False),
         'Name': (basestring, True),
         'Packages': ([basestring], False),
         'Shortname': (basestring, True),
