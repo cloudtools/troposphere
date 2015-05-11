@@ -97,12 +97,12 @@ Missing required property for the AWS resource::
     >>> from troposphere import Template
     >>> import troposphere.ec2 as ec2
     >>> t = Template()
-    >>> t.add_resource(ec2.Instance("ec2instance", ImageId="ami-3bcc9e7e"))
+    >>> t.add_resource(ec2.Instance("ec2instance", InstanceType="m3.medium"))
     <troposphere.ec2.Instance object at 0x109ee2e50>
     >>> print(t.to_json())
     Traceback (most recent call last):
     ...
-    ValueError: Resource InstanceType required in type AWS::EC2::Instance
+    ValueError: Resource ImageId required in type AWS::EC2::Instance
 
 Currently supported AWS resource types
 ======================================
