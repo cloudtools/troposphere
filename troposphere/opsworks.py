@@ -48,6 +48,7 @@ def validate_volume_type(volume_type):
     if volume_type not in volume_types:
         raise ValueError("VolumeType (given: %s) must be one of: %s" % (
             volume_type, ', '.join(volume_types)))
+    return volume_type
 
 
 class VolumeConfiguration(AWSProperty):
