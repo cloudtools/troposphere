@@ -316,7 +316,7 @@ class Ref(AWSHelperFn):
 
 class Condition(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Condition': self.getdata(data)}
+        self.data = self.getdata(data)
 
     def JSONrepr(self):
         return self.data
