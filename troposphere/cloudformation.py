@@ -11,6 +11,7 @@ class Stack(AWSObject):
     resource_type = "AWS::CloudFormation::Stack"
 
     props = {
+        'NotificationARNs': (list, False),
         'TemplateURL': (basestring, True),
         'TimeoutInMinutes': (integer, False),
         'Parameters': (dict, False),
