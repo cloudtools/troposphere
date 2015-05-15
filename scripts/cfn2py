@@ -34,7 +34,7 @@ object_functions = {
     "Bucket":       [ "WebsiteConfiguration" ],
     "User":         [ "LoginProfile" ],
     "Topic":        [ "Subscription" ],
-    "Instance":     [ "NetworkInterfaceProperty" ],
+    "Instance":     [ "NetworkInterfaceProperty", "PrivateIpAddressSpecification" ],
     "RecordSet":    [ "RecordSetType" ],
     "Policy":       [ "PolicyType" ],
 }
