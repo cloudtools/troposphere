@@ -52,6 +52,15 @@ def network_port(x):
     return x
 
 
+def s3_bucket_name(b):
+    from re import compile
+    s3_bucket_name_re = compile(r'^[a-zA-Z0-9][a-zA-Z0-9\._-]{1,253}[a-zA-Z0-9]$')
+    if s3_bucket_name_re.match(b):
+        return b
+    else:
+        raise ValueError("%s is not a valid s3 bucket name" % b)
+
+
 def encoding(encoding):
     valid_encodings = ['plain', 'base64']
     if encoding not in valid_encodings:

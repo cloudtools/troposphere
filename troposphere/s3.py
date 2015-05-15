@@ -134,7 +134,7 @@ class Bucket(AWSObject):
 
     props = {
         'AccessControl': (basestring, False),
-        'BucketName': (basestring, False),
+        'BucketName': (s3_bucket_name, False),
         'CorsConfiguration': (CorsConfiguration, False),
         'LifecycleConfiguration': (LifecycleConfiguration, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
