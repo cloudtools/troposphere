@@ -9,7 +9,12 @@ setup(
     url="https://github.com/cloudtools/troposphere",
     license="New BSD license",
     packages=['troposphere', 'troposphere.openstack'],
-    scripts=['scripts/cfn', 'scripts/cfn2py'],
+    scripts=[
+        'scripts/cfn',
+        'scripts/cfn2py',
+        'scripts/cfn2pyclass',
+        'TroposphereClassCreator.py'
+    ],
     test_suite="tests",
     tests_require=["awacs"],
     use_2to3=True,
