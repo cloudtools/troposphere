@@ -59,7 +59,7 @@ class TestValidators(unittest.TestCase):
         network_port(Ref(p))
 
     def test_s3_bucket_name(self):
-        s3_bucket_name('Wick3d-sweet_bucket.name')
+        s3_bucket_name('wick3d-sweet.bucket')
 
 if __name__ == '__main__':
     unittest.main()

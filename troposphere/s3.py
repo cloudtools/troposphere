@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import positive_integer
+from .validators import positive_integer, s3_bucket_name
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -111,7 +111,7 @@ class LifecycleConfiguration(AWSProperty):
 
 class LoggingConfiguration(AWSProperty):
     props = {
-        'DestinationBucketName': (basestring, False),
+        'DestinationBucketName': (s3_bucket_name, False),
         'LogFilePrefix': (basestring, False),
     }
 

@@ -54,7 +54,7 @@ def network_port(x):
 
 def s3_bucket_name(b):
     from re import compile
-    s3_bucket_name_re = compile(r'^[a-zA-Z0-9][a-zA-Z0-9\._-]{1,253}[a-zA-Z0-9]$')
+    s3_bucket_name_re = compile(r'^[a-z\d][a-z\d\.-]{1,253}[a-z\d]$')
     if s3_bucket_name_re.match(b):
         return b
     else:
