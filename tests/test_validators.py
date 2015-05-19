@@ -2,6 +2,7 @@ import unittest
 from troposphere import Parameter, Ref
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
+from troposphere.validators import s3_bucket_name
 
 
 class TestValidators(unittest.TestCase):
@@ -56,6 +57,13 @@ class TestValidators(unittest.TestCase):
     def test_network_port_ref(self):
         p = Parameter('myport')
         network_port(Ref(p))
+
+    def test_s3_bucket_name(self):
+        for b in ['a'*3, 'a'*63, 'wick3d-sweet.bucket']:
+            s3_bucket_name(b)
+        for b in ['a'*2, 'a'*64, 'invalid_bucket']:
+            with self.assertRaises(ValueError):
+                s3_bucket_name(b)
 
 if __name__ == '__main__':
     unittest.main()
