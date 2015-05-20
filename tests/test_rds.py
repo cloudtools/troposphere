@@ -100,6 +100,8 @@ class TestRDS(unittest.TestCase):
             rds_instance.JSONrepr()
 
     def test_it_allows_an_rds_instance_with_iops(self):
+        # ensure troposphere works with longs and ints
+        long_number = 2 ** 100
         rds_instance = rds.DBInstance(
             'SomeTitle',
             AllocatedStorage=1,
@@ -108,7 +110,7 @@ class TestRDS(unittest.TestCase):
             MasterUsername='SomeUsername',
             MasterUserPassword='SomePassword',
             StorageType='io1',
-            Iops=100L,
+            Iops=long_number,
         )
 
         rds_instance.JSONrepr()
