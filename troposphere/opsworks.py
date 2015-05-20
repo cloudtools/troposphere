@@ -53,7 +53,7 @@ def validate_volume_type(volume_type):
 
 class VolumeConfiguration(AWSProperty):
     props = {
-        'Iops': (int, False),
+        'Iops': (integer, False),
         'MountPoint': (basestring, True),
         'NumberOfDisks': (integer, True),
         'RaidLevel': (integer, False),
@@ -92,11 +92,11 @@ class TimeBasedAutoScaling(AWSProperty):
 class AutoScalingThresholds(AWSProperty):
     props = {
         'CpuThreshold': (float, False),
-        'IgnoreMetricsTime': (int, False),
-        'InstanceCount': (int, False),
+        'IgnoreMetricsTime': (integer, False),
+        'InstanceCount': (integer, False),
         'LoadThreshold': (float, False),
         'MemoryThreshold': (float, False),
-        'ThresholdWaitTime': (int, False),
+        'ThresholdWaitTime': (integer, False),
     }
 
 

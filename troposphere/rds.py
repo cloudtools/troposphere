@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import boolean, network_port, positive_integer
+from .validators import boolean, network_port, integer, positive_integer
 
 
 class DBInstance(AWSObject):
@@ -26,7 +26,7 @@ class DBInstance(AWSObject):
         'DBSubnetGroupName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
-        'Iops': (int, False),
+        'Iops': (integer, False),
         'KmsKeyId': (basestring, False),
         'LicenseModel': (basestring, False),
         'MasterUsername': (basestring, False),

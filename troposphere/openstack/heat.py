@@ -19,7 +19,7 @@ class AWSAutoScalingGroup(AWSObject):
         'AvailabilityZones': (list, True),
         'Cooldown': (integer, False),
         'DesiredCapacity': (basestring, False),
-        'HealthCheckGracePeriod': (int, False),
+        'HealthCheckGracePeriod': (integer, False),
         'HealthCheckType': (basestring, False),
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),

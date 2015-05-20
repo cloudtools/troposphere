@@ -33,7 +33,7 @@ class DHCPOptions(AWSObject):
         'DomainName': (basestring, False),
         'DomainNameServers': (list, False),
         'NetbiosNameServers': (list, False),
-        'NetbiosNodeType': (int, False),
+        'NetbiosNodeType': (integer, False),
         'NtpServers': (list, False),
         'Tags': (list, False),
     }
@@ -64,7 +64,7 @@ class EBSBlockDevice(AWSProperty):
     props = {
         'DeleteOnTermination': (boolean, False),
         'Encrypted': (boolean, False),
-        'Iops': (int, False),  # Conditional
+        'Iops': (integer, False),  # Conditional
         'SnapshotId': (basestring, False),  # Conditional
         'VolumeSize': (integer, False),  # Conditional
         'VolumeType': (basestring, False),
@@ -104,7 +104,7 @@ class NetworkInterfaceProperty(AWSProperty):
         'NetworkInterfaceId': (basestring, False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
-        'SecondaryPrivateIpAddressCount': (int, False),
+        'SecondaryPrivateIpAddressCount': (integer, False),
         'SubnetId': (basestring, False),
     }
 
@@ -158,8 +158,8 @@ class NetworkAcl(AWSObject):
 
 class ICMP(AWSProperty):
     props = {
-        'Code': (int, False),
-        'Type': (int, False),
+        'Code': (integer, False),
+        'Type': (integer, False),
     }
 
 
@@ -193,7 +193,7 @@ class NetworkInterface(AWSObject):
         'GroupSet': (list, False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
-        'SecondaryPrivateIpAddressCount': (int, False),
+        'SecondaryPrivateIpAddressCount': (integer, False),
         'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, True),
         'Tags': (list, False),
@@ -330,7 +330,7 @@ class Volume(AWSObject):
     props = {
         'AvailabilityZone': (basestring, True),
         'Encrypted': (boolean, False),
-        'Iops': (int, False),
+        'Iops': (integer, False),
         'KmsKeyId': (basestring, False),
         'Size': (basestring, False),
         'SnapshotId': (basestring, False),

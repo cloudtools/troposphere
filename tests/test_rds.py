@@ -98,3 +98,17 @@ class TestRDS(unittest.TestCase):
                 'If KmsKeyId is provided, StorageEncrypted is required'
                 ):
             rds_instance.JSONrepr()
+
+    def test_it_allows_an_rds_instance_with_iops(self):
+        rds_instance = rds.DBInstance(
+            'SomeTitle',
+            AllocatedStorage=1,
+            DBInstanceClass='db.m1.small',
+            Engine='MySQL',
+            MasterUsername='SomeUsername',
+            MasterUserPassword='SomePassword',
+            StorageType='io1',
+            Iops=100L,
+        )
+
+        rds_instance.JSONrepr()
