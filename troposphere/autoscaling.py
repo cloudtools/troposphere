@@ -110,7 +110,7 @@ class AutoScalingGroup(AWSObject):
         'AvailabilityZones': (list, False),
         'Cooldown': (integer, False),
         'DesiredCapacity': (integer, False),
-        'HealthCheckGracePeriod': (int, False),
+        'HealthCheckGracePeriod': (integer, False),
         'HealthCheckType': (basestring, False),
         'InstanceId': (basestring, False),
         'LaunchConfigurationName': (basestring, False),
