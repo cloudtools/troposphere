@@ -96,7 +96,7 @@ class AutoScalingThresholds(AWSProperty):
         'InstanceCount': (integer, False),
         'LoadThreshold': (float, False),
         'MemoryThreshold': (float, False),
-        'ThresholdWaitTime': (integer, False),
+        'ThresholdsWaitTime': (integer, False),
     }
 
 
