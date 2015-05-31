@@ -195,6 +195,9 @@ if __name__ == "__main__":
                         help="tail event log")
     parser.add_argument("-u", "--update", help="Update an existing stack",
                         dest="update")
+    parser.add_argument("-w", "--wait", action="store_true",
+                        help="Wait for the operation to complete and return "
+                             "an appropriate error code")
     parser.add_argument("stack", nargs='?')
     values = parser.parse_args()
 
@@ -220,14 +223,15 @@ if __name__ == "__main__":
                           parameters=values.params,
                           capabilities=values.capabilities)
 
-        for event in events:
-            print_event(event)
-            if event.physical_resource_id == stack_id:
-                if event.resource_status in ['UPDATE_ROLLBACK_COMPLETE',
-                                             'UPDATE_ROLLBACK_FAILED']:
-                    sys.exit(1)
-                if event.resource_status == 'UPDATE_COMPLETE':
-                    break
+        if values.wait:
+            for event in events:
+                print_event(event)
+                if event.physical_resource_id == stack_id:
+                    if event.resource_status in ['UPDATE_ROLLBACK_COMPLETE',
+                                                 'UPDATE_ROLLBACK_FAILED']:
+                        sys.exit(1)
+                    if event.resource_status == 'UPDATE_COMPLETE':
+                        break
 
     if values.delete:
         stack_id = get_stack_id_if_exists(conn, values.stack)
@@ -236,14 +240,15 @@ if __name__ == "__main__":
             events.read_existing()
             conn.delete_stack(stack_id)
 
-            for event in events:
-                print_event(event)
-                if event.physical_resource_id == stack_id:
-                    if event.resource_status == 'DELETE_FAILED':
-                        print "Delete failed"
-                        sys.exit(1)
-                    elif event.resource_status == 'DELETE_COMPLETE':
-                        break
+            if values.wait:
+                for event in events:
+                    print_event(event)
+                    if event.physical_resource_id == stack_id:
+                        if event.resource_status == 'DELETE_FAILED':
+                            print "Delete failed"
+                            sys.exit(1)
+                        elif event.resource_status == 'DELETE_COMPLETE':
+                            break
         else:
             print "Couldn't delete {0}: stack doesn't exist."\
                 .format(values.stack)
@@ -267,20 +272,21 @@ if __name__ == "__main__":
             stack_id = create_stack(conn, values.stack, template, None,
                                     values.params, values.capabilities)
 
-        rollback_enabled = True
+        if values.wait:
+            rollback_enabled = True
 
-        for event in StackEventIterator(conn, stack_id):
-            print_event(event)
-            if event.physical_resource_id == stack_id:
-                if rollback_enabled:
-                    if event.resource_status in ['ROLLBACK_COMPLETE',
-                                                 'ROLLBACK_FAILED']:
-                        sys.exit(1)
-                else:
-                    if event.resource_status == 'CREATE_FAILED':
-                        sys.exit(1)
-                if event.resource_status == 'CREATE_COMPLETE':
-                    break
+            for event in StackEventIterator(conn, stack_id):
+                print_event(event)
+                if event.physical_resource_id == stack_id:
+                    if rollback_enabled:
+                        if event.resource_status in ['ROLLBACK_COMPLETE',
+                                                     'ROLLBACK_FAILED']:
+                            sys.exit(1)
+                    else:
+                        if event.resource_status == 'CREATE_FAILED':
+                            sys.exit(1)
+                    if event.resource_status == 'CREATE_COMPLETE':
+                        break
 
     if values.resources:
         describe_resources(conn, values.stack)
