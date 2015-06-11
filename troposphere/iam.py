@@ -102,3 +102,16 @@ class UserToGroupAddition(AWSObject):
         'GroupName': (basestring, True),
         'Users': (list, True),
     }
+
+
+class ManagedPolicy(AWSObject):
+    resource_type = "AWS::IAM::ManagedPolicy"
+
+    props = {
+        'Description': (basestring, False),
+        'Groups': ([basestring, Ref], False),
+        'Path': (basestring, False),
+        'PolicyDocument': (policytypes, True),
+        'Roles': ([basestring, Ref], False),
+        'Users': ([basestring, Ref], False),
+    }
