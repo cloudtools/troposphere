@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, Ref, GetAtt
-from .validators import boolean, integer
+from .validators import boolean, integer, network_port
 
 
 class CacheCluster(AWSObject):
@@ -82,4 +82,29 @@ class SubnetGroup(AWSObject):
     props = {
         'Description': (basestring, True),
         'SubnetIds': (list, True),
+    }
+
+
+class ReplicationGroup(AWSObject):
+    resource_type = "AWS::ElastiCache::ReplicationGroup"
+
+    props = {
+        'AutomaticFailoverEnabled': (boolean, False),
+        'AutoMinorVersionUpgrade': (boolean, False),
+        'CacheNodeType': (basestring, True),
+        'CacheParameterGroupName': (basestring, False),
+        'CacheSecurityGroupNames': ([basestring], False),
+        'CacheSubnetGroupName': (basestring, False),
+        'Engine': (basestring, True),
+        'EngineVersion': (basestring, False),
+        'NotificationTopicArn': ([basestring, Ref], False),
+        'NumCacheClusters': (integer, True),
+        'Port': (network_port, False),
+        'PreferredCacheClusterAZs': ([basestring], False),
+        'PreferredMaintenanceWindow': (basestring, False),
+        'ReplicationGroupDescription': (basestring, True),
+        'SecurityGroupIds': ([basestring, Ref], False),
+        'SnapshotArns': ([basestring], False),
+        'SnapshotRetentionLimit': (integer, False),
+        'SnapshotWindow': (basestring, False),
     }
