@@ -64,6 +64,7 @@ SMTP_PORT_587 = 587
 HTTP_PORT = 80
 HTTPS_PORT = 443
 REDIS_PORT = 6379
+MEMCACHED_PORT = 11211
 POSTGRESQL_PORT = 5432
 
 #
@@ -73,6 +74,12 @@ POSTGRESQL_PORT = 5432
 T2_MICRO = 't2.micro'
 T2_SMALL = 't2.small'
 T2_MEDIUM = 't2.medium'
+
+M4_LARGE = 'm4.large'
+M4_XLARGE = 'm4.xlarge'
+M4_2XLARGE = 'm4.2xlarge'
+M4_4XLARGE = 'm4.4xlarge'
+M4_10XLARGE = 'm4.10xlarge'
 
 M3_MEDIUM = 'm3.medium'
 M3_LARGE = 'm3.large'
