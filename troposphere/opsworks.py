@@ -153,6 +153,19 @@ class Instance(AWSObject):
     }
 
 
+class ShutdownEventConfiguration(AWSProperty):
+    props = {
+        'DelayUntilElbConnectionsDrained': (boolean, False),
+        'ExecutionTimeout': (integer, False),
+    }
+
+
+class LifeCycleConfiguration(AWSProperty):
+    props = {
+        'ShutdownEventConfiguration': (ShutdownEventConfiguration, False),
+    }
+
+
 class Layer(AWSObject):
     resource_type = "AWS::OpsWorks::Layer"
 
@@ -165,6 +178,7 @@ class Layer(AWSObject):
         'CustomSecurityGroupIds': ([basestring, Ref], False),
         'EnableAutoHealing': (boolean, True),
         'InstallUpdatesOnBoot': (boolean, False),
+        'LifecycleEventConfiguration': (LifeCycleConfiguration, False),
         'LoadBasedAutoScaling': (LoadBasedAutoScaling, False),
         'Name': (basestring, True),
         'Packages': ([basestring], False),
