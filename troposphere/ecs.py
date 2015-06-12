@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Ref
 from .validators import boolean, network_port, positive_integer
 
 
@@ -12,7 +12,7 @@ class LoadBalancer(AWSProperty):
     props = {
         'ContainerName': (basestring, False),
         'ContainerPort': (network_port, False),
-        'LoadBalancerName': (basestring, False),
+        'LoadBalancerName': ([basestring, Ref], False),
     }
 
 
@@ -20,11 +20,11 @@ class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
     props = {
-        'Cluster': (basestring, False),
+        'Cluster': ([basestring, Ref], False),
         'DesiredCount': (positive_integer, False),
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
-        'TaskDefinition': (basestring, False),
+        'TaskDefinition': ([basestring, Ref], False),
     }
 
 
