@@ -1,5 +1,5 @@
-from . import AWSObject, AWSProperty
-from .validators import integer
+from . import AWSObject, AWSProperty, GetAtt
+from .validators import positive_integer
 
 
 class Code(AWSProperty):
@@ -17,8 +17,8 @@ class Function(AWSObject):
         'Code': (Code, True),
         'Description': (basestring, False),
         'Handler': (basestring, True),
-        'MemorySize': (integer, False),
-        'Role': (basestring, True),
+        'MemorySize': (positive_integer, False),
+        'Role': ([basestring, GetAtt], True),
         'Runtime': (basestring, True),
-        'Timeout': (integer, False),
+        'Timeout': (positive_integer, False),
     }
