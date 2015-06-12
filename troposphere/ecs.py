@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, network_port, integer
+from .validators import boolean, network_port, positive_integer
 
 
 class Cluster(AWSObject):
@@ -21,7 +21,7 @@ class Service(AWSObject):
 
     props = {
         'Cluster': (basestring, False),
-        'DesiredCount': (integer, False),
+        'DesiredCount': (positive_integer, False),
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
         'TaskDefinition': (basestring, False),
@@ -60,13 +60,13 @@ class VolumesFrom(AWSProperty):
 class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
-        'Cpu': (integer, False),
+        'Cpu': (positive_integer, False),
         'EntryPoint': ([basestring], False),
         'Environment': ([Environment], False),
         'Essential': (boolean, False),
         'Image': (basestring, True),
         'Links': ([basestring], False),
-        'Memory': (integer, True),
+        'Memory': (positive_integer, True),
         'MountPoints': ([MountPoint], False),
         'Name': (basestring, True),
         'PortMappings': ([PortMapping], False),
