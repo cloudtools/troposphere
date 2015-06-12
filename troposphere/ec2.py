@@ -303,6 +303,7 @@ class Subnet(AWSObject):
         'CidrBlock': (basestring, True),
         'Tags': (list, False),
         'VpcId': (basestring, True),
+	'MapPublicIpOnLaunch': (boolean, False),
     }
 
 
