@@ -146,3 +146,32 @@ class EventSubscription(AWSObject):
         'SourceIds': ([basestring, Ref], False),
         'SourceType': (basestring, False),
     }
+
+
+class OptionSetting(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
+class OptionGroupConfiguration(AWSProperty):
+    props = {
+        'DBSecurityGroupMemberships': ([basestring, Ref], False),
+        'OptionName': (basestring, True),
+        'OptionSettings': ([OptionSetting], False),
+        'Port': (network_port, False),
+        'VpcSecurityGroupMemberships': ([basestring, Ref], False),
+    }
+
+
+class OptionGroup(AWSObject):
+    resource_type = "AWS::RDS::OptionGroup"
+
+    props = {
+        'EngineName': (basestring, True),
+        'MajorEngineVersion': (basestring, True),
+        'OptionGroupDescription': (basestring, True),
+        'OptionGroupConfigurations': ([OptionGroupConfiguration], True),
+        'Tags': (list, False),
+    }
