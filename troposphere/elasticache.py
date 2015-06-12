@@ -27,6 +27,7 @@ class CacheCluster(AWSObject):
         'PreferredAvailabilityZones': ([basestring], False),
         'PreferredMaintenanceWindow': (basestring, False),
         'SnapshotArns': ([basestring, Ref], False),
+        'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
         'SnapshotWindow': (basestring, False),
         'VpcSecurityGroupIds': ([basestring, Ref, GetAtt], False),
