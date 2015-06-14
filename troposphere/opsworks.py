@@ -151,7 +151,6 @@ class Instance(AWSObject):
         'StackId': (basestring, True),
         'SubnetId': (basestring, False),
         'TimeBasedAutoScaling': (TimeBasedAutoScaling, False),
-
     }
 
 
