@@ -1,4 +1,17 @@
 ## pending
+- added AWS::CloudFormation::Stack NotificationARNs property [GH-243]
+- Add additional import for PrivateIpAddressSpecification [GH-247]
+- Add true s3 bucket name validator [GH-249]
+- Replace strict `int` comparison by flexible `troposphere.validators.integer` [GH-251]
+- Add validation for AZMode property on CacheCluster objects [GH-252]
+- Fixing Opsworks Naming (ThresholdWaitTime -> ThresholdsWaitTime) [GH-253]
+- Adding AutoScalingType to OpsWorks Instance [GH-255]
+- Allow extending classes + tests [GH-257]
+- Release June 11, 2015 [GH-259]
+- Add M4 instances and Memcached port [GH-260]
+- Add property for Subnet: MapPublicIpOnLaunch [GH-261]
+- Minor improvements and fixes [GH-262]
+- Add 2 additional properties (elasticache:CacheCluster:SnapshotName and opsworks:Layer:LifecycleEventConfiguration) [GH-265]
 
 ## 1.0.0 (2015-05-11)
 - Fix two elasticache properties [GH-196]
