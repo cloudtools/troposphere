@@ -140,6 +140,7 @@ class Instance(AWSObject):
     props = {
         'AmiId': (basestring, False),
         'Architecture': (basestring, False),
+        'AutoScalingType': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'InstallUpdatesOnBoot': (boolean, False),
         'InstanceType': (basestring, True),
@@ -150,6 +151,7 @@ class Instance(AWSObject):
         'StackId': (basestring, True),
         'SubnetId': (basestring, False),
         'TimeBasedAutoScaling': (TimeBasedAutoScaling, False),
+
     }
 
 
