@@ -55,6 +55,7 @@ class BaseAWSObject(object):
             self.resource['Type'] = self.resource_type
         self.__initialized = True
 
+        # Check for properties defined in the class
         for k, (_, required) in self.props.items():
             v = getattr(type(self), k, None)
             if v is not None and k not in kwargs:
