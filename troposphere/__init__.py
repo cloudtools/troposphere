@@ -55,6 +55,14 @@ class BaseAWSObject(object):
             self.resource['Type'] = self.resource_type
         self.__initialized = True
 
+        for k, (_, required) in self.props.items():
+            v = getattr(type(self), k, None)
+            if v is not None and k not in kwargs:
+                if k in self.attributes:
+                    self.resource[k] = v
+                else:
+                    self.__setattr__(k, v)
+
         # Now that it is initialized, populate it with the kwargs
         for k, v in kwargs.items():
             # Special case Resource Attributes
