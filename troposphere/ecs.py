@@ -1,5 +1,5 @@
-from . import AWSObject, AWSProperty
-from .validators import boolean, network_port, integer
+from . import AWSObject, AWSProperty, Ref
+from .validators import boolean, network_port, positive_integer
 
 
 class Cluster(AWSObject):
@@ -12,7 +12,7 @@ class LoadBalancer(AWSProperty):
     props = {
         'ContainerName': (basestring, False),
         'ContainerPort': (network_port, False),
-        'LoadBalancerName': (basestring, False),
+        'LoadBalancerName': ([basestring, Ref], False),
     }
 
 
@@ -20,11 +20,11 @@ class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
     props = {
-        'Cluster': (basestring, False),
-        'DesiredCount': (integer, False),
+        'Cluster': ([basestring, Ref], False),
+        'DesiredCount': (positive_integer, False),
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
-        'TaskDefinition': (basestring, False),
+        'TaskDefinition': ([basestring, Ref], False),
     }
 
 
@@ -60,13 +60,13 @@ class VolumesFrom(AWSProperty):
 class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
-        'Cpu': (integer, False),
+        'Cpu': (positive_integer, False),
         'EntryPoint': ([basestring], False),
         'Environment': ([Environment], False),
         'Essential': (boolean, False),
         'Image': (basestring, True),
         'Links': ([basestring], False),
-        'Memory': (integer, True),
+        'Memory': (positive_integer, True),
         'MountPoints': ([MountPoint], False),
         'Name': (basestring, True),
         'PortMappings': ([PortMapping], False),
