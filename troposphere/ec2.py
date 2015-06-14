@@ -301,9 +301,9 @@ class Subnet(AWSObject):
     props = {
         'AvailabilityZone': (basestring, False),
         'CidrBlock': (basestring, True),
+        'MapPublicIpOnLaunch': (boolean, False),
         'Tags': (list, False),
         'VpcId': (basestring, True),
-        'MapPublicIpOnLaunch': (boolean, False),
     }
 
 
