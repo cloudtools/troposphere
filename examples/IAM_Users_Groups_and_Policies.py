@@ -13,7 +13,7 @@ t.add_description("AWS CloudFormation Sample Template: This template "
 
 cfnuser = t.add_resource(User(
     "CFNUser",
-    LoginProfile=LoginProfile("Password"))
+    LoginProfile=LoginProfile(Password="Password"))
 )
 
 cfnusergroup = t.add_resource(Group("CFNUserGroup"))
