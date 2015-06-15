@@ -3,8 +3,8 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import integer
+from . import AWSObject, AWSProperty, Ref
+from .validators import integer, boolean
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -76,12 +76,11 @@ class Role(AWSObject):
     }
 
 
-class LoginProfile(AWSHelperFn):
-    def __init__(self, data):
-        self.data = {'Password': data}
-
-    def JSONrepr(self):
-        return self.data
+class LoginProfile(AWSProperty):
+    props = {
+        'Password': (basestring, True),
+        'PasswordResetRequired': (boolean, False),
+    }
 
 
 class User(AWSObject):
