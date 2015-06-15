@@ -11,6 +11,8 @@
 - Add M4 instances and Memcached port [GH-260]
 - Add property for Subnet: MapPublicIpOnLaunch [GH-261]
 - Minor improvements and fixes [GH-262]
+- Update LoginProfile. Note: this is a breaking change and requires adding a
+  ```Password=``` keyword parameter into LoginProfile. [GH-264]
 - Add 2 additional properties (elasticache:CacheCluster:SnapshotName and opsworks:Layer:LifecycleEventConfiguration) [GH-265]
 
 ## 1.0.0 (2015-05-11)

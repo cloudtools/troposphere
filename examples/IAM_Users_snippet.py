@@ -14,7 +14,7 @@ t = Template()
 t.add_resource(User(
     "myuser",
     Path="/",
-    LoginProfile=LoginProfile("myP@ssW0rd"),
+    LoginProfile=LoginProfile(Password="myP@ssW0rd"),
     Policies=[
         Policy(
             PolicyName="giveaccesstoqueueonly",
