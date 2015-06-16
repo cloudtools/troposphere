@@ -1,4 +1,4 @@
-## pending
+## 1.1.0 (2015-06-15)
 - added AWS::CloudFormation::Stack NotificationARNs property [GH-243]
 - Add additional import for PrivateIpAddressSpecification [GH-247]
 - Add true s3 bucket name validator [GH-249]
