@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty, Ref, Join
 from .validators import integer, boolean
 try:
     from awacs.aws import Policy
