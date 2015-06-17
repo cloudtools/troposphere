@@ -74,6 +74,7 @@ POSTGRESQL_PORT = 5432
 T2_MICRO = 't2.micro'
 T2_SMALL = 't2.small'
 T2_MEDIUM = 't2.medium'
+T2_LARGE = 't2.large'
 
 M4_LARGE = 'm4.large'
 M4_XLARGE = 'm4.xlarge'
