@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty, Ref, Join
 from .validators import integer, boolean
 try:
     from awacs.aws import Policy
@@ -71,6 +71,7 @@ class Role(AWSObject):
 
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
+        'ManagedPolicyArns': ([basestring, Join], False),
         'Path': (basestring, True),
         'Policies': ([Policy], False),
     }
