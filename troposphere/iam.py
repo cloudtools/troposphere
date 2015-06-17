@@ -71,6 +71,7 @@ class Role(AWSObject):
 
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
+        'ManagedPolicyArns': ([basestring, Join], False),
         'Path': (basestring, True),
         'Policies': ([Policy], False),
     }
