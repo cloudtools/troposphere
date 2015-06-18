@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Ref
-from .validators import integer, boolean
+from .validators import integer, boolean, status
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -22,7 +22,7 @@ class AccessKey(AWSObject):
     props = {
         'Serial': (integer, False),
         # XXX - Is Status required? Docs say yes, examples say no
-        'Status': (basestring, False),
+        'Status': (status, True),
         'UserName': (basestring, True),
     }
 
@@ -52,6 +52,7 @@ class Group(AWSObject):
     resource_type = "AWS::IAM::Group"
 
     props = {
+        'ManagedPolicyArns': ([basestring], False),
         'Path': (basestring, False),
         'Policies': ([Policy], False),
     }
@@ -71,6 +72,7 @@ class Role(AWSObject):
 
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
+        'ManagedPolicyArns': ([basestring], False),
         'Path': (basestring, True),
         'Policies': ([Policy], False),
     }
@@ -89,6 +91,7 @@ class User(AWSObject):
     props = {
         'Path': (basestring, False),
         'Groups': ([basestring, Ref], False),
+        'ManagedPolicyArns': ([basestring], False),
         'LoginProfile': (LoginProfile, False),
         'Policies': ([Policy], False),
     }

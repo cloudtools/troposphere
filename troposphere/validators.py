@@ -66,3 +66,10 @@ def encoding(encoding):
     if encoding not in valid_encodings:
         raise ValueError('Encoding needs to be one of %r' % valid_encodings)
     return encoding
+
+
+def status(status):
+    valid_statuses = ['Active', 'Inactive']
+    if status not in valid_statuses:
+        raise ValueError('Status needs to be one of %r' % valid_statuses)
+    return status

@@ -2,7 +2,7 @@ import unittest
 from troposphere import Parameter, Ref
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
-from troposphere.validators import s3_bucket_name
+from troposphere.validators import s3_bucket_name, encoding, status
 
 
 class TestValidators(unittest.TestCase):
@@ -64,6 +64,21 @@ class TestValidators(unittest.TestCase):
         for b in ['a'*2, 'a'*64, 'invalid_bucket']:
             with self.assertRaises(ValueError):
                 s3_bucket_name(b)
+
+    def test_encoding(self):
+        for e in ['plain', 'base64']:
+            encoding(e)
+        for e in ['wrong_encdoing', 'base62']:
+            with self.assertRaises(ValueError):
+                encoding(e)
+
+    def test_status(self):
+        for s in ['Active', 'Inactive']:
+            status(s)
+        for s in ['active', 'idle']:
+            with self.assertRaises(ValueError):
+                status(s)
+
 
 if __name__ == '__main__':
     unittest.main()
