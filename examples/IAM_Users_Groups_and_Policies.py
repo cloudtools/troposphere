@@ -21,6 +21,7 @@ cfnadmingroup = t.add_resource(Group("CFNAdminGroup"))
 
 cfnkeys = t.add_resource(AccessKey(
     "CFNKeys",
+    Status="Active",
     UserName=Ref(cfnuser))
 )
 
