@@ -131,6 +131,13 @@ class BaseAWSObject(object):
                 self._raise_type(name, value, expected_type)
 
         type_name = getattr(self, 'resource_type', self.__class__.__name__)
+
+        if type_name == 'AWS::CloudFormation::CustomResource' or \
+                type_name.startswith('Custom::'):
+            # Add custom resource arguments to the dict without any further
+            # validation. The properties of a CustomResource is not known.
+            return self.properties.__setitem__(name, value)
+
         raise AttributeError("%s object does not support attribute %s" %
                              (type_name, name))
 
@@ -193,6 +200,7 @@ class AWSAttribute(BaseAWSObject):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
     aws-product-attribute-reference.html
     """
+
     def __init__(self, title=None, **kwargs):
         super(AWSAttribute, self).__init__(title, **kwargs)
 
