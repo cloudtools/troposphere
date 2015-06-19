@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty, Ref, BaseAWSObject
 from .validators import integer, boolean, encoding
 
 
@@ -15,6 +15,19 @@ class Stack(AWSObject):
         'Parameters': (dict, False),
         'TemplateURL': (basestring, True),
         'TimeoutInMinutes': (integer, False),
+    }
+
+
+class AWSCustomObject(BaseAWSObject):
+    dictname = 'Properties'
+
+
+
+class CustomResource(AWSCustomObject):
+    resource_type = "AWS::CloudFormation::CustomResource"
+
+    props = {
+        'ServiceToken': (basestring, True)
     }
 
 
