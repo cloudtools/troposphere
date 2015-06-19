@@ -114,3 +114,22 @@ class TestRDS(unittest.TestCase):
         )
 
         rds_instance.JSONrepr()
+
+    def test_optiongroup(self):
+        rds_optiongroup = rds.OptionGroup(
+            "OracleOptionGroup",
+            EngineName="oracle-ee",
+            MajorEngineVersion="12.1",
+            OptionGroupDescription="A test option group",
+            OptionConfigurations=[
+                rds.OptionConfiguration(
+                    DBSecurityGroupMemberships=["default"],
+                    OptionName="OEM",
+                    Port="5500",
+                ),
+                rds.OptionConfiguration(
+                    OptionName="APEX",
+                ),
+            ]
+        )
+        rds_optiongroup.JSONrepr()

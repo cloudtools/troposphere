@@ -155,7 +155,7 @@ class OptionSetting(AWSProperty):
     }
 
 
-class OptionGroupConfiguration(AWSProperty):
+class OptionConfiguration(AWSProperty):
     props = {
         'DBSecurityGroupMemberships': ([basestring, Ref], False),
         'OptionName': (basestring, True),
@@ -172,6 +172,6 @@ class OptionGroup(AWSObject):
         'EngineName': (basestring, True),
         'MajorEngineVersion': (basestring, True),
         'OptionGroupDescription': (basestring, True),
-        'OptionGroupConfigurations': ([OptionGroupConfiguration], True),
+        'OptionConfigurations': ([OptionConfiguration], True),
         'Tags': (list, False),
     }
