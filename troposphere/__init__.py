@@ -129,6 +129,14 @@ class BaseAWSObject(object):
                 return self.properties.__setitem__(name, value)
             else:
                 self._raise_type(name, value, expected_type)
+        elif self.resource_type == 'AWS::CloudFormation::CustomResource':
+            # Add custom resource arguments to the dict
+            # without any further validation
+            return self.properties.__setitem__(name, value)
+        elif self.resource_type.startswith('Custom::'):
+            # Custom resources could probably be validated further.
+            # Not done at the moment.
+            return self.properties.__setitem__(name, value)
 
         type_name = getattr(self, 'resource_type', self.__class__.__name__)
         raise AttributeError("%s object does not support attribute %s" %
