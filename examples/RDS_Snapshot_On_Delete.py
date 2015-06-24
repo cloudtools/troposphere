@@ -1,12 +1,8 @@
 # Converted from RDS_Snapshot_On_Delete.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 
-from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output
-from troposphere import Parameter, Ref, Tags, Template
-from troposphere.cloudformation import Init
-from troposphere.cloudfront import Distribution, DistributionConfig
-from troposphere.cloudfront import Origin, DefaultCacheBehavior
-from troposphere.ec2 import PortRange
+from troposphere import GetAtt, Join, Output
+from troposphere import Template
 from troposphere.rds import DBInstance
 
 
