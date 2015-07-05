@@ -143,6 +143,7 @@ class Instance(AWSObject):
         'AutoScalingType': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'InstallUpdatesOnBoot': (boolean, False),
+        'AutoScalingType': (basestring, False),
         'InstanceType': (basestring, True),
         'LayerIds': ([basestring, Ref], True),
         'Os': (basestring, False),
