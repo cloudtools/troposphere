@@ -53,7 +53,7 @@ class BaseAWSObject(object):
             self.resource = self.properties
         if hasattr(self, 'resource_type') and self.resource_type is not None:
             self.resource['Type'] = self.resource_type
-        self.__initialized = True
+        self._BaseAWSObject__initialized = True
 
         # Check for properties defined in the class
         for k, (_, required) in self.props.items():
