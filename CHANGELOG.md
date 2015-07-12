@@ -1,3 +1,13 @@
+## 1.1.1 (2015-07-12)
+- Rename lambda->awslambda [GH-268]
+- Add t2 large instance type [GH-269]
+- IAM: status required and managedpolicyarns [GH-272]
+- Fix wrong prop name in rds.OptionGroup OptionGroupConfigurations->OptionConfigurations [GH-274]
+- Add CloudFormation CustomResource [GH-278]
+- Add rds snapshot on delete example [GH-280]
+- Unable to pass Cluster name as String [GH-281]
+- Fix unable to set StringValue on ObjectField in DataPipeline [GH-283]
+
 ## 1.1.0 (2015-06-15)
 - added AWS::CloudFormation::Stack NotificationARNs property [GH-243]
 - Add additional import for PrivateIpAddressSpecification [GH-247]
