@@ -27,7 +27,7 @@ class ObjectField(AWSProperty):
     props = {
         'Key': (basestring, True),
         'RefValue': ([basestring, Ref], False),
-        'StringValue': ([basestring, Ref], False),
+        'StringValue': (basestring, False),
     }
 
 
