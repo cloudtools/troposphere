@@ -20,11 +20,11 @@ class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
     props = {
-        'Cluster': ([basestring, Ref], False),
+        'Cluster': (basestring, False),
         'DesiredCount': (positive_integer, False),
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
-        'TaskDefinition': ([basestring, Ref], False),
+        'TaskDefinition': (basestring, False),
     }
 
 
