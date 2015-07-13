@@ -236,7 +236,15 @@ We have a google group, cloudtools-dev_, where you can ask questions and
 engage with the troposphere community.  Issues & pull requests are always
 welcome!
 
+Licensing
+=========
+
+Troposphere is licensed under the `BSD 2-Clause license`_.
+See `LICENSE`_ for the troposphere full license text.
+
 
 .. _`AWS CloudFormation`: http://aws.amazon.com/cloudformation
 .. _`OpenStack resources`: http://docs.openstack.org/developer/heat/template_guide/openstack.html
 .. _cloudtools-dev: https://groups.google.com/forum/#!forum/cloudtools-dev
+.. _`LICENSE`: https://github.com/cloudtools/troposphere/blob/master/LICENSE
+.. _`BSD 2-Clause license`: http://opensource.org/licenses/BSD-2-Clause
