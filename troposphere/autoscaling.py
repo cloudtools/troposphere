@@ -132,16 +132,13 @@ class AutoScalingGroup(AWSObject):
             if 'AutoScalingRollingUpdate' in update_policy.properties:
                 rolling_update = update_policy.AutoScalingRollingUpdate
 
-                isMinRef = isinstance(
+                isMinNoCheck = isinstance(
                     rolling_update.MinInstancesInService,
-                    Ref
+                    (FindInMap, Ref)
                 )
-                isMaxRef = isinstance(self.MaxSize, Ref)
+                isMaxNoCheck = isinstance(self.MaxSize, (FindInMap, Ref))
 
-                isMinMap = isinstance(self.MinSize, FindInMap)
-                isMaxMap = isinstance(self.MaxSize, FindInMap)
-
-                if not (isMinRef or isMaxRef or isMinMap or isMaxMap):
+                if not (isMinNoCheck or isMaxNoCheck):
                     maxCount = int(self.MaxSize)
                     minCount = int(rolling_update.MinInstancesInService)
 
