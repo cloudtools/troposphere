@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty, Ref, FindInMap
 from .validators import boolean, integer
 from . import cloudformation
 
@@ -138,7 +138,10 @@ class AutoScalingGroup(AWSObject):
                 )
                 isMaxRef = isinstance(self.MaxSize, Ref)
 
-                if not (isMinRef or isMaxRef):
+                isMinMap = isinstance(self.MinSize, FindInMap)
+                isMaxMap = isinstance(self.MaxSize, FindInMap)
+
+                if not (isMinRef or isMaxRef or isMinMap or isMaxMap):
                     maxCount = int(self.MaxSize)
                     minCount = int(rolling_update.MinInstancesInService)
 
