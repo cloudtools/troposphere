@@ -1,3 +1,8 @@
+## 1.1.2 (2015-07-23)
+- Clarify the license is a [BSD 2-Clause license](http://opensource.org/licenses/BSD-2-Clause)
+- Add FindInMap type check for AutoScalingGroup validation of group sizes [GH-285]
+- Implement the template Metadata section [GH-286]
+
 ## 1.1.1 (2015-07-12)
 - Rename lambda->awslambda [GH-268]
 - Add t2 large instance type [GH-269]
