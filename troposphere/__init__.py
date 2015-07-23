@@ -371,6 +371,7 @@ class Template(object):
 
     def __init__(self):
         self.description = None
+        self.metadata = {}
         self.conditions = {}
         self.mappings = {}
         self.outputs = {}
@@ -380,6 +381,9 @@ class Template(object):
 
     def add_description(self, description):
         self.description = description
+
+    def add_metadata(self, metadata):
+        self.metadata = metadata
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
@@ -421,6 +425,8 @@ class Template(object):
         t = {}
         if self.description:
             t['Description'] = self.description
+        if self.metadata:
+            t['Metadata'] = self.metadata
         if self.conditions:
             t['Conditions'] = self.conditions
         if self.mappings:
