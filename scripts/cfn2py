@@ -138,6 +138,7 @@ known_functions = {
     "AccessLoggingPolicy":      1,
     "AWS::CloudFormation::Init":1,
     "PrivateIpAddresses"       :1,
+    "ContainerDefinitions"     :1,
 }
 
 function_quirks = {
@@ -148,6 +149,7 @@ function_quirks = {
     "LoginProfile":       { "LoginProfile": ["Password"] },
     "AWS::CloudFormation::Init": {"Init": []},
     "PrivateIpAddresses" : ["PrivateIpAddressSpecification"],
+    "ContainerDefinitions": ["ContainerDefinition"],
 }
 
 def do_output_function(k, f, v):
