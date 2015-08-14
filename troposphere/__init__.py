@@ -118,9 +118,7 @@ class BaseAWSObject(object):
                 # we can't do the validation ourselves)
                 for v in value:
                     if not isinstance(v, tuple(expected_type)) \
-                    and not isinstance(v, AWSHelperFn) \
-                    and not isinstance(v, dict) \
-                    and not isinstance(v, list):
+                       and not isinstance(v, AWSHelperFn):
                         self._raise_type(name, v, expected_type)
                 # Validated so assign it
                 return self.properties.__setitem__(name, value)
@@ -149,6 +147,12 @@ class BaseAWSObject(object):
 
     def validate(self):
         pass
+
+    @classmethod
+    def from_dict(cls, title, dict):
+        obj = cls(title)
+        obj.properties.update(dict)
+        return obj
 
     def JSONrepr(self):
         for k, (_, required) in self.props.items():
