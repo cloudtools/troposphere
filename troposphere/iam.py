@@ -62,7 +62,7 @@ class InstanceProfile(AWSObject):
     resource_type = "AWS::IAM::InstanceProfile"
 
     props = {
-        'Path': (basestring, True),
+        'Path': (basestring, False),
         'Roles': (list, True),
     }
 
@@ -73,7 +73,7 @@ class Role(AWSObject):
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
         'ManagedPolicyArns': ([basestring], False),
-        'Path': (basestring, True),
+        'Path': (basestring, False),
         'Policies': ([Policy], False),
     }
 
