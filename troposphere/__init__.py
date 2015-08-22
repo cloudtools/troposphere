@@ -486,4 +486,3 @@ class Parameter(AWSDeclaration):
             if 'MinValue' in self.properties:
                 raise ValueError("MinValue can only be used with "
                                  "parameters of the Number type.")
-
