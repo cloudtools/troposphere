@@ -158,6 +158,21 @@ class TestParameter(unittest.TestCase):
         with self.assertRaises(KeyError):
             d['Properties']
 
+    def test_property_validator(self):
+        p = Parameter("BasicString", Type="String", MaxLength=10)
+        p.validate()
+
+        p = Parameter("BasicString", Type="String", MaxValue=10)
+        with self.assertRaises(ValueError):
+            p.validate()
+
+        p = Parameter("BasicNumber", Type="Number", MaxValue=10)
+        p.validate()
+
+        p = Parameter("BasicNumber", Type="Number", AllowedPattern=".*")
+        with self.assertRaises(ValueError):
+            p.validate()
+
 
 class TestProperty(unittest.TestCase):
 
