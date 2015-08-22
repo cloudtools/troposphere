@@ -173,6 +173,13 @@ class TestParameter(unittest.TestCase):
         with self.assertRaises(ValueError):
             p.validate()
 
+    def test_invalid_parameter_property_in_template(self):
+        t = Template()
+        p = Parameter("BasicNumber", Type="Number", AllowedPattern=".*")
+        t.add_parameter(p)
+        with self.assertRaises(ValueError):
+            t.to_json()
+
 
 class TestProperty(unittest.TestCase):
 
