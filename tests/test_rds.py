@@ -101,7 +101,11 @@ class TestRDS(unittest.TestCase):
 
     def test_it_allows_an_rds_instance_with_iops(self):
         # ensure troposphere works with longs and ints
-        long_number = long(2000)
+        try:
+            long_number = long(2000)
+        except NameError:
+            # Python 3 doesn't have 'long' anymore
+            long_number = 2000
         rds_instance = rds.DBInstance(
             'SomeTitle',
             AllocatedStorage=200,
