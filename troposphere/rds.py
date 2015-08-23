@@ -23,9 +23,9 @@ def validate_iops(iops):
     """DBInstance Iops validation rules."""
 
     iops = integer(iops)
-    if iops < 1000:
+    if int(iops) < 1000:
         raise ValueError("DBInstance Iops, if set, must be greater than 1000.")
-    if iops > 10000:
+    if int(iops) > 10000:
         raise ValueError("DBInstance Iops, if set, must be less than 10000.")
     return iops
 
@@ -79,6 +79,7 @@ def validate_backup_window(window):
 
 def validate_maintenance_window(window):
     """Validate PreferredMaintenanceWindow for DBInstance"""
+
     days = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
     day_re = r'[A-Z]{1}[a-z]{2}'
     hour = r'[01]?[0-9]|2[0-3]'
@@ -108,6 +109,16 @@ def validate_maintenance_window(window):
     return window
 
 
+def validate_backup_retention_period(days):
+    """Validate BackupRetentionPeriod for DBInstance"""
+
+    days = positive_integer(days)
+    if int(days) > 35:
+        raise ValueError("DBInstance BackupRetentionPeriod cannot be larger "
+                         "than 35 days.")
+    return days
+
+
 class DBInstance(AWSObject):
     resource_type = "AWS::RDS::DBInstance"
 
@@ -116,7 +127,7 @@ class DBInstance(AWSObject):
         'AllowMajorVersionUpgrade': (boolean, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
-        'BackupRetentionPeriod': (positive_integer, False),
+        'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'CharacterSetName': (basestring, False),
         'DBInstanceClass': (basestring, True),
         'DBInstanceIdentifier': (basestring, False),

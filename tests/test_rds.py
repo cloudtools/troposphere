@@ -249,3 +249,13 @@ class TestRDSValidators(unittest.TestCase):
 
         with self.assertRaisesRegexp(ValueError, "must be at least 30 "):
             rds.validate_maintenance_window("Mon:10:00-Mon:10:10")
+
+    def test_validate_backup_retention_period(self):
+        for d in (1, 10, 15, 35):
+            rds.validate_backup_retention_period(d)
+
+        with self.assertRaisesRegexp(ValueError,
+                                     " cannot be larger than 35 "):
+            rds.validate_backup_retention_period(40)
+
+        rds.validate_backup_retention_period(10)
