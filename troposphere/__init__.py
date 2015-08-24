@@ -59,18 +59,11 @@ class BaseAWSObject(object):
         for k, (_, required) in self.props.items():
             v = getattr(type(self), k, None)
             if v is not None and k not in kwargs:
-                if k in self.attributes:
-                    self.resource[k] = v
-                else:
-                    self.__setattr__(k, v)
+                self.__setattr__(k, v)
 
         # Now that it is initialized, populate it with the kwargs
         for k, v in kwargs.items():
-            # Special case Resource Attributes
-            if k in self.attributes:
-                self.resource[k] = v
-            else:
-                self.__setattr__(k, v)
+            self.__setattr__(k, v)
 
         # Bound it to template if we know it
         if self.template is not None:
@@ -91,6 +84,9 @@ class BaseAWSObject(object):
         if name in self.__dict__.keys() \
                 or '_BaseAWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
+        elif name in self.attributes:
+            self.resource[name] = value
+            return None
         elif name in self.propnames:
             # Check the type of the object and compare against what we were
             # expecting.
