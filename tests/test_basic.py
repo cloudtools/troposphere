@@ -36,6 +36,13 @@ class TestBasic(unittest.TestCase):
         instance = ExtendedInstance('ec2instance', attribute='value')
         self.assertEqual(instance.attribute, 'value')
 
+    def test_resource_prefix(self):
+        name = "FakeInstance"
+        prefix = "MyPrefix"
+        t = Template(prefix)
+        resource = t.add_resource(Instance(name))
+        self.assertEqual(resource.title, prefix + name)
+
 
 def call_correct(x):
     return x
