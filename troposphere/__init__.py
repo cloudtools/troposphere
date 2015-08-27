@@ -369,7 +369,7 @@ class Template(object):
         'Outputs': (dict, False),
     }
 
-    def __init__(self):
+    def __init__(self, resource_prefix=None):
         self.description = None
         self.metadata = {}
         self.conditions = {}
@@ -378,6 +378,7 @@ class Template(object):
         self.parameters = {}
         self.resources = {}
         self.version = None
+        self.resource_prefix = resource_prefix
 
     def add_description(self, description):
         self.description = description
@@ -413,6 +414,8 @@ class Template(object):
         return self._update(self.parameters, parameter)
 
     def add_resource(self, resource):
+        if self.resource_prefix:
+            resource.title = "%s%s" % (self.resource_prefix, resource.title)
         return self._update(self.resources, resource)
 
     def add_version(self, version=None):
