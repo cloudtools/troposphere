@@ -5,6 +5,11 @@
 
 from . import AWSHelperFn, AWSObject, AWSProperty, FindInMap, Ref
 from .validators import boolean, integer, integer_range, network_port
+try:
+    from awacs.aws import Policy
+    policytypes = (dict, Policy)
+except ImportError:
+    policytypes = dict,
 
 
 class Tag(AWSHelperFn):
@@ -427,4 +432,15 @@ class VPCPeeringConnection(AWSObject):
         'PeerVpcId': (basestring, True),
         'VpcId': (basestring, True),
         'Tags': (list, False),
+    }
+
+
+class VPCEndpoint(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpoint"
+
+    props = {
+        'PolicyDocument': (policytypes, False),
+        'RouteTableIds': ([basestring, Ref], False),
+        'ServiceName': (basestring, True),
+        'VpcId': (basestring, True),
     }
