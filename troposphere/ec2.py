@@ -434,6 +434,7 @@ class VPCPeeringConnection(AWSObject):
         'Tags': (list, False),
     }
 
+
 class VPCEndpoint(AWSObject):
     resource_type = "AWS::EC2::VPCEndpoint"
 
