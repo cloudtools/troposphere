@@ -1,3 +1,16 @@
+## 1.2.0 (2015-09-04)
+- Add support for EFS
+- Elasticache: only validate az choices if azs is a list [GH-292]
+- Add from_dict function to BaseAWSObject [GH-294]
+- IAM: Path is optional for Role and InstanceProfile [GH-295]
+- Validate parameter options based on Type [GH-296]
+- RDS: Add more specific validators to DBInstance [GH-297]
+- Add constants for the parameter types [GH-300]
+- Add lambda ZipFile property [GH-301]
+- Adds VPCEndpoint resource type [GH-304]
+- Supports tags in ElasticBeanstalk environments [GH-308]
+- Move cloudformation attribute setting to __setattr__ [GH-309]
+
 ## 1.1.2 (2015-07-23)
 - Clarify the license is a [BSD 2-Clause license](http://opensource.org/licenses/BSD-2-Clause)
 - Add FindInMap type check for AutoScalingGroup validation of group sizes [GH-285]
