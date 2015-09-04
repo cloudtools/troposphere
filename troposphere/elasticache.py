@@ -37,7 +37,9 @@ class CacheCluster(AWSObject):
         # Check that AZMode is "cross-az" if more than one Availability zone
         # is specified in PreferredAvailabilityZones
         preferred_azs = self.properties.get('PreferredAvailabilityZones')
-        if preferred_azs is not None and len(preferred_azs) > 1:
+        if preferred_azs is not None and \
+                isinstance(preferred_azs, list) and \
+                len(preferred_azs) > 1:
             if self.properties.get('AZMode') != 'cross-az':
                 raise ValueError('AZMode must be "cross-az" if more than one a'
                                  'vailability zone is specified in PreferredAv'
