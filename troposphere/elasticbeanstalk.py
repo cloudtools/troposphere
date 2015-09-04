@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 
 
 WebServer = "WebServer"
@@ -98,6 +98,7 @@ class Environment(AWSObject):
         'EnvironmentName': (basestring, False),
         'OptionSettings': ([OptionSettings], False),
         'SolutionStackName': (basestring, False),
+        'Tags': (Tags, False),
         'TemplateName': (basestring, False),
         'Tier': (Tier, False),
         'VersionLabel': (basestring, False),
