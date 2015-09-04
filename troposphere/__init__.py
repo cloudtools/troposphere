@@ -148,6 +148,12 @@ class BaseAWSObject(object):
     def validate(self):
         pass
 
+    @classmethod
+    def from_dict(cls, title, dict):
+        obj = cls(title)
+        obj.properties.update(dict)
+        return obj
+
     def JSONrepr(self):
         for k, (_, required) in self.props.items():
             if required and k not in self.properties:
