@@ -10,28 +10,25 @@ class Code(AWSProperty):
         'ZipFile': (basestring, False)
     }
 
-    def __init__(self, title=None, **kwargs):
-        super(Code, self).__init__(title, **kwargs)
+    def validate(self):
+        zip_file = self.properties.get('ZipFile')
+        s3_bucket = self.properties.get('S3Bucket')
+        s3_key = self.properties.get('S3Key')
+        s3_object_version = self.properties.get('SS3ObjectVersion')
 
-        if 'ZipFile' in kwargs:
-            if 'S3Bucket' in kwargs:
-                raise ValueError(
-                    "You can't specify both 'S3Bucket' and 'ZipFile'"
-                )
-            elif 'S3Key' in kwargs:
-                raise ValueError(
-                    "You can't specify both 'S3Key' and 'ZipFile'"
-                )
-            elif 'S3ObjectVersion' in kwargs:
-                raise ValueError(
-                    "You can't specify both 'S3ObjectVersion' and 'ZipFile'"
-                )
-        else:  # ZipFile not specified
-            if 'S3Bucket' not in kwargs or 'S3Key' not in kwargs:
-                raise ValueError(
-                    'You must specify a bucket location (both the S3Bucket '
-                    'and S3Key properties) or the ZipFile property'
-                )
+        if zip_file and s3_bucket:
+            raise ValueError("You can't specify both 'S3Bucket' and 'ZipFile'")
+        if zip_file and s3_key:
+            raise ValueError("You can't specify both 'S3Key' and 'ZipFile'")
+        if zip_file and s3_object_version:
+            raise ValueError(
+                "You can't specify both 'S3ObjectVersion' and 'ZipFile'"
+            )
+        if not zip_file and not (s3_bucket and s3_key):
+            raise ValueError(
+                "You must specify a bucket location (both the 'S3Bucket' and "
+                "'S3Key' properties) or the 'ZipFile' property"
+            )
 
 
 class Function(AWSObject):
