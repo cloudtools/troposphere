@@ -460,6 +460,8 @@ class Output(AWSDeclaration):
 
 
 class Parameter(AWSDeclaration):
+    STRING_PROPERTIES = ['AllowedPattern', 'MaxLength', 'MinLength']
+    NUMBER_PROPERTIES = ['MaxValue', 'MinValue']
     props = {
         'Type': (basestring, True),
         'Default': (basestring, False),
@@ -473,3 +475,15 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+    def validate(self):
+        if self.properties['Type'] != 'String':
+            for p in self.STRING_PROPERTIES:
+                if p in self.properties:
+                    raise ValueError("%s can only be used with parameters of "
+                                     "the String type." % p)
+        if self.properties['Type'] != 'Number':
+            for p in self.NUMBER_PROPERTIES:
+                if p in self.properties:
+                    raise ValueError("%s can only be used with parameters of "
+                                     "the Number type." % p)
