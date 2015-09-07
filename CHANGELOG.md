@@ -1,3 +1,6 @@
+## 1.2.1 (2015-09-07)
+- Bugfix for RDS Ref/GetAtt issue [GH-310]
+
 ## 1.2.0 (2015-09-04)
 - Add support for EFS
 - Elasticache: only validate az choices if azs is a list [GH-292]
