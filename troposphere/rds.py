@@ -205,10 +205,13 @@ class DBInstance(AWSObject):
         allocated_storage = self.properties.get('AllocatedStorage')
         iops = self.properties.get('Iops', None)
         if iops:
-            if allocated_storage < 100:
+            if not isinstance(allocated_storage, AWSHelperFn) and \
+                    allocated_storage < 100:
                 raise ValueError("AllocatedStorage must be at least 100 when "
                                  "Iops is set.")
-            if float(iops) / float(allocated_storage) > 10.0:
+            if not isinstance(allocated_storage, AWSHelperFn) and not \
+                    isinstance(iops, AWSHelperFn) and \
+                    float(iops) / float(allocated_storage) > 10.0:
                 raise ValueError("AllocatedStorage must be no less than "
                                  "1/10th the provisioned Iops")
 
