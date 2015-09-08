@@ -1,6 +1,10 @@
 import time
 
 
+def _tail_print(e):
+    print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
+
+
 def get_events(conn, stackname):
     """Get the events in batches and return in chronological order"""
     next = None
@@ -15,17 +19,14 @@ def get_events(conn, stackname):
     return reversed(sum(event_list, []))
 
 
-def tail(conn, stack_name):
+def tail(conn, stack_name, log_func=_tail_print, sleep_time=5):
     """Show and then tail the event log"""
-    def tail_print(e):
-        print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
-
     # First dump the full list of events in chronological order and keep
     # track of the events we've seen already
     seen = set()
     initial_events = get_events(conn, stack_name)
     for e in initial_events:
-        tail_print(e)
+        log_func(e)
         seen.add(e.event_id)
 
     # Now keep looping through and dump the new events
@@ -33,6 +34,6 @@ def tail(conn, stack_name):
         events = get_events(conn, stack_name)
         for e in events:
             if e.event_id not in seen:
-                tail_print(e)
+                log_func(e)
             seen.add(e.event_id)
-        time.sleep(5)
+        time.sleep(sleep_time)
