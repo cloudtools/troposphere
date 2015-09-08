@@ -12,6 +12,9 @@ except ImportError:
     print("boto 2.8.0+ is required")
     sys.exit(1)
 
+from troposphere.utils import tail
+
+
 def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     cloudformation_bucket = conn.lookup(bucket_name)
     if not cloudformation_bucket:
@@ -56,43 +59,6 @@ def describe_resources(conn, stackname):
         for stack in stacks:
             print("Resources for stack {0}:".format(stack.stack_name))
             print(conn.describe_stack_resources(stack.stack_name))
-
-
-def get_events(conn, stackname):
-    """Get the events in batches and return in chronological order"""
-    next = None
-    event_list = []
-    while 1:
-        events = conn.describe_stack_events(stackname, next)
-        event_list.append(events)
-        if events.next_token is None:
-            break
-        next = events.next_token
-        time.sleep(1)
-    return reversed(sum(event_list, []))
-
-
-def tail(conn, stack_name):
-    """Show and then tail the event log"""
-    def tail_print(e):
-        print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
-
-    # First dump the full list of events in chronological order and keep
-    # track of the events we've seen already
-    seen = set()
-    initial_events = get_events(conn, stack_name)
-    for e in initial_events:
-        tail_print(e)
-        seen.add(e.event_id)
-
-    # Now keep looping through and dump the new events
-    while 1:
-        events = get_events(conn, stack_name)
-        for e in events:
-            if e.event_id not in seen:
-                tail_print(e)
-            seen.add(e.event_id)
-        time.sleep(5)
 
 
 if __name__ == "__main__":
