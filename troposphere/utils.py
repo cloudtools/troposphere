@@ -19,7 +19,8 @@ def get_events(conn, stackname):
     return reversed(sum(event_list, []))
 
 
-def tail(conn, stack_name, log_func=_tail_print, sleep_time=5, include_initial=True):
+def tail(conn, stack_name, log_func=_tail_print, sleep_time=5,
+         include_initial=True):
     """Show and then tail the event log"""
     # First dump the full list of events in chronological order and keep
     # track of the events we've seen already
