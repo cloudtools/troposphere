@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
+import itertools
 import sys
 import time
 from ast import literal_eval
@@ -23,14 +24,52 @@ def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     return cfn_template_url
 
 
-def create_stack(conn, stackname, template=None, url=None, params=None):
+def render_template(file):
+    # Render or read the template file
+    if file.endswith(".py"):
+        return render_python_template(file)
+    else:
+        return open(file).read()
+
+
+def render_python_template(file):
+    # By convention, templates render out json using the print builtin when
+    # they are executed.  Since the print builtin is tricky to override, let's
+    # just capture sys.stdout.
+
+    from cStringIO import StringIO
+    import os
+    import runpy
+    import sys
+
+    capture = StringIO()
+    orig_path = sys.path
+
+    try:
+        sys.path = sys.path[:]
+        sys.path[0] = os.path.dirname(file)
+        sys.stdout = capture
+        runpy.run_path(file)
+    finally:
+        sys.stdout = sys.__stdout__
+        sys.path = orig_path
+        res = capture.getvalue()
+        capture.close()
+
+    return res
+
+
+def create_stack(conn, stackname, template=None, url=None, params=None,
+                 capabilities=None):
     try:
         if url:
-            stack_id = conn.create_stack(
-                stackname, template_url=url, parameters=params)
+            stack_id = conn.create_stack(stackname, template_url=url,
+                                         parameters=params,
+                                         capabilities=capabilities)
         else:
-            stack_id = conn.create_stack(
-                stackname, template, parameters=params)
+            stack_id = conn.create_stack(stackname, template,
+                                         parameters=params,
+                                         capabilities=capabilities)
     except boto.exception.BotoServerError as e:
         # XXX - need to figure out why this isn't getting parsed from boto.
         print("Error: %s" %
@@ -38,6 +77,7 @@ def create_stack(conn, stackname, template=None, url=None, params=None):
         print("Exiting...")
         sys.exit(1)
     print("Created stack %s: %s" % (stackname, stack_id))
+    return stack_id
 
 
 def build_s3_name(stack_name):
@@ -45,6 +85,8 @@ def build_s3_name(stack_name):
     name = stack_name
     if stack_name.endswith('.json'):
         name = stack_name[:-5]
+    if stack_name.endswith('.py'):
+        name = stack_name[:-3]
     return '%s-%s.json' % (name, timestamp)
 
 
@@ -58,50 +100,88 @@ def describe_resources(conn, stackname):
             print(conn.describe_stack_resources(stack.stack_name))
 
 
-def get_events(conn, stackname):
-    """Get the events in batches and return in chronological order"""
-    next = None
-    event_list = []
-    while 1:
-        events = conn.describe_stack_events(stackname, next)
-        event_list.append(events)
-        if events.next_token is None:
-            break
-        next = events.next_token
-        time.sleep(1)
-    return reversed(sum(event_list, []))
+def get_stack_id_if_exists(conn, stack_name):
+    try:
+        return conn.describe_stacks(stack_name)[0].stack_id
+    except boto.exception.BotoServerError, e:
+        if e.error_code == "ValidationError":
+            return None
+        else:
+            raise e
 
 
-def tail(conn, stack_name):
-    """Show and then tail the event log"""
-    def tail_print(e):
-        print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
+class StackEventIterator:
+    '''
+    An iterator that blocks internally, polling AWS for new events.
+    '''
 
-    # First dump the full list of events in chronological order and keep
-    # track of the events we've seen already
-    seen = set()
-    initial_events = get_events(conn, stack_name)
-    for e in initial_events:
-        tail_print(e)
-        seen.add(e.event_id)
+    def __init__(self, conn, stack_id):
+        self.conn = conn
+        self.stack_id = stack_id
+        self.last_event_id = None
+        self.read_queue = []
 
-    # Now keep looping through and dump the new events
-    while 1:
-        events = get_events(conn, stack_name)
-        for e in events:
-            if e.event_id not in seen:
-                tail_print(e)
-            seen.add(e.event_id)
-        time.sleep(5)
+    def __iter__(self):
+        return self
+
+    def next(self):
+        while not len(self.read_queue):
+            self.read_queue = self.__request_new()
+            time.sleep(2)
+
+        return self.read_queue.pop(0)
+
+    def read_existing(self):
+        result = self.read_queue
+        self.read_queue = []
+        result.extend(self.__request_new())
+        return result
+
+    def __request_all(self):
+        next_token = None
+        while True:
+            page = self.conn.describe_stack_events(self.stack_id, next_token)
+            for e in page:
+                yield e
+            next_token = page.next_token
+            if next_token is None:
+                break
+
+    def __request_new(self):
+        if self.last_event_id:
+            req = itertools.takewhile(
+                lambda e: e.event_id != self.last_event_id,
+                self.__request_all())
+        else:
+            req = self.__request_all()
+
+        response = list(req)
+
+        if len(response):
+            self.last_event_id = response[0].event_id
+
+        response.reverse()
+        return response
+
+
+def print_event(e):
+    print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--create", help="Create stack using template")
+    parser.add_argument("--capability",
+                        help="Capability to allow (example: 'iam')",
+                        dest="capabilities", action='append',
+                        type=lambda s: 'CAPABILITY_' + s.upper(),
+                        default=[])
     parser.add_argument("-b", "--bucket", dest="s3bucket",
                         help="Upload template to S3 bucket")
     parser.add_argument("-d", "--debug", action='store_true',
                         help="Turn on boto debug logging")
+    parser.add_argument("--delete", help="Delete the stack.",
+                        dest="delete", action='store_true')
     parser.add_argument("-n", "--name", dest="s3name",
                         help="Template name in S3 bucket")
     parser.add_argument("-p", "--parameter", dest="params", action='append',
@@ -113,6 +193,11 @@ if __name__ == "__main__":
                              "all stacks if no stack is specified")
     parser.add_argument("-t", "--tail", action='store_true',
                         help="tail event log")
+    parser.add_argument("-u", "--update", help="Update an existing stack",
+                        dest="update")
+    parser.add_argument("-w", "--wait", action="store_true",
+                        help="Wait for the operation to complete and return "
+                             "an appropriate error code")
     parser.add_argument("stack", nargs='?')
     values = parser.parse_args()
 
@@ -127,9 +212,49 @@ if __name__ == "__main__":
 
     conn = boto.cloudformation.connect_to_region(values.region)
 
+    if values.update:
+        template = render_template(values.update)
+        stack_id = conn.describe_stacks(values.stack)[0].stack_id
+
+        events = StackEventIterator(conn, stack_id)
+        events.read_existing()
+
+        conn.update_stack(values.stack, template_body=template,
+                          parameters=values.params,
+                          capabilities=values.capabilities)
+
+        if values.wait:
+            for event in events:
+                print_event(event)
+                if event.physical_resource_id == stack_id:
+                    if event.resource_status in ['UPDATE_ROLLBACK_COMPLETE',
+                                                 'UPDATE_ROLLBACK_FAILED']:
+                        sys.exit(1)
+                    if event.resource_status == 'UPDATE_COMPLETE':
+                        break
+
+    if values.delete:
+        stack_id = get_stack_id_if_exists(conn, values.stack)
+        if stack_id:
+            events = StackEventIterator(conn, stack_id)
+            events.read_existing()
+            conn.delete_stack(stack_id)
+
+            if values.wait:
+                for event in events:
+                    print_event(event)
+                    if event.physical_resource_id == stack_id:
+                        if event.resource_status == 'DELETE_FAILED':
+                            print "Delete failed"
+                            sys.exit(1)
+                        elif event.resource_status == 'DELETE_COMPLETE':
+                            break
+        else:
+            print "Couldn't delete {0}: stack doesn't exist."\
+                .format(values.stack)
+
     if values.create:
-        # Read in the template file
-        template = open(values.create).read()
+        template = render_template(values.create)
 
         # If needed, build an S3 name (key)
         if values.s3bucket and not values.s3name:
@@ -140,13 +265,32 @@ if __name__ == "__main__":
             s3conn = boto.s3.connect_to_region(values.region)
             url = upload_template_to_s3(
                 s3conn, values.region, values.s3bucket, values.s3name, template)
-            create_stack(conn, values.stack, None, url, values.params)
+            stack_id = create_stack(conn, values.stack, None, url,
+                                    values.params, values.capabilities)
         else:
             # Upload file as part of the stack creation
-            create_stack(conn, values.stack, template, None, values.params)
+            stack_id = create_stack(conn, values.stack, template, None,
+                                    values.params, values.capabilities)
+
+        if values.wait:
+            rollback_enabled = True
+
+            for event in StackEventIterator(conn, stack_id):
+                print_event(event)
+                if event.physical_resource_id == stack_id:
+                    if rollback_enabled:
+                        if event.resource_status in ['ROLLBACK_COMPLETE',
+                                                     'ROLLBACK_FAILED']:
+                            sys.exit(1)
+                    else:
+                        if event.resource_status == 'CREATE_FAILED':
+                            sys.exit(1)
+                    if event.resource_status == 'CREATE_COMPLETE':
+                        break
 
     if values.resources:
         describe_resources(conn, values.stack)
 
     if values.tail:
-        tail(conn, values.stack)
+        for event in StackEventIterator(conn, values.stack):
+            print_event(event)
