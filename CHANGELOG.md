@@ -1,3 +1,7 @@
+## PENDING
+- Move `tail` within the troposphere library. This lets external libraries
+  leverage this function.
+
 ## 1.2.1 (2015-09-07)
 - Bugfix for RDS Ref/GetAtt issue [GH-310]
 
