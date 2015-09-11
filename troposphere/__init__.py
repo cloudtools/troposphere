@@ -138,8 +138,11 @@ class BaseAWSObject(object):
                              (type_name, name))
 
     def _raise_type(self, name, value, expected_type):
-        raise TypeError('%s is %s, expected %s' %
-                        (name, type(value), expected_type))
+        raise TypeError('%s: %s.%s is %s, expected %s' % (self.__class__,
+                                                          self.title,
+                                                          name,
+                                                          type(value),
+                                                          expected_type))
 
     def validate(self):
         pass
