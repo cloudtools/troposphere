@@ -212,3 +212,10 @@ class Stack(AWSObject):
         'UseOpsworksSecurityGroups': (boolean, False),
         'VpcId': (basestring, False),
     }
+
+    def validate(self):
+        if 'VpcId' in self.properties and \
+           'DefaultSubnetId' not in self.properties:
+            raise ValueError('Using VpcId requires DefaultSubnetId to be'
+                             'specified')
+        return True
