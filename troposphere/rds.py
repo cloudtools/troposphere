@@ -4,7 +4,6 @@
 # See LICENSE file for full license.
 
 import re
-from types import NoneType
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
 from .validators import boolean, network_port, integer, positive_integer
@@ -193,10 +192,11 @@ class DBInstance(AWSObject):
                 'AWS::RDS::DBInstance.'
             )
 
+        nonetype = type(None)
         avail_zone = self.properties.get('AvailabilityZone', None)
         multi_az = self.properties.get('MultiAZ', None)
-        if not (isinstance(avail_zone, (AWSHelperFn, NoneType)) and
-                isinstance(multi_az, (AWSHelperFn, NoneType))):
+        if not (isinstance(avail_zone, (AWSHelperFn, nonetype)) and
+                isinstance(multi_az, (AWSHelperFn, nonetype))):
             if 'AvailabilityZone' in self.properties and \
                     self.properties.get('MultiAZ', None):
                 raise ValueError("AvailabiltyZone cannot be set on "
