@@ -192,8 +192,11 @@ class DBInstance(AWSObject):
                 'AWS::RDS::DBInstance.'
             )
 
-        if 'AvailabilityZone' in self.properties and \
-                self.properties.get('MultiAZ', None):
+        availability_zone = self.properties.get('AvailabilityZone', None)
+        multi_az = self.properties.get('MultiAZ', None)
+        if multi_az and not isinstance(multi_az, AWSHelperFn) and \
+                availability_zone and \
+                not isinstance(availability_zone, AWSHelperFn):
             raise ValueError("AvailabiltyZone cannot be set on DBInstance if "
                              "MultiAZ is set to true.")
 
