@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 import re
+from types import NoneType
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Ref
 from .validators import boolean, network_port, integer, positive_integer
@@ -192,10 +193,14 @@ class DBInstance(AWSObject):
                 'AWS::RDS::DBInstance.'
             )
 
-        if 'AvailabilityZone' in self.properties and \
-                self.properties.get('MultiAZ', None):
-            raise ValueError("AvailabiltyZone cannot be set on DBInstance if "
-                             "MultiAZ is set to true.")
+        avail_zone = self.properties.get('AvailabilityZone', None)
+        multi_az = self.properties.get('MultiAZ', None)
+        if not (isinstance(avail_zone, (AWSHelperFn, NoneType)) and
+                isinstance(multi_az, (AWSHelperFn, NoneType))):
+            if 'AvailabilityZone' in self.properties and \
+                    self.properties.get('MultiAZ', None):
+                raise ValueError("AvailabiltyZone cannot be set on "
+                                 "DBInstance if MultiAZ is set to true.")
 
         storage_type = self.properties.get('StorageType', None)
         if storage_type and storage_type == 'io1' and \
