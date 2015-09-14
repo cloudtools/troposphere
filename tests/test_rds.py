@@ -1,5 +1,6 @@
 import unittest
 import troposphere.rds as rds
+from troposphere import If, Parameter, Ref
 
 
 class TestRDS(unittest.TestCase):
@@ -150,6 +151,22 @@ class TestRDS(unittest.TestCase):
             MultiAZ=True)
         with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
             i.JSONrepr()
+
+    def test_az_and_multiaz_funcs(self):
+        AWS_NO_VALUE = "AWS::NoValue"
+        db_az = "us-east-1"
+        db_multi_az = Parameter("dbmultiaz", Type="String")
+        i = rds.DBInstance(
+            "NoAZAndMultiAZ",
+            MasterUsername="myuser",
+            MasterUserPassword="mypassword",
+            AllocatedStorage=10,
+            DBInstanceClass="db.m1.small",
+            Engine="postgres",
+            AvailabilityZone=If("db_az", Ref(db_az), Ref(AWS_NO_VALUE)),
+            MultiAZ=Ref(db_multi_az),
+        )
+        i.validate()
 
     def test_io1_storage_type_and_iops(self):
         i = rds.DBInstance(

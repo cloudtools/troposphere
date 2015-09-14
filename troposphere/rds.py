@@ -192,10 +192,15 @@ class DBInstance(AWSObject):
                 'AWS::RDS::DBInstance.'
             )
 
-        if 'AvailabilityZone' in self.properties and \
-                self.properties.get('MultiAZ', None):
-            raise ValueError("AvailabiltyZone cannot be set on DBInstance if "
-                             "MultiAZ is set to true.")
+        nonetype = type(None)
+        avail_zone = self.properties.get('AvailabilityZone', None)
+        multi_az = self.properties.get('MultiAZ', None)
+        if not (isinstance(avail_zone, (AWSHelperFn, nonetype)) and
+                isinstance(multi_az, (AWSHelperFn, nonetype))):
+            if 'AvailabilityZone' in self.properties and \
+                    self.properties.get('MultiAZ', None):
+                raise ValueError("AvailabiltyZone cannot be set on "
+                                 "DBInstance if MultiAZ is set to true.")
 
         storage_type = self.properties.get('StorageType', None)
         if storage_type and storage_type == 'io1' and \
