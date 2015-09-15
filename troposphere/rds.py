@@ -16,7 +16,7 @@ VALID_DB_ENGINES = ('MySQL', 'oracle-se1', 'oracle-se', 'oracle-ee',
                     'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex',
                     'sqlserver-web', 'postgres')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
-                        'general-public-license')
+                        'general-public-license', 'postgresql-license')
 
 
 def validate_iops(iops):
