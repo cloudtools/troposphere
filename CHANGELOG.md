@@ -1,6 +1,9 @@
-## PENDING
+## 1.2.2 (2015-09-15)
+- Give more info about type errors [GH-312]
 - Move `tail` within the troposphere library. This lets external libraries
-  leverage this function.
+  leverage this function [GH-315]
+- Improve opsworks validation [GH-319]
+- Fix RDS validation with conditional parameters [GH-320]
 
 ## 1.2.1 (2015-09-07)
 - Bugfix for RDS Ref/GetAtt issue [GH-310]
