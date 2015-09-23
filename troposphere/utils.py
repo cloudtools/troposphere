@@ -37,5 +37,5 @@ def tail(conn, stack_name, log_func=_tail_print, sleep_time=5,
         for e in events:
             if e.event_id not in seen:
                 log_func(e)
-            seen.add(e.event_id)
+                seen.add(e.event_id)
         time.sleep(sleep_time)
