@@ -29,9 +29,8 @@ from troposphere import (Base64,
                          Select,
                          Tags,
                          Template)
-#from troposphere.ec2 import (SecurityGroup,
-#                             SecurityGroupIngress,
-#                             SecurityGroupRule)
+from troposphere.policies import (CreationPolicy,
+                                  ResourceSignal)
 
 
 def main():
@@ -60,7 +59,7 @@ def main():
 #     "ap-northeast-1": {"AMI": "ami-dcfa4edd"}
 # })
 
-    awsinstancetype2arch = template.add_mapping('AWSInstanceType2Arch', {
+    template.add_mapping('AWSInstanceType2Arch', {
         't1.micro'    : {'Arch' : 'PV64'},
         't2.micro'    : {'Arch' : 'HVM64'},
         't2.small'    : {'Arch' : 'HVM64'},
@@ -108,7 +107,7 @@ def main():
         'cc2.8xlarge' : {'Arch' : 'HVM64'}
         })
 
-    awsregionarch2ami = template.add_mapping('AWSRegionArch2AMI', {
+    template.add_mapping('AWSRegionArch2AMI', {
         'us-east-1'        : {'PV64' : 'ami-0f4cfd64', 'HVM64' : 'ami-0d4cfd66', 'HVMG2' : 'ami-5b05ba30'},
         'us-west-2'        : {'PV64' : 'ami-d3c5d1e3', 'HVM64' : 'ami-d5c5d1e5', 'HVMG2' : 'ami-a9d6c099'},
         'us-west-1'        : {'PV64' : 'ami-85ea13c1', 'HVM64' : 'ami-87ea13c3', 'HVMG2' : 'ami-37827a73'},
@@ -121,7 +120,7 @@ def main():
         'cn-north-1'       : {'PV64' : 'ami-bec45887', 'HVM64' : 'ami-bcc45885', 'HVMG2' : 'NOT_SUPPORTED'}
         })
 
-    region2principal = template.add_mapping('Region2Principal', {
+    template.add_mapping('Region2Principal', {
         'us-east-1'      : { 'EC2Principal' : 'ec2.amazonaws.com', 'OpsWorksPrincipal' : 'opsworks.amazonaws.com' },
         'us-west-2'      : { 'EC2Principal' : 'ec2.amazonaws.com', 'OpsWorksPrincipal' : 'opsworks.amazonaws.com' },
         'us-west-1'      : { 'EC2Principal' : 'ec2.amazonaws.com', 'OpsWorksPrincipal' : 'opsworks.amazonaws.com' },
@@ -149,13 +148,6 @@ def main():
                        'cache.m2.4xlarge',
                        'cache.c1.xlarge'],
         ConstraintDescription='must select a valid Cache Node type.',
-        ))
-
-    keyname = template.add_parameter(Parameter(
-        'KeyName',
-        Description='Name of an existing EC2 KeyPair to enable SSH access to the instance',
-        Type='AWS::EC2::KeyPair::KeyName',
-        ConstraintDescription='must be the name of an existing EC2 KeyPair.',
         ))
 
     instancetype = template.add_parameter(Parameter(
@@ -212,6 +204,25 @@ def main():
         ConstraintDescription='must be a valid EC2 instance type.',
         ))
 
+    keyname = template.add_parameter(Parameter(
+        'KeyName',
+        Description='Name of an existing EC2 KeyPair to enable SSH access to the instance',
+        Type='AWS::EC2::KeyPair::KeyName',
+        ConstraintDescription='must be the name of an existing EC2 KeyPair.',
+        ))
+
+    sshlocation = template.add_parameter(Parameter(
+        'SSHLocation',
+        Description='The IP address range that can be used to SSH to the EC2 instances',
+        Type='String',
+        MinLength='9',
+        MaxLength='18',
+        Default='0.0.0.0/0',
+        AllowedPattern='(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})',
+        ConstraintDescription='must be a valid IP CIDR range of the form x.x.x.x/x.'
+        ))
+
+
 
     # Resources
     webserverrole = template.add_resource(iam.Role(
@@ -225,7 +236,8 @@ def main():
                         [FindInMap('Region2Principal', Ref('AWS::Region'), 'EC2Principal')]),
                     )
                 ]
-            )
+            ),
+        Path='/',
         ))
 
     webserverrolepolicy = template.add_resource(iam.PolicyType(
@@ -247,17 +259,18 @@ def main():
                 "Action"   : "elasticache:DescribeCacheClusters",
                 "Resource" : "*"
                 }]
-            }
+            },
+        Roles=[Ref(webserverrole)],
         ))
 
     webserverinstanceprofile = template.add_resource(iam.InstanceProfile(
         'WebServerInstanceProfile',
         Path='/',
-        Roles=Ref(webserverrole),
+        Roles=[Ref(webserverrole)],
     ))
 
     webserversg = template.add_resource(ec2.SecurityGroup(
-        'WebServeSecurityGroup',
+        'WebServerSecurityGroup',
         GroupDescription='Enable HTTP and SSH access',
         SecurityGroupIngress=[
             ec2.SecurityGroupRule(
@@ -270,7 +283,7 @@ def main():
                 IpProtocol='tcp',
                 FromPort='80',
                 ToPort='80',
-                CidrIp=Ref('0.0.0.0/0'),
+                CidrIp='0.0.0.0/0',
                 )
             ]
         ))
@@ -291,8 +304,25 @@ def main():
                         },
 
                     files=cloudformation.InitFiles({
-                        '/var/www/html/index.pup': cloudformation.InitFile(
-                            content=Join('', ['TBD']),
+                        '/var/www/html/index.php': cloudformation.InitFile(
+                            content=Join('', [
+                                '<?php\n',
+                                'echo \"<h1>AWS CloudFormation sample application for Amazon ElastiCache Redis Cluster</h1>\";\n',
+                                '\n',
+                                '$cluster_config = json_decode(file_get_contents(\'/tmp/cacheclusterconfig\'), true);\n',
+                                '$endpoint = $cluster_config[\'CacheClusters\'][0][\'CacheNodes\'][0][\'Endpoint\'][\'Address\'];\n',
+                                '$port = $cluster_config[\'CacheClusters\'][0][\'CacheNodes\'][0][\'Endpoint\'][\'Port\'];\n',
+                                '\n',
+                                'echo \"<p>Connecting to Redis Cache Cluster node \'{$endpoint}\' on port {$port}</p>\";\n',
+                                '\n',
+                                '$redis=new Redis();\n',
+                                '$redis->connect($endpoint, $port);\n',
+                                '$redis->set(\'testkey\', \'Hello World!\');\n',
+                                '$return = $redis->get(\'testkey\');\n',
+                                '\n',
+                                'echo \"<p>Retrieved value: $return</p>\";\n',
+                                '?>\n'
+                                ]),
                             mode='000644',
                             owner='apache',
                             group='apache'
@@ -304,19 +334,40 @@ def main():
                             group='root'
                             ),
                         '/usr/local/bin/get_cluster_config': cloudformation.InitFile(
-                            content="TBD",
+                            content=Join('', [
+                                '#! /bin/bash\n',
+                                'aws elasticache describe-cache-clusters ',
+                                '         --cache-cluster-id ', Ref('RedisCluster'),
+                                '         --show-cache-node-info --region ', Ref('AWS::Region'),
+                                ' > /tmp/cacheclusterconfig\n'
+                                ]),
                             mode='000755',
                             owner='root',
                             group='root'
                             ),
                         '/usr/local/bin/install_phpredis': cloudformation.InitFile(
-                            content="TBD",
+                            content=Join('', [
+                                '#! /bin/bash\n',
+                                'cd /tmp\n',
+                                'wget https://github.com/nicolasff/phpredis/zipball/master -O phpredis.zip\n',
+                                'unzip phpredis.zip\n',
+                                'cd nicolasff-phpredis-*\n',
+                                'phpize\n',
+                                './configure\n',
+                                'make && make install\n',
+                                'touch /etc/php.d/redis.ini\n',
+                                'echo extension=redis.so > /etc/php.d/redis.ini\n'
+                                ]),
                             mode='000755',
                             owner='root',
                             group='root'
                             ),
                         '/etc/cfn/cfn-hup.conf': cloudformation.InitFile(
-                            content="TBD",
+                            content=Join('', [
+                                '[main]\n',
+                                'stack=', Ref('AWS::StackId'), '\n',
+                                'region=', Ref('AWS::Region'), '\n'
+                                ]),
                             mode='000400',
                             owner='root',
                             group='root'
@@ -345,12 +396,26 @@ def main():
                         '02-get-cluster-config': {
                             'command': '/usr/local/bin/get_cluster_config'
                             }
-                        }
+                        },
+
+                    services={
+                        "sysvinit": cloudformation.InitServices({
+                            "httpd": cloudformation.InitService(
+                                enabled=True,
+                                ensureRunning=True,
+                                ),
+                            "cfn-hup": cloudformation.InitService(
+                                enabled=True,
+                                ensureRunning=True,
+                                files=['/etc/cfn/cfn-hup.conf', '/etc/cfn/hooks.d/cfn-auto-reloader.conf']
+                                ),
+                            }),
+                        },
                     )
                 })
             ),
-        ImageId=FindInMap(Ref(awsregionarch2ami), Ref('AWS::Region'),
-                          FindInMap(Ref(awsinstancetype2arch), Ref(instancetype), 'Arch')
+        ImageId=FindInMap('AWSRegionArch2AMI', Ref('AWS::Region'),
+                          FindInMap('AWSInstanceType2Arch', Ref(instancetype), 'Arch')
                          ),
         InstanceType=Ref(instancetype),
         SecurityGroups=[Ref(webserversg)],
@@ -371,7 +436,13 @@ def main():
             '         --stack ', Ref('AWS::StackName'),
             '         --resource WebServerInstance ',
             '         --region ', Ref('AWS::Region'), '\n'
-            ]))
+            ])),
+        CreationPolicy=CreationPolicy(
+            ResourceSignal=ResourceSignal(Timeout='PT15M')
+            ),
+        Tags=Tags(Application=Ref('AWS::StackId'),
+                  Details='Created using Troposhpere'
+                 )
         ))
 
     redisclustersg = template.add_resource(elasticache.SecurityGroup(
@@ -390,11 +461,23 @@ def main():
         #Type='AWS::ElastiCache::CacheCluster',
         Engine='redis',
         CacheNodeType=Ref(cachenodetype),
-        NumCacheNodes=1,
+        NumCacheNodes='1',
         CacheSecurityGroupNames=[Ref(redisclustersg)],
         ))
 
 
+    # Outputs
+    template.add_output([
+        Output(
+            'WebsiteURL',
+            Description='Application URL',
+            Value=Join('', [
+                'http://',
+                GetAtt(webserverinstance, 'PublicDnsName'),
+
+                ])
+            )
+        ])
 
     # Print CloudFormation Template
     print(template.to_json())
