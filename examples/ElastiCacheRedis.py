@@ -22,12 +22,10 @@ from troposphere import (Base64,
                          cloudformation,
                          FindInMap,
                          GetAtt,
-                         GetAZs,
                          Join,
                          Parameter,
                          Output,
                          Ref,
-                         Select,
                          Tags,
                          Template)
 from troposphere.policies import (CreationPolicy,
@@ -266,7 +264,7 @@ def main():
         Path='/',
         ))
 
-    webserverrolepolicy = template.add_resource(iam.PolicyType(
+    template.add_resource(iam.PolicyType(
         'WebServerRolePolicy',
         PolicyName='WebServerRole',
         # PolicyDocument=Policy(
@@ -509,7 +507,7 @@ def main():
         EC2SecurityGroupName=Ref(webserversg),
         ))
 
-    rediscluster = template.add_resource(elasticache.CacheCluster(
+    template.add_resource(elasticache.CacheCluster(
         'RedisCluster',
         Engine='redis',
         CacheNodeType=Ref(cachenodetype),
