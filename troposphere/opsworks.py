@@ -203,6 +203,7 @@ class Stack(AWSObject):
     resource_type = "AWS::OpsWorks::Stack"
 
     props = {
+        'AgentVersion': (basestring, False),
         'Attributes': (dict, False),
         'ChefConfiguration': (ChefConfiguration, False),
         'ConfigurationManager': (StackConfigurationManager, False),
