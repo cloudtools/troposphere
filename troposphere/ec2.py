@@ -513,3 +513,11 @@ class SpotFleet(AWSObject):
     props = {
         'SpotFleetRequestConfigData': (SpotFleetRequestConfigData, True),
     }
+
+
+class PlacementGroup(AWSObject):
+    resource_type = "AWS::EC2::PlacementGroup"
+
+    props = {
+        'Strategy': (basestring, True),
+    }
