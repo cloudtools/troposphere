@@ -315,3 +315,36 @@ class OptionGroup(AWSObject):
         'OptionConfigurations': ([OptionConfiguration], True),
         'Tags': (list, False),
     }
+
+
+class DBClusterParameterGroup(AWSObject):
+    resource_type = "AWS::RDS::DBClusterParameterGroup"
+
+    props = {
+        'Description': (basestring, True),
+        'Family': (basestring, True),
+        'Parameters': (dict, False),
+        'Tags': (list, False),
+    }
+
+
+class DBCluster(AWSObject):
+    resource_type = "AWS::RDS::DBCluster"
+
+    props = {
+        'AvailabilityZone': (basestring, False),
+        'BackupRetentionPeriod': (validate_backup_retention_period, False),
+        'DatabaseName': (basestring, False),
+        'DBClusterParameterGroupName': (basestring, False),
+        'DBSubnetGroupName': (basestring, False),
+        'Engine': (validate_engine, True),
+        'EngineVersion': (basestring, False),
+        'MasterUsername': (basestring, False),
+        'MasterUserPassword': (basestring, False),
+        'Port': (network_port, False),
+        'PreferredBackupWindow': (validate_backup_window, False),
+        'PreferredMaintenanceWindow': (basestring, False),
+        'SnapshotIdentifier': (basestring, False),
+        'Tags': (list, False),
+        'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
+    }
