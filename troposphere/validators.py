@@ -73,3 +73,20 @@ def status(status):
     if status not in valid_statuses:
         raise ValueError('Status needs to be one of %r' % valid_statuses)
     return status
+
+
+def protocol(protocol):
+    valid_protocols = ['tcp', 'udp']
+    if protocol not in valid_protocols:
+        raise ValueError('Protocol needs to be one of %r' % valid_protocols)
+    return protocol
+
+
+def ulimit(ulimit):
+    valid_ulimits = [
+        'core', 'cpu', 'data', 'fsize', 'locks', 'memlock', 'msgqueue', 'nice',
+        'nofile', 'nproc', 'rss', 'rtprio', 'rttime', 'sigpending', 'stack'
+    ]
+    if ulimit not in valid_ulimits:
+        raise ValueError('ulimit needs to be one of %r' % valid_ulimits)
+    return ulimit
