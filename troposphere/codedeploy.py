@@ -84,7 +84,7 @@ class DeploymentConfig(AWSObject):
 
 
 class DeploymentGroup(AWSObject):
-    resource_type = "AWS::DirectoryService::DeploymentGroup"
+    resource_type = "AWS::CodeDeploy::DeploymentGroup"
 
     props = {
         'ApplicationName': (basestring, True),
