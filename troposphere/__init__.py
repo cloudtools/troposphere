@@ -360,6 +360,15 @@ class Tags(AWSHelperFn):
                 'Value': v,
             })
 
+    # allow concatenation of the Tags object via '+' operator
+    def __add__(self, newtags):
+        self.tags.append(newtags.tags)
+        return self
+
+    #def __str__(self):
+    #    for tag in self.tags:
+    #    return "({0},{1})".format()
+
     def JSONrepr(self):
         return self.tags
 
