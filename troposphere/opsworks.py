@@ -100,6 +100,14 @@ class AutoScalingThresholds(AWSProperty):
     }
 
 
+class Environment(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Secure': (bool, False),
+        'Value': (basestring, True),
+    }
+
+
 class LoadBasedAutoScaling(AWSProperty):
     props = {
         'DownScaling': (AutoScalingThresholds, False),
@@ -117,6 +125,7 @@ class App(AWSObject):
         'Description': (basestring, False),
         'Domains': ([basestring], False),
         'EnableSsl': (boolean, False),
+        'Environment': ([Environment], False),
         'Name': (basestring, True),
         'Shortname': (basestring, False),
         'SslConfiguration': (SslConfiguration, False),
@@ -194,6 +203,7 @@ class Stack(AWSObject):
     resource_type = "AWS::OpsWorks::Stack"
 
     props = {
+        'AgentVersion': (basestring, False),
         'Attributes': (dict, False),
         'ChefConfiguration': (ChefConfiguration, False),
         'ConfigurationManager': (StackConfigurationManager, False),
