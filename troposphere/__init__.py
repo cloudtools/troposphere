@@ -365,7 +365,6 @@ class Tags(AWSHelperFn):
         self.tags.append(newtags.tags)
         return self
 
-
     def JSONrepr(self):
         return self.tags
 
