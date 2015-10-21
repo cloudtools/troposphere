@@ -54,12 +54,7 @@ class Tags(AWSHelperFn):
 
     # append tags to list
     def __add__(self, newtags):
-        for k, v in self.tags:
-            newtags.tags.append({
-                'Key': v.data.Key,
-                'Value': v.data.Value,
-                'PropagateAtLaunch': True,
-                })
+        newtags.tags = self.tags + newtags.tags
         return newtags
 
     def JSONrepr(self):
