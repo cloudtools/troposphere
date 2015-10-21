@@ -112,6 +112,8 @@ Currently supported AWS resource types
 - AWS::CloudFront
 - AWS::CloudTrail
 - AWS::CloudWatch
+- AWS::CodeDeploy
+- AWS::DirectoryService
 - AWS::DynamoDB
 - AWS::EC2
 - AWS::ElastiCache
@@ -129,6 +131,7 @@ Currently supported AWS resource types
 - AWS::SDB
 - AWS::SNS
 - AWS::SQS
+- AWS::WorkSpaces
 
 Currently supported OpenStack resource types
 ============================================
