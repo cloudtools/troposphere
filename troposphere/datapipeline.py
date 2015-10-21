@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
