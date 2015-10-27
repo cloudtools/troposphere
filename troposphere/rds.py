@@ -14,7 +14,7 @@ from .validators import boolean, network_port, integer, positive_integer
 VALID_STORAGE_TYPES = ('standard', 'gp2', 'io1')
 VALID_DB_ENGINES = ('MySQL', 'oracle-se1', 'oracle-se', 'oracle-ee',
                     'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex',
-                    'sqlserver-web', 'postgres')
+                    'sqlserver-web', 'postgres', 'aurora')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
 
@@ -123,12 +123,13 @@ class DBInstance(AWSObject):
     resource_type = "AWS::RDS::DBInstance"
 
     props = {
-        'AllocatedStorage': (positive_integer, True),
+        'AllocatedStorage': (positive_integer, False),
         'AllowMajorVersionUpgrade': (boolean, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'CharacterSetName': (basestring, False),
+        'DBClusterIdentifier': (basestring, False),
         'DBInstanceClass': (basestring, True),
         'DBInstanceIdentifier': (basestring, False),
         'DBName': (basestring, False),
@@ -178,7 +179,8 @@ class DBInstance(AWSObject):
         if ('DBSnapshotIdentifier' not in self.properties and
             'SourceDBInstanceIdentifier' not in self.properties) and \
             ('MasterUsername' not in self.properties or
-             'MasterUserPassword' not in self.properties):
+             'MasterUserPassword' not in self.properties) and \
+                ('DBClusterIdentifier' not in self.properties):
             raise ValueError(
                 'Either (MasterUsername and MasterUserPassword) or'
                 ' DBSnapshotIdentifier are required in type '
@@ -346,5 +348,5 @@ class DBCluster(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
         'SnapshotIdentifier': (basestring, False),
         'Tags': (list, False),
-        'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
+        'VpcSecurityGroupIds': ([basestring, AWSHelperFn], False),
     }
