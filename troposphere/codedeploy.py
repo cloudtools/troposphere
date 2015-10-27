@@ -91,7 +91,7 @@ class DeploymentGroup(AWSObject):
         'AutoScalingGroups': ([basestring], False),
         'Deployment': (Deployment, False),
         'DeploymentConfigName': (basestring, False),
-        'Ec2TagFilters': (Ec2TagFilters, False),
+        'Ec2TagFilters': ([Ec2TagFilters], False),
         'OnPremisesInstanceTagFilters': (OnPremisesInstanceTagFilters, False),
         'ServiceRoleArn': (basestring, True),
     }
