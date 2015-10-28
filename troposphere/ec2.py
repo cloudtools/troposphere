@@ -475,11 +475,16 @@ class SecurityGroups(AWSProperty):
     }
 
 
+class IamInstanceProfile(AWSProperty):
+    props = {
+        'Arn': (basestring, False),
+    }
+
 class LaunchSpecifications(AWSProperty):
     props = {
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
         'EbsOptimized': (boolean, False),
-        'IamInstanceProfile': (basestring, False),
+        'IamInstanceProfile': (IamInstanceProfile, False),
         'ImageId': (basestring, True),
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
