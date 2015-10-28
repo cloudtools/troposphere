@@ -498,7 +498,7 @@ class LaunchSpecifications(AWSProperty):
 class SpotFleetRequestConfigData(AWSProperty):
     props = {
         'IamFleetRole': (basestring, True),
-        'LaunchSpecifications': (LaunchSpecifications, True),
+        'LaunchSpecifications': ([LaunchSpecifications], True),
         'SpotPrice': (basestring, True),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
