@@ -480,6 +480,7 @@ class IamInstanceProfile(AWSProperty):
         'Arn': (basestring, False),
     }
 
+
 class LaunchSpecifications(AWSProperty):
     props = {
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
