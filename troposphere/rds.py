@@ -334,7 +334,7 @@ class DBCluster(AWSObject):
     resource_type = "AWS::RDS::DBCluster"
 
     props = {
-        'AvailabilityZone': (basestring, False),
+        'AvailabilityZones': ([basestring], False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'DatabaseName': (basestring, False),
         'DBClusterParameterGroupName': (basestring, False),
