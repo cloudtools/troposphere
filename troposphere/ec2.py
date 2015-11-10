@@ -337,6 +337,7 @@ class Volume(AWSObject):
     resource_type = "AWS::EC2::Volume"
 
     props = {
+        'AutoEnableIO': (boolean, False),
         'AvailabilityZone': (basestring, True),
         'Encrypted': (boolean, False),
         'Iops': (integer, False),
