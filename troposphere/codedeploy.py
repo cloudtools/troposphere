@@ -25,7 +25,7 @@ class S3Location(AWSProperty):
         'BundleType': (basestring, True),
         'ETag': (basestring, False),
         'Key': (basestring, True),
-        'Version': (basestring, True),
+        'Version': (basestring, False),
     }
 
 
