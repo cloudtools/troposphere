@@ -27,13 +27,15 @@ def upload_template_to_s3(conn, region, bucket_name, key_name, template):
 
 
 def create_stack(conn, stackname, template=None, url=None, params=None):
+    kwargs = dict(
+        template_body=template,
+        template_url=url,
+        parameters=params,
+    )
+    
     try:
-        if url:
-            stack_id = conn.create_stack(
-                stackname, template_url=url, parameters=params)
-        else:
-            stack_id = conn.create_stack(
-                stackname, template, parameters=params)
+        stack_id = conn.create_stack(stackname, **kwargs)
+    
     except boto.exception.BotoServerError as e:
         # XXX - need to figure out why this isn't getting parsed from boto.
         print("Error: %s" %
