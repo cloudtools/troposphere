@@ -50,7 +50,7 @@ def do_header(d):
     figure out the Resource imports needed by the template.
     """
     print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output'
-    print 'from troposphere import Parameter, Ref, Tags, Template'
+    print 'from troposphere import Parameter, Ref, Tags, Template, Not, Equals, And, Or, If'
     print 'from troposphere.cloudformation import Init'
     print 'from troposphere.cloudfront import Distribution, DistributionConfig'
     print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
@@ -103,6 +103,41 @@ def do_mappings(d):
         pprint.pprint(v)
         print ")"
         print
+
+
+def do_conditions(d):
+    """Output the template Conditions"""
+    conditions = d['Conditions']
+    for k, v in conditions.items():
+        print 't.add_condition("%s",' % (k,),
+        print do_parse_funtion(v),
+        print ")"
+        print
+
+def do_parse_funtion(d):
+    import re
+    if( isinstance(d, basestring)):
+       if(re.match('^[a-zA-Z_][a-zA-Z0-9_]*$', d)):
+           quote = ''
+       else: quote = '"'
+       return "{0}{1}{0}".format(quote, d)
+    if(isinstance(d, dict)):
+        key = d.keys()[0]
+        value = d.values()[0]
+        if(key.startswith("Fn::")):
+            key = key[4:]
+        if(isinstance(value, dict) or isinstance(value, basestring)):
+            return '{0}({1})'.format(key, value)
+        elif(isinstance(value,list)):
+          ret = key + '('+do_parse_funtion(value[0])
+          ret = '{0}({1}'.format(key, do_parse_funtion(value[0]))
+          for i in value[1:]:
+           ret += ', ' + do_parse_funtion(i)
+          ret += ')'
+          return ret
+        else:
+            raise(Exception("Parse Error:", d, value))
+    raise(Exception("Parse Error:", d))
 
 
 def generate_troposphere_object(typename):
@@ -236,6 +271,8 @@ def do_resources(d):
                     print '    %s=%s,' % (pk, output_value(pv))
         if v.has_key("DependsOn"):
             print '    %s=%s,' % ("DependsOn", output_value(v['DependsOn']))
+        if v.has_key("Condition"):
+            print '    %s=%s,' % ("Condition", output_value(v['Condition']))
         print "))"
         print
 
@@ -265,6 +302,7 @@ function_map = {
     'Fn::GetAZs': ("GetAZs", handle_no_objects),
     'Fn::Join': ("Join", handle_no_objects),
     'Fn::Select': ("Select", handle_one_object),
+    'Fn::If': ("If", handle_one_object),
     'Ref': ("Ref", handle_one_object),
 }
 
@@ -327,6 +365,7 @@ if __name__ == "__main__":
         'Description',
         'Parameters',
         'Mappings',
+        'Conditions',
         'Resources',
         'Outputs',
     ]
