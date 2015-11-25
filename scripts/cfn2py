@@ -129,7 +129,6 @@ def do_parse_funtion(d):
         if(isinstance(value, dict) or isinstance(value, basestring)):
             return '{0}({1})'.format(key, value)
         elif(isinstance(value,list)):
-          ret = key + '('+do_parse_funtion(value[0])
           ret = '{0}({1}'.format(key, do_parse_funtion(value[0]))
           for i in value[1:]:
            ret += ', ' + do_parse_funtion(i)
