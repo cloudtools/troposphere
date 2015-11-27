@@ -71,6 +71,7 @@ class ContainerDefinition(AWSProperty):
         'Name': (basestring, True),
         'PortMappings': ([PortMapping], False),
         'VolumesFrom': ([VolumesFrom], False),
+        'Privileged': (boolean, False),
     }
 
 
