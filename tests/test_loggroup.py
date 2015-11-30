@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Template, Retain
+from troposphere import Retain
 from troposphere.logs import LogGroup
 
 
