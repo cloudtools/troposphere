@@ -160,12 +160,14 @@ class BaseAWSObject(object):
                 raise ValueError(
                     "Resource %s required in type %s" % (k, rtype))
         self.validate()
-        # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
         elif hasattr(self, 'resource_type'):
-            return {'Type': self.resource_type}
+            return {
+                k: v for k, v in self.resource.items()
+                if k != 'Properties'
+            }
         else:
             return {}
 
