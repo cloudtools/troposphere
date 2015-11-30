@@ -160,7 +160,6 @@ class BaseAWSObject(object):
                 raise ValueError(
                     "Resource %s required in type %s" % (k, rtype))
         self.validate()
-        # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
