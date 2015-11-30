@@ -165,7 +165,10 @@ class BaseAWSObject(object):
         if self.properties:
             return self.resource
         elif hasattr(self, 'resource_type'):
-            return {k: v for k, v in self.resource.items() if k != 'Properties'}
+            return {
+                k: v for k, v in self.resource.items()
+                if k != 'Properties'
+            }
         else:
             return {}
 
