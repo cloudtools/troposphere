@@ -1,9 +1,10 @@
 # Converted from CodePipeline example located at:
-# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html # noqa
 
 from troposphere import Parameter, Ref, Template
-from troposphere.codepipeline import Pipeline, Stages, Actions, ActionTypeID, OutputArtifacts, InputArtifacts, \
-    ArtifactStore, DisableInboundStageTransitions
+from troposphere.codepipeline import (
+    Pipeline, Stages, Actions, ActionTypeID, OutputArtifacts, InputArtifacts,
+    ArtifactStore, DisableInboundStageTransitions)
 
 t = Template()
 
@@ -41,8 +42,8 @@ pipeline = t.add_resource(Pipeline(
                         )
                     ],
                     Configuration={
-                        "S3Bucket": { "Ref" : "SourceS3Bucket" },
-                        "S3ObjectKey": { "Ref" : "SourceS3ObjectKey" }
+                        "S3Bucket": {"Ref": "SourceS3Bucket"},
+                        "S3ObjectKey": {"Ref": "SourceS3ObjectKey"}
                     },
                     RunOrder="1"
                 )
@@ -65,8 +66,8 @@ pipeline = t.add_resource(Pipeline(
                         Provider="CodeDeploy"
                     ),
                     Configuration={
-                        "ApplicationName": { "Ref" : "ApplicationName" },
-                        "DeploymentGroupName": { "Ref" : "DeploymentGroupName" }
+                        "ApplicationName": {"Ref": "ApplicationName"},
+                        "DeploymentGroupName": {"Ref": "DeploymentGroupName"}
                     },
                     RunOrder="1"
                 )
@@ -89,8 +90,8 @@ pipeline = t.add_resource(Pipeline(
                         Provider="CodeDeploy"
                     ),
                     Configuration={
-                        "ApplicationName": { "Ref" : "ApplicationName" },
-                        "DeploymentGroupName": { "Ref" : "DeploymentGroupName" }
+                        "ApplicationName": {"Ref": "ApplicationName"},
+                        "DeploymentGroupName": {"Ref": "DeploymentGroupName"}
                     },
                     RunOrder="1"
                 )

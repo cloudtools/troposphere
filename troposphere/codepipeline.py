@@ -124,7 +124,8 @@ class Pipeline(AWSObject):
 
     props = {
         'ArtifactStore': (ArtifactStore, True),
-        'DisableInboundStageTransitions': ([DisableInboundStageTransitions], False),
+        'DisableInboundStageTransitions':
+            ([DisableInboundStageTransitions], False),
         'Name': (basestring, False),
         'RestartExecutionOnUpdate': (boolean, False),
         'RoleArn': (basestring, True),
