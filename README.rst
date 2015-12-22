@@ -113,6 +113,7 @@ Currently supported AWS resource types
 - AWS::CloudTrail
 - AWS::CloudWatch
 - AWS::CodeDeploy
+- AWS::CodePipeline
 - AWS::DirectoryService
 - AWS::DynamoDB
 - AWS::EC2
