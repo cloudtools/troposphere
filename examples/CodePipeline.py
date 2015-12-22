@@ -105,7 +105,8 @@ pipeline = t.add_resource(Pipeline(
     DisableInboundStageTransitions=[
         DisableInboundStageTransitions(
             StageName="Release",
-            Reason="Disabling the transition until integration tests are completed"
+            Reason="Disabling the transition until "
+                   "integration tests are completed"
         )
     ]
 ))
