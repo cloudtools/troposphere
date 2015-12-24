@@ -72,7 +72,7 @@ class Application(AWSObject):
     resource_type = "AWS::CodeDeploy::Application"
 
     props = {
-        'ApplicationName': (basestring, True),
+        'ApplicationName': (basestring, False),
     }
 
 
