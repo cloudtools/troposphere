@@ -211,6 +211,7 @@ class TestRDSValidators(unittest.TestCase):
         with self.assertRaises(ValueError):
             rds.validate_iops(20000)
         rds.validate_iops(2000)
+        rds.validate_iops(0)
 
     def test_validate_storage_type(self):
         for t in rds.VALID_STORAGE_TYPES:

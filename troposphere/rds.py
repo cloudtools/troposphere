@@ -23,6 +23,8 @@ def validate_iops(iops):
     """DBInstance Iops validation rules."""
 
     iops = integer(iops)
+    if int(iops) == 0:
+        return iops
     if int(iops) < 1000:
         raise ValueError("DBInstance Iops, if set, must be greater than 1000.")
     if int(iops) > 10000:
