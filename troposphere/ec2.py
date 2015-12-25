@@ -504,6 +504,8 @@ class LaunchSpecifications(AWSProperty):
 
 class SpotFleetRequestConfigData(AWSProperty):
     props = {
+        'AllocationStrategy': (basestring, False),
+        'ExcessCapacityTerminationPolicy': (basestring, False),
         'IamFleetRole': (basestring, True),
         'LaunchSpecifications': ([LaunchSpecifications], True),
         'SpotPrice': (basestring, True),
