@@ -199,6 +199,14 @@ class LaunchConfiguration(AWSObject):
     }
 
 
+class StepAdjustments(AWSProperty):
+    props = {
+        'MetricIntervalLowerBound': (integer, False),
+        'MetricIntervalUpperBound': (integer, False),
+        'ScalingAdjustment': (integer, True),
+    }
+
+
 class ScalingPolicy(AWSObject):
     resource_type = "AWS::AutoScaling::ScalingPolicy"
 
@@ -206,8 +214,12 @@ class ScalingPolicy(AWSObject):
         'AdjustmentType': (basestring, True),
         'AutoScalingGroupName': (basestring, True),
         'Cooldown': (integer, False),
+        'EstimatedInstanceWarmup': (integer, False),
+        'MetricAggregationType': (basestring, False),
         'MinAdjustmentStep': (integer, False),
-        'ScalingAdjustment': (basestring, True),
+        'PolicyType': (basestring, False),
+        'ScalingAdjustment': (basestring, False),
+        'StepAdjustments': ([StepAdjustments], False),
     }
 
 
