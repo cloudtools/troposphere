@@ -80,6 +80,7 @@ class DeploymentConfig(AWSObject):
     resource_type = "AWS::CodeDeploy::DeploymentConfig"
 
     props = {
+        'DeploymentConfigName': (basestring, False),
         'MinimumHealthyHosts': (MinimumHealthyHosts, False),
     }
 
