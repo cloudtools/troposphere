@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject
+from .validators import boolean
 
 
 class Workspace(AWSObject):
@@ -13,4 +14,7 @@ class Workspace(AWSObject):
         'BundleId': (basestring, True),
         'DirectoryId': (basestring, True),
         'UserName': (basestring, True),
+        'RootVolumeEncryptionEnabled': (boolean, False),
+        'UserVolumeEncryptionEnabled': (boolean, False),
+        'VolumeEncryptionKey': (basestring, False),
     }
