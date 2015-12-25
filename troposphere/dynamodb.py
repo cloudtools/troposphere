@@ -78,14 +78,21 @@ class LocalSecondaryIndex(AWSHelperFn):
         return self.data
 
 
+class StreamSpecification(AWSProperty):
+        props = {
+            'StreamViewType': (basestring, True),
+        }
+
+
 class Table(AWSObject):
     resource_type = "AWS::DynamoDB::Table"
 
     props = {
-        'KeySchema': ([Key], True),
-        'ProvisionedThroughput': (ProvisionedThroughput, True),
         'AttributeDefinitions': ([AttributeDefinition], True),
-        'TableName': (basestring, False),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
+        'KeySchema': ([Key], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
+        'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'StreamSpecification': (StreamSpecification, False),
+        'TableName': (basestring, False),
     }
