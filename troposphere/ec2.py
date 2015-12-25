@@ -117,6 +117,20 @@ class NetworkInterfaceProperty(AWSProperty):
     }
 
 
+class AssociationParameters(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class SsmAssociations(AWSProperty):
+    props = {
+        'AssociationParameters': ([AssociationParameters], False),
+        'DocumentName': (basestring, True),
+    }
+
+
 class Instance(AWSObject):
     resource_type = "AWS::EC2::Instance"
 
@@ -138,6 +152,7 @@ class Instance(AWSObject):
         'RamdiskId': (basestring, False),
         'SecurityGroupIds': (list, False),
         'SecurityGroups': (list, False),
+        'SsmAssociations': ([SsmAssociations], False),
         'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, False),
         'Tags': (list, False),
