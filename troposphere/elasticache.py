@@ -100,7 +100,7 @@ class ReplicationGroup(AWSObject):
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
-        'NotificationTopicArn': ([basestring, Ref], False),
+        'NotificationTopicArn': (basestring, False),
         'NumCacheClusters': (integer, True),
         'Port': (network_port, False),
         'PreferredCacheClusterAZs': ([basestring], False),
