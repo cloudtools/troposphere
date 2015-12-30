@@ -14,15 +14,17 @@ from .validators import boolean, network_port, integer, positive_integer
 VALID_STORAGE_TYPES = ('standard', 'gp2', 'io1')
 VALID_DB_ENGINES = ('MySQL', 'oracle-se1', 'oracle-se', 'oracle-ee',
                     'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex',
-                    'sqlserver-web', 'postgres')
+                    'sqlserver-web', 'postgres', 'aurora')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
-                        'general-public-license')
+                        'general-public-license', 'postgresql-license')
 
 
 def validate_iops(iops):
     """DBInstance Iops validation rules."""
 
     iops = integer(iops)
+    if int(iops) == 0:
+        return iops
     if int(iops) < 1000:
         raise ValueError("DBInstance Iops, if set, must be greater than 1000.")
     if int(iops) > 10000:
@@ -123,12 +125,13 @@ class DBInstance(AWSObject):
     resource_type = "AWS::RDS::DBInstance"
 
     props = {
-        'AllocatedStorage': (positive_integer, True),
+        'AllocatedStorage': (positive_integer, False),
         'AllowMajorVersionUpgrade': (boolean, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'CharacterSetName': (basestring, False),
+        'DBClusterIdentifier': (basestring, False),
         'DBInstanceClass': (basestring, True),
         'DBInstanceIdentifier': (basestring, False),
         'DBName': (basestring, False),
@@ -178,7 +181,8 @@ class DBInstance(AWSObject):
         if ('DBSnapshotIdentifier' not in self.properties and
             'SourceDBInstanceIdentifier' not in self.properties) and \
             ('MasterUsername' not in self.properties or
-             'MasterUserPassword' not in self.properties):
+             'MasterUserPassword' not in self.properties) and \
+                ('DBClusterIdentifier' not in self.properties):
             raise ValueError(
                 'Either (MasterUsername and MasterUserPassword) or'
                 ' DBSnapshotIdentifier are required in type '
@@ -314,4 +318,37 @@ class OptionGroup(AWSObject):
         'OptionGroupDescription': (basestring, True),
         'OptionConfigurations': ([OptionConfiguration], True),
         'Tags': (list, False),
+    }
+
+
+class DBClusterParameterGroup(AWSObject):
+    resource_type = "AWS::RDS::DBClusterParameterGroup"
+
+    props = {
+        'Description': (basestring, True),
+        'Family': (basestring, True),
+        'Parameters': (dict, False),
+        'Tags': (list, False),
+    }
+
+
+class DBCluster(AWSObject):
+    resource_type = "AWS::RDS::DBCluster"
+
+    props = {
+        'AvailabilityZones': ([basestring], False),
+        'BackupRetentionPeriod': (validate_backup_retention_period, False),
+        'DatabaseName': (basestring, False),
+        'DBClusterParameterGroupName': (basestring, False),
+        'DBSubnetGroupName': (basestring, False),
+        'Engine': (validate_engine, True),
+        'EngineVersion': (basestring, False),
+        'MasterUsername': (basestring, False),
+        'MasterUserPassword': (basestring, False),
+        'Port': (network_port, False),
+        'PreferredBackupWindow': (validate_backup_window, False),
+        'PreferredMaintenanceWindow': (basestring, False),
+        'SnapshotIdentifier': (basestring, False),
+        'Tags': (list, False),
+        'VpcSecurityGroupIds': ([basestring, AWSHelperFn], False),
     }

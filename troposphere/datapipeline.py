@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
@@ -26,7 +26,7 @@ class ParameterValue(AWSProperty):
 class ObjectField(AWSProperty):
     props = {
         'Key': (basestring, True),
-        'RefValue': ([basestring, Ref], False),
+        'RefValue': (basestring, False),
         'StringValue': (basestring, False),
     }
 

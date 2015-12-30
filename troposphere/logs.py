@@ -26,3 +26,14 @@ class MetricFilter(AWSObject):
         'LogGroupName': (basestring, True),
         'MetricTransformations': ([MetricTransformation], True),
     }
+
+
+class SubscriptionFilter(AWSObject):
+    resource_type = "AWS::Logs::SubscriptionFilter"
+
+    props = {
+        'DestinationArn': (basestring, True),
+        'FilterPattern': (basestring, True),
+        'LogGroupName': (basestring, True),
+        'RoleArn': (basestring, True),
+    }

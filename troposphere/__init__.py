@@ -10,7 +10,7 @@ import types
 
 from . import validators
 
-__version__ = "1.2.2"
+__version__ = "1.3.0"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -359,6 +359,11 @@ class Tags(AWSHelperFn):
                 'Key': k,
                 'Value': v,
             })
+
+    # allow concatenation of the Tags object via '+' operator
+    def __add__(self, newtags):
+        newtags.tags = self.tags + newtags.tags
+        return newtags
 
     def JSONrepr(self):
         return self.tags

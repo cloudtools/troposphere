@@ -1,3 +1,24 @@
+## 1.3.0 (2015-10-21)
+- Add new resources from 2015-10-01 CloudFormation release:
+  - AWS::CodeDeploy
+  - AWS::DirectoryService::SimpleAD
+  - AWS::EC2::PlacementGroup and AWS::EC2::SpotFleet
+  - AWS::Lambda::EventSourceMapping and AWS::Lambda::Permission
+  - AWS::Logs::SubscriptionFilter
+  - AWS::RDS::DBCluster and AWS::RDS::DBClusterParameter
+  - AWS::WorkSpaces::Workspace
+- Add updates to these resources from 2015-10-01 CloudFormation release:
+  - AWS::ElastiCache::ReplicationGroup
+  - AWS::OpsWorks::Stack
+  - AWS::OpsWorks::App
+  - AWS::S3::Bucket
+- Add ElastiCache (Redis) Example [ GH-329]
+- RDS: Added postgresql-license [GH-324]
+- tail: only add unseen events [GH-327]
+- Make Ref() work with datapipeline.ObjectField.RefValue [GH-328]
+- Fix DeploymentGroup resource_type (AWS::CodeDeploy::DeploymentGroup) [GH-333]
+- Add concatenation operator function __add__ for Tags [GH-334]
+
 ## 1.2.2 (2015-09-15)
 - Give more info about type errors [GH-312]
 - Move `tail` within the troposphere library. This lets external libraries

@@ -125,7 +125,21 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
-class TopicConfiguration(AWSProperty):
+class LambdaConfigurations(AWSProperty):
+    props = {
+        'Event': (basestring, True),
+        'Function': (basestring, True),
+    }
+
+
+class QueueConfigurations(AWSProperty):
+    props = {
+        'Event': (basestring, True),
+        'Queue': (basestring, True),
+    }
+
+
+class TopicConfigurations(AWSProperty):
     props = {
         'Event': (basestring, True),
         'Topic': (basestring, True),
@@ -134,7 +148,9 @@ class TopicConfiguration(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     props = {
-        'TopicConfigurations': ([TopicConfiguration], True),
+        'LambdaConfigurations': ([LambdaConfigurations], False),
+        'QueueConfigurations': ([QueueConfigurations], False),
+        'TopicConfigurations': ([TopicConfigurations], False),
     }
 
 

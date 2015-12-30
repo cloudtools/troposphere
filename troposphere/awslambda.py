@@ -31,6 +31,18 @@ class Code(AWSProperty):
             )
 
 
+class EventSourceMapping(AWSObject):
+    resource_type = "AWS::Lambda::EventSourceMapping"
+
+    props = {
+        'BatchSize': (positive_integer, False),
+        'Enabled': (bool, False),
+        'EventSourceArn': (basestring, True),
+        'FunctionName': (basestring, True),
+        'StartingPosition': (basestring, True),
+    }
+
+
 class Function(AWSObject):
     resource_type = "AWS::Lambda::Function"
 
@@ -42,4 +54,16 @@ class Function(AWSObject):
         'Role': ([basestring, GetAtt], True),
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
+    }
+
+
+class Permission(AWSObject):
+    resource_type = "AWS::Lambda::Permission"
+
+    props = {
+        'Action': (basestring, True),
+        'FunctionName': (basestring, True),
+        'Principal': (basestring, True),
+        'SourceAccount': (basestring, False),
+        'SourceArn': (basestring, False),
     }
