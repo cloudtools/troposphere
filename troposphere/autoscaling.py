@@ -275,6 +275,7 @@ class EBSBlockDevice(AWSProperty):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html
     props = {
         'DeleteOnTermination': (boolean, False),
+        'Encrypted': (boolean, False),
         'Iops': (integer, False),
         'SnapshotId': (basestring, False),
         'VolumeSize': (integer, False),
