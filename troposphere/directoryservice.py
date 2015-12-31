@@ -14,6 +14,19 @@ class VpcSettings(AWSProperty):
     }
 
 
+class MicrosoftAD(AWSObject):
+    resource_type = "AWS::DirectoryService::MicrosoftAD"
+
+    props = {
+        'CreateAlias': (boolean, False),
+        'EnableSso': (boolean, False),
+        'Name': (basestring, True),
+        'Password': (basestring, True),
+        'ShortName': (basestring, False),
+        'VpcSettings': VpcSettings
+    }
+
+
 class SimpleAD(AWSObject):
     resource_type = "AWS::DirectoryService::SimpleAD"
 
