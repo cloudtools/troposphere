@@ -154,6 +154,22 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class ReplicationConfigurationRules(AWSProperty):
+    props = {
+        'Destination': (basestring, True),
+        'Id': (basestring, False),
+        'Prefix': (basestring, True),
+        'Status': (basestring, True)
+    }
+
+
+class ReplicationConfiguration(AWSProperty):
+    props = {
+        'Role': (basestring, True),
+        'Rules': ([ReplicationConfigurationRules], True)
+    }
+
+
 class Bucket(AWSObject):
     resource_type = "AWS::S3::Bucket"
 
@@ -164,6 +180,7 @@ class Bucket(AWSObject):
         'LifecycleConfiguration': (LifecycleConfiguration, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
         'NotificationConfiguration': (NotificationConfiguration, False),
+        'ReplicationConfiguration': (ReplicationConfiguration, False),
         'Tags': (Tags, False),
         'WebsiteConfiguration': (WebsiteConfiguration, False),
         'VersioningConfiguration': (VersioningConfiguration, False)
