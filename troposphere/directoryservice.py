@@ -23,7 +23,7 @@ class MicrosoftAD(AWSObject):
         'Name': (basestring, True),
         'Password': (basestring, True),
         'ShortName': (basestring, False),
-        'VpcSettings': VpcSettings
+        'VpcSettings': (VpcSettings, True)
     }
 
 
