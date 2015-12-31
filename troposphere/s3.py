@@ -125,9 +125,29 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
+class NotificationConfigurationConfigFilterS3KeyRules(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Value': (basestring, True)
+    }
+
+
+class NotificationConfigurationConfigFilterS3Key(AWSProperty):
+    props = {
+        'Rules': ([NotificationConfigurationConfigFilterS3KeyRules], True)
+    }
+
+
+class NotificationConfigurationConfigFilter(AWSProperty):
+    props = {
+        'S3Key': (NotificationConfigurationConfigFilterS3Key, True)
+    }
+
+
 class LambdaConfigurations(AWSProperty):
     props = {
         'Event': (basestring, True),
+        'Filter': (NotificationConfigurationConfigFilter, False),
         'Function': (basestring, True),
     }
 
@@ -135,6 +155,7 @@ class LambdaConfigurations(AWSProperty):
 class QueueConfigurations(AWSProperty):
     props = {
         'Event': (basestring, True),
+        'Filter': (NotificationConfigurationConfigFilter, False),
         'Queue': (basestring, True),
     }
 
@@ -142,6 +163,7 @@ class QueueConfigurations(AWSProperty):
 class TopicConfigurations(AWSProperty):
     props = {
         'Event': (basestring, True),
+        'Filter': (NotificationConfigurationConfigFilter, False),
         'Topic': (basestring, True),
     }
 
