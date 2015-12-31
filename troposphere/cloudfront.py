@@ -130,6 +130,7 @@ class DistributionConfig(AWSProperty):
         'PriceClass': (basestring, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
+        'WebACLId': (basestring, False)
     }
 
 
