@@ -216,7 +216,7 @@ class ScalingPolicy(AWSObject):
         'Cooldown': (integer, False),
         'EstimatedInstanceWarmup': (integer, False),
         'MetricAggregationType': (basestring, False),
-        'MinAdjustmentStep': (integer, False),
+        'MinAdjustmentMagnitude': (integer, False),
         'PolicyType': (basestring, False),
         'ScalingAdjustment': (basestring, False),
         'StepAdjustments': ([StepAdjustments], False),
