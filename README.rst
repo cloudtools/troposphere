@@ -133,6 +133,7 @@ Currently supported AWS resource types
 - AWS::SDB
 - AWS::SNS
 - AWS::SQS
+- AWS::SSM
 - AWS::WorkSpaces
 
 Currently supported OpenStack resource types
