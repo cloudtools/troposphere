@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .validators import boolean
 
 
 class VpcSettings(AWSProperty):
@@ -13,13 +14,26 @@ class VpcSettings(AWSProperty):
     }
 
 
+class MicrosoftAD(AWSObject):
+    resource_type = "AWS::DirectoryService::MicrosoftAD"
+
+    props = {
+        'CreateAlias': (boolean, False),
+        'EnableSso': (boolean, False),
+        'Name': (basestring, True),
+        'Password': (basestring, True),
+        'ShortName': (basestring, False),
+        'VpcSettings': (VpcSettings, True)
+    }
+
+
 class SimpleAD(AWSObject):
     resource_type = "AWS::DirectoryService::SimpleAD"
 
     props = {
-        'CreateAlias': (bool, False),
+        'CreateAlias': (boolean, False),
         'Description': (basestring, False),
-        'EnableSso': (bool, False),
+        'EnableSso': (boolean, False),
         'Name': (basestring, True),
         'Password': (basestring, True),
         'ShortName': (basestring, False),
