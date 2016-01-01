@@ -123,6 +123,7 @@ Currently supported AWS resource types
 - AWS::ElasticLoadBalancing
 - AWS::IAM
 - AWS::KINESIS
+- AWS::KMS
 - AWS::Lambda
 - AWS::Logs
 - AWS::OPSWORKS
