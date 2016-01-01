@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty
 from .validators import boolean, network_port, positive_integer
 
 
@@ -12,7 +12,7 @@ class LoadBalancer(AWSProperty):
     props = {
         'ContainerName': (basestring, False),
         'ContainerPort': (network_port, False),
-        'LoadBalancerName': ([basestring, Ref], False),
+        'LoadBalancerName': (basestring, False),
     }
 
 
