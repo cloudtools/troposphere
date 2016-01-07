@@ -35,6 +35,7 @@ class CacheBehavior(AWSProperty):
         'MaxTTL': (integer, False),
         'PathPattern': (basestring, True),
         'SmoothStreaming': (boolean, False),
+        'Compress': (boolean, False),
     }
 
 
@@ -50,6 +51,7 @@ class DefaultCacheBehavior(AWSProperty):
         'DefaultTTL': (integer, False),
         'MaxTTL': (integer, False),
         'SmoothStreaming': (boolean, False),
+        'Compress': (boolean, False),
     }
 
 
