@@ -75,6 +75,7 @@ POSTGRESQL_PORT = 5432
 # EC2 instance types
 #
 
+T2_NANO = 't2.nano'
 T2_MICRO = 't2.micro'
 T2_SMALL = 't2.small'
 T2_MEDIUM = 't2.medium'
