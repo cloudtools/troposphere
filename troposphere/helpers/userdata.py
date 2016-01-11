@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import os
 from troposphere import Base64, Join
 
 

@@ -3,7 +3,7 @@
 import unittest
 import json
 import os
-from troposphere import *
+from troposphere import Base64, Join, awsencode
 import troposphere.ec2 as ec2
 from troposphere.helpers import userdata
 
