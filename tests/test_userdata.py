@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import unittest
 import json
@@ -42,7 +43,15 @@ class TestUserdata(unittest.TestCase):
 
     def test_char_escaping(self):
         result = self.create_result('char_escaping.sh')
-        answer = self.create_answer(["\\n\n","\\\n","    \n","?\n","\"\"\n","\n","<>\n"])
+        answer = self.create_answer([
+            '\\n\n',
+            '\\\n',
+            '    \n',
+            '?\n',
+            '""\n',
+            '\n',
+            '<>\n',
+            ])
 
         self.assertEqual(result, answer)
 

@@ -2,6 +2,7 @@
 
 from troposphere import Base64, Join
 
+
 def from_file(filepath, whitespace=False):
     """Imports userdata from a file.
 
