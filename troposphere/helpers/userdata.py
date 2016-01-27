@@ -2,8 +2,7 @@
 
 from troposphere import Base64, Join
 
-
-def from_file(filepath):
+def from_file(filepath, whitespace=False):
     """Imports userdata from a file.
 
     This function ignore blank lines within the file.
@@ -21,19 +20,11 @@ def from_file(filepath):
     """
 
     data = []
-
     try:
-        f = open(filepath, 'r')
-        try:
+        with open(filepath, 'r') as f:
             for line in f:
-                if line.strip():
-                    data.append(line)
-        except:
-            print 'Error: Could not parse userdata file.'
-            data = []
+                data.append(line)
     except IOError:
+        raise IOError('Error opening or reading file: ' + filepath)
 
-        print 'Error: Userdata file does not appear to exist.'
-    finally:
-
-        return Base64(Join(',', data))
+    return Base64(Join(',', data))

@@ -42,16 +42,12 @@ class TestUserdata(unittest.TestCase):
 
     def test_char_escaping(self):
         result = self.create_result('char_escaping.sh')
-        answer = self.create_answer(['\\n\n', '\\\n', '?\n', '""\n',
-                                    '<>\n'])
+        answer = self.create_answer(["\\n\n","\\\n","    \n","?\n","\"\"\n","\n","<>\n"])
 
         self.assertEqual(result, answer)
 
     def test_nonexistant_file(self):
-        result = self.create_result('nonexistant.sh')
-        answer = self.create_answer([])
-
-        self.assertEqual(result, answer)
+        self.assertRaises(IOError, self.create_result, 'nonexistant.sh')
 
 
 if __name__ == '__main__':
