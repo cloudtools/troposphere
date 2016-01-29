@@ -176,9 +176,16 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class ReplicationConfigurationRulesDestination(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'StorageClass': (basestring, False)
+    }
+
+
 class ReplicationConfigurationRules(AWSProperty):
     props = {
-        'Destination': (basestring, True),
+        'Destination': (ReplicationConfigurationRulesDestination, True),
         'Id': (basestring, False),
         'Prefix': (basestring, True),
         'Status': (basestring, True)
