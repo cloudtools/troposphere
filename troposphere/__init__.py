@@ -38,8 +38,11 @@ class BaseAWSObject(object):
                            'Metadata', 'UpdatePolicy',
                            'Condition', 'CreationPolicy']
 
-        # unset/None is also legal
-        if title and not valid_names.match(title):
+        # some objects allow more characters than others
+        if title and 'validate_title' in dir(self):
+            self.validate_title()
+        elif title and not valid_names.match(title):
+            # unset/None is also legal
             raise ValueError('Name "%s" not alphanumeric' % title)
 
         # Create the list of properties set on this object by the user

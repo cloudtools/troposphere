@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Ref
-from .validators import integer, boolean, status, iam_path
+from .validators import integer, boolean, status, iam_path, iam_role_name, iam_group_name
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -49,6 +49,9 @@ PolicyProperty = Policy
 
 
 class Group(AWSObject):
+    def validate_title(self):
+        iam_group_name(self.title)
+
     resource_type = "AWS::IAM::Group"
 
     props = {
@@ -68,6 +71,9 @@ class InstanceProfile(AWSObject):
 
 
 class Role(AWSObject):
+    def validate_title(self):
+        iam_role_name(self.title)
+
     resource_type = "AWS::IAM::Role"
 
     props = {
