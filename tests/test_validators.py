@@ -2,7 +2,7 @@ import unittest
 from troposphere import Parameter, Ref
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
-from troposphere.validators import s3_bucket_name, encoding, status
+from troposphere.validators import s3_bucket_name, encoding, status, iam_path
 
 
 class TestValidators(unittest.TestCase):
@@ -79,6 +79,12 @@ class TestValidators(unittest.TestCase):
             with self.assertRaises(ValueError):
                 status(s)
 
+    def test_iam_path(self):
+        for s in ['a'*30, 'a'*512]:
+            iam_path(s)
+        for s in ['a'*513, 'a'*1025]:
+            with self.assertRaises(ValueError):
+                iam_path(s)
 
 if __name__ == '__main__':
     unittest.main()

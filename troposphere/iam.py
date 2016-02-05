@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Ref
-from .validators import integer, boolean, status
+from .validators import integer, boolean, status, iam_path
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -53,7 +53,7 @@ class Group(AWSObject):
 
     props = {
         'ManagedPolicyArns': ([basestring], False),
-        'Path': (basestring, False),
+        'Path': (iam_path, False),
         'Policies': ([Policy], False),
     }
 
@@ -62,7 +62,7 @@ class InstanceProfile(AWSObject):
     resource_type = "AWS::IAM::InstanceProfile"
 
     props = {
-        'Path': (basestring, False),
+        'Path': (iam_path, False),
         'Roles': (list, True),
     }
 
@@ -73,7 +73,7 @@ class Role(AWSObject):
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
         'ManagedPolicyArns': ([basestring], False),
-        'Path': (basestring, False),
+        'Path': (iam_path, False),
         'Policies': ([Policy], False),
     }
 
@@ -89,7 +89,7 @@ class User(AWSObject):
     resource_type = "AWS::IAM::User"
 
     props = {
-        'Path': (basestring, False),
+        'Path': (iam_path, False),
         'Groups': ([basestring, Ref], False),
         'ManagedPolicyArns': ([basestring], False),
         'LoginProfile': (LoginProfile, False),
@@ -112,7 +112,7 @@ class ManagedPolicy(AWSObject):
     props = {
         'Description': (basestring, False),
         'Groups': ([basestring, Ref], False),
-        'Path': (basestring, False),
+        'Path': (iam_path, False),
         'PolicyDocument': (policytypes, True),
         'Roles': ([basestring, Ref], False),
         'Users': ([basestring, Ref], False),

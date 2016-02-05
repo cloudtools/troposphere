@@ -73,3 +73,8 @@ def status(status):
     if status not in valid_statuses:
         raise ValueError('Status needs to be one of %r' % valid_statuses)
     return status
+
+def iam_path(path):
+    if len(path) > 512:
+        raise ValueError('IAM path may not exceed 512 characters')
+    return path
