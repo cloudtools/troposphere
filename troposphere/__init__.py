@@ -6,6 +6,7 @@
 
 import json
 import re
+import sys
 import types
 
 from . import validators
@@ -100,7 +101,16 @@ class BaseAWSObject(object):
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
-                value = expected_type(value)
+                try:
+                    value = expected_type(value)
+                except:
+                    sys.stderr.write(
+                        "%s: %s.%s function validator '%s' threw "
+                        "exception:\n" % (self.__class__,
+                                          self.title,
+                                          name,
+                                          expected_type.__name__))
+                    raise
                 return self.properties.__setitem__(name, value)
 
             # If it's a list of types, check against those types...
