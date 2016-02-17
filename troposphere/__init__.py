@@ -11,7 +11,7 @@ import types
 
 from . import validators
 
-__version__ = "1.3.0"
+__version__ = "1.4.0"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -170,12 +170,15 @@ class BaseAWSObject(object):
                 raise ValueError(
                     "Resource %s required in type %s" % (k, rtype))
         self.validate()
-        # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
         elif hasattr(self, 'resource_type'):
-            return {'Type': self.resource_type}
+            d = {}
+            for k, v in self.resource.items():
+                if k != 'Properties':
+                    d[k] = v
+            return d
         else:
             return {}
 

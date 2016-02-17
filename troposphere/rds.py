@@ -14,7 +14,7 @@ from .validators import boolean, network_port, integer, positive_integer
 VALID_STORAGE_TYPES = ('standard', 'gp2', 'io1')
 VALID_DB_ENGINES = ('MySQL', 'oracle-se1', 'oracle-se', 'oracle-ee',
                     'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex',
-                    'sqlserver-web', 'postgres', 'aurora')
+                    'sqlserver-web', 'postgres', 'aurora', 'mariadb')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
 
@@ -23,10 +23,10 @@ def validate_iops(iops):
     """DBInstance Iops validation rules."""
 
     iops = integer(iops)
+    if int(iops) == 0:
+        return iops
     if int(iops) < 1000:
         raise ValueError("DBInstance Iops, if set, must be greater than 1000.")
-    if int(iops) > 10000:
-        raise ValueError("DBInstance Iops, if set, must be less than 10000.")
     return iops
 
 

@@ -113,6 +113,8 @@ Currently supported AWS resource types
 - AWS::CloudTrail
 - AWS::CloudWatch
 - AWS::CodeDeploy
+- AWS::CodePipeline
+- AWS::Config
 - AWS::DirectoryService
 - AWS::DynamoDB
 - AWS::EC2
@@ -121,6 +123,7 @@ Currently supported AWS resource types
 - AWS::ElasticLoadBalancing
 - AWS::IAM
 - AWS::KINESIS
+- AWS::KMS
 - AWS::Lambda
 - AWS::Logs
 - AWS::OPSWORKS
@@ -131,6 +134,7 @@ Currently supported AWS resource types
 - AWS::SDB
 - AWS::SNS
 - AWS::SQS
+- AWS::SSM
 - AWS::WorkSpaces
 
 Currently supported OpenStack resource types

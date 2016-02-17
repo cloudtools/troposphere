@@ -31,6 +31,8 @@ class CacheBehavior(AWSProperty):
         'TrustedSigners': ([basestring], False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
+        'DefaultTTL': (integer, False),
+        'MaxTTL': (integer, False),
         'PathPattern': (basestring, True),
         'SmoothStreaming': (boolean, False),
     }
@@ -45,6 +47,8 @@ class DefaultCacheBehavior(AWSProperty):
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
+        'DefaultTTL': (integer, False),
+        'MaxTTL': (integer, False),
         'SmoothStreaming': (boolean, False),
     }
 
@@ -126,6 +130,7 @@ class DistributionConfig(AWSProperty):
         'PriceClass': (basestring, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
+        'WebACLId': (basestring, False)
     }
 
 

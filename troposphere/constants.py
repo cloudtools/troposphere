@@ -3,6 +3,7 @@
 #
 
 AP_NORTHEAST_1 = 'ap-northeast-1'
+AP_NORTHEAST_2 = 'ap-northeast-2'
 AP_SOUTHEAST_1 = 'ap-southeast-1'
 AP_SOUTHEAST_2 = 'ap-southeast-2'
 EU_WEST_1 = 'eu-west-1'
@@ -19,6 +20,9 @@ US_WEST_2 = 'us-west-2'
 AP_NORTHEAST_1A = 'ap-northeast-1a'
 AP_NORTHEAST_1B = 'ap-northeast-1b'
 AP_NORTHEAST_1C = 'ap-northeast-1c'
+
+AP_NORTHEAST_2A = 'ap-northeast-2a'
+AP_NORTHEAST_2C = 'ap-northeast-2c'
 
 AP_SOUTHEAST_1A = 'ap-southeast-1a'
 AP_SOUTHEAST_1B = 'ap-southeast-1b'
@@ -71,6 +75,7 @@ POSTGRESQL_PORT = 5432
 # EC2 instance types
 #
 
+T2_NANO = 't2.nano'
 T2_MICRO = 't2.micro'
 T2_SMALL = 't2.small'
 T2_MEDIUM = 't2.medium'

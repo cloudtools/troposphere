@@ -1,3 +1,20 @@
+## 1.4.0 (2016-01-01)
+- Add RDS Aurora support [GH-335]
+- Change DeploymentGroup Ec2TagFilters to list [GH-337]
+- Correct EC2 SpotFleet LaunchSpecifications [GH-338]
+- RDS::DBCluster change AvailabilityZone to AvailabilityZones [GH-341]
+- ECS LoadBalancerName property is a string [GH-342]
+- CodeDeploy S3Location Version property is not a default requirement [GH-345]
+- Add AutoEnableIO to AWS::EC2::Volume
+- Only discard Properties in JSONrepr [GH-354]
+- CodeDeploy added ApplicationName [GH-357]
+- CodeDeploy DeploymentGroupName property missing [GH-358]
+- Add in cloudfront properties for max, default [GH-360]
+- Allow RDS iops to be 0 [GH-361]
+- Add CodePipline support [GH-362]
+- Implemented CloudFormation changes from Dec 3 and Dec 28 [GH-366]
+- Add AWS::Config, AWS::KMS, AWS::SSM
+
 ## 1.3.0 (2015-10-21)
 - Add new resources from 2015-10-01 CloudFormation release:
   - AWS::CodeDeploy

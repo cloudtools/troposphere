@@ -6,6 +6,7 @@ class AutoScalingRollingUpdate(AWSProperty):
     props = {
         'MaxBatchSize': (positive_integer, False),
         'MinInstancesInService': (integer, False),
+        'MinSuccessfulInstancesPercent': (integer, False),
         'PauseTime': (validate_pausetime, False),
         'SuspendProcesses': ([basestring], False),
         'WaitOnResourceSignals': (boolean, False),
