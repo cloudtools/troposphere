@@ -208,8 +208,6 @@ class TestRDSValidators(unittest.TestCase):
     def test_validate_iops(self):
         with self.assertRaises(ValueError):
             rds.validate_iops(500)
-        with self.assertRaises(ValueError):
-            rds.validate_iops(20000)
         rds.validate_iops(2000)
         rds.validate_iops(0)
 
