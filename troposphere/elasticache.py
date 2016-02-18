@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Ref, GetAtt
+from . import AWSObject, Ref, GetAtt, Tags
 from .validators import boolean, integer, network_port
 
 
@@ -30,6 +30,7 @@ class CacheCluster(AWSObject):
         'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
         'SnapshotWindow': (basestring, False),
+        'Tags': (Tags, False),
         'VpcSecurityGroupIds': ([basestring, Ref, GetAtt], False),
     }
 
