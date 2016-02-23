@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 from re import compile
 
+
 def boolean(x):
     if x in [True, 1, '1', 'true', 'True']:
         return "true"
@@ -73,12 +74,14 @@ def status(status):
         raise ValueError('Status needs to be one of %r' % valid_statuses)
     return status
 
+
 def iam_names(b):
     iam_name_re = compile(r'^[a-zA-Z0-9_\.\+\=\@\-\,]+$')
     if iam_name_re.match(b):
         return b
     else:
         raise ValueError("%s is not a valid iam name" % b)
+
 
 def iam_path(path):
     if len(path) > 512:
@@ -89,11 +92,13 @@ def iam_path(path):
         raise ValueError("%s is not a valid iam path name" % path)
     return path
 
+
 def iam_role_name(role_name):
     if len(role_name) > 64:
         raise ValueError('IAM Role Name may not exceed 64 characters')
     iam_names(role_name)
     return role_name
+
 
 def iam_group_name(group_name):
     if len(group_name) > 128:

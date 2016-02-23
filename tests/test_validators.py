@@ -2,7 +2,9 @@ import unittest
 from troposphere import Parameter, Ref
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
-from troposphere.validators import s3_bucket_name, encoding, status, iam_path, iam_names, iam_role_name, iam_group_name
+from troposphere.validators import s3_bucket_name, encoding, status
+from troposphere.validators import iam_path, iam_names, iam_role_name
+from troposphere.validators import iam_group_name
 
 
 class TestValidators(unittest.TestCase):
