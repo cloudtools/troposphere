@@ -118,6 +118,7 @@ Currently supported AWS resource types
 - AWS::DirectoryService
 - AWS::DynamoDB
 - AWS::EC2
+- AWS::ECS
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
 - AWS::ElasticLoadBalancing
