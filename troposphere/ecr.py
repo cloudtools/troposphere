@@ -5,6 +5,7 @@ try:
 except ImportError:
     policytypes = dict,
 
+
 class Repository(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
