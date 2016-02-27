@@ -238,6 +238,17 @@ Duplicating a single instance sample would look like this
 
     print(template.to_json())
 
+New DynamoDB module
+===================
+
+The original dynamodb module did not use a consistent interface with the rest
+of troposphere, and so is being phased out. In order to prepare for this,
+you'll need to make a few changes to dynamodb resources. The biggest change
+is that many of the dynamodb properties are now treated like regular properties
+in troposphere rather than as helper functions.  For a full example of the
+changes, you can check out `this diff <./dynamodb_diff.rst>` between the
+DynamoDB_Table example using the old and the new modules.
+
 Community
 =========
 
