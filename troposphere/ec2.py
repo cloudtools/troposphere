@@ -244,6 +244,7 @@ class Route(AWSObject):
         'NetworkInterfaceId': (basestring, False),
         'RouteTableId': (basestring, True),
         'VpcPeeringConnectionId': (basestring, False),
+        'NatGatewayId': (basestring, False),
     }
 
 
