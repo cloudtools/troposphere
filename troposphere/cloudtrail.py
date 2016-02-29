@@ -11,6 +11,7 @@ class Trail(AWSObject):
         'EnableLogFileValidation': (boolean, False),
         'IncludeGlobalServiceEvents': (boolean, False),
         'IsLogging': (boolean, True),
+        'IsMultiRegionTrail': (boolean, False),
         'KMSKeyId': (basestring, False),
         'S3BucketName': (basestring, True),
         'S3KeyPrefix': (basestring, False),
