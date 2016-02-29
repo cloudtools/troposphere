@@ -244,6 +244,7 @@ class Route(AWSObject):
         'NetworkInterfaceId': (basestring, False),
         'RouteTableId': (basestring, True),
         'VpcPeeringConnectionId': (basestring, False),
+        'NatGatewayId': (basestring, False),
     }
 
 
@@ -544,4 +545,12 @@ class PlacementGroup(AWSObject):
 
     props = {
         'Strategy': (basestring, True),
+    }
+
+class NatGateway(AWSObject):
+    resource_type = "AWS::EC2::NatGateway"
+
+    props = {
+        'AllocationId': (basestring, True),
+        'SubnetId': (basestring, True),
     }
