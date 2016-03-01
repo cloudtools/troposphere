@@ -39,7 +39,7 @@ class BaseAWSObject(object):
                            'Condition', 'CreationPolicy']
 
         # try to validate the title if its there
-        if self.title is not None:
+        if self.title:
             self.validate_title()
 
         # Create the list of properties set on this object by the user
