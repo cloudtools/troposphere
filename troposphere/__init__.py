@@ -38,12 +38,9 @@ class BaseAWSObject(object):
                            'Metadata', 'UpdatePolicy',
                            'Condition', 'CreationPolicy']
 
-        # some objects allow more characters than others
-        if title and 'validate_title' in dir(self):
+        # try to validate the title if its there
+        if self.title is not None:
             self.validate_title()
-        elif title and not valid_names.match(title):
-            # unset/None is also legal
-            raise ValueError('Name "%s" not alphanumeric' % title)
 
         # Create the list of properties set on this object by the user
         self.properties = {}
@@ -146,6 +143,10 @@ class BaseAWSObject(object):
                                                           name,
                                                           type(value),
                                                           expected_type))
+
+    def validate_title(self):
+        if not valid_names.match(self.title):
+            raise ValueError('Name "%s" not alphanumeric' % self.title)
 
     def validate(self):
         pass
