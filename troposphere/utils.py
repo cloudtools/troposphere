@@ -20,7 +20,7 @@ def get_events(conn, stackname):
 
 
 def tail(conn, stack_name, log_func=_tail_print, sleep_time=5,
-         include_initial=True):
+         include_initial=True, exit_on_complete=True):
     """Show and then tail the event log"""
     # First dump the full list of events in chronological order and keep
     # track of the events we've seen already
@@ -32,10 +32,15 @@ def tail(conn, stack_name, log_func=_tail_print, sleep_time=5,
         seen.add(e.event_id)
 
     # Now keep looping through and dump the new events
-    while 1:
+    complete = False
+    while not complete:
         events = get_events(conn, stack_name)
         for e in events:
             if e.event_id not in seen:
                 log_func(e)
                 seen.add(e.event_id)
+                if exit_on_complete and e.resource_status == 'CREATE_COMPLETE' and e.resource_type == 'AWS::CloudFormation::Stack':
+                    complete = True
+        if complete:
+            break
         time.sleep(sleep_time)
