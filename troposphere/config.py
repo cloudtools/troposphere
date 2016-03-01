@@ -47,6 +47,7 @@ class ConfigRule(AWSObject):
 class RecordingGroup(AWSProperty):
     props = {
         'AllSupported': (boolean, False),
+        'IncludeGlobalResourceTypes': (boolean, False),
         'ResourceTypes': ([basestring], False),
     }
 
