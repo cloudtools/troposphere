@@ -18,6 +18,11 @@ from troposphere.utils import tail
 def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     cloudformation_bucket = conn.lookup(bucket_name)
     if not cloudformation_bucket:
+        if region == 'us-east-1':
+            region = boto.s3.connection.Location.DEFAULT
+        elif region == 'eu-west-1':
+            region = boto.s3.connection.Location.EU
+
         cloudformation_bucket = conn.create_bucket(bucket_name, location=region)
     key = cloudformation_bucket.new_key(key_name)
     key.set_contents_from_string(template)
