@@ -1,4 +1,8 @@
 #!/usr/bin/python
+#
+# Note: This implementation is being phased out, you should instead look at
+#       the DynamoDB2_* examples for the new implementation.
+#
 
 from troposphere import Template, Ref, Output, Parameter
 from troposphere.dynamodb import (Key, AttributeDefinition,
