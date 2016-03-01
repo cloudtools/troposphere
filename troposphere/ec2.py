@@ -68,6 +68,15 @@ class EIPAssociation(AWSObject):
     }
 
 
+class NatGateway(AWSObject):
+    resource_type = "AWS::EC2::NatGateway"
+
+    props = {
+            'AllocationId': (basestring, True),
+            'SubnetId': (basestring, True),
+    }
+
+
 class EBSBlockDevice(AWSProperty):
     props = {
         'DeleteOnTermination': (boolean, False),
@@ -241,6 +250,7 @@ class Route(AWSObject):
         'DestinationCidrBlock': (basestring, True),
         'GatewayId': (basestring, False),
         'InstanceId': (basestring, False),
+        'NatGatewayId': (basestring, False),
         'NetworkInterfaceId': (basestring, False),
         'RouteTableId': (basestring, True),
         'VpcPeeringConnectionId': (basestring, False),
