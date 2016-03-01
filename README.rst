@@ -29,6 +29,11 @@ issuing::
 
     $ pip install troposphere
 
+To install troposphere with `awacs <https://github.com/cloudtools/awacs>`_
+(recommended soft dependency)::
+
+    $ pip install troposphere[policy]
+
 Alternatively, you can run use setup.py to install by cloning this repository
 and issuing::
 

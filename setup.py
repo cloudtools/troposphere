@@ -12,5 +12,6 @@ setup(
     scripts=['scripts/cfn', 'scripts/cfn2py'],
     test_suite="tests",
     tests_require=["awacs"],
+    extras_require={'policy': ['awacs']},
     use_2to3=True,
 )
