@@ -1,3 +1,22 @@
+## 1.5.0 (2016-03-01)
+- Add MariaDB to list of RDS engines [GH-368]
+- Add ap-northeast [GH-373]
+- Add T2 Nano [GH-374]
+- capability support for cfn [GH-375]
+- Update to resource list in documentation [GH-383]
+- More info from validator function errors [GH-385]
+- Add testing for python 3.5 [GH-388]
+- Extended title validation [GH-389]
+- EC2 NAT Gateway [GH-394]
+- Add AWS::ECR::Repository [GH-395]
+- Add KmsKeyId and StorageEncrypted to DBCluster [GH-396]
+- Add awacs soft dependency [GH-397]
+- New dynamodb2 module to replace dynamodb for consistent interface [GH-398]
+- Add IsMultiRegionTrail support [GH-399]
+- Add IncludeGlobalResourceTypes to RecordingGroup [GH-400]
+- Capitalize examples [GH-404]
+- use location constants for bucket creation in cfn [GH-409]
+
 ## 1.4.0 (2016-01-01)
 - Add RDS Aurora support [GH-335]
 - Change DeploymentGroup Ec2TagFilters to list [GH-337]
