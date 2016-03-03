@@ -115,6 +115,18 @@
                         ]
                     }
                 ],
+                "EbsConfiguration": {
+                    "EbsBlockDeviceConfig": [
+                        {
+                            "VolumeSpecification": {
+                                "SizeInGB": "100",
+                                "VolumeType": "standard"
+                            },
+                            "VolumesPerInstance": "1"
+                        }
+                    ],
+                    "EbsOptimized": "true"
+                },
                 "Instances": {
                     "CoreInstanceGroup": {
                         "BidPrice": "20",
@@ -134,7 +146,7 @@
                     "Ref": "EMRInstanceProfile"
                 },
                 "Name": "EMR Sample Cluster",
-                "ReleaseLabel": "emr-4.3.0",
+                "ReleaseLabel": "emr-4.4.0",
                 "ServiceRole": {
                     "Ref": "EMRServiceRole"
                 },

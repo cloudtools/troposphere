@@ -125,6 +125,36 @@ class JobFlowInstancesConfig(AWSProperty):
     }
 
 
+def volume_type_validator(x):
+    valid_values = ['standard', 'io1']
+    if x not in valid_values:
+        raise ValueError("VolumeType must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
+class VolumeSpecification(AWSProperty):
+    props = {
+        'Iops': (integer, False),
+        'SizeInGB': (integer, True),
+        'VolumeType': (volume_type_validator, True)
+    }
+
+
+class EbsBlockDeviceConfig(AWSProperty):
+    props = {
+        'VolumeSpecification': (VolumeSpecification, True),
+        'VolumesPerInstance': (integer, False)
+    }
+
+
+class EbsConfiguration(AWSProperty):
+    props = {
+        'EbsBlockDeviceConfig': ([EbsBlockDeviceConfig], False),
+        'EbsOptimized': (boolean, False)
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::EMR::Cluster"
 
@@ -133,6 +163,7 @@ class Cluster(AWSObject):
         'Applications': ([Application], False),
         'BootstrapActions': ([BootstrapActionConfig], False),
         'Configurations': (configurations_validator, False),
+        'EbsConfiguration': (EbsConfiguration, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
         'LogUri': (basestring, False),
@@ -150,6 +181,7 @@ class InstanceGroupConfig(AWSObject):
     props = {
         'BidPrice': (basestring, False),
         'Configurations': (configurations_validator, False),
+        'EbsConfiguration': (EbsConfiguration, False),
         'InstanceCount': (integer, True),
         'InstanceRole': (basestring, True),
         'InstanceType': (basestring, True),
