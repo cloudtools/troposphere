@@ -55,5 +55,5 @@ class SubscriptionFilter(AWSObject):
         'DestinationArn': (basestring, True),
         'FilterPattern': (basestring, True),
         'LogGroupName': (basestring, True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (basestring, False),
     }
