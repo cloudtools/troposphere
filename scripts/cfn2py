@@ -71,16 +71,16 @@ def do_header(d):
             if tropo_object not in seen:
                 seen.append(tropo_object)
                 print('from troposphere.%s import %s' % (mod, additional_imports(tropo_object)))
-    print()
-    print()
+    print("")
+    print("")
     print("t = Template()")
-    print()
+    print("")
 
 
 def do_awstemplateformatversion(d):
     """Output the template version"""
     print('t.add_version("%s")' % (d['AWSTemplateFormatVersion'], ))
-    print()
+    print("")
 
 
 def do_description(d):
@@ -98,7 +98,7 @@ def do_parameters(d):
         for pk, pv in v.items():
             print('    %s=%s,' % (pk, output_value(pv)))
         print("))")
-        print()
+        print("")
 
 
 def do_mappings(d):
@@ -108,7 +108,7 @@ def do_mappings(d):
         print('t.add_mapping("%s",' % (k,))
         pprint.pprint(v)
         print(")")
-        print()
+        print("")
 
 
 def generate_troposphere_object(typename):
@@ -243,7 +243,7 @@ def do_resources(d):
         if "DependsOn" in v:
             print('    %s=%s,' % ("DependsOn", output_value(v['DependsOn'])))
         print("))")
-        print()
+        print("")
 
 
 def handle_no_objects(name, values):
@@ -311,7 +311,7 @@ def do_outputs(d):
             else:
                 print('    %s=%s,' % (pk, output_value(pv)))
         print("))")
-        print()
+        print("")
 
 
 def do_trailer(d):
