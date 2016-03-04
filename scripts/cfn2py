@@ -5,6 +5,12 @@ import argparse
 import json
 import pprint
 
+# Cross python string check. Because we don't require six.
+try:
+    basestring
+except NameError:
+    basestring=str
+
 
 class object_registry(object):
     """Keep track of objects being created as Parameters or Resources
@@ -271,7 +277,7 @@ function_map = {
 
 def output_value(v):
     """Output a value which may be a string or a set of function calls."""
-    if isinstance(v, str):
+    if isinstance(v, basestring):
         return '"%s"' % (v.replace('\\', '\\\\').replace('\n', '\\n').replace("\"", "\\\""))
     elif isinstance(v, bool):
         return '%s' % (str(v))
