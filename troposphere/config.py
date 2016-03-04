@@ -72,7 +72,7 @@ class DeliveryChannel(AWSObject):
     resource_type = "AWS::Config::DeliveryChannel"
 
     props = {
-        'ConfigSnapshotDeliveryProperties': 
+        'ConfigSnapshotDeliveryProperties':
             (ConfigSnapshotDeliveryProperties, False),
         'Name': (basestring, False),
         'S3BucketName': (basestring, True),
