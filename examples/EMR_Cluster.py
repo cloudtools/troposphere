@@ -114,4 +114,4 @@ cluster = template.add_resource(emr.Cluster(
     )
 ))
 
-print template.to_json()
+print(template.to_json())
