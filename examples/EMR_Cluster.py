@@ -9,7 +9,8 @@ template.add_description(
 
 keyname = template.add_parameter(Parameter(
     "KeyName",
-    Description="Name of an existing EC2 KeyPair to enable SSH to the instances",
+    Description="Name of an existing EC2 KeyPair to enable SSH "
+                "to the instances",
     Type="AWS::EC2::KeyPair::KeyName"
 ))
 
@@ -52,7 +53,9 @@ emr_service_role = template.add_resource(iam.Role(
             "Action": ["sts:AssumeRole"]
         }]
     },
-    ManagedPolicyArns=['arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole']
+    ManagedPolicyArns=[
+        'arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole'
+    ]
 ))
 
 emr_job_flow_role = template.add_resource(iam.Role(
@@ -68,7 +71,9 @@ emr_job_flow_role = template.add_resource(iam.Role(
             "Action": ["sts:AssumeRole"]
         }]
     },
-    ManagedPolicyArns=['arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role']
+    ManagedPolicyArns=[
+        'arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role'
+    ]
 ))
 
 emr_instance_profile = template.add_resource(iam.InstanceProfile(
