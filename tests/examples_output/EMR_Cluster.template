@@ -1,0 +1,132 @@
+{
+    "Description": "Sample CloudFormation template for creating an EMR cluster",
+    "Parameters": {
+        "KeyName": {
+            "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "ManagedMasterSecurityGroup": {
+            "Description": "Security Group (managed by EMR) for master instances",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "ManagedSlaveSecurityGroup": {
+            "Description": "Security Group (managed by EMR) for slave instances",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "ServiceAccessSecurityGroup": {
+            "Description": "Security Group providing service access to EMR",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "Subnet": {
+            "Description": "Subnet ID for creating the EMR cluster",
+            "Type": "AWS::EC2::Subnet::Id"
+        }
+    },
+    "Resources": {
+        "EMRInstanceProfile": {
+            "Properties": {
+                "Roles": [
+                    {
+                        "Ref": "EMRJobFlowRole"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::InstanceProfile"
+        },
+        "EMRJobFlowRole": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "ec2.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "EMRSampleCluster": {
+            "Properties": {
+                "Applications": [
+                    {
+                        "Name": "Hadoop"
+                    },
+                    {
+                        "Name": "Hive"
+                    },
+                    {
+                        "Name": "Mahout"
+                    },
+                    {
+                        "Name": "Pig"
+                    },
+                    {
+                        "Name": "Spark"
+                    }
+                ],
+                "Instances": {
+                    "CoreInstanceGroup": {
+                        "InstanceCount": "1",
+                        "InstanceType": "m3.xlarge",
+                        "Name": "Core Instance"
+                    },
+                    "MasterInstanceGroup": {
+                        "InstanceCount": "1",
+                        "InstanceType": "m3.xlarge",
+                        "Name": "Master Instance"
+                    }
+                },
+                "JobFlowRole": {
+                    "Ref": "EMRInstanceProfile"
+                },
+                "Name": "EMR Sample Cluster",
+                "ReleaseLabel": "emr-4.3.0",
+                "ServiceRole": {
+                    "Ref": "EMRServiceRole"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "EMR Sample Cluster"
+                    }
+                ],
+                "VisibleToAllUsers": "true"
+            },
+            "Type": "AWS::EMR::Cluster"
+        },
+        "EMRServiceRole": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "elasticmapreduce.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        }
+    }
+}
