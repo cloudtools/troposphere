@@ -87,6 +87,22 @@
                         }
                     }
                 ],
+                "Configurations": [
+                    {
+                        "Classification": "core-site",
+                        "ConfigurationProperties": [
+                            "hadoop.security.groups.cache.secs:250"
+                        ]
+                    },
+                    {
+                        "Classification": "mapred-site",
+                        "ConfigurationProperties": [
+                            "mapred.tasktracker.map.tasks.maximum:2",
+                            "mapreduce.map.sort.spill.percent:90",
+                            "mapreduce.tasktracker.reduce.tasks.maximum:5"
+                        ]
+                    }
+                ],
                 "Instances": {
                     "CoreInstanceGroup": {
                         "InstanceCount": "1",

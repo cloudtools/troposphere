@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, AWSHelperFn
-from .validators import (boolean, integer)
+from .validators import (boolean, integer, emr_configuration_property)
 
 
 class KeyValue(AWSHelperFn):
@@ -41,7 +41,7 @@ class BootstrapActionConfig(AWSProperty):
 class ClusterConfiguration(AWSProperty):
     props = {
         'Classification': (basestring, False),
-        'ConfigurationProperties': (dict, False),
+        'ConfigurationProperties': ([basestring], False),
         'Configurations': (list, False)
     }
 

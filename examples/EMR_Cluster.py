@@ -94,6 +94,22 @@ cluster = template.add_resource(emr.Cluster(
             Args=['echo', 'Hello World']
         )
     )],
+    Configurations=[
+        emr.ClusterConfiguration(
+            Classification="core-site",
+            ConfigurationProperties=[
+                'hadoop.security.groups.cache.secs:250'
+            ]
+        ),
+        emr.ClusterConfiguration(
+            Classification="mapred-site",
+            ConfigurationProperties=[
+                'mapred.tasktracker.map.tasks.maximum:2',
+                'mapreduce.map.sort.spill.percent:90',
+                'mapreduce.tasktracker.reduce.tasks.maximum:5'
+            ]
+        )
+    ],
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
     Instances=emr.JobFlowInstancesConfig(
