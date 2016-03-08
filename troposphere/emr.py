@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, AWSHelperFn
-from .validators import (boolean, integer, emr_configuration_property)
+from .validators import (boolean, integer)
 
 
 class KeyValue(AWSHelperFn):
@@ -15,9 +15,17 @@ class KeyValue(AWSHelperFn):
         return self.data
 
 
+class KeyValueString(AWSHelperFn):
+    def __init__(self, key, value):
+        self.data = "%s:%s" % (key, value)
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Application(AWSProperty):
     props = {
-        'AdditionalInfo': (dict, False),
+        'AdditionalInfo': ([KeyValueString], False),
         'Args': (list, False),
         'Name': (basestring, False),
         'Version': (basestring, False)
@@ -41,8 +49,8 @@ class BootstrapActionConfig(AWSProperty):
 class ClusterConfiguration(AWSProperty):
     props = {
         'Classification': (basestring, False),
-        'ConfigurationProperties': ([basestring], False),
-        'Configurations': (list, False)
+        'ConfigurationProperties': ([KeyValueString], False),
+        'Configurations': (dict, False)
     }
 
 

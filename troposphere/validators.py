@@ -106,11 +106,3 @@ def iam_group_name(group_name):
     iam_names(group_name)
     return group_name
 
-
-def emr_configuration_property(key_value):
-    configuration_property_re = compile(r'(.+?):(.+)')
-    if configuration_property_re.match(key_value):
-        return key_value
-    else:
-        raise ValueError("%s is not a valid configuration property "
-                         "key value pair." % key_value)
