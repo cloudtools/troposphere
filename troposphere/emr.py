@@ -24,10 +24,17 @@ class Application(AWSProperty):
     }
 
 
+class ScriptBootstrapActionConfig(AWSProperty):
+    props = {
+        'Args': ([basestring], False),
+        'Path': (basestring, True)
+    }
+
+
 class BootstrapActionConfig(AWSProperty):
     props = {
         'Name': (basestring, True),
-        'ScriptBootstrapAction': (basestring, True)
+        'ScriptBootstrapAction': (ScriptBootstrapActionConfig, True)
     }
 
 
@@ -79,7 +86,7 @@ class Cluster(AWSObject):
     props = {
         'AdditionalInfo': (dict, False),
         'Applications': ([Application], False),
-        'BoostrapActions': ([BootstrapActionConfig], False),
+        'BootstrapActions': ([BootstrapActionConfig], False),
         'Configurations': ([ClusterConfiguration], False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
