@@ -98,15 +98,23 @@ cluster = template.add_resource(emr.Cluster(
         emr.ClusterConfiguration(
             Classification="core-site",
             ConfigurationProperties=[
-                emr.KeyValueString('hadoop.security.groups.cache.secs', '250')
+                emr.KeyValueString(
+                    'hadoop.security.groups.cache.secs', '250'
+                )
             ]
         ),
         emr.ClusterConfiguration(
             Classification="mapred-site",
             ConfigurationProperties=[
-                emr.KeyValueString('mapred.tasktracker.map.tasks.maximum', '2'),
-                emr.KeyValueString('mapreduce.map.sort.spill.percent', '90'),
-                emr.KeyValueString('mapreduce.tasktracker.reduce.tasks.maximum', '5')
+                emr.KeyValueString(
+                    'mapred.tasktracker.map.tasks.maximum', '2'
+                ),
+                emr.KeyValueString(
+                    'mapreduce.map.sort.spill.percent', '90'
+                ),
+                emr.KeyValueString(
+                    'mapreduce.tasktracker.reduce.tasks.maximum', '5'
+                )
             ]
         )
     ],
