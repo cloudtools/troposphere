@@ -90,28 +90,43 @@
                 "Configurations": [
                     {
                         "Classification": "core-site",
-                        "ConfigurationProperties": [
-                            "hadoop.security.groups.cache.secs:250"
-                        ]
+                        "ConfigurationProperties": {
+                            "hadoop.security.groups.cache.secs": "250"
+                        }
                     },
                     {
                         "Classification": "mapred-site",
-                        "ConfigurationProperties": [
-                            "mapred.tasktracker.map.tasks.maximum:2",
-                            "mapreduce.map.sort.spill.percent:90",
-                            "mapreduce.tasktracker.reduce.tasks.maximum:5"
+                        "ConfigurationProperties": {
+                            "mapred.tasktracker.map.tasks.maximum": "2",
+                            "mapreduce.map.sort.spill.percent": "90",
+                            "mapreduce.tasktracker.reduce.tasks.maximum": "5"
+                        }
+                    },
+                    {
+                        "Classification": "hadoop-env",
+                        "Configurations": [
+                            {
+                                "Classification": "export",
+                                "ConfigurationProperties": {
+                                    "HADOOP_DATANODE_HEAPSIZE": "2048",
+                                    "HADOOP_NAMENODE_OPTS": "-XX:GCTimeRatio=19"
+                                }
+                            }
                         ]
                     }
                 ],
                 "Instances": {
                     "CoreInstanceGroup": {
+                        "BidPrice": "20",
                         "InstanceCount": "1",
                         "InstanceType": "m3.xlarge",
+                        "Market": "SPOT",
                         "Name": "Core Instance"
                     },
                     "MasterInstanceGroup": {
                         "InstanceCount": "1",
                         "InstanceType": "m3.xlarge",
+                        "Market": "ON_DEMAND",
                         "Name": "Master Instance"
                     }
                 },

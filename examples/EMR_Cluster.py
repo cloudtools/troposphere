@@ -95,25 +95,29 @@ cluster = template.add_resource(emr.Cluster(
         )
     )],
     Configurations=[
-        emr.ClusterConfiguration(
+        emr.Configuration(
             Classification="core-site",
-            ConfigurationProperties=[
-                emr.KeyValueString(
-                    'hadoop.security.groups.cache.secs', '250'
-                )
-            ]
+            ConfigurationProperties={
+                'hadoop.security.groups.cache.secs': '250'
+            }
         ),
-        emr.ClusterConfiguration(
+        emr.Configuration(
             Classification="mapred-site",
-            ConfigurationProperties=[
-                emr.KeyValueString(
-                    'mapred.tasktracker.map.tasks.maximum', '2'
-                ),
-                emr.KeyValueString(
-                    'mapreduce.map.sort.spill.percent', '90'
-                ),
-                emr.KeyValueString(
-                    'mapreduce.tasktracker.reduce.tasks.maximum', '5'
+            ConfigurationProperties={
+                'mapred.tasktracker.map.tasks.maximum': '2',
+                'mapreduce.map.sort.spill.percent': '90',
+                'mapreduce.tasktracker.reduce.tasks.maximum': '5'
+            }
+        ),
+        emr.Configuration(
+            Classification="hadoop-env",
+            Configurations=[
+                emr.Configuration(
+                    Classification="export",
+                    ConfigurationProperties={
+                        "HADOOP_DATANODE_HEAPSIZE": "2048",
+                        "HADOOP_NAMENODE_OPTS": "-XX:GCTimeRatio=19"
+                    }
                 )
             ]
         )
@@ -124,12 +128,15 @@ cluster = template.add_resource(emr.Cluster(
         MasterInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Master Instance",
             InstanceCount="1",
-            InstanceType="m3.xlarge"
+            InstanceType="m3.xlarge",
+            Market="ON_DEMAND"
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
+            BidPrice="20",
             InstanceCount="1",
-            InstanceType="m3.xlarge"
+            InstanceType="m3.xlarge",
+            Market="SPOT"
         )
     ),
     Applications=[
