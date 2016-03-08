@@ -160,7 +160,7 @@ class InstanceGroupConfig(AWSObject):
 
 class HadoopJarStepConfig(AWSProperty):
     props = {
-        'Args': (basestring, False),
+        'Args': ([basestring], False),
         'Jar': (basestring, True),
         'MainClass': (basestring, False)
     }
