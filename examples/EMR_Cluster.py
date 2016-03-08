@@ -152,4 +152,16 @@ cluster = template.add_resource(emr.Cluster(
     )
 ))
 
+step = template.add_resource(emr.Step(
+    'TestStep',
+    Name="TestStep",
+    ActionOnFailure='CONTINUE',
+    HadoopJarStep=emr.HadoopJarStepConfig(
+        Args=["5", "10"],
+        Jar="s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar",
+        MainClass="pi"
+    ),
+    JobFlowId=Ref(cluster)
+))
+
 print(template.to_json())
