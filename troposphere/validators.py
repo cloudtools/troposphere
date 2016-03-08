@@ -105,4 +105,3 @@ def iam_group_name(group_name):
         raise ValueError('IAM Role Name may not exceed 128 characters')
     iam_names(group_name)
     return group_name
-
