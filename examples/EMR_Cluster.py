@@ -87,6 +87,13 @@ cluster = template.add_resource(emr.Cluster(
     "EMRSampleCluster",
     Name="EMR Sample Cluster",
     ReleaseLabel='emr-4.3.0',
+    BootstrapActions=[emr.BootstrapActionConfig(
+        Name='Dummy bootstrap action',
+        ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(
+            Path='/bin/sh',
+            Args=['echo', 'Hello World']
+        )
+    )],
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
     Instances=emr.JobFlowInstancesConfig(

@@ -75,6 +75,18 @@
                         "Name": "Spark"
                     }
                 ],
+                "BootstrapActions": [
+                    {
+                        "Name": "Dummy bootstrap action",
+                        "ScriptBootstrapAction": {
+                            "Args": [
+                                "echo",
+                                "Hello World"
+                            ],
+                            "Path": "/bin/sh"
+                        }
+                    }
+                ],
                 "Instances": {
                     "CoreInstanceGroup": {
                         "InstanceCount": "1",
