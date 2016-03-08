@@ -15,17 +15,22 @@ class KeyValue(AWSHelperFn):
         return self.data
 
 
-class KeyValueString(AWSHelperFn):
-    def __init__(self, key, value):
-        self.data = "%s:%s" % (key, value)
+def additional_info_validator(xs):
+    if not isinstance(xs, dict):
+        raise ValueError("AdditionalInfo must be a dict of "
+                         "string to string pairs")
+    for k, v in xs.iteritems():
+        if not isinstance(k, basestring):
+            raise ValueError('AdditionalInfo keys must be strings')
+        if not isinstance(v, basestring):
+            raise ValueError('AdditionalInfo values must be strings')
 
-    def JSONrepr(self):
-        return self.data
+    return xs
 
 
 class Application(AWSProperty):
     props = {
-        'AdditionalInfo': ([KeyValueString], False),
+        'AdditionalInfo': (additional_info_validator, False),
         'Args': (list, False),
         'Name': (basestring, False),
         'Version': (basestring, False)
@@ -46,21 +51,53 @@ class BootstrapActionConfig(AWSProperty):
     }
 
 
+def properties_validator(xs):
+    if not isinstance(xs, dict):
+        raise ValueError("ConfigurationProperties must be a dict of "
+                         "string to string pairs")
+    for k, v in xs.iteritems():
+        if not isinstance(k, basestring):
+            raise ValueError('ConfigurationProperties keys must be strings')
+        if not isinstance(v, basestring):
+            raise ValueError('ConfigurationProperties values must be strings')
+
+    return xs
+
+
+def configurations_validator(xs):
+    if not isinstance(xs, list):
+        raise ValueError("Configurations must be a list of "
+                         "Configuration objects.")
+    for x in xs:
+        if not isinstance(x, Configuration):
+            raise ValueError("Configuration '%s' must be of "
+                             "Configuration type" % x)
+    return xs
+
+
 class Configuration(AWSProperty):
     props = {
         'Classification': (basestring, False),
-        'ConfigurationProperties': ([KeyValueString], False),
-        'Configurations': (list, False)
+        'ConfigurationProperties': (properties_validator, False),
+        'Configurations': (configurations_validator, False)
     }
+
+
+def market_validator(x):
+    valid_values = ['ON_DEMAND', 'SPOT']
+    if x not in valid_values:
+        raise ValueError("Market must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
 
 
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
         'BidPrice': (basestring, False),
-        'Configurations': ([Configuration], False),
+        'Configurations': (configurations_validator, False),
         'InstanceCount': (integer, True),
         'InstanceType': (basestring, True),
-        'Market': (basestring, False),
+        'Market': (market_validator, False),
         'Name': (basestring, False)
     }
 
@@ -95,7 +132,7 @@ class Cluster(AWSObject):
         'AdditionalInfo': (dict, False),
         'Applications': ([Application], False),
         'BootstrapActions': ([BootstrapActionConfig], False),
-        'Configurations': ([Configuration], False),
+        'Configurations': (configurations_validator, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
         'LogUri': (basestring, False),
@@ -112,11 +149,11 @@ class InstanceGroupConfig(AWSObject):
 
     props = {
         'BidPrice': (basestring, False),
-        'Configurations': ([Configuration], False),
+        'Configurations': (configurations_validator, False),
         'InstanceCount': (integer, True),
         'InstanceRole': (basestring, True),
         'InstanceType': (basestring, True),
-        'Market': (basestring, False),
+        'Market': (market_validator, False),
         'Name': (basestring, False)
     }
 
@@ -129,11 +166,19 @@ class HadoopJarStepConfig(AWSProperty):
     }
 
 
+def action_on_failure_validator(x):
+    valid_values = ['CONTINUE', 'CONTINUE_AND_WAIT']
+    if x not in valid_values:
+        raise ValueError("ActionOnFailure must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
 class Step(AWSObject):
     resource_type = "AWS::EMR::Step"
 
     props = {
-        'ActionOnFailure': (basestring, True),
+        'ActionOnFailure': (action_on_failure_validator, True),
         'HadoopJarStep': (HadoopJarStepConfig, True),
         'JobFlowId': (basestring, True),
         'Name': (basestring, True),
