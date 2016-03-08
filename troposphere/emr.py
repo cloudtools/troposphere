@@ -46,18 +46,18 @@ class BootstrapActionConfig(AWSProperty):
     }
 
 
-class ClusterConfiguration(AWSProperty):
+class Configuration(AWSProperty):
     props = {
         'Classification': (basestring, False),
         'ConfigurationProperties': ([KeyValueString], False),
-        'Configurations': (dict, False)
+        'Configurations': (list, False)
     }
 
 
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
         'BidPrice': (basestring, False),
-        'Configurations': (list, False),
+        'Configurations': ([Configuration], False),
         'InstanceCount': (integer, True),
         'InstanceType': (basestring, True),
         'Market': (basestring, False),
@@ -95,7 +95,7 @@ class Cluster(AWSObject):
         'AdditionalInfo': (dict, False),
         'Applications': ([Application], False),
         'BootstrapActions': ([BootstrapActionConfig], False),
-        'Configurations': ([ClusterConfiguration], False),
+        'Configurations': ([Configuration], False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
         'LogUri': (basestring, False),
@@ -112,7 +112,7 @@ class InstanceGroupConfig(AWSObject):
 
     props = {
         'BidPrice': (basestring, False),
-        'Configurations': (list, False),
+        'Configurations': ([Configuration], False),
         'InstanceCount': (integer, True),
         'InstanceRole': (basestring, True),
         'InstanceType': (basestring, True),
