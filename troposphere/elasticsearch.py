@@ -6,11 +6,24 @@
 from . import AWSHelperFn, AWSProperty, AWSObject
 from .validators import boolean, integer, integer_range, positive_integer
 
+VALID_VOLUME_TYPES = ('standard', 'gp2', 'io1')
+
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
 except ImportError:
     policytypes = dict,
+
+
+def validate_volume_type(volume_type):
+    """Validate VolumeType for ElasticsearchDomain"""
+    if isinstance(volume_type, AWSHelperFn):
+        return volume_type
+
+    if volume_type not in VALID_VOLUME_TYPES:
+        raise ValueError("Elasticsearch Domain VolumeType must be one of: %s" %
+                         ", ".join(VALID_VOLUME_TYPES))
+    return volume_type
 
 
 class Tag(AWSHelperFn):
@@ -19,14 +32,6 @@ class Tag(AWSHelperFn):
 
     def JSONrepr(self):
         return self.data
-
-
-def validate_volume_type(volume_type):
-    volume_types = ('standard', 'io1', 'gp2')
-    if volume_type not in volume_types:
-        raise ValueError("VolumeType (given: %s) must be one of: %s" % (
-            volume_type, ', '.join(volume_types)))
-    return volume_type
 
 
 class EBSOptions(AWSProperty):
@@ -42,8 +47,6 @@ class EBSOptions(AWSProperty):
         iops = self.properties.get('Iops')
         if volume_type == 'io1' and not iops:
             raise ValueError("Must specify Iops if VolumeType is 'io1'.")
-        if volume_type != 'io1' and iops:
-            raise ValueError("Cannot specify Iops if VolumeType is not 'io1'.")
 
 
 class ElasticsearchClusterConfig(AWSProperty):
