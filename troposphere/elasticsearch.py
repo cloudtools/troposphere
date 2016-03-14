@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSProperty, AWSObject
-from .validators import boolean, integer, integer_range
+from .validators import boolean, integer, integer_range, positive_integer
 
 try:
     from awacs.aws import Policy
@@ -32,7 +32,7 @@ def validate_volume_type(volume_type):
 class EBSOptions(AWSProperty):
     props = {
         'EBSEnabled': (boolean, False),
-        'Iops': (integer, False),
+        'Iops': (positive_integer, False),
         'VolumeSize': (integer, False),
         'VolumeType': (validate_volume_type, False)
     }
