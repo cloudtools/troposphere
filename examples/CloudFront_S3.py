@@ -19,7 +19,7 @@ t.add_description(
     "a stack from this template.")
 
 s3dnsname = t.add_parameter(Parameter(
-    "S3DNSNAme",
+    "S3DNSName",
     Description="The DNS name of an existing S3 bucket to use as the "
                 "Cloudfront distribution origin",
     Type="String",
