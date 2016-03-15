@@ -218,7 +218,7 @@ class ScalingPolicy(AWSObject):
         'MetricAggregationType': (basestring, False),
         'MinAdjustmentMagnitude': (integer, False),
         'PolicyType': (basestring, False),
-        'ScalingAdjustment': (basestring, False),
+        'ScalingAdjustment': (integer, False),
         'StepAdjustments': ([StepAdjustments], False),
     }
 
