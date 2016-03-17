@@ -180,7 +180,13 @@
                         "10"
                     ],
                     "Jar": "s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar",
-                    "MainClass": "pi"
+                    "MainClass": "pi",
+                    "StepProperties": [
+                        {
+                            "Key": "my.custom.property",
+                            "Value": "my.custom.value"
+                        }
+                    ]
                 },
                 "JobFlowId": {
                     "Ref": "EMRSampleCluster"

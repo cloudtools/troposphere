@@ -31,7 +31,7 @@ def additional_info_validator(xs):
 class Application(AWSProperty):
     props = {
         'AdditionalInfo': (additional_info_validator, False),
-        'Args': (list, False),
+        'Args': ([basestring], False),
         'Name': (basestring, False),
         'Version': (basestring, False)
     }
