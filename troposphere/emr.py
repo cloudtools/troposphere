@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, AWSHelperFn
-from .validators import (boolean, integer)
+from .validators import (boolean, integer, positive_integer)
 
 
 class KeyValue(AWSHelperFn):
@@ -95,7 +95,7 @@ class InstanceGroupConfigProperty(AWSProperty):
     props = {
         'BidPrice': (basestring, False),
         'Configurations': (configurations_validator, False),
-        'InstanceCount': (integer, True),
+        'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
         'Name': (basestring, False)
@@ -110,8 +110,8 @@ class PlacementType(AWSProperty):
 
 class JobFlowInstancesConfig(AWSProperty):
     props = {
-        'AdditionalMasterSecurityGroups': (list, False),
-        'AdditionalSlaveSecurityGroups': (list, False),
+        'AdditionalMasterSecurityGroups': ([basestring], False),
+        'AdditionalSlaveSecurityGroups': ([basestring], False),
         'CoreInstanceGroup': (InstanceGroupConfigProperty, True),
         'Ec2KeyName': (basestring, False),
         'Ec2SubnetId': (basestring, False),
