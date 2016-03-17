@@ -128,6 +128,7 @@ Currently supported AWS resource types
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
 - AWS::ElasticLoadBalancing
+- AWS::Elasticsearch
 - AWS::IAM
 - AWS::KINESIS
 - AWS::KMS
