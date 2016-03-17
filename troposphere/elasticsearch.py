@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSProperty, AWSObject
+from . import AWSProperty, AWSObject
 from .validators import boolean, integer, integer_range, positive_integer
 
 VALID_VOLUME_TYPES = ('standard', 'gp2', 'io1')
@@ -21,14 +21,6 @@ def validate_volume_type(volume_type):
         raise ValueError("Elasticsearch Domain VolumeType must be one of: %s" %
                          ", ".join(VALID_VOLUME_TYPES))
     return volume_type
-
-
-class Tag(AWSHelperFn):
-    def __init__(self, key, value):
-        self.data = {'Key': key, 'Value': value}
-
-    def JSONrepr(self):
-        return self.data
 
 
 class EBSOptions(AWSProperty):
