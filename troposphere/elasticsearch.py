@@ -17,9 +17,6 @@ except ImportError:
 
 def validate_volume_type(volume_type):
     """Validate VolumeType for ElasticsearchDomain"""
-    if isinstance(volume_type, AWSHelperFn):
-        return volume_type
-
     if volume_type not in VALID_VOLUME_TYPES:
         raise ValueError("Elasticsearch Domain VolumeType must be one of: %s" %
                          ", ".join(VALID_VOLUME_TYPES))
