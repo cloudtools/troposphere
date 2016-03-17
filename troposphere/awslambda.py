@@ -1,10 +1,12 @@
 from . import AWSObject, AWSProperty, GetAtt
 from .validators import positive_integer
 
+
 MEMORY_VALUES = ['128', '192', '256', '320', '384', '448', '512',
                  '576', '640', '704', '768', '832', '896', '960', '1024',
                  '1088', '1152', '1216', '1280', '1344', '1408', '1472',
                  '1536']
+
 
 class Code(AWSProperty):
     props = {
