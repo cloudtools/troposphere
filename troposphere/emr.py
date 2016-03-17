@@ -162,7 +162,8 @@ class HadoopJarStepConfig(AWSProperty):
     props = {
         'Args': ([basestring], False),
         'Jar': (basestring, True),
-        'MainClass': (basestring, False)
+        'MainClass': (basestring, False),
+        'StepProperties': ([KeyValue], False)
     }
 
 
@@ -181,6 +182,5 @@ class Step(AWSObject):
         'ActionOnFailure': (action_on_failure_validator, True),
         'HadoopJarStep': (HadoopJarStepConfig, True),
         'JobFlowId': (basestring, True),
-        'Name': (basestring, True),
-        'StepProperties': (list, False)
+        'Name': (basestring, True)
     }
