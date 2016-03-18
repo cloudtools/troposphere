@@ -1,11 +1,22 @@
 from . import AWSObject, AWSProperty, GetAtt
 from .validators import positive_integer
 
+MEMORY_VALUES = [128, 192, 256, 320, 384, 448, 512,
+                 576, 640, 704, 768, 832, 896, 960, 1024,
+                 1088, 1152, 1216, 1280, 1344, 1408, 1472,
+                 1536]
 
-MEMORY_VALUES = ['128', '192', '256', '320', '384', '448', '512',
-                 '576', '640', '704', '768', '832', '896', '960', '1024',
-                 '1088', '1152', '1216', '1280', '1344', '1408', '1472',
-                 '1536']
+
+def validate_memory_size(memory_value):
+    """ Validate memory size for Lambda Function
+    :param memory_value: The memory size specified in the Function
+    :return: The provided memory size if it is valid
+    """
+    memory_value = int(positive_integer(memory_value))
+    if memory_value not in MEMORY_VALUES:
+        raise ValueError("Lambda Function memory size must be one of:\n %s" %
+                         ", ".join(str(mb) for mb in MEMORY_VALUES))
+    return memory_value
 
 
 class Code(AWSProperty):
@@ -56,7 +67,7 @@ class Function(AWSObject):
         'Code': (Code, True),
         'Description': (basestring, False),
         'Handler': (basestring, True),
-        'MemorySize': (positive_integer, False),
+        'MemorySize': (validate_memory_size, False),
         'Role': ([basestring, GetAtt], True),
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
