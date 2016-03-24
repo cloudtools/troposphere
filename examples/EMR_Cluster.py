@@ -159,7 +159,10 @@ step = template.add_resource(emr.Step(
     HadoopJarStep=emr.HadoopJarStepConfig(
         Args=["5", "10"],
         Jar="s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar",
-        MainClass="pi"
+        MainClass="pi",
+        StepProperties=[
+            emr.KeyValue('my.custom.property', 'my.custom.value')
+        ]
     ),
     JobFlowId=Ref(cluster)
 ))

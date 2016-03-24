@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, AWSHelperFn
-from .validators import (boolean, integer)
+from .validators import (boolean, integer, positive_integer)
 
 
 class KeyValue(AWSHelperFn):
@@ -31,7 +31,7 @@ def additional_info_validator(xs):
 class Application(AWSProperty):
     props = {
         'AdditionalInfo': (additional_info_validator, False),
-        'Args': (list, False),
+        'Args': ([basestring], False),
         'Name': (basestring, False),
         'Version': (basestring, False)
     }
@@ -95,7 +95,7 @@ class InstanceGroupConfigProperty(AWSProperty):
     props = {
         'BidPrice': (basestring, False),
         'Configurations': (configurations_validator, False),
-        'InstanceCount': (integer, True),
+        'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
         'Name': (basestring, False)
@@ -110,8 +110,8 @@ class PlacementType(AWSProperty):
 
 class JobFlowInstancesConfig(AWSProperty):
     props = {
-        'AdditionalMasterSecurityGroups': (list, False),
-        'AdditionalSlaveSecurityGroups': (list, False),
+        'AdditionalMasterSecurityGroups': ([basestring], False),
+        'AdditionalSlaveSecurityGroups': ([basestring], False),
         'CoreInstanceGroup': (InstanceGroupConfigProperty, True),
         'Ec2KeyName': (basestring, False),
         'Ec2SubnetId': (basestring, False),
@@ -162,7 +162,8 @@ class HadoopJarStepConfig(AWSProperty):
     props = {
         'Args': ([basestring], False),
         'Jar': (basestring, True),
-        'MainClass': (basestring, False)
+        'MainClass': (basestring, False),
+        'StepProperties': ([KeyValue], False)
     }
 
 
@@ -181,6 +182,5 @@ class Step(AWSObject):
         'ActionOnFailure': (action_on_failure_validator, True),
         'HadoopJarStep': (HadoopJarStepConfig, True),
         'JobFlowId': (basestring, True),
-        'Name': (basestring, True),
-        'StepProperties': (list, False)
+        'Name': (basestring, True)
     }

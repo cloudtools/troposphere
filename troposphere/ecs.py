@@ -92,5 +92,5 @@ class TaskDefinition(AWSObject):
 
     props = {
         'ContainerDefinitions': ([ContainerDefinition], True),
-        'Volumes': ([Volume], True),
+        'Volumes': ([Volume], False),
     }
