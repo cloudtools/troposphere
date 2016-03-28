@@ -339,7 +339,7 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
-    def to_json(self, indent=4, sort_keys=True, separators=(', ', ': ')):
+    def to_dict(self):
         t = {}
         if self.description:
             t['Description'] = self.description
@@ -354,7 +354,10 @@ class Template(object):
         if self.version:
             t['AWSTemplateFormatVersion'] = self.version
         t['Resources'] = self.resources
+        return t
 
+    def to_json(self, indent=4, sort_keys=True, separators=(', ', ': ')):
+        t = self.to_dict()
         return json.dumps(t, cls=awsencode, indent=indent,
                           sort_keys=sort_keys, separators=separators)
 
