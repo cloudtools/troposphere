@@ -51,7 +51,7 @@ class Function(AWSObject):
         'Description': (basestring, False),
         'Handler': (basestring, True),
         'MemorySize': (positive_integer, False),
-        'Role': ([basestring, GetAtt], True),
+        'Role': (basestring, True),
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
     }
