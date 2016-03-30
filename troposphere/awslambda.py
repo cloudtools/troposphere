@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty, GetAtt
+from . import AWSObject, AWSProperty
 from .validators import positive_integer
 
 
