@@ -6,6 +6,7 @@ from troposphere import Parameter, Ref, Template
 from troposphere.cloudfront import Distribution, DistributionConfig
 from troposphere.cloudfront import Origin, DefaultCacheBehavior
 from troposphere.cloudfront import ForwardedValues
+from troposphere.cloudfront import S3Origin
 
 
 t = Template()
@@ -28,7 +29,8 @@ s3dnsname = t.add_parameter(Parameter(
 myDistribution = t.add_resource(Distribution(
     "myDistribution",
     DistributionConfig=DistributionConfig(
-        Origins=[Origin(Id="Origin 1", DomainName=Ref(s3dnsname))],
+        Origins=[Origin(Id="Origin 1", DomainName=Ref(s3dnsname),
+                        S3OriginConfig=S3Origin())],
         DefaultCacheBehavior=DefaultCacheBehavior(
             TargetOriginId="Origin 1",
             ForwardedValues=ForwardedValues(
