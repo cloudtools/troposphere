@@ -67,3 +67,13 @@ class Permission(AWSObject):
         'SourceAccount': (basestring, False),
         'SourceArn': (basestring, False),
     }
+
+
+class Version(AWSObject):
+    resource_type = "AWS::Lambda::Version"
+
+    props = {
+        'CodeSha256': (basestring, False),
+        'Description': (basestring, False),
+        'FunctionName': (basestring, True),
+    }
