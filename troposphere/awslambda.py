@@ -67,3 +67,14 @@ class Permission(AWSObject):
         'SourceAccount': (basestring, False),
         'SourceArn': (basestring, False),
     }
+
+
+class Alias(AWSObject):
+    resource_type = "AWS::Lambda::Alias"
+
+    props = {
+        'Description': (basestring, False),
+        'FunctionName': (basestring, True),
+        'FunctionVersion': (basestring, True),
+        'Name': (basestring, True),
+    }
