@@ -78,6 +78,17 @@ class Permission(AWSObject):
     }
 
 
+class Alias(AWSObject):
+    resource_type = "AWS::Lambda::Alias"
+
+    props = {
+        'Description': (basestring, False),
+        'FunctionName': (basestring, True),
+        'FunctionVersion': (basestring, True),
+        'Name': (basestring, True),
+    }
+
+
 class Version(AWSObject):
     resource_type = "AWS::Lambda::Version"
 
