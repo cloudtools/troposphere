@@ -31,6 +31,14 @@ class Code(AWSProperty):
             )
 
 
+class VPCConfig(AWSProperty):
+
+    props = {
+        'SecurityGroupIds': (list, True),
+        'SubnetIds': (list, True),
+    }
+
+
 class EventSourceMapping(AWSObject):
     resource_type = "AWS::Lambda::EventSourceMapping"
 
@@ -54,6 +62,7 @@ class Function(AWSObject):
         'Role': (basestring, True),
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
+        'VpcConfig': (VPCConfig, False),
     }
 
 
@@ -77,4 +86,14 @@ class Alias(AWSObject):
         'FunctionName': (basestring, True),
         'FunctionVersion': (basestring, True),
         'Name': (basestring, True),
+    }
+
+
+class Version(AWSObject):
+    resource_type = "AWS::Lambda::Version"
+
+    props = {
+        'CodeSha256': (basestring, False),
+        'Description': (basestring, False),
+        'FunctionName': (basestring, True),
     }
