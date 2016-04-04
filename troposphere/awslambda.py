@@ -43,6 +43,13 @@ class EventSourceMapping(AWSObject):
     }
 
 
+class VpcConfig(AWSProperty):
+    props = {
+        'SecurityGroupIds': (list, True),
+        'SubnetIds': (list, True),
+    }
+
+
 class Function(AWSObject):
     resource_type = "AWS::Lambda::Function"
 
@@ -54,6 +61,7 @@ class Function(AWSObject):
         'Role': (basestring, True),
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
+        'VpcConfig': (VpcConfig, False),
     }
 
 
