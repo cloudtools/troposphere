@@ -1,6 +1,7 @@
+from troposphere.constants import NUMBER
 from troposphere import FindInMap, GetAtt, Join, Output
 from troposphere import Parameter, Ref, Template
-from troposphere.awslambda import Function, Code
+from troposphere.awslambda import Function, Code, MEMORY_VALUES
 from troposphere.cloudformation import CustomResource
 from troposphere.ec2 import Instance
 from troposphere.ec2 import SecurityGroup
@@ -30,6 +31,21 @@ InstanceType = t.add_parameter(Parameter(
 ExistingSecurityGroups = t.add_parameter(Parameter(
     "ExistingSecurityGroups",
     Type="List<AWS::EC2::SecurityGroup::Id>",
+))
+
+MemorySize = t.add_parameter(Parameter(
+    'LambdaMemorySize',
+    Type=NUMBER,
+    Description='Amount of memory to allocate to the Lambda Function',
+    Default='128',
+    AllowedValues=MEMORY_VALUES
+))
+
+Timeout = t.add_parameter(Parameter(
+    'LambdaTimeout',
+    Type=NUMBER,
+    Description='Timeout in seconds for the Lambda function',
+    Default='60'
 ))
 
 t.add_mapping("AWSInstanceType2Arch",
@@ -77,6 +93,8 @@ AppendItemToListFunction = t.add_resource(Function(
     Handler="index.handler",
     Role=GetAtt("LambdaExecutionRole", "Arn"),
     Runtime="nodejs",
+    MemorySize=Ref(MemorySize),
+    Timeout=Ref(Timeout)
 ))
 
 LambdaExecutionRole = t.add_resource(Role(
