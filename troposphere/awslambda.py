@@ -63,6 +63,7 @@ class Function(AWSObject):
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
         'VpcConfig': (VPCConfig, False),
+        'FunctionName': (basestring, False),
     }
 
 
