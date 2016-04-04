@@ -57,13 +57,13 @@ class Function(AWSObject):
     props = {
         'Code': (Code, True),
         'Description': (basestring, False),
+        'FunctionName': (basestring, False),
         'Handler': (basestring, True),
         'MemorySize': (positive_integer, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
         'VpcConfig': (VPCConfig, False),
-        'FunctionName': (basestring, False),
     }
 
 
