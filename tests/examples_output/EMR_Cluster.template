@@ -1,0 +1,199 @@
+{
+    "Description": "Sample CloudFormation template for creating an EMR cluster",
+    "Parameters": {
+        "KeyName": {
+            "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "ManagedMasterSecurityGroup": {
+            "Description": "Security Group (managed by EMR) for master instances",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "ManagedSlaveSecurityGroup": {
+            "Description": "Security Group (managed by EMR) for slave instances",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "ServiceAccessSecurityGroup": {
+            "Description": "Security Group providing service access to EMR",
+            "Type": "AWS::EC2::SecurityGroup::Id"
+        },
+        "Subnet": {
+            "Description": "Subnet ID for creating the EMR cluster",
+            "Type": "AWS::EC2::Subnet::Id"
+        }
+    },
+    "Resources": {
+        "EMRInstanceProfile": {
+            "Properties": {
+                "Roles": [
+                    {
+                        "Ref": "EMRJobFlowRole"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::InstanceProfile"
+        },
+        "EMRJobFlowRole": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "ec2.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "EMRSampleCluster": {
+            "Properties": {
+                "Applications": [
+                    {
+                        "Name": "Hadoop"
+                    },
+                    {
+                        "Name": "Hive"
+                    },
+                    {
+                        "Name": "Mahout"
+                    },
+                    {
+                        "Name": "Pig"
+                    },
+                    {
+                        "Name": "Spark"
+                    }
+                ],
+                "BootstrapActions": [
+                    {
+                        "Name": "Dummy bootstrap action",
+                        "ScriptBootstrapAction": {
+                            "Args": [
+                                "echo",
+                                "Hello World"
+                            ],
+                            "Path": "/bin/sh"
+                        }
+                    }
+                ],
+                "Configurations": [
+                    {
+                        "Classification": "core-site",
+                        "ConfigurationProperties": {
+                            "hadoop.security.groups.cache.secs": "250"
+                        }
+                    },
+                    {
+                        "Classification": "mapred-site",
+                        "ConfigurationProperties": {
+                            "mapred.tasktracker.map.tasks.maximum": "2",
+                            "mapreduce.map.sort.spill.percent": "90",
+                            "mapreduce.tasktracker.reduce.tasks.maximum": "5"
+                        }
+                    },
+                    {
+                        "Classification": "hadoop-env",
+                        "Configurations": [
+                            {
+                                "Classification": "export",
+                                "ConfigurationProperties": {
+                                    "HADOOP_DATANODE_HEAPSIZE": "2048",
+                                    "HADOOP_NAMENODE_OPTS": "-XX:GCTimeRatio=19"
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "Instances": {
+                    "CoreInstanceGroup": {
+                        "BidPrice": "20",
+                        "InstanceCount": "1",
+                        "InstanceType": "m3.xlarge",
+                        "Market": "SPOT",
+                        "Name": "Core Instance"
+                    },
+                    "MasterInstanceGroup": {
+                        "InstanceCount": "1",
+                        "InstanceType": "m3.xlarge",
+                        "Market": "ON_DEMAND",
+                        "Name": "Master Instance"
+                    }
+                },
+                "JobFlowRole": {
+                    "Ref": "EMRInstanceProfile"
+                },
+                "Name": "EMR Sample Cluster",
+                "ReleaseLabel": "emr-4.3.0",
+                "ServiceRole": {
+                    "Ref": "EMRServiceRole"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "EMR Sample Cluster"
+                    }
+                ],
+                "VisibleToAllUsers": "true"
+            },
+            "Type": "AWS::EMR::Cluster"
+        },
+        "EMRServiceRole": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "elasticmapreduce.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "TestStep": {
+            "Properties": {
+                "ActionOnFailure": "CONTINUE",
+                "HadoopJarStep": {
+                    "Args": [
+                        "5",
+                        "10"
+                    ],
+                    "Jar": "s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar",
+                    "MainClass": "pi",
+                    "StepProperties": [
+                        {
+                            "Key": "my.custom.property",
+                            "Value": "my.custom.value"
+                        }
+                    ]
+                },
+                "JobFlowId": {
+                    "Ref": "EMRSampleCluster"
+                },
+                "Name": "TestStep"
+            },
+            "Type": "AWS::EMR::Step"
+        }
+    }
+}
