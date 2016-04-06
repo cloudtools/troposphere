@@ -209,6 +209,28 @@ CACHE_C1_XLARGE = 'cache.c1.xlarge'
 CACHE_T1_MICRO = 'cache.t1.micro'
 
 #
+# Elasticsearch instance types
+#
+
+ELASTICSEARCH_T2_MICRO = 't2.micro.elasticsearch'
+ELASTICSEARCH_T2_SMALL = 't2.small.elasticsearch'
+ELASTICSEARCH_T2_MEDIUM = 't2.medium.elasticsearch'
+
+ELASTICSEARCH_M3_MEDIUM = 'm3.medium.elasticsearch'
+ELASTICSEARCH_M3_LARGE = 'm3.large.elasticsearch'
+ELASTICSEARCH_M3_XLARGE = 'm3.xlarge.elasticsearch'
+ELASTICSEARCH_M3_2XLARGE = 'm3.2xlarge.elasticsearch'
+
+ELASTICSEARCH_R3_LARGE = 'r3.large.elasticsearch'
+ELASTICSEARCH_R3_XLARGE = 'r3.xlarge.elasticsearch'
+ELASTICSEARCH_R3_2XLARGE = 'r3.2xlarge.elasticsearch'
+ELASTICSEARCH_R3_4XLARGE = 'r3.4xlarge.elasticsearch'
+ELASTICSEARCH_R3_8XLARGE = 'r3.8xlarge.elasticsearch'
+
+ELASTICSEARCH_I2_XLARGE = 'i2.xlarge.elasticsearch'
+ELASTICSEARCH_I2_2XLARGE = 'i2.2xlarge.elasticsearch'
+
+#
 # Parameter types
 #
 STRING = 'String'
