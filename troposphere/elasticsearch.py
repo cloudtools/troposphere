@@ -61,7 +61,7 @@ class ElasticsearchDomain(AWSObject):
     props = {
         'AccessPolicies': (policytypes, False),
         'AdvancedOptions': (dict, False),
-        'DomainName': (basestring, True),
+        'DomainName': (basestring, False),
         'EBSOptions': (EBSOptions, False),
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'SnapshotOptions': (SnapshotOptions, False),
