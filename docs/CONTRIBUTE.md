@@ -16,9 +16,6 @@ The latest test scripts can be found at https://travis-ci.org/cloudtools/troposp
 If you look at the details of a job, you can see what automated tests
 will be run against any commits to the project.
 
-
-pip install --upgrade pip setuptools wheel
-
 1. Create a virtualenv (e.g. `virtualenv ~/virtualenv/troposphere`)
 1. Activate it: `source ~/virtualenv/troposphere/bin/activate`
 1. Install modules and upgrade tools:
