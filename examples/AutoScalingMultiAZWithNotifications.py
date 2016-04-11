@@ -2,19 +2,8 @@
 """
 Converted from AutoScalingMultiAZWithNotifications.template located at:
 http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
-
-XXX In addition to troposphere, this script requires awacs (Amazon Web Access
-Control Subsystem)
 """
 from __future__ import absolute_import, division, print_function
-
-from awacs.aws import (
-    Allow,
-    Statement,
-    Principal,
-    Policy,
-    )
-from awacs.sts import AssumeRole
 
 from troposphere import (
     autoscaling,
@@ -31,7 +20,6 @@ from troposphere import (
     Output,
     Ref,
     sns,
-    Tags,
     Template,
     )
 import troposphere.elasticloadbalancing as elb
@@ -328,47 +316,7 @@ def main():
 
     # XXX Resources
 
-    cpualarmhigh = template.add_resource(
-        cloudwatch.Alarm(
-            'CPUAlarmHigh',
-            # XXX
-            AlarmActions=[Ref('WebServerScaleUpPolicy')],
-            AlarmDescription='Scale-up if CPU > 90% for 10 minutes',
-            ComparisonOperator='GreaterThanThreshold',
-            Dimensions=[cloudwatch.MetricDimension(
-                Name='AutoScalingGroupName',
-                # XXX
-                Value=Ref('WebServerGroup'),
-                )],
-            EvaluationPeriods='2',
-            MetricName='CPUUtilization',
-            Namespace='AWS/EC2',
-            Period='300',
-            Statistic='Average',
-            Threshold='90',
-            )
-        )
 
-    cpualarmlow = template.add_resource(
-        cloudwatch.Alarm(
-            'CPUAlarmLow',
-            # XXX
-            AlarmActions=[Ref('WebServerScaleDownPolicy')],
-            AlarmDescription='Scale-down if CPU < 70% for 10 minutes',
-            ComparisonOperator='LessThanThreshold',
-            Dimensions=[cloudwatch.MetricDimension(
-                Name='AutoScalingGroupName',
-                # XXX
-                Value=Ref('WebServerGroup'),
-                )],
-            EvaluationPeriods='2',
-            MetricName='CPUUtilization',
-            Namespace='AWS/EC2',
-            Period='300',
-            Statistic='Average',
-            Threshold='70',
-            )
-        )
 
     r_elb = template.add_resource(
         elb.LoadBalancer(
@@ -404,56 +352,8 @@ def main():
                 ]
             )
         )
-    webservergroup = template.add_resource(autoscaling.AutoScalingGroup(
-        'WebServerGroup',
-        AvailabilityZones=GetAZs(''),
-        CreationPolicy=CreationPolicy(
-            ResourceSignal=ResourceSignal(
-                Count='1',
-                Timeout='PT15M',
-                )
-            ),
-        LaunchConfigurationName=Ref('LaunchConfig'),
-        LoadBalancerNames=[Ref('ElasticLoadBalancer')],
-        MinSize='1',
-        MaxSize='3',
-        NotificationConfigurations=[
-            autoscaling.NotificationConfigurations(
-                'NotificationConfiguration',
-                NotificationTypes=[
-                    "autoscaling:EC2_INSTANCE_LAUNCH",
-                    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                    "autoscaling:EC2_INSTANCE_TERMINATE",
-                    "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
-                    ],
-                TopicARN=Ref('NotificationTopic'),
-                ),
-            ],
-        UpdatePolicy=UpdatePolicy(
-            AutoScalingRollingUpdate=AutoScalingRollingUpdate(
-                PauseTime='PT15M',
-                MinInstancesInService="1",
-                MaxBatchSize='1',
-                WaitOnResourceSignals=True
-                )
-            )
-        ))
 
-    webservscaleup_policy = template.add_resource(autoscaling.ScalingPolicy(
-        "WebServerScaleUpPolicy",
-        AdjustmentType='ChangeInCapacity',
-        AutoScalingGroupName=Ref(webservergroup),
-        Cooldown='60',
-        ScalingAdjustment='1',
-        ))
 
-    webservscaledown_policy = template.add_resource(autoscaling.ScalingPolicy(
-        "WebServerScaleDownPolicy",
-        AdjustmentType='ChangeInCapacity',
-        AutoScalingGroupName=Ref(webservergroup),
-        Cooldown='60',
-        ScalingAdjustment='-1',
-        ))
 
     webserversg = template.add_resource(ec2.SecurityGroup(
         'InstanceSecurityGroup',
@@ -470,11 +370,11 @@ def main():
                 FromPort='80',
                 ToPort='80',
                 SourceSecurityGroupName=GetAtt(
-                    'ElasticLoadBalancer',
+                    r_elb,
                     'SourceSecurityGroup.GroupName',
                     ),
                 SourceSecurityGroupOwnerId=GetAtt(
-                    'ElasticLoadBalancer',
+                    r_elb,
                     'SourceSecurityGroup.OwnerAlias',
                     ),
                 )
@@ -572,11 +472,13 @@ def main():
 
                 '/opt/aws/bin/cfn-init -v ',
                 '         --stack ', Ref('AWS::StackName'),
+                # resource is name of this LaunchConfig
                 '         --resource LaunchConfig ',
                 '         --region ', Ref('AWS::Region'), '\n',
 
                 '/opt/aws/bin/cfn-signal -e $? ',
                 '         --stack ', Ref('AWS::StackName'),
+                # resource is name of r_webservergroup variable
                 '         --resource WebServerGroup ',
                 '         --region ', Ref('AWS::Region'), '\n'
                 ])),
@@ -584,15 +486,103 @@ def main():
             #          Details='Created using Troposhpere')
             ))
 
+    r_webservergroup = template.add_resource(autoscaling.AutoScalingGroup(
+        'WebServerGroup',
+        AvailabilityZones=GetAZs(''),
+        CreationPolicy=CreationPolicy(
+            ResourceSignal=ResourceSignal(
+                Count='1',
+                Timeout='PT15M',
+                )
+            ),
+        LaunchConfigurationName=Ref(r_launchconfig),
+        LoadBalancerNames=[Ref(r_elb)],
+        MinSize='1',
+        MaxSize='3',
+        NotificationConfigurations=[
+            autoscaling.NotificationConfigurations(
+                'NotificationConfiguration',
+                NotificationTypes=[
+                    "autoscaling:EC2_INSTANCE_LAUNCH",
+                    "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+                    "autoscaling:EC2_INSTANCE_TERMINATE",
+                    "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
+                    ],
+                TopicARN=Ref(r_snstopic),
+                ),
+            ],
+        UpdatePolicy=UpdatePolicy(
+            AutoScalingRollingUpdate=AutoScalingRollingUpdate(
+                PauseTime='PT15M',
+                MinInstancesInService="1",
+                MaxBatchSize='1',
+                WaitOnResourceSignals=True
+                )
+            )
+        ))
+
+    webservscaleup_policy = template.add_resource(autoscaling.ScalingPolicy(
+        "WebServerScaleUpPolicy",
+        AdjustmentType='ChangeInCapacity',
+        AutoScalingGroupName=Ref(r_webservergroup),
+        Cooldown='60',
+        ScalingAdjustment='1',
+        ))
+
+    webservscaledown_policy = template.add_resource(autoscaling.ScalingPolicy(
+        "WebServerScaleDownPolicy",
+        AdjustmentType='ChangeInCapacity',
+        AutoScalingGroupName=Ref(r_webservergroup),
+        Cooldown='60',
+        ScalingAdjustment='-1',
+        ))
+
+    template.add_resource(
+        cloudwatch.Alarm(
+            'CPUAlarmHigh',
+            AlarmActions=[Ref(webservscaleup_policy)],
+            AlarmDescription='Scale-up if CPU > 90% for 10 minutes',
+            ComparisonOperator='GreaterThanThreshold',
+            Dimensions=[cloudwatch.MetricDimension(
+                Name='AutoScalingGroupName',
+                Value=Ref(r_webservergroup),
+                )],
+            EvaluationPeriods='2',
+            MetricName='CPUUtilization',
+            Namespace='AWS/EC2',
+            Period='300',
+            Statistic='Average',
+            Threshold='90',
+            )
+        )
+
+    template.add_resource(
+        cloudwatch.Alarm(
+            'CPUAlarmLow',
+            AlarmActions=[Ref(webservscaledown_policy)],
+            AlarmDescription='Scale-down if CPU < 70% for 10 minutes',
+            ComparisonOperator='LessThanThreshold',
+            Dimensions=[cloudwatch.MetricDimension(
+                Name='AutoScalingGroupName',
+                Value=Ref(r_webservergroup),
+                )],
+            EvaluationPeriods='2',
+            MetricName='CPUUtilization',
+            Namespace='AWS/EC2',
+            Period='300',
+            Statistic='Average',
+            Threshold='70',
+            )
+        )
+
     # Outputs
     template.add_output([
         Output(
             'URL',
             Description='The URL of the website',
-            # XXX
             Value=Join('', [
                 'http://',
-                GetAtt('ElasticLoadBalancer', 'DNSName'),
+                GetAtt(r_elb, 'DNSName'),
                 ])
             )
         ])
