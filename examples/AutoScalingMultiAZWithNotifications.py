@@ -37,6 +37,7 @@ from troposphere.policies import (
     UpdatePolicy,
     )
 
+
 def main():
     """
     Create a multi-az, load balanced and Auto Scaled sample web site
@@ -48,168 +49,229 @@ def main():
 
     # Description
     template.add_description(
-        'AWS CloudFormation Sample Template AutoScalingMultiAZWithNotifications: '
-        'Create a multi-az, load balanced and Auto Scaled sample web site '
-        'running on an Apache Web Serever. The application is configured to '
-        'span all Availability Zones in the region and is Auto-Scaled based on '
-        'the CPU utilization of the web servers. Notifications will be sent to '
-        'the operator email address on scaling events. The instances are load '
-        'balanced with a simple health check against the default web page. '
-        '**WARNING** This template creates one or more Amazon EC2 instances and '
-        'an Elastic Load Balancer. You will be billed for the AWS resources '
-        'used if you create a stack from this template.'
+        'AWS CloudFormation Sample Template '
+        'AutoScalingMultiAZWithNotifications: Create a multi-az, load '
+        'balanced and Auto Scaled sample web site running on an Apache '
+        'Web Serever. The application is configured to '
+        'span all Availability Zones in the region and is Auto-Scaled '
+        'based on the CPU utilization of the web servers. Notifications '
+        'will be sent to the operator email address on scaling events. '
+        'The instances are load balanced with a simple health check '
+        'against the default web page. **WARNING** This template creates '
+        'one or more Amazon EC2 instances and an Elastic Load Balancer. '
+        'You will be billed for the AWS resources used if you create a '
+        'stack from this template.'
         )
-
 
     # Mappings
     template.add_mapping(
         'AWSInstanceType2Arch', {
-            "t1.micro"    :{"Arch" : "PV64"},
-            "t2.nano"     :{"Arch" : "HVM64"},
-            "t2.micro"    :{"Arch" : "HVM64"},
-            "t2.small"    :{"Arch" : "HVM64"},
-            "t2.medium"   :{"Arch" : "HVM64"},
-            "t2.large"    :{"Arch" : "HVM64"},
-            "m1.small"    :{"Arch" : "PV64"},
-            "m1.medium"   :{"Arch" : "PV64"},
-            "m1.large"    :{"Arch" : "PV64"},
-            "m1.xlarge"   :{"Arch" : "PV64"},
-            "m2.xlarge"   :{"Arch" : "PV64"},
-            "m2.2xlarge"  :{"Arch" : "PV64"},
-            "m2.4xlarge"  :{"Arch" : "PV64"},
-            "m3.medium"   :{"Arch" : "HVM64"},
-            "m3.large"    :{"Arch" : "HVM64"},
-            "m3.xlarge"   :{"Arch" : "HVM64"},
-            "m3.2xlarge"  :{"Arch" : "HVM64"},
-            "m4.large"    :{"Arch" : "HVM64"},
-            "m4.xlarge"   :{"Arch" : "HVM64"},
-            "m4.2xlarge"  :{"Arch" : "HVM64"},
-            "m4.4xlarge"  :{"Arch" : "HVM64"},
-            "m4.10xlarge" :{"Arch" : "HVM64"},
-            "c1.medium"   :{"Arch" : "PV64"},
-            "c1.xlarge"   :{"Arch" : "PV64"},
-            "c3.large"    :{"Arch" : "HVM64"},
-            "c3.xlarge"   :{"Arch" : "HVM64"},
-            "c3.2xlarge"  :{"Arch" : "HVM64"},
-            "c3.4xlarge"  :{"Arch" : "HVM64"},
-            "c3.8xlarge"  :{"Arch" : "HVM64"},
-            "c4.large"    :{"Arch" : "HVM64"},
-            "c4.xlarge"   :{"Arch" : "HVM64"},
-            "c4.2xlarge"  :{"Arch" : "HVM64"},
-            "c4.4xlarge"  :{"Arch" : "HVM64"},
-            "c4.8xlarge"  :{"Arch" : "HVM64"},
-            "g2.2xlarge"  :{"Arch" : "HVMG2"},
-            "g2.8xlarge"  :{"Arch" : "HVMG2"},
-            "r3.large"    :{"Arch" : "HVM64"},
-            "r3.xlarge"   :{"Arch" : "HVM64"},
-            "r3.2xlarge"  :{"Arch" : "HVM64"},
-            "r3.4xlarge"  :{"Arch" : "HVM64"},
-            "r3.8xlarge"  :{"Arch" : "HVM64"},
-            "i2.xlarge"   :{"Arch" : "HVM64"},
-            "i2.2xlarge"  :{"Arch" : "HVM64"},
-            "i2.4xlarge"  :{"Arch" : "HVM64"},
-            "i2.8xlarge"  :{"Arch" : "HVM64"},
-            "d2.xlarge"   :{"Arch" : "HVM64"},
-            "d2.2xlarge"  :{"Arch" : "HVM64"},
-            "d2.4xlarge"  :{"Arch" : "HVM64"},
-            "d2.8xlarge"  :{"Arch" : "HVM64"},
-            "hi1.4xlarge" :{"Arch" : "HVM64"},
-            "hs1.8xlarge" :{"Arch" : "HVM64"},
-            "cr1.8xlarge" :{"Arch" : "HVM64"},
-            "cc2.8xlarge" :{"Arch" : "HVM64"},
+            "t1.micro": {"Arch": "PV64"},
+            "t2.nano": {"Arch": "HVM64"},
+            "t2.micro": {"Arch": "HVM64"},
+            "t2.small": {"Arch": "HVM64"},
+            "t2.medium": {"Arch": "HVM64"},
+            "t2.large": {"Arch": "HVM64"},
+            "m1.small": {"Arch": "PV64"},
+            "m1.medium": {"Arch": "PV64"},
+            "m1.large": {"Arch": "PV64"},
+            "m1.xlarge": {"Arch": "PV64"},
+            "m2.xlarge": {"Arch": "PV64"},
+            "m2.2xlarge": {"Arch": "PV64"},
+            "m2.4xlarge": {"Arch": "PV64"},
+            "m3.medium": {"Arch": "HVM64"},
+            "m3.large": {"Arch": "HVM64"},
+            "m3.xlarge": {"Arch": "HVM64"},
+            "m3.2xlarge": {"Arch": "HVM64"},
+            "m4.large": {"Arch": "HVM64"},
+            "m4.xlarge": {"Arch": "HVM64"},
+            "m4.2xlarge": {"Arch": "HVM64"},
+            "m4.4xlarge": {"Arch": "HVM64"},
+            "m4.10xlarge": {"Arch": "HVM64"},
+            "c1.medium": {"Arch": "PV64"},
+            "c1.xlarge": {"Arch": "PV64"},
+            "c3.large": {"Arch": "HVM64"},
+            "c3.xlarge": {"Arch": "HVM64"},
+            "c3.2xlarge": {"Arch": "HVM64"},
+            "c3.4xlarge": {"Arch": "HVM64"},
+            "c3.8xlarge": {"Arch": "HVM64"},
+            "c4.large": {"Arch": "HVM64"},
+            "c4.xlarge": {"Arch": "HVM64"},
+            "c4.2xlarge": {"Arch": "HVM64"},
+            "c4.4xlarge": {"Arch": "HVM64"},
+            "c4.8xlarge": {"Arch": "HVM64"},
+            "g2.2xlarge": {"Arch": "HVMG2"},
+            "g2.8xlarge": {"Arch": "HVMG2"},
+            "r3.large": {"Arch": "HVM64"},
+            "r3.xlarge": {"Arch": "HVM64"},
+            "r3.2xlarge": {"Arch": "HVM64"},
+            "r3.4xlarge": {"Arch": "HVM64"},
+            "r3.8xlarge": {"Arch": "HVM64"},
+            "i2.xlarge": {"Arch": "HVM64"},
+            "i2.2xlarge": {"Arch": "HVM64"},
+            "i2.4xlarge": {"Arch": "HVM64"},
+            "i2.8xlarge": {"Arch": "HVM64"},
+            "d2.xlarge": {"Arch": "HVM64"},
+            "d2.2xlarge": {"Arch": "HVM64"},
+            "d2.4xlarge": {"Arch": "HVM64"},
+            "d2.8xlarge": {"Arch": "HVM64"},
+            "hi1.4xlarge": {"Arch": "HVM64"},
+            "hs1.8xlarge": {"Arch": "HVM64"},
+            "cr1.8xlarge": {"Arch": "HVM64"},
+            "cc2.8xlarge": {"Arch": "HVM64"},
             }
         )
 
     template.add_mapping(
         "AWSInstanceType2NATArch", {
-            "t1.micro"    :{"Arch" : "NATPV64"},
-            "t2.nano"     :{"Arch" : "NATHVM64"},
-            "t2.micro"    :{"Arch" : "NATHVM64"},
-            "t2.small"    :{"Arch" : "NATHVM64"},
-            "t2.medium"   :{"Arch" : "NATHVM64"},
-            "t2.large"    :{"Arch" : "NATHVM64"},
-            "m1.small"    :{"Arch" : "NATPV64"},
-            "m1.medium"   :{"Arch" : "NATPV64"},
-            "m1.large"    :{"Arch" : "NATPV64"},
-            "m1.xlarge"   :{"Arch" : "NATPV64"},
-            "m2.xlarge"   :{"Arch" : "NATPV64"},
-            "m2.2xlarge"  :{"Arch" : "NATPV64"},
-            "m2.4xlarge"  :{"Arch" : "NATPV64"},
-            "m3.medium"   :{"Arch" : "NATHVM64"},
-            "m3.large"    :{"Arch" : "NATHVM64"},
-            "m3.xlarge"   :{"Arch" : "NATHVM64"},
-            "m3.2xlarge"  :{"Arch" : "NATHVM64"},
-            "m4.large"    :{"Arch" : "NATHVM64"},
-            "m4.xlarge"   :{"Arch" : "NATHVM64"},
-            "m4.2xlarge"  :{"Arch" : "NATHVM64"},
-            "m4.4xlarge"  :{"Arch" : "NATHVM64"},
-            "m4.10xlarge" :{"Arch" : "NATHVM64"},
-            "c1.medium"   :{"Arch" : "NATPV64"},
-            "c1.xlarge"   :{"Arch" : "NATPV64"},
-            "c3.large"    :{"Arch" : "NATHVM64"},
-            "c3.xlarge"   :{"Arch" : "NATHVM64"},
-            "c3.2xlarge"  :{"Arch" : "NATHVM64"},
-            "c3.4xlarge"  :{"Arch" : "NATHVM64"},
-            "c3.8xlarge"  :{"Arch" : "NATHVM64"},
-            "c4.large"    :{"Arch" : "NATHVM64"},
-            "c4.xlarge"   :{"Arch" : "NATHVM64"},
-            "c4.2xlarge"  :{"Arch" : "NATHVM64"},
-            "c4.4xlarge"  :{"Arch" : "NATHVM64"},
-            "c4.8xlarge"  :{"Arch" : "NATHVM64"},
-            "g2.2xlarge"  :{"Arch" : "NATHVMG2"},
-            "g2.8xlarge"  :{"Arch" : "NATHVMG2"},
-            "r3.large"    :{"Arch" : "NATHVM64"},
-            "r3.xlarge"   :{"Arch" : "NATHVM64"},
-            "r3.2xlarge"  :{"Arch" : "NATHVM64"},
-            "r3.4xlarge"  :{"Arch" : "NATHVM64"},
-            "r3.8xlarge"  :{"Arch" : "NATHVM64"},
-            "i2.xlarge"   :{"Arch" : "NATHVM64"},
-            "i2.2xlarge"  :{"Arch" : "NATHVM64"},
-            "i2.4xlarge"  :{"Arch" : "NATHVM64"},
-            "i2.8xlarge"  :{"Arch" : "NATHVM64"},
-            "d2.xlarge"   :{"Arch" : "NATHVM64"},
-            "d2.2xlarge"  :{"Arch" : "NATHVM64"},
-            "d2.4xlarge"  :{"Arch" : "NATHVM64"},
-            "d2.8xlarge"  :{"Arch" : "NATHVM64"},
-            "hi1.4xlarge" :{"Arch" : "NATHVM64"},
-            "hs1.8xlarge" :{"Arch" : "NATHVM64"},
-            "cr1.8xlarge" :{"Arch" : "NATHVM64"},
-            "cc2.8xlarge" :{"Arch" : "NATHVM64"},
+            "t1.micro": {"Arch": "NATPV64"},
+            "t2.nano": {"Arch": "NATHVM64"},
+            "t2.micro": {"Arch": "NATHVM64"},
+            "t2.small": {"Arch": "NATHVM64"},
+            "t2.medium": {"Arch": "NATHVM64"},
+            "t2.large": {"Arch": "NATHVM64"},
+            "m1.small": {"Arch": "NATPV64"},
+            "m1.medium": {"Arch": "NATPV64"},
+            "m1.large": {"Arch": "NATPV64"},
+            "m1.xlarge": {"Arch": "NATPV64"},
+            "m2.xlarge": {"Arch": "NATPV64"},
+            "m2.2xlarge": {"Arch": "NATPV64"},
+            "m2.4xlarge": {"Arch": "NATPV64"},
+            "m3.medium": {"Arch": "NATHVM64"},
+            "m3.large": {"Arch": "NATHVM64"},
+            "m3.xlarge": {"Arch": "NATHVM64"},
+            "m3.2xlarge": {"Arch": "NATHVM64"},
+            "m4.large": {"Arch": "NATHVM64"},
+            "m4.xlarge": {"Arch": "NATHVM64"},
+            "m4.2xlarge": {"Arch": "NATHVM64"},
+            "m4.4xlarge": {"Arch": "NATHVM64"},
+            "m4.10xlarge": {"Arch": "NATHVM64"},
+            "c1.medium": {"Arch": "NATPV64"},
+            "c1.xlarge": {"Arch": "NATPV64"},
+            "c3.large": {"Arch": "NATHVM64"},
+            "c3.xlarge": {"Arch": "NATHVM64"},
+            "c3.2xlarge": {"Arch": "NATHVM64"},
+            "c3.4xlarge": {"Arch": "NATHVM64"},
+            "c3.8xlarge": {"Arch": "NATHVM64"},
+            "c4.large": {"Arch": "NATHVM64"},
+            "c4.xlarge": {"Arch": "NATHVM64"},
+            "c4.2xlarge": {"Arch": "NATHVM64"},
+            "c4.4xlarge": {"Arch": "NATHVM64"},
+            "c4.8xlarge": {"Arch": "NATHVM64"},
+            "g2.2xlarge": {"Arch": "NATHVMG2"},
+            "g2.8xlarge": {"Arch": "NATHVMG2"},
+            "r3.large": {"Arch": "NATHVM64"},
+            "r3.xlarge": {"Arch": "NATHVM64"},
+            "r3.2xlarge": {"Arch": "NATHVM64"},
+            "r3.4xlarge": {"Arch": "NATHVM64"},
+            "r3.8xlarge": {"Arch": "NATHVM64"},
+            "i2.xlarge": {"Arch": "NATHVM64"},
+            "i2.2xlarge": {"Arch": "NATHVM64"},
+            "i2.4xlarge": {"Arch": "NATHVM64"},
+            "i2.8xlarge": {"Arch": "NATHVM64"},
+            "d2.xlarge": {"Arch": "NATHVM64"},
+            "d2.2xlarge": {"Arch": "NATHVM64"},
+            "d2.4xlarge": {"Arch": "NATHVM64"},
+            "d2.8xlarge": {"Arch": "NATHVM64"},
+            "hi1.4xlarge": {"Arch": "NATHVM64"},
+            "hs1.8xlarge": {"Arch": "NATHVM64"},
+            "cr1.8xlarge": {"Arch": "NATHVM64"},
+            "cc2.8xlarge": {"Arch": "NATHVM64"},
             }
         )
 
     template.add_mapping(
         "AWSRegionArch2AMI", {
-            "us-east-1"      :{"PV64" : "ami-22111148", "HVM64" : "ami-08111162", "HVMG2" : "ami-ebcec381"},
-            "us-west-2"      :{"PV64" : "ami-792bc219", "HVM64" : "ami-c229c0a2", "HVMG2" : "ami-0f28c06f"},
-            "us-west-1"      :{"PV64" : "ami-0e087a6e", "HVM64" : "ami-1b0f7d7b", "HVMG2" : "ami-ab9defcb"},
-            "eu-west-1"      :{"PV64" : "ami-a5368cd6", "HVM64" : "ami-31328842", "HVMG2" : "ami-d1d652a2"},
-            "eu-central-1"   :{"PV64" : "ami-2bde3944", "HVM64" : "ami-e2df388d", "HVMG2" : "ami-5240a73d"},
-            "ap-northeast-1" :{"PV64" : "ami-37020959", "HVM64" : "ami-f80e0596", "HVMG2" : "ami-34a9a35a"},
-            "ap-northeast-2" :{"PV64" : "NOT_SUPPORTED", "HVM64" : "ami-6598510b", "HVMG2" : "NOT_SUPPORTED"},
-            "ap-southeast-1" :{"PV64" : "ami-ff0cc79c", "HVM64" : "ami-e90dc68a", "HVMG2" : "ami-6f6ca70c"},
-            "ap-southeast-2" :{"PV64" : "ami-f5210196", "HVM64" : "ami-f2210191", "HVMG2" : "ami-88c1e1eb"},
-            "sa-east-1"      :{"PV64" : "ami-661e930a", "HVM64" : "ami-1e159872", "HVMG2" : "NOT_SUPPORTED"},
-            "cn-north-1"     :{"PV64" : "ami-08ef2465", "HVM64" : "ami-49e22924", "HVMG2" : "NOT_SUPPORTED"}
+            "us-east-1": {
+                "PV64": "ami-22111148",
+                "HVM64": "ami-08111162",
+                "HVMG2": "ami-ebcec381",
+                },
+            "us-west-2": {
+                "PV64": "ami-792bc219",
+                "HVM64": "ami-c229c0a2",
+                "HVMG2": "ami-0f28c06f",
+                },
+            "us-west-1": {
+                "PV64": "ami-0e087a6e",
+                "HVM64": "ami-1b0f7d7b",
+                "HVMG2": "ami-ab9defcb"
+                },
+            "eu-west-1": {
+                "PV64": "ami-a5368cd6",
+                "HVM64": "ami-31328842",
+                "HVMG2": "ami-d1d652a2"
+                },
+            "eu-central-1": {
+                "PV64": "ami-2bde3944",
+                "HVM64": "ami-e2df388d",
+                "HVMG2": "ami-5240a73d"
+                },
+            "ap-northeast-1": {
+                "PV64": "ami-37020959",
+                "HVM64": "ami-f80e0596",
+                "HVMG2": "ami-34a9a35a"
+                },
+            "ap-northeast-2": {
+                "PV64": "NOT_SUPPORTED",
+                "HVM64": "ami-6598510b",
+                "HVMG2": "NOT_SUPPORTED"
+                },
+            "ap-southeast-1": {
+                "PV64": "ami-ff0cc79c",
+                "HVM64": "ami-e90dc68a",
+                "HVMG2": "ami-6f6ca70c"
+                },
+            "ap-southeast-2": {
+                "PV64": "ami-f5210196",
+                "HVM64": "ami-f2210191",
+                "HVMG2": "ami-88c1e1eb"
+                },
+            "sa-east-1": {
+                "PV64": "ami-661e930a",
+                "HVM64": "ami-1e159872",
+                "HVMG2": "NOT_SUPPORTED"
+                },
+            "cn-north-1": {
+                "PV64": "ami-08ef2465",
+                "HVM64": "ami-49e22924",
+                "HVMG2": "NOT_SUPPORTED"
+                },
             }
         )
 
+    # This craziness is needed to pass pep8 line lengths of <79
+    regions = [
+        'us-east-1',
+        'us-west-2',
+        'us-west-1',
+        'eu-west-1',
+        'sa-east-1',
+        'eu-central-1',
+        'ap-southeast-1',
+        'ap-northeast-1',
+        'ap-northeast-2',
+        'ap-southeast-2',
+        'cn-north-1',
+        ]
+    example_map = {}
+    for a_region in regions:
+        if a_region == 'us-east-1':
+            example_prefix = ('https://s3.amazonaws.com/cloudformat'
+                              'ion-examples-')
+        elif a_region == 'cn-north-1':
+            example_prefix = ('https://s3.cn-north-1.amazonaws.com.cn/cloudfo'
+                              'rmation-examples-')
+        else:
+            example_prefix = 'https://s3-' + \
+                a_region + \
+                '.amazonaws.com/cloudformation-examples-'
+        example_map[a_region] = {
+            "Examples": example_prefix + a_region
+            }
     template.add_mapping(
-        "Region2Examples", {
-            "us-east-1"     :{"Examples":"https://s3.amazonaws.com/cloudformation-examples-us-east-1"},
-            "us-west-2"     :{"Examples":"https://s3-us-west-2.amazonaws.com/cloudformation-examples-us-west-2"},
-            "us-west-1"     :{"Examples":"https://s3-us-west-1.amazonaws.com/cloudformation-examples-us-west-1"},
-            "eu-west-1"     :{"Examples":"https://s3-eu-west-1.amazonaws.com/cloudformation-examples-eu-west-1"},
-            "eu-central-1"  :{"Examples":"https://s3-eu-central-1.amazonaws.com/cloudformation-examples-eu-central-1"},
-            "ap-southeast-1":{"Examples":"https://s3-ap-southeast-1.amazonaws.com/cloudformation-examples-ap-southeast-1"},
-            "ap-northeast-1":{"Examples":"https://s3-ap-northeast-1.amazonaws.com/cloudformation-examples-ap-northeast-1"},
-            "ap-northeast-2":{"Examples":"https://s3-ap-northeast-2.amazonaws.com/cloudformation-examples-ap-northeast-2"},
-            "ap-southeast-2":{"Examples":"https://s3-ap-southeast-2.amazonaws.com/cloudformation-examples-ap-southeast-2"},
-            "sa-east-1"     :{"Examples":"https://s3-sa-east-1.amazonaws.com/cloudformation-examples-sa-east-1"},
-            "cn-north-1"    :{"Examples":"https://s3.cn-north-1.amazonaws.com.cn/cloudformation-examples-cn-north-1"}
-            }
+        "Region2Examples", example_map
         )
-
 
     # Parameters
 
@@ -294,7 +356,8 @@ def main():
             '\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)'
             ),
         ConstraintDescription="must be a valid email address.",
-        Description="EMail address to notify if there are any scaling operations",
+        Description=("EMail address to notify if there are any scaling "
+                     "operations"),
         Type=constants.STRING,
         ))
 
@@ -314,9 +377,7 @@ def main():
                               ' form x.x.x.x/x.'
         ))
 
-    # XXX Resources
-
-
+    # Resources
 
     r_elb = template.add_resource(
         elb.LoadBalancer(
@@ -353,11 +414,10 @@ def main():
             )
         )
 
-
-
     webserversg = template.add_resource(ec2.SecurityGroup(
         'InstanceSecurityGroup',
-        GroupDescription='Enable SSH access and HTTP from the load balancer only',
+        GroupDescription=('Enable SSH access and HTTP from '
+                          'the load balancer only'),
         SecurityGroupIngress=[
             ec2.SecurityGroupRule(
                 IpProtocol='tcp',
@@ -381,6 +441,19 @@ def main():
             ]
         ))
 
+    cfn_init = [
+        '[cfn-auto-reloader-hook]\n',
+        'triggers=post.update\n',
+        'path=Resources.LaunchConfig.Metadata'
+        '.AWS::CloudFormation::Init\n',
+        'action=/opt/aws/bin/cfn-init -v ',
+        '         --stack ', Ref('AWS::StackName'),
+        '         --resource LaunchConfig ',
+        '         --region ', Ref('AWS::Region'),
+        '\n',
+        'runas=root\n'
+        ]
+
     r_launchconfig = template.add_resource(
         autoscaling.LaunchConfiguration(
             'LaunchConfig',
@@ -394,7 +467,8 @@ def main():
                             },
 
                         files=cloudformation.InitFiles({
-                            '/var/www/html/index.html': cloudformation.InitFile(
+                            ('/var/www/html'
+                             '/index.html'): cloudformation.InitFile(
                                 content=Join('\n', [
                                     "<img src=\"",
                                     FindInMap(
@@ -402,8 +476,11 @@ def main():
                                         Ref('AWS::Region'),
                                         'Examples',
                                         ),
-                                    '/cloudformation_graphic.png\" alt=\"AWS CloudFormation Logo\"/>',
-                                    '<h1>Congratulations, you have successfully launched the AWS CloudFormation sample.</h1>',
+                                    ('/cloudformation_graphic.png\" '
+                                     'alt=\"AWS CloudFormation Logo\"/>'),
+                                    ('<h1>Congratulations, you have '
+                                     'successfully launched the AWS '
+                                     'CloudFormation sample.</h1>'),
                                     ]),
                                 mode='000644',
                                 owner='root',
@@ -422,19 +499,8 @@ def main():
                                 ),
                             '/etc/cfn/hooks.d/cfn-auto-reloader.conf':
                                 cloudformation.InitFile(
-                                    content=Join('', [
-                                        '[cfn-auto-reloader-hook]\n',
-                                        'triggers=post.update\n',
-                                        'path=Resources.LaunchConfig.Metadata'
-                                        '.AWS::CloudFormation::Init\n',
-                                        'action=/opt/aws/bin/cfn-init -v ',
-                                        '         --stack ', Ref('AWS::StackName'),
-                                        '         --resource LaunchConfig ',
-                                        '         --region ', Ref('AWS::Region'),
-                                        '\n',
-                                        'runas=root\n'
-                                        ]),
-                                    # Why doesn't the Amazon template have this?
+                                    content=Join('', cfn_init)
+                                    # Why doesn't the template have this?
                                     # mode='000400',
                                     # owner='root',
                                     # group='root'
@@ -459,7 +525,6 @@ def main():
                     }),
                 cloudformation.Comment('Install a simple application'),
                 ),
-            # XXX How do I add the comment to the Metadata? Troposphere errors out
             ImageId=FindInMap('AWSRegionArch2AMI', Ref('AWS::Region'),
                               FindInMap('AWSInstanceType2Arch',
                                         Ref(instancetype), 'Arch')),
@@ -482,8 +547,6 @@ def main():
                 '         --resource WebServerGroup ',
                 '         --region ', Ref('AWS::Region'), '\n'
                 ])),
-            #Tags=autoscaling.Tags(Application=Ref('AWS::StackId'),
-            #          Details='Created using Troposhpere')
             ))
 
     r_webservergroup = template.add_resource(autoscaling.AutoScalingGroup(
