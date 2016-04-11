@@ -70,6 +70,12 @@ class Metadata(AWSHelperFn):
             t += encode_to_dict(i).items()
         return dict(t)
 
+class Comment(AWSHelperFn):
+    def __init__(self, data):
+        self.data = {'Comment': data}
+
+    def JSONrepr(self):
+        return self.data
 
 class InitFileContext(AWSHelperFn):
     def __init__(self, data):

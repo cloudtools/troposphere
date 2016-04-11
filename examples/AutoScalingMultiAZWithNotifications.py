@@ -555,11 +555,11 @@ def main():
                                     ),
                                 }),
                             },
-                        )
-                    })
+                        ),
+                    }),
+                cloudformation.Comment('Install a simple application'),
                 ),
             # XXX How do I add the comment to the Metadata? Troposphere errors out
-            #Comment='Install a simple application',
             ImageId=FindInMap('AWSRegionArch2AMI', Ref('AWS::Region'),
                               FindInMap('AWSInstanceType2Arch',
                                         Ref(instancetype), 'Arch')),
