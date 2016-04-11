@@ -418,8 +418,8 @@ def main():
         MinSize='1',
         MaxSize='3',
         NotificationConfigurations=[
-            # XXX Example isn't in a list but troposphere wont build unless it is a list
             autoscaling.NotificationConfigurations(
+                'NotificationConfiguration',
                 NotificationTypes=[
                     "autoscaling:EC2_INSTANCE_LAUNCH",
                     "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
@@ -427,7 +427,7 @@ def main():
                     "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
                     ],
                 TopicARN=Ref('NotificationTopic'),
-                )
+                ),
             ],
         UpdatePolicy=UpdatePolicy(
             AutoScalingRollingUpdate=AutoScalingRollingUpdate(

@@ -830,17 +830,19 @@
                 ],
                 "MaxSize": "3",
                 "MinSize": "1",
-                "NotificationConfiguration": {
-                    "NotificationTypes": [
-                        "autoscaling:EC2_INSTANCE_LAUNCH",
-                        "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
-                        "autoscaling:EC2_INSTANCE_TERMINATE",
-                        "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
-                    ],
-                    "TopicARN": {
-                        "Ref": "NotificationTopic"
+                "NotificationConfigurations": [
+                    {
+                        "NotificationTypes": [
+                            "autoscaling:EC2_INSTANCE_LAUNCH",
+                            "autoscaling:EC2_INSTANCE_LAUNCH_ERROR",
+                            "autoscaling:EC2_INSTANCE_TERMINATE",
+                            "autoscaling:EC2_INSTANCE_TERMINATE_ERROR"
+                        ],
+                        "TopicARN": {
+                            "Ref": "NotificationTopic"
+                        }
                     }
-                }
+                ]
             },
             "Type": "AWS::AutoScaling::AutoScalingGroup",
             "UpdatePolicy": {
