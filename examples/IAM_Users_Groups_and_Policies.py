@@ -52,7 +52,6 @@ t.add_resource(PolicyType(
             ],
             "Resource": "*"
         }],
-        
     }
 ))
 
