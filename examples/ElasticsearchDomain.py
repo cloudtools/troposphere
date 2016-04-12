@@ -2,7 +2,7 @@
 # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#d0e51519
 
 from troposphere import Template
-from troposphere.elasticsearch import ElasticsearchDomain, EBSOptions
+from troposphere.elasticsearch import Domain, EBSOptions
 from troposphere.elasticsearch import ElasticsearchClusterConfig
 from troposphere.elasticsearch import SnapshotOptions
 
@@ -11,7 +11,7 @@ templ = Template()
 
 templ.add_description('Elasticsearch Domain example')
 
-es_domain = templ.add_resource(ElasticsearchDomain(
+es_domain = templ.add_resource(Domain(
     'ElasticsearchDomain',
     DomainName="ExampleElasticsearchDomain",
     ElasticsearchClusterConfig=ElasticsearchClusterConfig(
