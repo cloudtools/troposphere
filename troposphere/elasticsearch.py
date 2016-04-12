@@ -55,7 +55,7 @@ class SnapshotOptions(AWSProperty):
     }
 
 
-class ElasticsearchDomain(AWSObject):
+class Domain(AWSObject):
     resource_type = "AWS::Elasticsearch::Domain"
 
     props = {
