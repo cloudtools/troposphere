@@ -1,7 +1,7 @@
 # Converted from Elasticsearch Domain example located at:
 # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#d0e51519
 
-from troposphere import Template
+from troposphere import Template, constants
 from troposphere.elasticsearch import ElasticsearchDomain, EBSOptions
 from troposphere.elasticsearch import ElasticsearchClusterConfig
 from troposphere.elasticsearch import SnapshotOptions
@@ -18,8 +18,8 @@ es_domain = templ.add_resource(ElasticsearchDomain(
         DedicatedMasterEnabled=True,
         InstanceCount=2,
         ZoneAwarenessEnabled=True,
-        InstanceType="m3.medium.elasticsearch",
-        DedicatedMasterType="m3.medium.elasticsearch",
+        InstanceType=constants.ELASTICSEARCH_M3_MEDIUM,
+        DedicatedMasterType=constants.ELASTICSEARCH_M3_MEDIUM,
         DedicatedMasterCount=3
     ),
     EBSOptions=EBSOptions(EBSEnabled=True,
