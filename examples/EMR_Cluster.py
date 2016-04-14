@@ -86,7 +86,7 @@ emr_instance_profile = template.add_resource(iam.InstanceProfile(
 cluster = template.add_resource(emr.Cluster(
     "EMRSampleCluster",
     Name="EMR Sample Cluster",
-    ReleaseLabel='emr-4.3.0',
+    ReleaseLabel='emr-4.4.0',
     BootstrapActions=[emr.BootstrapActionConfig(
         Name='Dummy bootstrap action',
         ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(
@@ -122,6 +122,18 @@ cluster = template.add_resource(emr.Cluster(
             ]
         )
     ],
+    EbsConfiguration=emr.EbsConfiguration(
+        EbsBlockDeviceConfig=[
+            emr.EbsBlockDeviceConfig(
+                VolumeSpecification=emr.VolumeSpecification(
+                    SizeInGB="100",
+                    VolumeType="standard"
+                ),
+                VolumesPerInstance="1"
+            )
+        ],
+        EbsOptimized="true"
+    ),
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
     Instances=emr.JobFlowInstancesConfig(
