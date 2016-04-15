@@ -83,6 +83,41 @@
             ],
             "Default": "t2.micro",
             "Type": "String"
+        },
+        "LambdaMemorySize": {
+            "AllowedValues": [
+                128,
+                192,
+                256,
+                320,
+                384,
+                448,
+                512,
+                576,
+                640,
+                704,
+                768,
+                832,
+                896,
+                960,
+                1024,
+                1088,
+                1152,
+                1216,
+                1280,
+                1344,
+                1408,
+                1472,
+                1536
+            ],
+            "Default": "128",
+            "Description": "Amount of memory to allocate to the Lambda Function",
+            "Type": "Number"
+        },
+        "LambdaTimeout": {
+            "Default": "60",
+            "Description": "Timeout in seconds for the Lambda function",
+            "Type": "Number"
         }
     },
     "Resources": {
@@ -121,13 +156,19 @@
                     }
                 },
                 "Handler": "index.handler",
+                "MemorySize": {
+                    "Ref": "LambdaMemorySize"
+                },
                 "Role": {
                     "Fn::GetAtt": [
                         "LambdaExecutionRole",
                         "Arn"
                     ]
                 },
-                "Runtime": "nodejs"
+                "Runtime": "nodejs",
+                "Timeout": {
+                    "Ref": "LambdaTimeout"
+                }
             },
             "Type": "AWS::Lambda::Function"
         },

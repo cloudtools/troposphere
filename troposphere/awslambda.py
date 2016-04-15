@@ -1,6 +1,20 @@
 from . import AWSObject, AWSProperty
 from .validators import positive_integer
 
+MEMORY_VALUES = [x for x in range(128, 1600, 64)]
+
+
+def validate_memory_size(memory_value):
+    """ Validate memory size for Lambda Function
+    :param memory_value: The memory size specified in the Function
+    :return: The provided memory size if it is valid
+    """
+    memory_value = int(positive_integer(memory_value))
+    if memory_value not in MEMORY_VALUES:
+        raise ValueError("Lambda Function memory size must be one of:\n %s" %
+                         ", ".join(str(mb) for mb in MEMORY_VALUES))
+    return memory_value
+
 
 class Code(AWSProperty):
     props = {
@@ -59,7 +73,7 @@ class Function(AWSObject):
         'Description': (basestring, False),
         'FunctionName': (basestring, False),
         'Handler': (basestring, True),
-        'MemorySize': (positive_integer, False),
+        'MemorySize': (validate_memory_size, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
         'Timeout': (positive_integer, False),
