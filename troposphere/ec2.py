@@ -207,7 +207,7 @@ class NetworkAclEntry(AWSObject):
 
     props = {
         'CidrBlock': (basestring, True),
-        'Egress': (boolean, True),
+        'Egress': (boolean, False),
         'Icmp': (ICMP, False),  # Conditional
         'NetworkAclId': (basestring, True),
         'PortRange': (PortRange, False),  # Conditional
@@ -272,10 +272,10 @@ class SecurityGroupEgress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
-        'FromPort': (network_port, True),
+        'FromPort': (network_port, False),
         'GroupId': (basestring, True),
         'IpProtocol': (basestring, True),
-        'ToPort': (network_port, True),
+        'ToPort': (network_port, False),
         #
         # Workaround for a bug in CloudFormation and EC2 where the
         # DestinationSecurityGroupId property is ignored causing
@@ -306,12 +306,12 @@ class SecurityGroupIngress(AWSObject):
 class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
-        'FromPort': (network_port, True),
+        'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'ToPort': (network_port, True),
+        'ToPort': (network_port, False),
         'DestinationSecurityGroupId': (basestring, False),
     }
 
