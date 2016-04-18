@@ -20,6 +20,14 @@ class Account(AWSObject):
     }
 
 
+class StageKey(AWSProperty):
+
+    props = {
+        "RestApiId": (basestring, False),
+        "StageName": (basestring, False)
+    }
+
+
 class ApiKey(AWSObject):
 
     props = {
@@ -27,14 +35,6 @@ class ApiKey(AWSObject):
         "Enable": (bool, False),
         "Name": (basestring, False),
         "StageKeys": ([StageKey], False)
-    }
-
-
-class StageKey(AWSProperty):
-
-    props = {
-        "RestApiId": (basestring, False),
-        "StageName": (basestring, False)
     }
 
 
@@ -69,13 +69,19 @@ class ClientCertificate(AWSObject):
     }
 
 
-class Deployment(AWSObject):
+class MethodSetting(AWSProperty):
 
     props = {
-        "Description": (basestring, False),
-        "RestApiId": (basestring, True),
-        "StageDescription": (StageDescription, False),
-        "StageName": (basestring, False)
+        "CacheDataEncrypted": (bool, False),
+        "CacheTtlInSeconds": (positive_integer, False),
+        "CachingEnabled": (bool, False),
+        "DataTraceEnabled": (bool, False),
+        "HttpMethod": (basestring, False),
+        "LoggingLevel": (basestring, False),
+        "MetricsEnabled": (bool, False),
+        "ResourcePath": (basestring, False),
+        "ThrottlingBurstLimit": (positive_integer, False),
+        "ThrottlingRateLimit": (positive_integer, False)
     }
 
 
@@ -94,35 +100,23 @@ class StageDescription(AWSProperty):
     }
 
 
-class MethodSetting(AWSProperty):
+class Deployment(AWSObject):
 
     props = {
-        "CacheDataEncrypted": (bool, False),
-        "CacheTtlInSeconds": (positive_integer, False),
-        "CachingEnabled": (bool, False),
-        "DataTraceEnabled": (bool, False),
-        "HttpMethod": (basestring, False),
-        "LoggingLevel": (basestring, False),
-        "MetricsEnabled": (bool, False),
-        "ResourcePath": (basestring, False),
-        "ThrottlingBurstLimit": (positive_integer, False),
-        "ThrottlingRateLimit": (positive_integer, False)
+        "Description": (basestring, False),
+        "RestApiId": (basestring, True),
+        "StageDescription": (StageDescription, False),
+        "StageName": (basestring, False)
     }
 
 
-class Method(AWSObject):
+class IntegrationResponse(AWSProperty):
 
     props = {
-        "ApiKeyRequired": (bool, False),
-        "AuthorizationType": (basestring, False),
-        "AuthorizerId": (basestring, False),
-        "HttpMethod": (basestring, False),
-        "Integration": (Integration, False),
-        "MethodResponses": ([MethodResponse], False),
-        "RequestModels": (dict, False),
-        "RequestParameters": (dict, False),
-        "ResourceId": (basestring, False),
-        "RestApiId": (basestring, False)
+        "ResponseParameters": (dict, False),
+        "ResponseTemplates": (dict, False),
+        "SelectionPattern": (basestring, False),
+        "StatusCode": (basestring, False)
     }
 
 
@@ -141,22 +135,28 @@ class Integration(AWSProperty):
     }
 
 
-class IntegrationResponse(AWSProperty):
-
-    props = {
-        "ResponseParameters": (dict, False),
-        "ResponseTemplates": (dict, False),
-        "SelectionPattern": (basestring, False),
-        "StatusCode": (basestring, False)
-    }
-
-
 class MethodResponse(AWSProperty):
 
     props = {
         "ResponseModels": (dict, False),
         "ResponseParameters": (dict, False),
         "StatusCode": (basestring, False)
+    }
+
+
+class Method(AWSObject):
+
+    props = {
+        "ApiKeyRequired": (bool, False),
+        "AuthorizationType": (basestring, False),
+        "AuthorizerId": (basestring, False),
+        "HttpMethod": (basestring, False),
+        "Integration": (Integration, False),
+        "MethodResponses": ([MethodResponse], False),
+        "RequestModels": (dict, False),
+        "RequestParameters": (dict, False),
+        "ResourceId": (basestring, False),
+        "RestApiId": (basestring, False)
     }
 
 
@@ -180,6 +180,16 @@ class Resource(AWSObject):
     }
 
 
+class S3Location(AWSProperty):
+
+    props = {
+        "Bucket": (basestring, False),
+        "ETag": (basestring, False),
+        "Key": (basestring, False),
+        "Version": (basestring, False)
+    }
+
+
 class RestApi(AWSObject):
 
     props = {
@@ -190,16 +200,6 @@ class RestApi(AWSObject):
         "FailOnWarnings": (basestring, False),
         "Name": (basestring, False),
         "Parameters": ([basestring], False)
-    }
-
-
-class S3Location(AWSProperty):
-
-    props = {
-        "Bucket": (basestring, False),
-        "ETag": (basestring, False),
-        "Key": (basestring, False),
-        "Version": (basestring, False)
     }
 
 
