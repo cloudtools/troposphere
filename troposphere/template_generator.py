@@ -62,6 +62,8 @@ class TemplateGenerator(Template):
             self.add_parameter(self._create_instance(Parameter, v, k))
         for k, v in cf_template.get('Mappings', {}).iteritems():
             self.add_mapping(k, **self._convert_definition(v))
+        for k, v in cf_template.get('Conditions', {}).iteritems():
+            self.add_condition(k, self._convert_definition(v, k))
         for k, v in cf_template.get('Resources', {}).iteritems():
             self.add_resource(self._convert_definition(v, k))
         for k, v in cf_template.get('Outputs', {}).iteritems():
