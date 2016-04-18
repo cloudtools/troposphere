@@ -9,7 +9,7 @@ def validate_authorizer_ttl(ttl_value):
     """
     ttl_value = int(positive_integer(ttl_value))
     if ttl_value > 3600:
-        raise ValueError("The AuthorizerResultTtlInSeconds can be 3600 seconds maximum")
+        raise ValueError("The AuthorizerResultTtlInSeconds should be <= 3600")
     return ttl_value
 
 
@@ -87,10 +87,10 @@ class StageDescription(AWSProperty):
         "ClientCertificateId": (basestring, False),
         "DeploymentId": (basestring, False),
         "Description": (basestring, False),
-        "MethodSettings" : ([MethodSetting], False),
+        "MethodSettings": ([MethodSetting], False),
         "RestApiId": (basestring, False),
         "StageName": (basestring, False),
-        "Variables" : (dict, False)
+        "Variables": (dict, False)
     }
 
 
@@ -133,9 +133,9 @@ class Integration(AWSProperty):
         "CacheNamespace": (basestring, False),
         "Credentials": (basestring, False),
         "IntegrationHttpMethod": (basestring, False),
-        "IntegrationResponses" : ([IntegrationResponse], False),
-        "RequestParameters" : (dict, False),
-        "RequestTemplates" : (dict, False),
+        "IntegrationResponses": ([IntegrationResponse], False),
+        "RequestParameters": (dict, False),
+        "RequestTemplates": (dict, False),
         "Type": (basestring, False),
         # "Uri": (basestring, False), TODO
     }
@@ -184,13 +184,14 @@ class RestApi(AWSObject):
 
     props = {
         "Body": (basestring, False),
-        "BodyS3Location" : S3Location,
+        "BodyS3Location": S3Location,
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
         "FailOnWarnings": (basestring, False),
         "Name": (basestring, False),
         "Parameters": ([basestring], False)
     }
+
 
 class S3Location(AWSProperty):
 
