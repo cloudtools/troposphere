@@ -149,8 +149,10 @@ class TemplateGenerator(Template):
                         assert expected_type is None
 
                 if expected_type:
-                    return self._create_instance(
-                        expected_type, definition.get('Properties'), title)
+                    args = definition.get('Properties', {})
+                    if 'Condition' in definition:
+                        args.update({'Condition': definition['Condition']})
+                    return self._create_instance(expected_type, args, title)
 
             if len(definition) == 1:  # This might be a function?
                 function_type = self._get_function_type(definition.keys()[0])
