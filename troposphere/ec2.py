@@ -207,7 +207,7 @@ class NetworkAclEntry(AWSObject):
 
     props = {
         'CidrBlock': (basestring, True),
-        'Egress': (boolean, True),
+        'Egress': (boolean, False),
         'Icmp': (ICMP, False),  # Conditional
         'NetworkAclId': (basestring, True),
         'PortRange': (PortRange, False),  # Conditional
@@ -292,26 +292,26 @@ class SecurityGroupIngress(AWSObject):
 
     props = {
         'CidrIp': (basestring, False),
-        'FromPort': (network_port, False),
+        'FromPort': (network_port, False),  # conditional
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'ToPort': (network_port, False),
+        'ToPort': (network_port, False),  # conditional
     }
 
 
 class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
-        'FromPort': (network_port, True),
+        'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'ToPort': (network_port, True),
+        'ToPort': (network_port, False),
         'DestinationSecurityGroupId': (basestring, False),
     }
 
