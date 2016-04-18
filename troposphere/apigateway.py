@@ -14,6 +14,7 @@ def validate_authorizer_ttl(ttl_value):
 
 
 class Account(AWSObject):
+    resource_type = "AWS::ApiGateway::Account"
 
     props = {
         "CloudWatchRoleArn": (basestring, False)
@@ -29,6 +30,7 @@ class StageKey(AWSProperty):
 
 
 class ApiKey(AWSObject):
+    resource_type = "AWS::ApiGateway::ApiKey"
 
     props = {
         "Description": (basestring, False),
@@ -39,6 +41,7 @@ class ApiKey(AWSObject):
 
 
 class Authorizer(AWSObject):
+    resource_type = "AWS::ApiGateway::Authorizer"
 
     props = {
         "AuthorizerCredentials": (basestring, False),
@@ -53,6 +56,7 @@ class Authorizer(AWSObject):
 
 
 class BasePathMapping(AWSObject):
+    resource_type = "AWS::ApiGateway::BasePathMapping"
 
     props = {
         "BasePath": (basestring, False),
@@ -63,6 +67,7 @@ class BasePathMapping(AWSObject):
 
 
 class ClientCertificate(AWSObject):
+    resource_type = "AWS::ApiGateway::ClientCertificate"
 
     props = {
         "Description": (basestring, False)
@@ -101,6 +106,7 @@ class StageDescription(AWSProperty):
 
 
 class Deployment(AWSObject):
+    resource_type = "AWS::ApiGateway::Deployment"
 
     props = {
         "Description": (basestring, False),
@@ -145,6 +151,7 @@ class MethodResponse(AWSProperty):
 
 
 class Method(AWSObject):
+    resource_type = "AWS::ApiGateway::Method"
 
     props = {
         "ApiKeyRequired": (bool, False),
@@ -161,6 +168,7 @@ class Method(AWSObject):
 
 
 class Model(AWSObject):
+    resource_type = "AWS::ApiGateway::Model"
 
     props = {
         "ContentType": (basestring, False),
@@ -172,6 +180,7 @@ class Model(AWSObject):
 
 
 class Resource(AWSObject):
+    resource_type = "AWS::ApiGateway::Resource"
 
     props = {
         "ParentId": (basestring, False),
@@ -191,6 +200,7 @@ class S3Location(AWSProperty):
 
 
 class RestApi(AWSObject):
+    resource_type = "AWS::ApiGateway::RestApi"
 
     props = {
         "Body": (basestring, False),
@@ -204,6 +214,7 @@ class RestApi(AWSObject):
 
 
 class Stage(AWSObject):
+    resource_type = "AWS::ApiGateway::Stage"
 
     props = {
         "CacheClusterEnabled": (bool, False),
