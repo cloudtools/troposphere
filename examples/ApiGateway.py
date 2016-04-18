@@ -1,5 +1,5 @@
 from troposphere import Parameter, Ref, Template
-from troposphere.apigateway import RestApi, Method, Integration, Deployment, Model
+from troposphere.apigateway import RestApi, Method, Integration, Deployment, Model, Resource, MethodResponse
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
 from troposphere import FindInMap, GetAtt, Join, Output
@@ -83,13 +83,58 @@ rest_api = t.add_resource(RestApi(
     Body=swagger,
 ))
 
+schema = """{
+    "title": "Example Schema",
+    "type": "object",
+    "properties": {
+        "firstName": {
+            "type": "string"
+        },
+        "lastName": {
+            "type": "string"
+        },
+        "age": {
+            "description": "Age in years",
+            "type": "integer",
+            "minimum": 0
+        }
+    },
+    "required": ["firstName", "lastName"]
+}"""
+
+# add a model
 model = t.add_resource(Model(
     "CatModel",
-    Name="Cat",
+    RestApiId=Ref(rest_api),
     ContentType="application/json",
-    RestApiId=Ref(rest_api)
+    Schema=Join("", schema.split("\n"))
 ))
 
+# create a resource to map the model to
+resource = t.add_resource(Resource(
+    "ExampleResource",
+    RestApiId=Ref(rest_api),
+    PathPart="cats"
+))
+
+# Create a mock API method for the Cat resource
+method = t.add_resource(Method(
+    "CatMethod",
+    DependsOn='ExampleResource',
+    ApiKeyRequired=False,
+    RestApiId=Ref(rest_api),
+    HttpMethod="GET",
+    Integration=Integration(Type="MOCK"),
+    ResourceId=Ref(resource),
+    MethodResponses=[
+        MethodResponse(
+            "CatResponse",
+            ResponseModels={
+                "application/json": Ref(model)
+            }
+        )
+    ]
+))
 
 # Create a Lambda function that will be mapped
 code = [
