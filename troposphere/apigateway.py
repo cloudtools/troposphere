@@ -184,7 +184,7 @@ class RestApi(AWSObject):
 
     props = {
         "Body": (basestring, False),
-        "BodyS3Location": S3Location,
+        "BodyS3Location": (S3Location, False),
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
         "FailOnWarnings": (basestring, False),
@@ -200,4 +200,19 @@ class S3Location(AWSProperty):
         "ETag": (basestring, False),
         "Key": (basestring, False),
         "Version": (basestring, False)
+    }
+
+
+class Stage(AWSObject):
+
+    props = {
+        "CacheClusterEnabled": (bool, False),
+        "CacheClusterSize": (basestring, False),
+        "ClientCertificateId": (basestring, False),
+        "DeploymentId": (basestring, False),
+        "Description": (basestring, False),
+        "MethodSettings": ([MethodSetting], False),
+        "RestApiId": (basestring, False),
+        "StageName": (basestring, False),
+        "Variables": (dict, False)
     }
