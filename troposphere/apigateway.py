@@ -137,7 +137,7 @@ class Integration(AWSProperty):
         "RequestParameters": (dict, False),
         "RequestTemplates": (dict, False),
         "Type": (basestring, False),
-        # "Uri": (basestring, False), TODO
+        "Uri": (basestring, False)
     }
 
 
