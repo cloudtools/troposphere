@@ -272,10 +272,10 @@ class SecurityGroupEgress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
-        'FromPort': (network_port, False),
+        'FromPort': (network_port, True),
         'GroupId': (basestring, True),
         'IpProtocol': (basestring, True),
-        'ToPort': (network_port, False),
+        'ToPort': (network_port, True),
         #
         # Workaround for a bug in CloudFormation and EC2 where the
         # DestinationSecurityGroupId property is ignored causing
@@ -292,14 +292,14 @@ class SecurityGroupIngress(AWSObject):
 
     props = {
         'CidrIp': (basestring, False),
-        'FromPort': (network_port, False),
+        'FromPort': (network_port, False),  # conditional
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'ToPort': (network_port, False),
+        'ToPort': (network_port, False),  # conditional
     }
 
 
