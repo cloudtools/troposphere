@@ -1,4 +1,3 @@
-{'Source': ([<type 'basestring'>], True), 'Detail': (<type 'dict'>, True), 'DetailType': ([<type 'basestring'>], True)}
 {
     "Resources": {
         "FoobarFunction": {
