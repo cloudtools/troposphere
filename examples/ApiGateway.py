@@ -1,7 +1,8 @@
-from troposphere import Ref, Template
+from troposphere import Ref, Template, Output
 from troposphere.apigateway import RestApi, Method
 from troposphere.apigateway import Resource, MethodResponse
 from troposphere.apigateway import Integration, IntegrationResponse
+from troposphere.apigateway import Deployment
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
 from troposphere import GetAtt, Join
@@ -105,5 +106,26 @@ method = t.add_resource(Method(
         )
     ]
 ))
+
+# Create a deployment
+stage_name = 'v1'
+deployment = t.add_resource(Deployment(
+    "%sDeployment" % stage_name,
+    RestApiId=Ref(rest_api),
+    StageName=stage_name
+))
+
+# Add the deployment endpoint as an output
+t.add_output(Output(
+    "ApiEndpoint",
+    Value=Join("", [
+        "https://",
+        Ref(rest_api),
+        ".execute-api.eu-west-1.amazonaws.com/",
+        stage_name
+    ]),
+    Description="Name of S3 bucket to hold website content"
+))
+
 
 print(t.to_json())
