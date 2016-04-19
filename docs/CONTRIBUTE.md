@@ -19,7 +19,7 @@ will be run against any commits to the project.
 1. Create a virtualenv (e.g. `virtualenv ~/virtualenv/troposphere`)
 1. Activate it: `source ~/virtualenv/troposphere/bin/activate`
 1. Install modules and upgrade tools:
-  1. `pip install --upgrade pip setuptools wheel
+  1. `pip install --upgrade pip setuptools wheel`
   1. `pip install --upgrade pep8 pyflakes`
   1. ?? `pip install awacs`
 1. Run tests:
@@ -34,4 +34,4 @@ Tests are run against Python 2.7, 3.3, 3.4, and 3.5.
 New example code should go into `troposphere/examples`. The expected
 CloudFormation Template should be stored in `troposphere/tests/examples_output/`.
 When tests are run the output of the code in the examples directory will
-be comprared with the expected results in the example_ouput directory.
+be compared with the expected results in the `example_output` directory.
