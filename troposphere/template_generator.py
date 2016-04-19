@@ -62,7 +62,7 @@ class TemplateGenerator(Template):
     @property
     def inspect_members(self):
         """
-        Returns the list of all troposphere inspect_members we are able to
+        Returns the list of all troposphere members we are able to
         construct
         """
         if not self._inspect_members:
@@ -83,25 +83,13 @@ class TemplateGenerator(Template):
         return self._inspect_resources
 
     @property
-    def functions(self):
+    def inspect_functions(self):
         """ Returns a map of `FunctionName: FunctionClass` """
         if not self._inspect_functions:
             TemplateGenerator._inspect_functions = {
                 m.__name__: m for m in self.inspect_members
                 if issubclass(m, AWSHelperFn)}
         return self._inspect_functions
-
-    def _generate_custom_type(self, resource_type):
-        """ Generates a custom type with a custom resource type """
-        if not resource_type.startswith("Custom::"):
-            raise TypeError("Custom types must start with Custom::")
-        custom_type = type(
-            str(resource_type.replace("::", "")),
-            (self.inspect_resources['AWS::CloudFormation::CustomResource'],),
-            {'resource_type': resource_type})
-        self.inspect_members.add(custom_type)
-        self.inspect_resources[resource_type] = custom_type
-        return custom_type
 
     def _convert_definition(self, definition, ref=None):
         """
@@ -125,31 +113,7 @@ class TemplateGenerator(Template):
                         assert not expected_type
 
                 if expected_type:
-                    args = definition.get('Properties', {}).copy()
-                    if 'Condition' in definition:
-                        args.update({'Condition': definition['Condition']})
-                    if 'UpdatePolicy' in definition:
-                        # there's only 1 kind of UpdatePolicy; use it
-                        args.update({'UpdatePolicy': self._create_instance(
-                            UpdatePolicy, definition['UpdatePolicy'])})
-                    if 'CreationPolicy' in definition:
-                        # there's only 1 kind of CreationPolicy; use it
-                        args.update({'CreationPolicy': self._create_instance(
-                            CreationPolicy, definition['CreationPolicy'])})
-                    if 'DeletionPolicy' in definition:
-                        # DeletionPolicity is very basic
-                        args.update(
-                            {'DeletionPolicy': self._convert_definition(
-                                definition['DeletionPolicy'])})
-                    if 'Metadata' in definition:
-                        # there are various kind of metadata; pass it as-is
-                        args.update(
-                            {'Metadata': self._convert_definition(
-                                definition['Metadata'])})
-                    if 'DependsOn' in definition:
-                        args.update(
-                            {'DependsOn': self._convert_definition(
-                                definition['DependsOn'])})
+                    args = self._normalize_properties(definition)
                     return self._create_instance(expected_type, args, ref)
 
             if len(definition) == 1:  # This might be a function?
@@ -158,7 +122,7 @@ class TemplateGenerator(Template):
                     return self._create_instance(
                         function_type, definition.values()[0])
 
-            # return as dict
+            # nothing special here - return as dict
             return {k: self._convert_definition(v)
                     for k, v in definition.iteritems()}
 
@@ -207,33 +171,13 @@ class TemplateGenerator(Template):
                 return cls(*self._convert_definition(args))
             else:
                 if issubclass(cls, autoscaling.Metadata):
-                    # special handling for this class type
-                    assert isinstance(args, Mapping)
-                    init_config = self._create_instance(
-                        cloudformation.InitConfig,
-                        args['AWS::CloudFormation::Init']['config'])
-                    init = self._create_instance(
-                        cloudformation.Init, {'config': init_config})
-                    auth = None
-                    if 'AWS::CloudFormation::Authentication' in args:
-                        auth_blocks = {}
-                        for k in args['AWS::CloudFormation::Authentication']:
-                            auth_blocks[k] = self._create_instance(
-                                cloudformation.AuthenticationBlock,
-                                args['AWS::CloudFormation::Authentication'][k],
-                                k)
-                        auth = self._create_instance(
-                            cloudformation.Authentication, auth_blocks)
+                    return self._generate_autoscaling_metadata(cls, args)
 
-                    return cls(init, auth)
-
-                # watch out for double-refs...
                 args = self._convert_definition(args)
                 if isinstance(args, Ref) and issubclass(cls, Ref):
-                    # skip the cls, we can't have a ref in a ref!
+                    # watch out for double-refs...
                     return args
 
-                args = self._convert_definition(args)
                 try:
                     return cls(args)
                 except TypeError as ex:
@@ -243,7 +187,7 @@ class TemplateGenerator(Template):
                     # but templates use uppercase. for this reason we cannot
                     # map to most of them, so we fallback with a generic one.
                     # this might not work for all types if they do extra
-                    # processing in their init routine.
+                    # processing in their init routine...
                     return GenericHelperFn(args)
 
         elif isinstance(args, Mapping):
@@ -269,17 +213,78 @@ class TemplateGenerator(Template):
                 # sometimes, we can substitute a whole definition for a ref
                 return args
             assert isinstance(args, Mapping)
-            return self._add_reference(ref, cls(title=ref, **args))
+            return cls(title=ref, **args)
 
         if ref:
-            return self._add_reference(
-                ref, cls(self._convert_definition(args)))
+            return cls(self._convert_definition(args))
 
         return cls(self._convert_definition(args))
 
-    def _add_reference(self, ref, obj):
-        self._reference_map[ref] = obj
-        return obj
+    def _normalize_properties(self, definition):
+        """
+        Inspects the definition and returns a copy of it that is updated
+        with any special property such as Condition, UpdatePolicy and the
+        like.
+        """
+        args = definition.get('Properties', {}).copy()
+        if 'Condition' in definition:
+            args.update({'Condition': definition['Condition']})
+        if 'UpdatePolicy' in definition:
+            # there's only 1 kind of UpdatePolicy; use it
+            args.update({'UpdatePolicy': self._create_instance(
+                UpdatePolicy, definition['UpdatePolicy'])})
+        if 'CreationPolicy' in definition:
+            # there's only 1 kind of CreationPolicy; use it
+            args.update({'CreationPolicy': self._create_instance(
+                CreationPolicy, definition['CreationPolicy'])})
+        if 'DeletionPolicy' in definition:
+            # DeletionPolicity is very basic
+            args.update(
+                {'DeletionPolicy': self._convert_definition(
+                    definition['DeletionPolicy'])})
+        if 'Metadata' in definition:
+            # there are various kind of metadata; pass it as-is
+            args.update(
+                {'Metadata': self._convert_definition(
+                    definition['Metadata'])})
+        if 'DependsOn' in definition:
+            args.update(
+                {'DependsOn': self._convert_definition(
+                    definition['DependsOn'])})
+        return args
+
+    def _generate_custom_type(self, resource_type):
+        """ Generates a custom type with a custom resource type """
+        if not resource_type.startswith("Custom::"):
+            raise TypeError("Custom types must start with Custom::")
+        custom_type = type(
+            str(resource_type.replace("::", "")),
+            (self.inspect_resources['AWS::CloudFormation::CustomResource'],),
+            {'resource_type': resource_type})
+        self.inspect_members.add(custom_type)
+        self.inspect_resources[resource_type] = custom_type
+        return custom_type
+
+    def _generate_autoscaling_metadata(self, cls, args):
+        """ Provides special handling for the autoscaling.Metadata object """
+        assert isinstance(args, Mapping)
+        init_config = self._create_instance(
+            cloudformation.InitConfig,
+            args['AWS::CloudFormation::Init']['config'])
+        init = self._create_instance(
+            cloudformation.Init, {'config': init_config})
+        auth = None
+        if 'AWS::CloudFormation::Authentication' in args:
+            auth_blocks = {}
+            for k in args['AWS::CloudFormation::Authentication']:
+                auth_blocks[k] = self._create_instance(
+                    cloudformation.AuthenticationBlock,
+                    args['AWS::CloudFormation::Authentication'][k],
+                    k)
+            auth = self._create_instance(
+                cloudformation.Authentication, auth_blocks)
+
+        return cls(init, auth)
 
     def _get_function_type(self, function_name):
         """
@@ -287,11 +292,13 @@ class TemplateGenerator(Template):
         Only Fn:: and Ref functions are supported here
         """
         if (function_name.startswith("Fn::") and
-                function_name[4:] in self.functions):
-            return self.functions[function_name[4:]]
-        return self.functions['Ref'] if function_name == "Ref" else None
+                function_name[4:] in self.inspect_functions):
+            return self.inspect_functions[function_name[4:]]
+        return (self.inspect_functions['Ref'] if function_name == "Ref"
+                else None)
 
     def _import_all_troposphere_modules(self):
+        """ Imports all troposphere modules and returns them """
         module_names = [
             pkg_name
             for importer, pkg_name, is_pkg in
