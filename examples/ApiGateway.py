@@ -1,8 +1,8 @@
-from troposphere import Parameter, Ref, Template
-from troposphere.apigateway import RestApi, Method, Integration, Deployment, Model, Resource, MethodResponse, IntegrationResponse
+from troposphere import Ref, Template
+from troposphere.apigateway import RestApi, Method, Integration, Model, Resource, MethodResponse, IntegrationResponse
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
-from troposphere import FindInMap, GetAtt, Join, Output
+from troposphere import GetAtt, Join
 
 
 
@@ -12,7 +12,6 @@ t = Template()
 rest_api = t.add_resource(RestApi(
     "ExampleApi",
     Name="ExampleApi"
-    # Body=swagger,
 ))
 
 schema = """{
@@ -34,7 +33,7 @@ schema = """{
     "required": ["firstName", "lastName"]
 }"""
 
-# add a model
+# Add a model
 model = t.add_resource(Model(
     "CatModel",
     RestApiId=Ref(rest_api),
@@ -70,8 +69,17 @@ t.add_resource(Role(
             }]
         })],
     AssumeRolePolicyDocument={"Version": "2012-10-17", "Statement": [
-        {"Action": ["sts:AssumeRole"], "Effect": "Allow",
-         "Principal": {"Service": ["lambda.amazonaws.com", "apigateway.amazonaws.com"]}}]},
+        {
+            "Action": ["sts:AssumeRole"],
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "lambda.amazonaws.com",
+                    "apigateway.amazonaws.com"
+                ]
+            }
+        }
+    ]},
 ))
 
 # Create the Lambda function
@@ -85,7 +93,7 @@ foobar_function = t.add_resource(Function(
     Runtime="nodejs",
 ))
 
-# create a resource to map the model to
+# Create a resource to map the model to
 resource = t.add_resource(Resource(
     "FoobarResource",
     RestApiId=Ref(rest_api),
