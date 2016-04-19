@@ -5,7 +5,7 @@
 
 import re
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import boolean, network_port, integer, positive_integer
 
 # Taken from:
@@ -154,7 +154,7 @@ class DBInstance(AWSObject):
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': (list, False),
-        'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
+        'VPCSecurityGroups': ([basestring], False),
     }
 
     def validate(self):
@@ -285,7 +285,7 @@ class EventSubscription(AWSObject):
         'Enabled': (boolean, False),
         'EventCategories': ([basestring], False),
         'SnsTopicArn': (basestring, True),
-        'SourceIds': ([basestring, Ref], False),
+        'SourceIds': ([basestring], False),
         'SourceType': (basestring, False),
     }
 
@@ -299,11 +299,11 @@ class OptionSetting(AWSProperty):
 
 class OptionConfiguration(AWSProperty):
     props = {
-        'DBSecurityGroupMemberships': ([basestring, Ref], False),
+        'DBSecurityGroupMemberships': ([basestring], False),
         'OptionName': (basestring, True),
         'OptionSettings': ([OptionSetting], False),
         'Port': (network_port, False),
-        'VpcSecurityGroupMemberships': ([basestring, Ref], False),
+        'VpcSecurityGroupMemberships': ([basestring], False),
     }
 
 
@@ -350,5 +350,5 @@ class DBCluster(AWSObject):
         'SnapshotIdentifier': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'Tags': (list, False),
-        'VpcSecurityGroupIds': ([basestring, AWSHelperFn], False),
+        'VpcSecurityGroupIds': ([basestring], False),
     }

@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, FindInMap, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import (
     boolean, integer, integer_range, network_port, positive_integer
 )
@@ -117,7 +117,7 @@ class NetworkInterfaceProperty(AWSProperty):
         'DeleteOnTermination': (boolean, False),
         'Description': (basestring, False),
         'DeviceIndex': (integer, True),
-        'GroupSet': ([basestring, FindInMap, Ref], False),
+        'GroupSet': ([basestring], False),
         'NetworkInterfaceId': (basestring, False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
@@ -410,7 +410,7 @@ class VPCEndpoint(AWSObject):
 
         props = {
             'PolicyDocument': (policytypes, False),
-            'RouteTableIds': ([basestring, Ref], False),
+            'RouteTableIds': ([basestring], False),
             'ServiceName': (basestring, True),
             'VpcId': (basestring, True),
         }
@@ -460,7 +460,7 @@ class VPNGatewayRoutePropagation(AWSObject):
     resource_type = "AWS::EC2::VPNGatewayRoutePropagation"
 
     props = {
-        'RouteTableIds': ([basestring, Ref], True),
+        'RouteTableIds': ([basestring], True),
         'VpnGatewayId': (basestring, True),
     }
 
