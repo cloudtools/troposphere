@@ -94,7 +94,7 @@ class TemplateGenerator(Template):
     def _convert_definition(self, definition, ref=None):
         """
         Converts any object to its troposphere equivalent, if applicable.
-        This function will recurse into obj's lists and mappings to create
+        This function will recurse into lists and mappings to create
         additional objects as necessary.
         """
         if isinstance(definition, Mapping):
@@ -135,18 +135,18 @@ class TemplateGenerator(Template):
 
     def _create_instance(self, cls, args, ref=None):
         """
-        Returns an instance of `to_build` with `data` passed as arguments.
+        Returns an instance of `cls` with `args` passed as arguments.
 
-        Recursively inspects `data` to create nested objects and functions as
+        Recursively inspects `args` to create nested objects and functions as
         necessary.
 
-        `to_build` will only be considered only if it's an object we track
+        `cls` will only be considered only if it's an object we track
          (i.e.: troposphere objects).
 
-        If `to_build` has a `props` attribute, nested properties will be
+        If `cls` has a `props` attribute, nested properties will be
          instanciated as troposphere Property objects as necessary.
 
-        If `to_build` is a list and contains a single troposphere type, the
+        If `cls` is a list and contains a single troposphere type, the
          returned value will be a list of instances of that type.
         """
         if isinstance(cls, Sequence):
@@ -213,13 +213,10 @@ class TemplateGenerator(Template):
 
             args = self._convert_definition(kwargs)
             if isinstance(args, Ref):
-                # sometimes, we can substitute a whole definition for a ref
+                # use the returned ref instead of creating a new object
                 return args
             assert isinstance(args, Mapping)
             return cls(title=ref, **args)
-
-        if ref:
-            return cls(self._convert_definition(args))
 
         return cls(self._convert_definition(args))
 
@@ -257,7 +254,11 @@ class TemplateGenerator(Template):
         return args
 
     def _generate_custom_type(self, resource_type):
-        """ Generates a custom type with a custom resource type """
+        """
+        Dynamically allocates a new CustomResource class definition using the
+        specified Custom::SomeCustomName resource type. This special resource
+        type is equivalent to the AWS::CloudFormation::CustomResource.
+        """
         if not resource_type.startswith("Custom::"):
             raise TypeError("Custom types must start with Custom::")
         custom_type = type(
@@ -292,7 +293,8 @@ class TemplateGenerator(Template):
     def _get_function_type(self, function_name):
         """
         Returns the function object that matches the provided name.
-        Only Fn:: and Ref functions are supported here
+        Only Fn:: and Ref functions are supported here so that other
+        functions specific to troposphere are skipped.
         """
         if (function_name.startswith("Fn::") and
                 function_name[4:] in self.inspect_functions):
