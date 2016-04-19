@@ -34,4 +34,4 @@ Tests are run against Python 2.7, 3.3, 3.4, and 3.5.
 New example code should go into `troposphere/examples`. The expected
 CloudFormation Template should be stored in `troposphere/tests/examples_output/`.
 When tests are run the output of the code in the examples directory will
-be comprared with the expected results in the example_ouput directory.
+be compared with the expected results in the `example_output` directory.
