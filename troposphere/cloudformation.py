@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref, BaseAWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty, BaseAWSObject
 from .validators import integer, boolean, encoding
 
 
