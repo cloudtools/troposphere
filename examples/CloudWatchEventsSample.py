@@ -1,6 +1,5 @@
 from troposphere import Template
 from troposphere.events import Rule, Target
-from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
 from troposphere import GetAtt, Join
 
