@@ -1,9 +1,10 @@
 from troposphere import Ref, Template
-from troposphere.apigateway import RestApi, Method, Integration, Model, Resource, MethodResponse, IntegrationResponse
+from troposphere.apigateway import RestApi, Method
+from troposphere.apigateway import Resource, MethodResponse
+from troposphere.apigateway import Integration, IntegrationResponse
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
 from troposphere import GetAtt, Join
-
 
 
 t = Template()
@@ -35,7 +36,7 @@ t.add_resource(Role(
                 "Action": ["logs:*"],
                 "Resource": "arn:aws:logs:*:*:*",
                 "Effect": "Allow"
-            },{
+            }, {
                 "Action": ["lambda:*"],
                 "Resource": "*",
                 "Effect": "Allow"
