@@ -161,7 +161,7 @@ LaunchConfiguration = t.add_resource(LaunchConfiguration(
                 accessKeyId=Ref(DeployUserAccessKey),
                 secretKey=Ref(DeployUserSecretKey)
             )
-            })
+        })
     ),
     UserData=Base64(Join('', [
         "#!/bin/bash\n",
