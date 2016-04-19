@@ -17,38 +17,6 @@ code = [
     "};",
 ]
 
-# Create a role for the lambda function
-t.add_resource(Role(
-    "LambdaExecutionRole",
-    Path="/",
-    Policies=[Policy(
-        PolicyName="root",
-        PolicyDocument={
-            "Version": "2012-10-17",
-            "Statement": [{
-                "Action": ["logs:*"],
-                "Resource": "arn:aws:logs:*:*:*",
-                "Effect": "Allow"
-            }, {
-                "Action": ["lambda:*"],
-                "Resource": "*",
-                "Effect": "Allow"
-            }]
-        })],
-    AssumeRolePolicyDocument={"Version": "2012-10-17", "Statement": [
-        {
-            "Action": ["sts:AssumeRole"],
-            "Effect": "Allow",
-            "Principal": {
-                "Service": [
-                    "lambda.amazonaws.com",
-                    "apigateway.amazonaws.com"
-                ]
-            }
-        }
-    ]},
-))
-
 # Create the Lambda function
 foobar_function = t.add_resource(Function(
     "FoobarFunction",
