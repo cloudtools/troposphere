@@ -63,25 +63,15 @@ def properties_validator(xs):
 
     return xs
 
-
-def configurations_validator(xs):
-    if not isinstance(xs, list):
-        raise ValueError("Configurations must be a list of "
-                         "Configuration objects.")
-    for x in xs:
-        if not isinstance(x, Configuration):
-            raise ValueError("Configuration '%s' must be of "
-                             "Configuration type" % x)
-    return xs
-
-
 class Configuration(AWSProperty):
     props = {
         'Classification': (basestring, False),
-        'ConfigurationProperties': (properties_validator, False),
-        'Configurations': (configurations_validator, False)
+        'ConfigurationProperties': (properties_validator, False)
     }
 
+# we must define this one afterwards since Configuration does not exist
+# before Configuration is done initializing
+Configuration.props['Configurations'] = ([Configuration], False)
 
 def market_validator(x):
     valid_values = ['ON_DEMAND', 'SPOT']
@@ -94,7 +84,7 @@ def market_validator(x):
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
         'BidPrice': (basestring, False),
-        'Configurations': (configurations_validator, False),
+        'Configurations': ([Configuration], False),
         'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
@@ -162,7 +152,7 @@ class Cluster(AWSObject):
         'AdditionalInfo': (dict, False),
         'Applications': ([Application], False),
         'BootstrapActions': ([BootstrapActionConfig], False),
-        'Configurations': (configurations_validator, False),
+        'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
@@ -180,7 +170,7 @@ class InstanceGroupConfig(AWSObject):
 
     props = {
         'BidPrice': (basestring, False),
-        'Configurations': (configurations_validator, False),
+        'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),
         'InstanceCount': (integer, True),
         'InstanceRole': (basestring, True),
