@@ -33,16 +33,21 @@ from troposphere import (
     elasticbeanstalk, elasticloadbalancing, emr, iam, kinesis, kms, logs,
     opsworks, policies, rds, redshift, route53, s3, sdb, sns, sqs, ssm, waf,
     workspaces)
+from troposphere.openstack import heat, neutron, nova
 
 
 class TemplateGenerator(Template):
     SUPPORTED_MODULES = [
+        # aws
         autoscaling, awslambda, cloudformation, cloudfront, cloudtrail,
         cloudwatch, codedeploy, codepipeline, config, datapipeline,
         directoryservice, dynamodb2, ec2, ecr, ecs, efs, elasticache,
         elasticsearch, elasticbeanstalk, elasticloadbalancing, emr, iam,
         kinesis, kms, logs, opsworks, policies, rds, redshift, route53, s3,
-        sdb, sns, sqs, ssm, waf, workspaces, troposphere]
+        sdb, sns, sqs, ssm, waf, workspaces, troposphere,
+        # openstack
+        heat, neutron, nova
+    ]
 
     _inspect_members = set()
     _inspect_resources = {}
@@ -291,8 +296,12 @@ class TemplateGenerator(Template):
                     kwargs[prop_name] = self._convert_definition(
                         args[prop_name], prop_name)
 
-            return self._add_reference(
-                ref, cls(title=ref, **self._convert_definition(kwargs)))
+            args = self._convert_definition(kwargs)
+            if isinstance(args, Ref):
+                # sometimes, we can substitute a whole definition for a ref
+                return args
+            assert isinstance(args, Mapping)
+            return self._add_reference(ref, cls(title=ref, **args))
 
         if ref:
             return self._add_reference(
