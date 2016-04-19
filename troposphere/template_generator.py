@@ -21,7 +21,7 @@ from troposphere import (
     Template, Ref,
     Output, Parameter,  # AWSDeclarations
     AWSObject,  # covers resources
-    AWSHelperFn)  # covers ref, fn::, etc
+    AWSHelperFn, GenericHelperFn)  # covers ref, fn::, etc
 from troposphere.cloudformation import AWSCustomObject
 from troposphere.policies import UpdatePolicy, CreationPolicy
 
@@ -259,7 +259,19 @@ class TemplateGenerator(Template):
                 if isinstance(args, Ref) and issubclass(cls, Ref):
                     # skip the cls, we can't have a ref in a ref!
                     return args
-                return cls(self._convert_definition(args))
+
+                args = self._convert_definition(args)
+                try:
+                    return cls(args)
+                except TypeError as ex:
+                    if '__init__() takes exactly' not in ex.message:
+                        raise
+                    # special AWSHelperFn typically take lowercased parameters,
+                    # but templates use uppercase. for this reason we cannot
+                    # map to most of them, so we fallback with a generic one.
+                    # this might not work for all types if they do extra
+                    # processing in their init routine.
+                    return GenericHelperFn(args)
 
         elif isinstance(args, Mapping):
             # we try to build as many troposphere objects as we can by
