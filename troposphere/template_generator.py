@@ -32,7 +32,7 @@ from troposphere import (
     dynamodb2, ec2, ecr, ecs, efs, elasticache, elasticsearch,
     elasticbeanstalk, elasticloadbalancing, emr, iam, kinesis, kms, logs,
     opsworks, policies, rds, redshift, route53, s3, sdb, sns, sqs, ssm, waf,
-    workspaces)
+    workspaces, apigateway)
 from troposphere.openstack import heat, neutron, nova
 
 
@@ -44,7 +44,7 @@ class TemplateGenerator(Template):
         directoryservice, dynamodb2, ec2, ecr, ecs, efs, elasticache,
         elasticsearch, elasticbeanstalk, elasticloadbalancing, emr, iam,
         kinesis, kms, logs, opsworks, policies, rds, redshift, route53, s3,
-        sdb, sns, sqs, ssm, waf, workspaces, troposphere,
+        sdb, sns, sqs, ssm, waf, workspaces, troposphere, apigateway,
         # openstack
         heat, neutron, nova
     ]
