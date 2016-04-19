@@ -124,7 +124,7 @@ t.add_output(Output(
         ".execute-api.eu-west-1.amazonaws.com/",
         stage_name
     ]),
-    Description="Name of S3 bucket to hold website content"
+    Description="Endpoint for this stage of the api"
 ))
 
 

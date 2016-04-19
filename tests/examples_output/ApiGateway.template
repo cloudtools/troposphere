@@ -1,7 +1,7 @@
 {
     "Outputs": {
         "ApiEndpoint": {
-            "Description": "Name of S3 bucket to hold website content",
+            "Description": "Endpoint for this stage of the api",
             "Value": {
                 "Fn::Join": [
                     "",
