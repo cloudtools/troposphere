@@ -35,7 +35,7 @@ class WaitCondition(AWSObject):
 
     props = {
         'Count': (integer, False),
-        'Handle': (Ref, True),
+        'Handle': (basestring, True),
         'Timeout': (integer, True),
     }
 

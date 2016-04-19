@@ -176,6 +176,9 @@ class TemplateGenerator(Template):
                 args = self._convert_definition(args)
                 if isinstance(args, Ref) and issubclass(cls, Ref):
                     # watch out for double-refs...
+                    # this can happen if an object's .props has 'Ref'
+                    # as the expected type (which is wrong and should be
+                    # changed to basestring!)
                     return args
 
                 try:
