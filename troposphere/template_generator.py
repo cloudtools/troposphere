@@ -117,7 +117,8 @@ class TemplateGenerator(Template):
                     return self._create_instance(expected_type, args, ref)
 
             if len(definition) == 1:  # This might be a function?
-                function_type = self._get_function_type(definition.keys()[0])
+                function_type = self._get_function_type(
+                    definition.keys()[0])
                 if function_type:
                     return self._create_instance(
                         function_type, definition.values()[0])
