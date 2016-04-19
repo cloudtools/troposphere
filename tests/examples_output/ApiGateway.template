@@ -1,4 +1,22 @@
 {
+    "Outputs": {
+        "ApiEndpoint": {
+            "Description": "Name of S3 bucket to hold website content",
+            "Value": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "https://",
+                        {
+                            "Ref": "ExampleApi"
+                        },
+                        ".execute-api.eu-west-1.amazonaws.com/",
+                        "v1"
+                    ]
+                ]
+            }
+        }
+    },
     "Resources": {
         "ExampleApi": {
             "Properties": {
@@ -143,6 +161,15 @@
                 }
             },
             "Type": "AWS::ApiGateway::Method"
+        },
+        "v1Deployment": {
+            "Properties": {
+                "RestApiId": {
+                    "Ref": "ExampleApi"
+                },
+                "StageName": "v1"
+            },
+            "Type": "AWS::ApiGateway::Deployment"
         }
     }
 }
