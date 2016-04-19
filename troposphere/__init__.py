@@ -248,14 +248,6 @@ class AWSHelperFn(object):
         else:
             return data
 
-class GenericHelperFn(AWSHelperFn):
-    """ Used as a fallback for the template generator """
-    def __init__(self, data):
-        self.data = self.getdata(data)
-
-    def JSONrepr(self):
-        return self.data
-
 
 class Base64(AWSHelperFn):
     def __init__(self, data):
@@ -343,6 +335,7 @@ class Name(AWSHelperFn):
 
     def JSONrepr(self):
         return self.data
+
 
 class Select(AWSHelperFn):
     def __init__(self, indx, objects):
