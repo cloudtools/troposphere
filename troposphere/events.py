@@ -3,11 +3,10 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Ref
-from .validators import positive_integer, boolean
+from . import AWSObject, AWSProperty
+
 
 class Target(AWSProperty):
-
     props = {
         'Arn': (basestring, True),
         'Id': (basestring, True),
