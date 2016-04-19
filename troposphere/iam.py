@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty
 from .validators import integer, boolean, status
 from .validators import iam_path, iam_role_name, iam_group_name
 
@@ -33,11 +33,11 @@ class PolicyType(AWSObject):
     resource_type = "AWS::IAM::Policy"
 
     props = {
-        'Groups': ([basestring, Ref], False),
+        'Groups': ([basestring], False),
         'PolicyDocument': (policytypes, True),
         'PolicyName': (basestring, True),
-        'Roles': ([basestring, Ref], False),
-        'Users': ([basestring, Ref], False),
+        'Roles': ([basestring], False),
+        'Users': ([basestring], False),
     }
 
 
@@ -98,7 +98,7 @@ class User(AWSObject):
 
     props = {
         'Path': (iam_path, False),
-        'Groups': ([basestring, Ref], False),
+        'Groups': ([basestring], False),
         'ManagedPolicyArns': ([basestring], False),
         'LoginProfile': (LoginProfile, False),
         'Policies': ([Policy], False),
@@ -119,9 +119,9 @@ class ManagedPolicy(AWSObject):
 
     props = {
         'Description': (basestring, False),
-        'Groups': ([basestring, Ref], False),
+        'Groups': ([basestring], False),
         'Path': (iam_path, False),
         'PolicyDocument': (policytypes, True),
-        'Roles': ([basestring, Ref], False),
-        'Users': ([basestring, Ref], False),
+        'Roles': ([basestring], False),
+        'Users': ([basestring], False),
     }
