@@ -18,19 +18,21 @@ from collections import Sequence, Mapping
 
 import troposphere
 from troposphere import (
-    Template,
+    Template, Ref,
     Output, Parameter,  # AWSDeclarations
     AWSObject,  # covers resources
     AWSHelperFn)  # covers ref, fn::, etc
 from troposphere.cloudformation import AWSCustomObject
+from troposphere.policies import UpdatePolicy, CreationPolicy
 
 # these are all the modules we want to cover.
 from troposphere import (
     autoscaling, awslambda, cloudformation, cloudfront, cloudtrail, cloudwatch,
     codedeploy, codepipeline, config, datapipeline, directoryservice,
-    dynamodb2, ec2, ecr, ecs, efs, elasticache, elasticbeanstalk,
-    elasticloadbalancing, iam, kinesis, kms, logs, opsworks, policies, rds,
-    redshift, route53, s3, sdb, sns, sqs, ssm, waf, workspaces)
+    dynamodb2, ec2, ecr, ecs, efs, elasticache, elasticsearch,
+    elasticbeanstalk, elasticloadbalancing, emr, iam, kinesis, kms, logs,
+    opsworks, policies, rds, redshift, route53, s3, sdb, sns, sqs, ssm, waf,
+    workspaces)
 
 
 class TemplateGenerator(Template):
@@ -38,13 +40,13 @@ class TemplateGenerator(Template):
         autoscaling, awslambda, cloudformation, cloudfront, cloudtrail,
         cloudwatch, codedeploy, codepipeline, config, datapipeline,
         directoryservice, dynamodb2, ec2, ecr, ecs, efs, elasticache,
-        elasticbeanstalk, elasticloadbalancing, iam, kinesis, kms, logs,
-        opsworks, policies, rds, redshift, route53, s3, sdb, sns, sqs, ssm, waf,
-        workspaces, troposphere]
+        elasticsearch, elasticbeanstalk, elasticloadbalancing, emr, iam,
+        kinesis, kms, logs, opsworks, policies, rds, redshift, route53, s3,
+        sdb, sns, sqs, ssm, waf, workspaces, troposphere]
 
-    _members = set()
-    _resources = {}
-    _functions = {}
+    _inspect_members = set()
+    _inspect_resources = {}
+    _inspect_functions = {}
 
     def __init__(self, cf_template):
         """
@@ -52,6 +54,7 @@ class TemplateGenerator(Template):
         Cloudformation Template.
         """
         super(TemplateGenerator, self).__init__()
+        self._reference_map = {}
         if 'AWSTemplateFormatVersion' in cf_template:
             self.add_version(cf_template['AWSTemplateFormatVersion'])
         if 'Description' in cf_template:
@@ -61,7 +64,7 @@ class TemplateGenerator(Template):
         for k, v in cf_template.get('Parameters', {}).iteritems():
             self.add_parameter(self._create_instance(Parameter, v, k))
         for k, v in cf_template.get('Mappings', {}).iteritems():
-            self.add_mapping(k, **self._convert_definition(v))
+            self.add_mapping(k, self._convert_definition(v))
         for k, v in cf_template.get('Conditions', {}).iteritems():
             self.add_condition(k, self._convert_definition(v, k))
         for k, v in cf_template.get('Resources', {}).iteritems():
@@ -70,14 +73,14 @@ class TemplateGenerator(Template):
             self.add_output(self._create_instance(Output, v, k))
 
     @property
-    def members(self):
+    def inspect_members(self):
         """
-        Returns the list of all troposphere members we are able to
+        Returns the list of all troposphere inspect_members we are able to
         construct
         """
-        if not self._members:
+        if not self._inspect_members:
             #  -- monkey patch begin --
-            # until https://github.com/cloudtools/troposphere/pull/463 is merged
+            # until https://github.com/cloudtools/troposphere/pull/463
             from troposphere.ec2 import NetworkAclEntry, SecurityGroupIngress
             from troposphere.validators import boolean, network_port
             NetworkAclEntry.props['Egress'] = (boolean, False)
@@ -92,28 +95,28 @@ class TemplateGenerator(Template):
             for module in self.SUPPORTED_MODULES:
                 members.extend((m[1] for m in inspect.getmembers(
                     module, members_predicate)))
-            TemplateGenerator._members = set(members)  # eliminate dupes
-        return self._members
+            TemplateGenerator._inspect_members = set(members)  # remove dupes
+        return self._inspect_members
 
     @property
-    def resources(self):
+    def inspect_resources(self):
         """ Returns a map of `ResourceType: ResourceClass` """
-        if not self._resources:
-            TemplateGenerator._resources = {
+        if not self._inspect_resources:
+            TemplateGenerator._inspect_resources = {
                 m.resource_type: m
-                for m in self.members
+                for m in self.inspect_members
                 if issubclass(m, (AWSObject, AWSCustomObject)) and
                 hasattr(m, 'resource_type')}
-        return self._resources
+        return self._inspect_resources
 
     @property
     def functions(self):
         """ Returns a map of `FunctionName: FunctionClass` """
-        if not self._functions:
-            TemplateGenerator._functions = {
-                m.__name__: m for m in self.members
+        if not self._inspect_functions:
+            TemplateGenerator._inspect_functions = {
+                m.__name__: m for m in self.inspect_members
                 if issubclass(m, AWSHelperFn)}
-        return self._functions
+        return self._inspect_functions
 
     def _generate_custom_type(self, resource_type):
         """ Generates a custom type with a custom resource type """
@@ -121,13 +124,13 @@ class TemplateGenerator(Template):
             raise TypeError("Custom types must start with Custom::")
         custom_type = type(
             str(resource_type.replace("::", "")),
-            (self.resources['AWS::CloudFormation::CustomResource'],),
+            (self.inspect_resources['AWS::CloudFormation::CustomResource'],),
             {'resource_type': resource_type})
-        self.members.add(custom_type)
-        self.resources[resource_type] = custom_type
+        self.inspect_members.add(custom_type)
+        self.inspect_resources[resource_type] = custom_type
         return custom_type
 
-    def _convert_definition(self, definition, title=None):
+    def _convert_definition(self, definition, ref=None):
         """
         Converts any object to its troposphere equivalent, if applicable.
         This function will recurse into obj's lists and mappings to create
@@ -137,7 +140,7 @@ class TemplateGenerator(Template):
             if 'Type' in definition:  # this is an AWS Resource
                 expected_type = None
                 try:
-                    expected_type = self.resources[definition['Type']]
+                    expected_type = self.inspect_resources[definition['Type']]
                 except KeyError:
                     # if the user uses the custom way to name custom resources,
                     # we'll dynamically create a new subclass for this use and
@@ -146,33 +149,54 @@ class TemplateGenerator(Template):
                         expected_type = self._generate_custom_type(
                             definition['Type'])
                     except TypeError:
-                        assert expected_type is None
+                        assert not expected_type
 
                 if expected_type:
-                    args = definition.get('Properties', {})
+                    args = definition.get('Properties', {}).copy()
                     if 'Condition' in definition:
                         args.update({'Condition': definition['Condition']})
-                    return self._create_instance(expected_type, args, title)
+                    if 'UpdatePolicy' in definition:
+                        # there's only 1 kind of UpdatePolicy; use it
+                        args.update({'UpdatePolicy': self._create_instance(
+                            UpdatePolicy, definition['UpdatePolicy'])})
+                    if 'CreationPolicy' in definition:
+                        # there's only 1 kind of CreationPolicy; use it
+                        args.update({'CreationPolicy': self._create_instance(
+                            CreationPolicy, definition['CreationPolicy'])})
+                    if 'DeletionPolicy' in definition:
+                        # DeletionPolicity is very basic
+                        args.update(
+                            {'DeletionPolicy': self._convert_definition(
+                                definition['DeletionPolicy'])})
+                    if 'Metadata' in definition:
+                        # there are various kind of metadata; pass it as-is
+                        args.update(
+                            {'Metadata': self._convert_definition(
+                                definition['Metadata'])})
+                    if 'DependsOn' in definition:
+                        args.update(
+                            {'DependsOn': self._convert_definition(
+                                definition['DependsOn'])})
+                    return self._create_instance(expected_type, args, ref)
 
             if len(definition) == 1:  # This might be a function?
                 function_type = self._get_function_type(definition.keys()[0])
                 if function_type:
                     return self._create_instance(
-                        function_type, definition.values()[0], title)
+                        function_type, definition.values()[0])
 
             # return as dict
-            return {k: self._convert_definition(v, k)
+            return {k: self._convert_definition(v)
                     for k, v in definition.iteritems()}
 
-        elif (not isinstance(definition, basestring) and
-                isinstance(definition, Sequence)):
-            return [self._convert_definition(v, title=title)
-                    for v in definition]
+        elif (isinstance(definition, Sequence) and
+                not isinstance(definition, basestring)):
+            return [self._convert_definition(v) for v in definition]
 
         # anything else is returned as-is
         return definition
 
-    def _create_instance(self, cls, args, title=None):
+    def _create_instance(self, cls, args, ref=None):
         """
         Returns an instance of `to_build` with `data` passed as arguments.
 
@@ -196,12 +220,12 @@ class TemplateGenerator(Template):
                     args = [args]
                 return [self._create_instance(cls[0], v) for v in args]
 
-        if isinstance(cls, Sequence) or cls not in self.members:
-            # this object is not from troposphere; could be a string or int,
-            # or a Ref... or a list of types such as
+        if isinstance(cls, Sequence) or cls not in self.inspect_members:
+            # this object doesn't map to any known object. could be a string
+            # or int, or a Ref... or a list of types such as
             # [basestring, FindInMap, Ref] or maybe a
             # validator such as `integer` or `port_range`
-            return self._convert_definition(args, title=title)
+            return self._convert_definition(args)
 
         elif issubclass(cls, AWSHelperFn):
             # special handling for functions, we want to handle it before
@@ -209,6 +233,32 @@ class TemplateGenerator(Template):
             if isinstance(args, Sequence) and not isinstance(args, basestring):
                 return cls(*self._convert_definition(args))
             else:
+                if issubclass(cls, autoscaling.Metadata):
+                    # special handling for this class type
+                    assert isinstance(args, Mapping)
+                    init_config = self._create_instance(
+                        cloudformation.InitConfig,
+                        args['AWS::CloudFormation::Init']['config'])
+                    init = self._create_instance(
+                        cloudformation.Init, {'config': init_config})
+                    auth = None
+                    if 'AWS::CloudFormation::Authentication' in args:
+                        auth_blocks = {}
+                        for k in args['AWS::CloudFormation::Authentication']:
+                            auth_blocks[k] = self._create_instance(
+                                cloudformation.AuthenticationBlock,
+                                args['AWS::CloudFormation::Authentication'][k],
+                                k)
+                        auth = self._create_instance(
+                            cloudformation.Authentication, auth_blocks)
+
+                    return cls(init, auth)
+
+                # watch out for double-refs...
+                args = self._convert_definition(args)
+                if isinstance(args, Ref) and issubclass(cls, Ref):
+                    # skip the cls, we can't have a ref in a ref!
+                    return args
                 return cls(self._convert_definition(args))
 
         elif isinstance(args, Mapping):
@@ -222,17 +272,25 @@ class TemplateGenerator(Template):
                 expected_type = cls.props[prop_name][0]
 
                 if (isinstance(expected_type, Sequence) or
-                        expected_type in self.members):
+                        expected_type in self.inspect_members):
                     kwargs[prop_name] = self._create_instance(
                         expected_type, args[prop_name], prop_name)
                 else:
                     kwargs[prop_name] = self._convert_definition(
-                        args[prop_name], title=prop_name)
+                        args[prop_name], prop_name)
 
-            return cls(title=title, **self._convert_definition(kwargs))
+            return self._add_reference(
+                ref, cls(title=ref, **self._convert_definition(kwargs)))
 
-        # fallback when no match
-        return cls(self._convert_definition(args), title=title)
+        if ref:
+            return self._add_reference(
+                ref, cls(self._convert_definition(args)))
+
+        return cls(self._convert_definition(args))
+
+    def _add_reference(self, ref, obj):
+        self._reference_map[ref] = obj
+        return obj
 
     def _get_function_type(self, function_name):
         """
