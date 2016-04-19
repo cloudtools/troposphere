@@ -14,40 +14,22 @@ Usage:
 """
 
 import inspect
+import pkgutil
+import importlib
+
 from collections import Sequence, Mapping
 
-import troposphere
 from troposphere import (
     Template, Ref,
     Output, Parameter,  # AWSDeclarations
     AWSObject,  # covers resources
-    AWSHelperFn, GenericHelperFn)  # covers ref, fn::, etc
-from troposphere.cloudformation import AWSCustomObject
+    AWSHelperFn, GenericHelperFn,  # covers ref, fn::, etc
+    autoscaling, cloudformation)
 from troposphere.policies import UpdatePolicy, CreationPolicy
-
-# these are all the modules we want to cover.
-from troposphere import (
-    autoscaling, awslambda, cloudformation, cloudfront, cloudtrail, cloudwatch,
-    codedeploy, codepipeline, config, datapipeline, directoryservice,
-    dynamodb2, ec2, ecr, ecs, efs, elasticache, elasticsearch,
-    elasticbeanstalk, elasticloadbalancing, emr, iam, kinesis, kms, logs,
-    opsworks, policies, rds, redshift, route53, s3, sdb, sns, sqs, ssm, waf,
-    workspaces, apigateway)
-from troposphere.openstack import heat, neutron, nova
 
 
 class TemplateGenerator(Template):
-    SUPPORTED_MODULES = [
-        # aws
-        autoscaling, awslambda, cloudformation, cloudfront, cloudtrail,
-        cloudwatch, codedeploy, codepipeline, config, datapipeline,
-        directoryservice, dynamodb2, ec2, ecr, ecs, efs, elasticache,
-        elasticsearch, elasticbeanstalk, elasticloadbalancing, emr, iam,
-        kinesis, kms, logs, opsworks, policies, rds, redshift, route53, s3,
-        sdb, sns, sqs, ssm, waf, workspaces, troposphere, apigateway,
-        # openstack
-        heat, neutron, nova
-    ]
+    DEPRECATED_MODULES = ['troposphere.dynamodb']
 
     _inspect_members = set()
     _inspect_resources = {}
@@ -84,23 +66,8 @@ class TemplateGenerator(Template):
         construct
         """
         if not self._inspect_members:
-            #  -- monkey patch begin --
-            # until https://github.com/cloudtools/troposphere/pull/463
-            from troposphere.ec2 import NetworkAclEntry, SecurityGroupIngress
-            from troposphere.validators import boolean, network_port
-            NetworkAclEntry.props['Egress'] = (boolean, False)
-            SecurityGroupIngress.props['FromPort'] = (network_port, False)
-            SecurityGroupIngress.props['ToPort'] = (network_port, False)
-            #  -- monkey patch end --
-
-            def members_predicate(m):
-                return inspect.isclass(m) and not inspect.isbuiltin(m)
-
-            members = []
-            for module in self.SUPPORTED_MODULES:
-                members.extend((m[1] for m in inspect.getmembers(
-                    module, members_predicate)))
-            TemplateGenerator._inspect_members = set(members)  # remove dupes
+            TemplateGenerator._inspect_members = \
+                self._import_all_troposphere_modules()
         return self._inspect_members
 
     @property
@@ -110,7 +77,8 @@ class TemplateGenerator(Template):
             TemplateGenerator._inspect_resources = {
                 m.resource_type: m
                 for m in self.inspect_members
-                if issubclass(m, (AWSObject, AWSCustomObject)) and
+                if issubclass(
+                    m, (AWSObject, cloudformation.AWSCustomObject)) and
                 hasattr(m, 'resource_type')}
         return self._inspect_resources
 
@@ -284,17 +252,17 @@ class TemplateGenerator(Template):
             kwargs = {}
             kwargs.update(args)
             for prop_name in getattr(cls, 'props', []):
-                if prop_name not in args:
+                if prop_name not in kwargs:
                     continue  # the user did not specify this value; skip it
                 expected_type = cls.props[prop_name][0]
 
                 if (isinstance(expected_type, Sequence) or
                         expected_type in self.inspect_members):
                     kwargs[prop_name] = self._create_instance(
-                        expected_type, args[prop_name], prop_name)
+                        expected_type, kwargs[prop_name], prop_name)
                 else:
                     kwargs[prop_name] = self._convert_definition(
-                        args[prop_name], prop_name)
+                        kwargs[prop_name], prop_name)
 
             args = self._convert_definition(kwargs)
             if isinstance(args, Ref):
@@ -322,3 +290,26 @@ class TemplateGenerator(Template):
                 function_name[4:] in self.functions):
             return self.functions[function_name[4:]]
         return self.functions['Ref'] if function_name == "Ref" else None
+
+    def _import_all_troposphere_modules(self):
+        module_names = [
+            pkg_name
+            for importer, pkg_name, is_pkg in
+            pkgutil.walk_packages(__file__)
+            if not is_pkg and pkg_name.startswith("troposphere") and
+            pkg_name not in self.DEPRECATED_MODULES]
+        module_names.append('troposphere')
+
+        modules = []
+        for name in module_names:
+            modules.append(importlib.import_module(name))
+
+        def members_predicate(m):
+            return inspect.isclass(m) and not inspect.isbuiltin(m)
+
+        members = []
+        for module in modules:
+            members.extend((m[1] for m in inspect.getmembers(
+                module, members_predicate)))
+
+        return set(members)
