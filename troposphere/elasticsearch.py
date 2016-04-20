@@ -67,3 +67,7 @@ class Domain(AWSObject):
         'SnapshotOptions': (SnapshotOptions, False),
         'Tags': (list, False)
     }
+
+
+# Backward compatibility
+ElasticsearchDomain = Domain
