@@ -225,7 +225,11 @@ class Bucket(AWSObject):
         LogDeliveryWrite,
     ]
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name=None, **kwargs):
+        if not name and 'title' in kwargs:
+            name = kwargs.pop('title')
+        if not name:
+            raise TypeError("You must provide a bucket name")
         super(Bucket, self).__init__(name, **kwargs)
 
         if 'AccessControl' in kwargs:
