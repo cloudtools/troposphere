@@ -26,7 +26,7 @@ class SourceDetails(AWSProperty):
 class Source(AWSProperty):
     props = {
         'Owner': (basestring, True),
-        'SourceDetails': (SourceDetails, False),
+        'SourceDetails': ([SourceDetails], False),
         'SourceIdentifier': (basestring, True),
     }
 
