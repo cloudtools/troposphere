@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSObject, AWSProperty
 from .validators import (
     boolean, integer, integer_range, network_port, positive_integer
 )
@@ -15,12 +15,19 @@ except ImportError:
     policytypes = dict,
 
 
-class Tag(AWSHelperFn):
-    def __init__(self, key, value):
-        self.data = {'Key': key, 'Value': value}
+class Tag(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True)
+    }
 
-    def JSONrepr(self):
-        return self.data
+    def __init__(self, key=None, value=None, **kwargs):
+        # provided for backward compatibility
+        if key is not None:
+            kwargs['Key'] = key
+        if value is not None:
+            kwargs['Value'] = value
+        super(Tag, self).__init__(**kwargs)
 
 
 class CustomerGateway(AWSObject):
