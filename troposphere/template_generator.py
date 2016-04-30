@@ -168,9 +168,11 @@ class TemplateGenerator(Template):
         elif issubclass(cls, AWSHelperFn):
             # special handling for functions, we want to handle it before
             # entering the other conditions.
-            if isinstance(args, Sequence) and not isinstance(args, basestring):
-                return cls(*self._convert_definition(args))
-            else:
+            try:
+                if (isinstance(args, Sequence) and
+                        not isinstance(args, basestring)):
+                    return cls(*self._convert_definition(args))
+
                 if issubclass(cls, autoscaling.Metadata):
                     return self._generate_autoscaling_metadata(cls, args)
 
@@ -182,17 +184,17 @@ class TemplateGenerator(Template):
                     # changed to basestring!)
                     return args
 
-                try:
-                    return cls(args)
-                except TypeError as ex:
-                    if '__init__() takes exactly' not in ex.message:
-                        raise
-                    # special AWSHelperFn typically take lowercased parameters,
-                    # but templates use uppercase. for this reason we cannot
-                    # map to most of them, so we fallback with a generic one.
-                    # this might not work for all types if they do extra
-                    # processing in their init routine...
-                    return GenericHelperFn(args)
+                return cls(args)
+
+            except TypeError as ex:
+                if '__init__() takes exactly' not in ex.message:
+                    raise
+                # special AWSHelperFn typically take lowercased parameters,
+                # but templates use uppercase. for this reason we cannot
+                # map to most of them, so we fallback with a generic one.
+                # this might not work for all types if they do extra
+                # processing in their init routine
+                return GenericHelperFn(args)
 
         elif isinstance(args, Mapping):
             # we try to build as many troposphere objects as we can by
