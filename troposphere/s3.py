@@ -109,7 +109,22 @@ class LifecycleRule(AWSProperty):
         'Prefix': (basestring, False),
         'Status': (basestring, True),
         'Transition': (LifecycleRuleTransition, False),
+        'Transitions': ([LifecycleRuleTransition], False)
     }
+
+    def validate(self):
+        if 'Transition' in self.properties:
+            if 'Transitions' not in self.properties:
+                # aws moved from a single transition to a list of them
+                # and deprecated 'Transition', so let's just move it to
+                # the new property and not annoy the user.
+                self.properties['Transitions'] = [
+                    self.properties.pop('Transition')]
+            else:
+                raise ValueError(
+                    'Cannot specify both "Transition" and "Transitions" '
+                    'properties on S3 Bucket Lifecycle Rule. Please use '
+                    '"Transitions" since the former has been deprecated.')
 
 
 class LifecycleConfiguration(AWSProperty):
