@@ -247,7 +247,8 @@ class Bucket(AWSObject):
             raise TypeError("You must provide a bucket name")
         super(Bucket, self).__init__(name, **kwargs)
 
-        if 'AccessControl' in kwargs:
+        if 'AccessControl' in kwargs and \
+                isinstance(kwargs['AccessControl'], basestring):
             if kwargs['AccessControl'] not in self.access_control_types:
                 raise ValueError('AccessControl must be one of "%s"' % (
                     ', '.join(self.access_control_types)))
