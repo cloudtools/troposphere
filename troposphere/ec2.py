@@ -140,14 +140,26 @@ class SsmAssociations(AWSProperty):
     }
 
 
+class Host(AWSObject):
+    resource_type = "AWS::EC2::Host"
+
+    props = {
+        'AutoPlacement': (basestring, False),
+        'AvailabilityZone': (basestring, True),
+        'InstanceType': (basestring, True),
+    }
+
+
 class Instance(AWSObject):
     resource_type = "AWS::EC2::Instance"
 
     props = {
+        'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
+        'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
