@@ -18,10 +18,8 @@ will be run against any commits to the project.
 
 1. Create a virtualenv (e.g. `virtualenv ~/virtualenv/troposphere`)
 1. Activate it: `source ~/virtualenv/troposphere/bin/activate`
-1. Install modules and upgrade tools:
-  1. `pip install --upgrade pip setuptools wheel`
-  1. `pip install --upgrade pep8 pyflakes`
-  1. ?? `pip install awacs`
+1. `pip install --upgrade pip setuptools wheel`
+1. `pip install -r docs/requirements.txt`
 1. Run tests:
   1. `pep8 .`
   1. `pyflakes .`
