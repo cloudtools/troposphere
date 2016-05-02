@@ -2,7 +2,7 @@ from . import AWSObject, AWSProperty
 from .validators import positive_integer
 
 
-class Destination(AWSProperty):
+class Destination(AWSObject):
     resource_type = "AWS::Logs::Destination"
 
     props = {
