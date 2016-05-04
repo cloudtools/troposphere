@@ -1,4 +1,4 @@
-## 1.6.0 (pending)
+## 1.6.0 (2016-05-04)
 - Remove unnecessary AWSHelperFn from props
 - ReplicationConfigurationRules Destination is now an object (#380)
 - Add WAF SizeConstraintSet and XssMatchSet
@@ -37,6 +37,8 @@
 - Implement LifecycleRule Transitions property (#472)
 - Better AWSHelperFn support in template generator (#473)
 - Fix Bucket AccessControl to allow Ref (#475)
+- Fix baseclass for AWS::Logs::Destination (#481)
+- Add test for AWS::Logs::Destination (#482)
 
 ## 1.5.0 (2016-03-01)
 - Add MariaDB to list of RDS engines [GH-368]
