@@ -4,12 +4,12 @@
         "BucketName": {
             "Description": "Name of S3 bucket to hold website content",
             "Value": {
-                "Ref": "S3Bucket"
+                "Ref": "s3bucket"
             }
         }
     },
     "Resources": {
-        "S3Bucket": {
+        "s3bucket": {
             "Properties": {
                 "AccessControl": "PublicRead",
                 "VersioningConfiguration": {

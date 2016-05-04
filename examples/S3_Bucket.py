@@ -14,7 +14,7 @@ t.add_description(
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
 
-s3bucket = t.add_resource(Bucket("S3Bucket", AccessControl=PublicRead,))
+s3bucket = t.add_resource(Bucket("s3bucket", AccessControl=PublicRead,))
 
 t.add_output(Output(
     "BucketName",
