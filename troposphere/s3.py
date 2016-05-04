@@ -253,6 +253,9 @@ class Bucket(AWSObject):
                 raise ValueError('AccessControl must be one of "%s"' % (
                     ', '.join(self.access_control_types)))
 
+    def validate_title(self):
+        s3_bucket_name(self.title)
+
 
 class BucketPolicy(AWSObject):
     resource_type = "AWS::S3::BucketPolicy"
