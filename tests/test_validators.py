@@ -63,7 +63,10 @@ class TestValidators(unittest.TestCase):
     def test_s3_bucket_name(self):
         for b in ['a'*3, 'a'*63, 'wick3d-sweet.bucket']:
             s3_bucket_name(b)
-        for b in ['a'*2, 'a'*64, 'invalid_bucket']:
+        for b in ['a'*2, 'a'*64, 'invalid_bucket', 'InvalidBucket']:
+            with self.assertRaises(ValueError):
+                s3_bucket_name(b)
+        for b in ['.invalid', 'invalid.', 'invalid..bucket']:
             with self.assertRaises(ValueError):
                 s3_bucket_name(b)
 

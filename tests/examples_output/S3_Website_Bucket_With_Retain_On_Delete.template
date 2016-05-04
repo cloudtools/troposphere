@@ -10,7 +10,7 @@
                         "http://",
                         {
                             "Fn::GetAtt": [
-                                "S3Bucket",
+                                "s3bucket",
                                 "DomainName"
                             ]
                         }
@@ -22,14 +22,14 @@
             "Description": "URL for website hosted on S3",
             "Value": {
                 "Fn::GetAtt": [
-                    "S3Bucket",
+                    "s3bucket",
                     "WebsiteURL"
                 ]
             }
         }
     },
     "Resources": {
-        "S3Bucket": {
+        "s3bucket": {
             "Properties": {
                 "AccessControl": "PublicRead",
                 "WebsiteConfiguration": {

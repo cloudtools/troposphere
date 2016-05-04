@@ -15,7 +15,7 @@ t.add_description(
     "a stack from this template.")
 
 s3bucket = t.add_resource(Bucket(
-    "S3Bucket",
+    "s3bucket",
     AccessControl=PublicRead,
     VersioningConfiguration=VersioningConfiguration(
         Status="Enabled",
