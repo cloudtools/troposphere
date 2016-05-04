@@ -45,10 +45,10 @@ def create_stack(
         parameters=params,
         capabilities=capabilities,
     )
-    
+
     try:
         stack_id = conn.create_stack(stackname, **kwargs)
-    
+
     except boto.exception.BotoServerError as e:
         # XXX - need to figure out why this isn't getting parsed from boto.
         print("Error: %s" %
