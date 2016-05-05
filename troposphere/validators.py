@@ -54,6 +54,18 @@ def network_port(x):
 
 
 def s3_bucket_name(b):
+
+    # consecutive periods not allowed
+
+    if '..' in b:
+        raise ValueError("%s is not a valid s3 bucket name" % b)
+
+    # IP addresses not allowed
+
+    ip_re = compile(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$')
+    if ip_re.match(b):
+        raise ValueError("%s is not a valid s3 bucket name" % b)
+
     s3_bucket_name_re = compile(r'^[a-z\d][a-z\d\.-]{1,61}[a-z\d]$')
     if s3_bucket_name_re.match(b):
         return b
