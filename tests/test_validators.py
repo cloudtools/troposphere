@@ -69,6 +69,9 @@ class TestValidators(unittest.TestCase):
         for b in ['.invalid', 'invalid.', 'invalid..bucket']:
             with self.assertRaises(ValueError):
                 s3_bucket_name(b)
+        for b in ['1.2.3.4', '11.22.33.44', '111.222.333.444']:
+            with self.assertRaises(ValueError):
+                s3_bucket_name(b)
 
     def test_encoding(self):
         for e in ['plain', 'base64']:
