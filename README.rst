@@ -21,8 +21,8 @@ includes some basic support for `OpenStack resources`_ via Heat.
 To facilitate catching CloudFormation or JSON errors early the library has
 property and type checking built into the classes.
 
-Installation Instructions
-=========================
+Installation
+============
 
 Troposphere can be installed using the pip distribution system for Python by
 issuing::
