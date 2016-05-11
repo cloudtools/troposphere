@@ -89,6 +89,9 @@ if __name__ == "__main__":
                         help="stack parameters in key=value form")
     parser.add_argument("-r", "--region", default="us-east-1",
                         help="Region (default %(default)s)")
+    parser.add_argument("-s", "--s3-region", default="us-east-1",
+                        dest="s3region",
+                        help="S3 Region (default %(default)s)")
     parser.add_argument("-R", "--resources", action='store_true',
                         help="describe stack resources, list resources for "
                              "all stacks if no stack is specified")
@@ -131,7 +134,11 @@ if __name__ == "__main__":
 
         if values.s3bucket:
             # Upload to S3 and create the stack
-            s3conn = boto.s3.connect_to_region(values.region)
+            s3conn = None
+            if values.s3region != values.region:
+                s3conn = boto.s3.connect_to_region(values.s3region)
+            else:
+                s3conn = boto.s3.connect_to_region(values.region)
             url = upload_template_to_s3(
                 s3conn, values.region, values.s3bucket, values.s3name, template)
             kwargs['url'] = url
