@@ -34,7 +34,7 @@ class ApiKey(AWSObject):
 
     props = {
         "Description": (basestring, False),
-        "Enable": (bool, False),
+        "Enabled": (bool, False),
         "Name": (basestring, False),
         "StageKeys": ([StageKey], False)
     }
