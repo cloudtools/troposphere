@@ -134,11 +134,7 @@ if __name__ == "__main__":
 
         if values.s3bucket:
             # Upload to S3 and create the stack
-            s3conn = None
-            if values.s3region != values.region:
-                s3conn = boto.s3.connect_to_region(values.s3region)
-            else:
-                s3conn = boto.s3.connect_to_region(values.region)
+            s3conn = boto.s3.connect_to_region(values.s3region)
             url = upload_template_to_s3(
                 s3conn, values.region, values.s3bucket, values.s3name, template)
             kwargs['url'] = url
