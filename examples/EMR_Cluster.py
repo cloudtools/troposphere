@@ -1,6 +1,8 @@
 from troposphere import Parameter, Ref, Template, Tags
-import troposphere.iam as iam
+from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, SECURITY_GROUP_ID
 import troposphere.emr as emr
+import troposphere.iam as iam
+
 
 template = Template()
 template.add_description(
@@ -11,31 +13,31 @@ keyname = template.add_parameter(Parameter(
     "KeyName",
     Description="Name of an existing EC2 KeyPair to enable SSH "
                 "to the instances",
-    Type="AWS::EC2::KeyPair::KeyName"
+    Type=KEY_PAIR_NAME
 ))
 
 subnet = template.add_parameter(Parameter(
     "Subnet",
     Description="Subnet ID for creating the EMR cluster",
-    Type="AWS::EC2::Subnet::Id"
+    Type=SUBNET_ID
 ))
 
 service_access_sg = template.add_parameter(Parameter(
     "ServiceAccessSecurityGroup",
     Description="Security Group providing service access to EMR",
-    Type="AWS::EC2::SecurityGroup::Id"
+    Type=SECURITY_GROUP_ID
 ))
 
 managed_master_sg = template.add_parameter(Parameter(
     "ManagedMasterSecurityGroup",
     Description="Security Group (managed by EMR) for master instances",
-    Type="AWS::EC2::SecurityGroup::Id"
+    Type=SECURITY_GROUP_ID
 ))
 
 managed_slave_sq = template.add_parameter(Parameter(
     "ManagedSlaveSecurityGroup",
     Description="Security Group (managed by EMR) for slave instances",
-    Type="AWS::EC2::SecurityGroup::Id"
+    Type=SECURITY_GROUP_ID
 ))
 
 # IAM roles required by EMR
@@ -90,7 +92,7 @@ cluster = template.add_resource(emr.Cluster(
     BootstrapActions=[emr.BootstrapActionConfig(
         Name='Dummy bootstrap action',
         ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(
-            Path='/bin/sh',
+            Path='file:/bin/sh',
             Args=['echo', 'Hello World']
         )
     )],
@@ -122,18 +124,6 @@ cluster = template.add_resource(emr.Cluster(
             ]
         )
     ],
-    EbsConfiguration=emr.EbsConfiguration(
-        EbsBlockDeviceConfig=[
-            emr.EbsBlockDeviceConfig(
-                VolumeSpecification=emr.VolumeSpecification(
-                    SizeInGB="100",
-                    VolumeType="standard"
-                ),
-                VolumesPerInstance="1"
-            )
-        ],
-        EbsOptimized="true"
-    ),
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
     Instances=emr.JobFlowInstancesConfig(
@@ -146,6 +136,18 @@ cluster = template.add_resource(emr.Cluster(
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
             BidPrice="20",
+            EbsConfiguration=emr.EbsConfiguration(
+                EbsBlockDeviceConfigs=[
+                    emr.EbsBlockDeviceConfigs(
+                        VolumeSpecification=emr.VolumeSpecification(
+                            SizeInGB="100",
+                            VolumeType="gp2"
+                        ),
+                        VolumesPerInstance="1"
+                    )
+                ],
+                EbsOptimized="true"
+            ),
             InstanceCount="1",
             InstanceType="m3.xlarge",
             Market="SPOT"

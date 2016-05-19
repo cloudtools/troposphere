@@ -83,7 +83,7 @@
                                 "echo",
                                 "Hello World"
                             ],
-                            "Path": "/bin/sh"
+                            "Path": "file:/bin/sh"
                         }
                     }
                 ],
@@ -115,21 +115,21 @@
                         ]
                     }
                 ],
-                "EbsConfiguration": {
-                    "EbsBlockDeviceConfig": [
-                        {
-                            "VolumeSpecification": {
-                                "SizeInGB": "100",
-                                "VolumeType": "standard"
-                            },
-                            "VolumesPerInstance": "1"
-                        }
-                    ],
-                    "EbsOptimized": "true"
-                },
                 "Instances": {
                     "CoreInstanceGroup": {
                         "BidPrice": "20",
+                        "EbsConfiguration": {
+                            "EbsBlockDeviceConfigs": [
+                                {
+                                    "VolumeSpecification": {
+                                        "SizeInGB": "100",
+                                        "VolumeType": "gp2"
+                                    },
+                                    "VolumesPerInstance": "1"
+                                }
+                            ],
+                            "EbsOptimized": "true"
+                        },
                         "InstanceCount": "1",
                         "InstanceType": "m3.xlarge",
                         "Market": "SPOT",
