@@ -1,5 +1,5 @@
 from troposphere import Parameter, Ref, Template, Tags
-from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, SECURITY_GROUP_ID
+from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE
 import troposphere.emr as emr
 import troposphere.iam as iam
 
@@ -20,24 +20,6 @@ subnet = template.add_parameter(Parameter(
     "Subnet",
     Description="Subnet ID for creating the EMR cluster",
     Type=SUBNET_ID
-))
-
-service_access_sg = template.add_parameter(Parameter(
-    "ServiceAccessSecurityGroup",
-    Description="Security Group providing service access to EMR",
-    Type=SECURITY_GROUP_ID
-))
-
-managed_master_sg = template.add_parameter(Parameter(
-    "ManagedMasterSecurityGroup",
-    Description="Security Group (managed by EMR) for master instances",
-    Type=SECURITY_GROUP_ID
-))
-
-managed_slave_sq = template.add_parameter(Parameter(
-    "ManagedSlaveSecurityGroup",
-    Description="Security Group (managed by EMR) for slave instances",
-    Type=SECURITY_GROUP_ID
 ))
 
 # IAM roles required by EMR
@@ -92,8 +74,8 @@ cluster = template.add_resource(emr.Cluster(
     BootstrapActions=[emr.BootstrapActionConfig(
         Name='Dummy bootstrap action',
         ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(
-            Path='file:/bin/sh',
-            Args=['echo', 'Hello World']
+            Path='file:/usr/share/aws/emr/scripts/install-hue',
+            Args=["dummy", "parameter"]
         )
     )],
     Configurations=[
@@ -127,20 +109,22 @@ cluster = template.add_resource(emr.Cluster(
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
     Instances=emr.JobFlowInstancesConfig(
+        Ec2KeyName=Ref(keyname),
+        Ec2SubnetId=Ref(subnet),
         MasterInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Master Instance",
             InstanceCount="1",
-            InstanceType="m3.xlarge",
+            InstanceType=M4_LARGE,
             Market="ON_DEMAND"
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
-            BidPrice="20",
+            BidPrice="0.1",
             EbsConfiguration=emr.EbsConfiguration(
                 EbsBlockDeviceConfigs=[
                     emr.EbsBlockDeviceConfigs(
                         VolumeSpecification=emr.VolumeSpecification(
-                            SizeInGB="100",
+                            SizeInGB="10",
                             VolumeType="gp2"
                         ),
                         VolumesPerInstance="1"
@@ -149,7 +133,7 @@ cluster = template.add_resource(emr.Cluster(
                 EbsOptimized="true"
             ),
             InstanceCount="1",
-            InstanceType="m3.xlarge",
+            InstanceType=M4_LARGE,
             Market="SPOT"
         )
     ),
