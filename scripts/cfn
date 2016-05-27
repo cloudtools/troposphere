@@ -68,8 +68,8 @@ def create_stack(
         parameters=params,
         capabilities=capabilities,
     )
-
     validate_template(conn, template=template, url=url)
+
     try:
         if update:
             stack_id = conn.update_stack(stackname, **kwargs)
