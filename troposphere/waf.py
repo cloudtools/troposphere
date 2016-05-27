@@ -126,7 +126,7 @@ class SizeConstraintSet(AWSObject):
     }
 
 
-class XssMatchTuple(AWSObject):
+class XssMatchTuple(AWSProperty):
     props = {
         'FieldToMatch': (FieldToMatch, True),
         'TextTransformation': (basestring, True),
