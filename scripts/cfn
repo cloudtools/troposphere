@@ -38,8 +38,12 @@ def validate_template(conn, template=None, url=None):
     try:
         if url:
             conn.validate_template(template_url=url)
-        else:
+        elif template:
             conn.validate_template(template_body=template)
+        else:
+            print("Error: Must provide a template or template url")
+            print("Exiting...")
+            sys.exit(1)
     except boto.exception.BotoServerError as e:
         # XXX - need to figure out why this isn't getting parsed from boto.
         print("Error: %s" %
