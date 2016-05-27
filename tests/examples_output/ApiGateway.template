@@ -15,9 +15,29 @@
                     ]
                 ]
             }
+        },
+        "ApiKey": {
+            "Description": "API key",
+            "Value": {
+                "Ref": "ApiKey"
+            }
         }
     },
     "Resources": {
+        "ApiKey": {
+            "Properties": {
+                "Enabled": true,
+                "StageKeys": [
+                    {
+                        "RestApiId": {
+                            "Ref": "ExampleApi"
+                        },
+                        "StageName": "v1"
+                    }
+                ]
+            },
+            "Type": "AWS::ApiGateway::ApiKey"
+        },
         "ExampleApi": {
             "Properties": {
                 "Name": "ExampleApi"

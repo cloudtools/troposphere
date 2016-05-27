@@ -3,6 +3,7 @@ from troposphere.apigateway import RestApi, Method
 from troposphere.apigateway import Resource, MethodResponse
 from troposphere.apigateway import Integration, IntegrationResponse
 from troposphere.apigateway import Deployment
+from troposphere.apigateway import ApiKey, StageKey
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
 from troposphere import GetAtt, Join
@@ -115,17 +116,33 @@ deployment = t.add_resource(Deployment(
     StageName=stage_name
 ))
 
-# Add the deployment endpoint as an output
-t.add_output(Output(
-    "ApiEndpoint",
-    Value=Join("", [
-        "https://",
-        Ref(rest_api),
-        ".execute-api.eu-west-1.amazonaws.com/",
-        stage_name
-    ]),
-    Description="Endpoint for this stage of the api"
+key = t.add_resource(ApiKey(
+    "ApiKey",
+    StageKeys=[StageKey(
+        RestApiId=Ref(rest_api),
+        StageName=stage_name
+    )],
+    Enabled=True
 ))
+
+# Add the deployment endpoint as an output
+t.add_output([
+    Output(
+        "ApiEndpoint",
+        Value=Join("", [
+            "https://",
+            Ref(rest_api),
+            ".execute-api.eu-west-1.amazonaws.com/",
+            stage_name
+        ]),
+        Description="Endpoint for this stage of the api"
+    ),
+    Output(
+        "ApiKey",
+        Value=Ref(key),
+        Description="API key"
+    ),
+])
 
 
 print(t.to_json())

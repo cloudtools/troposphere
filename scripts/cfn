@@ -32,6 +32,27 @@ def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     return cfn_template_url
 
 
+def validate_template(conn, template=None, url=None):
+    """Validate the template"""
+    print("Validating Template")
+    try:
+        if url:
+            conn.validate_template(template_url=url)
+        elif template:
+            conn.validate_template(template_body=template)
+        else:
+            print("Error: Must provide a template or template url")
+            print("Exiting...")
+            sys.exit(1)
+    except boto.exception.BotoServerError as e:
+        # XXX - need to figure out why this isn't getting parsed from boto.
+        print("Error: %s" %
+              (literal_eval(e.error_message)['Error']['Message'],))
+        print("Exiting...")
+        sys.exit(1)
+    print("Template Validated")
+
+
 def create_stack(
     conn,
     stackname,
@@ -48,6 +69,7 @@ def create_stack(
         capabilities=capabilities,
     )
 
+    validate_template(conn, template=template, url=url)
     try:
         if update:
             stack_id = conn.update_stack(stackname, **kwargs)
