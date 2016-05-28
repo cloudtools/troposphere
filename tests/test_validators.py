@@ -107,6 +107,9 @@ class TestValidators(unittest.TestCase):
         for s in ['a'*65, 'a'*128]:
             with self.assertRaises(ValueError):
                 iam_role_name(s)
+        for s in ["aaa-aaa", "aaa_aaa"]:
+            with self.assertRaises(ValueError):
+                iam_role_name(s)
 
     def test_iam_group_name(self):
         for s in ['a'*64, 'a'*128]:
