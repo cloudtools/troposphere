@@ -5,18 +5,6 @@
             "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
             "Type": "AWS::EC2::KeyPair::KeyName"
         },
-        "ManagedMasterSecurityGroup": {
-            "Description": "Security Group (managed by EMR) for master instances",
-            "Type": "AWS::EC2::SecurityGroup::Id"
-        },
-        "ManagedSlaveSecurityGroup": {
-            "Description": "Security Group (managed by EMR) for slave instances",
-            "Type": "AWS::EC2::SecurityGroup::Id"
-        },
-        "ServiceAccessSecurityGroup": {
-            "Description": "Security Group providing service access to EMR",
-            "Type": "AWS::EC2::SecurityGroup::Id"
-        },
         "Subnet": {
             "Description": "Subnet ID for creating the EMR cluster",
             "Type": "AWS::EC2::Subnet::Id"
@@ -80,10 +68,10 @@
                         "Name": "Dummy bootstrap action",
                         "ScriptBootstrapAction": {
                             "Args": [
-                                "echo",
-                                "Hello World"
+                                "dummy",
+                                "parameter"
                             ],
-                            "Path": "/bin/sh"
+                            "Path": "file:/usr/share/aws/emr/scripts/install-hue"
                         }
                     }
                 ],
@@ -115,29 +103,35 @@
                         ]
                     }
                 ],
-                "EbsConfiguration": {
-                    "EbsBlockDeviceConfig": [
-                        {
-                            "VolumeSpecification": {
-                                "SizeInGB": "100",
-                                "VolumeType": "standard"
-                            },
-                            "VolumesPerInstance": "1"
-                        }
-                    ],
-                    "EbsOptimized": "true"
-                },
                 "Instances": {
                     "CoreInstanceGroup": {
-                        "BidPrice": "20",
+                        "BidPrice": "0.1",
+                        "EbsConfiguration": {
+                            "EbsBlockDeviceConfigs": [
+                                {
+                                    "VolumeSpecification": {
+                                        "SizeInGB": "10",
+                                        "VolumeType": "gp2"
+                                    },
+                                    "VolumesPerInstance": "1"
+                                }
+                            ],
+                            "EbsOptimized": "true"
+                        },
                         "InstanceCount": "1",
-                        "InstanceType": "m3.xlarge",
+                        "InstanceType": "m4.large",
                         "Market": "SPOT",
                         "Name": "Core Instance"
                     },
+                    "Ec2KeyName": {
+                        "Ref": "KeyName"
+                    },
+                    "Ec2SubnetId": {
+                        "Ref": "Subnet"
+                    },
                     "MasterInstanceGroup": {
                         "InstanceCount": "1",
-                        "InstanceType": "m3.xlarge",
+                        "InstanceType": "m4.large",
                         "Market": "ON_DEMAND",
                         "Name": "Master Instance"
                     }

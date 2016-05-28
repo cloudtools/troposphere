@@ -82,10 +82,41 @@ def market_validator(x):
     return x
 
 
+def volume_type_validator(x):
+    valid_values = ['standard', 'io1', 'gp2']
+    if x not in valid_values:
+        raise ValueError("VolumeType must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
+class VolumeSpecification(AWSProperty):
+    props = {
+        'Iops': (integer, False),
+        'SizeInGB': (integer, True),
+        'VolumeType': (volume_type_validator, True)
+    }
+
+
+class EbsBlockDeviceConfigs(AWSProperty):
+    props = {
+        'VolumeSpecification': (VolumeSpecification, True),
+        'VolumesPerInstance': (integer, False)
+    }
+
+
+class EbsConfiguration(AWSProperty):
+    props = {
+        'EbsBlockDeviceConfigs': ([EbsBlockDeviceConfigs], False),
+        'EbsOptimized': (boolean, False)
+    }
+
+
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
         'BidPrice': (basestring, False),
         'Configurations': ([Configuration], False),
+        'EbsConfiguration': (EbsConfiguration, False),
         'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
@@ -116,36 +147,6 @@ class JobFlowInstancesConfig(AWSProperty):
     }
 
 
-def volume_type_validator(x):
-    valid_values = ['standard', 'io1']
-    if x not in valid_values:
-        raise ValueError("VolumeType must be one of: %s" %
-                         ', '.join(valid_values))
-    return x
-
-
-class VolumeSpecification(AWSProperty):
-    props = {
-        'Iops': (integer, False),
-        'SizeInGB': (integer, True),
-        'VolumeType': (volume_type_validator, True)
-    }
-
-
-class EbsBlockDeviceConfig(AWSProperty):
-    props = {
-        'VolumeSpecification': (VolumeSpecification, True),
-        'VolumesPerInstance': (integer, False)
-    }
-
-
-class EbsConfiguration(AWSProperty):
-    props = {
-        'EbsBlockDeviceConfig': ([EbsBlockDeviceConfig], False),
-        'EbsOptimized': (boolean, False)
-    }
-
-
 class Cluster(AWSObject):
     resource_type = "AWS::EMR::Cluster"
 
@@ -154,7 +155,6 @@ class Cluster(AWSObject):
         'Applications': ([Application], False),
         'BootstrapActions': ([BootstrapActionConfig], False),
         'Configurations': ([Configuration], False),
-        'EbsConfiguration': (EbsConfiguration, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
         'LogUri': (basestring, False),
