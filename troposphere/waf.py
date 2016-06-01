@@ -108,13 +108,6 @@ class WebACL(AWSObject):
     }
 
 
-class FieldToMatch(AWSProperty):
-    props = {
-        'Data': (basestring, False),  # conditional
-        'Type': (basestring, True),
-    }
-
-
 class SizeConstraint(AWSObject):
     props = {
         'ComparisonOperator': (basestring, True),
@@ -133,7 +126,7 @@ class SizeConstraintSet(AWSObject):
     }
 
 
-class XssMatchTuple(AWSObject):
+class XssMatchTuple(AWSProperty):
     props = {
         'FieldToMatch': (FieldToMatch, True),
         'TextTransformation': (basestring, True),
