@@ -112,7 +112,7 @@ if __name__ == "__main__":
                         help="stack parameters in key=value form")
     parser.add_argument("-r", "--region", default="us-east-1",
                         help="Region (default %(default)s)")
-    parser.add_argument("-s", "--s3-region", default="us-east-1",
+    parser.add_argument("-s", "--s3-region", default=None,
                         dest="s3region",
                         help="S3 Region (default %(default)s)")
     parser.add_argument("-R", "--resources", action='store_true',
@@ -138,6 +138,9 @@ if __name__ == "__main__":
     if values.debug:
         import logging
         logging.basicConfig(filename="boto.log", level=logging.DEBUG)
+
+    if not values.s3region:
+        values.s3region = values.region
 
     conn = boto.cloudformation.connect_to_region(values.region)
 
