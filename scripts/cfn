@@ -114,7 +114,7 @@ if __name__ == "__main__":
                         help="Region (default %(default)s)")
     parser.add_argument("-s", "--s3-region", default=None,
                         dest="s3region",
-                        help="S3 Region (default %(default)s)")
+                        help="S3 Region (default us-east-1)")
     parser.add_argument("-R", "--resources", action='store_true',
                         help="describe stack resources, list resources for "
                              "all stacks if no stack is specified")
