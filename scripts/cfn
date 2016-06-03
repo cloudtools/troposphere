@@ -60,6 +60,7 @@ def create_stack(
     url=None,
     params=None,
     capabilities=None,
+    update=False,
 ):
     kwargs = dict(
         template_body=template,
@@ -70,15 +71,19 @@ def create_stack(
     validate_template(conn, template=template, url=url)
 
     try:
-        stack_id = conn.create_stack(stackname, **kwargs)
-
+        if update:
+            stack_id = conn.update_stack(stackname, **kwargs)
+            action = 'Updated'
+        else:
+            stack_id = conn.create_stack(stackname, **kwargs)
+            action = 'Created'
+        print("%s stack %s: %s" % (action, stackname, stack_id))
     except boto.exception.BotoServerError as e:
         # XXX - need to figure out why this isn't getting parsed from boto.
         print("Error: %s" %
               (literal_eval(e.error_message)['Error']['Message'],))
         print("Exiting...")
         sys.exit(1)
-    print("Created stack %s: %s" % (stackname, stack_id))
 
 
 def build_s3_name(stack_name):
@@ -102,6 +107,8 @@ def describe_resources(conn, stackname):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--create", help="Create stack using template")
+    parser.add_argument("-u", "--update", action='store_true',
+                        help="Update stack instead of creating")
     parser.add_argument("-b", "--bucket", dest="s3bucket",
                         help="Upload template to S3 bucket")
     parser.add_argument("-d", "--debug", action='store_true',
@@ -156,6 +163,7 @@ if __name__ == "__main__":
             template=template,
             params=values.params,
             capabilities=values.capabilities,
+            update=values.update,
         )
 
         if values.s3bucket:
