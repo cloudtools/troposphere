@@ -191,7 +191,7 @@ class HadoopJarStepConfig(AWSProperty):
 
 
 def action_on_failure_validator(x):
-    valid_values = ['CONTINUE', 'CONTINUE_AND_WAIT']
+    valid_values = ['CONTINUE', 'CANCEL_AND_WAIT']
     if x not in valid_values:
         raise ValueError("ActionOnFailure must be one of: %s" %
                          ', '.join(valid_values))
