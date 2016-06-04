@@ -3,16 +3,23 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, AWSHelperFn
+from . import AWSObject, AWSProperty
 from .validators import (boolean, integer, positive_integer)
 
 
-class KeyValue(AWSHelperFn):
-    def __init__(self, key, value):
-        self.data = {'Key': key, 'Value': value}
+class KeyValue(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True)
+    }
 
-    def JSONrepr(self):
-        return self.data
+    def __init__(self, key=None, value=None, **kwargs):
+        # provided for backward compatibility
+        if key is not None:
+            kwargs['Key'] = key
+        if value is not None:
+            kwargs['Value'] = value
+        super(KeyValue, self).__init__(**kwargs)
 
 
 def additional_info_validator(xs):

@@ -3,22 +3,30 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import integer, positive_integer, network_port
+from . import AWSObject, AWSProperty, Tags
+from .validators import integer, positive_integer, network_port, boolean
 
 
-class AliasTarget(AWSHelperFn):
-    def __init__(self, hostedzoneid, dnsname, evaluatetargethealth=None):
-        self.data = {
-            'HostedZoneId': hostedzoneid,
-            'DNSName': dnsname,
-        }
+class AliasTarget(AWSProperty):
+    props = {
+        'HostedZoneId': (basestring, True),
+        'DNSName': (basestring, True),
+        'EvaluateTargetHealth': (boolean, False)
+    }
 
+    def __init__(self,
+                 hostedzoneid=None,
+                 dnsname=None,
+                 evaluatetargethealth=None,
+                 **kwargs):
+        # provided for backward compatibility
+        if hostedzoneid is not None:
+            kwargs['HostedZoneId'] = hostedzoneid
+        if dnsname is not None:
+            kwargs['DNSName'] = dnsname
         if evaluatetargethealth is not None:
-            self.data['EvaluateTargetHealth'] = evaluatetargethealth
-
-    def JSONrepr(self):
-        return self.data
+            kwargs['EvaluateTargetHealth'] = evaluatetargethealth
+        super(AliasTarget, self).__init__(**kwargs)
 
 
 class GeoLocation(AWSProperty):
