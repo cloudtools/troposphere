@@ -16,13 +16,13 @@ class TestUserdata(unittest.TestCase):
         dir = os.path.dirname(__file__)
         self.filepath = os.path.join(dir, 'userdata_test_scripts/')
 
-    def create_result(self, file):
+    def create_result(self, file, delimiter=""):
         file = os.path.join(self.filepath, file)
-        self.instance.UserData = userdata.from_file(file)
+        self.instance.UserData = userdata.from_file(file, delimiter)
         return json.dumps(self.instance.UserData, cls=awsencode)
 
-    def create_answer(self, command_list):
-        return json.dumps(Base64(Join(',', command_list)),
+    def create_answer(self, command_list, delimiter=""):
+        return json.dumps(Base64(Join(delimiter, command_list)),
                           cls=awsencode)
 
     def test_simple(self):
