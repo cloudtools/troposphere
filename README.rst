@@ -1,5 +1,5 @@
 ===========
-troposphere
+Troposphere
 ===========
 
 .. image:: https://pypip.in/version/troposphere/badge.svg?text=version&style=flat
@@ -12,24 +12,24 @@ troposphere
 About
 =====
 
-troposphere - library to create `AWS CloudFormation`_ descriptions
+Troposphere - library to create `AWS CloudFormation`_ descriptions
 
-The troposphere library allows for easier creation of the AWS CloudFormation
+The Troposphere library allows for easier creation of the AWS CloudFormation
 JSON by writing Python code to describe the AWS resources. Troposphere also
-includes some basic support for `OpenStack resources`_ via heat.
+includes some basic support for `OpenStack resources`_ via Heat.
 
 To facilitate catching CloudFormation or JSON errors early the library has
 property and type checking built into the classes.
 
-Installation Instructions
-=========================
+Installation
+============
 
-troposphere can be installed using the pip distribution system for python by
+Troposphere can be installed using the pip distribution system for Python by
 issuing::
 
     $ pip install troposphere
 
-To install troposphere with `awacs <https://github.com/cloudtools/awacs>`_
+To install Troposphere with `awacs <https://github.com/cloudtools/awacs>`_
 (recommended soft dependency)::
 
     $ pip install troposphere[policy]
@@ -131,13 +131,13 @@ Currently supported AWS resource types
 - AWS::Elasticsearch
 - AWS::EMR
 - AWS::IAM
-- AWS::KINESIS
+- AWS::Kinesis
 - AWS::KMS
 - AWS::Lambda
 - AWS::Logs
-- AWS::OPSWORKS
+- AWS::OpsWorks
 - AWS::RDS
-- AWS::REDSHIFT
+- AWS::Redshift
 - AWS::Route53
 - AWS::S3
 - AWS::SDB
@@ -249,11 +249,11 @@ Duplicating a single instance sample would look like this
 New DynamoDB module
 ===================
 
-The original dynamodb module did not use a consistent interface with the rest
-of troposphere, and so is being phased out. In order to prepare for this,
-you'll need to make a few changes to dynamodb resources. The biggest change
-is that many of the dynamodb properties are now treated like regular properties
-in troposphere rather than as helper functions.  For a full example of the
+The original DynamoDB module did not use a consistent interface with the rest
+of Troposphere, and so is being phased out. In order to prepare for this,
+you'll need to make a few changes to DynamoDB resources. The biggest change
+is that many of the DynamoDB properties are now treated like regular properties
+in Troposphere rather than as helper functions. For a full example of the
 changes, you can check out this diff between the DynamoDB_Table example using
 the old and the new modules::
 
@@ -290,15 +290,15 @@ the old and the new modules::
 Community
 =========
 
-We have a google group, cloudtools-dev_, where you can ask questions and
-engage with the troposphere community.  Issues & pull requests are always
+We have a Google Group, cloudtools-dev_, where you can ask questions and
+engage with the Troposphere community. Issues and pull requests are always
 welcome!
 
 Licensing
 =========
 
 Troposphere is licensed under the `BSD 2-Clause license`_.
-See `LICENSE`_ for the troposphere full license text.
+See `LICENSE`_ for the Troposphere full license text.
 
 
 .. _`AWS CloudFormation`: http://aws.amazon.com/cloudformation
