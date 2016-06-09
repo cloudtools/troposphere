@@ -113,8 +113,11 @@ class ViewerCertificate(AWSProperty):
     props = {
         'CloudFrontDefaultCertificate': (boolean, False),
         'IamCertificateId': (basestring, False),
+        'ACMCertificateArn': (basestring, False),
         'MinimumProtocolVersion': (basestring, False),
         'SslSupportMethod': (basestring, False),
+        'Certificate': (basestring, False),
+        'CertificateSource': (basestring, False),
     }
 
 
