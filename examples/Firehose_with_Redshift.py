@@ -14,7 +14,7 @@ t = Template()
 t.add_version('2010-09-09')
 t.add_description('Sample Kinesis Firehose Delivery Stream')
 
-t.add_version(DeliveryStream(
+t.add_resource(DeliveryStream(
     'MyDeliveryStream',
     DeliveryStreamName='MyDeliveryStream',
     RedshiftDestinationConfiguration=RedshiftDestinationConfiguration(
