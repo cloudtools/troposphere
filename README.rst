@@ -132,6 +132,7 @@ Currently supported AWS resource types
 - AWS::EMR
 - AWS::IAM
 - AWS::KINESIS
+- AWS::KinesisFirehose
 - AWS::KMS
 - AWS::Lambda
 - AWS::Logs
