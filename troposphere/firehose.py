@@ -1,4 +1,4 @@
-# Copyright (c) 2014, Guillem Anguera <ganguera@gmail.com>
+# Copyright (c) 2016, troposphere project
 # All rights reserved.
 #
 # See LICENSE file for full license.
