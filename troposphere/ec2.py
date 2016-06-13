@@ -75,6 +75,18 @@ class EIPAssociation(AWSObject):
     }
 
 
+class FlowLog(AWSObject):
+    resource_type = "AWS::EC2::FlowLog"
+
+    props = {
+        'DeliverLogsPermissionArn': (basestring, True),
+        'LogGroupName': (basestring, True),
+        'ResourceId': (basestring, True),
+        'ResourceType': (basestring, True),
+        'TrafficType': (basestring, True),
+    }
+
+
 class NatGateway(AWSObject):
     resource_type = "AWS::EC2::NatGateway"
 
