@@ -22,6 +22,7 @@ AP_NORTHEAST_1B = 'ap-northeast-1b'
 AP_NORTHEAST_1C = 'ap-northeast-1c'
 
 AP_NORTHEAST_2A = 'ap-northeast-2a'
+AP_NORTHEAST_2B = 'ap-northeast-2b'
 AP_NORTHEAST_2C = 'ap-northeast-2c'
 
 AP_SOUTHEAST_1A = 'ap-southeast-1a'
@@ -29,6 +30,7 @@ AP_SOUTHEAST_1B = 'ap-southeast-1b'
 
 AP_SOUTHEAST_2A = 'ap-southeast-2a'
 AP_SOUTHEAST_2B = 'ap-southeast-2b'
+AP_SOUTHEAST_2C = 'ap-southeast-2c'
 
 EU_WEST_1A = 'eu-west-1a'
 EU_WEST_1B = 'eu-west-1b'
@@ -39,6 +41,7 @@ EU_CENTRAL_1B = 'eu-central-1b'
 
 SA_EAST_1A = 'sa-east-1a'
 SA_EAST_1B = 'sa-east-1b'
+SA_EAST_1C = 'sa-east-1c'
 
 US_EAST_1A = 'us-east-1a'
 US_EAST_1B = 'us-east-1b'
@@ -233,6 +236,7 @@ ELASTICSEARCH_I2_2XLARGE = 'i2.2xlarge.elasticsearch'
 #
 # Parameter types
 #
+
 STRING = 'String'
 NUMBER = 'Number'
 LIST_OF_NUMBERS = 'List<Number>'
@@ -262,4 +266,5 @@ LIST_OF_HOSTED_ZONE_IDS = 'List<AWS::Route53::HostedZone::Id>'
 #
 # Route53
 #
+
 CLOUDFRONT_HOSTEDZONEID = 'Z2FDTNDATAQYW2'
