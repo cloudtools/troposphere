@@ -4,7 +4,9 @@ from troposphere import cloudformation, autoscaling
 from troposphere.autoscaling import AutoScalingGroup, Tag
 from troposphere.autoscaling import LaunchConfiguration
 from troposphere.elasticloadbalancing import LoadBalancer
-from troposphere.policies import UpdatePolicy, AutoScalingRollingUpdate, AutoScalingReplacingUpdate
+from troposphere.policies import (
+    AutoScalingReplacingUpdate, AutoScalingRollingUpdate, UpdatePolicy
+)
 import troposphere.ec2 as ec2
 import troposphere.elasticloadbalancing as elb
 
