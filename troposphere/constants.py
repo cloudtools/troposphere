@@ -148,6 +148,8 @@ HI1_4XLARGE = 'hi1.4xlarge'
 
 T1_MICRO = 't1.micro'
 
+X1_32XLARGE = 'x1.32xlarge'
+
 #
 # RDS DB instance classes
 #
