@@ -117,8 +117,8 @@ cluster = template.add_resource(emr.Cluster(
                     Classification="export",
                     ConfigurationProperties={
                         "HADOOP_DATANODE_HEAPSIZE": "2048",
-                        "HADOOP_NAMENODE_OPTS": Join("",
-                            ["-XX:GCTimeRatio=", Ref(gcTimeRatio)])
+                        "HADOOP_NAMENODE_OPTS": Join("", ["-XX:GCTimeRatio=",
+                                                          Ref(gcTimeRatio)])
                     }
                 )
             ]
