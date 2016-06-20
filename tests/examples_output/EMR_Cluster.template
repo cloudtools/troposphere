@@ -15,6 +15,11 @@
     },
     "Description": "Sample CloudFormation template for creating an EMR cluster",
     "Parameters": {
+        "GcTimeRatioValue": {
+            "Default": "19",
+            "Description": "Hadoop name node garbage collector time ratio",
+            "Type": "Number"
+        },
         "KeyName": {
             "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
             "Type": "AWS::EC2::KeyPair::KeyName"
@@ -116,7 +121,17 @@
                                 "Classification": "export",
                                 "ConfigurationProperties": {
                                     "HADOOP_DATANODE_HEAPSIZE": "2048",
-                                    "HADOOP_NAMENODE_OPTS": "-XX:GCTimeRatio=19"
+                                    "HADOOP_NAMENODE_OPTS": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "-XX:GCTimeRatio=",
+                                                {
+                                                    "Ref": "GcTimeRatioValue"
+                                                }
+                                            ]
+                                        ]
+                                    }
                                 }
                             }
                         ]

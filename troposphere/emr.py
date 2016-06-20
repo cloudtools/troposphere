@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, AWSHelperFn
 from .validators import (boolean, integer, positive_integer)
 
 
@@ -65,8 +65,8 @@ def properties_validator(xs):
     for k, v in xs.iteritems():
         if not isinstance(k, basestring):
             raise ValueError('ConfigurationProperties keys must be strings')
-        if not isinstance(v, basestring):
-            raise ValueError('ConfigurationProperties values must be strings')
+        if not isinstance(v, basestring) and not isinstance(v, AWSHelperFn):
+            raise ValueError('ConfigurationProperties values must be strings or helper functions')
 
     return xs
 

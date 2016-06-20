@@ -1,5 +1,5 @@
-from troposphere import Parameter, Ref, Template, Tags, If, Equals, Not
-from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE, NUMBER
+from troposphere import Parameter, Ref, Template, Tags, If, Equals, Not, Join
+from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE, NUMBER, STRING
 import troposphere.emr as emr
 import troposphere.iam as iam
 
@@ -31,6 +31,13 @@ spot = template.add_parameter(Parameter(
 
 withSpotPrice = "WithSpotPrice"
 template.add_condition(withSpotPrice, Not(Equals(Ref(spot), "0")))
+
+gcTimeRatio = template.add_parameter(Parameter(
+    "GcTimeRatioValue",
+    Description="Hadoop name node garbage collector time ratio",
+    Type=NUMBER,
+    Default="19"
+))
 
 # IAM roles required by EMR
 
@@ -110,7 +117,7 @@ cluster = template.add_resource(emr.Cluster(
                     Classification="export",
                     ConfigurationProperties={
                         "HADOOP_DATANODE_HEAPSIZE": "2048",
-                        "HADOOP_NAMENODE_OPTS": "-XX:GCTimeRatio=19"
+                        "HADOOP_NAMENODE_OPTS": Join("", ["-XX:GCTimeRatio=", Ref(gcTimeRatio)])
                     }
                 )
             ]
