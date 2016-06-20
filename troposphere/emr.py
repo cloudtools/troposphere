@@ -66,7 +66,8 @@ def properties_validator(xs):
         if not isinstance(k, basestring):
             raise ValueError('ConfigurationProperties keys must be strings')
         if not isinstance(v, basestring) and not isinstance(v, AWSHelperFn):
-            raise ValueError('ConfigurationProperties values must be strings or helper functions')
+            raise ValueError('ConfigurationProperties values must be strings'
+                             ' or helper functions')
 
     return xs
 

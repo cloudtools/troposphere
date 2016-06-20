@@ -1,5 +1,5 @@
 from troposphere import Parameter, Ref, Template, Tags, If, Equals, Not, Join
-from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE, NUMBER, STRING
+from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE, NUMBER
 import troposphere.emr as emr
 import troposphere.iam as iam
 
@@ -117,7 +117,8 @@ cluster = template.add_resource(emr.Cluster(
                     Classification="export",
                     ConfigurationProperties={
                         "HADOOP_DATANODE_HEAPSIZE": "2048",
-                        "HADOOP_NAMENODE_OPTS": Join("", ["-XX:GCTimeRatio=", Ref(gcTimeRatio)])
+                        "HADOOP_NAMENODE_OPTS": Join("",
+                            ["-XX:GCTimeRatio=", Ref(gcTimeRatio)])
                     }
                 )
             ]
