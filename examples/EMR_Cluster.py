@@ -1,5 +1,5 @@
-from troposphere import Parameter, Ref, Template, Tags
-from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE
+from troposphere import Parameter, Ref, Template, Tags, If, Equals, Not
+from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE, NUMBER
 import troposphere.emr as emr
 import troposphere.iam as iam
 
@@ -21,6 +21,16 @@ subnet = template.add_parameter(Parameter(
     Description="Subnet ID for creating the EMR cluster",
     Type=SUBNET_ID
 ))
+
+spot = template.add_parameter(Parameter(
+    "SpotPrice",
+    Description="Spot price (or use 0 for 'on demand' instance)",
+    Type=NUMBER,
+    Default="0.1"
+))
+
+withSpotPrice = "WithSpotPrice"
+template.add_condition(withSpotPrice, Not(Equals(Ref(spot), "0")))
 
 # IAM roles required by EMR
 
@@ -119,7 +129,8 @@ cluster = template.add_resource(emr.Cluster(
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
-            BidPrice="0.1",
+            BidPrice=If(withSpotPrice, Ref(spot), Ref("AWS::NoValue")),
+            Market=If(withSpotPrice, "SPOT", "ON_DEMAND"),
             EbsConfiguration=emr.EbsConfiguration(
                 EbsBlockDeviceConfigs=[
                     emr.EbsBlockDeviceConfigs(
@@ -134,7 +145,6 @@ cluster = template.add_resource(emr.Cluster(
             ),
             InstanceCount="1",
             InstanceType=M4_LARGE,
-            Market="SPOT"
         )
     ),
     Applications=[

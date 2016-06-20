@@ -1,9 +1,28 @@
 {
+    "Conditions": {
+        "WithSpotPrice": {
+            "Fn::Not": [
+                {
+                    "Fn::Equals": [
+                        {
+                            "Ref": "SpotPrice"
+                        },
+                        "0"
+                    ]
+                }
+            ]
+        }
+    },
     "Description": "Sample CloudFormation template for creating an EMR cluster",
     "Parameters": {
         "KeyName": {
             "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
             "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "SpotPrice": {
+            "Default": "0.1",
+            "Description": "Spot price (or use 0 for 'on demand' instance)",
+            "Type": "Number"
         },
         "Subnet": {
             "Description": "Subnet ID for creating the EMR cluster",
@@ -105,7 +124,17 @@
                 ],
                 "Instances": {
                     "CoreInstanceGroup": {
-                        "BidPrice": "0.1",
+                        "BidPrice": {
+                            "Fn::If": [
+                                "WithSpotPrice",
+                                {
+                                    "Ref": "SpotPrice"
+                                },
+                                {
+                                    "Ref": "AWS::NoValue"
+                                }
+                            ]
+                        },
                         "EbsConfiguration": {
                             "EbsBlockDeviceConfigs": [
                                 {
@@ -120,7 +149,13 @@
                         },
                         "InstanceCount": "1",
                         "InstanceType": "m4.large",
-                        "Market": "SPOT",
+                        "Market": {
+                            "Fn::If": [
+                                "WithSpotPrice",
+                                "SPOT",
+                                "ON_DEMAND"
+                            ]
+                        },
                         "Name": "Core Instance"
                     },
                     "Ec2KeyName": {
