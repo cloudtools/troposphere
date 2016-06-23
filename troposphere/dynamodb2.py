@@ -7,7 +7,7 @@ from . import AWSObject, AWSProperty
 
 
 def attribute_type_validator(x):
-    valid_types = ["S", "N", "B"]
+    valid_types = ["S", "N", "B", "BOOL", "BS", "L", "M", "NS", "NULL", "SS"]
     if x not in valid_types:
         raise ValueError("AttributeType must be one of: %s" %
                          ", ".join(valid_types))
