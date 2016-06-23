@@ -136,7 +136,7 @@ class NetworkInterfaceProperty(AWSProperty):
 class AssociationParameters(AWSProperty):
     props = {
         'Key': (basestring, True),
-        'Value': (basestring, True),
+        'Value': ([basestring], True),
     }
 
 
