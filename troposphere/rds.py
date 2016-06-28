@@ -163,7 +163,7 @@ class DBInstance(AWSObject):
             invalid_replica_properties = (
                 'BackupRetentionPeriod', 'DBName', 'MasterUsername',
                 'MasterUserPassword', 'PreferredBackupWindow', 'MultiAZ',
-                'DBSnapshotIdentifier', 'DBSubnetGroupName',
+                'DBSnapshotIdentifier',
             )
 
             invalid_properties = [s for s in self.properties.keys() if
