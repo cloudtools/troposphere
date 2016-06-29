@@ -1,10 +1,14 @@
 # Converted from DynamoDB_Table.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
+#
+# Note: This implementation is being phased out, you should instead look at
+#       the DynamoDB2_* examples for the new implementation.
+#
 
 from troposphere import Output, Parameter, Ref, Template
-from troposphere.dynamodb import Element, PrimaryKey, ProvisionedThroughput
+from troposphere.dynamodb import (Key, AttributeDefinition,
+                                  ProvisionedThroughput)
 from troposphere.dynamodb import Table
-
 
 t = Template()
 
@@ -54,10 +58,16 @@ writeunits = t.add_parameter(Parameter(
 
 myDynamoDB = t.add_resource(Table(
     "myDynamoDBTable",
-    KeySchema=PrimaryKey(
-        HashKeyElement=Element(Ref(hashkeyname), Ref(hashkeytype))),
+    AttributeDefinitions=[
+        AttributeDefinition(Ref(hashkeyname), Ref(hashkeytype)),
+    ],
+    KeySchema=[
+        Key(Ref(hashkeyname), "HASH")
+    ],
     ProvisionedThroughput=ProvisionedThroughput(
-        Ref(readunits), Ref(writeunits)),
+        Ref(readunits),
+        Ref(writeunits)
+    )
 ))
 
 t.add_output(Output(

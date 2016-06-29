@@ -25,11 +25,15 @@ class ForwardedValues(AWSProperty):
 class CacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
+        'CachedMethods': ([basestring], False),
+        'Compress': (boolean, False),
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, True),
         'TrustedSigners': ([basestring], False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
+        'DefaultTTL': (integer, False),
+        'MaxTTL': (integer, False),
         'PathPattern': (basestring, True),
         'SmoothStreaming': (boolean, False),
     }
@@ -38,11 +42,15 @@ class CacheBehavior(AWSProperty):
 class DefaultCacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
+        'CachedMethods': ([basestring], False),
+        'Compress': (boolean, False),
         'TargetOriginId': (basestring, True),
-        'ForwardedValues': (ForwardedValues, False),
+        'ForwardedValues': (ForwardedValues, True),
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
+        'DefaultTTL': (integer, False),
+        'MaxTTL': (integer, False),
         'SmoothStreaming': (boolean, False),
     }
 
@@ -64,6 +72,7 @@ class CustomOrigin(AWSProperty):
 class Origin(AWSProperty):
     props = {
         'DomainName': (basestring, True),
+        'OriginPath': (basestring, False),
         'Id': (basestring, True),
         'S3OriginConfig': (S3Origin, False),
         'CustomOriginConfig': (CustomOrigin, False),
@@ -104,6 +113,7 @@ class ViewerCertificate(AWSProperty):
     props = {
         'CloudFrontDefaultCertificate': (boolean, False),
         'IamCertificateId': (basestring, False),
+        'MinimumProtocolVersion': (basestring, False),
         'SslSupportMethod': (basestring, False),
     }
 
@@ -122,11 +132,12 @@ class DistributionConfig(AWSProperty):
         'PriceClass': (basestring, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
+        'WebACLId': (basestring, False)
     }
 
 
 class Distribution(AWSObject):
-    type = "AWS::CloudFront::Distribution"
+    resource_type = "AWS::CloudFront::Distribution"
 
     props = {
         'DistributionConfig': (DistributionConfig, True),

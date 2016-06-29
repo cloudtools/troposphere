@@ -99,7 +99,16 @@ launch_config = template.add_resource(autoscaling.LaunchConfiguration(
                         "security_group_id": Ref(security_group)
                     })
                 )
-            })
+            }),
+            services={
+                "sysvinit": cloudformation.InitServices({
+                    "service1": cloudformation.InitService(
+                        enabled=True,
+                        ensureRunning=True,
+                        files=['/etc/service1/somefile.conf']
+                    )
+                })
+            }
         )
     }),
     UserData=Base64(Join('\n', [

@@ -12,10 +12,19 @@ except ImportError:
     print("boto 2.8.0+ is required")
     sys.exit(1)
 
+from troposphere.utils import tail
+
+
 def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     cloudformation_bucket = conn.lookup(bucket_name)
     if not cloudformation_bucket:
-        cloudformation_bucket = conn.create_bucket(bucket_name, location=region)
+        if region == 'us-east-1':
+            region = boto.s3.connection.Location.DEFAULT
+        elif region == 'eu-west-1':
+            region = boto.s3.connection.Location.EU
+
+        cloudformation_bucket = conn.create_bucket(bucket_name,
+                                                   location=region)
     key = cloudformation_bucket.new_key(key_name)
     key.set_contents_from_string(template)
     cfn_template_url = "https://s3.amazonaws.com/%s/%s" % (
@@ -23,21 +32,58 @@ def upload_template_to_s3(conn, region, bucket_name, key_name, template):
     return cfn_template_url
 
 
-def create_stack(conn, stackname, template=None, url=None, params=None):
+def validate_template(conn, template=None, url=None):
+    """Validate the template"""
+    print("Validating Template")
     try:
         if url:
-            stack_id = conn.create_stack(
-                stackname, template_url=url, parameters=params)
+            conn.validate_template(template_url=url)
+        elif template:
+            conn.validate_template(template_body=template)
         else:
-            stack_id = conn.create_stack(
-                stackname, template, parameters=params)
+            print("Error: Must provide a template or template url")
+            print("Exiting...")
+            sys.exit(1)
     except boto.exception.BotoServerError as e:
         # XXX - need to figure out why this isn't getting parsed from boto.
         print("Error: %s" %
               (literal_eval(e.error_message)['Error']['Message'],))
         print("Exiting...")
         sys.exit(1)
-    print("Created stack %s: %s" % (stackname, stack_id))
+    print("Template Validated")
+
+
+def create_stack(
+    conn,
+    stackname,
+    template=None,
+    url=None,
+    params=None,
+    capabilities=None,
+    update=False,
+):
+    kwargs = dict(
+        template_body=template,
+        template_url=url,
+        parameters=params,
+        capabilities=capabilities,
+    )
+    validate_template(conn, template=template, url=url)
+
+    try:
+        if update:
+            stack_id = conn.update_stack(stackname, **kwargs)
+            action = 'Updated'
+        else:
+            stack_id = conn.create_stack(stackname, **kwargs)
+            action = 'Created'
+        print("%s stack %s: %s" % (action, stackname, stack_id))
+    except boto.exception.BotoServerError as e:
+        # XXX - need to figure out why this isn't getting parsed from boto.
+        print("Error: %s" %
+              (literal_eval(e.error_message)['Error']['Message'],))
+        print("Exiting...")
+        sys.exit(1)
 
 
 def build_s3_name(stack_name):
@@ -58,46 +104,11 @@ def describe_resources(conn, stackname):
             print(conn.describe_stack_resources(stack.stack_name))
 
 
-def get_events(conn, stackname):
-    """Get the events in batches and return in chronological order"""
-    next = None
-    event_list = []
-    while 1:
-        events = conn.describe_stack_events(stackname, next)
-        event_list.append(events)
-        if events.next_token is None:
-            break
-        next = events.next_token
-        time.sleep(1)
-    return reversed(sum(event_list, []))
-
-
-def tail(conn, stack_name):
-    """Show and then tail the event log"""
-    def tail_print(e):
-        print("%s %s %s" % (e.resource_status, e.resource_type, e.event_id))
-
-    # First dump the full list of events in chronological order and keep
-    # track of the events we've seen already
-    seen = set()
-    initial_events = get_events(conn, stack_name)
-    for e in initial_events:
-        tail_print(e)
-        seen.add(e.event_id)
-
-    # Now keep looping through and dump the new events
-    while 1:
-        events = get_events(conn, stack_name)
-        for e in events:
-            if e.event_id not in seen:
-                tail_print(e)
-            seen.add(e.event_id)
-        time.sleep(5)
-
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", "--create", help="Create stack using template")
+    parser.add_argument("-u", "--update", action='store_true',
+                        help="Update stack instead of creating")
     parser.add_argument("-b", "--bucket", dest="s3bucket",
                         help="Upload template to S3 bucket")
     parser.add_argument("-d", "--debug", action='store_true',
@@ -108,11 +119,21 @@ if __name__ == "__main__":
                         help="stack parameters in key=value form")
     parser.add_argument("-r", "--region", default="us-east-1",
                         help="Region (default %(default)s)")
+    parser.add_argument("-s", "--s3-region", default=None,
+                        dest="s3region",
+                        help="S3 Region (default us-east-1)")
     parser.add_argument("-R", "--resources", action='store_true',
                         help="describe stack resources, list resources for "
                              "all stacks if no stack is specified")
     parser.add_argument("-t", "--tail", action='store_true',
                         help="tail event log")
+    parser.add_argument(
+        "-C",
+        "--capability",
+        dest="capabilities",
+        action='append',
+        help="Capability to allow in the stack",
+    )
     parser.add_argument("stack", nargs='?')
     values = parser.parse_args()
 
@@ -125,6 +146,9 @@ if __name__ == "__main__":
         import logging
         logging.basicConfig(filename="boto.log", level=logging.DEBUG)
 
+    if not values.s3region:
+        values.s3region = values.region
+
     conn = boto.cloudformation.connect_to_region(values.region)
 
     if values.create:
@@ -135,15 +159,23 @@ if __name__ == "__main__":
         if values.s3bucket and not values.s3name:
             values.s3name = build_s3_name(values.create)
 
+        kwargs = dict(
+            template=template,
+            params=values.params,
+            capabilities=values.capabilities,
+            update=values.update,
+        )
+
         if values.s3bucket:
             # Upload to S3 and create the stack
-            s3conn = boto.s3.connect_to_region(values.region)
+            s3conn = boto.s3.connect_to_region(values.s3region)
             url = upload_template_to_s3(
-                s3conn, values.region, values.s3bucket, values.s3name, template)
-            create_stack(conn, values.stack, None, url, values.params)
-        else:
-            # Upload file as part of the stack creation
-            create_stack(conn, values.stack, template, None, values.params)
+                s3conn, values.region, values.s3bucket,
+                values.s3name, template)
+            kwargs['url'] = url
+            del kwargs['template']
+
+        create_stack(conn, values.stack, **kwargs)
 
     if values.resources:
         describe_resources(conn, values.stack)

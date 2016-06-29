@@ -23,9 +23,11 @@
                 "GroupName": {
                     "Ref": "CFNAdminGroup"
                 },
-                "Users": {
-                    "Ref": "CFNUser"
-                }
+                "Users": [
+                    {
+                        "Ref": "CFNUser"
+                    }
+                ]
             },
             "Type": "AWS::IAM::UserToGroupAddition"
         },
@@ -34,6 +36,7 @@
         },
         "CFNKeys": {
             "Properties": {
+                "Status": "Active",
                 "UserName": {
                     "Ref": "CFNUser"
                 }
@@ -53,10 +56,12 @@
         },
         "CFNUserPolicies": {
             "Properties": {
-                "PolicyDocument": {
-                    "Groups": {
+                "Groups": [
+                    {
                         "Ref": "CFNAdminGroup"
-                    },
+                    }
+                ],
+                "PolicyDocument": {
                     "Statement": [
                         {
                             "Action": [
@@ -67,7 +72,8 @@
                             "Effect": "Allow",
                             "Resource": "*"
                         }
-                    ]
+                    ],
+                    "Version": "2012-10-17"
                 },
                 "PolicyName": "CFNUsers"
             },
@@ -78,9 +84,11 @@
                 "GroupName": {
                     "Ref": "CFNUserGroup"
                 },
-                "Users": {
-                    "Ref": "CFNUser"
-                }
+                "Users": [
+                    {
+                        "Ref": "CFNUser"
+                    }
+                ]
             },
             "Type": "AWS::IAM::UserToGroupAddition"
         }

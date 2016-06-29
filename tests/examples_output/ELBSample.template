@@ -1,8 +1,28 @@
 {
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "AWS CloudFormation Sample Template: ELB with 2 EC2 instances",
     "Mappings": {
         "RegionMap": {
+            "ap-northeast-1": {
+                "AMI": "ami-9c03a89d"
+            },
+            "ap-southeast-1": {
+                "AMI": "ami-66f28c34"
+            },
+            "eu-west-1": {
+                "AMI": "ami-37c2f643"
+            },
+            "sa-east-1": {
+                "AMI": "ami-a039e6bd"
+            },
+            "us-east-1": {
+                "AMI": "ami-6411e20d"
+            },
             "us-west-1": {
-                "AMI": "ami-3bcc9e7e"
+                "AMI": "ami-c9c7978c"
+            },
+            "us-west-2": {
+                "AMI": "ami-fcff72cc"
             }
         }
     },

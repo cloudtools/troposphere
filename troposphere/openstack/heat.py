@@ -13,13 +13,13 @@ from troposphere.validators import integer
 # strings. For this reason, we duplicate the AWS::AutoScaling::AutoScalingGroup
 # and change these types.
 class AWSAutoScalingGroup(AWSObject):
-    type = "AWS::AutoScaling::AutoScalingGroup"
+    resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
         'AvailabilityZones': (list, True),
         'Cooldown': (integer, False),
         'DesiredCapacity': (basestring, False),
-        'HealthCheckGracePeriod': (int, False),
+        'HealthCheckGracePeriod': (integer, False),
         'HealthCheckType': (basestring, False),
         'LaunchConfigurationName': (basestring, True),
         'LoadBalancerNames': (list, False),

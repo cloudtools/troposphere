@@ -1,4 +1,4 @@
-from . import BaseAWSObject, AWSProperty, validate_pausetime
+from . import AWSProperty, AWSAttribute, validate_pausetime
 from .validators import positive_integer, integer, boolean
 
 
@@ -6,6 +6,7 @@ class AutoScalingRollingUpdate(AWSProperty):
     props = {
         'MaxBatchSize': (positive_integer, False),
         'MinInstancesInService': (integer, False),
+        'MinSuccessfulInstancesPercent': (integer, False),
         'PauseTime': (validate_pausetime, False),
         'SuspendProcesses': ([basestring], False),
         'WaitOnResourceSignals': (boolean, False),
@@ -18,7 +19,7 @@ class AutoScalingScheduledAction(AWSProperty):
     }
 
 
-class UpdatePolicy(BaseAWSObject):
+class UpdatePolicy(AWSAttribute):
     props = {
         'AutoScalingRollingUpdate': (AutoScalingRollingUpdate, False),
         'AutoScalingScheduledAction': (AutoScalingScheduledAction, False),
@@ -32,7 +33,7 @@ class ResourceSignal(AWSProperty):
     }
 
 
-class CreationPolicy(BaseAWSObject):
+class CreationPolicy(AWSAttribute):
     props = {
         'ResourceSignal': (ResourceSignal, True),
     }

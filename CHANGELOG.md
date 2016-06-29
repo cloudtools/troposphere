@@ -1,4 +1,193 @@
-## Pending
+## 1.6.0 (2016-05-04)
+- Remove unnecessary AWSHelperFn from props
+- ReplicationConfigurationRules Destination is now an object (#380)
+- Add WAF SizeConstraintSet and XssMatchSet
+- Logs SubscriptionFilter (#413)
+- Elasticsearch support (#415)
+- Fixed ConfigSnapshotDeliveryProperties type (#420)
+- Adding support for EMR resources (#421)
+- Fix `ecs.TaskDefinition.Volumes` that was incorrectly flagged as required (#422)
+- AWS::ECR test example (#423)
+- Add cloudfront hostedzoneid for route53 (#427)
+- Typo in variable name (431)
+- ScalingAdjustment is an integer (#432)
+- Add Compress to CloudFront (#433)
+- Added missing S3OriginConfig parameter(#437)
+- Allow both GetAtt and a basestring (#440)
+- Add VpcConfig to AWS::Lambda::Function (#442)
+- Add Version Resource to awslambda (#443)
+- Add Alias Resource to awslambda (#444)
+- Ignore If expression during validation of ASG (#446)
+- Add test and tweak fix for ASG MaxSize If fix (#446)
+- Provide Valid Lambda Function Memory Values for use in Parameters (#449)
+- Add FunctionName to Lambda::Function (#452)
+- Add support for EBS volume configuration in EMR resources (#453)
+- Add elasticsearch instance type constants (#454)
+- DomainName isn't a required parameter (#457)
+- Create Documentation To Help Contributors (#458)
+- Move Groups to property, add policy template version (#460)
+- Fix Elasticsarch Domain object naming and add backward compatibility (#461)
+- EC2 update FromPort, ToPort and Egress as optional (#463)
+- ApiGateway Resources (#466)
+- Added CloudWatch Events support (#467)
+- Import JSON Templates (#468)
+- Fix config Source object to take a list of SourceDetails (#469)
+- Update Contribute Document to Use Requirements.txt (#470)
+- Update to Apr 25, 2016 release (#471)
+- Implement LifecycleRule Transitions property (#472)
+- Better AWSHelperFn support in template generator (#473)
+- Fix Bucket AccessControl to allow Ref (#475)
+- Fix baseclass for AWS::Logs::Destination (#481)
+- Add test for AWS::Logs::Destination (#482)
+
+## 1.5.0 (2016-03-01)
+- Add MariaDB to list of RDS engines [GH-368]
+- Add ap-northeast [GH-373]
+- Add T2 Nano [GH-374]
+- capability support for cfn [GH-375]
+- Update to resource list in documentation [GH-383]
+- More info from validator function errors [GH-385]
+- Add testing for python 3.5 [GH-388]
+- Extended title validation [GH-389]
+- EC2 NAT Gateway [GH-394]
+- Add AWS::ECR::Repository [GH-395]
+- Add KmsKeyId and StorageEncrypted to DBCluster [GH-396]
+- Add awacs soft dependency [GH-397]
+- New dynamodb2 module to replace dynamodb for consistent interface [GH-398]
+- Add IsMultiRegionTrail support [GH-399]
+- Add IncludeGlobalResourceTypes to RecordingGroup [GH-400]
+- Capitalize examples [GH-404]
+- use location constants for bucket creation in cfn [GH-409]
+
+## 1.4.0 (2016-01-01)
+- Add RDS Aurora support [GH-335]
+- Change DeploymentGroup Ec2TagFilters to list [GH-337]
+- Correct EC2 SpotFleet LaunchSpecifications [GH-338]
+- RDS::DBCluster change AvailabilityZone to AvailabilityZones [GH-341]
+- ECS LoadBalancerName property is a string [GH-342]
+- CodeDeploy S3Location Version property is not a default requirement [GH-345]
+- Add AutoEnableIO to AWS::EC2::Volume
+- Only discard Properties in JSONrepr [GH-354]
+- CodeDeploy added ApplicationName [GH-357]
+- CodeDeploy DeploymentGroupName property missing [GH-358]
+- Add in cloudfront properties for max, default [GH-360]
+- Allow RDS iops to be 0 [GH-361]
+- Add CodePipline support [GH-362]
+- Implemented CloudFormation changes from Dec 3 and Dec 28 [GH-366]
+- Add AWS::Config, AWS::KMS, AWS::SSM
+
+## 1.3.0 (2015-10-21)
+- Add new resources from 2015-10-01 CloudFormation release:
+  - AWS::CodeDeploy
+  - AWS::DirectoryService::SimpleAD
+  - AWS::EC2::PlacementGroup and AWS::EC2::SpotFleet
+  - AWS::Lambda::EventSourceMapping and AWS::Lambda::Permission
+  - AWS::Logs::SubscriptionFilter
+  - AWS::RDS::DBCluster and AWS::RDS::DBClusterParameter
+  - AWS::WorkSpaces::Workspace
+- Add updates to these resources from 2015-10-01 CloudFormation release:
+  - AWS::ElastiCache::ReplicationGroup
+  - AWS::OpsWorks::Stack
+  - AWS::OpsWorks::App
+  - AWS::S3::Bucket
+- Add ElastiCache (Redis) Example [ GH-329]
+- RDS: Added postgresql-license [GH-324]
+- tail: only add unseen events [GH-327]
+- Make Ref() work with datapipeline.ObjectField.RefValue [GH-328]
+- Fix DeploymentGroup resource_type (AWS::CodeDeploy::DeploymentGroup) [GH-333]
+- Add concatenation operator function __add__ for Tags [GH-334]
+
+## 1.2.2 (2015-09-15)
+- Give more info about type errors [GH-312]
+- Move `tail` within the troposphere library. This lets external libraries
+  leverage this function [GH-315]
+- Improve opsworks validation [GH-319]
+- Fix RDS validation with conditional parameters [GH-320]
+
+## 1.2.1 (2015-09-07)
+- Bugfix for RDS Ref/GetAtt issue [GH-310]
+
+## 1.2.0 (2015-09-04)
+- Add support for EFS
+- Elasticache: only validate az choices if azs is a list [GH-292]
+- Add from_dict function to BaseAWSObject [GH-294]
+- IAM: Path is optional for Role and InstanceProfile [GH-295]
+- Validate parameter options based on Type [GH-296]
+- RDS: Add more specific validators to DBInstance [GH-297]
+- Add constants for the parameter types [GH-300]
+- Add lambda ZipFile property [GH-301]
+- Adds VPCEndpoint resource type [GH-304]
+- Supports tags in ElasticBeanstalk environments [GH-308]
+- Move cloudformation attribute setting to __setattr__ [GH-309]
+
+## 1.1.2 (2015-07-23)
+- Clarify the license is a [BSD 2-Clause license](http://opensource.org/licenses/BSD-2-Clause)
+- Add FindInMap type check for AutoScalingGroup validation of group sizes [GH-285]
+- Implement the template Metadata section [GH-286]
+
+## 1.1.1 (2015-07-12)
+- Rename lambda->awslambda [GH-268]
+- Add t2 large instance type [GH-269]
+- IAM: status required and managedpolicyarns [GH-272]
+- Fix wrong prop name in rds.OptionGroup OptionGroupConfigurations->OptionConfigurations [GH-274]
+- Add CloudFormation CustomResource [GH-278]
+- Add rds snapshot on delete example [GH-280]
+- Unable to pass Cluster name as String [GH-281]
+- Fix unable to set StringValue on ObjectField in DataPipeline [GH-283]
+
+## 1.1.0 (2015-06-15)
+- added AWS::CloudFormation::Stack NotificationARNs property [GH-243]
+- Add additional import for PrivateIpAddressSpecification [GH-247]
+- Add true s3 bucket name validator [GH-249]
+- Replace strict `int` comparison by flexible `troposphere.validators.integer` [GH-251]
+- Add validation for AZMode property on CacheCluster objects [GH-252]
+- Fixing Opsworks Naming (ThresholdWaitTime -> ThresholdsWaitTime) [GH-253]
+- Adding AutoScalingType to OpsWorks Instance [GH-255]
+- Allow extending classes + tests [GH-257]
+- Release June 11, 2015 [GH-259]
+- Add M4 instances and Memcached port [GH-260]
+- Add property for Subnet: MapPublicIpOnLaunch [GH-261]
+- Minor improvements and fixes [GH-262]
+- Update LoginProfile. Note: this is a breaking change and requires adding a
+  ```Password=``` keyword parameter into LoginProfile. [GH-264]
+- Add 2 additional properties (elasticache:CacheCluster:SnapshotName and opsworks:Layer:LifecycleEventConfiguration) [GH-265]
+
+## 1.0.0 (2015-05-11)
+- Fix two elasticache properties [GH-196]
+- Add interim MinimumProtocolVersion to CloudFront ViewerCertificate [GH-218]
+- Missing OriginPath in cloudfront.py [GH-220]
+- Fix DBInstance constraints in order to allow the creation of RDS read-only replicas  [GH-221]
+- Add properties CharacterSetName, KmsKeyId, and StorageEncrypted to AWS::RDS::DBInstance [GH-224]
+- Add Route53 HostedZoneVPCs, HostedZoneTags, HealthCheckTags
+- Add new properties from 2015-04-16 CloudFormation release [GH-225, GH-240]
+- Allow default region for GetAZs() [GH-232]
+- Make AvailabilityZones parameter optional in AutoScalingGroup
+- EventSubscription resource + EC2 types [GH-227]
+- Python 3.4 support [GH-228]
+- examples fix: users is list [GH-237]
+- SNS Topic fields are not required [GH-230]
+- Make AvailabilityZones parameter optional in AutoScalingGroup [GH-236]
+
+## 0.7.2 (2015-03-23)
+- Support AWS helper functions in lists during validation [GH-179]
+- Update README [GH-183]
+- Fixing RedshiftClusterInVpc example; incorrect SG setup [GH-186]
+- Add optional NonKeyAttributes to DynamoDB Projection class [GH-188]
+- Change AutoScaling ScheduledAction StartTime, EndTime, and Recurrence to optional [GH-189]
+- CloudFront forwarded values required on cache behavior [GH-191]
+- DynamoDB attribute definitions required [GH-192]
+- Add some ec2 required fields [GH-193]
+- Fix ElasticBeanstalk resources [GH-213]
+- Fix iam Policy Resource/Property bug [GH-214]
+
+## 0.7.1 (2015-01-11)
+- Fix UpdatePolicy validation [GH-173]
+- Add AWS::CloudFormation::Init ConfigSets support [GH-176]
+- Change CloudWatch Alarm's Threshold prop to be basestring [GH-178]
+
+## 0.7.0 (2015-01-02)
+- Added new Google Group for discussion:
+  https://groups.google.com/forum/#!forum/cloudtools-dev
 - Fixing ValueError message to refer the correct package [GH-135]
 - Change cfn to add -R with no argument lists all the Stacks [GH-138]
 - Add eu-central-1 region (Frankfurt) [GH-139]
@@ -11,6 +200,13 @@
 - Cfn script create bucket in the specified region [GH-149]
 - Remove Unnecessary EOL whitespace [GH-150]
   Note: this changes the default JSON separators.
+- More metadata options [GH-153]
+- Metadata auth [GH-155]
+- Fixed CreationPolicy [GH-157] [GH-160]
+- Addded AWS template VPC_Single_Instance_In_Subnet example [GH-162]
+- Add 2014-12-24 CloudFormation release changes [GH-167] [GH-168] [GH-169]
+- Add GSI & LSI Functionality [GH-161] [GH-172]
+- Fixed landscape.io issues [GH-170]
 
 ## 0.6.2 (2014-10-09)
 - Update to 2014-09-29 AWS release [GH-132]

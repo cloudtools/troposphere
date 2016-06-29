@@ -3,22 +3,30 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
-from .validators import integer, positive_integer, network_port
+from . import AWSObject, AWSProperty, Tags
+from .validators import integer, positive_integer, network_port, boolean
 
 
-class AliasTarget(AWSHelperFn):
-    def __init__(self, hostedzoneid, dnsname, evaluatetargethealth=None):
-        self.data = {
-            'HostedZoneId': hostedzoneid,
-            'DNSName': dnsname,
-        }
+class AliasTarget(AWSProperty):
+    props = {
+        'HostedZoneId': (basestring, True),
+        'DNSName': (basestring, True),
+        'EvaluateTargetHealth': (boolean, False)
+    }
 
+    def __init__(self,
+                 hostedzoneid=None,
+                 dnsname=None,
+                 evaluatetargethealth=None,
+                 **kwargs):
+        # provided for backward compatibility
+        if hostedzoneid is not None:
+            kwargs['HostedZoneId'] = hostedzoneid
+        if dnsname is not None:
+            kwargs['DNSName'] = dnsname
         if evaluatetargethealth is not None:
-            self.data['EvaluateTargetHealth'] = evaluatetargethealth
-
-    def JSONrepr(self):
-        return self.data
+            kwargs['EvaluateTargetHealth'] = evaluatetargethealth
+        super(AliasTarget, self).__init__(**kwargs)
 
 
 class GeoLocation(AWSProperty):
@@ -50,7 +58,7 @@ class BaseRecordSet(object):
 
 class RecordSetType(AWSObject, BaseRecordSet):
     # This is a top-level resource
-    type = "AWS::Route53::RecordSet"
+    resource_type = "AWS::Route53::RecordSet"
 
 
 class RecordSet(AWSProperty, BaseRecordSet):
@@ -59,7 +67,7 @@ class RecordSet(AWSProperty, BaseRecordSet):
 
 
 class RecordSetGroup(AWSObject):
-    type = "AWS::Route53::RecordSetGroup"
+    resource_type = "AWS::Route53::RecordSetGroup"
 
     props = {
         'HostedZoneId': (basestring, False),
@@ -83,10 +91,11 @@ class HealthCheckConfiguration(AWSProperty):
 
 
 class HealthCheck(AWSObject):
-    type = "AWS::Route53::HealthCheck"
+    resource_type = "AWS::Route53::HealthCheck"
 
     props = {
         'HealthCheckConfig': (HealthCheckConfiguration, True),
+        'HealthCheckTags': (Tags, False),
     }
 
 
@@ -96,10 +105,19 @@ class HostedZoneConfiguration(AWSProperty):
     }
 
 
+class HostedZoneVPCs(AWSProperty):
+    props = {
+        'VPCId': (basestring, True),
+        'VPCRegion': (basestring, True),
+    }
+
+
 class HostedZone(AWSObject):
-    type = "AWS::Route53::HostedZone"
+    resource_type = "AWS::Route53::HostedZone"
 
     props = {
         'HostedZoneConfig': (HostedZoneConfiguration, False),
+        'HostedZoneTags': (Tags, False),
         'Name': (basestring, True),
+        'VPCs': ([HostedZoneVPCs], False),
     }

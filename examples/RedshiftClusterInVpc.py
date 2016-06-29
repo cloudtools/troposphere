@@ -6,7 +6,7 @@ from troposphere import If, Output, Join, GetAtt
 from troposphere.redshift import Cluster, ClusterParameterGroup
 from troposphere.redshift import AmazonRedshiftParameter, ClusterSubnetGroup
 from troposphere.ec2 import VPC, Subnet, InternetGateway, VPCGatewayAttachment
-from troposphere.ec2 import SecurityGroup, SecurityGroupIngress
+from troposphere.ec2 import SecurityGroup, SecurityGroupRule
 
 
 t = Template()
@@ -135,18 +135,18 @@ gatewayattachment = t.add_resource(VPCGatewayAttachment(
     InternetGatewayId=Ref("InternetGateway"),
 ))
 
-securitygroupingress1 = SecurityGroupIngress(
-    "SecurityGroupIngress1",
-    CidrIp="10.0.0.0/16",
-    FromPort="80",
-    ToPort="80",
-    IpProtocol="tcp",
-)
-
 securitygroup = t.add_resource(SecurityGroup(
     "SecurityGroup",
     GroupDescription="Security Group",
-    SecurityGroupIngress=[securitygroupingress1],
+    SecurityGroupIngress=[
+        SecurityGroupRule(
+            "SecurityGroupIngress1",
+            CidrIp="10.0.0.0/16",
+            FromPort="80",
+            ToPort="80",
+            IpProtocol="tcp",
+        )
+    ],
     VpcId=Ref("VPC"),
 ))
 

@@ -6,11 +6,12 @@
 
 import json
 import re
+import sys
 import types
 
 from . import validators
 
-__version__ = "0.6.2"
+__version__ = "1.6.0"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -36,11 +37,11 @@ class BaseAWSObject(object):
         self.propnames = self.props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy',
                            'Metadata', 'UpdatePolicy',
-                           'Condition']
+                           'Condition', 'CreationPolicy']
 
-        # unset/None is also legal
-        if title and not valid_names.match(title):
-            raise ValueError('Name "%s" not alphanumeric' % title)
+        # try to validate the title if its there
+        if self.title:
+            self.validate_title()
 
         # Create the list of properties set on this object by the user
         self.properties = {}
@@ -51,17 +52,19 @@ class BaseAWSObject(object):
             }
         else:
             self.resource = self.properties
-        if hasattr(self, 'type') and self.type is not None:
-            self.resource['Type'] = self.type
+        if hasattr(self, 'resource_type') and self.resource_type is not None:
+            self.resource['Type'] = self.resource_type
         self.__initialized = True
+
+        # Check for properties defined in the class
+        for k, (_, required) in self.props.items():
+            v = getattr(type(self), k, None)
+            if v is not None and k not in kwargs:
+                self.__setattr__(k, v)
 
         # Now that it is initialized, populate it with the kwargs
         for k, v in kwargs.items():
-            # Special case Resource Attributes
-            if k in self.attributes:
-                self.resource[k] = v
-            else:
-                self.__setattr__(k, v)
+            self.__setattr__(k, v)
 
         # Bound it to template if we know it
         if self.template is not None:
@@ -82,6 +85,9 @@ class BaseAWSObject(object):
         if name in self.__dict__.keys() \
                 or '_BaseAWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
+        elif name in self.attributes:
+            self.resource[name] = value
+            return None
         elif name in self.propnames:
             # Check the type of the object and compare against what we were
             # expecting.
@@ -95,7 +101,16 @@ class BaseAWSObject(object):
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
-                value = expected_type(value)
+                try:
+                    value = expected_type(value)
+                except:
+                    sys.stderr.write(
+                        "%s: %s.%s function validator '%s' threw "
+                        "exception:\n" % (self.__class__,
+                                          self.title,
+                                          name,
+                                          expected_type.__name__))
+                    raise
                 return self.properties.__setitem__(name, value)
 
             # If it's a list of types, check against those types...
@@ -105,9 +120,11 @@ class BaseAWSObject(object):
                     self._raise_type(name, value, expected_type)
 
                 # Iterate over the list and make sure it matches our
-                # type checks
+                # type checks (as above accept AWSHelperFn because
+                # we can't do the validation ourselves)
                 for v in value:
-                    if not isinstance(v, tuple(expected_type)):
+                    if not isinstance(v, tuple(expected_type)) \
+                       and not isinstance(v, AWSHelperFn):
                         self._raise_type(name, v, expected_type)
                 # Validated so assign it
                 return self.properties.__setitem__(name, value)
@@ -119,29 +136,53 @@ class BaseAWSObject(object):
             else:
                 self._raise_type(name, value, expected_type)
 
-        type_name = getattr(self, 'type', self.__class__.__name__)
+        type_name = getattr(self, 'resource_type', self.__class__.__name__)
+
+        if type_name == 'AWS::CloudFormation::CustomResource' or \
+                type_name.startswith('Custom::'):
+            # Add custom resource arguments to the dict without any further
+            # validation. The properties of a CustomResource is not known.
+            return self.properties.__setitem__(name, value)
+
         raise AttributeError("%s object does not support attribute %s" %
                              (type_name, name))
 
     def _raise_type(self, name, value, expected_type):
-        raise TypeError('%s is %s, expected %s' %
-                        (name, type(value), expected_type))
+        raise TypeError('%s: %s.%s is %s, expected %s' % (self.__class__,
+                                                          self.title,
+                                                          name,
+                                                          type(value),
+                                                          expected_type))
+
+    def validate_title(self):
+        if not valid_names.match(self.title):
+            raise ValueError('Name "%s" not alphanumeric' % self.title)
 
     def validate(self):
         pass
 
+    @classmethod
+    def from_dict(cls, title, dict):
+        obj = cls(title)
+        obj.properties.update(dict)
+        return obj
+
     def JSONrepr(self):
-        for k, (prop_type, required) in self.props.items():
+        for k, (_, required) in self.props.items():
             if required and k not in self.properties:
-                type = getattr(self, 'type', "<unknown type>")
-                raise ValueError("Resource %s required in type %s" % (k, type))
+                rtype = getattr(self, 'resource_type', "<unknown type>")
+                raise ValueError(
+                    "Resource %s required in type %s" % (k, rtype))
         self.validate()
-        # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
-        elif hasattr(self, 'type'):
-            return {'Type': self.type}
+        elif hasattr(self, 'resource_type'):
+            d = {}
+            for k, v in self.resource.items():
+                if k != 'Properties':
+                    d[k] = v
+            return d
         else:
             return {}
 
@@ -173,6 +214,19 @@ class AWSProperty(BaseAWSObject):
         super(AWSProperty, self).__init__(title, **kwargs)
 
 
+class AWSAttribute(BaseAWSObject):
+    dictname = None
+
+    """
+    Used for CloudFormation Resource Attribute objects
+    http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
+    aws-product-attribute-reference.html
+    """
+
+    def __init__(self, title=None, **kwargs):
+        super(AWSAttribute, self).__init__(title, **kwargs)
+
+
 def validate_pausetime(pausetime):
     if not pausetime.startswith('PT'):
         raise ValueError('PauseTime should look like PT#H#M#S')
@@ -180,24 +234,11 @@ def validate_pausetime(pausetime):
 
 
 class UpdatePolicy(BaseAWSObject):
-    props = {
-        'MaxBatchSize': (validators.positive_integer, False),
-        'MinInstancesInService': (validators.integer, False),
-        'PauseTime': (validate_pausetime, False),
-        'SuspendProcesses': ([basestring], False),
-        'WaitOnResourceSignals': (validators.boolean, False),
-    }
-
-    valid_update_policies = (
-        'AutoScalingRollingUpdate',
-    )
-
     def __init__(self, title, **kwargs):
-        if title not in self.valid_update_policies:
-            raise ValueError('UpdatePolicy name must be one of %r' % (
-                self.valid_update_policies,))
-        self.dictname = title
-        super(UpdatePolicy, self).__init__(None, **kwargs)
+        raise DeprecationWarning(
+            "This UpdatePolicy class is deprecated, please switch to using "
+            "the more general UpdatePolicy in troposphere.policies.\n"
+        )
 
 
 class AWSHelperFn(object):
@@ -206,6 +247,15 @@ class AWSHelperFn(object):
             return data.title
         else:
             return data
+
+
+class GenericHelperFn(AWSHelperFn):
+    """ Used as a fallback for the template generator """
+    def __init__(self, data):
+        self.data = self.getdata(data)
+
+    def JSONrepr(self):
+        return self.data
 
 
 class Base64(AWSHelperFn):
@@ -217,8 +267,8 @@ class Base64(AWSHelperFn):
 
 
 class FindInMap(AWSHelperFn):
-    def __init__(self, map, key, value):
-        self.data = {'Fn::FindInMap': [self.getdata(map), key, value]}
+    def __init__(self, mapname, key, value):
+        self.data = {'Fn::FindInMap': [self.getdata(mapname), key, value]}
 
     def JSONrepr(self):
         return self.data
@@ -233,7 +283,7 @@ class GetAtt(AWSHelperFn):
 
 
 class GetAZs(AWSHelperFn):
-    def __init__(self, region):
+    def __init__(self, region=""):
         self.data = {'Fn::GetAZs': region}
 
     def JSONrepr(self):
@@ -336,6 +386,11 @@ class Tags(AWSHelperFn):
                 'Value': v,
             })
 
+    # allow concatenation of the Tags object via '+' operator
+    def __add__(self, newtags):
+        newtags.tags = self.tags + newtags.tags
+        return newtags
+
     def JSONrepr(self):
         return self.tags
 
@@ -352,6 +407,7 @@ class Template(object):
 
     def __init__(self):
         self.description = None
+        self.metadata = {}
         self.conditions = {}
         self.mappings = {}
         self.outputs = {}
@@ -361,6 +417,9 @@ class Template(object):
 
     def add_description(self, description):
         self.description = description
+
+    def add_metadata(self, metadata):
+        self.metadata = metadata
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
@@ -402,6 +461,8 @@ class Template(object):
         t = {}
         if self.description:
             t['Description'] = self.description
+        if self.metadata:
+            t['Metadata'] = self.metadata
         if self.conditions:
             t['Conditions'] = self.conditions
         if self.mappings:
@@ -429,6 +490,8 @@ class Output(AWSDeclaration):
 
 
 class Parameter(AWSDeclaration):
+    STRING_PROPERTIES = ['AllowedPattern', 'MaxLength', 'MinLength']
+    NUMBER_PROPERTIES = ['MaxValue', 'MinValue']
     props = {
         'Type': (basestring, True),
         'Default': (basestring, False),
@@ -442,3 +505,15 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+    def validate(self):
+        if self.properties['Type'] != 'String':
+            for p in self.STRING_PROPERTIES:
+                if p in self.properties:
+                    raise ValueError("%s can only be used with parameters of "
+                                     "the String type." % p)
+        if self.properties['Type'] != 'Number':
+            for p in self.NUMBER_PROPERTIES:
+                if p in self.properties:
+                    raise ValueError("%s can only be used with parameters of "
+                                     "the Number type." % p)

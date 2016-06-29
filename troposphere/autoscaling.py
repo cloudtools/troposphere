@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty, If, FindInMap, Ref
 from .validators import boolean, integer
 from . import cloudformation
 
@@ -34,7 +34,34 @@ class Tag(AWSHelperFn):
         return self.data
 
 
-class NotificationConfiguration(AWSProperty):
+class Tags(AWSHelperFn):
+    defaultPropagateAtLaunch = True
+    manyType = [type([]), type(())]
+
+    def __init__(self, **kwargs):
+        self.tags = []
+        for k, v in sorted(kwargs.iteritems()):
+            if type(v) in self.manyType:
+                propagate = str(v[1]).lower()
+                v = v[0]
+            else:
+                propagate = str(self.defaultPropagateAtLaunch).lower()
+            self.tags.append({
+                'Key': k,
+                'Value': v,
+                'PropagateAtLaunch': propagate,
+            })
+
+    # append tags to list
+    def __add__(self, newtags):
+        newtags.tags = self.tags + newtags.tags
+        return newtags
+
+    def JSONrepr(self):
+        return self.tags
+
+
+class NotificationConfigurations(AWSProperty):
     props = {
         'TopicARN': (basestring, True),
         'NotificationTypes': (list, True),
@@ -48,24 +75,57 @@ class MetricsCollection(AWSProperty):
     }
 
 
+class Metadata(AWSHelperFn):
+    def __init__(self, init, authentication=None):
+        self.validate(init, authentication)
+        # get keys and values from init and authentication
+
+        # if there's only one data point, then we know its the default
+        # cfn-init; where the key is 'config'
+        if len(init.data) == 1:
+            initKey, initValue = init.data.popitem()
+            self.data = {initKey: initValue}
+        else:
+            self.data = init.data
+
+        if authentication:
+            authKey, authValue = authentication.data.popitem()
+            self.data[authKey] = authValue
+
+    def validate(self, init, authentication):
+        if not isinstance(init, cloudformation.Init):
+            raise ValueError(
+                'init must be of type cloudformation.Init'
+            )
+
+        is_instance = isinstance(authentication, cloudformation.Authentication)
+        if authentication and not is_instance:
+            raise ValueError(
+                'authentication must be of type cloudformation.Authentication'
+            )
+
+    def JSONrepr(self):
+        return self.data
+
+
 class AutoScalingGroup(AWSObject):
-    type = "AWS::AutoScaling::AutoScalingGroup"
+    resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
-        'AvailabilityZones': (list, True),
+        'AvailabilityZones': (list, False),
         'Cooldown': (integer, False),
         'DesiredCapacity': (integer, False),
-        'HealthCheckGracePeriod': (int, False),
+        'HealthCheckGracePeriod': (integer, False),
         'HealthCheckType': (basestring, False),
         'InstanceId': (basestring, False),
-        'LaunchConfigurationName': (basestring, True),
+        'LaunchConfigurationName': (basestring, False),
         'LoadBalancerNames': (list, False),
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
-        'NotificationConfiguration': (NotificationConfiguration, False),
+        'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
-        'Tags': (list, False),  # Although docs say these are required
+        'Tags': (list, False),
         'TerminationPolicies': ([basestring], False),
         'VPCZoneIdentifier': (list, False),
     }
@@ -74,27 +134,54 @@ class AutoScalingGroup(AWSObject):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
 
-            isMinRef = isinstance(update_policy.MinInstancesInService, Ref)
-            isMaxRef = isinstance(self.MaxSize, Ref)
+            if 'AutoScalingRollingUpdate' in update_policy.properties:
+                rolling_update = update_policy.AutoScalingRollingUpdate
 
-            if not (isMinRef or isMaxRef):
-                minCount = int(update_policy.MinInstancesInService)
-                maxCount = int(self.MaxSize)
+                isMinNoCheck = isinstance(
+                    rolling_update.MinInstancesInService,
+                    (FindInMap, Ref)
+                )
+                isMaxNoCheck = isinstance(self.MaxSize, (If, FindInMap, Ref))
 
-                if minCount >= maxCount:
-                    raise ValueError(
-                        "The UpdatePolicy attribute "
-                        "MinInstancesInService must be less than the "
-                        "autoscaling group's MaxSize")
+                if not (isMinNoCheck or isMaxNoCheck):
+                    maxCount = int(self.MaxSize)
+                    minCount = int(rolling_update.MinInstancesInService)
+
+                    if minCount >= maxCount:
+                        raise ValueError(
+                            "The UpdatePolicy attribute "
+                            "MinInstancesInService must be less than the "
+                            "autoscaling group's MaxSize")
+
+        launch_config = self.properties.get('LaunchConfigurationName')
+        instance_id = self.properties.get('InstanceId')
+        if launch_config and instance_id:
+            raise ValueError("LaunchConfigurationName and InstanceId "
+                             "are mutually exclusive.")
+        if not launch_config and not instance_id:
+            raise ValueError("Must specify either LaunchConfigurationName or "
+                             "InstanceId: http://docs.aws.amazon.com/AWSCloud"
+                             "Formation/latest/UserGuide/aws-properties-as-gr"
+                             "oup.html#cfn-as-group-instanceid")
+
+        availability_zones = self.properties.get('AvailabilityZones')
+        vpc_zone_identifier = self.properties.get('VPCZoneIdentifier')
+        if not availability_zones and not vpc_zone_identifier:
+            raise ValueError("Must specify AvailabilityZones and/or "
+                             "VPCZoneIdentifier: http://docs.aws.amazon.com/A"
+                             "WSCloudFormation/latest/UserGuide/aws-propertie"
+                             "s-as-group.html#cfn-as-group-vpczoneidentifier")
         return True
 
 
 class LaunchConfiguration(AWSObject):
-    type = "AWS::AutoScaling::LaunchConfiguration"
+    resource_type = "AWS::AutoScaling::LaunchConfiguration"
 
     props = {
         'AssociatePublicIpAddress': (boolean, False),
         'BlockDeviceMappings': (list, False),
+        'ClassicLinkVPCId': (basestring, False),
+        'ClassicLinkVPCSecurityGroups': ([basestring], False),
         'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
@@ -103,7 +190,8 @@ class LaunchConfiguration(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
-        'Metadata': (cloudformation.Init, False),
+        'Metadata': (Metadata, False),
+        'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),
         'SecurityGroups': (list, False),
         'SpotPrice': (basestring, False),
@@ -111,33 +199,61 @@ class LaunchConfiguration(AWSObject):
     }
 
 
+class StepAdjustments(AWSProperty):
+    props = {
+        'MetricIntervalLowerBound': (integer, False),
+        'MetricIntervalUpperBound': (integer, False),
+        'ScalingAdjustment': (integer, True),
+    }
+
+
 class ScalingPolicy(AWSObject):
-    type = "AWS::AutoScaling::ScalingPolicy"
+    resource_type = "AWS::AutoScaling::ScalingPolicy"
 
     props = {
         'AdjustmentType': (basestring, True),
         'AutoScalingGroupName': (basestring, True),
         'Cooldown': (integer, False),
-        'ScalingAdjustment': (basestring, True),
+        'EstimatedInstanceWarmup': (integer, False),
+        'MetricAggregationType': (basestring, False),
+        'MinAdjustmentMagnitude': (integer, False),
+        'PolicyType': (basestring, False),
+        'ScalingAdjustment': (integer, False),
+        'StepAdjustments': ([StepAdjustments], False),
     }
 
 
 class ScheduledAction(AWSObject):
-    type = "AWS::AutoScaling::ScheduledAction"
+    resource_type = "AWS::AutoScaling::ScheduledAction"
 
     props = {
         'AutoScalingGroupName': (basestring, True),
         'DesiredCapacity': (integer, False),
-        'EndTime': (basestring, True),
+        'EndTime': (basestring, False),
         'MaxSize': (integer, False),
         'MinSize': (integer, False),
-        'Recurrence': (basestring, True),
-        'StartTime': (basestring, True),
+        'Recurrence': (basestring, False),
+        'StartTime': (basestring, False),
+    }
+
+
+class LifecycleHook(AWSObject):
+    resource_type = "AWS::AutoScaling::LifecycleHook"
+
+    props = {
+        'AutoScalingGroupName': (basestring, True),
+        'DefaultResult': (basestring, False),
+        'HeartbeatTimeout': (integer, False),
+        'LifecycleHookName': (basestring, False),
+        'LifecycleTransition': (basestring, True),
+        'NotificationMetadata': (basestring, False),
+        'NotificationTargetARN': (basestring, True),
+        'RoleARN': (basestring, True),
     }
 
 
 class Trigger(AWSObject):
-    type = "AWS::AutoScaling::Trigger"
+    resource_type = "AWS::AutoScaling::Trigger"
 
     props = {
         'AutoScalingGroupName': (basestring, True),
@@ -159,6 +275,7 @@ class EBSBlockDevice(AWSProperty):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html
     props = {
         'DeleteOnTermination': (boolean, False),
+        'Encrypted': (boolean, False),
         'Iops': (integer, False),
         'SnapshotId': (basestring, False),
         'VolumeSize': (integer, False),

@@ -3,6 +3,7 @@
 #
 
 AP_NORTHEAST_1 = 'ap-northeast-1'
+AP_NORTHEAST_2 = 'ap-northeast-2'
 AP_SOUTHEAST_1 = 'ap-southeast-1'
 AP_SOUTHEAST_2 = 'ap-southeast-2'
 EU_WEST_1 = 'eu-west-1'
@@ -19,6 +20,9 @@ US_WEST_2 = 'us-west-2'
 AP_NORTHEAST_1A = 'ap-northeast-1a'
 AP_NORTHEAST_1B = 'ap-northeast-1b'
 AP_NORTHEAST_1C = 'ap-northeast-1c'
+
+AP_NORTHEAST_2A = 'ap-northeast-2a'
+AP_NORTHEAST_2C = 'ap-northeast-2c'
 
 AP_SOUTHEAST_1A = 'ap-southeast-1a'
 AP_SOUTHEAST_1B = 'ap-southeast-1b'
@@ -64,15 +68,24 @@ SMTP_PORT_587 = 587
 HTTP_PORT = 80
 HTTPS_PORT = 443
 REDIS_PORT = 6379
+MEMCACHED_PORT = 11211
 POSTGRESQL_PORT = 5432
 
 #
 # EC2 instance types
 #
 
+T2_NANO = 't2.nano'
 T2_MICRO = 't2.micro'
 T2_SMALL = 't2.small'
 T2_MEDIUM = 't2.medium'
+T2_LARGE = 't2.large'
+
+M4_LARGE = 'm4.large'
+M4_XLARGE = 'm4.xlarge'
+M4_2XLARGE = 'm4.2xlarge'
+M4_4XLARGE = 'm4.4xlarge'
+M4_10XLARGE = 'm4.10xlarge'
 
 M3_MEDIUM = 'm3.medium'
 M3_LARGE = 'm3.large'
@@ -85,6 +98,12 @@ C3_2XLARGE = 'c3.2xlarge'
 C3_4XLARGE = 'c3.4xlarge'
 C3_8XLARGE = 'c3.8xlarge'
 
+C4_LARGE = 'c4.large'
+C4_XLARGE = 'c4.xlarge'
+C4_2XLARGE = 'c4.2xlarge'
+C4_4XLARGE = 'c4.4xlarge'
+C4_8XLARGE = 'c4.8xlarge'
+
 R3_LARGE = 'r3.large'
 R3_XLARGE = 'r3.xlarge'
 R3_2XLARGE = 'r3.2xlarge'
@@ -92,11 +111,17 @@ R3_4XLARGE = 'r3.4xlarge'
 R3_8XLARGE = 'r3.8xlarge'
 
 G2_2XLARGE = 'g2.2xlarge'
+G2_8XLARGE = 'g2.8xlarge'
 
 I2_XLARGE = 'i2.xlarge'
 I2_2XLARGE = 'i2.2xlarge'
 I2_4XLARGE = 'i2.4xlarge'
 I2_8XLARGE = 'i2.8xlarge'
+
+D2_XLARGE = 'd2.xlarge'
+D2_2XLARGE = 'd2.2xlarge'
+D2_4XLARGE = 'd2.4xlarge'
+D2_8XLARGE = 'd2.8xlarge'
 
 HS1_8XLARGE = 'hs1.8xlarge'
 
@@ -182,3 +207,59 @@ CACHE_M2_4XLARGE = 'cache.m2.4xlarge'
 CACHE_C1_XLARGE = 'cache.c1.xlarge'
 
 CACHE_T1_MICRO = 'cache.t1.micro'
+
+#
+# Elasticsearch instance types
+#
+
+ELASTICSEARCH_T2_MICRO = 't2.micro.elasticsearch'
+ELASTICSEARCH_T2_SMALL = 't2.small.elasticsearch'
+ELASTICSEARCH_T2_MEDIUM = 't2.medium.elasticsearch'
+
+ELASTICSEARCH_M3_MEDIUM = 'm3.medium.elasticsearch'
+ELASTICSEARCH_M3_LARGE = 'm3.large.elasticsearch'
+ELASTICSEARCH_M3_XLARGE = 'm3.xlarge.elasticsearch'
+ELASTICSEARCH_M3_2XLARGE = 'm3.2xlarge.elasticsearch'
+
+ELASTICSEARCH_R3_LARGE = 'r3.large.elasticsearch'
+ELASTICSEARCH_R3_XLARGE = 'r3.xlarge.elasticsearch'
+ELASTICSEARCH_R3_2XLARGE = 'r3.2xlarge.elasticsearch'
+ELASTICSEARCH_R3_4XLARGE = 'r3.4xlarge.elasticsearch'
+ELASTICSEARCH_R3_8XLARGE = 'r3.8xlarge.elasticsearch'
+
+ELASTICSEARCH_I2_XLARGE = 'i2.xlarge.elasticsearch'
+ELASTICSEARCH_I2_2XLARGE = 'i2.2xlarge.elasticsearch'
+
+#
+# Parameter types
+#
+STRING = 'String'
+NUMBER = 'Number'
+LIST_OF_NUMBERS = 'List<Number>'
+COMMA_DELIMITED_LIST = 'CommaDelimitedList'
+
+AVAILABILITY_ZONE_NAME = 'AWS::EC2::AvailabilityZone::Name'
+IMAGE_ID = 'AWS::EC2::Image::Id'
+INSTANCE_ID = 'AWS::EC2::Instance::Id'
+KEY_PAIR_NAME = 'AWS::EC2::KeyPair::KeyName'
+SECURITY_GROUP_NAME = 'AWS::EC2::SecurityGroup::GroupName'
+SECURITY_GROUP_ID = 'AWS::EC2::SecurityGroup::Id'
+SUBNET_ID = 'AWS::EC2::Subnet::Id'
+VOLUME_ID = 'AWS::EC2::Volume::Id'
+VPC_ID = 'AWS::EC2::VPC::Id'
+HOSTED_ZONE_ID = 'AWS::Route53::HostedZone::Id'
+
+LIST_OF_AVAILABILITY_ZONE_NAMES = 'List<AWS::EC2::AvailabilityZone::Name>'
+LIST_OF_IMAGE_ID = 'List<AWS::EC2::Image::Id>'
+LIST_OF_INSTANCE_IDS = 'List<AWS::EC2::Instance::Id>'
+LIST_OF_SECURITY_GROUP_NAMES = 'List<AWS::EC2::SecurityGroup::GroupName>'
+LIST_OF_SECURITY_GROUP_IDS = 'List<AWS::EC2::SecurityGroup::Id>'
+LIST_OF_SUBNET_IDS = 'List<AWS::EC2::Subnet::Id>'
+LIST_OF_VOLUME_IDS = 'List<AWS::EC2::Volume::Id>'
+LIST_OF_VPC_IDS = 'List<AWS::EC2::VPC::Id>'
+LIST_OF_HOSTED_ZONE_IDS = 'List<AWS::Route53::HostedZone::Id>'
+
+#
+# Route53
+#
+CLOUDFRONT_HOSTEDZONEID = 'Z2FDTNDATAQYW2'

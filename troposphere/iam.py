@@ -3,8 +3,10 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
-from .validators import integer
+from . import AWSObject, AWSProperty
+from .validators import integer, boolean, status
+from .validators import iam_path, iam_role_name, iam_group_name
+
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -17,87 +19,109 @@ Inactive = "Inactive"
 
 
 class AccessKey(AWSObject):
-    type = "AWS::IAM::AccessKey"
+    resource_type = "AWS::IAM::AccessKey"
 
     props = {
         'Serial': (integer, False),
         # XXX - Is Status required? Docs say yes, examples say no
-        'Status': (basestring, False),
+        'Status': (status, True),
         'UserName': (basestring, True),
     }
 
 
-class PolicyProps():
+class PolicyType(AWSObject):
+    resource_type = "AWS::IAM::Policy"
+
     props = {
-        'Groups': ([basestring, Ref], False),
+        'Groups': ([basestring], False),
         'PolicyDocument': (policytypes, True),
         'PolicyName': (basestring, True),
-        'Roles': ([basestring, Ref], False),
-        'Users': ([basestring, Ref], False),
+        'Roles': ([basestring], False),
+        'Users': ([basestring], False),
     }
 
 
-class PolicyType(AWSObject, PolicyProps):
-    # This is a top-level resource
-    type = "AWS::IAM::Policy"
+class Policy(AWSProperty):
+    props = {
+        'PolicyDocument': (policytypes, True),
+        'PolicyName': (basestring, True),
+    }
 
-
-class Policy(AWSProperty, PolicyProps):
-    # This is for use in a list with Group (below)
-    pass
+PolicyProperty = Policy
 
 
 class Group(AWSObject):
-    type = "AWS::IAM::Group"
+    def validate_title(self):
+        iam_group_name(self.title)
+
+    resource_type = "AWS::IAM::Group"
 
     props = {
-        'Path': (basestring, False),
+        'ManagedPolicyArns': ([basestring], False),
+        'Path': (iam_path, False),
         'Policies': ([Policy], False),
     }
 
 
 class InstanceProfile(AWSObject):
-    type = "AWS::IAM::InstanceProfile"
+    resource_type = "AWS::IAM::InstanceProfile"
 
     props = {
-        'Path': (basestring, True),
+        'Path': (iam_path, False),
         'Roles': (list, True),
     }
 
 
 class Role(AWSObject):
-    type = "AWS::IAM::Role"
+    def validate_title(self):
+        iam_role_name(self.title)
+
+    resource_type = "AWS::IAM::Role"
 
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
-        'Path': (basestring, True),
+        'ManagedPolicyArns': ([basestring], False),
+        'Path': (iam_path, False),
         'Policies': ([Policy], False),
     }
 
 
-class LoginProfile(AWSHelperFn):
-    def __init__(self, data):
-        self.data = {'Password': data}
-
-    def JSONrepr(self):
-        return self.data
+class LoginProfile(AWSProperty):
+    props = {
+        'Password': (basestring, True),
+        'PasswordResetRequired': (boolean, False),
+    }
 
 
 class User(AWSObject):
-    type = "AWS::IAM::User"
+    resource_type = "AWS::IAM::User"
 
     props = {
-        'Path': (basestring, False),
-        'Groups': ([basestring, Ref], False),
+        'Path': (iam_path, False),
+        'Groups': ([basestring], False),
+        'ManagedPolicyArns': ([basestring], False),
         'LoginProfile': (LoginProfile, False),
         'Policies': ([Policy], False),
     }
 
 
 class UserToGroupAddition(AWSObject):
-    type = "AWS::IAM::UserToGroupAddition"
+    resource_type = "AWS::IAM::UserToGroupAddition"
 
     props = {
         'GroupName': (basestring, True),
         'Users': (list, True),
+    }
+
+
+class ManagedPolicy(AWSObject):
+    resource_type = "AWS::IAM::ManagedPolicy"
+
+    props = {
+        'Description': (basestring, False),
+        'Groups': ([basestring], False),
+        'Path': (iam_path, False),
+        'PolicyDocument': (policytypes, True),
+        'Roles': ([basestring], False),
+        'Users': ([basestring], False),
     }

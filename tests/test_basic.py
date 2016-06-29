@@ -1,9 +1,8 @@
 import json
 import unittest
 from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
-from troposphere import Template, UpdatePolicy, Ref
+from troposphere import Template, Ref
 from troposphere.ec2 import Instance, SecurityGroupRule
-from troposphere.autoscaling import AutoScalingGroup
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
 
@@ -137,106 +136,6 @@ class TestHealthCheck(unittest.TestCase):
             )
 
 
-class TestUpdatePolicy(unittest.TestCase):
-
-    def test_pausetime(self):
-        with self.assertRaises(ValueError):
-            UpdatePolicy('AutoScalingRollingUpdate', PauseTime='90')
-
-    def test_type(self):
-        with self.assertRaises(ValueError):
-            UpdatePolicy('MyCoolPolicy')
-
-    def test_works(self):
-        policy = UpdatePolicy(
-            'AutoScalingRollingUpdate',
-            PauseTime='PT1M5S',
-            MinInstancesInService='2',
-            MaxBatchSize='1',
-        )
-        self.assertEqual(policy.PauseTime, 'PT1M5S')
-
-    def test_mininstances(self):
-        group = AutoScalingGroup(
-            'mygroup',
-            LaunchConfigurationName="I'm a test",
-            MaxSize="1",
-            MinSize="1",
-            UpdatePolicy=UpdatePolicy(
-                'AutoScalingRollingUpdate',
-                PauseTime='PT1M5S',
-                MinInstancesInService='1',
-                MaxBatchSize='1',
-            )
-        )
-        with self.assertRaises(ValueError):
-            self.assertTrue(group.validate())
-
-    def test_mininstances_maxsize_is_ref(self):
-        paramMaxSize = Parameter(
-            "ParamMaxSize",
-            Type="String"
-        )
-        group = AutoScalingGroup(
-            'mygroup',
-            LaunchConfigurationName="I'm a test",
-            MaxSize=Ref(paramMaxSize),
-            MinSize="2",
-            UpdatePolicy=UpdatePolicy(
-                'AutoScalingRollingUpdate',
-                PauseTime='PT1M5S',
-                MinInstancesInService='2',
-                MaxBatchSize="1",
-            )
-        )
-        self.assertTrue(group.validate())
-
-    def test_mininstances_mininstancesinservice_is_ref(self):
-        paramMinInstancesInService = Parameter(
-            "ParamMinInstancesInService",
-            Type="String"
-        )
-        group = AutoScalingGroup(
-            'mygroup',
-            LaunchConfigurationName="I'm a test",
-            MaxSize="4",
-            MinSize="2",
-            UpdatePolicy=UpdatePolicy(
-                'AutoScalingRollingUpdate',
-                PauseTime='PT1M5S',
-                MinInstancesInService=Ref(paramMinInstancesInService),
-                MaxBatchSize="2",
-            )
-        )
-        self.assertTrue(group.validate())
-
-    def test_working(self):
-        group = AutoScalingGroup(
-            'mygroup',
-            LaunchConfigurationName="I'm a test",
-            MaxSize="4",
-            MinSize="2",
-            UpdatePolicy=UpdatePolicy(
-                'AutoScalingRollingUpdate',
-                PauseTime='PT1M5S',
-                MinInstancesInService='2',
-                MaxBatchSize='1',
-            )
-        )
-        self.assertTrue(group.validate())
-
-    def test_updatepolicy_noproperty(self):
-        t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
-        d = json.loads(json.dumps(t, cls=awsencode))
-        with self.assertRaises(KeyError):
-            d['Properties']
-
-    def test_updatepolicy_dictname(self):
-        t = UpdatePolicy('AutoScalingRollingUpdate', PauseTime='PT1M0S')
-        d = json.loads(json.dumps(t, cls=awsencode))
-        self.assertIn('AutoScalingRollingUpdate', d)
-
-
 class TestOutput(unittest.TestCase):
 
     def test_noproperty(self):
@@ -258,6 +157,28 @@ class TestParameter(unittest.TestCase):
         d = json.loads(json.dumps(t, cls=awsencode))
         with self.assertRaises(KeyError):
             d['Properties']
+
+    def test_property_validator(self):
+        p = Parameter("BasicString", Type="String", MaxLength=10)
+        p.validate()
+
+        p = Parameter("BasicString", Type="String", MaxValue=10)
+        with self.assertRaises(ValueError):
+            p.validate()
+
+        p = Parameter("BasicNumber", Type="Number", MaxValue=10)
+        p.validate()
+
+        p = Parameter("BasicNumber", Type="Number", AllowedPattern=".*")
+        with self.assertRaises(ValueError):
+            p.validate()
+
+    def test_invalid_parameter_property_in_template(self):
+        t = Template()
+        p = Parameter("BasicNumber", Type="Number", AllowedPattern=".*")
+        t.add_parameter(p)
+        with self.assertRaises(ValueError):
+            t.to_json()
 
 
 class TestProperty(unittest.TestCase):
