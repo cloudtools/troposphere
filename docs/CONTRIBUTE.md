@@ -21,7 +21,7 @@ will be run against any commits to the project.
 1. `pip install --upgrade pip setuptools wheel`
 1. `pip install -r docs/requirements.txt`
 1. Run tests:
-  1. `pep8 .`
+  1. `pycodestyle .`
   1. `pyflakes .`
   1. `python setup.py test`
 
