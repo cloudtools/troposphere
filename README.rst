@@ -177,7 +177,7 @@ Todo:
 Duplicating a single instance sample would look like this
 =========================================================
 
-.. code::
+.. code:: python
 
     # Converted from EC2InstanceSample.template located at:
     # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
