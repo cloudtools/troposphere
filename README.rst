@@ -2,11 +2,14 @@
 troposphere
 ===========
 
-.. image:: https://pypip.in/version/troposphere/badge.svg?text=version&style=flat
+.. image:: https://img.shields.io/pypi/v/troposphere.svg
     :target: https://pypi.python.org/pypi/troposphere
 
 .. image:: https://travis-ci.org/cloudtools/troposphere.png?branch=master
     :target: https://travis-ci.org/cloudtools/troposphere
+
+.. image:: https://img.shields.io/pypi/l/troposphere.svg
+    :target: https://opensource.org/licenses/BSD-2-Clause
 
 
 About
