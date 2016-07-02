@@ -19,10 +19,17 @@ class AutoScalingScheduledAction(AWSProperty):
     }
 
 
+class AutoScalingReplacingUpdate(AWSProperty):
+    props = {
+        'WillReplace': (boolean, False),
+    }
+
+
 class UpdatePolicy(AWSAttribute):
     props = {
         'AutoScalingRollingUpdate': (AutoScalingRollingUpdate, False),
         'AutoScalingScheduledAction': (AutoScalingScheduledAction, False),
+        'AutoScalingReplacingUpdate': (AutoScalingReplacingUpdate, False),
     }
 
 
