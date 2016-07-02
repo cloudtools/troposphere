@@ -68,13 +68,12 @@ class TestRDS(unittest.TestCase):
             PreferredBackupWindow="10:00-11:00",
             MultiAZ=True,
             DBSnapshotIdentifier="SomeDBSnapshotIdentifier",
-            DBSubnetGroupName="SomeDBSubnetGroupName",
         )
 
         with self.assertRaisesRegexp(
                 ValueError,
                 'BackupRetentionPeriod, DBName, DBSnapshotIdentifier, '
-                'DBSubnetGroupName, MasterUserPassword, MasterUsername, '
+                'MasterUserPassword, MasterUsername, '
                 'MultiAZ, PreferredBackupWindow '
                 'properties can\'t be provided when '
                 'SourceDBInstanceIdentifier is present '
