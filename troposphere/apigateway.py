@@ -95,12 +95,18 @@ class StageDescription(AWSProperty):
     props = {
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
+        "CacheDataEncrypted": (bool, False),
+        "CacheTtlInSeconds": (positive_integer, False),
+        "CachingEnabled": (bool, False),
         "ClientCertificateId": (basestring, False),
-        "DeploymentId": (basestring, False),
+        "DataTraceEnabled": (bool, False),
         "Description": (basestring, False),
+        "LoggingLevel": (basestring, False),
         "MethodSettings": ([MethodSetting], False),
-        "RestApiId": (basestring, False),
+        "MetricsEnabled": (bool, False),
         "StageName": (basestring, False),
+        "ThrottlingBurstLimit": (positive_integer, False),
+        "ThrottlingRateLimit": (positive_integer, False),
         "Variables": (dict, False)
     }
 
