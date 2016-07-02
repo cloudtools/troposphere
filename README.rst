@@ -1,5 +1,5 @@
 ===========
-Troposphere
+troposphere
 ===========
 
 .. image:: https://pypip.in/version/troposphere/badge.svg?text=version&style=flat
@@ -12,10 +12,10 @@ Troposphere
 About
 =====
 
-Troposphere - library to create `AWS CloudFormation`_ descriptions
+troposphere - library to create `AWS CloudFormation`_ descriptions
 
-The Troposphere library allows for easier creation of the AWS CloudFormation
-JSON by writing Python code to describe the AWS resources. Troposphere also
+The troposphere library allows for easier creation of the AWS CloudFormation
+JSON by writing Python code to describe the AWS resources. troposphere also
 includes some basic support for `OpenStack resources`_ via Heat.
 
 To facilitate catching CloudFormation or JSON errors early the library has
@@ -24,12 +24,12 @@ property and type checking built into the classes.
 Installation
 ============
 
-Troposphere can be installed using the pip distribution system for Python by
+troposphere can be installed using the pip distribution system for Python by
 issuing::
 
     $ pip install troposphere
 
-To install Troposphere with `awacs <https://github.com/cloudtools/awacs>`_
+To install troposphere with `awacs <https://github.com/cloudtools/awacs>`_
 (recommended soft dependency)::
 
     $ pip install troposphere[policy]
@@ -251,10 +251,10 @@ New DynamoDB module
 ===================
 
 The original DynamoDB module did not use a consistent interface with the rest
-of Troposphere, and so is being phased out. In order to prepare for this,
+of troposphere, and so is being phased out. In order to prepare for this,
 you'll need to make a few changes to DynamoDB resources. The biggest change
 is that many of the DynamoDB properties are now treated like regular properties
-in Troposphere rather than as helper functions. For a full example of the
+in troposphere rather than as helper functions. For a full example of the
 changes, you can check out this diff between the DynamoDB_Table example using
 the old and the new modules::
 
@@ -292,14 +292,14 @@ Community
 =========
 
 We have a Google Group, cloudtools-dev_, where you can ask questions and
-engage with the Troposphere community. Issues and pull requests are always
+engage with the troposphere community. Issues and pull requests are always
 welcome!
 
 Licensing
 =========
 
-Troposphere is licensed under the `BSD 2-Clause license`_.
-See `LICENSE`_ for the Troposphere full license text.
+troposphere is licensed under the `BSD 2-Clause license`_.
+See `LICENSE`_ for the troposphere full license text.
 
 
 .. _`AWS CloudFormation`: http://aws.amazon.com/cloudformation
