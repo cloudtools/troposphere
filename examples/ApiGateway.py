@@ -112,6 +112,7 @@ method = t.add_resource(Method(
 stage_name = 'v1'
 deployment = t.add_resource(Deployment(
     "%sDeployment" % stage_name,
+    DependsOn="LambdaMethod",
     RestApiId=Ref(rest_api),
     StageName=stage_name
 ))
@@ -121,8 +122,7 @@ key = t.add_resource(ApiKey(
     StageKeys=[StageKey(
         RestApiId=Ref(rest_api),
         StageName=stage_name
-    )],
-    Enabled=True
+    )]
 ))
 
 # Add the deployment endpoint as an output

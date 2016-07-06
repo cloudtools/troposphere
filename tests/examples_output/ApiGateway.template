@@ -26,7 +26,6 @@
     "Resources": {
         "ApiKey": {
             "Properties": {
-                "Enabled": true,
                 "StageKeys": [
                     {
                         "RestApiId": {
@@ -183,6 +182,7 @@
             "Type": "AWS::ApiGateway::Method"
         },
         "v1Deployment": {
+            "DependsOn": "LambdaMethod",
             "Properties": {
                 "RestApiId": {
                     "Ref": "ExampleApi"
