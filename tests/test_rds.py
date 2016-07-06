@@ -154,6 +154,12 @@ class TestRDS(unittest.TestCase):
             i.JSONrepr()
         i.MultiAZ = "false"
         i.JSONrepr()
+        i.MultiAZ = "true"
+        with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
+            i.JSONrepr()
+
+        i.MultiAZ = Ref(AWS_NO_VALUE)
+        i.JSONrepr()
 
     def test_az_and_multiaz_funcs(self):
         db_az = "us-east-1"
