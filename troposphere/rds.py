@@ -199,8 +199,7 @@ class DBInstance(AWSObject):
         multi_az = self.properties.get('MultiAZ', None)
         if not (isinstance(avail_zone, (AWSHelperFn, nonetype)) and
                 isinstance(multi_az, (AWSHelperFn, nonetype))):
-            if 'AvailabilityZone' in self.properties and \
-                    self.properties.get('MultiAZ', None):
+            if avail_zone and multi_az in [True, 1, '1', 'true', 'True']:
                 raise ValueError("AvailabiltyZone cannot be set on "
                                  "DBInstance if MultiAZ is set to true.")
 
