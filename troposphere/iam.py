@@ -23,8 +23,7 @@ class AccessKey(AWSObject):
 
     props = {
         'Serial': (integer, False),
-        # XXX - Is Status required? Docs say yes, examples say no
-        'Status': (status, True),
+        'Status': (status, False),
         'UserName': (basestring, True),
     }
 
