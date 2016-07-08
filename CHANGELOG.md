@@ -1,4 +1,4 @@
-## pending
+## 1.7.0 (2016-07-07)
 - Convert fake AWSHelperFns into AWSProperties (#478)
 - cfn script: allow update (#484)
 - Validate the template against AWS before stack creation (#485)
@@ -21,8 +21,11 @@
 - Removed validation for DBSubnetGroupName when creating a read replica with SourceDBInstanceIdentifier (#515)
 - EMR configurations values: also allow AWS helper functions (#516)
 - Fix AssociationParameters Value type to list of strings (#518)
+- Add DependsOn to Deployment and remove Enabled from StageKey (#519)
 - Update fields in apigateway StageDescription (#521)
 - Fix rename pep8->pycodestyle and bump to fixed pyflakes (#522)
+- Allows MultiAZ=false with AvailabilityZone in rds (#524)
+- Do not require Status as a param in iam.AccessKey (#525)
 - Fix badges in README
 
 ## 1.6.0 (2016-05-04)
