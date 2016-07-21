@@ -5,7 +5,7 @@
 
 from . import AWSObject, AWSProperty
 from .validators import integer, boolean, status
-from .validators import iam_path, iam_role_name, iam_group_name
+from .validators import iam_path, iam_role_name, iam_group_name, iam_user_name
 
 try:
     from awacs.aws import Policy
@@ -101,6 +101,7 @@ class User(AWSObject):
         'ManagedPolicyArns': ([basestring], False),
         'LoginProfile': (LoginProfile, False),
         'Policies': ([Policy], False),
+        'UserName': (iam_user_name, False),
     }
 
 

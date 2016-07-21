@@ -95,6 +95,20 @@ def iam_names(b):
         raise ValueError("%s is not a valid iam name" % b)
 
 
+def iam_user_name(user_name):
+    if len(user_name) > 64:
+        raise ValueError(
+            "AWS::IAM::User property 'UserName' may not exceed 64 characters")
+
+    iam_user_name_re = compile(r'^[\w+=,.@-]+$')
+    if iam_user_name_re.match(user_name):
+        return user_name
+    else:
+        raise ValueError(
+            "%s is not a valid value for AWS::IAM::User property 'UserName'",
+            user_name)
+
+
 def iam_path(path):
     if len(path) > 512:
         raise ValueError('IAM path %s may not exceed 512 characters', path)
