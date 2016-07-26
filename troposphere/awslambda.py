@@ -28,7 +28,7 @@ class Code(AWSProperty):
         zip_file = self.properties.get('ZipFile')
         s3_bucket = self.properties.get('S3Bucket')
         s3_key = self.properties.get('S3Key')
-        s3_object_version = self.properties.get('SS3ObjectVersion')
+        s3_object_version = self.properties.get('S3ObjectVersion')
 
         if zip_file and s3_bucket:
             raise ValueError("You can't specify both 'S3Bucket' and 'ZipFile'")
