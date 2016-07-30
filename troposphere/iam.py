@@ -56,6 +56,7 @@ class Group(AWSObject):
     resource_type = "AWS::IAM::Group"
 
     props = {
+        'GroupName': (iam_group_name, False),
         'ManagedPolicyArns': ([basestring], False),
         'Path': (iam_path, False),
         'Policies': ([Policy], False),
@@ -82,6 +83,7 @@ class Role(AWSObject):
         'ManagedPolicyArns': ([basestring], False),
         'Path': (iam_path, False),
         'Policies': ([Policy], False),
+        'RoleName': (iam_role_name, False),
     }
 
 
