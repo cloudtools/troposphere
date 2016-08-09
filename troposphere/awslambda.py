@@ -38,6 +38,10 @@ class Code(AWSProperty):
             raise ValueError(
                 "You can't specify both 'S3ObjectVersion' and 'ZipFile'"
             )
+        if zip_file and len(zip_file) > 4096:
+            raise ValueError(
+                "ZipFile length cannot exceed 4096 characters. For larger source use S3Bucket/S3Key properties instead. Current length: %d" % len(zip_file)
+            )            
         if not zip_file and not (s3_bucket and s3_key):
             raise ValueError(
                 "You must specify a bucket location (both the 'S3Bucket' and "
