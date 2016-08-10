@@ -120,6 +120,7 @@ class Restrictions(AWSProperty):
 
 class ViewerCertificate(AWSProperty):
     props = {
+        'AcmCertificateArn': (basestring, False),
         'CloudFrontDefaultCertificate': (boolean, False),
         'IamCertificateId': (basestring, False),
         'MinimumProtocolVersion': (basestring, False),
