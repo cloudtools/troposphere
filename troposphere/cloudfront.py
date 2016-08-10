@@ -70,11 +70,19 @@ class CustomOrigin(AWSProperty):
     }
 
 
+class OriginCustomHeader(AWSProperty):
+    props = {
+        'HeaderName': (basestring, True),
+        'HeaderValue': (basestring, True),
+    }
+
+
 class Origin(AWSProperty):
     props = {
         'DomainName': (basestring, True),
         'OriginPath': (basestring, False),
         'Id': (basestring, True),
+        'OriginCustomHeaders': ([OriginCustomHeader], False),
         'S3OriginConfig': (S3Origin, False),
         'CustomOriginConfig': (CustomOrigin, False),
     }
