@@ -66,6 +66,7 @@ class CustomOrigin(AWSProperty):
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
         'OriginProtocolPolicy': (basestring, True),
+        'OriginSSLProtocols': ([basestring], False),
     }
 
 
