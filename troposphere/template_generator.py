@@ -313,8 +313,7 @@ class TemplateGenerator(Template):
             pkg_name
             for importer, pkg_name, is_pkg in
             pkgutil.walk_packages([dirname], prefix="troposphere.")
-            if not is_pkg and pkg_name.startswith("troposphere") and
-            pkg_name not in self.DEPRECATED_MODULES]
+            if not is_pkg and pkg_name not in self.DEPRECATED_MODULES]
         module_names.append('troposphere')
 
         modules = []
