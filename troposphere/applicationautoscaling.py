@@ -43,5 +43,8 @@ class ScalingPolicy(AWSObject):
         'ScalableDimension': (basestring, False),
         'ServiceNamespace': (basestring, False),
         'ScalingTargetId': (basestring, False),
-        'StepScalingPolicyConfiguration': (StepScalingPolicyConfiguration, False),
+        'StepScalingPolicyConfiguration': (
+            StepScalingPolicyConfiguration,
+            False,
+        ),
     }
