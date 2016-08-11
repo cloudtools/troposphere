@@ -66,6 +66,14 @@ class CustomOrigin(AWSProperty):
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
         'OriginProtocolPolicy': (basestring, True),
+        'OriginSSLProtocols': ([basestring], False),
+    }
+
+
+class OriginCustomHeader(AWSProperty):
+    props = {
+        'HeaderName': (basestring, True),
+        'HeaderValue': (basestring, True),
     }
 
 
@@ -74,6 +82,7 @@ class Origin(AWSProperty):
         'DomainName': (basestring, True),
         'OriginPath': (basestring, False),
         'Id': (basestring, True),
+        'OriginCustomHeaders': ([OriginCustomHeader], False),
         'S3OriginConfig': (S3Origin, False),
         'CustomOriginConfig': (CustomOrigin, False),
     }
@@ -111,6 +120,7 @@ class Restrictions(AWSProperty):
 
 class ViewerCertificate(AWSProperty):
     props = {
+        'AcmCertificateArn': (basestring, False),
         'CloudFrontDefaultCertificate': (boolean, False),
         'IamCertificateId': (basestring, False),
         'MinimumProtocolVersion': (basestring, False),
