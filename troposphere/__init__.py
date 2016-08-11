@@ -405,9 +405,9 @@ class Template(object):
         'Outputs': (dict, False),
     }
 
-    def __init__(self):
-        self.description = None
-        self.metadata = {}
+    def __init__(self, Description=None, Metadata=None):
+        self.description = Description
+        self.metadata = {} if Metadata is None else Metadata
         self.conditions = {}
         self.mappings = {}
         self.outputs = {}
