@@ -16,6 +16,7 @@ Usage:
 import inspect
 import pkgutil
 import importlib
+import os
 
 from collections import Sequence, Mapping
 
@@ -307,12 +308,12 @@ class TemplateGenerator(Template):
 
     def _import_all_troposphere_modules(self):
         """ Imports all troposphere modules and returns them """
+        dirname = os.path.join(os.path.dirname(__file__))
         module_names = [
             pkg_name
             for importer, pkg_name, is_pkg in
-            pkgutil.walk_packages(__file__)
-            if not is_pkg and pkg_name.startswith("troposphere") and
-            pkg_name not in self.DEPRECATED_MODULES]
+            pkgutil.walk_packages([dirname], prefix="troposphere.")
+            if not is_pkg and pkg_name not in self.DEPRECATED_MODULES]
         module_names.append('troposphere')
 
         modules = []
