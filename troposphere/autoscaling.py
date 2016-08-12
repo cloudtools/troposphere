@@ -126,6 +126,7 @@ class AutoScalingGroup(AWSObject):
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
         'Tags': (list, False),
+        'TargetGroupARNs': ([basestring], False),
         'TerminationPolicies': ([basestring], False),
         'VPCZoneIdentifier': (list, False),
     }
