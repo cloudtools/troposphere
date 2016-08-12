@@ -165,8 +165,8 @@ def main():
         HealthyThresholdCount="4",
         Matcher=elb.Matcher(
             HttpCode="200"),
-        Name="WebTarget",
-        Port=Ref(webport_param),
+        Name="ApiTarget",
+        Port=Ref(apiport_param),
         Protocol="HTTP",
         Targets=[elb.TargetDescription(
             Id=Ref(ApiInstance),

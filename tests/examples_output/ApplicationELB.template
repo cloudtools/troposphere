@@ -227,9 +227,9 @@
                 "Matcher": {
                     "HttpCode": "200"
                 },
-                "Name": "WebTarget",
+                "Name": "ApiTarget",
                 "Port": {
-                    "Ref": "WebServerPort"
+                    "Ref": "ApiServerPort"
                 },
                 "Protocol": "HTTP",
                 "Targets": [
