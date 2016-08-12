@@ -225,7 +225,7 @@
                 "HealthCheckTimeoutSeconds": "10",
                 "HealthyThresholdCount": "4",
                 "Matcher": {
-                    "HttpCode": "300"
+                    "HttpCode": "200"
                 },
                 "Name": "WebTarget",
                 "Port": {
@@ -256,7 +256,7 @@
                 "HealthCheckTimeoutSeconds": "10",
                 "HealthyThresholdCount": "4",
                 "Matcher": {
-                    "HttpCode": "300"
+                    "HttpCode": "200"
                 },
                 "Name": "WebTarget",
                 "Port": {
