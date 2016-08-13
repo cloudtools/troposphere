@@ -115,7 +115,9 @@ Missing required property for the AWS resource::
 Currently supported AWS resource types
 ======================================
 
+- AWS::ApplicationAutoScaling
 - AWS::AutoScaling
+- AWS::CertificateManager
 - AWS::CloudFormation
 - AWS::CloudFront
 - AWS::CloudTrail
@@ -131,9 +133,11 @@ Currently supported AWS resource types
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
 - AWS::ElasticLoadBalancing
+- AWS::ElasticLoadBalancingV2
 - AWS::Elasticsearch
 - AWS::EMR
 - AWS::IAM
+- AWS::IoT
 - AWS::Kinesis
 - AWS::KinesisFirehose
 - AWS::KMS
