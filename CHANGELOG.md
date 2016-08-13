@@ -1,3 +1,15 @@
+## pending
+- Remove double S from S3ObjectVersion (fixes #530) (#531)
+- Fix TemplateGenerator import logic. (#533)
+- Add Name attributes for IAM groups and roles (#535)
+- Add AWS Certificate Manager (#538)
+- Add Application Auto Scaling (#539)
+- CloudFront updates (Aug 9, 2016) (#540)
+- Add PerformanceMode to FileSystem resource (#541)
+- Add AWS Internet of Things (#542)
+- Extend Template constructor. (#543)
+- Add application loadbalancer objects and properties (#544)
+
 ## 1.7.0 (2016-07-07)
 - Convert fake AWSHelperFns into AWSProperties (#478)
 - cfn script: allow update (#484)
