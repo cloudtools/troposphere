@@ -4,7 +4,7 @@ from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
-from troposphere.validators import iam_group_name
+from troposphere.validators import iam_group_name, iam_user_name
 
 
 class TestValidators(unittest.TestCase):
@@ -114,6 +114,13 @@ class TestValidators(unittest.TestCase):
         for s in ['a'*129, 'a'*256]:
             with self.assertRaises(ValueError):
                 iam_group_name(s)
+
+    def test_iam_user_name(self):
+        for s in ['a', 'a'*64, 'A', 'Aa', 'A=,.@-']:
+            iam_user_name(s)
+        for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
+            with self.assertRaises(ValueError):
+                iam_user_name(s)
 
 if __name__ == '__main__':
     unittest.main()

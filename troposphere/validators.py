@@ -96,6 +96,10 @@ def iam_names(b):
 
 
 def iam_user_name(user_name):
+    if not user_name:
+        raise ValueError(
+            "AWS::IAM::User property 'UserName' may not be empty")
+
     if len(user_name) > 64:
         raise ValueError(
             "AWS::IAM::User property 'UserName' may not exceed 64 characters")
