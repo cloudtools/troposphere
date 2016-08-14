@@ -17,8 +17,8 @@ About
 
 troposphere - library to create `AWS CloudFormation`_ descriptions
 
-The troposphere library allows for easier creation of the AWS CloudFormation
-JSON by writing Python code to describe the AWS resources. troposphere also
+The troposphere library allows for easier creation of the `AWS CloudFormation
+JSON`_ by writing Python code to describe the AWS resources. troposphere also
 includes some basic support for `OpenStack resources`_ via Heat.
 
 To facilitate catching CloudFormation or JSON errors early the library has
@@ -310,6 +310,7 @@ See `LICENSE`_ for the troposphere full license text.
 
 
 .. _`AWS CloudFormation`: http://aws.amazon.com/cloudformation
+.. _`AWS CloudFormation JSON`: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
 .. _`OpenStack resources`: http://docs.openstack.org/developer/heat/template_guide/openstack.html
 .. _cloudtools-dev: https://groups.google.com/forum/#!forum/cloudtools-dev
 .. _`LICENSE`: https://github.com/cloudtools/troposphere/blob/master/LICENSE
