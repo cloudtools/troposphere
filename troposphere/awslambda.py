@@ -34,7 +34,7 @@ class Code(AWSProperty):
         )
 
         if zip_file is None:
-            return 0, True
+            return
 
         if isinstance(zip_file, basestring):
             zlength = len(zip_file)
@@ -49,12 +49,14 @@ class Code(AWSProperty):
                 return
 
             zlength = 0
-            for v in values:
-                # if it's not a list of strings, just return
-                if not isinstance(v, basestring):
-                    return
-                zlength += len(v)
-            zlength += (len(values)-1) * len(delimiter)
+            if values:
+                for v in values:
+                    # if it's not a list of strings, just return
+                    if not isinstance(v, basestring):
+                        return
+                    zlength += len(v)
+                # account for the size of the delimeter between values
+                zlength += (len(values)-1) * len(delimiter)
 
             if zlength > maxlength:
                 raise ValueError(toolong % (maxlength, zlength))
