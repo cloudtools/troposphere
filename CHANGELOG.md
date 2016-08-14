@@ -1,7 +1,9 @@
 ## pending
+- Support "UserName" property for AWS::IAM::User #529
 - Remove double S from S3ObjectVersion (fixes #530) (#531)
 - Fix TemplateGenerator import logic. (#533)
 - Add Name attributes for IAM groups and roles (#535)
+- Automatically check if zip_file exceeds 4096 chars #537
 - Add AWS Certificate Manager (#538)
 - Add Application Auto Scaling (#539)
 - CloudFront updates (Aug 9, 2016) (#540)
