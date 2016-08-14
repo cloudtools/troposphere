@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Join
 from .validators import positive_integer
 
 MEMORY_VALUES = [x for x in range(128, 1600, 64)]
@@ -24,6 +24,41 @@ class Code(AWSProperty):
         'ZipFile': (basestring, False)
     }
 
+    @staticmethod
+    def check_zip_file(zip_file):
+        maxlength = 4096
+        toolong = (
+            "ZipFile length cannot exceed %d characters. For larger "
+            "source use S3Bucket/S3Key properties instead. "
+            "Current length: %d"
+        )
+
+        if zip_file is None:
+            return 0, True
+
+        if isinstance(zip_file, basestring):
+            zlength = len(zip_file)
+            if zlength > maxlength:
+                raise ValueError(toolong % (maxlength, zlength))
+            return
+        elif isinstance(zip_file, Join):
+            # This code tries to determine if this is a Join with all
+            # strings. If so, we try (best effort) to check the length.
+            delimiter, values = zip_file.data['Fn::Join']
+            if not isinstance(delimiter, basestring):
+                return
+
+            zlength = 0
+            for v in values:
+                # if it's not a list of strings, just return
+                if not isinstance(v, basestring):
+                    return
+                zlength += len(v)
+            zlength += (len(values)-1) * len(delimiter)
+
+            if zlength > maxlength:
+                raise ValueError(toolong % (maxlength, zlength))
+
     def validate(self):
         zip_file = self.properties.get('ZipFile')
         s3_bucket = self.properties.get('S3Bucket')
@@ -38,10 +73,7 @@ class Code(AWSProperty):
             raise ValueError(
                 "You can't specify both 'S3ObjectVersion' and 'ZipFile'"
             )
-        if zip_file and len(zip_file) > 4096:
-            raise ValueError(
-                "ZipFile length cannot exceed 4096 characters. For larger source use S3Bucket/S3Key properties instead. Current length: %d" % len(zip_file)
-            )            
+        Code.check_zip_file(zip_file)
         if not zip_file and not (s3_bucket and s3_key):
             raise ValueError(
                 "You must specify a bucket location (both the 'S3Bucket' and "
