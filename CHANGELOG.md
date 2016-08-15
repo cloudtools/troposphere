@@ -1,4 +1,4 @@
-## pending
+## 1.8.0 (2016-08-15)
 - Support "UserName" property for AWS::IAM::User #529
 - Remove double S from S3ObjectVersion (fixes #530) (#531)
 - Fix TemplateGenerator import logic. (#533)
@@ -11,6 +11,7 @@
 - Add AWS Internet of Things (#542)
 - Extend Template constructor. (#543)
 - Add application loadbalancer objects and properties (#544)
+- Improve check_zip_file to calculate a minimum length (#548)
 
 ## 1.7.0 (2016-07-07)
 - Convert fake AWSHelperFns into AWSProperties (#478)
