@@ -37,29 +37,36 @@ class Code(AWSProperty):
             return
 
         if isinstance(zip_file, basestring):
-            zlength = len(zip_file)
-            if zlength > maxlength:
-                raise ValueError(toolong % (maxlength, zlength))
+            z_length = len(zip_file)
+            if z_length > maxlength:
+                raise ValueError(toolong % (maxlength, z_length))
             return
-        elif isinstance(zip_file, Join):
-            # This code tries to determine if this is a Join with all
-            # strings. If so, we try (best effort) to check the length.
+
+        if isinstance(zip_file, Join):
+            # This code tries to combine the length of all the strings in a
+            # join. If a part is not a string, we do not count it (length 0).
             delimiter, values = zip_file.data['Fn::Join']
-            if not isinstance(delimiter, basestring):
+
+            # Return if there are no values to join
+            if not values or len(values) <= 0:
                 return
 
-            zlength = 0
-            if values:
-                for v in values:
-                    # if it's not a list of strings, just return
-                    if not isinstance(v, basestring):
-                        return
-                    zlength += len(v)
-                # account for the size of the delimeter between values
-                zlength += (len(values)-1) * len(delimiter)
+            # Get the length of the delimiter
+            if isinstance(delimiter, basestring):
+                d_length = len(delimiter)
+            else:
+                d_length = 0
 
-            if zlength > maxlength:
-                raise ValueError(toolong % (maxlength, zlength))
+            # Get the length of each value that will be joined
+            v_lengths = [len(v) for v in values if isinstance(v, basestring)]
+
+            # Add all the lengths together
+            z_length = sum(v_lengths)
+            z_length += (len(values)-1) * d_length
+
+            if z_length > maxlength:
+                raise ValueError(toolong % (maxlength, z_length))
+            return
 
     def validate(self):
         zip_file = self.properties.get('ZipFile')
