@@ -1,5 +1,5 @@
 import unittest
-from troposphere import GetAtt, Template, Join
+from troposphere import GetAtt, Template, Join, Ref
 from troposphere.awslambda import Code, Function
 
 
@@ -49,6 +49,7 @@ class TestAWSLambda(unittest.TestCase):
             'a'*4096,
             Join('', ['a'*4096]),
             Join('', ['a', 10]),
+            Join('', ['a'*4096, Ref('EmptyParameter')]),
             Join('ab', ['a'*2047, 'a'*2047]),
             GetAtt('foo', 'bar'),
         ]
@@ -57,6 +58,7 @@ class TestAWSLambda(unittest.TestCase):
         negative_tests = [
             'a'*4097,
             Join('', ['a'*4097]),
+            Join('', ['a'*4097, Ref('EmptyParameter')]),
             Join('abc', ['a'*2047, 'a'*2047]),
         ]
         for z in negative_tests:
