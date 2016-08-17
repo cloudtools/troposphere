@@ -11,8 +11,9 @@ class Cluster(AWSObject):
 class LoadBalancer(AWSProperty):
     props = {
         'ContainerName': (basestring, False),
-        'ContainerPort': (network_port, False),
+        'ContainerPort': (network_port, True),
         'LoadBalancerName': (basestring, False),
+        'TargetGroupArn': (basestring, False),
     }
 
 
