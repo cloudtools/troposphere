@@ -40,7 +40,14 @@ class ResourceSignal(AWSProperty):
     }
 
 
+class AutoScalingCreationPolicy(AWSProperty):
+    props = {
+        'MinSuccessfulInstancesPercent': (integer, False),
+    }
+
+
 class CreationPolicy(AWSAttribute):
     props = {
+        'AutoScalingCreationPolicy': (AutoScalingCreationPolicy, False),
         'ResourceSignal': (ResourceSignal, True),
     }
