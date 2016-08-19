@@ -46,12 +46,12 @@ class Authorizer(AWSObject):
     props = {
         "AuthorizerCredentials": (basestring, False),
         "AuthorizerResultTtlInSeconds": (validate_authorizer_ttl, False),
-        "AuthorizerUri": (basestring, False),
-        "IdentitySource": (basestring, False),
+        "AuthorizerUri": (basestring, True),
+        "IdentitySource": (basestring, True),
         "IdentityValidationExpression": (basestring, False),
-        "Name": (basestring, False),
+        "Name": (basestring, True),
         "RestApiId": (basestring, False),
-        "Type": (basestring, False)
+        "Type": (basestring, True)
     }
 
 
@@ -60,8 +60,8 @@ class BasePathMapping(AWSObject):
 
     props = {
         "BasePath": (basestring, False),
-        "DomainName": (basestring, False),
-        "RestApiId": (basestring, False),
+        "DomainName": (basestring, True),
+        "RestApiId": (basestring, True),
         "Stage": (basestring, False)
     }
 
@@ -81,10 +81,10 @@ class MethodSetting(AWSProperty):
         "CacheTtlInSeconds": (positive_integer, False),
         "CachingEnabled": (bool, False),
         "DataTraceEnabled": (bool, False),
-        "HttpMethod": (basestring, False),
+        "HttpMethod": (basestring, True),
         "LoggingLevel": (basestring, False),
         "MetricsEnabled": (bool, False),
-        "ResourcePath": (basestring, False),
+        "ResourcePath": (basestring, True),
         "ThrottlingBurstLimit": (positive_integer, False),
         "ThrottlingRateLimit": (positive_integer, False)
     }
@@ -118,7 +118,7 @@ class Deployment(AWSObject):
         "Description": (basestring, False),
         "RestApiId": (basestring, True),
         "StageDescription": (StageDescription, False),
-        "StageName": (basestring, False)
+        "StageName": (basestring, True)
     }
 
 
@@ -140,9 +140,10 @@ class Integration(AWSProperty):
         "Credentials": (basestring, False),
         "IntegrationHttpMethod": (basestring, False),
         "IntegrationResponses": ([IntegrationResponse], False),
+        "PassthroughBehavior": (basestring, False),
         "RequestParameters": (dict, False),
         "RequestTemplates": (dict, False),
-        "Type": (basestring, False),
+        "Type": (basestring, True),
         "Uri": (basestring, False)
     }
 
@@ -152,7 +153,7 @@ class MethodResponse(AWSProperty):
     props = {
         "ResponseModels": (dict, False),
         "ResponseParameters": (dict, False),
-        "StatusCode": (basestring, False)
+        "StatusCode": (basestring, True)
     }
 
 
@@ -161,15 +162,15 @@ class Method(AWSObject):
 
     props = {
         "ApiKeyRequired": (bool, False),
-        "AuthorizationType": (basestring, False),
+        "AuthorizationType": (basestring, True),
         "AuthorizerId": (basestring, False),
-        "HttpMethod": (basestring, False),
+        "HttpMethod": (basestring, True),
         "Integration": (Integration, False),
         "MethodResponses": ([MethodResponse], False),
         "RequestModels": (dict, False),
         "RequestParameters": (dict, False),
-        "ResourceId": (basestring, False),
-        "RestApiId": (basestring, False)
+        "ResourceId": (basestring, True),
+        "RestApiId": (basestring, True)
     }
 
 
@@ -189,8 +190,8 @@ class Resource(AWSObject):
     resource_type = "AWS::ApiGateway::Resource"
 
     props = {
-        "ParentId": (basestring, False),
-        "PathPart": (basestring, False),
+        "ParentId": (basestring, True),
+        "PathPart": (basestring, True),
         "RestApiId": (basestring, True)
     }
 
@@ -226,10 +227,10 @@ class Stage(AWSObject):
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
         "ClientCertificateId": (basestring, False),
-        "DeploymentId": (basestring, False),
+        "DeploymentId": (basestring, True),
         "Description": (basestring, False),
         "MethodSettings": ([MethodSetting], False),
-        "RestApiId": (basestring, False),
-        "StageName": (basestring, False),
+        "RestApiId": (basestring, True),
+        "StageName": (basestring, True),
         "Variables": (dict, False)
     }
