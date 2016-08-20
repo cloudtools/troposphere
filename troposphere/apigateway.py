@@ -210,7 +210,7 @@ class RestApi(AWSObject):
     resource_type = "AWS::ApiGateway::RestApi"
 
     props = {
-        "Body": (basestring, False),
+        "Body": (dict, False),
         "BodyS3Location": (S3Location, False),
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
