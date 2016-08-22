@@ -62,6 +62,7 @@ class Domain(AWSObject):
         'AccessPolicies': (policytypes, False),
         'AdvancedOptions': (dict, False),
         'DomainName': (basestring, False),
+        'DomainVersion': (basestring, False),
         'EBSOptions': (EBSOptions, False),
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'SnapshotOptions': (SnapshotOptions, False),

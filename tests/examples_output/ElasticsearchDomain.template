@@ -20,6 +20,7 @@
                     "rest.action.multi.allow_explicit_index": "true"
                 },
                 "DomainName": "ExampleElasticsearchDomain",
+                "DomainVersion": "2.3",
                 "EBSOptions": {
                     "EBSEnabled": "true",
                     "Iops": 0,

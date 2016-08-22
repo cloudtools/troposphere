@@ -14,6 +14,7 @@ templ.add_description('Elasticsearch Domain example')
 es_domain = templ.add_resource(Domain(
     'ElasticsearchDomain',
     DomainName="ExampleElasticsearchDomain",
+    DomainVersion="2.3",
     ElasticsearchClusterConfig=ElasticsearchClusterConfig(
         DedicatedMasterEnabled=True,
         InstanceCount=2,
