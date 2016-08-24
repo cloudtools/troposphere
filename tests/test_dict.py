@@ -1,6 +1,7 @@
 import unittest
-from troposphere import Template
+from troposphere import Template, Ref
 from troposphere import ecs
+from troposphere import iam
 
 
 class TestDict(unittest.TestCase):
@@ -39,6 +40,7 @@ class TestDict(unittest.TestCase):
                 "taskdef",
                 ContainerDefinitions=[cd],
                 Volumes=[ecs.Volume(Name="myvol")],
+                TaskRoleArn=Ref(iam.Role("myecsrole"))
         )
         t.add_resource(td)
         t.to_json()
