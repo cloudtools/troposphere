@@ -6,6 +6,7 @@ class AutoScalingRollingUpdate(AWSProperty):
     props = {
         'MaxBatchSize': (positive_integer, False),
         'MinInstancesInService': (integer, False),
+        'MinSuccessfulInstancesPercent': (integer, False),
         'PauseTime': (validate_pausetime, False),
         'SuspendProcesses': ([basestring], False),
         'WaitOnResourceSignals': (boolean, False),
@@ -18,10 +19,17 @@ class AutoScalingScheduledAction(AWSProperty):
     }
 
 
+class AutoScalingReplacingUpdate(AWSProperty):
+    props = {
+        'WillReplace': (boolean, False),
+    }
+
+
 class UpdatePolicy(AWSAttribute):
     props = {
         'AutoScalingRollingUpdate': (AutoScalingRollingUpdate, False),
         'AutoScalingScheduledAction': (AutoScalingScheduledAction, False),
+        'AutoScalingReplacingUpdate': (AutoScalingReplacingUpdate, False),
     }
 
 
@@ -32,7 +40,14 @@ class ResourceSignal(AWSProperty):
     }
 
 
+class AutoScalingCreationPolicy(AWSProperty):
+    props = {
+        'MinSuccessfulInstancesPercent': (integer, False),
+    }
+
+
 class CreationPolicy(AWSAttribute):
     props = {
+        'AutoScalingCreationPolicy': (AutoScalingCreationPolicy, False),
         'ResourceSignal': (ResourceSignal, True),
     }

@@ -25,7 +25,7 @@ class S3Location(AWSProperty):
         'BundleType': (basestring, True),
         'ETag': (basestring, False),
         'Key': (basestring, True),
-        'Version': (basestring, True),
+        'Version': (basestring, False),
     }
 
 
@@ -72,6 +72,7 @@ class Application(AWSObject):
     resource_type = "AWS::CodeDeploy::Application"
 
     props = {
+        'ApplicationName': (basestring, False),
     }
 
 
@@ -79,6 +80,7 @@ class DeploymentConfig(AWSObject):
     resource_type = "AWS::CodeDeploy::DeploymentConfig"
 
     props = {
+        'DeploymentConfigName': (basestring, False),
         'MinimumHealthyHosts': (MinimumHealthyHosts, False),
     }
 
@@ -91,6 +93,7 @@ class DeploymentGroup(AWSObject):
         'AutoScalingGroups': ([basestring], False),
         'Deployment': (Deployment, False),
         'DeploymentConfigName': (basestring, False),
+        'DeploymentGroupName': (basestring, False),
         'Ec2TagFilters': ([Ec2TagFilters], False),
         'OnPremisesInstanceTagFilters': (OnPremisesInstanceTagFilters, False),
         'ServiceRoleArn': (basestring, True),

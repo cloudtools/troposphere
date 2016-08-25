@@ -3,7 +3,13 @@
 #
 # See LICENSE file for full license.
 
+import warnings
+
 from . import AWSHelperFn, AWSObject, AWSProperty
+
+warnings.warn("This module is outdated and will be replaced with "
+              "troposphere.dynamodb2. Please see the README for "
+              "instructions on how to prepare for this change.")
 
 
 class AttributeDefinition(AWSHelperFn):
@@ -78,14 +84,21 @@ class LocalSecondaryIndex(AWSHelperFn):
         return self.data
 
 
+class StreamSpecification(AWSProperty):
+        props = {
+            'StreamViewType': (basestring, True),
+        }
+
+
 class Table(AWSObject):
     resource_type = "AWS::DynamoDB::Table"
 
     props = {
-        'KeySchema': ([Key], True),
-        'ProvisionedThroughput': (ProvisionedThroughput, True),
         'AttributeDefinitions': ([AttributeDefinition], True),
-        'TableName': (basestring, False),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
+        'KeySchema': ([Key], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
+        'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'StreamSpecification': (StreamSpecification, False),
+        'TableName': (basestring, False),
     }

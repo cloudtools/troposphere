@@ -1,0 +1,16 @@
+{
+    "Resources": {
+        "mycert": {
+            "Properties": {
+                "DomainName": "example.com",
+                "DomainValidationOptions": [
+                    {
+                        "DomainName": "example.com",
+                        "ValidationDomain": "example.com"
+                    }
+                ]
+            },
+            "Type": "AWS::CertificateManager::Certificate"
+        }
+    }
+}
