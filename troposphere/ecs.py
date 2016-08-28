@@ -137,4 +137,5 @@ class TaskDefinition(AWSObject):
     props = {
         'ContainerDefinitions': ([ContainerDefinition], True),
         'Volumes': ([Volume], False),
+        'TaskRoleArn': (basestring, False),
     }
