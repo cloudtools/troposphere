@@ -13,6 +13,7 @@ class Stack(AWSObject):
     props = {
         'NotificationARNs': ([basestring], False),
         'Parameters': (dict, False),
+        'Tags': (list, False),
         'TemplateURL': (basestring, True),
         'TimeoutInMinutes': (integer, False),
     }
