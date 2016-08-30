@@ -56,6 +56,7 @@ class PortMapping(AWSProperty):
     props = {
         'ContainerPort': (network_port, True),
         'HostPort': (network_port, False),
+        'Protocol': (basestring, False),
     }
 
 

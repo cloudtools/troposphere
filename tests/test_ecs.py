@@ -96,3 +96,31 @@ class TestECS(unittest.TestCase):
         )
 
         task_definition.JSONrepr()
+
+    def test_allow_port_mapping_protocol(self):
+        container_definition = ecs.ContainerDefinition(
+            Image="myimage",
+            Memory="300",
+            Name="mycontainer",
+            PortMappings=[
+                ecs.PortMapping(
+                    ContainerPort=8125, HostPort=8125, Protocol="udp"
+                )
+            ]
+        )
+
+        container_definition.JSONrepr()
+
+    def test_port_mapping_does_not_require_protocol(self):
+        container_definition = ecs.ContainerDefinition(
+            Image="myimage",
+            Memory="300",
+            Name="mycontainer",
+            PortMappings=[
+                ecs.PortMapping(
+                    ContainerPort=8125, HostPort=8125,
+                )
+            ]
+        )
+
+        container_definition.JSONrepr()
