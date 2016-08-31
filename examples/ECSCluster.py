@@ -146,6 +146,7 @@ ECSAutoScalingGroup = t.add_resource(AutoScalingGroup(
     MinSize='1',
     MaxSize='1',
     VPCZoneIdentifier=['subnet-72849a0a', 'subnet-72849a08'],
+    AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
     LaunchConfigurationName=Ref('ContainerInstances'),
 ))
 

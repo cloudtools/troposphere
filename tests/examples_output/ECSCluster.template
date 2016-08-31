@@ -160,6 +160,10 @@
         },
         "ECSAutoScalingGroup": {
             "Properties": {
+                "AvailabilityZones": [
+                    "eu-west-1a",
+                    "eu-west-1b"
+                ],
                 "DesiredCapacity": "1",
                 "LaunchConfigurationName": {
                     "Ref": "ContainerInstances"
