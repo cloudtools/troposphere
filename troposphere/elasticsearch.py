@@ -64,6 +64,7 @@ class Domain(AWSObject):
         'DomainName': (basestring, False),
         'EBSOptions': (EBSOptions, False),
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
+        'ElasticsearchVersion': (basestring, False),
         'SnapshotOptions': (SnapshotOptions, False),
         'Tags': (list, False)
     }
