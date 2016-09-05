@@ -108,7 +108,7 @@ class WebACL(AWSObject):
     }
 
 
-class SizeConstraint(AWSObject):
+class SizeConstraint(AWSProperty):
     props = {
         'ComparisonOperator': (basestring, True),
         'FieldToMatch': (FieldToMatch, True),
