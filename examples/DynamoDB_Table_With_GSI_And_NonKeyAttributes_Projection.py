@@ -1,13 +1,14 @@
 #!/usr/bin/python
-#
-# Note: This implementation is being phased out, you should instead look at
-#       the DynamoDB2_* examples for the new implementation.
-#
 
 from troposphere import Template, Ref, Output, Parameter
-from troposphere.dynamodb import (Key, AttributeDefinition,
-                                  ProvisionedThroughput, Projection)
-from troposphere.dynamodb import Table, GlobalSecondaryIndex
+from troposphere.dynamodb import (
+    KeySchema,
+    AttributeDefinition,
+    ProvisionedThroughput,
+    Projection,
+    Table,
+    GlobalSecondaryIndex
+)
 
 template = Template()
 
@@ -109,32 +110,57 @@ secondaryIndexRangeDataType = template.add_parameter(Parameter(
 GSITable = template.add_resource(Table(
     "GSITable",
     AttributeDefinitions=[
-        AttributeDefinition(Ref(tableIndexName), Ref(tableIndexDataType)),
-        AttributeDefinition(Ref(secondaryIndexHashName),
-                            Ref(secondaryIndexHashDataType)),
-        AttributeDefinition(Ref(secondaryIndexRangeName),
-                            Ref(secondaryIndexRangeDataType)),
-        AttributeDefinition("non_key_attribute_0", "S"),
-        AttributeDefinition("non_key_attribute_1", "S")
+        AttributeDefinition(
+            AttributeName=Ref(tableIndexName),
+            AttributeType=Ref(tableIndexDataType)
+        ),
+        AttributeDefinition(
+            AttributeName=Ref(secondaryIndexHashName),
+            AttributeType=Ref(secondaryIndexHashDataType)
+        ),
+        AttributeDefinition(
+            AttributeName=Ref(secondaryIndexRangeName),
+            AttributeType=Ref(secondaryIndexRangeDataType)
+        ),
+        AttributeDefinition(
+            AttributeName="non_key_attribute_0",
+            AttributeType="S"
+        ),
+        AttributeDefinition(
+            AttributeName="non_key_attribute_1",
+            AttributeType="S"
+        )
     ],
     KeySchema=[
-        Key(Ref(tableIndexName), "HASH")
+        KeySchema(
+            AttributeName=Ref(tableIndexName),
+            KeyType="HASH"
+        )
     ],
     ProvisionedThroughput=ProvisionedThroughput(
-        Ref(readunits),
-        Ref(writeunits)
+        ReadCapacityUnits=Ref(readunits),
+        WriteCapacityUnits=Ref(writeunits)
     ),
     GlobalSecondaryIndexes=[
         GlobalSecondaryIndex(
-            "SecondaryIndex",
-            [
-                Key(Ref(secondaryIndexHashName), "HASH"),
-                Key(Ref(secondaryIndexRangeName), "RANGE")
+            IndexName="SecondaryIndex",
+            KeySchema=[
+                KeySchema(
+                    AttributeName=Ref(secondaryIndexHashName),
+                    KeyType="HASH"
+                ),
+                KeySchema(
+                    AttributeName=Ref(secondaryIndexRangeName),
+                    KeyType="RANGE"
+                )
             ],
-            Projection("INCLUDE", ["non_key_attribute_0"]),
-            ProvisionedThroughput(
-                Ref(readunits),
-                Ref(writeunits)
+            Projection=Projection(
+                ProjectionType="INCLUDE",
+                NonKeyAttributes=["non_key_attribute_0"]
+            ),
+            ProvisionedThroughput=ProvisionedThroughput(
+                ReadCapacityUnits=Ref(readunits),
+                WriteCapacityUnits=Ref(writeunits)
             )
         )
     ]
