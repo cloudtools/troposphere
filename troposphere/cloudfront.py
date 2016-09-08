@@ -143,7 +143,7 @@ class DistributionConfig(AWSProperty):
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
         'WebACLId': (basestring, False),
-        'HttpVersion', (basestring, False)
+        'HttpVersion': (basestring, False)
     }
 
 
