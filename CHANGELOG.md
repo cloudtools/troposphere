@@ -1,3 +1,17 @@
+## 1.8.1 (2016-09-12)
+- Add TargetGroupArn and fix ContainerPort (#549)
+- Update ApiGateway resources (#550)
+- Add support for AutoScalingCreationPolicy (#552)
+- Change param type for resource: RestAPI (#553)
+- Add support for IAM Roles in ECS Task Definitions (#556)
+- Allow Tags on AWS::CloudFormation::Stack (#557)
+- Added support for protocol in container definition PortMapping property. (#558)
+- Add Tags prop to Kinesis::Stream (#565)
+- Add a sample ECS Cluster template (#559)
+- Add support for ElasticsearchVersion in Elasticsearch Domain (#560)
+- WAF SizeContraint needs to be an AWSProperty (Fixes #561)
+- Add Tags prop to Kinesis::Stream (#565)
+
 ## 1.8.0 (2016-08-15)
 - Support "UserName" property for AWS::IAM::User #529
 - Remove double S from S3ObjectVersion (fixes #530) (#531)
