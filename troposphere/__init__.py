@@ -369,6 +369,12 @@ class Condition(AWSHelperFn):
     def JSONrepr(self):
         return self.data
 
+class ImportValue(AWSHelperFn):
+    def __init__(self, data):
+        self.data = {'Fn::ImportValue': data}
+
+    def JSONrepr(self):
+        return self.data
 
 class awsencode(json.JSONEncoder):
     def default(self, obj):
@@ -486,6 +492,7 @@ class Output(AWSDeclaration):
     props = {
         'Description': (basestring, False),
         'Value': (basestring, True),
+    	'Export': (dict, False),
     }
 
 
