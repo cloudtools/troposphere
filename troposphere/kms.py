@@ -12,6 +12,15 @@ except ImportError:
     policytypes = dict,
 
 
+class Alias(AWSObject):
+    resource_type = "AWS::KMS::Alias"
+
+    props = {
+        'AliasName': (basestring, True),
+        'TargetKeyId': (basestring, True)
+    }
+
+
 class Key(AWSObject):
     resource_type = "AWS::KMS::Key"
 
