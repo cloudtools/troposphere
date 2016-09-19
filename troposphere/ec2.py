@@ -552,6 +552,7 @@ class LaunchSpecifications(AWSProperty):
         'Placement': (basestring, False),
         'RamdiskId': (basestring, False),
         'SecurityGroups': ([SecurityGroups], False),
+        'SpotPrice': (basestring, False),
         'SubnetId': (basestring, False),
         'UserData': (basestring, False),
         'WeightedCapacity': (positive_integer, False),
