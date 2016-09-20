@@ -493,8 +493,8 @@ class Template(object):
 class Output(AWSDeclaration):
     props = {
         'Description': (basestring, False),
-        'Value': (basestring, True),
         'Export': (dict, False),
+        'Value': (basestring, True),
     }
 
 
