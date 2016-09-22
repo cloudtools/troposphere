@@ -17,6 +17,7 @@ class LogGroup(AWSObject):
     resource_type = "AWS::Logs::LogGroup"
 
     props = {
+        'LogGroupName': (basestring, False),
         'RetentionInDays': (positive_integer, False),
     }
 
