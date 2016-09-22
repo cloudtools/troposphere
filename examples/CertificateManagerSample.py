@@ -1,7 +1,6 @@
 from troposphere import Template
 from troposphere.certificatemanager import Certificate, DomainValidationOption
 
-
 t = Template()
 
 t.add_resource(
@@ -13,6 +12,12 @@ t.add_resource(
                 DomainName='example.com',
                 ValidationDomain='example.com',
             ),
+        ],
+        Tags=[
+            {
+                'Key': 'tag-key',
+                'Value': 'tag-value'
+            },
         ],
     )
 )
