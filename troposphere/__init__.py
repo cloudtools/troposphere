@@ -6,11 +6,12 @@
 
 import json
 import re
+import sys
 import types
 
 from . import validators
 
-__version__ = "1.4.0"
+__version__ = "1.8.1"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -38,9 +39,9 @@ class BaseAWSObject(object):
                            'Metadata', 'UpdatePolicy',
                            'Condition', 'CreationPolicy']
 
-        # unset/None is also legal
-        if title and not valid_names.match(title):
-            raise ValueError('Name "%s" not alphanumeric' % title)
+        # try to validate the title if its there
+        if self.title:
+            self.validate_title()
 
         # Create the list of properties set on this object by the user
         self.properties = {}
@@ -100,7 +101,16 @@ class BaseAWSObject(object):
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
-                value = expected_type(value)
+                try:
+                    value = expected_type(value)
+                except:
+                    sys.stderr.write(
+                        "%s: %s.%s function validator '%s' threw "
+                        "exception:\n" % (self.__class__,
+                                          self.title,
+                                          name,
+                                          expected_type.__name__))
+                    raise
                 return self.properties.__setitem__(name, value)
 
             # If it's a list of types, check against those types...
@@ -144,6 +154,10 @@ class BaseAWSObject(object):
                                                           type(value),
                                                           expected_type))
 
+    def validate_title(self):
+        if not valid_names.match(self.title):
+            raise ValueError('Name "%s" not alphanumeric' % self.title)
+
     def validate(self):
         pass
 
@@ -164,10 +178,11 @@ class BaseAWSObject(object):
         if self.properties:
             return self.resource
         elif hasattr(self, 'resource_type'):
-            return {
-                k: v for k, v in self.resource.items()
-                if k != 'Properties'
-            }
+            d = {}
+            for k, v in self.resource.items():
+                if k != 'Properties':
+                    d[k] = v
+            return d
         else:
             return {}
 
@@ -232,6 +247,15 @@ class AWSHelperFn(object):
             return data.title
         else:
             return data
+
+
+class GenericHelperFn(AWSHelperFn):
+    """ Used as a fallback for the template generator """
+    def __init__(self, data):
+        self.data = self.getdata(data)
+
+    def JSONrepr(self):
+        return self.data
 
 
 class Base64(AWSHelperFn):
@@ -346,6 +370,14 @@ class Condition(AWSHelperFn):
         return self.data
 
 
+class ImportValue(AWSHelperFn):
+    def __init__(self, data):
+        self.data = {'Fn::ImportValue': data}
+
+    def JSONrepr(self):
+        return self.data
+
+
 class awsencode(json.JSONEncoder):
     def default(self, obj):
         if hasattr(obj, 'JSONrepr'):
@@ -381,9 +413,9 @@ class Template(object):
         'Outputs': (dict, False),
     }
 
-    def __init__(self):
-        self.description = None
-        self.metadata = {}
+    def __init__(self, Description=None, Metadata=None):
+        self.description = Description
+        self.metadata = {} if Metadata is None else Metadata
         self.conditions = {}
         self.mappings = {}
         self.outputs = {}
@@ -462,6 +494,7 @@ class Output(AWSDeclaration):
     props = {
         'Description': (basestring, False),
         'Value': (basestring, True),
+        'Export': (dict, False),
     }
 
 

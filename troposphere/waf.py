@@ -106,3 +106,37 @@ class WebACL(AWSObject):
         'Name': (basestring, True),
         'Rules': ([Rules], False)
     }
+
+
+class SizeConstraint(AWSProperty):
+    props = {
+        'ComparisonOperator': (basestring, True),
+        'FieldToMatch': (FieldToMatch, True),
+        'Size': (integer, True),
+        'TextTransformation': (basestring, True),
+    }
+
+
+class SizeConstraintSet(AWSObject):
+    resource_type = "AWS::WAF::SizeConstraintSet"
+
+    props = {
+        'Name': (basestring, True),
+        'SizeConstraints': ([SizeConstraint], False),
+    }
+
+
+class XssMatchTuple(AWSProperty):
+    props = {
+        'FieldToMatch': (FieldToMatch, True),
+        'TextTransformation': (basestring, True),
+    }
+
+
+class XssMatchSet(AWSObject):
+    resource_type = "AWS::WAF::XssMatchSet"
+
+    props = {
+        'Name': (basestring, True),
+        'XssMatchTuples': ([XssMatchTuple], False),
+    }

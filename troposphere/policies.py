@@ -19,10 +19,17 @@ class AutoScalingScheduledAction(AWSProperty):
     }
 
 
+class AutoScalingReplacingUpdate(AWSProperty):
+    props = {
+        'WillReplace': (boolean, False),
+    }
+
+
 class UpdatePolicy(AWSAttribute):
     props = {
         'AutoScalingRollingUpdate': (AutoScalingRollingUpdate, False),
         'AutoScalingScheduledAction': (AutoScalingScheduledAction, False),
+        'AutoScalingReplacingUpdate': (AutoScalingReplacingUpdate, False),
     }
 
 
@@ -33,7 +40,14 @@ class ResourceSignal(AWSProperty):
     }
 
 
+class AutoScalingCreationPolicy(AWSProperty):
+    props = {
+        'MinSuccessfulInstancesPercent': (integer, False),
+    }
+
+
 class CreationPolicy(AWSAttribute):
     props = {
+        'AutoScalingCreationPolicy': (AutoScalingCreationPolicy, False),
         'ResourceSignal': (ResourceSignal, True),
     }

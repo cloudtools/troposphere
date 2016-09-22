@@ -11,5 +11,7 @@ class Stream(AWSObject):
     resource_type = "AWS::Kinesis::Stream"
 
     props = {
+        'Name': (basestring, False),
         'ShardCount': (integer, False),
+        'Tags': (list, False),
     }

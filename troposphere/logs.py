@@ -2,7 +2,7 @@ from . import AWSObject, AWSProperty
 from .validators import positive_integer
 
 
-class Destination(AWSProperty):
+class Destination(AWSObject):
     resource_type = "AWS::Logs::Destination"
 
     props = {
@@ -55,5 +55,5 @@ class SubscriptionFilter(AWSObject):
         'DestinationArn': (basestring, True),
         'FilterPattern': (basestring, True),
         'LogGroupName': (basestring, True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (basestring, False),
     }

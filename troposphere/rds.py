@@ -5,7 +5,7 @@
 
 import re
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import boolean, network_port, integer, positive_integer
 
 # Taken from:
@@ -14,7 +14,7 @@ from .validators import boolean, network_port, integer, positive_integer
 VALID_STORAGE_TYPES = ('standard', 'gp2', 'io1')
 VALID_DB_ENGINES = ('MySQL', 'oracle-se1', 'oracle-se', 'oracle-ee',
                     'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex',
-                    'sqlserver-web', 'postgres', 'aurora')
+                    'sqlserver-web', 'postgres', 'aurora', 'mariadb')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
 
@@ -27,8 +27,6 @@ def validate_iops(iops):
         return iops
     if int(iops) < 1000:
         raise ValueError("DBInstance Iops, if set, must be greater than 1000.")
-    if int(iops) > 10000:
-        raise ValueError("DBInstance Iops, if set, must be less than 10000.")
     return iops
 
 
@@ -156,7 +154,7 @@ class DBInstance(AWSObject):
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': (list, False),
-        'VPCSecurityGroups': ([basestring, AWSHelperFn], False),
+        'VPCSecurityGroups': ([basestring], False),
     }
 
     def validate(self):
@@ -165,7 +163,7 @@ class DBInstance(AWSObject):
             invalid_replica_properties = (
                 'BackupRetentionPeriod', 'DBName', 'MasterUsername',
                 'MasterUserPassword', 'PreferredBackupWindow', 'MultiAZ',
-                'DBSnapshotIdentifier', 'DBSubnetGroupName',
+                'DBSnapshotIdentifier',
             )
 
             invalid_properties = [s for s in self.properties.keys() if
@@ -201,8 +199,7 @@ class DBInstance(AWSObject):
         multi_az = self.properties.get('MultiAZ', None)
         if not (isinstance(avail_zone, (AWSHelperFn, nonetype)) and
                 isinstance(multi_az, (AWSHelperFn, nonetype))):
-            if 'AvailabilityZone' in self.properties and \
-                    self.properties.get('MultiAZ', None):
+            if avail_zone and multi_az in [True, 1, '1', 'true', 'True']:
                 raise ValueError("AvailabiltyZone cannot be set on "
                                  "DBInstance if MultiAZ is set to true.")
 
@@ -287,7 +284,7 @@ class EventSubscription(AWSObject):
         'Enabled': (boolean, False),
         'EventCategories': ([basestring], False),
         'SnsTopicArn': (basestring, True),
-        'SourceIds': ([basestring, Ref], False),
+        'SourceIds': ([basestring], False),
         'SourceType': (basestring, False),
     }
 
@@ -301,11 +298,11 @@ class OptionSetting(AWSProperty):
 
 class OptionConfiguration(AWSProperty):
     props = {
-        'DBSecurityGroupMemberships': ([basestring, Ref], False),
+        'DBSecurityGroupMemberships': ([basestring], False),
         'OptionName': (basestring, True),
         'OptionSettings': ([OptionSetting], False),
         'Port': (network_port, False),
-        'VpcSecurityGroupMemberships': ([basestring, Ref], False),
+        'VpcSecurityGroupMemberships': ([basestring], False),
     }
 
 
@@ -343,12 +340,14 @@ class DBCluster(AWSObject):
         'DBSubnetGroupName': (basestring, False),
         'Engine': (validate_engine, True),
         'EngineVersion': (basestring, False),
+        'KmsKeyId': (basestring, False),
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'SnapshotIdentifier': (basestring, False),
+        'StorageEncrypted': (boolean, False),
         'Tags': (list, False),
-        'VpcSecurityGroupIds': ([basestring, AWSHelperFn], False),
+        'VpcSecurityGroupIds': ([basestring], False),
     }

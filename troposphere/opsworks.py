@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
 
@@ -153,7 +153,7 @@ class Instance(AWSObject):
         'AvailabilityZone': (basestring, False),
         'InstallUpdatesOnBoot': (boolean, False),
         'InstanceType': (basestring, True),
-        'LayerIds': ([basestring, Ref], True),
+        'LayerIds': ([basestring], True),
         'Os': (basestring, False),
         'RootDeviceType': (basestring, False),
         'SshKeyName': (basestring, False),
@@ -185,7 +185,7 @@ class Layer(AWSObject):
         'AutoAssignPublicIps': (boolean, True),
         'CustomInstanceProfileArn': (basestring, False),
         'CustomRecipes': (Recipes, False),
-        'CustomSecurityGroupIds': ([basestring, Ref], False),
+        'CustomSecurityGroupIds': ([basestring], False),
         'EnableAutoHealing': (boolean, True),
         'InstallUpdatesOnBoot': (boolean, False),
         'LifecycleEventConfiguration': (LifeCycleConfiguration, False),

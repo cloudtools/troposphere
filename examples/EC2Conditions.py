@@ -86,16 +86,13 @@ resources = {
     )
 }
 
+t = Template()
 
-def template():
-    t = Template()
-    for p in parameters.values():
-        t.add_parameter(p)
-    for k in conditions:
-        t.add_condition(k, conditions[k])
-    for r in resources.values():
-        t.add_resource(r)
-    return t
+for p in parameters.values():
+    t.add_parameter(p)
+for k in conditions:
+    t.add_condition(k, conditions[k])
+for r in resources.values():
+    t.add_resource(r)
 
-
-print(template().to_json())
+print(t.to_json())

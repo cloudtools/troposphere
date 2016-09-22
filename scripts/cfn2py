@@ -105,13 +105,20 @@ def do_mappings(d):
         print
 
 
+def map_module(mod):
+    """Map module names as needed"""
+    if mod == "lambda":
+        return "awslambda"
+    return mod
+
+
 def generate_troposphere_object(typename):
     """Try to determine the troposphere object to create from the Type
     specification from the Resource being converted.
     """
     t = typename.split(':')
     if len(t) == 5:
-        return (t[2].lower(), t[4])
+        return (map_module(t[2].lower()), t[4])
     else:
         return ('', typename)
 

@@ -26,7 +26,7 @@ class SourceDetails(AWSProperty):
 class Source(AWSProperty):
     props = {
         'Owner': (basestring, True),
-        'SourceDetails': (SourceDetails, False),
+        'SourceDetails': ([SourceDetails], False),
         'SourceIdentifier': (basestring, True),
     }
 
@@ -72,7 +72,8 @@ class DeliveryChannel(AWSObject):
     resource_type = "AWS::Config::DeliveryChannel"
 
     props = {
-        'ConfigSnapshotDeliveryProperties': (basestring, False),
+        'ConfigSnapshotDeliveryProperties':
+            (ConfigSnapshotDeliveryProperties, False),
         'Name': (basestring, False),
         'S3BucketName': (basestring, True),
         'S3KeyPrefix': (basestring, False),

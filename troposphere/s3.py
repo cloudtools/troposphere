@@ -109,7 +109,22 @@ class LifecycleRule(AWSProperty):
         'Prefix': (basestring, False),
         'Status': (basestring, True),
         'Transition': (LifecycleRuleTransition, False),
+        'Transitions': ([LifecycleRuleTransition], False)
     }
+
+    def validate(self):
+        if 'Transition' in self.properties:
+            if 'Transitions' not in self.properties:
+                # aws moved from a single transition to a list of them
+                # and deprecated 'Transition', so let's just move it to
+                # the new property and not annoy the user.
+                self.properties['Transitions'] = [
+                    self.properties.pop('Transition')]
+            else:
+                raise ValueError(
+                    'Cannot specify both "Transition" and "Transitions" '
+                    'properties on S3 Bucket Lifecycle Rule. Please use '
+                    '"Transitions" since the former has been deprecated.')
 
 
 class LifecycleConfiguration(AWSProperty):
@@ -176,9 +191,16 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class ReplicationConfigurationRulesDestination(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'StorageClass': (basestring, False)
+    }
+
+
 class ReplicationConfigurationRules(AWSProperty):
     props = {
-        'Destination': (basestring, True),
+        'Destination': (ReplicationConfigurationRulesDestination, True),
         'Id': (basestring, False),
         'Prefix': (basestring, True),
         'Status': (basestring, True)
@@ -218,10 +240,18 @@ class Bucket(AWSObject):
         LogDeliveryWrite,
     ]
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name=None, **kwargs):
+
+        # note: 'name' is the resource title, not the bucket name
+
+        if not name and 'title' in kwargs:
+            name = kwargs.pop('title')
+        if not name:
+            raise TypeError("You must provide a title for the bucket resource")
         super(Bucket, self).__init__(name, **kwargs)
 
-        if 'AccessControl' in kwargs:
+        if 'AccessControl' in kwargs and \
+                isinstance(kwargs['AccessControl'], basestring):
             if kwargs['AccessControl'] not in self.access_control_types:
                 raise ValueError('AccessControl must be one of "%s"' % (
                     ', '.join(self.access_control_types)))

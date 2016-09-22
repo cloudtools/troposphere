@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Ref, GetAtt
+from . import AWSObject, Tags
 from .validators import boolean, integer, network_port
 
 
@@ -15,7 +15,7 @@ class CacheCluster(AWSObject):
         'AZMode': (basestring, False),
         'CacheNodeType': (basestring, True),
         'CacheParameterGroupName': (basestring, False),
-        'CacheSecurityGroupNames': ([basestring, Ref], False),
+        'CacheSecurityGroupNames': ([basestring], False),
         'CacheSubnetGroupName': (basestring, False),
         'ClusterName': (basestring, False),
         'Engine': (basestring, True),
@@ -26,11 +26,12 @@ class CacheCluster(AWSObject):
         'PreferredAvailabilityZone': (basestring, False),
         'PreferredAvailabilityZones': ([basestring], False),
         'PreferredMaintenanceWindow': (basestring, False),
-        'SnapshotArns': ([basestring, Ref], False),
+        'SnapshotArns': ([basestring], False),
         'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
         'SnapshotWindow': (basestring, False),
-        'VpcSecurityGroupIds': ([basestring, Ref, GetAtt], False),
+        'Tags': (Tags, False),
+        'VpcSecurityGroupIds': ([basestring], False),
     }
 
     def validate(self):
@@ -106,7 +107,7 @@ class ReplicationGroup(AWSObject):
         'PreferredCacheClusterAZs': ([basestring], False),
         'PreferredMaintenanceWindow': (basestring, False),
         'ReplicationGroupDescription': (basestring, True),
-        'SecurityGroupIds': ([basestring, Ref], False),
+        'SecurityGroupIds': ([basestring], False),
         'SnapshotArns': ([basestring], False),
         'SnapshotRetentionLimit': (integer, False),
         'SnapshotWindow': (basestring, False),
