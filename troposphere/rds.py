@@ -145,6 +145,8 @@ class DBInstance(AWSObject):
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
         'MultiAZ': (boolean, False),
+        'MonitoringInterval': (positive_integer, False),
+        'MonitoringRoleArn': (basestring, False),
         'OptionGroupName': (basestring, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
