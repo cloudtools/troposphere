@@ -1,3 +1,13 @@
+## pending
+- Add SpotPrice to SpotFleet LaunchSpecifications
+- Add new properties to ECS (Clustername to Cluster and Family to TaskDefinition)
+- Add Alias object to KMS (fixes #568)
+- Added cross-stack references (#569)
+- Handle lambda => awslambda mapping in cfn2py (#573)
+- Add support for Tags to Certificate Manager Certificates (#574)
+- Adding enhanced monitoring to rds.DBInstance (#575)
+- Add support for LogGroupName in Logs::LogGroup (#576)
+
 ## 1.8.1 (2016-09-12)
 - Add TargetGroupArn and fix ContainerPort (#549)
 - Update ApiGateway resources (#550)
