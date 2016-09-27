@@ -499,6 +499,7 @@ class Export(AWSHelperFn):
     def JSONrepr(self):
         return self.data
 
+
 class Output(AWSDeclaration):
     props = {
         'Description': (str, False),
