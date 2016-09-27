@@ -490,11 +490,20 @@ class Template(object):
         return [self.parameters, self.mappings, self.resources]
 
 
+class Export(AWSHelperFn):
+    def __init__(self, name):
+        self.data = {
+            'Name': name,
+        }
+
+    def JSONrepr(self):
+        return self.data
+
 class Output(AWSDeclaration):
     props = {
-        'Description': (basestring, False),
-        'Export': (dict, False),
-        'Value': (basestring, True),
+        'Description': (str, False),
+        'Value': (str, True),
+        'Export': (Export, False)
     }
 
 
