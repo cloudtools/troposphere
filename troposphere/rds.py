@@ -137,7 +137,7 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
-        'Engine': (validate_engine, False),
+        'Engine': (basestring, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
         'KmsKeyId': (basestring, False),
@@ -227,6 +227,10 @@ class DBInstance(AWSObject):
                     float(iops) / float(allocated_storage) > 10.0:
                 raise ValueError("AllocatedStorage must be no less than "
                                  "1/10th the provisioned Iops")
+
+        engine = self.properties.get('Engine', None)
+        if engine:
+            validate_engine(engine)
 
         return True
 
