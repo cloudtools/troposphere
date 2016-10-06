@@ -137,7 +137,7 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
-        'Engine': (validate_engine, True),
+        'Engine': (validate_engine, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
         'KmsKeyId': (basestring, False),
@@ -184,6 +184,13 @@ class DBInstance(AWSObject):
             raise ValueError(
                 'Either (MasterUsername and MasterUserPassword) or'
                 ' DBSnapshotIdentifier are required in type '
+                'AWS::RDS::DBInstance.'
+            )
+
+        if 'Engine' not in self.properties and \
+           'DBSnapshotIdentifier' not in self.properties:
+            raise ValueError(
+                'Either Engine or DBSnapshotIdentifier is required '
                 'AWS::RDS::DBInstance.'
             )
 
