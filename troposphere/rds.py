@@ -137,7 +137,7 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
-        'Engine': (basestring, False),
+        'Engine': (validate_engine, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
         'KmsKeyId': (basestring, False),
@@ -187,12 +187,11 @@ class DBInstance(AWSObject):
                 'AWS::RDS::DBInstance.'
             )
 
-        if 'Engine' not in self.properties and \
-           'DBSnapshotIdentifier' not in self.properties:
-            raise ValueError(
-                'Either Engine or DBSnapshotIdentifier is required '
-                'AWS::RDS::DBInstance.'
-            )
+        if 'DBSnapshotIdentifier' not in self.properties:
+            if 'Engine' not in self.properties:
+                raise ValueError(
+                    'Resource Engine is required in type %s'
+                    % self.resource_type)
 
         if 'KmsKeyId' in self.properties and \
            'StorageEncrypted' not in self.properties:
@@ -227,10 +226,6 @@ class DBInstance(AWSObject):
                     float(iops) / float(allocated_storage) > 10.0:
                 raise ValueError("AllocatedStorage must be no less than "
                                  "1/10th the provisioned Iops")
-
-        engine = self.properties.get('Engine', None)
-        if engine:
-            validate_engine(engine)
 
         return True
 
