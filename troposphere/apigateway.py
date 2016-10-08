@@ -235,3 +235,37 @@ class Stage(AWSObject):
         "StageName": (basestring, True),
         "Variables": (dict, False)
     }
+
+
+class ApiStage(AWSProperty):
+    props = {
+        "ApiId": (basestring, False),
+        "Stage": (basestring, False),
+    }
+
+
+class QuotaSettings(AWSProperty):
+    props = {
+        "Limit": (positive_integer, False),
+        "Offset": (positive_integer, False),
+        "Period": (basestring, False),
+    }
+
+
+class ThrottleSettings(AWSProperty):
+    props = {
+        "BurstLimit": (positive_integer, False),
+        "RateLimit": (positive_integer, False),
+    }
+
+
+class UsagePlan(AWSObject):
+    resource_type = "AWS::ApiGateway::UsagePlan"
+
+    props = {
+        "ApiStages": ([ApiStage], False),
+        "Description": (basestring, False),
+        "Quota": (QuotaSettings, False),
+        "Throttle": (ThrottleSettings, False),
+        "UsagePlanName": (basestring, False),
+    }
