@@ -379,6 +379,14 @@ class Join(AWSHelperFn):
         return self.data
 
 
+class Sub(AWSHelperFn):
+    def __init__(self, input_str, **values):
+        self.data = {'Fn::Sub': [input_str, values] if values else input_str}
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Name(AWSHelperFn):
     def __init__(self, data):
         self.data = self.getdata(data)
