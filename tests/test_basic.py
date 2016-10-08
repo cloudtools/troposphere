@@ -1,7 +1,7 @@
 import json
 import unittest
-from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter, Sub
-from troposphere import Template, Ref
+from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
+from troposphere import Ref, Sub, Template
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
