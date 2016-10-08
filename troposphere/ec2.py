@@ -302,6 +302,7 @@ class SecurityGroupEgress(AWSObject):
 
     props = {
         'CidrIp': (basestring, False),
+        'DestinationPrefixListId': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
         'GroupId': (basestring, True),
@@ -316,6 +317,17 @@ class SecurityGroupEgress(AWSObject):
         #
         'SourceSecurityGroupId': (basestring, False),
     }
+
+    def validate(self):
+        conds = [
+            'CidrIp',
+            'DestinationPrefixListId',
+            'DestinationSecurityGroupId',
+        ]
+        seen = set([c for c in conds if c in self.properties])
+        if len(seen) > 1:
+            raise ValueError(('SecurityGroupEgress: only one of the following'
+                              ' can be specified: %s') % ', '.join(conds))
 
 
 class SecurityGroupIngress(AWSObject):

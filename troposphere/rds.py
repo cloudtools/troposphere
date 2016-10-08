@@ -137,6 +137,8 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
+        'Domain': (basestring, False),
+        'DomainIAMRoleName': (basestring, False),
         'Engine': (validate_engine, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
