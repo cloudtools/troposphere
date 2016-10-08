@@ -5,8 +5,8 @@ from troposphere import iam
 
 
 class TestDict(unittest.TestCase):
-    def test_exclusive(self):
-        d = {
+    def setUp(self):
+        self.d = {
             "Cpu": 1,
             "Environment": [
                 {
@@ -34,8 +34,9 @@ class TestDict(unittest.TestCase):
             ]
         }
 
+    def test_exclusive(self):
         t = Template()
-        cd = ecs.ContainerDefinition.from_dict("mycontainer", d)
+        cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
         td = ecs.TaskDefinition(
                 "taskdef",
                 ContainerDefinitions=[cd],
@@ -44,6 +45,17 @@ class TestDict(unittest.TestCase):
         )
         t.add_resource(td)
         t.to_json()
+
+    def test_invalid_toplevel_property(self):
+        self.d["BlahInvalid"] = "Invalid"
+        with self.assertRaises(AttributeError):
+            ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
+    def test_invalid_sub_property(self):
+        self.d["Environment"][0]["BlahInvalid"] = "Invalid"
+        with self.assertRaises(AttributeError):
+            ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
 
 if __name__ == '__main__':
     unittest.main()

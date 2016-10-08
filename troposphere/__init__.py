@@ -162,10 +162,43 @@ class BaseAWSObject(object):
         pass
 
     @classmethod
-    def from_dict(cls, title, dict):
-        obj = cls(title)
-        obj.properties.update(dict)
-        return obj
+    def _from_dict(cls, title=None, **kwargs):
+        props = {}
+        for prop_name, value in kwargs.items():
+            try:
+                prop_attrs = cls.props[prop_name]
+            except KeyError:
+                raise AttributeError("Object type %s does not have a "
+                                     "%s property." % (cls.__name__,
+                                                       prop_name))
+            prop_type, required = prop_attrs
+            if prop_name in kwargs:
+                value = kwargs[prop_name]
+                is_aws_object = False
+                try:
+                    is_aws_object = issubclass(prop_type, BaseAWSObject)
+                # prop_type isn't a class
+                except TypeError:
+                    pass
+                if is_aws_object:
+                    value = prop_type._from_dict(**kwargs[prop_name])
+
+                if isinstance(prop_type, list):
+                    if not isinstance(kwargs[prop_name], list):
+                        raise TypeError("Attribute %s must be a "
+                                        "list." % prop_name)
+                    new_value = []
+                    for v in value:
+                        new_value.append(prop_type[0]._from_dict(**v))
+                    value = new_value
+                props[prop_name] = value
+        if title:
+            return cls(title, **props)
+        return cls(**props)
+
+    @classmethod
+    def from_dict(cls, title, d):
+        return cls._from_dict(title, **d)
 
     def JSONrepr(self):
         for k, (_, required) in self.props.items():
