@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 
+import collections
 import json
 import re
 import sys
@@ -171,7 +172,7 @@ class BaseAWSObject(object):
                 raise AttributeError("Object type %s does not have a "
                                      "%s property." % (cls.__name__,
                                                        prop_name))
-            prop_type, required = prop_attrs
+            prop_type = prop_attrs[0]
             if prop_name in kwargs:
                 value = kwargs[prop_name]
                 is_aws_object = False
@@ -181,7 +182,11 @@ class BaseAWSObject(object):
                 except TypeError:
                     pass
                 if is_aws_object:
-                    value = prop_type._from_dict(**kwargs[prop_name])
+                    v = kwargs[prop_name]
+                    if not isinstance(v, collections.Mapping):
+                        raise ValueError("Property definition for %s must be "
+                                         "a Mapping type" % prop_name)
+                    value = prop_type._from_dict(**v)
 
                 if isinstance(prop_type, list):
                     if not isinstance(kwargs[prop_name], list):
@@ -189,6 +194,10 @@ class BaseAWSObject(object):
                                         "list." % prop_name)
                     new_value = []
                     for v in value:
+                        if not isinstance(v, collections.Mapping):
+                            raise ValueError(
+                                "Property definition for %s must be "
+                                "a list of Mapping types" % prop_name)
                         new_value.append(prop_type[0]._from_dict(**v))
                     value = new_value
                 props[prop_name] = value

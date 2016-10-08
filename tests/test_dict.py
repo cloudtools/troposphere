@@ -67,6 +67,11 @@ class TestDict(unittest.TestCase):
         self.assertEquals(cd.Environment[0].Value.data,
                           {"Ref": "RegistryStorage"})
 
+    def test_invalid_subproperty_definition(self):
+        self.d["Environment"][0] = "BadValue"
+        with self.assertRaises(ValueError):
+            ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
 
 if __name__ == '__main__':
     unittest.main()
