@@ -15,7 +15,7 @@
 - Add AWS::CodeCommit::Repository (fixes #586)
 - Provide better type checking for values in from_dict (#587)
 - Allow HelperFn in UpdatePolicy for ASG (#588)
-- Fixe from_dict case where you have a list of non BaseAWSObjects (#589)
+- Fixed from_dict case where you have a list of non BaseAWSObjects (#589)
 
 ## 1.8.1 (2016-09-12)
 - Add TargetGroupArn and fix ContainerPort (#549)
