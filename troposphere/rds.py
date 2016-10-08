@@ -160,6 +160,12 @@ class DBInstance(AWSObject):
     }
 
     def validate(self):
+        if 'DBSnapshotIdentifier' not in self.properties:
+            if 'Engine' not in self.properties:
+                raise ValueError(
+                    'Resource Engine is required in type %s'
+                    % self.resource_type)
+
         if 'SourceDBInstanceIdentifier' in self.properties:
 
             invalid_replica_properties = (
@@ -188,12 +194,6 @@ class DBInstance(AWSObject):
                 ' DBSnapshotIdentifier are required in type '
                 'AWS::RDS::DBInstance.'
             )
-
-        if 'DBSnapshotIdentifier' not in self.properties:
-            if 'Engine' not in self.properties:
-                raise ValueError(
-                    'Resource Engine is required in type %s'
-                    % self.resource_type)
 
         if 'KmsKeyId' in self.properties and \
            'StorageEncrypted' not in self.properties:
