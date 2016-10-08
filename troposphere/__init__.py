@@ -182,14 +182,13 @@ class BaseAWSObject(object):
                 except TypeError:
                     pass
                 if is_aws_object:
-                    v = kwargs[prop_name]
-                    if not isinstance(v, collections.Mapping):
+                    if not isinstance(value, collections.Mapping):
                         raise ValueError("Property definition for %s must be "
                                          "a Mapping type" % prop_name)
-                    value = prop_type._from_dict(**v)
+                    value = prop_type._from_dict(**value)
 
                 if isinstance(prop_type, list):
-                    if not isinstance(kwargs[prop_name], list):
+                    if not isinstance(value, list):
                         raise TypeError("Attribute %s must be a "
                                         "list." % prop_name)
                     new_value = []
