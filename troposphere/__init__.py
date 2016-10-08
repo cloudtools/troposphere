@@ -503,8 +503,8 @@ class Export(AWSHelperFn):
 class Output(AWSDeclaration):
     props = {
         'Description': (basestring, False),
+        'Export': (Export, False),
         'Value': (basestring, True),
-        'Export': (Export, False)
     }
 
 
