@@ -34,7 +34,7 @@ class TestDict(unittest.TestCase):
             ]
         }
 
-    def test_exclusive(self):
+    def test_valid_data(self):
         t = Template()
         cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
         td = ecs.TaskDefinition(
@@ -55,6 +55,17 @@ class TestDict(unittest.TestCase):
         self.d["Environment"][0]["BlahInvalid"] = "Invalid"
         with self.assertRaises(AttributeError):
             ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
+    def test_toplevel_helper_fn(self):
+        self.d["Cpu"] = Ref("MyCPU")
+        cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+        self.assertEquals(cd.Cpu.data, {"Ref": "MyCPU"})
+
+    def test_sub_property_helper_fn(self):
+        self.d["Environment"][0]["Value"] = Ref("RegistryStorage")
+        cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+        self.assertEquals(cd.Environment[0].Value.data,
+                          {"Ref": "RegistryStorage"})
 
 
 if __name__ == '__main__':
