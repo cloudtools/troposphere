@@ -4,7 +4,6 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import positive_integer
 
 
 class Trigger(AWSProperty):
