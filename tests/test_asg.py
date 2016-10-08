@@ -1,7 +1,7 @@
 import unittest
 from troposphere.autoscaling import AutoScalingGroup
 from troposphere.policies import AutoScalingRollingUpdate, UpdatePolicy
-from troposphere import If
+from troposphere import If, Ref
 
 
 class TestAutoScalingGroup(unittest.TestCase):
@@ -60,6 +60,26 @@ class TestAutoScalingGroup(unittest.TestCase):
                     WaitOnResourceSignals=True
                 )
             )
+        )
+        self.assertTrue(group.validate())
+
+    def test_helperfn_as_updatepolicy(self):
+        update_policy = UpdatePolicy(
+            AutoScalingRollingUpdate=AutoScalingRollingUpdate(
+                PauseTime='PT5M',
+                MinInstancesInService="1",
+                MaxBatchSize='1',
+                WaitOnResourceSignals=True
+            )
+        )
+        group = AutoScalingGroup(
+            'mygroup',
+            AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
+            LaunchConfigurationName="I'm a test",
+            MaxSize=If("isstage", "1", "5"),
+            MinSize="1",
+            UpdatePolicy=If("UseUpdatePolicy",
+                            update_policy, Ref("AWS::NoValue"))
         )
         self.assertTrue(group.validate())
 
