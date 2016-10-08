@@ -135,7 +135,8 @@ class AutoScalingGroup(AWSObject):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
 
-            if 'AutoScalingRollingUpdate' in update_policy.properties:
+            if (not isinstance(update_policy, AWSHelperFn) and
+                    'AutoScalingRollingUpdate' in update_policy.properties):
                 rolling_update = update_policy.AutoScalingRollingUpdate
 
                 isMinNoCheck = isinstance(
