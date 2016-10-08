@@ -122,6 +122,7 @@ Currently supported AWS resource types
 - AWS::CloudFront
 - AWS::CloudTrail
 - AWS::CloudWatch
+- AWS::CodeCommit
 - AWS::CodeDeploy
 - AWS::CodePipeline
 - AWS::Config
