@@ -31,12 +31,14 @@ class TestDict(unittest.TestCase):
                     "ContainerPort": 5001,
                     "HostPort": 5001
                 }
-            ]
+            ],
+            "Links": ["containerA", "containerB"],
         }
 
     def test_valid_data(self):
         t = Template()
         cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+        self.assertEquals(cd.Links[0], "containerA")
         td = ecs.TaskDefinition(
                 "taskdef",
                 ContainerDefinitions=[cd],

@@ -30,6 +30,16 @@ AWS_STACK_NAME = 'AWS::StackName'
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
+def is_aws_object_subclass(cls):
+    is_aws_object = False
+    try:
+        is_aws_object = issubclass(cls, BaseAWSObject)
+    # prop_type isn't a class
+    except TypeError:
+        pass
+    return is_aws_object
+
+
 class BaseAWSObject(object):
     def __init__(self, title, template=None, **kwargs):
         self.title = title
@@ -173,33 +183,30 @@ class BaseAWSObject(object):
                                      "%s property." % (cls.__name__,
                                                        prop_name))
             prop_type = prop_attrs[0]
-            if prop_name in kwargs:
-                value = kwargs[prop_name]
-                is_aws_object = False
-                try:
-                    is_aws_object = issubclass(prop_type, BaseAWSObject)
-                # prop_type isn't a class
-                except TypeError:
-                    pass
-                if is_aws_object:
-                    if not isinstance(value, collections.Mapping):
-                        raise ValueError("Property definition for %s must be "
-                                         "a Mapping type" % prop_name)
-                    value = prop_type._from_dict(**value)
+            value = kwargs[prop_name]
+            is_aws_object = is_aws_object_subclass(prop_type)
+            if is_aws_object:
+                if not isinstance(value, collections.Mapping):
+                    raise ValueError("Property definition for %s must be "
+                                     "a Mapping type" % prop_name)
+                value = prop_type._from_dict(**value)
 
-                if isinstance(prop_type, list):
-                    if not isinstance(value, list):
-                        raise TypeError("Attribute %s must be a "
-                                        "list." % prop_name)
-                    new_value = []
-                    for v in value:
+            if isinstance(prop_type, list):
+                if not isinstance(value, list):
+                    raise TypeError("Attribute %s must be a "
+                                    "list." % prop_name)
+                new_value = []
+                for v in value:
+                    new_v = v
+                    if is_aws_object_subclass(prop_type[0]):
                         if not isinstance(v, collections.Mapping):
                             raise ValueError(
                                 "Property definition for %s must be "
                                 "a list of Mapping types" % prop_name)
-                        new_value.append(prop_type[0]._from_dict(**v))
-                    value = new_value
-                props[prop_name] = value
+                        new_v = prop_type[0]._from_dict(**v)
+                    new_value.append(new_v)
+                value = new_value
+            props[prop_name] = value
         if title:
             return cls(title, **props)
         return cls(**props)
