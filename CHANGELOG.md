@@ -1,4 +1,4 @@
-## pending
+## 1.8.2 (2016-10-08)
 - Add SpotPrice to SpotFleet LaunchSpecifications
 - Add new properties to ECS (Clustername to Cluster and Family to TaskDefinition)
 - Add Alias object to KMS (fixes #568)
@@ -15,6 +15,7 @@
 - Add AWS::CodeCommit::Repository (fixes #586)
 - Provide better type checking for values in from_dict (#587)
 - Allow HelperFn in UpdatePolicy for ASG (#588)
+- Fixe from_dict case where you have a list of non BaseAWSObjects (#589)
 
 ## 1.8.1 (2016-09-12)
 - Add TargetGroupArn and fix ContainerPort (#549)
