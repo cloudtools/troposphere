@@ -137,7 +137,7 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
-        'Engine': (validate_engine, True),
+        'Engine': (validate_engine, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
         'KmsKeyId': (basestring, False),
@@ -188,6 +188,12 @@ class DBInstance(AWSObject):
                 ' DBSnapshotIdentifier are required in type '
                 'AWS::RDS::DBInstance.'
             )
+
+        if 'DBSnapshotIdentifier' not in self.properties:
+            if 'Engine' not in self.properties:
+                raise ValueError(
+                    'Resource Engine is required in type %s'
+                    % self.resource_type)
 
         if 'KmsKeyId' in self.properties and \
            'StorageEncrypted' not in self.properties:
