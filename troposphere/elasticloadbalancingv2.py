@@ -8,7 +8,7 @@ from .validators import (
     network_port, integer)
 
 
-class LoadBalancerAttributes(AWSProperty):
+class LoadBalancerAttribute(AWSProperty):
     props = {
         'Key': (basestring, False),
         'Value': (basestring, False)
@@ -105,7 +105,7 @@ class LoadBalancer(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
     props = {
-        'LoadBalancerAttributes': ([LoadBalancerAttributes], False),
+        'LoadBalancerAttributes': ([LoadBalancerAttribute], False),
         'Name': (basestring, False),
         'Scheme': (basestring, False),
         'SecurityGroups': (list, False),
