@@ -84,6 +84,7 @@ class SubnetGroup(AWSObject):
     resource_type = "AWS::ElastiCache::SubnetGroup"
 
     props = {
+        'CacheSubnetGroupName': (basestring, False),
         'Description': (basestring, True),
         'SubnetIds': (list, True),
     }
