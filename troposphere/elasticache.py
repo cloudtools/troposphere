@@ -102,9 +102,9 @@ class ReplicationGroup(AWSObject):
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
-        'NodeGroupConfiguration': (list, False)
+        'NodeGroupConfiguration': (list, False),
         'NotificationTopicArn': (basestring, False),
-        'NumCacheClusters': (integer, True),
+        'NumCacheClusters': (integer, False),
         'NumNodeGroups': (integer, False),
         'Port': (network_port, False),
         'PreferredCacheClusterAZs': ([basestring], False),
@@ -128,9 +128,9 @@ class ReplicationGroup(AWSObject):
                 'NumNodeGroups' not in self.properties and \
                 'ReplicasPerNodeGroup' not in self.properties and \
                 'PrimaryClusterId' not in self.properties:
-            raise ValueError('One of PrimaryClusterId, NumCacheClusters,'
+            raise ValueError('One of PrimaryClusterId, NumCacheClusters, '
                     'NumNodeGroups or ReplicasPerNodeGroup are required'
-                    'in type AWS::ElastiCache::ReplicationGroup'
+                    'in type AWS::ElastiCache::ReplicationGroup')
         return True
 
 
