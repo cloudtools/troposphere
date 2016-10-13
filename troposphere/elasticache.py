@@ -94,26 +94,46 @@ class ReplicationGroup(AWSObject):
     resource_type = "AWS::ElastiCache::ReplicationGroup"
 
     props = {
-        'AutomaticFailoverEnabled': (boolean, False),
         'AutoMinorVersionUpgrade': (boolean, False),
+        'AutomaticFailoverEnabled': (boolean, False),
         'CacheNodeType': (basestring, True),
         'CacheParameterGroupName': (basestring, False),
         'CacheSecurityGroupNames': ([basestring], False),
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
+        'NodeGroupConfiguration': (list, False)
         'NotificationTopicArn': (basestring, False),
         'NumCacheClusters': (integer, True),
+        'NumNodeGroups': (integer, False),
         'Port': (network_port, False),
         'PreferredCacheClusterAZs': ([basestring], False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'PrimaryClusterId': (basestring, False),
+        'ReplicasPerNodeGroup': (integer, False),
         'ReplicationGroupDescription': (basestring, True),
+        'ReplicationGroupId': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
         'SnapshotArns': ([basestring], False),
+        'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
         'SnapshotWindow': (basestring, False),
-        'NodeGroupConfiguration': (list, False)
+        'SnapshottingClusterId': (basestring, False),
+        'Tags': (Tags, False),
     }
+
+
+    def validate(self):
+        if 'NumCacheClusters' not in self.properties and \
+                'NumNodeGroups' not in self.properties and \
+                'ReplicasPerNodeGroup' not in self.properties and \
+                'PrimaryClusterId' not in self.properties:
+            raise ValueError('One of PrimaryClusterId, NumCacheClusters,'
+                    'NumNodeGroups or ReplicasPerNodeGroup are required'
+                    'in type AWS::ElastiCache::ReplicationGroup'
+        return True
+
+
 
 class NodeGroupConfiguration(AWSProperty):
     props = {
