@@ -117,8 +117,8 @@ class ReplicationGroup(AWSObject):
         'SnapshotArns': ([basestring], False),
         'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
-        'SnapshotWindow': (basestring, False),
         'SnapshottingClusterId': (basestring, False),
+        'SnapshotWindow': (basestring, False),
         'Tags': (Tags, False),
     }
 
