@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Tags
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, network_port
 
 
@@ -112,4 +112,13 @@ class ReplicationGroup(AWSObject):
         'SnapshotArns': ([basestring], False),
         'SnapshotRetentionLimit': (integer, False),
         'SnapshotWindow': (basestring, False),
+        'NodeGroupConfiguration': (list, False)
+    }
+
+class NodeGroupConfiguration(AWSProperty):
+    props = {
+        'PrimaryAvailabilityZone': (basestring, False),
+        'ReplicaAvailabilityZones': (basestring, False),
+        'ReplicaCount': (integer, False),
+        'Slots': (basestring, False),
     }
