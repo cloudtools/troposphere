@@ -132,7 +132,7 @@ class ReplicationGroup(AWSObject):
                 'NumNodeGroups or ReplicasPerNodeGroup are required'
                 'in type AWS::ElastiCache::ReplicationGroup'
                 )
-            
+
         return True
 
 
