@@ -122,17 +122,18 @@ class ReplicationGroup(AWSObject):
         'Tags': (Tags, False),
     }
 
-
     def validate(self):
         if 'NumCacheClusters' not in self.properties and \
-                'NumNodeGroups' not in self.properties and \
-                'ReplicasPerNodeGroup' not in self.properties and \
-                'PrimaryClusterId' not in self.properties:
-            raise ValueError('One of PrimaryClusterId, NumCacheClusters, '
-                    'NumNodeGroups or ReplicasPerNodeGroup are required'
-                    'in type AWS::ElastiCache::ReplicationGroup')
+           'NumNodeGroups' not in self.properties and \
+           'ReplicasPerNodeGroup' not in self.properties and \
+           'PrimaryClusterId' not in self.properties:
+            raise ValueError(
+                'One of PrimaryClusterId, NumCacheClusters, '
+                'NumNodeGroups or ReplicasPerNodeGroup are required'
+                'in type AWS::ElastiCache::ReplicationGroup'
+                )
+            
         return True
-
 
 
 class NodeGroupConfiguration(AWSProperty):
