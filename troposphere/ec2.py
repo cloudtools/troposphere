@@ -123,6 +123,13 @@ class MountPoint(AWSProperty):
     }
 
 
+class Placement(AWSProperty):
+    props = {
+        'AvailabilityZone' : (basestring, False),
+        'GroupName' : (basestring, False),
+    }
+
+
 class PrivateIpAddressSpecification(AWSProperty):
     props = {
         'Primary': (boolean, True),
@@ -561,7 +568,7 @@ class LaunchSpecifications(AWSProperty):
         'KeyName': (basestring, False),
         'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
-        'Placement': (basestring, False),
+        'Placement': (Placement, False),
         'RamdiskId': (basestring, False),
         'SecurityGroups': ([SecurityGroups], False),
         'SpotPrice': (basestring, False),
