@@ -219,8 +219,12 @@ class BaseAWSObject(object):
         for k, (_, required) in self.props.items():
             if required and k not in self.properties:
                 rtype = getattr(self, 'resource_type', "<unknown type>")
-                raise ValueError(
-                    "Resource %s required in type %s" % (k, rtype))
+                title = getattr(self, 'title')
+                msg = "Resource %s required in type %s" % (k, rtype)
+                if title:
+                    msg += " (title: %s)" % title
+                raise ValueError(msg)
+                    
         self.validate()
         # Mainly used to not have an empty "Properties".
         if self.properties:
