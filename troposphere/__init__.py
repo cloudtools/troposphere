@@ -224,7 +224,7 @@ class BaseAWSObject(object):
                 if title:
                     msg += " (title: %s)" % title
                 raise ValueError(msg)
-                    
+
         self.validate()
         # Mainly used to not have an empty "Properties".
         if self.properties:
