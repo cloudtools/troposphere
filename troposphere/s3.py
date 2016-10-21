@@ -112,6 +112,7 @@ class LifecycleRule(AWSProperty):
         'Id': (basestring, False),
         'NoncurrentVersionExpirationInDays': (positive_integer, False),
         'NoncurrentVersionTransition': (NoncurrentVersionTransition, False),
+        'NoncurrentVersionTransitions': ([NoncurrentVersionTransition], False),
         'NoncurrentVersionExpiration': (NoncurrentVersionExpiration, False),
         'Prefix': (basestring, False),
         'Status': (basestring, True),
@@ -132,6 +133,21 @@ class LifecycleRule(AWSProperty):
                     'Cannot specify both "Transition" and "Transitions" '
                     'properties on S3 Bucket Lifecycle Rule. Please use '
                     '"Transitions" since the former has been deprecated.')
+
+        if 'NoncurrentVersionTransition' in self.properties:
+            if 'NoncurrentVersionTransitions' not in self.properties:
+                # aws moved from a single transition to a list of them
+                # and deprecated 'NoncurrentVersionTransition', so let's
+                # just move it to the new property and not annoy the user.
+                self.properties['NoncurrentVersionTransitions'] = [
+                    self.properties.pop('NoncurrentVersionTransition')]
+            else:
+                raise ValueError(
+                    'Cannot specify both "NoncurrentVersionTransition" and '
+                    '"NoncurrentVersionTransitions" properties on S3 Bucket '
+                    'Lifecycle Rule. Please use '
+                    '"NoncurrentVersionTransitions" since the former has been '
+                    'deprecated.')
 
 
 class LifecycleConfiguration(AWSProperty):
