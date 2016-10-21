@@ -5,12 +5,13 @@
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import positive_integer, s3_bucket_name
+
 try:
     from awacs.aws import Policy
+
     policytypes = (dict, Policy)
 except ImportError:
     policytypes = dict,
-
 
 Private = "Private"
 PublicRead = "PublicRead"
@@ -99,12 +100,6 @@ class NoncurrentVersionTransition(AWSProperty):
     }
 
 
-class NoncurrentVersionExpiration(AWSProperty):
-    props = {
-        'NoncurrentDays': (positive_integer, True),
-    }
-
-
 class LifecycleRule(AWSProperty):
     props = {
         'ExpirationDate': (basestring, False),
@@ -113,7 +108,6 @@ class LifecycleRule(AWSProperty):
         'NoncurrentVersionExpirationInDays': (positive_integer, False),
         'NoncurrentVersionTransition': (NoncurrentVersionTransition, False),
         'NoncurrentVersionTransitions': ([NoncurrentVersionTransition], False),
-        'NoncurrentVersionExpiration': (NoncurrentVersionExpiration, False),
         'Prefix': (basestring, False),
         'Status': (basestring, True),
         'Transition': (LifecycleRuleTransition, False),
@@ -148,6 +142,12 @@ class LifecycleRule(AWSProperty):
                     'Lifecycle Rule. Please use '
                     '"NoncurrentVersionTransitions" since the former has been '
                     'deprecated.')
+
+        if 'ExpirationInDays' in self.properties and 'ExpirationDate' in \
+                self.properties:
+            raise ValueError(
+                'Cannot specify both "ExpirationDate" and "ExpirationInDays"'
+            )
 
 
 class LifecycleConfiguration(AWSProperty):
