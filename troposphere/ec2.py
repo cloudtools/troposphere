@@ -125,8 +125,8 @@ class MountPoint(AWSProperty):
 
 class Placement(AWSProperty):
     props = {
-        'AvailabilityZone' : (basestring, False),
-        'GroupName' : (basestring, False),
+        'AvailabilityZone': (basestring, False),
+        'GroupName': (basestring, False),
     }
 
 
