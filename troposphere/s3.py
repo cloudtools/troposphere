@@ -99,6 +99,12 @@ class NoncurrentVersionTransition(AWSProperty):
     }
 
 
+class NoncurrentVersionExpiration(AWSProperty):
+    props = {
+        'NoncurrentDays': (positive_integer, True),
+    }
+
+
 class LifecycleRule(AWSProperty):
     props = {
         'ExpirationDate': (basestring, False),
@@ -106,6 +112,7 @@ class LifecycleRule(AWSProperty):
         'Id': (basestring, False),
         'NoncurrentVersionExpirationInDays': (positive_integer, False),
         'NoncurrentVersionTransition': (NoncurrentVersionTransition, False),
+        'NoncurrentVersionExpiration': (NoncurrentVersionExpiration, False),
         'Prefix': (basestring, False),
         'Status': (basestring, True),
         'Transition': (LifecycleRuleTransition, False),
