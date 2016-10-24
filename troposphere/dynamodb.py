@@ -3,7 +3,13 @@
 #
 # See LICENSE file for full license.
 
+import warnings
+
 from . import AWSHelperFn, AWSObject, AWSProperty
+
+warnings.warn("This module is outdated and will be replaced with "
+              "troposphere.dynamodb2. Please see the README for "
+              "instructions on how to prepare for this change.")
 
 
 class AttributeDefinition(AWSHelperFn):

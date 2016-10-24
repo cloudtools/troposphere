@@ -1,3 +1,159 @@
+## 1.8.2 (2016-10-08)
+- Add SpotPrice to SpotFleet LaunchSpecifications
+- Add new properties to ECS (Clustername to Cluster and Family to TaskDefinition)
+- Add Alias object to KMS (fixes #568)
+- Added cross-stack references (#569)
+- Handle lambda => awslambda mapping in cfn2py (#573)
+- Add support for Tags to Certificate Manager Certificates (#574)
+- Adding enhanced monitoring to rds.DBInstance (#575)
+- Add support for LogGroupName in Logs::LogGroup (#576)
+- Update Export param (#579)
+- Add support for `Fn::Sub` (#582)
+- RDS DBInstance Engine required even when DBSnapshotIdentifier is set (#583)
+- Resource updates for 2016-10-06 changes (Fixes #584)
+- Add AWS::ApiGateway::UsagePlan (fixes #585)
+- Add AWS::CodeCommit::Repository (fixes #586)
+- Provide better type checking for values in from_dict (#587)
+- Allow HelperFn in UpdatePolicy for ASG (#588)
+- Fixed from_dict case where you have a list of non BaseAWSObjects (#589)
+
+## 1.8.1 (2016-09-12)
+- Add TargetGroupArn and fix ContainerPort (#549)
+- Update ApiGateway resources (#550)
+- Add support for AutoScalingCreationPolicy (#552)
+- Change param type for resource: RestAPI (#553)
+- Add support for IAM Roles in ECS Task Definitions (#556)
+- Allow Tags on AWS::CloudFormation::Stack (#557)
+- Added support for protocol in container definition PortMapping property. (#558)
+- Add Tags prop to Kinesis::Stream (#565)
+- Add a sample ECS Cluster template (#559)
+- Add support for ElasticsearchVersion in Elasticsearch Domain (#560)
+- WAF SizeContraint needs to be an AWSProperty (Fixes #561)
+- Add Tags prop to Kinesis::Stream (#565)
+
+## 1.8.0 (2016-08-15)
+- Support "UserName" property for AWS::IAM::User #529
+- Remove double S from S3ObjectVersion (fixes #530) (#531)
+- Fix TemplateGenerator import logic. (#533)
+- Add Name attributes for IAM groups and roles (#535)
+- Automatically check if zip_file exceeds 4096 chars #537
+- Add AWS Certificate Manager (#538)
+- Add Application Auto Scaling (#539)
+- CloudFront updates (Aug 9, 2016) (#540)
+- Add PerformanceMode to FileSystem resource (#541)
+- Add AWS Internet of Things (#542)
+- Extend Template constructor. (#543)
+- Add application loadbalancer objects and properties (#544)
+- Improve check_zip_file to calculate a minimum length (#548)
+
+## 1.7.0 (2016-07-07)
+- Convert fake AWSHelperFns into AWSProperties (#478)
+- cfn script: allow update (#484)
+- Validate the template against AWS before stack creation (#485)
+- Fix capitalization in README (#487)
+- Remove duplicate waf FieldToMatch class (fixes #489)
+- Tune validation logic and test cases for S3 bucket names (#486)
+- waf XssMatchTuple should be an AWSProperty (Fixes #498)
+- Allow setting a different region for S3 upload (#491)
+- fix attribute for ApiKey (Enable -> Enabled) (#492)
+- Invoke join correctly (#493)
+- EMR: fix EBS configuration (#497)
+- EMR: Action on Failure Fix (CONTINUE_AND_WAIT->CANCEL_AND_WAIT) (#501)
+- Rewritten the helper to be more flexible (#502)
+- Added support for Kinesis Firehose (#505)
+- Add support for VPC Flow Logs (#507)
+- Syntax highlighting for readme python sample (#508)
+- Added Name property to Kinesis streams (#510)
+- Availability zones and EC2 instance type (#512)
+- Add `AutoScalingReplacingUpdate` to `UpdatePolicy` (#513)
+- Removed validation for DBSubnetGroupName when creating a read replica with SourceDBInstanceIdentifier (#515)
+- EMR configurations values: also allow AWS helper functions (#516)
+- Fix AssociationParameters Value type to list of strings (#518)
+- Add DependsOn to Deployment and remove Enabled from StageKey (#519)
+- Update fields in apigateway StageDescription (#521)
+- Fix rename pep8->pycodestyle and bump to fixed pyflakes (#522)
+- Allows MultiAZ=false with AvailabilityZone in rds (#524)
+- Do not require Status as a param in iam.AccessKey (#525)
+- Fix badges in README
+
+## 1.6.0 (2016-05-04)
+- Remove unnecessary AWSHelperFn from props
+- ReplicationConfigurationRules Destination is now an object (#380)
+- Add WAF SizeConstraintSet and XssMatchSet
+- Logs SubscriptionFilter (#413)
+- Elasticsearch support (#415)
+- Fixed ConfigSnapshotDeliveryProperties type (#420)
+- Adding support for EMR resources (#421)
+- Fix `ecs.TaskDefinition.Volumes` that was incorrectly flagged as required (#422)
+- AWS::ECR test example (#423)
+- Add cloudfront hostedzoneid for route53 (#427)
+- Typo in variable name (431)
+- ScalingAdjustment is an integer (#432)
+- Add Compress to CloudFront (#433)
+- Added missing S3OriginConfig parameter(#437)
+- Allow both GetAtt and a basestring (#440)
+- Add VpcConfig to AWS::Lambda::Function (#442)
+- Add Version Resource to awslambda (#443)
+- Add Alias Resource to awslambda (#444)
+- Ignore If expression during validation of ASG (#446)
+- Add test and tweak fix for ASG MaxSize If fix (#446)
+- Provide Valid Lambda Function Memory Values for use in Parameters (#449)
+- Add FunctionName to Lambda::Function (#452)
+- Add support for EBS volume configuration in EMR resources (#453)
+- Add elasticsearch instance type constants (#454)
+- DomainName isn't a required parameter (#457)
+- Create Documentation To Help Contributors (#458)
+- Move Groups to property, add policy template version (#460)
+- Fix Elasticsarch Domain object naming and add backward compatibility (#461)
+- EC2 update FromPort, ToPort and Egress as optional (#463)
+- ApiGateway Resources (#466)
+- Added CloudWatch Events support (#467)
+- Import JSON Templates (#468)
+- Fix config Source object to take a list of SourceDetails (#469)
+- Update Contribute Document to Use Requirements.txt (#470)
+- Update to Apr 25, 2016 release (#471)
+- Implement LifecycleRule Transitions property (#472)
+- Better AWSHelperFn support in template generator (#473)
+- Fix Bucket AccessControl to allow Ref (#475)
+- Fix baseclass for AWS::Logs::Destination (#481)
+- Add test for AWS::Logs::Destination (#482)
+
+## 1.5.0 (2016-03-01)
+- Add MariaDB to list of RDS engines [GH-368]
+- Add ap-northeast [GH-373]
+- Add T2 Nano [GH-374]
+- capability support for cfn [GH-375]
+- Update to resource list in documentation [GH-383]
+- More info from validator function errors [GH-385]
+- Add testing for python 3.5 [GH-388]
+- Extended title validation [GH-389]
+- EC2 NAT Gateway [GH-394]
+- Add AWS::ECR::Repository [GH-395]
+- Add KmsKeyId and StorageEncrypted to DBCluster [GH-396]
+- Add awacs soft dependency [GH-397]
+- New dynamodb2 module to replace dynamodb for consistent interface [GH-398]
+- Add IsMultiRegionTrail support [GH-399]
+- Add IncludeGlobalResourceTypes to RecordingGroup [GH-400]
+- Capitalize examples [GH-404]
+- use location constants for bucket creation in cfn [GH-409]
+
+## 1.4.0 (2016-01-01)
+- Add RDS Aurora support [GH-335]
+- Change DeploymentGroup Ec2TagFilters to list [GH-337]
+- Correct EC2 SpotFleet LaunchSpecifications [GH-338]
+- RDS::DBCluster change AvailabilityZone to AvailabilityZones [GH-341]
+- ECS LoadBalancerName property is a string [GH-342]
+- CodeDeploy S3Location Version property is not a default requirement [GH-345]
+- Add AutoEnableIO to AWS::EC2::Volume
+- Only discard Properties in JSONrepr [GH-354]
+- CodeDeploy added ApplicationName [GH-357]
+- CodeDeploy DeploymentGroupName property missing [GH-358]
+- Add in cloudfront properties for max, default [GH-360]
+- Allow RDS iops to be 0 [GH-361]
+- Add CodePipline support [GH-362]
+- Implemented CloudFormation changes from Dec 3 and Dec 28 [GH-366]
+- Add AWS::Config, AWS::KMS, AWS::SSM
+
 ## 1.3.0 (2015-10-21)
 - Add new resources from 2015-10-01 CloudFormation release:
   - AWS::CodeDeploy

@@ -1,5 +1,9 @@
 # Converted from DynamoDB_Table.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
+#
+# Note: This implementation is being phased out, you should instead look at
+#       the DynamoDB2_* examples for the new implementation.
+#
 
 from troposphere import Output, Parameter, Ref, Template
 from troposphere.dynamodb import (Key, AttributeDefinition,

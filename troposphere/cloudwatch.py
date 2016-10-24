@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Ref
+from . import AWSObject, AWSProperty
 from .validators import positive_integer, boolean
 
 
@@ -19,16 +19,16 @@ class Alarm(AWSObject):
 
     props = {
         'ActionsEnabled': (boolean, False),
-        'AlarmActions': ([basestring, Ref], False),
+        'AlarmActions': ([basestring], False),
         'AlarmDescription': (basestring, False),
         'AlarmName': (basestring, False),
         'ComparisonOperator': (basestring, True),
         'Dimensions': ([MetricDimension], False),
         'EvaluationPeriods': (positive_integer, True),
-        'InsufficientDataActions': ([basestring, Ref], False),
+        'InsufficientDataActions': ([basestring], False),
         'MetricName': (basestring, True),
         'Namespace': (basestring, True),
-        'OKActions': ([basestring, Ref], False),
+        'OKActions': ([basestring], False),
         'Period': (positive_integer, True),
         'Statistic': (basestring, True),
         'Threshold': (basestring, True),

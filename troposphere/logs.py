@@ -2,11 +2,32 @@ from . import AWSObject, AWSProperty
 from .validators import positive_integer
 
 
+class Destination(AWSObject):
+    resource_type = "AWS::Logs::Destination"
+
+    props = {
+        'DestinationName': (basestring, True),
+        'DestinationPolicy': (basestring, True),
+        'RoleArn': (basestring, True),
+        'TargetArn': (basestring, True),
+    }
+
+
 class LogGroup(AWSObject):
     resource_type = "AWS::Logs::LogGroup"
 
     props = {
+        'LogGroupName': (basestring, False),
         'RetentionInDays': (positive_integer, False),
+    }
+
+
+class LogStream(AWSObject):
+    resource_type = "AWS::Logs::LogStream"
+
+    props = {
+        'LogGroupName': (basestring, True),
+        'LogStreamName': (basestring, False)
     }
 
 
@@ -35,5 +56,5 @@ class SubscriptionFilter(AWSObject):
         'DestinationArn': (basestring, True),
         'FilterPattern': (basestring, True),
         'LogGroupName': (basestring, True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (basestring, False),
     }

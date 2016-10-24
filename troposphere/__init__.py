@@ -4,13 +4,15 @@
 # See LICENSE file for full license.
 
 
+import collections
 import json
 import re
+import sys
 import types
 
 from . import validators
 
-__version__ = "1.3.0"
+__version__ = "1.8.2"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -28,6 +30,16 @@ AWS_STACK_NAME = 'AWS::StackName'
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
 
+def is_aws_object_subclass(cls):
+    is_aws_object = False
+    try:
+        is_aws_object = issubclass(cls, BaseAWSObject)
+    # prop_type isn't a class
+    except TypeError:
+        pass
+    return is_aws_object
+
+
 class BaseAWSObject(object):
     def __init__(self, title, template=None, **kwargs):
         self.title = title
@@ -38,9 +50,9 @@ class BaseAWSObject(object):
                            'Metadata', 'UpdatePolicy',
                            'Condition', 'CreationPolicy']
 
-        # unset/None is also legal
-        if title and not valid_names.match(title):
-            raise ValueError('Name "%s" not alphanumeric' % title)
+        # try to validate the title if its there
+        if self.title:
+            self.validate_title()
 
         # Create the list of properties set on this object by the user
         self.properties = {}
@@ -100,7 +112,16 @@ class BaseAWSObject(object):
 
             # If it's a function, call it...
             elif isinstance(expected_type, types.FunctionType):
-                value = expected_type(value)
+                try:
+                    value = expected_type(value)
+                except:
+                    sys.stderr.write(
+                        "%s: %s.%s function validator '%s' threw "
+                        "exception:\n" % (self.__class__,
+                                          self.title,
+                                          name,
+                                          expected_type.__name__))
+                    raise
                 return self.properties.__setitem__(name, value)
 
             # If it's a list of types, check against those types...
@@ -144,14 +165,55 @@ class BaseAWSObject(object):
                                                           type(value),
                                                           expected_type))
 
+    def validate_title(self):
+        if not valid_names.match(self.title):
+            raise ValueError('Name "%s" not alphanumeric' % self.title)
+
     def validate(self):
         pass
 
     @classmethod
-    def from_dict(cls, title, dict):
-        obj = cls(title)
-        obj.properties.update(dict)
-        return obj
+    def _from_dict(cls, title=None, **kwargs):
+        props = {}
+        for prop_name, value in kwargs.items():
+            try:
+                prop_attrs = cls.props[prop_name]
+            except KeyError:
+                raise AttributeError("Object type %s does not have a "
+                                     "%s property." % (cls.__name__,
+                                                       prop_name))
+            prop_type = prop_attrs[0]
+            value = kwargs[prop_name]
+            is_aws_object = is_aws_object_subclass(prop_type)
+            if is_aws_object:
+                if not isinstance(value, collections.Mapping):
+                    raise ValueError("Property definition for %s must be "
+                                     "a Mapping type" % prop_name)
+                value = prop_type._from_dict(**value)
+
+            if isinstance(prop_type, list):
+                if not isinstance(value, list):
+                    raise TypeError("Attribute %s must be a "
+                                    "list." % prop_name)
+                new_value = []
+                for v in value:
+                    new_v = v
+                    if is_aws_object_subclass(prop_type[0]):
+                        if not isinstance(v, collections.Mapping):
+                            raise ValueError(
+                                "Property definition for %s must be "
+                                "a list of Mapping types" % prop_name)
+                        new_v = prop_type[0]._from_dict(**v)
+                    new_value.append(new_v)
+                value = new_value
+            props[prop_name] = value
+        if title:
+            return cls(title, **props)
+        return cls(**props)
+
+    @classmethod
+    def from_dict(cls, title, d):
+        return cls._from_dict(title, **d)
 
     def JSONrepr(self):
         for k, (_, required) in self.props.items():
@@ -160,12 +222,15 @@ class BaseAWSObject(object):
                 raise ValueError(
                     "Resource %s required in type %s" % (k, rtype))
         self.validate()
-        # If no other properties are set, only return the Type.
         # Mainly used to not have an empty "Properties".
         if self.properties:
             return self.resource
         elif hasattr(self, 'resource_type'):
-            return {'Type': self.resource_type}
+            d = {}
+            for k, v in self.resource.items():
+                if k != 'Properties':
+                    d[k] = v
+            return d
         else:
             return {}
 
@@ -230,6 +295,15 @@ class AWSHelperFn(object):
             return data.title
         else:
             return data
+
+
+class GenericHelperFn(AWSHelperFn):
+    """ Used as a fallback for the template generator """
+    def __init__(self, data):
+        self.data = self.getdata(data)
+
+    def JSONrepr(self):
+        return self.data
 
 
 class Base64(AWSHelperFn):
@@ -312,6 +386,14 @@ class Join(AWSHelperFn):
         return self.data
 
 
+class Sub(AWSHelperFn):
+    def __init__(self, input_str, **values):
+        self.data = {'Fn::Sub': [input_str, values] if values else input_str}
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Name(AWSHelperFn):
     def __init__(self, data):
         self.data = self.getdata(data)
@@ -339,6 +421,14 @@ class Ref(AWSHelperFn):
 class Condition(AWSHelperFn):
     def __init__(self, data):
         self.data = {'Condition': self.getdata(data)}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class ImportValue(AWSHelperFn):
+    def __init__(self, data):
+        self.data = {'Fn::ImportValue': data}
 
     def JSONrepr(self):
         return self.data
@@ -379,9 +469,9 @@ class Template(object):
         'Outputs': (dict, False),
     }
 
-    def __init__(self):
-        self.description = None
-        self.metadata = {}
+    def __init__(self, Description=None, Metadata=None):
+        self.description = Description
+        self.metadata = {} if Metadata is None else Metadata
         self.conditions = {}
         self.mappings = {}
         self.outputs = {}
@@ -456,9 +546,20 @@ class Template(object):
         return [self.parameters, self.mappings, self.resources]
 
 
+class Export(AWSHelperFn):
+    def __init__(self, name):
+        self.data = {
+            'Name': name,
+        }
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Output(AWSDeclaration):
     props = {
         'Description': (basestring, False),
+        'Export': (Export, False),
         'Value': (basestring, True),
     }
 
