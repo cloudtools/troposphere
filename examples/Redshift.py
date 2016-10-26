@@ -72,7 +72,7 @@ masteruserpassword = t.add_parameter(Parameter(
 conditions = {
     "IsMultiNodeCluster": Equals(
         Ref("ClusterType"),
-        "multi-mode"
+        "multi-node"
     ),
 }
 
