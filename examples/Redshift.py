@@ -30,7 +30,7 @@ clustertype = t.add_parameter(Parameter(
     Default="single-node",
     AllowedValues=[
         "single-node",
-        "multi-mode"
+        "multi-node"
     ],
 ))
 
