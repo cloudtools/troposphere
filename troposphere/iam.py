@@ -50,9 +50,6 @@ PolicyProperty = Policy
 
 
 class Group(AWSObject):
-    def validate_title(self):
-        iam_group_name(self.title)
-
     resource_type = "AWS::IAM::Group"
 
     props = {
@@ -73,9 +70,6 @@ class InstanceProfile(AWSObject):
 
 
 class Role(AWSObject):
-    def validate_title(self):
-        iam_role_name(self.title)
-
     resource_type = "AWS::IAM::Role"
 
     props = {
