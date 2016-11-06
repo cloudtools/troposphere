@@ -137,13 +137,13 @@ class DistributionConfig(AWSProperty):
         'DefaultCacheBehavior': (DefaultCacheBehavior, True),
         'DefaultRootObject': (basestring, False),
         'Enabled': (boolean, True),
+        'HttpVersion': (basestring, False),
         'Logging': (Logging, False),
         'Origins': (list, True),
         'PriceClass': (basestring, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
         'WebACLId': (basestring, False),
-        'HttpVersion': (basestring, False)
     }
 
 
