@@ -37,7 +37,8 @@ myDistribution = t.add_resource(Distribution(
                 QueryString=False
             ),
             ViewerProtocolPolicy="allow-all"),
-        Enabled=True
+        Enabled=True,
+        HttpVersion='http2'
     )
 ))
 
