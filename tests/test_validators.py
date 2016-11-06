@@ -122,5 +122,6 @@ class TestValidators(unittest.TestCase):
             with self.assertRaises(ValueError):
                 iam_user_name(s)
 
+
 if __name__ == '__main__':
     unittest.main()

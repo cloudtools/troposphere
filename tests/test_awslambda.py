@@ -65,5 +65,6 @@ class TestAWSLambda(unittest.TestCase):
             with self.assertRaises(ValueError):
                 Code.check_zip_file(z)
 
+
 if __name__ == '__main__':
     unittest.main()
