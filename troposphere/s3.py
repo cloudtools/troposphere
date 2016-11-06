@@ -2,6 +2,7 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
+import warnings
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import positive_integer, s3_bucket_name
@@ -130,9 +131,11 @@ class LifecycleRule(AWSProperty):
 
         if 'NoncurrentVersionTransition' in self.properties:
             if 'NoncurrentVersionTransitions' not in self.properties:
-                # aws moved from a single transition to a list of them
-                # and deprecated 'NoncurrentVersionTransition', so let's
-                # just move it to the new property and not annoy the user.
+                warnings.warn(
+                    'NoncurrentVersionTransition has been deprecated in '
+                    'favour of NoncurrentVersionTransitions.'
+                )
+                # Translate the old transition format to the new format
                 self.properties['NoncurrentVersionTransitions'] = [
                     self.properties.pop('NoncurrentVersionTransition')]
             else:
