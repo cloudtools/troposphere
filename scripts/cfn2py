@@ -49,7 +49,7 @@ def do_header(d):
     """Output a stock header for the new Python script and also try to
     figure out the Resource imports needed by the template.
     """
-    print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output'
+    print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output, If, And, Not, Or, Equals, Condition'
     print 'from troposphere import Parameter, Ref, Tags, Template'
     print 'from troposphere.cloudformation import Init'
     print 'from troposphere.cloudfront import Distribution, DistributionConfig'
@@ -94,6 +94,15 @@ def do_parameters(d):
         print "))"
         print
 
+
+def do_conditions(d):
+    """Output the template Conditions"""
+    conditions = d['Conditions']
+    for k, v in conditions.items():
+        print 't.add_condition("%s",' % (k,)
+        print '    %s' % output_value(v)
+        print ")"
+        print
 
 def do_mappings(d):
     """Output the template Mappings"""
@@ -243,6 +252,8 @@ def do_resources(d):
                     print '    %s=%s,' % (pk, output_value(pv))
         if v.has_key("DependsOn"):
             print '    %s=%s,' % ("DependsOn", output_value(v['DependsOn']))
+        if v.has_key("Condition"):
+            print '    %s=%s,' % ("Condition", output_value(v['Condition']))
         print "))"
         print
 
@@ -267,12 +278,18 @@ def handle_one_object(name, values):
 
 function_map = {
     'Fn::Base64': ("Base64", handle_no_objects),
+    'Fn::And': ("And", handle_no_objects),
+    'Fn::Or': ("Or", handle_no_objects),
+    'Fn::Not': ("Not", handle_no_objects),
+    'Fn::If': ("If", handle_one_object),
+    'Fn::Equals': ("Equals", handle_no_objects),
     'Fn::FindInMap': ("FindInMap", handle_no_objects),
     'Fn::GetAtt': ("GetAtt", handle_one_object),
     'Fn::GetAZs': ("GetAZs", handle_no_objects),
     'Fn::Join': ("Join", handle_no_objects),
     'Fn::Select': ("Select", handle_one_object),
     'Ref': ("Ref", handle_one_object),
+    'Condition': ("Condition", handle_one_object),
 }
 
 
@@ -333,6 +350,7 @@ if __name__ == "__main__":
         'AWSTemplateFormatVersion',
         'Description',
         'Parameters',
+        'Conditions',
         'Mappings',
         'Resources',
         'Outputs',
