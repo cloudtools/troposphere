@@ -46,6 +46,7 @@ class Policy(AWSProperty):
         'PolicyName': (basestring, True),
     }
 
+
 PolicyProperty = Policy
 
 
