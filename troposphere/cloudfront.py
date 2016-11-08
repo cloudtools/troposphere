@@ -19,6 +19,7 @@ class ForwardedValues(AWSProperty):
         'Cookies': (Cookies, False),
         'Headers': ([basestring], False),
         'QueryString': (boolean, True),
+        'QueryStringCacheKeys': ([basestring], False),
     }
 
 
