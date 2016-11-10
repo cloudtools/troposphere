@@ -73,6 +73,14 @@ def s3_bucket_name(b):
         raise ValueError("%s is not a valid s3 bucket name" % b)
 
 
+def elb_name(b):
+    elb_name_re = compile(r'^[a-zA-Z0-9][a-zA-Z0-9\-]{0,30}[a-zA-Z0-9]{1}$')
+    if elb_name_re.match(b):
+        return b
+    else:
+        raise ValueError("%s is not a valid elb name" % b)
+
+
 def encoding(encoding):
     valid_encodings = ['plain', 'base64']
     if encoding not in valid_encodings:
