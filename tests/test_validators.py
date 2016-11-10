@@ -76,7 +76,8 @@ class TestValidators(unittest.TestCase):
     def test_elb_name(self):
         for b in ['a', 'a'*32, 'wick3d-elb-name', 'Wick3d-ELB-Name']:
             elb_name(b)
-        for b in ['a'*63, 'invalid_elb', '-invalid-elb', 'invalid-elb-', '-elb-']:
+        for b in ['a'*63, 'invalid_elb', '-invalid-elb',
+                  'invalid-elb-', '-elb-']:
             with self.assertRaises(ValueError):
                 elb_name(b)
 
