@@ -74,7 +74,7 @@ def s3_bucket_name(b):
 
 
 def elb_name(b):
-    elb_name_re = compile(r'^[a-zA-Z0-9][a-zA-Z0-9\-]{0,30}[a-zA-Z0-9]{1}$')
+    elb_name_re = compile(r'^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,30}[a-zA-Z0-9]{1})?$')  # noqa
     if elb_name_re.match(b):
         return b
     else:

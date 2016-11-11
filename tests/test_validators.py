@@ -74,10 +74,11 @@ class TestValidators(unittest.TestCase):
                 s3_bucket_name(b)
 
     def test_elb_name(self):
-        for b in ['a', 'a'*32, 'wick3d-elb-name', 'Wick3d-ELB-Name']:
+        for b in ['a', 'a-a', 'aaa', 'a'*32,
+                  'wick3d-elb-name', 'Wick3d-ELB-Name']:
             elb_name(b)
-        for b in ['a'*63, 'invalid_elb', '-invalid-elb',
-                  'invalid-elb-', '-elb-']:
+        for b in ['a'*33, 'invalid_elb', '-invalid-elb',
+                  'invalid-elb-', '-elb-', '-a', 'a-']:
             with self.assertRaises(ValueError):
                 elb_name(b)
 
