@@ -30,6 +30,6 @@ assert key_type_validator
 assert projection_type_validator
 
 
-warnings.warn("This module has replaced by troposphere.dynamodb. Please use "
-              "that module instead, as troposphere.dynamodb2 will be being "
+warnings.warn("This module has replaced by troposphere.dynamodb. Please "
+              "import that module instead, as troposphere.dynamodb2 will be "
               "removed soon.")
