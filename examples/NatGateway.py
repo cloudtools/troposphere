@@ -84,7 +84,6 @@ default_public_route = t.add_resource(ec2.Route(
     GatewayId=Ref(igw),
 ))
 
-
 private_route_association = t.add_resource(ec2.SubnetRouteTableAssociation(
     'PrivateRouteAssociation',
     SubnetId=Ref(private_net),
