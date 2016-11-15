@@ -36,6 +36,12 @@ class TestBasic(unittest.TestCase):
         instance = ExtendedInstance('ec2instance', attribute='value')
         self.assertEqual(instance.attribute, 'value')
 
+    def test_required_title_error(self):
+        with self.assertRaisesRegexp(ValueError, "title:"):
+            t = Template()
+            t.add_resource(Instance('ec2instance'))
+            t.to_json()
+
 
 def call_correct(x):
     return x
