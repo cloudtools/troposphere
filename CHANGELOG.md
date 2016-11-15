@@ -1,3 +1,20 @@
+## (TBD)
+- Add CodeCommit as a supported AWS resource type
+- Add update of github Releases page to RELEASE doc
+- Update elasticache for 2016-10-12 changes (#592)
+- Support for S3 Lifecycle Rule property NoncurrentVersionTransitions (#596)
+- Include resource title in required attr exception (#597)
+- Added Placement class for the Placement property in LaunchSpecifications. (#598)
+- Add EFS example (#601)
+- Add support to old mysql db engine (#602)
+- Fix typo in Example Allowed Values (#603)
+- Remove `title` validation. Fixes #428 (#605)
+- Add support for conditions in cfn2py script (#606)
+- Added MongoDB default port to constants (#608)
+- Add HttpVersion prop to DistributionConfig (CloudFront HTTP/2 Support) (#609)
+- Added missing QueryStringCacheKeys property to CloudFront ForwardedValues (#612)
+- Add a validator for ELB names (#615)
+
 ## 1.8.2 (2016-10-08)
 - Add SpotPrice to SpotFleet LaunchSpecifications
 - Add new properties to ECS (Clustername to Cluster and Family to TaskDefinition)
