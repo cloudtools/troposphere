@@ -6,7 +6,7 @@
                 {
                     "Ref": "ClusterType"
                 },
-                "multi-mode"
+                "multi-node"
             ]
         }
     },
@@ -38,7 +38,7 @@
         "ClusterType": {
             "AllowedValues": [
                 "single-node",
-                "multi-mode"
+                "multi-node"
             ],
             "Default": "single-node",
             "Description": "The type of the cluster",

@@ -5,8 +5,8 @@ from troposphere import iam
 
 
 class TestDict(unittest.TestCase):
-    def test_exclusive(self):
-        d = {
+    def setUp(self):
+        self.d = {
             "Cpu": 1,
             "Environment": [
                 {
@@ -31,11 +31,14 @@ class TestDict(unittest.TestCase):
                     "ContainerPort": 5001,
                     "HostPort": 5001
                 }
-            ]
+            ],
+            "Links": ["containerA", "containerB"],
         }
 
+    def test_valid_data(self):
         t = Template()
-        cd = ecs.ContainerDefinition.from_dict("mycontainer", d)
+        cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+        self.assertEquals(cd.Links[0], "containerA")
         td = ecs.TaskDefinition(
                 "taskdef",
                 ContainerDefinitions=[cd],
@@ -44,6 +47,33 @@ class TestDict(unittest.TestCase):
         )
         t.add_resource(td)
         t.to_json()
+
+    def test_invalid_toplevel_property(self):
+        self.d["BlahInvalid"] = "Invalid"
+        with self.assertRaises(AttributeError):
+            ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
+    def test_invalid_sub_property(self):
+        self.d["Environment"][0]["BlahInvalid"] = "Invalid"
+        with self.assertRaises(AttributeError):
+            ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
+    def test_toplevel_helper_fn(self):
+        self.d["Cpu"] = Ref("MyCPU")
+        cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+        self.assertEquals(cd.Cpu.data, {"Ref": "MyCPU"})
+
+    def test_sub_property_helper_fn(self):
+        self.d["Environment"][0]["Value"] = Ref("RegistryStorage")
+        cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+        self.assertEquals(cd.Environment[0].Value.data,
+                          {"Ref": "RegistryStorage"})
+
+    def test_invalid_subproperty_definition(self):
+        self.d["Environment"][0] = "BadValue"
+        with self.assertRaises(ValueError):
+            ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
 
 if __name__ == '__main__':
     unittest.main()

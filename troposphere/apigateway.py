@@ -50,6 +50,7 @@ class Authorizer(AWSObject):
         "IdentitySource": (basestring, True),
         "IdentityValidationExpression": (basestring, False),
         "Name": (basestring, True),
+        "ProviderARNs": ([basestring], False),
         "RestApiId": (basestring, False),
         "Type": (basestring, True)
     }
@@ -118,7 +119,7 @@ class Deployment(AWSObject):
         "Description": (basestring, False),
         "RestApiId": (basestring, True),
         "StageDescription": (StageDescription, False),
-        "StageName": (basestring, True)
+        "StageName": (basestring, False)
     }
 
 
@@ -233,4 +234,38 @@ class Stage(AWSObject):
         "RestApiId": (basestring, True),
         "StageName": (basestring, True),
         "Variables": (dict, False)
+    }
+
+
+class ApiStage(AWSProperty):
+    props = {
+        "ApiId": (basestring, False),
+        "Stage": (basestring, False),
+    }
+
+
+class QuotaSettings(AWSProperty):
+    props = {
+        "Limit": (positive_integer, False),
+        "Offset": (positive_integer, False),
+        "Period": (basestring, False),
+    }
+
+
+class ThrottleSettings(AWSProperty):
+    props = {
+        "BurstLimit": (positive_integer, False),
+        "RateLimit": (positive_integer, False),
+    }
+
+
+class UsagePlan(AWSObject):
+    resource_type = "AWS::ApiGateway::UsagePlan"
+
+    props = {
+        "ApiStages": ([ApiStage], False),
+        "Description": (basestring, False),
+        "Quota": (QuotaSettings, False),
+        "Throttle": (ThrottleSettings, False),
+        "UsagePlanName": (basestring, False),
     }

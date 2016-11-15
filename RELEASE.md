@@ -6,3 +6,4 @@
 - Create PyPI release: ```python setup.py sdist upload --sign```
 - Push commits: ```git push```
 - Push tag: ```git push --tags```
+- Update github release page: https://github.com/cloudtools/troposphere/releases

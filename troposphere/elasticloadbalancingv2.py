@@ -5,7 +5,7 @@
 
 from . import AWSObject, AWSProperty
 from .validators import (
-    network_port, integer)
+    elb_name, network_port, integer)
 
 
 class LoadBalancerAttributes(AWSProperty):
@@ -106,7 +106,7 @@ class LoadBalancer(AWSObject):
 
     props = {
         'LoadBalancerAttributes': ([LoadBalancerAttributes], False),
-        'Name': (basestring, False),
+        'Name': (elb_name, False),
         'Scheme': (basestring, False),
         'SecurityGroups': (list, False),
         'Subnets': (list, True),

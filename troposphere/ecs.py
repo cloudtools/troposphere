@@ -5,7 +5,9 @@ from .validators import boolean, network_port, positive_integer
 class Cluster(AWSObject):
     resource_type = "AWS::ECS::Cluster"
 
-    props = {}
+    props = {
+        'ClusterName': (basestring, False),
+    }
 
 
 class LoadBalancer(AWSProperty):
@@ -137,6 +139,7 @@ class TaskDefinition(AWSObject):
 
     props = {
         'ContainerDefinitions': ([ContainerDefinition], True),
-        'Volumes': ([Volume], False),
+        'Family': (basestring, False),
         'TaskRoleArn': (basestring, False),
+        'Volumes': ([Volume], False),
     }

@@ -12,7 +12,7 @@ from .validators import boolean, network_port, integer, positive_integer
 # http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html
 
 VALID_STORAGE_TYPES = ('standard', 'gp2', 'io1')
-VALID_DB_ENGINES = ('MySQL', 'oracle-se1', 'oracle-se', 'oracle-ee',
+VALID_DB_ENGINES = ('MySQL', 'mysql', 'oracle-se1', 'oracle-se', 'oracle-ee',
                     'sqlserver-ee', 'sqlserver-se', 'sqlserver-ex',
                     'sqlserver-web', 'postgres', 'aurora', 'mariadb')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
@@ -137,7 +137,9 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
-        'Engine': (validate_engine, True),
+        'Domain': (basestring, False),
+        'DomainIAMRoleName': (basestring, False),
+        'Engine': (validate_engine, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
         'KmsKeyId': (basestring, False),
@@ -145,6 +147,8 @@ class DBInstance(AWSObject):
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
         'MultiAZ': (boolean, False),
+        'MonitoringInterval': (positive_integer, False),
+        'MonitoringRoleArn': (basestring, False),
         'OptionGroupName': (basestring, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
@@ -158,6 +162,12 @@ class DBInstance(AWSObject):
     }
 
     def validate(self):
+        if 'DBSnapshotIdentifier' not in self.properties:
+            if 'Engine' not in self.properties:
+                raise ValueError(
+                    'Resource Engine is required in type %s'
+                    % self.resource_type)
+
         if 'SourceDBInstanceIdentifier' in self.properties:
 
             invalid_replica_properties = (

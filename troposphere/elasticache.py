@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Tags
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, network_port
 
 
@@ -84,6 +84,7 @@ class SubnetGroup(AWSObject):
     resource_type = "AWS::ElastiCache::SubnetGroup"
 
     props = {
+        'CacheSubnetGroupName': (basestring, False),
         'Description': (basestring, True),
         'SubnetIds': (list, True),
     }
@@ -93,22 +94,52 @@ class ReplicationGroup(AWSObject):
     resource_type = "AWS::ElastiCache::ReplicationGroup"
 
     props = {
-        'AutomaticFailoverEnabled': (boolean, False),
         'AutoMinorVersionUpgrade': (boolean, False),
+        'AutomaticFailoverEnabled': (boolean, False),
         'CacheNodeType': (basestring, True),
         'CacheParameterGroupName': (basestring, False),
         'CacheSecurityGroupNames': ([basestring], False),
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, True),
         'EngineVersion': (basestring, False),
+        'NodeGroupConfiguration': (list, False),
         'NotificationTopicArn': (basestring, False),
-        'NumCacheClusters': (integer, True),
+        'NumCacheClusters': (integer, False),
+        'NumNodeGroups': (integer, False),
         'Port': (network_port, False),
         'PreferredCacheClusterAZs': ([basestring], False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'PrimaryClusterId': (basestring, False),
+        'ReplicasPerNodeGroup': (integer, False),
         'ReplicationGroupDescription': (basestring, True),
+        'ReplicationGroupId': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
         'SnapshotArns': ([basestring], False),
+        'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
+        'SnapshottingClusterId': (basestring, False),
         'SnapshotWindow': (basestring, False),
+        'Tags': (Tags, False),
+    }
+
+    def validate(self):
+        if 'NumCacheClusters' not in self.properties and \
+           'NumNodeGroups' not in self.properties and \
+           'ReplicasPerNodeGroup' not in self.properties and \
+           'PrimaryClusterId' not in self.properties:
+            raise ValueError(
+                'One of PrimaryClusterId, NumCacheClusters, '
+                'NumNodeGroups or ReplicasPerNodeGroup are required'
+                'in type AWS::ElastiCache::ReplicationGroup'
+                )
+
+        return True
+
+
+class NodeGroupConfiguration(AWSProperty):
+    props = {
+        'PrimaryAvailabilityZone': (basestring, False),
+        'ReplicaAvailabilityZones': (basestring, False),
+        'ReplicaCount': (integer, False),
+        'Slots': (basestring, False),
     }

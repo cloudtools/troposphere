@@ -211,6 +211,41 @@ class TestRDS(unittest.TestCase):
         i.AllocatedStorage = 400
         i.JSONrepr()
 
+    def test_snapshot(self):
+        i = rds.DBInstance(
+            'MyDB',
+            DBName='test',
+            AllocatedStorage=25,
+            DBInstanceClass='db.m4.large',
+            DBSubnetGroupName='default',
+            DBSnapshotIdentifier='id',
+        )
+        i.JSONrepr()
+
+    def test_snapshot_and_engine(self):
+        i = rds.DBInstance(
+            'MyDB',
+            DBName='test',
+            AllocatedStorage=25,
+            DBInstanceClass='db.m4.large',
+            DBSubnetGroupName='default',
+            DBSnapshotIdentifier='id',
+            Engine="postgres",
+        )
+        i.JSONrepr()
+
+    def test_no_snapshot_or_engine(self):
+        i = rds.DBInstance(
+            'MyDB',
+            DBName='test',
+            AllocatedStorage=25,
+            DBInstanceClass='db.m4.large',
+            DBSubnetGroupName='default',
+        )
+        with self.assertRaisesRegexp(ValueError,
+                                     "Resource Engine is required"):
+            i.JSONrepr()
+
 
 class TestRDSValidators(unittest.TestCase):
     def test_validate_iops(self):
