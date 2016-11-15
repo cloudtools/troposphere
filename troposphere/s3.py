@@ -2,15 +2,17 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
+import warnings
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import positive_integer, s3_bucket_name
+
 try:
     from awacs.aws import Policy
+
     policytypes = (dict, Policy)
 except ImportError:
     policytypes = dict,
-
 
 Private = "Private"
 PublicRead = "PublicRead"
@@ -106,6 +108,7 @@ class LifecycleRule(AWSProperty):
         'Id': (basestring, False),
         'NoncurrentVersionExpirationInDays': (positive_integer, False),
         'NoncurrentVersionTransition': (NoncurrentVersionTransition, False),
+        'NoncurrentVersionTransitions': ([NoncurrentVersionTransition], False),
         'Prefix': (basestring, False),
         'Status': (basestring, True),
         'Transition': (LifecycleRuleTransition, False),
@@ -125,6 +128,29 @@ class LifecycleRule(AWSProperty):
                     'Cannot specify both "Transition" and "Transitions" '
                     'properties on S3 Bucket Lifecycle Rule. Please use '
                     '"Transitions" since the former has been deprecated.')
+
+        if 'NoncurrentVersionTransition' in self.properties:
+            if 'NoncurrentVersionTransitions' not in self.properties:
+                warnings.warn(
+                    'NoncurrentVersionTransition has been deprecated in '
+                    'favour of NoncurrentVersionTransitions.'
+                )
+                # Translate the old transition format to the new format
+                self.properties['NoncurrentVersionTransitions'] = [
+                    self.properties.pop('NoncurrentVersionTransition')]
+            else:
+                raise ValueError(
+                    'Cannot specify both "NoncurrentVersionTransition" and '
+                    '"NoncurrentVersionTransitions" properties on S3 Bucket '
+                    'Lifecycle Rule. Please use '
+                    '"NoncurrentVersionTransitions" since the former has been '
+                    'deprecated.')
+
+        if 'ExpirationInDays' in self.properties and 'ExpirationDate' in \
+                self.properties:
+            raise ValueError(
+                'Cannot specify both "ExpirationDate" and "ExpirationInDays"'
+            )
 
 
 class LifecycleConfiguration(AWSProperty):

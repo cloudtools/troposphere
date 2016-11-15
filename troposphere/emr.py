@@ -77,6 +77,8 @@ class Configuration(AWSProperty):
         'Classification': (basestring, False),
         'ConfigurationProperties': (properties_validator, False)
     }
+
+
 # we must define this one afterwards since Configuration does not exist
 # before Configuration is done initializing
 Configuration.props['Configurations'] = ([Configuration], False)

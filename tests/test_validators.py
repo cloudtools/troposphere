@@ -4,7 +4,7 @@ from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
-from troposphere.validators import iam_group_name, iam_user_name
+from troposphere.validators import iam_group_name, iam_user_name, elb_name
 
 
 class TestValidators(unittest.TestCase):
@@ -73,6 +73,15 @@ class TestValidators(unittest.TestCase):
             with self.assertRaises(ValueError):
                 s3_bucket_name(b)
 
+    def test_elb_name(self):
+        for b in ['a', 'a-a', 'aaa', 'a'*32,
+                  'wick3d-elb-name', 'Wick3d-ELB-Name']:
+            elb_name(b)
+        for b in ['a'*33, 'invalid_elb', '-invalid-elb',
+                  'invalid-elb-', '-elb-', '-a', 'a-']:
+            with self.assertRaises(ValueError):
+                elb_name(b)
+
     def test_encoding(self):
         for e in ['plain', 'base64']:
             encoding(e)
@@ -121,6 +130,7 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
             with self.assertRaises(ValueError):
                 iam_user_name(s)
+
 
 if __name__ == '__main__':
     unittest.main()
