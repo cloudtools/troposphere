@@ -3,85 +3,80 @@
 #
 # See LICENSE file for full license.
 
-import warnings
-
-from . import AWSHelperFn, AWSObject, AWSProperty
-
-warnings.warn("This module is outdated and will be replaced with "
-              "troposphere.dynamodb2. Please see the README for "
-              "instructions on how to prepare for this change.")
+from . import AWSObject, AWSProperty
 
 
-class AttributeDefinition(AWSHelperFn):
-    def __init__(self, name, type):
-        self.data = {
-            'AttributeName': name,
-            'AttributeType': type,
-        }
-
-    def JSONrepr(self):
-        return self.data
+def attribute_type_validator(x):
+    valid_types = ["S", "N", "B"]
+    if x not in valid_types:
+        raise ValueError("AttributeType must be one of: %s" %
+                         ", ".join(valid_types))
+    return x
 
 
-class Key(AWSProperty):
-    def __init__(self, AttributeName, KeyType):
-        self.data = {
-            'AttributeName': AttributeName,
-            'KeyType': KeyType,
-        }
-
-    def JSONrepr(self):
-        return self.data
+def key_type_validator(x):
+    valid_types = ["HASH", "RANGE"]
+    if x not in valid_types:
+        raise ValueError("KeyType must be one of: %s" % ", ".join(valid_types))
+    return x
 
 
-class ProvisionedThroughput(AWSHelperFn):
-    def __init__(self, ReadCapacityUnits, WriteCapacityUnits):
-        self.data = {
-            'ReadCapacityUnits': ReadCapacityUnits,
-            'WriteCapacityUnits': WriteCapacityUnits,
-        }
-
-    def JSONrepr(self):
-        return self.data
+def projection_type_validator(x):
+    valid_types = ["KEYS_ONLY", "INCLUDE", "ALL"]
+    if x not in valid_types:
+        raise ValueError("ProjectionType must be one of: %s" %
+                         ", ".join(valid_types))
+    return x
 
 
-class Projection(AWSHelperFn):
-    def __init__(self, ProjectionType, NonKeyAttributes=None):
-        self.data = {
-            'ProjectionType': ProjectionType
-        }
-        if NonKeyAttributes is not None:
-            self.data['NonKeyAttributes'] = NonKeyAttributes
-
-    def JSONrepr(self):
-        return self.data
+class AttributeDefinition(AWSProperty):
+    props = {
+        "AttributeName": (basestring, True),
+        "AttributeType": (attribute_type_validator, True),
+    }
 
 
-class GlobalSecondaryIndex(AWSHelperFn):
-    def __init__(self, IndexName, KeySchema, Projection,
-                 ProvisionedThroughput):
-        self.data = {
-            'IndexName': IndexName,
-            'KeySchema': KeySchema,
-            'Projection': Projection,
-            'ProvisionedThroughput': ProvisionedThroughput,
-        }
-
-    def JSONrepr(self):
-        return self.data
+class KeySchema(AWSProperty):
+    props = {
+        "AttributeName": (basestring, True),
+        "KeyType": (key_type_validator, True)
+    }
 
 
-class LocalSecondaryIndex(AWSHelperFn):
-    def __init__(self, IndexName, KeySchema, Projection,
-                 ProvisionedThroughput):
-        self.data = {
-            'IndexName': IndexName,
-            'KeySchema': KeySchema,
-            'Projection': Projection,
-        }
+class Key(KeySchema):
+    """ For backwards compatibility. """
+    pass
 
-    def JSONrepr(self):
-        return self.data
+
+class ProvisionedThroughput(AWSProperty):
+    props = {
+        "ReadCapacityUnits": (int, True),
+        "WriteCapacityUnits": (int, True),
+    }
+
+
+class Projection(AWSProperty):
+    props = {
+        "NonKeyAttributes": ([basestring], False),
+        "ProjectionType": (projection_type_validator, False)
+    }
+
+
+class GlobalSecondaryIndex(AWSProperty):
+    props = {
+        "IndexName": (basestring, True),
+        "KeySchema": ([KeySchema], True),
+        "Projection": (Projection, True),
+        "ProvisionedThroughput": (ProvisionedThroughput, True)
+    }
+
+
+class LocalSecondaryIndex(AWSProperty):
+    props = {
+        "IndexName": (basestring, True),
+        "KeySchema": ([KeySchema], True),
+        "Projection": (Projection, True),
+    }
 
 
 class StreamSpecification(AWSProperty):
@@ -96,7 +91,7 @@ class Table(AWSObject):
     props = {
         'AttributeDefinitions': ([AttributeDefinition], True),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
-        'KeySchema': ([Key], True),
+        'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
         'StreamSpecification': (StreamSpecification, False),
