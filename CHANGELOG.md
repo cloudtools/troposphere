@@ -1,4 +1,7 @@
-## (TBD)
+## 1.9.0 (2016-11-15)
+- Note: the dynamodb change below may cause backwards compatibility issues.
+  There have been deprecation warnings for a while.
+- Replace dynamodb module with dynamodb2 (#564)
 - Add CodeCommit as a supported AWS resource type
 - Add update of github Releases page to RELEASE doc
 - Update elasticache for 2016-10-12 changes (#592)
