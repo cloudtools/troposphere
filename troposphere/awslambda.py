@@ -119,6 +119,7 @@ class Function(AWSObject):
         'Environment': (dict, False),
         'FunctionName': (basestring, False),
         'Handler': (basestring, True),
+        'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
