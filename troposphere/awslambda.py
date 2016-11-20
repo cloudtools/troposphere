@@ -116,6 +116,7 @@ class Function(AWSObject):
     props = {
         'Code': (Code, True),
         'Description': (basestring, False),
+        'Environment': (dict, False),
         'FunctionName': (basestring, False),
         'Handler': (basestring, True),
         'MemorySize': (validate_memory_size, False),
