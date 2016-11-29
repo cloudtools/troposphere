@@ -116,12 +116,33 @@ class LoadBasedAutoScaling(AWSProperty):
     }
 
 
+def validate_data_source_type(data_source_type):
+    data_source_types = (
+        'AutoSelectOpsworksMysqlInstance', 
+        'OpsworksMysqlInstance', 
+        'RdsDbInstance'
+    )
+    if data_source_type not in data_source_types:
+        raise ValueError("Type (given: %s) must be one of: %s" % (
+            data_source_type, ', '.join(data_source_types)))
+    return data_source_type
+
+
+class DataSource(AWSProperty):
+    props = {
+        'Arn': (basestring, False),
+        'DatabaseName': (basestring, False),
+        'Type': (validate_data_source_type, False)
+    }
+
+
 class App(AWSObject):
     resource_type = "AWS::OpsWorks::App"
 
     props = {
         'AppSource': (Source, False),
         'Attributes': (dict, False),
+        'DataSources': ([DataSource], False),
         'Description': (basestring, False),
         'Domains': ([basestring], False),
         'EnableSsl': (boolean, False),
@@ -199,6 +220,14 @@ class Layer(AWSObject):
     }
 
 
+class RdsDbInstance(AWSProperty):
+    props = {
+        'DbPassword': (basestring, True),
+        'DbUser': (basestring, True),
+        'RdsDbInstanceArn': (basestring, True)
+    }
+
+
 class Stack(AWSObject):
     resource_type = "AWS::OpsWorks::Stack"
 
@@ -217,6 +246,7 @@ class Stack(AWSObject):
         'DefaultSubnetId': (basestring, False),
         'HostnameTheme': (basestring, False),
         'Name': (basestring, True),
+        'RdsDbInstances': ([RdsDbInstance], False),
         'ServiceRoleArn': (basestring, True),
         'UseCustomCookbooks': (boolean, False),
         'UseOpsworksSecurityGroups': (boolean, False),
