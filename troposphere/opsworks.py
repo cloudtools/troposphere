@@ -118,8 +118,8 @@ class LoadBasedAutoScaling(AWSProperty):
 
 def validate_data_source_type(data_source_type):
     data_source_types = (
-        'AutoSelectOpsworksMysqlInstance', 
-        'OpsworksMysqlInstance', 
+        'AutoSelectOpsworksMysqlInstance',
+        'OpsworksMysqlInstance',
         'RdsDbInstance'
     )
     if data_source_type not in data_source_types:
