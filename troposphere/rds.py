@@ -129,6 +129,7 @@ class DBInstance(AWSObject):
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'CharacterSetName': (basestring, False),
+        'CopyTagsToSnapshot': (boolean, False),
         'DBClusterIdentifier': (basestring, False),
         'DBInstanceClass': (basestring, True),
         'DBInstanceIdentifier': (basestring, False),
