@@ -75,21 +75,27 @@ class TemplateGenerator(Template):
     def inspect_resources(self):
         """ Returns a map of `ResourceType: ResourceClass` """
         if not self._inspect_resources:
-            TemplateGenerator._inspect_resources = {
-                m.resource_type: m
-                for m in self.inspect_members
-                if issubclass(
-                    m, (AWSObject, cloudformation.AWSCustomObject)) and
-                hasattr(m, 'resource_type')}
+            d = {}
+            for m in self.inspect_members:
+                if issubclass(m, (AWSObject, cloudformation.AWSCustomObject)) \
+                        and hasattr(m, 'resource_type'):
+                    d[m.resource_type] = m
+
+            TemplateGenerator._inspect_resources = d
+
         return self._inspect_resources
 
     @property
     def inspect_functions(self):
         """ Returns a map of `FunctionName: FunctionClass` """
         if not self._inspect_functions:
-            TemplateGenerator._inspect_functions = {
-                m.__name__: m for m in self.inspect_members
-                if issubclass(m, AWSHelperFn)}
+            d = {}
+            for m in self.inspect_members:
+                if issubclass(m, AWSHelperFn):
+                    d[m.__name__] = m
+
+            TemplateGenerator._inspect_functions = d
+
         return self._inspect_functions
 
     def _convert_definition(self, definition, ref=None):
@@ -125,8 +131,10 @@ class TemplateGenerator(Template):
                         function_type, definition.values()[0])
 
             # nothing special here - return as dict
-            return {k: self._convert_definition(v)
-                    for k, v in definition.iteritems()}
+            d = {}
+            for k, v in definition.iteritems():
+                d[k] = self._convert_definition(v)
+            return d
 
         elif (isinstance(definition, Sequence) and
                 not isinstance(definition, basestring)):
