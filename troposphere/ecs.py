@@ -117,7 +117,6 @@ class ContainerDefinition(AWSProperty):
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'VolumesFrom': ([VolumesFrom], False),
-        'Privileged': (boolean, False),
         'WorkingDirectory': (basestring, False),
     }
 
