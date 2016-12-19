@@ -35,7 +35,7 @@ foobar_target = Target(
 )
 
 # Create the Event Rule
-rule = Rule(
+rule = t.add_resource(Rule(
     "FoobarRule",
     EventPattern={
         "source": [
@@ -53,6 +53,6 @@ rule = Rule(
     Description="Foobar CloudWatch Event",
     State="ENABLED",
     Targets=[foobar_target]
-)
+))
 
 print(t.to_json())
