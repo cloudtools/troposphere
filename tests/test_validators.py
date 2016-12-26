@@ -5,6 +5,7 @@ from troposphere.validators import positive_integer, network_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
 from troposphere.validators import iam_group_name, iam_user_name, elb_name
+from troposphere.validators import mutually_exclusive
 
 
 class TestValidators(unittest.TestCase):
@@ -130,6 +131,16 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
             with self.assertRaises(ValueError):
                 iam_user_name(s)
+
+    def test_mutually_exclusive(self):
+        conds = ['a', 'b', 'c']
+        mutually_exclusive('a', ['a'], conds)
+        mutually_exclusive('b', ['b'], conds)
+        mutually_exclusive('c', ['c'], conds)
+        with self.assertRaises(ValueError):
+            mutually_exclusive('ac', ['a', 'c'], conds)
+        with self.assertRaises(ValueError):
+            mutually_exclusive('abc', ['a', 'b', 'c'], conds)
 
 
 if __name__ == '__main__':

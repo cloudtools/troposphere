@@ -143,3 +143,15 @@ def iam_group_name(group_name):
         raise ValueError('IAM Role Name may not exceed 128 characters')
     iam_names(group_name)
     return group_name
+
+
+def mutually_exclusive(class_name, properties, conditionals):
+    found_list = []
+    for c in conditionals:
+        if c in properties:
+            found_list.append(c)
+    seen = set(found_list)
+    if len(seen) > 1:
+        raise ValueError(('%s: only one of the following'
+                          ' can be specified: %s') % (
+                          class_name, ', '.join(conditionals)))
