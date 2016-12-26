@@ -259,3 +259,24 @@ class Stack(AWSObject):
             raise ValueError('Using VpcId requires DefaultSubnetId to be'
                              'specified')
         return True
+
+
+class UserProfile(AWSObject):
+    resource_type = "AWS::OpsWorks::UserProfile"
+
+    props = {
+        'AllowSelfManagement': (boolean, False),
+        'IamUserArn': (basestring, True),
+        'SshPublicKey': (basestring, False),
+    }
+
+
+class Volume(AWSObject):
+    resource_type = "AWS::OpsWorks::Volume"
+
+    props = {
+        'Ec2VolumeId': (basestring, True),
+        'MountPoint': (basestring, False),
+        'Name': (basestring, False),
+        'StackId': (basestring, True),
+    }
