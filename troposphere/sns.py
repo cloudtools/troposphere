@@ -18,7 +18,7 @@ class Subscription(AWSProperty):
     }
 
 
-class SubscriptionObject(AWSObject):
+class SubscriptionResource(AWSObject):
     resource_type = "AWS::SNS::Subscription"
 
     props = {
