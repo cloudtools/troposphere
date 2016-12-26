@@ -110,9 +110,16 @@ LambdaExecutionRole = t.add_resource(Role(
                 "Effect": "Allow"
             }]
         })],
-    AssumeRolePolicyDocument={"Version": "2012-10-17", "Statement": [
-        {"Action": ["sts:AssumeRole"], "Effect": "Allow",
-         "Principal": {"Service": ["lambda.amazonaws.com"]}}]},
+    AssumeRolePolicyDocument={
+        "Version": "2012-10-17",
+        "Statement": [{
+            "Action": [ "sts:AssumeRole" ],
+            "Effect": "Allow",
+            "Principal": {
+                "Service": ["lambda.amazonaws.com"]
+            }
+        }]
+    },
 ))
 
 MyEC2Instance = t.add_resource(Instance(
