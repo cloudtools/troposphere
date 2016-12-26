@@ -606,3 +606,21 @@ class PlacementGroup(AWSObject):
     props = {
         'Strategy': (basestring, True),
     }
+
+
+class SubnetCidrBlock(AWSObject):
+    resource_type = "AWS::EC2::SubnetCidrBlock"
+
+    props = {
+        'Ipv6CidrBlock': (basestring, True),
+        'SubnetId': (basestring, True),
+    }
+
+
+class VPCCidrBlock(AWSObject):
+    resource_type = "AWS::EC2::VPCCidrBlock"
+
+    props = {
+        'AmazonProvidedIpv6CidrBlock': (boolean, False),
+        'VpcId': (basestring, True),
+    }
