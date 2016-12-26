@@ -32,4 +32,5 @@ class Document(AWSObject):
     props = {
         # Need a better implementation of the SSM Document
         'Content': (dict, True),
+        'DocumentType': (basestring, False),
     }
