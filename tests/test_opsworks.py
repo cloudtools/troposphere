@@ -40,6 +40,30 @@ class TestOpsWorksStack(unittest.TestCase):
         t.add_resource(stack)
         t.to_json()
 
+    def test_custom_json(self):
+        stack = Stack(
+            "mystack",
+            DefaultInstanceProfileArn="instancearn",
+            Name="myopsworksname",
+            ServiceRoleArn="arn",
+        )
+
+        # Test dict works
+        t = Template()
+        stack.CustomJson = {"foo": "bar"}
+        t.add_resource(stack)
+        t.to_json()
+
+        # Test json string works
+        t = Template()
+        stack.CustomJson = '{"foo": "bar"}'
+        t.add_resource(stack)
+        t.to_json()
+
+        # Test boolean fails
+        with self.assertRaises(TypeError):
+            stack.CustomJson = True
+
 
 if __name__ == '__main__':
     unittest.main()
