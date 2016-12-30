@@ -3,9 +3,10 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import (
-    boolean, integer, integer_range, network_port, positive_integer
+    boolean, exactly_one, integer, integer_range,
+    network_port, positive_integer
 )
 
 try:
@@ -130,6 +131,16 @@ class Placement(AWSProperty):
     }
 
 
+class Ipv6Addresses(AWSHelperFn):
+    def __init__(self, address):
+        self.data = {
+            'Ipv6Addresses': address,
+        }
+
+    def JSONrepr(self):
+        return self.data
+
+
 class PrivateIpAddressSpecification(AWSProperty):
     props = {
         'Primary': (boolean, True),
@@ -190,6 +201,8 @@ class Instance(AWSObject):
         'ImageId': (basestring, True),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceType': (basestring, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (boolean, False),
@@ -244,15 +257,23 @@ class NetworkAclEntry(AWSObject):
     resource_type = "AWS::EC2::NetworkAclEntry"
 
     props = {
-        'CidrBlock': (basestring, True),
+        'CidrBlock': (basestring, False),
         'Egress': (boolean, False),
         'Icmp': (ICMP, False),  # Conditional
+        'Ipv6CidrBlock': (basestring, False),
         'NetworkAclId': (basestring, True),
         'PortRange': (PortRange, False),  # Conditional
         'Protocol': (network_port, True),
         'RuleAction': (basestring, True),
         'RuleNumber': (integer_range(1, 32766), True),
     }
+
+    def validate(self):
+        conds = [
+            'CidrBlock',
+            'Ipv6CidrBlock',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class NetworkInterface(AWSObject):
@@ -285,7 +306,8 @@ class Route(AWSObject):
     resource_type = "AWS::EC2::Route"
 
     props = {
-        'DestinationCidrBlock': (basestring, True),
+        'DestinationCidrBlock': (basestring, False),
+        'DestinationIpv6CidrBlock': (basestring, False),
         'GatewayId': (basestring, False),
         'InstanceId': (basestring, False),
         'NatGatewayId': (basestring, False),
@@ -293,6 +315,13 @@ class Route(AWSObject):
         'RouteTableId': (basestring, True),
         'VpcPeeringConnectionId': (basestring, False),
     }
+
+    def validate(self):
+        conds = [
+            'DestinationCidrBlock',
+            'DestinationIpv6CidrBlock',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class RouteTable(AWSObject):
@@ -309,6 +338,7 @@ class SecurityGroupEgress(AWSObject):
 
     props = {
         'CidrIp': (basestring, False),
+        'CidrIpv6': (basestring, False),
         'DestinationPrefixListId': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
@@ -328,13 +358,11 @@ class SecurityGroupEgress(AWSObject):
     def validate(self):
         conds = [
             'CidrIp',
+            'CidrIpv6',
             'DestinationPrefixListId',
             'DestinationSecurityGroupId',
         ]
-        seen = set([c for c in conds if c in self.properties])
-        if len(seen) > 1:
-            raise ValueError(('SecurityGroupEgress: only one of the following'
-                              ' can be specified: %s') % ', '.join(conds))
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class SecurityGroupIngress(AWSObject):
@@ -342,6 +370,7 @@ class SecurityGroupIngress(AWSObject):
 
     props = {
         'CidrIp': (basestring, False),
+        'CidrIpv6': (basestring, False),
         'FromPort': (network_port, False),  # conditional
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
@@ -351,6 +380,15 @@ class SecurityGroupIngress(AWSObject):
         'SourceSecurityGroupOwnerId': (basestring, False),
         'ToPort': (network_port, False),  # conditional
     }
+
+    def validate(self):
+        conds = [
+            'CidrIp',
+            'CidrIpv6',
+            'SourceSecurityGroupName',
+            'SourceSecurityGroupId',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class SecurityGroupRule(AWSProperty):
@@ -538,6 +576,8 @@ class NetworkInterfaces(AWSProperty):
         'Description': (basestring, False),
         'DeviceIndex': (integer, True),
         'Groups': ([basestring], False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'NetworkInterfaceId': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),

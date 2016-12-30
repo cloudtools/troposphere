@@ -151,7 +151,18 @@ def mutually_exclusive(class_name, properties, conditionals):
         if c in properties:
             found_list.append(c)
     seen = set(found_list)
-    if len(seen) > 1:
+    specified_count = len(seen)
+    if specified_count > 1:
         raise ValueError(('%s: only one of the following'
                           ' can be specified: %s') % (
                           class_name, ', '.join(conditionals)))
+    return specified_count
+
+
+def exactly_one(class_name, properties, conditionals):
+    specified_count = mutually_exclusive(class_name, properties, conditionals)
+    if specified_count != 1:
+        raise ValueError(('%s: one of the following'
+                          ' must be specified: %s') % (
+                          class_name, ', '.join(conditionals)))
+    return specified_count
