@@ -527,6 +527,9 @@ class Template(object):
         return self._update(self.parameters, parameter)
 
     def add_resource(self, resource):
+        if len(self.resources) >= MAX_RESOURCES:
+            raise ValueError('Maximum number of resources %d reached'
+                             % MAX_RESOURCES)
         return self._update(self.resources, resource)
 
     def add_version(self, version=None):
