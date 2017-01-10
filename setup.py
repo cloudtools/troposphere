@@ -10,6 +10,7 @@ setup(
     license="New BSD license",
     packages=['troposphere', 'troposphere.openstack', 'troposphere.helpers'],
     scripts=['scripts/cfn', 'scripts/cfn2py'],
+    install_requires=["cfn_flip"],
     test_suite="tests",
     tests_require=["awacs"],
     extras_require={'policy': ['awacs']},

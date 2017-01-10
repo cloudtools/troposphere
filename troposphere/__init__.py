@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 
+import cfn_flip
 import collections
 import json
 import re
@@ -558,6 +559,9 @@ class Template(object):
 
         return json.dumps(t, cls=awsencode, indent=indent,
                           sort_keys=sort_keys, separators=separators)
+
+    def to_yaml(self, indent=4, sort_keys=True, separators=(',', ': ')):
+        return cfn_flip.to_yaml(self.to_json())
 
     def JSONrepr(self):
         return [self.parameters, self.mappings, self.resources]
