@@ -159,6 +159,7 @@ class DBInstance(AWSObject):
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': (list, False),
+        'Timezone': (basestring, False),
         'VPCSecurityGroups': ([basestring], False),
     }
 
