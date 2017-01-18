@@ -53,6 +53,7 @@ class FirehoseAction(AWSProperty):
     props = {
         'DeliveryStreamName': (basestring, True),
         'RoleArn': (basestring, True),
+        'Separator': (basestring, False),
     }
 
 
