@@ -26,6 +26,13 @@ class DeploymentConfiguration(AWSProperty):
     }
 
 
+class DeploymentConfiguration(AWSProperty):
+    props = {
+        'MaximumPercent': (positive_integer, False),
+        'MinimumHealthyPercent': (positive_integer, False),
+    }
+
+
 class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
@@ -36,6 +43,7 @@ class Service(AWSObject):
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
         'TaskDefinition': (basestring, False),
+        'DeploymentConfiguration': (DeploymentConfiguration, False)
     }
 
 
