@@ -108,7 +108,8 @@ class ContainerDefinition(AWSProperty):
         'Image': (basestring, True),
         'Links': ([basestring], False),
         'LogConfiguration': (LogConfiguration, False),
-        'Memory': (positive_integer, True),
+        'Memory': (positive_integer, False),
+        'MemoryReservation': (positive_integer, False),
         'MountPoints': ([MountPoint], False),
         'Name': (basestring, True),
         'PortMappings': ([PortMapping], False),
@@ -140,6 +141,7 @@ class TaskDefinition(AWSObject):
     props = {
         'ContainerDefinitions': ([ContainerDefinition], True),
         'Family': (basestring, False),
+        'NetworkMode': (basestring, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
     }
