@@ -395,6 +395,14 @@ class Join(AWSHelperFn):
         return self.data
 
 
+class Split(AWSHelperFn):
+    def __init__(self, delimiter, values):
+        self.data = {'Fn::Split': [delimiter, values]}
+
+    def JSONrepr(self):
+        return self.data
+
+
 class Sub(AWSHelperFn):
     def __init__(self, input_str, **values):
         self.data = {'Fn::Sub': [input_str, values] if values else input_str}
