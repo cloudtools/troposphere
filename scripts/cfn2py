@@ -95,15 +95,6 @@ def do_parameters(d):
         print
 
 
-def do_conditions(d):
-    """Output the template Conditions"""
-    conditions = d['Conditions']
-    for k, v in conditions.items():
-        print 't.add_condition("%s",' % (k,)
-        print '    %s' % output_value(v)
-        print ")"
-        print
-
 def do_mappings(d):
     """Output the template Mappings"""
     mappings = d['Mappings']
@@ -112,7 +103,6 @@ def do_mappings(d):
         pprint.pprint(v)
         print ")"
         print
-
 
 
 def do_conditions(d):
@@ -145,7 +135,7 @@ def do_parse_funtion(d):
             raise(Exception("Parse Error:", d, value))
     raise(Exception("Parse Error:", d))
 
-    def map_module(mod):
+def map_module(mod):
     """Map module names as needed"""
     if mod == "lambda":
         return "awslambda"
@@ -384,7 +374,6 @@ if __name__ == "__main__":
         'Parameters',
         'Conditions',
         'Mappings',
-        'Conditions',
         'Resources',
         'Outputs',
     ]
