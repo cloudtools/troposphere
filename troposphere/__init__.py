@@ -394,6 +394,7 @@ class Not(AWSHelperFn):
 
 class Join(AWSHelperFn):
     def __init__(self, delimiter, values):
+        validate_delimiter(delimiter)
         self.data = {'Fn::Join': [delimiter, values]}
 
     def JSONrepr(self):
