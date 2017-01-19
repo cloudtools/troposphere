@@ -1,7 +1,7 @@
 import json
 import unittest
 from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
-from troposphere import Ref, Sub, Template, Split, Join
+from troposphere import Join, Ref, Split, Sub, Template
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
@@ -282,6 +282,9 @@ class TestSplit(unittest.TestCase):
         )
         self.assertEqual(expected, actual)
 
+        with self.assertRaises(ValueError):
+            Join(10, "foobar")
+
 
 class TestJoin(unittest.TestCase):
 
@@ -294,7 +297,6 @@ class TestJoin(unittest.TestCase):
         )
         raw = Join(delimiter, source_string)
         actual = json.loads(json.dumps(raw, cls=awsencode))
-        print(actual)
         expected = (
             {'Fn::Join': [',', '{ [ "arn:aws:lambda:",{ "Ref": '
                           '"AWS::Region" },":",{ "Ref": "AWS::AccountId" },'
@@ -302,6 +304,9 @@ class TestJoin(unittest.TestCase):
 
         )
         self.assertEqual(expected, actual)
+
+        with self.assertRaises(ValueError):
+            Join(10, "foobar")
 
 
 if __name__ == '__main__':
