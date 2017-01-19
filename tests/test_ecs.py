@@ -27,7 +27,7 @@ class TestECS(unittest.TestCase):
             TaskDefinition=Ref(task_definition),
         )
 
-        ecs_service.JSONrepr()
+        ecs_service.to_dict()
 
     def test_allow_ref_cluster(self):
         task_definition = ecs.TaskDefinition(
@@ -51,7 +51,7 @@ class TestECS(unittest.TestCase):
             TaskDefinition=Ref(task_definition),
         )
 
-        ecs_service.JSONrepr()
+        ecs_service.to_dict()
 
     def test_task_role_arn_is_optional(self):
         task_definition = ecs.TaskDefinition(
@@ -65,7 +65,7 @@ class TestECS(unittest.TestCase):
             ],
         )
 
-        task_definition.JSONrepr()
+        task_definition.to_dict()
 
     def test_allow_string_task_role_arn(self):
         task_definition = ecs.TaskDefinition(
@@ -80,7 +80,7 @@ class TestECS(unittest.TestCase):
             TaskRoleArn="myiamrole"
         )
 
-        task_definition.JSONrepr()
+        task_definition.to_dict()
 
     def test_allow_ref_task_role_arn(self):
         task_definition = ecs.TaskDefinition(
@@ -95,7 +95,7 @@ class TestECS(unittest.TestCase):
             TaskRoleArn=Ref(iam.Role("myRole"))
         )
 
-        task_definition.JSONrepr()
+        task_definition.to_dict()
 
     def test_allow_port_mapping_protocol(self):
         container_definition = ecs.ContainerDefinition(
@@ -109,7 +109,7 @@ class TestECS(unittest.TestCase):
             ]
         )
 
-        container_definition.JSONrepr()
+        container_definition.to_dict()
 
     def test_port_mapping_does_not_require_protocol(self):
         container_definition = ecs.ContainerDefinition(
@@ -123,4 +123,4 @@ class TestECS(unittest.TestCase):
             ]
         )
 
-        container_definition.JSONrepr()
+        container_definition.to_dict()

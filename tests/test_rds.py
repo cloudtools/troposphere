@@ -16,7 +16,7 @@ class TestRDS(unittest.TestCase):
             DBSnapshotIdentifier='SomeSnapshotIdentifier'
         )
 
-        rds_instance.JSONrepr()
+        rds_instance.to_dict()
 
     def test_it_allows_an_rds_instance_with_master_username_and_password(self):
         rds_instance = rds.DBInstance(
@@ -28,7 +28,7 @@ class TestRDS(unittest.TestCase):
             MasterUserPassword='SomePassword'
         )
 
-        rds_instance.JSONrepr()
+        rds_instance.to_dict()
 
     def test_it_rds_instances_require_either_a_snapshot_or_credentials(self):
         rds_instance = rds.DBInstance(
@@ -43,7 +43,7 @@ class TestRDS(unittest.TestCase):
                 'Either \(MasterUsername and MasterUserPassword\) or'
                 ' DBSnapshotIdentifier are required'
                 ):
-            rds_instance.JSONrepr()
+            rds_instance.to_dict()
 
     def test_it_allows_an_rds_replica(self):
         rds_instance = rds.DBInstance(
@@ -54,7 +54,7 @@ class TestRDS(unittest.TestCase):
             SourceDBInstanceIdentifier='SomeSourceDBInstanceIdentifier'
         )
 
-        rds_instance.JSONrepr()
+        rds_instance.to_dict()
 
     def test_replica_settings_are_inherited(self):
         rds_instance = rds.DBInstance(
@@ -81,7 +81,7 @@ class TestRDS(unittest.TestCase):
                 'SourceDBInstanceIdentifier is present '
                 'AWS::RDS::DBInstance.'
                 ):
-            rds_instance.JSONrepr()
+            rds_instance.to_dict()
 
     def test_it_rds_instances_require_encryption_if_kms_key_provided(self):
         rds_instance = rds.DBInstance(
@@ -99,7 +99,7 @@ class TestRDS(unittest.TestCase):
                 ValueError,
                 'If KmsKeyId is provided, StorageEncrypted is required'
                 ):
-            rds_instance.JSONrepr()
+            rds_instance.to_dict()
 
     def test_it_allows_an_rds_instance_with_iops(self):
         # ensure troposphere works with longs and ints
@@ -119,7 +119,7 @@ class TestRDS(unittest.TestCase):
             Iops=long_number,
         )
 
-        rds_instance.JSONrepr()
+        rds_instance.to_dict()
 
     def test_optiongroup(self):
         rds_optiongroup = rds.OptionGroup(
@@ -138,7 +138,7 @@ class TestRDS(unittest.TestCase):
                 ),
             ]
         )
-        rds_optiongroup.JSONrepr()
+        rds_optiongroup.to_dict()
 
     def test_fail_az_and_multiaz(self):
         i = rds.DBInstance(
@@ -151,15 +151,15 @@ class TestRDS(unittest.TestCase):
             AvailabilityZone="us-east-1",
             MultiAZ=True)
         with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
-            i.JSONrepr()
+            i.to_dict()
         i.MultiAZ = "false"
-        i.JSONrepr()
+        i.to_dict()
         i.MultiAZ = "true"
         with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
-            i.JSONrepr()
+            i.to_dict()
 
         i.MultiAZ = Ref(AWS_NO_VALUE)
-        i.JSONrepr()
+        i.to_dict()
 
     def test_az_and_multiaz_funcs(self):
         db_az = "us-east-1"
@@ -187,7 +187,7 @@ class TestRDS(unittest.TestCase):
             StorageType='io1')
         with self.assertRaisesRegexp(ValueError,
                                      "Must specify Iops if "):
-            i.JSONrepr()
+            i.to_dict()
 
     def test_storage_to_iops_ratio(self):
         i = rds.DBInstance(
@@ -201,15 +201,15 @@ class TestRDS(unittest.TestCase):
             AllocatedStorage=10)
         with self.assertRaisesRegexp(ValueError,
                                      " must be at least 100 "):
-            i.JSONrepr()
+            i.to_dict()
 
         i.AllocatedStorage = 100
         with self.assertRaisesRegexp(ValueError,
                                      " must be no less than 1/10th "):
-            i.JSONrepr()
+            i.to_dict()
 
         i.AllocatedStorage = 400
-        i.JSONrepr()
+        i.to_dict()
 
     def test_snapshot(self):
         i = rds.DBInstance(
@@ -220,7 +220,7 @@ class TestRDS(unittest.TestCase):
             DBSubnetGroupName='default',
             DBSnapshotIdentifier='id',
         )
-        i.JSONrepr()
+        i.to_dict()
 
     def test_snapshot_and_engine(self):
         i = rds.DBInstance(
@@ -232,7 +232,7 @@ class TestRDS(unittest.TestCase):
             DBSnapshotIdentifier='id',
             Engine="postgres",
         )
-        i.JSONrepr()
+        i.to_dict()
 
     def test_no_snapshot_or_engine(self):
         i = rds.DBInstance(
@@ -244,7 +244,7 @@ class TestRDS(unittest.TestCase):
         )
         with self.assertRaisesRegexp(ValueError,
                                      "Resource Engine is required"):
-            i.JSONrepr()
+            i.to_dict()
 
 
 class TestRDSValidators(unittest.TestCase):

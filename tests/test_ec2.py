@@ -13,7 +13,7 @@ class TestEC2(unittest.TestCase):
             GroupId="id",
             CidrIp="0.0.0.0/0",
         )
-        egress.JSONrepr()
+        egress.to_dict()
 
         egress = ec2.SecurityGroupEgress(
             'egress',
@@ -23,7 +23,7 @@ class TestEC2(unittest.TestCase):
             GroupId="id",
             DestinationPrefixListId='id',
         )
-        egress.JSONrepr()
+        egress.to_dict()
 
         egress = ec2.SecurityGroupEgress(
             'egress',
@@ -33,7 +33,7 @@ class TestEC2(unittest.TestCase):
             GroupId="id",
             DestinationSecurityGroupId='id',
         )
-        egress.JSONrepr()
+        egress.to_dict()
 
         egress = ec2.SecurityGroupEgress(
             'egress',
@@ -46,7 +46,7 @@ class TestEC2(unittest.TestCase):
         )
 
         with self.assertRaises(ValueError):
-            egress.JSONrepr()
+            egress.to_dict()
         egress = ec2.SecurityGroupEgress(
             'egress',
             ToPort='80',
@@ -59,4 +59,4 @@ class TestEC2(unittest.TestCase):
         )
 
         with self.assertRaises(ValueError):
-            egress.JSONrepr()
+            egress.to_dict()

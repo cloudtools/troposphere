@@ -10,7 +10,7 @@ class TestCodeCommit(unittest.TestCase):
                 'all',
             ]
         )
-        trigger.JSONrepr()
+        trigger.to_dict()
 
         trigger = cc.Trigger(
             Events=[
@@ -19,7 +19,7 @@ class TestCodeCommit(unittest.TestCase):
                 'deleteReference',
             ]
         )
-        trigger.JSONrepr()
+        trigger.to_dict()
 
         trigger = cc.Trigger(
             Events=[
@@ -28,7 +28,7 @@ class TestCodeCommit(unittest.TestCase):
             ]
         )
         with self.assertRaisesRegexp(ValueError, "Trigger events: all"):
-            trigger.JSONrepr()
+            trigger.to_dict()
 
         trigger = cc.Trigger(
             Events=[
@@ -37,4 +37,4 @@ class TestCodeCommit(unittest.TestCase):
             ]
         )
         with self.assertRaisesRegexp(ValueError, "invalid event foobar"):
-            trigger.JSONrepr()
+            trigger.to_dict()

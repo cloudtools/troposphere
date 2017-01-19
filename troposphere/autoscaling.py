@@ -30,9 +30,6 @@ class Tag(AWSHelperFn):
             'PropagateAtLaunch': propogate,
         }
 
-    def JSONrepr(self):
-        return self.data
-
 
 class Tags(AWSHelperFn):
     defaultPropagateAtLaunch = True
@@ -57,7 +54,7 @@ class Tags(AWSHelperFn):
         newtags.tags = self.tags + newtags.tags
         return newtags
 
-    def JSONrepr(self):
+    def to_dict(self):
         return self.tags
 
 
@@ -103,9 +100,6 @@ class Metadata(AWSHelperFn):
             raise ValueError(
                 'authentication must be of type cloudformation.Authentication'
             )
-
-    def JSONrepr(self):
-        return self.data
 
 
 class AutoScalingGroup(AWSObject):
