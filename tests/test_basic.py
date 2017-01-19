@@ -1,7 +1,7 @@
 import json
 import unittest
 from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
-from troposphere import Ref, Sub, Template
+from troposphere import Ref, Sub, Template, Split, Join
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
@@ -265,6 +265,42 @@ class TestSub(unittest.TestCase):
         raw = Sub(s, **values)
         actual = json.loads(json.dumps(raw, cls=awsencode))
         expected = {'Fn::Sub': ['foo ${AWS::Region} ${sub1} ${sub2}', values]}
+        self.assertEqual(expected, actual)
+
+
+class TestSplit(unittest.TestCase):
+
+    def test_split(self):
+        delimiter = ','
+        source_string = ('{ "Fn::ImportValue": { "Fn::Sub": '
+                         '"${VpcStack}-PublicSubnets" }')
+        raw = Split(delimiter, source_string)
+        actual = json.loads(json.dumps(raw, cls=awsencode))
+        expected = (
+                {'Fn::Split': [',', '{ "Fn::ImportValue": { '
+                 '"Fn::Sub": "${VpcStack}-PublicSubnets" }']}
+        )
+        self.assertEqual(expected, actual)
+
+
+class TestJoin(unittest.TestCase):
+
+    def test_join(self):
+        delimiter = ','
+        source_string = (
+                '{ [ "arn:aws:lambda:",{ "Ref": "AWS::Region" },":",'
+                '{ "Ref": "AWS::AccountId" },'
+                '":function:cfnRedisEndpointLookup" ] }'
+        )
+        raw = Join(delimiter, source_string)
+        actual = json.loads(json.dumps(raw, cls=awsencode))
+        print(actual)
+        expected = (
+            {'Fn::Join': [',', '{ [ "arn:aws:lambda:",{ "Ref": '
+                          '"AWS::Region" },":",{ "Ref": "AWS::AccountId" },'
+                          '":function:cfnRedisEndpointLookup" ] }']}
+
+        )
         self.assertEqual(expected, actual)
 
 
