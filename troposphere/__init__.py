@@ -286,8 +286,9 @@ class AWSAttribute(BaseAWSObject):
 
 def validate_delimiter(delimiter):
     if not isinstance(delimiter, basestring):
-        raise ValueError("Delimiter must be a String, %s provided " 
-            "% type(delimiter)")
+        raise ValueError(
+            "Delimiter must be a String, %s provided" % type(delimiter)
+        )
 
 
 def validate_pausetime(pausetime):
