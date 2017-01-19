@@ -284,6 +284,13 @@ class AWSAttribute(BaseAWSObject):
         super(AWSAttribute, self).__init__(title, **kwargs)
 
 
+def validate_delimiter(delimiter):
+    if not isinstance(delimiter, basestring):
+        raise ValueError(
+            "Delimiter must be a String, %s provided" % type(delimiter)
+        )
+
+
 def validate_pausetime(pausetime):
     if not pausetime.startswith('PT'):
         raise ValueError('PauseTime should look like PT#H#M#S')
@@ -389,7 +396,17 @@ class Not(AWSHelperFn):
 
 class Join(AWSHelperFn):
     def __init__(self, delimiter, values):
+        validate_delimiter(delimiter)
         self.data = {'Fn::Join': [delimiter, values]}
+
+    def JSONrepr(self):
+        return self.data
+
+
+class Split(AWSHelperFn):
+    def __init__(self, delimiter, values):
+        validate_delimiter(delimiter)
+        self.data = {'Fn::Split': [delimiter, values]}
 
     def JSONrepr(self):
         return self.data
