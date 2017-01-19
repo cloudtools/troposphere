@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref, FindInMap
+from . import AWSHelperFn, AWSObject, AWSProperty, If, FindInMap, Ref
 from .validators import boolean, integer
 from . import cloudformation
 
@@ -126,6 +126,7 @@ class AutoScalingGroup(AWSObject):
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
         'Tags': (list, False),
+        'TargetGroupARNs': ([basestring], False),
         'TerminationPolicies': ([basestring], False),
         'VPCZoneIdentifier': (list, False),
     }
@@ -134,14 +135,15 @@ class AutoScalingGroup(AWSObject):
         if 'UpdatePolicy' in self.resource:
             update_policy = self.resource['UpdatePolicy']
 
-            if 'AutoScalingRollingUpdate' in update_policy.properties:
+            if (not isinstance(update_policy, AWSHelperFn) and
+                    'AutoScalingRollingUpdate' in update_policy.properties):
                 rolling_update = update_policy.AutoScalingRollingUpdate
 
                 isMinNoCheck = isinstance(
                     rolling_update.MinInstancesInService,
                     (FindInMap, Ref)
                 )
-                isMaxNoCheck = isinstance(self.MaxSize, (FindInMap, Ref))
+                isMaxNoCheck = isinstance(self.MaxSize, (If, FindInMap, Ref))
 
                 if not (isMinNoCheck or isMaxNoCheck):
                     maxCount = int(self.MaxSize)
@@ -199,6 +201,14 @@ class LaunchConfiguration(AWSObject):
     }
 
 
+class StepAdjustments(AWSProperty):
+    props = {
+        'MetricIntervalLowerBound': (integer, False),
+        'MetricIntervalUpperBound': (integer, False),
+        'ScalingAdjustment': (integer, True),
+    }
+
+
 class ScalingPolicy(AWSObject):
     resource_type = "AWS::AutoScaling::ScalingPolicy"
 
@@ -206,8 +216,12 @@ class ScalingPolicy(AWSObject):
         'AdjustmentType': (basestring, True),
         'AutoScalingGroupName': (basestring, True),
         'Cooldown': (integer, False),
-        'MinAdjustmentStep': (integer, False),
-        'ScalingAdjustment': (basestring, True),
+        'EstimatedInstanceWarmup': (integer, False),
+        'MetricAggregationType': (basestring, False),
+        'MinAdjustmentMagnitude': (integer, False),
+        'PolicyType': (basestring, False),
+        'ScalingAdjustment': (integer, False),
+        'StepAdjustments': ([StepAdjustments], False),
     }
 
 
@@ -263,6 +277,7 @@ class EBSBlockDevice(AWSProperty):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html
     props = {
         'DeleteOnTermination': (boolean, False),
+        'Encrypted': (boolean, False),
         'Iops': (integer, False),
         'SnapshotId': (basestring, False),
         'VolumeSize': (integer, False),

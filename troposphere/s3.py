@@ -2,15 +2,17 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
+import warnings
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import positive_integer, s3_bucket_name
+
 try:
     from awacs.aws import Policy
+
     policytypes = (dict, Policy)
 except ImportError:
     policytypes = dict,
-
 
 Private = "Private"
 PublicRead = "PublicRead"
@@ -106,10 +108,49 @@ class LifecycleRule(AWSProperty):
         'Id': (basestring, False),
         'NoncurrentVersionExpirationInDays': (positive_integer, False),
         'NoncurrentVersionTransition': (NoncurrentVersionTransition, False),
+        'NoncurrentVersionTransitions': ([NoncurrentVersionTransition], False),
         'Prefix': (basestring, False),
         'Status': (basestring, True),
         'Transition': (LifecycleRuleTransition, False),
+        'Transitions': ([LifecycleRuleTransition], False)
     }
+
+    def validate(self):
+        if 'Transition' in self.properties:
+            if 'Transitions' not in self.properties:
+                # aws moved from a single transition to a list of them
+                # and deprecated 'Transition', so let's just move it to
+                # the new property and not annoy the user.
+                self.properties['Transitions'] = [
+                    self.properties.pop('Transition')]
+            else:
+                raise ValueError(
+                    'Cannot specify both "Transition" and "Transitions" '
+                    'properties on S3 Bucket Lifecycle Rule. Please use '
+                    '"Transitions" since the former has been deprecated.')
+
+        if 'NoncurrentVersionTransition' in self.properties:
+            if 'NoncurrentVersionTransitions' not in self.properties:
+                warnings.warn(
+                    'NoncurrentVersionTransition has been deprecated in '
+                    'favour of NoncurrentVersionTransitions.'
+                )
+                # Translate the old transition format to the new format
+                self.properties['NoncurrentVersionTransitions'] = [
+                    self.properties.pop('NoncurrentVersionTransition')]
+            else:
+                raise ValueError(
+                    'Cannot specify both "NoncurrentVersionTransition" and '
+                    '"NoncurrentVersionTransitions" properties on S3 Bucket '
+                    'Lifecycle Rule. Please use '
+                    '"NoncurrentVersionTransitions" since the former has been '
+                    'deprecated.')
+
+        if 'ExpirationInDays' in self.properties and 'ExpirationDate' in \
+                self.properties:
+            raise ValueError(
+                'Cannot specify both "ExpirationDate" and "ExpirationInDays"'
+            )
 
 
 class LifecycleConfiguration(AWSProperty):
@@ -125,9 +166,29 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
+class Rules(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Value': (basestring, True)
+    }
+
+
+class S3Key(AWSProperty):
+    props = {
+        'Rules': ([Rules], True)
+    }
+
+
+class Filter(AWSProperty):
+    props = {
+        'S3Key': (S3Key, True)
+    }
+
+
 class LambdaConfigurations(AWSProperty):
     props = {
         'Event': (basestring, True),
+        'Filter': (Filter, False),
         'Function': (basestring, True),
     }
 
@@ -135,6 +196,7 @@ class LambdaConfigurations(AWSProperty):
 class QueueConfigurations(AWSProperty):
     props = {
         'Event': (basestring, True),
+        'Filter': (Filter, False),
         'Queue': (basestring, True),
     }
 
@@ -142,6 +204,7 @@ class QueueConfigurations(AWSProperty):
 class TopicConfigurations(AWSProperty):
     props = {
         'Event': (basestring, True),
+        'Filter': (Filter, False),
         'Topic': (basestring, True),
     }
 
@@ -151,6 +214,29 @@ class NotificationConfiguration(AWSProperty):
         'LambdaConfigurations': ([LambdaConfigurations], False),
         'QueueConfigurations': ([QueueConfigurations], False),
         'TopicConfigurations': ([TopicConfigurations], False),
+    }
+
+
+class ReplicationConfigurationRulesDestination(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'StorageClass': (basestring, False)
+    }
+
+
+class ReplicationConfigurationRules(AWSProperty):
+    props = {
+        'Destination': (ReplicationConfigurationRulesDestination, True),
+        'Id': (basestring, False),
+        'Prefix': (basestring, True),
+        'Status': (basestring, True)
+    }
+
+
+class ReplicationConfiguration(AWSProperty):
+    props = {
+        'Role': (basestring, True),
+        'Rules': ([ReplicationConfigurationRules], True)
     }
 
 
@@ -164,6 +250,7 @@ class Bucket(AWSObject):
         'LifecycleConfiguration': (LifecycleConfiguration, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
         'NotificationConfiguration': (NotificationConfiguration, False),
+        'ReplicationConfiguration': (ReplicationConfiguration, False),
         'Tags': (Tags, False),
         'WebsiteConfiguration': (WebsiteConfiguration, False),
         'VersioningConfiguration': (VersioningConfiguration, False)
@@ -179,10 +266,18 @@ class Bucket(AWSObject):
         LogDeliveryWrite,
     ]
 
-    def __init__(self, name, **kwargs):
+    def __init__(self, name=None, **kwargs):
+
+        # note: 'name' is the resource title, not the bucket name
+
+        if not name and 'title' in kwargs:
+            name = kwargs.pop('title')
+        if not name:
+            raise TypeError("You must provide a title for the bucket resource")
         super(Bucket, self).__init__(name, **kwargs)
 
-        if 'AccessControl' in kwargs:
+        if 'AccessControl' in kwargs and \
+                isinstance(kwargs['AccessControl'], basestring):
             if kwargs['AccessControl'] not in self.access_control_types:
                 raise ValueError('AccessControl must be one of "%s"' % (
                     ', '.join(self.access_control_types)))

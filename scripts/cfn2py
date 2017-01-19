@@ -50,7 +50,7 @@ def do_header(d):
     figure out the Resource imports needed by the template.
     """
     print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output'
-    print 'from troposphere import Parameter, Ref, Tags, Template, Not, Equals, And, Or, If'
+    print 'from troposphere import Parameter, Ref, Tags, Template, If, And, Not, Or, Equals, Condition'
     print 'from troposphere.cloudformation import Init'
     print 'from troposphere.cloudfront import Distribution, DistributionConfig'
     print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
@@ -95,6 +95,15 @@ def do_parameters(d):
         print
 
 
+def do_conditions(d):
+    """Output the template Conditions"""
+    conditions = d['Conditions']
+    for k, v in conditions.items():
+        print 't.add_condition("%s",' % (k,)
+        print '    %s' % output_value(v)
+        print ")"
+        print
+
 def do_mappings(d):
     """Output the template Mappings"""
     mappings = d['Mappings']
@@ -103,6 +112,7 @@ def do_mappings(d):
         pprint.pprint(v)
         print ")"
         print
+
 
 
 def do_conditions(d):
@@ -135,6 +145,12 @@ def do_parse_funtion(d):
             raise(Exception("Parse Error:", d, value))
     raise(Exception("Parse Error:", d))
 
+    def map_module(mod):
+    """Map module names as needed"""
+    if mod == "lambda":
+        return "awslambda"
+    return mod
+
 
 def generate_troposphere_object(typename):
     """Try to determine the troposphere object to create from the Type
@@ -142,7 +158,7 @@ def generate_troposphere_object(typename):
     """
     t = typename.split(':')
     if len(t) == 5:
-        return (t[2].lower(), t[4])
+        return (map_module(t[2].lower()), t[4])
     else:
         return ('', typename)
 
@@ -293,6 +309,11 @@ def handle_one_object(name, values):
 
 function_map = {
     'Fn::Base64': ("Base64", handle_no_objects),
+    'Fn::And': ("And", handle_no_objects),
+    'Fn::Or': ("Or", handle_no_objects),
+    'Fn::Not': ("Not", handle_no_objects),
+    'Fn::If': ("If", handle_one_object),
+    'Fn::Equals': ("Equals", handle_no_objects),
     'Fn::FindInMap': ("FindInMap", handle_no_objects),
     'Fn::GetAtt': ("GetAtt", handle_one_object),
     'Fn::GetAZs': ("GetAZs", handle_no_objects),
@@ -300,6 +321,7 @@ function_map = {
     'Fn::Select': ("Select", handle_one_object),
     'Fn::If': ("If", handle_one_object),
     'Ref': ("Ref", handle_one_object),
+    'Condition': ("Condition", handle_one_object),
 }
 
 
@@ -360,6 +382,7 @@ if __name__ == "__main__":
         'AWSTemplateFormatVersion',
         'Description',
         'Parameters',
+        'Conditions',
         'Mappings',
         'Conditions',
         'Resources',

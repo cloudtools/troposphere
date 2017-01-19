@@ -56,10 +56,12 @@
         },
         "CFNUserPolicies": {
             "Properties": {
-                "PolicyDocument": {
-                    "Groups": {
+                "Groups": [
+                    {
                         "Ref": "CFNAdminGroup"
-                    },
+                    }
+                ],
+                "PolicyDocument": {
                     "Statement": [
                         {
                             "Action": [
@@ -70,7 +72,8 @@
                             "Effect": "Allow",
                             "Resource": "*"
                         }
-                    ]
+                    ],
+                    "Version": "2012-10-17"
                 },
                 "PolicyName": "CFNUsers"
             },

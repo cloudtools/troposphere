@@ -3,6 +3,7 @@
 #
 
 AP_NORTHEAST_1 = 'ap-northeast-1'
+AP_NORTHEAST_2 = 'ap-northeast-2'
 AP_SOUTHEAST_1 = 'ap-southeast-1'
 AP_SOUTHEAST_2 = 'ap-southeast-2'
 EU_WEST_1 = 'eu-west-1'
@@ -20,11 +21,16 @@ AP_NORTHEAST_1A = 'ap-northeast-1a'
 AP_NORTHEAST_1B = 'ap-northeast-1b'
 AP_NORTHEAST_1C = 'ap-northeast-1c'
 
+AP_NORTHEAST_2A = 'ap-northeast-2a'
+AP_NORTHEAST_2B = 'ap-northeast-2b'
+AP_NORTHEAST_2C = 'ap-northeast-2c'
+
 AP_SOUTHEAST_1A = 'ap-southeast-1a'
 AP_SOUTHEAST_1B = 'ap-southeast-1b'
 
 AP_SOUTHEAST_2A = 'ap-southeast-2a'
 AP_SOUTHEAST_2B = 'ap-southeast-2b'
+AP_SOUTHEAST_2C = 'ap-southeast-2c'
 
 EU_WEST_1A = 'eu-west-1a'
 EU_WEST_1B = 'eu-west-1b'
@@ -35,6 +41,7 @@ EU_CENTRAL_1B = 'eu-central-1b'
 
 SA_EAST_1A = 'sa-east-1a'
 SA_EAST_1B = 'sa-east-1b'
+SA_EAST_1C = 'sa-east-1c'
 
 US_EAST_1A = 'us-east-1a'
 US_EAST_1B = 'us-east-1b'
@@ -58,6 +65,7 @@ QUAD_ZERO = '0.0.0.0/0'
 VPC_CIDR_16 = '10.0.0.0/16'
 
 SSH_PORT = 22
+MONGODB_PORT = 27017
 NTP_PORT = 123
 SMTP_PORT_25 = 25
 SMTP_PORT_587 = 587
@@ -71,6 +79,7 @@ POSTGRESQL_PORT = 5432
 # EC2 instance types
 #
 
+T2_NANO = 't2.nano'
 T2_MICRO = 't2.micro'
 T2_SMALL = 't2.small'
 T2_MEDIUM = 't2.medium'
@@ -140,6 +149,8 @@ HI1_4XLARGE = 'hi1.4xlarge'
 
 T1_MICRO = 't1.micro'
 
+X1_32XLARGE = 'x1.32xlarge'
+
 #
 # RDS DB instance classes
 #
@@ -204,8 +215,31 @@ CACHE_C1_XLARGE = 'cache.c1.xlarge'
 CACHE_T1_MICRO = 'cache.t1.micro'
 
 #
+# Elasticsearch instance types
+#
+
+ELASTICSEARCH_T2_MICRO = 't2.micro.elasticsearch'
+ELASTICSEARCH_T2_SMALL = 't2.small.elasticsearch'
+ELASTICSEARCH_T2_MEDIUM = 't2.medium.elasticsearch'
+
+ELASTICSEARCH_M3_MEDIUM = 'm3.medium.elasticsearch'
+ELASTICSEARCH_M3_LARGE = 'm3.large.elasticsearch'
+ELASTICSEARCH_M3_XLARGE = 'm3.xlarge.elasticsearch'
+ELASTICSEARCH_M3_2XLARGE = 'm3.2xlarge.elasticsearch'
+
+ELASTICSEARCH_R3_LARGE = 'r3.large.elasticsearch'
+ELASTICSEARCH_R3_XLARGE = 'r3.xlarge.elasticsearch'
+ELASTICSEARCH_R3_2XLARGE = 'r3.2xlarge.elasticsearch'
+ELASTICSEARCH_R3_4XLARGE = 'r3.4xlarge.elasticsearch'
+ELASTICSEARCH_R3_8XLARGE = 'r3.8xlarge.elasticsearch'
+
+ELASTICSEARCH_I2_XLARGE = 'i2.xlarge.elasticsearch'
+ELASTICSEARCH_I2_2XLARGE = 'i2.2xlarge.elasticsearch'
+
+#
 # Parameter types
 #
+
 STRING = 'String'
 NUMBER = 'Number'
 LIST_OF_NUMBERS = 'List<Number>'
@@ -231,3 +265,9 @@ LIST_OF_SUBNET_IDS = 'List<AWS::EC2::Subnet::Id>'
 LIST_OF_VOLUME_IDS = 'List<AWS::EC2::Volume::Id>'
 LIST_OF_VPC_IDS = 'List<AWS::EC2::VPC::Id>'
 LIST_OF_HOSTED_ZONE_IDS = 'List<AWS::Route53::HostedZone::Id>'
+
+#
+# Route53
+#
+
+CLOUDFRONT_HOSTEDZONEID = 'Z2FDTNDATAQYW2'

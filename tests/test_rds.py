@@ -2,6 +2,8 @@ import unittest
 import troposphere.rds as rds
 from troposphere import If, Parameter, Ref
 
+AWS_NO_VALUE = "AWS::NoValue"
+
 
 class TestRDS(unittest.TestCase):
 
@@ -68,13 +70,12 @@ class TestRDS(unittest.TestCase):
             PreferredBackupWindow="10:00-11:00",
             MultiAZ=True,
             DBSnapshotIdentifier="SomeDBSnapshotIdentifier",
-            DBSubnetGroupName="SomeDBSubnetGroupName",
         )
 
         with self.assertRaisesRegexp(
                 ValueError,
                 'BackupRetentionPeriod, DBName, DBSnapshotIdentifier, '
-                'DBSubnetGroupName, MasterUserPassword, MasterUsername, '
+                'MasterUserPassword, MasterUsername, '
                 'MultiAZ, PreferredBackupWindow '
                 'properties can\'t be provided when '
                 'SourceDBInstanceIdentifier is present '
@@ -151,9 +152,16 @@ class TestRDS(unittest.TestCase):
             MultiAZ=True)
         with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
             i.JSONrepr()
+        i.MultiAZ = "false"
+        i.JSONrepr()
+        i.MultiAZ = "true"
+        with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
+            i.JSONrepr()
+
+        i.MultiAZ = Ref(AWS_NO_VALUE)
+        i.JSONrepr()
 
     def test_az_and_multiaz_funcs(self):
-        AWS_NO_VALUE = "AWS::NoValue"
         db_az = "us-east-1"
         db_multi_az = Parameter("dbmultiaz", Type="String")
         i = rds.DBInstance(
@@ -203,14 +211,48 @@ class TestRDS(unittest.TestCase):
         i.AllocatedStorage = 400
         i.JSONrepr()
 
+    def test_snapshot(self):
+        i = rds.DBInstance(
+            'MyDB',
+            DBName='test',
+            AllocatedStorage=25,
+            DBInstanceClass='db.m4.large',
+            DBSubnetGroupName='default',
+            DBSnapshotIdentifier='id',
+        )
+        i.JSONrepr()
+
+    def test_snapshot_and_engine(self):
+        i = rds.DBInstance(
+            'MyDB',
+            DBName='test',
+            AllocatedStorage=25,
+            DBInstanceClass='db.m4.large',
+            DBSubnetGroupName='default',
+            DBSnapshotIdentifier='id',
+            Engine="postgres",
+        )
+        i.JSONrepr()
+
+    def test_no_snapshot_or_engine(self):
+        i = rds.DBInstance(
+            'MyDB',
+            DBName='test',
+            AllocatedStorage=25,
+            DBInstanceClass='db.m4.large',
+            DBSubnetGroupName='default',
+        )
+        with self.assertRaisesRegexp(ValueError,
+                                     "Resource Engine is required"):
+            i.JSONrepr()
+
 
 class TestRDSValidators(unittest.TestCase):
     def test_validate_iops(self):
         with self.assertRaises(ValueError):
             rds.validate_iops(500)
-        with self.assertRaises(ValueError):
-            rds.validate_iops(20000)
         rds.validate_iops(2000)
+        rds.validate_iops(0)
 
     def test_validate_storage_type(self):
         for t in rds.VALID_STORAGE_TYPES:

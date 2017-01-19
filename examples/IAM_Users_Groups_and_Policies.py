@@ -40,7 +40,9 @@ admins = t.add_resource(UserToGroupAddition(
 t.add_resource(PolicyType(
     "CFNUserPolicies",
     PolicyName="CFNUsers",
+    Groups=[Ref(cfnadmingroup)],
     PolicyDocument={
+        "Version": "2012-10-17",
         "Statement": [{
             "Effect": "Allow",
             "Action": [
@@ -50,7 +52,6 @@ t.add_resource(PolicyType(
             ],
             "Resource": "*"
         }],
-        "Groups": Ref(cfnadmingroup),
     }
 ))
 

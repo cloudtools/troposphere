@@ -3,89 +3,97 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSObject, AWSProperty
 
 
-class AttributeDefinition(AWSHelperFn):
-    def __init__(self, name, type):
-        self.data = {
-            'AttributeName': name,
-            'AttributeType': type,
+def attribute_type_validator(x):
+    valid_types = ["S", "N", "B"]
+    if x not in valid_types:
+        raise ValueError("AttributeType must be one of: %s" %
+                         ", ".join(valid_types))
+    return x
+
+
+def key_type_validator(x):
+    valid_types = ["HASH", "RANGE"]
+    if x not in valid_types:
+        raise ValueError("KeyType must be one of: %s" % ", ".join(valid_types))
+    return x
+
+
+def projection_type_validator(x):
+    valid_types = ["KEYS_ONLY", "INCLUDE", "ALL"]
+    if x not in valid_types:
+        raise ValueError("ProjectionType must be one of: %s" %
+                         ", ".join(valid_types))
+    return x
+
+
+class AttributeDefinition(AWSProperty):
+    props = {
+        "AttributeName": (basestring, True),
+        "AttributeType": (attribute_type_validator, True),
+    }
+
+
+class KeySchema(AWSProperty):
+    props = {
+        "AttributeName": (basestring, True),
+        "KeyType": (key_type_validator, True)
+    }
+
+
+class Key(KeySchema):
+    """ For backwards compatibility. """
+    pass
+
+
+class ProvisionedThroughput(AWSProperty):
+    props = {
+        "ReadCapacityUnits": (int, True),
+        "WriteCapacityUnits": (int, True),
+    }
+
+
+class Projection(AWSProperty):
+    props = {
+        "NonKeyAttributes": ([basestring], False),
+        "ProjectionType": (projection_type_validator, False)
+    }
+
+
+class GlobalSecondaryIndex(AWSProperty):
+    props = {
+        "IndexName": (basestring, True),
+        "KeySchema": ([KeySchema], True),
+        "Projection": (Projection, True),
+        "ProvisionedThroughput": (ProvisionedThroughput, True)
+    }
+
+
+class LocalSecondaryIndex(AWSProperty):
+    props = {
+        "IndexName": (basestring, True),
+        "KeySchema": ([KeySchema], True),
+        "Projection": (Projection, True),
+    }
+
+
+class StreamSpecification(AWSProperty):
+        props = {
+            'StreamViewType': (basestring, True),
         }
-
-    def JSONrepr(self):
-        return self.data
-
-
-class Key(AWSProperty):
-    def __init__(self, AttributeName, KeyType):
-        self.data = {
-            'AttributeName': AttributeName,
-            'KeyType': KeyType,
-        }
-
-    def JSONrepr(self):
-        return self.data
-
-
-class ProvisionedThroughput(AWSHelperFn):
-    def __init__(self, ReadCapacityUnits, WriteCapacityUnits):
-        self.data = {
-            'ReadCapacityUnits': ReadCapacityUnits,
-            'WriteCapacityUnits': WriteCapacityUnits,
-        }
-
-    def JSONrepr(self):
-        return self.data
-
-
-class Projection(AWSHelperFn):
-    def __init__(self, ProjectionType, NonKeyAttributes=None):
-        self.data = {
-            'ProjectionType': ProjectionType
-        }
-        if NonKeyAttributes is not None:
-            self.data['NonKeyAttributes'] = NonKeyAttributes
-
-    def JSONrepr(self):
-        return self.data
-
-
-class GlobalSecondaryIndex(AWSHelperFn):
-    def __init__(self, IndexName, KeySchema, Projection,
-                 ProvisionedThroughput):
-        self.data = {
-            'IndexName': IndexName,
-            'KeySchema': KeySchema,
-            'Projection': Projection,
-            'ProvisionedThroughput': ProvisionedThroughput,
-        }
-
-    def JSONrepr(self):
-        return self.data
-
-
-class LocalSecondaryIndex(AWSHelperFn):
-    def __init__(self, IndexName, KeySchema, Projection,
-                 ProvisionedThroughput):
-        self.data = {
-            'IndexName': IndexName,
-            'KeySchema': KeySchema,
-            'Projection': Projection,
-        }
-
-    def JSONrepr(self):
-        return self.data
 
 
 class Table(AWSObject):
     resource_type = "AWS::DynamoDB::Table"
 
     props = {
-        'KeySchema': ([Key], True),
-        'ProvisionedThroughput': (ProvisionedThroughput, True),
         'AttributeDefinitions': ([AttributeDefinition], True),
-        'TableName': (basestring, False),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
+        'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
+        'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'StreamSpecification': (StreamSpecification, False),
+        'TableName': (basestring, False),
     }

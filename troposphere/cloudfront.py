@@ -19,6 +19,7 @@ class ForwardedValues(AWSProperty):
         'Cookies': (Cookies, False),
         'Headers': ([basestring], False),
         'QueryString': (boolean, True),
+        'QueryStringCacheKeys': ([basestring], False),
     }
 
 
@@ -26,11 +27,14 @@ class CacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
         'CachedMethods': ([basestring], False),
+        'Compress': (boolean, False),
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, True),
         'TrustedSigners': ([basestring], False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
+        'DefaultTTL': (integer, False),
+        'MaxTTL': (integer, False),
         'PathPattern': (basestring, True),
         'SmoothStreaming': (boolean, False),
     }
@@ -40,11 +44,14 @@ class DefaultCacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
         'CachedMethods': ([basestring], False),
+        'Compress': (boolean, False),
         'TargetOriginId': (basestring, True),
         'ForwardedValues': (ForwardedValues, True),
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (basestring, True),
         'MinTTL': (integer, False),
+        'DefaultTTL': (integer, False),
+        'MaxTTL': (integer, False),
         'SmoothStreaming': (boolean, False),
     }
 
@@ -60,6 +67,14 @@ class CustomOrigin(AWSProperty):
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
         'OriginProtocolPolicy': (basestring, True),
+        'OriginSSLProtocols': ([basestring], False),
+    }
+
+
+class OriginCustomHeader(AWSProperty):
+    props = {
+        'HeaderName': (basestring, True),
+        'HeaderValue': (basestring, True),
     }
 
 
@@ -68,6 +83,7 @@ class Origin(AWSProperty):
         'DomainName': (basestring, True),
         'OriginPath': (basestring, False),
         'Id': (basestring, True),
+        'OriginCustomHeaders': ([OriginCustomHeader], False),
         'S3OriginConfig': (S3Origin, False),
         'CustomOriginConfig': (CustomOrigin, False),
     }
@@ -105,6 +121,7 @@ class Restrictions(AWSProperty):
 
 class ViewerCertificate(AWSProperty):
     props = {
+        'AcmCertificateArn': (basestring, False),
         'CloudFrontDefaultCertificate': (boolean, False),
         'IamCertificateId': (basestring, False),
         'MinimumProtocolVersion': (basestring, False),
@@ -121,11 +138,13 @@ class DistributionConfig(AWSProperty):
         'DefaultCacheBehavior': (DefaultCacheBehavior, True),
         'DefaultRootObject': (basestring, False),
         'Enabled': (boolean, True),
+        'HttpVersion': (basestring, False),
         'Logging': (Logging, False),
         'Origins': (list, True),
         'PriceClass': (basestring, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
+        'WebACLId': (basestring, False),
     }
 
 

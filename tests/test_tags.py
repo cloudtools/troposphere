@@ -26,5 +26,6 @@ class TestTags(unittest.TestCase):
         ]
         self.assertEqual(tags.JSONrepr(), result)
 
+
 if __name__ == '__main__':
     unittest.main()

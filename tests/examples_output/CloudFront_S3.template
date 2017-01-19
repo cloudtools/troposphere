@@ -24,7 +24,7 @@
         }
     },
     "Parameters": {
-        "S3DNSNAme": {
+        "S3DNSName": {
             "Description": "The DNS name of an existing S3 bucket to use as the Cloudfront distribution origin",
             "Type": "String"
         }
@@ -41,12 +41,14 @@
                         "ViewerProtocolPolicy": "allow-all"
                     },
                     "Enabled": "true",
+                    "HttpVersion": "http2",
                     "Origins": [
                         {
                             "DomainName": {
-                                "Ref": "S3DNSNAme"
+                                "Ref": "S3DNSName"
                             },
-                            "Id": "Origin 1"
+                            "Id": "Origin 1",
+                            "S3OriginConfig": {}
                         }
                     ]
                 }

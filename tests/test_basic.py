@@ -1,7 +1,7 @@
 import json
 import unittest
 from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
-from troposphere import Template, Ref
+from troposphere import Ref, Sub, Template
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
@@ -35,6 +35,12 @@ class TestBasic(unittest.TestCase):
 
         instance = ExtendedInstance('ec2instance', attribute='value')
         self.assertEqual(instance.attribute, 'value')
+
+    def test_required_title_error(self):
+        with self.assertRaisesRegexp(ValueError, "title:"):
+            t = Template()
+            t.add_resource(Instance('ec2instance'))
+            t.to_json()
 
 
 def call_correct(x):
@@ -242,6 +248,24 @@ class TestName(unittest.TestCase):
         t = Template()
         resource = t.add_resource(Instance(name))
         self.assertEqual(resource.name, name)
+
+
+class TestSub(unittest.TestCase):
+
+    def test_sub_with_vars(self):
+        s = 'foo ${AWS::Region}'
+        raw = Sub(s)
+        actual = json.loads(json.dumps(raw, cls=awsencode))
+        expected = {'Fn::Sub': 'foo ${AWS::Region}'}
+        self.assertEqual(expected, actual)
+
+    def test_sub_without_vars(self):
+        s = 'foo ${AWS::Region} ${sub1} ${sub2}'
+        values = {'sub1': 'uno', 'sub2': 'dos'}
+        raw = Sub(s, **values)
+        actual = json.loads(json.dumps(raw, cls=awsencode))
+        expected = {'Fn::Sub': ['foo ${AWS::Region} ${sub1} ${sub2}', values]}
+        self.assertEqual(expected, actual)
 
 
 if __name__ == '__main__':

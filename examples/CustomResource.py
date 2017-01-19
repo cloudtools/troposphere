@@ -10,6 +10,7 @@ class CustomPlacementGroup(AWSCustomObject):
         'PlacementGroupName': (basestring, True)
     }
 
+
 t = Template()
 
 t.add_description(

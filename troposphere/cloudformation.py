@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, Ref, BaseAWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty, BaseAWSObject
 from .validators import integer, boolean, encoding
 
 
@@ -13,6 +13,7 @@ class Stack(AWSObject):
     props = {
         'NotificationARNs': ([basestring], False),
         'Parameters': (dict, False),
+        'Tags': (list, False),
         'TemplateURL': (basestring, True),
         'TimeoutInMinutes': (integer, False),
     }
@@ -35,7 +36,7 @@ class WaitCondition(AWSObject):
 
     props = {
         'Count': (integer, False),
-        'Handle': (Ref, True),
+        'Handle': (basestring, True),
         'Timeout': (integer, True),
     }
 

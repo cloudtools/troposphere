@@ -2,6 +2,7 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
+from re import compile
 
 
 def boolean(x):
@@ -53,12 +54,31 @@ def network_port(x):
 
 
 def s3_bucket_name(b):
-    from re import compile
+
+    # consecutive periods not allowed
+
+    if '..' in b:
+        raise ValueError("%s is not a valid s3 bucket name" % b)
+
+    # IP addresses not allowed
+
+    ip_re = compile(r'^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$')
+    if ip_re.match(b):
+        raise ValueError("%s is not a valid s3 bucket name" % b)
+
     s3_bucket_name_re = compile(r'^[a-z\d][a-z\d\.-]{1,61}[a-z\d]$')
     if s3_bucket_name_re.match(b):
         return b
     else:
         raise ValueError("%s is not a valid s3 bucket name" % b)
+
+
+def elb_name(b):
+    elb_name_re = compile(r'^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,30}[a-zA-Z0-9]{1})?$')  # noqa
+    if elb_name_re.match(b):
+        return b
+    else:
+        raise ValueError("%s is not a valid elb name" % b)
 
 
 def encoding(encoding):
@@ -73,3 +93,76 @@ def status(status):
     if status not in valid_statuses:
         raise ValueError('Status needs to be one of %r' % valid_statuses)
     return status
+
+
+def iam_names(b):
+    iam_name_re = compile(r'^[a-zA-Z0-9_\.\+\=\@\-\,]+$')
+    if iam_name_re.match(b):
+        return b
+    else:
+        raise ValueError("%s is not a valid iam name" % b)
+
+
+def iam_user_name(user_name):
+    if not user_name:
+        raise ValueError(
+            "AWS::IAM::User property 'UserName' may not be empty")
+
+    if len(user_name) > 64:
+        raise ValueError(
+            "AWS::IAM::User property 'UserName' may not exceed 64 characters")
+
+    iam_user_name_re = compile(r'^[\w+=,.@-]+$')
+    if iam_user_name_re.match(user_name):
+        return user_name
+    else:
+        raise ValueError(
+            "%s is not a valid value for AWS::IAM::User property 'UserName'",
+            user_name)
+
+
+def iam_path(path):
+    if len(path) > 512:
+        raise ValueError('IAM path %s may not exceed 512 characters', path)
+
+    iam_path_re = compile(r'^\/.*\/$|^\/$')
+    if not iam_path_re.match(path):
+        raise ValueError("%s is not a valid iam path name" % path)
+    return path
+
+
+def iam_role_name(role_name):
+    if len(role_name) > 64:
+        raise ValueError('IAM Role Name may not exceed 64 characters')
+    iam_names(role_name)
+    return role_name
+
+
+def iam_group_name(group_name):
+    if len(group_name) > 128:
+        raise ValueError('IAM Role Name may not exceed 128 characters')
+    iam_names(group_name)
+    return group_name
+
+
+def mutually_exclusive(class_name, properties, conditionals):
+    found_list = []
+    for c in conditionals:
+        if c in properties:
+            found_list.append(c)
+    seen = set(found_list)
+    specified_count = len(seen)
+    if specified_count > 1:
+        raise ValueError(('%s: only one of the following'
+                          ' can be specified: %s') % (
+                          class_name, ', '.join(conditionals)))
+    return specified_count
+
+
+def exactly_one(class_name, properties, conditionals):
+    specified_count = mutually_exclusive(class_name, properties, conditionals)
+    if specified_count != 1:
+        raise ValueError(('%s: one of the following'
+                          ' must be specified: %s') % (
+                          class_name, ', '.join(conditionals)))
+    return specified_count

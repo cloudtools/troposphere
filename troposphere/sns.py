@@ -18,6 +18,16 @@ class Subscription(AWSProperty):
     }
 
 
+class SubscriptionResource(AWSObject):
+    resource_type = "AWS::SNS::Subscription"
+
+    props = {
+        'Endpoint': (basestring, True),
+        'Protocol': (basestring, True),
+        'TopicArn': (basestring, True),
+    }
+
+
 class TopicPolicy(AWSObject):
     resource_type = "AWS::SNS::TopicPolicy"
 

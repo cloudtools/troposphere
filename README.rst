@@ -2,11 +2,14 @@
 troposphere
 ===========
 
-.. image:: https://pypip.in/version/troposphere/badge.svg?text=version&style=flat
+.. image:: https://img.shields.io/pypi/v/troposphere.svg
     :target: https://pypi.python.org/pypi/troposphere
 
 .. image:: https://travis-ci.org/cloudtools/troposphere.png?branch=master
     :target: https://travis-ci.org/cloudtools/troposphere
+
+.. image:: https://img.shields.io/pypi/l/troposphere.svg
+    :target: https://opensource.org/licenses/BSD-2-Clause
 
 
 About
@@ -14,20 +17,25 @@ About
 
 troposphere - library to create `AWS CloudFormation`_ descriptions
 
-The troposphere library allows for easier creation of the AWS CloudFormation
-JSON by writing Python code to describe the AWS resources. Troposphere also
-includes some basic support for `OpenStack resources`_ via heat.
+The troposphere library allows for easier creation of the `AWS CloudFormation
+JSON`_ by writing Python code to describe the AWS resources. troposphere also
+includes some basic support for `OpenStack resources`_ via Heat.
 
 To facilitate catching CloudFormation or JSON errors early the library has
 property and type checking built into the classes.
 
-Installation Instructions
-=========================
+Installation
+============
 
-troposphere can be installed using the pip distribution system for python by
+troposphere can be installed using the pip distribution system for Python by
 issuing::
 
     $ pip install troposphere
+
+To install troposphere with `awacs <https://github.com/cloudtools/awacs>`_
+(recommended soft dependency)::
+
+    $ pip install troposphere[policy]
 
 Alternatively, you can run use setup.py to install by cloning this repository
 and issuing::
@@ -107,30 +115,44 @@ Missing required property for the AWS resource::
 Currently supported AWS resource types
 ======================================
 
+- AWS::ApplicationAutoScaling
 - AWS::AutoScaling
+- AWS::CertificateManager
 - AWS::CloudFormation
 - AWS::CloudFront
 - AWS::CloudTrail
 - AWS::CloudWatch
+- AWS::CodeCommit
 - AWS::CodeDeploy
+- AWS::CodePipeline
+- AWS::Config
 - AWS::DirectoryService
 - AWS::DynamoDB
 - AWS::EC2
+- AWS::ECR
+- AWS::ECS
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
 - AWS::ElasticLoadBalancing
+- AWS::ElasticLoadBalancingV2
+- AWS::Elasticsearch
+- AWS::EMR
 - AWS::IAM
-- AWS::KINESIS
+- AWS::IoT
+- AWS::Kinesis
+- AWS::KinesisFirehose
+- AWS::KMS
 - AWS::Lambda
 - AWS::Logs
-- AWS::OPSWORKS
+- AWS::OpsWorks
 - AWS::RDS
-- AWS::REDSHIFT
+- AWS::Redshift
 - AWS::Route53
 - AWS::S3
 - AWS::SDB
 - AWS::SNS
 - AWS::SQS
+- AWS::SSM
 - AWS::WorkSpaces
 
 Currently supported OpenStack resource types
@@ -160,7 +182,7 @@ Todo:
 Duplicating a single instance sample would look like this
 =========================================================
 
-.. code::
+.. code:: python
 
     # Converted from EC2InstanceSample.template located at:
     # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
@@ -236,18 +258,19 @@ Duplicating a single instance sample would look like this
 Community
 =========
 
-We have a google group, cloudtools-dev_, where you can ask questions and
-engage with the troposphere community.  Issues & pull requests are always
+We have a Google Group, cloudtools-dev_, where you can ask questions and
+engage with the troposphere community. Issues and pull requests are always
 welcome!
 
 Licensing
 =========
 
-Troposphere is licensed under the `BSD 2-Clause license`_.
+troposphere is licensed under the `BSD 2-Clause license`_.
 See `LICENSE`_ for the troposphere full license text.
 
 
 .. _`AWS CloudFormation`: http://aws.amazon.com/cloudformation
+.. _`AWS CloudFormation JSON`: http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html
 .. _`OpenStack resources`: http://docs.openstack.org/developer/heat/template_guide/openstack.html
 .. _cloudtools-dev: https://groups.google.com/forum/#!forum/cloudtools-dev
 .. _`LICENSE`: https://github.com/cloudtools/troposphere/blob/master/LICENSE

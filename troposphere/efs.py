@@ -6,6 +6,7 @@ class FileSystem(AWSObject):
 
     props = {
         'FileSystemTags': (Tags, False),
+        'PerformanceMode': (basestring, False),
     }
 
 
