@@ -1,8 +1,9 @@
+import copy
 import json
 import unittest
 from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
 from troposphere import Join, Ref, Split, Sub, Template
-from troposphere.ec2 import Instance, SecurityGroupRule
+from troposphere.ec2 import Instance, SecurityGroup, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
 
@@ -307,6 +308,23 @@ class TestJoin(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             Join(10, "foobar")
+
+
+class TestDeepCopy(unittest.TestCase):
+    def test_join(self):
+        group = SecurityGroup(
+            'SomeSecurityGroup',
+            VpcId='',
+            GroupDescription='A security group.',
+            SecurityGroupEgress=[])
+
+        cp = copy.copy(group)
+        self.assertEqual(
+            id(group.SecurityGroupEgress), id(cp.SecurityGroupEgress))
+
+        deepcp = copy.deepcopy(group)
+        self.assertNotEqual(
+            id(group.SecurityGroupEgress), id(deepcp.SecurityGroupEgress))
 
 
 if __name__ == '__main__':

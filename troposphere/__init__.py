@@ -87,6 +87,8 @@ class BaseAWSObject(object):
             self.template.add_resource(self)
 
     def __getattr__(self, name):
+        if name is '__setstate__':
+            raise AttributeError(name)
         try:
             return self.properties.__getitem__(name)
         except KeyError:
