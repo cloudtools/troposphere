@@ -124,3 +124,13 @@ class TestECS(unittest.TestCase):
         )
 
         container_definition.JSONrepr()
+
+    def test_allow_host_network_mode(self):
+        container_definition = ecs.ContainerDefinition(
+            Image="myimage",
+            Memory="300",
+            Name="mycontainer",
+            NetworkMode="host"
+        )
+
+        container_definition.JSONrepr()

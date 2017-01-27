@@ -144,4 +144,5 @@ class TaskDefinition(AWSObject):
         'NetworkMode': (basestring, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
+        'NetworkMode': (basestring, False),
     }
