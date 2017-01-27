@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, BaseAWSObject
+from . import encode_to_dict
 from .validators import integer, boolean, encoding
 
 
@@ -51,19 +52,16 @@ class Metadata(AWSHelperFn):
     def __init__(self, *args):
         self.data = args
 
-    def JSONrepr(self):
+    def to_dict(self):
         t = []
         for i in self.data:
-            t += i.JSONrepr().items()
+            t += encode_to_dict(i).items()
         return dict(t)
 
 
 class InitFileContext(AWSHelperFn):
     def __init__(self, data):
         self.data = data
-
-    def JSONrepr(self):
-        return self.data
 
 
 class InitFile(AWSProperty):
@@ -89,9 +87,6 @@ class InitFiles(AWSHelperFn):
             if not isinstance(data[k], InitFile):
                 raise ValueError("File '" + k + "' must be of type InitFile")
 
-    def JSONrepr(self):
-        return self.data
-
 
 class InitService(AWSProperty):
     props = {
@@ -116,9 +111,6 @@ class InitServices(AWSHelperFn):
                     "Service '" + k + "' must be of type InitService"
                 )
 
-    def JSONrepr(self):
-        return self.data
-
 
 class InitConfigSets(AWSHelperFn):
     def __init__(self, **kwargs):
@@ -129,9 +121,6 @@ class InitConfigSets(AWSHelperFn):
         for k, v in config_sets.iteritems():
             if not isinstance(v, list):
                 raise ValueError('configSets values must be of type list')
-
-    def JSONrepr(self):
-        return self.data
 
 
 class InitConfig(AWSProperty):
@@ -179,9 +168,6 @@ class Authentication(AWSHelperFn):
                     ' cloudformation.AuthenticationBlock'
                 )
 
-    def JSONrepr(self):
-        return self.data
-
 
 class Init(AWSHelperFn):
     def __init__(self, data, **kwargs):
@@ -210,6 +196,3 @@ class Init(AWSHelperFn):
                 raise ValueError(
                     'config property must be of type cloudformation.InitConfig'
                 )
-
-    def JSONrepr(self):
-        return self.data

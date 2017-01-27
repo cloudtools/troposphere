@@ -1,7 +1,6 @@
-import json
 import unittest
 
-from troposphere import awsencode, Parameter, Ref
+from troposphere import Parameter, Ref
 from troposphere.autoscaling import AutoScalingGroup
 from troposphere.policies import CreationPolicy, ResourceSignal, UpdatePolicy
 from troposphere.policies import AutoScalingCreationPolicy
@@ -32,7 +31,7 @@ class TestCreationPolicy(unittest.TestCase):
                 Timeout='PT10M'
             )
         )
-        p = json.loads(json.dumps(policy, cls=awsencode))
+        p = policy.to_dict()
         self.assertEqual(p['ResourceSignal']['Count'], 2)
         self.assertEqual(p['ResourceSignal']['Timeout'], 'PT10M')
 
@@ -61,7 +60,7 @@ class TestCreationPolicy(unittest.TestCase):
                 Timeout='PT10M'
             )
         )
-        p = json.loads(json.dumps(policy, cls=awsencode))
+        p = policy.to_dict()
         self.assertEqual(
             p['AutoScalingCreationPolicy']['MinSuccessfulInstancesPercent'],
             50
@@ -154,7 +153,7 @@ class TestUpdatePolicy(unittest.TestCase):
                 MinInstancesInService=1,
                 PauseTime='PT90S',
                 WaitOnResourceSignals=True))
-        p = json.loads(json.dumps(p, cls=awsencode))
+        p = p.to_dict()
         self.assertEqual(p['AutoScalingRollingUpdate']['MaxBatchSize'], 2)
         self.assertEqual(
             p['AutoScalingRollingUpdate']['MinInstancesInService'], 1

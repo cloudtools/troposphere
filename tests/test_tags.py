@@ -13,7 +13,7 @@ class TestTags(unittest.TestCase):
             {'Value': 'bar', 'Key': 'bar'},
             {'Value': 'baz', 'Key': 'baz'},
         ]
-        self.assertEqual(tags.JSONrepr(), result)
+        self.assertEqual(tags.to_dict(), result)
 
     def test_ASTagAddition(self):
         tags = ASTags(foo=('fooval', True))
@@ -24,7 +24,7 @@ class TestTags(unittest.TestCase):
             {'Value': 'barval', 'Key': 'bar', 'PropagateAtLaunch': 'false'},
             {'Value': 'bazval', 'Key': 'baz', 'PropagateAtLaunch': 'true'},
         ]
-        self.assertEqual(tags.JSONrepr(), result)
+        self.assertEqual(tags.to_dict(), result)
 
 
 if __name__ == '__main__':

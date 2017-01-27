@@ -1,6 +1,5 @@
-import json
 import unittest
-from troposphere import awsencode, AWSObject, AWSProperty, Output, Parameter
+from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import Join, Ref, Split, Sub, Template
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
@@ -146,13 +145,13 @@ class TestOutput(unittest.TestCase):
 
     def test_noproperty(self):
         t = Output("MyOutput", Value="myvalue")
-        d = json.loads(json.dumps(t, cls=awsencode))
+        d = t.to_dict()
         with self.assertRaises(KeyError):
             d['Properties']
 
     def test_empty_awsproperty_outputs_empty_object(self):
         t = FakeAWSProperty()
-        d = json.loads(json.dumps(t, cls=awsencode))
+        d = t.to_dict()
         self.assertEquals(len(d), 0)
 
 
@@ -160,7 +159,7 @@ class TestParameter(unittest.TestCase):
 
     def test_noproperty(self):
         t = Parameter("MyParameter", Type="String")
-        d = json.loads(json.dumps(t, cls=awsencode))
+        d = t.to_dict()
         with self.assertRaises(KeyError):
             d['Properties']
 
@@ -196,7 +195,7 @@ class TestProperty(unittest.TestCase):
             ToPort="22",
             CidrIp="0.0.0.0/0",
         )
-        d = json.loads(json.dumps(t, cls=awsencode))
+        d = t.to_dict()
         with self.assertRaises(KeyError):
             d['Properties']
 
@@ -237,7 +236,7 @@ class TestRef(unittest.TestCase):
     def test_ref(self):
         param = Parameter("param", Description="description", Type="String")
         t = Ref(param)
-        ref = json.loads(json.dumps(t, cls=awsencode))
+        ref = t.to_dict()
         self.assertEqual(ref['Ref'], 'param')
 
 
@@ -255,7 +254,7 @@ class TestSub(unittest.TestCase):
     def test_sub_with_vars(self):
         s = 'foo ${AWS::Region}'
         raw = Sub(s)
-        actual = json.loads(json.dumps(raw, cls=awsencode))
+        actual = raw.to_dict()
         expected = {'Fn::Sub': 'foo ${AWS::Region}'}
         self.assertEqual(expected, actual)
 
@@ -263,7 +262,7 @@ class TestSub(unittest.TestCase):
         s = 'foo ${AWS::Region} ${sub1} ${sub2}'
         values = {'sub1': 'uno', 'sub2': 'dos'}
         raw = Sub(s, **values)
-        actual = json.loads(json.dumps(raw, cls=awsencode))
+        actual = raw.to_dict()
         expected = {'Fn::Sub': ['foo ${AWS::Region} ${sub1} ${sub2}', values]}
         self.assertEqual(expected, actual)
 
@@ -275,7 +274,7 @@ class TestSplit(unittest.TestCase):
         source_string = ('{ "Fn::ImportValue": { "Fn::Sub": '
                          '"${VpcStack}-PublicSubnets" }')
         raw = Split(delimiter, source_string)
-        actual = json.loads(json.dumps(raw, cls=awsencode))
+        actual = raw.to_dict()
         expected = (
                 {'Fn::Split': [',', '{ "Fn::ImportValue": { '
                  '"Fn::Sub": "${VpcStack}-PublicSubnets" }']}
@@ -296,7 +295,7 @@ class TestJoin(unittest.TestCase):
                 '":function:cfnRedisEndpointLookup" ] }'
         )
         raw = Join(delimiter, source_string)
-        actual = json.loads(json.dumps(raw, cls=awsencode))
+        actual = raw.to_dict()
         expected = (
             {'Fn::Join': [',', '{ [ "arn:aws:lambda:",{ "Ref": '
                           '"AWS::Region" },":",{ "Ref": "AWS::AccountId" },'

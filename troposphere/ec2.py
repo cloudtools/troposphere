@@ -137,9 +137,6 @@ class Ipv6Addresses(AWSHelperFn):
             'Ipv6Addresses': address,
         }
 
-    def JSONrepr(self):
-        return self.data
-
 
 class PrivateIpAddressSpecification(AWSProperty):
     props = {
