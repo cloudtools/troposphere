@@ -594,6 +594,7 @@ class SecurityGroups(AWSProperty):
 class IamInstanceProfile(AWSProperty):
     props = {
         'Arn': (basestring, False),
+        'Name': (basestring, False),
     }
 
 
