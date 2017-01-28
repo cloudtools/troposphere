@@ -131,23 +131,26 @@ class AutoScalingGroup(AWSObject):
 
             if (not isinstance(update_policy, AWSHelperFn) and
                     'AutoScalingRollingUpdate' in update_policy.properties):
-                rolling_update = update_policy.AutoScalingRollingUpdate
+                if not isinstance(
+                        update_policy.AutoScalingRollingUpdate, AWSHelperFn):
+                    rolling_update = update_policy.AutoScalingRollingUpdate
 
-                isMinNoCheck = isinstance(
-                    rolling_update.MinInstancesInService,
-                    (FindInMap, Ref)
-                )
-                isMaxNoCheck = isinstance(self.MaxSize, (If, FindInMap, Ref))
+                    is_min_no_check = isinstance(
+                        rolling_update.MinInstancesInService,
+                        (FindInMap, Ref)
+                    )
+                    is_max_no_check = isinstance(self.MaxSize,
+                                                 (If, FindInMap, Ref))
 
-                if not (isMinNoCheck or isMaxNoCheck):
-                    maxCount = int(self.MaxSize)
-                    minCount = int(rolling_update.MinInstancesInService)
+                    if not (is_min_no_check or is_max_no_check):
+                        max_count = int(self.MaxSize)
+                        min_count = int(rolling_update.MinInstancesInService)
 
-                    if minCount >= maxCount:
-                        raise ValueError(
-                            "The UpdatePolicy attribute "
-                            "MinInstancesInService must be less than the "
-                            "autoscaling group's MaxSize")
+                        if min_count >= max_count:
+                            raise ValueError(
+                                "The UpdatePolicy attribute "
+                                "MinInstancesInService must be less than the "
+                                "autoscaling group's MaxSize")
 
         launch_config = self.properties.get('LaunchConfigurationName')
         instance_id = self.properties.get('InstanceId')

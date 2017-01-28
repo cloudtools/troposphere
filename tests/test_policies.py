@@ -9,7 +9,7 @@ from troposphere.policies import AutoScalingRollingUpdate
 
 class TestCreationPolicy(unittest.TestCase):
 
-    def test_pausetime(self):
+    def test_invalid_pausetime(self):
         with self.assertRaises(ValueError):
             CreationPolicy(ResourceSignal=ResourceSignal(Count=2,
                                                          Timeout='90'))
@@ -69,7 +69,7 @@ class TestCreationPolicy(unittest.TestCase):
 
 class TestUpdatePolicy(unittest.TestCase):
 
-    def test_pausetime(self):
+    def test_invalid_pausetime(self):
         with self.assertRaises(ValueError):
             UpdatePolicy(AutoScalingRollingUpdate=AutoScalingRollingUpdate(
                 PauseTime='90'
