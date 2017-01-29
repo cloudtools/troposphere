@@ -1,3 +1,16 @@
+## 1.9.2 (2017-01-29)
+- Extra template validation (#635)
+- Update ECS to Jan 17, 2017 release (#642)
+- Add Timezone property to DBInstance (#643)
+- Test Python 3.6 (#644)
+- Adding RDS engine support for oracle-se2 (#646)
+- Correct required in ecs.Service (#645)
+- Add Separator property to IoT Firehose Action
+- Add Fn::Split function (#647)
+- Added to_dict() method to troposphere.Template (#651)
+- Allow use of AWSHelperFn for IOPS (#652)
+- Allow HelperFN w/ autoscaling policies (#654)
+
 ## 1.9.1 (2017-01-03)
 - Improve readability of AssumeRolePolicyDocument attribute (#591)
 - Add Environment to Lambda Function (#616)
