@@ -119,6 +119,18 @@ class TestValidators(unittest.TestCase):
     def test_helperfun(self):
         FakeAWSObject('fake', helperfun=Ref('fake_ref'))
 
+    def test_exception(self):
+        def ExceptionValidator(x):
+            raise ValueError
+
+        class ExceptionAWSProperty(AWSProperty):
+            props = {
+                'foo': (ExceptionValidator, True),
+            }
+
+        with self.assertRaisesRegexp(ValueError, "function validator"):
+            ExceptionAWSProperty(foo='bar')
+
 
 class TestHealthCheck(unittest.TestCase):
     def test_healthy_interval_ok(self):

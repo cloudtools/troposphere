@@ -142,7 +142,7 @@ class BaseAWSObject(object):
             elif isinstance(expected_type, types.FunctionType):
                 try:
                     value = expected_type(value)
-                except:
+                except Exception:
                     sys.stderr.write(
                         "%s: %s.%s function validator '%s' threw "
                         "exception:\n" % (self.__class__,
