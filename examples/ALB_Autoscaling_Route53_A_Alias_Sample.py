@@ -32,13 +32,15 @@ def AddAMI(template):
 def main():
     # Meta
     t.add_version("2010-09-09")
-    t.add_description("Template for auto-scaling in an Application load balancer target group. "
+    t.add_description("Template for auto-scaling in an Application"
+                      "load balancer target group. "
                       "The ALB will be used as an A Alias target "
                       "for a specified Route53 hosted zone. "
-                      "This template also showcases Metadata Parameter Grouping, "
+                      "This template also showcases "
+                      "Metadata Parameter Grouping, "
                       "Special AWS Parameter Types, "
-                      "and Cloudformation Outputs with Exports which can be imported into "
-                      "other templates."
+                      "and Cloudformation Outputs with Exports"
+                      "which can be imported into other templates."
 
                       )
     t.add_metadata({
@@ -58,23 +60,41 @@ def main():
                     },
                     {
                         "Label": {"default": "Application Loadbalancer"},
-                        "Parameters": ["albSubnets", "loadbalancerPrefix", "loadBalancerArn", "albPaths", "albPort", ]
+                        "Parameters": ["albSubnets",
+                                       "loadbalancerPrefix",
+                                       "loadBalancerArn",
+                                       "albPaths",
+                                       "albPort"
+                                       ]
                     },
                     {
                         "Label": {"default": "VPC"},
-                        "Parameters": ["ec2Subnets", "VPC", "securityGroup"]
+                        "Parameters": ["ec2Subnets",
+                                       "VPC",
+                                       "securityGroup"
+                                       ]
                     },
                     {
                         "Label": {"default": "EC2"},
-                        "Parameters": ["ec2Name", "ec2Type", "ec2Key"]
+                        "Parameters": ["ec2Name",
+                                       "ec2Type",
+                                       "ec2Key"
+                                       ]
                     },
                     {
                         "Label": {"default": "Auto-scaling"},
-                        "Parameters": ["asgCapacity", "asgMinSize", "asgMaxSize", "asgCooldown", "asgHealthGrace"]
+                        "Parameters": ["asgCapacity",
+                                       "asgMinSize",
+                                       "asgMaxSize",
+                                       "asgCooldown",
+                                       "asgHealthGrace"
+                                       ]
                     },
                     {
                         "Label": {"default": "Route53"},
-                        "Parameters": ["route53HostedZoneId", "route53HostedZoneName"]
+                        "Parameters": ["route53HostedZoneId",
+                                       "route53HostedZoneName"
+                                       ]
                     }
 
                 ]
@@ -118,7 +138,8 @@ def main():
         "albPaths",
         Default="/",
         Type="CommaDelimitedList",
-        Description="Path-patterns you want the loadbalancer to point to in your application"
+        Description="Path-patterns you want the loadbalancer to point to in "
+                    "your application"
     ))
     albPort = t.add_parameter(Parameter(
         "albPort",
@@ -287,12 +308,17 @@ def main():
         RecordSets=[
             route53.RecordSet(
                 Weight=1,
-                SetIdentifier=Join(".", [Ref(environment), Ref(route53_hosted_zone_name), "ELB"]),
-                Name=Join(".", [Ref(environment), Ref(route53_hosted_zone_name)]),
+                SetIdentifier=Join(".", [Ref(environment),
+                                         Ref(route53_hosted_zone_name),
+                                         "ELB"]),
+                Name=Join(".", [Ref(environment),
+                                Ref(route53_hosted_zone_name)]),
                 Type="A",
                 AliasTarget=route53.AliasTarget(
-                    GetAtt(application_load_balancer, "CanonicalHostedZoneID"),
-                    GetAtt(application_load_balancer, "DNSName")
+                    GetAtt(application_load_balancer,
+                           "CanonicalHostedZoneID"),
+                    GetAtt(application_load_balancer,
+                           "DNSName")
                 )
             )
         ]
