@@ -128,7 +128,7 @@ class TestValidators(unittest.TestCase):
                 'foo': (ExceptionValidator, True),
             }
 
-        with self.assertRaisesRegexp(ValueError, "function validator"):
+        with self.assertRaises(ValueError):
             ExceptionAWSProperty(foo='bar')
 
 
