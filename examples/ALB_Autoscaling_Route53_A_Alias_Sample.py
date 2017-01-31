@@ -1,21 +1,33 @@
-from troposphere import Base64, Join, Parameter, Ref, Template, Output, FindInMap, GetAtt, Select, Export, Sub
+from troposphere import Base64, \
+    Join, \
+    Parameter, \
+    Ref, \
+    Template, \
+    Output, \
+    FindInMap, \
+    GetAtt, \
+    Select, \
+    Export, \
+    Sub
 import troposphere.autoscaling as autoscaling
 import troposphere.elasticloadbalancingv2 as elb
 import troposphere.route53 as route53
 
 t = Template()
 
+
 # Windows server 2016 Base
 def AddAMI(template):
-     t.add_mapping("windowsAMI", {
-         "us-east-1": {"AMI": "ami-b06249a7"},
-         "us-east-2": {"AMI": "ami-20683245"},
-         "us-west-1": {"AMI": "ami-d3a8fdb3"},
-         "us-west-2": {"AMI": "ami-b9b71ad9"},
-         "eu-west-1": {"AMI": "ami-32792a41"},
-         "eu-west-2": {"AMI": "ami-29353f4d"},
-         "eu-central-1": {"AMI": "ami-c0f237af"}
-     })
+    t.add_mapping("windowsAMI", {
+        "us-east-1": {"AMI": "ami-b06249a7"},
+        "us-east-2": {"AMI": "ami-20683245"},
+        "us-west-1": {"AMI": "ami-d3a8fdb3"},
+        "us-west-2": {"AMI": "ami-b9b71ad9"},
+        "eu-west-1": {"AMI": "ami-32792a41"},
+        "eu-west-2": {"AMI": "ami-29353f4d"},
+        "eu-central-1": {"AMI": "ami-c0f237af"}
+    })
+
 
 def main():
     # Meta
@@ -43,7 +55,7 @@ def main():
                     {
                         "Label": {"default": "Global parameters"},
                         "Parameters": ["environment"]
-                     },
+                    },
                     {
                         "Label": {"default": "Application Loadbalancer"},
                         "Parameters": ["albSubnets", "loadbalancerPrefix", "loadBalancerArn", "albPaths", "albPort", ]
@@ -66,9 +78,9 @@ def main():
                     }
 
                 ]
-             }
-         }
-     )
+            }
+        }
+    )
 
     AddAMI(t)
 
@@ -299,8 +311,8 @@ def main():
         )
     )
 
-
     print(t.to_json())
+
 
 if __name__ == '__main__':
     main()
