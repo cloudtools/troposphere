@@ -217,7 +217,7 @@ def main():
     ))
 
     # Launchconfiguration
-    EC2LaunchConfiguration = t.add_resource(autoscaling.LaunchConfiguration(
+    ec2_launchconfiguration = t.add_resource(autoscaling.LaunchConfiguration(
         "EC2LaunchConfiguration",
         ImageId=FindInMap("windowsAMI", Ref("AWS::Region"), "AMI"),
         KeyName=Ref(ec2_key),
@@ -256,7 +256,7 @@ def main():
         MinSize=Ref(asg_min_size),
         MaxSize=Ref(asg_max_size),
         Cooldown=Ref(asg_cooldown),
-        LaunchConfigurationName=Ref(EC2LaunchConfiguration),
+        LaunchConfigurationName=Ref(ec2_launchconfiguration),
         HealthCheckGracePeriod=Ref(asg_health_grace),
         HealthCheckType="EC2",
     ))
