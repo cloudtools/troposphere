@@ -1,4 +1,4 @@
-from troposphere import Base64, Join, Parameter, Ref, Template
+from troposphere import Join, Parameter, Ref, Template
 from troposphere import Output, FindInMap, GetAtt
 from troposphere import Select, Export, Sub
 import troposphere.autoscaling as autoscaling
@@ -245,7 +245,7 @@ def main():
     ))
 
     # Auto scaling group
-    auto_scaling_group = t.add_resource(autoscaling.AutoScalingGroup(
+    t.add_resource(autoscaling.AutoScalingGroup(
         "autoScalingGroup",
         DesiredCapacity=Ref(asg_capacity),
         Tags=autoscaling.Tags(
@@ -279,7 +279,7 @@ def main():
             TargetGroupArn=Ref(alb_target_group)
         )]
     ))
-    alb_listener_rule = t.add_resource(elb.ListenerRule(
+    t.add_resource(elb.ListenerRule(
         "albListenerRule",
         ListenerArn=Ref(alb_listener),
         Conditions=[elb.Condition(
@@ -294,7 +294,7 @@ def main():
     ))
 
     # Route53
-    route53_roundrobin = t.add_resource(route53.RecordSetGroup(
+    t.add_resource(route53.RecordSetGroup(
         "route53RoundRobin",
         HostedZoneId=Ref(route53_hosted_zone_id),
         RecordSets=[
