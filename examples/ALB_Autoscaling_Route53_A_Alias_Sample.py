@@ -1,14 +1,6 @@
-from troposphere import Base64, \
-    Join, \
-    Parameter, \
-    Ref, \
-    Template, \
-    Output, \
-    FindInMap, \
-    GetAtt, \
-    Select, \
-    Export, \
-    Sub
+from troposphere import Base64, Join, Parameter, Ref, Template
+from troposphere import Output, FindInMap, GetAtt
+from troposphere import Select, Export, Sub
 import troposphere.autoscaling as autoscaling
 import troposphere.elasticloadbalancingv2 as elb
 import troposphere.route53 as route53
