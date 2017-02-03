@@ -482,9 +482,6 @@ class Template(object):
         self.metadata = metadata
 
     def add_condition(self, name, condition):
-        if len(self.conditions) >= 60:
-            raise ValueError('Maximum of 60 conditions per template reached')
-
         self.conditions[name] = condition
 
     def handle_duplicate_key(self, key):
