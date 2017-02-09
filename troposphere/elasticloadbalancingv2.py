@@ -5,7 +5,7 @@
 
 from . import AWSObject, AWSProperty
 from .validators import (
-    elb_name, network_port, integer)
+    elb_name, network_port, tg_healthcheck_port, integer)
 
 
 class LoadBalancerAttributes(AWSProperty):
@@ -85,7 +85,7 @@ class TargetGroup(AWSObject):
     props = {
         'HealthCheckIntervalSeconds': (integer, False),
         'HealthCheckPath': (basestring, False),
-        'HealthCheckPort': (network_port, False),
+        'HealthCheckPort': (tg_healthcheck_port, False),
         'HealthCheckProtocol': (basestring, False),
         'HealthCheckTimeoutSeconds': (integer, False),
         'HealthyThresholdCount': (integer, False),

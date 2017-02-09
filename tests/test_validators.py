@@ -2,6 +2,7 @@ import unittest
 from troposphere import Parameter, Ref
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
+from troposphere.validators import tg_healthcheck_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
 from troposphere.validators import iam_group_name, iam_user_name, elb_name
@@ -60,6 +61,19 @@ class TestValidators(unittest.TestCase):
     def test_network_port_ref(self):
         p = Parameter('myport')
         network_port(Ref(p))
+
+    def test_tg_healthcheck_port(self):
+        for x in ["traffic-port"]:
+            tg_healthcheck_port(x)
+        for x in [-1, 0, 1, 1024, 65535]:
+            tg_healthcheck_port(x)
+        for x in [-2, -10, 65536, 100000]:
+            with self.assertRaises(ValueError):
+                tg_healthcheck_port(x)
+
+    def test_tg_healthcheck_port_ref(self):
+        p = Parameter('myport')
+        tg_healthcheck_port(Ref(p))
 
     def test_s3_bucket_name(self):
         for b in ['a'*3, 'a'*63, 'wick3d-sweet.bucket']:
