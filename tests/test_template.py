@@ -23,6 +23,12 @@ class TestInitArguments(unittest.TestCase):
         template = Template(Metadata=value)
         self.assertEqual(template.metadata, value)
 
+    def test_transform(self):
+        transform = 'AWS::Serverless-2016-10-31'
+        template = Template()
+        template.add_transform(transform)
+        self.assertEqual(template.transform, transform)
+
 
 class TestValidate(unittest.TestCase):
     def test_max_parameters(self):

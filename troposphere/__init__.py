@@ -458,6 +458,7 @@ class Tags(AWSHelperFn):
 class Template(object):
     props = {
         'AWSTemplateFormatVersion': (basestring, False),
+        'Transform': (basestring, False),
         'Description': (basestring, False),
         'Parameters': (dict, False),
         'Mappings': (dict, False),
@@ -474,6 +475,7 @@ class Template(object):
         self.parameters = {}
         self.resources = {}
         self.version = None
+        self.transform = None
 
     def add_description(self, description):
         self.description = description
@@ -522,6 +524,9 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
+    def add_transform(self, transform):
+        self.transform = transform
+
     def to_dict(self):
         t = {}
         if self.description:
@@ -538,6 +543,8 @@ class Template(object):
             t['Parameters'] = self.parameters
         if self.version:
             t['AWSTemplateFormatVersion'] = self.version
+        if self.transform:
+            t['Transform'] = self.transform
         t['Resources'] = self.resources
 
         return encode_to_dict(t)
