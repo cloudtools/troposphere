@@ -9,12 +9,14 @@
                 "CodeUri": "s3://<bucket>/s3_processor.zip",
                 "Events": {
                     "PhotoUpload": {
-                        "Bucket": {
-                            "Ref": "Bucket"
+                        "Properties": {
+                            "Bucket": {
+                                "Ref": "Bucket"
+                            },
+                            "Events": [
+                                "s3:ObjectCreated:*"
+                            ]
                         },
-                        "Events": [
-                            "s3:ObjectCreated:*"
-                        ],
                         "Type": "S3"
                     }
                 },

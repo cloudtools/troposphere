@@ -3,7 +3,7 @@
 
 from troposphere import Template, Ref
 from troposphere.s3 import Bucket
-from troposphere.serverless import Function, EventSource
+from troposphere.serverless import Function, S3Event
 
 t = Template()
 
@@ -26,8 +26,8 @@ t.add_resource(
         CodeUri='s3://<bucket>/s3_processor.zip',
         Policies='AmazonS3ReadOnlyAccess',
         Events={
-            'PhotoUpload': EventSource(
-                Type='S3',
+            'PhotoUpload': S3Event(
+                'PhotoUpload',
                 Bucket=Ref(s3_bucket),
                 Events=['s3:ObjectCreated:*']
             )

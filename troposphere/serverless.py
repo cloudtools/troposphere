@@ -17,6 +17,7 @@ def primary_key_type_validator(x):
         raise ValueError("KeyType must be one of: %s" % ", ".join(valid_types))
     return x
 
+
 def policy_validator(x):
     if isinstance(x, types.StringTypes):
         return x
@@ -73,12 +74,90 @@ class SimpleTable(AWSObject):
         'ProvisionedThroughput': (ProvisionedThroughput, False)
     }
 
-class EventSource(AWSProperty):
+
+class S3Event(AWSObject):
     resource_type = 'S3'
 
     props = {
-        'Type': (basestring, True),
         'Bucket': (basestring, True),
         'Events': (list, True),
         'Filter': (basestring, False)
     }
+
+
+class SNSEvent(AWSObject):
+    resource_type = 'SNS'
+
+    props = {
+        'Topic': (basestring, True)
+    }
+
+
+def starting_position_validator(x):
+    valid_types = ['TRIM_HORIZON', 'LATEST']
+    if x not in valid_types:
+        raise ValueError("StartingPosition must be one of: %s" % ", ".join(valid_types))
+    return x
+
+
+class KinesisEvent(AWSObject):
+    resource_type = 'Kinesis'
+
+    props = {
+        'Stream': (basestring, True),
+        'StartingPosition': (starting_position_validator, True),
+        'BatchSize': (positive_integer, False)
+    }
+
+
+class DynamoDBEvent(AWSObject):
+    resource_type = 'DynamoDB'
+
+    props = {
+        'Stream': (basestring, True),
+        'StartingPosition': (starting_position_validator, True),
+        'BatchSize': (positive_integer, False)
+    }
+
+
+class ApiEvent(AWSObject):
+    resource_type = 'Api'
+
+    props = {
+        'Path': (basestring, True),
+        'Method': (basestring, True),
+        'RestApiId': (basestring, False)
+    }
+
+
+class ScheduleEvent(AWSObject):
+    resource_type = 'Schedule'
+
+    props = {
+        'Schedule': (basestring, True),
+        'Input': (basestring, False)
+    }
+
+
+class CloudWatchEvent(AWSObject):
+    resource_type = 'CloudWatchEvent'
+
+    props = {
+        'Pattern': (dict, True),
+        'Input': (basestring, False),
+        'InputPath': (basestring, False)
+    }
+
+
+class IoTRuleEvent(AWSObject):
+    resource_type = 'IoTRule'
+
+    props = {
+        'Sql': (basestring, True),
+        'AwsIotSqlVersion': (basestring, False)
+    }
+
+
+class AlexaSkillEvent(AWSObject):
+    resource_type = 'AlexaSkill'
+    props = {}
