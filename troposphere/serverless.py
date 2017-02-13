@@ -3,10 +3,11 @@
 #
 # See LICENSE file for full license.
 
+import types
+
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
-from .iam import policytypes
 from .validators import positive_integer
 
 
@@ -15,6 +16,16 @@ def primary_key_type_validator(x):
     if x not in valid_types:
         raise ValueError("KeyType must be one of: %s" % ", ".join(valid_types))
     return x
+
+def policy_validator(x):
+    if isinstance(x, types.StringTypes):
+        return x
+    elif isinstance(x, types.ListType):
+        return x
+    else:
+        raise ValueError("Policies must refer to a managed policy, a list of "
+                         + "policies, an IAM policy document, or a list of IAM"
+                         + " policy documents")
 
 
 class Function(AWSObject):
@@ -28,10 +39,10 @@ class Function(AWSObject):
         'MemorySize': (validate_memory_size, False),
         'Timeout': (positive_integer, False),
         'Role': (basestring, False),
-        'Policies': (policytypes, False),  # TODO not sure this is the righht approach
+        'Policies': (policy_validator, False),
         'Environment': (Environment, False),
         'VpcConfig': (VPCConfig, False),
-        'Events': (dict, False)  # TODO this is certainly not the right approach
+        'Events': (dict, False)
     }
 
 
@@ -62,11 +73,12 @@ class SimpleTable(AWSObject):
         'ProvisionedThroughput': (ProvisionedThroughput, False)
     }
 
-class S3EventSource(AWSObject):
+class EventSource(AWSProperty):
     resource_type = 'S3'
 
     props = {
+        'Type': (basestring, True),
         'Bucket': (basestring, True),
-        'Events': (basestring, True),
+        'Events': (list, True),
         'Filter': (basestring, False)
     }
