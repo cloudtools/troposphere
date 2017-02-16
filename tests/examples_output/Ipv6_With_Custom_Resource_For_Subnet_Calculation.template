@@ -1,0 +1,192 @@
+{
+    "Description": "Create VPC ipv6 example stack\n",
+    "Resources": {
+        "Example": {
+            "Properties": {
+                "CidrBlock": "10.254.0.0/16",
+                "EnableDnsHostnames": "true",
+                "EnableDnsSupport": "true"
+            },
+            "Type": "AWS::EC2::VPC"
+        },
+        "ExampleIPV6Block": {
+            "Properties": {
+                "AmazonProvidedIpv6CidrBlock": "true",
+                "VpcId": {
+                    "Ref": "Example"
+                }
+            },
+            "Type": "AWS::EC2::VPCCidrBlock"
+        },
+        "ExampleIPV6Subnet": {
+            "Properties": {
+                "Ipv6CidrBlock": {
+                    "Ref": "ipv6calculation"
+                },
+                "SubnetId": {
+                    "Ref": "ExampleSubnet1"
+                }
+            },
+            "Type": "AWS::EC2::SubnetCidrBlock"
+        },
+        "ExampleSubnet1": {
+            "Properties": {
+                "AvailabilityZone": {
+                    "Fn::Select": [
+                        0,
+                        {
+                            "Fn::GetAZs": {
+                                "Ref": "AWS::Region"
+                            }
+                        }
+                    ]
+                },
+                "CidrBlock": "10.254.1.0/24",
+                "VpcId": {
+                    "Ref": "Example"
+                }
+            },
+            "Type": "AWS::EC2::Subnet"
+        },
+        "Ipv6SubnetCalculatorExecutionLambdaPolicy": {
+            "Properties": {
+                "PolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "logs:*"
+                            ],
+                            "Effect": "Allow",
+                            "Resource": [
+                                "arn:aws:logs:*:*:*"
+                            ]
+                        }
+                    ]
+                },
+                "PolicyName": "Ipv6SubnetCalculatorExecutionLambdaPolicy",
+                "Roles": [
+                    {
+                        "Ref": "Ipv6SubnetCalculatorExecutionLambdaRole"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::Policy"
+        },
+        "Ipv6SubnetCalculatorExecutionLambdaRole": {
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "Path": "/"
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "Ipv6SubnetCalculatorFunction": {
+            "Properties": {
+                "Code": {
+                    "ZipFile": {
+                        "Fn::Join": [
+                            "\n",
+                            [
+                                "import socket",
+                                "from binascii import hexlify",
+                                "import cfnresponse",
+                                "responseData={}",
+                                "def IPV6_to_int(ipv6_addr):",
+                                " return int(hexlify(socket.inet_pton(socket.AF_INET6,ipv6_addr)),16)",
+                                "def long2ip(l):",
+                                " hex_str='%032x'%l",
+                                " hextets=['%x'%int(hex_str[x:x+4],16)for x in range(0,32,4)]",
+                                " dc_start,dc_len=(-1,0)",
+                                " run_start,run_len=(-1,0)",
+                                " for idx,hextet in enumerate(hextets):",
+                                "  if '0'==hextet:",
+                                "   run_len+=1",
+                                "   if-1==run_start:",
+                                "    run_start=idx",
+                                "   if run_len>dc_len:",
+                                "    dc_len,dc_start=(run_len,run_start)",
+                                "  else:",
+                                "   run_len,run_start=(0,-1)",
+                                " if dc_len>1:",
+                                "  dc_end=dc_start+dc_len",
+                                "  if dc_end==len(hextets):",
+                                "   hextets+=['']",
+                                "  hextets[dc_start:dc_end]=['']",
+                                "  if dc_start==0:",
+                                "   hextets=['']+hextets",
+                                " return ':'.join(hextets)",
+                                "def lambda_handler(event,context):",
+                                " if event['RequestType'] is not 'delete':",
+                                "  create(event,context)",
+                                " if event['RequestType'] is 'delete':",
+                                "  delete(event,context)",
+                                "def delete(event,context):",
+                                " cfnresponse.send(event,context,cfnresponse.SUCCESS,responseData,)",
+                                "def create(event,context):",
+                                " v6sm=event['ResourceProperties']['AllocatedSubnet']",
+                                " print(v6sm)",
+                                " v6snm=v6sm.split('/')[0]",
+                                " sis=int(event['ResourceProperties']['SubnetIndexStart'])",
+                                " dec=long(IPV6_to_int(v6snm))",
+                                " S64S=(2**64)",
+                                " o64d= dec+((sis)*long(S64S))",
+                                " o64s=(str(long2ip(o64d))+'/64')",
+                                " responseData['SubnetIndexStart']=sis",
+                                " cfnresponse.send(event,context,cfnresponse.SUCCESS,responseData,o64s)"
+                            ]
+                        ]
+                    }
+                },
+                "Description": "Calculates Ipv6 Subnets for Cloudformation",
+                "Handler": "index.lambda_handler",
+                "MemorySize": 128,
+                "Role": {
+                    "Fn::GetAtt": [
+                        "Ipv6SubnetCalculatorExecutionLambdaRole",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Timeout": 30
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "ipv6calculation": {
+            "DependsOn": "ExampleIPV6Block",
+            "Properties": {
+                "AllocatedSubnet": {
+                    "Fn::Select": [
+                        0,
+                        {
+                            "Fn::GetAtt": [
+                                "Example",
+                                "Ipv6CidrBlocks"
+                            ]
+                        }
+                    ]
+                },
+                "ServiceToken": {
+                    "Fn::GetAtt": [
+                        "Ipv6SubnetCalculatorFunction",
+                        "Arn"
+                    ]
+                },
+                "SubnetIndexStart": "0"
+            },
+            "Type": "Custom::Ipv6SubnetCalculator"
+        }
+    }
+}
