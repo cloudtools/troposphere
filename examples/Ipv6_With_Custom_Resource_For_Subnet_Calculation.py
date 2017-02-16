@@ -15,9 +15,9 @@ class Ipv6SubnetCalculator(AWSCustomObject):
     resource_type = "Custom::Ipv6SubnetCalculator"
 
     props = {
-        'ServiceToken': (str, True),
-        'AllocatedSubnet': (str, True),
-        'SubnetIndexStart': (str, True),
+        'ServiceToken': (basestring, True),
+        'AllocatedSubnet': (basestring, True),
+        'SubnetIndexStart': (basestring, True),
     }
 
 
