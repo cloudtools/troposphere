@@ -23,7 +23,7 @@ class Ipv6SubnetCalculator(AWSCustomObject):
 template = Template()
 
 template.add_description("""\
-Create ipv6 test for the systime stack
+Create VPC ipv6 example stack
 """)
 
 Ipv6SubnetCalculatorCode = [
@@ -119,14 +119,14 @@ template.add_resource(IAMPolicy(
 ))
 
 vpcid = template.add_resource(ec2.VPC(
-    "Test",
+    "Example",
     CidrBlock="10.254.0.0/16",
     EnableDnsHostnames=True,
     EnableDnsSupport=True,
 ))
 
 ipv6cidrblock = template.add_resource(ec2.VPCCidrBlock(
-    "TestIPV6Block",
+    "ExampleIPV6Block",
     AmazonProvidedIpv6CidrBlock=True,
     VpcId=Ref(vpcid),
     ))
@@ -136,20 +136,20 @@ ipv6calculation = template.add_resource(Ipv6SubnetCalculator(
     ServiceToken=GetAtt(Ipv6SubnetCalculatorFunction, "Arn"),
     AllocatedSubnet=Select(0, GetAtt(vpcid, "Ipv6CidrBlocks")),
     SubnetIndexStart='0',
-    DependsOn="TestIPV6Block"
+    DependsOn="ExampleIPV6Block"
 ))
 
-publicsubnet1 = template.add_resource(ec2.Subnet(
-    "Public1",
+examplesubnet1 = template.add_resource(ec2.Subnet(
+    "ExampleSubnet1",
     VpcId=Ref(vpcid),
     CidrBlock="10.254.1.0/24",
     AvailabilityZone=Select(0, GetAZs(Ref("AWS::Region"))),
 ))
 
-ipv6subnet = template.add_resource(ec2.SubnetCidrBlock(
-    "TestIPV6Subnet",
+exampleipv6subnet = template.add_resource(ec2.SubnetCidrBlock(
+    "ExampleIPV6Subnet",
     Ipv6CidrBlock=Ref(ipv6calculation),
-    SubnetId=Ref(publicsubnet1)
+    SubnetId=Ref(examplesubnet1)
     ))
 
 print(template.to_json())
