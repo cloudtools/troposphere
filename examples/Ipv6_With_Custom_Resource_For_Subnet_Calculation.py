@@ -1,24 +1,25 @@
 #!/usr/bin/env python
 
-from troposphere import GetAtt, Select, Join, Ref, Template, Tags, GetAZs
-from troposphere.awslambda import Function, Code, MEMORY_VALUES, Permission
+from troposphere import GetAtt, Select, Join, Ref, Template, GetAZs
+from troposphere.awslambda import Function, Code
 from troposphere.iam import PolicyType as IAMPolicy
 from troposphere import ec2
 from awacs.aws import Allow, Statement, Action as Action, Principal, Policy
 from troposphere.iam import Role
 from awacs.sts import AssumeRole
 from troposphere.cloudformation import AWSCustomObject
-import awacs.logs
+
 
 class Ipv6SubnetCalculator(AWSCustomObject):
 
-     resource_type = "Custom::Ipv6SubnetCalculator"
+    resource_type = "Custom::Ipv6SubnetCalculator"
 
-     props = {
-      'ServiceToken': (str, True),
-      'AllocatedSubnet': (str, True),
-      'SubnetIndexStart': (str, True),
-     }
+    props = {
+        'ServiceToken': (str, True),
+        'AllocatedSubnet': (str, True),
+        'SubnetIndexStart': (str, True),
+    }
+
 
 template = Template()
 
@@ -89,8 +90,8 @@ Ipv6SubnetCalculatorFunction = template.add_resource(Function(
 ))
 
 template.add_resource(Role(
-"Ipv6SubnetCalculatorExecutionLambdaRole",
-     AssumeRolePolicyDocument=Policy(
+    "Ipv6SubnetCalculatorExecutionLambdaRole",
+    AssumeRolePolicyDocument=Policy(
         Statement=[
             Statement(
                 Effect=Allow, Action=[AssumeRole],
@@ -99,8 +100,8 @@ template.add_resource(Role(
                 ),
             )
         ]
-   ),
-Path="/"
+    ),
+    Path="/"
 ))
 
 template.add_resource(IAMPolicy(
@@ -110,8 +111,8 @@ template.add_resource(IAMPolicy(
     PolicyDocument=Policy(
         Statement=[
             Statement(
-                    Effect=Allow,
-                    Action=[Action("logs", "*")],
+                Effect=Allow,
+                Action=[Action("logs", "*")],
                 Resource=["arn:aws:logs:*:*:*"],
             )
         ],
@@ -129,7 +130,7 @@ ipv6cidrblock = template.add_resource(ec2.VPCCidrBlock(
     "ExampleIPV6Block",
     AmazonProvidedIpv6CidrBlock=True,
     VpcId=Ref(vpcid),
-    ))
+))
 
 ipv6calculation = template.add_resource(Ipv6SubnetCalculator(
     "ipv6calculation",
@@ -150,6 +151,6 @@ exampleipv6subnet = template.add_resource(ec2.SubnetCidrBlock(
     "ExampleIPV6Subnet",
     Ipv6CidrBlock=Ref(ipv6calculation),
     SubnetId=Ref(examplesubnet1)
-    ))
+))
 
 print(template.to_json())
