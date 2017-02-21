@@ -31,7 +31,9 @@
                         "RestApiId": {
                             "Ref": "ExampleApi"
                         },
-                        "StageName": "v1"
+                        "StageName": {
+                            "Ref": "v1Stage"
+                        }
                     }
                 ]
             },
@@ -66,7 +68,7 @@
                         "Arn"
                     ]
                 },
-                "Runtime": "nodejs"
+                "Runtime": "nodejs4.3"
             },
             "Type": "AWS::Lambda::Function"
         },
@@ -186,10 +188,21 @@
             "Properties": {
                 "RestApiId": {
                     "Ref": "ExampleApi"
+                }
+            },
+            "Type": "AWS::ApiGateway::Deployment"
+        },
+        "v1Stage": {
+            "Properties": {
+                "DeploymentId": {
+                    "Ref": "v1Deployment"
+                },
+                "RestApiId": {
+                    "Ref": "ExampleApi"
                 },
                 "StageName": "v1"
             },
-            "Type": "AWS::ApiGateway::Deployment"
+            "Type": "AWS::ApiGateway::Stage"
         }
     }
 }
