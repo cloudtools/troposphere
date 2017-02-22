@@ -168,8 +168,9 @@ class BaseAWSObject(object):
                 # Validated so assign it
                 return self.properties.__setitem__(name, value)
 
-            # Single type so check the type of the object and compare against
-            # what we were expecting. Special case AWS helper functions.
+            # Final validity check, compare the type of value against
+            # expected_type which should now be either a single type or
+            # a tuple of types.
             elif isinstance(value, expected_type):
                 return self.properties.__setitem__(name, value)
             else:
