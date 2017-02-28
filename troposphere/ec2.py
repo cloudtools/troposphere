@@ -153,6 +153,8 @@ class NetworkInterfaceProperty(AWSProperty):
         'DeviceIndex': (integer, True),
         'GroupSet': ([basestring], False),
         'NetworkInterfaceId': (basestring, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),

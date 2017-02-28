@@ -2,7 +2,7 @@ from troposphere import Ref, Template, Output
 from troposphere.apigateway import RestApi, Method
 from troposphere.apigateway import Resource, MethodResponse
 from troposphere.apigateway import Integration, IntegrationResponse
-from troposphere.apigateway import Deployment
+from troposphere.apigateway import Deployment, Stage
 from troposphere.apigateway import ApiKey, StageKey
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
@@ -66,7 +66,7 @@ foobar_function = t.add_resource(Function(
     ),
     Handler="index.handler",
     Role=GetAtt("LambdaExecutionRole", "Arn"),
-    Runtime="nodejs",
+    Runtime="nodejs4.3",
 ))
 
 # Create a resource to map the lambda function to
@@ -110,18 +110,25 @@ method = t.add_resource(Method(
 
 # Create a deployment
 stage_name = 'v1'
+
 deployment = t.add_resource(Deployment(
     "%sDeployment" % stage_name,
     DependsOn="LambdaMethod",
     RestApiId=Ref(rest_api),
-    StageName=stage_name
+))
+
+stage = t.add_resource(Stage(
+    '%sStage' % stage_name,
+    StageName=stage_name,
+    RestApiId=Ref(rest_api),
+    DeploymentId=Ref(deployment)
 ))
 
 key = t.add_resource(ApiKey(
     "ApiKey",
     StageKeys=[StageKey(
         RestApiId=Ref(rest_api),
-        StageName=stage_name
+        StageName=Ref(stage)
     )]
 ))
 
