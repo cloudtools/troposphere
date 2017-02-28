@@ -96,7 +96,10 @@ class SNSEvent(AWSObject):
 def starting_position_validator(x):
     valid_types = ['TRIM_HORIZON', 'LATEST']
     if x not in valid_types:
-        raise ValueError("StartingPosition must be one of: %s" % ", ".join(valid_types))
+        raise ValueError(
+            "StartingPosition must be one of: %s"
+            % ", ".join(valid_types)
+        )
     return x
 
 

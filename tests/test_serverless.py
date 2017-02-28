@@ -2,6 +2,7 @@ import unittest
 from troposphere import Template
 from troposphere.serverless import Function, Api, SimpleTable
 
+
 class TestServerless(unittest.TestCase):
     def test_required_function(self):
         serverless_func = Function(
@@ -31,6 +32,7 @@ class TestServerless(unittest.TestCase):
         t = Template()
         t.add_resource(serverless_table)
         t.to_json()
+
 
 if __name__ == '__main__':
     unittest.main()
