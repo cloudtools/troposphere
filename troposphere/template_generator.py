@@ -30,7 +30,7 @@ from troposphere.policies import UpdatePolicy, CreationPolicy
 
 
 class TemplateGenerator(Template):
-    DEPRECATED_MODULES = ['troposphere.dynamodb']
+    DEPRECATED_MODULES = ['troposphere.dynamodb', 'troposphere.serverless']
 
     _inspect_members = set()
     _inspect_resources = {}
