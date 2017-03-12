@@ -9,7 +9,7 @@ from . import AWSObject, AWSProperty
 class Targets(AWSProperty):
     props = {
         'Key': (basestring, True),
-        'Value': ([basestring], True),
+        'Values': ([basestring], True),
     }
 
 
