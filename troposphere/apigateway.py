@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import positive_integer
 import json
 
@@ -196,6 +196,8 @@ class Model(AWSObject):
             elif isinstance(schema, dict):
                 # Convert the dict to a basestring
                 self.properties['Schema'] = json.dumps(schema)
+            elif isinstance(schema, AWSHelperFn):
+                pass
             else:
                 raise ValueError("Schema must be a str or dict")
 

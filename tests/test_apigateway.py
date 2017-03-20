@@ -1,4 +1,5 @@
 import unittest
+from troposphere import Join
 from troposphere.apigateway import Model
 
 
@@ -45,6 +46,14 @@ class TestModel(unittest.TestCase):
                 RestApiId="apiid",
                 Schema=1
             )
+
+        # Check Schema being an AWSHelperFn
+        model = Model(
+            "schema",
+            RestApiId="apiid",
+            Schema=Join(':', ['{"a', ': "b"}']),
+        )
+        model.validate()
 
 
 if __name__ == '__main__':
