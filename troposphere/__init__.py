@@ -425,7 +425,7 @@ class Select(AWSHelperFn):
 
 class Ref(AWSHelperFn):
     def __init__(self, data):
-        if type(data) == type([]):
+        if isinstance(data, list):
             self.data = []
             for item in data:
                 self.data.append({'Ref': item})
