@@ -425,7 +425,12 @@ class Select(AWSHelperFn):
 
 class Ref(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Ref': self.getdata(data)}
+        if type(data) == type([]):
+            self.data = []
+            for item in data:
+                self.data.append({'Ref': item})
+        else:
+            self.data = {'Ref': self.getdata(data)}
 
 
 class Condition(AWSHelperFn):
