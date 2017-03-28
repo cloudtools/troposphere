@@ -23,7 +23,9 @@ class Queue(AWSObject):
     resource_type = "AWS::SQS::Queue"
 
     props = {
+        'ContentBasedDeduplication': (bool, False),
         'DelaySeconds': (integer, False),
+        'FifoQueue': (bool, False),
         'MaximumMessageSize': (integer, False),
         'MessageRetentionPeriod': (integer, False),
         'QueueName': (basestring, False),
