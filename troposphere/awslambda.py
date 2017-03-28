@@ -110,6 +110,13 @@ class EventSourceMapping(AWSObject):
     }
 
 
+class DeadLetterConfig(AWSProperty):
+
+    props = {
+        'TargetArn': (basestring, False),
+    }
+
+
 class Environment(AWSProperty):
 
     props = {
@@ -123,6 +130,7 @@ class Function(AWSObject):
     props = {
         'Code': (Code, True),
         'Description': (basestring, False),
+        'DeadLetterConfig': (DeadLetterConfig, False),
         'Environment': (Environment, False),
         'FunctionName': (basestring, False),
         'Handler': (basestring, True),
