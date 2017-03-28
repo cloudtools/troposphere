@@ -559,6 +559,8 @@ class VPCPeeringConnection(AWSObject):
         'PeerVpcId': (basestring, True),
         'VpcId': (basestring, True),
         'Tags': (list, False),
+        'PeerOwnerId': (basestring, False),
+        'PeerRoleArn': (basestring, False),
     }
 
 
