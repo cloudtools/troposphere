@@ -67,6 +67,7 @@ class InstanceProfile(AWSObject):
     props = {
         'Path': (iam_path, False),
         'Roles': (list, True),
+        'InstanceProfileName': (basestring, False),
     }
 
 
