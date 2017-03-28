@@ -284,3 +284,13 @@ class UsagePlan(AWSObject):
         "Throttle": (ThrottleSettings, False),
         "UsagePlanName": (basestring, False),
     }
+
+
+class UsagePlanKey(AWSObject):
+    resource_type = "AWS::ApiGateway::UsagePlanKey"
+
+    props = {
+        "KeyId": (basestring, True),
+        "KeyType": (basestring, True),
+        "UsagePlanId": (basestring, True),
+    }
