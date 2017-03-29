@@ -24,6 +24,7 @@ class Cluster(AWSObject):
         'Encrypted': (boolean, False),
         'HsmClientCertificateIdentifier': (basestring, False),
         'HsmConfigurationIdentifier': (basestring, False),
+        'IamRoles': ([basestring], False),
         'KmsKeyId': (basestring, False),
         'MasterUsername': (basestring, True),
         'MasterUserPassword': (basestring, True),
