@@ -87,7 +87,7 @@ class AlarmIdentifier(AWSProperty):
 class HealthCheckConfiguration(AWSProperty):
     props = {
         'AlarmIdentifier': (AlarmIdentifier, False),
-        'ChildHealthChecks': (basestring, False),
+        'ChildHealthChecks': ([basestring], False),
         'EnableSNI': (boolean, False),
         'FailureThreshold': (positive_integer, False),
         'FullyQualifiedDomainName': (basestring, False),
