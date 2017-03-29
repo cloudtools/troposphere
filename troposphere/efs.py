@@ -1,4 +1,4 @@
-from . import AWSObject, Tags
+from . import AWSObject
 
 
 class FileSystem(AWSObject):
