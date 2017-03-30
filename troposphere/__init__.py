@@ -444,6 +444,9 @@ class Tags(AWSHelperFn):
             # Assume kwargs variant
             tag_dict = kwargs
         else:
+            if len(args) != 1:
+                raise(TypeError, "Multiple non-kwargs passed to Tags")
+
             # Validate single argument passed in is a dict
             if not isinstance(args[0], dict):
                 raise(TypeError, "Tags needs to be either kwargs or dict")

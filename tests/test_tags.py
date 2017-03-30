@@ -42,6 +42,15 @@ class TestTags(unittest.TestCase):
         tags = Tags({'test-tag': '123456'})
         self.assertEqual(tags.to_dict(), result)
 
+        with self.assertRaises(TypeError):
+            Tags(1)
+        with self.assertRaises(TypeError):
+            Tags("tag")
+        with self.assertRaises(TypeError):
+            Tags("key", "value")
+        with self.assertRaises(TypeError):
+            Tags({}, "key", "value")
+
 
 if __name__ == '__main__':
     unittest.main()
