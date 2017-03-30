@@ -26,6 +26,22 @@ class TestTags(unittest.TestCase):
         ]
         self.assertEqual(tags.to_dict(), result)
 
+    def test_Formats(self):
+        result = [
+            {'Value': 'bar', 'Key': 'bar'},
+            {'Value': 'baz', 'Key': 'baz'},
+            {'Value': 'foo', 'Key': 'foo'},
+        ]
+        tags = Tags(bar='bar', baz='baz', foo='foo')
+        self.assertEqual(tags.to_dict(), result)
+        tags = Tags({'bar': 'bar', 'baz': 'baz', 'foo': 'foo'})
+        self.assertEqual(tags.to_dict(), result)
+        tags = Tags(**{'bar': 'bar', 'baz': 'baz', 'foo': 'foo'})
+        self.assertEqual(tags.to_dict(), result)
+        result = [{'Key': 'test-tag', 'Value': '123456'}]
+        tags = Tags({'test-tag': '123456'})
+        self.assertEqual(tags.to_dict(), result)
+
 
 if __name__ == '__main__':
     unittest.main()
