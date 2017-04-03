@@ -439,9 +439,21 @@ class ImportValue(AWSHelperFn):
 
 
 class Tags(AWSHelperFn):
-    def __init__(self, **kwargs):
+    def __init__(self, *args, **kwargs):
+        if not args:
+            # Assume kwargs variant
+            tag_dict = kwargs
+        else:
+            if len(args) != 1:
+                raise(TypeError, "Multiple non-kwargs passed to Tags")
+
+            # Validate single argument passed in is a dict
+            if not isinstance(args[0], dict):
+                raise(TypeError, "Tags needs to be either kwargs or dict")
+            tag_dict = args[0]
+
         self.tags = []
-        for k, v in sorted(kwargs.iteritems()):
+        for k, v in sorted(tag_dict.iteritems()):
             self.tags.append({
                 'Key': k,
                 'Value': v,

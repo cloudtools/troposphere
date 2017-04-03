@@ -25,7 +25,7 @@ from troposphere import (
     Output, Parameter,  # AWSDeclarations
     AWSObject,  # covers resources
     AWSHelperFn, GenericHelperFn,  # covers ref, fn::, etc
-    autoscaling, cloudformation)
+    Tags, autoscaling, cloudformation)
 from troposphere.policies import UpdatePolicy, CreationPolicy
 
 
@@ -178,6 +178,12 @@ class TemplateGenerator(Template):
             # special handling for functions, we want to handle it before
             # entering the other conditions.
             try:
+                if issubclass(cls, Tags):
+                    arg_dict = {}
+                    for d in args:
+                        arg_dict[d['Key']] = d['Value']
+                    return cls(arg_dict)
+
                 if (isinstance(args, Sequence) and
                         not isinstance(args, basestring)):
                     return cls(*self._convert_definition(args))
