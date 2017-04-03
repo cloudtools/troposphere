@@ -26,7 +26,7 @@ s3bucket = t.add_resource(Bucket(
     VersioningConfiguration=VersioningConfiguration(
         Status="Enabled",
     ),
-    # Attach a LifeCycle Confiragtion
+    # Attach a LifeCycle Configuration
 
     LifecycleConfiguration=LifecycleConfiguration(Rules=[
         # Add a rule to
