@@ -33,4 +33,6 @@ class Alarm(AWSObject):
         'Statistic': (basestring, True),
         'Threshold': (basestring, True),
         'Unit': (basestring, False),
+        'TreatMissingData': (basestring, False),
+        'EvaluateLowSampleCountPercentile': (basestring, False)
     }
