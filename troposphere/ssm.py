@@ -34,3 +34,14 @@ class Document(AWSObject):
         'Content': (dict, True),
         'DocumentType': (basestring, False),
     }
+
+
+class Parameter(AWSObject):
+    resource_type = "AWS::SSM::Parameter"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, False),
+        'Type': (basestring, True),
+        'Value': (basestring, True),
+    }
