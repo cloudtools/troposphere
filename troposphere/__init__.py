@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2013, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2017, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -12,7 +12,7 @@ import types
 
 from . import validators
 
-__version__ = "1.9.2"
+__version__ = "1.9.3"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
