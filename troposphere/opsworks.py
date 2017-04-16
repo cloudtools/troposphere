@@ -203,6 +203,7 @@ class Instance(AWSObject):
         'ElasticIps': ([basestring], False),
         'Hostname': (basestring, False),
         'InstallUpdatesOnBoot': (boolean, False),
+        'AutoScalingType': (basestring, False),
         'InstanceType': (basestring, True),
         'LayerIds': ([basestring], True),
         'Os': (basestring, False),
