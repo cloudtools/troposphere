@@ -33,4 +33,5 @@ class Alarm(AWSObject):
         'Statistic': (basestring, True),
         'Threshold': (basestring, True),
         'Unit': (basestring, False),
+        'Comment': (basestring, False),
     }
