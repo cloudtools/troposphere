@@ -124,8 +124,11 @@ class ViewerCertificate(AWSProperty):
         'AcmCertificateArn': (basestring, False),
         'CloudFrontDefaultCertificate': (boolean, False),
         'IamCertificateId': (basestring, False),
+        'ACMCertificateArn': (basestring, False),
         'MinimumProtocolVersion': (basestring, False),
         'SslSupportMethod': (basestring, False),
+        'Certificate': (basestring, False),
+        'CertificateSource': (basestring, False),
     }
 
 
