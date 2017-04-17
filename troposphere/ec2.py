@@ -534,6 +534,16 @@ class VPNConnectionRoute(AWSObject):
     }
 
 
+class VPCEndpoint(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpoint"
+
+    props = {
+        'RouteTableIds': (list, True),
+        'ServiceName': (basestring, True),
+        'VpcId': (basestring, True),
+    }
+
+
 class VPNGateway(AWSObject):
     resource_type = "AWS::EC2::VPNGateway"
 
