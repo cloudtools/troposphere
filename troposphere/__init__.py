@@ -32,7 +32,7 @@ MAX_PARAMETERS = 60
 MAX_RESOURCES = 200
 PARAMETER_TITLE_MAX = 255
 
-valid_names = re.compile(r'^[a-zA-Z0-9]+$')
+valid_names = re.compile(r'^[a-zA-Z0-9-_]+$')
 
 
 def is_aws_object_subclass(cls):
