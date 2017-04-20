@@ -273,11 +273,15 @@ class BaseAWSObject(object):
 class AWSObject(BaseAWSObject):
     dictname = 'Properties'
 
-    def Ref(self):  # noqa: N802
+    def ref(self):
         return Ref(self)
 
-    def GetAtt(self, value):  # noqa: N802
+    Ref = ref
+
+    def get_att(self, value):
         return GetAtt(self, value)
+
+    GetAtt = get_att
 
 
 class AWSDeclaration(BaseAWSObject):
