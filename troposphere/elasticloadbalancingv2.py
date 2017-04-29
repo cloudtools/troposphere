@@ -108,6 +108,7 @@ class LoadBalancer(AWSObject):
         'LoadBalancerAttributes': ([LoadBalancerAttributes], False),
         'Name': (elb_name, False),
         'Scheme': (basestring, False),
+        'IpAddressType': (basestring, False),
         'SecurityGroups': (list, False),
         'Subnets': (list, True),
         'Tags': (list, False),
