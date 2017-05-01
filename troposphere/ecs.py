@@ -35,6 +35,7 @@ class Service(AWSObject):
         'DesiredCount': (positive_integer, False),
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
+        'ServiceName': (basestring, False),
         'TaskDefinition': (basestring, True),
     }
 
