@@ -24,8 +24,8 @@ class TestECS(unittest.TestCase):
             'Service',
             Cluster='cluster',
             DesiredCount=2,
-            PlacementStategies='spread',
-            PlacementConstraint='distinctInstance',
+            PlacementStrategies=[ecs.PlacementStrategy(Type="blah")],
+            PlacementConstraints=[ecs.PlacementConstraint(Type="test")],
             TaskDefinition=Ref(task_definition),
         )
 
