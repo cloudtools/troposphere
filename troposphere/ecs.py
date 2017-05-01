@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, network_port, positive_integer, placement_strategy, placement_constraint
+from .validators import boolean, network_port, positive_integer
 
 
 class Cluster(AWSObject):
@@ -28,14 +28,14 @@ class DeploymentConfiguration(AWSProperty):
 
 class PlacementConstraint(AWSProperty):
     props = {
-        'Type': (placement_constraint, True),
+        'Type': (basestring, True),
         'Expression': (basestring, False),
     }
 
 
 class PlacementStrategy(AWSProperty):
     props = {
-        'Type': (placement_strategy, True),
+        'Type': (basestring, True),
         'Field': (basestring, False),
     }
 
