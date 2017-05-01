@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty, Join
+from . import AWSObject, AWSProperty, Join, Tags
 from .validators import positive_integer
 
 MEMORY_VALUES = [x for x in range(128, 1600, 64)]
@@ -138,6 +138,7 @@ class Function(AWSObject):
         'MemorySize': (validate_memory_size, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
+        'Tags': (Tags, False),
         'Timeout': (positive_integer, False),
         'VpcConfig': (VPCConfig, False),
     }
