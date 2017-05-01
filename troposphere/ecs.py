@@ -36,6 +36,7 @@ class Service(AWSObject):
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
         'PlacementConstraints': ([PlacementConstraints], False),
+        'PlacementStrategies': ([PlacementStrategies], False),
         'TaskDefinition': (basestring, True),
     }
 
@@ -70,6 +71,12 @@ class VolumesFrom(AWSProperty):
     }
 
 class PlacementConstraints(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Field': (basestring, False),
+    }
+
+class PlacementStrategies(AWSProperty):
     props = {
         'Type': (basestring, True),
         'Expression': (basestring, False),
