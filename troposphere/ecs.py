@@ -35,6 +35,8 @@ class Service(AWSObject):
         'DesiredCount': (positive_integer, False),
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
+        'PlacementConstraints': ([PlacementConstraint], False),
+        'PlacementStrategies': ([PlacementStrategy], False),
         'TaskDefinition': (basestring, True),
     }
 
@@ -68,6 +70,17 @@ class VolumesFrom(AWSProperty):
         'ReadOnly': (boolean, False),
     }
 
+class PlacementConstraint(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Expression': (basestring, False),
+    }
+
+class PlacementStrategy(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Field': (basestring, False),
+    }
 
 class HostEntry(AWSProperty):
     props = {
