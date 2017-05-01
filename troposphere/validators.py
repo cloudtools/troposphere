@@ -79,6 +79,20 @@ def s3_bucket_name(b):
         raise ValueError("%s is not a valid s3 bucket name" % b)
 
 
+def placement_strategy(x):
+    valid_types = ['random', 'spread', 'binpack']
+    if x not in valid_types:
+        raise ValueError('Type must be one of: %s' %', '.join(valid_types))
+    return x
+
+
+def placement_constraint(x):
+    valid_types = ['distinctInstance', 'memberOf']
+    if x not in valid_types:
+        raise ValueError('Type must be one of: %s' %', '.join(valid_types))
+    return x
+
+
 def elb_name(b):
     elb_name_re = compile(r'^[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,30}[a-zA-Z0-9]{1})?$')  # noqa
     if elb_name_re.match(b):
