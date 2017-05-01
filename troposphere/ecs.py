@@ -73,13 +73,13 @@ class VolumesFrom(AWSProperty):
 class PlacementConstraint(AWSProperty):
     props = {
         'Type': (basestring, True),
-        'Field': (basestring, False),
+        'Expression': (basestring, False),
     }
 
 class PlacementStrategy(AWSProperty):
     props = {
         'Type': (basestring, True),
-        'Expression': (basestring, False),
+        'Field': (basestring, False),
     }
 
 class HostEntry(AWSProperty):
