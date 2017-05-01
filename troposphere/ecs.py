@@ -25,17 +25,20 @@ class DeploymentConfiguration(AWSProperty):
         'MinimumHealthyPercent': (positive_integer, False),
     }
 
+
 class PlacementConstraint(AWSProperty):
     props = {
         'Type': (basestring, True),
         'Expression': (basestring, False),
     }
 
+
 class PlacementStrategy(AWSProperty):
     props = {
         'Type': (basestring, True),
         'Field': (basestring, False),
     }
+
 
 class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
