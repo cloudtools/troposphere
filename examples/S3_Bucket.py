@@ -10,7 +10,7 @@ t = Template()
 t.add_description(
     "AWS CloudFormation Sample Template S3_Bucket: Sample template showing "
     "how to create a publicly accessible S3 bucket. "
-    "**WARNING** This template creates an Amazon EC2 instance. "
+    "**WARNING** This template creates an Amazon S3 Bucket. "
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
 
