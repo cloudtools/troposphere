@@ -26,6 +26,36 @@ class DeploymentConfiguration(AWSProperty):
     }
 
 
+def placement_strategy_validator(x):
+    valid_values = ['random', 'spread', 'binpack']
+    if x not in valid_values:
+        raise ValueError("Placement Strategy type must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
+def placement_constraint_validator(x):
+    valid_values = ['distinctInstance', 'memberOf']
+    if x not in valid_values:
+        raise ValueError("Placement Constraint type must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
+class PlacementConstraint(AWSProperty):
+    props = {
+        'Type': (placement_constraint_validator, True),
+        'Expression': (basestring, False),
+    }
+
+
+class PlacementStrategy(AWSProperty):
+    props = {
+        'Type': (placement_strategy_validator, True),
+        'Field': (basestring, False),
+    }
+
+
 class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
@@ -35,6 +65,9 @@ class Service(AWSObject):
         'DesiredCount': (positive_integer, False),
         'LoadBalancers': ([LoadBalancer], False),
         'Role': (basestring, False),
+        'PlacementConstraints': ([PlacementConstraint], False),
+        'PlacementStrategies': ([PlacementStrategy], False),
+        'ServiceName': (basestring, False),
         'TaskDefinition': (basestring, True),
     }
 

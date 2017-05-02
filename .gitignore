@@ -34,6 +34,7 @@ nosetests.xml
 .project
 .pydevproject
 .idea
+.venv
 
 # Vim
 *.sw*
