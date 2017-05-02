@@ -393,6 +393,7 @@ class SecurityGroupIngress(AWSObject):
 class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
+        'CidrIpv6': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
