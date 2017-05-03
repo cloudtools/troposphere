@@ -409,6 +409,7 @@ class SecurityGroup(AWSObject):
     resource_type = "AWS::EC2::SecurityGroup"
 
     props = {
+        'GroupName': (basestring, False),
         'GroupDescription': (basestring, True),
         'SecurityGroupEgress': (list, False),
         'SecurityGroupIngress': (list, False),
