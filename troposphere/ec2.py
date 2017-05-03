@@ -134,7 +134,7 @@ class Placement(AWSProperty):
 class Ipv6Addresses(AWSHelperFn):
     def __init__(self, address):
         self.data = {
-            'Ipv6Addresses': address,
+            'Ipv6Address': address,
         }
 
 
