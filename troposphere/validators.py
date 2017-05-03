@@ -45,7 +45,8 @@ def integer_list_item(allowed_values):
         i = positive_integer(x)
         if i in allowed_values:
             return x
-        raise ValueError('Integer must be one of following: %s' % ', '.join(str(j) for j in allowed_values))
+        raise ValueError('Integer must be one of following: %s' %
+                         ', '.join(str(j) for j in allowed_values))
 
     return integer_list_item_checker
 

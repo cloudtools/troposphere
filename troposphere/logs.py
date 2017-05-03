@@ -1,6 +1,6 @@
 from . import AWSObject, AWSProperty
 from .validators import integer_list_item
-from .constants import LOGS_ALLOWED_RETENTION_DAYS
+from .constants import LOGS_ALLOWED_RETENTION_DAYS as RETENTION_DAYS
 
 
 class Destination(AWSObject):
@@ -19,7 +19,7 @@ class LogGroup(AWSObject):
 
     props = {
         'LogGroupName': (basestring, False),
-        'RetentionInDays': (integer_list_item(LOGS_ALLOWED_RETENTION_DAYS), False),
+        'RetentionInDays': (integer_list_item(RETENTION_DAYS), False),
     }
 
 
