@@ -281,6 +281,8 @@ class NetworkInterface(AWSObject):
     props = {
         'Description': (basestring, False),
         'GroupSet': (list, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),
