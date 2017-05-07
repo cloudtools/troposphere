@@ -134,7 +134,7 @@ class Placement(AWSProperty):
 class Ipv6Addresses(AWSHelperFn):
     def __init__(self, address):
         self.data = {
-            'Ipv6Addresses': address,
+            'Ipv6Address': address,
         }
 
 
@@ -281,6 +281,8 @@ class NetworkInterface(AWSObject):
     props = {
         'Description': (basestring, False),
         'GroupSet': (list, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),
@@ -407,6 +409,7 @@ class SecurityGroup(AWSObject):
     resource_type = "AWS::EC2::SecurityGroup"
 
     props = {
+        'GroupName': (basestring, False),
         'GroupDescription': (basestring, True),
         'SecurityGroupEgress': (list, False),
         'SecurityGroupIngress': (list, False),
