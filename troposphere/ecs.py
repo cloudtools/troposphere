@@ -175,6 +175,7 @@ class TaskDefinition(AWSObject):
         'ContainerDefinitions': ([ContainerDefinition], True),
         'Family': (basestring, False),
         'NetworkMode': (basestring, False),
+        'PlacementConstraints': ([PlacementConstraint], False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
     }
