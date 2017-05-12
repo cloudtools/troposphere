@@ -22,6 +22,12 @@ def integer(x):
         return x
 
 
+def string_or_integer(val):
+    if isinstance(val, int) or isinstance(val, str):
+        return str(val)
+    raise ValueError("%r is not a valid integer or string" % val)
+
+
 def positive_integer(x):
     p = integer(x)
     if int(p) < 0:
