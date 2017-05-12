@@ -580,7 +580,7 @@ class Parameter(AWSDeclaration):
     NUMBER_PROPERTIES = ['MaxValue', 'MinValue']
     props = {
         'Type': (basestring, True),
-        'Default': (validators.string_or_integer, False),
+        'Default': (validators.integer, False),
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
         'AllowedPattern': (basestring, False),
