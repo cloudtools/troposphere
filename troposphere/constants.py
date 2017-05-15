@@ -292,6 +292,12 @@ LIST_OF_VPC_IDS = 'List<AWS::EC2::VPC::Id>'
 LIST_OF_HOSTED_ZONE_IDS = 'List<AWS::Route53::HostedZone::Id>'
 
 #
+# Logs
+#
+LOGS_ALLOWED_RETENTION_DAYS = [1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
+                               365, 400, 545, 731, 1827, 3653]
+
+#
 # Route53
 #
 
