@@ -273,6 +273,16 @@ class BaseAWSObject(object):
 class AWSObject(BaseAWSObject):
     dictname = 'Properties'
 
+    def ref(self):
+        return Ref(self)
+
+    Ref = ref
+
+    def get_att(self, value):
+        return GetAtt(self, value)
+
+    GetAtt = get_att
+
 
 class AWSDeclaration(BaseAWSObject):
     """
@@ -362,7 +372,7 @@ class FindInMap(AWSHelperFn):
 
 
 class GetAtt(AWSHelperFn):
-    def __init__(self, logicalName, attrName):
+    def __init__(self, logicalName, attrName):  # noqa: N803
         self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
 
 
@@ -487,7 +497,7 @@ class Template(object):
         'Outputs': (dict, False),
     }
 
-    def __init__(self, Description=None, Metadata=None):
+    def __init__(self, Description=None, Metadata=None):  # noqa: N803
         self.description = Description
         self.metadata = {} if Metadata is None else Metadata
         self.conditions = {}
