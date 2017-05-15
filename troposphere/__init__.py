@@ -428,6 +428,15 @@ class Ref(AWSHelperFn):
         self.data = {'Ref': self.getdata(data)}
 
 
+# Pseudo Parameter Ref's
+AccountId = Ref(AWS_ACCOUNT_ID)
+NotificationARNs = Ref(AWS_NOTIFICATION_ARNS)
+NoValue = Ref(AWS_NO_VALUE)
+Region = Ref(AWS_REGION)
+StackId = Ref(AWS_STACK_ID)
+StackName = Ref(AWS_STACK_NAME)
+
+
 class Condition(AWSHelperFn):
     def __init__(self, data):
         self.data = {'Condition': self.getdata(data)}
