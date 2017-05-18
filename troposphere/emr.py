@@ -186,6 +186,7 @@ class InstanceGroupConfig(AWSObject):
         'InstanceCount': (integer, True),
         'InstanceRole': (basestring, True),
         'InstanceType': (basestring, True),
+        'JobFlowId': (basestring, True),
         'Market': (market_validator, False),
         'Name': (basestring, False)
     }
