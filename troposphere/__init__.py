@@ -599,7 +599,7 @@ class Parameter(AWSDeclaration):
     NUMBER_PROPERTIES = ['MaxValue', 'MinValue']
     props = {
         'Type': (basestring, True),
-        'Default': (basestring, False),
+        'Default': ((basestring, int, float), False),
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
         'AllowedPattern': (basestring, False),
@@ -618,6 +618,44 @@ class Parameter(AWSDeclaration):
         super(Parameter, self).validate_title()
 
     def validate(self):
+        def check_type(t, v):
+            try:
+                t(v)
+                return True
+            except ValueError:
+                return False
+
+        # Validate the Default parameter value
+        default = self.properties.get('Default')
+        if default:
+            error_str = ("Parameter default type mismatch: expecting "
+                         "type %s got %s with value %r")
+            # Get the Type specified and see whether the default type
+            # matches (in the case of a String Type) or can be coerced
+            # into one of the number formats.
+            param_type = self.properties.get('Type')
+            if param_type == 'String' and not isinstance(default, basestring):
+                raise ValueError(error_str %
+                                 ('String', type(default), default))
+            elif param_type == 'Number':
+                allowed = [float, int]
+                # See if the default value can be coerced into one
+                # of the correct types
+                if not any(map(lambda x: check_type(x, default), allowed)):
+                    raise ValueError(error_str %
+                                     (param_type, type(default), default))
+            elif param_type == 'List<Number>':
+                if not isinstance(default, basestring):
+                    raise ValueError(error_str %
+                                     (param_type, type(default), default))
+                allowed = [float, int]
+                dlist = default.split(",")
+                for d in dlist:
+                    # Verify the split array are all numbers
+                    if not any(map(lambda x: check_type(x, d), allowed)):
+                        raise ValueError(error_str %
+                                         (param_type, type(d), dlist))
+
         if self.properties['Type'] != 'String':
             for p in self.STRING_PROPERTIES:
                 if p in self.properties:
