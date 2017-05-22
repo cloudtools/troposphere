@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
-from troposphere import Base64, Join
+import re
+
+from troposphere import Base64, Join, Ref
 
 
 def from_file(filepath, delimiter='', blanklines=False):
