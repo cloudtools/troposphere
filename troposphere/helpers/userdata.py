@@ -24,7 +24,7 @@ def from_file(filepath, delimiter='', blanklines=False):
     :return The base64 representation of the file.
     """
 
-    ref_pattern = re.compile('(?P<pre>.*)Ref\(\'(?P<ref>[a-zA-Z0-9\:]+)\'\)(?P<post>.*[^\\*])')
+    ref_pattern = re.compile('(?P<prefix>.*)Ref\(\'(?P<reference>[a-zA-Z0-9\:]+)\'\)(?P<suffix>.*[^\\*])')
     data = []
 
     try:
@@ -36,11 +36,11 @@ def from_file(filepath, delimiter='', blanklines=False):
                 ref_ex = ref_pattern.match(line)
 
                 if ref_ex:
-                    data.append(ref_ex.group('pre'))
-                    data.append(Ref(ref_ex.group('ref')))
+                    data.append(ref_ex.group('prefix'))
+                    data.append(Ref(ref_ex.group('reference')))
 
-                    if ref_ex.group('post'):
-                        data.append(ref_ex.group('post'))
+                    if ref_ex.group('suffix'):
+                        data.append(ref_ex.group('suffix'))
                         continue
 
                 else:
