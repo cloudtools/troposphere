@@ -24,24 +24,23 @@ def from_file(filepath, delimiter='', blanklines=False):
     :return The base64 representation of the file.
     """
 
-    ref_pattern = re.compile('(?P<prefix>.*)Ref\(\'(?P<ref_name>[a-zA-Z0-9\:]+)\'\)(?P<postfix>.*[^\\*])')
+    ref_pattern = re.compile('(?P<pre>.*)Ref\(\'(?P<ref>[a-zA-Z0-9\:]+)\'\)(?P<post>.*[^\\*])')
     data = []
 
     try:
         with open(filepath, 'r') as f:
             for line in f:
-                print line
                 if blanklines and line.strip('\n\r ') == '':
                     continue
 
                 ref_ex = ref_pattern.match(line)
 
                 if ref_ex:
-                    data.append(ref_ex.group('prefix'))
-                    data.append(Ref(ref_ex.group('ref_name')))
+                    data.append(ref_ex.group('pre'))
+                    data.append(Ref(ref_ex.group('ref')))
 
-                    if ref_ex.group('postfix'):
-                        data.append(ref_ex.group('postfix'))
+                    if ref_ex.group('post'):
+                        data.append(ref_ex.group('post'))
                         continue
 
                 else:
@@ -49,5 +48,4 @@ def from_file(filepath, delimiter='', blanklines=False):
     except IOError:
         raise IOError('Error opening or reading file: {}'.format(filepath))
 
-    print data
     return Base64(Join(delimiter, data))
