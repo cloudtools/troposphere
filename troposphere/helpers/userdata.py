@@ -24,7 +24,10 @@ def from_file(filepath, delimiter='', blanklines=False):
     :return The base64 representation of the file.
     """
 
-    ref_pattern = re.compile('(?P<prefix>.*)Ref\(\'(?P<reference>[a-zA-Z0-9\:]+)\'\)(?P<suffix>.*[^\\*])')
+    pattern = r"""(?P<prefix>.*)
+    Ref\(\'(?P<reference>[a-zA-Z0-9\:]+)\'\)
+    (?P<suffix>.*[^\\*])"""
+    ref_pattern = re.compile(pattern, re.VERBOSE)
     data = []
 
     try:

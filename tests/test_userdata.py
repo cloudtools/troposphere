@@ -58,8 +58,10 @@ class TestUserdata(unittest.TestCase):
 
     def test_if_ref_is_replaced(self):
         result = self.create_result('ref_func.sh')
-        answer = self.create_answer(['/opt/aws/bin/cfn-init -v --stack "Ref(\'AWS::StackName\')" \\\n'])
+        answer = self.create_answer(["""/opt/aws/bin/cfn-init -v \
+--stack "Ref(\'AWS::StackName\')" \\\n"""])
         self.assertEqual(result, answer)
+
 
 if __name__ == '__main__':
     unittest.main()
