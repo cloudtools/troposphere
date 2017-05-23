@@ -270,9 +270,7 @@ def main():
         PolicyName='WebServerRole',
         PolicyDocument=awacs.aws.Policy(
             Statement=[awacs.aws.Statement(
-                Action=[
-                    awacs.aws.Action("elasticache", "DescribeCacheClusters")
-                ],
+                Action=[awacs.aws.Action("elasticache", "DescribeCacheClusters")],
                 Resource=["*"],
                 Effect=awacs.aws.Allow
             )]

@@ -670,9 +670,13 @@
                 "PolicyDocument": {
                     "Statement": [
                         {
-                            "Action": "elasticache:DescribeCacheClusters",
+                            "Action": [
+                                "elasticache:DescribeCacheClusters"
+                            ],
                             "Effect": "Allow",
-                            "Resource": "*"
+                            "Resource": [
+                                "*"
+                            ]
                         }
                     ]
                 },
