@@ -58,9 +58,12 @@ class TestUserdata(unittest.TestCase):
 
     def test_if_ref_is_replaced(self):
         result = self.create_result('ref_func.sh')
+
         answer = self.create_answer([
             '--stack "',
-            '{\'Ref\': \'AWS::StackName\'}',
+            {
+                'Ref': 'AWS::StackName'
+            },
             '" \\\n'
             ])
         self.assertEqual(result, answer)
