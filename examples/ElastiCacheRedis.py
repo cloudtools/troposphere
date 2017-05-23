@@ -263,7 +263,7 @@ def main():
                 ]
             ),
         Path='/',
-        ))
+    ))
 
     template.add_resource(iam.PolicyType(
         'WebServerRolePolicy',
@@ -278,7 +278,7 @@ def main():
             )]
         ),
         Roles=[Ref(webserverrole)],
-        ))
+    ))
 
     webserverinstanceprofile = template.add_resource(iam.InstanceProfile(
         'WebServerInstanceProfile',
