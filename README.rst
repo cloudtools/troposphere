@@ -258,7 +258,7 @@ Duplicating a single instance sample would look like this
 UserData
 ========
 You can pass in user data script to your launch config using ``from_file`` helper function under helpers/userdata.py file.
-You can also use ```Ref``` method in the script file which will be translated into CloudFormation function.
+You can also use ``Ref`` method in the script file which will be translated into CloudFormation function.
 
 Example:
 
