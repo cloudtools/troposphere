@@ -268,7 +268,7 @@ def main():
     template.add_resource(iam.PolicyType(
         'WebServerRolePolicy',
         PolicyName='WebServerRole',
-	PolicyDocument=awacs.aws.Policy(
+        PolicyDocument=awacs.aws.Policy(
             Statement=[awacs.aws.Statement(
                 Action=[
                     awacs.aws.Action("elasticache", "DescribeCacheClusters")
