@@ -121,6 +121,61 @@ class EbsConfiguration(AWSProperty):
         'EbsOptimized': (boolean, False)
     }
 
+class Constraints(AWSProperty):
+    props = {
+        'MinCapacity': (integer, False),
+        'MaxCapacity': (integer, False)
+    }
+
+class Rules(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+        'Description': (basestring, False),
+        'Action': (RulesActionConfig, False)
+    }
+
+class RulesActionConfig(AWSProperty):
+    props = {
+        'Market': (market_validator, False),
+        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfiguration, False)
+    }
+
+class SimpleScalingPolicyConfiguration(AWSProperty):
+    props = {
+        'AdjustmentType': (basestring, False),
+        'ScalingAdjustment': (positive_integer, False),
+        'CoolDown': (positive_integer)
+        'Trigger': ([Trigger], False)
+    }
+
+class Trigger(AWSProperty):
+    props = {
+        'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, False),
+    }
+
+class CloudWatchAlarmDefinition(AWSProperty):
+    props = {
+        'ComparisonOperator': (basestring, False),
+        'EvaluationPeriods': (positive_integer, False),
+        'MetricName': (basestring, False),
+        'Namespace': (basestring, False),
+        'Period': (positive_integer, False),
+        'Statistic': (basestring, False),
+        'Threshold': (positive_integer, False),
+        'Unit': (basestring, False),
+        'Dimensions': ([Dimensions], False)
+    }
+
+class Dimensions(AWSProperty):
+    props = {
+        'Dimensions': ([KeyValue], False)
+    }
+
+class AutoScalingPolicy(AWSProperty):
+    props = {
+        'Constraints': (Constraints, True),
+        'Rules': ([Rules], False)
+    }
 
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
@@ -130,7 +185,8 @@ class InstanceGroupConfigProperty(AWSProperty):
         'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
-        'Name': (basestring, False)
+        'Name': (basestring, False),
+        'AutoScalingPolicy': (AutoScalingPolicy, False)
     }
 
 
