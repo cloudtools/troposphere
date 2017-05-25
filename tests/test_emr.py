@@ -4,8 +4,8 @@ from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE, NUMBER
 import unittest
 import troposphere.emr as emr
 
-class TestEMR(unittest.TestCase):
 
+class TestEMR(unittest.TestCase):
 
     def test_allow_string_cluster(self):
         cluster = emr.Cluster(
@@ -25,7 +25,8 @@ class TestEMR(unittest.TestCase):
                         Path='file:/usr/share/aws/emr/scripts/install-hue',
                         Args=["dummy", "parameter"]
                     )
-            )],
+                )
+            ],
             Configurations=[
                 emr.Configuration(
                     Classification="core-site",
