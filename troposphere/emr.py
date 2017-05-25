@@ -127,32 +127,6 @@ class Constraints(AWSProperty):
         'MaxCapacity': (integer, False)
     }
 
-class Rules(AWSProperty):
-    props = {
-        'Name': (basestring, False),
-        'Description': (basestring, False),
-        'Action': (RulesActionConfig, False)
-    }
-
-class RulesActionConfig(AWSProperty):
-    props = {
-        'Market': (market_validator, False),
-        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfiguration, False)
-    }
-
-class SimpleScalingPolicyConfiguration(AWSProperty):
-    props = {
-        'AdjustmentType': (basestring, False),
-        'ScalingAdjustment': (positive_integer, False),
-        'CoolDown': (positive_integer)
-        'Trigger': ([Trigger], False)
-    }
-
-class Trigger(AWSProperty):
-    props = {
-        'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, False),
-    }
-
 class CloudWatchAlarmDefinition(AWSProperty):
     props = {
         'ComparisonOperator': (basestring, False),
@@ -163,13 +137,53 @@ class CloudWatchAlarmDefinition(AWSProperty):
         'Statistic': (basestring, False),
         'Threshold': (positive_integer, False),
         'Unit': (basestring, False),
-        'Dimensions': ([Dimensions], False)
-    }
-
-class Dimensions(AWSProperty):
-    props = {
         'Dimensions': ([KeyValue], False)
     }
+
+class Trigger(AWSProperty):
+    props = {
+        'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, False),
+    }
+
+class SimpleScalingPolicyConfiguration(AWSProperty):
+    props = {
+        'AdjustmentType': (basestring, False),
+        'ScalingAdjustment': (positive_integer, False),
+        'CoolDown': (positive_integer, False),
+        'Trigger': ([Trigger], False)
+    }
+
+
+class RulesActionConfig(AWSProperty):
+    props = {
+        'Market': (market_validator, False),
+        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfiguration, False)
+    }
+
+class Rules(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+        'Description': (basestring, False),
+        'Action': (RulesActionConfig, False)
+    }
+
+# class CloudWatchAlarmDefinition(AWSProperty):
+#     props = {
+#         'ComparisonOperator': (basestring, False),
+#         'EvaluationPeriods': (positive_integer, False),
+#         'MetricName': (basestring, False),
+#         'Namespace': (basestring, False),
+#         'Period': (positive_integer, False),
+#         'Statistic': (basestring, False),
+#         'Threshold': (positive_integer, False),
+#         'Unit': (basestring, False),
+#         'Dimensions': ([KeyValue], False)
+#     }
+
+# class Dimensions(AWSProperty):
+#     props = {
+#         'Dimensions': ([KeyValue], False)
+#     }
 
 class AutoScalingPolicy(AWSProperty):
     props = {
