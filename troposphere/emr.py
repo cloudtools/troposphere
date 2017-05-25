@@ -149,8 +149,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
     props = {
         'AdjustmentType': (basestring, False),
         'ScalingAdjustment': (positive_integer, False),
-        'CoolDown': (positive_integer, False),
-        'Trigger': ([Trigger], False)
+        'CoolDown': (positive_integer, False)
     }
 
 
@@ -164,26 +163,9 @@ class Rules(AWSProperty):
     props = {
         'Name': (basestring, False),
         'Description': (basestring, False),
-        'Action': (RulesActionConfig, False)
+        'Action': (RulesActionConfig, False),
+        'Trigger': (Trigger, False)
     }
-
-# class CloudWatchAlarmDefinition(AWSProperty):
-#     props = {
-#         'ComparisonOperator': (basestring, False),
-#         'EvaluationPeriods': (positive_integer, False),
-#         'MetricName': (basestring, False),
-#         'Namespace': (basestring, False),
-#         'Period': (positive_integer, False),
-#         'Statistic': (basestring, False),
-#         'Threshold': (positive_integer, False),
-#         'Unit': (basestring, False),
-#         'Dimensions': ([KeyValue], False)
-#     }
-
-# class Dimensions(AWSProperty):
-#     props = {
-#         'Dimensions': ([KeyValue], False)
-#     }
 
 class AutoScalingPolicy(AWSProperty):
     props = {
