@@ -1,5 +1,5 @@
-from troposphere import Parameter, Ref, Template, Tags, If, Equals, Not, Join
-from troposphere.constants import KEY_PAIR_NAME, SUBNET_ID, M4_LARGE, NUMBER
+from troposphere import Tags
+from troposphere.constants import M4_LARGE
 
 import unittest
 import troposphere.emr as emr
