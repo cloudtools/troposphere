@@ -149,7 +149,7 @@ class Trigger(AWSProperty):
     }
 
 
-class SimpleScalingPolicyConfiguration(AWSProperty):
+class SimpleScalingPolicyConfig(AWSProperty):
     props = {
         'AdjustmentType': (basestring, False),
         'ScalingAdjustment': (positive_integer, False),
@@ -160,7 +160,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
 class RulesActionConfig(AWSProperty):
     props = {
         'Market': (market_validator, False),
-        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfiguration, False)
+        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfig, False)
     }
 
 
