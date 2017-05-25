@@ -214,7 +214,7 @@ cluster = template.add_resource(emr.Cluster(
                         )
                     )
                 ],
-            )
+            ),
             EbsConfiguration=emr.EbsConfiguration(
                 EbsBlockDeviceConfigs=[
                     emr.EbsBlockDeviceConfigs(
