@@ -121,11 +121,13 @@ class EbsConfiguration(AWSProperty):
         'EbsOptimized': (boolean, False)
     }
 
+
 class Constraints(AWSProperty):
     props = {
         'MinCapacity': (integer, False),
         'MaxCapacity': (integer, False)
     }
+
 
 class CloudWatchAlarmDefinition(AWSProperty):
     props = {
@@ -140,10 +142,12 @@ class CloudWatchAlarmDefinition(AWSProperty):
         'Dimensions': ([KeyValue], False)
     }
 
+
 class Trigger(AWSProperty):
     props = {
         'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, False),
     }
+
 
 class SimpleScalingPolicyConfiguration(AWSProperty):
     props = {
@@ -159,6 +163,7 @@ class RulesActionConfig(AWSProperty):
         'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfiguration, False)
     }
 
+
 class Rules(AWSProperty):
     props = {
         'Name': (basestring, False),
@@ -167,11 +172,13 @@ class Rules(AWSProperty):
         'Trigger': (Trigger, False)
     }
 
+
 class AutoScalingPolicy(AWSProperty):
     props = {
         'Constraints': (Constraints, True),
         'Rules': ([Rules], False)
     }
+
 
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
