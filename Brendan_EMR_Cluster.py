@@ -138,7 +138,7 @@ cluster = template.add_resource(emr.Cluster(
                 Constraints=emr.Constraints(
                     MinCapacity="1",
                     MaxCapacity="3"
-                ),
+                    ),
                 Rules=[
                     emr.Rules(
                         Name="MasterutoScalingPolicy",
@@ -156,7 +156,7 @@ cluster = template.add_resource(emr.Cluster(
                                 ComparisonOperator="GREATER_THAN",
                                 EvaluationPeriods="120",
                                 MetricName="TestMetric",
-                                Namespace="AWS/ElasticMapReduce",
+                                Namespace="NameSpace",
                                 Period="300",
                                 Statistic="AVERAGE",
                                 Threshold="50",
@@ -170,18 +170,32 @@ cluster = template.add_resource(emr.Cluster(
                             )
                         )
                     )
-                ]
+                ],
             )
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
             BidPrice=If(withSpotPrice, Ref(spot), Ref("AWS::NoValue")),
             Market=If(withSpotPrice, "SPOT", "ON_DEMAND"),
+            EbsConfiguration=emr.EbsConfiguration(
+                EbsBlockDeviceConfigs=[
+                    emr.EbsBlockDeviceConfigs(
+                        VolumeSpecification=emr.VolumeSpecification(
+                            SizeInGB="10",
+                            VolumeType="gp2"
+                        ),
+                        VolumesPerInstance="1"
+                    )
+                ],
+                EbsOptimized="true"
+            ),
+            InstanceCount="1",
+            InstanceType=M4_LARGE,
             AutoScalingPolicy=emr.AutoScalingPolicy(
                 Constraints=emr.Constraints(
                     MinCapacity="1",
                     MaxCapacity="3"
-                ),
+                    ),
                 Rules=[
                     emr.Rules(
                         Name="CoreAutoScalingPolicy",
@@ -199,7 +213,7 @@ cluster = template.add_resource(emr.Cluster(
                                 ComparisonOperator="GREATER_THAN",
                                 EvaluationPeriods="120",
                                 MetricName="TestMetric",
-                                Namespace="AWS/ElasticMapReduce",
+                                Namespace="NameSpace",
                                 Period="300",
                                 Statistic="AVERAGE",
                                 Threshold="50",
@@ -214,21 +228,7 @@ cluster = template.add_resource(emr.Cluster(
                         )
                     )
                 ],
-            ),
-            EbsConfiguration=emr.EbsConfiguration(
-                EbsBlockDeviceConfigs=[
-                    emr.EbsBlockDeviceConfigs(
-                        VolumeSpecification=emr.VolumeSpecification(
-                            SizeInGB="10",
-                            VolumeType="gp2"
-                        ),
-                        VolumesPerInstance="1"
-                    )
-                ],
-                EbsOptimized="true"
-            ),
-            InstanceCount="1",
-            InstanceType=M4_LARGE,
+            )
         )
     ),
     Applications=[
