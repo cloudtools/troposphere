@@ -167,21 +167,22 @@ cluster = template.add_resource(emr.Cluster(
                             SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
                                 AdjustmentType="EXACT_CAPACITY",
                                 ScalingAdjustment="1",
-                                CoolDown="300",
-                                # Trigger=emr.Trigger(
-                                #     CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
-                                #         ComparisonOperator="GREATER_THAN",
-                                #         EvaluationPeriods="120",
-                                #         MetricName="TestMetric",
-                                #         Period="300",
-                                #         Statistic="AVERAGE",
-                                #         Threshold="50",
-                                #         Unit="PERCENT",
-                                #         Dimensions=[
-                                #             emr.KeyValue('my.custom.property', 'my.custom.value')
-                                #         ]
-                                #     )
-                                # ),
+                                CoolDown="300"
+                            )
+                        ),
+                        Trigger=emr.Trigger(
+                            CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                                ComparisonOperator="GREATER_THAN",
+                                EvaluationPeriods="120",
+                                MetricName="TestMetric",
+                                Namespace="NameSpace",
+                                Period="300",
+                                Statistic="AVERAGE",
+                                Threshold="50",
+                                Unit="PERCENT",
+                                Dimensions=[
+                                    emr.KeyValue('my.custom.property', 'my.custom.value')
+                                ]
                             )
                         )
                     )
