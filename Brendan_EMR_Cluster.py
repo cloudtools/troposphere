@@ -133,7 +133,45 @@ cluster = template.add_resource(emr.Cluster(
             Name="Master Instance",
             InstanceCount="1",
             InstanceType=M4_LARGE,
-            Market="ON_DEMAND"
+            Market="ON_DEMAND",
+            AutoScalingPolicy=emr.AutoScalingPolicy(
+                Constraints=emr.Constraints(
+                    MinCapacity="1",
+                    MaxCapacity="3"
+                    ),
+                Rules=[
+                    emr.Rules(
+                        Name="MasterutoScalingPolicy",
+                        Description="Master Instance AutoScaling Policy Rules",
+                        Action=emr.RulesActionConfig(
+                            Market="ON_DEMAND",
+                            SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfig(
+                                AdjustmentType="EXACT_CAPACITY",
+                                ScalingAdjustment="1",
+                                CoolDown="300"
+                            )
+                        ),
+                        Trigger=emr.Trigger(
+                            CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                                ComparisonOperator="GREATER_THAN",
+                                EvaluationPeriods="120",
+                                MetricName="TestMetric",
+                                Namespace="NameSpace",
+                                Period="300",
+                                Statistic="AVERAGE",
+                                Threshold="50",
+                                Unit="PERCENT",
+                                Dimensions=[
+                                    emr.KeyValue(
+                                        'my.custom.master.property',
+                                        'my.custom.master.value'
+                                    )
+                                ]
+                            )
+                        )
+                    )
+                ],
+            )
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
@@ -164,7 +202,7 @@ cluster = template.add_resource(emr.Cluster(
                         Description="Core Instance AutoScaling Policy Rules",
                         Action=emr.RulesActionConfig(
                             Market="ON_DEMAND",
-                            SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
+                            SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfig(
                                 AdjustmentType="EXACT_CAPACITY",
                                 ScalingAdjustment="1",
                                 CoolDown="300"
@@ -181,7 +219,10 @@ cluster = template.add_resource(emr.Cluster(
                                 Threshold="50",
                                 Unit="PERCENT",
                                 Dimensions=[
-                                    emr.KeyValue('my.custom.property', 'my.custom.value')
+                                    emr.KeyValue(
+                                        'my.custom.core.property',
+                                        'my.custom.core.value'
+                                    )
                                 ]
                             )
                         )
