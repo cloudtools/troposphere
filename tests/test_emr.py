@@ -61,7 +61,7 @@ class TestEMR(unittest.TestCase):
                             )
                           ),
                           Trigger=emr.Trigger(
-                            CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                            CloudWatchAlarmDefinition=emr.CWAlarmMetric(
                               ComparisonOperator="GREATER_THAN",
                               EvaluationPeriods="120",
                               MetricName="TestMetric",
@@ -105,7 +105,7 @@ class TestEMR(unittest.TestCase):
                                     )
                                 ),
                                 Trigger=emr.Trigger(
-                                    CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                                    CloudWatchAlarmDefinition=emr.CWAlarmMetric(
                                         ComparisonOperator="GREATER_THAN",
                                         EvaluationPeriods="120",
                                         MetricName="TestMetric",
