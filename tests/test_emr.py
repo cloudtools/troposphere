@@ -51,7 +51,7 @@ class TestEMR(unittest.TestCase):
                       Rules=[
                         emr.Rules(
                           Name="MasterutoScalingPolicy",
-                          Description="Master Instance AutoScaling Policy Rules",
+                          Description="Master Instance ASG Policy Rules",
                           Action=emr.RulesActionConfig(
                             Market="ON_DEMAND",
                             SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfig(
@@ -95,7 +95,7 @@ class TestEMR(unittest.TestCase):
                         Rules=[
                             emr.Rules(
                                 Name="CoreAutoScalingPolicy",
-                                Description="Core Instance AutoScaling Policy Rules",
+                                Description="Core Instance ASG Policy Rules",
                                 Action=emr.RulesActionConfig(
                                     Market="ON_DEMAND",
                                     SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfig(
