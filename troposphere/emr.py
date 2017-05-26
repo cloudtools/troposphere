@@ -129,7 +129,7 @@ class Constraints(AWSProperty):
     }
 
 
-class CWAlarmMetric(AWSProperty):
+class CloudWatchAlarmDefinition(AWSProperty):
     props = {
         'ComparisonOperator': (basestring, False),
         'EvaluationPeriods': (positive_integer, False),
@@ -145,11 +145,11 @@ class CWAlarmMetric(AWSProperty):
 
 class Trigger(AWSProperty):
     props = {
-        'CloudWatchAlarmDefinition': (CWAlarmMetric, False),
+        'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, False),
     }
 
 
-class SimpleScalingPolicyConfig(AWSProperty):
+class SimpleScalingPolicyConfiguration(AWSProperty):
     props = {
         'AdjustmentType': (basestring, False),
         'ScalingAdjustment': (positive_integer, False),
@@ -160,7 +160,7 @@ class SimpleScalingPolicyConfig(AWSProperty):
 class RulesActionConfig(AWSProperty):
     props = {
         'Market': (market_validator, False),
-        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfig, False)
+        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfiguration, False)
     }
 
 
