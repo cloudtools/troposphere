@@ -129,7 +129,7 @@ class Constraints(AWSProperty):
     }
 
 
-class CloudWatchAlarmDefinition(AWSProperty):
+class CWAlarmMetric(AWSProperty):
     props = {
         'ComparisonOperator': (basestring, False),
         'EvaluationPeriods': (positive_integer, False),
@@ -145,7 +145,7 @@ class CloudWatchAlarmDefinition(AWSProperty):
 
 class Trigger(AWSProperty):
     props = {
-        'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, False),
+        'CloudWatchAlarmDefinition': (CWAlarmMetric, False),
     }
 
 
