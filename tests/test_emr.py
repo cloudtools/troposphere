@@ -132,6 +132,7 @@ class TestEMR(unittest.TestCase):
             Name="EMR Cluster",
             ReleaseLabel="emr-5.5.0",
             ServiceRole="EMRServiceRole",
+            AutoScalingRole="EMR_AutoScaling_DefaultRole",
             VisibleToAllUsers="true",
             Tags=Tags(
                 Name="EMR Sample Cluster"

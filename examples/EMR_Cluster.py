@@ -59,6 +59,8 @@ emr_service_role = template.add_resource(iam.Role(
     ]
 ))
 
+emr_autoscaling_role = "EMR_AutoScaling_DefaultRole"
+
 emr_job_flow_role = template.add_resource(iam.Role(
     "EMRJobFlowRole",
     AssumeRolePolicyDocument={
@@ -126,6 +128,7 @@ cluster = template.add_resource(emr.Cluster(
     ],
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
+    AutoScalingRole=Ref(emr_autoscaling_role),
     Instances=emr.JobFlowInstancesConfig(
         Ec2KeyName=Ref(keyname),
         Ec2SubnetId=Ref(subnet),

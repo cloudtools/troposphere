@@ -270,6 +270,7 @@
                 "ServiceRole": {
                     "Ref": "EMRServiceRole"
                 },
+                "AutoScalingRole": "AutoScalingRole",
                 "Tags": [
                     {
                         "Key": "Name",

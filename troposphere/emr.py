@@ -230,6 +230,7 @@ class Cluster(AWSObject):
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
         'ServiceRole': (basestring, True),
+        'AutoScalingRole': (basestring, False),
         'Tags': (list, False),
         'VisibleToAllUsers': (boolean, False)
     }
