@@ -40,7 +40,7 @@ class TestEMR(unittest.TestCase):
                 )
             )
         ]
-        return rules
+        return Rules
 
     def test_allow_string_cluster(self):
         spot = "2"
