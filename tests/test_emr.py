@@ -5,20 +5,21 @@ import unittest
 import troposphere.emr as emr
 
 
-class TestEMR(unittest.TestCase):
+scaling_policy = emr.SimpleScalingPolicyConfiguration(
+                    AdjustmentType="EXACT_CAPACITY",
+                    ScalingAdjustment="1",
+                    CoolDown="300"
+                )
 
-    def generate_rules(rules_name):
+
+def generate_rules(rules_name):
     rules = [
         emr.Rules(
             Name=rules_name,
             Description="%s rules" % rules_name,
             Action=emr.RulesActionConfig(
                 Market="ON_DEMAND",
-                SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
-                    AdjustmentType="EXACT_CAPACITY",
-                    ScalingAdjustment="1",
-                    CoolDown="300"
-                )
+                SimpleScalingPolicyConfiguration=scaling_policy
             ),
             Trigger=emr.Trigger(
                 CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
@@ -41,6 +42,9 @@ class TestEMR(unittest.TestCase):
         )
     ]
     return rules
+
+
+class TestEMR(unittest.TestCase):
 
     def test_allow_string_cluster(self):
         spot = "2"
