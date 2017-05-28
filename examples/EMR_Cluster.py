@@ -4,6 +4,45 @@ import troposphere.emr as emr
 import troposphere.iam as iam
 
 
+scaling_policy = emr.SimpleScalingPolicyConfiguration(
+                    AdjustmentType="EXACT_CAPACITY",
+                    ScalingAdjustment="1",
+                    CoolDown="300"
+                )
+
+
+def generate_rules(rules_name):
+    rules = [
+        emr.Rules(
+            Name=rules_name,
+            Description="%s rules" % rules_name,
+            Action=emr.RulesActionConfig(
+                Market="ON_DEMAND",
+                SimpleScalingPolicyConfiguration=scaling_policy
+            ),
+            Trigger=emr.Trigger(
+                CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                    ComparisonOperator="GREATER_THAN",
+                    EvaluationPeriods="120",
+                    MetricName="TestMetric",
+                    Namespace="AWS/ElasticMapReduce",
+                    Period="300",
+                    Statistic="AVERAGE",
+                    Threshold="50",
+                    Unit="PERCENT",
+                    Dimensions=[
+                        emr.KeyValue(
+                            'my.custom.master.property',
+                            'my.custom.master.value'
+                        )
+                    ]
+                )
+            )
+        )
+    ]
+    return rules
+
+
 template = Template()
 template.add_description(
     "Sample CloudFormation template for creating an EMR cluster"
@@ -142,38 +181,7 @@ cluster = template.add_resource(emr.Cluster(
                     MinCapacity="1",
                     MaxCapacity="3"
                 ),
-                Rules=[
-                    emr.Rules(
-                        Name="MasterutoScalingPolicy",
-                        Description="Master Instance AutoScaling Policy Rules",
-                        Action=emr.RulesActionConfig(
-                            Market="ON_DEMAND",
-                            SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
-                                AdjustmentType="EXACT_CAPACITY",
-                                ScalingAdjustment="1",
-                                CoolDown="300"
-                            )
-                        ),
-                        Trigger=emr.Trigger(
-                            CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
-                                ComparisonOperator="GREATER_THAN",
-                                EvaluationPeriods="120",
-                                MetricName="TestMetric",
-                                Namespace="AWS/ElasticMapReduce",
-                                Period="300",
-                                Statistic="AVERAGE",
-                                Threshold="50",
-                                Unit="PERCENT",
-                                Dimensions=[
-                                    emr.KeyValue(
-                                        'my.custom.master.property',
-                                        'my.custom.master.value'
-                                    )
-                                ]
-                            )
-                        )
-                    )
-                ]
+                Rules=generate_rules("MasterAutoScalingPolicy")
             )
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
@@ -185,38 +193,7 @@ cluster = template.add_resource(emr.Cluster(
                     MinCapacity="1",
                     MaxCapacity="3"
                 ),
-                Rules=[
-                    emr.Rules(
-                        Name="CoreAutoScalingPolicy",
-                        Description="Core Instance AutoScaling Policy Rules",
-                        Action=emr.RulesActionConfig(
-                            Market="ON_DEMAND",
-                            SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
-                                AdjustmentType="EXACT_CAPACITY",
-                                ScalingAdjustment="1",
-                                CoolDown="300"
-                            )
-                        ),
-                        Trigger=emr.Trigger(
-                            CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
-                                ComparisonOperator="GREATER_THAN",
-                                EvaluationPeriods="120",
-                                MetricName="TestMetric",
-                                Namespace="AWS/ElasticMapReduce",
-                                Period="300",
-                                Statistic="AVERAGE",
-                                Threshold="50",
-                                Unit="PERCENT",
-                                Dimensions=[
-                                    emr.KeyValue(
-                                        'my.custom.core.property',
-                                        'my.custom.core.value'
-                                    )
-                                ]
-                            )
-                        )
-                    )
-                ],
+                Rules=generate_rules("CoreAutoScalingPolicy"),
             ),
             EbsConfiguration=emr.EbsConfiguration(
                 EbsBlockDeviceConfigs=[
