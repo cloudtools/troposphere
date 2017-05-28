@@ -160,7 +160,9 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
 class RulesActionConfig(AWSProperty):
     props = {
         'Market': (market_validator, False),
-        'SimpleScalingPolicyConfiguration': (SimpleScalingPolicyConfiguration, False)
+        'SimpleScalingPolicyConfiguration': (
+            SimpleScalingPolicyConfiguration, False
+        )
     }
 
 
