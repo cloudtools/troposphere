@@ -87,6 +87,9 @@
                         "Name": "Spark"
                     }
                 ],
+                "AutoScalingRole": {
+                    "Ref": "EMR_AutoScaling_DefaultRole"
+                },
                 "BootstrapActions": [
                     {
                         "Name": "Dummy bootstrap action",
@@ -154,15 +157,15 @@
                                             "ScalingAdjustment": "1"
                                         }
                                     },
-                                    "Description": "Core Instance AutoScaling Policy Rules",
+                                    "Description": "CoreAutoScalingPolicy rules",
                                     "Name": "CoreAutoScalingPolicy",
                                     "Trigger": {
                                         "CloudWatchAlarmDefinition": {
                                             "ComparisonOperator": "GREATER_THAN",
                                             "Dimensions": [
                                                 {
-                                                    "Key": "my.custom.core.property",
-                                                    "Value": "my.custom.core.value"
+                                                    "Key": "my.custom.master.property",
+                                                    "Value": "my.custom.master.value"
                                                 }
                                             ],
                                             "EvaluationPeriods": "120",
@@ -233,8 +236,8 @@
                                             "ScalingAdjustment": "1"
                                         }
                                     },
-                                    "Description": "Master Instance AutoScaling Policy Rules",
-                                    "Name": "MasterutoScalingPolicy",
+                                    "Description": "MasterAutoScalingPolicy rules",
+                                    "Name": "MasterAutoScalingPolicy",
                                     "Trigger": {
                                         "CloudWatchAlarmDefinition": {
                                             "ComparisonOperator": "GREATER_THAN",
@@ -270,7 +273,6 @@
                 "ServiceRole": {
                     "Ref": "EMRServiceRole"
                 },
-                "AutoScalingRole": "AutoScalingRole",
                 "Tags": [
                     {
                         "Key": "Name",
