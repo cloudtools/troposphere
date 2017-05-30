@@ -181,7 +181,7 @@ cluster = template.add_resource(emr.Cluster(
                     MinCapacity="1",
                     MaxCapacity="3"
                 ),
-                Rules=self.generate_rules("MasterAutoScalingPolicy")
+                Rules=generate_rules("MasterAutoScalingPolicy")
             )
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
@@ -193,7 +193,7 @@ cluster = template.add_resource(emr.Cluster(
                     MinCapacity="1",
                     MaxCapacity="3"
                 ),
-                Rules=self.generate_rules("CoreAutoScalingPolicy"),
+                Rules=generate_rules("CoreAutoScalingPolicy"),
             ),
             EbsConfiguration=emr.EbsConfiguration(
                 EbsBlockDeviceConfigs=[
