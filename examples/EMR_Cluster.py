@@ -12,6 +12,8 @@ scaling_policy = emr.SimpleScalingPolicyConfiguration(
 
 
 def generate_rules(rules_name):
+    global emr, scaling_policy
+
     rules = [
         emr.Rules(
             Name=rules_name,
