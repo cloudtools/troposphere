@@ -187,7 +187,7 @@ class InstanceGroupConfigProperty(AWSProperty):
         'BidPrice': (basestring, False),
         'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),
-        'InstanceCount': (positive_integer, False),
+        'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
         'Name': (basestring, False),
