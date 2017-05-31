@@ -12,38 +12,6 @@ scaling_policy = emr.SimpleScalingPolicyConfiguration(
                 )
 
 
-# def generate_rules(rules_name):
-#     rules = [
-#         emr.Rules(
-#             Name=rules_name,
-#             Description="%s rules" % rules_name,
-#             Action=emr.RulesActionConfig(
-#                 Market="ON_DEMAND",
-#                 SimpleScalingPolicyConfiguration=scaling_policy
-#             ),
-#             Trigger=emr.Trigger(
-#                 CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
-#                     ComparisonOperator="GREATER_THAN",
-#                     EvaluationPeriods="120",
-#                     MetricName="TestMetric",
-#                     Namespace="AWS/ElasticMapReduce",
-#                     Period="300",
-#                     Statistic="AVERAGE",
-#                     Threshold="50",
-#                     Unit="PERCENT",
-#                     Dimensions=[
-#                         emr.KeyValue(
-#                             'my.custom.master.property',
-#                             'my.custom.master.value'
-#                         )
-#                     ]
-#                 )
-#             )
-#         )
-#     ]
-#     return rules
-
-
 class TestEMR(unittest.TestCase):
 
     def generate_rules(self, rules_name):
