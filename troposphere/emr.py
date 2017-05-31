@@ -122,7 +122,7 @@ class EbsConfiguration(AWSProperty):
     }
 
 
-class Constraints(AWSProperty):
+class ScalingConstraints(AWSProperty):
     props = {
         'MinCapacity': (integer, False),
         'MaxCapacity': (integer, False)
@@ -177,7 +177,7 @@ class Rules(AWSProperty):
 
 class AutoScalingPolicy(AWSProperty):
     props = {
-        'Constraints': (Constraints, True),
+        'Constraints': (ScalingConstraints, True),
         'Rules': ([Rules], False)
     }
 
