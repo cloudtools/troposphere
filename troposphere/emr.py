@@ -178,7 +178,7 @@ class ScalingRule(AWSProperty):
 class AutoScalingPolicy(AWSProperty):
     props = {
         'Constraints': (ScalingConstraints, True),
-        'Rules': ([Rules], False)
+        'Rules': ([ScalingRule], False)
     }
 
 
