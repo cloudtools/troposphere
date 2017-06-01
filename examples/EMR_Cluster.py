@@ -15,14 +15,14 @@ def generate_rules(rules_name):
     global emr, scaling_policy
 
     rules = [
-        emr.Rules(
+        emr.ScalingRule(
             Name=rules_name,
             Description="%s rules" % rules_name,
-            Action=emr.RulesActionConfig(
+            Action=emr.ScalingAction(
                 Market="ON_DEMAND",
                 SimpleScalingPolicyConfiguration=scaling_policy
             ),
-            Trigger=emr.Trigger(
+            Trigger=emr.ScalingTrigger(
                 CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
                     ComparisonOperator="GREATER_THAN",
                     EvaluationPeriods="120",
@@ -179,7 +179,7 @@ cluster = template.add_resource(emr.Cluster(
             InstanceType=M4_LARGE,
             Market="ON_DEMAND",
             AutoScalingPolicy=emr.AutoScalingPolicy(
-                Constraints=emr.Constraints(
+                Constraints=emr.ScalingConstraints(
                     MinCapacity="1",
                     MaxCapacity="3"
                 ),
@@ -191,7 +191,7 @@ cluster = template.add_resource(emr.Cluster(
             BidPrice=If(withSpotPrice, Ref(spot), Ref("AWS::NoValue")),
             Market=If(withSpotPrice, "SPOT", "ON_DEMAND"),
             AutoScalingPolicy=emr.AutoScalingPolicy(
-                Constraints=emr.Constraints(
+                Constraints=emr.ScalingConstraints(
                     MinCapacity="1",
                     MaxCapacity="3"
                 ),
