@@ -16,14 +16,14 @@ class TestEMR(unittest.TestCase):
 
     def generate_rules(self, rules_name):
         rules = [
-            emr.Rules(
+            emr.ScalingRule(
                 Name=rules_name,
                 Description="%s rules" % rules_name,
-                Action=emr.RulesActionConfig(
+                Action=emr.ScalingAction(
                     Market="ON_DEMAND",
                     SimpleScalingPolicyConfiguration=scaling_policy
                 ),
-                Trigger=emr.Trigger(
+                Trigger=emr.ScalingTrigger(
                     CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
                         ComparisonOperator="GREATER_THAN",
                         EvaluationPeriods="120",
@@ -82,7 +82,7 @@ class TestEMR(unittest.TestCase):
                     InstanceCount="1",
                     InstanceType=M4_LARGE,
                     AutoScalingPolicy=emr.AutoScalingPolicy(
-                      Constraints=emr.Constraints(
+                      Constraints=emr.ScalingConstraints(
                         MinCapacity="1",
                         MaxCapacity="3"
                       ),
@@ -93,9 +93,10 @@ class TestEMR(unittest.TestCase):
                     Name="Core Instance",
                     BidPrice=If(withSpotPrice, Ref(spot), Ref("AWS::NoValue")),
                     Market=If(withSpotPrice, "SPOT", "ON_DEMAND"),
+                    InstanceCount="1",
                     InstanceType=M4_LARGE,
                     AutoScalingPolicy=emr.AutoScalingPolicy(
-                        Constraints=emr.Constraints(
+                        Constraints=emr.ScalingConstraints(
                             MinCapacity="1",
                             MaxCapacity="3"
                         ),
