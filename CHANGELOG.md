@@ -1,3 +1,25 @@
+## 1.9.4 (2017-06-04)
+- Fix typo in S3_Bucket.py example (#696)
+- Added .Ref & .GetAtt helper methods (#697)
+- Add Pseudo Parameter Ref objects (#698)
+- Fix NamespaceType typo in codebuild::Artifacts() (fixes #701)
+- Add IpAddressType property to elbv2. (#703)
+- Add new AWS::Lambda::Function Tags support (#705)
+- Added ECS PlacementConstraints, PlacementStrategy, and ServiceName (#706)
+- Add missing CidrIpv6 property to securityrule. (#710)
+- Add missing properties to various objects in ec2.py (#711)
+- logs.LogGroup#RetentionInDays is strictly defined list (#712)
+- Add ManagedPolicyName to AWS::IAM::ManagedPolicy (Fixes #714)
+- Add better validations for Parameter Default types (Fixes #717)
+- Add AWS::Cognito (fixes #720)
+- Add required attribute, JobFlowId, to EMR::InstanceGroupConfig (#722)
+- Add WAFRegional support (#723)
+- fix for ElastiCacheRedis.py example to use awacs (#725)
+- Add EMR autoscaling (#729)
+- Add SshUsername to AWS::OpsWorks::UserProfile
+- Add PlacementConstraints to AWS::ECS::TaskDefinition
+- Add MaximumExecutionFrequency to Config SourceDetails
+
 ## 1.9.3 (2017-04-13)
 - Fix pycodestyle by using an explicit exception type
 - Add more details to pycodestyle errors for travis runs
