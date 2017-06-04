@@ -4,6 +4,47 @@ import troposphere.emr as emr
 import troposphere.iam as iam
 
 
+scaling_policy = emr.SimpleScalingPolicyConfiguration(
+                    AdjustmentType="EXACT_CAPACITY",
+                    ScalingAdjustment="1",
+                    CoolDown="300"
+                )
+
+
+def generate_rules(rules_name):
+    global emr, scaling_policy
+
+    rules = [
+        emr.ScalingRule(
+            Name=rules_name,
+            Description="%s rules" % rules_name,
+            Action=emr.ScalingAction(
+                Market="ON_DEMAND",
+                SimpleScalingPolicyConfiguration=scaling_policy
+            ),
+            Trigger=emr.ScalingTrigger(
+                CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                    ComparisonOperator="GREATER_THAN",
+                    EvaluationPeriods="120",
+                    MetricName="TestMetric",
+                    Namespace="AWS/ElasticMapReduce",
+                    Period="300",
+                    Statistic="AVERAGE",
+                    Threshold="50",
+                    Unit="PERCENT",
+                    Dimensions=[
+                        emr.KeyValue(
+                            'my.custom.master.property',
+                            'my.custom.master.value'
+                        )
+                    ]
+                )
+            )
+        )
+    ]
+    return rules
+
+
 template = Template()
 template.add_description(
     "Sample CloudFormation template for creating an EMR cluster"
@@ -58,6 +99,8 @@ emr_service_role = template.add_resource(iam.Role(
         'arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole'
     ]
 ))
+
+emr_autoscaling_role = "EMR_AutoScaling_DefaultRole"
 
 emr_job_flow_role = template.add_resource(iam.Role(
     "EMRJobFlowRole",
@@ -126,6 +169,7 @@ cluster = template.add_resource(emr.Cluster(
     ],
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
+    AutoScalingRole=Ref(emr_autoscaling_role),
     Instances=emr.JobFlowInstancesConfig(
         Ec2KeyName=Ref(keyname),
         Ec2SubnetId=Ref(subnet),
@@ -133,12 +177,26 @@ cluster = template.add_resource(emr.Cluster(
             Name="Master Instance",
             InstanceCount="1",
             InstanceType=M4_LARGE,
-            Market="ON_DEMAND"
+            Market="ON_DEMAND",
+            AutoScalingPolicy=emr.AutoScalingPolicy(
+                Constraints=emr.ScalingConstraints(
+                    MinCapacity="1",
+                    MaxCapacity="3"
+                ),
+                Rules=generate_rules("MasterAutoScalingPolicy")
+            )
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
             BidPrice=If(withSpotPrice, Ref(spot), Ref("AWS::NoValue")),
             Market=If(withSpotPrice, "SPOT", "ON_DEMAND"),
+            AutoScalingPolicy=emr.AutoScalingPolicy(
+                Constraints=emr.ScalingConstraints(
+                    MinCapacity="1",
+                    MaxCapacity="3"
+                ),
+                Rules=generate_rules("CoreAutoScalingPolicy"),
+            ),
             EbsConfiguration=emr.EbsConfiguration(
                 EbsBlockDeviceConfigs=[
                     emr.EbsBlockDeviceConfigs(

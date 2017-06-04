@@ -122,6 +122,66 @@ class EbsConfiguration(AWSProperty):
     }
 
 
+class ScalingConstraints(AWSProperty):
+    props = {
+        'MinCapacity': (integer, True),
+        'MaxCapacity': (integer, True)
+    }
+
+
+class CloudWatchAlarmDefinition(AWSProperty):
+    props = {
+        'ComparisonOperator': (basestring, True),
+        'EvaluationPeriods': (positive_integer, False),
+        'MetricName': (basestring, True),
+        'Namespace': (basestring, False),
+        'Period': (positive_integer, True),
+        'Statistic': (basestring, False),
+        'Threshold': (positive_integer, True),
+        'Unit': (basestring, False),
+        'Dimensions': ([KeyValue], False)
+    }
+
+
+class ScalingTrigger(AWSProperty):
+    props = {
+        'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, True),
+    }
+
+
+class SimpleScalingPolicyConfiguration(AWSProperty):
+    props = {
+        'AdjustmentType': (basestring, False),
+        'ScalingAdjustment': (positive_integer, True),
+        'CoolDown': (positive_integer, False)
+    }
+
+
+class ScalingAction(AWSProperty):
+    props = {
+        'Market': (market_validator, False),
+        'SimpleScalingPolicyConfiguration': (
+            SimpleScalingPolicyConfiguration, True
+        )
+    }
+
+
+class ScalingRule(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Description': (basestring, False),
+        'Action': (ScalingAction, True),
+        'Trigger': (ScalingTrigger, True)
+    }
+
+
+class AutoScalingPolicy(AWSProperty):
+    props = {
+        'Constraints': (ScalingConstraints, True),
+        'Rules': ([ScalingRule], False)
+    }
+
+
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
         'BidPrice': (basestring, False),
@@ -130,7 +190,8 @@ class InstanceGroupConfigProperty(AWSProperty):
         'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
-        'Name': (basestring, False)
+        'Name': (basestring, False),
+        'AutoScalingPolicy': (AutoScalingPolicy, False)
     }
 
 
@@ -171,6 +232,7 @@ class Cluster(AWSObject):
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
         'ServiceRole': (basestring, True),
+        'AutoScalingRole': (basestring, False),
         'Tags': (list, False),
         'VisibleToAllUsers': (boolean, False)
     }
