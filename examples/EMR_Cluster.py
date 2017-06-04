@@ -33,7 +33,7 @@ def generate_rules(rules_name):
                     Threshold="50",
                     Unit="PERCENT",
                     Dimensions=[
-                        emr.KeyValue(
+                        emr.MetricDimension(
                             'my.custom.master.property',
                             'my.custom.master.value'
                         )

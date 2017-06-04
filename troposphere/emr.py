@@ -22,6 +22,9 @@ class KeyValue(AWSProperty):
         super(KeyValue, self).__init__(**kwargs)
 
 
+MetricDimension = KeyValue
+
+
 def additional_info_validator(xs):
     if not isinstance(xs, dict):
         raise ValueError("AdditionalInfo must be a dict of "
@@ -132,6 +135,7 @@ class ScalingConstraints(AWSProperty):
 class CloudWatchAlarmDefinition(AWSProperty):
     props = {
         'ComparisonOperator': (basestring, True),
+        'Dimensions': ([MetricDimension], False),
         'EvaluationPeriods': (positive_integer, False),
         'MetricName': (basestring, True),
         'Namespace': (basestring, False),
@@ -139,7 +143,6 @@ class CloudWatchAlarmDefinition(AWSProperty):
         'Statistic': (basestring, False),
         'Threshold': (positive_integer, True),
         'Unit': (basestring, False),
-        'Dimensions': ([KeyValue], False)
     }
 
 
@@ -152,8 +155,8 @@ class ScalingTrigger(AWSProperty):
 class SimpleScalingPolicyConfiguration(AWSProperty):
     props = {
         'AdjustmentType': (basestring, False),
+        'CoolDown': (positive_integer, False),
         'ScalingAdjustment': (positive_integer, True),
-        'CoolDown': (positive_integer, False)
     }
 
 
@@ -168,22 +171,23 @@ class ScalingAction(AWSProperty):
 
 class ScalingRule(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Description': (basestring, False),
         'Action': (ScalingAction, True),
-        'Trigger': (ScalingTrigger, True)
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'Trigger': (ScalingTrigger, True),
     }
 
 
 class AutoScalingPolicy(AWSProperty):
     props = {
         'Constraints': (ScalingConstraints, True),
-        'Rules': ([ScalingRule], False)
+        'Rules': ([ScalingRule], False),
     }
 
 
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
+        'AutoScalingPolicy': (AutoScalingPolicy, False),
         'BidPrice': (basestring, False),
         'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),
@@ -191,7 +195,6 @@ class InstanceGroupConfigProperty(AWSProperty):
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
         'Name': (basestring, False),
-        'AutoScalingPolicy': (AutoScalingPolicy, False)
     }
 
 
