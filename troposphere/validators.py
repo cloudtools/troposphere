@@ -151,6 +151,9 @@ def iam_path(path):
 def iam_role_name(role_name):
     if len(role_name) > 64:
         raise ValueError('IAM Role Name may not exceed 64 characters')
+    iam_role_re = compile(r'^[a-zA-Z0-9]*$')
+    if not iam_role_re.match(role_name):
+        raise ValueError("%s is not a valid iam role name" % role_name)
     iam_names(role_name)
     return role_name
 
