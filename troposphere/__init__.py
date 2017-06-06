@@ -28,6 +28,8 @@ AWS_STACK_ID = 'AWS::StackId'
 AWS_STACK_NAME = 'AWS::StackName'
 
 # Template Limits
+MAX_MAPPINGS = 100
+MAX_OUTPUTS = 60
 MAX_PARAMETERS = 60
 MAX_RESOURCES = 200
 PARAMETER_TITLE_MAX = 255
@@ -532,9 +534,13 @@ class Template(object):
         return values
 
     def add_output(self, output):
+        if len(self.outputs) >= MAX_OUTPUTS:
+            raise ValueError('Maximum outputs %d reached' % MAX_OUTPUTS)
         return self._update(self.outputs, output)
 
     def add_mapping(self, name, mapping):
+        if len(self.mappings) >= MAX_MAPPINGS:
+            raise ValueError('Maximum mappings %d reached' % MAX_MAPPINGS)
         self.mappings[name] = mapping
 
     def add_parameter(self, parameter):
