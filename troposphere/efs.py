@@ -1,11 +1,11 @@
-from . import AWSObject, Tags
+from . import AWSObject
 
 
 class FileSystem(AWSObject):
     resource_type = "AWS::EFS::FileSystem"
 
     props = {
-        'FileSystemTags': (Tags, False),
+        'FileSystemTags': (list, False),
         'PerformanceMode': (basestring, False),
     }
 
