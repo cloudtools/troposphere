@@ -30,9 +30,10 @@ class Alarm(AWSObject):
         'Namespace': (basestring, True),
         'OKActions': ([basestring], False),
         'Period': (positive_integer, True),
-        'Statistic': (basestring, True),
+        'Statistic': (basestring, False),
         'Threshold': (basestring, True),
         'Unit': (basestring, False),
         'TreatMissingData': (basestring, False),
-        'EvaluateLowSampleCountPercentile': (basestring, False)
+        'EvaluateLowSampleCountPercentile': (basestring, False),
+        'ExtendedStatistic': (basestring, False)
     }
