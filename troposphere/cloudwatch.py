@@ -26,7 +26,7 @@ class Alarm(AWSObject):
         'Dimensions': ([MetricDimension], False),
         'EvaluateLowSampleCountPercentile': (basestring, False),
         'EvaluationPeriods': (positive_integer, True),
-        'ExtendedStatistic': (basestring, False)
+        'ExtendedStatistic': (basestring, False),
         'InsufficientDataActions': ([basestring], False),
         'MetricName': (basestring, True),
         'Namespace': (basestring, True),
@@ -35,7 +35,7 @@ class Alarm(AWSObject):
         'Statistic': (basestring, False),
         'Threshold': (basestring, True),
         'TreatMissingData': (basestring, False),
-        'Unit': (basestring, False),
+        'Unit': (basestring, False)
     }
 
     def validate(self):
