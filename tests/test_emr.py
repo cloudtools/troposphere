@@ -26,11 +26,11 @@ security_configuration = {
         'AtRestEncryptionConfiguration': {
             'S3EncryptionConfiguration': {
                 'EncryptionMode': 'SSE-KMS',
-                'AwsKmsKey': 'kms_key'
+                'AwsKmsKey': kms_key
             },
             'LocalDiskEncryptionConfiguration': {
                 'EncryptionKeyProviderType': 'AwsKms',
-                'AwsKmsKey': 'kms_key'
+                'AwsKmsKey': kms_key
             }
         }
     }
@@ -134,8 +134,8 @@ class TestEMR(unittest.TestCase):
             Name="EMR Cluster",
             ReleaseLabel="emr-5.5.0",
             SecurityConfiguration=emr.SecurityConfiguration(
-                'SecurityConfiguration',
-                Name="EMRSecurityConfiguration",
+                'EMRSecurityConfiguration',
+                Name="EMRSampleClusterSecurityConfiguration",
                 SecurityConfiguration=security_configuration
             ),
             ServiceRole="EMRServiceRole",
