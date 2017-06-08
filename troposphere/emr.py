@@ -38,25 +38,12 @@ def additional_info_validator(xs):
     return xs
 
 
-def security_configuration_validator(xs):
-    if not isinstance(xs, dict):
-        raise ValueError("SecurityConfiguration must be a dict of "
-                         "string to string pairs")
-    for k, v in xs.iteritems():
-        if not isinstance(k, basestring):
-            raise ValueError('SecurityConfiguration keys must be strings')
-        if not isinstance(v, basestring):
-            raise ValueError('SecurityConfiguration values must be strings')
-
-    return xs
-
-
 class SecurityConfiguration(AWSObject):
     resource_type = "AWS::EMR::SecurityConfiguration"
 
     props = {
         'Name': (basestring, False),
-        'SecurityConfiguration': (security_configuration_validator, True)
+        'SecurityConfiguration': (dict, True)
     }
 
 
