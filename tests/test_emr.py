@@ -157,6 +157,7 @@ class TestEMR(unittest.TestCase):
             Name="EMR Cluster",
             ReleaseLabel="emr-5.5.0",
             SecurityConfiguration=emr.SecurityConfiguration(
+                'SecurityConfiguration',
                 Name="EMRSecurityConfiguration",
                 SecurityConfiguration=security_configuration
             ),
