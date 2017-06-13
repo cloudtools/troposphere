@@ -2,7 +2,7 @@ from troposphere import Ref, Template, Output
 from troposphere.apigateway import RestApi, Method
 from troposphere.apigateway import Resource, MethodResponse
 from troposphere.apigateway import Integration, IntegrationResponse
-from troposphere.apigateway import Deployment, Stage
+from troposphere.apigateway import Deployment, Stage, ApiStage, UsagePlan, QuotaSettings, ThrottleSettings
 from troposphere.apigateway import ApiKey, StageKey
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
@@ -130,6 +130,26 @@ key = t.add_resource(ApiKey(
         RestApiId=Ref(rest_api),
         StageName=Ref(stage)
     )]
+))
+
+# Create an API usage plan
+usagePlan = t.add_resource(UsagePlan(
+    "ExampleUsagePlan",
+    UsagePlanName="ExampleUsagePlan",
+    Description="Example usage plan",
+    Quota=QuotaSettings(
+        Limit= 50000,
+        Period= "MONTH"
+    ),
+    Throttle=ThrottleSettings(
+        BurstLimit=500,
+        RateLimit=5000
+    ),
+    ApiStages=[
+        ApiStage(
+            ApiId=Ref(rest_api),
+            Stage=stage_name
+        )]
 ))
 
 # Add the deployment endpoint as an output
