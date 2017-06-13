@@ -154,7 +154,7 @@ usagePlan = t.add_resource(UsagePlan(
 ))
 
 # tie the usage plan and key together
-usagePlanKey= t.add_resource(UsagePlanKey(
+usagePlanKey = t.add_resource(UsagePlanKey(
     "ExampleUsagePlanKey",
     KeyId=Ref(key),
     KeyType="API_KEY",
