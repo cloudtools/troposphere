@@ -2,7 +2,8 @@ from troposphere import Ref, Template, Output
 from troposphere.apigateway import RestApi, Method
 from troposphere.apigateway import Resource, MethodResponse
 from troposphere.apigateway import Integration, IntegrationResponse
-from troposphere.apigateway import Deployment, Stage, ApiStage, UsagePlan, QuotaSettings, ThrottleSettings
+from troposphere.apigateway import Deployment, Stage, ApiStage
+from troposphere.apigateway import UsagePlan, QuotaSettings, ThrottleSettings
 from troposphere.apigateway import ApiKey, StageKey
 from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
@@ -138,8 +139,8 @@ usagePlan = t.add_resource(UsagePlan(
     UsagePlanName="ExampleUsagePlan",
     Description="Example usage plan",
     Quota=QuotaSettings(
-        Limit= 50000,
-        Period= "MONTH"
+        Limit=50000,
+        Period="MONTH"
     ),
     Throttle=ThrottleSettings(
         BurstLimit=500,
