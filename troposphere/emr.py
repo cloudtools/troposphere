@@ -43,7 +43,7 @@ class SecurityConfiguration(AWSObject):
 
     props = {
         'Name': (basestring, False),
-        'SecurityConfiguration': (dict, True)
+        'SecurityConfiguration': (basestring, True)
     }
 
 
