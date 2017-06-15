@@ -13,32 +13,28 @@ scaling_policy = emr.SimpleScalingPolicyConfiguration(
 
 kms_key = 'arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234'
 
-security_configuration = 'test string'
-# security_configuration = {
-#     'EncryptionConfiguration': {
-#         'EnableInTransitEncryption': 'true',
-#         'InTransitEncryptionConfiguration': {
-#             'TLSCertificateConfiguration': {
-#                 'CertificateProviderType': 'PEM',
-#                 'S3Object': 's3://MyConfigStore/artifacts/MyCerts.zip'
-#             }
-#         },
-#         'EnableAtRestEncryption': 'true',
-#         'AtRestEncryptionConfiguration': {
-#             'S3EncryptionConfiguration': {
-#                 'EncryptionMode': 'SSE-KMS',
-#                 'AwsKmsKey': kms_key
-#             },
-#             'LocalDiskEncryptionConfiguration': {
-#                 'EncryptionKeyProviderType': 'AwsKms',
-#                 'AwsKmsKey': kms_key
-#             }
-#         }
-#     }
-# }
-
-# display type
-print(type(security_configuration))
+security_configuration = {
+    'EncryptionConfiguration': {
+        'EnableInTransitEncryption': 'true',
+        'InTransitEncryptionConfiguration': {
+            'TLSCertificateConfiguration': {
+                'CertificateProviderType': 'PEM',
+                'S3Object': 's3://MyConfigStore/artifacts/MyCerts.zip'
+            }
+        },
+        'EnableAtRestEncryption': 'true',
+        'AtRestEncryptionConfiguration': {
+            'S3EncryptionConfiguration': {
+                'EncryptionMode': 'SSE-KMS',
+                'AwsKmsKey': kms_key
+            },
+            'LocalDiskEncryptionConfiguration': {
+                'EncryptionKeyProviderType': 'AwsKms',
+                'AwsKmsKey': kms_key
+            }
+        }
+    }
+}
 
 
 class TestEMR(unittest.TestCase):
@@ -140,7 +136,7 @@ class TestEMR(unittest.TestCase):
             SecurityConfiguration=emr.SecurityConfiguration(
                 'EMRSecurityConfiguration',
                 Name="EMRSampleClusterSecurityConfiguration",
-                SecurityConfiguration=security_configuration
+                SecurityConfiguration='test securityconfiguration string'
             ),
             ServiceRole="EMRServiceRole",
             AutoScalingRole="EMR_AutoScaling_DefaultRole",
