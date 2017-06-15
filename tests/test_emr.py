@@ -40,6 +40,7 @@ security_configuration = 'test string'
 # display type
 print(type(security_configuration))
 
+
 class TestEMR(unittest.TestCase):
 
     def generate_rules(self, rules_name):
