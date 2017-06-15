@@ -71,6 +71,12 @@ class TestEMR(unittest.TestCase):
         return rules
 
     def test_allow_string_cluster(self):
+        cluster_security_configuration = emr.SecurityConfiguration(
+                'emrsecurityconfiguration',
+                Name="EMRSecurityConfiguration",
+                SecurityConfiguration=security_configuration
+            )
+
         spot = "2"
         withSpotPrice = "WithSpotPrice"
         cluster = emr.Cluster(
@@ -133,11 +139,7 @@ class TestEMR(unittest.TestCase):
             LogUri="s3://cluster-logs",
             Name="EMR Cluster",
             ReleaseLabel="emr-5.5.0",
-            SecurityConfiguration=emr.SecurityConfiguration(
-                'EMRSecurityConfiguration',
-                Name="EMRSampleClusterSecurityConfiguration",
-                SecurityConfiguration='test securityconfiguration string'
-            ),
+            SecurityConfiguration=Ref(cluster_security_configuration),
             ServiceRole="EMRServiceRole",
             AutoScalingRole="EMR_AutoScaling_DefaultRole",
             VisibleToAllUsers="true",
