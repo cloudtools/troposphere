@@ -156,7 +156,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
     props = {
         'AdjustmentType': (basestring, False),
         'CoolDown': (positive_integer, False),
-        'ScalingAdjustment': (positive_integer, True),
+        'ScalingAdjustment': (integer, True),
     }
 
 
@@ -245,6 +245,7 @@ class InstanceGroupConfig(AWSObject):
     resource_type = "AWS::EMR::InstanceGroupConfig"
 
     props = {
+        'AutoScalingPolicy': (AutoScalingPolicy, False),
         'BidPrice': (basestring, False),
         'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),

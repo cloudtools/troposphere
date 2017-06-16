@@ -117,3 +117,98 @@ class TestEMR(unittest.TestCase):
         )
 
         cluster.to_dict()
+
+        autoscale_policy = emr.AutoScalingPolicy(
+            Constraints=emr.ScalingConstraints(
+                MinCapacity=0,
+                MaxCapacity=5
+            ),
+            Rules=[
+                emr.ScalingRule(
+                    Name='ScaleUpContainerPending',
+                    Description='Scale up on over-provisioned '
+                                'containers',
+                    Action=emr.ScalingAction(
+                        SimpleScalingPolicyConfiguration=emr.
+                        SimpleScalingPolicyConfiguration(
+                            AdjustmentType='CHANGE_IN_CAPACITY',
+                            CoolDown=300,
+                            ScalingAdjustment=1
+                        )),
+                    Trigger=emr.ScalingTrigger(
+                        CloudWatchAlarmDefinition=emr.
+                        CloudWatchAlarmDefinition(
+                            ComparisonOperator='GREATER_THAN',
+                            MetricName='ContainerPendingRatio',
+                            Period=300,
+                            Threshold=0.75,
+                            Dimensions=[
+                                emr.MetricDimension(
+                                    Key='JobFlowId',
+                                    Value='${emr.clusterId}'
+                                )
+                            ]
+                        )
+                    )
+                ),
+                emr.ScalingRule(
+                    Name='ScaleUpMemory',
+                    Description='Scale up on low memory',
+                    Action=emr.ScalingAction(
+                        SimpleScalingPolicyConfiguration=emr.
+                        SimpleScalingPolicyConfiguration(
+                            AdjustmentType='CHANGE_IN_CAPACITY',
+                            CoolDown=300,
+                            ScalingAdjustment=1
+                        )),
+                    Trigger=emr.ScalingTrigger(
+                        CloudWatchAlarmDefinition=emr.
+                        CloudWatchAlarmDefinition(
+                            ComparisonOperator='LESS_THAN',
+                            MetricName='YARNMemoryAvailablePercentage',
+                            Period=300,
+                            Threshold=15,
+                            Dimensions=[emr.MetricDimension(
+                                Key='JobFlowId',
+                                Value='${emr.clusterId}'
+                            )]
+                        )
+                    )
+                ),
+                emr.ScalingRule(
+                    Name='ScaleDownMemory',
+                    Description='Scale down on high memory',
+                    Action=emr.ScalingAction(
+                        SimpleScalingPolicyConfiguration=emr.
+                        SimpleScalingPolicyConfiguration(
+                            AdjustmentType='CHANGE_IN_CAPACITY',
+                            CoolDown=300,
+                            ScalingAdjustment=-1
+                        )),
+                    Trigger=emr.ScalingTrigger(
+                        CloudWatchAlarmDefinition=emr.
+                        CloudWatchAlarmDefinition(
+                            ComparisonOperator='GREATER_THAN',
+                            MetricName='YARNMemoryAvailablePercentage',
+                            Period=300,
+                            Threshold=75,
+                            Dimensions=[emr.MetricDimension(
+                                Key='JobFlowId',
+                                Value='${emr.clusterId}'
+                            )]
+                        )
+                    )
+                )
+            ]
+        )
+
+        emr.InstanceGroupConfig(
+            'TaskInstanceGroup',
+            AutoScalingPolicy=autoscale_policy,
+            InstanceCount=0,
+            InstanceType=M4_LARGE,
+            InstanceRole='TASK',
+            Market='ON_DEMAND',
+            Name='Task Instance',
+            JobFlowId=Ref(cluster)
+        )
