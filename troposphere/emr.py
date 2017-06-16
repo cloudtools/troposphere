@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, AWSHelperFn
-from .validators import (boolean, integer, positive_integer)
+from .validators import (boolean, integer, positive_integer, float, ignore)
 
 
 class KeyValue(AWSProperty):
