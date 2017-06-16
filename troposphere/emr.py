@@ -156,7 +156,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
     props = {
         'AdjustmentType': (basestring, False),
         'CoolDown': (positive_integer, False),
-        'ScalingAdjustment': (positive_integer, True),
+        'ScalingAdjustment': (ignore, True),
     }
 
 
