@@ -245,6 +245,7 @@ class InstanceGroupConfig(AWSObject):
     resource_type = "AWS::EMR::InstanceGroupConfig"
 
     props = {
+        'AutoScalingPolicy': (AutoScalingPolicy, False),
         'BidPrice': (basestring, False),
         'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),
@@ -283,3 +284,32 @@ class Step(AWSObject):
         'JobFlowId': (basestring, True),
         'Name': (basestring, True)
     }
+
+
+def validate(self):
+    if 'AdjustmentType' in self.properties and \
+       'ScalingAdjustment' in self.properties:
+
+        valid_values = ['CHANGE_IN_CAPACITY',
+                        'PERCENT_CHANGE_IN_CAPACITY',
+                        'EXACT_CAPACITY'
+                        ]
+
+        adjustment_type = self.properties.get('AdjustmentType', None)
+        scaling_adjustment = self.properties.get('ScalingAdjustment', None)
+
+        if adjustment_type not in valid_values:
+            raise ValueError(
+                'Only CHANGE_IN_CAPACITY, PERCENT_CHANGE_IN_CAPACITY, or'
+                ' EXACT_CAPACITY are valid AdjustmentTypes'
+            )
+
+        if adjustment_type == 'CHANGE_IN_CAPACITY':
+            integer(scaling_adjustment)
+        elif adjustment_type == 'PERCENT_CHANGE_IN_CAPACITY':
+            float(scaling_adjustment)
+        elif adjustment_type == 'EXACT_CAPACITY':
+            positive_integer(scaling_adjustment)
+        else:
+            raise ValueError('ScalingAdjustment value must be'
+                             ' an integer or a float')
