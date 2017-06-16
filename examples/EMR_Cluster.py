@@ -153,15 +153,17 @@ emr_instance_profile = template.add_resource(iam.InstanceProfile(
 
 # EMR Cluster Resource
 
+security_config = template.add_resource(emr.SecurityConfiguration(
+    'EMRSecurityConfiguration',
+    Name="EMRSampleClusterSecurityConfiguration",
+    SecurityConfiguration=security_configuration,
+))
+
 cluster = template.add_resource(emr.Cluster(
     "EMRSampleCluster",
     Name="EMR Sample Cluster",
     ReleaseLabel='emr-4.4.0',
-    SecurityConfiguration=emr.SecurityConfiguration(
-        'EMRSecurityConfiguration',
-        Name="EMRSampleClusterSecurityConfiguration",
-        SecurityConfiguration=security_configuration
-    ),
+    SecurityConfiguration=Ref(security_config),
     BootstrapActions=[emr.BootstrapActionConfig(
         Name='Dummy bootstrap action',
         ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(

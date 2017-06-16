@@ -243,7 +243,7 @@ class Cluster(AWSObject):
         'LogUri': (basestring, False),
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
-        'SecurityConfiguration': (SecurityConfiguration, False),
+        'SecurityConfiguration': (basestring, False),
         'ServiceRole': (basestring, True),
         'AutoScalingRole': (basestring, False),
         'Tags': (list, False),
