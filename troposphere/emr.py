@@ -38,6 +38,15 @@ def additional_info_validator(xs):
     return xs
 
 
+class SecurityConfiguration(AWSObject):
+    resource_type = "AWS::EMR::SecurityConfiguration"
+
+    props = {
+        'Name': (basestring, False),
+        'SecurityConfiguration': (dict, True)
+    }
+
+
 class Application(AWSProperty):
     props = {
         'AdditionalInfo': (additional_info_validator, False),
@@ -234,6 +243,7 @@ class Cluster(AWSObject):
         'LogUri': (basestring, False),
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
+        'SecurityConfiguration': (basestring, False),
         'ServiceRole': (basestring, True),
         'AutoScalingRole': (basestring, False),
         'Tags': (list, False),

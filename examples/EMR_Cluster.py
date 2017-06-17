@@ -11,6 +11,32 @@ scaling_policy = emr.SimpleScalingPolicyConfiguration(
                 )
 
 
+kms_key = 'arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234'
+
+security_configuration = {
+    'EncryptionConfiguration': {
+        'EnableInTransitEncryption': 'true',
+        'InTransitEncryptionConfiguration': {
+            'TLSCertificateConfiguration': {
+                'CertificateProviderType': 'PEM',
+                'S3Object': 's3://MyConfigStore/artifacts/MyCerts.zip'
+            }
+        },
+        'EnableAtRestEncryption': 'true',
+        'AtRestEncryptionConfiguration': {
+            'S3EncryptionConfiguration': {
+                'EncryptionMode': 'SSE-KMS',
+                'AwsKmsKey': kms_key
+            },
+            'LocalDiskEncryptionConfiguration': {
+                'EncryptionKeyProviderType': 'AwsKms',
+                'AwsKmsKey': kms_key
+            }
+        }
+    }
+}
+
+
 def generate_rules(rules_name):
     global emr, scaling_policy
 
@@ -127,10 +153,17 @@ emr_instance_profile = template.add_resource(iam.InstanceProfile(
 
 # EMR Cluster Resource
 
+security_config = template.add_resource(emr.SecurityConfiguration(
+    'EMRSecurityConfiguration',
+    Name="EMRSampleClusterSecurityConfiguration",
+    SecurityConfiguration=security_configuration,
+))
+
 cluster = template.add_resource(emr.Cluster(
     "EMRSampleCluster",
     Name="EMR Sample Cluster",
     ReleaseLabel='emr-4.4.0',
+    SecurityConfiguration=Ref(security_config),
     BootstrapActions=[emr.BootstrapActionConfig(
         Name='Dummy bootstrap action',
         ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(

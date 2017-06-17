@@ -11,6 +11,31 @@ scaling_policy = emr.SimpleScalingPolicyConfiguration(
                     CoolDown="300"
                 )
 
+kms_key = 'arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234'
+
+security_configuration = {
+    'EncryptionConfiguration': {
+        'EnableInTransitEncryption': 'true',
+        'InTransitEncryptionConfiguration': {
+            'TLSCertificateConfiguration': {
+                'CertificateProviderType': 'PEM',
+                'S3Object': 's3://MyConfigStore/artifacts/MyCerts.zip'
+            }
+        },
+        'EnableAtRestEncryption': 'true',
+        'AtRestEncryptionConfiguration': {
+            'S3EncryptionConfiguration': {
+                'EncryptionMode': 'SSE-KMS',
+                'AwsKmsKey': kms_key
+            },
+            'LocalDiskEncryptionConfiguration': {
+                'EncryptionKeyProviderType': 'AwsKms',
+                'AwsKmsKey': kms_key
+            }
+        }
+    }
+}
+
 
 class TestEMR(unittest.TestCase):
 
@@ -46,6 +71,12 @@ class TestEMR(unittest.TestCase):
         return rules
 
     def test_allow_string_cluster(self):
+        cluster_security_configuration = emr.SecurityConfiguration(
+                'emrsecurityconfiguration',
+                Name="EMRSecurityConfiguration",
+                SecurityConfiguration=security_configuration
+            )
+
         spot = "2"
         withSpotPrice = "WithSpotPrice"
         cluster = emr.Cluster(
@@ -108,6 +139,7 @@ class TestEMR(unittest.TestCase):
             LogUri="s3://cluster-logs",
             Name="EMR Cluster",
             ReleaseLabel="emr-5.5.0",
+            SecurityConfiguration=Ref(cluster_security_configuration),
             ServiceRole="EMRServiceRole",
             AutoScalingRole="EMR_AutoScaling_DefaultRole",
             VisibleToAllUsers="true",
