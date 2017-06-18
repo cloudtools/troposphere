@@ -51,7 +51,7 @@ def integer_list_item(allowed_values):
     return integer_list_item_checker
 
 
-def float(x):
+def floatingpoint(x):
     try:
         float(x)
     except (ValueError, TypeError):
@@ -61,25 +61,12 @@ def float(x):
 
 
 def ignore(x):
-    """ This method performs ZERO validation.
+    """Method to indicate bypassing property validation"""
+    return x
 
-    The intent of this method is to be used to bypass Troposphere's simple
-    property validation.
 
-    A request was made in PR#736 to perform more complex validation for
-    SimpleScalingPolicyConfiguration's AdjustmentType and ScalingAdjustment
-    class properties.
-
-    In order to facilitate the request, a validate method was introduced in
-    emr.py. However, we now required a way to bypass the simple property
-    validation in the class declaration in order to get to the more complex
-    validator.
-
-    This is the quick and dirty way to achieve that bypass functionality.
-
-    Feel free to modify as the community sees fit.
-    """
-
+def defer(x):
+    """Method to indicate defering property validation"""
     return x
 
 

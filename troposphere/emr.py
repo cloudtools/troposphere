@@ -4,7 +4,14 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, AWSHelperFn
-from .validators import (boolean, integer, positive_integer, float, ignore)
+from .validators import (
+    boolean, integer, positive_integer, floatingpoint, defer
+)
+
+
+CHANGE_IN_CAPACITY = 'CHANGE_IN_CAPACITY'
+PERCENT_CHANGE_IN_CAPACITY = 'PERCENT_CHANGE_IN_CAPACITY'
+EXACT_CAPACITY = 'EXACT_CAPACITY'
 
 
 class KeyValue(AWSProperty):
@@ -156,8 +163,43 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
     props = {
         'AdjustmentType': (basestring, False),
         'CoolDown': (positive_integer, False),
-        'ScalingAdjustment': (ignore, True),
+        'ScalingAdjustment': (defer, True),
     }
+
+    def validate(self):
+        if 'AdjustmentType' in self.properties and \
+           'ScalingAdjustment' in self.properties:
+
+            valid_values = [
+                CHANGE_IN_CAPACITY,
+                PERCENT_CHANGE_IN_CAPACITY,
+                EXACT_CAPACITY,
+            ]
+
+            adjustment_type = self.properties.get('AdjustmentType', None)
+            scaling_adjustment = self.properties.get('ScalingAdjustment', None)
+
+            if adjustment_type not in valid_values:
+                raise ValueError(
+                    'Only CHANGE_IN_CAPACITY, PERCENT_CHANGE_IN_CAPACITY, or'
+                    ' EXACT_CAPACITY are valid AdjustmentTypes'
+                )
+
+            if adjustment_type == CHANGE_IN_CAPACITY:
+                integer(scaling_adjustment)
+            elif adjustment_type == PERCENT_CHANGE_IN_CAPACITY:
+                floatingpoint(scaling_adjustment)
+                f = float(scaling_adjustment)
+                if f < 0.0 or f > 1.0:
+                    raise ValueError(
+                        'ScalingAdjustment value must be between 0.0 and 1.0'
+                        ' value was %0.2f' % f
+                    )
+            elif adjustment_type == EXACT_CAPACITY:
+                positive_integer(scaling_adjustment)
+            else:
+                raise ValueError('ScalingAdjustment value must be'
+                                 ' an integer or a float')
 
 
 class ScalingAction(AWSProperty):
@@ -284,32 +326,3 @@ class Step(AWSObject):
         'JobFlowId': (basestring, True),
         'Name': (basestring, True)
     }
-
-
-def validate(self):
-    if 'AdjustmentType' in self.properties and \
-       'ScalingAdjustment' in self.properties:
-
-        valid_values = ['CHANGE_IN_CAPACITY',
-                        'PERCENT_CHANGE_IN_CAPACITY',
-                        'EXACT_CAPACITY'
-                        ]
-
-        adjustment_type = self.properties.get('AdjustmentType', None)
-        scaling_adjustment = self.properties.get('ScalingAdjustment', None)
-
-        if adjustment_type not in valid_values:
-            raise ValueError(
-                'Only CHANGE_IN_CAPACITY, PERCENT_CHANGE_IN_CAPACITY, or'
-                ' EXACT_CAPACITY are valid AdjustmentTypes'
-            )
-
-        if adjustment_type == 'CHANGE_IN_CAPACITY':
-            integer(scaling_adjustment)
-        elif adjustment_type == 'PERCENT_CHANGE_IN_CAPACITY':
-            float(scaling_adjustment)
-        elif adjustment_type == 'EXACT_CAPACITY':
-            positive_integer(scaling_adjustment)
-        else:
-            raise ValueError('ScalingAdjustment value must be'
-                             ' an integer or a float')

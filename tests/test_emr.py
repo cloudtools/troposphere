@@ -6,7 +6,7 @@ import troposphere.emr as emr
 
 
 scaling_policy = emr.SimpleScalingPolicyConfiguration(
-                    AdjustmentType="EXACT_CAPACITY",
+                    AdjustmentType=emr.EXACT_CAPACITY,
                     ScalingAdjustment="1",
                     CoolDown="300"
                 )
@@ -131,7 +131,7 @@ class TestEMR(unittest.TestCase):
                     Action=emr.ScalingAction(
                         SimpleScalingPolicyConfiguration=emr.
                         SimpleScalingPolicyConfiguration(
-                            AdjustmentType='CHANGE_IN_CAPACITY',
+                            AdjustmentType=emr.CHANGE_IN_CAPACITY,
                             CoolDown=300,
                             ScalingAdjustment=1
                         )),
@@ -181,7 +181,7 @@ class TestEMR(unittest.TestCase):
                     Action=emr.ScalingAction(
                         SimpleScalingPolicyConfiguration=emr.
                         SimpleScalingPolicyConfiguration(
-                            AdjustmentType='CHANGE_IN_CAPACITY',
+                            AdjustmentType=emr.CHANGE_IN_CAPACITY,
                             CoolDown=300,
                             ScalingAdjustment=-1
                         )),
@@ -212,3 +212,32 @@ class TestEMR(unittest.TestCase):
             Name='Task Instance',
             JobFlowId=Ref(cluster)
         )
+
+    def simple_helper(self, adjustment, scaling):
+        sc = emr.SimpleScalingPolicyConfiguration(
+                 AdjustmentType=adjustment,
+                 ScalingAdjustment=scaling,
+        )
+        sc.validate()
+
+    def test_SimpleScalingPolicyConfiguration(self):
+        self.simple_helper(emr.CHANGE_IN_CAPACITY, 1)
+        self.simple_helper(emr.CHANGE_IN_CAPACITY, -1)
+        self.simple_helper(emr.CHANGE_IN_CAPACITY, "1")
+        self.simple_helper(emr.CHANGE_IN_CAPACITY, "-1")
+
+        self.simple_helper(emr.EXACT_CAPACITY, "1")
+        self.simple_helper(emr.EXACT_CAPACITY, 1)
+        with self.assertRaises(ValueError):
+            self.simple_helper(emr.EXACT_CAPACITY, -1)
+
+        self.simple_helper(emr.PERCENT_CHANGE_IN_CAPACITY, "0.1")
+        self.simple_helper(emr.PERCENT_CHANGE_IN_CAPACITY, 0.1)
+        with self.assertRaises(ValueError):
+            self.simple_helper(emr.PERCENT_CHANGE_IN_CAPACITY, "1.1")
+        with self.assertRaises(ValueError):
+            self.simple_helper(emr.PERCENT_CHANGE_IN_CAPACITY, 1.1)
+        with self.assertRaises(ValueError):
+            self.simple_helper(emr.PERCENT_CHANGE_IN_CAPACITY, -0.1)
+        with self.assertRaises(ValueError):
+            self.simple_helper(emr.PERCENT_CHANGE_IN_CAPACITY, -0.1)
