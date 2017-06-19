@@ -124,6 +124,13 @@ class Environment(AWSProperty):
     }
 
 
+class TracingConfig(AWSProperty):
+
+    props = {
+        'Mode': (basestring, False),
+    }
+
+
 class Function(AWSObject):
     resource_type = "AWS::Lambda::Function"
 
@@ -140,6 +147,7 @@ class Function(AWSObject):
         'Runtime': (basestring, True),
         'Tags': (Tags, False),
         'Timeout': (positive_integer, False),
+        'TracingConfig': (TracingConfig, False),
         'VpcConfig': (VPCConfig, False),
     }
 
