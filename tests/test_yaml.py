@@ -16,6 +16,7 @@ Resources:
     Type: AWS::S3::Bucket
 """
 
+
 class TestYAML(unittest.TestCase):
 
     def test_s3_bucket(self):
