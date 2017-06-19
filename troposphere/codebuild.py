@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import integer
+from .validators import integer, boolean
 
 
 class Artifacts(AWSProperty):
