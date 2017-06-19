@@ -50,6 +50,7 @@ class Environment(AWSProperty):
         'EnvironmentVariables': ((list, [EnvironmentVariable]), False),
         'Image': (basestring, True),
         'Type': (basestring, True),
+        'PrivilegedMode': (boolean, False),
     }
 
     def validate(self):
