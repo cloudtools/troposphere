@@ -51,6 +51,25 @@ def integer_list_item(allowed_values):
     return integer_list_item_checker
 
 
+def floatingpoint(x):
+    try:
+        float(x)
+    except (ValueError, TypeError):
+        raise ValueError("%r is not a valid float" % x)
+    else:
+        return x
+
+
+def ignore(x):
+    """Method to indicate bypassing property validation"""
+    return x
+
+
+def defer(x):
+    """Method to indicate defering property validation"""
+    return x
+
+
 def network_port(x):
     from . import AWSHelperFn
 
