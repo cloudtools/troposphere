@@ -77,11 +77,25 @@ class RecordSetGroup(AWSObject):
     }
 
 
+class AlarmIdentifier(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Region': (basestring, True),
+    }
+
+
 class HealthCheckConfiguration(AWSProperty):
     props = {
+        'AlarmIdentifier': (AlarmIdentifier, False),
+        'ChildHealthChecks': ([basestring], False),
+        'EnableSNI': (boolean, False),
         'FailureThreshold': (positive_integer, False),
         'FullyQualifiedDomainName': (basestring, False),
+        'HealthThreshold': (positive_integer, False),
+        'InsufficientDataHealthStatus': (basestring, False),
+        'Inverted': (boolean, False),
         'IPAddress': (basestring, False),
+        'MeasureLatency': (boolean, False),
         'Port': (network_port, False),
         'RequestInterval': (positive_integer, False),
         'ResourcePath': (basestring, False),

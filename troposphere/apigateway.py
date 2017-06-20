@@ -1,5 +1,6 @@
-from . import AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import positive_integer
+import json
 
 
 def validate_authorizer_ttl(ttl_value):
@@ -183,8 +184,22 @@ class Model(AWSObject):
         "Description": (basestring, False),
         "Name": (basestring, False),
         "RestApiId": (basestring, True),
-        "Schema": (basestring, False)
+        "Schema": ((basestring, dict), False)
     }
+
+    def validate(self):
+        if 'Schema' in self.properties:
+            schema = self.properties.get('Schema')
+            if isinstance(schema, basestring):
+                # Verify it is a valid json string
+                json.loads(schema)
+            elif isinstance(schema, dict):
+                # Convert the dict to a basestring
+                self.properties['Schema'] = json.dumps(schema)
+            elif isinstance(schema, AWSHelperFn):
+                pass
+            else:
+                raise ValueError("Schema must be a str or dict")
 
 
 class Resource(AWSObject):
@@ -268,4 +283,14 @@ class UsagePlan(AWSObject):
         "Quota": (QuotaSettings, False),
         "Throttle": (ThrottleSettings, False),
         "UsagePlanName": (basestring, False),
+    }
+
+
+class UsagePlanKey(AWSObject):
+    resource_type = "AWS::ApiGateway::UsagePlanKey"
+
+    props = {
+        "KeyId": (basestring, True),
+        "KeyType": (basestring, True),
+        "UsagePlanId": (basestring, True),
     }

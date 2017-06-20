@@ -11,8 +11,8 @@ class Target(AWSProperty):
         'Arn': (basestring, True),
         'Id': (basestring, True),
         'Input': (basestring, False),
-        'InputPath': (basestring, False)
-
+        'InputPath': (basestring, False),
+        'RoleArn': (basestring, False),
     }
 
 
@@ -24,9 +24,7 @@ class Rule(AWSObject):
         'Description': (basestring, False),
         'EventPattern': (dict, False),
         'Name': (basestring, False),
-        'RoleArn': (basestring, False),
         'ScheduleExpression': (basestring, False),
         'State': (basestring, False),
-        'Targets': ([Target], False)
-
+        'Targets': ([Target], False),
     }

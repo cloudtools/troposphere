@@ -40,6 +40,36 @@ def integer_range(minimum_val, maximum_val):
     return integer_range_checker
 
 
+def integer_list_item(allowed_values):
+    def integer_list_item_checker(x):
+        i = positive_integer(x)
+        if i in allowed_values:
+            return x
+        raise ValueError('Integer must be one of following: %s' %
+                         ', '.join(str(j) for j in allowed_values))
+
+    return integer_list_item_checker
+
+
+def floatingpoint(x):
+    try:
+        float(x)
+    except (ValueError, TypeError):
+        raise ValueError("%r is not a valid float" % x)
+    else:
+        return x
+
+
+def ignore(x):
+    """Method to indicate bypassing property validation"""
+    return x
+
+
+def defer(x):
+    """Method to indicate defering property validation"""
+    return x
+
+
 def network_port(x):
     from . import AWSHelperFn
 

@@ -134,7 +134,7 @@ class Placement(AWSProperty):
 class Ipv6Addresses(AWSHelperFn):
     def __init__(self, address):
         self.data = {
-            'Ipv6Addresses': address,
+            'Ipv6Address': address,
         }
 
 
@@ -281,6 +281,8 @@ class NetworkInterface(AWSObject):
     props = {
         'Description': (basestring, False),
         'GroupSet': (list, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),
@@ -393,6 +395,7 @@ class SecurityGroupIngress(AWSObject):
 class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
+        'CidrIpv6': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
@@ -407,6 +410,7 @@ class SecurityGroup(AWSObject):
     resource_type = "AWS::EC2::SecurityGroup"
 
     props = {
+        'GroupName': (basestring, False),
         'GroupDescription': (basestring, True),
         'SecurityGroupEgress': (list, False),
         'SecurityGroupIngress': (list, False),
@@ -559,6 +563,8 @@ class VPCPeeringConnection(AWSObject):
         'PeerVpcId': (basestring, True),
         'VpcId': (basestring, True),
         'Tags': (list, False),
+        'PeerOwnerId': (basestring, False),
+        'PeerRoleArn': (basestring, False),
     }
 
 

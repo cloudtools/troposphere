@@ -1,3 +1,52 @@
+## 1.9.4 (2017-06-04)
+- Fix typo in S3_Bucket.py example (#696)
+- Added .Ref & .GetAtt helper methods (#697)
+- Add Pseudo Parameter Ref objects (#698)
+- Fix NamespaceType typo in codebuild::Artifacts() (fixes #701)
+- Add IpAddressType property to elbv2. (#703)
+- Add new AWS::Lambda::Function Tags support (#705)
+- Added ECS PlacementConstraints, PlacementStrategy, and ServiceName (#706)
+- Add missing CidrIpv6 property to securityrule. (#710)
+- Add missing properties to various objects in ec2.py (#711)
+- logs.LogGroup#RetentionInDays is strictly defined list (#712)
+- Add ManagedPolicyName to AWS::IAM::ManagedPolicy (Fixes #714)
+- Add better validations for Parameter Default types (Fixes #717)
+- Add AWS::Cognito (fixes #720)
+- Add required attribute, JobFlowId, to EMR::InstanceGroupConfig (#722)
+- Add WAFRegional support (#723)
+- fix for ElastiCacheRedis.py example to use awacs (#725)
+- Add EMR autoscaling (#729)
+- Add SshUsername to AWS::OpsWorks::UserProfile
+- Add PlacementConstraints to AWS::ECS::TaskDefinition
+- Add MaximumExecutionFrequency to Config SourceDetails
+
+## 1.9.3 (2017-04-13)
+- Fix pycodestyle by using an explicit exception type
+- Add more details to pycodestyle errors for travis runs
+- Fix validator function exception test
+- Remove limit check on conditions - Fixes #657
+- Allow valid value for TargetGroup HealthCheckPort (#659)
+- Added step functions and basic tests (#661)
+- Adding example for CloudTrail (from http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html) (#667)
+- Fix ApiGateway.py sample (#666)
+- Update comment on type checking
+- Added missing props to ec2.NetworkInterfaces (#669) (#670)
+- Add WAF Common Attacks Sample (#675)
+- Updated constants with new instance types (#674)
+- SSM Targets - fix spelling mistake (Value => Values) (#673)
+- Do json validation on ApiGateway::Model Schema (Fix #679) (#681)
+- SQS: Add FifoQueue and ContentBasedDeduplication (#687)
+- VPCPeeringConnection: add PeerOwnerId & PeerRoleArn (#688)
+- IAM: Add InstanceProfileName to InstanceProfile (#689)
+- Add ApiGateway UsagePlanKey resource
+- Add DeadLetterConfig property to Lambda::Function
+- Add new subproperties to route53 and redshift (#690)
+- Route53: ChildHealthChecks is a list of strings (#690)
+- Fix typo in S3_Bucket_With_Versioning_And_Lifecycle_Rules.py (#693)
+- Allow a dict to be passed in to initalize Tags (#692)
+- Add SSM::Parameter
+- Update autoscaling example to remove rebinding (#695)
+
 ## 1.9.2 (2017-01-29)
 - Extra template validation (#635)
 - Update ECS to Jan 17, 2017 release (#642)

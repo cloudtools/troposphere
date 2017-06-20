@@ -11,7 +11,7 @@ class Artifacts(AWSProperty):
     props = {
         'Location': (basestring, False),
         'Name': (basestring, False),
-        'NameSpaceType': (basestring, False),
+        'NamespaceType': (basestring, False),
         'Packaging': (basestring, False),
         'Path': (basestring, False),
         'Type': (basestring, True),

@@ -45,6 +45,41 @@
             },
             "Type": "AWS::ApiGateway::RestApi"
         },
+        "ExampleUsagePlan": {
+            "Properties": {
+                "ApiStages": [
+                    {
+                        "ApiId": {
+                            "Ref": "ExampleApi"
+                        },
+                        "Stage": "v1"
+                    }
+                ],
+                "Description": "Example usage plan",
+                "Quota": {
+                    "Limit": 50000,
+                    "Period": "MONTH"
+                },
+                "Throttle": {
+                    "BurstLimit": 500,
+                    "RateLimit": 5000
+                },
+                "UsagePlanName": "ExampleUsagePlan"
+            },
+            "Type": "AWS::ApiGateway::UsagePlan"
+        },
+        "ExampleUsagePlanKey": {
+            "Properties": {
+                "KeyId": {
+                    "Ref": "ApiKey"
+                },
+                "KeyType": "API_KEY",
+                "UsagePlanId": {
+                    "Ref": "ExampleUsagePlan"
+                }
+            },
+            "Type": "AWS::ApiGateway::UsagePlanKey"
+        },
         "FoobarFunction": {
             "Properties": {
                 "Code": {

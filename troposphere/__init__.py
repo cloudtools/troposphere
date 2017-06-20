@@ -1,9 +1,10 @@
-# Copyright (c) 2012-2013, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2017, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
 
 
+import cfn_flip
 import collections
 import json
 import re
@@ -12,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "1.9.2"
+__version__ = "1.9.4"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -28,6 +29,8 @@ AWS_STACK_ID = 'AWS::StackId'
 AWS_STACK_NAME = 'AWS::StackName'
 
 # Template Limits
+MAX_MAPPINGS = 100
+MAX_OUTPUTS = 60
 MAX_PARAMETERS = 60
 MAX_RESOURCES = 200
 PARAMETER_TITLE_MAX = 255
@@ -273,6 +276,16 @@ class BaseAWSObject(object):
 class AWSObject(BaseAWSObject):
     dictname = 'Properties'
 
+    def ref(self):
+        return Ref(self)
+
+    Ref = ref
+
+    def get_att(self, value):
+        return GetAtt(self, value)
+
+    GetAtt = get_att
+
 
 class AWSDeclaration(BaseAWSObject):
     """
@@ -362,7 +375,7 @@ class FindInMap(AWSHelperFn):
 
 
 class GetAtt(AWSHelperFn):
-    def __init__(self, logicalName, attrName):
+    def __init__(self, logicalName, attrName):  # noqa: N803
         self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
 
 
@@ -428,6 +441,15 @@ class Ref(AWSHelperFn):
         self.data = {'Ref': self.getdata(data)}
 
 
+# Pseudo Parameter Ref's
+AccountId = Ref(AWS_ACCOUNT_ID)
+NotificationARNs = Ref(AWS_NOTIFICATION_ARNS)
+NoValue = Ref(AWS_NO_VALUE)
+Region = Ref(AWS_REGION)
+StackId = Ref(AWS_STACK_ID)
+StackName = Ref(AWS_STACK_NAME)
+
+
 class Condition(AWSHelperFn):
     def __init__(self, data):
         self.data = {'Condition': self.getdata(data)}
@@ -439,9 +461,21 @@ class ImportValue(AWSHelperFn):
 
 
 class Tags(AWSHelperFn):
-    def __init__(self, **kwargs):
+    def __init__(self, *args, **kwargs):
+        if not args:
+            # Assume kwargs variant
+            tag_dict = kwargs
+        else:
+            if len(args) != 1:
+                raise(TypeError, "Multiple non-kwargs passed to Tags")
+
+            # Validate single argument passed in is a dict
+            if not isinstance(args[0], dict):
+                raise(TypeError, "Tags needs to be either kwargs or dict")
+            tag_dict = args[0]
+
         self.tags = []
-        for k, v in sorted(kwargs.iteritems()):
+        for k, v in sorted(tag_dict.iteritems()):
             self.tags.append({
                 'Key': k,
                 'Value': v,
@@ -467,7 +501,7 @@ class Template(object):
         'Outputs': (dict, False),
     }
 
-    def __init__(self, Description=None, Metadata=None):
+    def __init__(self, Description=None, Metadata=None):  # noqa: N803
         self.description = Description
         self.metadata = {} if Metadata is None else Metadata
         self.conditions = {}
@@ -503,9 +537,13 @@ class Template(object):
         return values
 
     def add_output(self, output):
+        if len(self.outputs) >= MAX_OUTPUTS:
+            raise ValueError('Maximum outputs %d reached' % MAX_OUTPUTS)
         return self._update(self.outputs, output)
 
     def add_mapping(self, name, mapping):
+        if len(self.mappings) >= MAX_MAPPINGS:
+            raise ValueError('Maximum mappings %d reached' % MAX_MAPPINGS)
         self.mappings[name] = mapping
 
     def add_parameter(self, parameter):
@@ -554,6 +592,9 @@ class Template(object):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
 
+    def to_yaml(self):
+        return cfn_flip.to_yaml(self.to_json())
+
 
 class Export(AWSHelperFn):
     def __init__(self, name):
@@ -575,7 +616,7 @@ class Parameter(AWSDeclaration):
     NUMBER_PROPERTIES = ['MaxValue', 'MinValue']
     props = {
         'Type': (basestring, True),
-        'Default': (basestring, False),
+        'Default': ((basestring, int, float), False),
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
         'AllowedPattern': (basestring, False),
@@ -594,6 +635,44 @@ class Parameter(AWSDeclaration):
         super(Parameter, self).validate_title()
 
     def validate(self):
+        def check_type(t, v):
+            try:
+                t(v)
+                return True
+            except ValueError:
+                return False
+
+        # Validate the Default parameter value
+        default = self.properties.get('Default')
+        if default:
+            error_str = ("Parameter default type mismatch: expecting "
+                         "type %s got %s with value %r")
+            # Get the Type specified and see whether the default type
+            # matches (in the case of a String Type) or can be coerced
+            # into one of the number formats.
+            param_type = self.properties.get('Type')
+            if param_type == 'String' and not isinstance(default, basestring):
+                raise ValueError(error_str %
+                                 ('String', type(default), default))
+            elif param_type == 'Number':
+                allowed = [float, int]
+                # See if the default value can be coerced into one
+                # of the correct types
+                if not any(map(lambda x: check_type(x, default), allowed)):
+                    raise ValueError(error_str %
+                                     (param_type, type(default), default))
+            elif param_type == 'List<Number>':
+                if not isinstance(default, basestring):
+                    raise ValueError(error_str %
+                                     (param_type, type(default), default))
+                allowed = [float, int]
+                dlist = default.split(",")
+                for d in dlist:
+                    # Verify the split array are all numbers
+                    if not any(map(lambda x: check_type(x, d), allowed)):
+                        raise ValueError(error_str %
+                                         (param_type, type(d), dlist))
+
         if self.properties['Type'] != 'String':
             for p in self.STRING_PROPERTIES:
                 if p in self.properties:

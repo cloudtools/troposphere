@@ -313,6 +313,7 @@ class UserProfile(AWSObject):
         'AllowSelfManagement': (boolean, False),
         'IamUserArn': (basestring, True),
         'SshPublicKey': (basestring, False),
+        'SshUsername': (basestring, False),
     }
 
 

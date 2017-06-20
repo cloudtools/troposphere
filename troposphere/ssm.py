@@ -9,7 +9,7 @@ from . import AWSObject, AWSProperty
 class Targets(AWSProperty):
     props = {
         'Key': (basestring, True),
-        'Value': ([basestring], True),
+        'Values': ([basestring], True),
     }
 
 
@@ -33,4 +33,15 @@ class Document(AWSObject):
         # Need a better implementation of the SSM Document
         'Content': (dict, True),
         'DocumentType': (basestring, False),
+    }
+
+
+class Parameter(AWSObject):
+    resource_type = "AWS::SSM::Parameter"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, False),
+        'Type': (basestring, True),
+        'Value': (basestring, True),
     }

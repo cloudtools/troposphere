@@ -4,7 +4,14 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, AWSHelperFn
-from .validators import (boolean, integer, positive_integer)
+from .validators import (
+    boolean, integer, positive_integer, floatingpoint, defer
+)
+
+
+CHANGE_IN_CAPACITY = 'CHANGE_IN_CAPACITY'
+PERCENT_CHANGE_IN_CAPACITY = 'PERCENT_CHANGE_IN_CAPACITY'
+EXACT_CAPACITY = 'EXACT_CAPACITY'
 
 
 class KeyValue(AWSProperty):
@@ -22,6 +29,9 @@ class KeyValue(AWSProperty):
         super(KeyValue, self).__init__(**kwargs)
 
 
+MetricDimension = KeyValue
+
+
 def additional_info_validator(xs):
     if not isinstance(xs, dict):
         raise ValueError("AdditionalInfo must be a dict of "
@@ -33,6 +43,15 @@ def additional_info_validator(xs):
             raise ValueError('AdditionalInfo values must be strings')
 
     return xs
+
+
+class SecurityConfiguration(AWSObject):
+    resource_type = "AWS::EMR::SecurityConfiguration"
+
+    props = {
+        'Name': (basestring, False),
+        'SecurityConfiguration': (dict, True)
+    }
 
 
 class Application(AWSProperty):
@@ -122,15 +141,111 @@ class EbsConfiguration(AWSProperty):
     }
 
 
+class ScalingConstraints(AWSProperty):
+    props = {
+        'MinCapacity': (integer, True),
+        'MaxCapacity': (integer, True)
+    }
+
+
+class CloudWatchAlarmDefinition(AWSProperty):
+    props = {
+        'ComparisonOperator': (basestring, True),
+        'Dimensions': ([MetricDimension], False),
+        'EvaluationPeriods': (positive_integer, False),
+        'MetricName': (basestring, True),
+        'Namespace': (basestring, False),
+        'Period': (positive_integer, True),
+        'Statistic': (basestring, False),
+        'Threshold': (positive_integer, True),
+        'Unit': (basestring, False),
+    }
+
+
+class ScalingTrigger(AWSProperty):
+    props = {
+        'CloudWatchAlarmDefinition': (CloudWatchAlarmDefinition, True),
+    }
+
+
+class SimpleScalingPolicyConfiguration(AWSProperty):
+    props = {
+        'AdjustmentType': (basestring, False),
+        'CoolDown': (positive_integer, False),
+        'ScalingAdjustment': (defer, True),
+    }
+
+    def validate(self):
+        if 'AdjustmentType' in self.properties and \
+           'ScalingAdjustment' in self.properties:
+
+            valid_values = [
+                CHANGE_IN_CAPACITY,
+                PERCENT_CHANGE_IN_CAPACITY,
+                EXACT_CAPACITY,
+            ]
+
+            adjustment_type = self.properties.get('AdjustmentType', None)
+            scaling_adjustment = self.properties.get('ScalingAdjustment', None)
+
+            if adjustment_type not in valid_values:
+                raise ValueError(
+                    'Only CHANGE_IN_CAPACITY, PERCENT_CHANGE_IN_CAPACITY, or'
+                    ' EXACT_CAPACITY are valid AdjustmentTypes'
+                )
+
+            if adjustment_type == CHANGE_IN_CAPACITY:
+                integer(scaling_adjustment)
+            elif adjustment_type == PERCENT_CHANGE_IN_CAPACITY:
+                floatingpoint(scaling_adjustment)
+                f = float(scaling_adjustment)
+                if f < 0.0 or f > 1.0:
+                    raise ValueError(
+                        'ScalingAdjustment value must be between 0.0 and 1.0'
+                        ' value was %0.2f' % f
+                    )
+            elif adjustment_type == EXACT_CAPACITY:
+                positive_integer(scaling_adjustment)
+            else:
+                raise ValueError('ScalingAdjustment value must be'
+                                 ' an integer or a float')
+
+
+class ScalingAction(AWSProperty):
+    props = {
+        'Market': (market_validator, False),
+        'SimpleScalingPolicyConfiguration': (
+            SimpleScalingPolicyConfiguration, True
+        )
+    }
+
+
+class ScalingRule(AWSProperty):
+    props = {
+        'Action': (ScalingAction, True),
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'Trigger': (ScalingTrigger, True),
+    }
+
+
+class AutoScalingPolicy(AWSProperty):
+    props = {
+        'Constraints': (ScalingConstraints, True),
+        'Rules': ([ScalingRule], False),
+    }
+
+
 class InstanceGroupConfigProperty(AWSProperty):
     props = {
+        'AutoScalingPolicy': (AutoScalingPolicy, False),
         'BidPrice': (basestring, False),
         'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),
         'InstanceCount': (positive_integer, True),
         'InstanceType': (basestring, True),
         'Market': (market_validator, False),
-        'Name': (basestring, False)
+        'Name': (basestring, False),
     }
 
 
@@ -170,7 +285,9 @@ class Cluster(AWSObject):
         'LogUri': (basestring, False),
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
+        'SecurityConfiguration': (basestring, False),
         'ServiceRole': (basestring, True),
+        'AutoScalingRole': (basestring, False),
         'Tags': (list, False),
         'VisibleToAllUsers': (boolean, False)
     }
@@ -180,12 +297,14 @@ class InstanceGroupConfig(AWSObject):
     resource_type = "AWS::EMR::InstanceGroupConfig"
 
     props = {
+        'AutoScalingPolicy': (AutoScalingPolicy, False),
         'BidPrice': (basestring, False),
         'Configurations': ([Configuration], False),
         'EbsConfiguration': (EbsConfiguration, False),
         'InstanceCount': (integer, True),
         'InstanceRole': (basestring, True),
         'InstanceType': (basestring, True),
+        'JobFlowId': (basestring, True),
         'Market': (market_validator, False),
         'Name': (basestring, False)
     }

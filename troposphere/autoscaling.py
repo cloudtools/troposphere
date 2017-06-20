@@ -246,8 +246,8 @@ class LifecycleHook(AWSObject):
         'LifecycleHookName': (basestring, False),
         'LifecycleTransition': (basestring, True),
         'NotificationMetadata': (basestring, False),
-        'NotificationTargetARN': (basestring, True),
-        'RoleARN': (basestring, True),
+        'NotificationTargetARN': (basestring, False),
+        'RoleARN': (basestring, False),
     }
 
 

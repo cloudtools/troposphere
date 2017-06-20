@@ -67,6 +67,7 @@ class InstanceProfile(AWSObject):
     props = {
         'Path': (iam_path, False),
         'Roles': (list, True),
+        'InstanceProfileName': (basestring, False),
     }
 
 
@@ -117,6 +118,7 @@ class ManagedPolicy(AWSObject):
     props = {
         'Description': (basestring, False),
         'Groups': ([basestring], False),
+        'ManagedPolicyName': (basestring, False),
         'Path': (iam_path, False),
         'PolicyDocument': (policytypes, True),
         'Roles': ([basestring], False),

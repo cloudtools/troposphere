@@ -197,6 +197,49 @@ class TestParameter(unittest.TestCase):
         with self.assertRaises(ValueError):
             t.to_json()
 
+    def test_property_default(self):
+        p = Parameter("param", Type="String", Default="foo")
+        p.validate()
+
+        p = Parameter("param", Type="Number", Default=1)
+        p.validate()
+
+        p = Parameter("param", Type="Number", Default=1.0)
+        p.validate()
+
+        p = Parameter("param", Type="Number", Default=0.1)
+        p.validate()
+
+        p = Parameter("param", Type="List<Number>", Default="1, 2, 3")
+        p.validate()
+
+        p = Parameter("param", Type="List<Number>", Default=" 0.1 , 2 , 1.1 ")
+        p.validate()
+
+        with self.assertRaises(ValueError):
+            p = Parameter("param", Type="String", Default=1)
+            p.validate()
+
+        with self.assertRaises(ValueError):
+            p = Parameter("param", Type="Number", Default="foo")
+            p.validate()
+
+        with self.assertRaises(TypeError):
+            p = Parameter("param", Type="Number", Default=["foo"])
+            p.validate()
+
+        with self.assertRaises(ValueError):
+            p = Parameter("param", Type="List<Number>", Default="foo")
+            p.validate()
+
+        with self.assertRaises(ValueError):
+            p = Parameter("param", Type="List<Number>", Default="1, 2, foo")
+            p.validate()
+
+        with self.assertRaises(TypeError):
+            p = Parameter("param", Type="List<Number>", Default=["1", "2"])
+            p.validate()
+
 
 class TestProperty(unittest.TestCase):
 

@@ -84,12 +84,15 @@ T2_MICRO = 't2.micro'
 T2_SMALL = 't2.small'
 T2_MEDIUM = 't2.medium'
 T2_LARGE = 't2.large'
+T2_XLARGE = 't2.xlarge'
+T2_2XLARGE = 't2.2xlarge'
 
 M4_LARGE = 'm4.large'
 M4_XLARGE = 'm4.xlarge'
 M4_2XLARGE = 'm4.2xlarge'
 M4_4XLARGE = 'm4.4xlarge'
 M4_10XLARGE = 'm4.10xlarge'
+M4_16XLARGE = 'm4.16xlarge'
 
 M3_MEDIUM = 'm3.medium'
 M3_LARGE = 'm3.large'
@@ -150,6 +153,28 @@ HI1_4XLARGE = 'hi1.4xlarge'
 T1_MICRO = 't1.micro'
 
 X1_32XLARGE = 'x1.32xlarge'
+X1_16XLARGE = 'x1.16xlarge'
+
+R4_LARGE = 'r4.large'
+R4_XLARGE = 'r4.xlarge'
+R4_2XLARGE = 'r4.2xlarge'
+R4_4XLARGE = 'r4.4xlarge'
+R4_8XLARGE = 'r4.8xlarge'
+R4_16XLARGE = 'r4.16xlarge'
+
+P2_XLARGE = 'p2.xlarge'
+P2_8XLARGE = 'p2.8xlarge'
+P2_16XLARGE = 'p2.16xlarge'
+
+F1_2XLARGE = 'f1.2xlarge'
+F1_16XLARGE = 'f1.16xlarge'
+
+I3_LARGE = 'i3.large'
+I3_XLARGE = 'i3.xlarge'
+I3_2XLARGE = 'i3.2xlarge'
+I3_4XLARGE = 'i3.4xlarge'
+I3_8XLARGE = 'i3.8xlarge'
+I3_16XLARGE = 'i3.16xlarge'
 
 #
 # RDS DB instance classes
@@ -265,6 +290,12 @@ LIST_OF_SUBNET_IDS = 'List<AWS::EC2::Subnet::Id>'
 LIST_OF_VOLUME_IDS = 'List<AWS::EC2::Volume::Id>'
 LIST_OF_VPC_IDS = 'List<AWS::EC2::VPC::Id>'
 LIST_OF_HOSTED_ZONE_IDS = 'List<AWS::Route53::HostedZone::Id>'
+
+#
+# Logs
+#
+LOGS_ALLOWED_RETENTION_DAYS = [1, 3, 5, 7, 14, 30, 60, 90, 120, 150, 180,
+                               365, 400, 545, 731, 1827, 3653]
 
 #
 # Route53

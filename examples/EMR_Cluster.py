@@ -4,6 +4,73 @@ import troposphere.emr as emr
 import troposphere.iam as iam
 
 
+scaling_policy = emr.SimpleScalingPolicyConfiguration(
+                    AdjustmentType="EXACT_CAPACITY",
+                    ScalingAdjustment="1",
+                    CoolDown="300"
+                )
+
+
+kms_key = 'arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234'
+
+security_configuration = {
+    'EncryptionConfiguration': {
+        'EnableInTransitEncryption': 'true',
+        'InTransitEncryptionConfiguration': {
+            'TLSCertificateConfiguration': {
+                'CertificateProviderType': 'PEM',
+                'S3Object': 's3://MyConfigStore/artifacts/MyCerts.zip'
+            }
+        },
+        'EnableAtRestEncryption': 'true',
+        'AtRestEncryptionConfiguration': {
+            'S3EncryptionConfiguration': {
+                'EncryptionMode': 'SSE-KMS',
+                'AwsKmsKey': kms_key
+            },
+            'LocalDiskEncryptionConfiguration': {
+                'EncryptionKeyProviderType': 'AwsKms',
+                'AwsKmsKey': kms_key
+            }
+        }
+    }
+}
+
+
+def generate_rules(rules_name):
+    global emr, scaling_policy
+
+    rules = [
+        emr.ScalingRule(
+            Name=rules_name,
+            Description="%s rules" % rules_name,
+            Action=emr.ScalingAction(
+                Market="ON_DEMAND",
+                SimpleScalingPolicyConfiguration=scaling_policy
+            ),
+            Trigger=emr.ScalingTrigger(
+                CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                    ComparisonOperator="GREATER_THAN",
+                    EvaluationPeriods="120",
+                    MetricName="TestMetric",
+                    Namespace="AWS/ElasticMapReduce",
+                    Period="300",
+                    Statistic="AVERAGE",
+                    Threshold="50",
+                    Unit="PERCENT",
+                    Dimensions=[
+                        emr.MetricDimension(
+                            'my.custom.master.property',
+                            'my.custom.master.value'
+                        )
+                    ]
+                )
+            )
+        )
+    ]
+    return rules
+
+
 template = Template()
 template.add_description(
     "Sample CloudFormation template for creating an EMR cluster"
@@ -59,6 +126,8 @@ emr_service_role = template.add_resource(iam.Role(
     ]
 ))
 
+emr_autoscaling_role = "EMR_AutoScaling_DefaultRole"
+
 emr_job_flow_role = template.add_resource(iam.Role(
     "EMRJobFlowRole",
     AssumeRolePolicyDocument={
@@ -84,10 +153,17 @@ emr_instance_profile = template.add_resource(iam.InstanceProfile(
 
 # EMR Cluster Resource
 
+security_config = template.add_resource(emr.SecurityConfiguration(
+    'EMRSecurityConfiguration',
+    Name="EMRSampleClusterSecurityConfiguration",
+    SecurityConfiguration=security_configuration,
+))
+
 cluster = template.add_resource(emr.Cluster(
     "EMRSampleCluster",
     Name="EMR Sample Cluster",
     ReleaseLabel='emr-4.4.0',
+    SecurityConfiguration=Ref(security_config),
     BootstrapActions=[emr.BootstrapActionConfig(
         Name='Dummy bootstrap action',
         ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(
@@ -126,6 +202,7 @@ cluster = template.add_resource(emr.Cluster(
     ],
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
+    AutoScalingRole=Ref(emr_autoscaling_role),
     Instances=emr.JobFlowInstancesConfig(
         Ec2KeyName=Ref(keyname),
         Ec2SubnetId=Ref(subnet),
@@ -133,12 +210,26 @@ cluster = template.add_resource(emr.Cluster(
             Name="Master Instance",
             InstanceCount="1",
             InstanceType=M4_LARGE,
-            Market="ON_DEMAND"
+            Market="ON_DEMAND",
+            AutoScalingPolicy=emr.AutoScalingPolicy(
+                Constraints=emr.ScalingConstraints(
+                    MinCapacity="1",
+                    MaxCapacity="3"
+                ),
+                Rules=generate_rules("MasterAutoScalingPolicy")
+            )
         ),
         CoreInstanceGroup=emr.InstanceGroupConfigProperty(
             Name="Core Instance",
             BidPrice=If(withSpotPrice, Ref(spot), Ref("AWS::NoValue")),
             Market=If(withSpotPrice, "SPOT", "ON_DEMAND"),
+            AutoScalingPolicy=emr.AutoScalingPolicy(
+                Constraints=emr.ScalingConstraints(
+                    MinCapacity="1",
+                    MaxCapacity="3"
+                ),
+                Rules=generate_rules("CoreAutoScalingPolicy"),
+            ),
             EbsConfiguration=emr.EbsConfiguration(
                 EbsBlockDeviceConfigs=[
                     emr.EbsBlockDeviceConfigs(
