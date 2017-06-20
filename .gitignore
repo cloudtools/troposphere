@@ -41,3 +41,7 @@ nosetests.xml
 
 # Jetbrains
 *.iml
+
+# Git
+*.diff
+*.patch
