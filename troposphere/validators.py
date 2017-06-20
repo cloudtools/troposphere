@@ -60,11 +60,6 @@ def floatingpoint(x):
         return x
 
 
-def ignore(x):
-    """Method to indicate bypassing property validation"""
-    return x
-
-
 def defer(x):
     """Method to indicate defering property validation"""
     return x
