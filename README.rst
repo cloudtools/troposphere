@@ -46,7 +46,7 @@ and issuing:
 
 .. code:: sh
 
-    # python setup.py install
+    $ python setup.py install  # you may need sudo depending on your python installation
 
 Examples
 ========
