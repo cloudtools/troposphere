@@ -47,7 +47,7 @@ class Authorizer(AWSObject):
     props = {
         "AuthorizerCredentials": (basestring, False),
         "AuthorizerResultTtlInSeconds": (validate_authorizer_ttl, False),
-        "AuthorizerUri": (defer, True),
+        "AuthorizerUri": (defer, False),
         "IdentitySource": (basestring, True),
         "IdentityValidationExpression": (basestring, False),
         "Name": (basestring, True),
