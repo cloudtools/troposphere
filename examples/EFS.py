@@ -118,7 +118,7 @@ ec2_instance = Instance(
     KeyName=Ref(keyname_param),
     SecurityGroups=[Ref(efs_host_security_group)],
     IamInstanceProfile=Ref(efs_host_instance_profile),
-    DependsOn="MyEFSMountTarget"
+    DependsOn=efs_mount_target
 )
 template.add_resource(ec2_instance)
 
