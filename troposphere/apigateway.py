@@ -1,5 +1,5 @@
 from . import AWSHelperFn, AWSObject, AWSProperty
-from .validators import positive_integer
+from .validators import positive_integer, defer
 import json
 
 
@@ -47,7 +47,7 @@ class Authorizer(AWSObject):
     props = {
         "AuthorizerCredentials": (basestring, False),
         "AuthorizerResultTtlInSeconds": (validate_authorizer_ttl, False),
-        "AuthorizerUri": (basestring, True),
+        "AuthorizerUri": (defer, True),
         "IdentitySource": (basestring, True),
         "IdentityValidationExpression": (basestring, False),
         "Name": (basestring, True),
@@ -55,6 +55,23 @@ class Authorizer(AWSObject):
         "RestApiId": (basestring, False),
         "Type": (basestring, True)
     }
+
+    def validate(self):
+        if 'Type' in self.properties:
+
+            type_property = self.properties.get('Type', None)
+
+            if 'TOKEN' in type_property:
+                if 'AuthorizerUri' in self.properties:
+
+                    authorizer_uri = self.properties.get('AuthorizerUri', None)
+
+                    if not isinstance(authorizer_uri, basestring):
+                            raise ValueError('AuthorizerUri value must'
+                                             ' be a string')
+                else:
+                    raise ValueError('AuthorizerUri is required when'
+                                     ' Type is set to TOKEN')
 
 
 class BasePathMapping(AWSObject):
