@@ -28,24 +28,32 @@ Installation
 ============
 
 troposphere can be installed using the pip distribution system for Python by
-issuing::
+issuing:
+
+.. code:: sh
 
     $ pip install troposphere
 
 To install troposphere with `awacs <https://github.com/cloudtools/awacs>`_
-(recommended soft dependency)::
+(recommended soft dependency):
+
+.. code:: sh
 
     $ pip install troposphere[policy]
 
 Alternatively, you can run use setup.py to install by cloning this repository
-and issuing::
+and issuing:
 
-    # python setup.py install
+.. code:: sh
+
+    $ python setup.py install  # you may need sudo depending on your python installation
 
 Examples
 ========
 
-A simple example to create an instance would look like this::
+A simple example to create an instance would look like this:
+
+.. code:: python
 
     >>> from troposphere import Ref, Template
     >>> import troposphere.ec2 as ec2
@@ -69,13 +77,17 @@ A simple example to create an instance would look like this::
     }
 
 
-Alternatively, parameters can be used instead of properties::
+Alternatively, parameters can be used instead of properties:
+
+.. code:: python
 
     >>> instance = ec2.Instance("myinstance", ImageId="ami-951945d0", InstanceType="t1.micro")
     >>> t.add_resource(instance)
     <troposphere.ec2.Instance object at 0x101bf3550>
 
-And add_resource() returns the object to make it easy to use with Ref()::
+And ``add_resource()`` returns the object to make it easy to use with ``Ref()``:
+
+.. code:: python
 
     >>> instance = t.add_resource(ec2.Instance("myinstance", ImageId="ami-951945d0", InstanceType="t1.micro"))
     >>> Ref(instance)
@@ -85,7 +97,9 @@ And add_resource() returns the object to make it easy to use with Ref()::
 Examples of the error checking (full tracebacks removed for clarity):
 ---------------------------------------------------------------------
 
-Incorrect property being set on AWS resource::
+Incorrect property being set on AWS resource:
+
+.. code:: python
 
     >>> import troposphere.ec2 as ec2
     >>> ec2.Instance("ec2instance", image="i-XXXX")
@@ -93,14 +107,18 @@ Incorrect property being set on AWS resource::
     ...
     AttributeError: AWS::EC2::Instance object does not support attribute image
 
-Incorrect type for AWS resource property::
+Incorrect type for AWS resource property:
+
+.. code:: python
 
     >>> ec2.Instance("ec2instance", ImageId=1)
     Traceback (most recent call last):
     ...
     TypeError: ImageId is <type 'int'>, expected <type 'basestring'>
 
-Missing required property for the AWS resource::
+Missing required property for the AWS resource:
+
+.. code:: python
 
     >>> from troposphere import Template
     >>> import troposphere.ec2 as ec2

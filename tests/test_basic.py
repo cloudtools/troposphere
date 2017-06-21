@@ -1,7 +1,9 @@
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import Join, Ref, Split, Sub, Template
+from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, SecurityGroupRule
+from troposphere.s3 import Bucket
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
 
@@ -40,6 +42,20 @@ class TestBasic(unittest.TestCase):
             t = Template()
             t.add_resource(Instance('ec2instance'))
             t.to_json()
+
+    def test_depends_on_helper_with_resource(self):
+        resource_name = "Bucket1"
+        b1 = Bucket(resource_name)
+        self.assertEqual(depends_on_helper(b1), resource_name)
+
+    def test_depends_on_helper_with_string(self):
+        resource_name = "Bucket1"
+        self.assertEqual(depends_on_helper(resource_name), resource_name)
+
+    def test_resource_depends_on(self):
+        b1 = Bucket("B1")
+        b2 = Bucket("B2", DependsOn=b1)
+        self.assertEqual(b1.title, b2.resource["DependsOn"])
 
 
 def call_correct(x):
