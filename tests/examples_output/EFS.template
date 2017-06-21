@@ -76,9 +76,7 @@
             "Type": "AWS::IAM::InstanceProfile"
         },
         "Ec2Instance": {
-            "DependsOn": {
-                "Ref": "MyEFSMountTarget"
-            },
+            "DependsOn": "MyEFSMountTarget",
             "Properties": {
                 "IamInstanceProfile": {
                     "Ref": "EFSInstanceProfile"
