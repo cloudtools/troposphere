@@ -1,6 +1,14 @@
 from . import AWSHelperFn, AWSObject, AWSProperty
-from .validators import positive_integer, defer
+from .validators import (
+    positive_integer, defer, floatingpoint
+)
 import json
+
+HTTP = 'HTTP'
+AWS = 'AWS'
+MOCK = 'MOCK'
+HTTP_PROXY = 'HTTP_PROXY'
+AWS_PROXY = 'AWS_PROXY'
 
 
 def validate_authorizer_ttl(ttl_value):
@@ -105,7 +113,7 @@ class MethodSetting(AWSProperty):
         "MetricsEnabled": (bool, False),
         "ResourcePath": (basestring, True),
         "ThrottlingBurstLimit": (positive_integer, False),
-        "ThrottlingRateLimit": (positive_integer, False)
+        "ThrottlingRateLimit": (floatingpoint, False)
     }
 
 
@@ -125,7 +133,7 @@ class StageDescription(AWSProperty):
         "MetricsEnabled": (bool, False),
         "StageName": (basestring, False),
         "ThrottlingBurstLimit": (positive_integer, False),
-        "ThrottlingRateLimit": (positive_integer, False),
+        "ThrottlingRateLimit": (floatingpoint, False),
         "Variables": (dict, False)
     }
 
@@ -166,6 +174,28 @@ class Integration(AWSProperty):
         "Uri": (basestring, False)
     }
 
+    def validate(self):
+        if 'Type' in self.properties:
+
+            valid_values = [
+                HTTP,
+                AWS,
+                MOCK,
+                HTTP_PROXY,
+                AWS_PROXY,
+            ]
+
+            type_property = self.properties.get('Type', None)
+
+            if type_property not in valid_values:
+                raise ValueError('Only HTTP, AWS, MOCK, HTTP_PROXY,'
+                                 ' and AWS_PROXY are valid values')
+
+            if 'MOCK' not in type_property:
+                if 'IntegrationHttpMethod' not in self.properties:
+                    raise ValueError('IntegrationHttpMethod must be set when'
+                                     ' Type is not defined as MOCK')
+
 
 class MethodResponse(AWSProperty):
 
@@ -182,7 +212,7 @@ class Method(AWSObject):
     props = {
         "ApiKeyRequired": (bool, False),
         "AuthorizationType": (basestring, True),
-        "AuthorizerId": (basestring, False),
+        "AuthorizerId": (defer, False),
         "HttpMethod": (basestring, True),
         "Integration": (Integration, False),
         "MethodResponses": ([MethodResponse], False),
@@ -191,6 +221,19 @@ class Method(AWSObject):
         "ResourceId": (basestring, True),
         "RestApiId": (basestring, True)
     }
+
+    def validate(self):
+        if 'AuthorizerId' in self.properties:
+            if 'AuthorizationType' in self.properties:
+
+                auth_type = self.properties.get('AuthorizationType', None)
+
+                if 'CUSTOM' not in auth_type:
+                    raise ValueError('AuthorizationType must be set to'
+                                     'CUSTOM when AuthorizerId is defined')
+            else:
+                raise ValueError('AuthorizationType must be defined'
+                                 ' when AuthorizerId is defined')
 
 
 class Model(AWSObject):
@@ -243,14 +286,32 @@ class RestApi(AWSObject):
     resource_type = "AWS::ApiGateway::RestApi"
 
     props = {
-        "Body": (dict, False),
+        "Body": ((basestring, dict), False),
         "BodyS3Location": (S3Location, False),
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
-        "FailOnWarnings": (basestring, False),
+        "FailOnWarnings": (bool, False),
         "Name": (basestring, False),
         "Parameters": ([basestring], False)
     }
+
+    def validate(self):
+        if 'Body' in self.properties:
+            body = self.properties.get('Body')
+            if isinstance(body, basestring):
+                # Verify it is a valid json string
+                json.loads(body)
+            elif isinstance(body, dict):
+                # Convert the dict to a basestring
+                self.properties['Schema'] = json.dumps(body)
+            elif isinstance(body, AWSHelperFn):
+                pass
+            else:
+                raise ValueError("Body must be a str or dict")
+
+        if 'Body' not in self.properties:
+            if 'Name' not in self.properties:
+                raise ValueError('Name must be defined when Body is undefined')
 
 
 class Stage(AWSObject):
@@ -287,7 +348,7 @@ class QuotaSettings(AWSProperty):
 class ThrottleSettings(AWSProperty):
     props = {
         "BurstLimit": (positive_integer, False),
-        "RateLimit": (positive_integer, False),
+        "RateLimit": (floatingpoint, False),
     }
 
 
