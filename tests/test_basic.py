@@ -388,13 +388,13 @@ class TestHelperFn(unittest.TestCase):
 
         class Prop(AWSProperty):
             props = {
-                'param': ([basestring], True),
+                'param': ([int], True),
             }
 
         fake = FakeRef('fakeref')
-        Prop(param=["fakeref"])
+        Prop(param=[1])
         with self.assertRaises(TypeError):
-            Prop(param="fakeref")
+            Prop(param=1)
         Prop(param=[Ref(fake)])
         with self.assertRaises(TypeError):
             Prop(param=Ref(fake))
