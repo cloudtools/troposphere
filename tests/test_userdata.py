@@ -60,12 +60,14 @@ class TestUserdata(unittest.TestCase):
         result = self.create_result('ref_func.sh')
 
         answer = self.create_answer([
-            '--stack "',
-            {
-                'Ref': 'AWS::StackName'
-            },
-            '" \\\n'
-            ])
+            '/opt/aws/bin/cfn-init -v --stack "',
+            {'Ref': 'AWS::StackName'},
+            '" \\\n',
+            '  --resource LaunchConfig \\\n',
+            '  --configsets ConfigCluster \\\n',
+            '  --region ',
+            {'Ref': 'AWS::Region'},
+            '\n'])
         self.assertEqual(result, answer)
 
 

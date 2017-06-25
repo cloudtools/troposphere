@@ -5,7 +5,7 @@ import re
 from troposphere import Base64, Join, Ref
 
 
-def from_file(filepath, delimiter='', blanklines=False):
+def from_file(filepath, delimiter='', blanklines=False, searchref=True):
     """
     Imports userdata from a file.
     Also supports passing Troposphere Ref function
@@ -26,10 +26,6 @@ def from_file(filepath, delimiter='', blanklines=False):
     :return The base64 representation of the file.
     """
 
-    pattern = r"""(?P<prefix>.*)
-    Ref\(\'(?P<reference>[a-zA-Z0-9\:]+)\'\)
-    (?P<suffix>.*[^\\*])"""
-    ref_pattern = re.compile(pattern, re.VERBOSE)
     data = []
 
     try:
@@ -38,18 +34,23 @@ def from_file(filepath, delimiter='', blanklines=False):
                 if blanklines and line.strip('\n\r ') == '':
                     continue
 
-                ref_ex = ref_pattern.match(line)
+                if searchref:
+                    pattern = r"""(?P<prefix>.*)
+                    Ref\(\'(?P<reference>[a-zA-Z0-9\:]+)\'\)
+                    (?P<suffix>.*[^\\*])"""
+                    ref_pattern = re.compile(pattern, re.VERBOSE)
 
-                if ref_ex:
-                    data.append(ref_ex.group('prefix'))
-                    data.append(Ref(ref_ex.group('reference')))
+                    ref_ex = ref_pattern.match(line)
 
-                    if ref_ex.group('suffix'):
-                        data.append(ref_ex.group('suffix'))
-                        continue
+                    if ref_ex:
+                        data.append(ref_ex.group('prefix'))
+                        data.append(Ref(ref_ex.group('reference')))
 
-                else:
-                    data.append(line)
+                        if ref_ex.group('suffix'):
+                            data.append(ref_ex.group('suffix'))
+                            continue
+
+                data.append(line)
     except IOError:
         raise IOError('Error opening or reading file: {}'.format(filepath))
 
