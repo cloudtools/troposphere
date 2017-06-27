@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 import types
+assert types  # silence pyflakes
 
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
