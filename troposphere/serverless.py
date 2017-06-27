@@ -4,12 +4,13 @@
 # See LICENSE file for full license.
 
 import types
-assert types  # silence pyflakes
 
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
 from .validators import positive_integer
+
+assert types  # silence pyflakes
 
 
 def primary_key_type_validator(x):
