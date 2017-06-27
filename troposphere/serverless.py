@@ -10,6 +10,7 @@ from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
 from .validators import positive_integer
 
+
 def primary_key_type_validator(x):
     valid_types = ["String", "Number", "Binary"]
     if x not in valid_types:

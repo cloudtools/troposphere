@@ -58,7 +58,10 @@ class TemplateGenerator(Template):
         for k, v in cf_template.get('Conditions', {}).iteritems():
             self.add_condition(k, self._convert_definition(v, k))
         for k, v in cf_template.get('Resources', {}).iteritems():
-            self.add_resource(self._convert_definition(v, k, self._get_resource_type_cls(v)))
+            self.add_resource(self._convert_definition(
+                                    v, k,
+                                    self._get_resource_type_cls(v)
+            ))
         for k, v in cf_template.get('Outputs', {}).iteritems():
             self.add_output(self._create_instance(Output, v, k))
 
@@ -100,11 +103,10 @@ class TemplateGenerator(Template):
 
         return self._inspect_functions
 
-
     def _get_resource_type_cls(self, resource):
-        """Attempts to return troposphere class that represents Type of provided resource.
-        Attempts to find the troposphere class who's `resource_type` field is the same as the provided resources `Type`
-        field.
+        """Attempts to return troposphere class that represents Type of provided
+        resource. Attempts to find the troposphere class who's `resource_type`
+        field is the same as the provided resources `Type` field.
 
         :param resource: Resource to find troposphere class for
         :return: None: If provided resource does not have a `Type` field
@@ -115,7 +117,8 @@ class TemplateGenerator(Template):
         if 'Type' not in resource:
             return None
 
-        # Attempt to find troposphere resource with `resource_type` == resource['Type']
+        # Attempt to find troposphere resource with:
+        #   `resource_type` == resource['Type']
         try:
             return self.inspect_resources[resource['Type']]
         except KeyError:
@@ -129,7 +132,8 @@ class TemplateGenerator(Template):
         additional objects as necessary.
 
         :param {*} definition: Object to convert
-        :param str ref: Name of key in parent dict that the provided definition is from, can be None
+        :param str ref: Name of key in parent dict that the provided definition
+                        is from, can be None
         :param type cls: Troposphere class which represents provided definition
         """
         if isinstance(definition, Mapping):
@@ -145,8 +149,12 @@ class TemplateGenerator(Template):
                         expected_type = self._generate_custom_type(
                             definition['Type'])
                     except TypeError:
-                        # If definition['Type'] turns out not to be a custom type (aka doesn't start with "Custom::")
-                        assert not expected_type  # Make sure expected_type is nothing (as it always should be)
+                        # If definition['Type'] turns out not to be a custom
+                        # type (aka doesn't start with "Custom::")
+
+                        # Make sure expected_type is nothing (as
+                        # it always should be)
+                        assert not expected_type
 
                 if expected_type:
                     args = self._normalize_properties(definition)
