@@ -149,7 +149,7 @@ usagePlan = t.add_resource(UsagePlan(
     ApiStages=[
         ApiStage(
             ApiId=Ref(rest_api),
-            Stage=stage_name
+            Stage=Ref(stage)
         )]
 ))
 
