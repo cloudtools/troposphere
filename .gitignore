@@ -5,6 +5,7 @@
 
 # Packages
 *.egg
+*.eggs
 *.egg-info
 dist
 build
@@ -38,3 +39,10 @@ nosetests.xml
 
 # Vim
 *.sw*
+
+# Jetbrains
+*.iml
+
+# Git
+*.diff
+*.patch

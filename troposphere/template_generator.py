@@ -45,6 +45,8 @@ class TemplateGenerator(Template):
         self._reference_map = {}
         if 'AWSTemplateFormatVersion' in cf_template:
             self.add_version(cf_template['AWSTemplateFormatVersion'])
+        if 'Transform' in cf_template:
+            self.add_transform(cf_template['Transform'])
         if 'Description' in cf_template:
             self.add_description(cf_template['Description'])
         if 'Metadata' in cf_template:
@@ -56,7 +58,10 @@ class TemplateGenerator(Template):
         for k, v in cf_template.get('Conditions', {}).iteritems():
             self.add_condition(k, self._convert_definition(v, k))
         for k, v in cf_template.get('Resources', {}).iteritems():
-            self.add_resource(self._convert_definition(v, k))
+            self.add_resource(self._convert_definition(
+                                    v, k,
+                                    self._get_resource_type_cls(v)
+            ))
         for k, v in cf_template.get('Outputs', {}).iteritems():
             self.add_output(self._create_instance(Output, v, k))
 
@@ -98,18 +103,45 @@ class TemplateGenerator(Template):
 
         return self._inspect_functions
 
-    def _convert_definition(self, definition, ref=None):
+    def _get_resource_type_cls(self, resource):
+        """Attempts to return troposphere class that represents Type of provided
+        resource. Attempts to find the troposphere class who's `resource_type`
+        field is the same as the provided resources `Type` field.
+
+        :param resource: Resource to find troposphere class for
+        :return: None: If provided resource does not have a `Type` field
+                       If no class found for provided resource
+                 type: Type of provided resource
+        """
+        # If provided resource does not have `Type` field
+        if 'Type' not in resource:
+            return None
+
+        # Attempt to find troposphere resource with:
+        #   `resource_type` == resource['Type']
+        try:
+            return self.inspect_resources[resource['Type']]
+        except KeyError:
+            # If no resource with `resource_type` == resource['Type'] found
+            return None
+
+    def _convert_definition(self, definition, ref=None, cls=None):
         """
         Converts any object to its troposphere equivalent, if applicable.
         This function will recurse into lists and mappings to create
         additional objects as necessary.
+
+        :param {*} definition: Object to convert
+        :param str ref: Name of key in parent dict that the provided definition
+                        is from, can be None
+        :param type cls: Troposphere class which represents provided definition
         """
         if isinstance(definition, Mapping):
             if 'Type' in definition:  # this is an AWS Resource
                 expected_type = None
-                try:
-                    expected_type = self.inspect_resources[definition['Type']]
-                except KeyError:
+                if cls is not None:
+                    expected_type = cls
+                else:
                     # if the user uses the custom way to name custom resources,
                     # we'll dynamically create a new subclass for this use and
                     # pass that instead of the typical CustomObject resource
@@ -117,6 +149,11 @@ class TemplateGenerator(Template):
                         expected_type = self._generate_custom_type(
                             definition['Type'])
                     except TypeError:
+                        # If definition['Type'] turns out not to be a custom
+                        # type (aka doesn't start with "Custom::")
+
+                        # Make sure expected_type is nothing (as
+                        # it always should be)
                         assert not expected_type
 
                 if expected_type:
