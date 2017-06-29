@@ -52,7 +52,9 @@
                         "ApiId": {
                             "Ref": "ExampleApi"
                         },
-                        "Stage": "v1"
+                        "Stage": {
+                            "Ref": "v1Stage"
+                        }
                     }
                 ],
                 "Description": "Example usage plan",
