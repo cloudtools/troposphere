@@ -148,8 +148,8 @@ class NumberAttributeConstraints(AWSProperty):
 
 class StringAttributeConstraints(AWSProperty):
     props = {
-        'MaxValue': (basestring, False),
-        'MinValue': (basestring, False),
+        'MaxLength': (basestring, False),
+        'MinLength': (basestring, False),
     }
 
 
