@@ -124,6 +124,15 @@ class Deployment(AWSObject):
     }
 
 
+class DomainName(AWSObject):
+    resource_type = "AWS::ApiGateway::DomainName"
+
+    props = {
+        "CertificateArn": (basestring, True),
+        "DomainName": (basestring, True),
+    }
+
+
 class IntegrationResponse(AWSProperty):
 
     props = {
