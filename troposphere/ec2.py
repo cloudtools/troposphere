@@ -55,6 +55,14 @@ class DHCPOptions(AWSObject):
     }
 
 
+class EgressOnlyInternetGateway(AWSObject):
+    resource_type = "AWS::EC2::EgressOnlyInternetGateway"
+
+    props = {
+        'VpcId': (basestring, True),
+    }
+
+
 class EIP(AWSObject):
     resource_type = "AWS::EC2::EIP"
 
