@@ -359,6 +359,7 @@ class DBCluster(AWSObject):
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'ReplicationSourceIdentifier': (basestring, False),
         'SnapshotIdentifier': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'Tags': (list, False),
