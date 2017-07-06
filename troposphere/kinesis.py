@@ -12,6 +12,7 @@ class Stream(AWSObject):
 
     props = {
         'Name': (basestring, False),
+        'RetentionPeriodHours': (integer, False),
         'ShardCount': (integer, False),
         'Tags': (list, False),
     }
