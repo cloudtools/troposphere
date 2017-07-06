@@ -17,4 +17,5 @@ class Trail(AWSObject):
         'S3KeyPrefix': (basestring, False),
         'SnsTopicName': (basestring, False),
         'Tags': (Tags, False),
+        'TrailName': (basestring, False),
     }
