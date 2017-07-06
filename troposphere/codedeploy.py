@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import positive_integer
+from .validators import boolean, positive_integer
 
 
 KEY_ONLY = "KEY_ONLY"
@@ -85,10 +85,33 @@ class DeploymentConfig(AWSObject):
     }
 
 
+class Alarm(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+    }
+
+
+class AlarmConfiguration(AWSProperty):
+    props = {
+        'Alarms': ([Alarm], False),
+        'Enabled': (boolean, False),
+        'IgnorePollAlarmFailure': (boolean, False),
+    }
+
+
+class TriggerConfig(AWSProperty):
+    props = {
+        'TriggerEvents': ([basestring], False),
+        'TriggerName': (basestring, False),
+        'TriggerTargetArn': (basestring, False),
+    }
+
+
 class DeploymentGroup(AWSObject):
     resource_type = "AWS::CodeDeploy::DeploymentGroup"
 
     props = {
+        'AlarmConfiguration': (AlarmConfiguration, False),
         'ApplicationName': (basestring, True),
         'AutoScalingGroups': ([basestring], False),
         'Deployment': (Deployment, False),
@@ -97,4 +120,5 @@ class DeploymentGroup(AWSObject):
         'Ec2TagFilters': ([Ec2TagFilters], False),
         'OnPremisesInstanceTagFilters': (OnPremisesInstanceTagFilters, False),
         'ServiceRoleArn': (basestring, True),
+        'TriggerConfigurations': ([TriggerConfig], False),
     }
