@@ -293,6 +293,46 @@ class Cluster(AWSObject):
     }
 
 
+class InstanceTypeConfig(AWSProperty):
+    props = {
+        'BidPrice': (basestring, False),
+        'BidPriceAsPercentageOfOnDemandPrice': (basestring, False),
+        'Configurations': ([Configuration], False),
+        'EbsConfiguration': (EbsConfiguration, False),
+        'InstanceType': (basestring, True),
+        'WeightedCapacity': (positive_integer, False),
+    }
+
+
+class SpotProvisioningSpecification(AWSProperty):
+    props = {
+        'BlockDurationMinutes': (positive_integer, False),
+        'TimeoutAction': (basestring, True),
+        'TimeoutDurationMinutes': (positive_integer, True),
+    }
+
+
+class InstanceFleetProvisioningSpecifications(AWSProperty):
+    props = {
+        'SpotSpecification': (SpotProvisioningSpecification, True),
+    }
+
+
+class InstanceFleetConfig(AWSObject):
+    resource_type = "AWS::EMR::InstanceFleetConfig"
+
+    props = {
+        'ClusterId': (basestring, True),
+        'InstanceFleetType': (basestring, True),
+        'InstanceTypeConfigs': ([InstanceTypeConfig], False),
+        'LaunchSpecifications':
+            (InstanceFleetProvisioningSpecifications, False),
+        'Name': (basestring, False),
+        'TargetOnDemandCapacity': (positive_integer, False),
+        'TargetSpotCapacity': (positive_integer, False),
+    }
+
+
 class InstanceGroupConfig(AWSObject):
     resource_type = "AWS::EMR::InstanceGroupConfig"
 
