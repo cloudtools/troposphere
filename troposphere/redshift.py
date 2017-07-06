@@ -7,6 +7,13 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 
+class LoggingProperties(AWSProperty):
+    props = {
+        'BucketName': (basestring, True),
+        'S3KeyPrefix': (basestring, False),
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::Redshift::Cluster"
 
@@ -26,6 +33,7 @@ class Cluster(AWSObject):
         'HsmConfigurationIdentifier': (basestring, False),
         'IamRoles': ([basestring], False),
         'KmsKeyId': (basestring, False),
+        'LoggingProperties': (LoggingProperties, False),
         'MasterUsername': (basestring, True),
         'MasterUserPassword': (basestring, True),
         'NodeType': (basestring, True),
