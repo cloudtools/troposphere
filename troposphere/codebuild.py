@@ -6,6 +6,7 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import integer, boolean
 
+
 class Auth(AWSProperty):
     props = {
         'Type': (basestring, True),
@@ -19,6 +20,7 @@ class Auth(AWSProperty):
         if auth_types not in valid_types:
             raise ValueError('Auth Type: must be one of %s' %
                              ','.join(valid_types))
+
 
 class Artifacts(AWSProperty):
     props = {
