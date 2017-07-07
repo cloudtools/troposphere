@@ -108,8 +108,8 @@ class Source(AWSProperty):
 
         auth = self.properties.get('Auth')
         if auth is not None and source_type is not 'GITHUB':
-            raise ValueError('Source Auth: must only be defined when using \'GITHUB\' Source Type.')
-
+            raise ValueError("Source Auth: must only be defined when using "
+                             "'GITHUB' Source Type.")
 
 
 class Project(AWSObject):
