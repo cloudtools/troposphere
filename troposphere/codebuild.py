@@ -7,9 +7,10 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import integer, boolean
 
 
-class Auth(AWSProperty):
+class SourceAuth(AWSProperty):
     props = {
-        'Type': (basestring, True),
+        'Resource': (basestring, False),
+        'Type': (basestring, False),
     }
 
     def validate(self):
@@ -18,7 +19,7 @@ class Auth(AWSProperty):
         ]
         auth_types = self.properties.get('Type')
         if auth_types not in valid_types:
-            raise ValueError('Auth Type: must be one of %s' %
+            raise ValueError('SourceAuth Type: must be one of %s' %
                              ','.join(valid_types))
 
 
@@ -80,10 +81,10 @@ class Environment(AWSProperty):
 
 class Source(AWSProperty):
     props = {
+        'Auth': (SourceAuth, False),
         'BuildSpec': (basestring, False),
         'Location': (basestring, False),
         'Type': (basestring, True),
-        'Auth': (Auth, False),
     }
 
     def validate(self):
@@ -108,7 +109,7 @@ class Source(AWSProperty):
 
         auth = self.properties.get('Auth')
         if auth is not None and source_type is not 'GITHUB':
-            raise ValueError("Source Auth: must only be defined when using "
+            raise ValueError("SourceAuth: must only be defined when using "
                              "'GITHUB' Source Type.")
 
 
