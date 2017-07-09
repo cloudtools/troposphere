@@ -34,6 +34,12 @@ class Queue(AWSObject):
         'VisibilityTimeout': (integer, False),
     }
 
+    def validate(self):
+        if self.properties.get('FifoQueue'):
+            if not self.properties.get('QueueName', '').endswith('.fifo'):
+                raise ValueError("SQS: FIFO queues need to provide a "
+                                 "QueueName that ends with '.fifo'")
+
 
 class QueuePolicy(AWSObject):
     resource_type = "AWS::SQS::QueuePolicy"
