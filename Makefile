@@ -1,4 +1,11 @@
-.PHONY: 2to3 3to2
+.PHONY: 2to3 3to2 test
+
+PYDIRS=setup.py examples tests troposphere
+
+test:
+	pycodestyle ${PYDIRS}
+	pyflakes ${PYDIRS}
+	python setup.py test
 
 2to3:
 	2to3 -n -w examples > 2to3-examples.patch
