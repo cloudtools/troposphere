@@ -57,6 +57,11 @@ class TestBasic(unittest.TestCase):
         b2 = Bucket("B2", DependsOn=b1)
         self.assertEqual(b1.title, b2.resource["DependsOn"])
 
+    def test_resource_depends_on_attr(self):
+        b1 = Bucket("B1")
+        b2 = Bucket("B2", DependsOn=b1)
+        self.assertEqual(b1.title, b2.DependsOn)
+
 
 def call_correct(x):
     return x

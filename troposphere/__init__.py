@@ -126,7 +126,10 @@ class BaseAWSObject(object):
 
     def __getattr__(self, name):
         try:
-            return self.properties.__getitem__(name)
+            if name in self.attributes:
+                return self.resource[name]
+            else:
+                return self.properties.__getitem__(name)
         except KeyError:
             # Fall back to the name attribute in the object rather than
             # in the properties dict. This is for non-OpenStack backwards
