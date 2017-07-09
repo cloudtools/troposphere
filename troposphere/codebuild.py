@@ -7,6 +7,21 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import integer, boolean
 
 
+class Auth(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+    }
+
+    def validate(self):
+        valid_types = [
+            'OAUTH'
+        ]
+        auth_types = self.properties.get('Type')
+        if auth_types not in valid_types:
+            raise ValueError('Auth Type: must be one of %s' %
+                             ','.join(valid_types))
+
+
 class Artifacts(AWSProperty):
     props = {
         'Location': (basestring, False),
@@ -68,6 +83,7 @@ class Source(AWSProperty):
         'BuildSpec': (basestring, False),
         'Location': (basestring, False),
         'Type': (basestring, True),
+        'Auth': (Auth, False),
     }
 
     def validate(self):
@@ -89,6 +105,11 @@ class Source(AWSProperty):
                 'Source Location: must be defined when type is %s' %
                 source_type
                 )
+
+        auth = self.properties.get('Auth')
+        if auth is not None and source_type is not 'GITHUB':
+            raise ValueError("Source Auth: must only be defined when using "
+                             "'GITHUB' Source Type.")
 
 
 class Project(AWSObject):
