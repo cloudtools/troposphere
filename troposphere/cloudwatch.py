@@ -50,6 +50,6 @@ class Dashboard(AWSObject):
     resource_type = "AWS::CloudWatch::Dashboard"
 
     props = {
-        'DashboardBody': (basestring, False),
+        'DashboardBody': (basestring, True),
         'DashboardName': (basestring, False),
     }
