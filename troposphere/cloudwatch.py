@@ -44,3 +44,12 @@ class Alarm(AWSObject):
             'Statistic',
         ]
         exactly_one(self.__class__.__name__, self.properties, conds)
+
+
+class Dashboard(AWSObject):
+    resource_type = "AWS::CloudWatch::Dashboard"
+
+    props = {
+        'DashboardBody': (basestring, False),
+        'DashboardName': (basestring, False),
+    }
