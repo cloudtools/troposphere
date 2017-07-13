@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, network_port, positive_integer, integer
+from .validators import boolean, integer, network_port, positive_integer
 
 
 class Cluster(AWSObject):
