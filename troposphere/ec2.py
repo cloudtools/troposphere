@@ -317,6 +317,7 @@ class Route(AWSObject):
     props = {
         'DestinationCidrBlock': (basestring, False),
         'DestinationIpv6CidrBlock': (basestring, False),
+        'EgressOnlyInternetGatewayId': (basestring, False),
         'GatewayId': (basestring, False),
         'InstanceId': (basestring, False),
         'NatGatewayId': (basestring, False),
@@ -326,11 +327,20 @@ class Route(AWSObject):
     }
 
     def validate(self):
-        conds = [
+        cidr_conds = [
             'DestinationCidrBlock',
             'DestinationIpv6CidrBlock',
         ]
-        exactly_one(self.__class__.__name__, self.properties, conds)
+        gateway_conds = [
+            'EgressOnlyInternetGatewayId',
+            'GatewayId',
+            'InstanceId',
+            'NatGatewayId',
+            'NetworkInterfaceId',
+            'VpcPeeringConnectionId'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, cidr_conds)
+        exactly_one(self.__class__.__name__, self.properties, gateway_conds)
 
 
 class RouteTable(AWSObject):
