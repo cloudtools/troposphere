@@ -5,6 +5,7 @@
 
 from . import AWSObject, AWSProperty
 from .validators import positive_integer, boolean, exactly_one
+import json
 
 
 class MetricDimension(AWSProperty):
@@ -50,6 +51,18 @@ class Dashboard(AWSObject):
     resource_type = "AWS::CloudWatch::Dashboard"
 
     props = {
-        'DashboardBody': (basestring, True),
+        'DashboardBody': ((basestring, dict), True),
         'DashboardName': (basestring, False),
     }
+
+    def validate(self):
+        if 'DashboardBody' in self.properties:
+            dashboard_body = self.properties.get('DashboardBody')
+            if isinstance(dashboard_body, basestring):
+                # Verify it is a valid json string
+                json.loads(dashboard_body)
+            elif isinstance(dashboard_body, dict):
+                # Convert the dict to a basestring
+                self.properties['DashboardBody'] = json.dumps(dashboard_body)
+            else:
+                raise ValueError("DashboardBody must be a str or dict")
