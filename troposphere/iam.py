@@ -2,6 +2,7 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
+import re
 
 from . import AWSObject, AWSProperty
 from .validators import integer, boolean, status
@@ -49,9 +50,15 @@ class Policy(AWSProperty):
 
 PolicyProperty = Policy
 
+valid_group_names = re.compile(r'^[a-zA-Z0-9\-_\+=\,\.@]+$')
 
 class Group(AWSObject):
     resource_type = "AWS::IAM::Group"
+
+    def validate_title(self):
+        if not valid_group_names.match(self.title):
+            raise ValueError('Name "%s" must contain only alphanumeric characters and/or the following: +=,.@-_' % self.title)
+
 
     props = {
         'GroupName': (iam_group_name, False),
