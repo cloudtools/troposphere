@@ -2,6 +2,8 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
+
+import json
 from re import compile
 
 
@@ -202,3 +204,19 @@ def exactly_one(class_name, properties, conditionals):
                           ' must be specified: %s') % (
                           class_name, ', '.join(conditionals)))
     return specified_count
+
+
+def json_checker(name, prop):
+    from . import AWSHelperFn
+
+    if isinstance(prop, basestring):
+        # Verify it is a valid json string
+        json.loads(prop)
+        return prop
+    elif isinstance(prop, dict):
+        # Convert the dict to a basestring
+        return json.dumps(prop)
+    elif isinstance(prop, AWSHelperFn):
+        return prop
+    else:
+        raise ValueError("%s must be a str or dict" % name)
