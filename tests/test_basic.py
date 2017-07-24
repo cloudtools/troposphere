@@ -1,6 +1,6 @@
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
-from troposphere import Join, Ref, Split, Sub, Template
+from troposphere import If, Join, Ref, Split, Sub, Template
 from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, SecurityGroupRule
 from troposphere.s3 import Bucket
@@ -403,6 +403,7 @@ class TestHelperFn(unittest.TestCase):
         Prop(param=[Ref(fake)])
         with self.assertRaises(TypeError):
             Prop(param=Ref(fake))
+        Prop(param=If("testing", [Ref(fake)], [Ref(fake)]))
 
 
 if __name__ == '__main__':
