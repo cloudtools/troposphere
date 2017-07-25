@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .validators import integer
 try:
     from awacs.aws import Policy
@@ -36,7 +36,10 @@ class Queue(AWSObject):
 
     def validate(self):
         if self.properties.get('FifoQueue'):
-            if not self.properties.get('QueueName', '').endswith('.fifo'):
+            queuename = self.properties.get('QueueName', '')
+            if isinstance(queuename, AWSHelperFn):
+                pass
+            elif not queuename.endswith('.fifo'):
                 raise ValueError("SQS: FIFO queues need to provide a "
                                  "QueueName that ends with '.fifo'")
 
