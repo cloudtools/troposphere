@@ -1,3 +1,51 @@
+## 1.9.5 (2017-07-26)
+- Add support for latest Cloudwatch alarms properties (#694)
+- Raise ValueError for Outputs and Mappings - Fix Issue #732 (#733)
+- Add AWS::EMR::SecurityConfiguration support (#738)
+- Create CODE_OF_CONDUCT.md (#740)
+- Added UsagePlans to API Gateway example (#741)
+- EMR AutoScaling Complex Validation and Introduction of an ignore validator type (#743)
+- Add PrivilegedMode option to CodeBuild Environments (#744)
+- EFS DependsOn Ref to object fix (#746)
+- README - add syntax highlighting (#747)
+- Make handling of DependsOn more pythonic (#748)
+- Accept Join type as parameter default value as it returns a string (#752)
+- AWS SAM support (#754)
+- Fixed UsagePlan example to proper Ref (#755)
+- Fix cognito StringAttributeConstraints property names (Fixes #756)
+- Add 'SourceAuth' property to CodeBuild Source (#758)
+- Make it easier to get at hidden attributes (Fixes #760)
+- Size/IOPS should be positive_integers (#761)
+- Check that FIFO Queues end with .fifo (#757)
+- Add AWS::CloudWatch::Dashboard (Fixes #763)
+- Ulimit's HardLimit and SoftLimit validator change (#764)
+- Adding EgressOnlyInternetGateway to EC2::Route (#765)
+- Allow passing in a dict into DashboardBody (#767)
+- Handle SQS QueueName using an AWSHelperFn (Fixes #773)
+- LifecycleHook NotificationTargetARN and RoleARN are now optional
+- Remove RoleArn from Events::Rule and add to Target property
+- Add TracingConfig property to AWS::Lambda::Function
+- Add Tags to some RedShift resources
+- Add AWS::ApiGateway::DomainName
+- Add AWS::EC2::EgressOnlyInternetGateway
+- Add AWS::EMR::InstanceFleetConfig
+- Add BinaryMediaTypes to ApiGateway::RestApi
+- Add TargetTrackingScalingPolicyConfiguration
+- Add TrailName to CloudTrail::Trail
+- Add AlarmConfiguration and TriggerConfigurations
+- Add Tags and TimeToLiveSpecification to DynamoDB::Table
+- Add RetentionPeriodHours to Kinesis::Stream
+- Add ReplicationSourceIdentifier to RDS::DBCluster
+- Add LoggingProperties to Redshift::Cluster
+- Add AWS Database Migration Service (DMS) support
+- Add test target to Makefile
+- Make it easier to download the latest CF resource spec
+- Added and reverted out of this release:
+  - Fix pycodestyle issue in tests/test_yaml.py
+  - Output yaml (to_yaml) using cfn_flip (Fixes #567)
+  - Special case If during parameter checking (Fixes #772)
+  - Raise TypeError when a scaler AWSHelperFn is used in a list context (#751)
+
 ## 1.9.4 (2017-06-04)
 - Fix typo in S3_Bucket.py example (#696)
 - Added .Ref & .GetAtt helper methods (#697)
