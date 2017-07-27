@@ -154,11 +154,8 @@ class BaseAWSObject(object):
 
             # If the value is a AWSHelperFn we can't do much validation
             # we'll have to leave that to Amazon.  Maybe there's another way
-            # to deal with this that we'll come up with eventually.
-            # We'll do validation below if there are AWSHelperFn in a
-            # list context.
-            if isinstance(value, AWSHelperFn) and \
-                    not isinstance(expected_type, list):
+            # to deal with this that we'll come up with eventually
+            if isinstance(value, AWSHelperFn):
                 return self.properties.__setitem__(name, value)
 
             # If it's a function, call it...

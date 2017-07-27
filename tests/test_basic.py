@@ -384,26 +384,5 @@ class TestJoin(unittest.TestCase):
             Join(10, "foobar")
 
 
-class TestHelperFn(unittest.TestCase):
-
-    def test_helperfn(self):
-        class FakeRef(AWSObject):
-            props = {
-            }
-
-        class Prop(AWSProperty):
-            props = {
-                'param': ([int], True),
-            }
-
-        fake = FakeRef('fakeref')
-        Prop(param=[1])
-        with self.assertRaises(TypeError):
-            Prop(param=1)
-        Prop(param=[Ref(fake)])
-        with self.assertRaises(TypeError):
-            Prop(param=Ref(fake))
-
-
 if __name__ == '__main__':
     unittest.main()
