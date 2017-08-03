@@ -403,7 +403,7 @@ class TestValidation(unittest.TestCase):
             )
         )
         t = Template()
-        resource = t.add_resource(route)
+        t.add_resource(route)
         with self.assertRaises(ValueError):
             t.to_json()
 
@@ -425,7 +425,7 @@ class TestValidation(unittest.TestCase):
             )
         )
         t = Template()
-        resource = t.add_resource(route)
+        t.add_resource(route)
         t.to_json()
 
 
