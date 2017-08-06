@@ -410,7 +410,7 @@ class TestValidation(unittest.TestCase):
     def test_novalidation(self):
         route = Route(
             'Route66',
-            validate=False,
+            validation=False,
             DestinationCidrBlock='0.0.0.0/0',
             RouteTableId=Ref('RouteTable66'),
             InstanceId=If(
@@ -424,6 +424,26 @@ class TestValidation(unittest.TestCase):
                 Ref('AWS::NoValue')
             )
         )
+        t = Template()
+        t.add_resource(route)
+        t.to_json()
+
+    def test_no_validation_method(self):
+        route = Route(
+            'Route66',
+            DestinationCidrBlock='0.0.0.0/0',
+            RouteTableId=Ref('RouteTable66'),
+            InstanceId=If(
+                'UseNat',
+                Ref('AWS::NoValue'),
+                Ref('UseNat')
+            ),
+            NatGatewayId=If(
+                'UseNat',
+                Ref('UseNat'),
+                Ref('AWS::NoValue')
+            )
+        ).no_validation()
         t = Template()
         t.add_resource(route)
         t.to_json()
