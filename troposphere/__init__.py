@@ -83,9 +83,10 @@ def depends_on_helper(obj):
 
 
 class BaseAWSObject(object):
-    def __init__(self, title, template=None, **kwargs):
+    def __init__(self, title, template=None, validation=True, **kwargs):
         self.title = title
         self.template = template
+        self.do_validation = validation
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
         self.attributes = ['DependsOn', 'DeletionPolicy',
@@ -221,9 +222,14 @@ class BaseAWSObject(object):
     def validate(self):
         pass
 
+    def no_validation(self):
+        self.do_validation = False
+        return self
+
     def to_dict(self):
-        self._validate_props()
-        self.validate()
+        if self.do_validation:
+            self._validate_props()
+            self.validate()
 
         if self.properties:
             return encode_to_dict(self.resource)

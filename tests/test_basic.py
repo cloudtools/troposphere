@@ -1,8 +1,8 @@
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
-from troposphere import Join, Ref, Split, Sub, Template
+from troposphere import If, Join, Ref, Split, Sub, Template
 from troposphere import depends_on_helper
-from troposphere.ec2 import Instance, SecurityGroupRule
+from troposphere.ec2 import Instance, Route, SecurityGroupRule
 from troposphere.s3 import Bucket
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
@@ -382,6 +382,71 @@ class TestJoin(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             Join(10, "foobar")
+
+
+class TestValidation(unittest.TestCase):
+
+    def test_validation(self):
+        route = Route(
+            'Route66',
+            DestinationCidrBlock='0.0.0.0/0',
+            RouteTableId=Ref('RouteTable66'),
+            InstanceId=If(
+                'UseNat',
+                Ref('AWS::NoValue'),
+                Ref('UseNat')
+            ),
+            NatGatewayId=If(
+                'UseNat',
+                Ref('UseNat'),
+                Ref('AWS::NoValue')
+            )
+        )
+        t = Template()
+        t.add_resource(route)
+        with self.assertRaises(ValueError):
+            t.to_json()
+
+    def test_novalidation(self):
+        route = Route(
+            'Route66',
+            validation=False,
+            DestinationCidrBlock='0.0.0.0/0',
+            RouteTableId=Ref('RouteTable66'),
+            InstanceId=If(
+                'UseNat',
+                Ref('AWS::NoValue'),
+                Ref('UseNat')
+            ),
+            NatGatewayId=If(
+                'UseNat',
+                Ref('UseNat'),
+                Ref('AWS::NoValue')
+            )
+        )
+        t = Template()
+        t.add_resource(route)
+        t.to_json()
+
+    def test_no_validation_method(self):
+        route = Route(
+            'Route66',
+            DestinationCidrBlock='0.0.0.0/0',
+            RouteTableId=Ref('RouteTable66'),
+            InstanceId=If(
+                'UseNat',
+                Ref('AWS::NoValue'),
+                Ref('UseNat')
+            ),
+            NatGatewayId=If(
+                'UseNat',
+                Ref('UseNat'),
+                Ref('AWS::NoValue')
+            )
+        ).no_validation()
+        t = Template()
+        t.add_resource(route)
+        t.to_json()
 
 
 if __name__ == '__main__':
