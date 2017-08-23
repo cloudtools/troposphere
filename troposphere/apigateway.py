@@ -295,3 +295,49 @@ class UsagePlanKey(AWSObject):
         "KeyType": (basestring, True),
         "UsagePlanId": (basestring, True),
     }
+
+
+def validate_gateway_response_type(response_type):
+    """ Validate response type
+    :param response_type: The GatewayResponse response type
+    :return: The provided value if valid
+    """
+    valid_response_types = [
+        "ACCESS_DENIED",
+        "API_CONFIGURATION_ERROR",
+        "AUTHORIZER_FAILURE",
+        "AUTHORIZER_CONFIGURATION_ERROR",
+        "BAD_REQUEST_PARAMETERS",
+        "BAD_REQUEST_BODY",
+        "DEFAULT_4XX",
+        "DEFAULT_5XX",
+        "EXPIRED_TOKEN",
+        "INVALID_SIGNATURE",
+        "INTEGRATION_FAILURE",
+        "INTEGRATION_TIMEOUT",
+        "INVALID_API_KEY",
+        "MISSING_AUTHENTICATION_TOKEN",
+        "QUOTA_EXCEEDED",
+        "REQUEST_TOO_LARGE",
+        "RESOURCE_NOT_FOUND",
+        "THROTTLED",
+        "UNAUTHORIZED",
+        "UNSUPPORTED_MEDIA_TYPES"
+    ]
+    if response_type not in valid_response_types:
+        raise ValueError(
+            "{} is not a valid ResponseType".format(response_type)
+        )
+    return response_type
+
+
+class GatewayResponse(AWSObject):
+    resource_type = "AWS::ApiGateway::GatewayResponse"
+
+    props = {
+        "ResponseParameters": (dict, False),
+        "ResponseTemplates": (dict, False),
+        "ResponseType": (validate_gateway_response_type, True),
+        "RestApiId": (basestring, True),
+        "StatusCode": (basestring, False)
+    }

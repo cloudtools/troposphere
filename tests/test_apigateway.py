@@ -1,6 +1,6 @@
 import unittest
 from troposphere import Join
-from troposphere.apigateway import Model
+from troposphere.apigateway import GatewayResponse, Model
 
 
 class TestModel(unittest.TestCase):
@@ -54,6 +54,25 @@ class TestModel(unittest.TestCase):
             Schema=Join(':', ['{"a', ': "b"}']),
         )
         model.validate()
+
+
+class TestGatewayResponse(unittest.TestCase):
+    def test_response_type(self):
+        gateway_response = GatewayResponse(
+            "GatewayResponse",
+            ResponseType="DEFAULT_4XX",
+            RestApiId="apiid",
+            StatusCode="200"
+        )
+        gateway_response.validate()
+
+        with self.assertRaises(ValueError):
+            gateway_response = GatewayResponse(
+                "GatewayResponse",
+                ResponseType="INVALID_RESPONSE_TYPE",
+                RestApiId="apiid",
+                StatusCode="200"
+            )
 
 
 if __name__ == '__main__':
