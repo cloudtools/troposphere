@@ -1,11 +1,14 @@
 from . import AWSObject, Tags
+from .validators import boolean
 
 
 class FileSystem(AWSObject):
     resource_type = "AWS::EFS::FileSystem"
 
     props = {
+        'Encrypted': (boolean, False),
         'FileSystemTags': (Tags, False),
+        'KmsKeyId': (basestring, False),
         'PerformanceMode': (basestring, False),
     }
 
