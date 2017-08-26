@@ -26,7 +26,7 @@ def integer(x):
 
 def positive_integer(x):
     p = integer(x)
-    if int(p) < 0:
+    if int(p) < 1:
         raise ValueError("%r is not a positive integer" % x)
     return x
 
