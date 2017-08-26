@@ -26,6 +26,8 @@ class Queue(AWSObject):
         'ContentBasedDeduplication': (bool, False),
         'DelaySeconds': (integer, False),
         'FifoQueue': (bool, False),
+        'KmsMasterKeyId': (basestring, False),
+        'KmsDataKeyReusePeriodSeconds': (integer, False),
         'MaximumMessageSize': (integer, False),
         'MessageRetentionPeriod': (integer, False),
         'QueueName': (basestring, False),
