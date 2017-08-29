@@ -37,6 +37,21 @@ class Revision(AWSProperty):
     }
 
 
+def deployment_option_validator(x):
+    valid_values = ['WITH_TRAFFIC_CONTROL', 'WITHOUT_TRAFFIC_CONTROL']
+    if x not in valid_values:
+        raise ValueError("Deployment Option type must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
+class AutoRollbackConfiguration(AWSProperty):
+    props = {
+        'Enabled': (bool, False),
+        'Events': ([basestring], False)
+    }
+
+
 class Deployment(AWSProperty):
     props = {
         'Description': (basestring, False),
@@ -45,11 +60,29 @@ class Deployment(AWSProperty):
     }
 
 
+class DeploymentStyle(AWSProperty):
+    props = {
+        'DeploymentOption': (deployment_option_validator, False)
+    }
+
+
 class Ec2TagFilters(AWSProperty):
     props = {
         'Key': (basestring, False),
         'Type': (basestring, False),
         'Value': (basestring, False),
+    }
+
+
+class ElbInfoList(AWSProperty):
+    props = {
+        'Name': (basestring, False)
+    }
+
+
+class LoadBalancerInfo(AWSProperty):
+    props = {
+        'ElbInfoList': ([ElbInfoList], False)
     }
 
 
@@ -113,11 +146,14 @@ class DeploymentGroup(AWSObject):
     props = {
         'AlarmConfiguration': (AlarmConfiguration, False),
         'ApplicationName': (basestring, True),
+        'AutoRollbackConfiguration': (AutoRollbackConfiguration, False),
         'AutoScalingGroups': ([basestring], False),
         'Deployment': (Deployment, False),
         'DeploymentConfigName': (basestring, False),
         'DeploymentGroupName': (basestring, False),
+        'DeploymentStyle': (DeploymentStyle, False),
         'Ec2TagFilters': ([Ec2TagFilters], False),
+        'LoadBalancerInfo': (LoadBalancerInfo, False),
         'OnPremisesInstanceTagFilters': (OnPremisesInstanceTagFilters, False),
         'ServiceRoleArn': (basestring, True),
         'TriggerConfigurations': ([TriggerConfig], False),
