@@ -21,8 +21,10 @@ Snapshot = 'Snapshot'
 
 # Pseudo Parameters
 AWS_ACCOUNT_ID = 'AWS::AccountId'
+AWS_DOMAINSUFFIX = 'AWS::DomainSuffix'
 AWS_NOTIFICATION_ARNS = 'AWS::NotificationARNs'
 AWS_NO_VALUE = 'AWS::NoValue'
+AWS_PARTITION = 'AWS::Partition'
 AWS_REGION = 'AWS::Region'
 AWS_STACK_ID = 'AWS::StackId'
 AWS_STACK_NAME = 'AWS::StackName'
