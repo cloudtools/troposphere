@@ -49,8 +49,8 @@ def do_header(d):
     """Output a stock header for the new Python script and also try to
     figure out the Resource imports needed by the template.
     """
-    print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output, If, And, Not, Or, Equals, Condition'
-    print 'from troposphere import Parameter, Ref, Tags, Template'
+    print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output'
+    print 'from troposphere import Parameter, Ref, Tags, Template, If, And, Not, Or, Equals, Condition'
     print 'from troposphere.cloudformation import Init'
     print 'from troposphere.cloudfront import Distribution, DistributionConfig'
     print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
@@ -95,15 +95,6 @@ def do_parameters(d):
         print
 
 
-def do_conditions(d):
-    """Output the template Conditions"""
-    conditions = d['Conditions']
-    for k, v in conditions.items():
-        print 't.add_condition("%s",' % (k,)
-        print '    %s' % output_value(v)
-        print ")"
-        print
-
 def do_mappings(d):
     """Output the template Mappings"""
     mappings = d['Mappings']
@@ -113,6 +104,36 @@ def do_mappings(d):
         print ")"
         print
 
+
+def do_conditions(d):
+    """Output the template Conditions"""
+    conditions = d['Conditions']
+    for k, v in conditions.items():
+        print 't.add_condition("%s",' % (k,),
+        print do_parse_funtion(v),
+        print ")"
+        print
+
+def do_parse_funtion(d):
+    import re
+    if(isinstance(d, basestring) or isinstance(d, unicode)):
+       return '"{0}"'.format(d)
+    if(isinstance(d, dict)):
+        key = d.keys()[0]
+        value = d.values()[0]
+        if(key.startswith("Fn::")):
+            key = key[4:]
+        if(isinstance(value, dict) or isinstance(value, basestring)):
+            return '{0}({1})'.format(key, value)
+        elif(isinstance(value,list)):
+          ret = '{0}({1}'.format(key, do_parse_funtion(value[0]))
+          for i in value[1:]:
+           ret += ', ' + do_parse_funtion(i)
+          ret += ')'
+          return ret
+        else:
+            raise(Exception("Parse Error:", d, value))
+    raise(Exception("Parse Error:", d))
 
 def map_module(mod):
     """Map module names as needed"""
@@ -288,6 +309,7 @@ function_map = {
     'Fn::GetAZs': ("GetAZs", handle_no_objects),
     'Fn::Join': ("Join", handle_no_objects),
     'Fn::Select': ("Select", handle_one_object),
+    'Fn::If': ("If", handle_one_object),
     'Ref': ("Ref", handle_one_object),
     'Condition': ("Condition", handle_one_object),
 }
