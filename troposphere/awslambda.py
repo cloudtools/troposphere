@@ -157,6 +157,7 @@ class Permission(AWSObject):
 
     props = {
         'Action': (basestring, True),
+        'EventSourceToken': (basestring, False),
         'FunctionName': (basestring, True),
         'Principal': (basestring, True),
         'SourceAccount': (basestring, False),
