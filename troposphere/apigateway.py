@@ -246,6 +246,7 @@ class Stage(AWSObject):
         "ClientCertificateId": (basestring, False),
         "DeploymentId": (basestring, True),
         "Description": (basestring, False),
+        "DocumentationVersion": (basestring, False),
         "MethodSettings": ([MethodSetting], False),
         "RestApiId": (basestring, True),
         "StageName": (basestring, True),
