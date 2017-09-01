@@ -94,6 +94,12 @@ class LifecycleRuleTransition(AWSProperty):
     }
 
 
+class AbortIncompleteMultipartUpload(AWSProperty):
+    props = {
+        'DaysAfterInitiation': (positive_integer, True),
+    }
+
+
 class NoncurrentVersionTransition(AWSProperty):
     props = {
         'StorageClass': (basestring, True),
@@ -101,8 +107,17 @@ class NoncurrentVersionTransition(AWSProperty):
     }
 
 
+class Tagfilter(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
 class LifecycleRule(AWSProperty):
     props = {
+        'AbortIncompleteMultipartUpload':
+            (AbortIncompleteMultipartUpload, False),
         'ExpirationDate': (basestring, False),
         'ExpirationInDays': (positive_integer, False),
         'Id': (basestring, False),
@@ -111,6 +126,7 @@ class LifecycleRule(AWSProperty):
         'NoncurrentVersionTransitions': ([NoncurrentVersionTransition], False),
         'Prefix': (basestring, False),
         'Status': (basestring, True),
+        'TagFilters': ([Tagfilter], False),
         'Transition': (LifecycleRuleTransition, False),
         'Transitions': ([LifecycleRuleTransition], False)
     }
