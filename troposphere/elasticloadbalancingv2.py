@@ -103,7 +103,7 @@ class TargetGroup(AWSObject):
         'Tags': (list, False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
-        'TargetType': (str, False),
+        'TargetType': (basestring, False),
         'UnhealthyThresholdCount': (integer, False),
         'VpcId': (basestring, True)
     }
@@ -121,5 +121,5 @@ class LoadBalancer(AWSObject):
         'Subnets': (list, True),
         'SubnetMappings': ([SubnetMapping], False),
         'Tags': (list, False),
-        'Type': (str, False)
+        'Type': (basestring, False)
     }
