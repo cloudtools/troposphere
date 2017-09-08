@@ -41,6 +41,13 @@ class Matcher(AWSProperty):
     }
 
 
+class SubnetMapping(AWSProperty):
+    props = {
+        'SubnetId': (basestring, True),
+        'AllocationId': (basestring, True)
+    }
+
+
 class TargetGroupAttribute(AWSProperty):
     props = {
         'Key': (basestring, False),
@@ -96,6 +103,7 @@ class TargetGroup(AWSObject):
         'Tags': (list, False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
+        'TargetType': (str, False),
         'UnhealthyThresholdCount': (integer, False),
         'VpcId': (basestring, True)
     }
@@ -111,6 +119,7 @@ class LoadBalancer(AWSObject):
         'IpAddressType': (basestring, False),
         'SecurityGroups': (list, False),
         'Subnets': (list, True),
+        'SubnetMappings': ([SubnetMapping], False),
         'Tags': (list, False),
         'Type': (str, False)
     }
