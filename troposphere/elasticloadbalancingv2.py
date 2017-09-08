@@ -112,4 +112,5 @@ class LoadBalancer(AWSObject):
         'SecurityGroups': (list, False),
         'Subnets': (list, True),
         'Tags': (list, False),
+        'Type': (str, False)
     }
