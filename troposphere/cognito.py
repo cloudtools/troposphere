@@ -161,7 +161,7 @@ class SchemaAttribute(AWSProperty):
         'Name': (basestring, False),
         'NumberAttributeConstraints': (NumberAttributeConstraints, False),
         'StringAttributeConstraints': (StringAttributeConstraints, False),
-        'Required': (basestring, False),
+        'Required': (boolean, False),
     }
 
 
