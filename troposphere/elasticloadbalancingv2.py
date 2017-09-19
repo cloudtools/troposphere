@@ -5,7 +5,9 @@
 
 from . import AWSObject, AWSProperty
 from .validators import (
-    elb_name, network_port, tg_healthcheck_port, integer)
+    elb_name, exactly_one, network_port,
+    tg_healthcheck_port, integer
+)
 
 
 class LoadBalancerAttributes(AWSProperty):
@@ -38,6 +40,13 @@ class Condition(AWSProperty):
 class Matcher(AWSProperty):
     props = {
         'HttpCode': (basestring, False)
+    }
+
+
+class SubnetMapping(AWSProperty):
+    props = {
+        'AllocationId': (basestring, True),
+        'SubnetId': (basestring, True)
     }
 
 
@@ -110,6 +119,15 @@ class LoadBalancer(AWSObject):
         'Scheme': (basestring, False),
         'IpAddressType': (basestring, False),
         'SecurityGroups': (list, False),
-        'Subnets': (list, True),
+        'SubnetMappings': ([SubnetMapping], False),
+        'Subnets': (list, False),
         'Tags': (list, False),
+        'Type': (basestring, False),
     }
+
+    def validate(self):
+        conds = [
+            'SubnetMappings',
+            'Subnets',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
