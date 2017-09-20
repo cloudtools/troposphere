@@ -1,6 +1,19 @@
-from . import AWSObject, Tags
+from . import AWSObject, Tags, AWSProperty
 from .validators import boolean
 
+
+class DataResource(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Values': ([basestring], False),
+    }
+
+class EventSelector(AWSProperty):
+    props = {
+        'DataResources': ([DataResource], False),
+        'IncludeManagementEvents': (boolean, False),
+        'ReadWriteType': (basestring, False),
+    }
 
 class Trail(AWSObject):
     resource_type = "AWS::CloudTrail::Trail"
@@ -9,6 +22,7 @@ class Trail(AWSObject):
         'CloudWatchLogsLogGroupArn': (basestring, False),
         'CloudWatchLogsRoleArn': (basestring, False),
         'EnableLogFileValidation': (boolean, False),
+        'EventSelectors': ([EventSelector], False),
         'IncludeGlobalServiceEvents': (boolean, False),
         'IsLogging': (boolean, True),
         'IsMultiRegionTrail': (boolean, False),
