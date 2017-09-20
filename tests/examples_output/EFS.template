@@ -134,7 +134,12 @@
                 "GroupDescription": "Allow NFS over TCP",
                 "SecurityGroupIngress": [
                     {
-                        "Ref": null
+                        "FromPort": "2049",
+                        "IpProtocol": "tcp",
+                        "SourceSecurityGroupId": {
+                            "Ref": "EFSHostSecurityGroup"
+                        },
+                        "ToPort": "2049"
                     }
                 ],
                 "VpcId": {
