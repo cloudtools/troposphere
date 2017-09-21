@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='troposphere',
-    version='1.9.5',
+    version='1.9.6',
     description="AWS CloudFormation creation library",
     long_description=readme(),
     author="Mark Peek",
