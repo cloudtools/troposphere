@@ -8,12 +8,14 @@ class DataResource(AWSProperty):
         'Values': ([basestring], False),
     }
 
+
 class EventSelector(AWSProperty):
     props = {
         'DataResources': ([DataResource], False),
         'IncludeManagementEvents': (boolean, False),
         'ReadWriteType': (basestring, False),
     }
+
 
 class Trail(AWSObject):
     resource_type = "AWS::CloudTrail::Trail"
