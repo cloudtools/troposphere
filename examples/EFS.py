@@ -58,7 +58,7 @@ efs_security_group_rule = SecurityGroupRule(
 # Security group that's applied to the Mount Targets.
 efs_security_group = SecurityGroup(
     "SecurityGroup",
-    SecurityGroupIngress=[Ref(efs_security_group_rule)],
+    SecurityGroupIngress=[efs_security_group_rule],
     VpcId=Ref(vpcid_param),
     GroupDescription="Allow NFS over TCP"
 )
