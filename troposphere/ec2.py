@@ -656,10 +656,12 @@ class SpotFleetRequestConfigData(AWSProperty):
         'AllocationStrategy': (basestring, False),
         'ExcessCapacityTerminationPolicy': (basestring, False),
         'IamFleetRole': (basestring, True),
+        'ReplaceUnhealthyInstances': (boolean, False),
         'LaunchSpecifications': ([LaunchSpecifications], True),
         'SpotPrice': (basestring, True),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
+        'Type': (basestring, False),
         'ValidFrom': (basestring, False),
         'ValidUntil': (basestring, False),
     }
