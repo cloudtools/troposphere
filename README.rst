@@ -133,6 +133,7 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
+- AWS::ApiGateway
 - AWS::ApplicationAutoScaling
 - AWS::AutoScaling
 - AWS::CertificateManager
