@@ -206,6 +206,41 @@ class StepAdjustments(AWSProperty):
     }
 
 
+class MetricDimension(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class CustomizedMetricSpecification(AWSProperty):
+    props = {
+        'Dimensions': ([MetricDimension], False),
+        'MetricName': (basestring, True),
+        'Namespace': (basestring, True),
+        'Statistic': (basestring, True),
+        'Unit': (basestring, False),
+    }
+
+
+class PredefinedMetricSpecification(AWSProperty):
+    props = {
+        'PredefinedMetricType': (basestring, True),
+        'ResourceLabel': (basestring, False),
+    }
+
+
+class TargetTrackingConfiguration(AWSProperty):
+    props = {
+        'CustomizedMetricSpecification':
+            (CustomizedMetricSpecification, False),
+        'DisableScaleIn': (boolean, False),
+        'PredefinedMetricSpecification':
+            (PredefinedMetricSpecification, False),
+        'TargetValue': (float, True),
+    }
+
+
 class ScalingPolicy(AWSObject):
     resource_type = "AWS::AutoScaling::ScalingPolicy"
 
@@ -219,6 +254,7 @@ class ScalingPolicy(AWSObject):
         'PolicyType': (basestring, False),
         'ScalingAdjustment': (integer, False),
         'StepAdjustments': ([StepAdjustments], False),
+        'TargetTrackingConfiguration': (TargetTrackingConfiguration, False),
     }
 
 
