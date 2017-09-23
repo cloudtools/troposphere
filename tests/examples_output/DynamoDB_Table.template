@@ -9,7 +9,7 @@
         }
     },
     "Parameters": {
-        "HaskKeyElementName": {
+        "HashKeyElementName": {
             "AllowedPattern": "[a-zA-Z0-9]*",
             "ConstraintDescription": "must contain only alphanumberic characters",
             "Description": "HashType PrimaryKey Name",
@@ -17,7 +17,7 @@
             "MinLength": "1",
             "Type": "String"
         },
-        "HaskKeyElementType": {
+        "HashKeyElementType": {
             "AllowedPattern": "[S|N]",
             "ConstraintDescription": "must be either S or N",
             "Default": "S",
@@ -49,17 +49,17 @@
                 "AttributeDefinitions": [
                     {
                         "AttributeName": {
-                            "Ref": "HaskKeyElementName"
+                            "Ref": "HashKeyElementName"
                         },
                         "AttributeType": {
-                            "Ref": "HaskKeyElementType"
+                            "Ref": "HashKeyElementType"
                         }
                     }
                 ],
                 "KeySchema": [
                     {
                         "AttributeName": {
-                            "Ref": "HaskKeyElementName"
+                            "Ref": "HashKeyElementName"
                         },
                         "KeyType": "HASH"
                     }

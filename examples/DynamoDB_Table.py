@@ -12,7 +12,7 @@ t.add_description("AWS CloudFormation Sample Template: This template "
                   "demonstrates the creation of a DynamoDB table.")
 
 hashkeyname = t.add_parameter(Parameter(
-    "HaskKeyElementName",
+    "HashKeyElementName",
     Description="HashType PrimaryKey Name",
     Type="String",
     AllowedPattern="[a-zA-Z0-9]*",
@@ -22,7 +22,7 @@ hashkeyname = t.add_parameter(Parameter(
 ))
 
 hashkeytype = t.add_parameter(Parameter(
-    "HaskKeyElementType",
+    "HashKeyElementType",
     Description="HashType PrimaryKey Type",
     Type="String",
     Default="S",
