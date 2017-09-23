@@ -311,6 +311,20 @@ class NetworkInterfaceAttachment(AWSObject):
     }
 
 
+PERMISSION_INSTANCE_ATTACH = 'INSTANCE-ATTACH'
+PERMISSION_EIP_ASSOCIATE = 'EIP-ASSOCIATE'
+
+
+class NetworkInterfacePermission(AWSObject):
+    resource_type = "AWS::EC2::NetworkInterfacePermission"
+
+    props = {
+        'AwsAccountId': (basestring, True),
+        'NetworkInterfaceId': (basestring, True),
+        'Permission': (basestring, True),
+    }
+
+
 class Route(AWSObject):
     resource_type = "AWS::EC2::Route"
 
