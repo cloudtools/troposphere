@@ -107,7 +107,7 @@ class NoncurrentVersionTransition(AWSProperty):
     }
 
 
-class Tagfilter(AWSProperty):
+class TagFilter(AWSProperty):
     props = {
         'Key': (basestring, True),
         'Value': (basestring, True),
@@ -126,7 +126,7 @@ class LifecycleRule(AWSProperty):
         'NoncurrentVersionTransitions': ([NoncurrentVersionTransition], False),
         'Prefix': (basestring, False),
         'Status': (basestring, True),
-        'TagFilters': ([Tagfilter], False),
+        'TagFilters': ([TagFilter], False),
         'Transition': (LifecycleRuleTransition, False),
         'Transitions': ([LifecycleRuleTransition], False)
     }
@@ -225,6 +225,14 @@ class TopicConfigurations(AWSProperty):
     }
 
 
+class MetricsConfiguration(AWSProperty):
+    props = {
+        'Id': (basestring, True),
+        'Prefix': (basestring, False),
+        'TagFilters': ([TagFilter], False),
+    }
+
+
 class NotificationConfiguration(AWSProperty):
     props = {
         'LambdaConfigurations': ([LambdaConfigurations], False),
@@ -265,6 +273,7 @@ class Bucket(AWSObject):
         'CorsConfiguration': (CorsConfiguration, False),
         'LifecycleConfiguration': (LifecycleConfiguration, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
+        'MetricsConfigurations': ([MetricsConfiguration], False),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'ReplicationConfiguration': (ReplicationConfiguration, False),
         'Tags': (Tags, False),
