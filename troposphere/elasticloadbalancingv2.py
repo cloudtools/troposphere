@@ -88,6 +88,10 @@ class ListenerRule(AWSObject):
     }
 
 
+TARGET_TYPE_INSTANCE = 'instance'
+TARGET_TYPE_IP = 'ip'
+
+
 class TargetGroup(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::TargetGroup"
 
@@ -105,8 +109,9 @@ class TargetGroup(AWSObject):
         'Tags': (list, False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
+        'TargetType': (basestring, False),
         'UnhealthyThresholdCount': (integer, False),
-        'VpcId': (basestring, True)
+        'VpcId': (basestring, True),
     }
 
 
