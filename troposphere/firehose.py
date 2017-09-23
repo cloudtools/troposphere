@@ -100,12 +100,49 @@ class S3DestinationConfiguration(AWSProperty):
     }
 
 
+class ProcessorParameter(AWSProperty):
+    props = {
+        'ParameterName': (basestring, True),
+        'ParameterValue': (basestring, True),
+    }
+
+
+class Processor(AWSProperty):
+    props = {
+        'Parameters': ([ProcessorParameter], True),
+        'Type': (basestring, True),
+    }
+
+
+class ProcessingConfiguration(AWSProperty):
+    props = {
+        'Enabled': (boolean, True),
+        'Processors': ([Processor], True),
+    }
+
+
+class ExtendedS3DestinationConfiguration(AWSProperty):
+    props = {
+        'BucketARN': (basestring, True),
+        'BufferingHints': (BufferingHints, True),
+        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'CompressionFormat': (basestring, True),
+        'EncryptionConfiguration': (EncryptionConfiguration, False),
+        'Prefix': (basestring, True),
+        'ProcessingConfiguration': (ProcessingConfiguration, False),
+        'RoleARN': (basestring, True),
+        'S3BackupConfiguration': (S3DestinationConfiguration, False),
+        'S3BackupMode': (basestring, False),
+    }
+
+
 class DeliveryStream(AWSObject):
     resource_type = "AWS::KinesisFirehose::DeliveryStream"
 
     props = {
         'DeliveryStreamName': (basestring, False),
         'ElasticsearchDestinationConfiguration': (ElasticsearchDestinationConfiguration, False),  # noqa
+        'ExtendedS3DestinationConfiguration': (ExtendedS3DestinationConfiguration, False),  # noqa
         'RedshiftDestinationConfiguration': (RedshiftDestinationConfiguration, False),  # noqa
         'S3DestinationConfiguration': (S3DestinationConfiguration, False),
     }
