@@ -1,3 +1,41 @@
+## 1.9.6 (2017-09-24)
+- Added missing EU_WEST_2 constants. (#776)
+- Override object validation (#780)
+- Update PyPI Information (#785)
+- Adding IPv6 changes to AWS::EC2::Subnet (#786)
+- NetworkACL Protocl Constants (#787)
+- Add support for EFS encryption (#789)
+- Add AWS::ApiGateway::GatewayResponse (#790)
+- Add support for aurora-postgresql as a valid DB engine (#791)
+- adding sqs server side encryption (#793)
+- Support new code deploy options (#794)
+- Add AWS Batch Support (#796)
+- VPC expansion support (#797)
+- Add NLB Functionality (#806)
+- Fix typos in examples/DynamoDB_Table.py (#807)
+- Revert "Accept Join type as parameter default value as it returns a string (#752)" (#808)
+- Change Cognito UserPool SchemaAttribute required value to boolean (#809)
+- Updating case of 'AssignIPv6AddressOnCreation' (#810)
+- Fix spelling error  to  in RedshiftVPC example (#811)
+- EFS example: SecurityGroupRule can't be referred to as a Ref (#813)
+- Update README.rst with current supported resources (#814)
+- Add CloudTrail EventSelectors (#815)
+- Add DAX support (#818)
+- Add KinesisAnalytics support (#819)
+- Add new ApiGateway resources (#820)
+- Add autoscaling example for http requests that closes #630 (#821)
+- Add new S3 Lifecycle Rule properties
+- Add IoT DynamoDBv2Action and update DynamoDBAction properties
+- Add EventSourceToken to Lambda::Permission
+- Add new pseudo parameters
+- Add DocumentationVersion to AWS::ApiGateway::Stage
+- Add S3 Bucket MetricsConfiguration and fix TagFilter spelling
+- Add TargetType to ELBv2::TargetGroup
+- Add TargetTrackingConfiguration to AutoScaling::ScalingPolicy
+- Add ReplaceUnhealthyInstances and Type to SpotFleetRequestConfigData
+- Add ExtendedS3DestinationConfiguration to firehose DeliveryStream
+- Add AWS::EC2::NetworkInterfacePermission
+
 ## 1.9.5 (2017-07-26)
 - Add support for latest Cloudwatch alarms properties (#694)
 - Raise ValueError for Outputs and Mappings - Fix Issue #732 (#733)
