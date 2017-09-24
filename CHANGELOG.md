@@ -1,3 +1,6 @@
+## 1.9.6 (2017-09-21)
+- Add NLB Functionality (#806)
+
 ## 1.9.5 (2017-07-26)
 - Add support for latest Cloudwatch alarms properties (#694)
 - Raise ValueError for Outputs and Mappings - Fix Issue #732 (#733)
