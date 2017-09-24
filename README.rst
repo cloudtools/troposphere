@@ -148,6 +148,7 @@ Currently supported AWS resource types
 - AWS::CodePipeline
 - AWS::Cognito
 - AWS::Config
+- AWS::DAX
 - AWS::DMS
 - AWS::DataPipeline
 - AWS::DirectoryService
@@ -167,6 +168,7 @@ Currently supported AWS resource types
 - AWS::IoT
 - AWS::KMS
 - AWS::Kinesis
+- AWS::KinesisAnalytics
 - AWS::KinesisFirehose
 - AWS::Lambda
 - AWS::Logs
