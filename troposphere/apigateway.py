@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import json_checker, positive_integer
+from .validators import boolean, json_checker, positive_integer
 
 
 def validate_authorizer_ttl(ttl_value):
@@ -123,6 +123,36 @@ class Deployment(AWSObject):
     }
 
 
+class Location(AWSProperty):
+    props = {
+        "Method": (basestring, False),
+        "Name": (basestring, False),
+        "Path": (basestring, False),
+        "StatusCode": (basestring, False),
+        "Type": (basestring, False),
+    }
+
+
+class DocumentationPart(AWSObject):
+    resource_type = "AWS::ApiGateway::DocumentationPart"
+
+    props = {
+        "Location": (Location, True),
+        "Properties": (basestring, True),
+        "RestApiId": (basestring, True),
+    }
+
+
+class DocumentationVersion(AWSObject):
+    resource_type = "AWS::ApiGateway::DocumentationVersion"
+
+    props = {
+        "Description": (basestring, False),
+        "DocumentationVersion": (basestring, True),
+        "RestApiId": (basestring, True),
+    }
+
+
 class DomainName(AWSObject):
     resource_type = "AWS::ApiGateway::DomainName"
 
@@ -200,6 +230,17 @@ class Model(AWSObject):
         if name in self.properties:
             schema = self.properties.get(name)
             self.properties[name] = json_checker(name, schema)
+
+
+class RequestValidator(AWSObject):
+    resource_type = "AWS::ApiGateway::RequestValidator"
+
+    props = {
+        "Name": (basestring, True),
+        "RestApiId": (basestring, True),
+        "ValidateRequestBody": (boolean, False),
+        "ValidateRequestParameters": (boolean, False),
+    }
 
 
 class Resource(AWSObject):
