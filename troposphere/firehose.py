@@ -136,13 +136,22 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
     }
 
 
+class KinesisStreamSourceConfiguration(AWSProperty):
+    props = {
+        'KinesisStreamARN': (basestring, True),
+        'RoleARN': (basestring, True)
+    }
+
+
 class DeliveryStream(AWSObject):
     resource_type = "AWS::KinesisFirehose::DeliveryStream"
 
     props = {
         'DeliveryStreamName': (basestring, False),
+        'DeliveryStreamType': (basestring, False),
         'ElasticsearchDestinationConfiguration': (ElasticsearchDestinationConfiguration, False),  # noqa
         'ExtendedS3DestinationConfiguration': (ExtendedS3DestinationConfiguration, False),  # noqa
+        'KinesisStreamSourceConfiguration': (KinesisStreamSourceConfiguration, False),  # noqa
         'RedshiftDestinationConfiguration': (RedshiftDestinationConfiguration, False),  # noqa
         'S3DestinationConfiguration': (S3DestinationConfiguration, False),
     }
