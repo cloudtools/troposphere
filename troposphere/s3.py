@@ -46,6 +46,22 @@ class VersioningConfiguration(AWSProperty):
     }
 
 
+class AccelerateConfiguration(AWSProperty):
+    props = {
+        'AccelerationStatus': (basestring, True),
+    }
+    acceleration_status_values = [
+        'Enabled',
+        'Suspended',
+    ]
+
+    def validate(self):
+        if 'AccelerationStatus' in self.properties:
+            if self.properties['AccelerationStatus'] not in self.acceleration_status_values:
+                raise ValueError('AccelerateConfiguration.AccelerationStatus must be one of "%s"' % (
+                    ', '.join(self.acceleration_status_values)))
+
+
 class RedirectAllRequestsTo(AWSProperty):
     props = {
         'HostName': (basestring, True),
@@ -269,6 +285,7 @@ class Bucket(AWSObject):
 
     props = {
         'AccessControl': (basestring, False),
+        'AccelerateConfiguration': (AccelerateConfiguration, False),
         'BucketName': (s3_bucket_name, False),
         'CorsConfiguration': (CorsConfiguration, False),
         'LifecycleConfiguration': (LifecycleConfiguration, False),
