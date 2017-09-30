@@ -57,8 +57,9 @@ class AccelerateConfiguration(AWSProperty):
 
     def validate(self):
         if 'AccelerationStatus' in self.properties:
-            if self.properties['AccelerationStatus'] not in self.acceleration_status_values:
-                raise ValueError('AccelerateConfiguration.AccelerationStatus must be one of "%s"' % (
+            status = self.properties['AccelerationStatus']
+            if status not in self.acceleration_status_values:
+                raise ValueError('AccelerationStatus must be one of "%s"' % (
                     ', '.join(self.acceleration_status_values)))
 
 
