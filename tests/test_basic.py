@@ -77,9 +77,8 @@ class TestS3AccelerateConfiguration(unittest.TestCase):
         self.assertEqual('Suspended', ac.AccelerationStatus)
 
     def test_accelerate_configuration_invalid_value(self):
-        ac = AccelerateConfiguration(AccelerationStatus='Invalid Value')
         with self.assertRaises(ValueError):
-            ac.validate()
+            AccelerateConfiguration(AccelerationStatus='Invalid Value')
 
     def test_s3_bucket_accelerate_configuration(self):
         t = Template()

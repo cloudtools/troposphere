@@ -6,6 +6,7 @@ import warnings
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import positive_integer, s3_bucket_name
+from .validators import s3_transfer_acceleration_status
 
 try:
     from awacs.aws import Policy
@@ -48,19 +49,8 @@ class VersioningConfiguration(AWSProperty):
 
 class AccelerateConfiguration(AWSProperty):
     props = {
-        'AccelerationStatus': (basestring, True),
+        'AccelerationStatus': (s3_transfer_acceleration_status, True),
     }
-    acceleration_status_values = [
-        'Enabled',
-        'Suspended',
-    ]
-
-    def validate(self):
-        if 'AccelerationStatus' in self.properties:
-            status = self.properties['AccelerationStatus']
-            if status not in self.acceleration_status_values:
-                raise ValueError('AccelerationStatus must be one of "%s"' % (
-                    ', '.join(self.acceleration_status_values)))
 
 
 class RedirectAllRequestsTo(AWSProperty):
