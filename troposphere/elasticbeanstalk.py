@@ -28,7 +28,7 @@ class MaxCountRule(AWSProperty):
     }
 
 
-class VersionLifecycleConfig(AWSProperty):
+class ApplicationVersionLifecycleConfig(AWSProperty):
     props = {
         'MaxAgeRule': (MaxAgeRule, False),
         'MaxCountRule': (MaxCountRule, False),
@@ -52,7 +52,7 @@ class SourceConfiguration(AWSProperty):
 class ResourceLifecycleConfig(AWSProperty):
     props = {
         'ServiceRole': (basestring, False),
-        'VersionLifecycleConfig': (VersionLifecycleConfig, False),
+        'VersionLifecycleConfig': (ApplicationVersionLifecycleConfig, False),
     }
 
 
