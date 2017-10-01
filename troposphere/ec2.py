@@ -102,6 +102,7 @@ class NatGateway(AWSObject):
     props = {
             'AllocationId': (basestring, True),
             'SubnetId': (basestring, True),
+            'Tags': (list, False),
     }
 
 
