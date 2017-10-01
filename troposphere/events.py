@@ -6,9 +6,17 @@
 from . import AWSObject, AWSProperty
 
 
+class EcsParameters(AWSProperty):
+    props = {
+        "TaskCount": (int, False),
+        "TaskDefinitionArn": (basestring, True),
+    }
+
+
 class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
+        "EcsParameters": (EcsParameters, False),
         'Id': (basestring, True),
         'Input': (basestring, False),
         'InputPath': (basestring, False),
