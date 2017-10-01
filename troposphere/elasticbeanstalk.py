@@ -49,7 +49,7 @@ class SourceConfiguration(AWSProperty):
     }
 
 
-class ResourceLifecycleConfig(AWSProperty):
+class ApplicationResourceLifecycleConfig(AWSProperty):
     props = {
         'ServiceRole': (basestring, False),
         'VersionLifecycleConfig': (ApplicationVersionLifecycleConfig, False),
@@ -70,7 +70,7 @@ class Application(AWSObject):
     props = {
         'ApplicationName': (basestring, False),
         'Description': (basestring, False),
-        'ResourceLifecycleConfig': (ResourceLifecycleConfig, False),
+        'ResourceLifecycleConfig': (ApplicationResourceLifecycleConfig, False),
     }
 
 
