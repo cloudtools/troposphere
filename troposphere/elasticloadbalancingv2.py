@@ -59,6 +59,7 @@ class TargetGroupAttribute(AWSProperty):
 
 class TargetDescription(AWSProperty):
     props = {
+        'AvailabilityZone': (basestring, False),
         'Id': (basestring, True),
         'Port': (network_port, False)
     }
