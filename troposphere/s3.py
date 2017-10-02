@@ -6,6 +6,7 @@ import warnings
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import positive_integer, s3_bucket_name
+from .validators import s3_transfer_acceleration_status
 
 try:
     from awacs.aws import Policy
@@ -43,6 +44,12 @@ class CorsConfiguration(AWSProperty):
 class VersioningConfiguration(AWSProperty):
     props = {
         'Status': (basestring, False),
+    }
+
+
+class AccelerateConfiguration(AWSProperty):
+    props = {
+        'AccelerationStatus': (s3_transfer_acceleration_status, True),
     }
 
 
@@ -269,6 +276,7 @@ class Bucket(AWSObject):
 
     props = {
         'AccessControl': (basestring, False),
+        'AccelerateConfiguration': (AccelerateConfiguration, False),
         'BucketName': (s3_bucket_name, False),
         'CorsConfiguration': (CorsConfiguration, False),
         'LifecycleConfiguration': (LifecycleConfiguration, False),

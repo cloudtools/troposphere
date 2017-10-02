@@ -3,7 +3,7 @@ from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import If, Join, Ref, Split, Sub, Template
 from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, Route, SecurityGroupRule
-from troposphere.s3 import Bucket
+from troposphere.s3 import Bucket, AccelerateConfiguration
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.validators import positive_integer
 
@@ -61,6 +61,33 @@ class TestBasic(unittest.TestCase):
         b1 = Bucket("B1")
         b2 = Bucket("B2", DependsOn=b1)
         self.assertEqual(b1.title, b2.DependsOn)
+
+
+class TestS3AccelerateConfiguration(unittest.TestCase):
+    def test_accelerate_configuration_enabled(self):
+        ac = AccelerateConfiguration(
+            AccelerationStatus='Enabled',
+        )
+        self.assertEqual('Enabled', ac.AccelerationStatus)
+
+    def test_accelerate_configuration_suspended(self):
+        ac = AccelerateConfiguration(
+            AccelerationStatus='Suspended',
+        )
+        self.assertEqual('Suspended', ac.AccelerationStatus)
+
+    def test_accelerate_configuration_invalid_value(self):
+        with self.assertRaises(ValueError):
+            AccelerateConfiguration(AccelerationStatus='Invalid Value')
+
+    def test_s3_bucket_accelerate_configuration(self):
+        t = Template()
+        ac = AccelerateConfiguration(AccelerationStatus="Enabled")
+
+        b = Bucket("s3Bucket", AccelerateConfiguration=ac)
+        t.add_resource(b)
+        output = t.to_json()
+        self.assertIn('"AccelerationStatus": "Enabled"', output)
 
 
 def call_correct(x):

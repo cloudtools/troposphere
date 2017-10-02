@@ -133,6 +133,17 @@ def status(status):
     return status
 
 
+def s3_transfer_acceleration_status(value):
+    valid_status = ['Enabled', 'Suspended']
+    if value not in valid_status:
+        raise ValueError(
+            'AccelerationStatus must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return value
+
+
 def iam_names(b):
     iam_name_re = compile(r'^[a-zA-Z0-9_\.\+\=\@\-\,]+$')
     if iam_name_re.match(b):
