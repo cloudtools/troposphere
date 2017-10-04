@@ -63,6 +63,7 @@ class ConfigurationTemplate(AWSObject):
         'OptionSettings': ([OptionSettings], False),
         'SolutionStackName': (basestring, False),
         'SourceConfiguration': (SourceConfiguration, False),
+        'PlatformArn': (basestring, False)
     }
 
 
@@ -102,4 +103,5 @@ class Environment(AWSObject):
         'TemplateName': (basestring, False),
         'Tier': (Tier, False),
         'VersionLabel': (basestring, False),
+        'PlatformArn': (basestring, False)
     }
