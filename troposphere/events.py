@@ -20,6 +20,12 @@ class InputTransformer(AWSProperty):
     }
 
 
+class KinesisParameters(AWSProperty):
+    props = {
+        'PartitionKeyPath': (basestring, True),
+    }
+
+
 class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
@@ -28,6 +34,7 @@ class Target(AWSProperty):
         'Input': (basestring, False),
         'InputPath': (basestring, False),
         'InputTransformer': (InputTransformer, False),
+        'KinesisParameters': (KinesisParameters, False),
         'RoleArn': (basestring, False),
     }
 
