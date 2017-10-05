@@ -26,6 +26,19 @@ class KinesisParameters(AWSProperty):
     }
 
 
+class RunCommandTarget(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Values': ([basestring], True),
+    }
+
+
+class RunCommandParameters(AWSProperty):
+    props = {
+        'RunCommandTargets': ([RunCommandTarget], True),
+    }
+
+
 class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
@@ -36,6 +49,7 @@ class Target(AWSProperty):
         'InputTransformer': (InputTransformer, False),
         'KinesisParameters': (KinesisParameters, False),
         'RoleArn': (basestring, False),
+        'RunCommandParameters': (RunCommandParameters, False),
     }
 
 
