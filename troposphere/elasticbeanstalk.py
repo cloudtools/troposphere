@@ -61,9 +61,9 @@ class ConfigurationTemplate(AWSObject):
         'Description': (basestring, False),
         'EnvironmentId': (basestring, False),
         'OptionSettings': ([OptionSettings], False),
+        'PlatformArn': (basestring, False),
         'SolutionStackName': (basestring, False),
         'SourceConfiguration': (SourceConfiguration, False),
-        'PlatformArn': (basestring, False)
     }
 
 
@@ -98,10 +98,10 @@ class Environment(AWSObject):
         'Description': (basestring, False),
         'EnvironmentName': (basestring, False),
         'OptionSettings': ([OptionSettings], False),
+        'PlatformArn': (basestring, False),
         'SolutionStackName': (basestring, False),
         'Tags': (Tags, False),
         'TemplateName': (basestring, False),
         'Tier': (Tier, False),
         'VersionLabel': (basestring, False),
-        'PlatformArn': (basestring, False)
     }
