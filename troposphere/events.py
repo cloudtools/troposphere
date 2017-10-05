@@ -13,6 +13,13 @@ class EcsParameters(AWSProperty):
     }
 
 
+class InputTransformer(AWSProperty):
+    props = {
+        'InputPathsMap': (dict, False),
+        'InputTemplate': (basestring, True),
+    }
+
+
 class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
@@ -20,6 +27,7 @@ class Target(AWSProperty):
         'Id': (basestring, True),
         'Input': (basestring, False),
         'InputPath': (basestring, False),
+        'InputTransformer': (InputTransformer, False),
         'RoleArn': (basestring, False),
     }
 
