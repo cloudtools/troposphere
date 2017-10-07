@@ -299,19 +299,10 @@ class Bucket(AWSObject):
         LogDeliveryWrite,
     ]
 
-    def __init__(self, name=None, **kwargs):
-
-        # note: 'name' is the resource title, not the bucket name
-
-        if not name and 'title' in kwargs:
-            name = kwargs.pop('title')
-        if not name:
-            raise TypeError("You must provide a title for the bucket resource")
-        super(Bucket, self).__init__(name, **kwargs)
-
-        if 'AccessControl' in kwargs and \
-                isinstance(kwargs['AccessControl'], basestring):
-            if kwargs['AccessControl'] not in self.access_control_types:
+    def validate(self):
+        access_control = self.properties.get('AccessControl')
+        if access_control is not None:
+            if access_control not in self.access_control_types:
                 raise ValueError('AccessControl must be one of "%s"' % (
                     ', '.join(self.access_control_types)))
 
