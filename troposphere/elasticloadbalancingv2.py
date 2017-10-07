@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (
     elb_name, exactly_one, network_port,
     tg_healthcheck_port, integer
@@ -107,7 +107,7 @@ class TargetGroup(AWSObject):
         'Name': (basestring, False),
         'Port': (network_port, True),
         'Protocol': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
         'TargetType': (basestring, False),
@@ -127,7 +127,7 @@ class LoadBalancer(AWSObject):
         'SecurityGroups': (list, False),
         'SubnetMappings': ([SubnetMapping], False),
         'Subnets': (list, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'Type': (basestring, False),
     }
 

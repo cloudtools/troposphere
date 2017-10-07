@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, BaseAWSObject
+from . import AWSHelperFn, AWSObject, AWSProperty, BaseAWSObject, Tags
 from . import encode_to_dict
 from .validators import integer, boolean, encoding
 
@@ -14,7 +14,7 @@ class Stack(AWSObject):
     props = {
         'NotificationARNs': ([basestring], False),
         'Parameters': (dict, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'TemplateURL': (basestring, True),
         'TimeoutInMinutes': (integer, False),
     }

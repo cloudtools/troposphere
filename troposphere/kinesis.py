@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
+from . import AWSObject, Tags
 from .validators import integer
 
 
@@ -14,5 +14,5 @@ class Stream(AWSObject):
         'Name': (basestring, False),
         'RetentionPeriodHours': (integer, False),
         'ShardCount': (integer, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }

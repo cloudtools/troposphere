@@ -5,7 +5,7 @@
 
 import re
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import boolean, network_port, integer, positive_integer
 
 # Taken from:
@@ -159,7 +159,7 @@ class DBInstance(AWSObject):
         'SourceDBInstanceIdentifier': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'Timezone': (basestring, False),
         'VPCSecurityGroups': ([basestring], False),
     }
@@ -244,7 +244,7 @@ class DBParameterGroup(AWSObject):
         'Description': (basestring, False),
         'Family': (basestring, False),
         'Parameters': (dict, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -254,7 +254,7 @@ class DBSubnetGroup(AWSObject):
     props = {
         'DBSubnetGroupDescription': (basestring, True),
         'SubnetIds': (list, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -274,7 +274,7 @@ class DBSecurityGroup(AWSObject):
         'EC2VpcId': (basestring, False),
         'DBSecurityGroupIngress': (list, True),
         'GroupDescription': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -327,7 +327,7 @@ class OptionGroup(AWSObject):
         'MajorEngineVersion': (basestring, True),
         'OptionGroupDescription': (basestring, True),
         'OptionConfigurations': ([OptionConfiguration], True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -338,7 +338,7 @@ class DBClusterParameterGroup(AWSObject):
         'Description': (basestring, True),
         'Family': (basestring, True),
         'Parameters': (dict, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -362,6 +362,6 @@ class DBCluster(AWSObject):
         'ReplicationSourceIdentifier': (basestring, False),
         'SnapshotIdentifier': (basestring, False),
         'StorageEncrypted': (boolean, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpcSecurityGroupIds': ([basestring], False),
     }
