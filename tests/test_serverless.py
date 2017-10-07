@@ -15,11 +15,46 @@ class TestServerless(unittest.TestCase):
         t.add_resource(serverless_func)
         t.to_json()
 
-    def test_required_api(self):
+    def test_required_api_definitionuri(self):
         serverless_api = Api(
             "SomeApi",
             StageName='test',
             DefinitionUri='s3://bucket/swagger.yml',
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    swagger = {
+        "swagger": "2.0",
+        "info": {
+            "title": "swagger test",
+        },
+        "paths": {
+            "/test": {
+                "get": {
+                 },
+            },
+        },
+    }
+
+    def test_required_api_both(self):
+        serverless_api = Api(
+            "SomeApi",
+            StageName='test',
+            DefinitionUri='s3://bucket/swagger.yml',
+            DefinitionBody=self.swagger,
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        with self.assertRaises(ValueError):
+            t.to_json()
+
+    def test_required_api_definitionbody(self):
+        serverless_api = Api(
+            "SomeApi",
+            StageName='test',
+            DefinitionBody=self.swagger,
         )
         t = Template()
         t.add_resource(serverless_api)
