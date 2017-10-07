@@ -8,7 +8,7 @@ import types
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
-from .validators import positive_integer
+from .validators import exactly_one, positive_integer
 
 assert types  # silence pyflakes
 
@@ -54,12 +54,19 @@ class Api(AWSObject):
 
     props = {
         'StageName': (basestring, True),
-        'DefinitionUri': (basestring, True),
         'DefinitionBody': (dict, False),
+        'DefinitionUri': (basestring, False),
         'CacheClusterEnabled': (bool, False),
         'CacheClusterSize': (basestring, False),
-        'Variables': (dict, False)
+        'Variables': (dict, False),
     }
+
+    def validate(self):
+        conds = [
+            'DefinitionBody',
+            'DefinitionUri',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class PrimaryKey(AWSProperty):
