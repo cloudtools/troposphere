@@ -13,6 +13,32 @@ class EcsParameters(AWSProperty):
     }
 
 
+class InputTransformer(AWSProperty):
+    props = {
+        'InputPathsMap': (dict, False),
+        'InputTemplate': (basestring, True),
+    }
+
+
+class KinesisParameters(AWSProperty):
+    props = {
+        'PartitionKeyPath': (basestring, True),
+    }
+
+
+class RunCommandTarget(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Values': ([basestring], True),
+    }
+
+
+class RunCommandParameters(AWSProperty):
+    props = {
+        'RunCommandTargets': ([RunCommandTarget], True),
+    }
+
+
 class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
@@ -20,7 +46,10 @@ class Target(AWSProperty):
         'Id': (basestring, True),
         'Input': (basestring, False),
         'InputPath': (basestring, False),
+        'InputTransformer': (InputTransformer, False),
+        'KinesisParameters': (KinesisParameters, False),
         'RoleArn': (basestring, False),
+        'RunCommandParameters': (RunCommandParameters, False),
     }
 
 
