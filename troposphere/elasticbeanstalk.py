@@ -4,12 +4,35 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-
+from .validators import boolean, integer
 
 WebServer = "WebServer"
 Worker = "Worker"
 WebServerType = "Standard"
 WorkerType = "SQS/HTTP"
+
+
+class MaxAgeRule(AWSProperty):
+    props = {
+      'DeleteSourceFromS3': (boolean, False),
+      'Enabled': (boolean, False),
+      'MaxAgeInDays': (integer, False),
+    }
+
+
+class MaxCountRule(AWSProperty):
+    props = {
+      'DeleteSourceFromS3': (boolean, False),
+      'Enabled': (boolean, False),
+      'MaxCount': (integer, False),
+    }
+
+
+class ApplicationVersionLifecycleConfig(AWSProperty):
+    props = {
+        'MaxAgeRule': (MaxAgeRule, False),
+        'MaxCountRule': (MaxCountRule, False),
+    }
 
 
 class SourceBundle(AWSProperty):
@@ -23,6 +46,13 @@ class SourceConfiguration(AWSProperty):
     props = {
         'ApplicationName': (basestring, True),
         'TemplateName': (basestring, True),
+    }
+
+
+class ApplicationResourceLifecycleConfig(AWSProperty):
+    props = {
+        'ServiceRole': (basestring, False),
+        'VersionLifecycleConfig': (ApplicationVersionLifecycleConfig, False),
     }
 
 
@@ -40,6 +70,7 @@ class Application(AWSObject):
     props = {
         'ApplicationName': (basestring, False),
         'Description': (basestring, False),
+        'ResourceLifecycleConfig': (ApplicationResourceLifecycleConfig, False),
     }
 
 
