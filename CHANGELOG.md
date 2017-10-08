@@ -1,3 +1,18 @@
+## 2.0.0 (2017-10-07)
+- Note: the s3.Bucket change (#844) *may* cause a breaking change for non-named arguments.
+- Add DefinitionBody to serverless API (#822)
+- Adding kinesis stream source to firehose (#823)
+- Add `Event::Rule::Target::EcsParameters` (#824)
+- Add S3 Transfer Acceleration to AWS::S3::Bucket (#833)
+- Add AvailabilityZone property to TargetDescription (#834)
+- Add Tags to NATGateway (#835)
+- Add ResourceLifecycleConfig to ElasticBeanstalk (#836)
+- Add AWS::Athena::NamedQuery (#837)
+- Added platformArn to Environment and ConfigurationTemplate (#839)
+- Events target (fixes #830) (#840)
+- Refactor s3.Bucket to remove custom __init__() and add tests (#844)
+- Be more explicit on the use of the Tags object for Tags (#845)
+
 ## 1.9.6 (2017-09-24)
 - Added missing EU_WEST_2 constants. (#776)
 - Override object validation (#780)
