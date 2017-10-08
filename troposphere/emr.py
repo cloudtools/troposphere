@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, AWSHelperFn
+from . import AWSObject, AWSProperty, AWSHelperFn, Tags
 from .validators import (
     boolean, integer, positive_integer, floatingpoint, defer
 )
@@ -288,7 +288,7 @@ class Cluster(AWSObject):
         'SecurityConfiguration': (basestring, False),
         'ServiceRole': (basestring, True),
         'AutoScalingRole': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VisibleToAllUsers': (boolean, False)
     }
 

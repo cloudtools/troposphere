@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, exactly_one, integer, integer_range,
     network_port, positive_integer
@@ -37,7 +37,7 @@ class CustomerGateway(AWSObject):
     props = {
         'BgpAsn': (integer, True),
         'IpAddress': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'Type': (basestring, True),
     }
 
@@ -51,7 +51,7 @@ class DHCPOptions(AWSObject):
         'NetbiosNameServers': (list, False),
         'NetbiosNodeType': (integer, False),
         'NtpServers': (list, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -102,7 +102,7 @@ class NatGateway(AWSObject):
     props = {
             'AllocationId': (basestring, True),
             'SubnetId': (basestring, True),
-            'Tags': (list, False),
+            'Tags': ((Tags, list), False),
     }
 
 
@@ -223,7 +223,7 @@ class Instance(AWSObject):
         'SsmAssociations': ([SsmAssociations], False),
         'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'Tenancy': (basestring, False),
         'UserData': (basestring, False),
         'Volumes': (list, False),
@@ -234,7 +234,7 @@ class InternetGateway(AWSObject):
     resource_type = "AWS::EC2::InternetGateway"
 
     props = {
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -242,7 +242,7 @@ class NetworkAcl(AWSObject):
     resource_type = "AWS::EC2::NetworkAcl"
 
     props = {
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpcId': (basestring, True),
     }
 
@@ -297,7 +297,7 @@ class NetworkInterface(AWSObject):
         'SecondaryPrivateIpAddressCount': (integer, False),
         'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -362,7 +362,7 @@ class RouteTable(AWSObject):
     resource_type = "AWS::EC2::RouteTable"
 
     props = {
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpcId': (basestring, True),
     }
 
@@ -448,7 +448,7 @@ class SecurityGroup(AWSObject):
         'SecurityGroupEgress': (list, False),
         'SecurityGroupIngress': (list, False),
         'VpcId': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -461,7 +461,7 @@ class Subnet(AWSObject):
         'CidrBlock': (basestring, True),
         'Ipv6CidrBlock': (basestring, False),
         'MapPublicIpOnLaunch': (boolean, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpcId': (basestring, True),
     }
 
@@ -503,7 +503,7 @@ class Volume(AWSObject):
         'KmsKeyId': (basestring, False),
         'Size': (positive_integer, False),
         'SnapshotId': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VolumeType': (basestring, False),
     }
 
@@ -526,7 +526,7 @@ class VPC(AWSObject):
         'EnableDnsSupport': (boolean, False),
         'EnableDnsHostnames': (boolean, False),
         'InstanceTenancy': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -567,7 +567,7 @@ class VPNConnection(AWSObject):
         'Type': (basestring, True),
         'CustomerGatewayId': (basestring, True),
         'StaticRoutesOnly': (boolean, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpnGatewayId': (basestring, True),
     }
 
@@ -586,7 +586,7 @@ class VPNGateway(AWSObject):
 
     props = {
         'Type': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -605,7 +605,7 @@ class VPCPeeringConnection(AWSObject):
     props = {
         'PeerVpcId': (basestring, True),
         'VpcId': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'PeerOwnerId': (basestring, False),
         'PeerRoleArn': (basestring, False),
     }

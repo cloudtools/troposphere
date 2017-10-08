@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSProperty, AWSObject
+from . import AWSProperty, AWSObject, Tags
 from .validators import boolean, integer, integer_range, positive_integer
 
 VALID_VOLUME_TYPES = ('standard', 'gp2', 'io1')
@@ -66,7 +66,7 @@ class Domain(AWSObject):
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
         'SnapshotOptions': (SnapshotOptions, False),
-        'Tags': (list, False)
+        'Tags': ((Tags, list), False)
     }
 
 

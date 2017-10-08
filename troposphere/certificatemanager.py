@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 
 
 class DomainValidationOption(AWSProperty):
@@ -15,5 +15,5 @@ class Certificate(AWSObject):
         'DomainName': (basestring, True),
         'DomainValidationOptions': ([DomainValidationOption], False),
         'SubjectAlternativeNames': ([basestring], False),
-        'Tags': (list, False)
+        'Tags': ((Tags, list), False)
     }
