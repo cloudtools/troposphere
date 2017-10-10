@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Template
+from troposphere import Parameter, Ref, Template
 from troposphere.s3 import AccelerateConfiguration, Bucket, Private
 
 
@@ -27,6 +27,10 @@ class TestBucket(unittest.TestCase):
     def test_bucket_accesscontrol_bad_type(self):
         with self.assertRaises(TypeError):
             Bucket('b', AccessControl=123).validate()
+
+    def test_bucket_accesscontrol_ref(self):
+        bucket_acl = Parameter('acl', Type='String', Default='Private')
+        Bucket('b', AccessControl=Ref(bucket_acl)).validate()
 
 
 class TestS3AccelerateConfiguration(unittest.TestCase):

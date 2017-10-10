@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 import warnings
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import positive_integer, s3_bucket_name
 from .validators import s3_transfer_acceleration_status
 
@@ -301,7 +301,8 @@ class Bucket(AWSObject):
 
     def validate(self):
         access_control = self.properties.get('AccessControl')
-        if access_control is not None:
+        if access_control is not None and \
+                not isinstance(access_control, AWSHelperFn):
             if access_control not in self.access_control_types:
                 raise ValueError('AccessControl must be one of "%s"' % (
                     ', '.join(self.access_control_types)))
