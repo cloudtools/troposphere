@@ -78,6 +78,15 @@ class Listener(AWSObject):
     }
 
 
+class ListenerCertificate(AWSObject):
+    resource_type = "AWS::ElasticLoadBalancingV2::ListenerCertificate"
+
+    props = {
+        'Certificates': ([Certificate], True),
+        'ListenerArn': (basestring, True),
+    }
+
+
 class ListenerRule(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::ListenerRule"
 
