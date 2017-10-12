@@ -245,7 +245,7 @@ class ScalingPolicy(AWSObject):
     resource_type = "AWS::AutoScaling::ScalingPolicy"
 
     props = {
-        'AdjustmentType': (basestring, True),
+        'AdjustmentType': (basestring, False),
         'AutoScalingGroupName': (basestring, True),
         'Cooldown': (integer, False),
         'EstimatedInstanceWarmup': (integer, False),
