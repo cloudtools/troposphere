@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .validators import integer, boolean
 
 
 class Targets(AWSProperty):
@@ -33,6 +34,19 @@ class Document(AWSObject):
         # Need a better implementation of the SSM Document
         'Content': (dict, True),
         'DocumentType': (basestring, False),
+    }
+
+
+class MaintenanceWindow(AWSObject):
+    resource_type = "AWS:SSM::MaintenanceWindow"
+
+    props = {
+        'AllowUnassociatedTargets': (boolean, True),
+        'Cutoff': (integer, True),
+        'Description': (basestring, False),
+        'Duration': (integer, True),
+        'Name': (basestring, True),
+        'Schedule': (basestring, True),
     }
 
 
