@@ -36,6 +36,18 @@ class Document(AWSObject):
         'DocumentType': (basestring, False),
     }
 
+class MaintenanceWindow(AWSObject):
+    resource_type = "AWS:SSM::MaintenanceWindow"
+
+    props = {
+        'Description': (basestring, False),
+        'AllowUnassociatedTargets': (boolean, True),
+        'Cutoff': (integer, True),
+        'Schedule': (basestring, True),
+        'Duration': (integer, True),
+        'Name': (basestring, True),
+    }
+
 
 class MaintenanceWindow(AWSObject):
     resource_type = "AWS:SSM::MaintenanceWindow"
