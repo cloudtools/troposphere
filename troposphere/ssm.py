@@ -40,12 +40,12 @@ class MaintenanceWindow(AWSObject):
     resource_type = "AWS:SSM::MaintenanceWindow"
 
     props = {
-        'Description': (basestring, False),
         'AllowUnassociatedTargets': (boolean, True),
         'Cutoff': (integer, True),
-        'Schedule': (basestring, True),
+        'Description': (basestring, False),
         'Duration': (integer, True),
         'Name': (basestring, True),
+        'Schedule': (basestring, True),
     }
 
 
