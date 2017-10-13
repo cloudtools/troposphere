@@ -36,6 +36,7 @@ class Document(AWSObject):
         'DocumentType': (basestring, False),
     }
 
+
 class MaintenanceWindow(AWSObject):
     resource_type = "AWS:SSM::MaintenanceWindow"
 
