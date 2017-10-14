@@ -31,13 +31,21 @@ def policy_validator(x):
                          + " policy documents")
 
 
+class S3Location(AWSProperty):
+    props = {
+        "Bucket": (basestring, True),
+        "Key": (basestring, True),
+        "Version": (basestring, False)
+    }
+
+
 class Function(AWSObject):
     resource_type = "AWS::Serverless::Function"
 
     props = {
         'Handler': (basestring, True),
         'Runtime': (basestring, True),
-        'CodeUri': (basestring, True),
+        'CodeUri': ((S3Location, basestring), True),
         'Description': (basestring, False),
         'MemorySize': (validate_memory_size, False),
         'Timeout': (positive_integer, False),
