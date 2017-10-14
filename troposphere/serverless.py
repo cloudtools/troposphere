@@ -39,9 +39,9 @@ class DeadLetterQueue(AWSProperty):
 
     def validate(self):
         valid_types = ['SQS', 'SNS']
-        if self.properties['Type'] not in valid_types:
+        if ('Type' in self.properties and
+                self.properties['Type'] not in valid_types):
             raise ValueError('Type must be either SQS or SNS')
-        return self.properties['Type']
 
 
 class Function(AWSObject):

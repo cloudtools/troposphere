@@ -1,6 +1,6 @@
 import unittest
 from troposphere import Template
-from troposphere.serverless import Function, Api, SimpleTable, DeadLetterQueue
+from troposphere.serverless import Api, DeadLetterQueue, Function, SimpleTable
 
 
 class TestServerless(unittest.TestCase):
