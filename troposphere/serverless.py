@@ -31,6 +31,19 @@ def policy_validator(x):
                          + " policy documents")
 
 
+class DeadLetterQueue(AWSProperty):
+    props = {
+        'Type': (basestring, False),
+        'TargetArn': (basestring, False)
+    }
+
+    def validate(self):
+        valid_types = ['SQS', 'SNS']
+        if self.properties['Type'] not in valid_types:
+            raise ValueError('Type must be either SQS or SNS')
+        return self.properties['Type']
+
+
 class Function(AWSObject):
     resource_type = "AWS::Serverless::Function"
 
@@ -45,7 +58,11 @@ class Function(AWSObject):
         'Policies': (policy_validator, False),
         'Environment': (Environment, False),
         'VpcConfig': (VPCConfig, False),
-        'Events': (dict, False)
+        'Events': (dict, False),
+        'Tags': (dict, False),
+        'Tracing': (basestring, False),
+        'KmsKeyArn': (basestring, False),
+        'DeadLetterQueue': (DeadLetterQueue, False)
     }
 
 

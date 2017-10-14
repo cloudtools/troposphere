@@ -1,9 +1,39 @@
 import unittest
 from troposphere import Template
-from troposphere.serverless import Function, Api, SimpleTable
+from troposphere.serverless import Function, Api, SimpleTable, DeadLetterQueue
 
 
 class TestServerless(unittest.TestCase):
+    def test_tags(self):
+        serverless_func = Function(
+            "SomeHandler",
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri="s3://bucket/handler.zip",
+            Tags={
+                'Tag1': 'TagValue1',
+                'Tag2': 'TagValue2'
+            }
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        t.to_json()
+
+    def test_DLQ(self):
+        serverless_func = Function(
+            "SomeHandler",
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri="s3://bucket/handler.zip",
+            DeadLetterQueue=DeadLetterQueue(
+                Type='SNS',
+                TargetArn='arn:aws:sns:us-east-1:000000000000:SampleTopic'
+            )
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        t.to_json()
+
     def test_required_function(self):
         serverless_func = Function(
             "SomeHandler",
