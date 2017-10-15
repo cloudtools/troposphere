@@ -279,6 +279,7 @@ def compliance_level(level):
         )
     return level
 
+
 def operating_system(os):
     valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX']
     if os not in valid_os:

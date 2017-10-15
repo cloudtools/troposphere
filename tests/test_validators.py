@@ -7,7 +7,7 @@ from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
 from troposphere.validators import iam_group_name, iam_user_name, elb_name
 from troposphere.validators import mutually_exclusive, notification_type
-from troposphere.validators import notification_events, task_type
+from troposphere.validators import notification_event, task_type
 from troposphere.validators import compliance_level, operating_system
 
 
@@ -166,13 +166,13 @@ class TestValidators(unittest.TestCase):
             with self.assertRaises(ValueError):
                 compliance_level(s)
 
-    def test_notification_events(self):
+    def test_notification_event(self):
         for l in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
                   'Failed'], ['InProgress', 'TimedOut']]:
-            notification_events(l)
+            notification_event(l)
         for l in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
             with self.assertRaises(ValueError):
-                notification_events(l)
+                notification_event(l)
 
     def test_notification_type(self):
         for s in ['Command', 'Invocation']:
@@ -195,6 +195,7 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'foo', 'a', 'l@mbda', 'STEPFUNCTION']:
             with self.assertRaises(ValueError):
                 task_type(s)
+
 
 if __name__ == '__main__':
     unittest.main()
