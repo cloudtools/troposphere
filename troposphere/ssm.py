@@ -135,19 +135,6 @@ class MaintenanceWindow(AWSObject):
     resource_type = "AWS::SSM::MaintenanceWindow"
 
     props = {
-        'Description': (basestring, False),
-        'AllowUnassociatedTargets': (boolean, True),
-        'Cutoff': (integer, True),
-        'Schedule': (basestring, True),
-        'Duration': (integer, True),
-        'Name': (basestring, True),
-    }
-
-
-class MaintenanceWindow(AWSObject):
-    resource_type = "AWS:SSM::MaintenanceWindow"
-
-    props = {
         'AllowUnassociatedTargets': (boolean, True),
         'Cutoff': (integer, True),
         'Description': (basestring, False),
@@ -155,9 +142,10 @@ class MaintenanceWindow(AWSObject):
         'Name': (basestring, True),
         'Schedule': (basestring, True),
     }
+
 
 class MaintenanceWindowTarget(AWSObject):
-    resource_type = "AWS:SSM::MaintenanceWindowTarget"
+    resource_type = "AWS::SSM::MaintenanceWindowTarget"
 
     props = {
         'Description': (basestring, False),
@@ -170,7 +158,7 @@ class MaintenanceWindowTarget(AWSObject):
 
 
 class MaintenanceWindowTask(AWSObject):
-    resource_type = "AWS:SSM::MaintenanceWindowTask"
+    resource_type = "AWS::SSM::MaintenanceWindowTask"
 
     props = {
         'Description': (basestring, False),
@@ -187,6 +175,7 @@ class MaintenanceWindowTask(AWSObject):
         'TaskType': (task_type, True),
         'WindowId': (basestring, False),
     }
+
 
 class Parameter(AWSObject):
     resource_type = "AWS::SSM::Parameter"
