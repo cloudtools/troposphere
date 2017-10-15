@@ -231,3 +231,61 @@ def json_checker(name, prop):
         return prop
     else:
         raise ValueError("%s must be a str or dict" % name)
+
+
+def notification_type(notification):
+    valid_notifications = ['Command', 'Invocation']
+    if notification not in valid_notifications:
+        raise ValueError(
+            'NotificationType must be one of: "%s"' % (
+                ', '.join(valid_notifications)
+            )
+        )
+    return notification
+
+
+def notification_event(events):
+    valid_events = ['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
+                    'Failed']
+    for event in events:
+        if event not in valid_events:
+            raise ValueError(
+                'NotificationEvents must be at least one of: "%s"' % (
+                    ', '.join(valid_events)
+                )
+            )
+    return events
+
+
+def task_type(task):
+    valid_tasks = ['RUN_COMMAND', 'AUTOMATION', 'LAMBDA', 'STEP_FUNCTION']
+    if task not in valid_tasks:
+        raise ValueError(
+            'TaskType must be one of: "%s"' % (
+                ', '.join(valid_tasks)
+            )
+        )
+    return task
+
+
+def compliance_level(level):
+    valid_levels = ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFORMATIONAL',
+                    'UNSPECIFIED']
+    if level not in valid_levels:
+        raise ValueError(
+            'ApprovedPatchesComplianceLevel must be one of: "%s"' % (
+                ', '.join(valid_levels)
+            )
+        )
+    return level
+
+
+def operating_system(os):
+    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX']
+    if os not in valid_os:
+        raise ValueError(
+            'OperatingSystem must be one of: "%s"' % (
+                ', '.join(valid_os)
+            )
+        )
+    return os

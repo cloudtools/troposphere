@@ -6,7 +6,9 @@ from troposphere.validators import tg_healthcheck_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
 from troposphere.validators import iam_group_name, iam_user_name, elb_name
-from troposphere.validators import mutually_exclusive
+from troposphere.validators import mutually_exclusive, notification_type
+from troposphere.validators import notification_event, task_type
+from troposphere.validators import compliance_level, operating_system
 
 
 class TestValidators(unittest.TestCase):
@@ -155,6 +157,44 @@ class TestValidators(unittest.TestCase):
             mutually_exclusive('ac', ['a', 'c'], conds)
         with self.assertRaises(ValueError):
             mutually_exclusive('abc', ['a', 'b', 'c'], conds)
+
+    def test_compliance_level(self):
+        for s in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFORMATIONAL',
+                  'UNSPECIFIED']:
+            compliance_level(s)
+        for s in ['crit', '', '%%', 'FORMATIONAL']:
+            with self.assertRaises(ValueError):
+                compliance_level(s)
+
+    def test_notification_event(self):
+        for l in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
+                  'Failed'], ['InProgress', 'TimedOut']]:
+            notification_event(l)
+        for l in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
+            with self.assertRaises(ValueError):
+                notification_event(l)
+
+    def test_notification_type(self):
+        for s in ['Command', 'Invocation']:
+            notification_type(s)
+        for s in ['foo', '', 'command', 'Iinvocation']:
+            with self.assertRaises(ValueError):
+                notification_type(s)
+
+    def test_operating_system(self):
+        for s in ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU',
+                  'REDHAT_ENTERPRISE_LINUX']:
+            operating_system(s)
+        for s in ['', 'bar', 'AMAZONLINUX', 'LINUX']:
+            with self.assertRaises(ValueError):
+                operating_system(s)
+
+    def test_task_type(self):
+        for s in ['RUN_COMMAND', 'AUTOMATION', 'LAMBDA', 'STEP_FUNCTION']:
+            task_type(s)
+        for s in ['', 'foo', 'a', 'l@mbda', 'STEPFUNCTION']:
+            with self.assertRaises(ValueError):
+                task_type(s)
 
 
 if __name__ == '__main__':
