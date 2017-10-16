@@ -5,7 +5,7 @@
 
 import types
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
 from .validators import exactly_one, positive_integer
@@ -59,6 +59,7 @@ class Function(AWSObject):
         'Handler': (basestring, True),
         'Runtime': (basestring, True),
         'CodeUri': ((S3Location, basestring), True),
+        'FunctionName': (basestring, False),
         'Description': (basestring, False),
         'MemorySize': (validate_memory_size, False),
         'Timeout': (positive_integer, False),
@@ -67,7 +68,7 @@ class Function(AWSObject):
         'Environment': (Environment, False),
         'VpcConfig': (VPCConfig, False),
         'Events': (dict, False),
-        'Tags': (dict, False),
+        'Tags': (Tags, False),
         'Tracing': (basestring, False),
         'KmsKeyArn': (basestring, False),
         'DeadLetterQueue': (DeadLetterQueue, False)

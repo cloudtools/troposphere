@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Template
+from troposphere import Tags, Template
 from troposphere.serverless import (
     Api, DeadLetterQueue, Function, S3Location, SimpleTable
 )
@@ -26,10 +26,10 @@ class TestServerless(unittest.TestCase):
             Handler="index.handler",
             Runtime="nodejs",
             CodeUri="s3://bucket/handler.zip",
-            Tags={
+            Tags=Tags({
                 'Tag1': 'TagValue1',
                 'Tag2': 'TagValue2'
-            }
+            })
         )
         t = Template()
         t.add_resource(serverless_func)
