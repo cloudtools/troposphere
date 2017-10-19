@@ -158,5 +158,5 @@ class JobQueue(AWSObject):
         "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], True),
         "Priority": (positive_integer, True),
         "State": (validate_queue_state, False),
-        "JobQueueName": (basestring, True)
+        "JobQueueName": (basestring, False)
     }
