@@ -13,7 +13,7 @@ class InputParallelism(AWSProperty):
     }
 
 
-class RecordColumns(AWSProperty):
+class RecordColumn(AWSProperty):
     props = {
         'Mapping': (basestring, False),
         'Name': (basestring, True),
@@ -50,7 +50,7 @@ class RecordFormat(AWSProperty):
 
 class InputSchema(AWSProperty):
     props = {
-        'RecordColumns': (RecordColumns, True),
+        'RecordColumns': ([RecordColumn], True),
         'RecordEncoding': (basestring, False),
         'RecordFormat': (RecordFormat, True),
     }
@@ -131,7 +131,7 @@ class ApplicationOutput(AWSObject):
 
 class ReferenceSchema(AWSProperty):
     props = {
-        'RecordColumns': (RecordColumns, True),
+        'RecordColumns': ([RecordColumn], True),
         'RecordEncoding': (basestring, False),
         'RecordFormat': (RecordFormat, True),
     }
