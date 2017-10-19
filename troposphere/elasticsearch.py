@@ -66,7 +66,8 @@ class Domain(AWSObject):
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
         'SnapshotOptions': (SnapshotOptions, False),
-        'Tags': ((Tags, list), False)
+        'Tags': ((Tags, list), False),
+        'VPCOptions': (dict, False)
     }
 
 
