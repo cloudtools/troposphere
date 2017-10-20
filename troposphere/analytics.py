@@ -125,7 +125,7 @@ class ApplicationOutput(AWSObject):
 
     props = {
         'ApplicationName': (basestring, True),
-        'Output': ([Output], True),
+        'Output': (Output, True),
     }
 
 
