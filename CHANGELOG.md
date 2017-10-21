@@ -1,3 +1,16 @@
+## 2.0.1 (2017-10-21)
+- Allow s3.Bucket AccessControl to be an AWSHelperFn
+- Add AWS::ElasticLoadBalancingV2::ListenerCertificate
+- Add serverless FunctionName and change how Tags are implemented
+- Make AdjustmentType an optional property of ScalingPolicy as it is not used/supported for target (#849)
+- Add maintenance window for SSM (#851)
+- Add Tags, Tracing, KmsKeyArn, DLQ to serverless(SAM) (#853)
+- Add new AWS::SSM resources (#854)
+- EC2 NoDevice should be type boolean not dict (#858)
+- Fixes RecordColumns cardinality for InputSchema and ReferenceSchema (#859)
+- Make AWS::Batch::JobQueue::JobQueueName optional (#860)
+- Fixes ApplicationOutput/Output cardinality (#863)
+
 ## 2.0.0 (2017-10-07)
 - Note: the s3.Bucket change (#844) *may* cause a breaking change for non-named arguments.
 - Add DefinitionBody to serverless API (#822)
