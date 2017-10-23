@@ -121,7 +121,7 @@ class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
         'Ebs': (EBSBlockDevice, False),      # Conditional
-        'NoDevice': (boolean, False),
+        'NoDevice': (dict, False),
         'VirtualName': (basestring, False),  # Conditional
     }
 
