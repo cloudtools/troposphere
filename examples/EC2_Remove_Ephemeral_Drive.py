@@ -1,4 +1,6 @@
 from troposphere import FindInMap, GetAtt, Output, Parameter, Ref, Template
+from troposphere.ec2 import NO_DEVICE
+
 import troposphere.ec2 as ec2
 
 
@@ -37,10 +39,10 @@ ec2_instance = template.add_resource(ec2.Instance(
     BlockDeviceMappings=[
         ec2.BlockDeviceMapping(
             DeviceName='/dev/sdb',
-            NoDevice={}),
+            NoDevice=NO_DEVICE),
         ec2.BlockDeviceMapping(
             DeviceName='/dev/sdc',
-            NoDevice={}),
+            NoDevice=NO_DEVICE),
     ]
 ))
 

@@ -117,6 +117,9 @@ class EBSBlockDevice(AWSProperty):
     }
 
 
+NO_DEVICE = {}
+
+
 class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
