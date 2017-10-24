@@ -1,3 +1,6 @@
+## 2.0.2 (2017-10-23)
+- Set EC2 BlockDeviceMapping NoDevice property to type dict (#866)
+
 ## 2.0.1 (2017-10-21)
 - Allow s3.Bucket AccessControl to be an AWSHelperFn
 - Add AWS::ElasticLoadBalancingV2::ListenerCertificate
