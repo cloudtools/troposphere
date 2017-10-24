@@ -10,13 +10,13 @@ class ComputeResources(AWSProperty):
         "SecurityGroupIds": ([basestring], True),
         "BidPercentage": (positive_integer, False),
         "Type": (basestring, True),
-        "Subnets": ([basestring], True),
+        "Subnets": (list, True),
         "MinvCpus": (positive_integer, True),
         "ImageId": (basestring, False),
         "InstanceRole": (basestring, True),
         "InstanceTypes": ([basestring], True),
         "Ec2KeyPair": (basestring, False),
-        "Tags": ([basestring], False),
+        "Tags": (dict, False),
         "DesiredvCpus": (positive_integer, False)
     }
 
