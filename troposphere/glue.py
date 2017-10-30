@@ -1,3 +1,8 @@
+# Copyright (c) 2012-2017, Mark Peek <mark@peek.org>
+# All rights reserved.
+#
+# See LICENSE file for full license.
+
 from . import AWSObject, AWSProperty
 from .validators import boolean, floatingpoint, integer_range, positive_integer
 
