@@ -60,46 +60,6 @@ class CopyCommand(AWSProperty):
         'DataTableName': (basestring, True),
     }
 
-
-class ElasticsearchDestinationConfiguration(AWSProperty):
-    props = {
-        'BufferingHints': (BufferingHints, True),
-        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'DomainARN': (basestring, True),
-        'IndexName': (basestring, True),
-        'IndexRotationPeriod': (basestring, True),
-        'RetryOptions': (RetryOptions, False),
-        'RoleARN': (basestring, True),
-        'S3BackupMode': (basestring, True),
-        'S3Configuration': (S3Configuration, False),
-        'TypeName': (basestring, True),
-    }
-
-
-class RedshiftDestinationConfiguration(AWSProperty):
-    props = {
-        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'ClusterJDBCURL': (basestring, True),
-        'CopyCommand': (CopyCommand, True),
-        'Password': (basestring, True),
-        'RoleARN': (basestring, True),
-        'S3Configuration': (S3Configuration, True),
-        'Username': (basestring, True),
-    }
-
-
-class S3DestinationConfiguration(AWSProperty):
-    props = {
-        'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
-        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
-        'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'Prefix': (basestring, True),
-        'RoleARN': (basestring, True),
-    }
-
-
 class ProcessorParameter(AWSProperty):
     props = {
         'ParameterName': (basestring, True),
@@ -120,6 +80,46 @@ class ProcessingConfiguration(AWSProperty):
         'Processors': ([Processor], True),
     }
 
+
+class ElasticsearchDestinationConfiguration(AWSProperty):
+    props = {
+        'BufferingHints': (BufferingHints, True),
+        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'DomainARN': (basestring, True),
+        'IndexName': (basestring, True),
+        'IndexRotationPeriod': (basestring, True),
+        'ProcessingConfiguration': (ProcessingConfiguration, False),
+        'RetryOptions': (RetryOptions, False),
+        'RoleARN': (basestring, True),
+        'S3BackupMode': (basestring, True),
+        'S3Configuration': (S3Configuration, False),
+        'TypeName': (basestring, True),
+    }
+
+
+class RedshiftDestinationConfiguration(AWSProperty):
+    props = {
+        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'ClusterJDBCURL': (basestring, True),
+        'CopyCommand': (CopyCommand, True),
+        'Password': (basestring, True),
+        'ProcessingConfiguration': (ProcessingConfiguration, False),
+        'RoleARN': (basestring, True),
+        'S3Configuration': (S3Configuration, True),
+        'Username': (basestring, True),
+    }
+
+
+class S3DestinationConfiguration(AWSProperty):
+    props = {
+        'BucketARN': (basestring, True),
+        'BufferingHints': (BufferingHints, True),
+        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'CompressionFormat': (basestring, True),
+        'EncryptionConfiguration': (EncryptionConfiguration, False),
+        'Prefix': (basestring, True),
+        'RoleARN': (basestring, True),
+    }
 
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
