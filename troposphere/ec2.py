@@ -416,6 +416,11 @@ class VPCGatewayAttachment(AWSObject):
         'VpnGatewayId': (basestring, False),
     }
 
+class VpnTunnelOptionsSpecification(AWSProperty):
+    props = {
+        'PreSharedKey': (basestring, False),
+        'TunnelInsideCidr': (basestring, False)
+    }
 
 class VPNConnection(AWSObject):
     resource_type = "AWS::EC2::VPNConnection"
@@ -426,6 +431,7 @@ class VPNConnection(AWSObject):
         'StaticRoutesOnly': (boolean, False),
         'Tags': (list, False),
         'VpnGatewayId': (basestring, True),
+        'VpnTunnelOptionsSpecifications': ([VpnTunnelOptionsSpecification], False)
     }
 
 
