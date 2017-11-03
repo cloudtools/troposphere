@@ -3,9 +3,10 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty, FindInMap, Ref
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, integer, integer_range, network_port, positive_integer
+    boolean, exactly_one, integer, integer_range,
+    network_port, positive_integer
 )
 
 try:
@@ -15,12 +16,19 @@ except ImportError:
     policytypes = dict,
 
 
-class Tag(AWSHelperFn):
-    def __init__(self, key, value):
-        self.data = {'Key': key, 'Value': value}
+class Tag(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True)
+    }
 
-    def JSONrepr(self):
-        return self.data
+    def __init__(self, key=None, value=None, **kwargs):
+        # provided for backward compatibility
+        if key is not None:
+            kwargs['Key'] = key
+        if value is not None:
+            kwargs['Value'] = value
+        super(Tag, self).__init__(**kwargs)
 
 
 class CustomerGateway(AWSObject):
@@ -29,7 +37,7 @@ class CustomerGateway(AWSObject):
     props = {
         'BgpAsn': (integer, True),
         'IpAddress': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'Type': (basestring, True),
     }
 
@@ -43,7 +51,15 @@ class DHCPOptions(AWSObject):
         'NetbiosNameServers': (list, False),
         'NetbiosNodeType': (integer, False),
         'NtpServers': (list, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
+    }
+
+
+class EgressOnlyInternetGateway(AWSObject):
+    resource_type = "AWS::EC2::EgressOnlyInternetGateway"
+
+    props = {
+        'VpcId': (basestring, True),
     }
 
 
@@ -68,6 +84,28 @@ class EIPAssociation(AWSObject):
     }
 
 
+class FlowLog(AWSObject):
+    resource_type = "AWS::EC2::FlowLog"
+
+    props = {
+        'DeliverLogsPermissionArn': (basestring, True),
+        'LogGroupName': (basestring, True),
+        'ResourceId': (basestring, True),
+        'ResourceType': (basestring, True),
+        'TrafficType': (basestring, True),
+    }
+
+
+class NatGateway(AWSObject):
+    resource_type = "AWS::EC2::NatGateway"
+
+    props = {
+            'AllocationId': (basestring, True),
+            'SubnetId': (basestring, True),
+            'Tags': ((Tags, list), False),
+    }
+
+
 class EBSBlockDevice(AWSProperty):
     props = {
         'DeleteOnTermination': (boolean, False),
@@ -77,6 +115,9 @@ class EBSBlockDevice(AWSProperty):
         'VolumeSize': (integer, False),  # Conditional
         'VolumeType': (basestring, False),
     }
+
+
+NO_DEVICE = {}
 
 
 class BlockDeviceMapping(AWSProperty):
@@ -95,6 +136,20 @@ class MountPoint(AWSProperty):
     }
 
 
+class Placement(AWSProperty):
+    props = {
+        'AvailabilityZone': (basestring, False),
+        'GroupName': (basestring, False),
+    }
+
+
+class Ipv6Addresses(AWSHelperFn):
+    def __init__(self, address):
+        self.data = {
+            'Ipv6Address': address,
+        }
+
+
 class PrivateIpAddressSpecification(AWSProperty):
     props = {
         'Primary': (boolean, True),
@@ -108,8 +163,10 @@ class NetworkInterfaceProperty(AWSProperty):
         'DeleteOnTermination': (boolean, False),
         'Description': (basestring, False),
         'DeviceIndex': (integer, True),
-        'GroupSet': ([basestring, FindInMap, Ref], False),
+        'GroupSet': ([basestring], False),
         'NetworkInterfaceId': (basestring, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),
@@ -120,7 +177,7 @@ class NetworkInterfaceProperty(AWSProperty):
 class AssociationParameters(AWSProperty):
     props = {
         'Key': (basestring, True),
-        'Value': (basestring, True),
+        'Value': ([basestring], True),
     }
 
 
@@ -131,18 +188,32 @@ class SsmAssociations(AWSProperty):
     }
 
 
+class Host(AWSObject):
+    resource_type = "AWS::EC2::Host"
+
+    props = {
+        'AutoPlacement': (basestring, False),
+        'AvailabilityZone': (basestring, True),
+        'InstanceType': (basestring, True),
+    }
+
+
 class Instance(AWSObject):
     resource_type = "AWS::EC2::Instance"
 
     props = {
+        'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
+        'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceType': (basestring, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (boolean, False),
@@ -155,7 +226,7 @@ class Instance(AWSObject):
         'SsmAssociations': ([SsmAssociations], False),
         'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'Tenancy': (basestring, False),
         'UserData': (basestring, False),
         'Volumes': (list, False),
@@ -166,7 +237,7 @@ class InternetGateway(AWSObject):
     resource_type = "AWS::EC2::InternetGateway"
 
     props = {
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -174,7 +245,7 @@ class NetworkAcl(AWSObject):
     resource_type = "AWS::EC2::NetworkAcl"
 
     props = {
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpcId': (basestring, True),
     }
 
@@ -197,15 +268,23 @@ class NetworkAclEntry(AWSObject):
     resource_type = "AWS::EC2::NetworkAclEntry"
 
     props = {
-        'CidrBlock': (basestring, True),
-        'Egress': (boolean, True),
+        'CidrBlock': (basestring, False),
+        'Egress': (boolean, False),
         'Icmp': (ICMP, False),  # Conditional
+        'Ipv6CidrBlock': (basestring, False),
         'NetworkAclId': (basestring, True),
         'PortRange': (PortRange, False),  # Conditional
         'Protocol': (network_port, True),
         'RuleAction': (basestring, True),
         'RuleNumber': (integer_range(1, 32766), True),
     }
+
+    def validate(self):
+        conds = [
+            'CidrBlock',
+            'Ipv6CidrBlock',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class NetworkInterface(AWSObject):
@@ -214,12 +293,14 @@ class NetworkInterface(AWSObject):
     props = {
         'Description': (basestring, False),
         'GroupSet': (list, False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),
         'SourceDestCheck': (boolean, False),
         'SubnetId': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -234,25 +315,57 @@ class NetworkInterfaceAttachment(AWSObject):
     }
 
 
+PERMISSION_INSTANCE_ATTACH = 'INSTANCE-ATTACH'
+PERMISSION_EIP_ASSOCIATE = 'EIP-ASSOCIATE'
+
+
+class NetworkInterfacePermission(AWSObject):
+    resource_type = "AWS::EC2::NetworkInterfacePermission"
+
+    props = {
+        'AwsAccountId': (basestring, True),
+        'NetworkInterfaceId': (basestring, True),
+        'Permission': (basestring, True),
+    }
+
+
 class Route(AWSObject):
     resource_type = "AWS::EC2::Route"
 
     props = {
-        'DestinationCidrBlock': (basestring, True),
+        'DestinationCidrBlock': (basestring, False),
+        'DestinationIpv6CidrBlock': (basestring, False),
+        'EgressOnlyInternetGatewayId': (basestring, False),
         'GatewayId': (basestring, False),
         'InstanceId': (basestring, False),
+        'NatGatewayId': (basestring, False),
         'NetworkInterfaceId': (basestring, False),
         'RouteTableId': (basestring, True),
         'VpcPeeringConnectionId': (basestring, False),
-        'NatGatewayId': (basestring, False),
     }
+
+    def validate(self):
+        cidr_conds = [
+            'DestinationCidrBlock',
+            'DestinationIpv6CidrBlock',
+        ]
+        gateway_conds = [
+            'EgressOnlyInternetGatewayId',
+            'GatewayId',
+            'InstanceId',
+            'NatGatewayId',
+            'NetworkInterfaceId',
+            'VpcPeeringConnectionId'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, cidr_conds)
+        exactly_one(self.__class__.__name__, self.properties, gateway_conds)
 
 
 class RouteTable(AWSObject):
     resource_type = "AWS::EC2::RouteTable"
 
     props = {
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpcId': (basestring, True),
     }
 
@@ -262,6 +375,8 @@ class SecurityGroupEgress(AWSObject):
 
     props = {
         'CidrIp': (basestring, False),
+        'CidrIpv6': (basestring, False),
+        'DestinationPrefixListId': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
         'GroupId': (basestring, True),
@@ -277,32 +392,52 @@ class SecurityGroupEgress(AWSObject):
         'SourceSecurityGroupId': (basestring, False),
     }
 
+    def validate(self):
+        conds = [
+            'CidrIp',
+            'CidrIpv6',
+            'DestinationPrefixListId',
+            'DestinationSecurityGroupId',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
+
 
 class SecurityGroupIngress(AWSObject):
     resource_type = "AWS::EC2::SecurityGroupIngress"
 
     props = {
         'CidrIp': (basestring, False),
-        'FromPort': (network_port, False),
+        'CidrIpv6': (basestring, False),
+        'FromPort': (network_port, False),  # conditional
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'ToPort': (network_port, False),
+        'ToPort': (network_port, False),  # conditional
     }
+
+    def validate(self):
+        conds = [
+            'CidrIp',
+            'CidrIpv6',
+            'SourceSecurityGroupName',
+            'SourceSecurityGroupId',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
-        'FromPort': (network_port, True),
+        'CidrIpv6': (basestring, False),
+        'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'ToPort': (network_port, True),
+        'ToPort': (network_port, False),
         'DestinationSecurityGroupId': (basestring, False),
     }
 
@@ -311,11 +446,12 @@ class SecurityGroup(AWSObject):
     resource_type = "AWS::EC2::SecurityGroup"
 
     props = {
+        'GroupName': (basestring, False),
         'GroupDescription': (basestring, True),
         'SecurityGroupEgress': (list, False),
         'SecurityGroupIngress': (list, False),
         'VpcId': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -323,12 +459,22 @@ class Subnet(AWSObject):
     resource_type = "AWS::EC2::Subnet"
 
     props = {
+        'AssignIPv6AddressOnCreation': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'CidrBlock': (basestring, True),
+        'Ipv6CidrBlock': (basestring, False),
         'MapPublicIpOnLaunch': (boolean, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpcId': (basestring, True),
     }
+
+    def validate(self):
+        if 'Ipv6CidrBlock' in self.properties:
+            if not self.properties.get('AssignIPv6AddressOnCreation'):
+                raise ValueError(
+                    "If Ipv6CidrBlock is present, "
+                    "AssignIPv6AddressOnCreation must be set to True"
+                )
 
 
 class SubnetNetworkAclAssociation(AWSObject):
@@ -356,11 +502,11 @@ class Volume(AWSObject):
         'AutoEnableIO': (boolean, False),
         'AvailabilityZone': (basestring, True),
         'Encrypted': (boolean, False),
-        'Iops': (integer, False),
+        'Iops': (positive_integer, False),
         'KmsKeyId': (basestring, False),
-        'Size': (basestring, False),
+        'Size': (positive_integer, False),
         'SnapshotId': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VolumeType': (basestring, False),
     }
 
@@ -383,7 +529,7 @@ class VPC(AWSObject):
         'EnableDnsSupport': (boolean, False),
         'EnableDnsHostnames': (boolean, False),
         'InstanceTenancy': (basestring, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -401,7 +547,7 @@ class VPCEndpoint(AWSObject):
 
         props = {
             'PolicyDocument': (policytypes, False),
-            'RouteTableIds': ([basestring, Ref], False),
+            'RouteTableIds': ([basestring], False),
             'ServiceName': (basestring, True),
             'VpcId': (basestring, True),
         }
@@ -415,6 +561,7 @@ class VPCGatewayAttachment(AWSObject):
         'VpcId': (basestring, True),
         'VpnGatewayId': (basestring, False),
     }
+
 
 class VpnTunnelOptionsSpecification(AWSProperty):
     props = {
@@ -449,7 +596,7 @@ class VPNGateway(AWSObject):
 
     props = {
         'Type': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -457,7 +604,7 @@ class VPNGatewayRoutePropagation(AWSObject):
     resource_type = "AWS::EC2::VPNGatewayRoutePropagation"
 
     props = {
-        'RouteTableIds': ([basestring, Ref], True),
+        'RouteTableIds': ([basestring], True),
         'VpnGatewayId': (basestring, True),
     }
 
@@ -468,7 +615,9 @@ class VPCPeeringConnection(AWSObject):
     props = {
         'PeerVpcId': (basestring, True),
         'VpcId': (basestring, True),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
+        'PeerOwnerId': (basestring, False),
+        'PeerRoleArn': (basestring, False),
     }
 
 
@@ -485,6 +634,8 @@ class NetworkInterfaces(AWSProperty):
         'Description': (basestring, False),
         'DeviceIndex': (integer, True),
         'Groups': ([basestring], False),
+        'Ipv6AddressCount': (integer, False),
+        'Ipv6Addresses': ([Ipv6Addresses], False),
         'NetworkInterfaceId': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),
@@ -515,9 +666,10 @@ class LaunchSpecifications(AWSProperty):
         'KeyName': (basestring, False),
         'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
-        'Placement': (basestring, False),
+        'Placement': (Placement, False),
         'RamdiskId': (basestring, False),
         'SecurityGroups': ([SecurityGroups], False),
+        'SpotPrice': (basestring, False),
         'SubnetId': (basestring, False),
         'UserData': (basestring, False),
         'WeightedCapacity': (positive_integer, False),
@@ -529,10 +681,12 @@ class SpotFleetRequestConfigData(AWSProperty):
         'AllocationStrategy': (basestring, False),
         'ExcessCapacityTerminationPolicy': (basestring, False),
         'IamFleetRole': (basestring, True),
+        'ReplaceUnhealthyInstances': (boolean, False),
         'LaunchSpecifications': ([LaunchSpecifications], True),
         'SpotPrice': (basestring, True),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
+        'Type': (basestring, False),
         'ValidFrom': (basestring, False),
         'ValidUntil': (basestring, False),
     }
@@ -553,10 +707,21 @@ class PlacementGroup(AWSObject):
         'Strategy': (basestring, True),
     }
 
-class NatGateway(AWSObject):
-    resource_type = "AWS::EC2::NatGateway"
+
+class SubnetCidrBlock(AWSObject):
+    resource_type = "AWS::EC2::SubnetCidrBlock"
 
     props = {
-        'AllocationId': (basestring, True),
+        'Ipv6CidrBlock': (basestring, True),
         'SubnetId': (basestring, True),
+    }
+
+
+class VPCCidrBlock(AWSObject):
+    resource_type = "AWS::EC2::VPCCidrBlock"
+
+    props = {
+        'AmazonProvidedIpv6CidrBlock': (boolean, False),
+        'CidrBlock': (basestring, False),
+        'VpcId': (basestring, True),
     }
