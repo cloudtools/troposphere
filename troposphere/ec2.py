@@ -577,7 +577,7 @@ class VPNConnection(AWSObject):
         'Type': (basestring, True),
         'CustomerGatewayId': (basestring, True),
         'StaticRoutesOnly': (boolean, False),
-        'Tags': (list, False),
+        'Tags': ((Tags, list), False),
         'VpnGatewayId': (basestring, True),
         'VpnTunnelOptionsSpecifications': (
             [VpnTunnelOptionsSpecification], False
