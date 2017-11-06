@@ -459,7 +459,7 @@ class Subnet(AWSObject):
     resource_type = "AWS::EC2::Subnet"
 
     props = {
-        'AssignIPv6AddressOnCreation': (boolean, False),
+        'AssignIpv6AddressOnCreation': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'CidrBlock': (basestring, True),
         'Ipv6CidrBlock': (basestring, False),
@@ -470,10 +470,10 @@ class Subnet(AWSObject):
 
     def validate(self):
         if 'Ipv6CidrBlock' in self.properties:
-            if not self.properties.get('AssignIPv6AddressOnCreation'):
+            if not self.properties.get('AssignIpv6AddressOnCreation'):
                 raise ValueError(
                     "If Ipv6CidrBlock is present, "
-                    "AssignIPv6AddressOnCreation must be set to True"
+                    "AssignIpv6AddressOnCreation must be set to True"
                 )
 
 
