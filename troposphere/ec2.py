@@ -566,7 +566,7 @@ class VPCGatewayAttachment(AWSObject):
 class VpnTunnelOptionsSpecification(AWSProperty):
     props = {
         'PreSharedKey': (basestring, False),
-        'TunnelInsideCidr': (basestring, False)
+        'TunnelInsideCidr': (basestring, False),
     }
 
 
@@ -581,7 +581,7 @@ class VPNConnection(AWSObject):
         'VpnGatewayId': (basestring, True),
         'VpnTunnelOptionsSpecifications': (
             [VpnTunnelOptionsSpecification], False
-        )
+        ),
     }
 
 
