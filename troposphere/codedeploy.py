@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, positive_integer, exactly_one
+from .validators import boolean, exactly_one, positive_integer
 
 
 KEY_ONLY = "KEY_ONLY"
@@ -89,13 +89,13 @@ class TargetGroupInfoList(AWSProperty):
 class LoadBalancerInfo(AWSProperty):
     props = {
         'ElbInfoList': ([ElbInfoList], False),
-        'TargetGroupInfoList': ([TargetGroupInfoList], False)
+        'TargetGroupInfoList': ([TargetGroupInfoList], False),
     }
 
     def validate(self):
         conds = [
             'ElbInfoList',
-            'TargetGroupInfoList'
+            'TargetGroupInfoList',
         ]
         exactly_one(self.__class__.__name__, self.properties, conds)
 
