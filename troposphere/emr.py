@@ -280,6 +280,7 @@ class Cluster(AWSObject):
         'Applications': ([Application], False),
         'BootstrapActions': ([BootstrapActionConfig], False),
         'Configurations': ([Configuration], False),
+        'CustomAmiId': (basestring, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
         'LogUri': (basestring, False),
