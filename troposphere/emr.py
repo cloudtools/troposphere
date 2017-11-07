@@ -249,6 +249,42 @@ class InstanceGroupConfigProperty(AWSProperty):
     }
 
 
+class SpotProvisioningSpecification(AWSProperty):
+    props = {
+        'BlockDurationMinutes': (positive_integer, False),
+        'TimeoutAction': (basestring, True),
+        'TimeoutDurationMinutes': (positive_integer, True),
+    }
+
+
+class InstanceFleetProvisioningSpecifications(AWSProperty):
+    props = {
+        'SpotSpecification': (SpotProvisioningSpecification, True),
+    }
+
+
+class InstanceTypeConfig(AWSProperty):
+    props = {
+        'BidPrice': (basestring, False),
+        'BidPriceAsPercentageOfOnDemandPrice': (basestring, False),
+        'Configurations': ([Configuration], False),
+        'EbsConfiguration': (EbsConfiguration, False),
+        'InstanceType': (basestring, True),
+        'WeightedCapacity': (positive_integer, False),
+    }
+
+
+class InstanceFleetConfigProperty(AWSProperty):
+    props = {
+        'InstanceTypeConfigs': ([InstanceTypeConfig], False),
+        'LaunchSpecifications':
+            (InstanceFleetProvisioningSpecifications, False),
+        'Name': (basestring, False),
+        'TargetOnDemandCapacity': (positive_integer, False),
+        'TargetSpotCapacity': (positive_integer, False),
+    }
+
+
 class PlacementType(AWSProperty):
     props = {
         'AvailabilityZone': (basestring, True)
@@ -259,13 +295,15 @@ class JobFlowInstancesConfig(AWSProperty):
     props = {
         'AdditionalMasterSecurityGroups': ([basestring], False),
         'AdditionalSlaveSecurityGroups': ([basestring], False),
-        'CoreInstanceGroup': (InstanceGroupConfigProperty, True),
+        'CoreInstanceFleet': (InstanceFleetConfigProperty, False),
+        'CoreInstanceGroup': (InstanceGroupConfigProperty, False),
         'Ec2KeyName': (basestring, False),
         'Ec2SubnetId': (basestring, False),
         'EmrManagedMasterSecurityGroup': (basestring, False),
         'EmrManagedSlaveSecurityGroup': (basestring, False),
         'HadoopVersion': (basestring, False),
-        'MasterInstanceGroup': (InstanceGroupConfigProperty, True),
+        'MasterInstanceFleet': (InstanceFleetConfigProperty, False),
+        'MasterInstanceGroup': (InstanceGroupConfigProperty, False),
         'Placement': (PlacementType, False),
         'ServiceAccessSecurityGroup': (basestring, False),
         'TerminationProtected': (boolean, False)
@@ -290,31 +328,6 @@ class Cluster(AWSObject):
         'AutoScalingRole': (basestring, False),
         'Tags': ((Tags, list), False),
         'VisibleToAllUsers': (boolean, False)
-    }
-
-
-class InstanceTypeConfig(AWSProperty):
-    props = {
-        'BidPrice': (basestring, False),
-        'BidPriceAsPercentageOfOnDemandPrice': (basestring, False),
-        'Configurations': ([Configuration], False),
-        'EbsConfiguration': (EbsConfiguration, False),
-        'InstanceType': (basestring, True),
-        'WeightedCapacity': (positive_integer, False),
-    }
-
-
-class SpotProvisioningSpecification(AWSProperty):
-    props = {
-        'BlockDurationMinutes': (positive_integer, False),
-        'TimeoutAction': (basestring, True),
-        'TimeoutDurationMinutes': (positive_integer, True),
-    }
-
-
-class InstanceFleetProvisioningSpecifications(AWSProperty):
-    props = {
-        'SpotSpecification': (SpotProvisioningSpecification, True),
     }
 
 
