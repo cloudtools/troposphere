@@ -29,4 +29,5 @@ class Key(AWSObject):
         'Enabled': (boolean, False),
         'EnableKeyRotation': (boolean, False),
         'KeyPolicy': (policytypes, True),
+        'Tags': (list, False)
     }
