@@ -291,7 +291,21 @@ def operating_system(os):
     return os
 
 
-def tunnel_inside_cidr(cidr):
+def vpn_pre_shared_key(key):
+    pre_shared_key_match_re = compile(
+        r'^(?!0)([A-Za-z0-9]|\_|\.){8,64}$'
+    )
+    if not pre_shared_key_match_re.match(key):
+        raise ValueError(
+            '%s is not a valid key.'
+            ' Allowed characters are alphanumeric characters and ._. Must'
+            ' be between 8 and 64 characters in length and cannot'
+            ' start with zero (0).' % key
+        )
+    return(key)
+
+
+def vpn_tunnel_inside_cidr(cidr):
     invalid_cidrs = [
         '169.254.0.0/30',
         '169.254.1.0/30',
