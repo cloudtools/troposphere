@@ -289,3 +289,27 @@ def operating_system(os):
             )
         )
     return os
+
+
+def tunnel_inside_cidr(cidr):
+    invalid_cidrs = [
+        '169.254.0.0/30',
+        '169.254.1.0/30',
+        '169.254.2.0/30',
+        '169.254.3.0/30',
+        '169.254.4.0/30',
+        '169.254.5.0/30',
+        '169.254.169.252/30'
+    ]
+    cidr_match_re = compile(r'^169.254.[0-9]{1,3}.[0-9]{1,3}\/30$')
+    if cidr in invalid_cidrs:
+        raise ValueError(
+            'The following CIDR blocks are reserved and cannot be used: "%s"' %
+            (', '.join(invalid_cidrs))
+        )
+    elif not cidr_match_re.match(cidr):
+        raise ValueError(
+            '%s is not a valid cidr.'
+            ' A size /30 CIDR block from the 169.254.0.0/16 must be specified.'
+            % cidr)
+    return(cidr)

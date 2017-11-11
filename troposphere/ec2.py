@@ -6,7 +6,7 @@
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, exactly_one, integer, integer_range,
-    network_port, positive_integer
+    network_port, positive_integer, tunnel_inside_cidr
 )
 
 try:
@@ -566,7 +566,7 @@ class VPCGatewayAttachment(AWSObject):
 class VpnTunnelOptionsSpecification(AWSProperty):
     props = {
         'PreSharedKey': (basestring, False),
-        'TunnelInsideCidr': (basestring, False),
+        'TunnelInsideCidr': (tunnel_inside_cidr, False),
     }
 
 
