@@ -312,7 +312,7 @@ def tunnel_inside_cidr(cidr):
         )
     elif not cidr_match_re.match(cidr):
         raise ValueError(
-            '%s is not a valid cidr.'
+            '%s is not a valid CIDR.'
             ' A size /30 CIDR block from the 169.254.0.0/16 must be specified.'
             % cidr)
     return(cidr)
