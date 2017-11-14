@@ -154,3 +154,17 @@ class Distribution(AWSObject):
     props = {
         'DistributionConfig': (DistributionConfig, True),
     }
+
+
+class CloudFrontOriginAccessIdentityConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, True),
+    }
+
+
+class CloudFrontOriginAccessIdentity(AWSObject):
+    resource_type = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+
+    props = {
+        'CloudFrontOriginAccessIdentityConfig': (CloudFrontOriginAccessIdentityConfig, True),
+    }
