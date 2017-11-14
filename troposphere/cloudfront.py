@@ -68,6 +68,7 @@ class CustomOrigin(AWSProperty):
         'HTTPSPort': (network_port, False),
         'OriginProtocolPolicy': (basestring, True),
         'OriginSSLProtocols': ([basestring], False),
+        'OriginKeepaliveTimeout': (integer, False),
     }
 
 
