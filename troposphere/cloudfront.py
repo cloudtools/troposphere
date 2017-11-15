@@ -166,5 +166,8 @@ class CloudFrontOriginAccessIdentity(AWSObject):
     resource_type = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
 
     props = {
-        'CloudFrontOriginAccessIdentityConfig': (CloudFrontOriginAccessIdentityConfig, True),
+        'CloudFrontOriginAccessIdentityConfig': (
+            CloudFrontOriginAccessIdentityConfig,
+            True,
+        ),
     }
