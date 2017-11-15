@@ -322,6 +322,11 @@ class AWSDeclaration(BaseAWSObject):
     def __init__(self, title, **kwargs):
         super(AWSDeclaration, self).__init__(title, **kwargs)
 
+    def ref(self):
+        return Ref(self)
+
+    Ref = ref
+
 
 class AWSProperty(BaseAWSObject):
     """
