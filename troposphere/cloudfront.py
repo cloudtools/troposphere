@@ -139,6 +139,7 @@ class DistributionConfig(AWSProperty):
         'DefaultRootObject': (basestring, False),
         'Enabled': (boolean, True),
         'HttpVersion': (basestring, False),
+        'IPV6Enabled': (boolean, False),
         'Logging': (Logging, False),
         'Origins': (list, True),
         'PriceClass': (basestring, False),
