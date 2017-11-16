@@ -7,6 +7,20 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, integer, positive_integer, network_port
 
 
+class CloudFrontOriginAccessIdentityConfig(AWSProperty):
+    props = {
+        "Comment": (basestring, True)
+    }
+
+
+class CloudFrontOriginAccessIdentity(AWSObject):
+    resource_type = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+
+    props = {
+        "CloudFrontOriginAccessIdentityConfig": (CloudFrontOriginAccessIdentityConfig, True),
+    }
+
+
 class Cookies(AWSProperty):
     props = {
         'Forward': (basestring, True),
