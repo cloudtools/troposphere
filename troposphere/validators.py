@@ -322,7 +322,7 @@ def vpn_tunnel_inside_cidr(cidr):
     if cidr in reserved_cidrs:
         raise ValueError(
             'The following CIDR blocks are reserved and cannot be used: "%s"' %
-            (', '.join(invalid_cidrs))
+            (', '.join(reserved_cidrs))
         )
     elif not cidr_match_re.match(cidr):
         raise ValueError(
