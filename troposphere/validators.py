@@ -306,7 +306,7 @@ def vpn_pre_shared_key(key):
 
 
 def vpn_tunnel_inside_cidr(cidr):
-    invalid_cidrs = [
+    reserved_cidrs = [
         '169.254.0.0/30',
         '169.254.1.0/30',
         '169.254.2.0/30',
@@ -319,7 +319,7 @@ def vpn_tunnel_inside_cidr(cidr):
         r'^169\.254\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)'
         '\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\/30$'
     )
-    if cidr in invalid_cidrs:
+    if cidr in reserved_cidrs:
         raise ValueError(
             'The following CIDR blocks are reserved and cannot be used: "%s"' %
             (', '.join(invalid_cidrs))
