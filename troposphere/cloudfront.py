@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, positive_integer, network_port
 
 
@@ -155,6 +155,7 @@ class Distribution(AWSObject):
 
     props = {
         'DistributionConfig': (DistributionConfig, True),
+        'Tags': ((Tags, list), False),
     }
 
 
