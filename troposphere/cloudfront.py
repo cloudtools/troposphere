@@ -66,9 +66,10 @@ class CustomOrigin(AWSProperty):
     props = {
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
-        'OriginProtocolPolicy': (basestring, True),
-        'OriginSSLProtocols': ([basestring], False),
         'OriginKeepaliveTimeout': (integer, False),
+        'OriginProtocolPolicy': (basestring, True),
+        'OriginReadTimeout': (integer, False),
+        'OriginSSLProtocols': ([basestring], False),
     }
 
 
