@@ -6,7 +6,7 @@
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, exactly_one, integer, integer_range,
-    network_port, positive_integer
+    network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr
 )
 
 try:
@@ -564,6 +564,13 @@ class VPCGatewayAttachment(AWSObject):
     }
 
 
+class VpnTunnelOptionsSpecification(AWSProperty):
+    props = {
+        'PreSharedKey': (vpn_pre_shared_key, False),
+        'TunnelInsideCidr': (vpn_tunnel_inside_cidr, False),
+    }
+
+
 class VPNConnection(AWSObject):
     resource_type = "AWS::EC2::VPNConnection"
 
@@ -573,6 +580,9 @@ class VPNConnection(AWSObject):
         'StaticRoutesOnly': (boolean, False),
         'Tags': ((Tags, list), False),
         'VpnGatewayId': (basestring, True),
+        'VpnTunnelOptionsSpecifications': (
+            [VpnTunnelOptionsSpecification], False
+        ),
     }
 
 
