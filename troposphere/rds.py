@@ -314,6 +314,7 @@ class OptionConfiguration(AWSProperty):
         'DBSecurityGroupMemberships': ([basestring], False),
         'OptionName': (basestring, True),
         'OptionSettings': ([OptionSetting], False),
+        'OptionVersion': (basestring, False),
         'Port': (network_port, False),
         'VpcSecurityGroupMemberships': ([basestring], False),
     }
