@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, positive_integer, network_port
 
 
@@ -66,8 +66,10 @@ class CustomOrigin(AWSProperty):
     props = {
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
+        'OriginKeepaliveTimeout': (integer, False),
         'OriginProtocolPolicy': (basestring, True),
         'OriginSSLProtocols': ([basestring], False),
+        'OriginReadTimeout': (integer, False),
     }
 
 
@@ -139,6 +141,7 @@ class DistributionConfig(AWSProperty):
         'DefaultRootObject': (basestring, False),
         'Enabled': (boolean, True),
         'HttpVersion': (basestring, False),
+        'IPV6Enabled': (boolean, False),
         'Logging': (Logging, False),
         'Origins': (list, True),
         'PriceClass': (basestring, False),
@@ -153,4 +156,22 @@ class Distribution(AWSObject):
 
     props = {
         'DistributionConfig': (DistributionConfig, True),
+        'Tags': ((Tags, list), False),
+    }
+
+
+class CloudFrontOriginAccessIdentityConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, True),
+    }
+
+
+class CloudFrontOriginAccessIdentity(AWSObject):
+    resource_type = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+
+    props = {
+        'CloudFrontOriginAccessIdentityConfig': (
+            CloudFrontOriginAccessIdentityConfig,
+            True,
+        ),
     }

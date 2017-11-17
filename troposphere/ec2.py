@@ -432,6 +432,7 @@ class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
@@ -598,6 +599,7 @@ class VPNGateway(AWSObject):
     resource_type = "AWS::EC2::VPNGateway"
 
     props = {
+        'AmazonSideAsn': (positive_integer, False),
         'Type': (basestring, True),
         'Tags': ((Tags, list), False),
     }
