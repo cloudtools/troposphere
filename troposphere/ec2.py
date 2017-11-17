@@ -599,6 +599,7 @@ class VPNGateway(AWSObject):
     resource_type = "AWS::EC2::VPNGateway"
 
     props = {
+        'AmazonSideAsn': (positive_integer, False),
         'Type': (basestring, True),
         'Tags': ((Tags, list), False),
     }
