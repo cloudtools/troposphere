@@ -68,7 +68,7 @@ class Function(AWSObject):
         'Environment': (Environment, False),
         'VpcConfig': (VPCConfig, False),
         'Events': (dict, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Tracing': (basestring, False),
         'KmsKeyArn': (basestring, False),
         'DeadLetterQueue': (DeadLetterQueue, False)
