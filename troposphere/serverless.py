@@ -5,7 +5,7 @@
 
 import types
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
 from .validators import exactly_one, positive_integer
