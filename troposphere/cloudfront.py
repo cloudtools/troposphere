@@ -23,20 +23,28 @@ class ForwardedValues(AWSProperty):
     }
 
 
+class LambdaFunctionAssociation(AWSProperty):
+    props = {
+        'EventType': (basestring, False),
+        'LambdaFunctionARN': (basestring, False),
+    }
+
+
 class CacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
         'CachedMethods': ([basestring], False),
         'Compress': (boolean, False),
-        'TargetOriginId': (basestring, True),
-        'ForwardedValues': (ForwardedValues, True),
-        'TrustedSigners': ([basestring], False),
-        'ViewerProtocolPolicy': (basestring, True),
-        'MinTTL': (integer, False),
         'DefaultTTL': (integer, False),
+        'ForwardedValues': (ForwardedValues, True),
+        'LambdaFunctionAssociations': ([LambdaFunctionAssociation], False),
         'MaxTTL': (integer, False),
+        'MinTTL': (integer, False),
         'PathPattern': (basestring, True),
         'SmoothStreaming': (boolean, False),
+        'TargetOriginId': (basestring, True),
+        'TrustedSigners': ([basestring], False),
+        'ViewerProtocolPolicy': (basestring, True),
     }
 
 
@@ -45,14 +53,15 @@ class DefaultCacheBehavior(AWSProperty):
         'AllowedMethods': ([basestring], False),
         'CachedMethods': ([basestring], False),
         'Compress': (boolean, False),
-        'TargetOriginId': (basestring, True),
+        'DefaultTTL': (integer, False),
         'ForwardedValues': (ForwardedValues, True),
+        'LambdaFunctionAssociations': ([LambdaFunctionAssociation], False),
+        'MaxTTL': (integer, False),
+        'MinTTL': (integer, False),
+        'SmoothStreaming': (boolean, False),
+        'TargetOriginId': (basestring, True),
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (basestring, True),
-        'MinTTL': (integer, False),
-        'DefaultTTL': (integer, False),
-        'MaxTTL': (integer, False),
-        'SmoothStreaming': (boolean, False),
     }
 
 

@@ -60,6 +60,7 @@ class OptionSettings(AWSProperty):
     props = {
         'Namespace': (basestring, True),
         'OptionName': (basestring, True),
+        'ResourceName': (basestring, False),
         'Value': (basestring, True),
     }
 

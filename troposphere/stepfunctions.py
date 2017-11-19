@@ -16,6 +16,7 @@ class Activity(AWSObject):
 class StateMachine(AWSObject):
     resource_type = "AWS::StepFunctions::StateMachine"
     props = {
+        'StateMachineName': (basestring, False),
         'DefinitionString': (basestring, True),
         'RoleArn': (basestring, True),
 
