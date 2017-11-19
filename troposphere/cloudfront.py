@@ -184,3 +184,31 @@ class CloudFrontOriginAccessIdentity(AWSObject):
             True,
         ),
     }
+
+
+class TrustedSigners(AWSProperty):
+    props = {
+        'AwsAccountNumbers': ([basestring], False),
+        'Enabled': (boolean, True),
+    }
+
+
+class StreamingDistributionConfig(AWSProperty):
+    props = {
+        'Aliases': ([basestring], False),
+        'Comment': (basestring, True),
+        'Enabled': (boolean, True),
+        'Logging': (Logging, False),
+        'PriceClass': (basestring, False),
+        'S3Origin': (S3Origin, True),
+        'TrustedSigners': (TrustedSigners, True),
+    }
+
+
+class StreamingDistribution(AWSObject):
+    resource_type = "AWS::CloudFront::StreamingDistribution"
+
+    props = {
+        'StreamingDistributionConfig': (StreamingDistributionConfig, True,),
+        'Tags': ((Tags, list), False),
+    }
