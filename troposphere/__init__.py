@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 
+import cfn_flip
 import collections
 import json
 import re
@@ -621,6 +622,9 @@ class Template(object):
     def to_json(self, indent=4, sort_keys=True, separators=(',', ': ')):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
+
+    def to_yaml(self):
+        return cfn_flip.to_yaml(self.to_json())
 
 
 class Export(AWSHelperFn):
