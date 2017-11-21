@@ -5,7 +5,7 @@
 import warnings
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import positive_integer, s3_bucket_name
+from .validators import boolean, positive_integer, s3_bucket_name
 from .validators import s3_transfer_acceleration_status
 
 try:
@@ -271,14 +271,59 @@ class ReplicationConfiguration(AWSProperty):
     }
 
 
+class Destination(AWSProperty):
+    props = {
+        'BucketAccountId': (basestring, False),
+        'BucketArn': (basestring, True),
+        'Format': (basestring, True),
+        'Prefix': (basestring, False),
+    }
+
+
+class DataExport(AWSProperty):
+    props = {
+        'Destination': (Destination, True),
+        'OutputSchemaVersion': (basestring, True),
+    }
+
+
+class StorageClassAnalysis(AWSProperty):
+    props = {
+        'DataExport': (DataExport, False),
+    }
+
+
+class AnalyticsConfiguration(AWSProperty):
+    props = {
+        'Id': (basestring, True),
+        'Prefix': (basestring, False),
+        'StorageClassAnalysis': (StorageClassAnalysis, True),
+        'TagFilters': ([TagFilter], False),
+    }
+
+
+class InventoryConfiguration(AWSProperty):
+    props = {
+        'Destination': (Destination, True),
+        'Enabled': (boolean, True),
+        'Id': (basestring, True),
+        'IncludedObjectVersions': (basestring, True),
+        'OptionalFields': ([basestring], True),
+        'Prefix': (basestring, False),
+        'ScheduleFrequency': (basestring, True),
+    }
+
+
 class Bucket(AWSObject):
     resource_type = "AWS::S3::Bucket"
 
     props = {
         'AccessControl': (basestring, False),
         'AccelerateConfiguration': (AccelerateConfiguration, False),
+        'AnalyticsConfigurations': ([AnalyticsConfiguration], False),
         'BucketName': (s3_bucket_name, False),
         'CorsConfiguration': (CorsConfiguration, False),
+        'InventoryConfigurations': ([InventoryConfiguration], False),
         'LifecycleConfiguration': (LifecycleConfiguration, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
         'MetricsConfigurations': ([MetricsConfiguration], False),

@@ -111,6 +111,13 @@ class StageDescription(AWSProperty):
         "Variables": (dict, False)
     }
 
+    def validate(self):
+        if 'StageName' in self.properties:
+            raise DeprecationWarning(
+                "The StageName property has been deprecated "
+                "in StageDescription"
+            )
+
 
 class Deployment(AWSObject):
     resource_type = "AWS::ApiGateway::Deployment"
@@ -207,8 +214,10 @@ class Method(AWSObject):
         "HttpMethod": (basestring, True),
         "Integration": (Integration, False),
         "MethodResponses": ([MethodResponse], False),
+        "OperationName": (basestring, False),
         "RequestModels": (dict, False),
         "RequestParameters": (dict, False),
+        "RequestValidatorId": (basestring, False),
         "ResourceId": (basestring, True),
         "RestApiId": (basestring, True)
     }
