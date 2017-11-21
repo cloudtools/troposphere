@@ -376,6 +376,7 @@ class SecurityGroupEgress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'DestinationPrefixListId': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
@@ -408,6 +409,7 @@ class SecurityGroupIngress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'FromPort': (network_port, False),  # conditional
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
