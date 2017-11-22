@@ -316,17 +316,19 @@ class Cluster(AWSObject):
     props = {
         'AdditionalInfo': (dict, False),
         'Applications': ([Application], False),
+        'AutoScalingRole': (basestring, False),
         'BootstrapActions': ([BootstrapActionConfig], False),
         'Configurations': ([Configuration], False),
         'CustomAmiId': (basestring, False),
+        'EbsRootVolumeSize': (positive_integer, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
         'LogUri': (basestring, False),
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
+        'ScaleDownBehavior': (basestring, False),
         'SecurityConfiguration': (basestring, False),
         'ServiceRole': (basestring, True),
-        'AutoScalingRole': (basestring, False),
         'Tags': ((Tags, list), False),
         'VisibleToAllUsers': (boolean, False)
     }
