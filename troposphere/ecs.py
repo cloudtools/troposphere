@@ -109,6 +109,29 @@ class HostEntry(AWSProperty):
     }
 
 
+class Device(AWSProperty):
+    props = {
+        'ContainerPath': (basestring, False),
+        'HostPath': (basestring, False),
+        'Permissions': ([basestring], False),
+    }
+
+
+class KernelCapabilities(AWSProperty):
+    props = {
+        'Add': ([basestring], False),
+        'Drop': ([basestring], False),
+    }
+
+
+class LinuxParameters(AWSProperty):
+    props = {
+        'Capabilities': (KernelCapabilities, False),
+        'Devices': ([Device], False),
+        'InitProcessEnabled': (boolean, False),
+    }
+
+
 class LogConfiguration(AWSProperty):
     props = {
         'LogDriver': (basestring, True),
@@ -140,6 +163,7 @@ class ContainerDefinition(AWSProperty):
         'Hostname': (basestring, False),
         'Image': (basestring, True),
         'Links': ([basestring], False),
+        'LinuxParameters': (LinuxParameters, False),
         'LogConfiguration': (LogConfiguration, False),
         'Memory': (positive_integer, False),
         'MemoryReservation': (positive_integer, False),
