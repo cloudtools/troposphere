@@ -77,5 +77,6 @@ class VPCOptions(AWSProperty):
         "SubnetIds": (dict, False)
     }
 
+
 # Backward compatibility
 ElasticsearchDomain = Domain
