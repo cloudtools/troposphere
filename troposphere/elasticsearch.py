@@ -73,7 +73,7 @@ class Domain(AWSObject):
 class VPCOptions(AWSProperty):
     props = {
         "SecurityGroupIds": (dict, False),
-        "SubnetIds": (dict, False)]
+        "SubnetIds": (dict, False)
     }
 
 # Backward compatibility
