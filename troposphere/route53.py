@@ -4,8 +4,10 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import integer, positive_integer, network_port, boolean,
-cloud_watch_logs_log_group_arn
+from .validators import (
+    integer, positive_integer, network_port, boolean,
+    cloud_watch_logs_log_group_arn
+)
 
 
 class AliasTarget(AWSProperty):
