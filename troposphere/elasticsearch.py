@@ -57,8 +57,8 @@ class SnapshotOptions(AWSProperty):
 
 class VPCOptions(AWSProperty):
     props = {
-        "SecurityGroupIds": (dict, False),
-        "SubnetIds": (dict, False)
+        "SecurityGroupIds": ([basestring], False),
+        "SubnetIds": ([basestring], False)
     }
 
 

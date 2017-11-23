@@ -2,7 +2,7 @@
 # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#d0e51519
 
 from troposphere import Template, constants
-from troposphere.elasticsearch import Domain, EBSOptions
+from troposphere.elasticsearch import Domain, EBSOptions, VPCOptions
 from troposphere.elasticsearch import ElasticsearchClusterConfig
 from troposphere.elasticsearch import SnapshotOptions
 
@@ -37,13 +37,10 @@ es_domain = templ.add_resource(Domain(
                         'Resource': '*'
                     }]},
     AdvancedOptions={"rest.action.multi.allow_explicit_index": "true"},
-    VPCOptions={'SubnetIds': [
-            {"Ref": "subnet-4f2bb123"}
-        ],
-        'SecurityGroupIds': [
-            {"Ref": "sg-04cf048c"}
-        ]
-    }
+    VPCOptions=VPCOptions(
+       SubnetIds=["subnet-4f2bb123"],
+       SecurityGroupIds=["sg-04cf048c"]
+    )
 ))
 
 print(templ.to_json())
