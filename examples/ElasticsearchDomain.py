@@ -38,10 +38,10 @@ es_domain = templ.add_resource(Domain(
                     }]},
     AdvancedOptions={"rest.action.multi.allow_explicit_index": "true"},
     VPCOptions={'SubnetIds': [
-            {"Ref" : "subnet-4f2bb123"}
+            {"Ref": "subnet-4f2bb123"}
         ],
         'SecurityGroupIds': [
-            {"Ref" : "sg-04cf048c"}
+            {"Ref": "sg-04cf048c"}
         ]
     }
 ))

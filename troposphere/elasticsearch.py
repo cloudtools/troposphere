@@ -70,6 +70,7 @@ class Domain(AWSObject):
         'VPCOptions': (VPCOptions, False)
     }
 
+
 class VPCOptions(AWSProperty):
     props = {
         "SecurityGroupIds": (dict, False),

@@ -39,10 +39,10 @@
                 },
                 "VPCOptions": {
                     "SecurityGroupIds": [
-                        {"Ref" : "sg-04cf048c"}
+                        {"Ref": "sg-04cf048c"}
                     ],
                     "SubnetIds": [
-                        {"Ref" : "subnet-4f2bb123"}
+                        {"Ref": "subnet-4f2bb123"}
                     ]
                 }
             },
