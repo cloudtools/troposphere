@@ -1,3 +1,52 @@
+## 2.1.0 (2017-11-19)
+- Output yaml (to_yaml) using cfn_flip (Fixes #567)
+- Allow AWSHelperFn for CodeCommit Trigger Event(s) (#869)
+- Adding the AWS::Glue resources (#872)
+- Use a list for Serverless::Function Tags (#873)
+- Support ProcessingConfiguration for Elasticsearch and Redshift (#876)
+- Fixes incorrect class definition. (#877)
+- Add TargetGroupInfo to DeploymentGroup #884 (#895)
+- Reverting #810 as AWS has changed the casing again (#896)
+- Add EMR Cluster MasterInstanceFleet and CoreInstanceFleet properties (#897)
+- Add EMR Cluster CustomAmiId (#888) (#898)
+- Add SecurityGroupRule Description property (#885) (#899)
+- Add support for tags in AWS::KMS::Key. (#900)
+- Adding OriginReadTimeout aka OriginResponseTimeout to cloudfront origin settings (#901)
+- Added property for OriginKeepaliveTimeout
+- Add CloudFrontOriginAccessIdentity type (#903)
+- Added support for VpnTunnelOptionsSpecifications (#904)
+- Allow ref on Parameter (#905)
+- Adds Tags to Cloudfront Distribution (#906)
+- CloudFront: add IPV6Enabled property for DistributionConfig (#908)
+- Add OptionVersion to RDS:OptionConfigurations
+- Add Tags to OpsWorks Layer and Stack
+- Add LifecycleHookSpecification in AutoScalingGroup
+- Add AmazonSideAsn to EC2::VPNGateway
+- Add StateMachineName to StepFunctions::StateMachine
+- Change KMS::Key to accept a standard Tags
+- Add LambdaFunctionAssociations to CloudFront CacheBehaviors
+- Add ResourceName to elasticbeanstalk OptionSettings
+- Add AnalyticsConfigurations and InventoryConfigurations to S3::Bucket
+- Add RequestValidatorId and OperationName to ApiGateway::Method
+- Add deprecation warning for StageName in ApiGateway StageDescription
+- Add AWS::CloudFront::StreamingDistribution
+
+## 2.0.2 (2017-10-23)
+- Set EC2 BlockDeviceMapping NoDevice property to type dict (#866)
+
+## 2.0.1 (2017-10-21)
+- Allow s3.Bucket AccessControl to be an AWSHelperFn
+- Add AWS::ElasticLoadBalancingV2::ListenerCertificate
+- Add serverless FunctionName and change how Tags are implemented
+- Make AdjustmentType an optional property of ScalingPolicy as it is not used/supported for target (#849)
+- Add maintenance window for SSM (#851)
+- Add Tags, Tracing, KmsKeyArn, DLQ to serverless(SAM) (#853)
+- Add new AWS::SSM resources (#854)
+- EC2 NoDevice should be type boolean not dict (#858)
+- Fixes RecordColumns cardinality for InputSchema and ReferenceSchema (#859)
+- Make AWS::Batch::JobQueue::JobQueueName optional (#860)
+- Fixes ApplicationOutput/Output cardinality (#863)
+
 ## 2.0.0 (2017-10-07)
 - Note: the s3.Bucket change (#844) *may* cause a breaking change for non-named arguments.
 - Add DefinitionBody to serverless API (#822)

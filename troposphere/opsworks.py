@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, mutually_exclusive
 
 
@@ -161,6 +161,7 @@ class ElasticLoadBalancerAttachment(AWSObject):
     props = {
         'ElasticLoadBalancerName': (basestring, True),
         'LayerId': (basestring, True),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -293,6 +294,7 @@ class Stack(AWSObject):
         'RdsDbInstances': ([RdsDbInstance], False),
         'ServiceRoleArn': (basestring, True),
         'SourceStackId': (basestring, False),
+        'Tags': ((Tags, list), False),
         'UseCustomCookbooks': (boolean, False),
         'UseOpsworksSecurityGroups': (boolean, False),
         'VpcId': (basestring, False),

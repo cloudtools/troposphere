@@ -249,47 +249,17 @@ class InstanceGroupConfigProperty(AWSProperty):
     }
 
 
-class PlacementType(AWSProperty):
+class SpotProvisioningSpecification(AWSProperty):
     props = {
-        'AvailabilityZone': (basestring, True)
+        'BlockDurationMinutes': (positive_integer, False),
+        'TimeoutAction': (basestring, True),
+        'TimeoutDurationMinutes': (positive_integer, True),
     }
 
 
-class JobFlowInstancesConfig(AWSProperty):
+class InstanceFleetProvisioningSpecifications(AWSProperty):
     props = {
-        'AdditionalMasterSecurityGroups': ([basestring], False),
-        'AdditionalSlaveSecurityGroups': ([basestring], False),
-        'CoreInstanceGroup': (InstanceGroupConfigProperty, True),
-        'Ec2KeyName': (basestring, False),
-        'Ec2SubnetId': (basestring, False),
-        'EmrManagedMasterSecurityGroup': (basestring, False),
-        'EmrManagedSlaveSecurityGroup': (basestring, False),
-        'HadoopVersion': (basestring, False),
-        'MasterInstanceGroup': (InstanceGroupConfigProperty, True),
-        'Placement': (PlacementType, False),
-        'ServiceAccessSecurityGroup': (basestring, False),
-        'TerminationProtected': (boolean, False)
-    }
-
-
-class Cluster(AWSObject):
-    resource_type = "AWS::EMR::Cluster"
-
-    props = {
-        'AdditionalInfo': (dict, False),
-        'Applications': ([Application], False),
-        'BootstrapActions': ([BootstrapActionConfig], False),
-        'Configurations': ([Configuration], False),
-        'Instances': (JobFlowInstancesConfig, True),
-        'JobFlowRole': (basestring, True),
-        'LogUri': (basestring, False),
-        'Name': (basestring, True),
-        'ReleaseLabel': (basestring, False),
-        'SecurityConfiguration': (basestring, False),
-        'ServiceRole': (basestring, True),
-        'AutoScalingRole': (basestring, False),
-        'Tags': ((Tags, list), False),
-        'VisibleToAllUsers': (boolean, False)
+        'SpotSpecification': (SpotProvisioningSpecification, True),
     }
 
 
@@ -304,17 +274,63 @@ class InstanceTypeConfig(AWSProperty):
     }
 
 
-class SpotProvisioningSpecification(AWSProperty):
+class InstanceFleetConfigProperty(AWSProperty):
     props = {
-        'BlockDurationMinutes': (positive_integer, False),
-        'TimeoutAction': (basestring, True),
-        'TimeoutDurationMinutes': (positive_integer, True),
+        'InstanceTypeConfigs': ([InstanceTypeConfig], False),
+        'LaunchSpecifications':
+            (InstanceFleetProvisioningSpecifications, False),
+        'Name': (basestring, False),
+        'TargetOnDemandCapacity': (positive_integer, False),
+        'TargetSpotCapacity': (positive_integer, False),
     }
 
 
-class InstanceFleetProvisioningSpecifications(AWSProperty):
+class PlacementType(AWSProperty):
     props = {
-        'SpotSpecification': (SpotProvisioningSpecification, True),
+        'AvailabilityZone': (basestring, True)
+    }
+
+
+class JobFlowInstancesConfig(AWSProperty):
+    props = {
+        'AdditionalMasterSecurityGroups': ([basestring], False),
+        'AdditionalSlaveSecurityGroups': ([basestring], False),
+        'CoreInstanceFleet': (InstanceFleetConfigProperty, False),
+        'CoreInstanceGroup': (InstanceGroupConfigProperty, False),
+        'Ec2KeyName': (basestring, False),
+        'Ec2SubnetId': (basestring, False),
+        'EmrManagedMasterSecurityGroup': (basestring, False),
+        'EmrManagedSlaveSecurityGroup': (basestring, False),
+        'HadoopVersion': (basestring, False),
+        'MasterInstanceFleet': (InstanceFleetConfigProperty, False),
+        'MasterInstanceGroup': (InstanceGroupConfigProperty, False),
+        'Placement': (PlacementType, False),
+        'ServiceAccessSecurityGroup': (basestring, False),
+        'TerminationProtected': (boolean, False)
+    }
+
+
+class Cluster(AWSObject):
+    resource_type = "AWS::EMR::Cluster"
+
+    props = {
+        'AdditionalInfo': (dict, False),
+        'Applications': ([Application], False),
+        'AutoScalingRole': (basestring, False),
+        'BootstrapActions': ([BootstrapActionConfig], False),
+        'Configurations': ([Configuration], False),
+        'CustomAmiId': (basestring, False),
+        'EbsRootVolumeSize': (positive_integer, False),
+        'Instances': (JobFlowInstancesConfig, True),
+        'JobFlowRole': (basestring, True),
+        'LogUri': (basestring, False),
+        'Name': (basestring, True),
+        'ReleaseLabel': (basestring, False),
+        'ScaleDownBehavior': (basestring, False),
+        'SecurityConfiguration': (basestring, False),
+        'ServiceRole': (basestring, True),
+        'Tags': ((Tags, list), False),
+        'VisibleToAllUsers': (boolean, False)
     }
 
 

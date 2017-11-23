@@ -157,6 +157,7 @@ class DBInstance(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
+        'SourceRegion': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': ((Tags, list), False),
@@ -314,6 +315,7 @@ class OptionConfiguration(AWSProperty):
         'DBSecurityGroupMemberships': ([basestring], False),
         'OptionName': (basestring, True),
         'OptionSettings': ([OptionSetting], False),
+        'OptionVersion': (basestring, False),
         'Port': (network_port, False),
         'VpcSecurityGroupMemberships': ([basestring], False),
     }

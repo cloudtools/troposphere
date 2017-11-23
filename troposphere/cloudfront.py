@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, positive_integer, network_port
 
 
@@ -23,20 +23,28 @@ class ForwardedValues(AWSProperty):
     }
 
 
+class LambdaFunctionAssociation(AWSProperty):
+    props = {
+        'EventType': (basestring, False),
+        'LambdaFunctionARN': (basestring, False),
+    }
+
+
 class CacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
         'CachedMethods': ([basestring], False),
         'Compress': (boolean, False),
-        'TargetOriginId': (basestring, True),
-        'ForwardedValues': (ForwardedValues, True),
-        'TrustedSigners': ([basestring], False),
-        'ViewerProtocolPolicy': (basestring, True),
-        'MinTTL': (integer, False),
         'DefaultTTL': (integer, False),
+        'ForwardedValues': (ForwardedValues, True),
+        'LambdaFunctionAssociations': ([LambdaFunctionAssociation], False),
         'MaxTTL': (integer, False),
+        'MinTTL': (integer, False),
         'PathPattern': (basestring, True),
         'SmoothStreaming': (boolean, False),
+        'TargetOriginId': (basestring, True),
+        'TrustedSigners': ([basestring], False),
+        'ViewerProtocolPolicy': (basestring, True),
     }
 
 
@@ -45,14 +53,15 @@ class DefaultCacheBehavior(AWSProperty):
         'AllowedMethods': ([basestring], False),
         'CachedMethods': ([basestring], False),
         'Compress': (boolean, False),
-        'TargetOriginId': (basestring, True),
+        'DefaultTTL': (integer, False),
         'ForwardedValues': (ForwardedValues, True),
+        'LambdaFunctionAssociations': ([LambdaFunctionAssociation], False),
+        'MaxTTL': (integer, False),
+        'MinTTL': (integer, False),
+        'SmoothStreaming': (boolean, False),
+        'TargetOriginId': (basestring, True),
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (basestring, True),
-        'MinTTL': (integer, False),
-        'DefaultTTL': (integer, False),
-        'MaxTTL': (integer, False),
-        'SmoothStreaming': (boolean, False),
     }
 
 
@@ -66,8 +75,10 @@ class CustomOrigin(AWSProperty):
     props = {
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
+        'OriginKeepaliveTimeout': (integer, False),
         'OriginProtocolPolicy': (basestring, True),
         'OriginSSLProtocols': ([basestring], False),
+        'OriginReadTimeout': (integer, False),
     }
 
 
@@ -139,6 +150,7 @@ class DistributionConfig(AWSProperty):
         'DefaultRootObject': (basestring, False),
         'Enabled': (boolean, True),
         'HttpVersion': (basestring, False),
+        'IPV6Enabled': (boolean, False),
         'Logging': (Logging, False),
         'Origins': (list, True),
         'PriceClass': (basestring, False),
@@ -153,4 +165,50 @@ class Distribution(AWSObject):
 
     props = {
         'DistributionConfig': (DistributionConfig, True),
+        'Tags': ((Tags, list), False),
+    }
+
+
+class CloudFrontOriginAccessIdentityConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, True),
+    }
+
+
+class CloudFrontOriginAccessIdentity(AWSObject):
+    resource_type = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
+
+    props = {
+        'CloudFrontOriginAccessIdentityConfig': (
+            CloudFrontOriginAccessIdentityConfig,
+            True,
+        ),
+    }
+
+
+class TrustedSigners(AWSProperty):
+    props = {
+        'AwsAccountNumbers': ([basestring], False),
+        'Enabled': (boolean, True),
+    }
+
+
+class StreamingDistributionConfig(AWSProperty):
+    props = {
+        'Aliases': ([basestring], False),
+        'Comment': (basestring, True),
+        'Enabled': (boolean, True),
+        'Logging': (Logging, False),
+        'PriceClass': (basestring, False),
+        'S3Origin': (S3Origin, True),
+        'TrustedSigners': (TrustedSigners, True),
+    }
+
+
+class StreamingDistribution(AWSObject):
+    resource_type = "AWS::CloudFront::StreamingDistribution"
+
+    props = {
+        'StreamingDistributionConfig': (StreamingDistributionConfig, True,),
+        'Tags': ((Tags, list), False),
     }

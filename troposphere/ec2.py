@@ -6,7 +6,7 @@
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, exactly_one, integer, integer_range,
-    network_port, positive_integer
+    network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr
 )
 
 try:
@@ -117,11 +117,14 @@ class EBSBlockDevice(AWSProperty):
     }
 
 
+NO_DEVICE = {}
+
+
 class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
         'Ebs': (EBSBlockDevice, False),      # Conditional
-        'NoDevice': (boolean, False),
+        'NoDevice': (dict, False),
         'VirtualName': (basestring, False),  # Conditional
     }
 
@@ -373,6 +376,7 @@ class SecurityGroupEgress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'DestinationPrefixListId': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
@@ -405,6 +409,7 @@ class SecurityGroupIngress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'FromPort': (network_port, False),  # conditional
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
@@ -429,6 +434,7 @@ class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
@@ -456,7 +462,7 @@ class Subnet(AWSObject):
     resource_type = "AWS::EC2::Subnet"
 
     props = {
-        'AssignIPv6AddressOnCreation': (boolean, False),
+        'AssignIpv6AddressOnCreation': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'CidrBlock': (basestring, True),
         'Ipv6CidrBlock': (basestring, False),
@@ -467,10 +473,10 @@ class Subnet(AWSObject):
 
     def validate(self):
         if 'Ipv6CidrBlock' in self.properties:
-            if not self.properties.get('AssignIPv6AddressOnCreation'):
+            if not self.properties.get('AssignIpv6AddressOnCreation'):
                 raise ValueError(
                     "If Ipv6CidrBlock is present, "
-                    "AssignIPv6AddressOnCreation must be set to True"
+                    "AssignIpv6AddressOnCreation must be set to True"
                 )
 
 
@@ -560,6 +566,13 @@ class VPCGatewayAttachment(AWSObject):
     }
 
 
+class VpnTunnelOptionsSpecification(AWSProperty):
+    props = {
+        'PreSharedKey': (vpn_pre_shared_key, False),
+        'TunnelInsideCidr': (vpn_tunnel_inside_cidr, False),
+    }
+
+
 class VPNConnection(AWSObject):
     resource_type = "AWS::EC2::VPNConnection"
 
@@ -569,6 +582,9 @@ class VPNConnection(AWSObject):
         'StaticRoutesOnly': (boolean, False),
         'Tags': ((Tags, list), False),
         'VpnGatewayId': (basestring, True),
+        'VpnTunnelOptionsSpecifications': (
+            [VpnTunnelOptionsSpecification], False
+        ),
     }
 
 
@@ -585,6 +601,7 @@ class VPNGateway(AWSObject):
     resource_type = "AWS::EC2::VPNGateway"
 
     props = {
+        'AmazonSideAsn': (positive_integer, False),
         'Type': (basestring, True),
         'Tags': ((Tags, list), False),
     }

@@ -126,6 +126,12 @@ class HostedZoneVPCs(AWSProperty):
     }
 
 
+class QueryLoggingConfig(AWSProperty):
+    props = {
+        'CloudWatchLogsLogGroupArn': (basestring, True),
+    }
+
+
 class HostedZone(AWSObject):
     resource_type = "AWS::Route53::HostedZone"
 
@@ -133,5 +139,6 @@ class HostedZone(AWSObject):
         'HostedZoneConfig': (HostedZoneConfiguration, False),
         'HostedZoneTags': (Tags, False),
         'Name': (basestring, True),
+        'QueryLoggingConfig': (QueryLoggingConfig, False),
         'VPCs': ([HostedZoneVPCs], False),
     }
