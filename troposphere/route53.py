@@ -4,7 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import integer, positive_integer, network_port, boolean
+from .validators import integer, positive_integer, network_port, boolean,
+cloud_watch_logs_log_group_arn
 
 
 class AliasTarget(AWSProperty):
@@ -128,7 +129,7 @@ class HostedZoneVPCs(AWSProperty):
 
 class QueryLoggingConfig(AWSProperty):
     props = {
-        'CloudWatchLogsLogGroupArn': (basestring, True),
+        'CloudWatchLogsLogGroupArn': (cloud_watch_logs_log_group_arn, True),
     }
 
 
