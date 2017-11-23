@@ -33,8 +33,10 @@ class ApiKey(AWSObject):
     resource_type = "AWS::ApiGateway::ApiKey"
 
     props = {
+        "CustomerId": (basestring, False),
         "Description": (basestring, False),
-        "Enabled": (bool, False),
+        "Enabled": (boolean, False),
+        "GenerateDistinctId": (boolean, False),
         "Name": (basestring, False),
         "StageKeys": ([StageKey], False)
     }
@@ -44,6 +46,7 @@ class Authorizer(AWSObject):
     resource_type = "AWS::ApiGateway::Authorizer"
 
     props = {
+        "AuthType": (basestring, False),
         "AuthorizerCredentials": (basestring, False),
         "AuthorizerResultTtlInSeconds": (validate_authorizer_ttl, False),
         "AuthorizerUri": (basestring, True),
@@ -160,18 +163,28 @@ class DocumentationVersion(AWSObject):
     }
 
 
+class EndpointConfiguration(AWSProperty):
+
+    props = {
+        "Types": ([basestring], False)
+    }
+
+
 class DomainName(AWSObject):
     resource_type = "AWS::ApiGateway::DomainName"
 
     props = {
         "CertificateArn": (basestring, True),
         "DomainName": (basestring, True),
+        "EndpointConfiguration": (EndpointConfiguration, True),
+        "RegionalCertificateArn": (basestring, False),
     }
 
 
 class IntegrationResponse(AWSProperty):
 
     props = {
+        "ContentHandling": (basestring, False),
         "ResponseParameters": (dict, False),
         "ResponseTemplates": (dict, False),
         "SelectionPattern": (basestring, False),
@@ -184,6 +197,7 @@ class Integration(AWSProperty):
     props = {
         "CacheKeyParameters": ([basestring], False),
         "CacheNamespace": (basestring, False),
+        "ContentHandling": (basestring, False),
         "Credentials": (basestring, False),
         "IntegrationHttpMethod": (basestring, False),
         "IntegrationResponses": ([IntegrationResponse], False),
@@ -281,6 +295,7 @@ class RestApi(AWSObject):
         "BodyS3Location": (S3Location, False),
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
+        "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (basestring, False),
         "Name": (basestring, False),
         "Parameters": ([basestring], False),

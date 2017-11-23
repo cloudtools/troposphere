@@ -157,6 +157,7 @@ class DBInstance(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
+        'SourceRegion': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': ((Tags, list), False),

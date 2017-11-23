@@ -94,6 +94,8 @@ class ReplicationGroup(AWSObject):
     resource_type = "AWS::ElastiCache::ReplicationGroup"
 
     props = {
+        'AtRestEncryptionEnabled': (boolean, False),
+        'AuthToken': (basestring, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AutomaticFailoverEnabled': (boolean, False),
         'CacheNodeType': (basestring, True),
@@ -120,6 +122,7 @@ class ReplicationGroup(AWSObject):
         'SnapshottingClusterId': (basestring, False),
         'SnapshotWindow': (basestring, False),
         'Tags': (Tags, False),
+        'TransitEncryptionEnabled': (boolean, False),
     }
 
     def validate(self):

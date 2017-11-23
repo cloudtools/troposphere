@@ -2,6 +2,23 @@ from . import AWSObject, AWSProperty
 from .validators import floatingpoint, integer, positive_integer
 
 
+class ScalableTargetAction(AWSProperty):
+    props = {
+        'MaxCapacity': (integer, False),
+        'MinCapacity': (integer, False),
+    }
+
+
+class ScheduledAction(AWSProperty):
+    props = {
+        'EndTime': (basestring, False),
+        'ScalableTargetAction': (ScalableTargetAction, False),
+        'Schedule': (basestring, True),
+        'ScheduledActionName': (basestring, True),
+        'StartTime': (basestring, False),
+    }
+
+
 class ScalableTarget(AWSObject):
     resource_type = "AWS::ApplicationAutoScaling::ScalableTarget"
 
@@ -11,6 +28,7 @@ class ScalableTarget(AWSObject):
         'ResourceId': (basestring, True),
         'RoleARN': (basestring, True),
         'ScalableDimension': (basestring, True),
+        'ScheduledActions': ([ScheduledAction], False),
         'ServiceNamespace': (basestring, True),
     }
 
