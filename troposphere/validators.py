@@ -334,7 +334,7 @@ def vpn_tunnel_inside_cidr(cidr):
 
 def cloud_watch_logs_log_group_arn(arn):
     log_group_arn_match_re = compile(
-        r'^arn:aws:logs:[a-z]{2}-[a-zA-Z]+-\d{1,2}:\d{12}:'
+        r'^arn:aws:logs:[a-z]{2}-[a-z]+-\d{1,2}:\d{12}:'
         '[\.\-_\/#A-Za-z0-9]+:[\.\-_\/#A-Za-z0-9]+$'
     )
     if not log_group_arn_match_re.match(arn):
