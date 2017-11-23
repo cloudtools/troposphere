@@ -67,9 +67,14 @@ class Domain(AWSObject):
         'ElasticsearchVersion': (basestring, False),
         'SnapshotOptions': (SnapshotOptions, False),
         'Tags': ((Tags, list), False),
-        'VPCOptions': (dict, False)
+        'VPCOptions': (VPCOptions, False)
     }
 
+class VPCOptions(AWSProperty):
+    props = {
+        "SecurityGroupIds": (dict, False),
+        "SubnetIds": (dict, False)]
+    }
 
 # Backward compatibility
 ElasticsearchDomain = Domain
