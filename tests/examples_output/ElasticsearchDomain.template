@@ -36,6 +36,14 @@
                 },
                 "SnapshotOptions": {
                     "AutomatedSnapshotStartHour": 0
+                },
+                "VPCOptions": {
+                    "SecurityGroupIds": [
+                        "sg-04cf048c"
+                    ],
+                    "SubnetIds": [
+                        "subnet-4f2bb123"
+                    ]
                 }
             },
             "Type": "AWS::Elasticsearch::Domain"

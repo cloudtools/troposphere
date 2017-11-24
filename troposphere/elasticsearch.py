@@ -55,6 +55,13 @@ class SnapshotOptions(AWSProperty):
     }
 
 
+class VPCOptions(AWSProperty):
+    props = {
+        "SecurityGroupIds": ([basestring], False),
+        "SubnetIds": ([basestring], False)
+    }
+
+
 class Domain(AWSObject):
     resource_type = "AWS::Elasticsearch::Domain"
 
@@ -66,7 +73,8 @@ class Domain(AWSObject):
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
         'SnapshotOptions': (SnapshotOptions, False),
-        'Tags': ((Tags, list), False)
+        'Tags': ((Tags, list), False),
+        'VPCOptions': (VPCOptions, False)
     }
 
 
