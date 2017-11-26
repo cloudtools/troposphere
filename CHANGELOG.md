@@ -1,3 +1,15 @@
+## 2.1.1 (2017-11-26)
+- Add support for VPCOptions in ElasticSearch (#862)
+- Add Description property for security group ingress and egress (#910)
+- Add QueryLoggingConfig to Route53::HostedZone
+- Add SourceRegion to RDS::DBInstance
+- Add RootVolumeSize and caleDownBehavior to EMR::Cluster
+- Add new properties to ElastiCache::ReplicationGroup
+- Add LinuxParameters to ECS::TaskDefinition ContainerDefinitions
+- Add LifecyclePolicy to ECR::Repository
+- Add ScheduledActions to ApplicationAutoScaling::ScalableTarget
+- Add new properties into ApiGateway
+
 ## 2.1.0 (2017-11-19)
 - Output yaml (to_yaml) using cfn_flip (Fixes #567)
 - Allow AWSHelperFn for CodeCommit Trigger Event(s) (#869)
