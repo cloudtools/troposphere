@@ -582,7 +582,7 @@ class VPNConnection(AWSObject):
         'StaticRoutesOnly': (boolean, False),
         'Tags': ((Tags, list), False),
         'VpnGatewayId': (basestring, True),
-        'VpnTunnelOptionsSpecifications': (
+        'Options': (
             [VpnTunnelOptionsSpecification], False
         ),
     }
