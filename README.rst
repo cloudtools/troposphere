@@ -77,6 +77,27 @@ A simple example to create an instance would look like this:
     }
 
 
+A simple example to create an instance (YAML) would look like this:
+
+.. code:: python
+
+    >>> from troposphere import Ref, Template
+    >>> import troposphere.ec2 as ec2
+    >>> t = Template()
+    >>> instance = ec2.Instance("myinstance")
+    >>> instance.ImageId = "ami-951945d0"
+    >>> instance.InstanceType = "t1.micro"
+    >>> t.add_resource(instance)
+    <troposphere.ec2.Instance object at 0x101bf3390>
+    >>> print(t.to_yaml())
+
+    Resources:
+        myinstance:
+            Properties:
+                ImageId: ami-951945d0
+                InstanceType: t1.micro
+            Type: AWS::EC2::Instance
+
 Alternatively, parameters can be used instead of properties:
 
 .. code:: python
