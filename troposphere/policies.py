@@ -25,11 +25,21 @@ class AutoScalingReplacingUpdate(AWSProperty):
     }
 
 
+class CodeDeployLambdaAliasUpdate(AWSProperty):
+    props = {
+        'AfterAllowTrafficHook': (basestring, False),
+        'ApplicationName': (boolean, True),
+        'BeforeAllowTrafficHook': (basestring, False),
+        'DeploymentGroupName': (boolean, True),
+    }
+
+
 class UpdatePolicy(AWSAttribute):
     props = {
         'AutoScalingRollingUpdate': (AutoScalingRollingUpdate, False),
         'AutoScalingScheduledAction': (AutoScalingScheduledAction, False),
         'AutoScalingReplacingUpdate': (AutoScalingReplacingUpdate, False),
+        'CodeDeployLambdaAliasUpdate': (CodeDeployLambdaAliasUpdate, False),
     }
 
 
