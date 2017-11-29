@@ -165,6 +165,21 @@ class Permission(AWSObject):
     }
 
 
+class VersionWeight(AWSProperty):
+
+    props = {
+        'FunctionVersion': (basestring, True),
+        'FunctionWeight': (float, True),
+    }
+
+
+class AliasRoutingConfiguration(AWSProperty):
+
+    props = {
+        'AdditionalVersionWeights': ([VersionWeight], True),
+    }
+
+
 class Alias(AWSObject):
     resource_type = "AWS::Lambda::Alias"
 
@@ -173,6 +188,7 @@ class Alias(AWSObject):
         'FunctionName': (basestring, True),
         'FunctionVersion': (basestring, True),
         'Name': (basestring, True),
+        'RoutingConfig': (AliasRoutingConfiguration, False),
     }
 
 
