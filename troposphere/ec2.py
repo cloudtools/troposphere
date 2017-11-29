@@ -690,7 +690,7 @@ class SpotFleetRequestConfigData(AWSProperty):
         'IamFleetRole': (basestring, True),
         'ReplaceUnhealthyInstances': (boolean, False),
         'LaunchSpecifications': ([LaunchSpecifications], True),
-        'SpotPrice': (basestring, True),
+        'SpotPrice': (basestring, False),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
         'Type': (basestring, False),
