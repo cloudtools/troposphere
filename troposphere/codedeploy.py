@@ -40,7 +40,15 @@ class Revision(AWSProperty):
 def deployment_option_validator(x):
     valid_values = ['WITH_TRAFFIC_CONTROL', 'WITHOUT_TRAFFIC_CONTROL']
     if x not in valid_values:
-        raise ValueError("Deployment Option type must be one of: %s" %
+        raise ValueError("Deployment Option value must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
+def deployment_type_validator(x):
+    valid_values = ['IN_PLACE', 'BLUE_GREEN']
+    if x not in valid_values:
+        raise ValueError("Deployment Type value must be one of: %s" %
                          ', '.join(valid_values))
     return x
 
@@ -62,7 +70,8 @@ class Deployment(AWSProperty):
 
 class DeploymentStyle(AWSProperty):
     props = {
-        'DeploymentOption': (deployment_option_validator, False)
+        'DeploymentOption': (deployment_option_validator, False),
+        'DeploymentType': (deployment_type_validator, False),
     }
 
 
@@ -120,6 +129,7 @@ class Application(AWSObject):
 
     props = {
         'ApplicationName': (basestring, False),
+        'ComputePlatform': (basestring, False),
     }
 
 
