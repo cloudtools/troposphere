@@ -186,6 +186,7 @@ Currently supported AWS resource types
 - AWS::ElasticLoadBalancingV2
 - AWS::Elasticsearch
 - AWS::Events
+- AWS::GuardDuty
 - AWS::Glue
 - AWS::IAM
 - AWS::IoT
