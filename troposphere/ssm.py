@@ -17,14 +17,6 @@ class NotificationConfig(AWSProperty):
     }
 
 
-class LoggingInfo(AWSProperty):
-    props = {
-        'Region': (basestring, True),
-        'S3Bucket': (s3_bucket_name, True),
-        'S3Prefix': (basestring, False),
-    }
-
-
 class MaintenanceWindowAutomationParameters(AWSProperty):
     props = {
         'DocumentVersion': (basestring, False),
@@ -162,7 +154,6 @@ class MaintenanceWindowTask(AWSObject):
 
     props = {
         'Description': (basestring, False),
-        'LoggingInfo': (LoggingInfo, False),
         'MaxConcurrency': (integer, False),
         'MaxErrors': (integer, True),
         'Name': (basestring, False),
