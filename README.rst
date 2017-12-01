@@ -160,6 +160,7 @@ Currently supported AWS resource types
 - AWS::AutoScaling
 - AWS::Batch
 - AWS::CertificateManager
+- AWS::Cloud9
 - AWS::CloudFormation
 - AWS::CloudFront
 - AWS::CloudTrail
