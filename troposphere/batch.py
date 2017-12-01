@@ -16,7 +16,7 @@ class ComputeResources(AWSProperty):
         "InstanceRole": (basestring, True),
         "InstanceTypes": ([basestring], True),
         "Ec2KeyPair": (basestring, False),
-        "Tags": ([basestring], False),
+        "Tags": (dict, False),
         "DesiredvCpus": (positive_integer, False)
     }
 
