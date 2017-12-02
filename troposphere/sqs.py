@@ -38,8 +38,8 @@ class Queue(AWSObject):
 
     def validate(self):
         if self.properties.get('FifoQueue'):
-            queuename = self.properties.get('QueueName', '')
-            if isinstance(queuename, AWSHelperFn):
+            queuename = self.properties.get('QueueName')
+            if queuename is None or isinstance(queuename, AWSHelperFn):
                 pass
             elif not queuename.endswith('.fifo'):
                 raise ValueError("SQS: FIFO queues need to provide a "
