@@ -10,7 +10,7 @@ class ComputeResources(AWSProperty):
         "SecurityGroupIds": ([basestring], True),
         "BidPercentage": (positive_integer, False),
         "Type": (basestring, True),
-        "Subnets": (list, True),
+        "Subnets": ([basestring], True),
         "MinvCpus": (positive_integer, True),
         "ImageId": (basestring, False),
         "InstanceRole": (basestring, True),
