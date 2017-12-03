@@ -1,3 +1,19 @@
+## 2.1.2 (2017-12-03)
+- In SpotFleet::SpotFleetRequestConfigData SpotPrice is optional
+- Add RoutingConfig to AWS::Lambda::Alias
+- Update AWS::CodeDeploy
+- Add CodeDeployLambdaAliasUpdate to UpdatePolicy
+- Add AWS::GuardDuty
+- Add AWS::Cloud9
+- Add initial python resource spec generator
+- Update AWS::CodeBuild::Project to 20171201 changes
+- Change AWS::Batch::ComputeResources.Tags type to dict (#867)
+- Update README for YAML template (#925)
+- Typo fix in examples/ElastiCacheRedis.py (#926)
+- Adds Fargate support to ECS types (#929)
+- Fix SSM NotificationConfig validator type (#930)
+- Fix SQS::Queue validation in the case of no QueueName specified (#931)
+
 ## 2.1.1 (2017-11-26)
 - Add support for VPCOptions in ElasticSearch (#862)
 - Add Description property for security group ingress and egress (#910)
