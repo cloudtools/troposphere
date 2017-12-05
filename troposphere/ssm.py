@@ -17,6 +17,14 @@ class NotificationConfig(AWSProperty):
     }
 
 
+class LoggingInfo(AWSProperty):
+    props = {
+        'S3Region': (basestring, True),
+        'S3BucketName': (s3_bucket_name, True),
+        'S3KeyPrefix': (basestring, False),
+    }
+
+
 class MaintenanceWindowAutomationParameters(AWSProperty):
     props = {
         'DocumentVersion': (basestring, False),
