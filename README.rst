@@ -208,6 +208,7 @@ Currently supported AWS resource types
 - AWS::SQS
 - AWS::SSM
 - AWS::Serverless
+- AWS::ServiceDiscovery
 - AWS::StepFunctions
 - AWS::WAF
 - AWS::WAFRegional
