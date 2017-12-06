@@ -190,6 +190,7 @@ Currently supported AWS resource types
 - AWS::GuardDuty
 - AWS::Glue
 - AWS::IAM
+- AWS::Inspector
 - AWS::IoT
 - AWS::KMS
 - AWS::Kinesis
