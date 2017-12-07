@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import integer, boolean
 
 
@@ -124,6 +124,12 @@ class Source(AWSProperty):
         ]
 
         source_type = self.properties.get('Type')
+
+        # Don't do additional checks if source_type can't
+        # be determined (for example, being a Ref).
+        if isinstance(source_type, AWSHelperFn):
+            return
+
         if source_type not in valid_types:
             raise ValueError('Source Type: must be one of %s' %
                              ','.join(valid_types))
