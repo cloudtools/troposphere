@@ -61,6 +61,18 @@ class TestServerless(unittest.TestCase):
         t.add_resource(serverless_func)
         t.to_json()
 
+    def test_optional_auto_publish_alias(self):
+        serverless_func = Function(
+            "SomeHandler",
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri="s3://bucket/handler.zip",
+            AutoPublishAlias="alias"
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        t.to_json()
+
     def test_required_api_definitionuri(self):
         serverless_api = Api(
             "SomeApi",
