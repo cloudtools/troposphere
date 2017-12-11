@@ -58,7 +58,7 @@ class Function(AWSObject):
     props = {
         'Handler': (basestring, True),
         'Runtime': (basestring, True),
-        'CodeUri': ((S3Location, basestring), True),
+        'CodeUri': ((S3Location, basestring), False),
         'FunctionName': (basestring, False),
         'Description': (basestring, False),
         'MemorySize': (validate_memory_size, False),
