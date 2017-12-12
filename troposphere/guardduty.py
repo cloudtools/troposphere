@@ -8,12 +8,16 @@ from .validators import boolean
 
 
 class Detector(AWSObject):
+    resource_type = 'AWS::GuardDuty::Detector'
+
     props = {
         'Enable': (boolean, True),
     }
 
 
 class IPSet(AWSObject):
+    resource_type = 'AWS::GuardDuty::IPSet'
+
     props = {
         'Activate': (boolean, True),
         'DetectorId': (basestring, True),
@@ -24,6 +28,8 @@ class IPSet(AWSObject):
 
 
 class ThreatIntelSet(AWSObject):
+    resource_type = 'AWS::GuardDuty::ThreatIntelSet'
+
     props = {
         'Activate': (boolean, True),
         'DetectorId': (basestring, True),
