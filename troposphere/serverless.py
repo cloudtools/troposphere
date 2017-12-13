@@ -76,6 +76,17 @@ class Function(AWSObject):
     }
 
 
+class FunctionForPackaging(Function):
+    """Render Function without requiring 'CodeUri'.
+
+    This exception to the Function spec is for use with the
+    `cloudformation/sam package` commands which add CodeUri automatically.
+    """
+
+    props = Function.props
+    props['CodeUri'] = (props['CodeUri'][0], False)
+
+
 class Api(AWSObject):
     resource_type = "AWS::Serverless::Api"
 
