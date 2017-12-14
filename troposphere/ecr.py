@@ -1,4 +1,4 @@
-from . import AWSObject
+from . import AWSObject, AWSProperty
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
