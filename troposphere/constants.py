@@ -96,6 +96,13 @@ T2_LARGE = 't2.large'
 T2_XLARGE = 't2.xlarge'
 T2_2XLARGE = 't2.2xlarge'
 
+M5_LARGE = 'm5.large'
+M5_XLARGE = 'm5.xlarge'
+M5_2XLARGE = 'm5.2xlarge'
+M5_4XLARGE = 'm5.4xlarge'
+M5_12XLARGE = 'm5.12xlarge'
+M5_24XLARGE = 'm5.24xlarge'
+
 M4_LARGE = 'm4.large'
 M4_XLARGE = 'm4.xlarge'
 M4_2XLARGE = 'm4.2xlarge'
