@@ -39,6 +39,47 @@ class TestECS(unittest.TestCase):
 
         ecs_service.to_dict()
 
+    def test_fargate_launch_type(self):
+        task_definition = ecs.TaskDefinition(
+            "mytaskdef",
+            ContainerDefinitions=[
+                ecs.ContainerDefinition(
+                    Image="myimage",
+                    Memory="300",
+                    Name="mycontainer",
+                )
+            ],
+            Volumes=[
+                ecs.Volume(Name="my-vol"),
+            ],
+        )
+        ecs_service = ecs.Service(
+            'Service',
+            Cluster='cluster',
+            DesiredCount=2,
+            PlacementStrategies=[
+                ecs.PlacementStrategy(
+                    Type="random",
+                )
+            ],
+            LaunchType='FARGATE',
+            NetworkConfiguration=ecs.NetworkConfiguration(
+                AwsvpcConfiguration=ecs.AwsvpcConfiguration(
+                    AssignPublicIp='DISABLED',
+                    SecurityGroups=['sg-1234'],
+                    Subnets=['subnet-1234']
+                )
+            ),
+            PlacementConstraints=[
+                ecs.PlacementConstraint(
+                    Type="distinctInstance",
+                )
+            ],
+            TaskDefinition=Ref(task_definition),
+        )
+
+        ecs_service.to_dict()
+
     def test_allow_string_cluster(self):
         task_definition = ecs.TaskDefinition(
             "mytaskdef",

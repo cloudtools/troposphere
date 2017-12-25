@@ -43,7 +43,7 @@ def main():
     # Description
     template.add_description(
         'AWS CloudFormation Sample Template ElastiCache_Redis:'
-        'Sample template showIing how to create an Amazon'
+        'Sample template showing how to create an Amazon'
         'ElastiCache Redis Cluster. **WARNING** This template'
         'creates an Amazon EC2 Instance and an Amazon ElastiCache'
         'Cluster. You will be billed for the AWS resources used'

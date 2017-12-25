@@ -1,7 +1,7 @@
 from . import AWSObject, AWSProperty, Join, Tags
 from .validators import positive_integer
 
-MEMORY_VALUES = [x for x in range(128, 1600, 64)]
+MEMORY_VALUES = [x for x in range(128, 3009, 64)]
 
 
 def validate_memory_size(memory_value):

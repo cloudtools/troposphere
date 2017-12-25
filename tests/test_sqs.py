@@ -22,6 +22,11 @@ class TestQueue(unittest.TestCase):
             QueueName=Join("foo", "bar"),
         ).validate()
 
+        Queue(
+            "q",
+            FifoQueue=True,
+        ).validate()
+
         with self.assertRaises(ValueError):
             Queue(
                 "q",

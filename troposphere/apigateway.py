@@ -176,7 +176,7 @@ class DomainName(AWSObject):
     props = {
         "CertificateArn": (basestring, True),
         "DomainName": (basestring, True),
-        "EndpointConfiguration": (EndpointConfiguration, True),
+        "EndpointConfiguration": (EndpointConfiguration, False),
         "RegionalCertificateArn": (basestring, False),
     }
 

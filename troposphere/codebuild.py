@@ -3,14 +3,14 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import integer, boolean
 
 
 class SourceAuth(AWSProperty):
     props = {
         'Resource': (basestring, False),
-        'Type': (basestring, False),
+        'Type': (basestring, True),
     }
 
     def validate(self):
@@ -56,8 +56,19 @@ class Artifacts(AWSProperty):
 class EnvironmentVariable(AWSProperty):
     props = {
         'Name': (basestring, True),
+        'Type': (basestring, False),
         'Value': (basestring, True),
     }
+
+    def validate(self):
+        valid_types = [
+            'PARAMETER_STORE',
+            'PLAINTEXT',
+        ]
+        env_type = self.properties.get('Type')
+        if env_type not in valid_types:
+            raise ValueError('EnvironmentVariable Type: must be one of %s' %
+                             ','.join(valid_types))
 
 
 class Environment(AWSProperty):
@@ -79,6 +90,23 @@ class Environment(AWSProperty):
                              ','.join(valid_types))
 
 
+class ProjectCache(AWSProperty):
+    props = {
+        'Location': (basestring, False),
+        'Type': (basestring, True),
+    }
+
+    def validate(self):
+        valid_types = [
+            'NO_CACHE',
+            'S3',
+        ]
+        cache_type = self.properties.get('Type')
+        if cache_type not in valid_types:
+            raise ValueError('ProjectCache Type: must be one of %s' %
+                             ','.join(valid_types))
+
+
 class Source(AWSProperty):
     props = {
         'Auth': (SourceAuth, False),
@@ -96,6 +124,12 @@ class Source(AWSProperty):
         ]
 
         source_type = self.properties.get('Type')
+
+        # Don't do additional checks if source_type can't
+        # be determined (for example, being a Ref).
+        if isinstance(source_type, AWSHelperFn):
+            return
+
         if source_type not in valid_types:
             raise ValueError('Source Type: must be one of %s' %
                              ','.join(valid_types))
@@ -113,11 +147,21 @@ class Source(AWSProperty):
                              "'GITHUB' Source Type.")
 
 
+class VpcConfig(AWSProperty):
+    props = {
+        'SecurityGroupIds': ([basestring], True),
+        'Subnets': ([basestring], True),
+        'VpcId': (basestring, True),
+    }
+
+
 class Project(AWSObject):
     resource_type = "AWS::CodeBuild::Project"
 
     props = {
         'Artifacts': (Artifacts, True),
+        'BadgeEnabled': (boolean, False),
+        'Cache': (ProjectCache, False),
         'Description': (basestring, False),
         'EncryptionKey': (basestring, False),
         'Environment': (Environment, True),
@@ -126,4 +170,5 @@ class Project(AWSObject):
         'Source': (Source, True),
         'Tags': (Tags, False),
         'TimeoutInMinutes': (integer, False),
+        'VpcConfig': (VpcConfig, False),
     }

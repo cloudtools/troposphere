@@ -71,7 +71,8 @@ class Function(AWSObject):
         'Tags': (dict, False),
         'Tracing': (basestring, False),
         'KmsKeyArn': (basestring, False),
-        'DeadLetterQueue': (DeadLetterQueue, False)
+        'DeadLetterQueue': (DeadLetterQueue, False),
+        'AutoPublishAlias': (basestring, False)
     }
 
 

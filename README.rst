@@ -160,6 +160,7 @@ Currently supported AWS resource types
 - AWS::AutoScaling
 - AWS::Batch
 - AWS::CertificateManager
+- AWS::Cloud9
 - AWS::CloudFormation
 - AWS::CloudFront
 - AWS::CloudTrail
@@ -186,8 +187,10 @@ Currently supported AWS resource types
 - AWS::ElasticLoadBalancingV2
 - AWS::Elasticsearch
 - AWS::Events
+- AWS::GuardDuty
 - AWS::Glue
 - AWS::IAM
+- AWS::Inspector
 - AWS::IoT
 - AWS::KMS
 - AWS::Kinesis
@@ -205,6 +208,7 @@ Currently supported AWS resource types
 - AWS::SQS
 - AWS::SSM
 - AWS::Serverless
+- AWS::ServiceDiscovery
 - AWS::StepFunctions
 - AWS::WAF
 - AWS::WAFRegional
