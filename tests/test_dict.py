@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Template, Ref, Tags
+from troposphere import Ref, Tags, Template
 from troposphere import ecs
 from troposphere import iam
 from troposphere import s3
