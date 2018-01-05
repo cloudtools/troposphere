@@ -1,7 +1,8 @@
 import unittest
 from troposphere import Tags, Template
+from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
-    Api, DeadLetterQueue, Function, S3Location, SimpleTable
+    Api, DeadLetterQueue, Function, S3Event, S3Location, SimpleTable
 )
 
 
@@ -125,6 +126,32 @@ class TestServerless(unittest.TestCase):
         t = Template()
         t.add_resource(serverless_table)
         t.to_json()
+
+    def test_s3_filter(self):
+        t = Template()
+        t.add_resource(
+            Function(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                CodeUri='.',
+                Runtime='python3.6',
+                Policies='AmazonS3FullAccess',
+                Events={
+                    'FileUpload': S3Event(
+                        'FileUpload',
+                        Bucket="bucket",
+                        Events=['s3:ObjectCreated:*'],
+                        Filter=Filter(S3Key=S3Key(
+                            Rules=[
+                                Rules(Name="prefix", Value="upload/"),
+                                Rules(Name="suffix", Value=".txt"),
+                            ],
+                        ))
+                    )
+                }
+            )
+        )
+        print t.to_json()
 
 
 if __name__ == '__main__':
