@@ -151,7 +151,7 @@ class TestServerless(unittest.TestCase):
                 }
             )
         )
-        print t.to_json()
+        t.to_json()
 
 
 if __name__ == '__main__':
