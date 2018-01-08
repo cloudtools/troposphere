@@ -26,6 +26,8 @@ def policy_validator(x):
         return x
     elif isinstance(x, types.ListType):
         return x
+    elif isinstance(x, types.DictType):
+        return x
     else:
         raise ValueError("Policies must refer to a managed policy, a list of "
                          + "policies, an IAM policy document, or a list of IAM"
