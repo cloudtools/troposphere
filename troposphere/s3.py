@@ -248,10 +248,17 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class AccessControlTranslation(AWSProperty):
+    props = {
+        'Owner': (basestring, True)
+    }
+
+
 class ReplicationConfigurationRulesDestination(AWSProperty):
     props = {
         'Bucket': (basestring, True),
-        'StorageClass': (basestring, False)
+        'StorageClass': (basestring, False),
+        'AccessControlTranslation': (AccessControlTranslation, False)
     }
 
 
