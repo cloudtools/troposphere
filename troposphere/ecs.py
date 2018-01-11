@@ -98,6 +98,7 @@ class Service(AWSObject):
         'PlatformVersion': (basestring, False),
         'ServiceName': (basestring, False),
         'TaskDefinition': (basestring, True),
+        'HealthCheckGracePeriodSeconds': (positive_integer, False),
     }
 
 
