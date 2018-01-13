@@ -8,6 +8,7 @@ import types
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
+from .s3 import Filter
 from .validators import exactly_one, positive_integer
 
 assert types  # silence pyflakes
@@ -130,7 +131,7 @@ class S3Event(AWSObject):
     props = {
         'Bucket': (basestring, True),
         'Events': (list, True),
-        'Filter': (basestring, False)
+        'Filter': (Filter, False)
     }
 
 
