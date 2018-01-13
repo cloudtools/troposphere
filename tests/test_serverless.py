@@ -1,7 +1,8 @@
 import unittest
 from troposphere import Tags, Template
 from troposphere.serverless import (
-    Api, DeadLetterQueue, Function, S3Location, SimpleTable
+    Api, DeadLetterQueue, Function, FunctionForPackaging,
+    S3Location, SimpleTable
 )
 
 
@@ -125,6 +126,11 @@ class TestServerless(unittest.TestCase):
         t = Template()
         t.add_resource(serverless_table)
         t.to_json()
+
+    def test_packaging(self):
+        func_req = Function.props['CodeUri'][1]
+        package_req = FunctionForPackaging.props['CodeUri'][1]
+        self.assertNotEqual(func_req, package_req)
 
 
 if __name__ == '__main__':

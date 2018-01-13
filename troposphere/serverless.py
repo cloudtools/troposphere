@@ -83,7 +83,8 @@ class FunctionForPackaging(Function):
     `cloudformation/sam package` commands which add CodeUri automatically.
     """
 
-    props = Function.props
+    resource_type = Function.resource_type
+    props = Function.props.copy()
     props['CodeUri'] = (props['CodeUri'][0], False)
 
 
