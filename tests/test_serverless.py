@@ -161,11 +161,35 @@ class TestServerless(unittest.TestCase):
                 Handler='process_file.handler',
                 CodeUri='.',
                 Runtime='python3.6',
+                Policies="AmazonS3ReadOnly"
+            )
+        )
+        t.to_json()
+
+        t = Template()
+        t.add_resource(
+            Function(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                CodeUri='.',
+                Runtime='python3.6',
+                Policies=["AmazonS3FullAccess", "AmazonDynamoDBFullAccess"]
+            )
+        )
+        t.to_json()
+
+        t = Template()
+        t.add_resource(
+            Function(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                CodeUri='.',
+                Runtime='python3.6',
                 Policies={
                     "Statement": [{
                         "Effect": "Allow",
                         "Action": ["s3:GetObject", "s3:PutObject"],
-                        "Resource": "arn:aws:s3:::bucket/*",
+                        "Resource": ["arn:aws:s3:::bucket/*"],
                     }]
                 },
             )
