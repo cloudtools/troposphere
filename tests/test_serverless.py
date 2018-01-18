@@ -2,7 +2,8 @@ import unittest
 from troposphere import Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
-    Api, DeadLetterQueue, Function, S3Event, S3Location, SimpleTable
+    Api, DeadLetterQueue, Function, FunctionForPackaging,
+    S3Event, S3Location, SimpleTable,
 )
 
 
@@ -195,6 +196,11 @@ class TestServerless(unittest.TestCase):
             )
         )
         t.to_json()
+
+    def test_packaging(self):
+        func_req = Function.props['CodeUri'][1]
+        package_req = FunctionForPackaging.props['CodeUri'][1]
+        self.assertNotEqual(func_req, package_req)
 
 
 if __name__ == '__main__':

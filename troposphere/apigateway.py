@@ -388,7 +388,7 @@ def validate_gateway_response_type(response_type):
         "RESOURCE_NOT_FOUND",
         "THROTTLED",
         "UNAUTHORIZED",
-        "UNSUPPORTED_MEDIA_TYPES"
+        "UNSUPPORTED_MEDIA_TYPE"
     ]
     if response_type not in valid_response_types:
         raise ValueError(
