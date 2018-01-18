@@ -185,6 +185,7 @@ class Parameter(AWSObject):
         'Name': (basestring, False),
         'Type': (basestring, True),
         'Value': (basestring, True),
+        'AllowedPattern': (basestring, False),
     }
 
 
