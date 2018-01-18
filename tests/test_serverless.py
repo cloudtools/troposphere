@@ -154,6 +154,49 @@ class TestServerless(unittest.TestCase):
         )
         t.to_json()
 
+    def test_policy_document(self):
+        t = Template()
+        t.add_resource(
+            Function(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                CodeUri='.',
+                Runtime='python3.6',
+                Policies="AmazonS3ReadOnly"
+            )
+        )
+        t.to_json()
+
+        t = Template()
+        t.add_resource(
+            Function(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                CodeUri='.',
+                Runtime='python3.6',
+                Policies=["AmazonS3FullAccess", "AmazonDynamoDBFullAccess"]
+            )
+        )
+        t.to_json()
+
+        t = Template()
+        t.add_resource(
+            Function(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                CodeUri='.',
+                Runtime='python3.6',
+                Policies={
+                    "Statement": [{
+                        "Effect": "Allow",
+                        "Action": ["s3:GetObject", "s3:PutObject"],
+                        "Resource": ["arn:aws:s3:::bucket/*"],
+                    }]
+                },
+            )
+        )
+        t.to_json()
+
     def test_packaging(self):
         func_req = Function.props['CodeUri'][1]
         package_req = FunctionForPackaging.props['CodeUri'][1]
