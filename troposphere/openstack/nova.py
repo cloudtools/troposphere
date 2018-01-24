@@ -19,6 +19,45 @@ class BlockDeviceMapping(AWSProperty):
     }
 
 
+class BlockDeviceMappingV2(AWSProperty):
+    props = {
+        'boot_index': (integer, False),
+        'delete_on_termination': (boolean, False),
+        'device_name': (basestring, False),
+        'device_type': (basestring, False),
+        'disk_bus': (basestring, False),
+        'ephemeral_format': (basestring, False),
+        'ephemeral_size': (integer, False),
+        'image_id': (basestring, False),
+        'snapshot_id': (basestring, False),
+        'swap_size': (integer, False),
+        'volume_id': (basestring, False),
+        'volume_size': (integer, False),
+    }
+
+    def validate(self):
+        if 'device_type' in self.resource:
+            device_type = self.resource['device_type']
+            if device_type not in ['cdrom', 'disk']:
+                raise ValueError(
+                    "The device_type attribute "
+                    "must be either cdrom or disk")
+
+        if 'disk_bus' in self.resource:
+            disk_bus = self.resource['disk_bus']
+            if disk_bus not in ['ide', 'lame_bus', 'scsi', 'usb', 'virtio']:
+                raise ValueError(
+                    "The device_bus attribute "
+                    "must be one of ide, lame_bus, scsi, usb or virtio")
+
+        if 'ephemeral_format' in self.resource:
+            ephemeral_format = self.resource['ephemeral_format']
+            if ephemeral_format not in ['ext2', 'ext3', 'ext4', 'xfs', 'ntfs']:
+                raise ValueError(
+                    "The device_type attribute "
+                    "must be one of ext2, ext3, ext4, xfs, ntfs")
+
+
 class Network(AWSProperty):
     props = {
         'fixed_ip': (basestring, False),
@@ -62,6 +101,7 @@ class Server(AWSObject):
         'admin_user': (basestring, False),
         'availability_zone': (basestring, False),
         'block_device_mapping': (list, False),
+        'block_device_mapping_v2': (list, False),
         'config_drive': (basestring, False),
         'diskConfig': (basestring, False),
         'flavor': (basestring, False),
