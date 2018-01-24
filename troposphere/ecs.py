@@ -89,6 +89,7 @@ class Service(AWSObject):
         'Cluster': (basestring, False),
         'DeploymentConfiguration': (DeploymentConfiguration, False),
         'DesiredCount': (positive_integer, False),
+        'HealthCheckGracePeriodSeconds': (positive_integer, False),
         'LaunchType': (launch_type_validator, False),
         'LoadBalancers': ([LoadBalancer], False),
         'NetworkConfiguration': (NetworkConfiguration, False),
@@ -98,7 +99,6 @@ class Service(AWSObject):
         'PlatformVersion': (basestring, False),
         'ServiceName': (basestring, False),
         'TaskDefinition': (basestring, True),
-        'HealthCheckGracePeriodSeconds': (positive_integer, False),
     }
 
 
