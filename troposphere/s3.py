@@ -248,10 +248,37 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class AccessControlTranslation(AWSProperty):
+    props = {
+        'Owner': (basestring, True),
+    }
+
+
+class EncryptionConfiguration(AWSProperty):
+    props = {
+        'ReplicaKmsKeyID': (basestring, True),
+    }
+
+
 class ReplicationConfigurationRulesDestination(AWSProperty):
     props = {
+        'AccessControlTranslation': (AccessControlTranslation, False),
+        'Account': (basestring, False),
         'Bucket': (basestring, True),
-        'StorageClass': (basestring, False)
+        'EncryptionConfiguration': (EncryptionConfiguration, False),
+        'StorageClass': (basestring, False),
+    }
+
+
+class SseKmsEncryptedObjects(AWSProperty):
+    props = {
+        'Status': (basestring, True),
+    }
+
+
+class SourceSelectionCriteria(AWSProperty):
+    props = {
+        'SseKmsEncryptedObjects': (SseKmsEncryptedObjects, True),
     }
 
 
@@ -260,6 +287,7 @@ class ReplicationConfigurationRules(AWSProperty):
         'Destination': (ReplicationConfigurationRulesDestination, True),
         'Id': (basestring, False),
         'Prefix': (basestring, True),
+        'SourceSelectionCriteria': (SourceSelectionCriteria, False),
         'Status': (basestring, True)
     }
 
@@ -302,6 +330,27 @@ class AnalyticsConfiguration(AWSProperty):
     }
 
 
+class ServerSideEncryptionByDefault(AWSProperty):
+    props = {
+        'KMSMasterKeyID': (basestring, False),
+        'SSEAlgorithm': (basestring, True),
+    }
+
+
+class ServerSideEncryptionRule(AWSProperty):
+    props = {
+        'ServerSideEncryptionByDefault':
+            (ServerSideEncryptionByDefault, False),
+    }
+
+
+class BucketEncryption(AWSProperty):
+    props = {
+        'ServerSideEncryptionConfiguration':
+            ([ServerSideEncryptionRule], True),
+    }
+
+
 class InventoryConfiguration(AWSProperty):
     props = {
         'Destination': (Destination, True),
@@ -321,6 +370,7 @@ class Bucket(AWSObject):
         'AccessControl': (basestring, False),
         'AccelerateConfiguration': (AccelerateConfiguration, False),
         'AnalyticsConfigurations': ([AnalyticsConfiguration], False),
+        'BucketEncryption': (BucketEncryption, False),
         'BucketName': (s3_bucket_name, False),
         'CorsConfiguration': (CorsConfiguration, False),
         'InventoryConfigurations': ([InventoryConfiguration], False),
