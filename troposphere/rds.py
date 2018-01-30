@@ -254,6 +254,7 @@ class DBSubnetGroup(AWSObject):
 
     props = {
         'DBSubnetGroupDescription': (basestring, True),
+        'DBSubnetGroupName': (basestring, False),
         'SubnetIds': (list, True),
         'Tags': ((Tags, list), False),
     }
