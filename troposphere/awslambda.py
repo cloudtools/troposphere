@@ -143,6 +143,7 @@ class Function(AWSObject):
         'Handler': (basestring, True),
         'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
+        'ReservedConcurrentExecutions': (positive_integer, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
         'Tags': (Tags, False),
