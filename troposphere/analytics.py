@@ -125,11 +125,19 @@ class KinesisStreamsOutput(AWSProperty):
     }
 
 
+class LambdaOutput(AWSProperty):
+    props = {
+        'ResourceARN': (basestring, True),
+        'RoleARN': (basestring, True),
+    }
+
+
 class Output(AWSProperty):
     props = {
         'DestinationSchema': (DestinationSchema, True),
         'KinesisFirehoseOutput': (KinesisFirehoseOutput, False),
         'KinesisStreamsOutput': (KinesisStreamsOutput, False),
+        'LambdaOutput': (LambdaOutput, False),
         'Name': (basestring, True),
     }
 
