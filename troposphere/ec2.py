@@ -524,6 +524,13 @@ class VolumeAttachment(AWSObject):
     }
 
 
+def instance_tenancy(value):
+    valid = ['default', 'dedicated']
+    if value not in valid:
+        raise ValueError('InstanceTenancy needs to be one of %r' % valid)
+    return value
+
+
 class VPC(AWSObject):
     resource_type = "AWS::EC2::VPC"
 
@@ -531,7 +538,7 @@ class VPC(AWSObject):
         'CidrBlock': (basestring, True),
         'EnableDnsSupport': (boolean, False),
         'EnableDnsHostnames': (boolean, False),
-        'InstanceTenancy': (basestring, False),
+        'InstanceTenancy': (instance_tenancy, False),
         'Tags': ((Tags, list), False),
     }
 
