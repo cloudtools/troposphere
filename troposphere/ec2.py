@@ -143,6 +143,18 @@ class Placement(AWSProperty):
     }
 
 
+class CreditSpecification(AWSProperty):
+    props = {
+        'CPUCredits': (basestring, False),
+    }
+
+
+class ElasticGpuSpecification(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+    }
+
+
 class Ipv6Addresses(AWSHelperFn):
     def __init__(self, address):
         self.data = {
@@ -205,8 +217,10 @@ class Instance(AWSObject):
         'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
+        'CreditSpecification': (CreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
+        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
