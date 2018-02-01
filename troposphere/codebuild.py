@@ -61,14 +61,16 @@ class EnvironmentVariable(AWSProperty):
     }
 
     def validate(self):
-        valid_types = [
-            'PARAMETER_STORE',
-            'PLAINTEXT',
-        ]
-        env_type = self.properties.get('Type')
-        if env_type not in valid_types:
-            raise ValueError('EnvironmentVariable Type: must be one of %s' %
-                             ','.join(valid_types))
+        if 'Type' in self.properties:
+            valid_types = [
+                'PARAMETER_STORE',
+                'PLAINTEXT',
+            ]
+            env_type = self.properties.get('Type')
+            if env_type not in valid_types:
+                raise ValueError(
+                    'EnvironmentVariable Type: must be one of %s' %
+                    ','.join(valid_types))
 
 
 class Environment(AWSProperty):
