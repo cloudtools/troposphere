@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import integer, boolean
+from .validators import boolean, integer, positive_integer
 
 
 class SourceAuth(AWSProperty):
@@ -113,6 +113,8 @@ class Source(AWSProperty):
     props = {
         'Auth': (SourceAuth, False),
         'BuildSpec': (basestring, False),
+        'GitCloneDepth': (positive_integer, False),
+        'InsecureSsl': (boolean, False),
         'Location': (basestring, False),
         'Type': (basestring, True),
     }
