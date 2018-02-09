@@ -63,6 +63,12 @@ class Projection(AWSProperty):
     }
 
 
+class SSESpecification(AWSProperty):
+    props = {
+        "SSEEnabled": (boolean, True),
+    }
+
+
 class GlobalSecondaryIndex(AWSProperty):
     props = {
         "IndexName": (basestring, True),
@@ -102,6 +108,7 @@ class Table(AWSObject):
         'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'SSESpecification': (SSESpecification, False),
         'StreamSpecification': (StreamSpecification, False),
         'TableName': (basestring, False),
         'Tags': (Tags, False),
