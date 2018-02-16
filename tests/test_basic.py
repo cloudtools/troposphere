@@ -62,6 +62,13 @@ class TestBasic(unittest.TestCase):
         b2 = Bucket("B2", DependsOn=b1)
         self.assertEqual(b1.title, b2.DependsOn)
 
+    def test_resource_depends_on_list(self):
+        b1 = Bucket("B1")
+        b2 = Bucket("B2")
+        b3 = Bucket("B3", DependsOn=[b1, b2])
+        self.assertEqual(b1.title, b3.DependsOn[0])
+        self.assertEqual(b2.title, b3.DependsOn[1])
+
 
 def call_correct(x):
     return x

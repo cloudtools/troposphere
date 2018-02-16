@@ -82,6 +82,8 @@ def depends_on_helper(obj):
     """
     if isinstance(obj, AWSObject):
         return obj.title
+    elif isinstance(obj, list):
+        return list(map(depends_on_helper, obj))
     return obj
 
 
