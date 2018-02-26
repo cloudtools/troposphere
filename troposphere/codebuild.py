@@ -159,6 +159,12 @@ class VpcConfig(AWSProperty):
     }
 
 
+class ProjectTriggers(AWSProperty):
+    props = {
+        'Webhook': (boolean, False),
+    }
+
+
 class Project(AWSObject):
     resource_type = "AWS::CodeBuild::Project"
 
@@ -174,5 +180,6 @@ class Project(AWSObject):
         'Source': (Source, True),
         'Tags': (Tags, False),
         'TimeoutInMinutes': (integer, False),
+        'Triggers': (ProjectTriggers, False),
         'VpcConfig': (VpcConfig, False),
     }
