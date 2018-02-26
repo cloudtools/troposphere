@@ -217,6 +217,12 @@ def exactly_one(class_name, properties, conditionals):
     return specified_count
 
 
+def check_required(class_name, properties, conditionals):
+    for c in conditionals:
+        if c not in properties:
+            raise ValueError("Resource %s required in %s" % c, class_name)
+
+
 def json_checker(name, prop):
     from . import AWSHelperFn
 
