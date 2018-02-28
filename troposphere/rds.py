@@ -261,7 +261,7 @@ class DBInstance(AWSObject):
 
         if any(password in c for c in ['/', '"""', '@']):
             raise ValueError("DBInstance Master Password cannot contain "
-                             "character %s" % c)
+                             '/, """, or @')
 
         return True
 
