@@ -241,8 +241,10 @@ class DBInstance(AWSObject):
             raise ValueError("DBInstance Master Password must contain at "
                              "least 8 characters")
 
-        if (any(engine in e for e in ['mysql', 'mariadb', 'aurora']) and
-        len(password > 41)):
+        if (
+            any(engine in e for e in ['mysql', 'mariadb', 'aurora']) and
+            len(password > 41)
+        ):
             raise ValueError("DBInstance of engine type %s Master Password "
                              "cannot be more then 41 characters" % engine)
 
@@ -250,8 +252,10 @@ class DBInstance(AWSObject):
             raise ValueError("DBInstance of engine type %s Master Password "
                              "cannot be more then 30 characters" % engine)
 
-        if (any(engine in e for e in ['sqlserver', 'postgresql']) and
-        len(password > 128)):
+        if (
+            any(engine in e for e in ['sqlserver', 'postgresql']) and
+            len(password > 128)
+        ):
             raise ValueError("DBInstance of engine type %s Master Password "
                              "cannot be more then 128 characters" % engine)
 
