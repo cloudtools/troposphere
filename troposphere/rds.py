@@ -119,38 +119,6 @@ def validate_backup_retention_period(days):
                          "than 35 days.")
     return days
 
-# def validate_master_password(engine, password):
-#     '''Validate Master Password for DBInstance. The password for the master
-#     database user can be any printable ASCII character except "/", """, or "@".
-#     Master password constraints differ for each database engine.
-#     MySQL, Amazon Aurora, and MariaDB - Must contain 8 to 41 characters.
-#     Oracle - Must contain 8 to 30 characters.
-#     SQL Server - Must contain 8 to 128 characters.
-#     PostgreSQL - Must contain 8 to 128 characters.'''
-#
-#     engine = engine.lower()
-#     if len(password) < 8:
-#         raise ValueError("DBInstance Master Password must contain at least 8 "
-#                          "characters")
-#
-#     if (any(engine in e for e in ['mysql', 'mariadb', 'aurora']) and
-#         len(password > 41)):
-#         raise ValueError("DBInstance of engine type %s Master Password cannot "
-#                          "be more then 41 characters" % engine)
-#
-#     if ('oracle' in engine and len(password > 30)):
-#         raise ValueError("DBInstance of engine type %s Master Password cannot "
-#                          "be more then 30 characters" % engine)
-#
-#     if (any(engine in e for e in ['sqlserver', 'postgresql']) and
-#         len(password > 128)):
-#         raise ValueError("DBInstance of engine type %s Master Password cannot "
-#                          "be more then 128 characters" % engine)
-#
-#     if any(password in c for c in ['/', '"""', '@']):
-#         raise ValueError("DBInstance Master Password cannot contain character "
-#                          "%s" % c)
-#     return password
 
 class DBInstance(AWSObject):
     resource_type = "AWS::RDS::DBInstance"
