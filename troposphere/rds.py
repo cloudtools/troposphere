@@ -235,6 +235,34 @@ class DBInstance(AWSObject):
                 raise ValueError("AllocatedStorage must be no less than "
                                  "1/10th the provisioned Iops")
 
+        engine = self.properties['Engine'].lower()
+        password = self.properties['MasterUserPassword']
+        if len(password) < 8:
+            raise ValueError("DBInstance Master Password must contain at "
+                             "least 8 characters")
+
+        if (
+            any(engine in e for e in ['mysql', 'mariadb', 'aurora']) and
+            len(password > 41)
+        ):
+            raise ValueError("DBInstance of engine type %s Master Password "
+                             "cannot be more then 41 characters" % engine)
+
+        if ('oracle' in engine and len(password > 30)):
+            raise ValueError("DBInstance of engine type %s Master Password "
+                             "cannot be more then 30 characters" % engine)
+
+        if (
+            any(engine in e for e in ['sqlserver', 'postgresql']) and
+            len(password > 128)
+        ):
+            raise ValueError("DBInstance of engine type %s Master Password "
+                             "cannot be more then 128 characters" % engine)
+
+        if any(password in c for c in ['/', '"""', '@']):
+            raise ValueError("DBInstance Master Password cannot contain "
+                             '/, """, or @')
+
         return True
 
 
