@@ -1,3 +1,36 @@
+## 2.2.0 (2018-01-29)
+- Add AWS::Inspector
+- Add AWS::ServiceDiscovery
+- Add InputProcessingConfiguration to KinesisAnalytics::Application
+- EndpointConfiguration in ApiGateway::DomainName is not required
+- Allow setting Subnets and SubnetMappings properties on ELBv2 LoadBalancers (#934)
+- increase lambda memory limit to support up to 3008 MB (#936)
+- Stop validation if CodeBuild Source Type is a Ref (#940)
+- Added support for AutoPublishAlias to AWS::Serverless::Function as specified https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md (#941)
+- Add resource_type value and unit tests for guardduty `AWSObject`s (#945)
+- Added elasticsearch instance types for m4, c4 and r4 generations (#948)
+- Correct type in API Gateway GatewayResponse type (#950)
+- Fixes the lifecyclepolicy problem reported at Issue #953 (#954)
+- Add constants for EC2 M5 instance types (#955)
+- Adding support for Block Device Mapping V2 (#960)
+- Add support for Policy Document in SAM template. (#961)
+- Stab at documenting Troposphere basics (#963)
+- Adding HealthCheckGracePeriodSeconds into ECS Service (#966)
+- Add AllowedPattern to Parameter (#968)
+- Add long form parameter to to_yaml (#972)
+- Use S3.Filter for the serverless S3Event Filter property
+- Remove erroneous print in tests/test_serverless.py
+- Add FunctionForPackaging class to serverless
+- Add AssociationName to AWS::SSM::Association
+- Update S3::Bucket with 20180123 property changes
+- Add DBSubnetGroupName to AWS::RDS::DBSubnetGroup
+- Add ReservedConcurrentExecutions to AWS:Lambda:Function
+- Add StreamEncryption to AWS::Kinesis::Stream
+- Add LambdaOutput to KinesisAnalytics ApplicationOutput property
+- Update required fields in IoT TopicRule DynamoDBAction
+- Add validator for InstanceTenancy in EC2::VPC
+- Add CreditSpecification and ElasticGpuSpecifications to EC2::Instance
+
 ## 2.1.2 (2017-12-03)
 - In SpotFleet::SpotFleetRequestConfigData SpotPrice is optional
 - Add RoutingConfig to AWS::Lambda::Alias

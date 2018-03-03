@@ -112,6 +112,7 @@ class Association(AWSObject):
     resource_type = "AWS::SSM::Association"
 
     props = {
+        'AssociationName': (basestring, False),
         'DocumentVersion': (basestring, False),
         'InstanceId': (basestring, False),
         'Name': (basestring, True),
@@ -181,6 +182,7 @@ class Parameter(AWSObject):
     resource_type = "AWS::SSM::Parameter"
 
     props = {
+        'AllowedPattern': (basestring, False),
         'Description': (basestring, False),
         'Name': (basestring, False),
         'Type': (basestring, True),

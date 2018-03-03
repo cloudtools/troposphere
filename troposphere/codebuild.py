@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import integer, boolean
+from .validators import boolean, integer, positive_integer
 
 
 class SourceAuth(AWSProperty):
@@ -61,14 +61,16 @@ class EnvironmentVariable(AWSProperty):
     }
 
     def validate(self):
-        valid_types = [
-            'PARAMETER_STORE',
-            'PLAINTEXT',
-        ]
-        env_type = self.properties.get('Type')
-        if env_type not in valid_types:
-            raise ValueError('EnvironmentVariable Type: must be one of %s' %
-                             ','.join(valid_types))
+        if 'Type' in self.properties:
+            valid_types = [
+                'PARAMETER_STORE',
+                'PLAINTEXT',
+            ]
+            env_type = self.properties.get('Type')
+            if env_type not in valid_types:
+                raise ValueError(
+                    'EnvironmentVariable Type: must be one of %s' %
+                    ','.join(valid_types))
 
 
 class Environment(AWSProperty):
@@ -111,6 +113,8 @@ class Source(AWSProperty):
     props = {
         'Auth': (SourceAuth, False),
         'BuildSpec': (basestring, False),
+        'GitCloneDepth': (positive_integer, False),
+        'InsecureSsl': (boolean, False),
         'Location': (basestring, False),
         'Type': (basestring, True),
     }
@@ -155,6 +159,12 @@ class VpcConfig(AWSProperty):
     }
 
 
+class ProjectTriggers(AWSProperty):
+    props = {
+        'Webhook': (boolean, False),
+    }
+
+
 class Project(AWSObject):
     resource_type = "AWS::CodeBuild::Project"
 
@@ -170,5 +180,6 @@ class Project(AWSObject):
         'Source': (Source, True),
         'Tags': (Tags, False),
         'TimeoutInMinutes': (integer, False),
+        'Triggers': (ProjectTriggers, False),
         'VpcConfig': (VpcConfig, False),
     }

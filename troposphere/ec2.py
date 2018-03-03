@@ -143,6 +143,18 @@ class Placement(AWSProperty):
     }
 
 
+class CreditSpecification(AWSProperty):
+    props = {
+        'CPUCredits': (basestring, False),
+    }
+
+
+class ElasticGpuSpecification(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+    }
+
+
 class Ipv6Addresses(AWSHelperFn):
     def __init__(self, address):
         self.data = {
@@ -205,8 +217,10 @@ class Instance(AWSObject):
         'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
+        'CreditSpecification': (CreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
+        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
@@ -524,6 +538,13 @@ class VolumeAttachment(AWSObject):
     }
 
 
+def instance_tenancy(value):
+    valid = ['default', 'dedicated']
+    if value not in valid:
+        raise ValueError('InstanceTenancy needs to be one of %r' % valid)
+    return value
+
+
 class VPC(AWSObject):
     resource_type = "AWS::EC2::VPC"
 
@@ -531,7 +552,7 @@ class VPC(AWSObject):
         'CidrBlock': (basestring, True),
         'EnableDnsSupport': (boolean, False),
         'EnableDnsHostnames': (boolean, False),
-        'InstanceTenancy': (basestring, False),
+        'InstanceTenancy': (instance_tenancy, False),
         'Tags': ((Tags, list), False),
     }
 

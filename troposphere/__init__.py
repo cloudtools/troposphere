@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.1.2"
+__version__ = "2.2.0"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -82,6 +82,8 @@ def depends_on_helper(obj):
     """
     if isinstance(obj, AWSObject):
         return obj.title
+    elif isinstance(obj, list):
+        return list(map(depends_on_helper, obj))
     return obj
 
 
@@ -623,8 +625,8 @@ class Template(object):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
 
-    def to_yaml(self):
-        return cfn_flip.to_yaml(self.to_json())
+    def to_yaml(self, long_form=False):
+        return cfn_flip.to_yaml(self.to_json(), long_form)
 
 
 class Export(AWSHelperFn):

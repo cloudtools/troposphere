@@ -8,7 +8,13 @@ import types
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput
+from .s3 import Filter
 from .validators import exactly_one, positive_integer
+try:
+    from awacs.aws import PolicyDocument
+    policytypes = (dict, list, basestring, PolicyDocument)
+except ImportError:
+    policytypes = (dict, list, basestring)
 
 assert types  # silence pyflakes
 
@@ -18,17 +24,6 @@ def primary_key_type_validator(x):
     if x not in valid_types:
         raise ValueError("KeyType must be one of: %s" % ", ".join(valid_types))
     return x
-
-
-def policy_validator(x):
-    if isinstance(x, types.StringTypes):
-        return x
-    elif isinstance(x, types.ListType):
-        return x
-    else:
-        raise ValueError("Policies must refer to a managed policy, a list of "
-                         + "policies, an IAM policy document, or a list of IAM"
-                         + " policy documents")
 
 
 class DeadLetterQueue(AWSProperty):
@@ -64,7 +59,7 @@ class Function(AWSObject):
         'MemorySize': (validate_memory_size, False),
         'Timeout': (positive_integer, False),
         'Role': (basestring, False),
-        'Policies': (policy_validator, False),
+        'Policies': (policytypes, False),
         'Environment': (Environment, False),
         'VpcConfig': (VPCConfig, False),
         'Events': (dict, False),
@@ -74,6 +69,18 @@ class Function(AWSObject):
         'DeadLetterQueue': (DeadLetterQueue, False),
         'AutoPublishAlias': (basestring, False)
     }
+
+
+class FunctionForPackaging(Function):
+    """Render Function without requiring 'CodeUri'.
+
+    This exception to the Function spec is for use with the
+    `cloudformation/sam package` commands which add CodeUri automatically.
+    """
+
+    resource_type = Function.resource_type
+    props = Function.props.copy()
+    props['CodeUri'] = (props['CodeUri'][0], False)
 
 
 class Api(AWSObject):
@@ -118,7 +125,7 @@ class S3Event(AWSObject):
     props = {
         'Bucket': (basestring, True),
         'Events': (list, True),
-        'Filter': (basestring, False)
+        'Filter': (Filter, False)
     }
 
 
