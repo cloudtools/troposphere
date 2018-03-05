@@ -174,7 +174,7 @@ class DomainName(AWSObject):
     resource_type = "AWS::ApiGateway::DomainName"
 
     props = {
-        "CertificateArn": (basestring, True),
+        "CertificateArn": (basestring, False),
         "DomainName": (basestring, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "RegionalCertificateArn": (basestring, False),
