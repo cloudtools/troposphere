@@ -290,6 +290,7 @@ class RestApi(AWSObject):
     resource_type = "AWS::ApiGateway::RestApi"
 
     props = {
+        "ApiKeySourceType": (basestring, False),
         "BinaryMediaTypes": ([basestring], False),
         "Body": (dict, False),
         "BodyS3Location": (S3Location, False),
@@ -297,6 +298,7 @@ class RestApi(AWSObject):
         "Description": (basestring, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (basestring, False),
+        "MinimumCompressionSize": (positive_integer, False),
         "Name": (basestring, False),
         "Parameters": ([basestring], False),
     }
