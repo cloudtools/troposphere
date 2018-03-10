@@ -412,6 +412,14 @@ class GetAtt(AWSHelperFn):
         self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
 
 
+class GetCidr(AWSHelperFn):
+    def __init__(self, ipblock, count, sizemask=None):
+        if sizemask:
+            self.data = {'Fn::GetCidr': [ipblock, count, sizemask]}
+        else:
+            self.data = {'Fn::GetCidr': [ipblock, count]}
+
+
 class GetAZs(AWSHelperFn):
     def __init__(self, region=""):
         self.data = {'Fn::GetAZs': region}
