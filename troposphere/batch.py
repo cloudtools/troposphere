@@ -94,7 +94,7 @@ class JobDefinition(AWSObject):
         "Type": (basestring, True),
         "Parameters": (dict, True),
         "ContainerProperties": (ContainerProperties, False),
-        "JobDefinitionName": (basestring, True),
+        "JobDefinitionName": (basestring, False),
         "RetryStrategy": (RetryStrategy, False)
     }
 
