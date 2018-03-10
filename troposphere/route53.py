@@ -97,6 +97,7 @@ class HealthCheckConfiguration(AWSProperty):
         'IPAddress': (basestring, False),
         'MeasureLatency': (boolean, False),
         'Port': (network_port, False),
+        'Regions': ([basestring], False),
         'RequestInterval': (positive_integer, False),
         'ResourcePath': (basestring, False),
         'SearchString': (basestring, False),
