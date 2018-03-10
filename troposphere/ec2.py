@@ -683,6 +683,13 @@ class IamInstanceProfile(AWSProperty):
     }
 
 
+class SpotFleetTagSpecification(AWSProperty):
+    props = {
+        'ResourceType': (basestring, False),
+        'Tags': ((Tags, list), False),
+    }
+
+
 class LaunchSpecifications(AWSProperty):
     props = {
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
@@ -699,6 +706,7 @@ class LaunchSpecifications(AWSProperty):
         'SecurityGroups': ([SecurityGroups], False),
         'SpotPrice': (basestring, False),
         'SubnetId': (basestring, False),
+        'TagSpecification': (SpotFleetTagSpecification, False),
         'UserData': (basestring, False),
         'WeightedCapacity': (positive_integer, False),
     }
