@@ -352,6 +352,7 @@ class DBCluster(AWSObject):
         'AvailabilityZones': ([basestring], False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'DatabaseName': (basestring, False),
+        'DBClusterIdentifier': (basestring, False),
         'DBClusterParameterGroupName': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
         'Engine': (validate_engine, True),
