@@ -27,6 +27,28 @@ class IPSet(AWSObject):
     }
 
 
+class Master(AWSObject):
+    resource_type = "AWS::GuardDuty::Master"
+
+    props = {
+        'DetectorId': (basestring, True),
+        'InvitationId': (basestring, True),
+        'MasterId': (basestring, True),
+    }
+
+
+class Member(AWSObject):
+    resource_type = "AWS::GuardDuty::Member"
+
+    props = {
+        'DetectorId': (basestring, True),
+        'Email': (basestring, True),
+        'MemberId': (basestring, True),
+        'Message': (basestring, False),
+        'Status': (basestring, False),
+    }
+
+
 class ThreatIntelSet(AWSObject):
     resource_type = 'AWS::GuardDuty::ThreatIntelSet'
 
