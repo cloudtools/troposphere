@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (integer, boolean, s3_bucket_name, notification_type,
                          notification_event, json_checker, task_type,
                          operating_system, compliance_level)
@@ -129,6 +129,7 @@ class Document(AWSObject):
         # Need a better implementation of the SSM Document
         'Content': (dict, True),
         'DocumentType': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
