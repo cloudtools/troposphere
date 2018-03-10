@@ -1,3 +1,28 @@
+## 2.2.1 (2018-03-10)
+- type is not required for EnvironmentVariable (#975)
+- Properly handle list objects used with DependsOn (Fixes #982)
+- Explicitly convert allocated_storage to integer before using it in comparisons (#983)
+- Allow CreationPolicy override of props on WaitCondition (#988)
+- "JobDefinitionName" property in JobDefinition class is not required (#995)
+- ApiGateway::DomainName CertificateArn fix (#996)
+- Tags support for SSM documents #999 (#1000)
+- Add SSESpecification to DynamoDB::Table (#981)
+- Add GitCloneDepth and InsecureSsl to CodeBuild Source
+- Add Trippers property to CodeBuild::Project
+- Add aurora-mysql to list of valid RDS engines
+- Batch ContainerProperties is required
+- Add Regions to Route53 HealthCheckConfiguration
+- Add ClusterIdentifier to Redshift::Cluster
+- Add DBClusterIdentifier to RDS::DBCluster
+- Add TagSpecification to EC2::SpotFleet LaunchSpecifcations
+- Add DisableScaleIn to ApplicationAutoScaling
+- Add ApiKeySourceType and MinimumCompressionSize to ApiGateway::RestApi
+- Add AutoScalingGroupName to AutoScaling::AutoScalingGroup
+- Add AWS::ApiGateway::VpcLink
+- Add AWS::GuardDuty::Master and AWS::GuardDuty::Member
+- Add AWS::SES
+- Add GetCidr function for Fn::GetCidr
+
 ## 2.2.0 (2018-01-29)
 - Add AWS::Inspector
 - Add AWS::ServiceDiscovery
