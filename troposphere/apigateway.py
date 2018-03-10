@@ -409,3 +409,13 @@ class GatewayResponse(AWSObject):
         "RestApiId": (basestring, True),
         "StatusCode": (basestring, False)
     }
+
+
+class VpcLink(AWSObject):
+    resource_type = "AWS::ApiGateway::VpcLink"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'TargetArns': ([basestring], True),
+    }
