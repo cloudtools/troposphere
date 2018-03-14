@@ -231,9 +231,9 @@ class DBInstance(AWSObject):
                                  "Iops is set.")
             if not isinstance(allocated_storage, AWSHelperFn) and not \
                     isinstance(iops, AWSHelperFn) and \
-                    float(iops) / float(allocated_storage) > 10.0:
+                    float(iops) / float(allocated_storage) > 50.0:
                 raise ValueError("AllocatedStorage must be no less than "
-                                 "1/10th the provisioned Iops")
+                                 "1/50th the provisioned Iops")
 
         return True
 
