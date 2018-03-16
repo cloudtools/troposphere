@@ -118,6 +118,7 @@ class AutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
+        'AutoScalingGroupName': (basestring, False),
         'AvailabilityZones': (list, False),
         'Cooldown': (integer, False),
         'DesiredCapacity': (integer, False),

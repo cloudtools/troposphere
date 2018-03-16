@@ -204,6 +204,7 @@ Currently supported AWS resource types
 - AWS::Route53
 - AWS::S3
 - AWS::SDB
+- AWS::SES
 - AWS::SNS
 - AWS::SQS
 - AWS::SSM

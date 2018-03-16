@@ -174,7 +174,7 @@ class DomainName(AWSObject):
     resource_type = "AWS::ApiGateway::DomainName"
 
     props = {
-        "CertificateArn": (basestring, True),
+        "CertificateArn": (basestring, False),
         "DomainName": (basestring, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "RegionalCertificateArn": (basestring, False),
@@ -290,6 +290,7 @@ class RestApi(AWSObject):
     resource_type = "AWS::ApiGateway::RestApi"
 
     props = {
+        "ApiKeySourceType": (basestring, False),
         "BinaryMediaTypes": ([basestring], False),
         "Body": (dict, False),
         "BodyS3Location": (S3Location, False),
@@ -297,6 +298,7 @@ class RestApi(AWSObject):
         "Description": (basestring, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (basestring, False),
+        "MinimumCompressionSize": (positive_integer, False),
         "Name": (basestring, False),
         "Parameters": ([basestring], False),
     }
@@ -406,4 +408,14 @@ class GatewayResponse(AWSObject):
         "ResponseType": (validate_gateway_response_type, True),
         "RestApiId": (basestring, True),
         "StatusCode": (basestring, False)
+    }
+
+
+class VpcLink(AWSObject):
+    resource_type = "AWS::ApiGateway::VpcLink"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'TargetArns': ([basestring], True),
     }

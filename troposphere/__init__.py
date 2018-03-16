@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.2.0"
+__version__ = "2.2.1"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -410,6 +410,14 @@ class FindInMap(AWSHelperFn):
 class GetAtt(AWSHelperFn):
     def __init__(self, logicalName, attrName):  # noqa: N803
         self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
+
+
+class GetCidr(AWSHelperFn):
+    def __init__(self, ipblock, count, sizemask=None):
+        if sizemask:
+            self.data = {'Fn::GetCidr': [ipblock, count, sizemask]}
+        else:
+            self.data = {'Fn::GetCidr': [ipblock, count]}
 
 
 class GetAZs(AWSHelperFn):

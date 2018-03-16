@@ -1,6 +1,6 @@
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
-from troposphere import If, Join, Ref, Split, Sub, Template
+from troposphere import GetCidr, If, Join, Ref, Split, Sub, Template
 from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, Route, SecurityGroupRule
 from troposphere.s3 import Bucket
@@ -330,6 +330,21 @@ class TestName(unittest.TestCase):
         t = Template()
         resource = t.add_resource(Instance(name))
         self.assertEqual(resource.name, name)
+
+
+class TestGetCidr(unittest.TestCase):
+
+    def test_getcidr(self):
+        raw = GetCidr("10.1.10.1/24", 2)
+        actual = raw.to_dict()
+        expected = {'Fn::GetCidr': ["10.1.10.1/24", 2]}
+        self.assertEqual(expected, actual)
+
+    def test_getcidr_withsizemask(self):
+        raw = GetCidr("10.1.10.1/24", 2, 10)
+        actual = raw.to_dict()
+        expected = {'Fn::GetCidr': ["10.1.10.1/24", 2, 10]}
+        self.assertEqual(expected, actual)
 
 
 class TestSub(unittest.TestCase):
