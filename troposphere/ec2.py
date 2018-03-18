@@ -685,7 +685,7 @@ class IamInstanceProfile(AWSProperty):
 
 class SpotFleetTagSpecification(AWSProperty):
     props = {
-        'ResourceType': (basestring, False),
+        'ResourceType': (basestring, True),
         'Tags': ((Tags, list), False),
     }
 
