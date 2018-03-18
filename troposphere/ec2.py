@@ -706,7 +706,7 @@ class LaunchSpecifications(AWSProperty):
         'SecurityGroups': ([SecurityGroups], False),
         'SpotPrice': (basestring, False),
         'SubnetId': (basestring, False),
-        'TagSpecification': (SpotFleetTagSpecification, False),
+        'TagSpecifications': ([SpotFleetTagSpecification], False),
         'UserData': (basestring, False),
         'WeightedCapacity': (positive_integer, False),
     }
