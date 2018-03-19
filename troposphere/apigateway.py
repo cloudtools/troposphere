@@ -293,7 +293,7 @@ class RestApi(AWSObject):
         "ApiKeySourceType": (basestring, False),
         "BinaryMediaTypes": ([basestring], False),
         "Body": (dict, False),
-        "BodyS3Location": (S3Location, False),
+        "BodyS3Location": ((S3Location, basestring), False),
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
         "EndpointConfiguration": (EndpointConfiguration, False),

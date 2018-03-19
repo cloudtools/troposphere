@@ -81,7 +81,7 @@ class ApplicationVersion(AWSObject):
     props = {
         'ApplicationName': (basestring, True),
         'Description': (basestring, False),
-        'SourceBundle': (SourceBundle, False),
+        'SourceBundle': ((SourceBundle, basestring), False),
     }
 
 

@@ -135,7 +135,7 @@ class Function(AWSObject):
     resource_type = "AWS::Lambda::Function"
 
     props = {
-        'Code': (Code, True),
+        'Code': ((Code, basestring), True),
         'Description': (basestring, False),
         'DeadLetterConfig': (DeadLetterConfig, False),
         'Environment': (Environment, False),
