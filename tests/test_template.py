@@ -162,6 +162,69 @@ class TestAwsInterface(unittest.TestCase):
             },
         })
 
+    def test_enter_group(self):
+        t = Template()
+        t.add_parameter(Parameter('Param', Type='String'), label='Top level parameter label')
+
+        g1 = t.enter_group('Group 1')
+        g1.add_parameter(Parameter('Foo1', Type='String'))
+        g1.add_parameter(Parameter('Bar1', Type='String'), label='Group 1 parameter label')
+
+        g2 = t.enter_group('Group 2')
+        g2.add_parameter(Parameter('Foo2', Type='String'))
+        g2.add_parameter(Parameter('Bar2', Type='String'), label='Group 2 parameter label')
+
+        self.assertEquals(
+            t.to_dict(), {
+                'Parameters': {
+                    'Param': {
+                        'Type': 'String'
+                    },
+                    'Foo2': {
+                        'Type': 'String'
+                    },
+                    'Foo1': {
+                        'Type': 'String'
+                    },
+                    'Bar2': {
+                        'Type': 'String'
+                    },
+                    'Bar1': {
+                        'Type': 'String'
+                    }
+                },
+                'Metadata': {
+                    'AWS::CloudFormation::Interface': {
+                        'ParameterGroups': [
+                            {
+                                'Parameters': ['Foo1', 'Bar1'],
+                                'Label': {
+                                    'default': 'Group 1'
+                                }
+                            }, {
+                                'Parameters': ['Foo2', 'Bar2'],
+                                'Label': {
+                                    'default': 'Group 2'
+                                }
+                            }
+                        ],
+                        'ParameterLabels': {
+                            'Param': {
+                                'default': 'Top level parameter label'
+                            },
+                            'Bar2': {
+                                'default': 'Group 2 parameter label'
+                            },
+                            'Bar1': {
+                                'default': 'Group 1 parameter label'
+                            }
+                        }
+                    }
+                },
+                'Resources': {}
+            }
+        )
+
 
 if __name__ == '__main__':
     unittest.main()

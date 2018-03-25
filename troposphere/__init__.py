@@ -3,13 +3,13 @@
 #
 # See LICENSE file for full license.
 
-
 import cfn_flip
 import collections
 import json
 import re
 import sys
 import types
+import copy
 
 from . import validators
 
@@ -549,6 +549,31 @@ class Tags(AWSHelperFn):
         return [encode_to_dict(tag) for tag in self.tags]
 
 
+class TemplateGroup(object):
+
+    def __init__(self, template, group_name):
+        self.template = template
+        self.group_name = group_name
+        if group_name not in self.template.parameter_groups:
+            self.template.parameter_groups[group_name] = []
+
+        self.group = self.template.parameter_groups[group_name]
+
+    def add_parameter(self, parameter, label=None):
+        if isinstance(parameter, list):
+            for v in parameter:
+                self.group.append(v.title)
+        else:
+            self.group.append(parameter.title)
+
+        return self.template.add_parameter(parameter, label)
+
+    def __getattr__(self, name):
+        if name in self.__dict__:
+            return getattr(self, name)
+        return getattr(self.template, name)
+
+
 class Template(object):
     props = {
         'AWSTemplateFormatVersion': (basestring, False),
@@ -570,6 +595,9 @@ class Template(object):
         self.resources = {}
         self.version = None
         self.transform = None
+        self.parameter_groups = collections.OrderedDict()
+        self.parameter_labels = {}
+        self.group_order = []
 
     def add_description(self, description):
         self.description = description
@@ -606,9 +634,21 @@ class Template(object):
             raise ValueError('Maximum mappings %d reached' % MAX_MAPPINGS)
         self.mappings[name] = mapping
 
-    def add_parameter(self, parameter):
+    def enter_group(self, group_name):
+        return TemplateGroup(self, group_name)
+
+    def set_group_order(self, group_order):
+        self.group_order = group_order
+
+    def add_parameter(self, parameter, label=None):
         if len(self.parameters) >= MAX_PARAMETERS:
             raise ValueError('Maximum parameters %d reached' % MAX_PARAMETERS)
+        if label:
+            if isinstance(parameter, list):
+                for v in parameter:
+                    self.parameter_labels[v.title] = label
+            else:
+                self.parameter_labels[parameter.title] = label
         return self._update(self.parameters, parameter)
 
     def get_or_add_parameter(self, parameter):
@@ -635,10 +675,41 @@ class Template(object):
 
     def to_dict(self):
         t = {}
+
+        metadata = copy.deepcopy(self.metadata)
+        ordered_groups = list(self.group_order)
+        groups_in_stack = list(self.parameter_groups.keys())
+        ordered_groups += [
+            g for g in groups_in_stack if g not in ordered_groups
+        ]
+        ordered_groups = [
+            g for g in ordered_groups if g in groups_in_stack
+        ]
+        if len(ordered_groups) > 0 or len(self.parameter_labels) > 0:
+            metadata.update(
+                {
+                    'AWS::CloudFormation::Interface': {
+                        'ParameterGroups': [
+                            {
+                                'Label': {
+                                    'default': group
+                                },
+                                'Parameters': self.parameter_groups[group],
+                            } for group in ordered_groups
+                        ],
+                        'ParameterLabels':
+                        dict([(parameter, {
+                            'default': label
+                        }) for parameter, label in
+                            self.parameter_labels.items()]),
+                    }
+                }
+            )
+
         if self.description:
             t['Description'] = self.description
-        if self.metadata:
-            t['Metadata'] = self.metadata
+        if metadata:
+            t['Metadata'] = metadata
         if self.conditions:
             t['Conditions'] = self.conditions
         if self.mappings:
