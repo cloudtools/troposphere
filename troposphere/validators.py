@@ -287,7 +287,8 @@ def compliance_level(level):
 
 
 def operating_system(os):
-    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX', 'SUSE']
+    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX',
+                'SUSE']
     if os not in valid_os:
         raise ValueError(
             'OperatingSystem must be one of: "%s"' % (
