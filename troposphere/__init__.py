@@ -412,12 +412,12 @@ class GetAtt(AWSHelperFn):
         self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
 
 
-class GetCidr(AWSHelperFn):
+class Cidr(AWSHelperFn):
     def __init__(self, ipblock, count, sizemask=None):
         if sizemask:
-            self.data = {'Fn::GetCidr': [ipblock, count, sizemask]}
+            self.data = {'Fn::Cidr': [ipblock, count, sizemask]}
         else:
-            self.data = {'Fn::GetCidr': [ipblock, count]}
+            self.data = {'Fn::Cidr': [ipblock, count]}
 
 
 class GetAZs(AWSHelperFn):

@@ -201,6 +201,7 @@ class Instance(AWSObject):
         'AutoScalingType': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'EbsOptimized': (boolean, False),
         'ElasticIps': ([basestring], False),
         'Hostname': (basestring, False),
         'InstallUpdatesOnBoot': (boolean, False),
@@ -213,6 +214,7 @@ class Instance(AWSObject):
         'SubnetId': (basestring, False),
         'Tenancy': (basestring, False),
         'TimeBasedAutoScaling': (TimeBasedAutoScaling, False),
+        'VirtualizationType': (basestring, False),
         'Volumes': ([basestring], False),
     }
 
