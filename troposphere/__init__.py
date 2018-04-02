@@ -130,6 +130,14 @@ class BaseAWSObject(object):
             self.template.add_resource(self)
 
     def __getattr__(self, name):
+        # If this object is pickled, then __getattr__ will cause an infinite loop when
+        # pickle invokes this object to look for __setstate__ before attributes is
+        # "loaded" into this object. Therefore, short circuit the rest of this call
+        # if attributes is not loaded yet.
+        # See http://grokbase.com/t/python/python-bugs-list/092sczhjwk/issue5370-unpickling-vs-getattr
+        # for source of this change.
+        if "attributes" not in self.__dict__:
+            raise AttributeError(name)
         try:
             if name in self.attributes:
                 return self.resource[name]
