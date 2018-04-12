@@ -104,8 +104,6 @@ class OrganizationAggregationSource(AWSProperty):
 
     }
 
-#Sources or Source? I think its sources
-#Do they need to be in lists?
 class AccountAggregationSources(AWSProperty):
     props = {
         'AllAwsRegions': (boolean, False),
