@@ -101,7 +101,6 @@ class OrganizationAggregationSource(AWSProperty):
         'AllAwsRegions': (boolean, False),
         'AwsRegions': ([basestring], False),
         'RoleARN': (basestring, True),
-
     }
 
 class AccountAggregationSources(AWSProperty):
@@ -109,7 +108,6 @@ class AccountAggregationSources(AWSProperty):
         'AccountIds': ([basestring], True),
         'AllAwsRegions': (boolean, False),
         'AwsRegions': ([basestring], False),
-
     }    
 
 class ConfigurationAggregator(AWSObject):
