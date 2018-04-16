@@ -181,7 +181,7 @@ class HealthCheck(AWSProperty):
     props = {
         'Command': ([basestring], True),
         'Interval': (integer, False),
-        'Timeout': (integer, True),
+        'Timeout': (integer, False),
         'Retries': (integer, False),
         'StartPeriod': (integer, False),
     }
