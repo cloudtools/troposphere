@@ -127,6 +127,13 @@ C4_2XLARGE = 'c4.2xlarge'
 C4_4XLARGE = 'c4.4xlarge'
 C4_8XLARGE = 'c4.8xlarge'
 
+C5_LARGE = 'c5.large'
+C5_XLARGE = 'c5.xlarge'
+C5_2XLARGE = 'c5.2xlarge'
+C5_4XLARGE = 'c5.4xlarge'
+C5_12XLARGE = 'c5.9xlarge'
+C5_24XLARGE = 'c5.18xlarge'
+
 R3_LARGE = 'r3.large'
 R3_XLARGE = 'r3.xlarge'
 R3_2XLARGE = 'r3.2xlarge'
