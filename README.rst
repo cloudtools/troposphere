@@ -156,6 +156,7 @@ Currently supported AWS resource types
 
 - AWS::ApiGateway
 - AWS::ApplicationAutoScaling
+- AWS::AppSync
 - AWS::Athena
 - AWS::AutoScaling
 - AWS::Batch
