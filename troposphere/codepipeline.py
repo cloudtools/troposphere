@@ -16,6 +16,10 @@ class ActionTypeID(AWSProperty):
     }
 
 
+class ActionTypeId(ActionTypeID):
+    pass
+
+
 class ArtifactDetails(AWSProperty):
     props = {
         'MaximumCount': (integer, True),
