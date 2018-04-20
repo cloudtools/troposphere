@@ -196,9 +196,9 @@ class DBInstance(AWSObject):
              'MasterUserPassword' not in self.properties) and \
                 ('DBClusterIdentifier' not in self.properties):
             raise ValueError(
-                'Either (MasterUsername and MasterUserPassword) or'
-                ' DBSnapshotIdentifier are required in type '
-                'AWS::RDS::DBInstance.'
+                r"Either (MasterUsername and MasterUserPassword) or"
+                r" DBSnapshotIdentifier are required in type "
+                r"AWS::RDS::DBInstance."
             )
 
         if 'KmsKeyId' in self.properties and \

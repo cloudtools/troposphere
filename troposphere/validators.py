@@ -323,8 +323,8 @@ def vpn_tunnel_inside_cidr(cidr):
         '169.254.169.252/30'
     ]
     cidr_match_re = compile(
-        r'^169\.254\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)'
-        '\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\/30$'
+        r"^169\.254\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)"
+        r"\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\/30$"
     )
     if cidr in reserved_cidrs:
         raise ValueError(
