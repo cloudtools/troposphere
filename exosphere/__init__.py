@@ -74,9 +74,9 @@ def encode_to_dict(obj):
 
 
 def depends_on_helper(obj):
-    """ Handles using .title if the given object is a troposphere resource.
+    """ Handles using .title if the given object is a exosphere resource.
 
-    If the given object is a troposphere resource, use the `.title` attribute
+    If the given object is a exosphere resource, use the `.title` attribute
     of that resource. If it's a string, just use the string. This should allow
     more pythonic use of DependsOn.
     """
@@ -373,7 +373,7 @@ class UpdatePolicy(BaseAWSObject):
     def __init__(self, title, **kwargs):
         raise DeprecationWarning(
             "This UpdatePolicy class is deprecated, please switch to using "
-            "the more general UpdatePolicy in troposphere.policies.\n"
+            "the more general UpdatePolicy in exosphere.policies.\n"
         )
 
 

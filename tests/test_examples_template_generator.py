@@ -3,7 +3,7 @@ import re
 import unittest
 import json
 
-from troposphere.template_generator import TemplateGenerator
+from exosphere.template_generator import TemplateGenerator
 
 try:
     u = unicode

@@ -2,7 +2,7 @@ import collections
 import importlib
 import pkgutil
 import unittest
-from troposphere import AWSObject
+from exosphere import AWSObject
 
 
 class TestIntTypeShouldNotBeUsed(unittest.TestCase):
@@ -45,7 +45,7 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
         return [
             pkg_name
             for importer, pkg_name, is_pkg in pkgutil.walk_packages(dirname)
-            if not is_pkg and pkg_name.startswith('troposphere')
+            if not is_pkg and pkg_name.startswith('exosphere')
         ]
 
     def _import_all_modules(self):

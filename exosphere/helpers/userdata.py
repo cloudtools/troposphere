@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from troposphere import Base64, Join
+from exosphere import Base64, Join
 
 
 def from_file(filepath, delimiter='', blanklines=False):
@@ -13,13 +13,13 @@ def from_file(filepath, delimiter='', blanklines=False):
 
     :type delimiter: string
     :param: delimiter
-    Delimiter to use with the troposphere.Join().
+    Delimiter to use with the exosphere.Join().
 
     :type blanklines: boolean
     :param blanklines
     If blank lines shoud be ignored
 
-    rtype: troposphere.Base64
+    rtype: exosphere.Base64
     :return The base64 representation of the file.
     """
 
