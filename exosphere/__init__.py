@@ -1,9 +1,3 @@
-# Copyright (c) 2012-2017, Mark Peek <mark@peek.org>
-# All rights reserved.
-#
-# See LICENSE file for full license.
-
-
 import cfn_flip
 import collections
 import json
