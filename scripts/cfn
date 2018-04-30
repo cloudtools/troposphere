@@ -12,7 +12,7 @@ except ImportError:
     print("boto 2.8.0+ is required")
     sys.exit(1)
 
-from exosphere.utils import tail
+from ionosphere.utils import tail
 
 
 def upload_template_to_s3(conn, region, bucket_name, key_name, template):

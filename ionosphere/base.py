@@ -3,7 +3,7 @@ import re
 
 import cfn_flip as cfn_flip
 
-from exosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators
+from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators
 
 # Template Limits
 MAX_VARIABLES = 256

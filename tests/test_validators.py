@@ -1,14 +1,14 @@
 import unittest
-from exosphere import Parameter, Ref
-from exosphere.validators import boolean, integer, integer_range
-from exosphere.validators import positive_integer, network_port
-from exosphere.validators import tg_healthcheck_port
-from exosphere.validators import s3_bucket_name, encoding, status
-from exosphere.validators import iam_path, iam_names, iam_role_name
-from exosphere.validators import iam_group_name, iam_user_name, elb_name
-from exosphere.validators import mutually_exclusive, notification_type
-from exosphere.validators import notification_event, task_type
-from exosphere.validators import compliance_level, operating_system
+from ionosphere import Parameter, Ref
+from ionosphere.validators import boolean, integer, integer_range
+from ionosphere.validators import positive_integer, network_port
+from ionosphere.validators import tg_healthcheck_port
+from ionosphere.validators import s3_bucket_name, encoding, status
+from ionosphere.validators import iam_path, iam_names, iam_role_name
+from ionosphere.validators import iam_group_name, iam_user_name, elb_name
+from ionosphere.validators import mutually_exclusive, notification_type
+from ionosphere.validators import notification_event, task_type
+from ionosphere.validators import compliance_level, operating_system
 
 
 class TestValidators(unittest.TestCase):

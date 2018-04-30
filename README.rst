@@ -1,5 +1,5 @@
 ===========
-exosphere
+ionosphere
 ===========
 
 .. image:: https://img.shields.io/pypi/l/troposphere.svg
@@ -9,9 +9,9 @@ exosphere
 About
 =====
 
-exosphere - library to create `Azure Resource Manager templates`_ descriptions (exosphere is porting of troposphere) 
+ionosphere - library to create `Azure Resource Manager templates`_ descriptions (ionosphere is porting of troposphere)
 
-The exosphere library allows for easier creation of the Azure Resource Manager templates 
+The ionosphere library allows for easier creation of the Azure Resource Manager templates
 JSON by writing Python code to describe the Azure resources. 
 
 To facilitate catching ARM templates or JSON errors early the library has
