@@ -2,11 +2,6 @@ import os
 from setuptools import setup
 
 
-def version():
-    with open(os.path.join('version.txt')) as version_file:
-        return version_file.read().strip()
-
-
 def readme():
     with open('README.rst') as f:
         return f.read()
@@ -14,7 +9,7 @@ def readme():
 
 setup(
     name='ionosphere',
-    version=version(),
+    version="0.0.1",
     description="Azure Resource Manager Template creation library",
     long_description=readme(),
     author="Mark Peek",
