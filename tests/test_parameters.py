@@ -1,6 +1,6 @@
 import unittest
 
-from troposphere import Parameter, Ref
+from exosphere import Parameter, Ref
 
 
 class TestInitArguments(unittest.TestCase):

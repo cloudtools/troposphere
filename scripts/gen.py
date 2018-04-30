@@ -2,7 +2,7 @@ import argparse
 import json
 
 
-# Python code generator to create new troposphere classes from the
+# Python code generator to create new exosphere classes from the
 # AWS resource specification.
 #
 # Todo:

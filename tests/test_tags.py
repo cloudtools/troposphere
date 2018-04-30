@@ -1,6 +1,6 @@
 import unittest
-from troposphere import Tags
-from troposphere.autoscaling import Tags as ASTags
+from exosphere import Tags
+from exosphere.autoscaling import Tags as ASTags
 
 
 class TestTags(unittest.TestCase):

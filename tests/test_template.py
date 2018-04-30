@@ -1,7 +1,7 @@
 import unittest
 
-from troposphere import Template, Parameter, Output
-from troposphere.s3 import Bucket
+from exosphere import Template, Parameter, Output
+from exosphere.s3 import Bucket
 
 # Template Limits
 MAX_MAPPINGS = 100

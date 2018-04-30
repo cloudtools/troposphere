@@ -1,6 +1,6 @@
 import unittest
-from troposphere import Template, Output, Ref
-from troposphere import s3
+from exosphere import Template, Output, Ref
+from exosphere import s3
 
 
 s3_bucket_yaml = """\

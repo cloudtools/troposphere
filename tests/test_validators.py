@@ -1,14 +1,14 @@
 import unittest
-from troposphere import Parameter, Ref
-from troposphere.validators import boolean, integer, integer_range
-from troposphere.validators import positive_integer, network_port
-from troposphere.validators import tg_healthcheck_port
-from troposphere.validators import s3_bucket_name, encoding, status
-from troposphere.validators import iam_path, iam_names, iam_role_name
-from troposphere.validators import iam_group_name, iam_user_name, elb_name
-from troposphere.validators import mutually_exclusive, notification_type
-from troposphere.validators import notification_event, task_type
-from troposphere.validators import compliance_level, operating_system
+from exosphere import Parameter, Ref
+from exosphere.validators import boolean, integer, integer_range
+from exosphere.validators import positive_integer, network_port
+from exosphere.validators import tg_healthcheck_port
+from exosphere.validators import s3_bucket_name, encoding, status
+from exosphere.validators import iam_path, iam_names, iam_role_name
+from exosphere.validators import iam_group_name, iam_user_name, elb_name
+from exosphere.validators import mutually_exclusive, notification_type
+from exosphere.validators import notification_event, task_type
+from exosphere.validators import compliance_level, operating_system
 
 
 class TestValidators(unittest.TestCase):
