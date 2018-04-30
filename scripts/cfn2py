@@ -49,12 +49,12 @@ def do_header(d):
     """Output a stock header for the new Python script and also try to
     figure out the Resource imports needed by the template.
     """
-    print 'from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output, If, And, Not, Or, Equals, Condition'
-    print 'from troposphere import Parameter, Ref, Tags, Template'
-    print 'from troposphere.cloudformation import Init'
-    print 'from troposphere.cloudfront import Distribution, DistributionConfig'
-    print 'from troposphere.cloudfront import Origin, DefaultCacheBehavior'
-    print 'from troposphere.ec2 import PortRange'
+    print 'from ionosphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output, If, And, Not, Or, Equals, Condition'
+    print 'from ionosphere import Parameter, Ref, Tags, Template'
+    print 'from ionosphere.cloudformation import Init'
+    print 'from ionosphere.cloudfront import Distribution, DistributionConfig'
+    print 'from ionosphere.cloudfront import Origin, DefaultCacheBehavior'
+    print 'from ionosphere.ec2 import PortRange'
 
     # Loop over the resources to find imports
     if 'Resources' in d:
@@ -64,7 +64,7 @@ def do_header(d):
             (mod, tropo_object) = generate_troposphere_object(v['Type'])
             if tropo_object not in seen:
                 seen.append(tropo_object)
-                print 'from troposphere.%s import %s' % (mod, additional_imports(tropo_object))
+                print 'from ionosphere.%s import %s' % (mod, additional_imports(tropo_object))
     print
     print
     print "t = Template()"
@@ -122,7 +122,7 @@ def map_module(mod):
 
 
 def generate_troposphere_object(typename):
-    """Try to determine the troposphere object to create from the Type
+    """Try to determine the ionosphere object to create from the Type
     specification from the Resource being converted.
     """
     t = typename.split(':')
