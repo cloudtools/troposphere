@@ -2,12 +2,6 @@
 troposphere
 ===========
 
-.. image:: https://img.shields.io/pypi/v/troposphere.svg
-    :target: https://pypi.python.org/pypi/troposphere
-
-.. image:: https://travis-ci.org/cloudtools/troposphere.png?branch=master
-    :target: https://travis-ci.org/cloudtools/troposphere
-
 .. image:: https://img.shields.io/pypi/l/troposphere.svg
     :target: https://opensource.org/licenses/BSD-2-Clause
 
@@ -15,7 +9,7 @@ troposphere
 About
 =====
 
-troposphere - library to create `AWS CloudFormation`_ descriptions
+exoposphere - library to create `AWS CloudFormation`_ descriptions
 
 The troposphere library allows for easier creation of the `AWS CloudFormation
 JSON`_ by writing Python code to describe the AWS resources. troposphere also
