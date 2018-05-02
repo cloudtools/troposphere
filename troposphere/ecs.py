@@ -99,6 +99,7 @@ class Service(AWSObject):
         'PlatformVersion': (basestring, False),
         'ServiceName': (basestring, False),
         'TaskDefinition': (basestring, True),
+        'ServiceRegistries': ([dict], False),
     }
 
 
