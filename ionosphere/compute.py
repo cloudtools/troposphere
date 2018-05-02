@@ -69,7 +69,7 @@ class StorageProfile(ARMProperty):
 
 class WindowsConfiguration(ARMProperty):
     props = {
-        'provisionVMAgent': (bool, False),
+        'provisionVMAgent': (bool, False),  # default is True
         'enableAutomaticUpdates': (bool, False),
         'timeZone': (str, False),
         # 'additionalUnattendContent': (str, False),  # todo add support

@@ -12,30 +12,25 @@ MAX_PARAMETERS = 256
 MAX_RESOURCES = 800
 PARAMETER_TITLE_MAX = 255
 
-valid_names_azure = re.compile(r'^[a-zA-Z0-9_]+$')
+valid_names_azure = re.compile(r'^[a-zA-Z0-9_-]+$')
 
 
 class ARMTemplate(object):
     props = {
         '$schema': (str, False),
         'contentVersion': (str, False),
-        'description': (str, False),
         'variables': (str, False),
         'parameters': (dict, False),
-        'resources': (dict, False),
+        'resources': (dict, True),
         'outputs': (dict, False),
     }
 
-    def __init__(self, Description=None, ContentVersion="1.0.0.0"):
-        self.contentVersion = ContentVersion
-        self.description = Description
+    def __init__(self, contentVersion="1.0.0.0"):
+        self.contentVersion = contentVersion
         self.variables = []
         self.parameters = {}
         self.resources = []
         self.outputs = {}
-
-    def add_description(self, description):
-        self.description = description
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
@@ -100,8 +95,6 @@ class ARMTemplate(object):
 
     def to_dict(self):
         t = {}
-        if self.description:
-            t['description'] = self.description
 
         if self.outputs:
             t['outputs'] = self.outputs

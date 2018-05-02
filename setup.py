@@ -1,4 +1,3 @@
-import os
 from setuptools import setup
 
 
@@ -9,7 +8,7 @@ def readme():
 
 setup(
     name='ionosphere',
-    version="0.0.1",
+    version="0.0.4",
     description="Azure Resource Manager Template creation library",
     long_description=readme(),
     author="Mark Peek",

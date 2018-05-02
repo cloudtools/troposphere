@@ -41,7 +41,7 @@ class SecurityRule(ARMObject):
         'protocol': (str, True),  # todo add valiadtion on valid values: 'Tcp', 'Udp', and '*'
         'sourcePortRange': (str, False),  # todo add validation for all 'range' props
         'destinationPortRange': (str, False),
-        'sourceAddressPrefix': (str, False),
+        'sourceAddressPrefix': (str, False),  # only one of sourceAddressPrefix, sourceAddressPrefixes, sourceApplicationSecurityGroups should be non empty
         'sourceAddressPrefixes': ((list, str), False),
         # 'sourceApplicationSecurityGroups': (str, False),  # todo implement
         'destinationAddressPrefix': (str, False),
@@ -126,7 +126,16 @@ class NetworkInterface(ARMObject):
     props = {
         'virtualMachine': (SubResource, False),
         'networkSecurityGroup': ((SubResource, NetworkSecurityGroup), False),
-        'ipConfigurations': ((list, NetworkInterfaceIPConfiguration), False),
+        'ipConfigurations': (list, True),  # type: list[NetworkInterfaceIPConfiguration]
         'dnsSettings': (NetworkInterfaceDnsSettings, False),
         'tags': (dict, False)
     }
+
+    def validate(self):
+        # validate ipConfigurations list item types
+        if self.properties['ipConfigurations']:
+            ip_confs = self.properties['ipConfigurations']
+            for ip_conf in ip_confs:
+                if not isinstance(ip_conf, NetworkInterfaceIPConfiguration):
+                    raise ValueError("ipConfigurations in NetworkInterface must contain "
+                                     "NetworkInterfaceIPConfiguration objects")
