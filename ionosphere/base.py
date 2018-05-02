@@ -179,6 +179,12 @@ class ARMObject(AWSObject):
             self._add_dependency(dependsOn)
         return self
 
+    def _move_prop_to_root(self, key):
+        # move sku to root
+        if key in self.properties:
+            self.resource[key] = self.properties[key]
+            del self.properties[key]
+
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
             self.resource['dependsOn'].append(dependency.Ref())
@@ -189,7 +195,9 @@ class ARMObject(AWSObject):
 
 
 class ARMProperty(AWSProperty):
-    pass
+    def validate_title(self):
+        if not valid_names_azure.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
 
 
 class ARMRootProperty(ARMProperty):
@@ -278,3 +286,9 @@ class ARMParameter(Parameter):
                 if p in self.properties:
                     raise ValueError("%s can only be used with parameters of "
                                      "the Number type." % p)
+
+
+class SubResource(ARMProperty):
+    props = {
+        'id': (str, True),
+    }

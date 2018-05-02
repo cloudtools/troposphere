@@ -1,4 +1,4 @@
-from base import ARMObject, ARMProperty
+from base import ARMObject, ARMProperty, SubResource
 
 
 class AddressSpace(ARMProperty):
@@ -52,12 +52,6 @@ class SecurityRule(ARMObject):
         'access': (str, True),  # todo add validation on values: 'Allow' and 'Deny'
         'priority': (int, False),
         'direction': (str, True)  # todo add validation on values: 'Inbound' and 'Outbound'
-    }
-
-
-class SubResource(ARMProperty):
-    props = {
-        'id': (str, False),
     }
 
 

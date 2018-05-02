@@ -4,8 +4,8 @@ from base import ARMObject, ARMRootProperty, ARMProperty
 class Sku(ARMRootProperty):
     props = {
         'name': (str, True)  # todo - add validation: Gets or sets the sku name.
-                             # todo - Required for account creation; optional for update
-                             # todo - values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS
+        # todo - Required for account creation; optional for update
+        # todo - values: Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS
     }
 
 
@@ -56,10 +56,6 @@ class StorageAccount(ARMObject):
         del self.properties['kind']
         del self.props['kind']
 
-
     def to_dict(self):
-        # move sku to root
-        if 'sku' in self.properties:
-            self.resource['sku'] = self.properties['sku']
-            del self.properties['sku']
+        self._move_prop_to_root('sku')
         return ARMObject.to_dict(self)
