@@ -1,5 +1,6 @@
 import validators
 from base import ARMObject, ARMRootProperty, ARMProperty, SubResource
+from network import BackendAddressPoolRef, ProbeRef
 
 
 class Plan(ARMRootProperty):
@@ -254,7 +255,7 @@ class VirtualMachineScaleSetIPConfiguration(ARMObject):
         'publicIPAddressConfiguration': (VirtualMachineScaleSetPublicIPAddressConfiguration, False),
         'privateIPAddressVersion': (SubResource, False),  # Possible values are: 'IPv4' and 'IPv6'
         'applicationGatewayBackendAddressPools': ([SubResource], False),
-        'loadBalancerBackendAddressPools': ([SubResource], False),
+        'loadBalancerBackendAddressPools': ([BackendAddressPoolRef], False),
         'loadBalancerInboundNatPools': ([SubResource], False)
     }
 
@@ -278,7 +279,7 @@ class VirtualMachineScaleSetNetworkConfiguration(ARMObject):
 
 class VirtualMachineScaleSetNetworkProfile(ARMProperty):
     props = {
-        'healthProbe': (SubResource, False),
+        'healthProbe': (ProbeRef, False),  # this feature is in preview and requires special feature
         'networkInterfaceConfigurations': ([VirtualMachineScaleSetNetworkConfiguration], False)
     }
 

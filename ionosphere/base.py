@@ -3,7 +3,7 @@ import re
 
 import cfn_flip as cfn_flip
 
-from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators
+from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators, AWSHelperFn
 
 # Template Limits
 MAX_VARIABLES = 256
@@ -292,3 +292,24 @@ class SubResource(ARMProperty):
     props = {
         'id': (str, True),
     }
+
+
+class SubResourceRef(AWSHelperFn):
+    def __init__(self, root_resource, sub_resource, root, child):
+        sub_resource_ref = self._build_sub_resource_ref(root_resource, sub_resource)
+        root_name = self._get_title(root)
+        child_name = self._get_title(child)
+        self.data = {'id': "[resourceId('{0}', '{1}', '{2}')]".format(sub_resource_ref, root_name, child_name)}
+
+    def _build_sub_resource_ref(self, root_resource, sub_resource):
+        root_resource_type = self._get_resource_type(root_resource)
+        sub_resource_type = self._get_resource_type(sub_resource)
+        return "{0}/{1}".format(root_resource_type, sub_resource_type)
+
+    def _get_resource_type(self, r):
+        return r if isinstance(r, str) else r.resource_type
+
+    def _get_title(self, obj):
+        if isinstance(obj, str):
+            return obj
+        return obj.title

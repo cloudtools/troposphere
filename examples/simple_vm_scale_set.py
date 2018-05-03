@@ -33,7 +33,7 @@ vm_scale_set = VirtualMachineScaleSets('my_scale_set',
                                        # plan=Plan(),
                                        sku=Sku(name='Standard_A1', tier='Standard', capacity=3),
                                        overprovision=True,
-                                       upgradePolicy=UpgradePolicy(mode='Automatic'),
+                                       upgradePolicy=UpgradePolicy(mode='Manual'),
                                        virtualMachineProfile=ss_vm_prof).with_depends_on(vnet)
 
 template.add_resource([vm_scale_set, vnet])
