@@ -10,17 +10,6 @@ MAX_PARAMETERS = 256
 MAX_RESOURCES = 800
 
 
-class TestInitArguments(unittest.TestCase):
-    def test_description_default(self):
-        template = ARMTemplate()
-        self.assertIsNone(template.description)
-
-    def test_description(self):
-        value = 'foo'
-        template = ARMTemplate(Description=value)
-        self.assertEqual(template.description, value)
-
-
 class TestValidate(unittest.TestCase):
     def test_max_parameters(self):
         template = ARMTemplate()

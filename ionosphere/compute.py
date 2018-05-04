@@ -47,7 +47,7 @@ class ManagedDiskParameters(ARMProperty):
 
     def validate(self):
         if 'storageAccountType' in self.properties:
-            if ('Standard_LRS', 'Premium_LRS') not in self.properties['storageAccountType']:
+            if self.properties['storageAccountType'] not in ['Standard_LRS', 'Premium_LRS']:
                 raise ValueError('storageAccountType - Possible values are: Standard_LRS or Premium_LRS')
 
 

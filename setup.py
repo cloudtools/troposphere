@@ -19,7 +19,7 @@ setup(
     scripts=['scripts/cfn', 'scripts/cfn2py'],
     install_requires=["cfn_flip>=0.2.5"],
     test_suite="tests",
-    tests_require=["awacs"],
+    tests_require=[""],
     extras_require={'policy': ['awacs']},
     use_2to3=True,
 )
