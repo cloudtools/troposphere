@@ -46,6 +46,7 @@ class Member(AWSObject):
         'MemberId': (basestring, True),
         'Message': (basestring, False),
         'Status': (basestring, False),
+        'DisableEmailNotification': (bool, False),
     }
 
 
