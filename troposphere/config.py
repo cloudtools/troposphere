@@ -65,6 +65,13 @@ class ConfigRule(AWSObject):
         'Source': (Source, True),
     }
 
+class AggregationAuthorization(AWSObject):
+    resource_type = "AWS::Config::AggregationAuthorization"
+
+    props = {
+        'AuthorizedAccountId': (basestring, True),
+        'AuthorizedAwsRegion': (basestring, True),
+    }
 
 class AggregationAuthorization(AWSObject):
     resource_type = "AWS::Config::AggregationAuthorization"
@@ -125,6 +132,28 @@ class ConfigSnapshotDeliveryProperties(AWSProperty):
         'DeliveryFrequency': (basestring, False),
     }
 
+class OrganizationAggregationSource(AWSProperty):
+    props = {
+        'AllAwsRegions': (boolean, False),
+        'AwsRegions': ([basestring], False),
+        'RoleARN': (basestring, True),
+    }
+
+class AccountAggregationSources(AWSProperty):
+    props = {
+        'AccountIds': ([basestring], True),
+        'AllAwsRegions': (boolean, False),
+        'AwsRegions': ([basestring], False),
+    }    
+
+class ConfigurationAggregator(AWSObject):
+    resource_type = "AWS::Config::ConfigurationAggregator"
+
+    props = {
+        'AccountAggregationSources': (AccountAggregationSources, False)
+        'ConfigurationAggregatorName': (basestring, True),
+        'OrganizationAggregationSource': (OrganizationAggregationSource, False),
+    }
 
 class DeliveryChannel(AWSObject):
     resource_type = "AWS::Config::DeliveryChannel"
