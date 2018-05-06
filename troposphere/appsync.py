@@ -60,6 +60,15 @@ class LogConfig(AWSProperty):
     }
 
 
+class OpenIDConnectConfig(AWSProperty):
+    props = {
+        'AuthTTL': (float, False),
+        'ClientId': (basestring, False),
+        'IatTTL': (float, False),
+        'Issuer': (basestring, True),
+    }
+
+
 class UserPoolConfig(AWSProperty):
     props = {
         'AppIdClientRegex': (basestring, False),
@@ -76,6 +85,7 @@ class GraphQLApi(AWSObject):
         'AuthenticationType': (basestring, True),
         'LogConfig': (LogConfig, False),
         'Name': (basestring, True),
+        'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'UserPoolConfig': (UserPoolConfig, False),
     }
 
