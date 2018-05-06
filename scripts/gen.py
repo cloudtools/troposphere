@@ -14,7 +14,7 @@ import json
 # - Need to figure out the correct Timestamp type
 
 copyright_header = """\
-# Copyright (c) 2012-2017, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2018, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -71,7 +71,10 @@ def output_class(class_name, properties, resource_name=None):
     # Output the props dict
     print '    props = {'
     for key, value in sorted(properties.iteritems()):
-        value_type = get_type(value)
+        if key == 'Tags':
+            value_type = "Tags"
+        else:
+            value_type = get_type(value)
 
         # Wrap long names for pycodestyle
         if len(key) + len(value_type) < 55:
@@ -89,6 +92,10 @@ def process_file(filename):
 
     if 'PropertyTypes' in j:
         for property_name, property_dict in j['PropertyTypes'].items():
+            if property_name == "Tag":
+                print "from troposphere import Tags"
+                print
+                continue
             class_name = property_name.split('.')[1]
             properties = property_dict['Properties']
             output_class(class_name, properties)
