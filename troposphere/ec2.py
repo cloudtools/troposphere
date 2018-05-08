@@ -802,7 +802,7 @@ class TagSpecifications(AWSProperty):
         'Tags': ((Tags, list), False)
     }
 
-    
+
 class SpotOptions(AWSProperty):
     props = {
         'SpotInstanceType': (basestring, False),
