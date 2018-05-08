@@ -761,7 +761,7 @@ class VPCCidrBlock(AWSObject):
         'CidrBlock': (basestring, False),
         'VpcId': (basestring, True),
     }
-
+    
 class LaunchTemplate(AWSObject):
     resource_type = "AWS::EC2::LaunchTemplate"
     props = {
@@ -794,8 +794,8 @@ class LaunchTemplate(AWSObject):
     
 class TagSpecifications(AWSProperty):
      props = {
-      "ResourceType" : (basestring, False),
-      "Tags" : ((Tags, list), False),
+      'ResourceType': (basestring, False),
+      'Tags': ((Tags, list), False),
      }
         
  class InstanceMarketOptions(AWSProperty):
