@@ -817,4 +817,5 @@ class SpotOptions(AWSProperty):
         'MaxPrice': (basestring, False)
     }
 
+
 }
