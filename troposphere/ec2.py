@@ -784,8 +784,8 @@ class InstanceMarketOptions(AWSProperty):
         'SpotOptions': (SpotOptions, False),
         'MarketType': (basestring, False)
     }
-    
-    
+
+
 class LaunchTemplateData(AWSProperty):
     props = {
         'SecurityGroupIds': (list, False),
