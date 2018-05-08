@@ -762,6 +762,7 @@ class VPCCidrBlock(AWSObject):
         'VpcId': (basestring, True),
     }
     
+    
 class LaunchTemplate(AWSObject):
     resource_type = "AWS::EC2::LaunchTemplate"
     props = {
@@ -769,6 +770,7 @@ class LaunchTemplate(AWSObject):
         'LaunchTemplateData': (LaunchTemplateData, True)
     }
 
+    
  class LaunchTemplateData(AWSProperty):
     props = {
         'SecurityGroupIds': (list, False),
@@ -791,6 +793,7 @@ class LaunchTemplate(AWSObject):
         'InstanceMarketOptions': (InstanceMarketOptions, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecifications], False)
     }
+
     
 class TagSpecifications(AWSProperty):
      props = {
@@ -798,12 +801,14 @@ class TagSpecifications(AWSProperty):
       'Tags': ((Tags, list), False),
      }
         
- class InstanceMarketOptions(AWSProperty):
+        
+class InstanceMarketOptions(AWSProperty):
      props = {
       'SpotOptions' : (SpotOptions, False),
       'MarketType' : (basestring, False)
     }
- 
+
+        
  class SpotOptions(AWSProperty):
      props = {
       'SpotInstanceType': (basestring, False),
