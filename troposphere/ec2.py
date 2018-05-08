@@ -799,7 +799,7 @@ class LaunchTemplateData(AWSProperty):
 class TagSpecifications(AWSProperty):
     props = {
         'ResourceType': (basestring, False),
-        'Tags': ((Tags, list), False),
+        'Tags': ((Tags, list), False)
     }
 
 
