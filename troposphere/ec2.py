@@ -802,6 +802,7 @@ class LaunchTemplateData(AWSProperty):
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'DisableApiTermination': (boolean, False),
         'RamDiskId': (basestring, False),
+        'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
         'Placement': (Placement, False),
         'CreditSpecification': (CreditSpecification, False),
