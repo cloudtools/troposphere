@@ -114,6 +114,14 @@ class Metadata(AWSHelperFn):
             )
 
 
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, True)
+    }
+
+
 class AutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
@@ -126,6 +134,7 @@ class AutoScalingGroup(AWSObject):
         'HealthCheckType': (basestring, False),
         'InstanceId': (basestring, False),
         'LaunchConfigurationName': (basestring, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'LifecycleHookSpecificationList':
             ([LifecycleHookSpecification], False),
         'LoadBalancerNames': (list, False),
@@ -168,7 +177,12 @@ class AutoScalingGroup(AWSObject):
                                 "autoscaling group's MaxSize")
 
         launch_config = self.properties.get('LaunchConfigurationName')
+        launch_template = self.properties.get('LaunchTemplate')
         instance_id = self.properties.get('InstanceId')
+
+        if launch_config and launch_template:
+            raise ValueError("LaunchConfigurationName and LaunchTemplate "
+                             "are mutually exclusive.")
         if launch_config and instance_id:
             raise ValueError("LaunchConfigurationName and InstanceId "
                              "are mutually exclusive.")
