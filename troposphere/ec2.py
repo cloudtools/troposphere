@@ -802,14 +802,7 @@ class TagSpecifications(AWSProperty):
         'Tags': ((Tags, list), False)
     }
 
-
-class InstanceMarketOptions(AWSProperty):
-    props = {
-        'SpotOptions': (SpotOptions, False),
-        'MarketType': (basestring, False)
-    }
-
-
+    
 class SpotOptions(AWSProperty):
     props = {
         'SpotInstanceType': (basestring, False),
@@ -818,4 +811,8 @@ class SpotOptions(AWSProperty):
     }
 
 
-}
+class InstanceMarketOptions(AWSProperty):
+    props = {
+        'SpotOptions': (SpotOptions, False),
+        'MarketType': (basestring, False)
+    }
