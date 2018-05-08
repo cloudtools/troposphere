@@ -764,14 +764,28 @@ class VPCCidrBlock(AWSObject):
     }
 
 
-class LaunchTemplate(AWSObject):
-    resource_type = "AWS::EC2::LaunchTemplate"
+class TagSpecifications(AWSProperty):
     props = {
-        'LaunchTemplateName': (basestring, True),
-        'LaunchTemplateData': (LaunchTemplateData, True)
+        'ResourceType': (basestring, False),
+        'Tags': ((Tags, list), False)
     }
 
 
+class SpotOptions(AWSProperty):
+    props = {
+        'SpotInstanceType': (basestring, False),
+        'InstanceInterruptionBehavior': (basestring, False),
+        'MaxPrice': (basestring, False)
+    }
+
+
+class InstanceMarketOptions(AWSProperty):
+    props = {
+        'SpotOptions': (SpotOptions, False),
+        'MarketType': (basestring, False)
+    }
+    
+    
 class LaunchTemplateData(AWSProperty):
     props = {
         'SecurityGroupIds': (list, False),
@@ -796,23 +810,9 @@ class LaunchTemplateData(AWSProperty):
     }
 
 
-class TagSpecifications(AWSProperty):
+class LaunchTemplate(AWSObject):
+    resource_type = "AWS::EC2::LaunchTemplate"
     props = {
-        'ResourceType': (basestring, False),
-        'Tags': ((Tags, list), False)
-    }
-
-
-class SpotOptions(AWSProperty):
-    props = {
-        'SpotInstanceType': (basestring, False),
-        'InstanceInterruptionBehavior': (basestring, False),
-        'MaxPrice': (basestring, False)
-    }
-
-
-class InstanceMarketOptions(AWSProperty):
-    props = {
-        'SpotOptions': (SpotOptions, False),
-        'MarketType': (basestring, False)
+        'LaunchTemplateName': (basestring, True),
+        'LaunchTemplateData': (LaunchTemplateData, True)
     }
