@@ -806,7 +806,7 @@ class LaunchTemplateData(AWSProperty):
         'Placement': (Placement, False),
         'CreditSpecification': (CreditSpecification, False),
         'InstanceMarketOptions': (InstanceMarketOptions, False),
-        'ElasticGpuSpecifications': ([ElasticGpuSpecifications], False)
+        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False)
     }
 
 
