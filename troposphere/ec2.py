@@ -11,6 +11,7 @@ from .validators import (
 
 try:
     from awacs.aws import Policy
+
     policytypes = (dict, Policy)
 except ImportError:
     policytypes = dict,
@@ -100,9 +101,9 @@ class NatGateway(AWSObject):
     resource_type = "AWS::EC2::NatGateway"
 
     props = {
-            'AllocationId': (basestring, True),
-            'SubnetId': (basestring, True),
-            'Tags': ((Tags, list), False),
+        'AllocationId': (basestring, True),
+        'SubnetId': (basestring, True),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -123,7 +124,7 @@ NO_DEVICE = {}
 class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
-        'Ebs': (EBSBlockDevice, False),      # Conditional
+        'Ebs': (EBSBlockDevice, False),  # Conditional
         'NoDevice': (dict, False),
         'VirtualName': (basestring, False),  # Conditional
     }
@@ -567,14 +568,14 @@ class VPCDHCPOptionsAssociation(AWSObject):
 
 
 class VPCEndpoint(AWSObject):
-        resource_type = "AWS::EC2::VPCEndpoint"
+    resource_type = "AWS::EC2::VPCEndpoint"
 
-        props = {
-            'PolicyDocument': (policytypes, False),
-            'RouteTableIds': ([basestring], False),
-            'ServiceName': (basestring, True),
-            'VpcId': (basestring, True),
-        }
+    props = {
+        'PolicyDocument': (policytypes, False),
+        'RouteTableIds': ([basestring], False),
+        'ServiceName': (basestring, True),
+        'VpcId': (basestring, True),
+    }
 
 
 class VPCGatewayAttachment(AWSObject):
@@ -761,8 +762,8 @@ class VPCCidrBlock(AWSObject):
         'CidrBlock': (basestring, False),
         'VpcId': (basestring, True),
     }
-    
-    
+
+
 class LaunchTemplate(AWSObject):
     resource_type = "AWS::EC2::LaunchTemplate"
     props = {
@@ -770,13 +771,13 @@ class LaunchTemplate(AWSObject):
         'LaunchTemplateData': (LaunchTemplateData, True)
     }
 
-    
- class LaunchTemplateData(AWSProperty):
+
+class LaunchTemplateData(AWSProperty):
     props = {
         'SecurityGroupIds': (list, False),
         'SecurityGroups': (list, False),
         'TagSpecifications': ([TagSpecifications], False),
-        'UserData' : (basestring, False),
+        'UserData': (basestring, False),
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
         'ImageId': (basestring, True),
         'InstanceType': (basestring, True),
@@ -784,7 +785,7 @@ class LaunchTemplate(AWSObject):
         'KeyName': (basestring, False),
         'EbsOptimized': (boolean, False),
         'IamInstanceProfile': (IamInstanceProfile, False),
-        'InstanceInitiatedShutdownBehavior' : (basestring, False),
+        'InstanceInitiatedShutdownBehavior': (basestring, False),
         'DisableApiTermination': (boolean, False),
         'RamDiskId': (basestring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
@@ -794,26 +795,26 @@ class LaunchTemplate(AWSObject):
         'ElasticGpuSpecifications': ([ElasticGpuSpecifications], False)
     }
 
-    
+
 class TagSpecifications(AWSProperty):
-     props = {
-      'ResourceType': (basestring, False),
-      'Tags': ((Tags, list), False),
-     }
-        
-        
-class InstanceMarketOptions(AWSProperty):
-     props = {
-      'SpotOptions' : (SpotOptions, False),
-      'MarketType' : (basestring, False)
+    props = {
+        'ResourceType': (basestring, False),
+        'Tags': ((Tags, list), False),
     }
 
-        
- class SpotOptions(AWSProperty):
-     props = {
-      'SpotInstanceType': (basestring, False),
-      'InstanceInterruptionBehavior': (basestring, False),
-      'MaxPrice': (basestring, False)
+
+class InstanceMarketOptions(AWSProperty):
+    props = {
+        'SpotOptions': (SpotOptions, False),
+        'MarketType': (basestring, False)
+    }
+
+
+class SpotOptions(AWSProperty):
+    props = {
+        'SpotInstanceType': (basestring, False),
+        'InstanceInterruptionBehavior': (basestring, False),
+        'MaxPrice': (basestring, False)
     }
 
 }
