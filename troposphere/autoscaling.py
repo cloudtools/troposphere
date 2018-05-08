@@ -186,7 +186,10 @@ class AutoScalingGroup(AWSObject):
         if launch_config and instance_id:
             raise ValueError("LaunchConfigurationName and InstanceId "
                              "are mutually exclusive.")
-        if not launch_config and not instance_id:
+        if launch_template and instance_id:
+            raise ValueError("LaunchTemplate and InstanceId "
+                             "are mutually exclusive.")
+        if not launch_config and not instance_id and not launch_template:
             raise ValueError("Must specify either LaunchConfigurationName or "
                              "InstanceId: http://docs.aws.amazon.com/AWSCloud"
                              "Formation/latest/UserGuide/aws-properties-as-gr"
