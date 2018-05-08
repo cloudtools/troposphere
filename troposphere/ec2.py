@@ -761,3 +761,54 @@ class VPCCidrBlock(AWSObject):
         'CidrBlock': (basestring, False),
         'VpcId': (basestring, True),
     }
+
+class LaunchTemplate(AWSObject):
+    resource_type = "AWS::EC2::LaunchTemplate"
+    props = {
+        'LaunchTemplateName': (basestring, True),
+        'LaunchTemplateData': (LaunchTemplateData, True)
+    }
+
+ class LaunchTemplateData(AWSProperty):
+    props = {
+        'SecurityGroupIds': (list, False),
+        'SecurityGroups': (list, False),
+        'TagSpecifications': ([TagSpecifications], False),
+        'UserData' : (basestring, False),
+        'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'ImageId': (basestring, True),
+        'InstanceType': (basestring, True),
+        'KernelId': (basestring, False),
+        'KeyName': (basestring, False),
+        'EbsOptimized': (boolean, False),
+        'IamInstanceProfile': (IamInstanceProfile, False),
+        'InstanceInitiatedShutdownBehavior' : (basestring, False),
+        'DisableApiTermination': (boolean, False),
+        'RamDiskId': (basestring, False),
+        'NetworkInterfaces': ([NetworkInterfaces], False),
+        'Placement': (Placement, False),
+        'CreditSpecification': (CreditSpecification, False),
+        'InstanceMarketOptions': (InstanceMarketOptions, False),
+        'ElasticGpuSpecifications': ([ElasticGpuSpecifications], False)
+    }
+    
+class TagSpecifications(AWSProperty):
+     props = {
+      "ResourceType" : (basestring, False),
+      "Tags" : ((Tags, list), False),
+     }
+        
+ class InstanceMarketOptions(AWSProperty):
+     props = {
+      'SpotOptions' : (SpotOptions, False),
+      'MarketType' : (basestring, False)
+    }
+ 
+ class SpotOptions(AWSProperty):
+     props = {
+      'SpotInstanceType': (basestring, False),
+      'InstanceInterruptionBehavior': (basestring, False),
+      'MaxPrice': (basestring, False)
+    }
+
+}
