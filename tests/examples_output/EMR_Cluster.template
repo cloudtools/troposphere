@@ -87,9 +87,7 @@
                         "Name": "Spark"
                     }
                 ],
-                "AutoScalingRole": {
-                    "Ref": "EMR_AutoScaling_DefaultRole"
-                },
+                "AutoScalingRole": "EMR_AutoScaling_DefaultRole",
                 "BootstrapActions": [
                     {
                         "Name": "Dummy bootstrap action",
