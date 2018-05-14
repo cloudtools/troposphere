@@ -9,7 +9,8 @@ class AddressSpace(ARMProperty):
 
 class Subnet(ARMObject):
     props = {
-        'addressPrefix': (str, False)
+        'addressPrefix': (str, True),
+        'networkSecurityGroup': (SubResource, False)
     }
 
 
