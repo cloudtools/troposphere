@@ -118,13 +118,10 @@ class ARMTemplate(object):
 
 class ARMObject(AWSObject):
     dictname = 'properties'
+    root_props = None
 
     def __init__(self, title, template=None, validation=True, **kwargs):
         AWSObject.__init__(self, title, template, validation, **kwargs)
-
-        if 'Type' in self.resource:
-            self.resource['type'] = self.resource['Type']
-            del self.resource['Type']
 
         if hasattr(self, 'location') and self.location and 'location' not in self.resource:
             self.resource['location'] = "[resourceGroup().location]"
@@ -136,12 +133,12 @@ class ARMObject(AWSObject):
             self.resource['apiVersion'] = self.apiVersion
 
         # move root props from properties to resources dict to be in root of object when serialized
-        super(ARMObject, self)._validate_props()
-        for rootProp in list(filter(lambda x: issubclass(type(x[1]), ARMRootProperty), self.properties.items())):
-            k, v = rootProp
-            self.resource[k] = v
-            del self.properties[k]
-            del self.props[k]
+        # super(ARMObject, self)._validate_props()
+        # for rootProp in list(filter(lambda x: issubclass(type(x[1]), ARMRootProperty), self.properties.items())):
+        #     k, v = rootProp
+        #     self.resource[k] = v
+        #     del self.properties[k]
+        #     del self.props[k]
 
     def to_dict(self):
         if 'name' in self.resource:
@@ -169,21 +166,18 @@ class ARMObject(AWSObject):
             raise ValueError('Name "%s" is not valid' % self.title)
 
     # fluent api
-    def with_depends_on(self, dependsOn):
+    def with_depends_on(self, depends_on):
         if 'dependsOn' not in self.resource:
             self.resource['dependsOn'] = []
-        if isinstance(dependsOn, list):
-            for d in dependsOn:
-                self._add_dependency(d)
-        else:
-            self._add_dependency(dependsOn)
+        self._add_dependencies(depends_on)
         return self
 
-    def _move_prop_to_root(self, key):
-        # move sku to root
-        if key in self.properties:
-            self.resource[key] = self.properties[key]
-            del self.properties[key]
+    def _add_dependencies(self, value):
+        if isinstance(value, list):
+            for d in value:
+                self._add_dependency(d)
+        else:
+            self._add_dependency(value)
 
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
@@ -193,15 +187,23 @@ class ARMObject(AWSObject):
         else:
             raise ValueError('Unsupported type')
 
+    def _move_prop_to_root(self, key):
+        if key in self.properties:
+            self.resource[key] = self.properties[key]
+            del self.properties[key]
+
 
 class ARMProperty(AWSProperty):
+    # Used to specify properties that should be on the root object in Azure
+    root_props = None
+
     def validate_title(self):
         if not valid_names_azure.match(self.title):
             raise ValueError('Name "%s" is not valid' % self.title)
 
 
-class ARMRootProperty(ARMProperty):
-    pass
+# class ARMRootProperty(ARMProperty):
+#     pass
 
 
 class ARMParameter(Parameter):
@@ -219,6 +221,8 @@ class ARMParameter(Parameter):
         'minValue': (validators.integer, False),
         'description': (str, False)
     }
+
+    root_props = None
 
     def to_dict(self):
         if 'description' in self.properties:

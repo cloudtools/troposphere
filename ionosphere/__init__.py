@@ -88,9 +88,8 @@ class BaseAWSObject(object):
         self.do_validation = validation
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
-        self.attributes = ['DependsOn', 'DeletionPolicy',
-                           'Metadata', 'UpdatePolicy',
-                           'Condition', 'CreationPolicy']
+        self.root_propnames = self.root_props.keys() if getattr(self, 'root_props', None) else {}
+        self.attributes = ['dependsOn', 'condition']
 
         # try to validate the title if its there
         if self.title:
@@ -106,7 +105,7 @@ class BaseAWSObject(object):
         else:
             self.resource = self.properties
         if hasattr(self, 'resource_type') and self.resource_type is not None:
-            self.resource['Type'] = self.resource_type
+            self.resource['type'] = self.resource_type
         self.__initialized = True
 
         # Check for properties defined in the class
@@ -142,8 +141,8 @@ class BaseAWSObject(object):
                 or '_BaseAWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
         elif name in self.attributes:
-            if name == "DependsOn":
-                self.resource[name] = depends_on_helper(value)
+            if name == "dependsOn":
+                self.resource[name] = self._add_dependencies(value)
             else:
                 self.resource[name] = value
             return None
@@ -196,6 +195,60 @@ class BaseAWSObject(object):
             else:
                 self._raise_type(name, value, expected_type)
 
+        elif name in self.root_propnames:
+            # validate if dictname set by user root prop will not override it
+            dictname = getattr(self, 'dictname', None)
+            if dictname and name == dictname:
+                raise ValueError('{} is illegal value for a root prop'.format(name))
+
+            # Check the type of the object and compare against what we were
+            # expecting.
+            expected_type = self.root_props[name][0]
+
+            # If the value is a AWSHelperFn we can't do much validation
+            # we'll have to leave that to Amazon.  Maybe there's another way
+            # to deal with this that we'll come up with eventually
+            if isinstance(value, AWSHelperFn):
+                return self.resource.__setitem__(name, value)
+
+            # If it's a function, call it...
+            elif isinstance(expected_type, types.FunctionType):
+                try:
+                    value = expected_type(value)
+                except Exception:
+                    sys.stderr.write(
+                        "%s: %s.%s function validator '%s' threw "
+                        "exception:\n" % (self.__class__,
+                                          self.title,
+                                          name,
+                                          expected_type.__name__))
+                    raise
+                return self.resource.__setitem__(name, value)
+
+            # If it's a list of types, check against those types...
+            elif isinstance(expected_type, list):
+                # If we're expecting a list, then make sure it is a list
+                if not isinstance(value, list):
+                    self._raise_type(name, value, expected_type)
+
+                # Iterate over the list and make sure it matches our
+                # type checks (as above accept AWSHelperFn because
+                # we can't do the validation ourselves)
+                for v in value:
+                    if not isinstance(v, tuple(expected_type)) \
+                       and not isinstance(v, AWSHelperFn):
+                        self._raise_type(name, v, expected_type)
+                # Validated so assign it
+                return self.resource.__setitem__(name, value)
+
+            # Final validity check, compare the type of value against
+            # expected_type which should now be either a single type or
+            # a tuple of types.
+            elif isinstance(value, expected_type):
+                return self.resource.__setitem__(name, value)
+            else:
+                self._raise_type(name, value, expected_type)
+
         type_name = getattr(self, 'resource_type', self.__class__.__name__)
 
         if type_name == 'AWS::CloudFormation::CustomResource' or \
@@ -206,6 +259,9 @@ class BaseAWSObject(object):
 
         raise AttributeError("%s object does not support attribute %s" %
                              (type_name, name))
+
+    def _add_dependencies(self, value):
+        depends_on_helper(value)
 
     def _raise_type(self, name, value, expected_type):
         raise TypeError('%s: %s.%s is %s, expected %s' % (self.__class__,

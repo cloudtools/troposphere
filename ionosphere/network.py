@@ -1,4 +1,4 @@
-from base import ARMObject, ARMProperty, SubResource, ARMRootProperty, SubResourceRef
+from base import ARMObject, ARMProperty, SubResource, SubResourceRef
 
 
 class AddressSpace(ARMProperty):
@@ -22,6 +22,9 @@ class VirtualNetwork(ARMObject):
     props = {
         'addressSpace': (AddressSpace, False),
         'subnets': ((Subnet, list), False),
+    }
+
+    root_props = {
         'tags': (dict, False)
     }
 
@@ -72,8 +75,11 @@ class PublicIPAddress(ARMObject):
     props = {
         'publicIPAllocationMethod': (str, False),  # todo add validation on values: 'Static' and 'Dynamic'
         'publicIPAddressVersion': (str, False),  # todo add validation on values: 'IPv4' and 'IPv6'. Default is 'IPv4'
-        'dnsSettings': (PublicIPAddressDnsSettings, False),
-        'tags': (dict, False),
+        'dnsSettings': (PublicIPAddressDnsSettings, False)
+    }
+
+    root_props = {
+        'tags': (dict, False)
     }
 
 
@@ -108,7 +114,11 @@ class NetworkSecurityGroup(ARMObject):
     location = True
 
     props = {
-        'securityRules': ((list, SecurityRule), False),
+        'securityRules': ((list, SecurityRule), False)
+
+    }
+
+    root_props = {
         'tags': (dict, False)
     }
 
@@ -122,7 +132,10 @@ class NetworkInterface(ARMObject):
         'virtualMachine': (SubResource, False),
         'networkSecurityGroup': ((SubResource, NetworkSecurityGroup), False),
         'ipConfigurations': (list, True),  # type: list[NetworkInterfaceIPConfiguration]
-        'dnsSettings': (NetworkInterfaceDnsSettings, False),
+        'dnsSettings': (NetworkInterfaceDnsSettings, False)
+    }
+
+    root_props = {
         'tags': (dict, False)
     }
 
@@ -136,7 +149,7 @@ class NetworkInterface(ARMObject):
                                      "NetworkInterfaceIPConfiguration objects")
 
 
-class LoadBalancerSku(ARMRootProperty):
+class LoadBalancerSku(ARMProperty):
     props = {'name': (str, True)}
 
     def validate(self):
@@ -209,7 +222,6 @@ class LoadBalancer(ARMObject):
     location = True
 
     props = {
-        'sku': (LoadBalancerSku, True),
         'frontendIPConfigurations': ([FrontendIPConfiguration], False),
         'backendAddressPools': ([BackendAddressPool], False),
         'loadBalancingRules': ([LoadBalancingRule], False),
@@ -220,3 +232,6 @@ class LoadBalancer(ARMObject):
         # 'resources': [inboundNatRules]
     }
 
+    root_props = {
+        'sku': (LoadBalancerSku, True),
+    }

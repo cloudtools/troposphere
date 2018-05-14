@@ -1,9 +1,9 @@
 import validators
-from base import ARMObject, ARMRootProperty, ARMProperty, SubResource
+from base import ARMObject, ARMProperty, SubResource
 from network import BackendAddressPoolRef, ProbeRef
 
 
-class Plan(ARMRootProperty):
+class Plan(ARMProperty):
     props = {
         'name': (str, False),
         'publisher': (str, False),
@@ -162,6 +162,9 @@ class VirtualMachine(ARMObject):
         'diagnosticsProfile': (DiagnosticsProfile, False),
         # 'availabilitySet': (),  # todo add support
         # 'licenseType': ()  # todo add support
+    }
+
+    root_props = {
         'plan': (Plan, False),
         'tags': (dict, False)
     }
@@ -320,7 +323,7 @@ class VirtualMachineScaleSetVMProfile(ARMProperty):
     }
 
 
-class Sku(ARMRootProperty):
+class VirtualMachineScaleSetSku(ARMProperty):
     props = {
         'name': (str, True),
         'tier': (str, True),  # Standard or Basic
@@ -335,16 +338,17 @@ class VirtualMachineScaleSets(ARMObject):
     location = True
 
     props = {
-        'sku': (Sku, False),
-        'plan': (Plan, False),
         # 'identity': (object, False),   # root prop - not implemented
         'zones': ([str], False),
-
         'upgradePolicy': (UpgradePolicy, True),
         'virtualMachineProfile': (VirtualMachineScaleSetVMProfile, False),
-        'overprovision': (bool, False),  # root prop
-        'singlePlacementGroup': (bool, False),  # root prop
+        'overprovision': (bool, False),
+        'singlePlacementGroup': (bool, False),
+    }
 
+    root_props = {
+        'sku': (VirtualMachineScaleSetSku, False),
+        'plan': (Plan, False),
         'tags': (dict, False)
     }
 
