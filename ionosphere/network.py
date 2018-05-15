@@ -39,6 +39,14 @@ class VirtualNetwork(ARMObject):
     SubnetRef = subnet_ref
 
 
+class ApplicationSecurityGroup(ARMObject):
+    resource_type = 'Microsoft.Network/applicationSecurityGroups'
+    apiVersion = "2017-10-01"
+    location = True
+
+    props = {}
+
+
 class SecurityRule(ARMObject):
     props = {
         'description': (str, False),  # todo add validation on length
@@ -47,12 +55,12 @@ class SecurityRule(ARMObject):
         'destinationPortRange': (str, False),
         'sourceAddressPrefix': (str, False),  # only one of sourceAddressPrefix, sourceAddressPrefixes, sourceApplicationSecurityGroups should be non empty
         'sourceAddressPrefixes': ((list, str), False),
-        # 'sourceApplicationSecurityGroups': (str, False),  # todo implement
+        'sourceApplicationSecurityGroups': ((list, SubResource), False),
         'destinationAddressPrefix': (str, False),
         'destinationAddressPrefixes': ((list, str), False),
-        # 'destinationApplicationSecurityGroups': (str, False),  # todo implement
-        'sourcePortRanges': (str, False),
-        'destinationPortRanges': (str, False),
+        'destinationApplicationSecurityGroups': ((list, SubResource), False),
+        'sourcePortRanges': ((list, str), False),
+        'destinationPortRanges': ((list, str), False),
         'access': (str, True),  # todo add validation on values: 'Allow' and 'Deny'
         'priority': (int, False),
         'direction': (str, True)  # todo add validation on values: 'Inbound' and 'Outbound'
@@ -94,7 +102,7 @@ class NetworkInterfaceIPConfiguration(ARMObject):
         'subnet': (SubResource, False),
         'primary': (bool, False),
         'publicIPAddress': (SubResource, False),
-        # 'applicationSecurityGroups': () - not implemented
+        'applicationSecurityGroups': ((list, SubResource), False)
     }
 
 
@@ -115,7 +123,6 @@ class NetworkSecurityGroup(ARMObject):
 
     props = {
         'securityRules': ((list, SecurityRule), False)
-
     }
 
     root_props = {
