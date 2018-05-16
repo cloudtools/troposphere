@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Tags
+from . import AWSObject
 
 
 class Cluster(AWSObject):
@@ -21,7 +21,7 @@ class Cluster(AWSObject):
         'ReplicationFactor': (basestring, True),
         'SecurityGroupIds': ([basestring], False),
         'SubnetGroupName': (basestring, True),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
     }
 
 
