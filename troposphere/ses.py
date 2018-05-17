@@ -180,8 +180,8 @@ class EmailTemplate(AWSProperty):
         'TemplateName': (basestring, False),
         'TextPart': (basestring, False),
     }
- 
-    
+
+
 class Template(AWSObject):
     resource_type = "AWS::SES::Template"
 
