@@ -173,18 +173,17 @@ class ReceiptRule(AWSObject):
     }
 
 
-class Template(AWSProperty):
+class EmailTemplate(AWSProperty):
     props = {
         'HtmlPart': (basestring, False),
         'SubjectPart': (basestring, False),
         'TemplateName': (basestring, False),
         'TextPart': (basestring, False),
     }
-
-
+    
 class Template(AWSObject):
     resource_type = "AWS::SES::Template"
 
     props = {
-        'Template': (Template, False),
+        'Template': (EmailTemplate, False),
     }
