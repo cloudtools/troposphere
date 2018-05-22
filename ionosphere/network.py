@@ -29,7 +29,7 @@ class VirtualNetwork(ARMObject):
     }
 
     def subnet_ref(self, subnet_name):
-        return "[resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')]"\
+        return "[resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')]" \
             .format(self.title,
                     self.get_subnet(subnet_name).title)
 
@@ -53,7 +53,8 @@ class SecurityRule(ARMObject):
         'protocol': (str, True),  # todo add valiadtion on valid values: 'Tcp', 'Udp', and '*'
         'sourcePortRange': (str, False),  # todo add validation for all 'range' props
         'destinationPortRange': (str, False),
-        'sourceAddressPrefix': (str, False),  # only one of sourceAddressPrefix, sourceAddressPrefixes, sourceApplicationSecurityGroups should be non empty
+        'sourceAddressPrefix': (str, False),
+    # only one of sourceAddressPrefix, sourceAddressPrefixes, sourceApplicationSecurityGroups should be non empty
         'sourceAddressPrefixes': ((list, str), False),
         'sourceApplicationSecurityGroups': ((list, SubResource), False),
         'destinationAddressPrefix': (str, False),
@@ -65,6 +66,22 @@ class SecurityRule(ARMObject):
         'priority': (int, False),
         'direction': (str, True)  # todo add validation on values: 'Inbound' and 'Outbound'
     }
+
+    def validate(self):
+        if 'destinationAddressPrefix' not in self.properties and \
+           'destinationAddressPrefixes' not in self.properties and \
+           'destinationApplicationSecurityGroups' not in self.properties:
+            raise ValueError('Required security rule parameters are missing for security rule with name "{}". '
+                             'Security rule must specify DestinationAddressPrefixes, DestinationAddressPrefix, or '
+                             'DestinationApplicationSecurityGroups'.format(self.title))
+
+        if 'sourceAddressPrefix' not in self.properties and \
+           'sourceAddressPrefixes' not in self.properties and \
+           'sourceApplicationSecurityGroups' not in self.properties:
+            raise ValueError('Required security rule parameters are missing for security rule with name "{}". '
+                             'Security rule must specify SourceAddressPrefixes, SourceAddressPrefix, or '
+                             'SourceApplicationSecurityGroups'.format(self.title))
+
 
 
 class PublicIPAddressDnsSettings(ARMProperty):
@@ -203,7 +220,8 @@ class LoadBalancingRule(ARMObject):
         'loadDistribution': (str, False),  # Possible values are 'Default', 'SourceIP', and 'SourceIPProtocol'
         'frontendPort': (int, True),  # 0-65534, when 0 is "Any port"
         'backendPort': (int, False),  # 0-65534, when 0 is "Any port"
-        'idleTimeoutInMinutes': (int, False),  # The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
+        'idleTimeoutInMinutes': (int, False),
+    # The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
         'enableFloatingIP': (bool, False),
         'disableOutboundSnat': (False, False),
     }

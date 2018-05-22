@@ -261,7 +261,7 @@ class BaseAWSObject(object):
                              (type_name, name))
 
     def _add_dependencies(self, value):
-        depends_on_helper(value)
+        return depends_on_helper(value)
 
     def _raise_type(self, name, value, expected_type):
         raise TypeError('%s: %s.%s is %s, expected %s' % (self.__class__,

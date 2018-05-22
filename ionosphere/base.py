@@ -169,21 +169,23 @@ class ARMObject(AWSObject):
     def with_depends_on(self, depends_on):
         if 'dependsOn' not in self.resource:
             self.resource['dependsOn'] = []
-        self._add_dependencies(depends_on)
+        self.resource['dependsOn'].extend(self._add_dependencies(depends_on))
         return self
 
     def _add_dependencies(self, value):
         if isinstance(value, list):
+            result = []
             for d in value:
-                self._add_dependency(d)
+                result.append(self._add_dependency(d))
+            return result
         else:
-            self._add_dependency(value)
+            return [self._add_dependency(value)]
 
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
-            self.resource['dependsOn'].append(dependency.Ref())
+            return dependency.Ref()
         elif isinstance(dependency, str):
-            self.resource['dependsOn'].append(dependency)
+            return dependency
         else:
             raise ValueError('Unsupported type')
 
