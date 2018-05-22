@@ -481,6 +481,11 @@ class Ref(AWSHelperFn):
     def __init__(self, data):
         self.data = {'Ref': self.getdata(data)}
 
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.data == other.data
+        return self.data.values()[0] == other
+
 
 # Pseudo Parameter Ref's
 AccountId = Ref(AWS_ACCOUNT_ID)

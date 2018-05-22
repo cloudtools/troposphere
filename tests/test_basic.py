@@ -1,10 +1,12 @@
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import Cidr, If, Join, Ref, Split, Sub, Template
+from troposphere import NoValue, Region
 from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, Route, SecurityGroupRule
 from troposphere.s3 import Bucket
 from troposphere.elasticloadbalancing import HealthCheck
+from troposphere import cloudformation
 from troposphere.validators import positive_integer
 
 
@@ -321,6 +323,22 @@ class TestRef(unittest.TestCase):
         t = Ref(param)
         ref = t.to_dict()
         self.assertEqual(ref['Ref'], 'param')
+
+    def test_ref_eq(self):
+        s = "AWS::NoValue"
+        r = Ref(s)
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, NoValue)
+        self.assertEqual(r, NoValue)
+        self.assertEqual(wch.Ref(), "TestResource")
+
+        self.assertNotEqual(r, "AWS::Region")
+        self.assertNotEqual(r, Region)
+        self.assertNotEqual(r, Ref)
+        self.assertNotEqual(wch.Ref(), "NonexistantResource")
 
 
 class TestName(unittest.TestCase):
