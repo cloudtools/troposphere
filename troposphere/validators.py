@@ -195,9 +195,11 @@ def iam_group_name(group_name):
 
 
 def mutually_exclusive(class_name, properties, conditionals):
+    from . import NoValue
+
     found_list = []
     for c in conditionals:
-        if c in properties:
+        if c in properties and not properties[c] == NoValue:
             found_list.append(c)
     seen = set(found_list)
     specified_count = len(seen)
