@@ -1,3 +1,4 @@
+import pickle
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import Cidr, If, Join, Ref, Split, Sub, Template
@@ -70,6 +71,14 @@ class TestBasic(unittest.TestCase):
         b3 = Bucket("B3", DependsOn=[b1, b2])
         self.assertEqual(b1.title, b3.DependsOn[0])
         self.assertEqual(b2.title, b3.DependsOn[1])
+
+    def test_pickle_ok(self):
+        # tests that objects can be pickled/un-pickled without hitting issues
+        bucket_name = "test-bucket"
+        b = Bucket("B1", BucketName=bucket_name)
+        p = pickle.dumps(b)
+        b2 = pickle.loads(p)
+        self.assertEqual(b2.BucketName, b.BucketName)
 
 
 def call_correct(x):

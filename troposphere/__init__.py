@@ -130,6 +130,13 @@ class BaseAWSObject(object):
             self.template.add_resource(self)
 
     def __getattr__(self, name):
+        # If pickle loads this object, then __getattr__ will cause
+        # an infinite loop when pickle invokes this object to look for
+        # __setstate__ before attributes is "loaded" into this object.
+        # Therefore, short circuit the rest of this call if attributes
+        # is not loaded yet.
+        if "attributes" not in self.__dict__:
+            raise AttributeError(name)
         try:
             if name in self.attributes:
                 return self.resource[name]
