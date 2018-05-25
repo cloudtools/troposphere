@@ -493,6 +493,9 @@ class Ref(AWSHelperFn):
             return self.data == other.data
         return self.data.values()[0] == other
 
+    def __hash__(self):
+        return hash(self.data.values()[0])
+
 
 # Pseudo Parameter Ref's
 AccountId = Ref(AWS_ACCOUNT_ID)

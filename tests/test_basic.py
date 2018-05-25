@@ -349,6 +349,22 @@ class TestRef(unittest.TestCase):
         self.assertNotEqual(r, Ref)
         self.assertNotEqual(wch.Ref(), "NonexistantResource")
 
+    def test_ref_hash(self):
+        s = hash("AWS::NoValue")
+        r = hash(Ref(s))
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, hash(NoValue))
+        self.assertEqual(r, hash(NoValue))
+        self.assertEqual(hash(wch.Ref()), hash("TestResource"))
+
+        self.assertNotEqual(r, hash("AWS::Region"))
+        self.assertNotEqual(r, hash(Region))
+        self.assertNotEqual(r, hash(Ref))
+        self.assertNotEqual(hash(wch.Ref()), hash("NonexistantResource"))
+
 
 class TestName(unittest.TestCase):
 
