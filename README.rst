@@ -160,6 +160,7 @@ Currently supported AWS resource types
 - AWS::Athena
 - AWS::AutoScaling
 - AWS::Batch
+- AWS::Budgets
 - AWS::CertificateManager
 - AWS::Cloud9
 - AWS::CloudFormation
