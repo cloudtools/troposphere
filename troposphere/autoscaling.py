@@ -127,7 +127,6 @@ class LaunchTemplateSpecification(AWSProperty):
             'LaunchTemplateName'
         ]
         exactly_one(self.__class__.__name__, self.properties, template_ids)
-        
 
 
 class AutoScalingGroup(AWSObject):
@@ -191,7 +190,7 @@ class AutoScalingGroup(AWSObject):
         ]
 
         mutually_exclusive(self.__class__.__name__, self.properties,
-                    instance_config_types)
+                           instance_config_types)
 
         availability_zones = self.properties.get('AvailabilityZones')
         vpc_zone_identifier = self.properties.get('VPCZoneIdentifier')
