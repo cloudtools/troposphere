@@ -195,16 +195,6 @@ class Ulimit(AWSProperty):
     }
 
 
-class HealthCheck(AWSProperty):
-    props = {
-        'Command': ([basestring], True),
-        'Interval': (integer, False),
-        'Timeout': (integer, False),
-        'Retries': (integer, False),
-        'StartPeriod': (integer, False),
-    }
-
-
 class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
