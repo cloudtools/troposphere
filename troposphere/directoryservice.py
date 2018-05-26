@@ -19,6 +19,7 @@ class MicrosoftAD(AWSObject):
 
     props = {
         'CreateAlias': (boolean, False),
+        'Edition': (basestring, False),
         'EnableSso': (boolean, False),
         'Name': (basestring, True),
         'Password': (basestring, True),
