@@ -82,6 +82,13 @@ def launch_type_validator(x):
     return x
 
 
+class ServiceRegistry(AWSProperty):
+    props = {
+        'Port': (integer, False),
+        'RegistryArn': (basestring, False),
+    }
+
+
 class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
@@ -98,6 +105,7 @@ class Service(AWSObject):
         'PlacementStrategies': ([PlacementStrategy], False),
         'PlatformVersion': (basestring, False),
         'ServiceName': (basestring, False),
+        'ServiceRegistries': ([ServiceRegistry], False),
         'TaskDefinition': (basestring, True),
     }
 
