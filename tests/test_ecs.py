@@ -198,3 +198,22 @@ class TestECS(unittest.TestCase):
         )
 
         container_definition.to_dict()
+
+    def test_allow_container_healthcheck(self):
+        health_check_def = ecs.HealthCheck(
+            Command=[
+                "CMD-SHELL",
+                "curl -f http://localhost/ || exit 1"
+            ],
+            Interval=5,
+            Timeout=30,
+            Retries=5,
+        )
+        container_definition = ecs.ContainerDefinition(
+            Image="myimage",
+            Memory="300",
+            Name="mycontainer",
+            HealthCheck=health_check_def,
+        )
+
+        container_definition.to_dict()
