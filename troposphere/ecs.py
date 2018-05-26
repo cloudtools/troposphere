@@ -107,6 +107,7 @@ class Service(AWSObject):
         'ServiceName': (basestring, False),
         'ServiceRegistries': ([ServiceRegistry], False),
         'TaskDefinition': (basestring, True),
+        'ServiceRegistries': ([dict], False),
     }
 
 
