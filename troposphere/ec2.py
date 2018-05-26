@@ -163,6 +163,14 @@ class Ipv6Addresses(AWSHelperFn):
         }
 
 
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, True),
+    }
+
+
 class PrivateIpAddressSpecification(AWSProperty):
     props = {
         'Primary': (boolean, True),
@@ -231,6 +239,7 @@ class Instance(AWSObject):
         'Ipv6Addresses': ([Ipv6Addresses], False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'Monitoring': (boolean, False),
         'NetworkInterfaces': ([NetworkInterfaceProperty], False),
         'PlacementGroupName': (basestring, False),
