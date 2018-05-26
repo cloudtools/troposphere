@@ -34,6 +34,7 @@ class LogStream(AWSObject):
 
 class MetricTransformation(AWSProperty):
     props = {
+        'DefaultValue': (float, False),
         'MetricName': (basestring, True),
         'MetricNamespace': (basestring, True),
         'MetricValue': (basestring, True),
