@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, If, FindInMap, Ref
-from .validators import boolean, integer
+from .validators import boolean, integer, exactly_one, mutually_exclusive
 from . import cloudformation
 
 
@@ -187,24 +187,16 @@ class AutoScalingGroup(AWSObject):
                                 "MinInstancesInService must be less than the "
                                 "autoscaling group's MaxSize")
 
-        launch_config = self.properties.get('LaunchConfigurationName')
-        launch_template = self.properties.get('LaunchTemplate')
-        instance_id = self.properties.get('InstanceId')
+        instance_config_types = [
+            'LaunchConfigurationName',
+            'LaunchTemplate',
+            'InstanceId'
+        ]
 
-        if launch_config and launch_template:
-            raise ValueError("LaunchConfigurationName and LaunchTemplate "
-                             "are mutually exclusive.")
-        if launch_config and instance_id:
-            raise ValueError("LaunchConfigurationName and InstanceId "
-                             "are mutually exclusive.")
-        if launch_template and instance_id:
-            raise ValueError("LaunchTemplate and InstanceId "
-                             "are mutually exclusive.")
-        if not launch_config and not instance_id and not launch_template:
-            raise ValueError("Must specify either LaunchConfigurationName or "
-                             "InstanceId: http://docs.aws.amazon.com/AWSCloud"
-                             "Formation/latest/UserGuide/aws-properties-as-gr"
-                             "oup.html#cfn-as-group-instanceid")
+        mutually_exclusive(self.__class__.__name__, self.properties,
+                           instance_config_types)
+        exactly_one(self.__class__.__name__, self.properties,
+                    instance_config_types)
 
         availability_zones = self.properties.get('AvailabilityZones')
         vpc_zone_identifier = self.properties.get('VPCZoneIdentifier')
