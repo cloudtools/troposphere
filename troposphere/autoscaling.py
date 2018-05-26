@@ -205,6 +205,7 @@ class LaunchConfiguration(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LaunchConfigurationName': (basestring, False),
         'Metadata': (Metadata, False),
         'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),
