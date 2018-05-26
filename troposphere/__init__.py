@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.2.1"
+__version__ = "2.2.2"
 
 # constants for DeletionPolicy
 Delete = 'Delete'
@@ -130,6 +130,13 @@ class BaseAWSObject(object):
             self.template.add_resource(self)
 
     def __getattr__(self, name):
+        # If pickle loads this object, then __getattr__ will cause
+        # an infinite loop when pickle invokes this object to look for
+        # __setstate__ before attributes is "loaded" into this object.
+        # Therefore, short circuit the rest of this call if attributes
+        # is not loaded yet.
+        if "attributes" not in self.__dict__:
+            raise AttributeError(name)
         try:
             if name in self.attributes:
                 return self.resource[name]
@@ -480,6 +487,11 @@ class Select(AWSHelperFn):
 class Ref(AWSHelperFn):
     def __init__(self, data):
         self.data = {'Ref': self.getdata(data)}
+
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.data == other.data
+        return self.data.values()[0] == other
 
 
 # Pseudo Parameter Ref's

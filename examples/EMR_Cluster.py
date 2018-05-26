@@ -202,7 +202,7 @@ cluster = template.add_resource(emr.Cluster(
     ],
     JobFlowRole=Ref(emr_instance_profile),
     ServiceRole=Ref(emr_service_role),
-    AutoScalingRole=Ref(emr_autoscaling_role),
+    AutoScalingRole=emr_autoscaling_role,
     Instances=emr.JobFlowInstancesConfig(
         Ec2KeyName=Ref(keyname),
         Ec2SubnetId=Ref(subnet),

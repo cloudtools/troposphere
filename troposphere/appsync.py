@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class ApiKey(AWSObject):
@@ -13,7 +13,7 @@ class ApiKey(AWSObject):
     props = {
         'ApiId': (basestring, True),
         'Description': (basestring, False),
-        'Expires': (float, False),
+        'Expires': (integer, False),
     }
 
 
