@@ -122,15 +122,11 @@ class LaunchTemplateSpecification(AWSProperty):
     }
 
     def validate(self):
-        template_id = self.properties.get('LaunchTemplateId')
-        template_name = self.properties.get('LaunchTemplateName')
-
-        if not template_id and not template_name:
-            raise ValueError("You must specify a LaunchTemplateName"
-                             "or a LaunchTemplateId")
-        if template_id and template_name:
-            raise ValueError("LaunchTemplateName and LaunchTemplateId"
-                             "are mutually exclusive")
+        template_ids = [
+            'LaunchTemplateId',
+            'LaunchTemplateName'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, template_ids)
 
 
 class AutoScalingGroup(AWSObject):
