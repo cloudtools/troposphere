@@ -155,6 +155,16 @@ class Device(AWSProperty):
     }
 
 
+class HealthCheck(AWSProperty):
+    props = {
+        'Command': ([basestring], True),
+        'Interval': (integer, False),
+        'Retries': (integer, False),
+        'StartPeriod': (integer, False),
+        'Timeout': (integer, False),
+    }
+
+
 class KernelCapabilities(AWSProperty):
     props = {
         'Add': ([basestring], False),
@@ -198,6 +208,7 @@ class ContainerDefinition(AWSProperty):
         'Environment': ([Environment], False),
         'Essential': (boolean, False),
         'ExtraHosts': ([HostEntry], False),
+        'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
         'Image': (basestring, True),
         'Links': ([basestring], False),
