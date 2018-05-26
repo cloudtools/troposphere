@@ -134,6 +134,7 @@ class AutoScalingGroup(AWSObject):
         'MinSize': (integer, True),
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
+        'ServiceLinkedRoleARN': (basestring, False),
         'Tags': ((Tags, list), False),
         'TargetGroupARNs': ([basestring], False),
         'TerminationPolicies': ([basestring], False),
