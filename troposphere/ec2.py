@@ -773,47 +773,47 @@ class TagSpecifications(AWSProperty):
 
 class SpotOptions(AWSProperty):
     props = {
-        'SpotInstanceType': (basestring, False),
         'InstanceInterruptionBehavior': (basestring, False),
-        'MaxPrice': (basestring, False)
+        'MaxPrice': (basestring, False),
+        'SpotInstanceType': (basestring, False)
     }
 
 
 class InstanceMarketOptions(AWSProperty):
     props = {
-        'SpotOptions': (SpotOptions, False),
-        'MarketType': (basestring, False)
+        'MarketType': (basestring, False),
+        'SpotOptions': (SpotOptions, False)
     }
 
 
 class LaunchTemplateData(AWSProperty):
     props = {
-        'SecurityGroupIds': (list, False),
-        'SecurityGroups': (list, False),
-        'TagSpecifications': ([TagSpecifications], False),
-        'UserData': (basestring, False),
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'CreditSpecification': (CreditSpecification, False),
+        'DisableApiTermination': (boolean, False),
+        'EbsOptimized': (boolean, False),
+        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
+        'IamInstanceProfile': (IamInstanceProfile, False),
         'ImageId': (basestring, True),
+        'InstanceInitiatedShutdownBehavior': (basestring, False),
+        'InstanceMarketOptions': (InstanceMarketOptions, False),
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
-        'EbsOptimized': (boolean, False),
-        'IamInstanceProfile': (IamInstanceProfile, False),
-        'InstanceInitiatedShutdownBehavior': (basestring, False),
-        'DisableApiTermination': (boolean, False),
-        'RamDiskId': (basestring, False),
         'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
         'Placement': (Placement, False),
-        'CreditSpecification': (CreditSpecification, False),
-        'InstanceMarketOptions': (InstanceMarketOptions, False),
-        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False)
+        'RamDiskId': (basestring, False),
+        'SecurityGroups': (list, False),
+        'SecurityGroupIds': (list, False),
+        'TagSpecifications': ([TagSpecifications], False),
+        'UserData': (basestring, False)
     }
 
 
 class LaunchTemplate(AWSObject):
     resource_type = "AWS::EC2::LaunchTemplate"
     props = {
-        'LaunchTemplateName': (basestring, True),
-        'LaunchTemplateData': (LaunchTemplateData, True)
+        'LaunchTemplateData': (LaunchTemplateData, False),
+        'LaunchTemplateName': (basestring, False),
     }
