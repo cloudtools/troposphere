@@ -1,3 +1,26 @@
+## 2.3.0 (2018-05-26)
+
+- Allow Refs to be hashable using their data (#1053)
+- Add AWS::Budgets
+- Add new AWS::ServiceCatalog resources
+- Add Policy to ApiGateway::RestApi
+- Add ServiceLinkedRoleARN to AutoScaling::AutoScalingGroup
+- Add LaunchConfigurationName to AutoScaling::LaunchConfiguration
+- Add Edition to DirectoryService::MicrosoftAD
+- Add PointInTimeRecoverySpecification to DynamoDB::Table
+- Add ServiceRegistries to ECS::Service
+- Add HealthCheck to ECS::TaskDefinition ContainerDefinition
+- Add EncryptionAtRestOptions to Elasticsearch::Domain
+- Add MaxSessionDuration ti IAM::Role
+- Add SplunkDestinationConfiguration to KinesisFirehose::DeliveryStream
+- StartingPosition is no longer required in Lambda::EventSourceMapping
+- Add DefaultValue to Logs::MetricFilter MetricTransformation
+- Add OutputLocation to SSM::Association
+- Add AutoScaling and EC2  LaunchTemplate support (#1038)
+- Add LaunchTemplate to EC2::Instance
+- Adding ECS Container Healthchecks tests (#1024)
+- Rename ActionTypeID to ActionTypeId in CodePipeline
+
 ## 2.2.2 (2018-05-23)
 
 - Allow up to 50:1 ratio for iops and allocated storage
