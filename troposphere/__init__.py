@@ -648,8 +648,9 @@ class Template(object):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
 
-    def to_yaml(self, long_form=False):
-        return cfn_flip.to_yaml(self.to_json(), long_form)
+    def to_yaml(self, clean_up=False, long_form=False):
+        return cfn_flip.to_yaml(self.to_json(), clean_up=clean_up,
+                                long_form=long_form)
 
 
 class Export(AWSHelperFn):
