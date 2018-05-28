@@ -646,7 +646,8 @@ class Template(object):
                           sort_keys=sort_keys, separators=separators)
 
     def to_yaml(self, clean_up=False, long_form=False):
-        return cfn_flip.to_yaml(self.to_json(), clean_up=clean_up, long_form=long_form)
+        return cfn_flip.to_yaml(self.to_json(), clean_up=clean_up,
+                                long_form=long_form)
 
 
 class Export(AWSHelperFn):
