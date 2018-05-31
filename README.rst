@@ -200,6 +200,7 @@ Currently supported AWS resource types
 - AWS::KinesisFirehose
 - AWS::Lambda
 - AWS::Logs
+- AWS::Neptune
 - AWS::OpsWorks
 - AWS::RDS
 - AWS::Redshift
