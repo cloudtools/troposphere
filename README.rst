@@ -182,6 +182,7 @@ Currently supported AWS resource types
 - AWS::ECR
 - AWS::ECS
 - AWS::EFS
+- AWS::EKS
 - AWS::EMR
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
