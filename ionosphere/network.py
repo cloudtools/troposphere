@@ -259,4 +259,5 @@ class LoadBalancer(ARMObject):
 
     root_props = {
         'sku': (LoadBalancerSku, True),
+        'tags': (dict, False)
     }
