@@ -7,10 +7,18 @@ class AddressSpace(ARMProperty):
     }
 
 
+class ServiceEndpointProperties(ARMProperty):
+    props = {
+        'service': (str, True),
+        'locations': (list, True)
+    }
+
+
 class Subnet(ARMObject):
     props = {
         'addressPrefix': (str, True),
-        'networkSecurityGroup': (SubResource, False)
+        'networkSecurityGroup': (SubResource, False),
+        'serviceEndpoints': ((list, ServiceEndpointProperties), False)
     }
 
 
