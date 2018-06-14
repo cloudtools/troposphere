@@ -88,6 +88,7 @@ class Api(AWSObject):
 
     props = {
         'StageName': (basestring, True),
+        'Name': (basestring, False),
         'DefinitionBody': (dict, False),
         'DefinitionUri': (basestring, False),
         'CacheClusterEnabled': (bool, False),
