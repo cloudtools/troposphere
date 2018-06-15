@@ -656,7 +656,7 @@ class Template(object):
         if isinstance(other, Template):
             return (self.to_json() == other.to_json())
         else:
-            return false
+            return False
 
     def __ne__(self, other):
         return (not self.__eq__(other))
