@@ -652,6 +652,18 @@ class Template(object):
         return cfn_flip.to_yaml(self.to_json(), clean_up=clean_up,
                                 long_form=long_form)
 
+    def __eq__(self, other):
+        if isinstance(other, Template):
+            return (self.to_json() == other.to_json())
+        else:
+            return false
+
+    def __ne__(self, other):
+        return (not self.__eq__(other))
+
+    def __hash__(self):
+        return hash(self.to_json())
+
 
 class Export(AWSHelperFn):
     def __init__(self, name):
