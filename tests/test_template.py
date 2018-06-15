@@ -110,5 +110,6 @@ class TestEquality(unittest.TestCase):
 
         self.assertEqual(len(set([t1, t2])), 1)
 
+
 if __name__ == '__main__':
     unittest.main()
