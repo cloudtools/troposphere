@@ -1,3 +1,5 @@
+import re
+
 import validators
 from base import ARMObject, ARMProperty, SubResource
 from network import BackendAddressPoolRef, ProbeRef
@@ -16,7 +18,7 @@ class HardwareProfile(ARMProperty):
     props = {
         'vmSize': (str, False)
     }
-    #todo add validations
+    # todo add validations
 
 
 class ImageReference(ARMProperty):
@@ -149,6 +151,117 @@ class DiagnosticsProfile(ARMProperty):
     }
 
 
+valid_names_azure_extensions = re.compile(r'^[a-zA-Z0-9_\-/]+$')
+
+
+class VirtualMachineExtension(ARMObject):
+    # name of extension should be "[concat(parameters('vmName'),'/parameters('extensionName')]"
+    # and extension should be dependent on a VM
+    resource_type = 'Microsoft.Compute/virtualMachines/extensions'
+    apiVersion = "2017-12-01"
+    location = True
+
+    props = {
+        'forceUpdateTag': (bool, False),
+        'publisher': (str, False),
+        'type': (str, False),
+        'typeHandlerVersion': (str, False),
+        'autoUpgradeMinorVersion': (bool, False),
+        'settings': (dict, False),
+        'protectedSettings': (dict, False)
+    }
+
+    root_props = {
+        'tags': (dict, False)
+    }
+
+    def validate_title(self):
+        if not valid_names_azure_extensions.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
+
+    @staticmethod
+    def create_linux_custom_script(vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
+                                   storage_account_key=None, protected_settings=True, tags=None):
+
+        vm_extention = VirtualMachineExtension(vm.title + '/CustomScriptForLinux',
+                                               publisher='Microsoft.Azure.Extensions',
+                                               type='CustomScript',
+                                               autoUpgradeMinorVersion=True,
+                                               typeHandlerVersion='2.0',
+                                               dependsOn=vm)
+
+        VirtualMachineExtension._set_common_extension_values(vm_extention=vm_extention,
+                                                             vm=vm,
+                                                             command_to_execute=command_to_execute,
+                                                             script=script,
+                                                             file_uris=file_uris,
+                                                             storage_account_name=storage_account_name,
+                                                             storage_account_key=storage_account_key,
+                                                             protected_settings=protected_settings,
+                                                             tags=tags)
+
+        return vm_extention
+
+    @staticmethod
+    def create_windows_custom_script(vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
+                                     storage_account_key=None, protected_settings=True, tags=None):
+
+        vm_extention = VirtualMachineExtension(vm.title + '/CustomScriptForWindows',
+                                               publisher='Microsoft.Compute',
+                                               type='CustomScriptExtension',
+                                               autoUpgradeMinorVersion=True,
+                                               typeHandlerVersion='1.9',
+                                               dependsOn=vm)
+
+        VirtualMachineExtension._set_common_extension_values(vm_extention=vm_extention,
+                                                             vm=vm,
+                                                             command_to_execute=command_to_execute,
+                                                             script=script,
+                                                             file_uris=file_uris,
+                                                             storage_account_name=storage_account_name,
+                                                             storage_account_key=storage_account_key,
+                                                             protected_settings=protected_settings,
+                                                             tags=tags)
+
+        return vm_extention
+
+    @staticmethod
+    def _set_common_extension_values(vm_extention, vm, command_to_execute, script=None, file_uris=None,
+                                     storage_account_name=None, storage_account_key=None, protected_settings=True,
+                                     tags=None):
+
+        if script and file_uris:
+            raise ValueError("Must set either script or an array of file uris")
+        if not isinstance(vm, VirtualMachine):
+            raise ValueError("Must provide a VirtualMachine object")
+
+        settings = {'commandToExecute': command_to_execute}
+
+        if script:
+            settings['script'] = script
+
+        if file_uris:
+            if isinstance(file_uris, str):
+                file_uris = [file_uris]
+            settings['fileUris'] = file_uris
+
+        if storage_account_key:
+            settings['storageAccountKey'] = storage_account_key
+
+        if storage_account_name:
+            settings['storageAccountName'] = storage_account_name
+
+        if tags:
+            vm_extention.properties['tags'] = tags
+
+        if protected_settings:
+            vm_extention.properties['protectedSettings'] = settings
+        else:
+            vm_extention.properties['settings'] = settings
+
+        vm_extention.with_depends_on(vm)
+
+
 class VirtualMachine(ARMObject):
     resource_type = 'Microsoft.Compute/virtualMachines'
     apiVersion = "2017-12-01"
@@ -205,6 +318,7 @@ class VirtualMachineScaleSetOSProfile(ARMProperty):
             if len(val) < 0 or len(val) > 15:
                 raise ValueError("computerNamePrefix - Computer name prefixes must be 1 to 15 characters long.")
 
+
 # https://docs.microsoft.com/en-us/azure/templates/microsoft.compute/virtualmachinescalesets#VirtualMachineScaleSetOSDisk
 class VirtualMachineScaleSetOSDisk(ARMProperty):
     props = {
@@ -217,6 +331,7 @@ class VirtualMachineScaleSetOSDisk(ARMProperty):
         'managedDisk': (ManagedDiskParameters, False),
     }
 
+
 class VirtualMachineScaleSetDataDisk(ARMProperty):
     props = {
         'name': (str, False),
@@ -226,6 +341,7 @@ class VirtualMachineScaleSetDataDisk(ARMProperty):
         'diskSizeGB': (int, False),
         'managedDisk': (ManagedDiskParameters, False),
     }
+
 
 class VirtualMachineScaleSetStorageProfile(ARMProperty):
     props = {

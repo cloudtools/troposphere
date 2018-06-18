@@ -58,12 +58,19 @@ vm = VirtualMachine('testvm',
                                                   [NetworkInterfaceReference(id=networkInterface.Ref())]))
 vm.with_depends_on(networkInterface)
 
+# create VM extension
+ext_script = VirtualMachineExtension.create_linux_custom_script(
+    vm=vm,
+    command_to_execute="sh some_script.sh",
+    file_uris="https://somescript.sh",
+    protected_settings=True)
+
 
 storage = StorageAccount(str(uuid.uuid4())[-12:],
                          sku=StorageAccountSku(name='Standard_LRS'),
                          kind='StorageV2',
                          tags={'tag1': 'bla1'})
 
-template.add_resource([vnet, nsg, publicIp, networkInterface, vm, storage])
+template.add_resource([vnet, nsg, publicIp, networkInterface, vm, storage, ext_script])
 
 print(template.to_json())

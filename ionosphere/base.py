@@ -12,7 +12,7 @@ MAX_PARAMETERS = 256
 MAX_RESOURCES = 800
 PARAMETER_TITLE_MAX = 255
 
-valid_names_azure = re.compile(r'^[a-zA-Z0-9_-]+$')
+valid_names_azure = re.compile(r'^[a-zA-Z0-9_\-]+$')
 
 
 class ARMTemplate(object):
