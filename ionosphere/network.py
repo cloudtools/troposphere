@@ -1,3 +1,5 @@
+from enum import Enum
+
 from base import ARMObject, ARMProperty, SubResource, SubResourceRef
 
 
@@ -269,3 +271,37 @@ class LoadBalancer(ARMObject):
         'sku': (LoadBalancerSku, True),
         'tags': (dict, False)
     }
+
+
+class ARecord(ARMProperty):
+    props = {
+        'ipv4Address': (str, True)
+    }
+
+
+class DnsZoneA(ARMObject):
+    resource_type = 'Microsoft.Network/dnsZones/A'
+    apiVersion = '2017-10-01'
+
+    props = {
+        'TTL': (int, False),
+        'ARecords': ([ARecord], False)
+    }
+
+
+class ZoneType(Enum):
+    Private = 'Private'
+    Public = 'Public'
+
+
+class DnsZone(ARMObject):
+    resource_type = 'Microsoft.Network/dnsZones'
+    apiVersion = '2017-09-01'
+    location = True
+
+    props = {
+        'registrationVirtualNetworks': ([SubResource], False),
+        'resolutionVirtualNetworks': ([SubResource], False),
+        'zoneType': (ZoneType, False)
+    }
+
