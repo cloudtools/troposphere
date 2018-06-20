@@ -1,7 +1,9 @@
+import json
 import unittest
 
 from base import ARMTemplate, SubResource
-from network import DnsZone, VirtualNetwork, ARecord, DnsZoneA
+from ionosphere import depends_on_helper
+from network import DnsZone, VirtualNetwork, ARecord, DnsZoneA, ZoneType
 
 
 class TestDns(unittest.TestCase):
@@ -15,17 +17,19 @@ class TestDns(unittest.TestCase):
 
         vnet = VirtualNetwork(vnet_name, template=template)
 
-        dns = DnsZone(dns_name, template=template).with_depends_on(vnet)
-        dns.registrationVirtualNetworks = [SubResource(id=vnet.ref())]
+        dns = DnsZone(dns_name,
+                      template=template,
+                      registrationVirtualNetworks=[SubResource(id=vnet.ref())],
+                      zoneType=ZoneType.Private.name,
+                      dependsOn=vnet)
 
-        dns_a = DnsZoneA('/'.join([dns_name, 'app1']), template=template)
-        dns_a.TTL = 3600
-        dns_a.ARecords = [
-            ARecord(ipv4Address="[reference('crumbNIC').ipConfigurations[0].properties.privateIPAddress]")
-        ]
-        dns_a.with_depends_on(dns)
+        dns_a = DnsZoneA('/'.join([dns_name, 'app1']),
+                         template=template,
+                         TTL=3600,
+                         ARecords=[ARecord(ipv4Address="[reference('crumbNIC').ipConfigurations[0].properties.privateIPAddress]")],
+                         dependsOn=dns)
 
-        json = template.to_json()
+        j = template.to_json()
 
-        print(json)
+        print(j)
 
