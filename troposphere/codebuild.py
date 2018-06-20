@@ -147,9 +147,9 @@ class Source(AWSProperty):
                 )
 
         auth = self.properties.get('Auth')
-        if auth is not None and source_type is not 'GITHUB':
+        if auth is not None and 'GITHUB' not in source_type:
             raise ValueError("SourceAuth: must only be defined when using "
-                             "'GITHUB' Source Type.")
+                             "'GITHUB' or 'GITHUB_ENTERPRISE' Source Type.")
 
 
 class VpcConfig(AWSProperty):
