@@ -266,7 +266,7 @@ def notification_event(events):
 
 
 def task_type(task):
-    valid_tasks = ['RUN_COMMAND', 'AUTOMATION', 'LAMBDA', 'STEP_FUNCTION']
+    valid_tasks = ['RUN_COMMAND', 'AUTOMATION', 'LAMBDA', 'STEP_FUNCTIONS']
     if task not in valid_tasks:
         raise ValueError(
             'TaskType must be one of: "%s"' % (
