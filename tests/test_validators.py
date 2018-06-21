@@ -202,7 +202,7 @@ class TestValidators(unittest.TestCase):
                 operating_system(s)
 
     def test_task_type(self):
-        for s in ['RUN_COMMAND', 'AUTOMATION', 'LAMBDA', 'STEP_FUNCTION']:
+        for s in ['RUN_COMMAND', 'AUTOMATION', 'LAMBDA', 'STEP_FUNCTIONS']:
             task_type(s)
         for s in ['', 'foo', 'a', 'l@mbda', 'STEPFUNCTION']:
             with self.assertRaises(ValueError):
