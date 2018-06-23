@@ -179,88 +179,6 @@ class VirtualMachineExtension(ARMObject):
         if not valid_names_azure_extensions.match(self.title):
             raise ValueError('Name "%s" is not valid' % self.title)
 
-    @staticmethod
-    def create_linux_custom_script(vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
-                                   storage_account_key=None, protected_settings=True, tags=None):
-
-        vm_extention = VirtualMachineExtension(vm.title + '/CustomScriptForLinux',
-                                               publisher='Microsoft.Azure.Extensions',
-                                               type='CustomScript',
-                                               autoUpgradeMinorVersion=True,
-                                               typeHandlerVersion='2.0',
-                                               dependsOn=vm)
-
-        VirtualMachineExtension._set_common_extension_values(vm_extention=vm_extention,
-                                                             vm=vm,
-                                                             command_to_execute=command_to_execute,
-                                                             script=script,
-                                                             file_uris=file_uris,
-                                                             storage_account_name=storage_account_name,
-                                                             storage_account_key=storage_account_key,
-                                                             protected_settings=protected_settings,
-                                                             tags=tags)
-
-        return vm_extention
-
-    @staticmethod
-    def create_windows_custom_script(vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
-                                     storage_account_key=None, protected_settings=True, tags=None):
-
-        vm_extention = VirtualMachineExtension(vm.title + '/CustomScriptForWindows',
-                                               publisher='Microsoft.Compute',
-                                               type='CustomScriptExtension',
-                                               autoUpgradeMinorVersion=True,
-                                               typeHandlerVersion='1.9',
-                                               dependsOn=vm)
-
-        VirtualMachineExtension._set_common_extension_values(vm_extention=vm_extention,
-                                                             vm=vm,
-                                                             command_to_execute=command_to_execute,
-                                                             script=script,
-                                                             file_uris=file_uris,
-                                                             storage_account_name=storage_account_name,
-                                                             storage_account_key=storage_account_key,
-                                                             protected_settings=protected_settings,
-                                                             tags=tags)
-
-        return vm_extention
-
-    @staticmethod
-    def _set_common_extension_values(vm_extention, vm, command_to_execute, script=None, file_uris=None,
-                                     storage_account_name=None, storage_account_key=None, protected_settings=True,
-                                     tags=None):
-
-        if script and file_uris:
-            raise ValueError("Must set either script or an array of file uris")
-        if not isinstance(vm, VirtualMachine):
-            raise ValueError("Must provide a VirtualMachine object")
-
-        settings = {'commandToExecute': command_to_execute}
-
-        if script:
-            settings['script'] = script
-
-        if file_uris:
-            if isinstance(file_uris, str):
-                file_uris = [file_uris]
-            settings['fileUris'] = file_uris
-
-        if storage_account_key:
-            settings['storageAccountKey'] = storage_account_key
-
-        if storage_account_name:
-            settings['storageAccountName'] = storage_account_name
-
-        if tags:
-            vm_extention.properties['tags'] = tags
-
-        if protected_settings:
-            vm_extention.properties['protectedSettings'] = settings
-        else:
-            vm_extention.properties['settings'] = settings
-
-        vm_extention.with_depends_on(vm)
-
 
 class VirtualMachine(ARMObject):
     resource_type = 'Microsoft.Compute/virtualMachines'
@@ -403,7 +321,7 @@ class VirtualMachineScaleSetNetworkProfile(ARMProperty):
     }
 
 
-class VirtualMachineScaleSetExtensionProperties(ARMProperty):
+class VirtualMachineScaleSetExtension(ARMObject):
     props = {
         'forceUpdateTag': (str, False),
         'publisher': (str, False),
@@ -415,16 +333,9 @@ class VirtualMachineScaleSetExtensionProperties(ARMProperty):
     }
 
 
-class VirtualMachineScaleSetExtension(ARMProperty):
-    props = {
-        'name': (str, False),
-        'properties': (VirtualMachineScaleSetExtensionProperties, True)
-    }
-
-
 class VirtualMachineScaleSetExtensionProfile(ARMProperty):
     props = {
-        'extensions': ([VirtualMachineScaleSetExtension], True)
+        'extensions': (list, True)  # type: list[VirtualMachineScaleSetExtension]
     }
 
 
