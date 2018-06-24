@@ -3,7 +3,7 @@ import unittest
 
 from base import ARMTemplate, SubResource
 from ionosphere import depends_on_helper
-from network import DnsZone, VirtualNetwork, ARecord, DnsZoneA, ZoneType
+from network import DnsZone, VirtualNetwork, ARecord, DnsZoneA, ZoneType, NetworkInterface
 
 
 class TestDns(unittest.TestCase):
@@ -16,6 +16,8 @@ class TestDns(unittest.TestCase):
         template = ARMTemplate()
 
         vnet = VirtualNetwork(vnet_name, template=template)
+
+        nic = NetworkInterface()
 
         dns = DnsZone(dns_name,
                       template=template,
