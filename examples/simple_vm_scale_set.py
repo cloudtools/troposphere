@@ -1,6 +1,7 @@
 from compute import *
 
 from base import ARMTemplate
+from helpers.extensions import create_scale_set_linux_custom_script
 from network import VirtualNetwork, AddressSpace, Subnet
 
 template = ARMTemplate()
@@ -17,6 +18,11 @@ nic_conf = VirtualMachineScaleSetNetworkConfiguration('my_nic',
                                                       primary=True,
                                                       ipConfigurations=[ip_conf])
 
+ss_extensoin = create_scale_set_linux_custom_script(name='AppInstaller',
+                                                    command_to_execute='some command',
+                                                    script='some script',
+                                                    protected_settings=False)
+
 ss_vm_prof = VirtualMachineScaleSetVMProfile(
     osProfile=VirtualMachineScaleSetOSProfile(computerNamePrefix='testVm',
                                               adminUsername='adminuser',
@@ -26,7 +32,8 @@ ss_vm_prof = VirtualMachineScaleSetVMProfile(
                                                                                       offer='UbuntuServer',
                                                                                       sku='16.04-LTS'),
                                                         osDisk=VirtualMachineScaleSetOSDisk(createOption='FromImage')),
-    networkProfile=VirtualMachineScaleSetNetworkProfile(networkInterfaceConfigurations=[nic_conf])
+    networkProfile=VirtualMachineScaleSetNetworkProfile(networkInterfaceConfigurations=[nic_conf]),
+    extensionProfile=VirtualMachineScaleSetExtensionProfile(extensions=[ss_extensoin])
 )
 
 vm_scale_set = VirtualMachineScaleSets('my_scale_set',
