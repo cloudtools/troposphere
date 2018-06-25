@@ -303,7 +303,7 @@ class ZoneType(Enum):
 
 class DnsZone(ARMObject):
     resource_type = 'Microsoft.Network/dnsZones'
-    apiVersion = '2017-09-01'
+    apiVersion = '2017-10-01'
     location = True
     domain_name_pattern = re.compile(r'^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$')
 
@@ -311,6 +311,11 @@ class DnsZone(ARMObject):
         'registrationVirtualNetworks': ([SubResource], False),
         'resolutionVirtualNetworks': ([SubResource], False),
         'zoneType': (str, False)
+    }
+
+    root_props = {
+        'location': (str, True),
+        'tags': (dict, False)
     }
 
     def validate_title(self):
