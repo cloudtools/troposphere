@@ -584,6 +584,19 @@ class VPCEndpoint(AWSObject):
         'RouteTableIds': ([basestring], False),
         'ServiceName': (basestring, True),
         'VpcId': (basestring, True),
+        'PrivateDnsEnabled': (boolean, False),
+        'SubnetIds': ([basestring], False),
+        'SecurityGroupIds': ([basestring], False),
+        'VpcEndpointType': (basestring, False)
+    }
+
+
+class VPCEndpointService(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpointService"
+
+    props = {
+        'NetworkLoadBalancerArns': ([basestring], True),
+        'AcceptanceRequired': (boolean, False)
     }
 
 
