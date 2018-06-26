@@ -584,6 +584,10 @@ class VPCEndpoint(AWSObject):
         'RouteTableIds': ([basestring], False),
         'ServiceName': (basestring, True),
         'VpcId': (basestring, True),
+        'VpcEndpointType': (vpc_endpoint_type, False),
+        'PrivateDnsEnabled': (boolean, False),
+        'SubnetIds': ([basestring], False),
+        'SecurityGroupIds': ([basestring], False)
     }
 
 
