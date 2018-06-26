@@ -6,7 +6,8 @@
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, exactly_one, integer, integer_range,
-    network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr
+    network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr,
+    vpc_endpoint_type
 )
 
 try:
@@ -584,6 +585,10 @@ class VPCEndpoint(AWSObject):
         'RouteTableIds': ([basestring], False),
         'ServiceName': (basestring, True),
         'VpcId': (basestring, True),
+        'VpcEndpointType': (vpc_endpoint_type, False),
+        'PrivateDnsEnabled': (boolean, False),
+        'SubnetIds': ([basestring], False),
+        'SecurityGroupIds': ([basestring], False)
     }
 
 
