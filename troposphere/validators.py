@@ -341,20 +341,6 @@ def vpn_tunnel_inside_cidr(cidr):
     return(cidr)
 
 
-def cloud_watch_logs_log_group_arn(arn):
-    log_group_arn_match_re = compile(
-        r'^arn:aws:logs:[a-z]{2}-[a-z]+-\d{1,2}:\d{12}:'
-        '[\.\-_\/#A-Za-z0-9]+:[\.\-_\/#A-Za-z0-9]+$'
-    )
-    if not log_group_arn_match_re.match(arn):
-        raise ValueError(
-            '%s is not a valid ARN for the log group.'
-            ' The Amazon Resource Name (ARN) for the log group that you want'
-            ' Amazon Route 53 to send query logs to. This is the format of the'
-            ' ARN: arn:aws:logs:region:account-id:log-group:log_group_name '
-            % arn)
-    return(arn)
-
 def vpc_endpoint_type(type):
     valid_types = ['Interface', 'Gateway']
     if type not in valid_types:
