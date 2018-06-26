@@ -1,10 +1,13 @@
+import pickle
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import Cidr, If, Join, Ref, Split, Sub, Template
+from troposphere import NoValue, Region
 from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, Route, SecurityGroupRule
 from troposphere.s3 import Bucket
 from troposphere.elasticloadbalancing import HealthCheck
+from troposphere import cloudformation
 from troposphere.validators import positive_integer
 
 
@@ -68,6 +71,14 @@ class TestBasic(unittest.TestCase):
         b3 = Bucket("B3", DependsOn=[b1, b2])
         self.assertEqual(b1.title, b3.DependsOn[0])
         self.assertEqual(b2.title, b3.DependsOn[1])
+
+    def test_pickle_ok(self):
+        # tests that objects can be pickled/un-pickled without hitting issues
+        bucket_name = "test-bucket"
+        b = Bucket("B1", BucketName=bucket_name)
+        p = pickle.dumps(b)
+        b2 = pickle.loads(p)
+        self.assertEqual(b2.BucketName, b.BucketName)
 
 
 def call_correct(x):
@@ -321,6 +332,38 @@ class TestRef(unittest.TestCase):
         t = Ref(param)
         ref = t.to_dict()
         self.assertEqual(ref['Ref'], 'param')
+
+    def test_ref_eq(self):
+        s = "AWS::NoValue"
+        r = Ref(s)
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, NoValue)
+        self.assertEqual(r, NoValue)
+        self.assertEqual(wch.Ref(), "TestResource")
+
+        self.assertNotEqual(r, "AWS::Region")
+        self.assertNotEqual(r, Region)
+        self.assertNotEqual(r, Ref)
+        self.assertNotEqual(wch.Ref(), "NonexistantResource")
+
+    def test_ref_hash(self):
+        s = hash("AWS::NoValue")
+        r = hash(Ref(s))
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, hash(NoValue))
+        self.assertEqual(r, hash(NoValue))
+        self.assertEqual(hash(wch.Ref()), hash("TestResource"))
+
+        self.assertNotEqual(r, hash("AWS::Region"))
+        self.assertNotEqual(r, hash(Region))
+        self.assertNotEqual(r, hash(Ref))
+        self.assertNotEqual(hash(wch.Ref()), hash("NonexistantResource"))
 
 
 class TestName(unittest.TestCase):

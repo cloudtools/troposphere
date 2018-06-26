@@ -156,9 +156,11 @@ Currently supported AWS resource types
 
 - AWS::ApiGateway
 - AWS::ApplicationAutoScaling
+- AWS::AppSync
 - AWS::Athena
 - AWS::AutoScaling
 - AWS::Batch
+- AWS::Budgets
 - AWS::CertificateManager
 - AWS::Cloud9
 - AWS::CloudFormation
@@ -180,6 +182,7 @@ Currently supported AWS resource types
 - AWS::ECR
 - AWS::ECS
 - AWS::EFS
+- AWS::EKS
 - AWS::EMR
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
@@ -198,6 +201,7 @@ Currently supported AWS resource types
 - AWS::KinesisFirehose
 - AWS::Lambda
 - AWS::Logs
+- AWS::Neptune
 - AWS::OpsWorks
 - AWS::RDS
 - AWS::Redshift
@@ -209,6 +213,7 @@ Currently supported AWS resource types
 - AWS::SQS
 - AWS::SSM
 - AWS::Serverless
+- AWS::ServiceCatalog
 - AWS::ServiceDiscovery
 - AWS::StepFunctions
 - AWS::WAF

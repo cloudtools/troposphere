@@ -3,8 +3,8 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
-from .validators import boolean
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class Detector(AWSObject):
@@ -12,6 +12,36 @@ class Detector(AWSObject):
 
     props = {
         'Enable': (boolean, True),
+    }
+
+
+class Condition(AWSProperty):
+    props = {
+        'Eq': ([basestring], False),
+        'Gte': (integer, False),
+        'Lt': (integer, False),
+        'Lte': (integer, False),
+        'Neq': ([basestring], False),
+    }
+
+
+class FindingCriteria(AWSProperty):
+    props = {
+        'Criterion': (dict, False),
+        'ItemType': (Condition, False),
+    }
+
+
+class Filter(AWSObject):
+    resource_type = "AWS::GuardDuty::Filter"
+
+    props = {
+        'Action': (basestring, True),
+        'Description': (basestring, True),
+        'DetectorId': (basestring, True),
+        'FindingCriteria': (FindingCriteria, True),
+        'Name': (basestring, False),
+        'Rank': (integer, True),
     }
 
 
@@ -46,6 +76,7 @@ class Member(AWSObject):
         'MemberId': (basestring, True),
         'Message': (basestring, False),
         'Status': (basestring, False),
+        'DisableEmailNotification': (bool, False),
     }
 
 

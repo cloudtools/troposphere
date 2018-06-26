@@ -185,6 +185,26 @@ class KinesisStreamSourceConfiguration(AWSProperty):
     }
 
 
+class SplunkRetryOptions(AWSProperty):
+    props = {
+        'DurationInSeconds': (positive_integer, True),
+    }
+
+
+class SplunkDestinationConfiguration(AWSProperty):
+    props = {
+        'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'HECAcknowledgmentTimeoutInSeconds': (positive_integer, False),
+        'HECEndpoint': (basestring, True),
+        'HECEndpointType': (basestring, True),
+        'HECToken': (basestring, True),
+        'ProcessingConfiguration': (ProcessingConfiguration, False),
+        'RetryOptions': (SplunkRetryOptions, False),
+        'S3BackupMode': (basestring, False),
+        'S3Configuration': (S3DestinationConfiguration, True),
+    }
+
+
 class DeliveryStream(AWSObject):
     resource_type = "AWS::KinesisFirehose::DeliveryStream"
 
@@ -196,4 +216,6 @@ class DeliveryStream(AWSObject):
         'KinesisStreamSourceConfiguration': (KinesisStreamSourceConfiguration, False),  # noqa
         'RedshiftDestinationConfiguration': (RedshiftDestinationConfiguration, False),  # noqa
         'S3DestinationConfiguration': (S3DestinationConfiguration, False),
+        'SplunkDestinationConfiguration':
+            (SplunkDestinationConfiguration, False),
     }

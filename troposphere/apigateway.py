@@ -301,6 +301,7 @@ class RestApi(AWSObject):
         "MinimumCompressionSize": (positive_integer, False),
         "Name": (basestring, False),
         "Parameters": ([basestring], False),
+        "Policy": (dict, False),
     }
 
 

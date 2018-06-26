@@ -1,3 +1,55 @@
+## 2.3.0 (2018-05-26)
+
+- Allow Refs to be hashable using their data (#1053)
+- Add AWS::Budgets
+- Add new AWS::ServiceCatalog resources
+- Add Policy to ApiGateway::RestApi
+- Add ServiceLinkedRoleARN to AutoScaling::AutoScalingGroup
+- Add LaunchConfigurationName to AutoScaling::LaunchConfiguration
+- Add Edition to DirectoryService::MicrosoftAD
+- Add PointInTimeRecoverySpecification to DynamoDB::Table
+- Add ServiceRegistries to ECS::Service
+- Add HealthCheck to ECS::TaskDefinition ContainerDefinition
+- Add EncryptionAtRestOptions to Elasticsearch::Domain
+- Add MaxSessionDuration ti IAM::Role
+- Add SplunkDestinationConfiguration to KinesisFirehose::DeliveryStream
+- StartingPosition is no longer required in Lambda::EventSourceMapping
+- Add DefaultValue to Logs::MetricFilter MetricTransformation
+- Add OutputLocation to SSM::Association
+- Add AutoScaling and EC2  LaunchTemplate support (#1038)
+- Add LaunchTemplate to EC2::Instance
+- Adding ECS Container Healthchecks tests (#1024)
+- Rename ActionTypeID to ActionTypeId in CodePipeline
+
+## 2.2.2 (2018-05-23)
+
+- Allow up to 50:1 ratio for iops and allocated storage
+- Correct Spot Fleet TagSpecifications (#1010)
+- Change GetCidr to Cidr (Fixes #1013)
+- Add missing OpsWorks::Instance properties (Fixes #1014)
+- Adding SUSE to list of operating systems for SSM (#1015)
+- Updates for latest pycodestyle warnings
+- Add AWS::AppSync
+- Add AWS::ServiceCatalog
+- Special case Tags support in gen.py
+- Add constants for EC2 C5 instance types (#1025)
+- Update guardduty.py (#1037)
+- Add OpenIdConnectConfig to AppSync::GraphQLApi
+- Update AWS Config features (updates #1022)
+- Updated appsync apikey expires to be an int. (#1040)
+- Fix AutoScalingRole in EMR: Fixes #984 (#1036)
+- Rename SES Template to EmailTemplate (#1047)
+- Add GuardDuty::Filter
+- Remove python 3.3 support since it's EOL (#1049)
+- Corrected the description of NatGateway (#1005)
+- Update deprecated modules (#1007)
+- Updared CodeBuild Source Options (#1017)
+- Allow Ref's to test equality against their data (#1048)
+- Update to cfn-flip 1.0.2 (#1003)
+- Eliminate infinite loop when pickle loads BaseAWSObject and objects derived from it. (#1016)
+- Allow multiple NoValue properties in mutually_exclusive (#1050)
+
+
 ## 2.2.1 (2018-03-10)
 - type is not required for EnvironmentVariable (#975)
 - Properly handle list objects used with DependsOn (Fixes #982)

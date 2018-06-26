@@ -7,7 +7,7 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
 
-class ActionTypeID(AWSProperty):
+class ActionTypeId(AWSProperty):
     props = {
         'Category': (basestring, True),
         'Owner': (basestring, True),
@@ -87,7 +87,7 @@ class ArtifactStore(AWSProperty):
 
 class Actions(AWSProperty):
     props = {
-        'ActionTypeId': (ActionTypeID, True),
+        'ActionTypeId': (ActionTypeId, True),
         'Configuration': (dict, False),
         'InputArtifacts': ([InputArtifacts], False),
         'Name': (basestring, True),

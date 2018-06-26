@@ -11,6 +11,7 @@ from .validators import (
 
 try:
     from awacs.aws import Policy
+
     policytypes = (dict, Policy)
 except ImportError:
     policytypes = dict,
@@ -100,9 +101,9 @@ class NatGateway(AWSObject):
     resource_type = "AWS::EC2::NatGateway"
 
     props = {
-            'AllocationId': (basestring, True),
-            'SubnetId': (basestring, True),
-            'Tags': ((Tags, list), False),
+        'AllocationId': (basestring, True),
+        'SubnetId': (basestring, True),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -123,7 +124,7 @@ NO_DEVICE = {}
 class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
-        'Ebs': (EBSBlockDevice, False),      # Conditional
+        'Ebs': (EBSBlockDevice, False),  # Conditional
         'NoDevice': (dict, False),
         'VirtualName': (basestring, False),  # Conditional
     }
@@ -160,6 +161,14 @@ class Ipv6Addresses(AWSHelperFn):
         self.data = {
             'Ipv6Address': address,
         }
+
+
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, True),
+    }
 
 
 class PrivateIpAddressSpecification(AWSProperty):
@@ -230,6 +239,7 @@ class Instance(AWSObject):
         'Ipv6Addresses': ([Ipv6Addresses], False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'Monitoring': (boolean, False),
         'NetworkInterfaces': ([NetworkInterfaceProperty], False),
         'PlacementGroupName': (basestring, False),
@@ -567,14 +577,14 @@ class VPCDHCPOptionsAssociation(AWSObject):
 
 
 class VPCEndpoint(AWSObject):
-        resource_type = "AWS::EC2::VPCEndpoint"
+    resource_type = "AWS::EC2::VPCEndpoint"
 
-        props = {
-            'PolicyDocument': (policytypes, False),
-            'RouteTableIds': ([basestring], False),
-            'ServiceName': (basestring, True),
-            'VpcId': (basestring, True),
-        }
+    props = {
+        'PolicyDocument': (policytypes, False),
+        'RouteTableIds': ([basestring], False),
+        'ServiceName': (basestring, True),
+        'VpcId': (basestring, True),
+    }
 
 
 class VPCGatewayAttachment(AWSObject):
@@ -760,4 +770,59 @@ class VPCCidrBlock(AWSObject):
         'AmazonProvidedIpv6CidrBlock': (boolean, False),
         'CidrBlock': (basestring, False),
         'VpcId': (basestring, True),
+    }
+
+
+class TagSpecifications(AWSProperty):
+    props = {
+        'ResourceType': (basestring, False),
+        'Tags': ((Tags, list), False)
+    }
+
+
+class SpotOptions(AWSProperty):
+    props = {
+        'InstanceInterruptionBehavior': (basestring, False),
+        'MaxPrice': (basestring, False),
+        'SpotInstanceType': (basestring, False)
+    }
+
+
+class InstanceMarketOptions(AWSProperty):
+    props = {
+        'MarketType': (basestring, False),
+        'SpotOptions': (SpotOptions, False)
+    }
+
+
+class LaunchTemplateData(AWSProperty):
+    props = {
+        'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'CreditSpecification': (CreditSpecification, False),
+        'DisableApiTermination': (boolean, False),
+        'EbsOptimized': (boolean, False),
+        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
+        'IamInstanceProfile': (IamInstanceProfile, False),
+        'ImageId': (basestring, True),
+        'InstanceInitiatedShutdownBehavior': (basestring, False),
+        'InstanceMarketOptions': (InstanceMarketOptions, False),
+        'InstanceType': (basestring, True),
+        'KernelId': (basestring, False),
+        'KeyName': (basestring, False),
+        'Monitoring': (Monitoring, False),
+        'NetworkInterfaces': ([NetworkInterfaces], False),
+        'Placement': (Placement, False),
+        'RamDiskId': (basestring, False),
+        'SecurityGroups': (list, False),
+        'SecurityGroupIds': (list, False),
+        'TagSpecifications': ([TagSpecifications], False),
+        'UserData': (basestring, False)
+    }
+
+
+class LaunchTemplate(AWSObject):
+    resource_type = "AWS::EC2::LaunchTemplate"
+    props = {
+        'LaunchTemplateData': (LaunchTemplateData, False),
+        'LaunchTemplateName': (basestring, False),
     }

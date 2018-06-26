@@ -66,6 +66,42 @@ class ConfigRule(AWSObject):
     }
 
 
+class AggregationAuthorization(AWSObject):
+    resource_type = "AWS::Config::AggregationAuthorization"
+
+    props = {
+        'AuthorizedAccountId': (basestring, True),
+        'AuthorizedAwsRegion': (basestring, True),
+    }
+
+
+class OrganizationAggregationSource(AWSProperty):
+    props = {
+        'AllAwsRegions': (boolean, False),
+        'AwsRegions': ([basestring], False),
+        'RoleARN': (basestring, True),
+    }
+
+
+class AccountAggregationSources(AWSProperty):
+    props = {
+        'AccountIds': ([basestring], True),
+        'AllAwsRegions': (boolean, False),
+        'AwsRegions': ([basestring], False),
+    }
+
+
+class ConfigurationAggregator(AWSObject):
+    resource_type = "AWS::Config::ConfigurationAggregator"
+
+    props = {
+        'AccountAggregationSources': (AccountAggregationSources, False),
+        'ConfigurationAggregatorName': (basestring, True),
+        'OrganizationAggregationSource':
+            (OrganizationAggregationSource, False),
+    }
+
+
 class RecordingGroup(AWSProperty):
     props = {
         'AllSupported': (boolean, False),

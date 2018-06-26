@@ -30,7 +30,7 @@ from troposphere.policies import UpdatePolicy, CreationPolicy
 
 
 class TemplateGenerator(Template):
-    DEPRECATED_MODULES = ['troposphere.dynamodb']
+    DEPRECATED_MODULES = ['troposphere.dynamodb2']
 
     _inspect_members = set()
     _inspect_resources = {}
@@ -104,9 +104,10 @@ class TemplateGenerator(Template):
         return self._inspect_functions
 
     def _get_resource_type_cls(self, resource):
-        """Attempts to return troposphere class that represents Type of provided
-        resource. Attempts to find the troposphere class who's `resource_type`
-        field is the same as the provided resources `Type` field.
+        """Attempts to return troposphere class that represents Type of
+        provided resource. Attempts to find the troposphere class who's
+        `resource_type` field is the same as the provided resources `Type`
+        field.
 
         :param resource: Resource to find troposphere class for
         :return: None: If provided resource does not have a `Type` field

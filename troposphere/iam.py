@@ -77,6 +77,7 @@ class Role(AWSObject):
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
         'ManagedPolicyArns': ([basestring], False),
+        'MaxSessionDuration': (integer, False),
         'Path': (iam_path, False),
         'Policies': ([Policy], False),
         'RoleName': (iam_role_name, False),

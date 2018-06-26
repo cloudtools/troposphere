@@ -124,6 +124,7 @@ class Source(AWSProperty):
             'CODECOMMIT',
             'CODEPIPELINE',
             'GITHUB',
+            'GITHUB_ENTERPRISE',
             'S3',
         ]
 

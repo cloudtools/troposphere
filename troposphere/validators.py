@@ -195,9 +195,11 @@ def iam_group_name(group_name):
 
 
 def mutually_exclusive(class_name, properties, conditionals):
+    from . import NoValue
+
     found_list = []
     for c in conditionals:
-        if c in properties:
+        if c in properties and not properties[c] == NoValue:
             found_list.append(c)
     seen = set(found_list)
     specified_count = len(seen)
@@ -288,7 +290,7 @@ def compliance_level(level):
 
 def operating_system(os):
     valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX',
-                'SUSE']
+                'SUSE', 'CENTOS']
     if os not in valid_os:
         raise ValueError(
             'OperatingSystem must be one of: "%s"' % (
@@ -323,8 +325,8 @@ def vpn_tunnel_inside_cidr(cidr):
         '169.254.169.252/30'
     ]
     cidr_match_re = compile(
-        r'^169\.254\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)'
-        '\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\/30$'
+        r"^169\.254\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)"
+        r"\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\/30$"
     )
     if cidr in reserved_cidrs:
         raise ValueError(

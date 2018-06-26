@@ -108,6 +108,19 @@ class Targets(AWSProperty):
     }
 
 
+class S3OutputLocation(AWSProperty):
+    props = {
+        'OutputS3BucketName': (basestring, False),
+        'OutputS3KeyPrefix': (basestring, False),
+    }
+
+
+class InstanceAssociationOutputLocation(AWSProperty):
+    props = {
+        'S3Location': (S3OutputLocation, False),
+    }
+
+
 class Association(AWSObject):
     resource_type = "AWS::SSM::Association"
 
@@ -116,6 +129,7 @@ class Association(AWSObject):
         'DocumentVersion': (basestring, False),
         'InstanceId': (basestring, False),
         'Name': (basestring, True),
+        'OutputLocation': (InstanceAssociationOutputLocation, False),
         'Parameters': (dict, False),
         'ScheduleExpression': (basestring, False),
         'Targets': ([Targets], False),

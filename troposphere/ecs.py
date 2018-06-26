@@ -82,6 +82,13 @@ def launch_type_validator(x):
     return x
 
 
+class ServiceRegistry(AWSProperty):
+    props = {
+        'Port': (integer, False),
+        'RegistryArn': (basestring, False),
+    }
+
+
 class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
@@ -98,6 +105,7 @@ class Service(AWSObject):
         'PlacementStrategies': ([PlacementStrategy], False),
         'PlatformVersion': (basestring, False),
         'ServiceName': (basestring, False),
+        'ServiceRegistries': ([ServiceRegistry], False),
         'TaskDefinition': (basestring, True),
     }
 
@@ -147,6 +155,16 @@ class Device(AWSProperty):
     }
 
 
+class HealthCheck(AWSProperty):
+    props = {
+        'Command': ([basestring], True),
+        'Interval': (integer, False),
+        'Retries': (integer, False),
+        'StartPeriod': (integer, False),
+        'Timeout': (integer, False),
+    }
+
+
 class KernelCapabilities(AWSProperty):
     props = {
         'Add': ([basestring], False),
@@ -190,6 +208,7 @@ class ContainerDefinition(AWSProperty):
         'Environment': ([Environment], False),
         'Essential': (boolean, False),
         'ExtraHosts': ([HostEntry], False),
+        'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
         'Image': (basestring, True),
         'Links': ([basestring], False),
