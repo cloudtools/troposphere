@@ -354,3 +354,13 @@ def cloud_watch_logs_log_group_arn(arn):
             ' ARN: arn:aws:logs:region:account-id:log-group:log_group_name '
             % arn)
     return(arn)
+
+def vpc_endpoint_type(type):
+    valid_types = ['Interface', 'Gateway']
+    if type not in valid_types:
+        raise ValueError(
+            'VpcEndpointType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return os
