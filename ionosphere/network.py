@@ -1,3 +1,6 @@
+import re
+from enum import Enum, IntEnum
+
 from base import ARMObject, ARMProperty, SubResource, SubResourceRef
 
 
@@ -269,3 +272,53 @@ class LoadBalancer(ARMObject):
         'sku': (LoadBalancerSku, True),
         'tags': (dict, False)
     }
+
+
+class ARecord(ARMProperty):
+    props = {
+        'ipv4Address': (str, True)
+    }
+
+
+class DnsZoneA(ARMObject):
+    resource_type = 'Microsoft.Network/dnsZones/A'
+    apiVersion = '2017-10-01'
+
+    name_pattern = re.compile(r'^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\/([a-z0-9]+(-[a-z0-9]+)*)+$')
+
+    props = {
+        'TTL': (int, False),
+        'ARecords': ([ARecord], False)
+    }
+
+    def validate_title(self):
+        if not DnsZoneA.name_pattern.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
+
+
+class ZoneType(Enum):
+    Private = 0
+    Public = 1
+
+
+class DnsZone(ARMObject):
+    resource_type = 'Microsoft.Network/dnsZones'
+    apiVersion = '2017-10-01'
+    location = True
+    domain_name_pattern = re.compile(r'^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$')
+
+    props = {
+        'registrationVirtualNetworks': ([SubResource], False),
+        'resolutionVirtualNetworks': ([SubResource], False),
+        'zoneType': (str, False)
+    }
+
+    root_props = {
+        'location': (str, True),
+        'tags': (dict, False)
+    }
+
+    def validate_title(self):
+        if not DnsZone.domain_name_pattern.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
+
