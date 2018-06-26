@@ -363,4 +363,4 @@ def vpc_endpoint_type(type):
                 ', '.join(valid_types)
             )
         )
-    return os
+    return(type)
