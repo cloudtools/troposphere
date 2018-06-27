@@ -576,6 +576,7 @@ class Template(object):
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
+        return name
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
