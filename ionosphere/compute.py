@@ -23,11 +23,13 @@ class HardwareProfile(ARMProperty):
 
 class ImageReference(ARMProperty):
     def __init__(self, title=None, version='latest', **kwargs):
-        kwargs['version'] = version
+        if version:
+            kwargs['version'] = version
         ARMProperty.__init__(self, title, **kwargs)
 
     # todo add validations
     props = {
+        'id': (str, False),
         'publisher': (str, False),
         'offer': (str, False),
         'sku': (str, False),
