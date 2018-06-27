@@ -339,3 +339,14 @@ def vpn_tunnel_inside_cidr(cidr):
             ' A size /30 CIDR block from the 169.254.0.0/16 must be specified.'
             % cidr)
     return(cidr)
+
+
+def vpc_endpoint_type(type):
+    valid_types = ['Interface', 'Gateway']
+    if type not in valid_types:
+        raise ValueError(
+            'VpcEndpointType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return(type)
