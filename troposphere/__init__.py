@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 
+import base64
 import cfn_flip
 import collections
 import json
@@ -496,6 +497,9 @@ class Ref(AWSHelperFn):
     def __hash__(self):
         return hash(self.data.values()[0])
 
+class Base64(AWSHelperFn):
+    def __init__(self, data):
+	self.data = {'Fn::Base64': base64.b64encode(data.encode('utf-8'))}
 
 # Pseudo Parameter Ref's
 AccountId = Ref(AWS_ACCOUNT_ID)
