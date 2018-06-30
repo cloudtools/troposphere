@@ -582,13 +582,24 @@ class VPCEndpoint(AWSObject):
 
     props = {
         'PolicyDocument': (policytypes, False),
-        'RouteTableIds': ([basestring], False),
-        'ServiceName': (basestring, True),
-        'VpcId': (basestring, True),
         'PrivateDnsEnabled': (boolean, False),
-        'SubnetIds': ([basestring], False),
+        'RouteTableIds': ([basestring], False),
         'SecurityGroupIds': ([basestring], False),
-        'VpcEndpointType': (vpc_endpoint_type, False)
+        'ServiceName': (basestring, True),
+        'SubnetIds': ([basestring], False),
+        'VpcEndpointType': (vpc_endpoint_type, False),
+        'VpcId': (basestring, True),
+    }
+
+
+class VPCEndpointConnectionNotification(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpointConnectionNotification"
+
+    props = {
+        'ConnectionEvents': ([basestring], True),
+        'ConnectionNotificationArn': (basestring, True),
+        'ServiceId': (basestring, False),
+        'VPCEndpointId': (basestring, False),
     }
 
 
@@ -596,8 +607,8 @@ class VPCEndpointService(AWSObject):
     resource_type = "AWS::EC2::VPCEndpointService"
 
     props = {
+        'AcceptanceRequired': (boolean, False),
         'NetworkLoadBalancerArns': ([basestring], True),
-        'AcceptanceRequired': (boolean, False)
     }
 
 
