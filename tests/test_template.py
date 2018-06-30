@@ -66,5 +66,50 @@ class TestValidate(unittest.TestCase):
             template.add_mapping("mapping", {"n": "v"})
 
 
+class TestEquality(unittest.TestCase):
+    def test_eq(self):
+        metadata = 'foo'
+        description = 'bar'
+        resource = Bucket('Baz')
+        output = Output('qux', Value='qux')
+
+        t1 = Template(Description=description, Metadata=metadata)
+        t1.add_resource(resource)
+        t1.add_output(output)
+
+        t2 = Template(Description=description, Metadata=metadata)
+        t2.add_resource(resource)
+        t2.add_output(output)
+
+        self.assertEqual(t1, t2)
+
+    def test_ne(self):
+        t1 = Template(Description='foo1', Metadata='bar1')
+        t1.add_resource(Bucket('Baz1'))
+        t1.add_output(Output('qux1', Value='qux1'))
+
+        t2 = Template(Description='foo2', Metadata='bar2')
+        t2.add_resource(Bucket('Baz2'))
+        t2.add_output(Output('qux2', Value='qux2'))
+
+        self.assertNotEqual(t1, t2)
+
+    def test_hash(self):
+        metadata = 'foo'
+        description = 'bar'
+        resource = Bucket('Baz')
+        output = Output('qux', Value='qux')
+
+        t1 = Template(Description=description, Metadata=metadata)
+        t1.add_resource(resource)
+        t1.add_output(output)
+
+        t2 = Template(Description=description, Metadata=metadata)
+        t2.add_resource(resource)
+        t2.add_output(output)
+
+        self.assertEqual(len(set([t1, t2])), 1)
+
+
 if __name__ == '__main__':
     unittest.main()
