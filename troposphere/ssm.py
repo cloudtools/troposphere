@@ -219,3 +219,16 @@ class PatchBaseline(AWSObject):
         'PatchGroups': ([basestring], False),
         'RejectedPatches': ([basestring], False),
     }
+
+
+class ResourceDataSync(AWSObject):
+    resource_type = "AWS::SSM::ResourceDataSync"
+
+    props = {
+        'BucketName': (basestring, True),
+        'BucketPrefix': (basestring, False),
+        'BucketRegion': (basestring, True),
+        'KMSKeyArn': (basestring, False),
+        'SyncFormat': (basestring, True),
+        'SyncName': (basestring, True),
+    }
