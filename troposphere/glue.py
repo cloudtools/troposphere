@@ -17,7 +17,7 @@ class GrokClassifier(AWSProperty):
 
 
 class Classifier(AWSObject):
-    resource_type = 'AWS::Glue::Classifier'
+    resource_type = "AWS::Glue::Classifier"
 
     props = {
         'GrokClassifier': (GrokClassifier, False),
@@ -55,7 +55,7 @@ class ConnectionInput(AWSProperty):
 
 
 class Connection(AWSObject):
-    resource_type = 'AWS::Glue::Connection'
+    resource_type = "AWS::Glue::Connection"
 
     props = {
         'CatalogId': (basestring, True),
@@ -120,7 +120,7 @@ class Targets(AWSProperty):
 
 
 class Crawler(AWSObject):
-    resource_type = 'AWS::Glue::Crawler'
+    resource_type = "AWS::Glue::Crawler"
 
     props = {
         'Classifiers': ([basestring], False),
@@ -145,7 +145,7 @@ class DatabaseInput(AWSProperty):
 
 
 class Database(AWSObject):
-    resource_type = 'AWS::Glue::Database'
+    resource_type = "AWS::Glue::Database"
 
     props = {
         'CatalogId': (basestring, True),
@@ -154,7 +154,7 @@ class Database(AWSObject):
 
 
 class DevEndpoint(AWSObject):
-    resource_type = 'AWS::Glue::DevEndpoint'
+    resource_type = "AWS::Glue::DevEndpoint"
 
     props = {
         'EndpointName': (basestring, False),
@@ -188,7 +188,7 @@ class JobCommand(AWSProperty):
 
 
 class Job(AWSObject):
-    resource_type = 'AWS::Glue::Job'
+    resource_type = "AWS::Glue::Job"
 
     props = {
         'AllocatedCapacity': (floatingpoint, False),
@@ -237,7 +237,6 @@ class SkewedInfo(AWSProperty):
 
 class StorageDescriptor(AWSProperty):
     props = {
-
         'BucketColumns': ([basestring], False),
         'Columns': ([Column], False),
         'Compressed': (boolean, False),
@@ -262,7 +261,7 @@ class PartitionInput(AWSProperty):
 
 
 class Partition(AWSObject):
-    resource_type = 'AWS::Glue::Partition'
+    resource_type = "AWS::Glue::Partition"
 
     props = {
         'CatalogId': (basestring, True),
@@ -298,7 +297,7 @@ class TableInput(AWSProperty):
 
 
 class Table(AWSObject):
-    resource_type = 'AWS::Glue::Table'
+    resource_type = "AWS::Glue::Table"
 
     props = {
         'CatalogId': (basestring, True),
@@ -341,7 +340,7 @@ def trigger_type_validator(type):
 
 
 class Trigger(AWSObject):
-    resource_type = 'AWS::Glue::Trigger'
+    resource_type = "AWS::Glue::Trigger"
 
     props = {
         'Actions': ([Action], True),
