@@ -154,9 +154,10 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
+- AWS::AmazonMQ
 - AWS::ApiGateway
-- AWS::ApplicationAutoScaling
 - AWS::AppSync
+- AWS::ApplicationAutoScaling
 - AWS::Athena
 - AWS::AutoScaling
 - AWS::Batch
@@ -190,8 +191,8 @@ Currently supported AWS resource types
 - AWS::ElasticLoadBalancingV2
 - AWS::Elasticsearch
 - AWS::Events
-- AWS::GuardDuty
 - AWS::Glue
+- AWS::GuardDuty
 - AWS::IAM
 - AWS::Inspector
 - AWS::IoT
@@ -212,6 +213,7 @@ Currently supported AWS resource types
 - AWS::SNS
 - AWS::SQS
 - AWS::SSM
+- AWS::SageMaker
 - AWS::Serverless
 - AWS::ServiceCatalog
 - AWS::ServiceDiscovery
