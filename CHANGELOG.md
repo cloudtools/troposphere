@@ -1,3 +1,21 @@
+## 2.3.1 (2018-07-01)
+- Add support for AWS::Neptune
+- Add support for AWS::EKS
+- Add support for AWS::AmazonMQ
+- Add support for AWS::SageMaker
+- Fix use of to_yaml long_form parameter (#1055)
+- Adding CENTOS to validators.operating_system (#1058)
+- Update constants with additional EC2 instances (#1059)
+- Fix casing of CreditSpecification CpuCredits (#1068)
+- Add 'Name' property for AWS::Serverless::Api (#1070)
+- Add equality methods to Template (#1072)
+- AWS PrivateLink support (#1084)
+- Add return value to template.add_condition() (#1087)
+- Add tests for to_yaml parameters
+- Use endpoint_type for vpc_endpoint_type param instead of type
+- Add resource EC2::VPCEndpointConnectionNotification
+- Add resource SSM::ResourceDataSync
+
 ## 2.3.0 (2018-05-26)
 
 - Allow Refs to be hashable using their data (#1053)
