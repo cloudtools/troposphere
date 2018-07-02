@@ -71,9 +71,9 @@ def output_class(class_name, properties, resource_name=None):
             value_type = get_type(value)
 
         if value_type.startswith("["):  # Means that args are a list
-            sys.stdout.write(', %s:List%s' % (key, value_type))
+            sys.stdout.write(', %s:List%s=...' % (key, value_type))
         else:
-            sys.stdout.write(', %s:%s' % (key, value_type))
+            sys.stdout.write(', %s:%s=...' % (key, value_type))
 
     print ') -> None: ...'
     print
