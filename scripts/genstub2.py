@@ -1,5 +1,6 @@
 import argparse
 import json
+import sys
 
 
 # Python 3 code generator to create new troposphere class stubs from the
@@ -57,8 +58,23 @@ def output_class(class_name, properties, resource_name=None):
         print 'class %s(AWSObject):' % class_name
         print '    resource_type = None # Type: basestring'
         print
+        sys.stdout.write('    def __init__(self, title')
     else:
         print 'class %s(AWSProperty):' % class_name
+        print
+        sys.stdout.write('    def __init__(self')
+
+    for key, value in sorted(properties.iteritems()):
+        if key == 'Tags':
+            value_type = "Tags"
+        else:
+            value_type = get_type(value)
+
+        sys.stdout.write(', %s=None' % key)
+
+    print '):'
+    print '        pass'
+    print
 
     for key, value in sorted(properties.iteritems()):
         if key == 'Tags':
