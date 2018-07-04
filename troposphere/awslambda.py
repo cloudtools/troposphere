@@ -90,6 +90,9 @@ class Code(AWSProperty):
             )
 
 
+codetypes = Code, basestring
+
+
 class VPCConfig(AWSProperty):
 
     props = {
@@ -135,7 +138,7 @@ class Function(AWSObject):
     resource_type = "AWS::Lambda::Function"
 
     props = {
-        'Code': (Code, True),
+        'Code': (codetypes, True),
         'Description': (basestring, False),
         'DeadLetterConfig': (DeadLetterConfig, False),
         'Environment': (Environment, False),
