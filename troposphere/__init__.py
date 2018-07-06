@@ -125,6 +125,9 @@ class BaseAWSObject(object):
         for k, v in kwargs.items():
             self.__setattr__(k, v)
 
+        self.add_to_template()
+
+    def add_to_template(self):
         # Bound it to template if we know it
         if self.template is not None:
             self.template.add_resource(self)
@@ -680,6 +683,11 @@ class Output(AWSDeclaration):
         'Value': (basestring, True),
     }
 
+    def add_to_template(self):
+        # Bound it to template if we know it
+        if self.template is not None:
+            self.template.add_output(self)
+
 
 class Parameter(AWSDeclaration):
     STRING_PROPERTIES = ['AllowedPattern', 'MaxLength', 'MinLength']
@@ -697,6 +705,11 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+    def add_to_template(self):
+        # Bound it to template if we know it
+        if self.template is not None:
+            self.template.add_parameter(self)
 
     def validate_title(self):
         if len(self.title) > PARAMETER_TITLE_MAX:
