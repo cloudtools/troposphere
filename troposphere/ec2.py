@@ -147,7 +147,7 @@ class Placement(AWSProperty):
 
 class CreditSpecification(AWSProperty):
     props = {
-        'CpuCredits': (basestring, False),
+        'CPUCredits': (basestring, False),
     }
 
 
@@ -820,10 +820,16 @@ class InstanceMarketOptions(AWSProperty):
     }
 
 
+class LaunchTemplateCreditSpecification(AWSProperty):
+    props = {
+        'CpuCredits': (basestring, False),
+    }
+
+
 class LaunchTemplateData(AWSProperty):
     props = {
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
-        'CreditSpecification': (CreditSpecification, False),
+        'CreditSpecification': (LaunchTemplateCreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
