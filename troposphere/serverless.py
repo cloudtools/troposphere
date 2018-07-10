@@ -210,7 +210,7 @@ class AlexaSkillEvent(AWSObject):
     resource_type = 'AlexaSkill'
     props = {}
 
-    
+
 class SQSEvent(AWSObject):
     resource_type = 'SQS'
 
@@ -218,7 +218,7 @@ class SQSEvent(AWSObject):
         'Queue': (str, True),
         'BatchSize': (int, True)
     }
-    
+
     def validate(self):
         if (not 1 <= self.properties['BatchSize'] <= 10):
             raise ValueError('BatchSize must be between 1 and 10')
