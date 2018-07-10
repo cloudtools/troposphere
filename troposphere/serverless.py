@@ -215,8 +215,8 @@ class SQSEvent(AWSObject):
     resource_type = 'SQS'
 
     props = {
-        'Queue': (str, True),
-        'BatchSize': (int, True)
+        'Queue': (basestring, True),
+        'BatchSize': (positive_integer, True)
     }
 
     def validate(self):
