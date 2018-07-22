@@ -85,6 +85,7 @@ class Environment(AWSProperty):
     def validate(self):
         valid_types = [
             'LINUX_CONTAINER',
+            'WINDOWS_CONTAINER',
         ]
         env_type = self.properties.get('Type')
         if env_type not in valid_types:
