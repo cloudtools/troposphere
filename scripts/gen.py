@@ -40,6 +40,7 @@ map_type = {
     'Timestamp': 'basestring',
 }
 
+
 map_type3 = {
     'Boolean': 'bool',
     'Double': 'float',
@@ -69,6 +70,7 @@ def get_type(value):
     pprint.pprint(value)
     raise ValueError("get_type")
 
+
 def get_type3(value):
     if 'PrimitiveType' in value:
         return map_type3.get(value['PrimitiveType'], value['PrimitiveType'])
@@ -86,6 +88,7 @@ def get_type3(value):
     import pprint
     pprint.pprint(value)
     raise ValueError("get_type")
+
 
 def output_class(class_name, properties, resource_name=None):
     print
@@ -113,6 +116,7 @@ def output_class(class_name, properties, resource_name=None):
             print "        '%s':\n            (%s, %s)," % (
                 key, value_type, get_required(value))
     print '    }'
+
 
 def output_class_stub(class_name, properties, resource_name=None):
     print
@@ -151,6 +155,7 @@ def output_class_stub(class_name, properties, resource_name=None):
             print '    %s: List%s' % (key, value_type)
         else:
             print '    %s: %s' % (key, value_type)
+
 
 def process_file(filename, stub=False):
     f = open(filename)
