@@ -1,6 +1,8 @@
 import argparse
 import json
 
+import sys
+
 
 # Python code generator to create new troposphere classes from the
 # AWS resource specification.
@@ -39,6 +41,17 @@ map_type = {
 }
 
 
+map_type3 = {
+    'Boolean': 'bool',
+    'Double': 'float',
+    'Integer': 'int',
+    'Json': 'dict',
+    'Long': 'int',
+    'String': 'str',
+    'Timestamp': 'str',
+}
+
+
 def get_type(value):
     if 'PrimitiveType' in value:
         return map_type.get(value['PrimitiveType'], value['PrimitiveType'])
@@ -47,6 +60,25 @@ def get_type(value):
             return "[%s]" % value['ItemType']
         else:
             return "[%s]" % map_type.get(value['PrimitiveItemType'])
+    elif value['Type'] == 'Map':
+        return 'dict'
+    else:
+        # Non-primitive (Property) name
+        return value['Type']
+
+    import pprint
+    pprint.pprint(value)
+    raise ValueError("get_type")
+
+
+def get_type3(value):
+    if 'PrimitiveType' in value:
+        return map_type3.get(value['PrimitiveType'], value['PrimitiveType'])
+    if value['Type'] == 'List':
+        if 'ItemType' in value:
+            return "[%s]" % value['ItemType']
+        else:
+            return "[%s]" % map_type3.get(value['PrimitiveItemType'])
     elif value['Type'] == 'Map':
         return 'dict'
     else:
@@ -86,7 +118,46 @@ def output_class(class_name, properties, resource_name=None):
     print '    }'
 
 
-def process_file(filename):
+def output_class_stub(class_name, properties, resource_name=None):
+    print
+    print
+    if resource_name:
+        print 'class %s(AWSObject):' % class_name
+        print '    resource_type: str'
+        print
+        sys.stdout.write('    def __init__(self, title')
+    else:
+        print 'class %s(AWSProperty):' % class_name
+        print
+        sys.stdout.write('    def __init__(self')
+
+    for key, value in sorted(properties.iteritems()):
+        if key == 'Tags':
+            value_type = "Tags"
+        else:
+            value_type = get_type3(value)
+
+        if value_type.startswith("["):  # Means that args are a list
+            sys.stdout.write(', %s:List%s=...' % (key, value_type))
+        else:
+            sys.stdout.write(', %s:%s=...' % (key, value_type))
+
+    print ') -> None: ...'
+    print
+
+    for key, value in sorted(properties.iteritems()):
+        if key == 'Tags':
+            value_type = "Tags"
+        else:
+            value_type = get_type3(value)
+
+        if value_type.startswith("["):  # Means that args are a list
+            print '    %s: List%s' % (key, value_type)
+        else:
+            print '    %s: %s' % (key, value_type)
+
+
+def process_file(filename, stub=False):
     f = open(filename)
     j = json.load(f)
 
@@ -98,19 +169,31 @@ def process_file(filename):
                 continue
             class_name = property_name.split('.')[1]
             properties = property_dict['Properties']
-            output_class(class_name, properties)
+            if stub:
+                output_class_stub(class_name, properties)
+            else:
+                output_class(class_name, properties)
 
     for resource_name, resource_dict in j['ResourceType'].items():
         class_name = resource_name.split(':')[4]
         properties = resource_dict['Properties']
-        output_class(class_name, properties, resource_name)
+        if stub:
+            output_class_stub(class_name, properties, resource_name)
+        else:
+            output_class(class_name, properties, resource_name)
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
+    parser.add_argument('--stub', action='store_true', default=False)
     parser.add_argument('filename', nargs='+')
     args = parser.parse_args()
 
-    print copyright_header,
-    for f in args.filename:
-        process_file(f)
+    if args.stub:
+        print copyright_header,
+        for f in args.filename:
+            process_file(f, stub=True)
+    else:
+        print copyright_header,
+        for f in args.filename:
+            process_file(f)
