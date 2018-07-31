@@ -1,7 +1,8 @@
 import unittest
-from troposphere import Template, Ref
+from troposphere import Ref, Tags, Template
 from troposphere import ecs
 from troposphere import iam
+from troposphere import s3
 
 
 class TestDict(unittest.TestCase):
@@ -32,7 +33,14 @@ class TestDict(unittest.TestCase):
                     "HostPort": 5001
                 }
             ],
-            "Links": ["containerA", "containerB"],
+            "Links": ["containerA", "containerB"]
+        }
+
+        self.b = {
+            "BucketName": "bucketname",
+            "Tags": {
+                "tagname": "mytag"
+            }
         }
 
     def test_valid_data(self):
@@ -73,6 +81,10 @@ class TestDict(unittest.TestCase):
         self.d["Environment"][0] = "BadValue"
         with self.assertRaises(ValueError):
             ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
+    def test_sub_property_aws_helper_fn(self):
+        bkt = s3.Bucket.from_dict("mybucket", self.b)
+        self.assertIsInstance(bkt.Tags, Tags)
 
 
 if __name__ == '__main__':

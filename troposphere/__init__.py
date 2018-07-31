@@ -50,6 +50,16 @@ def is_aws_object_subclass(cls):
     return is_aws_object
 
 
+def is_aws_helper_function_subclass(cls):
+    is_aws_helper_function = False
+    try:
+        is_aws_helper_function = issubclass(cls, AWSHelperFn)
+    # prop_type isn't a class
+    except TypeError:
+        pass
+    return is_aws_helper_function
+
+
 def encode_to_dict(obj):
     if hasattr(obj, 'to_dict'):
         # Calling encode_to_dict to ensure object is
@@ -269,12 +279,15 @@ class BaseAWSObject(object):
                                                        prop_name))
             prop_type = prop_attrs[0]
             value = kwargs[prop_name]
-            is_aws_object = is_aws_object_subclass(prop_type)
-            if is_aws_object:
+
+            if is_aws_object_subclass(prop_type):
                 if not isinstance(value, collections.Mapping):
                     raise ValueError("Property definition for %s must be "
                                      "a Mapping type" % prop_name)
                 value = prop_type._from_dict(**value)
+
+            if is_aws_helper_function_subclass(prop_type):
+                value = prop_type(**value)
 
             if isinstance(prop_type, list):
                 if not isinstance(value, list):
@@ -289,6 +302,8 @@ class BaseAWSObject(object):
                                 "Property definition for %s must be "
                                 "a list of Mapping types" % prop_name)
                         new_v = prop_type[0]._from_dict(**v)
+                    if is_aws_helper_function_subclass(prop_type[0]):
+                        new_v = prop_type(**v)
                     new_value.append(new_v)
                 value = new_value
             props[prop_name] = value
