@@ -117,7 +117,7 @@ class SimpleTable(AWSObject):
     props = {
         'PrimaryKey': (PrimaryKey, False),
         'ProvisionedThroughput': (ProvisionedThroughput, False),
-        'Tags': (Dict, False),
+        'Tags': (dict, False),
         'TableName': (basestring, False),
         'SSESpecification': (SSESpecification, False)
     }
