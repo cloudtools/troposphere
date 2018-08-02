@@ -84,6 +84,16 @@ class Role(AWSObject):
     }
 
 
+class ServiceLinkedRole(AWSObject):
+    resource_type = "AWS::IAM::ServiceLinkedRole"
+
+    props = {
+        'AWSServiceName': (basestring, True),
+        'CustomSuffix': (basestring, False),
+        'Description': (basestring, False),
+    }
+
+
 class LoginProfile(AWSProperty):
     props = {
         'Password': (basestring, True),
