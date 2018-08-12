@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .validators import event_schedule_expression
 
 
 class EcsParameters(AWSProperty):
@@ -61,7 +62,7 @@ class Rule(AWSObject):
         'Description': (basestring, False),
         'EventPattern': (dict, False),
         'Name': (basestring, False),
-        'ScheduleExpression': (basestring, False),
+        'ScheduleExpression': (event_schedule_expression, False),
         'State': (basestring, False),
         'Targets': ([Target], False),
     }
