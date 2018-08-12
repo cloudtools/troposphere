@@ -375,7 +375,6 @@ def event_schedule_expression(expression):
             % expression
         )
 
-    # r"[^\s]+\s+"
     rule_DoW_DoM = compile(
         r"^(rate\(.*|cron\("
         r"[^\s]+\s+"                        # Minutes
