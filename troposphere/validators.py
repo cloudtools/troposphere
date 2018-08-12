@@ -374,4 +374,34 @@ def event_schedule_expression(expression):
             'The following is not a valid expression: "%s"'
             % expression
         )
+
+    # r"[^\s]+\s+"
+    rule_DoW_DoM = compile(
+        r"^(rate\(.*|cron\("
+        r"[^\s]+\s+"                        # Minutes
+        r"[^\s]+\s+"                     # Hours
+        r"(\?) +"             # Day-of-month
+        r"[^\s]+\s+"                            # Month
+        r"(\*|[,\-/L#]|[1-7]|SUN|MON|TUE|WED|THU|FRI|SAT) +"   # Day-of-month
+        r"[^\s]+"
+        r"\)|"
+        r"cron\("
+        r"[^\s]+\s+"                        # Minutes
+        r"[^\s]+\s+"                     # Hours
+        r"(\*|[,\-/LW]|[1-9]|[1-2][0-9]|3[0-1]) +"             # Day-of-month
+        r"[^\s]+\s+"                            # Month
+        r"(\?) +"   # Day-of-month
+        r"[^\s]+"
+        r"\))$"
+    )
+
+    if not rule_DoW_DoM.match(expression):
+        raise ValueError(
+            'You can\'t specify the Day-of-month and Day-of-week fields '
+            'in the same cron expression. If you specify a value (or a *) '
+            'in one of the fields, you must use a ? (question mark) in '
+            ' the other. : "%s"'
+            % expression
+        )
+
     return(expression)
