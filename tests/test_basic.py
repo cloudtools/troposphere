@@ -236,6 +236,22 @@ class TestParameter(unittest.TestCase):
         with self.assertRaises(ValueError):
             t.to_json()
 
+    def test_get_or_add_adds(self):
+        t = Template()
+        p = Parameter("param", Type="String", Default="foo")
+        result = t.get_or_add_parameter(p)
+        self.assertEquals(t.parameters["param"], p)
+        self.assertEquals(result, p)
+
+    def test_add_or_get_returns_with_out_adding_duplicate(self):
+        t = Template()
+        p = Parameter("param", Type="String", Default="foo")
+        t.add_parameter(p)
+        result = t.get_or_add_parameter(p)
+        self.assertEquals(t.parameters["param"], p)
+        self.assertEquals(result, p)
+        self.assertEquals(len(t.parameters), 1)
+
     def test_property_default(self):
         p = Parameter("param", Type="String", Default="foo")
         p.validate()
