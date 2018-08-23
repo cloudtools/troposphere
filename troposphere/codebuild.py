@@ -161,6 +161,35 @@ class VpcConfig(AWSProperty):
     }
 
 
+class WebhookFilterRule(AWSProperty):
+    props = {
+        'JsonPath': (str, True),
+        'MatchEquals': (str, False)
+    }
+
+
+class AuthenticationConfiguration(AWSProperty):
+    props = {
+        'AllowedIPRange': (str, False),
+        'SecretToken': (str, False),
+    }
+
+
+class Webhook(AWSObject):
+    resource_type = "AWS::CodePipeline::Webhook"
+
+    props = {
+        "Authentication": (str, True),
+        "AuthenticationConfiguration": (AuthenticationConfiguration, True),
+        "Filters": ([WebhookFilterRule], True),
+        "TargetPipeline": (str, True),
+        "TargetAction": (str, True),
+        "Name": (str, False),
+        "TargetPipelineVersion": (int, True),
+        "RegisterWithThirdParty": (bool, False),
+    }
+
+
 class ProjectTriggers(AWSProperty):
     props = {
         'Webhook': (boolean, False),
