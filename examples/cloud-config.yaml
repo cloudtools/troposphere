@@ -1,0 +1,26 @@
+#cloud-config
+hostname: ${InstanceHostname}
+fqdn: ${InstanceHostname}.${PublicDomainName}
+manage_etc_hosts: true
+package_update: true
+package_upgrade: true
+packages:
+  - build-essential
+  - curl
+  - git
+runcmd:
+  - |
+    echo "-----BEGIN RSA PRIVATE KEY-----
+    AAAAAAAAAAAAAAAAAAAAAAAAAA
+    -----END RSA PRIVATE KEY-----
+    " > /home/ubuntu/.ssh/id_rsa
+  - chmod 600 /home/ubuntu/.ssh/id_rsa
+  - chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa
+  - ssh -oStrictHostKeyChecking=no -T git@github.com
+ssh_authorized_keys:
+  - ssh-rsa AAAA==
+  - ssh-rsa AAAA==
+power_state:
+  timeout: 120
+  message: Rebooting to ensure hostname has stuck correctly and apply any kernel updates
+  mode: reboot
