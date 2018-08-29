@@ -4,7 +4,7 @@ from base import ARMTemplate, ARMParameter
 from network import *
 from storage import StorageAccount, StorageAccountSku
 
-template = ARMTemplate()
+template = ARMTemplate(customerUsageAttributionGuid='pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX')
 
 vm_password_param = ARMParameter('vmPassword',
                                  type='secureString',
