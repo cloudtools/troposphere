@@ -25,12 +25,16 @@ class ARMTemplate(object):
         'outputs': (dict, False),
     }
 
-    def __init__(self, contentVersion="1.0.0.0"):
+    def __init__(self, contentVersion="1.0.0.0", customerUsageAttributionGuid=None):
         self.contentVersion = contentVersion
         self.variables = []
         self.parameters = {}
         self.resources = []
         self.outputs = {}
+
+        if customerUsageAttributionGuid:
+            self.add_resource(CustomerUsageAttribution(customerUsageAttributionGuid))
+
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
@@ -319,3 +323,43 @@ class SubResourceRef(AWSHelperFn):
         if isinstance(obj, str):
             return obj
         return obj.title
+
+
+class CustomerUsageAttributionTemplate(ARMProperty):
+
+    def __init__(self, **kwargs):
+        # set default values
+        if '$schema' not in kwargs:
+            kwargs['$schema'] = 'https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#'
+        if 'contentVersion' not in kwargs:
+            kwargs['contentVersion'] = '1.0.0.0'
+        if 'resources' not in kwargs:
+            kwargs['resources'] = []
+
+        super(CustomerUsageAttributionTemplate, self).__init__(**kwargs)
+
+    props = {
+        '$schema': (str, True),
+        'contentVersion': (str, True),
+        'resources': ([], True)
+    }
+
+
+class CustomerUsageAttribution(ARMObject):
+    resource_type = 'Microsoft.Resources/deployments'
+    apiVersion = '2018-02-01'
+    location = False
+
+    def __init__(self, title, validation=True, **kwargs):
+
+        super(CustomerUsageAttribution, self).__init__(title, None, validation, **kwargs)
+
+        # set default values
+        self.properties['mode'] = 'Incremental'
+        self.properties['template'] = CustomerUsageAttributionTemplate()
+
+    def validate_title(self):
+        if not self.title.startswith('pid-'):
+            raise ValueError('Customer usage attribution resource name must start with "pid-"')
+
+    props = {}
