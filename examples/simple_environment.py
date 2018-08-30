@@ -2,9 +2,9 @@ import uuid
 from compute import *
 from base import ARMTemplate, ARMParameter
 from network import *
-from storage import StorageAccount, Sku
+from storage import StorageAccount, StorageAccountSku
 
-template = ARMTemplate()
+template = ARMTemplate(customerUsageAttributionGuid='pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX')
 
 vm_password_param = ARMParameter('vmPassword',
                                  type='secureString',
@@ -58,9 +58,8 @@ vm = VirtualMachine('testvm',
                                                   [NetworkInterfaceReference(id=networkInterface.Ref())]))
 vm.with_depends_on(networkInterface)
 
-
 storage = StorageAccount(str(uuid.uuid4())[-12:],
-                         sku=Sku(name='Standard_LRS'),
+                         sku=StorageAccountSku(name='Standard_LRS'),
                          kind='StorageV2',
                          tags={'tag1': 'bla1'})
 

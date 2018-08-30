@@ -3,7 +3,7 @@ import re
 
 import cfn_flip as cfn_flip
 
-from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators
+from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators, AWSHelperFn
 
 # Template Limits
 MAX_VARIABLES = 256
@@ -12,30 +12,29 @@ MAX_PARAMETERS = 256
 MAX_RESOURCES = 800
 PARAMETER_TITLE_MAX = 255
 
-valid_names_azure = re.compile(r'^[a-zA-Z0-9_]+$')
+valid_names_azure = re.compile(r'^[a-zA-Z0-9_\-]+$')
 
 
 class ARMTemplate(object):
     props = {
         '$schema': (str, False),
         'contentVersion': (str, False),
-        'description': (str, False),
         'variables': (str, False),
         'parameters': (dict, False),
-        'resources': (dict, False),
+        'resources': (dict, True),
         'outputs': (dict, False),
     }
 
-    def __init__(self, Description=None, ContentVersion="1.0.0.0"):
-        self.contentVersion = ContentVersion
-        self.description = Description
+    def __init__(self, contentVersion="1.0.0.0", customerUsageAttributionGuid=None):
+        self.contentVersion = contentVersion
         self.variables = []
         self.parameters = {}
         self.resources = []
         self.outputs = {}
 
-    def add_description(self, description):
-        self.description = description
+        if customerUsageAttributionGuid:
+            self.add_resource(CustomerUsageAttribution(customerUsageAttributionGuid))
+
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
@@ -100,8 +99,6 @@ class ARMTemplate(object):
 
     def to_dict(self):
         t = {}
-        if self.description:
-            t['description'] = self.description
 
         if self.outputs:
             t['outputs'] = self.outputs
@@ -125,13 +122,10 @@ class ARMTemplate(object):
 
 class ARMObject(AWSObject):
     dictname = 'properties'
+    root_props = None
 
     def __init__(self, title, template=None, validation=True, **kwargs):
         AWSObject.__init__(self, title, template, validation, **kwargs)
-
-        if 'Type' in self.resource:
-            self.resource['type'] = self.resource['Type']
-            del self.resource['Type']
 
         if hasattr(self, 'location') and self.location and 'location' not in self.resource:
             self.resource['location'] = "[resourceGroup().location]"
@@ -143,12 +137,12 @@ class ARMObject(AWSObject):
             self.resource['apiVersion'] = self.apiVersion
 
         # move root props from properties to resources dict to be in root of object when serialized
-        super(ARMObject, self)._validate_props()
-        for rootProp in list(filter(lambda x: issubclass(type(x[1]), ARMRootProperty), self.properties.items())):
-            k, v = rootProp
-            self.resource[k] = v
-            del self.properties[k]
-            del self.props[k]
+        # super(ARMObject, self)._validate_props()
+        # for rootProp in list(filter(lambda x: issubclass(type(x[1]), ARMRootProperty), self.properties.items())):
+        #     k, v = rootProp
+        #     self.resource[k] = v
+        #     del self.properties[k]
+        #     del self.props[k]
 
     def to_dict(self):
         if 'name' in self.resource:
@@ -176,31 +170,46 @@ class ARMObject(AWSObject):
             raise ValueError('Name "%s" is not valid' % self.title)
 
     # fluent api
-    def with_depends_on(self, dependsOn):
+    def with_depends_on(self, depends_on):
         if 'dependsOn' not in self.resource:
             self.resource['dependsOn'] = []
-        if isinstance(dependsOn, list):
-            for d in dependsOn:
-                self._add_dependency(d)
-        else:
-            self._add_dependency(dependsOn)
+        self.resource['dependsOn'].extend(self._add_dependencies(depends_on))
         return self
+
+    def _add_dependencies(self, value):
+        if isinstance(value, list):
+            result = []
+            for d in value:
+                result.append(self._add_dependency(d))
+            return result
+        else:
+            return [self._add_dependency(value)]
 
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
-            self.resource['dependsOn'].append(dependency.Ref())
+            return dependency.Ref()
         elif isinstance(dependency, str):
-            self.resource['dependsOn'].append(dependency)
+            return dependency
         else:
             raise ValueError('Unsupported type')
 
+    def _move_prop_to_root(self, key):
+        if key in self.properties:
+            self.resource[key] = self.properties[key]
+            del self.properties[key]
+
 
 class ARMProperty(AWSProperty):
-    pass
+    # Used to specify properties that should be on the root object in Azure
+    root_props = None
+
+    def validate_title(self):
+        if not valid_names_azure.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
 
 
-class ARMRootProperty(ARMProperty):
-    pass
+# class ARMRootProperty(ARMProperty):
+#     pass
 
 
 class ARMParameter(Parameter):
@@ -218,6 +227,8 @@ class ARMParameter(Parameter):
         'minValue': (validators.integer, False),
         'description': (str, False)
     }
+
+    root_props = None
 
     def to_dict(self):
         if 'description' in self.properties:
@@ -285,3 +296,70 @@ class ARMParameter(Parameter):
                 if p in self.properties:
                     raise ValueError("%s can only be used with parameters of "
                                      "the Number type." % p)
+
+
+class SubResource(ARMProperty):
+    props = {
+        'id': (str, True),
+    }
+
+
+class SubResourceRef(AWSHelperFn):
+    def __init__(self, root_resource, sub_resource, root, child):
+        sub_resource_ref = self._build_sub_resource_ref(root_resource, sub_resource)
+        root_name = self._get_title(root)
+        child_name = self._get_title(child)
+        self.data = {'id': "[resourceId('{0}', '{1}', '{2}')]".format(sub_resource_ref, root_name, child_name)}
+
+    def _build_sub_resource_ref(self, root_resource, sub_resource):
+        root_resource_type = self._get_resource_type(root_resource)
+        sub_resource_type = self._get_resource_type(sub_resource)
+        return "{0}/{1}".format(root_resource_type, sub_resource_type)
+
+    def _get_resource_type(self, r):
+        return r if isinstance(r, str) else r.resource_type
+
+    def _get_title(self, obj):
+        if isinstance(obj, str):
+            return obj
+        return obj.title
+
+
+class CustomerUsageAttributionTemplate(ARMProperty):
+
+    def __init__(self, **kwargs):
+        # set default values
+        if '$schema' not in kwargs:
+            kwargs['$schema'] = 'https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#'
+        if 'contentVersion' not in kwargs:
+            kwargs['contentVersion'] = '1.0.0.0'
+        if 'resources' not in kwargs:
+            kwargs['resources'] = []
+
+        super(CustomerUsageAttributionTemplate, self).__init__(**kwargs)
+
+    props = {
+        '$schema': (str, True),
+        'contentVersion': (str, True),
+        'resources': ([], True)
+    }
+
+
+class CustomerUsageAttribution(ARMObject):
+    resource_type = 'Microsoft.Resources/deployments'
+    apiVersion = '2018-02-01'
+    location = False
+
+    def __init__(self, title, validation=True, **kwargs):
+
+        super(CustomerUsageAttribution, self).__init__(title, None, validation, **kwargs)
+
+        # set default values
+        self.properties['mode'] = 'Incremental'
+        self.properties['template'] = CustomerUsageAttributionTemplate()
+
+    def validate_title(self):
+        if not self.title.startswith('pid-'):
+            raise ValueError('Customer usage attribution resource name must start with "pid-"')
+
+    props = {}
