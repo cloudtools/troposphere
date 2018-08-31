@@ -9,9 +9,9 @@ from re import compile
 
 def boolean(x):
     if x in [True, 1, '1', 'true', 'True']:
-        return "true"
+        return True
     if x in [False, 0, '0', 'false', 'False']:
-        return "false"
+        return False
     raise ValueError
 
 
