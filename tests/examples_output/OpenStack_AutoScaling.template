@@ -59,8 +59,8 @@
                         "services": {
                             "sysvinit": {
                                 "service1": {
-                                    "enabled": "true",
-                                    "ensureRunning": "true",
+                                    "enabled": true,
+                                    "ensureRunning": true,
                                     "files": [
                                         "/etc/service1/somefile.conf"
                                     ]

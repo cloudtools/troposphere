@@ -135,7 +135,7 @@
                 "Parameters": [
                     {
                         "ParameterName": "enable_user_activity_logging",
-                        "ParameterValue": "true"
+                        "ParameterValue": true
                     }
                 ]
             },
