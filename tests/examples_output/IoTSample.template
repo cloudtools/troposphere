@@ -53,7 +53,7 @@
                             }
                         }
                     ],
-                    "RuleDisabled": "true",
+                    "RuleDisabled": true,
                     "Sql": "SELECT temp FROM SomeTopic WHERE temp > 60"
                 }
             },

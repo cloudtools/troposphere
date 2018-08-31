@@ -197,7 +197,7 @@
                 "SecondaryPrivateIpAddressCount": {
                     "Ref": "SecondaryIPAddressCount"
                 },
-                "SourceDestCheck": "true",
+                "SourceDestCheck": true,
                 "SubnetId": {
                     "Ref": "SubnetId"
                 },

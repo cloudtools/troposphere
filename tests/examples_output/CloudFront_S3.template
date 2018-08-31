@@ -35,12 +35,12 @@
                 "DistributionConfig": {
                     "DefaultCacheBehavior": {
                         "ForwardedValues": {
-                            "QueryString": "false"
+                            "QueryString": false
                         },
                         "TargetOriginId": "Origin 1",
                         "ViewerProtocolPolicy": "allow-all"
                     },
-                    "Enabled": "true",
+                    "Enabled": true,
                     "HttpVersion": "http2",
                     "Origins": [
                         {
