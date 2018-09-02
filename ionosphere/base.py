@@ -305,12 +305,6 @@ class SubResource(ARMProperty):
         'id': (str, True),
     }
 
-
-class A:
-    def __init__(self, s : SubResource):
-        pass
-
-
 class SubResourceRef(AWSHelperFn):
     def __init__(self, root_resource, sub_resource, root, child):
         sub_resource_ref = self._build_sub_resource_ref(root_resource, sub_resource)
