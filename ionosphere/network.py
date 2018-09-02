@@ -24,6 +24,7 @@ class Subnet(ARMObject):
         'serviceEndpoints': ((list, ServiceEndpointProperties), False)
     }
 
+
 class VirtualNetwork(ARMObject):
     resource_type = 'Microsoft.Network/virtualNetworks'
     apiVersion = "2017-10-01"

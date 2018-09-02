@@ -711,7 +711,7 @@ class Parameter(AWSDeclaration):
         'Default': ((basestring, int, float), False),
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
-        'AllowedPattern': (str, False),
+        'AllowedPattern': (basestring, False),
         'MaxLength': (validators.positive_integer, False),
         'MinLength': (validators.positive_integer, False),
         'MaxValue': (validators.integer, False),
