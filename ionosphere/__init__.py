@@ -408,7 +408,7 @@ class AWSAttribute(BaseAWSObject):
 
 
 def validate_delimiter(delimiter):
-    if not isinstance(delimiter, str):
+    if not isinstance(delimiter, basestring):
         raise ValueError(
             "Delimiter must be a String, %s provided" % type(delimiter)
         )
@@ -584,9 +584,9 @@ class Tags(AWSHelperFn):
 
 # class Template(object):
 #     props = {
-#         'AWSTemplateFormatVersion': (str, False),
-#         'Transform': (str, False),
-#         'Description': (str, False),
+#         'AWSTemplateFormatVersion': (basestring, False),
+#         'Transform': (basestring, False),
+#         'Description': (basestring, False),
 #         'Parameters': (dict, False),
 #         'Mappings': (dict, False),
 #         'Resources': (dict, False),
@@ -697,9 +697,9 @@ class Export(AWSHelperFn):
 
 class Output(AWSDeclaration):
     props = {
-        'Description': (str, False),
+        'Description': (basestring, False),
         'Export': (Export, False),
-        'Value': (str, True),
+        'Value': (basestring, True),
     }
 
 
@@ -707,8 +707,8 @@ class Parameter(AWSDeclaration):
     STRING_PROPERTIES = ['AllowedPattern', 'MaxLength', 'MinLength']
     NUMBER_PROPERTIES = ['MaxValue', 'MinValue']
     props = {
-        'Type': (str, True),
-        'Default': ((str, int, float), False),
+        'Type': (basestring, True),
+        'Default': ((basestring, int, float), False),
         'NoEcho': (bool, False),
         'AllowedValues': (list, False),
         'AllowedPattern': (str, False),
@@ -716,8 +716,8 @@ class Parameter(AWSDeclaration):
         'MinLength': (validators.positive_integer, False),
         'MaxValue': (validators.integer, False),
         'MinValue': (validators.integer, False),
-        'Description': (str, False),
-        'ConstraintDescription': (str, False),
+        'Description': (basestring, False),
+        'ConstraintDescription': (basestring, False),
     }
 
     def validate_title(self):
@@ -743,7 +743,7 @@ class Parameter(AWSDeclaration):
             # matches (in the case of a String Type) or can be coerced
             # into one of the number formats.
             param_type = self.properties.get('Type')
-            if param_type == 'String' and not isinstance(default, str):
+            if param_type == 'String' and not isinstance(default, basestring):
                 raise ValueError(error_str %
                                  ('String', type(default), default))
             elif param_type == 'Number':
@@ -754,7 +754,7 @@ class Parameter(AWSDeclaration):
                     raise ValueError(error_str %
                                      (param_type, type(default), default))
             elif param_type == 'List<Number>':
-                if not isinstance(default, str):
+                if not isinstance(default, basestring):
                     raise ValueError(error_str %
                                      (param_type, type(default), default))
                 allowed = [float, int]
