@@ -25,9 +25,11 @@ class SourceAuth(AWSProperty):
 
 class Artifacts(AWSProperty):
     props = {
+        'EncryptionDisabled': (boolean, False),
         'Location': (basestring, False),
         'Name': (basestring, False),
         'NamespaceType': (basestring, False),
+        'OverrideArtifactName': (boolean, False),
         'Packaging': (basestring, False),
         'Path': (basestring, False),
         'Type': (basestring, True),
