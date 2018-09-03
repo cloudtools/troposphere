@@ -4,12 +4,17 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from ecs import AwsvpcConfiguration
 
 
 class EcsParameters(AWSProperty):
     props = {
-        "TaskCount": (int, False),
-        "TaskDefinitionArn": (basestring, True),
+        'Group': (basestring, False),
+        'LaunchType': (basestring, False),
+        'NetworkConfiguration': (AwsvpcConfiguration, False),
+        'PlatformVersion': (basestring, False),
+        'TaskCount': (int, False),
+        'TaskDefinitionArn': (basestring, True),
     }
 
 
