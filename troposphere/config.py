@@ -95,7 +95,7 @@ class ConfigurationAggregator(AWSObject):
     resource_type = "AWS::Config::ConfigurationAggregator"
 
     props = {
-        'AccountAggregationSources': (AccountAggregationSources, False),
+        'AccountAggregationSources': ([AccountAggregationSources], False),
         'ConfigurationAggregatorName': (basestring, True),
         'OrganizationAggregationSource':
             (OrganizationAggregationSource, False),
