@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .validators import boolean
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
