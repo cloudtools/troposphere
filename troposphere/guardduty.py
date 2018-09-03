@@ -62,7 +62,7 @@ class Master(AWSObject):
 
     props = {
         'DetectorId': (basestring, True),
-        'InvitationId': (basestring, True),
+        'InvitationId': (basestring, False),
         'MasterId': (basestring, True),
     }
 
