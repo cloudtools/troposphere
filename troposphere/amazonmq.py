@@ -31,6 +31,13 @@ class User(AWSProperty):
     }
 
 
+class LogsConfiguration(AWSProperty):
+    props = {
+        'Audit': (boolean, False),
+        'General': (boolean, False),
+    }
+
+
 class Broker(AWSObject):
     resource_type = "AWS::AmazonMQ::Broker"
 
@@ -43,6 +50,7 @@ class Broker(AWSObject):
         'EngineType': (basestring, True),
         'EngineVersion': (basestring, True),
         'HostInstanceType': (basestring, True),
+        'Logs': (LogsConfiguration, True),
         'MaintenanceWindowStartTime': (MaintenanceWindow, False),
         'PubliclyAccessible': (boolean, True),
     }
