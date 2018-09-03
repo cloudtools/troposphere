@@ -7,7 +7,7 @@ import types
 
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
-from .dynamodb import ProvisionedThroughput
+from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
 from .validators import exactly_one, positive_integer
 try:
@@ -116,7 +116,10 @@ class SimpleTable(AWSObject):
 
     props = {
         'PrimaryKey': (PrimaryKey, False),
-        'ProvisionedThroughput': (ProvisionedThroughput, False)
+        'ProvisionedThroughput': (ProvisionedThroughput, False),
+        'Tags': (dict, False),
+        'TableName': (basestring, False),
+        'SSESpecification': (SSESpecification, False)
     }
 
 
