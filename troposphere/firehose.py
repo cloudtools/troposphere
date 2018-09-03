@@ -170,7 +170,7 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
         'CompressionFormat': (basestring, True),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'Prefix': (basestring, False),
+        'Prefix': (basestring, True),
         'ProcessingConfiguration': (ProcessingConfiguration, False),
         'RoleARN': (basestring, True),
         'S3BackupConfiguration': (S3DestinationConfiguration, False),
