@@ -611,6 +611,13 @@ class Template(object):
             raise ValueError('Maximum parameters %d reached' % MAX_PARAMETERS)
         return self._update(self.parameters, parameter)
 
+    def get_or_add_parameter(self, parameter):
+        if parameter.title in self.parameters:
+            return self.parameters[parameter.title]
+        else:
+            self.add_parameter(parameter)
+        return parameter
+
     def add_resource(self, resource):
         if len(self.resources) >= MAX_RESOURCES:
             raise ValueError('Maximum number of resources %d reached'
