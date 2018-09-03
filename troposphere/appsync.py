@@ -32,6 +32,12 @@ class ElasticsearchConfig(AWSProperty):
     }
 
 
+class HttpConfig(AWSProperty):
+    props = {
+        'Endpoint': (basestring, True),
+    }
+
+
 class LambdaConfig(AWSProperty):
     props = {
         'LambdaFunctionArn': (basestring, True),
@@ -46,6 +52,7 @@ class DataSource(AWSObject):
         'Description': (basestring, False),
         'DynamoDBConfig': (DynamoDBConfig, False),
         'ElasticsearchConfig': (ElasticsearchConfig, False),
+        'HttpConfig': (HttpConfig, False),
         'LambdaConfig': (LambdaConfig, False),
         'Name': (basestring, True),
         'ServiceRoleArn': (basestring, False),
