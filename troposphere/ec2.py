@@ -612,6 +612,15 @@ class VPCEndpointService(AWSObject):
     }
 
 
+class VPCEndpointServicePermissions(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpointServicePermissions"
+
+    props = {
+        'AllowedPrincipals': ([basestring], False),
+        'ServiceId': (basestring, True),
+    }
+
+
 class VPCGatewayAttachment(AWSObject):
     resource_type = "AWS::EC2::VPCGatewayAttachment"
 
