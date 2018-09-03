@@ -129,6 +129,10 @@ class Source(AWSProperty):
             'S3',
         ]
 
+        location_agnostic_types = [
+            'CODEPIPELINE',
+        ]
+
         source_type = self.properties.get('Type')
 
         # Don't do additional checks if source_type can't
@@ -141,7 +145,8 @@ class Source(AWSProperty):
                              ','.join(valid_types))
 
         location = self.properties.get('Location')
-        if source_type is not 'CODEPIPELINE' and not location:
+
+        if source_type not in location_agnostic_types and not location:
             raise ValueError(
                 'Source Location: must be defined when type is %s' %
                 source_type

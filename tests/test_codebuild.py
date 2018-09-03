@@ -19,3 +19,9 @@ class TestCodeBuild(unittest.TestCase):
             Type='WINDOWS_CONTAINER'
         )
         environment.to_dict()
+
+    def test_source_codepipeline(self):
+        source = codebuild.Source(
+            Type='CODEPIPELINE'
+        )
+        source.to_dict()
