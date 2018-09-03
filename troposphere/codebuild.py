@@ -186,6 +186,8 @@ class Project(AWSObject):
         'EncryptionKey': (basestring, False),
         'Environment': (Environment, True),
         'Name': (basestring, True),
+        'SecondaryArtifacts': ([Artifacts], False),
+        'SecondarySources': ([Source], False),
         'ServiceRole': (basestring, True),
         'Source': (Source, True),
         'Tags': (Tags, False),
