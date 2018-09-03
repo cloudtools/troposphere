@@ -25,6 +25,7 @@ class SubscriptionResource(AWSObject):
         'Endpoint': (basestring, True),
         'Protocol': (basestring, True),
         'TopicArn': (basestring, True),
+        'FilterPolicy': (dict, False),
     }
 
 
