@@ -117,6 +117,7 @@ class Source(AWSProperty):
         'GitCloneDepth': (positive_integer, False),
         'InsecureSsl': (boolean, False),
         'Location': (basestring, False),
+        'ReportBuildStatus': (boolean, False),
         'Type': (basestring, True),
     }
 
