@@ -22,10 +22,13 @@ class SubscriptionResource(AWSObject):
     resource_type = "AWS::SNS::Subscription"
 
     props = {
-        'Endpoint': (basestring, True),
-        'Protocol': (basestring, True),
-        'TopicArn': (basestring, True),
+        'DeliveryPolicy': (dict, False),
+        'Endpoint': (basestring, False),
         'FilterPolicy': (dict, False),
+        'Protocol': (basestring, True),
+        'RawMessageDelivery': (boolean, False),
+        'Region': (basestring, False),
+        'TopicArn': (basestring, True),
     }
 
 
