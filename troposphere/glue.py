@@ -16,11 +16,28 @@ class GrokClassifier(AWSProperty):
     }
 
 
+class JsonClassifier(AWSProperty):
+    props = {
+        'JsonPath': (basestring, True),
+        'Name': (basestring, False),
+    }
+
+
+class XMLClassifier(AWSProperty):
+    props = {
+        'Classification': (basestring, True),
+        'Name': (basestring, False),
+        'RowTag': (basestring, True),
+    }
+
+
 class Classifier(AWSObject):
     resource_type = "AWS::Glue::Classifier"
 
     props = {
         'GrokClassifier': (GrokClassifier, False),
+        'JsonClassifier': (JsonClassifier, False),
+        'XMLClassifier': (XMLClassifier, False),
     }
 
 
@@ -124,6 +141,7 @@ class Crawler(AWSObject):
 
     props = {
         'Classifiers': ([basestring], False),
+        'Configuration': (basestring, False),
         'DatabaseName': (basestring, True),
         'Description': (basestring, False),
         'Name': (basestring, False),
