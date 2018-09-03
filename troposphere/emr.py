@@ -310,6 +310,16 @@ class JobFlowInstancesConfig(AWSProperty):
     }
 
 
+class KerberosAttributes(AWSProperty):
+    props = {
+        'ADDomainJoinPassword': (basestring, False),
+        'ADDomainJoinUser': (basestring, False),
+        'CrossRealmTrustPrincipalPassword': (basestring, False),
+        'KdcAdminPassword': (basestring, True),
+        'Realm': (basestring, True),
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::EMR::Cluster"
 
@@ -323,6 +333,7 @@ class Cluster(AWSObject):
         'EbsRootVolumeSize': (positive_integer, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
+        'KerberosAttributes': (KerberosAttributes, False),
         'LogUri': (basestring, False),
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
