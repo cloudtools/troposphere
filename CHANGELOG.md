@@ -1,3 +1,6 @@
+## 2.3.3 (2018-09-05)
+- Revert schedule expression validation (#1114)
+
 ## 2.3.2 (2018-09-04)
 - Auto add Parameter and Output to template when specified (#1018)
 - Changed policy to AmazonDynamoDBFullAccess for delete and put (#1106)
