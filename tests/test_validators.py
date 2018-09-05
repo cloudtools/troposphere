@@ -9,7 +9,6 @@ from troposphere.validators import iam_group_name, iam_user_name, elb_name
 from troposphere.validators import mutually_exclusive, notification_type
 from troposphere.validators import notification_event, task_type
 from troposphere.validators import compliance_level, operating_system
-from troposphere.validators import event_schedule_expression
 
 
 class TestValidators(unittest.TestCase):
@@ -208,76 +207,6 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'foo', 'a', 'l@mbda', 'STEPFUNCTION']:
             with self.assertRaises(ValueError):
                 task_type(s)
-
-    def test_event_schedule_expression(self):
-        for s in ['rate(1 minute)', 'rate(1 hour)', 'rate(1 day)',
-                  'rate(99 minutes)', 'rate(99 hours)', 'rate(99 days)',
-                  'rate(1     day)', 'rate(99     days)']:
-            event_schedule_expression(s)
-        for s in ['', 'rate 1 min', 'rate(1 minutes)', 'rate(1 hours)',
-                  'rate(1 days)', 'rate(1day)']:
-            with self.assertRaises(ValueError):
-                event_schedule_expression(s)
-
-        for s in [
-            'cron(* * ? * * *)', 'cron(*   *   ?   *   *   *)',
-            # Minutes
-            'cron(0 * ? * * *)', 'cron(1 * ? * * *)', 'cron(59 * ? * * *)',
-            'cron(, * ? * * *)', 'cron(- * ? * * *)', 'cron(/ * ? * * *)',
-            # Hours
-            'cron(* 0 ? * * *)', 'cron(* 1 ? * * *)', 'cron(* 23 ? * * *)',
-            'cron(* , ? * * *)', 'cron(* - ? * * *)', 'cron(* / ? * * *)',
-            # Day-of-month
-            'cron(* * 1 * ? *)', 'cron(* * 31 * ? *)',
-            'cron(* * , * ? *)', 'cron(* * - * ? *)', 'cron(* * / * ? *)',
-            'cron(* * ? * * *)', 'cron(* * / * ? *)', 'cron(* * L * ? *)',
-            'cron(* * W * ? *)',
-            # Month
-            'cron(* * ? 1 * *)', 'cron(* * ? 12 * *)',
-            'cron(* * ? JAN * *)', 'cron(* * ? FEB * *)',
-            'cron(* * ? MAR * *)', 'cron(* * ? APR * *)',
-            'cron(* * ? MAY * *)', 'cron(* * ? JUN * *)',
-            'cron(* * ? JUL * *)', 'cron(* * ? AUG * *)',
-            'cron(* * ? SEP * *)', 'cron(* * ? OCT * *)',
-            'cron(* * ? NOV * *)', 'cron(* * ? DEC * *)',
-            'cron(* * ? , * *)', 'cron(* * ? - * *)', 'cron(* * ? / * *)',
-            # Day-of-week
-            'cron(* * ? * 1 *)', 'cron(* * ? * 7 *)', 'cron(* * ? * SUN *)',
-            'cron(* * ? * MON *)', 'cron(* * ? * TUE *)',
-            'cron(* * ? * WED *)', 'cron(* * ? * THU *)',
-            'cron(* * ? * FRI *)', 'cron(* * ? * SAT *)',
-            'cron(* * ? * , *)', 'cron(* * ? * - *)', 'cron(* * * * ? *)',
-            'cron(* * ? * L *)', 'cron(* * ? * # *)',
-            # Year
-            'cron(* * ? * * 1970)', 'cron(* * ? * * 2000)',
-            'cron(* * ? * * 2020)', 'cron(* * ? * * 2199)',
-            'cron(* * ? * * ,)', 'cron(* * ? * * -)', 'cron(* * ? * * /)',
-            #  Limit: Day-of-month / Day-of-week
-            'cron(* * 1 * ? *)', 'cron(* * ? * 1 *)',
-            'cron(* * * * ? *)', 'cron(* * ? * * *)',
-        ]:
-            event_schedule_expression(s)
-        for s in [
-            'cron(*)', 'cron(* )',
-            # Minutes
-            'cron(60 * ? * * *)', 'cron(a * ? * * *)',
-            # Hours
-            'cron(* 24 ? * * *)', 'cron(* a ? * * *)',
-            # Day-of-month
-            'cron(* * 0 * ? *)', 'cron(* * 32 * ? *)', 'cron(* * a * ? *)',
-            # Month
-            'cron(* * ? 0 * *)', 'cron(* * ? 13 * *)', 'cron(* * ? ZZZ * *)',
-            # Day-of-week
-            'cron(* * ? * 0 *)', 'cron(* * ? * 8 *)', 'cron(* * ? * a *)',
-            'cron(* * ? * ZZZ *)'
-            # Year
-            'cron(* * ? * * 1969)', 'cron(* * ? * * 2200)',
-            'cron(* * ? * * a)', 'cron(* * ? * * aaaa)',
-            #  Limit: Day-of-month / Day-of-week
-            'cron(* * 1 * 1 *)', 'cron(* * * * * *)'
-        ]:
-            with self.assertRaises(ValueError):
-                event_schedule_expression(s)
 
 
 if __name__ == '__main__':
