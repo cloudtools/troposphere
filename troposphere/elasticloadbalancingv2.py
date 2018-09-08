@@ -25,7 +25,8 @@ class Certificate(AWSProperty):
 
 
 class RedirectActionConfig(AWSProperty):
-    # https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_RedirectActionConfig.html
+    # https://docs.aws.amazon.com
+    # /elasticloadbalancing/latest/APIReference/API_RedirectActionConfig.html
     props = {
         'Host': (basestring, False),
         'Path': (basestring, False),
@@ -36,7 +37,10 @@ class RedirectActionConfig(AWSProperty):
     }
 
     def validate(self):
-        one_of(self.__class__.__name__, self.properties, 'StatusCode', ['HTTP_301', 'HTTP_302'])
+        one_of(self.__class__.__name__,
+               self.properties,
+               'StatusCode',
+               ['HTTP_301', 'HTTP_302'])
 
 
 class Action(AWSProperty):
@@ -47,17 +51,22 @@ class Action(AWSProperty):
     }
 
     def validate(self):
-        one_of(self.__class__.__name__, self.properties, 'Type', ['forward', 'redirect'])
+        one_of(self.__class__.__name__,
+               self.properties,
+               'Type',
+               ['forward', 'redirect'])
 
         def requires(action_type, prop):
-            if self.properties.get('Type') is action_type and prop not in self.properties:
+            if self.properties.get('Type') is action_type and \
+                    prop not in self.properties:
                 raise ValueError(
                     'Type "%s" requires definition of "%s"' % (
                         action_type, prop
                     )
                 )
 
-            if prop in self.properties and self.properties.get('Type') is not action_type:
+            if prop in self.properties and \
+                    self.properties.get('Type') is not action_type:
                 raise ValueError(
                     'Definition of "%s" allowed only with type "%s"' % (
                         prop, action_type
