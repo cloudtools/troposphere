@@ -57,7 +57,7 @@ class Action(AWSProperty):
                ['forward', 'redirect'])
 
         def requires(action_type, prop):
-            if self.properties.get('Type') is action_type and \
+            if self.properties.get('Type') == action_type and \
                     prop not in self.properties:
                 raise ValueError(
                     'Type "%s" requires definition of "%s"' % (
@@ -66,7 +66,7 @@ class Action(AWSProperty):
                 )
 
             if prop in self.properties and \
-                    self.properties.get('Type') is not action_type:
+                    self.properties.get('Type') != action_type:
                 raise ValueError(
                     'Definition of "%s" allowed only with '
                     'type "%s", was: "%s"' % (
