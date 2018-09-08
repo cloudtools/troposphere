@@ -68,8 +68,9 @@ class Action(AWSProperty):
             if prop in self.properties and \
                     self.properties.get('Type') is not action_type:
                 raise ValueError(
-                    'Definition of "%s" allowed only with type "%s"' % (
-                        prop, action_type
+                    'Definition of "%s" allowed only with '
+                    'type "%s", was: "%s"' % (
+                        prop, action_type, self.properties.get('Type')
                     )
                 )
 
