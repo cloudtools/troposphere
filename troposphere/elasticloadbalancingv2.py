@@ -6,7 +6,8 @@
 from . import AWSObject, AWSProperty, If, Tags
 from .validators import (
     elb_name, exactly_one, network_port,
-    tg_healthcheck_port, integer
+    tg_healthcheck_port, integer,
+    one_of
 )
 
 
@@ -23,11 +24,48 @@ class Certificate(AWSProperty):
     }
 
 
+class RedirectActionConfig(AWSProperty):
+    # https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_RedirectActionConfig.html
+    props = {
+        'Host': (basestring, False),
+        'Path': (basestring, False),
+        'Port': (basestring, False),
+        'Protocol': (basestring, False),
+        'Query': (basestring, False),
+        'StatusCode': (basestring, True),
+    }
+
+    def validate(self):
+        one_of(self.__class__.__name__, self.properties, 'StatusCode', ['HTTP_301', 'HTTP_302'])
+
+
 class Action(AWSProperty):
     props = {
-        'TargetGroupArn': (basestring, True),
-        'Type': (basestring, True)
+        'Type': (basestring, True),
+        'TargetGroupArn': (basestring, False),
+        'RedirectConfig': (RedirectActionConfig, False)
     }
+
+    def validate(self):
+        one_of(self.__class__.__name__, self.properties, 'Type', ['forward', 'redirect'])
+
+        def requires(action_type, prop):
+            if self.properties.get('Type') is action_type and prop not in self.properties:
+                raise ValueError(
+                    'Type "%s" requires definition of "%s"' % (
+                        action_type, prop
+                    )
+                )
+
+            if prop in self.properties and self.properties.get('Type') is not action_type:
+                raise ValueError(
+                    'Definition of "%s" allowed only with type "%s"' % (
+                        prop, action_type
+                    )
+                )
+
+        requires('forward', 'TargetGroupArn')
+        requires('redirect', 'RedirectConfig')
 
 
 class Condition(AWSProperty):

@@ -194,6 +194,15 @@ def iam_group_name(group_name):
     return group_name
 
 
+def one_of(class_name, properties, property, conditionals):
+    if properties.get(property) not in conditionals:
+        raise ValueError(
+            '%s.%s must be one of: "%s"' % (
+                class_name, property, ', '.join(conditionals)
+            )
+        )
+
+
 def mutually_exclusive(class_name, properties, conditionals):
     from . import NoValue
 

@@ -9,6 +9,7 @@ from troposphere.validators import iam_group_name, iam_user_name, elb_name
 from troposphere.validators import mutually_exclusive, notification_type
 from troposphere.validators import notification_event, task_type
 from troposphere.validators import compliance_level, operating_system
+from troposphere.validators import one_of
 
 
 class TestValidators(unittest.TestCase):
@@ -147,6 +148,14 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
             with self.assertRaises(ValueError):
                 iam_user_name(s)
+
+    def test_one_of(self):
+        conds = ['Bilbo', 'Frodo']
+        one_of('hobbits', {"first": "Bilbo"}, "first", conds)
+        one_of('hobbits', {"first": "Frodo"}, "first", conds)
+        with self.assertRaises(ValueError):
+            one_of('hobbits', {"first": "Gandalf"}, "first", conds)
+            one_of('hobbits', {"first": "Gandalf"}, "second", conds)
 
     def test_mutually_exclusive(self):
         conds = ['a', 'b', 'c']
