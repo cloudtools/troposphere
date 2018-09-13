@@ -53,6 +53,8 @@ class Broker(AWSObject):
         'Logs': (LogsConfiguration, True),
         'MaintenanceWindowStartTime': (MaintenanceWindow, False),
         'PubliclyAccessible': (boolean, True),
+        'SecurityGroups': (list, False),
+        'SubnetIds': (list, False),
     }
 
 
