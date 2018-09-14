@@ -23,6 +23,30 @@
                 "ServiceRoleArn": "arn:aws:iam::0123456789:role/codedeploy-role"
             },
             "Type": "AWS::CodeDeploy::DeploymentGroup"
+        },
+        "DemoDeploymentGroupOnPremises": {
+            "Properties": {
+                "ApplicationName": "DemoApplicationOnPremises",
+                "AutoRollbackConfiguration": {
+                    "Enabled": true,
+                    "Events": [
+                        "DEPLOYMENT_FAILURE"
+                    ]
+                },
+                "DeploymentGroupName": "DemoApplicationOnPremises",
+                "DeploymentStyle": {
+                    "DeploymentOption": "WITHOUT_TRAFFIC_CONTROL"
+                },
+                "OnPremisesInstanceTagFilters": [
+                    {
+                        "Key": "Service",
+                        "Type": "KEY_AND_VALUE",
+                        "Value": "DemoApplicationOnPremises"
+                    }
+                ],
+                "ServiceRoleArn": "arn:aws:iam::0123456789:role/codedeploy-role"
+            },
+            "Type": "AWS::CodeDeploy::DeploymentGroup"
         }
     }
 }

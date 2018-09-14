@@ -1,6 +1,7 @@
 from troposphere import Template
 from troposphere.codedeploy import AutoRollbackConfiguration, \
-    DeploymentStyle, DeploymentGroup, ElbInfoList, LoadBalancerInfo
+    DeploymentStyle, DeploymentGroup, ElbInfoList, LoadBalancerInfo, \
+    OnPremisesInstanceTagFilters
 
 
 template = Template()
@@ -33,5 +34,23 @@ deployment_group = DeploymentGroup(
     ServiceRoleArn='arn:aws:iam::0123456789:role/codedeploy-role'
 )
 template.add_resource(deployment_group)
+
+# On premises
+deployment_group_on_premises = DeploymentGroup(
+    "DemoDeploymentGroupOnPremises",
+    DeploymentGroupName='DemoApplicationOnPremises',
+    ApplicationName='DemoApplicationOnPremises',
+    AutoRollbackConfiguration=auto_rollback_configuration,
+    DeploymentStyle=DeploymentStyle(
+        DeploymentOption='WITHOUT_TRAFFIC_CONTROL'
+    ),
+    ServiceRoleArn='arn:aws:iam::0123456789:role/codedeploy-role',
+    OnPremisesInstanceTagFilters=[OnPremisesInstanceTagFilters(
+        Key='Service',
+        Value='DemoApplicationOnPremises',
+        Type='KEY_AND_VALUE'
+    )]
+)
+template.add_resource(deployment_group_on_premises)
 
 print(template.to_json())
