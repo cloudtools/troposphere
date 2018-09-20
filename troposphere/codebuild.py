@@ -163,15 +163,15 @@ class VpcConfig(AWSProperty):
 
 class WebhookFilterRule(AWSProperty):
     props = {
-        'JsonPath': (str, True),
-        'MatchEquals': (str, False)
+        'JsonPath': (basestring, True),
+        'MatchEquals': (basestring, False)
     }
 
 
 class AuthenticationConfiguration(AWSProperty):
     props = {
-        'AllowedIPRange': (str, False),
-        'SecretToken': (str, False),
+        'AllowedIPRange': (basestring, False),
+        'SecretToken': (basestring, False),
     }
 
 
@@ -179,14 +179,14 @@ class Webhook(AWSObject):
     resource_type = "AWS::CodePipeline::Webhook"
 
     props = {
-        "Authentication": (str, True),
+        "Authentication": (basestring, True),
         "AuthenticationConfiguration": (AuthenticationConfiguration, True),
         "Filters": ([WebhookFilterRule], True),
-        "TargetPipeline": (str, True),
-        "TargetAction": (str, True),
-        "Name": (str, False),
-        "TargetPipelineVersion": (int, True),
-        "RegisterWithThirdParty": (bool, False),
+        "TargetPipeline": (basestring, True),
+        "TargetAction": (basestring, True),
+        "Name": (basestring, False),
+        "TargetPipelineVersion": (integer, True),
+        "RegisterWithThirdParty": (basestring, False),
     }
 
 
