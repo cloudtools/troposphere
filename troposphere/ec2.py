@@ -757,13 +757,42 @@ class LaunchSpecifications(AWSProperty):
     }
 
 
+class SpotFleetLaunchTemplateSpecification(AWSProperty):
+    # Only difference vs. LaunchTemplateSpecification is that Version is optional here
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, False),
+    }
+
+
+class LaunchTemplateOverrides(AWSProperty):
+    props = {
+        'AvailabilityZone': (basestring, False),
+        'InstanceType': (basestring, False),
+        'SpotPrice': (basestring, False),
+        'SubnetId': (basestring, False),
+        'WeightedCapacity': (basestring, False)
+    }
+
+
+class LaunchTemplateConfigs(AWSProperty):
+    # Not sure why LaunchTemplateSpecification is not required
+    props = {
+        'LaunchTemplateSpecification': (SpotFleetLaunchTemplateSpecification, False),
+        'Overrides': ([LaunchTemplateOverrides], False)
+    }
+
+
 class SpotFleetRequestConfigData(AWSProperty):
     props = {
         'AllocationStrategy': (basestring, False),
         'ExcessCapacityTerminationPolicy': (basestring, False),
         'IamFleetRole': (basestring, True),
+        'InstanceInterruptionBehavior': (basestring, False),
         'ReplaceUnhealthyInstances': (boolean, False),
         'LaunchSpecifications': ([LaunchSpecifications], True),
+        'LaunchTemplateConfigs': ([LaunchTemplateConfigs], False),
         'SpotPrice': (basestring, False),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
