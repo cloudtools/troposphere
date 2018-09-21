@@ -5,6 +5,9 @@ from .validators import boolean, integer, network_port, positive_integer
 LAUNCH_TYPE_EC2 = 'EC2'
 LAUNCH_TYPE_FARGATE = 'FARGATE'
 
+SCHEDULING_STRATEGY_REPLICA = 'REPLICA'
+SCHEDULING_STRATEGY_DAEMON = 'DAEMON'
+
 
 class Cluster(AWSObject):
     resource_type = "AWS::ECS::Cluster"
@@ -104,6 +107,7 @@ class Service(AWSObject):
         'PlacementConstraints': ([PlacementConstraint], False),
         'PlacementStrategies': ([PlacementStrategy], False),
         'PlatformVersion': (basestring, False),
+        'SchedulingStrategy': (basestring, False),
         'ServiceName': (basestring, False),
         'ServiceRegistries': ([ServiceRegistry], False),
         'TaskDefinition': (basestring, True),
