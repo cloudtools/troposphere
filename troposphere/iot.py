@@ -30,12 +30,12 @@ class CloudwatchMetricAction(AWSProperty):
 class DynamoDBAction(AWSProperty):
     props = {
         'HashKeyField': (basestring, True),
-        'HashKeyType': (basestring, True),
+        'HashKeyType': (basestring, False),
         'HashKeyValue': (basestring, True),
         'PayloadField': (basestring, False),
-        'RangeKeyField': (basestring, True),
-        'RangeKeyType': (basestring, True),
-        'RangeKeyValue': (basestring, True),
+        'RangeKeyField': (basestring, False),
+        'RangeKeyType': (basestring, False),
+        'RangeKeyValue': (basestring, False),
         'RoleArn': (basestring, True),
         'TableName': (basestring, True),
     }

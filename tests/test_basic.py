@@ -1,10 +1,13 @@
+import pickle
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
-from troposphere import If, Join, Ref, Split, Sub, Template
+from troposphere import Cidr, If, Join, Ref, Split, Sub, Template
+from troposphere import NoValue, Region
 from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, Route, SecurityGroupRule
 from troposphere.s3 import Bucket
 from troposphere.elasticloadbalancing import HealthCheck
+from troposphere import cloudformation
 from troposphere.validators import positive_integer
 
 
@@ -61,6 +64,21 @@ class TestBasic(unittest.TestCase):
         b1 = Bucket("B1")
         b2 = Bucket("B2", DependsOn=b1)
         self.assertEqual(b1.title, b2.DependsOn)
+
+    def test_resource_depends_on_list(self):
+        b1 = Bucket("B1")
+        b2 = Bucket("B2")
+        b3 = Bucket("B3", DependsOn=[b1, b2])
+        self.assertEqual(b1.title, b3.DependsOn[0])
+        self.assertEqual(b2.title, b3.DependsOn[1])
+
+    def test_pickle_ok(self):
+        # tests that objects can be pickled/un-pickled without hitting issues
+        bucket_name = "test-bucket"
+        b = Bucket("B1", BucketName=bucket_name)
+        p = pickle.dumps(b)
+        b2 = pickle.loads(p)
+        self.assertEqual(b2.BucketName, b.BucketName)
 
 
 def call_correct(x):
@@ -218,6 +236,22 @@ class TestParameter(unittest.TestCase):
         with self.assertRaises(ValueError):
             t.to_json()
 
+    def test_get_or_add_adds(self):
+        t = Template()
+        p = Parameter("param", Type="String", Default="foo")
+        result = t.get_or_add_parameter(p)
+        self.assertEquals(t.parameters["param"], p)
+        self.assertEquals(result, p)
+
+    def test_add_or_get_returns_with_out_adding_duplicate(self):
+        t = Template()
+        p = Parameter("param", Type="String", Default="foo")
+        t.add_parameter(p)
+        result = t.get_or_add_parameter(p)
+        self.assertEquals(t.parameters["param"], p)
+        self.assertEquals(result, p)
+        self.assertEquals(len(t.parameters), 1)
+
     def test_property_default(self):
         p = Parameter("param", Type="String", Default="foo")
         p.validate()
@@ -315,6 +349,38 @@ class TestRef(unittest.TestCase):
         ref = t.to_dict()
         self.assertEqual(ref['Ref'], 'param')
 
+    def test_ref_eq(self):
+        s = "AWS::NoValue"
+        r = Ref(s)
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, NoValue)
+        self.assertEqual(r, NoValue)
+        self.assertEqual(wch.Ref(), "TestResource")
+
+        self.assertNotEqual(r, "AWS::Region")
+        self.assertNotEqual(r, Region)
+        self.assertNotEqual(r, Ref)
+        self.assertNotEqual(wch.Ref(), "NonexistantResource")
+
+    def test_ref_hash(self):
+        s = hash("AWS::NoValue")
+        r = hash(Ref(s))
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, hash(NoValue))
+        self.assertEqual(r, hash(NoValue))
+        self.assertEqual(hash(wch.Ref()), hash("TestResource"))
+
+        self.assertNotEqual(r, hash("AWS::Region"))
+        self.assertNotEqual(r, hash(Region))
+        self.assertNotEqual(r, hash(Ref))
+        self.assertNotEqual(hash(wch.Ref()), hash("NonexistantResource"))
+
 
 class TestName(unittest.TestCase):
 
@@ -323,6 +389,21 @@ class TestName(unittest.TestCase):
         t = Template()
         resource = t.add_resource(Instance(name))
         self.assertEqual(resource.name, name)
+
+
+class TestCidr(unittest.TestCase):
+
+    def test_getcidr(self):
+        raw = Cidr("10.1.10.1/24", 2)
+        actual = raw.to_dict()
+        expected = {'Fn::Cidr': ["10.1.10.1/24", 2]}
+        self.assertEqual(expected, actual)
+
+    def test_getcidr_withsizemask(self):
+        raw = Cidr("10.1.10.1/24", 2, 10)
+        actual = raw.to_dict()
+        expected = {'Fn::Cidr': ["10.1.10.1/24", 2, 10]}
+        self.assertEqual(expected, actual)
 
 
 class TestSub(unittest.TestCase):

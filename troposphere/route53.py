@@ -97,6 +97,7 @@ class HealthCheckConfiguration(AWSProperty):
         'IPAddress': (basestring, False),
         'MeasureLatency': (boolean, False),
         'Port': (network_port, False),
+        'Regions': ([basestring], False),
         'RequestInterval': (positive_integer, False),
         'ResourcePath': (basestring, False),
         'SearchString': (basestring, False),
@@ -126,6 +127,12 @@ class HostedZoneVPCs(AWSProperty):
     }
 
 
+class QueryLoggingConfig(AWSProperty):
+    props = {
+        'CloudWatchLogsLogGroupArn': (basestring, True),
+    }
+
+
 class HostedZone(AWSObject):
     resource_type = "AWS::Route53::HostedZone"
 
@@ -133,5 +140,6 @@ class HostedZone(AWSObject):
         'HostedZoneConfig': (HostedZoneConfiguration, False),
         'HostedZoneTags': (Tags, False),
         'Name': (basestring, True),
+        'QueryLoggingConfig': (QueryLoggingConfig, False),
         'VPCs': ([HostedZoneVPCs], False),
     }

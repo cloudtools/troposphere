@@ -5,10 +5,16 @@
 
 import types
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
-from .dynamodb import ProvisionedThroughput
+from .dynamodb import ProvisionedThroughput, SSESpecification
+from .s3 import Filter
 from .validators import exactly_one, positive_integer
+try:
+    from awacs.aws import PolicyDocument
+    policytypes = (dict, list, basestring, PolicyDocument)
+except ImportError:
+    policytypes = (dict, list, basestring)
 
 assert types  # silence pyflakes
 
@@ -18,17 +24,6 @@ def primary_key_type_validator(x):
     if x not in valid_types:
         raise ValueError("KeyType must be one of: %s" % ", ".join(valid_types))
     return x
-
-
-def policy_validator(x):
-    if isinstance(x, types.StringTypes):
-        return x
-    elif isinstance(x, types.ListType):
-        return x
-    else:
-        raise ValueError("Policies must refer to a managed policy, a list of "
-                         + "policies, an IAM policy document, or a list of IAM"
-                         + " policy documents")
 
 
 class DeadLetterQueue(AWSProperty):
@@ -64,15 +59,28 @@ class Function(AWSObject):
         'MemorySize': (validate_memory_size, False),
         'Timeout': (positive_integer, False),
         'Role': (basestring, False),
-        'Policies': (policy_validator, False),
+        'Policies': (policytypes, False),
         'Environment': (Environment, False),
         'VpcConfig': (VPCConfig, False),
         'Events': (dict, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Tracing': (basestring, False),
         'KmsKeyArn': (basestring, False),
-        'DeadLetterQueue': (DeadLetterQueue, False)
+        'DeadLetterQueue': (DeadLetterQueue, False),
+        'AutoPublishAlias': (basestring, False)
     }
+
+
+class FunctionForPackaging(Function):
+    """Render Function without requiring 'CodeUri'.
+
+    This exception to the Function spec is for use with the
+    `cloudformation/sam package` commands which add CodeUri automatically.
+    """
+
+    resource_type = Function.resource_type
+    props = Function.props.copy()
+    props['CodeUri'] = (props['CodeUri'][0], False)
 
 
 class Api(AWSObject):
@@ -80,6 +88,7 @@ class Api(AWSObject):
 
     props = {
         'StageName': (basestring, True),
+        'Name': (basestring, False),
         'DefinitionBody': (dict, False),
         'DefinitionUri': (basestring, False),
         'CacheClusterEnabled': (bool, False),
@@ -107,7 +116,10 @@ class SimpleTable(AWSObject):
 
     props = {
         'PrimaryKey': (PrimaryKey, False),
-        'ProvisionedThroughput': (ProvisionedThroughput, False)
+        'ProvisionedThroughput': (ProvisionedThroughput, False),
+        'SSESpecification': (SSESpecification, False),
+        'Tags': (dict, False),
+        'TableName': (basestring, False),
     }
 
 
@@ -117,7 +129,7 @@ class S3Event(AWSObject):
     props = {
         'Bucket': (basestring, True),
         'Events': (list, True),
-        'Filter': (basestring, False)
+        'Filter': (Filter, False)
     }
 
 
@@ -200,3 +212,16 @@ class IoTRuleEvent(AWSObject):
 class AlexaSkillEvent(AWSObject):
     resource_type = 'AlexaSkill'
     props = {}
+
+
+class SQSEvent(AWSObject):
+    resource_type = 'SQS'
+
+    props = {
+        'Queue': (basestring, True),
+        'BatchSize': (positive_integer, True)
+    }
+
+    def validate(self):
+        if (not 1 <= self.properties['BatchSize'] <= 10):
+            raise ValueError('BatchSize must be between 1 and 10')

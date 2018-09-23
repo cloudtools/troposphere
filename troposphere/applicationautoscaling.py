@@ -1,5 +1,22 @@
 from . import AWSObject, AWSProperty
-from .validators import floatingpoint, integer, positive_integer
+from .validators import boolean, floatingpoint, integer, positive_integer
+
+
+class ScalableTargetAction(AWSProperty):
+    props = {
+        'MaxCapacity': (integer, False),
+        'MinCapacity': (integer, False),
+    }
+
+
+class ScheduledAction(AWSProperty):
+    props = {
+        'EndTime': (basestring, False),
+        'ScalableTargetAction': (ScalableTargetAction, False),
+        'Schedule': (basestring, True),
+        'ScheduledActionName': (basestring, True),
+        'StartTime': (basestring, False),
+    }
 
 
 class ScalableTarget(AWSObject):
@@ -11,6 +28,7 @@ class ScalableTarget(AWSObject):
         'ResourceId': (basestring, True),
         'RoleARN': (basestring, True),
         'ScalableDimension': (basestring, True),
+        'ScheduledActions': ([ScheduledAction], False),
         'ServiceNamespace': (basestring, True),
     }
 
@@ -61,6 +79,7 @@ class TargetTrackingScalingPolicyConfiguration(AWSProperty):
     props = {
         'CustomizedMetricSpecification':
             (CustomizedMetricSpecification, False),
+        'DisableScaleIn': (boolean, False),
         'PredefinedMetricSpecification':
             (PredefinedMetricSpecification, False),
         'ScaleInCooldown': (positive_integer, False),

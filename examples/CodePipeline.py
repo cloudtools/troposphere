@@ -3,7 +3,7 @@
 
 from troposphere import Parameter, Ref, Template
 from troposphere.codepipeline import (
-    Pipeline, Stages, Actions, ActionTypeID, OutputArtifacts, InputArtifacts,
+    Pipeline, Stages, Actions, ActionTypeId, OutputArtifacts, InputArtifacts,
     ArtifactStore, DisableInboundStageTransitions)
 
 t = Template()
@@ -30,7 +30,7 @@ pipeline = t.add_resource(Pipeline(
             Actions=[
                 Actions(
                     Name="SourceAction",
-                    ActionTypeId=ActionTypeID(
+                    ActionTypeId=ActionTypeId(
                         Category="Source",
                         Owner="AWS",
                         Version="1",
@@ -59,7 +59,7 @@ pipeline = t.add_resource(Pipeline(
                             Name="SourceOutput"
                         )
                     ],
-                    ActionTypeId=ActionTypeID(
+                    ActionTypeId=ActionTypeId(
                         Category="Deploy",
                         Owner="AWS",
                         Version="1",
@@ -83,7 +83,7 @@ pipeline = t.add_resource(Pipeline(
                             Name="SourceOutput"
                         )
                     ],
-                    ActionTypeId=ActionTypeID(
+                    ActionTypeId=ActionTypeId(
                         Category="Deploy",
                         Owner="AWS",
                         Version="1",

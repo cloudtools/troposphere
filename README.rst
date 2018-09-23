@@ -77,6 +77,27 @@ A simple example to create an instance would look like this:
     }
 
 
+A simple example to create an instance (YAML) would look like this:
+
+.. code:: python
+
+    >>> from troposphere import Ref, Template
+    >>> import troposphere.ec2 as ec2
+    >>> t = Template()
+    >>> instance = ec2.Instance("myinstance")
+    >>> instance.ImageId = "ami-951945d0"
+    >>> instance.InstanceType = "t1.micro"
+    >>> t.add_resource(instance)
+    <troposphere.ec2.Instance object at 0x101bf3390>
+    >>> print(t.to_yaml())
+
+    Resources:
+        myinstance:
+            Properties:
+                ImageId: ami-951945d0
+                InstanceType: t1.micro
+            Type: AWS::EC2::Instance
+
 Alternatively, parameters can be used instead of properties:
 
 .. code:: python
@@ -133,12 +154,16 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
+- AWS::AmazonMQ
 - AWS::ApiGateway
+- AWS::AppSync
 - AWS::ApplicationAutoScaling
 - AWS::Athena
 - AWS::AutoScaling
 - AWS::Batch
+- AWS::Budgets
 - AWS::CertificateManager
+- AWS::Cloud9
 - AWS::CloudFormation
 - AWS::CloudFront
 - AWS::CloudTrail
@@ -158,6 +183,7 @@ Currently supported AWS resource types
 - AWS::ECR
 - AWS::ECS
 - AWS::EFS
+- AWS::EKS
 - AWS::EMR
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
@@ -166,7 +192,9 @@ Currently supported AWS resource types
 - AWS::Elasticsearch
 - AWS::Events
 - AWS::Glue
+- AWS::GuardDuty
 - AWS::IAM
+- AWS::Inspector
 - AWS::IoT
 - AWS::KMS
 - AWS::Kinesis
@@ -174,16 +202,21 @@ Currently supported AWS resource types
 - AWS::KinesisFirehose
 - AWS::Lambda
 - AWS::Logs
+- AWS::Neptune
 - AWS::OpsWorks
 - AWS::RDS
 - AWS::Redshift
 - AWS::Route53
 - AWS::S3
 - AWS::SDB
+- AWS::SES
 - AWS::SNS
 - AWS::SQS
 - AWS::SSM
+- AWS::SageMaker
 - AWS::Serverless
+- AWS::ServiceCatalog
+- AWS::ServiceDiscovery
 - AWS::StepFunctions
 - AWS::WAF
 - AWS::WAFRegional

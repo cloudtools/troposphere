@@ -40,8 +40,8 @@ class TestRDS(unittest.TestCase):
 
         with self.assertRaisesRegexp(
                 ValueError,
-                'Either \(MasterUsername and MasterUserPassword\) or'
-                ' DBSnapshotIdentifier are required'
+                r'Either \(MasterUsername and MasterUserPassword\) or'
+                r' DBSnapshotIdentifier are required'
                 ):
             rds_instance.to_dict()
 
@@ -197,7 +197,7 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass="db.m1.small",
             Engine="postgres",
             StorageType='io1',
-            Iops=4000,
+            Iops=6000,
             AllocatedStorage=10)
         with self.assertRaisesRegexp(ValueError,
                                      " must be at least 100 "):
@@ -205,10 +205,10 @@ class TestRDS(unittest.TestCase):
 
         i.AllocatedStorage = 100
         with self.assertRaisesRegexp(ValueError,
-                                     " must be no less than 1/10th "):
+                                     " must be no less than 1/50th "):
             i.to_dict()
 
-        i.AllocatedStorage = 400
+        i.Iops = 5000
         i.to_dict()
 
     def test_snapshot(self):

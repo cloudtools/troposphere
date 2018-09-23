@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (integer, boolean, s3_bucket_name, notification_type,
                          notification_event, json_checker, task_type,
                          operating_system, compliance_level)
@@ -12,7 +12,7 @@ from .validators import (integer, boolean, s3_bucket_name, notification_type,
 class NotificationConfig(AWSProperty):
     props = {
         'NotificationArn': (basestring, False),
-        'NotificationEvents': ([notification_event], False),
+        'NotificationEvents': (notification_event, False),
         'NotificationType': (notification_type, False),
     }
 
@@ -78,7 +78,7 @@ class Rule(AWSProperty):
     props = {
         'ApproveAfterDays': (integer, False),
         'ComplianceLevel': (compliance_level, False),
-        'PatchFilterGroup': (PatchFilter, False),
+        'PatchFilterGroup': (PatchFilterGroup, False),
     }
 
 
@@ -108,13 +108,28 @@ class Targets(AWSProperty):
     }
 
 
+class S3OutputLocation(AWSProperty):
+    props = {
+        'OutputS3BucketName': (basestring, False),
+        'OutputS3KeyPrefix': (basestring, False),
+    }
+
+
+class InstanceAssociationOutputLocation(AWSProperty):
+    props = {
+        'S3Location': (S3OutputLocation, False),
+    }
+
+
 class Association(AWSObject):
     resource_type = "AWS::SSM::Association"
 
     props = {
+        'AssociationName': (basestring, False),
         'DocumentVersion': (basestring, False),
         'InstanceId': (basestring, False),
         'Name': (basestring, True),
+        'OutputLocation': (InstanceAssociationOutputLocation, False),
         'Parameters': (dict, False),
         'ScheduleExpression': (basestring, False),
         'Targets': ([Targets], False),
@@ -128,6 +143,7 @@ class Document(AWSObject):
         # Need a better implementation of the SSM Document
         'Content': (dict, True),
         'DocumentType': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -181,6 +197,7 @@ class Parameter(AWSObject):
     resource_type = "AWS::SSM::Parameter"
 
     props = {
+        'AllowedPattern': (basestring, False),
         'Description': (basestring, False),
         'Name': (basestring, False),
         'Type': (basestring, True),
@@ -201,4 +218,17 @@ class PatchBaseline(AWSObject):
         'OperatingSystem': (operating_system, False),
         'PatchGroups': ([basestring], False),
         'RejectedPatches': ([basestring], False),
+    }
+
+
+class ResourceDataSync(AWSObject):
+    resource_type = "AWS::SSM::ResourceDataSync"
+
+    props = {
+        'BucketName': (basestring, True),
+        'BucketPrefix': (basestring, False),
+        'BucketRegion': (basestring, True),
+        'KMSKeyArn': (basestring, False),
+        'SyncFormat': (basestring, True),
+        'SyncName': (basestring, True),
     }

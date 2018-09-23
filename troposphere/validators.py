@@ -195,9 +195,11 @@ def iam_group_name(group_name):
 
 
 def mutually_exclusive(class_name, properties, conditionals):
+    from . import NoValue
+
     found_list = []
     for c in conditionals:
-        if c in properties:
+        if c in properties and not properties[c] == NoValue:
             found_list.append(c)
     seen = set(found_list)
     specified_count = len(seen)
@@ -215,6 +217,12 @@ def exactly_one(class_name, properties, conditionals):
                           ' must be specified: %s') % (
                           class_name, ', '.join(conditionals)))
     return specified_count
+
+
+def check_required(class_name, properties, conditionals):
+    for c in conditionals:
+        if c not in properties:
+            raise ValueError("Resource %s required in %s" % c, class_name)
 
 
 def json_checker(name, prop):
@@ -281,7 +289,8 @@ def compliance_level(level):
 
 
 def operating_system(os):
-    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX']
+    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'AMAZON_LINUX_2', 'UBUNTU',
+                'REDHAT_ENTERPRISE_LINUX', 'SUSE', 'CENTOS']
     if os not in valid_os:
         raise ValueError(
             'OperatingSystem must be one of: "%s"' % (
@@ -289,3 +298,55 @@ def operating_system(os):
             )
         )
     return os
+
+
+def vpn_pre_shared_key(key):
+    pre_shared_key_match_re = compile(
+        r'^(?!0)([A-Za-z0-9]|\_|\.){8,64}$'
+    )
+    if not pre_shared_key_match_re.match(key):
+        raise ValueError(
+            '%s is not a valid key.'
+            ' Allowed characters are alphanumeric characters and ._. Must'
+            ' be between 8 and 64 characters in length and cannot'
+            ' start with zero (0).' % key
+        )
+    return(key)
+
+
+def vpn_tunnel_inside_cidr(cidr):
+    reserved_cidrs = [
+        '169.254.0.0/30',
+        '169.254.1.0/30',
+        '169.254.2.0/30',
+        '169.254.3.0/30',
+        '169.254.4.0/30',
+        '169.254.5.0/30',
+        '169.254.169.252/30'
+    ]
+    cidr_match_re = compile(
+        r"^169\.254\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)"
+        r"\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\/30$"
+    )
+    if cidr in reserved_cidrs:
+        raise ValueError(
+            'The following CIDR blocks are reserved and cannot be used: "%s"' %
+            (', '.join(reserved_cidrs))
+        )
+    elif not cidr_match_re.match(cidr):
+        raise ValueError(
+            '%s is not a valid CIDR.'
+            ' A size /30 CIDR block from the 169.254.0.0/16 must be specified.'
+            % cidr)
+    return(cidr)
+
+
+def vpc_endpoint_type(endpoint_type):
+    valid_types = ['Interface', 'Gateway']
+    if endpoint_type not in valid_types:
+        raise ValueError(
+            'VpcEndpointType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return(endpoint_type)

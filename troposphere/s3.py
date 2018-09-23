@@ -5,7 +5,7 @@
 import warnings
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import positive_integer, s3_bucket_name
+from .validators import boolean, positive_integer, s3_bucket_name
 from .validators import s3_transfer_acceleration_status
 
 try:
@@ -248,10 +248,37 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class AccessControlTranslation(AWSProperty):
+    props = {
+        'Owner': (basestring, True),
+    }
+
+
+class EncryptionConfiguration(AWSProperty):
+    props = {
+        'ReplicaKmsKeyID': (basestring, True),
+    }
+
+
 class ReplicationConfigurationRulesDestination(AWSProperty):
     props = {
+        'AccessControlTranslation': (AccessControlTranslation, False),
+        'Account': (basestring, False),
         'Bucket': (basestring, True),
-        'StorageClass': (basestring, False)
+        'EncryptionConfiguration': (EncryptionConfiguration, False),
+        'StorageClass': (basestring, False),
+    }
+
+
+class SseKmsEncryptedObjects(AWSProperty):
+    props = {
+        'Status': (basestring, True),
+    }
+
+
+class SourceSelectionCriteria(AWSProperty):
+    props = {
+        'SseKmsEncryptedObjects': (SseKmsEncryptedObjects, True),
     }
 
 
@@ -260,6 +287,7 @@ class ReplicationConfigurationRules(AWSProperty):
         'Destination': (ReplicationConfigurationRulesDestination, True),
         'Id': (basestring, False),
         'Prefix': (basestring, True),
+        'SourceSelectionCriteria': (SourceSelectionCriteria, False),
         'Status': (basestring, True)
     }
 
@@ -271,14 +299,81 @@ class ReplicationConfiguration(AWSProperty):
     }
 
 
+class Destination(AWSProperty):
+    props = {
+        'BucketAccountId': (basestring, False),
+        'BucketArn': (basestring, True),
+        'Format': (basestring, True),
+        'Prefix': (basestring, False),
+    }
+
+
+class DataExport(AWSProperty):
+    props = {
+        'Destination': (Destination, True),
+        'OutputSchemaVersion': (basestring, True),
+    }
+
+
+class StorageClassAnalysis(AWSProperty):
+    props = {
+        'DataExport': (DataExport, False),
+    }
+
+
+class AnalyticsConfiguration(AWSProperty):
+    props = {
+        'Id': (basestring, True),
+        'Prefix': (basestring, False),
+        'StorageClassAnalysis': (StorageClassAnalysis, True),
+        'TagFilters': ([TagFilter], False),
+    }
+
+
+class ServerSideEncryptionByDefault(AWSProperty):
+    props = {
+        'KMSMasterKeyID': (basestring, False),
+        'SSEAlgorithm': (basestring, True),
+    }
+
+
+class ServerSideEncryptionRule(AWSProperty):
+    props = {
+        'ServerSideEncryptionByDefault':
+            (ServerSideEncryptionByDefault, False),
+    }
+
+
+class BucketEncryption(AWSProperty):
+    props = {
+        'ServerSideEncryptionConfiguration':
+            ([ServerSideEncryptionRule], True),
+    }
+
+
+class InventoryConfiguration(AWSProperty):
+    props = {
+        'Destination': (Destination, True),
+        'Enabled': (boolean, True),
+        'Id': (basestring, True),
+        'IncludedObjectVersions': (basestring, True),
+        'OptionalFields': ([basestring], True),
+        'Prefix': (basestring, False),
+        'ScheduleFrequency': (basestring, True),
+    }
+
+
 class Bucket(AWSObject):
     resource_type = "AWS::S3::Bucket"
 
     props = {
         'AccessControl': (basestring, False),
         'AccelerateConfiguration': (AccelerateConfiguration, False),
+        'AnalyticsConfigurations': ([AnalyticsConfiguration], False),
+        'BucketEncryption': (BucketEncryption, False),
         'BucketName': (s3_bucket_name, False),
         'CorsConfiguration': (CorsConfiguration, False),
+        'InventoryConfigurations': ([InventoryConfiguration], False),
         'LifecycleConfiguration': (LifecycleConfiguration, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
         'MetricsConfigurations': ([MetricsConfiguration], False),

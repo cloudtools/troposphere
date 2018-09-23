@@ -6,11 +6,13 @@
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, exactly_one, integer, integer_range,
-    network_port, positive_integer
+    network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr,
+    vpc_endpoint_type
 )
 
 try:
     from awacs.aws import Policy
+
     policytypes = (dict, Policy)
 except ImportError:
     policytypes = dict,
@@ -100,9 +102,9 @@ class NatGateway(AWSObject):
     resource_type = "AWS::EC2::NatGateway"
 
     props = {
-            'AllocationId': (basestring, True),
-            'SubnetId': (basestring, True),
-            'Tags': ((Tags, list), False),
+        'AllocationId': (basestring, True),
+        'SubnetId': (basestring, True),
+        'Tags': ((Tags, list), False),
     }
 
 
@@ -123,7 +125,7 @@ NO_DEVICE = {}
 class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
-        'Ebs': (EBSBlockDevice, False),      # Conditional
+        'Ebs': (EBSBlockDevice, False),  # Conditional
         'NoDevice': (dict, False),
         'VirtualName': (basestring, False),  # Conditional
     }
@@ -143,11 +145,31 @@ class Placement(AWSProperty):
     }
 
 
+class CreditSpecification(AWSProperty):
+    props = {
+        'CPUCredits': (basestring, False),
+    }
+
+
+class ElasticGpuSpecification(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+    }
+
+
 class Ipv6Addresses(AWSHelperFn):
     def __init__(self, address):
         self.data = {
             'Ipv6Address': address,
         }
+
+
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, True),
+    }
 
 
 class PrivateIpAddressSpecification(AWSProperty):
@@ -205,8 +227,10 @@ class Instance(AWSObject):
         'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
+        'CreditSpecification': (CreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
+        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, True),
@@ -216,6 +240,7 @@ class Instance(AWSObject):
         'Ipv6Addresses': ([Ipv6Addresses], False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'Monitoring': (boolean, False),
         'NetworkInterfaces': ([NetworkInterfaceProperty], False),
         'PlacementGroupName': (basestring, False),
@@ -376,6 +401,7 @@ class SecurityGroupEgress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'DestinationPrefixListId': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, True),
@@ -408,6 +434,7 @@ class SecurityGroupIngress(AWSObject):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'FromPort': (network_port, False),  # conditional
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
@@ -432,6 +459,7 @@ class SecurityGroupRule(AWSProperty):
     props = {
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
+        'Description': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
@@ -459,7 +487,7 @@ class Subnet(AWSObject):
     resource_type = "AWS::EC2::Subnet"
 
     props = {
-        'AssignIPv6AddressOnCreation': (boolean, False),
+        'AssignIpv6AddressOnCreation': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'CidrBlock': (basestring, True),
         'Ipv6CidrBlock': (basestring, False),
@@ -470,10 +498,10 @@ class Subnet(AWSObject):
 
     def validate(self):
         if 'Ipv6CidrBlock' in self.properties:
-            if not self.properties.get('AssignIPv6AddressOnCreation'):
+            if not self.properties.get('AssignIpv6AddressOnCreation'):
                 raise ValueError(
                     "If Ipv6CidrBlock is present, "
-                    "AssignIPv6AddressOnCreation must be set to True"
+                    "AssignIpv6AddressOnCreation must be set to True"
                 )
 
 
@@ -521,6 +549,13 @@ class VolumeAttachment(AWSObject):
     }
 
 
+def instance_tenancy(value):
+    valid = ['default', 'dedicated']
+    if value not in valid:
+        raise ValueError('InstanceTenancy needs to be one of %r' % valid)
+    return value
+
+
 class VPC(AWSObject):
     resource_type = "AWS::EC2::VPC"
 
@@ -528,7 +563,7 @@ class VPC(AWSObject):
         'CidrBlock': (basestring, True),
         'EnableDnsSupport': (boolean, False),
         'EnableDnsHostnames': (boolean, False),
-        'InstanceTenancy': (basestring, False),
+        'InstanceTenancy': (instance_tenancy, False),
         'Tags': ((Tags, list), False),
     }
 
@@ -543,14 +578,47 @@ class VPCDHCPOptionsAssociation(AWSObject):
 
 
 class VPCEndpoint(AWSObject):
-        resource_type = "AWS::EC2::VPCEndpoint"
+    resource_type = "AWS::EC2::VPCEndpoint"
 
-        props = {
-            'PolicyDocument': (policytypes, False),
-            'RouteTableIds': ([basestring], False),
-            'ServiceName': (basestring, True),
-            'VpcId': (basestring, True),
-        }
+    props = {
+        'PolicyDocument': (policytypes, False),
+        'PrivateDnsEnabled': (boolean, False),
+        'RouteTableIds': ([basestring], False),
+        'SecurityGroupIds': ([basestring], False),
+        'ServiceName': (basestring, True),
+        'SubnetIds': ([basestring], False),
+        'VpcEndpointType': (vpc_endpoint_type, False),
+        'VpcId': (basestring, True),
+    }
+
+
+class VPCEndpointConnectionNotification(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpointConnectionNotification"
+
+    props = {
+        'ConnectionEvents': ([basestring], True),
+        'ConnectionNotificationArn': (basestring, True),
+        'ServiceId': (basestring, False),
+        'VPCEndpointId': (basestring, False),
+    }
+
+
+class VPCEndpointService(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpointService"
+
+    props = {
+        'AcceptanceRequired': (boolean, False),
+        'NetworkLoadBalancerArns': ([basestring], True),
+    }
+
+
+class VPCEndpointServicePermissions(AWSObject):
+    resource_type = "AWS::EC2::VPCEndpointServicePermissions"
+
+    props = {
+        'AllowedPrincipals': ([basestring], False),
+        'ServiceId': (basestring, True),
+    }
 
 
 class VPCGatewayAttachment(AWSObject):
@@ -563,6 +631,13 @@ class VPCGatewayAttachment(AWSObject):
     }
 
 
+class VpnTunnelOptionsSpecification(AWSProperty):
+    props = {
+        'PreSharedKey': (vpn_pre_shared_key, False),
+        'TunnelInsideCidr': (vpn_tunnel_inside_cidr, False),
+    }
+
+
 class VPNConnection(AWSObject):
     resource_type = "AWS::EC2::VPNConnection"
 
@@ -572,6 +647,9 @@ class VPNConnection(AWSObject):
         'StaticRoutesOnly': (boolean, False),
         'Tags': ((Tags, list), False),
         'VpnGatewayId': (basestring, True),
+        'VpnTunnelOptionsSpecifications': (
+            [VpnTunnelOptionsSpecification], False
+        ),
     }
 
 
@@ -588,6 +666,7 @@ class VPNGateway(AWSObject):
     resource_type = "AWS::EC2::VPNGateway"
 
     props = {
+        'AmazonSideAsn': (positive_integer, False),
         'Type': (basestring, True),
         'Tags': ((Tags, list), False),
     }
@@ -609,6 +688,7 @@ class VPCPeeringConnection(AWSObject):
         'PeerVpcId': (basestring, True),
         'VpcId': (basestring, True),
         'Tags': ((Tags, list), False),
+        'PeerRegion': (basestring, False),
         'PeerOwnerId': (basestring, False),
         'PeerRoleArn': (basestring, False),
     }
@@ -648,6 +728,13 @@ class IamInstanceProfile(AWSProperty):
     }
 
 
+class SpotFleetTagSpecification(AWSProperty):
+    props = {
+        'ResourceType': (basestring, True),
+        'Tags': ((Tags, list), False),
+    }
+
+
 class LaunchSpecifications(AWSProperty):
     props = {
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
@@ -664,6 +751,7 @@ class LaunchSpecifications(AWSProperty):
         'SecurityGroups': ([SecurityGroups], False),
         'SpotPrice': (basestring, False),
         'SubnetId': (basestring, False),
+        'TagSpecifications': ([SpotFleetTagSpecification], False),
         'UserData': (basestring, False),
         'WeightedCapacity': (positive_integer, False),
     }
@@ -676,7 +764,7 @@ class SpotFleetRequestConfigData(AWSProperty):
         'IamFleetRole': (basestring, True),
         'ReplaceUnhealthyInstances': (boolean, False),
         'LaunchSpecifications': ([LaunchSpecifications], True),
-        'SpotPrice': (basestring, True),
+        'SpotPrice': (basestring, False),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
         'Type': (basestring, False),
@@ -717,4 +805,65 @@ class VPCCidrBlock(AWSObject):
         'AmazonProvidedIpv6CidrBlock': (boolean, False),
         'CidrBlock': (basestring, False),
         'VpcId': (basestring, True),
+    }
+
+
+class TagSpecifications(AWSProperty):
+    props = {
+        'ResourceType': (basestring, False),
+        'Tags': ((Tags, list), False)
+    }
+
+
+class SpotOptions(AWSProperty):
+    props = {
+        'InstanceInterruptionBehavior': (basestring, False),
+        'MaxPrice': (basestring, False),
+        'SpotInstanceType': (basestring, False)
+    }
+
+
+class InstanceMarketOptions(AWSProperty):
+    props = {
+        'MarketType': (basestring, False),
+        'SpotOptions': (SpotOptions, False)
+    }
+
+
+class LaunchTemplateCreditSpecification(AWSProperty):
+    props = {
+        'CpuCredits': (basestring, False),
+    }
+
+
+class LaunchTemplateData(AWSProperty):
+    props = {
+        'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'CreditSpecification': (LaunchTemplateCreditSpecification, False),
+        'DisableApiTermination': (boolean, False),
+        'EbsOptimized': (boolean, False),
+        'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
+        'IamInstanceProfile': (IamInstanceProfile, False),
+        'ImageId': (basestring, True),
+        'InstanceInitiatedShutdownBehavior': (basestring, False),
+        'InstanceMarketOptions': (InstanceMarketOptions, False),
+        'InstanceType': (basestring, True),
+        'KernelId': (basestring, False),
+        'KeyName': (basestring, False),
+        'Monitoring': (Monitoring, False),
+        'NetworkInterfaces': ([NetworkInterfaces], False),
+        'Placement': (Placement, False),
+        'RamDiskId': (basestring, False),
+        'SecurityGroups': (list, False),
+        'SecurityGroupIds': (list, False),
+        'TagSpecifications': ([TagSpecifications], False),
+        'UserData': (basestring, False)
+    }
+
+
+class LaunchTemplate(AWSObject):
+    resource_type = "AWS::EC2::LaunchTemplate"
+    props = {
+        'LaunchTemplateData': (LaunchTemplateData, False),
+        'LaunchTemplateName': (basestring, False),
     }

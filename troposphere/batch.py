@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import positive_integer
+from .validators import integer, positive_integer
 
 
 class ComputeResources(AWSProperty):
@@ -16,7 +16,7 @@ class ComputeResources(AWSProperty):
         "InstanceRole": (basestring, True),
         "InstanceTypes": ([basestring], True),
         "Ec2KeyPair": (basestring, False),
-        "Tags": ([basestring], False),
+        "Tags": (dict, False),
         "DesiredvCpus": (positive_integer, False)
     }
 
@@ -87,15 +87,22 @@ class RetryStrategy(AWSProperty):
     }
 
 
+class Timeout(AWSProperty):
+    props = {
+        'AttemptDurationSeconds': (integer, False),
+    }
+
+
 class JobDefinition(AWSObject):
     resource_type = "AWS::Batch::JobDefinition"
 
     props = {
-        "Type": (basestring, True),
-        "Parameters": (dict, True),
-        "ContainerProperties": (ContainerProperties, False),
-        "JobDefinitionName": (basestring, True),
-        "RetryStrategy": (RetryStrategy, False)
+        'ContainerProperties': (ContainerProperties, True),
+        'JobDefinitionName': (basestring, False),
+        'Parameters': (dict, True),
+        'RetryStrategy': (RetryStrategy, False),
+        'Timeout': (Timeout, False),
+        'Type': (basestring, True),
     }
 
 

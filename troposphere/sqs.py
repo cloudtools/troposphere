@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import integer
 try:
     from awacs.aws import Policy
@@ -33,13 +33,14 @@ class Queue(AWSObject):
         'QueueName': (basestring, False),
         'ReceiveMessageWaitTimeSeconds': (integer, False),
         'RedrivePolicy': (RedrivePolicy, False),
+        'Tags': (Tags, False),
         'VisibilityTimeout': (integer, False),
     }
 
     def validate(self):
         if self.properties.get('FifoQueue'):
-            queuename = self.properties.get('QueueName', '')
-            if isinstance(queuename, AWSHelperFn):
+            queuename = self.properties.get('QueueName')
+            if queuename is None or isinstance(queuename, AWSHelperFn):
                 pass
             elif not queuename.endswith('.fifo'):
                 raise ValueError("SQS: FIFO queues need to provide a "

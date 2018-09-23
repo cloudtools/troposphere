@@ -49,9 +49,23 @@ class ElasticsearchClusterConfig(AWSProperty):
     }
 
 
+class EncryptionAtRestOptions(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'KmsKeyId': (basestring, False),
+    }
+
+
 class SnapshotOptions(AWSProperty):
     props = {
         'AutomatedSnapshotStartHour': (integer_range(0, 23), False)
+    }
+
+
+class VPCOptions(AWSProperty):
+    props = {
+        "SecurityGroupIds": ([basestring], False),
+        "SubnetIds": ([basestring], False)
     }
 
 
@@ -65,8 +79,10 @@ class Domain(AWSObject):
         'EBSOptions': (EBSOptions, False),
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
+        'EncryptionAtRestOptions': (EncryptionAtRestOptions, False),
         'SnapshotOptions': (SnapshotOptions, False),
-        'Tags': ((Tags, list), False)
+        'Tags': ((Tags, list), False),
+        'VPCOptions': (VPCOptions, False)
     }
 
 

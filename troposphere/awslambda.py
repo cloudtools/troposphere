@@ -1,7 +1,7 @@
 from . import AWSObject, AWSProperty, Join, Tags
 from .validators import positive_integer
 
-MEMORY_VALUES = [x for x in range(128, 1600, 64)]
+MEMORY_VALUES = [x for x in range(128, 3009, 64)]
 
 
 def validate_memory_size(memory_value):
@@ -106,7 +106,7 @@ class EventSourceMapping(AWSObject):
         'Enabled': (bool, False),
         'EventSourceArn': (basestring, True),
         'FunctionName': (basestring, True),
-        'StartingPosition': (basestring, True),
+        'StartingPosition': (basestring, False),
     }
 
 
@@ -143,6 +143,7 @@ class Function(AWSObject):
         'Handler': (basestring, True),
         'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
+        'ReservedConcurrentExecutions': (positive_integer, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
         'Tags': (Tags, False),
@@ -165,6 +166,21 @@ class Permission(AWSObject):
     }
 
 
+class VersionWeight(AWSProperty):
+
+    props = {
+        'FunctionVersion': (basestring, True),
+        'FunctionWeight': (float, True),
+    }
+
+
+class AliasRoutingConfiguration(AWSProperty):
+
+    props = {
+        'AdditionalVersionWeights': ([VersionWeight], True),
+    }
+
+
 class Alias(AWSObject):
     resource_type = "AWS::Lambda::Alias"
 
@@ -173,6 +189,7 @@ class Alias(AWSObject):
         'FunctionName': (basestring, True),
         'FunctionVersion': (basestring, True),
         'Name': (basestring, True),
+        'RoutingConfig': (AliasRoutingConfiguration, False),
     }
 
 

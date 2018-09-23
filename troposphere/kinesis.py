@@ -3,8 +3,15 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Tags
+from . import AWSObject, AWSProperty, Tags
 from .validators import integer
+
+
+class StreamEncryption(AWSProperty):
+    props = {
+        'EncryptionType': (basestring, True),
+        'KeyId': (basestring, True),
+    }
 
 
 class Stream(AWSObject):
@@ -14,5 +21,6 @@ class Stream(AWSObject):
         'Name': (basestring, False),
         'RetentionPeriodHours': (integer, False),
         'ShardCount': (integer, False),
+        'StreamEncryption': (StreamEncryption, False),
         'Tags': ((Tags, list), False),
     }

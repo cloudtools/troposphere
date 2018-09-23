@@ -7,7 +7,7 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
 
-class ActionTypeID(AWSProperty):
+class ActionTypeId(AWSProperty):
     props = {
         'Category': (basestring, True),
         'Owner': (basestring, True),
@@ -87,7 +87,7 @@ class ArtifactStore(AWSProperty):
 
 class Actions(AWSProperty):
     props = {
-        'ActionTypeId': (ActionTypeID, True),
+        'ActionTypeId': (ActionTypeId, True),
         'Configuration': (dict, False),
         'InputArtifacts': ([InputArtifacts], False),
         'Name': (basestring, True),
@@ -130,4 +130,33 @@ class Pipeline(AWSObject):
         'RestartExecutionOnUpdate': (boolean, False),
         'RoleArn': (basestring, True),
         'Stages': ([Stages], True)
+    }
+
+
+class WebhookAuthConfiguration(AWSProperty):
+    props = {
+        'AllowedIPRange': (basestring, False),
+        'SecretToken': (basestring, False),
+    }
+
+
+class WebhookFilterRule(AWSProperty):
+    props = {
+        'JsonPath': (basestring, True),
+        'MatchEquals': (basestring, False),
+    }
+
+
+class Webhook(AWSObject):
+    resource_type = "AWS::CodePipeline::Webhook"
+
+    props = {
+        'Authentication': (basestring, True),
+        'AuthenticationConfiguration': (WebhookAuthConfiguration, True),
+        'Filters': ([WebhookFilterRule], True),
+        'Name': (basestring, False),
+        'RegisterWithThirdParty': (boolean, False),
+        'TargetAction': (basestring, True),
+        'TargetPipeline': (basestring, True),
+        'TargetPipelineVersion': (integer, True),
     }

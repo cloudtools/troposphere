@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Parameter, Ref
+from troposphere import Parameter, Ref, NoValue
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
 from troposphere.validators import tg_healthcheck_port
@@ -150,13 +150,25 @@ class TestValidators(unittest.TestCase):
 
     def test_mutually_exclusive(self):
         conds = ['a', 'b', 'c']
-        mutually_exclusive('a', ['a'], conds)
-        mutually_exclusive('b', ['b'], conds)
-        mutually_exclusive('c', ['c'], conds)
+        mutually_exclusive('a', {"a": "apple"}, conds)
+        mutually_exclusive('b', {"b": "banana"}, conds)
+        mutually_exclusive('c', {"c": "carrot"}, conds)
         with self.assertRaises(ValueError):
-            mutually_exclusive('ac', ['a', 'c'], conds)
+            mutually_exclusive('ac', {"a": "apple", "c": "carrot"}, conds)
         with self.assertRaises(ValueError):
-            mutually_exclusive('abc', ['a', 'b', 'c'], conds)
+            mutually_exclusive(
+                'abc', {"a": "apple", "b": "banana", "c": "carrot"}, conds
+            )
+
+    def test_mutually_exclusive_novalue(self):
+        conds = ['a', 'b', 'c']
+        properties = {
+            'a': Ref("AWS::NoValue"),
+            'b': NoValue,
+            'c': "AWS::Region",
+        }
+
+        mutually_exclusive("a", properties, conds)
 
     def test_compliance_level(self):
         for s in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFORMATIONAL',

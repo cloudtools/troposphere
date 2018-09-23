@@ -63,6 +63,12 @@ class Projection(AWSProperty):
     }
 
 
+class SSESpecification(AWSProperty):
+    props = {
+        "SSEEnabled": (boolean, True),
+    }
+
+
 class GlobalSecondaryIndex(AWSProperty):
     props = {
         "IndexName": (basestring, True),
@@ -77,6 +83,12 @@ class LocalSecondaryIndex(AWSProperty):
         "IndexName": (basestring, True),
         "KeySchema": ([KeySchema], True),
         "Projection": (Projection, True),
+    }
+
+
+class PointInTimeRecoverySpecification(AWSProperty):
+    props = {
+        'PointInTimeRecoveryEnabled': (boolean, False),
     }
 
 
@@ -101,7 +113,10 @@ class Table(AWSObject):
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
         'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
+        'PointInTimeRecoverySpecification':
+            (PointInTimeRecoverySpecification, False),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'SSESpecification': (SSESpecification, False),
         'StreamSpecification': (StreamSpecification, False),
         'TableName': (basestring, False),
         'Tags': (Tags, False),

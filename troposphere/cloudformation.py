@@ -5,7 +5,7 @@
 
 from . import AWSHelperFn, AWSObject, AWSProperty, BaseAWSObject, Tags
 from . import encode_to_dict
-from .validators import integer, boolean, encoding
+from .validators import boolean, check_required, encoding, integer
 
 
 class Stack(AWSObject):
@@ -37,9 +37,21 @@ class WaitCondition(AWSObject):
 
     props = {
         'Count': (integer, False),
-        'Handle': (basestring, True),
-        'Timeout': (integer, True),
+        'Handle': (basestring, False),
+        'Timeout': (integer, False),
     }
+
+    def validate(self):
+        if 'CreationPolicy' in self.resource:
+            for k in self.props.keys():
+                if k in self.properties:
+                    raise ValueError(
+                        "Property %s cannot be specified with CreationPolicy" %
+                        k
+                    )
+        else:
+            required = ['Handle', 'Timeout']
+            check_required(self.__class__.__name__, self.properties, required)
 
 
 class WaitConditionHandle(AWSObject):
@@ -196,3 +208,15 @@ class Init(AWSHelperFn):
                 raise ValueError(
                     'config property must be of type cloudformation.InitConfig'
                 )
+
+
+class Macro(AWSCustomObject):
+    resource_type = "AWS::CloudFormation::Macro"
+
+    props = {
+        'Description': (basestring, False),
+        'FunctionName': (basestring, True),
+        'LogGroupName': (basestring, False),
+        'LogRoleARN': (basestring, False),
+        'Name': (basestring, True),
+    }

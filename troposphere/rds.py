@@ -15,7 +15,7 @@ VALID_STORAGE_TYPES = ('standard', 'gp2', 'io1')
 VALID_DB_ENGINES = ('MySQL', 'mysql', 'oracle-se1', 'oracle-se2', 'oracle-se',
                     'oracle-ee', 'sqlserver-ee', 'sqlserver-se',
                     'sqlserver-ex', 'sqlserver-web', 'postgres', 'aurora',
-                    'aurora-postgresql', 'mariadb')
+                    'aurora-mysql', 'aurora-postgresql', 'mariadb')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
 
@@ -157,6 +157,7 @@ class DBInstance(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
+        'SourceRegion': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': ((Tags, list), False),
@@ -195,9 +196,9 @@ class DBInstance(AWSObject):
              'MasterUserPassword' not in self.properties) and \
                 ('DBClusterIdentifier' not in self.properties):
             raise ValueError(
-                'Either (MasterUsername and MasterUserPassword) or'
-                ' DBSnapshotIdentifier are required in type '
-                'AWS::RDS::DBInstance.'
+                r"Either (MasterUsername and MasterUserPassword) or"
+                r" DBSnapshotIdentifier are required in type "
+                r"AWS::RDS::DBInstance."
             )
 
         if 'KmsKeyId' in self.properties and \
@@ -225,14 +226,14 @@ class DBInstance(AWSObject):
         iops = self.properties.get('Iops', None)
         if iops and not isinstance(iops, AWSHelperFn):
             if not isinstance(allocated_storage, AWSHelperFn) and \
-                    allocated_storage < 100:
+                    int(allocated_storage) < 100:
                 raise ValueError("AllocatedStorage must be at least 100 when "
                                  "Iops is set.")
             if not isinstance(allocated_storage, AWSHelperFn) and not \
                     isinstance(iops, AWSHelperFn) and \
-                    float(iops) / float(allocated_storage) > 10.0:
+                    float(iops) / float(allocated_storage) > 50.0:
                 raise ValueError("AllocatedStorage must be no less than "
-                                 "1/10th the provisioned Iops")
+                                 "1/50th the provisioned Iops")
 
         return True
 
@@ -253,6 +254,7 @@ class DBSubnetGroup(AWSObject):
 
     props = {
         'DBSubnetGroupDescription': (basestring, True),
+        'DBSubnetGroupName': (basestring, False),
         'SubnetIds': (list, True),
         'Tags': ((Tags, list), False),
     }
@@ -314,6 +316,7 @@ class OptionConfiguration(AWSProperty):
         'DBSecurityGroupMemberships': ([basestring], False),
         'OptionName': (basestring, True),
         'OptionSettings': ([OptionSetting], False),
+        'OptionVersion': (basestring, False),
         'Port': (network_port, False),
         'VpcSecurityGroupMemberships': ([basestring], False),
     }
@@ -349,6 +352,7 @@ class DBCluster(AWSObject):
         'AvailabilityZones': ([basestring], False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'DatabaseName': (basestring, False),
+        'DBClusterIdentifier': (basestring, False),
         'DBClusterParameterGroupName': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
         'Engine': (validate_engine, True),
