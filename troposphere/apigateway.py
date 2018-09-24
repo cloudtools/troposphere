@@ -197,6 +197,8 @@ class Integration(AWSProperty):
     props = {
         "CacheKeyParameters": ([basestring], False),
         "CacheNamespace": (basestring, False),
+        "ConnectionId": (basestring, False),
+        "ConnectionType": (basestring, False),
         "ContentHandling": (basestring, False),
         "Credentials": (basestring, False),
         "IntegrationHttpMethod": (basestring, False),
