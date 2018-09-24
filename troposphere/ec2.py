@@ -765,11 +765,11 @@ class SpotFleetLaunchTemplateSpecification(AWSProperty):
     }
 
     def validate(self):
-        template_identifiers = [
+        conds = [
             'LaunchTemplateId',
             'LaunchTemplateName'
         ]
-        exactly_one(self.__class__.__name__, self.properties, template_identifiers)
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class LaunchTemplateOverrides(AWSProperty):
@@ -784,7 +784,8 @@ class LaunchTemplateOverrides(AWSProperty):
 
 class LaunchTemplateConfig(AWSProperty):
     props = {
-        'LaunchTemplateSpecification': (SpotFleetLaunchTemplateSpecification, True),
+        'LaunchTemplateSpecification': (SpotFleetLaunchTemplateSpecification,
+                                        True),
         'Overrides': ([LaunchTemplateOverrides], False)
     }
 
