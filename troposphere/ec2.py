@@ -758,12 +758,18 @@ class LaunchSpecifications(AWSProperty):
 
 
 class SpotFleetLaunchTemplateSpecification(AWSProperty):
-    # Only difference vs. LaunchTemplateSpecification is that Version is optional here
     props = {
         'LaunchTemplateId': (basestring, False),
         'LaunchTemplateName': (basestring, False),
-        'Version': (basestring, False),
+        'Version': (basestring, True),
     }
+
+    def validate(self):
+        template_identifiers = [
+            'LaunchTemplateId',
+            'LaunchTemplateName'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, template_identifiers)
 
 
 class LaunchTemplateOverrides(AWSProperty):
@@ -776,10 +782,9 @@ class LaunchTemplateOverrides(AWSProperty):
     }
 
 
-class LaunchTemplateConfigs(AWSProperty):
-    # Not sure why LaunchTemplateSpecification is not required
+class LaunchTemplateConfig(AWSProperty):
     props = {
-        'LaunchTemplateSpecification': (SpotFleetLaunchTemplateSpecification, False),
+        'LaunchTemplateSpecification': (SpotFleetLaunchTemplateSpecification, True),
         'Overrides': ([LaunchTemplateOverrides], False)
     }
 
@@ -791,8 +796,8 @@ class SpotFleetRequestConfigData(AWSProperty):
         'IamFleetRole': (basestring, True),
         'InstanceInterruptionBehavior': (basestring, False),
         'ReplaceUnhealthyInstances': (boolean, False),
-        'LaunchSpecifications': ([LaunchSpecifications], True),
-        'LaunchTemplateConfigs': ([LaunchTemplateConfigs], False),
+        'LaunchSpecifications': ([LaunchSpecifications], False),
+        'LaunchTemplateConfigs': ([LaunchTemplateConfig], False),
         'SpotPrice': (basestring, False),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
@@ -800,6 +805,13 @@ class SpotFleetRequestConfigData(AWSProperty):
         'ValidFrom': (basestring, False),
         'ValidUntil': (basestring, False),
     }
+
+    def validate(self):
+        launch_props = [
+            'LaunchSpecifications',
+            'LaunchTemplateConfigs'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, launch_props)
 
 
 class SpotFleet(AWSObject):
