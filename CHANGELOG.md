@@ -1,3 +1,117 @@
+## 2.3.3 (2018-09-05)
+- Revert schedule expression validation (#1114)
+
+## 2.3.2 (2018-09-04)
+- Auto add Parameter and Output to template when specified (#1018)
+- Changed policy to AmazonDynamoDBFullAccess for delete and put (#1106)
+- Fix CPUCredits casing and implement LaunchTemplateCreditSpecification class (#1100)
+- Add UsernameAttributes to Cognito (#1104)
+- Add SQS Event to serverless.py (#1103)
+- Add support for Windows containers in CodeBuild (#1097)
+- Generate class stubs necessary for autocompletion (#1079)
+- Add AWS::IAM::ServiceLinkedRole (#1110)
+- Made S3 Prefix in Firehose optional (#1102)
+- Prefix is still required in ExtendedS3DestinationConfiguration
+- SimpleTable has more attributes (#1108)
+- Alphabetize properties in servlerless::SimpleTable
+- AccountAggregationSources must be a list (#1111)
+- Schedule expression validation (#1114)
+- Add EndpointIdnetifier property to AWS::DMS::Endpoint object (#1117)
+- Add get_or_add parameter method (#1118)
+- Added HealthCheckCustomConfig to ServiceDiscovery Service (#1120)
+- Tags support for SQS queues (#1121)
+- VPCPeeringConnection PeerRegion (#1123)
+- Add FilterPolicy as a property of SubscriptionResource (#1125)
+- Add missing properties to SNS::Subscription
+- Add ThroughputMode and ProvisionedThroughputInMibps to EFS (#1124) (#1126)
+- Add AWS::EC2::VPCEndpointServicePermissions (#1130)
+- AMAZON_LINUX_2 is now supported by SSM (#1133)
+- [codebuild] Source - use value comparison instead of identity (#1134)
+- InvitationId in GuardDuty::Master is now optional
+- Fix missing boolean import in sns
+- Add CodePipeline::Webhook resource
+- Add ReportBuildStatus to CodeBuild Source property
+- Add HttpConfig to AppSync::DataSource
+- Add FieldLevelEncryptionId to CacheBehavior properties
+- Add Timeout to Batch::JobDefinition
+- Add EncryptionDisabled and OverrideArtifactName to CodeBuild Artifacts
+- Add SSESpecification to DAX::Cluster
+- Add KerberosAttributes to EMR::Cluster
+- Add ValidationMethod to CertificateManager::Certificate
+- Add Classifiers and Configuration to Glue resources
+- Add SecondaryArtifacts and SecondarySources to CodeBuild::Project
+- Add Logs to AmazonMQ::Broker
+
+## 2.3.1 (2018-07-01)
+- Add support for AWS::Neptune
+- Add support for AWS::EKS
+- Add support for AWS::AmazonMQ
+- Add support for AWS::SageMaker
+- Fix use of to_yaml long_form parameter (#1055)
+- Adding CENTOS to validators.operating_system (#1058)
+- Update constants with additional EC2 instances (#1059)
+- Fix casing of CreditSpecification CpuCredits (#1068)
+- Add 'Name' property for AWS::Serverless::Api (#1070)
+- Add equality methods to Template (#1072)
+- AWS PrivateLink support (#1084)
+- Add return value to template.add_condition() (#1087)
+- Add tests for to_yaml parameters
+- Use endpoint_type for vpc_endpoint_type param instead of type
+- Add resource EC2::VPCEndpointConnectionNotification
+- Add resource SSM::ResourceDataSync
+
+## 2.3.0 (2018-05-26)
+
+- Allow Refs to be hashable using their data (#1053)
+- Add AWS::Budgets
+- Add new AWS::ServiceCatalog resources
+- Add Policy to ApiGateway::RestApi
+- Add ServiceLinkedRoleARN to AutoScaling::AutoScalingGroup
+- Add LaunchConfigurationName to AutoScaling::LaunchConfiguration
+- Add Edition to DirectoryService::MicrosoftAD
+- Add PointInTimeRecoverySpecification to DynamoDB::Table
+- Add ServiceRegistries to ECS::Service
+- Add HealthCheck to ECS::TaskDefinition ContainerDefinition
+- Add EncryptionAtRestOptions to Elasticsearch::Domain
+- Add MaxSessionDuration ti IAM::Role
+- Add SplunkDestinationConfiguration to KinesisFirehose::DeliveryStream
+- StartingPosition is no longer required in Lambda::EventSourceMapping
+- Add DefaultValue to Logs::MetricFilter MetricTransformation
+- Add OutputLocation to SSM::Association
+- Add AutoScaling and EC2  LaunchTemplate support (#1038)
+- Add LaunchTemplate to EC2::Instance
+- Adding ECS Container Healthchecks tests (#1024)
+- Rename ActionTypeID to ActionTypeId in CodePipeline
+
+## 2.2.2 (2018-05-23)
+
+- Allow up to 50:1 ratio for iops and allocated storage
+- Correct Spot Fleet TagSpecifications (#1010)
+- Change GetCidr to Cidr (Fixes #1013)
+- Add missing OpsWorks::Instance properties (Fixes #1014)
+- Adding SUSE to list of operating systems for SSM (#1015)
+- Updates for latest pycodestyle warnings
+- Add AWS::AppSync
+- Add AWS::ServiceCatalog
+- Special case Tags support in gen.py
+- Add constants for EC2 C5 instance types (#1025)
+- Update guardduty.py (#1037)
+- Add OpenIdConnectConfig to AppSync::GraphQLApi
+- Update AWS Config features (updates #1022)
+- Updated appsync apikey expires to be an int. (#1040)
+- Fix AutoScalingRole in EMR: Fixes #984 (#1036)
+- Rename SES Template to EmailTemplate (#1047)
+- Add GuardDuty::Filter
+- Remove python 3.3 support since it's EOL (#1049)
+- Corrected the description of NatGateway (#1005)
+- Update deprecated modules (#1007)
+- Updared CodeBuild Source Options (#1017)
+- Allow Ref's to test equality against their data (#1048)
+- Update to cfn-flip 1.0.2 (#1003)
+- Eliminate infinite loop when pickle loads BaseAWSObject and objects derived from it. (#1016)
+- Allow multiple NoValue properties in mutually_exclusive (#1050)
+
+
 ## 2.2.1 (2018-03-10)
 - type is not required for EnvironmentVariable (#975)
 - Properly handle list objects used with DependsOn (Fixes #982)

@@ -15,5 +15,6 @@ class Certificate(AWSObject):
         'DomainName': (basestring, True),
         'DomainValidationOptions': ([DomainValidationOption], False),
         'SubjectAlternativeNames': ([basestring], False),
-        'Tags': ((Tags, list), False)
+        'Tags': ((Tags, list), False),
+        'ValidationMethod': (basestring, False),
     }

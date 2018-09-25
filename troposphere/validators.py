@@ -195,9 +195,11 @@ def iam_group_name(group_name):
 
 
 def mutually_exclusive(class_name, properties, conditionals):
+    from . import NoValue
+
     found_list = []
     for c in conditionals:
-        if c in properties:
+        if c in properties and not properties[c] == NoValue:
             found_list.append(c)
     seen = set(found_list)
     specified_count = len(seen)
@@ -287,8 +289,8 @@ def compliance_level(level):
 
 
 def operating_system(os):
-    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX',
-                'SUSE']
+    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'AMAZON_LINUX_2', 'UBUNTU',
+                'REDHAT_ENTERPRISE_LINUX', 'SUSE', 'CENTOS']
     if os not in valid_os:
         raise ValueError(
             'OperatingSystem must be one of: "%s"' % (
@@ -337,3 +339,14 @@ def vpn_tunnel_inside_cidr(cidr):
             ' A size /30 CIDR block from the 169.254.0.0/16 must be specified.'
             % cidr)
     return(cidr)
+
+
+def vpc_endpoint_type(endpoint_type):
+    valid_types = ['Interface', 'Gateway']
+    if endpoint_type not in valid_types:
+        raise ValueError(
+            'VpcEndpointType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return(endpoint_type)

@@ -21,7 +21,7 @@
                     }
                 },
                 "Handler": "index.delete",
-                "Policies": "AmazonDynamoDBReadOnlyAccess",
+                "Policies": "AmazonDynamoDBFullAccess",
                 "Runtime": "nodejs4.3"
             },
             "Type": "AWS::Serverless::Function"
@@ -71,7 +71,7 @@
                     }
                 },
                 "Handler": "index.put",
-                "Policies": "AmazonDynamoDBReadOnlyAccess",
+                "Policies": "AmazonDynamoDBFullAccess",
                 "Runtime": "nodejs4.3"
             },
             "Type": "AWS::Serverless::Function"

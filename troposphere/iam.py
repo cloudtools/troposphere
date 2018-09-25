@@ -77,9 +77,20 @@ class Role(AWSObject):
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
         'ManagedPolicyArns': ([basestring], False),
+        'MaxSessionDuration': (integer, False),
         'Path': (iam_path, False),
         'Policies': ([Policy], False),
         'RoleName': (iam_role_name, False),
+    }
+
+
+class ServiceLinkedRole(AWSObject):
+    resource_type = "AWS::IAM::ServiceLinkedRole"
+
+    props = {
+        'AWSServiceName': (basestring, True),
+        'CustomSuffix': (basestring, False),
+        'Description': (basestring, False),
     }
 
 

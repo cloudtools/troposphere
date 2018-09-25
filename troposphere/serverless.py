@@ -7,7 +7,7 @@ import types
 
 from . import AWSObject, AWSProperty
 from .awslambda import Environment, VPCConfig, validate_memory_size
-from .dynamodb import ProvisionedThroughput
+from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
 from .validators import exactly_one, positive_integer
 try:
@@ -88,6 +88,7 @@ class Api(AWSObject):
 
     props = {
         'StageName': (basestring, True),
+        'Name': (basestring, False),
         'DefinitionBody': (dict, False),
         'DefinitionUri': (basestring, False),
         'CacheClusterEnabled': (bool, False),
@@ -115,7 +116,10 @@ class SimpleTable(AWSObject):
 
     props = {
         'PrimaryKey': (PrimaryKey, False),
-        'ProvisionedThroughput': (ProvisionedThroughput, False)
+        'ProvisionedThroughput': (ProvisionedThroughput, False),
+        'SSESpecification': (SSESpecification, False),
+        'Tags': (dict, False),
+        'TableName': (basestring, False),
     }
 
 
@@ -208,3 +212,16 @@ class IoTRuleEvent(AWSObject):
 class AlexaSkillEvent(AWSObject):
     resource_type = 'AlexaSkill'
     props = {}
+
+
+class SQSEvent(AWSObject):
+    resource_type = 'SQS'
+
+    props = {
+        'Queue': (basestring, True),
+        'BatchSize': (positive_integer, True)
+    }
+
+    def validate(self):
+        if (not 1 <= self.properties['BatchSize'] <= 10):
+            raise ValueError('BatchSize must be between 1 and 10')

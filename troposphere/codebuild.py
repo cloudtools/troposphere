@@ -25,9 +25,11 @@ class SourceAuth(AWSProperty):
 
 class Artifacts(AWSProperty):
     props = {
+        'EncryptionDisabled': (boolean, False),
         'Location': (basestring, False),
         'Name': (basestring, False),
         'NamespaceType': (basestring, False),
+        'OverrideArtifactName': (boolean, False),
         'Packaging': (basestring, False),
         'Path': (basestring, False),
         'Type': (basestring, True),
@@ -85,6 +87,7 @@ class Environment(AWSProperty):
     def validate(self):
         valid_types = [
             'LINUX_CONTAINER',
+            'WINDOWS_CONTAINER',
         ]
         env_type = self.properties.get('Type')
         if env_type not in valid_types:
@@ -116,6 +119,7 @@ class Source(AWSProperty):
         'GitCloneDepth': (positive_integer, False),
         'InsecureSsl': (boolean, False),
         'Location': (basestring, False),
+        'ReportBuildStatus': (boolean, False),
         'Type': (basestring, True),
     }
 
@@ -124,7 +128,12 @@ class Source(AWSProperty):
             'CODECOMMIT',
             'CODEPIPELINE',
             'GITHUB',
+            'GITHUB_ENTERPRISE',
             'S3',
+        ]
+
+        location_agnostic_types = [
+            'CODEPIPELINE',
         ]
 
         source_type = self.properties.get('Type')
@@ -139,7 +148,8 @@ class Source(AWSProperty):
                              ','.join(valid_types))
 
         location = self.properties.get('Location')
-        if source_type is not 'CODEPIPELINE' and not location:
+
+        if source_type not in location_agnostic_types and not location:
             raise ValueError(
                 'Source Location: must be defined when type is %s' %
                 source_type
@@ -176,6 +186,8 @@ class Project(AWSObject):
         'EncryptionKey': (basestring, False),
         'Environment': (Environment, True),
         'Name': (basestring, True),
+        'SecondaryArtifacts': ([Artifacts], False),
+        'SecondarySources': ([Source], False),
         'ServiceRole': (basestring, True),
         'Source': (Source, True),
         'Tags': (Tags, False),

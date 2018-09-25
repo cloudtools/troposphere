@@ -1,5 +1,5 @@
 {
-    "Description": "AWS CloudFormation Sample Template NatGateway: Sample template showing how to create a public NAT gateway. **WARNING** This template creates an Amazon NAT instance. You will be billed for the AWS resources used if you create a stack from this template.",
+    "Description": "AWS CloudFormation Sample Template NatGateway: Sample template showing how to create a public NAT gateway. **WARNING** This template creates an Amazon NAT gateway. You will be billed for the AWS resources used if you create a stack from this template.",
     "Outputs": {
         "NatEip": {
             "Description": "Nat Elastic IP",

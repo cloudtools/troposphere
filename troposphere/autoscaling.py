@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, If, FindInMap, Ref
-from .validators import boolean, integer
+from .validators import boolean, integer, exactly_one, mutually_exclusive
 from . import cloudformation
 
 
@@ -114,6 +114,21 @@ class Metadata(AWSHelperFn):
             )
 
 
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, True)
+    }
+
+    def validate(self):
+        template_ids = [
+            'LaunchTemplateId',
+            'LaunchTemplateName'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, template_ids)
+
+
 class AutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
@@ -126,6 +141,7 @@ class AutoScalingGroup(AWSObject):
         'HealthCheckType': (basestring, False),
         'InstanceId': (basestring, False),
         'LaunchConfigurationName': (basestring, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'LifecycleHookSpecificationList':
             ([LifecycleHookSpecification], False),
         'LoadBalancerNames': (list, False),
@@ -134,6 +150,7 @@ class AutoScalingGroup(AWSObject):
         'MinSize': (integer, True),
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
+        'ServiceLinkedRoleARN': (basestring, False),
         'Tags': ((Tags, list), False),
         'TargetGroupARNs': ([basestring], False),
         'TerminationPolicies': ([basestring], False),
@@ -167,16 +184,14 @@ class AutoScalingGroup(AWSObject):
                                 "MinInstancesInService must be less than the "
                                 "autoscaling group's MaxSize")
 
-        launch_config = self.properties.get('LaunchConfigurationName')
-        instance_id = self.properties.get('InstanceId')
-        if launch_config and instance_id:
-            raise ValueError("LaunchConfigurationName and InstanceId "
-                             "are mutually exclusive.")
-        if not launch_config and not instance_id:
-            raise ValueError("Must specify either LaunchConfigurationName or "
-                             "InstanceId: http://docs.aws.amazon.com/AWSCloud"
-                             "Formation/latest/UserGuide/aws-properties-as-gr"
-                             "oup.html#cfn-as-group-instanceid")
+        instance_config_types = [
+            'LaunchConfigurationName',
+            'LaunchTemplate',
+            'InstanceId'
+        ]
+
+        mutually_exclusive(self.__class__.__name__, self.properties,
+                           instance_config_types)
 
         availability_zones = self.properties.get('AvailabilityZones')
         vpc_zone_identifier = self.properties.get('VPCZoneIdentifier')
@@ -204,6 +219,7 @@ class LaunchConfiguration(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LaunchConfigurationName': (basestring, False),
         'Metadata': (Metadata, False),
         'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),

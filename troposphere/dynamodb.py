@@ -86,6 +86,12 @@ class LocalSecondaryIndex(AWSProperty):
     }
 
 
+class PointInTimeRecoverySpecification(AWSProperty):
+    props = {
+        'PointInTimeRecoveryEnabled': (boolean, False),
+    }
+
+
 class StreamSpecification(AWSProperty):
         props = {
             'StreamViewType': (basestring, True),
@@ -107,6 +113,8 @@ class Table(AWSObject):
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
         'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
+        'PointInTimeRecoverySpecification':
+            (PointInTimeRecoverySpecification, False),
         'ProvisionedThroughput': (ProvisionedThroughput, True),
         'SSESpecification': (SSESpecification, False),
         'StreamSpecification': (StreamSpecification, False),

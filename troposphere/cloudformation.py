@@ -208,3 +208,15 @@ class Init(AWSHelperFn):
                 raise ValueError(
                     'config property must be of type cloudformation.InitConfig'
                 )
+
+
+class Macro(AWSCustomObject):
+    resource_type = "AWS::CloudFormation::Macro"
+
+    props = {
+        'Description': (basestring, False),
+        'FunctionName': (basestring, True),
+        'LogGroupName': (basestring, False),
+        'LogRoleARN': (basestring, False),
+        'Name': (basestring, True),
+    }

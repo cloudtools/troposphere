@@ -191,6 +191,7 @@ class UserPool(AWSObject):
         'SmsAuthenticationMessage': (basestring, False),
         'SmsConfiguration': (SmsConfiguration, False),
         'SmsVerificationMessage': (basestring, False),
+        'UsernameAttributes': ([basestring], False),
         'UserPoolTags': (dict, False),
     }
 
