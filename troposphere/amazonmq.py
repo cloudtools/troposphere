@@ -50,9 +50,11 @@ class Broker(AWSObject):
         'EngineType': (basestring, True),
         'EngineVersion': (basestring, True),
         'HostInstanceType': (basestring, True),
-        'Logs': (LogsConfiguration, True),
+        'Logs': (LogsConfiguration, False),
         'MaintenanceWindowStartTime': (MaintenanceWindow, False),
         'PubliclyAccessible': (boolean, True),
+        'SecurityGroups': (list, False),
+        'SubnetIds': (list, False),
     }
 
 
