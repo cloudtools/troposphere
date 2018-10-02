@@ -4,7 +4,8 @@ from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import Cidr, If, Join, Ref, Split, Sub, Template
 from troposphere import NoValue, Region
 from troposphere import depends_on_helper
-from troposphere.ec2 import Instance, Route, SecurityGroupRule
+from troposphere.ec2 import Instance, LaunchTemplateData
+from troposphere.ec2 import Route, SecurityGroupRule
 from troposphere.s3 import Bucket
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere import cloudformation
@@ -20,7 +21,7 @@ class TestBasic(unittest.TestCase):
     def test_badrequired(self):
         with self.assertRaises(ValueError):
             t = Template()
-            t.add_resource(Instance('ec2instance'))
+            t.add_resource(LaunchTemplateData('launchtemplatedata'))
             t.to_json()
 
     def test_badtype(self):
@@ -28,7 +29,10 @@ class TestBasic(unittest.TestCase):
             Instance('ec2instance', image_id=0.11)
 
     def test_goodrequired(self):
-        Instance('ec2instance', ImageId="ami-xxxx", InstanceType="m1.small")
+        LaunchTemplateData(
+            'launchtemplatedata', ImageId='ami-xxxx',
+            InstanceType='m1.small'
+        )
 
     def test_extraattribute(self):
 
@@ -39,12 +43,6 @@ class TestBasic(unittest.TestCase):
 
         instance = ExtendedInstance('ec2instance', attribute='value')
         self.assertEqual(instance.attribute, 'value')
-
-    def test_required_title_error(self):
-        with self.assertRaisesRegexp(ValueError, "title:"):
-            t = Template()
-            t.add_resource(Instance('ec2instance'))
-            t.to_json()
 
     def test_depends_on_helper_with_resource(self):
         resource_name = "Bucket1"

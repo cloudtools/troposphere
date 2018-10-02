@@ -233,7 +233,7 @@ class Instance(AWSObject):
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
-        'ImageId': (basestring, True),
+        'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceType': (basestring, False),
         'Ipv6AddressCount': (integer, False),
