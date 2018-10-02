@@ -302,7 +302,7 @@ class RestApi(AWSObject):
         "FailOnWarnings": (basestring, False),
         "MinimumCompressionSize": (positive_integer, False),
         "Name": (basestring, False),
-        "Parameters": ([basestring], False),
+        "Parameters": (dict, False),
         "Policy": (dict, False),
     }
 
