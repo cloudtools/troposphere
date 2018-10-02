@@ -178,7 +178,9 @@ class DeploymentGroup(AWSObject):
         'DeploymentStyle': (DeploymentStyle, False),
         'Ec2TagFilters': ([Ec2TagFilters], False),
         'LoadBalancerInfo': (LoadBalancerInfo, False),
-        'OnPremisesInstanceTagFilters': (OnPremisesInstanceTagFilters, False),
+        'OnPremisesInstanceTagFilters': (
+            [OnPremisesInstanceTagFilters], False
+        ),
         'ServiceRoleArn': (basestring, True),
         'TriggerConfigurations': ([TriggerConfig], False),
     }
