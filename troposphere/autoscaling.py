@@ -167,16 +167,17 @@ class AutoScalingGroup(AWSObject):
                         update_policy.AutoScalingRollingUpdate, AWSHelperFn):
                     rolling_update = update_policy.AutoScalingRollingUpdate
 
+                    min_instances = rolling_update.properties.get(
+                        "MinInstancesInService", "0")
                     is_min_no_check = isinstance(
-                        rolling_update.MinInstancesInService,
-                        (FindInMap, Ref)
+                        min_instances, (FindInMap, Ref)
                     )
                     is_max_no_check = isinstance(self.MaxSize,
                                                  (If, FindInMap, Ref))
 
                     if not (is_min_no_check or is_max_no_check):
                         max_count = int(self.MaxSize)
-                        min_count = int(rolling_update.MinInstancesInService)
+                        min_count = int(min_instances)
 
                         if min_count >= max_count:
                             raise ValueError(
