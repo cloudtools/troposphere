@@ -757,7 +757,7 @@ class LaunchSpecifications(AWSProperty):
     }
 
 
-class SpotFleetLaunchTemplateSpecification(AWSProperty):
+class FleetLaunchTemplateSpecification(AWSProperty):
     props = {
         'LaunchTemplateId': (basestring, False),
         'LaunchTemplateName': (basestring, False),
@@ -784,7 +784,7 @@ class LaunchTemplateOverrides(AWSProperty):
 
 class LaunchTemplateConfig(AWSProperty):
     props = {
-        'LaunchTemplateSpecification': (SpotFleetLaunchTemplateSpecification,
+        'LaunchTemplateSpecification': (FleetLaunchTemplateSpecification,
                                         True),
         'Overrides': ([LaunchTemplateOverrides], False)
     }
