@@ -57,7 +57,7 @@ rule = t.add_resource(Rule(
 
 # Create Lambda Permission
 permission = t.add_resource(Permission(
-    'LambdaFunctionPermission',
+    'FoobarPermission',
     Action='lambda:invokeFunction',
     Principal='events.amazonaws.com',
     FunctionName=Ref(foobar_function),

@@ -57,6 +57,22 @@
                 ]
             },
             "Type": "AWS::Events::Rule"
+        },
+        "FoobarPermission": {
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Ref": "FoobarFunction"
+                },
+                "Principal": "events.amazonaws.com",
+                "SourceArn": {
+                    "Fn::GetAtt": [
+                        "FoobarRule",
+                        "Arn"
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
         }
     }
 }
