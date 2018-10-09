@@ -121,7 +121,7 @@ def validate_backup_retention_period(days):
 
 
 def validate_enginemode(enginemode):
-    """Validate BackupRetentionPeriod for DBInstance"""
+    """Validate Engine Mode for DBInstance"""
 
     if enginemode not in VALID_ENGINEMODE:
         raise ValueError("DBCluster EngineMode must be one of: %s" %
