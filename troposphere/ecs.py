@@ -191,6 +191,12 @@ class LogConfiguration(AWSProperty):
     }
 
 
+class RepositoryCredentials(AWSProperty):
+    props = {
+        'CredentialsParameter': (basestring, False)
+    }
+
+
 class Ulimit(AWSProperty):
     props = {
         'HardLimit': (integer, True),
@@ -225,6 +231,7 @@ class ContainerDefinition(AWSProperty):
         'PortMappings': ([PortMapping], False),
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
+        'RepositoryCredentials': (RepositoryCredentials, False),
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'VolumesFrom': ([VolumesFrom], False),
