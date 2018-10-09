@@ -20,6 +20,7 @@ VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
 VALID_ENGINEMODE = ('provisioned', 'serverless')
 
+
 def validate_iops(iops):
     """DBInstance Iops validation rules."""
 
