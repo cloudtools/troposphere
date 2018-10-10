@@ -89,6 +89,8 @@ class ServiceRegistry(AWSProperty):
     props = {
         'Port': (integer, False),
         'RegistryArn': (basestring, False),
+        'ContainerName': (basestring, False),
+        'ContainerPort': (integer, False),
     }
 
 
