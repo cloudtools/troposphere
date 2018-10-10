@@ -571,11 +571,17 @@ class Template(object):
         self.version = None
         self.transform = None
 
-    def add_description(self, description):
+    def set_description(self, description):
         self.description = description
 
-    def add_metadata(self, metadata):
+    def add_description(self, description):
+        return self.set_description(description)
+
+    def set_metadata(self, metadata):
         self.metadata = metadata
+
+    def add_metadata(self, metadata):
+        return self.set_metadata(metadata)
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
@@ -624,14 +630,20 @@ class Template(object):
                              % MAX_RESOURCES)
         return self._update(self.resources, resource)
 
-    def add_version(self, version=None):
+    def set_version(self, version=None):
         if version:
             self.version = version
         else:
             self.version = "2010-09-09"
 
-    def add_transform(self, transform):
+    def add_version(self, version=None):
+        return self.set_version(version)
+
+    def set_transform(self, transform):
         self.transform = transform
+
+    def add_transform(self, transform):
+        return self.set_transform(transform)
 
     def to_dict(self):
         t = {}
