@@ -655,6 +655,52 @@ class Template(object):
 
         return encode_to_dict(t)
 
+    def set_parameter_label(self, parameter, label):
+        """
+        Sets the Label used in the User Interface for the given parameter.
+        :type parameter: str or Parameter
+        :type label: str
+        """
+        labels = self.metadata\
+            .setdefault("AWS::CloudFormation::Interface", {})\
+            .setdefault("ParameterLabels", {})
+
+        if isinstance(parameter, BaseAWSObject):
+            parameter = parameter.title
+
+        labels[parameter] = {"default": label}
+
+    def add_parameter_to_group(self, parameter, group_name):
+        """
+        Add a parameter under a group (created if needed).
+        :type parameter: str or Parameter
+        :type group_name: str
+        """
+        groups = self.metadata \
+            .setdefault("AWS::CloudFormation::Interface", {}) \
+            .setdefault("ParameterGroups", [])
+
+        if isinstance(parameter, BaseAWSObject):
+            parameter = parameter.title
+
+        # Check if group_name already exists
+        existing_group = None
+        for group in groups:
+            if group["Label"]["default"] == group_name:
+                existing_group = group
+                break
+
+        if existing_group is None:
+            existing_group = {
+                "Label": {"default": group_name},
+                "Parameters": [],
+            }
+            groups.append(existing_group)
+
+        existing_group["Parameters"].append(parameter)
+
+        return group_name
+
     def to_json(self, indent=4, sort_keys=True, separators=(',', ': ')):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
