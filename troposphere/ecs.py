@@ -87,6 +87,8 @@ def launch_type_validator(x):
 
 class ServiceRegistry(AWSProperty):
     props = {
+        'ContainerName': (basestring, False),
+        'ContainerPort': (integer, False),
         'Port': (integer, False),
         'RegistryArn': (basestring, False),
     }
