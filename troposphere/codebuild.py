@@ -125,10 +125,12 @@ class Source(AWSProperty):
 
     def validate(self):
         valid_types = [
+            'BITBUCKET',
             'CODECOMMIT',
             'CODEPIPELINE',
             'GITHUB',
             'GITHUB_ENTERPRISE',
+            'NO_SOURCE',
             'S3',
         ]
 
