@@ -90,8 +90,10 @@ class FlowLog(AWSObject):
     resource_type = "AWS::EC2::FlowLog"
 
     props = {
-        'DeliverLogsPermissionArn': (basestring, True),
-        'LogGroupName': (basestring, True),
+        'DeliverLogsPermissionArn': (basestring, False),
+        'LogDestination': (basestring, False),
+        'LogDestinationType': (basestring, False),
+        'LogGroupName': (basestring, False),
         'ResourceId': (basestring, True),
         'ResourceType': (basestring, True),
         'TrafficType': (basestring, True),
