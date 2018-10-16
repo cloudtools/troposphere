@@ -16,8 +16,10 @@ VALID_DB_ENGINES = ('MySQL', 'mysql', 'oracle-se1', 'oracle-se2', 'oracle-se',
                     'oracle-ee', 'sqlserver-ee', 'sqlserver-se',
                     'sqlserver-ex', 'sqlserver-web', 'postgres', 'aurora',
                     'aurora-mysql', 'aurora-postgresql', 'mariadb')
+VALID_DB_ENGINE_MODES = ('provisioned', 'serverless')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
+VALID_SCALING_CONFIGURATION_CAPACITIES = (2, 4, 8, 16, 32, 64, 128, 256)
 
 
 def validate_iops(iops):
@@ -47,6 +49,15 @@ def validate_engine(engine):
         raise ValueError("DBInstance Engine must be one of: %s" %
                          ", ".join(VALID_DB_ENGINES))
     return engine
+
+
+def validate_engine_mode(engine_mode):
+    """Validate database EngineMode for DBCluster"""
+
+    if engine_mode not in VALID_DB_ENGINE_MODES:
+        raise ValueError("DBCluster EngineMode must be one of: %s" %
+                         ", ".join(VALID_DB_ENGINE_MODES))
+    return engine_mode
 
 
 def validate_license_model(license_model):
@@ -118,6 +129,21 @@ def validate_backup_retention_period(days):
         raise ValueError("DBInstance BackupRetentionPeriod cannot be larger "
                          "than 35 days.")
     return days
+
+
+def validate_capacity(capacity):
+    """Validate ScalingConfiguration capacity for serverless DBCluster"""
+
+    if capacity not in VALID_SCALING_CONFIGURATION_CAPACITIES:
+        raise ValueError(
+            "ScalingConfiguration capacity must be one of: {}".format(
+                ", ".join(map(
+                    str,
+                    VALID_SCALING_CONFIGURATION_CAPACITIES
+                ))
+            )
+        )
+    return capacity
 
 
 class DBInstance(AWSObject):
@@ -345,6 +371,15 @@ class DBClusterParameterGroup(AWSObject):
     }
 
 
+class ScalingConfiguration(AWSProperty):
+    props = {
+        'AutoPause': (boolean, False),
+        'MaxCapacity': (validate_capacity, False),
+        'MinCapacity': (validate_capacity, False),
+        'SecondsUntilAutoPause': (positive_integer, False),
+    }
+
+
 class DBCluster(AWSObject):
     resource_type = "AWS::RDS::DBCluster"
 
@@ -356,6 +391,7 @@ class DBCluster(AWSObject):
         'DBClusterParameterGroupName': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
         'Engine': (validate_engine, True),
+        'EngineMode': (validate_engine_mode, False),
         'EngineVersion': (basestring, False),
         'KmsKeyId': (basestring, False),
         'MasterUsername': (basestring, False),
@@ -364,6 +400,7 @@ class DBCluster(AWSObject):
         'PreferredBackupWindow': (validate_backup_window, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'ReplicationSourceIdentifier': (basestring, False),
+        'ScalingConfiguration': (ScalingConfiguration, False),
         'SnapshotIdentifier': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'Tags': ((Tags, list), False),

@@ -268,6 +268,13 @@ class TestRDSValidators(unittest.TestCase):
         with self.assertRaises(ValueError):
             rds.validate_engine("bad_engine")
 
+    def test_validate_engine_mode(self):
+        for e in rds.VALID_DB_ENGINE_MODES:
+            rds.validate_engine_mode(e)
+
+        with self.assertRaises(ValueError):
+            rds.validate_engine_mode("bad_engine")
+
     def test_validate_license_model(self):
         for lm in rds.VALID_LICENSE_MODELS:
             rds.validate_license_model(lm)
@@ -318,3 +325,10 @@ class TestRDSValidators(unittest.TestCase):
             rds.validate_backup_retention_period(40)
 
         rds.validate_backup_retention_period(10)
+
+    def test_validate_capacity(self):
+        for e in rds.VALID_SCALING_CONFIGURATION_CAPACITIES:
+            rds.validate_capacity(e)
+
+        with self.assertRaises(ValueError):
+            rds.validate_capacity(3)
