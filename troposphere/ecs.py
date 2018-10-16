@@ -49,6 +49,14 @@ def placement_constraint_validator(x):
     return x
 
 
+def scope_validator(x):
+    valid_values = ['shared', 'task']
+    if x not in valid_values:
+        raise ValueError("Scope type must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
 class PlacementConstraint(AWSProperty):
     props = {
         'Type': (placement_constraint_validator, True),
@@ -240,8 +248,19 @@ class Host(AWSProperty):
     }
 
 
+class DockerVolumeConfiguration(AWSProperty):
+    props = {
+        'Autoprovision': (boolean, False),
+        'Driver': (basestring, False),
+        'DriverOpts': ([basestring], False),
+        'Labels': ([basestring], False),
+        'Scope': (scope_validator, False)
+    }
+
+
 class Volume(AWSProperty):
     props = {
+        'DockerVolumeConfiguration': (DockerVolumeConfiguration, False),
         'Name': (basestring, True),
         'Host': (Host, False),
     }
