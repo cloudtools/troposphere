@@ -18,6 +18,7 @@ VALID_DB_ENGINES = ('MySQL', 'mysql', 'oracle-se1', 'oracle-se2', 'oracle-se',
                     'aurora-mysql', 'aurora-postgresql', 'mariadb')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
+VALID_ENGINEMODE = ('provisioned', 'serverless')
 
 
 def validate_iops(iops):
@@ -118,6 +119,15 @@ def validate_backup_retention_period(days):
         raise ValueError("DBInstance BackupRetentionPeriod cannot be larger "
                          "than 35 days.")
     return days
+
+
+def validate_enginemode(enginemode):
+    """Validate Engine Mode for DBInstance"""
+
+    if enginemode not in VALID_ENGINEMODE:
+        raise ValueError("DBCluster EngineMode must be one of: %s" %
+                         ", ".join(VALID_ENGINEMODE))
+    return enginemode
 
 
 class DBInstance(AWSObject):
@@ -356,6 +366,7 @@ class DBCluster(AWSObject):
         'DBClusterParameterGroupName': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
         'Engine': (validate_engine, True),
+        'EngineMode': (validate_enginemode, False),
         'EngineVersion': (basestring, False),
         'KmsKeyId': (basestring, False),
         'MasterUsername': (basestring, False),
