@@ -4,7 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, exactly_one, positive_integer
+from .validators import boolean, exactly_one, mutually_exclusive,\
+    positive_integer
 
 
 KEY_ONLY = "KEY_ONLY"
@@ -78,8 +79,16 @@ class DeploymentStyle(AWSProperty):
 class Ec2TagFilters(AWSProperty):
     props = {
         'Key': (basestring, False),
-        'Type': (basestring, False),
+        'Type': (basestring, True),
         'Value': (basestring, False),
+    }
+
+
+class TagFilters(AWSProperty):
+    props = {
+        'Key': (basestring, False),
+        'Type': (basestring, False),
+        'Value': (basestring, False)
     }
 
 
@@ -104,7 +113,7 @@ class LoadBalancerInfo(AWSProperty):
     def validate(self):
         conds = [
             'ElbInfoList',
-            'TargetGroupInfoList',
+            'TargetGroupInfoList'
         ]
         exactly_one(self.__class__.__name__, self.properties, conds)
 
@@ -164,6 +173,42 @@ class TriggerConfig(AWSProperty):
     }
 
 
+class Ec2TagSetListObject(AWSProperty):
+    props = {
+        'Ec2TagGroup': ([Ec2TagFilters], False)
+    }
+
+
+class Ec2TagSetList(AWSProperty):
+    props = {
+        'Ec2TagSetList': ([Ec2TagSetListObject], False)
+    }
+
+
+class Ec2TagSet(AWSProperty):
+    props = {
+        'Ec2TagSet': (Ec2TagSetList, False)
+    }
+
+
+class OnPremisesTagSetObject(AWSProperty):
+    props = {
+        'OnPremisesTagGroup': ([TagFilters], False)
+    }
+
+
+class OnPremisesTagSetList(AWSProperty):
+    props = {
+        'OnPremisesTagSetList': ([OnPremisesTagSetObject], False)
+    }
+
+
+class OnPremisesTagSet(AWSProperty):
+    props = {
+        'OnPremisesTagSetList': (OnPremisesTagSetList, False)
+    }
+
+
 class DeploymentGroup(AWSObject):
     resource_type = "AWS::CodeDeploy::DeploymentGroup"
 
@@ -177,10 +222,26 @@ class DeploymentGroup(AWSObject):
         'DeploymentGroupName': (basestring, False),
         'DeploymentStyle': (DeploymentStyle, False),
         'Ec2TagFilters': ([Ec2TagFilters], False),
+        'Ec2TagSet': (Ec2TagSet, False),
         'LoadBalancerInfo': (LoadBalancerInfo, False),
         'OnPremisesInstanceTagFilters': (
             [OnPremisesInstanceTagFilters], False
         ),
+        'OnPremisesInstanceTagSet': (OnPremisesTagSet, False),
         'ServiceRoleArn': (basestring, True),
         'TriggerConfigurations': ([TriggerConfig], False),
     }
+
+    def validate(self):
+        ec2_conds = [
+            'EC2TagFilters',
+            'Ec2TagSet'
+        ]
+        onPremises_conds = [
+            'OnPremisesInstanceTagFilters',
+            'OnPremisesInstanceTagSet'
+        ]
+        mutually_exclusive(self.__class__.__name__,
+                           self.properties, ec2_conds)
+        mutually_exclusive(self.__class__.__name__,
+                           self.properties, onPremises_conds)
