@@ -434,7 +434,6 @@ class TestSub(unittest.TestCase):
         values = {'sub1': 'uno', 'sub2': 'dos'}
         raw = Sub(s, values, sub3='tres')
         actual = raw.to_dict()
-        expected_values = {'sub1': 'uno', 'sub2': 'dos', 'sub3': 'tres'}
         expected = {
             'Fn::Sub': [
                 'foo ${AWS::Region} ${sub1} ${sub2} ${sub3}',
