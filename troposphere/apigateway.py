@@ -270,6 +270,7 @@ class Method(AWSObject):
 
     props = {
         "ApiKeyRequired": (bool, False),
+        "AuthorizationScopes": ([basestring], False),
         "AuthorizationType": (basestring, True),
         "AuthorizerId": (basestring, False),
         "HttpMethod": (basestring, True),
