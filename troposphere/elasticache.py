@@ -149,7 +149,7 @@ class ReplicationGroup(AWSObject):
 
 class NodeGroupConfiguration(AWSProperty):
     props = {
-        'NodeGroupId': (basestring, validate_node_group_id),
+        'NodeGroupId': (validate_node_group_id, False),
         'PrimaryAvailabilityZone': (basestring, False),
         'ReplicaAvailabilityZones': (basestring, False),
         'ReplicaCount': (integer, False),
