@@ -1,6 +1,7 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, floatingpoint, integer_range, json_checker,\
-    positive_integer
+from .validators import (
+    boolean, floatingpoint, integer_range, json_checker, positive_integer
+)
 
 
 def validate_authorizer_ttl(ttl_value):
@@ -82,6 +83,7 @@ class BasePathMapping(AWSObject):
 class CanarySetting(AWSProperty):
 
     props = {
+        "DeploymentId": (basestring, False),
         "PercentTraffic": ([floatingpoint], False),
         "StageVariableOverrides": (dict, False),
         "UseStageCache": (boolean, False),
@@ -304,9 +306,6 @@ class S3Location(AWSProperty):
     props = {
         "Bucket": (basestring, False),
         "ETag": (basestring, False),
-
-
-
         "Key": (basestring, False),
         "Version": (basestring, False)
     }
