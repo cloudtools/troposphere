@@ -136,6 +136,7 @@ class Source(AWSProperty):
 
         location_agnostic_types = [
             'CODEPIPELINE',
+            'NO_SOURCE',
         ]
 
         source_type = self.properties.get('Type')
