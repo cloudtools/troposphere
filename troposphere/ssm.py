@@ -179,8 +179,8 @@ class MaintenanceWindowTask(AWSObject):
     props = {
         'Description': (basestring, False),
         'LoggingInfo': (LoggingInfo, False),
-        'MaxConcurrency': (integer, False),
-        'MaxErrors': (integer, True),
+        'MaxConcurrency': (basestring, False),
+        'MaxErrors': (basestring, True),
         'Name': (basestring, False),
         'Priority': (integer, True),
         'ServiceRoleArn': (basestring, True),
