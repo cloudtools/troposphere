@@ -80,6 +80,8 @@ class BasePathMapping(AWSObject):
     }
 
 
+# Represents:
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html
 class CanarySetting(AWSProperty):
 
     props = {
@@ -90,12 +92,31 @@ class CanarySetting(AWSProperty):
     }
 
 
+StageCanarySetting = CanarySetting
+
+
 class ClientCertificate(AWSObject):
     resource_type = "AWS::ApiGateway::ClientCertificate"
 
     props = {
         "Description": (basestring, False)
     }
+
+
+# Represents:
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html
+# and
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html
+class DeploymentCanarySettings(AWSProperty):
+
+    props = {
+        "PercentTraffic": ([floatingpoint], False),
+        "StageVariableOverrides": (dict, False),
+        "UseStageCache": (boolean, False),
+    }
+
+
+DeploymentCanarySetting = DeploymentCanarySettings
 
 
 class MethodSetting(AWSProperty):
@@ -123,7 +144,7 @@ class StageDescription(AWSProperty):
         "CacheDataEncrypted": (bool, False),
         "CacheTtlInSeconds": (positive_integer, False),
         "CachingEnabled": (bool, False),
-        "CanarySetting": (CanarySetting, False),
+        "CanarySetting": (DeploymentCanarySettings, False),
         "ClientCertificateId": (basestring, False),
         "DataTraceEnabled": (bool, False),
         "Description": (basestring, False),
@@ -148,6 +169,7 @@ class Deployment(AWSObject):
     resource_type = "AWS::ApiGateway::Deployment"
 
     props = {
+        "DeploymentCanarySettings": (DeploymentCanarySettings, False),
         "Description": (basestring, False),
         "RestApiId": (basestring, True),
         "StageDescription": (StageDescription, False),
@@ -248,6 +270,7 @@ class Method(AWSObject):
 
     props = {
         "ApiKeyRequired": (bool, False),
+        "AuthorizationScopes": ([basestring], False),
         "AuthorizationType": (basestring, True),
         "AuthorizerId": (basestring, False),
         "HttpMethod": (basestring, True),
@@ -337,7 +360,7 @@ class Stage(AWSObject):
         "AccesLogSetting": (AccessLogSetting, False),
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
-        "CanarySetting": (CanarySetting, False),
+        "CanarySetting": (StageCanarySetting, False),
         "ClientCertificateId": (basestring, False),
         "DeploymentId": (basestring, True),
         "Description": (basestring, False),
