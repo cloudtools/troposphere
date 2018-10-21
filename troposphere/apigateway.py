@@ -1,5 +1,6 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, json_checker, positive_integer
+from .validators import boolean, floatingpoint, integer_range, json_checker,\
+    positive_integer
 
 
 def validate_authorizer_ttl(ttl_value):
@@ -11,6 +12,14 @@ def validate_authorizer_ttl(ttl_value):
     if ttl_value > 3600:
         raise ValueError("The AuthorizerResultTtlInSeconds should be <= 3600")
     return ttl_value
+
+
+class AccessLogSetting(AWSProperty):
+
+    props = {
+        "DestinationArn": (basestring, False),
+        "Format": (basestring, False)
+    }
 
 
 class Account(AWSObject):
@@ -70,6 +79,15 @@ class BasePathMapping(AWSObject):
     }
 
 
+class CanarySetting(AWSProperty):
+
+    props = {
+        "PercentTraffic": ([floatingpoint], False),
+        "StageVariableOverrides": (dict, False),
+        "UseStageCache": (boolean, False),
+    }
+
+
 class ClientCertificate(AWSObject):
     resource_type = "AWS::ApiGateway::ClientCertificate"
 
@@ -97,11 +115,13 @@ class MethodSetting(AWSProperty):
 class StageDescription(AWSProperty):
 
     props = {
+        "AccessLogSetting": (AccessLogSetting, False),
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
         "CacheDataEncrypted": (bool, False),
         "CacheTtlInSeconds": (positive_integer, False),
         "CachingEnabled": (bool, False),
+        "CanarySetting": (CanarySetting, False),
         "ClientCertificateId": (basestring, False),
         "DataTraceEnabled": (bool, False),
         "Description": (basestring, False),
@@ -206,6 +226,7 @@ class Integration(AWSProperty):
         "PassthroughBehavior": (basestring, False),
         "RequestParameters": (dict, False),
         "RequestTemplates": (dict, False),
+        "TimeoutInMillis": (integer_range(50, 29000), False),
         "Type": (basestring, True),
         "Uri": (basestring, False)
     }
@@ -283,6 +304,9 @@ class S3Location(AWSProperty):
     props = {
         "Bucket": (basestring, False),
         "ETag": (basestring, False),
+
+
+
         "Key": (basestring, False),
         "Version": (basestring, False)
     }
@@ -311,8 +335,10 @@ class Stage(AWSObject):
     resource_type = "AWS::ApiGateway::Stage"
 
     props = {
+        "AccesLogSetting": (AccessLogSetting, False),
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
+        "CanarySetting": (CanarySetting, False),
         "ClientCertificateId": (basestring, False),
         "DeploymentId": (basestring, True),
         "Description": (basestring, False),
@@ -321,13 +347,6 @@ class Stage(AWSObject):
         "RestApiId": (basestring, True),
         "StageName": (basestring, True),
         "Variables": (dict, False)
-    }
-
-
-class ApiStage(AWSProperty):
-    props = {
-        "ApiId": (basestring, False),
-        "Stage": (basestring, False),
     }
 
 
@@ -343,6 +362,14 @@ class ThrottleSettings(AWSProperty):
     props = {
         "BurstLimit": (positive_integer, False),
         "RateLimit": (positive_integer, False),
+    }
+
+
+class ApiStage(AWSProperty):
+    props = {
+        "ApiId": (basestring, False),
+        "Stage": (basestring, False),
+        "Throttle": (ThrottleSettings, False),
     }
 
 
