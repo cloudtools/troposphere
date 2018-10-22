@@ -156,7 +156,10 @@ class ARMObject(AWSObject):
         return AWSObject.to_dict(self)
 
     def ref(self):
-        return "[resourceId('{0}/','{1}')]".format(self.resource['type'], self.title)
+        if self.source_resource_group:
+            return "[resourceId('{0}','{1}/','{2}')]".format(self.source_resource_group, self.resource['type'], self.title)
+        else:
+            return "[resourceId('{0}/','{1}')]".format(self.resource['type'], self.title)
 
     Ref = ref
 
@@ -178,16 +181,15 @@ class ARMObject(AWSObject):
 
     def _add_dependencies(self, value):
         if isinstance(value, list):
-            result = []
-            for d in value:
-                result.append(self._add_dependency(d))
-            return result
+            result = [self._add_dependency(d) for d in value]
         else:
-            return [self._add_dependency(value)]
+            result = [self._add_dependency(value)]
+        return [x for x in result if x]
 
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
-            return dependency.Ref()
+            if not dependency.source_resource_group:
+                return dependency.Ref()
         elif isinstance(dependency, str):
             return dependency
         else:
@@ -302,7 +304,6 @@ class SubResource(ARMProperty):
     props = {
         'id': (str, True),
     }
-
 
 class SubResourceRef(AWSHelperFn):
     def __init__(self, root_resource, sub_resource, root, child):

@@ -82,10 +82,11 @@ def depends_on_helper(obj):
 
 
 class BaseAWSObject(object):
-    def __init__(self, title, template=None, validation=True, **kwargs):
+    def __init__(self, title, template=None, validation=True, origin_resource_group=None, **kwargs):
         self.title = title
         self.template = template
         self.do_validation = validation
+        self.source_resource_group = origin_resource_group
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
         self.root_propnames = self.root_props.keys() if getattr(self, 'root_props', None) else {}

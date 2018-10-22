@@ -40,9 +40,12 @@ class VirtualNetwork(ARMObject):
     }
 
     def subnet_ref(self, subnet_name):
+        if not self.source_resource_group:
+            subnet_title = self.get_subnet(subnet_name).title
+        else:
+            subnet_title = subnet_name
         return "[resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')]" \
-            .format(self.title,
-                    self.get_subnet(subnet_name).title)
+            .format(self.title, subnet_title)
 
     def get_subnet(self, subnet_name):
         return next(iter(filter(lambda x: x.title == subnet_name, self.properties['subnets'])))
@@ -284,7 +287,7 @@ class DnsZoneA(ARMObject):
     resource_type = 'Microsoft.Network/dnsZones/A'
     apiVersion = '2017-10-01'
 
-    name_pattern = re.compile(r'^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\/([a-z0-9]+(-[a-z0-9]+)*)+$')
+    name_pattern = re.compile(r'^([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}\/([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*)+$')
 
     props = {
         'TTL': (int, False),
