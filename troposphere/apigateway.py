@@ -1,6 +1,6 @@
 from . import AWSObject, AWSProperty
 from .validators import (
-    boolean, floatingpoint, integer_range, json_checker, positive_integer
+    boolean, double, integer_range, json_checker, positive_integer
 )
 
 
@@ -86,7 +86,7 @@ class CanarySetting(AWSProperty):
 
     props = {
         "DeploymentId": (basestring, False),
-        "PercentTraffic": ([floatingpoint], False),
+        "PercentTraffic": ([double], False),
         "StageVariableOverrides": (dict, False),
         "UseStageCache": (boolean, False),
     }
@@ -110,7 +110,7 @@ class ClientCertificate(AWSObject):
 class DeploymentCanarySettings(AWSProperty):
 
     props = {
-        "PercentTraffic": ([floatingpoint], False),
+        "PercentTraffic": ([double], False),
         "StageVariableOverrides": (dict, False),
         "UseStageCache": (boolean, False),
     }
