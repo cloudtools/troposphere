@@ -5,7 +5,7 @@
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, exactly_one, integer, integer_range,
+    boolean, exactly_one, integer, integer_range, floatingpoint,
     network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr,
     vpc_endpoint_type
 )
@@ -759,13 +759,53 @@ class LaunchSpecifications(AWSProperty):
     }
 
 
+class LaunchTemplateOverrides(AWSProperty):
+    props = {
+        'AvailabilityZone': (basestring, False),
+        'InstanceType': (basestring, False),
+        'SpotPrice': (basestring, False),
+        'SubnetId': (basestring, False),
+        'WeightedCapacity': (floatingpoint, False)
+    }
+
+
+class LaunchTemplateConfigs(AWSProperty):
+    props = {
+        'LaunchTemplateSpecification': (LaunchTemplateSpecification, True),
+        'Overrides': ([LaunchTemplateOverrides], False)
+    }
+
+
+class ClassicLoadBalancer(AWSProperty):
+    props = {
+        'Name': (basestring, True)
+    }
+
+
+class TargetGroup(AWSProperty):
+    props = {
+        'Arn': (basestring, True)
+    }
+
+
+class LoadBalancersConfig(AWSProperty):
+    props = {
+        'ClassicLoadBalancersConfig': ([ClassicLoadBalancer], False),
+        'TargetGroupsConfig': (TargetGroup, False)
+    }
+
+
 class SpotFleetRequestConfigData(AWSProperty):
+
     props = {
         'AllocationStrategy': (basestring, False),
         'ExcessCapacityTerminationPolicy': (basestring, False),
         'IamFleetRole': (basestring, True),
-        'ReplaceUnhealthyInstances': (boolean, False),
+        'InstanceInterruptionBehavior': (basestring, False),
         'LaunchSpecifications': ([LaunchSpecifications], True),
+        'LaunchTemplateConfigs': ([LaunchTemplateConfigs], True),
+        'LoadBalancersConfig': (LoadBalancersConfig, False),
+        'ReplaceUnhealthyInstances': (boolean, False),
         'SpotPrice': (basestring, False),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
@@ -773,6 +813,13 @@ class SpotFleetRequestConfigData(AWSProperty):
         'ValidFrom': (basestring, False),
         'ValidUntil': (basestring, False),
     }
+
+    def validate(self):
+        conds = [
+            'LaunchSpecifications',
+            'LaunchTemplateConfigs'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class SpotFleet(AWSObject):
