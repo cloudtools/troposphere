@@ -174,9 +174,7 @@ class ARMObject(AWSObject):
 
     # fluent api
     def with_depends_on(self, depends_on):
-        if 'dependsOn' not in self.resource:
-            self.resource['dependsOn'] = []
-        self.resource['dependsOn'].extend(self._add_dependencies(depends_on))
+        self.resource['dependsOn'] = list(set(self.resource.get('dependsOn', []) + self._add_dependencies(depends_on)))
         return self
 
     def _add_dependencies(self, value):
