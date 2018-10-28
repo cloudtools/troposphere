@@ -40,12 +40,13 @@ class VirtualNetwork(ARMObject):
     }
 
     def subnet_ref(self, subnet_name):
+        subnet_title = self.get_subnet(subnet_name).title
         if not self.source_resource_group:
-            subnet_title = self.get_subnet(subnet_name).title
+            return "[resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')]" \
+                .format(self.title, subnet_title)
         else:
-            subnet_title = subnet_name
-        return "[resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')]" \
-            .format(self.title, subnet_title)
+            return "[resourceId('{0}', 'Microsoft.Network/virtualNetworks/subnets', '{1}', '{2}')]" \
+                .format(self.source_resource_group, self.title, subnet_title)
 
     def get_subnet(self, subnet_name):
         return next(iter(filter(lambda x: x.title == subnet_name, self.properties['subnets'])))
