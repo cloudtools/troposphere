@@ -53,11 +53,11 @@ def integer_list_item(allowed_values):
     return integer_list_item_checker
 
 
-def floatingpoint(x):
+def double(x):
     try:
         float(x)
     except (ValueError, TypeError):
-        raise ValueError("%r is not a valid float" % x)
+        raise ValueError("%r is not a valid double" % x)
     else:
         return x
 

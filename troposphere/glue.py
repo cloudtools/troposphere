@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, floatingpoint, integer_range, positive_integer
+from .validators import boolean, double, integer_range, positive_integer
 
 
 class GrokClassifier(AWSProperty):
@@ -194,7 +194,7 @@ class ConnectionsList(AWSProperty):
 
 class ExecutionProperty(AWSProperty):
     props = {
-        'MaxConcurrentRuns': (floatingpoint, False),
+        'MaxConcurrentRuns': (positive_integer, False),
     }
 
 
@@ -209,14 +209,14 @@ class Job(AWSObject):
     resource_type = "AWS::Glue::Job"
 
     props = {
-        'AllocatedCapacity': (floatingpoint, False),
+        'AllocatedCapacity': (double, False),
         'Command': (JobCommand, True),
         'Connections': (ConnectionsList, False),
         'DefaultArguments': (dict, False),
         'Description': (basestring, False),
         'ExecutionProperty': (ExecutionProperty, False),
         'LogUri': (basestring, False),
-        'MaxRetries': (floatingpoint, False),
+        'MaxRetries': (double, False),
         'Name': (basestring, False),
         'Role': (basestring, True),
     }

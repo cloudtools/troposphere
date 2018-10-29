@@ -5,7 +5,7 @@
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, exactly_one, integer, integer_range, floatingpoint,
+    boolean, exactly_one, integer, integer_range, double,
     network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr,
     vpc_endpoint_type
 )
@@ -765,7 +765,7 @@ class LaunchTemplateOverrides(AWSProperty):
         'InstanceType': (basestring, False),
         'SpotPrice': (basestring, False),
         'SubnetId': (basestring, False),
-        'WeightedCapacity': (floatingpoint, False)
+        'WeightedCapacity': (double, False)
     }
 
 

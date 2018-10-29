@@ -5,7 +5,7 @@
 
 from . import AWSObject, AWSProperty, AWSHelperFn, Tags
 from .validators import (
-    boolean, integer, positive_integer, floatingpoint, defer
+    boolean, integer, positive_integer, double, defer
 )
 
 
@@ -197,7 +197,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
             if adjustment_type == CHANGE_IN_CAPACITY:
                 integer(scaling_adjustment)
             elif adjustment_type == PERCENT_CHANGE_IN_CAPACITY:
-                floatingpoint(scaling_adjustment)
+                double(scaling_adjustment)
                 f = float(scaling_adjustment)
                 if f < 0.0 or f > 1.0:
                     raise ValueError(
