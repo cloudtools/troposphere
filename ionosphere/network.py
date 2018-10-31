@@ -1,7 +1,8 @@
 import re
 from enum import Enum, IntEnum
+from typing import List
 
-from base import ARMObject, ARMProperty, SubResource, SubResourceRef
+from .base import ARMObject, ARMProperty, SubResource, SubResourceRef
 
 
 class AddressSpace(ARMProperty):
@@ -49,7 +50,7 @@ class VirtualNetwork(ARMObject):
                 .format(self.source_resource_group, self.title, subnet_title)
 
     def get_subnet(self, subnet_name):
-        return next(iter(filter(lambda x: x.title == subnet_name, self.properties['subnets'])))
+        return next(iter([x for x in self.properties['subnets'] if x.title == subnet_name]))
 
     SubnetRef = subnet_ref
 
@@ -125,7 +126,7 @@ class PublicIPAddress(ARMObject):
 
 class NetworkInterfaceIPConfiguration(ARMObject):
     props = {
-        # 'applicationGatewayBackendAddressPools': () - not implemented
+        'applicationGatewayBackendAddressPools': (BackendAddressPools, False),
         # 'loadBalancerBackendAddressPools': () - not implemented
         # 'loadBalancerInboundNatRules': () - not implemented
         'privateIPAddress': (str, False),
@@ -137,6 +138,9 @@ class NetworkInterfaceIPConfiguration(ARMObject):
         'applicationSecurityGroups': ((list, SubResource), False)
     }
 
+class NetworkInterfaceIPConfigurationRef(SubResourceRef):
+    def __init__(self, nic_name: str, nic_ip_conf: NetworkInterfaceIPConfiguration):
+        super(NetworkInterfaceIPConfigurationRef, self).__init__(NetworkInterface, 'ipConfigurations', nic_name, nic_ip_conf)
 
 class NetworkInterfaceDnsSettings(ARMProperty):
     props = {
@@ -170,7 +174,7 @@ class NetworkInterface(ARMObject):
     props = {
         'virtualMachine': (SubResource, False),
         'networkSecurityGroup': ((SubResource, NetworkSecurityGroup), False),
-        'ipConfigurations': (list, True),  # type: list[NetworkInterfaceIPConfiguration]
+        'ipConfigurations': ([NetworkInterfaceIPConfiguration], True),
         'dnsSettings': (NetworkInterfaceDnsSettings, False)
     }
 
@@ -197,6 +201,7 @@ class LoadBalancerSku(ARMProperty):
 
 
 class FrontendIPConfiguration(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways/frontendIPConfigurations'
     props = {
         'privateIPAddress': (str, False),
         'privateIPAllocationMethod': (str, False),  # Possible values are: 'Static' and 'Dynamic'
@@ -215,6 +220,9 @@ class FrontendIPConfigurationRef(SubResourceRef):
         super(FrontendIPConfigurationRef, self).__init__(LoadBalancer, 'frontendIpConfigurations', load_balancer,
                                                          ip_conf)
 
+class FrontendPortRef(SubResourceRef):
+    def __init__(self, app_gateway, ip_conf):
+        super(FrontendPortRef, self).__init__(ApplicationGatway, 'frontendPorts', app_gateway, frontend_port)
 
 class ProbeRef(SubResourceRef):
     def __init__(self, load_balancer, probe):
@@ -251,9 +259,17 @@ class Probe(ARMObject):
         'requestPath': (str, False),  # The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
     }
 
+class ApplicationGatewayBackendAddress(ARMProperty):
+    props = {
+      'ipAddress': (str, True)
+    }
 
-class BackendAddressPool(ARMProperty):
-    props = {'name': (str, True)}
+class BackendAddressPool(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways/backendAddressPools'
+    props = {
+      'backendAddresses': ([ApplicationGatewayBackendAddress], False),
+      'backendIPConfigurations': ([NetworkInterfaceIPConfigurationRef], False)
+    }
 
 
 class LoadBalancer(ARMObject):
@@ -326,3 +342,140 @@ class DnsZone(ARMObject):
         if not DnsZone.domain_name_pattern.match(self.title):
             raise ValueError('Name "%s" is not valid' % self.title)
 
+
+class ApplicationGatewayFrontendPort(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways/frontendPorts'
+    props = {
+        'port': (int, True)
+    }
+
+
+class ApplicationGatewayConnectionDraining(ARMProperty):
+    props = {
+        'enabled': (bool, False),
+        'drainTimeoutInSec': (int, False)
+    }
+
+
+class ApplicationGatewayBackendHttpSettings(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways/backendHttpSettingsCollection'
+    props = {
+        'port': (int, True),
+        'protocol': (str, True), # Http / Https
+        'cookieBasedAffinity': (str, False), # Enabled / Disabled
+        'connectionDraining': (ApplicationGatewayConnectionDraining, False),
+        'requestTimeout': (int, True),
+    }
+
+
+class ApplicationGatewayHttpListener(ARMObject):
+    resource_type =  'Microsoft.Network/applicationGateways/httpListeners'
+    props = {
+        'frontendIPConfiguration': (SubResourceRef, True),
+        'frontendPort': (SubResourceRef, True),
+        'protocol': (str, True), # Http / Https
+    }
+
+
+class ApplicationGatewayRequestRoutingRule(ARMObject):
+    resource_type =  'Microsoft.Network/applicationGateways/requestRoutingRules'
+    props = {
+        'ruleType': (str, True), # Basic / PathBasedRouting
+        'httpListener': (SubResourceRef, True),
+        'backendAddressPool': (SubResourceRef, True),
+        'backendHttpSettings': (SubResourceRef, True),
+    }
+
+
+class ApplicationGatewaySku(ARMProperty):
+    props = {
+        'name': (str, True), # Standard_Small / Standard_Medium / Standard_Large / WAF_Medium / WAF_Large
+        'tier': (str, True), # Standard / WAF
+        'capacity': (int, True), # Min = 2
+    }
+
+    def validate(self):
+        if self.properties['tier'] == 'Standard':
+            if self.properties['name'] not in ['Standard_Small', 'Standard_Medium', 'Standard_Large']:
+                raise ValueError('ApplicationGateway->sku->name is "{}", but expected "Standard_Small", "Standard_Medium" or "Standard_Large"')
+        elif self.properties['tier'] == 'WAF':
+            if self.properties['name'] not in ['WAF_Medium', 'WAF_Large']:
+                raise ValueError('ApplicationGateway->sku->name is "{}", but expected "WAF_Medium" or "WAF_Large"')
+        else:
+            raise ValueError('ApplicationGateway->sku->tier is "{}", but expected "Standard" or "WAF"'.format(self.properties['tier']))
+        if self.properties['capacity'] > 10 or self.properties['capacity'] < 2:
+            raise ValueError('ApplicationGateway->sku->capacity is "{}", but expected to be between 2 to 10'.format(self.properties['capacity']))
+
+
+class ApplicationGatewayIPConfiguration(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways/gatewayIPConfigurations'
+    props = {
+        'subnet': (SubResource, False)
+    }
+
+class ApplicationGateway(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways'
+    apiVersion = '2017-06-01'
+    location = True
+    props = {
+        'sku': (ApplicationGatewaySku, True),
+        'gatewayIPConfigurations': ([ApplicationGatewayIPConfiguration], True),
+        'frontendIPConfigurations': ([FrontendIPConfiguration], True),
+        'frontendPorts': ([ApplicationGatewayFrontendPort], True),
+        'backendAddressPools': ([BackendAddressPool], True),
+        'backendHttpSettingsCollection': ([ApplicationGatewayBackendHttpSettings], True),
+        'httpListeners': ([ApplicationGatewayHttpListener], True),
+        'requestRoutingRules': ([ApplicationGatewayRequestRoutingRule], True)
+    }
+
+    @staticmethod
+    def ref_gateway_ip_configurationsn(app_gateway_name: str, gateway_ip_configurationsn: ApplicationGatewayIPConfiguration):
+        return SubResourceRef(ApplicationGateway, 'gatewayIPConfigurations', app_gateway_name, gateway_ip_configurationsn)
+
+    @staticmethod
+    def ref_frontend_ip_configuration(app_gateway_name: str, frontend_ip_configuration: FrontendIPConfiguration):
+        return SubResourceRef(ApplicationGateway, 'frontendIPConfigurations', app_gateway_name, frontend_ip_configuration)
+
+    @staticmethod
+    def ref_frontend_port(app_gateway_name: str, frontend_port: ApplicationGatewayFrontendPort):
+        return SubResourceRef(ApplicationGateway, 'frontendPorts', app_gateway_name, frontend_port)
+
+    @staticmethod
+    def ref_backend_address_pool(app_gateway_name: str, backend_address_pool: BackendAddressPool):
+        return SubResourceRef(ApplicationGateway, 'backendAddressPools', app_gateway_name, backend_address_pool)
+
+    @staticmethod
+    def ref_backend_http_settings(app_gateway_name: str, backend_http_settings: ApplicationGatewayBackendHttpSettings):
+        return SubResourceRef(ApplicationGateway, 'backendHttpSettingsCollection', app_gateway_name, backend_http_settings)
+
+    @staticmethod
+    def ref_http_listener(app_gateway_name: str, http_listener: ApplicationGatewayHttpListener):
+        return SubResourceRef(ApplicationGateway, 'httpListeners', app_gateway_name, http_listener)
+
+    @property
+    def gateway_ip_configurationsn(self) -> List[ApplicationGatewayIPConfiguration]:
+        return self.properties['gatewayIPConfigurations']
+
+    @property
+    def frontend_ip_configurations(self) -> List[FrontendIPConfiguration]:
+        return self.properties['frontendIPConfigurations']
+
+    @property
+    def frontend_ports(self) -> List[ApplicationGatewayFrontendPort]:
+        return self.properties['frontendPorts']
+
+    @property
+    def backend_address_pools(self) -> List[BackendAddressPool]:
+        return self.properties['backendAddressPools']
+
+    @property
+    def backend_http_settings(self) -> List[ApplicationGatewayBackendHttpSettings]:
+        return self.properties['backendHttpSettingsCollection']
+
+    @property
+    def http_listeners(self) -> List[ApplicationGatewayHttpListener]:
+        return self.properties['httpListeners']
+
+    @property
+    def request_routing_rules(self) -> List[ApplicationGatewayRequestRoutingRule]:
+        return self.properties['requestRoutingRules']

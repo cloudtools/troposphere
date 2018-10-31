@@ -308,7 +308,8 @@ class SubResourceRef(AWSHelperFn):
         sub_resource_ref = self._build_sub_resource_ref(root_resource, sub_resource)
         root_name = self._get_title(root)
         child_name = self._get_title(child)
-        self.data = {'id': "[resourceId('{0}', '{1}', '{2}')]".format(sub_resource_ref, root_name, child_name)}
+        self.id = "[resourceId('{0}', '{1}', '{2}')]".format(sub_resource_ref, root_name, child_name)
+        self.data = {'id': self.id}
 
     def _build_sub_resource_ref(self, root_resource, sub_resource):
         root_resource_type = self._get_resource_type(root_resource)
