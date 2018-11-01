@@ -25,6 +25,9 @@ class Subnet(ARMObject):
         'serviceEndpoints': ((list, ServiceEndpointProperties), False)
     }
 
+    @property
+    def address_prefix(self) -> str:
+        return self.properties['addressPrefix']
 
 class VirtualNetwork(ARMObject):
     resource_type = 'Microsoft.Network/virtualNetworks'
@@ -41,18 +44,19 @@ class VirtualNetwork(ARMObject):
     }
 
     def subnet_ref(self, subnet_name):
+        return "[{}]".format(self.subnet_id(subnet_name=subnet_name))
+
+    def subnet_id(self, subnet_name):
         subnet_title = self.get_subnet(subnet_name).title
         if not self.source_resource_group:
-            return "[resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')]" \
+            return "resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')" \
                 .format(self.title, subnet_title)
         else:
-            return "[resourceId('{0}', 'Microsoft.Network/virtualNetworks/subnets', '{1}', '{2}')]" \
+            return "resourceId('{0}', 'Microsoft.Network/virtualNetworks/subnets', '{1}', '{2}')" \
                 .format(self.source_resource_group, self.title, subnet_title)
 
     def get_subnet(self, subnet_name):
         return next(iter([x for x in self.properties['subnets'] if x.title == subnet_name]))
-
-    SubnetRef = subnet_ref
 
 
 class ApplicationSecurityGroup(ARMObject):
@@ -126,7 +130,7 @@ class PublicIPAddress(ARMObject):
 
 class NetworkInterfaceIPConfiguration(ARMObject):
     props = {
-        'applicationGatewayBackendAddressPools': (BackendAddressPools, False),
+        'applicationGatewayBackendAddressPools': (SubResource, False),
         # 'loadBalancerBackendAddressPools': () - not implemented
         # 'loadBalancerInboundNatRules': () - not implemented
         'privateIPAddress': (str, False),
@@ -428,29 +432,23 @@ class ApplicationGateway(ARMObject):
         'requestRoutingRules': ([ApplicationGatewayRequestRoutingRule], True)
     }
 
-    @staticmethod
-    def ref_gateway_ip_configurationsn(app_gateway_name: str, gateway_ip_configurationsn: ApplicationGatewayIPConfiguration):
-        return SubResourceRef(ApplicationGateway, 'gatewayIPConfigurations', app_gateway_name, gateway_ip_configurationsn)
+    def ref_gateway_ip_configurationsn(self, gateway_ip_configurationsn: ApplicationGatewayIPConfiguration):
+        return SubResourceRef(ApplicationGateway, 'gatewayIPConfigurations', self.title, gateway_ip_configurationsn)
 
-    @staticmethod
-    def ref_frontend_ip_configuration(app_gateway_name: str, frontend_ip_configuration: FrontendIPConfiguration):
-        return SubResourceRef(ApplicationGateway, 'frontendIPConfigurations', app_gateway_name, frontend_ip_configuration)
+    def ref_frontend_ip_configuration(self, frontend_ip_configuration: FrontendIPConfiguration):
+        return SubResourceRef(ApplicationGateway, 'frontendIPConfigurations', self.title, frontend_ip_configuration)
 
-    @staticmethod
-    def ref_frontend_port(app_gateway_name: str, frontend_port: ApplicationGatewayFrontendPort):
-        return SubResourceRef(ApplicationGateway, 'frontendPorts', app_gateway_name, frontend_port)
+    def ref_frontend_port(self, frontend_port: ApplicationGatewayFrontendPort):
+        return SubResourceRef(ApplicationGateway, 'frontendPorts', self.title, frontend_port)
 
-    @staticmethod
-    def ref_backend_address_pool(app_gateway_name: str, backend_address_pool: BackendAddressPool):
-        return SubResourceRef(ApplicationGateway, 'backendAddressPools', app_gateway_name, backend_address_pool)
+    def ref_backend_address_pool(self, backend_address_pool: BackendAddressPool):
+        return SubResourceRef(ApplicationGateway, 'backendAddressPools', self.title, backend_address_pool)
 
-    @staticmethod
-    def ref_backend_http_settings(app_gateway_name: str, backend_http_settings: ApplicationGatewayBackendHttpSettings):
-        return SubResourceRef(ApplicationGateway, 'backendHttpSettingsCollection', app_gateway_name, backend_http_settings)
+    def ref_backend_http_settings(self, backend_http_settings: ApplicationGatewayBackendHttpSettings):
+        return SubResourceRef(ApplicationGateway, 'backendHttpSettingsCollection', self.title, backend_http_settings)
 
-    @staticmethod
-    def ref_http_listener(app_gateway_name: str, http_listener: ApplicationGatewayHttpListener):
-        return SubResourceRef(ApplicationGateway, 'httpListeners', app_gateway_name, http_listener)
+    def ref_http_listener(self, http_listener: ApplicationGatewayHttpListener):
+        return SubResourceRef(ApplicationGateway, 'httpListeners', self.title, http_listener)
 
     @property
     def gateway_ip_configurationsn(self) -> List[ApplicationGatewayIPConfiguration]:
