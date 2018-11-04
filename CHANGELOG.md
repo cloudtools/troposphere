@@ -1,3 +1,37 @@
+## 2.3.4 (2018-11-04)
+
+- Add CloudFormation::Macro
+- Instance ImageId is no longer required, specifically if using Launch Templates; updated tests (#1137)
+- Fix amazonmq missing properties (#1143)
+- Update AmazonMQ::Broker properties to use [basestring] instead of list
+- Update the OnPremisesInstanceTagFilters parameter for AWS::CodeDeploy::DeploymentGroup (#1145)
+- Update constants.py (#1147)
+- Fix AutoScalingRollingUpdate validation failure (#1148)
+- Adding UseOnlineResharding policy per 09/20/2018 update (#1149)
+- Add SchedulingStrategy as a prop to ecs.Service (#1150)
+- Added ConnectionId and ConnectionType to API GW method integration (#1153)
+- Use dict as aws expects for ApiGateway::RestApi Parameters (#1156)
+- Add support for AWS-interface metadata (#1171)
+- Add new properties to ServiceRegistry (#1172)
+- [#1167] Add support for DockerVolumeConfiguration in AWS::ECS::TaskDefinition (#1168)
+- Add missing Codebuild source types (#1160)
+- [#1155] Aurora serverless support (#1166)
+- Missing RepositoryCredentials attribute for ContainerDefinition object (#1165)
+- Update for new S3 destination option in flow logs (#1158)
+- updates rds vpc example and closes #985 (#1157)
+- Update apigateway as of 09/20/18 (#1173)
+- Add missing APIGateway properties
+- Update codebuild as of 09/20/18 (#1175)
+- Update ec2 as of 09/20/18 (#1177)
+- Additional codebuild source types (#1178)
+- Use basestring to allow percentage definition in MaintenanceWindowTask (#1151)
+- Fix issues with CanaraySettings properties (#1181)
+- 9/20/2018 update - NodeGroupId for Elasticache (#1182)
+- Update codedeploy as of 09/20/18 (#1176)
+- Add LambdaPermission in Example CloudWatchEventsSample.py (#1141)
+- improve double validation and fix some property datatypes (#1179)
+- Fix #1174 TemplateGenerator fail to parse template Fn::Sub with variable (#1180)
+
 ## 2.3.3 (2018-09-05)
 - Revert schedule expression validation (#1114)
 
