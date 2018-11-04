@@ -45,6 +45,7 @@ def integer_range(minimum_val, maximum_val):
 def integer_list_item(allowed_values):
     def integer_list_item_checker(x):
         i = positive_integer(x)
+        i = int(x)
         if i in allowed_values:
             return x
         raise ValueError('Integer must be one of following: %s' %
