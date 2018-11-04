@@ -406,19 +406,44 @@ class TestCidr(unittest.TestCase):
 
 class TestSub(unittest.TestCase):
 
-    def test_sub_with_vars(self):
+    def test_sub_without_vars(self):
         s = 'foo ${AWS::Region}'
         raw = Sub(s)
         actual = raw.to_dict()
         expected = {'Fn::Sub': 'foo ${AWS::Region}'}
         self.assertEqual(expected, actual)
 
-    def test_sub_without_vars(self):
+    def test_sub_with_vars_unpakaged(self):
         s = 'foo ${AWS::Region} ${sub1} ${sub2}'
         values = {'sub1': 'uno', 'sub2': 'dos'}
         raw = Sub(s, **values)
         actual = raw.to_dict()
         expected = {'Fn::Sub': ['foo ${AWS::Region} ${sub1} ${sub2}', values]}
+        self.assertEqual(expected, actual)
+
+    def test_sub_with_vars_not_unpakaged(self):
+        s = 'foo ${AWS::Region} ${sub1} ${sub2}'
+        values = {'sub1': 'uno', 'sub2': 'dos'}
+        raw = Sub(s, values)
+        actual = raw.to_dict()
+        expected = {'Fn::Sub': ['foo ${AWS::Region} ${sub1} ${sub2}', values]}
+        self.assertEqual(expected, actual)
+
+    def test_sub_with_vars_mix(self):
+        s = 'foo ${AWS::Region} ${sub1} ${sub2} ${sub3}'
+        values = {'sub1': 'uno', 'sub2': 'dos'}
+        raw = Sub(s, values, sub3='tres')
+        actual = raw.to_dict()
+        expected = {
+            'Fn::Sub': [
+                'foo ${AWS::Region} ${sub1} ${sub2} ${sub3}',
+                {
+                    'sub1': 'uno',
+                    'sub2': 'dos',
+                    'sub3': 'tres'
+                }
+            ]
+        }
         self.assertEqual(expected, actual)
 
 

@@ -473,7 +473,10 @@ class Split(AWSHelperFn):
 
 
 class Sub(AWSHelperFn):
-    def __init__(self, input_str, **values):
+    def __init__(self, input_str, dict_values=None, **values):
+        # merge dict
+        if dict_values:
+            values.update(dict_values)
         self.data = {'Fn::Sub': [input_str, values] if values else input_str}
 
 
