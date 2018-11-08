@@ -25,7 +25,8 @@ class ARMTemplate(object):
         'outputs': (dict, False),
     }
 
-    def __init__(self, contentVersion="1.0.0.0", customerUsageAttributionGuid=None):
+    def __init__(self, contentVersion="1.0.0.0", customerUsageAttributionGuid=None, designated_resource_group=None):
+        self.designated_resource_group = designated_resource_group
         self.contentVersion = contentVersion
         self.variables = []
         self.parameters = {}
@@ -70,10 +71,12 @@ class ARMTemplate(object):
                 lst.append(values)
         return values
 
-    def add_output(self, output):
+    def add_output_str(self, name, value):
         if len(self.outputs) >= MAX_OUTPUTS:
             raise ValueError('Maximum outputs %d reached' % MAX_OUTPUTS)
-        return self._update(self.outputs, output)
+        if name in self.outputs:
+            raise ValueError('duplicate output name "%s" detected' % name)
+        self.outputs[name] = {'type': 'string', 'value': value}
 
     def add_parameter(self, parameter):
         if len(self.parameters) >= MAX_PARAMETERS:
@@ -96,6 +99,17 @@ class ARMTemplate(object):
             self.contentVersion = version
         else:
             self.contentVersion = "1.0.0.0"
+
+    def add_nested_template(self, title: str, resource_group: str = None, dependsOn: list=[]):
+        resource_group = resource_group or self.designated_resource_group
+        template = ARMTemplate(designated_resource_group=resource_group)
+        Deployment(title=title,
+                   parent_template=self,
+                   nested_template=template,
+                   mode='Incremental',
+                   resourceGroup=resource_group,
+                   dependsOn=dependsOn)
+        return template
 
     def to_dict(self):
         t = {}
@@ -156,8 +170,9 @@ class ARMObject(AWSObject):
         return AWSObject.to_dict(self)
 
     def ref(self):
-        if self.source_resource_group:
-            return "[resourceId('{0}','{1}/','{2}')]".format(self.source_resource_group, self.resource['type'], self.title)
+        resource_group = self.source_resource_group or self.template.designated_resource_group or None
+        if resource_group:
+            return "[resourceId('{0}','{1}/','{2}')]".format(resource_group, self.resource['type'], self.title)
         else:
             return "[resourceId('{0}/','{1}')]".format(self.resource['type'], self.title)
 
@@ -186,7 +201,7 @@ class ARMObject(AWSObject):
 
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
-            if not dependency.source_resource_group:
+            if self.template and self.template == dependency.template:
                 return dependency.Ref()
         elif isinstance(dependency, str):
             return dependency
@@ -210,6 +225,16 @@ class ARMProperty(AWSProperty):
 
 # class ARMRootProperty(ARMProperty):
 #     pass
+
+
+class Output:
+    def __init__(self, title, type, value):
+        self.title = title
+        self.title = title
+        self.value = value
+
+    def to_dic(self):
+        return {}
 
 
 class ARMParameter(Parameter):
@@ -363,3 +388,51 @@ class CustomerUsageAttribution(ARMObject):
             raise ValueError('Customer usage attribution resource name must start with "pid-"')
 
     props = {}
+
+
+class Deployment(ARMObject):
+    resource_type = 'Microsoft.Resources/deployments'
+    apiVersion = '2018-02-01'
+    location = False
+    root_props = {
+        'resourceGroup': (str, False),
+    }
+    props = {
+        'mode': (str, True),
+        'template': (ARMTemplate, True),
+        'parameters': (dict, False)
+    }
+
+    def __init__(self, title, parent_template, nested_template, validation=True, **kwargs):
+        super(Deployment, self).__init__(title, parent_template, validation, **kwargs)
+        self.properties['template'] = nested_template
+
+    @property
+    def nested_template(self) -> ARMTemplate:
+        return self.properties['template']
+#
+# class NestedARMTemplate(ARMTemplate):
+#     resource_type = 'Microsoft.Resources/deployments'
+#     apiVersion = '2018-02-01'
+#     location = False
+#
+#     def __init__(self, name: str, parent_template: ARMTemplate, mode: str, parameters: dict = None):
+#         super().__init__()
+#         self.mode = mode
+#         self.name = name
+#         self.template = ARMTemplate()
+#         self.parameters = parameters
+#         parent_template.add_resource(self)
+#
+#     def to_dict(self):
+#         deployment = {
+#             'apiVersion': self.apiVersion,
+#             'name': self.name,
+#             'type': self.resource_type,
+#             'properties': {
+#                 'mode': self.mode,
+#                 'template': self.template.to_dict(),
+#                 'parameters': self.parameters
+#             }
+#         }
+#         return deployment

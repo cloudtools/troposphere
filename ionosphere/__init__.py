@@ -33,6 +33,10 @@ PARAMETER_TITLE_MAX = 255
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
+try:
+    basestring
+except Exception as e:
+    basestring = str
 
 def is_aws_object_subclass(cls):
     is_aws_object = False
@@ -693,15 +697,6 @@ class Export(AWSHelperFn):
         self.data = {
             'Name': name,
         }
-
-
-class Output(AWSDeclaration):
-    props = {
-        'Description': (basestring, False),
-        'Export': (Export, False),
-        'Value': (basestring, True),
-    }
-
 
 class Parameter(AWSDeclaration):
     STRING_PROPERTIES = ['AllowedPattern', 'MaxLength', 'MinLength']

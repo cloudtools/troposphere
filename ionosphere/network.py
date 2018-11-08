@@ -29,6 +29,7 @@ class Subnet(ARMObject):
     def address_prefix(self) -> str:
         return self.properties['addressPrefix']
 
+
 class VirtualNetwork(ARMObject):
     resource_type = 'Microsoft.Network/virtualNetworks'
     apiVersion = "2017-10-01"
@@ -103,7 +104,6 @@ class SecurityRule(ARMObject):
                              'SourceApplicationSecurityGroups'.format(self.title))
 
 
-
 class PublicIPAddressDnsSettings(ARMProperty):
     props = {
         'domainNameLabel': (str, False),
@@ -141,6 +141,23 @@ class NetworkInterfaceIPConfiguration(ARMObject):
         'publicIPAddress': (SubResource, False),
         'applicationSecurityGroups': ((list, SubResource), False)
     }
+
+    @property
+    def backend_address_pools(self):
+        return self.properties['applicationGatewayBackendAddressPools']
+
+    @property
+    def public_ip_address(self):
+        return self.properties['privateIPAddress']
+
+    @backend_address_pools.setter
+    def backend_address_pools(self, value):
+        self.properties['applicationGatewayBackendAddressPools'] = value
+
+    @public_ip_address.setter
+    def public_ip_address(self, value):
+        self.properties['privateIPAddress'] = value
+
 
 class NetworkInterfaceIPConfigurationRef(SubResourceRef):
     def __init__(self, nic_name: str, nic_ip_conf: NetworkInterfaceIPConfiguration):
@@ -186,6 +203,10 @@ class NetworkInterface(ARMObject):
         'tags': (dict, False)
     }
 
+    @property
+    def ip_configurations(self) -> List[NetworkInterfaceIPConfiguration]:
+        return self.properties['ipConfigurations']
+
     def validate(self):
         # validate ipConfigurations list item types
         if self.properties['ipConfigurations']:
@@ -224,9 +245,9 @@ class FrontendIPConfigurationRef(SubResourceRef):
         super(FrontendIPConfigurationRef, self).__init__(LoadBalancer, 'frontendIpConfigurations', load_balancer,
                                                          ip_conf)
 
-class FrontendPortRef(SubResourceRef):
-    def __init__(self, app_gateway, ip_conf):
-        super(FrontendPortRef, self).__init__(ApplicationGatway, 'frontendPorts', app_gateway, frontend_port)
+# class FrontendPortRef(SubResourceRef):
+#     def __init__(self, app_gateway, ip_conf):
+#         super(FrontendPortRef, self).__init__(ApplicationGatway, 'frontendPorts', app_gateway, frontend_port)
 
 class ProbeRef(SubResourceRef):
     def __init__(self, load_balancer, probe):
@@ -263,10 +284,12 @@ class Probe(ARMObject):
         'requestPath': (str, False),  # The URI used for requesting health status from the VM. Path is required if a protocol is set to http. Otherwise, it is not allowed. There is no default value.
     }
 
+
 class ApplicationGatewayBackendAddress(ARMProperty):
     props = {
       'ipAddress': (str, True)
     }
+
 
 class BackendAddressPool(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways/backendAddressPools'
@@ -274,6 +297,14 @@ class BackendAddressPool(ARMObject):
       'backendAddresses': ([ApplicationGatewayBackendAddress], False),
       'backendIPConfigurations': ([NetworkInterfaceIPConfigurationRef], False)
     }
+
+    @property
+    def backend_addresses(self) -> [ApplicationGatewayBackendAddress]:
+        return self.properties['backendAddresses']
+
+    @backend_addresses.setter
+    def backend_addresses(self, value):
+        self.properties['backendAddresses'] = value
 
 
 class LoadBalancer(ARMObject):
@@ -432,8 +463,8 @@ class ApplicationGateway(ARMObject):
         'requestRoutingRules': ([ApplicationGatewayRequestRoutingRule], True)
     }
 
-    def ref_gateway_ip_configurationsn(self, gateway_ip_configurationsn: ApplicationGatewayIPConfiguration):
-        return SubResourceRef(ApplicationGateway, 'gatewayIPConfigurations', self.title, gateway_ip_configurationsn)
+    def ref_gateway_ip_configuration(self, gateway_ip_configuration: ApplicationGatewayIPConfiguration):
+        return SubResourceRef(ApplicationGateway, 'gatewayIPConfigurations', self.title, gateway_ip_configuration)
 
     def ref_frontend_ip_configuration(self, frontend_ip_configuration: FrontendIPConfiguration):
         return SubResourceRef(ApplicationGateway, 'frontendIPConfigurations', self.title, frontend_ip_configuration)
