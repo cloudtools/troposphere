@@ -46,6 +46,7 @@ class BaseRecordSet(object):
         'HealthCheckId': (basestring, False),
         'HostedZoneId': (basestring, False),
         'HostedZoneName': (basestring, False),
+        'MultiValueAnswer': (boolean, False),
         'Name': (basestring, True),
         'Region': (basestring, False),
         'ResourceRecords': (list, False),
