@@ -2,7 +2,7 @@ import re
 from enum import Enum, IntEnum
 from typing import List
 
-from .base import ARMObject, ARMProperty, SubResource, SubResourceRef
+from base import ARMObject, ARMProperty, SubResource, SubResourceRef
 
 
 class AddressSpace(ARMProperty):

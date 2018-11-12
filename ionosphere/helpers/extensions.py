@@ -9,9 +9,10 @@ LINUX_CUSTOM_SCRIPT_EXTENSION_TYPE = 'CustomScript'
 LINUX_CUSTOM_SCRIPT_EXTENSION_PUBLISHER = 'Microsoft.Azure.Extensions'
 
 
-def create_linux_custom_script(vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
+def create_linux_custom_script(template, vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
                                storage_account_key=None, protected_settings=True, tags=None):
     vm_extention = VirtualMachineExtension(vm.title + '/CustomScriptForLinux',
+                                           template=template,
                                            publisher=LINUX_CUSTOM_SCRIPT_EXTENSION_PUBLISHER,
                                            type=LINUX_CUSTOM_SCRIPT_EXTENSION_TYPE,
                                            autoUpgradeMinorVersion=True,
@@ -31,9 +32,10 @@ def create_linux_custom_script(vm, command_to_execute, script=None, file_uris=No
     return vm_extention
 
 
-def create_windows_custom_script(vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
+def create_windows_custom_script(template, vm, command_to_execute, script=None, file_uris=None, storage_account_name=None,
                                  storage_account_key=None, protected_settings=True, tags=None):
     vm_extention = VirtualMachineExtension(vm.title + '/CustomScriptForWindows',
+                                           template=template,
                                            publisher=WINDOWS_CUSTOM_SCRIPT_EXTENSION_PUBLISHER,
                                            type=WINDOWS_CUSTOM_SCRIPT_EXTENSION_TYPE,
                                            autoUpgradeMinorVersion=True,

@@ -111,6 +111,15 @@ class ARMTemplate(object):
                    dependsOn=depends_on)
         return template
 
+    def add_linked_template(self, title: str, template_url: str, resource_group: str = None, depends_on: list=None):
+        resource_group = resource_group or self.designated_resource_group
+        Deployment(title=title,
+                   parent_template=self,
+                   templateLink=LinkedTemplate(uri=template_url, contentVersion="1.0.0.0"),
+                   mode='Incremental',
+                   resourceGroup=resource_group,
+                   dependsOn=depends_on or [])
+
     def to_dict(self):
         t = {}
 
@@ -185,7 +194,7 @@ class ARMObject(AWSObject):
     def reference(self, path: str):
         api_version = getattr(self, 'apiVersion', None)
         if api_version:
-            return "[reference({}, {}).{}]".format(self.resourceId(), api_version, path)
+            return "[reference({}, '{}').{}]".format(self.resourceId(), api_version, path)
         else:
             return "[reference({}).{}]".format(self.resourceId(), path)
 
@@ -403,6 +412,13 @@ class CustomerUsageAttribution(ARMObject):
     props = {}
 
 
+class LinkedTemplate(ARMProperty):
+    props = {
+        'uri': (str, True),
+        'contentVersion': (str, True),
+    }
+
+
 class Deployment(ARMObject):
     resource_type = 'Microsoft.Resources/deployments'
     apiVersion = '2018-02-01'
@@ -412,40 +428,16 @@ class Deployment(ARMObject):
     }
     props = {
         'mode': (str, True),
-        'template': (ARMTemplate, True),
+        'template': (ARMTemplate, False),
+        'templateLink': (LinkedTemplate, False),
         'parameters': (dict, False)
     }
 
-    def __init__(self, title, parent_template, nested_template, validation=True, **kwargs):
+    def __init__(self, title, parent_template, nested_template=None, validation=True, **kwargs):
         super(Deployment, self).__init__(title, parent_template, validation, **kwargs)
-        self.properties['template'] = nested_template
+        if nested_template:
+            self.properties['template'] = nested_template
 
     @property
     def nested_template(self) -> ARMTemplate:
         return self.properties['template']
-#
-# class NestedARMTemplate(ARMTemplate):
-#     resource_type = 'Microsoft.Resources/deployments'
-#     apiVersion = '2018-02-01'
-#     location = False
-#
-#     def __init__(self, name: str, parent_template: ARMTemplate, mode: str, parameters: dict = None):
-#         super().__init__()
-#         self.mode = mode
-#         self.name = name
-#         self.template = ARMTemplate()
-#         self.parameters = parameters
-#         parent_template.add_resource(self)
-#
-#     def to_dict(self):
-#         deployment = {
-#             'apiVersion': self.apiVersion,
-#             'name': self.name,
-#             'type': self.resource_type,
-#             'properties': {
-#                 'mode': self.mode,
-#                 'template': self.template.to_dict(),
-#                 'parameters': self.parameters
-#             }
-#         }
-#         return deployment
