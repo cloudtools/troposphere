@@ -100,7 +100,7 @@ class ARMTemplate(object):
         else:
             self.contentVersion = "1.0.0.0"
 
-    def add_nested_template(self, title: str, resource_group: str = None, dependsOn: list=[]):
+    def add_nested_template(self, title: str, resource_group: str = None, depends_on: list=[]) -> 'ARMTemplate':
         resource_group = resource_group or self.designated_resource_group
         template = ARMTemplate(designated_resource_group=resource_group)
         Deployment(title=title,
@@ -108,7 +108,7 @@ class ARMTemplate(object):
                    nested_template=template,
                    mode='Incremental',
                    resourceGroup=resource_group,
-                   dependsOn=dependsOn)
+                   dependsOn=depends_on)
         return template
 
     def to_dict(self):
@@ -169,12 +169,25 @@ class ARMObject(AWSObject):
             del self.properties['dependsOn']
         return AWSObject.to_dict(self)
 
-    def ref(self):
-        resource_group = self.source_resource_group or self.template.designated_resource_group or None
+    def resourceId(self):
+        resource_group = self.source_resource_group
+        if not resource_group and self.template:
+            resource_group = self.template.designated_resource_group
+
         if resource_group:
-            return "[resourceId('{0}','{1}/','{2}')]".format(resource_group, self.resource['type'], self.title)
+            return "resourceId('{0}','{1}/','{2}')".format(resource_group, self.resource['type'], self.title)
         else:
-            return "[resourceId('{0}/','{1}')]".format(self.resource['type'], self.title)
+            return "resourceId('{0}/','{1}')".format(self.resource['type'], self.title)
+
+    def ref(self):
+        return "[{}]".format(self.resourceId())
+
+    def reference(self, path: str):
+        api_version = getattr(self, 'apiVersion', None)
+        if api_version:
+            return "[reference({}, {}).{}]".format(self.resourceId(), api_version, path)
+        else:
+            return "[reference({}).{}]".format(self.resourceId(), path)
 
     Ref = ref
 
