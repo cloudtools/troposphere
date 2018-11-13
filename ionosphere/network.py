@@ -48,13 +48,16 @@ class VirtualNetwork(ARMObject):
         return "[{}]".format(self.subnet_id(subnet_name=subnet_name))
 
     def subnet_id(self, subnet_name):
+        resource_group = self.source_resource_group
+        if not resource_group and self.template:
+            resource_group = self.template.designated_resource_group
         subnet_title = self.get_subnet(subnet_name).title
-        if not self.source_resource_group:
+        if resource_group:
+            return "resourceId('{0}', 'Microsoft.Network/virtualNetworks/subnets', '{1}', '{2}')" \
+                .format(resource_group, self.title, subnet_title)
+        else:
             return "resourceId('Microsoft.Network/virtualNetworks/subnets', '{0}', '{1}')" \
                 .format(self.title, subnet_title)
-        else:
-            return "resourceId('{0}', 'Microsoft.Network/virtualNetworks/subnets', '{1}', '{2}')" \
-                .format(self.source_resource_group, self.title, subnet_title)
 
     def get_subnet(self, subnet_name):
         return next(iter([x for x in self.properties['subnets'] if x.title == subnet_name]))
@@ -301,10 +304,6 @@ class BackendAddressPool(ARMObject):
     @property
     def backend_addresses(self) -> [ApplicationGatewayBackendAddress]:
         return self.properties['backendAddresses']
-
-    @backend_addresses.setter
-    def backend_addresses(self, value):
-        self.properties['backendAddresses'] = value
 
 
 class LoadBalancer(ARMObject):
