@@ -19,6 +19,8 @@ class ServiceEndpointProperties(ARMProperty):
 
 
 class Subnet(ARMObject):
+    # resource_type = 'Microsoft.Network/virtualNetworks/subnets'
+    # apiVersion = "2018-04-01"
     props = {
         'addressPrefix': (str, True),
         'networkSecurityGroup': (SubResource, False),
