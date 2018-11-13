@@ -174,7 +174,7 @@ class DBInstance(AWSObject):
         'DBSubnetGroupName': (basestring, False),
         'Domain': (basestring, False),
         'DomainIAMRoleName': (basestring, False),
-        'EnableCloudwatchLogExports': (list, False),
+        'EnableCloudwatchLogExports': ([basestring], False),
         'EnableIAMDatabaseAuthentication': (boolean, False),
         'EnablePerformanceInsights': (boolean, False),
         'Engine': (validate_engine, False),
