@@ -85,6 +85,13 @@ class ArtifactStore(AWSProperty):
     }
 
 
+class ArtifactStoreMap(AWSProperty):
+    props = {
+        'ArtifactStore': (ArtifactStore, True),
+        'Region': (basestring, True)
+    }
+
+
 class Actions(AWSProperty):
     props = {
         'ActionTypeId': (ActionTypeId, True),
@@ -92,6 +99,7 @@ class Actions(AWSProperty):
         'InputArtifacts': ([InputArtifacts], False),
         'Name': (basestring, True),
         'OutputArtifacts': ([OutputArtifacts], False),
+        'Region': (basestring, False),
         'RoleArn': (basestring, False),
         'RunOrder': (integer, False)
     }
@@ -124,6 +132,7 @@ class Pipeline(AWSObject):
 
     props = {
         'ArtifactStore': (ArtifactStore, True),
+        'ArtifactStores': ([ArtifactStoreMap], False),
         'DisableInboundStageTransitions':
             ([DisableInboundStageTransitions], False),
         'Name': (basestring, False),
