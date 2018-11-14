@@ -25,7 +25,8 @@ class ARMTemplate(object):
         'outputs': (dict, False),
     }
 
-    def __init__(self, contentVersion="1.0.0.0", customerUsageAttributionGuid=None):
+    def __init__(self, contentVersion="1.0.0.0", customerUsageAttributionGuid=None, designated_resource_group=None):
+        self.designated_resource_group = designated_resource_group
         self.contentVersion = contentVersion
         self.variables = []
         self.parameters = {}
@@ -70,10 +71,12 @@ class ARMTemplate(object):
                 lst.append(values)
         return values
 
-    def add_output(self, output):
+    def add_output_str(self, name, value):
         if len(self.outputs) >= MAX_OUTPUTS:
             raise ValueError('Maximum outputs %d reached' % MAX_OUTPUTS)
-        return self._update(self.outputs, output)
+        if name in self.outputs:
+            raise ValueError('duplicate output name "%s" detected' % name)
+        self.outputs[name] = {'type': 'string', 'value': value}
 
     def add_parameter(self, parameter):
         if len(self.parameters) >= MAX_PARAMETERS:
@@ -96,6 +99,26 @@ class ARMTemplate(object):
             self.contentVersion = version
         else:
             self.contentVersion = "1.0.0.0"
+
+    def add_nested_template(self, title: str, resource_group: str = None, depends_on: list=[]) -> 'ARMTemplate':
+        resource_group = resource_group or self.designated_resource_group
+        template = ARMTemplate(designated_resource_group=resource_group)
+        Deployment(title=title,
+                   parent_template=self,
+                   nested_template=template,
+                   mode='Incremental',
+                   resourceGroup=resource_group,
+                   dependsOn=depends_on)
+        return template
+
+    def add_linked_template(self, title: str, template_url: str, resource_group: str = None, depends_on: list=None):
+        resource_group = resource_group or self.designated_resource_group
+        Deployment(title=title,
+                   parent_template=self,
+                   templateLink=LinkedTemplate(uri=template_url, contentVersion="1.0.0.0"),
+                   mode='Incremental',
+                   resourceGroup=resource_group,
+                   dependsOn=depends_on or [])
 
     def to_dict(self):
         t = {}
@@ -155,11 +178,25 @@ class ARMObject(AWSObject):
             del self.properties['dependsOn']
         return AWSObject.to_dict(self)
 
-    def ref(self):
-        if self.source_resource_group:
-            return "[resourceId('{0}','{1}/','{2}')]".format(self.source_resource_group, self.resource['type'], self.title)
+    def resourceId(self):
+        resource_group = self.source_resource_group
+        if not resource_group and self.template:
+            resource_group = self.template.designated_resource_group
+
+        if resource_group:
+            return "resourceId('{0}','{1}/','{2}')".format(resource_group, self.resource['type'], self.title)
         else:
-            return "[resourceId('{0}/','{1}')]".format(self.resource['type'], self.title)
+            return "resourceId('{0}/','{1}')".format(self.resource['type'], self.title)
+
+    def ref(self):
+        return "[{}]".format(self.resourceId())
+
+    def reference(self, path: str):
+        api_version = getattr(self, 'apiVersion', None)
+        if api_version:
+            return "[reference({}, '{}').{}]".format(self.resourceId(), api_version, path)
+        else:
+            return "[reference({}).{}]".format(self.resourceId(), path)
 
     Ref = ref
 
@@ -186,7 +223,7 @@ class ARMObject(AWSObject):
 
     def _add_dependency(self, dependency):
         if isinstance(dependency, ARMObject):
-            if not dependency.source_resource_group:
+            if self.template and self.template == dependency.template:
                 return dependency.Ref()
         elif isinstance(dependency, str):
             return dependency
@@ -210,6 +247,16 @@ class ARMProperty(AWSProperty):
 
 # class ARMRootProperty(ARMProperty):
 #     pass
+
+
+class Output:
+    def __init__(self, title, type, value):
+        self.title = title
+        self.title = title
+        self.value = value
+
+    def to_dic(self):
+        return {}
 
 
 class ARMParameter(Parameter):
@@ -308,7 +355,8 @@ class SubResourceRef(AWSHelperFn):
         sub_resource_ref = self._build_sub_resource_ref(root_resource, sub_resource)
         root_name = self._get_title(root)
         child_name = self._get_title(child)
-        self.data = {'id': "[resourceId('{0}', '{1}', '{2}')]".format(sub_resource_ref, root_name, child_name)}
+        self.id = "[resourceId('{0}', '{1}', '{2}')]".format(sub_resource_ref, root_name, child_name)
+        self.data = {'id': self.id}
 
     def _build_sub_resource_ref(self, root_resource, sub_resource):
         root_resource_type = self._get_resource_type(root_resource)
@@ -362,3 +410,34 @@ class CustomerUsageAttribution(ARMObject):
             raise ValueError('Customer usage attribution resource name must start with "pid-"')
 
     props = {}
+
+
+class LinkedTemplate(ARMProperty):
+    props = {
+        'uri': (str, True),
+        'contentVersion': (str, True),
+    }
+
+
+class Deployment(ARMObject):
+    resource_type = 'Microsoft.Resources/deployments'
+    apiVersion = '2018-02-01'
+    location = False
+    root_props = {
+        'resourceGroup': (str, False),
+    }
+    props = {
+        'mode': (str, True),
+        'template': (ARMTemplate, False),
+        'templateLink': (LinkedTemplate, False),
+        'parameters': (dict, False)
+    }
+
+    def __init__(self, title, parent_template, nested_template=None, validation=True, **kwargs):
+        super(Deployment, self).__init__(title, parent_template, validation, **kwargs)
+        if nested_template:
+            self.properties['template'] = nested_template
+
+    @property
+    def nested_template(self) -> ARMTemplate:
+        return self.properties['template']
