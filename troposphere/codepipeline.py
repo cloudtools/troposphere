@@ -131,7 +131,7 @@ class Pipeline(AWSObject):
     resource_type = "AWS::CodePipeline::Pipeline"
 
     props = {
-        'ArtifactStore': (ArtifactStore, True),
+        'ArtifactStore': (ArtifactStore, False),
         'ArtifactStores': ([ArtifactStoreMap], False),
         'DisableInboundStageTransitions':
             ([DisableInboundStageTransitions], False),
