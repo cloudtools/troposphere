@@ -6,7 +6,8 @@
 import re
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import boolean, network_port, integer, positive_integer
+from .validators import (boolean, network_port, integer, positive_integer,
+                         integer_range)
 
 # Taken from:
 # http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html
@@ -385,6 +386,7 @@ class DBCluster(AWSObject):
 
     props = {
         'AvailabilityZones': ([basestring], False),
+        'BacktrackWindow': (integer_range(0, 259200), False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'DatabaseName': (basestring, False),
         'DBClusterIdentifier': (basestring, False),
