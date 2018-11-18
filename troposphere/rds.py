@@ -146,6 +146,13 @@ def validate_capacity(capacity):
     return capacity
 
 
+class ProcessorFeature(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
 class DBInstance(AWSObject):
     resource_type = "AWS::RDS::DBInstance"
 
@@ -167,6 +174,9 @@ class DBInstance(AWSObject):
         'DBSubnetGroupName': (basestring, False),
         'Domain': (basestring, False),
         'DomainIAMRoleName': (basestring, False),
+        'EnableCloudwatchLogExports': ([basestring], False),
+        'EnableIAMDatabaseAuthentication': (boolean, False),
+        'EnablePerformanceInsights': (boolean, False),
         'Engine': (validate_engine, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
@@ -174,13 +184,17 @@ class DBInstance(AWSObject):
         'LicenseModel': (validate_license_model, False),
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
-        'MultiAZ': (boolean, False),
         'MonitoringInterval': (positive_integer, False),
         'MonitoringRoleArn': (basestring, False),
+        'MultiAZ': (boolean, False),
         'OptionGroupName': (basestring, False),
+        'PerformanceInsightsKMSKeyId': (basestring, False),
+        'PerformanceInsightsRetentionPeriod': (positive_integer, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'ProcessorFeatures': ([ProcessorFeature], False),
+        'PromotionTier': (positive_integer, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
         'SourceRegion': (basestring, False),
@@ -385,11 +399,14 @@ class DBCluster(AWSObject):
 
     props = {
         'AvailabilityZones': ([basestring], False),
+        'BacktrackWindow': (positive_integer, False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'DatabaseName': (basestring, False),
         'DBClusterIdentifier': (basestring, False),
         'DBClusterParameterGroupName': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
+        'EnableCloudwatchLogExports': ([basestring], False),
+        'EnableIAMDatabaseAuthentication': (boolean, False),
         'Engine': (validate_engine, True),
         'EngineMode': (validate_engine_mode, False),
         'EngineVersion': (basestring, False),
