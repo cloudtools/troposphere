@@ -214,6 +214,7 @@ Currently supported AWS resource types
 - AWS::SQS
 - AWS::SSM
 - AWS::SageMaker
+- AWS::SecretsManager
 - AWS::Serverless
 - AWS::ServiceCatalog
 - AWS::ServiceDiscovery
