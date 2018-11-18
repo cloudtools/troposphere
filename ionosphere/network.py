@@ -117,6 +117,13 @@ class PublicIPAddressDnsSettings(ARMProperty):
     }
 
 
+class PublicIPAddressSku(ARMProperty):
+    props = {
+        'name': (str, True),
+        'tier': (str, True)
+    }
+
+
 class PublicIPAddress(ARMObject):
     resource_type = 'Microsoft.Network/publicIPAddresses'
     apiVersion = "2017-10-01"
@@ -129,7 +136,8 @@ class PublicIPAddress(ARMObject):
     }
 
     root_props = {
-        'tags': (dict, False)
+        'tags': (dict, False),
+        'sku': (PublicIPAddressSku, False)
     }
 
 
@@ -423,24 +431,35 @@ class ApplicationGatewayRequestRoutingRule(ARMObject):
     }
 
 
+class AutoScaleConfiguration(ARMProperty):
+    props = {
+        'minCapacity': (int, True)
+    }
+
+
 class ApplicationGatewaySku(ARMProperty):
     props = {
-        'name': (str, True), # Standard_Small / Standard_Medium / Standard_Large / WAF_Medium / WAF_Large
-        'tier': (str, True), # Standard / WAF
-        'capacity': (int, True), # Min = 2
+        'name': (str, True),
+        'tier': (str, True),
+        'capacity': (int, False),
     }
 
     def validate(self):
-        if self.properties['tier'] == 'Standard':
-            if self.properties['name'] not in ['Standard_Small', 'Standard_Medium', 'Standard_Large']:
-                raise ValueError('ApplicationGateway->sku->name is "{}", but expected "Standard_Small", "Standard_Medium" or "Standard_Large"')
-        elif self.properties['tier'] == 'WAF':
-            if self.properties['name'] not in ['WAF_Medium', 'WAF_Large']:
-                raise ValueError('ApplicationGateway->sku->name is "{}", but expected "WAF_Medium" or "WAF_Large"')
+        tier = self.properties['tier']
+        name = self.properties['name']
+        capacity = self.properties.get('capacity', 0)
+        if tier in ['Standard', 'WAF']:
+            if tier == 'Standard' and name not in ['Standard_Small', 'Standard_Medium', 'Standard_Large']:
+                raise ValueError('ApplicationGateway->sku->name is "{}", but expected "Standard_Small", "Standard_Medium" or "Standard_Large"'.format(name))
+            if tier == 'WAF' and name not in ['WAF_Medium', 'WAF_Large']:
+                raise ValueError('ApplicationGateway->sku->name is "{}", but expected "WAF_Medium" or "WAF_Large"'.format(name))
+            if capacity > 10 or capacity < 2:
+                raise ValueError('ApplicationGateway->sku->capacity is "{}", but expected to be between 2 to 10'.format(capacity))
+        elif tier in ['Standard_v2', 'WAF_v2']:
+            if tier != name:
+                raise ValueError('ApplicationGateway->sku->tier must be equals to ApplicationGateway->sku->name, when using "Standard_v2" or "WAF_v2"'.format(tier))
         else:
-            raise ValueError('ApplicationGateway->sku->tier is "{}", but expected "Standard" or "WAF"'.format(self.properties['tier']))
-        if self.properties['capacity'] > 10 or self.properties['capacity'] < 2:
-            raise ValueError('ApplicationGateway->sku->capacity is "{}", but expected to be between 2 to 10'.format(self.properties['capacity']))
+            raise ValueError('ApplicationGateway->sku->tier is "{}", but expected "Standard" or "WAF"'.format(tier))
 
 
 class ApplicationGatewayIPConfiguration(ARMObject):
@@ -449,9 +468,10 @@ class ApplicationGatewayIPConfiguration(ARMObject):
         'subnet': (SubResource, False)
     }
 
+
 class ApplicationGateway(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways'
-    apiVersion = '2017-06-01'
+    apiVersion = '2018-08-01'
     location = True
     props = {
         'sku': (ApplicationGatewaySku, True),
@@ -461,7 +481,8 @@ class ApplicationGateway(ARMObject):
         'backendAddressPools': ([BackendAddressPool], True),
         'backendHttpSettingsCollection': ([ApplicationGatewayBackendHttpSettings], True),
         'httpListeners': ([ApplicationGatewayHttpListener], True),
-        'requestRoutingRules': ([ApplicationGatewayRequestRoutingRule], True)
+        'requestRoutingRules': ([ApplicationGatewayRequestRoutingRule], True),
+        'autoscaleConfiguration': (AutoScaleConfiguration, False)
     }
 
     def ref_gateway_ip_configuration(self, gateway_ip_configuration: ApplicationGatewayIPConfiguration):
