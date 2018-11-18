@@ -79,6 +79,7 @@ class Role(AWSObject):
         'ManagedPolicyArns': ([basestring], False),
         'MaxSessionDuration': (integer, False),
         'Path': (iam_path, False),
+        'PermissionsBoundary': (basestring, False),
         'Policies': ([Policy], False),
         'RoleName': (iam_role_name, False),
     }
@@ -105,10 +106,11 @@ class User(AWSObject):
     resource_type = "AWS::IAM::User"
 
     props = {
-        'Path': (iam_path, False),
         'Groups': ([basestring], False),
-        'ManagedPolicyArns': ([basestring], False),
         'LoginProfile': (LoginProfile, False),
+        'ManagedPolicyArns': ([basestring], False),
+        'Path': (iam_path, False),
+        'PermissionsBoundary': (basestring, False),
         'Policies': ([Policy], False),
         'UserName': (iam_user_name, False),
     }
