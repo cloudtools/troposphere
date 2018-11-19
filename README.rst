@@ -175,6 +175,7 @@ Currently supported AWS resource types
 - AWS::Cognito
 - AWS::Config
 - AWS::DAX
+- AWS::DLM
 - AWS::DMS
 - AWS::DataPipeline
 - AWS::DirectoryService
@@ -214,6 +215,7 @@ Currently supported AWS resource types
 - AWS::SQS
 - AWS::SSM
 - AWS::SageMaker
+- AWS::SecretsManager
 - AWS::Serverless
 - AWS::ServiceCatalog
 - AWS::ServiceDiscovery
