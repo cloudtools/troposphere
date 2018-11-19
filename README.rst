@@ -156,6 +156,7 @@ Currently supported AWS resource types
 
 - AWS::AmazonMQ
 - AWS::ApiGateway
+- AWS::AppStream
 - AWS::AppSync
 - AWS::ApplicationAutoScaling
 - AWS::Athena
