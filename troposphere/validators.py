@@ -350,3 +350,46 @@ def vpc_endpoint_type(endpoint_type):
             )
         )
     return(endpoint_type)
+
+
+def scalable_dimension_type(scalable_dimension):
+    valid_values = ['autoscaling:autoScalingGroup:DesiredCapacity',
+                    'ecs:service:DesiredCount',
+                    'ec2:spot-fleet-request:TargetCapacity',
+                    'rds:cluster:ReadReplicaCount',
+                    'dynamodb:table:ReadCapacityUnits',
+                    'dynamodb:table:WriteCapacityUnits',
+                    'dynamodb:index:ReadCapacityUnits',
+                    'dynamodb:index:WriteCapacityUnits'
+                    ]
+    if scalable_dimension not in valid_values:
+        raise ValueError(
+            'ScalableDimension must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(scalable_dimension)
+
+
+def service_namespace_type(service_namespace):
+    valid_values = ['autoscaling', 'ecs', 'ec2', 'rds', 'dynamodb']
+    if service_namespace not in valid_values:
+        raise ValueError(
+            'ServiceNamespace must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(service_namespace)
+
+
+def statistic_type(statistic):
+    valid_values = ['Average', 'Minimum', 'Maximum',
+                    'SampleCount', 'Sum'
+                    ]
+    if statistic not in valid_values:
+        raise ValueError(
+            'Statistic must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(statistic)
