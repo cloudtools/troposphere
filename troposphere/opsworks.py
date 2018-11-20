@@ -53,6 +53,7 @@ def validate_volume_type(volume_type):
 
 class VolumeConfiguration(AWSProperty):
     props = {
+        'Encrypted': (boolean, False),
         'Iops': (integer, False),
         'MountPoint': (basestring, True),
         'NumberOfDisks': (integer, True),
