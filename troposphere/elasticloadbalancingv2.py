@@ -24,7 +24,7 @@ class Certificate(AWSProperty):
     }
 
 
-class RedirectActionConfig(AWSProperty):
+class RedirectConfig(AWSProperty):
     # https://docs.aws.amazon.com/
     # AWSCloudFormation/latest/UserGuide/
     # aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
@@ -44,18 +44,34 @@ class RedirectActionConfig(AWSProperty):
                ['HTTP_301', 'HTTP_302'])
 
 
+class FixedResponseConfig(AWSProperty):
+    props = {
+        'ContentType': (basestring, False),
+        'MessageBody': (basestring, False),
+        'StatusCode': (basestring, False),
+    }
+
+    def validate(self):
+        one_of(self.__class__.__name__,
+               self.properties,
+               'ContentType',
+               ['text/plain', 'text/css', 'text/html',
+                'application/javascript', 'application/json'])
+
+
 class Action(AWSProperty):
     props = {
         'Type': (basestring, True),
         'TargetGroupArn': (basestring, False),
-        'RedirectConfig': (RedirectActionConfig, False)
+        'RedirectConfig': (RedirectConfig, False),
+        'FixedResponseConfig': (FixedResponseConfig, False)
     }
 
     def validate(self):
         one_of(self.__class__.__name__,
                self.properties,
                'Type',
-               ['forward', 'redirect'])
+               ['forward', 'redirect', 'fixed-response'])
 
         def requires(action_type, prop):
             if self.properties.get('Type') == action_type and \
@@ -77,6 +93,7 @@ class Action(AWSProperty):
 
         requires('forward', 'TargetGroupArn')
         requires('redirect', 'RedirectConfig')
+        requires('fixed-response', 'FixedResponseConfig')
 
 
 class Condition(AWSProperty):
