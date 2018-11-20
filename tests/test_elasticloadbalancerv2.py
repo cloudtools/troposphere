@@ -1,6 +1,7 @@
 import unittest
 
-from troposphere.elasticloadbalancingv2 import Action, RedirectConfig, FixedResponseConfig
+from troposphere.elasticloadbalancingv2 import Action, RedirectConfig, \
+    FixedResponseConfig
 
 
 class TestListenerActions(unittest.TestCase):
