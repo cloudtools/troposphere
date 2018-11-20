@@ -25,8 +25,9 @@ class Certificate(AWSProperty):
 
 
 class RedirectActionConfig(AWSProperty):
-    # https://docs.aws.amazon.com
-    # /elasticloadbalancing/latest/APIReference/API_RedirectActionConfig.html
+    # https://docs.aws.amazon.com/
+    # AWSCloudFormation/latest/UserGuide/
+    # aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
     props = {
         'Host': (basestring, False),
         'Path': (basestring, False),
