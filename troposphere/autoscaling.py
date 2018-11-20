@@ -129,6 +129,37 @@ class LaunchTemplateSpecification(AWSProperty):
         exactly_one(self.__class__.__name__, self.properties, template_ids)
 
 
+class InstancesDistribution(AWSProperty):
+    props = {
+        'OnDemandAllocationStrategy': (basestring, False),
+        'OnDemandBaseCapacity': (integer, False),
+        'OnDemandPercentageAboveBaseCapacity': (integer, False),
+        'SpotAllocationStrategy': (basestring, False),
+        'SpotInstancePools': (integer, False),
+        'SpotMaxPrice': (basestring, False),
+    }
+
+
+class LaunchTemplateOverrides(AWSProperty):
+    props = {
+        'InstanceType': (basestring, False),
+    }
+
+
+class LaunchTemplate(AWSProperty):
+    props = {
+        'LaunchTemplateSpecification': (LaunchTemplateSpecification, True),
+        'Overrides': ([LaunchTemplateOverrides], True),
+    }
+
+
+class MixedInstancesPolicy(AWSProperty):
+    props = {
+        'InstancesDistribution': (InstancesDistribution, False),
+        'LaunchTemplate': (LaunchTemplate, True),
+    }
+
+
 class AutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
@@ -148,6 +179,7 @@ class AutoScalingGroup(AWSObject):
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
+        'MixedInstancesPolicy': (MixedInstancesPolicy, False),
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
         'ServiceLinkedRoleARN': (basestring, False),
