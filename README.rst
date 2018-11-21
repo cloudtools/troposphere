@@ -198,6 +198,7 @@ Currently supported AWS resource types
 - AWS::IAM
 - AWS::Inspector
 - AWS::IoT
+- AWS::IoT1Click
 - AWS::KMS
 - AWS::Kinesis
 - AWS::KinesisAnalytics
