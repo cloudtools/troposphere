@@ -916,3 +916,60 @@ class LaunchTemplate(AWSObject):
         'LaunchTemplateData': (LaunchTemplateData, False),
         'LaunchTemplateName': (basestring, False),
     }
+
+
+class TransitGateway(AWSObject):
+    resource_type = "AWS::EC2::TransitGateway"
+    props = {
+        'AmazonSideAsn': (integer, False),
+        'AutoAcceptSharedAttachments': (basestring, False),
+        'DefaultRouteTableAssociation': (basestring, False),
+        'DefaultRouteTablePropagation': (basestring, False),
+        'DnsSupport': (basestring, False),
+        'Tags': ((Tags, list), False),
+        'VpnEcmpSupport': (basestring, False),
+    }
+
+
+class TransitGatewayAttachment(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayAttachment"
+    props = {
+        'SubnetIds': ([basestring], True),
+        'Tags': ((Tags, list), False),
+        'TransitGatewayId': (basestring, True),
+        'VpcId': (basestring, True),
+    }
+
+
+class TransitGatewayRoute(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRoute"
+    props = {
+        'Blackhole': (boolean, False),
+        'DestinationCidrBlock': (basestring, False),
+        'TransitGatewayAttachmentId': (basestring, False),
+        'TransitGatewayRouteTableId': (basestring, True),
+    }
+
+
+class TransitGatewayRouteTable(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRouteTable"
+    props = {
+        'Tags': ((Tags, list), False),
+        'TransitGatewayId': (basestring, True),
+    }
+
+
+class TransitGatewayRouteTableAssociation(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRouteTableAssociation"
+    props = {
+        'TransitGatewayAttachmentId': (basestring, True),
+        'TransitGatewayRouteTableId': (basestring, True),
+    }
+
+
+class TransitGatewayRouteTablePropagation(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRouteTablePropagation"
+    props = {
+        'TransitGatewayAttachmentId': (basestring, True),
+        'TransitGatewayRouteTableId': (basestring, True),
+    }
