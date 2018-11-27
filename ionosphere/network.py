@@ -413,11 +413,12 @@ class ApplicationGatewayBackendHttpSettings(ARMObject):
 
 
 class ApplicationGatewayHttpListener(ARMObject):
-    resource_type =  'Microsoft.Network/applicationGateways/httpListeners'
+    resource_type = 'Microsoft.Network/applicationGateways/httpListeners'
     props = {
         'frontendIPConfiguration': (SubResourceRef, True),
         'frontendPort': (SubResourceRef, True),
         'protocol': (str, True), # Http / Https
+        'host_name': (str, False)
     }
 
 
