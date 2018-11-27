@@ -393,3 +393,60 @@ def statistic_type(statistic):
             )
         )
     return(statistic)
+
+
+def cloudfront_event_type(event_type):
+    valid_values = ['viewer-request', 'viewer-response',
+                    'origin-request', 'origin-response']
+    if event_type not in valid_values:
+        raise ValueError(
+            'EventType must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(event_type)
+
+
+def cloudfront_viewer_protocol_policy(viewer_protocol_policy):
+    valid_values = ['allow-all', 'redirect-to-https', 'https-only']
+    if viewer_protocol_policy not in valid_values:
+        raise ValueError(
+            'ViewerProtocolPolicy must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(viewer_protocol_policy)
+
+
+def cloudfront_restriction_type(restriction_type):
+    valid_values = ['none', 'blacklist', 'whitelist']
+    if restriction_type not in valid_values:
+        raise ValueError(
+            'RestrictionType must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(restriction_type)
+
+
+def cloudfront_forward_type(forward):
+    valid_values = ['none', 'all', 'whitelist']
+    if forward not in valid_values:
+        raise ValueError(
+            'Forward must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(forward)
+
+
+def priceclass_type(price_class):
+    valid_values = ['PriceClass_100', 'PriceClass_200',
+                    'PriceClass_All']
+    if price_class not in valid_values:
+        raise ValueError(
+            'PriceClass must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(price_class)
