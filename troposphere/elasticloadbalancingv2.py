@@ -25,8 +25,42 @@ class Certificate(AWSProperty):
 
 class Action(AWSProperty):
     props = {
+        'AuthenticateCognitoConfig': (AuthenticateCognitoConfig, False),
+        'AuthenticateOidcConfig': (AuthenticateOidcConfig, False),
+        'FixedResponseConfig': (FixedResponseConfig, False),
+        'Order': (integer, False),
+        'RedirectConfig': (RedirectConfig, False),
         'TargetGroupArn': (basestring, True),
         'Type': (basestring, True)
+    }
+
+
+class AuthenticateCognitoConfig(AWSProperty):
+    props = {
+        'AuthenticationRequestExtraParams': (dict, False),
+        'OnUnauthenticatedRequest': (basestring, False),
+        'Scope': (basestring, False),
+        'SessionCookieName': (basestring, False),
+        'SessionTimeout': (integer, True),
+        'UserPoolArn': (basestring, False),
+        'UserPoolClientId': (basestring, True),
+        'UserPoolDomain': (basestring, True)
+    }
+
+
+class AuthenticateOidcConfig(AWSProperty):
+    props = {
+        'AuthenticationRequestExtraParams': (dict, False),
+        'AuthorizationEndpoint': (basestring, True),
+        'ClientId': (basestring, True),
+        'ClientSecret': (basestring, True),
+        'Issuer': (basestring, True),
+        'OnUnauthenticatedRequest': (basestring, False),
+        'Scope': (basestring, False),
+        'SessionCookeName': (basestring, False),
+        'SessionTimeout': (integer, False),
+        'TokenEndpoint': (basestring, True),
+        'UserInfoEndpoint': (basestring, True)
     }
 
 
@@ -36,10 +70,28 @@ class Condition(AWSProperty):
         'Values': ([basestring], True)
     }
 
+class FixedResponseConfig(AWSProperty):
+    props = {
+        'ContentType': (basestring, False),
+        'MessageBody': (basestring, False),
+        'StatusCode': (basestring, True)
+    }
+
 
 class Matcher(AWSProperty):
     props = {
         'HttpCode': (basestring, False)
+    }
+
+
+class RedirectConfig(AWSProperty):
+    props = {
+        'Host': (basestring, False),
+        'Path': (basestring, False),
+        'Port': (basestring, False),
+        'Protocol': (basestring, False),
+        'Query': (basestring, False),
+        'StatusCode': (basestring, True)
     }
 
 
