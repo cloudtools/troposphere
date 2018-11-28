@@ -5,7 +5,7 @@
 
 from . import AWSObject, AWSProperty, AWSHelperFn, Tags
 from .validators import (
-    boolean, integer, positive_integer, floatingpoint, defer
+    boolean, integer, positive_integer, double, defer
 )
 
 
@@ -197,7 +197,7 @@ class SimpleScalingPolicyConfiguration(AWSProperty):
             if adjustment_type == CHANGE_IN_CAPACITY:
                 integer(scaling_adjustment)
             elif adjustment_type == PERCENT_CHANGE_IN_CAPACITY:
-                floatingpoint(scaling_adjustment)
+                double(scaling_adjustment)
                 f = float(scaling_adjustment)
                 if f < 0.0 or f > 1.0:
                     raise ValueError(
@@ -310,6 +310,16 @@ class JobFlowInstancesConfig(AWSProperty):
     }
 
 
+class KerberosAttributes(AWSProperty):
+    props = {
+        'ADDomainJoinPassword': (basestring, False),
+        'ADDomainJoinUser': (basestring, False),
+        'CrossRealmTrustPrincipalPassword': (basestring, False),
+        'KdcAdminPassword': (basestring, True),
+        'Realm': (basestring, True),
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::EMR::Cluster"
 
@@ -323,6 +333,7 @@ class Cluster(AWSObject):
         'EbsRootVolumeSize': (positive_integer, False),
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
+        'KerberosAttributes': (KerberosAttributes, False),
         'LogUri': (basestring, False),
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),

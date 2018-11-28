@@ -108,6 +108,19 @@ class Targets(AWSProperty):
     }
 
 
+class S3OutputLocation(AWSProperty):
+    props = {
+        'OutputS3BucketName': (basestring, False),
+        'OutputS3KeyPrefix': (basestring, False),
+    }
+
+
+class InstanceAssociationOutputLocation(AWSProperty):
+    props = {
+        'S3Location': (S3OutputLocation, False),
+    }
+
+
 class Association(AWSObject):
     resource_type = "AWS::SSM::Association"
 
@@ -116,6 +129,7 @@ class Association(AWSObject):
         'DocumentVersion': (basestring, False),
         'InstanceId': (basestring, False),
         'Name': (basestring, True),
+        'OutputLocation': (InstanceAssociationOutputLocation, False),
         'Parameters': (dict, False),
         'ScheduleExpression': (basestring, False),
         'Targets': ([Targets], False),
@@ -165,8 +179,8 @@ class MaintenanceWindowTask(AWSObject):
     props = {
         'Description': (basestring, False),
         'LoggingInfo': (LoggingInfo, False),
-        'MaxConcurrency': (integer, False),
-        'MaxErrors': (integer, True),
+        'MaxConcurrency': (basestring, False),
+        'MaxErrors': (basestring, True),
         'Name': (basestring, False),
         'Priority': (integer, True),
         'ServiceRoleArn': (basestring, True),
@@ -204,4 +218,17 @@ class PatchBaseline(AWSObject):
         'OperatingSystem': (operating_system, False),
         'PatchGroups': ([basestring], False),
         'RejectedPatches': ([basestring], False),
+    }
+
+
+class ResourceDataSync(AWSObject):
+    resource_type = "AWS::SSM::ResourceDataSync"
+
+    props = {
+        'BucketName': (basestring, True),
+        'BucketPrefix': (basestring, False),
+        'BucketRegion': (basestring, True),
+        'KMSKeyArn': (basestring, False),
+        'SyncFormat': (basestring, True),
+        'SyncName': (basestring, True),
     }

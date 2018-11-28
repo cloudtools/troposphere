@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import integer
 try:
     from awacs.aws import Policy
@@ -33,6 +33,7 @@ class Queue(AWSObject):
         'QueueName': (basestring, False),
         'ReceiveMessageWaitTimeSeconds': (integer, False),
         'RedrivePolicy': (RedrivePolicy, False),
+        'Tags': (Tags, False),
         'VisibilityTimeout': (integer, False),
     }
 

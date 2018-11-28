@@ -43,6 +43,12 @@ class HealthCheckConfig(AWSProperty):
     }
 
 
+class HealthCheckCustomConfig(AWSProperty):
+    props = {
+        'FailureThreshold': (float, True)
+    }
+
+
 class DnsRecord(AWSProperty):
     props = {
         'TTL': (basestring, True),
@@ -64,5 +70,6 @@ class Service(AWSObject):
         'Description': (basestring, False),
         'DnsConfig': (DnsConfig, True),
         'HealthCheckConfig': (HealthCheckConfig, False),
+        'HealthCheckCustomConfig': (HealthCheckCustomConfig, False),
         'Name': (basestring, False),
     }

@@ -106,7 +106,7 @@ class EventSourceMapping(AWSObject):
         'Enabled': (bool, False),
         'EventSourceArn': (basestring, True),
         'FunctionName': (basestring, True),
-        'StartingPosition': (basestring, True),
+        'StartingPosition': (basestring, False),
     }
 
 

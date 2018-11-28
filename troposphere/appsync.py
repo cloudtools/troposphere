@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class ApiKey(AWSObject):
@@ -13,7 +13,7 @@ class ApiKey(AWSObject):
     props = {
         'ApiId': (basestring, True),
         'Description': (basestring, False),
-        'Expires': (float, False),
+        'Expires': (integer, False),
     }
 
 
@@ -32,6 +32,12 @@ class ElasticsearchConfig(AWSProperty):
     }
 
 
+class HttpConfig(AWSProperty):
+    props = {
+        'Endpoint': (basestring, True),
+    }
+
+
 class LambdaConfig(AWSProperty):
     props = {
         'LambdaFunctionArn': (basestring, True),
@@ -46,6 +52,7 @@ class DataSource(AWSObject):
         'Description': (basestring, False),
         'DynamoDBConfig': (DynamoDBConfig, False),
         'ElasticsearchConfig': (ElasticsearchConfig, False),
+        'HttpConfig': (HttpConfig, False),
         'LambdaConfig': (LambdaConfig, False),
         'Name': (basestring, True),
         'ServiceRoleArn': (basestring, False),
@@ -57,6 +64,15 @@ class LogConfig(AWSProperty):
     props = {
         'CloudWatchLogsRoleArn': (basestring, False),
         'FieldLogLevel': (basestring, False),
+    }
+
+
+class OpenIDConnectConfig(AWSProperty):
+    props = {
+        'AuthTTL': (float, False),
+        'ClientId': (basestring, False),
+        'IatTTL': (float, False),
+        'Issuer': (basestring, True),
     }
 
 
@@ -76,6 +92,7 @@ class GraphQLApi(AWSObject):
         'AuthenticationType': (basestring, True),
         'LogConfig': (LogConfig, False),
         'Name': (basestring, True),
+        'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'UserPoolConfig': (UserPoolConfig, False),
     }
 

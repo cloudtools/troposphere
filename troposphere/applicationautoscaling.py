@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, floatingpoint, integer, positive_integer
+from .validators import boolean, double, integer, positive_integer
 
 
 class ScalableTargetAction(AWSProperty):
@@ -84,7 +84,7 @@ class TargetTrackingScalingPolicyConfiguration(AWSProperty):
             (PredefinedMetricSpecification, False),
         'ScaleInCooldown': (positive_integer, False),
         'ScaleOutCooldown': (positive_integer, False),
-        'TargetValue': (floatingpoint, True),
+        'TargetValue': (double, True),
     }
 
 

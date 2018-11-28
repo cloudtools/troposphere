@@ -4,7 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, exactly_one, json_checker, positive_integer
+from .validators import (boolean, double, exactly_one, json_checker,
+                         positive_integer)
 
 
 class MetricDimension(AWSProperty):
@@ -33,7 +34,7 @@ class Alarm(AWSObject):
         'OKActions': ([basestring], False),
         'Period': (positive_integer, True),
         'Statistic': (basestring, False),
-        'Threshold': (basestring, True),
+        'Threshold': (double, True),
         'TreatMissingData': (basestring, False),
         'Unit': (basestring, False),
     }

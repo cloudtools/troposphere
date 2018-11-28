@@ -107,6 +107,37 @@ class TestAutoScalingGroup(unittest.TestCase):
         )
         self.assertTrue(group.validate())
 
+    def test_AutoScalingRollingUpdate_all_defaults(self):
+        group = AutoScalingGroup(
+            'mygroup',
+            AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
+            LaunchConfigurationName="I'm a test",
+            MaxSize="1",
+            MinSize="1",
+            UpdatePolicy=UpdatePolicy(
+                AutoScalingRollingUpdate=AutoScalingRollingUpdate())
+        )
+        self.assertTrue(group.validate())
+
+    def test_AutoScalingRollingUpdate_validation(self):
+        update_policy = UpdatePolicy(
+            AutoScalingRollingUpdate=AutoScalingRollingUpdate(
+                MinInstancesInService="2",
+                MaxBatchSize='1'
+            )
+        )
+        group = AutoScalingGroup(
+            'mygroup',
+            AvailabilityZones=['eu-west-1a', 'eu-west-1b'],
+            LaunchConfigurationName="I'm a test",
+            MaxSize="2",
+            MinSize="1",
+            UpdatePolicy=update_policy
+        )
+
+        with self.assertRaises(ValueError):
+            self.assertTrue(group.validate())
+
 
 if __name__ == '__main__':
     unittest.main()

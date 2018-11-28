@@ -5,6 +5,9 @@ from .validators import boolean, integer, network_port, positive_integer
 LAUNCH_TYPE_EC2 = 'EC2'
 LAUNCH_TYPE_FARGATE = 'FARGATE'
 
+SCHEDULING_STRATEGY_REPLICA = 'REPLICA'
+SCHEDULING_STRATEGY_DAEMON = 'DAEMON'
+
 
 class Cluster(AWSObject):
     resource_type = "AWS::ECS::Cluster"
@@ -46,6 +49,14 @@ def placement_constraint_validator(x):
     return x
 
 
+def scope_validator(x):
+    valid_values = ['shared', 'task']
+    if x not in valid_values:
+        raise ValueError("Scope type must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
 class PlacementConstraint(AWSProperty):
     props = {
         'Type': (placement_constraint_validator, True),
@@ -82,6 +93,15 @@ def launch_type_validator(x):
     return x
 
 
+class ServiceRegistry(AWSProperty):
+    props = {
+        'ContainerName': (basestring, False),
+        'ContainerPort': (integer, False),
+        'Port': (integer, False),
+        'RegistryArn': (basestring, False),
+    }
+
+
 class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
@@ -97,7 +117,9 @@ class Service(AWSObject):
         'PlacementConstraints': ([PlacementConstraint], False),
         'PlacementStrategies': ([PlacementStrategy], False),
         'PlatformVersion': (basestring, False),
+        'SchedulingStrategy': (basestring, False),
         'ServiceName': (basestring, False),
+        'ServiceRegistries': ([ServiceRegistry], False),
         'TaskDefinition': (basestring, True),
     }
 
@@ -147,6 +169,16 @@ class Device(AWSProperty):
     }
 
 
+class HealthCheck(AWSProperty):
+    props = {
+        'Command': ([basestring], True),
+        'Interval': (integer, False),
+        'Retries': (integer, False),
+        'StartPeriod': (integer, False),
+        'Timeout': (integer, False),
+    }
+
+
 class KernelCapabilities(AWSProperty):
     props = {
         'Add': ([basestring], False),
@@ -166,6 +198,12 @@ class LogConfiguration(AWSProperty):
     props = {
         'LogDriver': (basestring, True),
         'Options': (dict, False),
+    }
+
+
+class RepositoryCredentials(AWSProperty):
+    props = {
+        'CredentialsParameter': (basestring, False)
     }
 
 
@@ -190,6 +228,7 @@ class ContainerDefinition(AWSProperty):
         'Environment': ([Environment], False),
         'Essential': (boolean, False),
         'ExtraHosts': ([HostEntry], False),
+        'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
         'Image': (basestring, True),
         'Links': ([basestring], False),
@@ -202,6 +241,7 @@ class ContainerDefinition(AWSProperty):
         'PortMappings': ([PortMapping], False),
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
+        'RepositoryCredentials': (RepositoryCredentials, False),
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'VolumesFrom': ([VolumesFrom], False),
@@ -215,8 +255,19 @@ class Host(AWSProperty):
     }
 
 
+class DockerVolumeConfiguration(AWSProperty):
+    props = {
+        'Autoprovision': (boolean, False),
+        'Driver': (basestring, False),
+        'DriverOpts': ([basestring], False),
+        'Labels': ([basestring], False),
+        'Scope': (scope_validator, False)
+    }
+
+
 class Volume(AWSProperty):
     props = {
+        'DockerVolumeConfiguration': (DockerVolumeConfiguration, False),
         'Name': (basestring, True),
         'Host': (Host, False),
     }

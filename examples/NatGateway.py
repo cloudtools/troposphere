@@ -9,7 +9,7 @@ t = Template()
 t.add_description(
     "AWS CloudFormation Sample Template NatGateway: Sample template showing "
     "how to create a public NAT gateway. "
-    "**WARNING** This template creates an Amazon NAT instance. "
+    "**WARNING** This template creates an Amazon NAT gateway. "
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
 

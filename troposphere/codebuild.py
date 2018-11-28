@@ -25,9 +25,11 @@ class SourceAuth(AWSProperty):
 
 class Artifacts(AWSProperty):
     props = {
+        'EncryptionDisabled': (boolean, False),
         'Location': (basestring, False),
         'Name': (basestring, False),
         'NamespaceType': (basestring, False),
+        'OverrideArtifactName': (boolean, False),
         'Packaging': (basestring, False),
         'Path': (basestring, False),
         'Type': (basestring, True),
@@ -85,6 +87,7 @@ class Environment(AWSProperty):
     def validate(self):
         valid_types = [
             'LINUX_CONTAINER',
+            'WINDOWS_CONTAINER',
         ]
         env_type = self.properties.get('Type')
         if env_type not in valid_types:
@@ -116,15 +119,24 @@ class Source(AWSProperty):
         'GitCloneDepth': (positive_integer, False),
         'InsecureSsl': (boolean, False),
         'Location': (basestring, False),
+        'ReportBuildStatus': (boolean, False),
         'Type': (basestring, True),
     }
 
     def validate(self):
         valid_types = [
+            'BITBUCKET',
             'CODECOMMIT',
             'CODEPIPELINE',
             'GITHUB',
+            'GITHUB_ENTERPRISE',
+            'NO_SOURCE',
             'S3',
+        ]
+
+        location_agnostic_types = [
+            'CODEPIPELINE',
+            'NO_SOURCE',
         ]
 
         source_type = self.properties.get('Type')
@@ -139,7 +151,8 @@ class Source(AWSProperty):
                              ','.join(valid_types))
 
         location = self.properties.get('Location')
-        if source_type is not 'CODEPIPELINE' and not location:
+
+        if source_type not in location_agnostic_types and not location:
             raise ValueError(
                 'Source Location: must be defined when type is %s' %
                 source_type
@@ -165,6 +178,44 @@ class ProjectTriggers(AWSProperty):
     }
 
 
+def validate_status(status):
+    """ Validate status
+    :param status: The Status of CloudWatchLogs or S3Logs
+    :return: The provided value if valid
+    """
+    valid_statuses = [
+        'ENABLED',
+        'DISABLED'
+    ]
+
+    if status not in valid_statuses:
+        raise ValueError('Status: must be one of %s' %
+                         ','.join(valid_statuses))
+    return status
+
+
+class CloudWatchLogs(AWSProperty):
+    props = {
+        "Status": (validate_status, True),
+        "GroupName": (basestring, False),
+        "StreamName": (basestring, False)
+    }
+
+
+class S3Logs(AWSProperty):
+    props = {
+        "Status": (validate_status, True),
+        "Location": (basestring, False)
+    }
+
+
+class LogsConfig(AWSProperty):
+    props = {
+        'CloudWatchLogs': (CloudWatchLogs, False),
+        'S3Logs': (S3Logs, False)
+    }
+
+
 class Project(AWSObject):
     resource_type = "AWS::CodeBuild::Project"
 
@@ -175,7 +226,10 @@ class Project(AWSObject):
         'Description': (basestring, False),
         'EncryptionKey': (basestring, False),
         'Environment': (Environment, True),
+        "LogsConfig": (LogsConfig, False),
         'Name': (basestring, True),
+        'SecondaryArtifacts': ([Artifacts], False),
+        'SecondarySources': ([Source], False),
         'ServiceRole': (basestring, True),
         'Source': (Source, True),
         'Tags': (Tags, False),

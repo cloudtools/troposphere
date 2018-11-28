@@ -6,7 +6,8 @@
 import re
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import boolean, network_port, integer, positive_integer
+from .validators import (boolean, network_port, integer, positive_integer,
+                         integer_range)
 
 # Taken from:
 # http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html
@@ -16,8 +17,10 @@ VALID_DB_ENGINES = ('MySQL', 'mysql', 'oracle-se1', 'oracle-se2', 'oracle-se',
                     'oracle-ee', 'sqlserver-ee', 'sqlserver-se',
                     'sqlserver-ex', 'sqlserver-web', 'postgres', 'aurora',
                     'aurora-mysql', 'aurora-postgresql', 'mariadb')
+VALID_DB_ENGINE_MODES = ('provisioned', 'serverless')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
+VALID_SCALING_CONFIGURATION_CAPACITIES = (2, 4, 8, 16, 32, 64, 128, 256)
 
 
 def validate_iops(iops):
@@ -47,6 +50,15 @@ def validate_engine(engine):
         raise ValueError("DBInstance Engine must be one of: %s" %
                          ", ".join(VALID_DB_ENGINES))
     return engine
+
+
+def validate_engine_mode(engine_mode):
+    """Validate database EngineMode for DBCluster"""
+
+    if engine_mode not in VALID_DB_ENGINE_MODES:
+        raise ValueError("DBCluster EngineMode must be one of: %s" %
+                         ", ".join(VALID_DB_ENGINE_MODES))
+    return engine_mode
 
 
 def validate_license_model(license_model):
@@ -120,6 +132,28 @@ def validate_backup_retention_period(days):
     return days
 
 
+def validate_capacity(capacity):
+    """Validate ScalingConfiguration capacity for serverless DBCluster"""
+
+    if capacity not in VALID_SCALING_CONFIGURATION_CAPACITIES:
+        raise ValueError(
+            "ScalingConfiguration capacity must be one of: {}".format(
+                ", ".join(map(
+                    str,
+                    VALID_SCALING_CONFIGURATION_CAPACITIES
+                ))
+            )
+        )
+    return capacity
+
+
+class ProcessorFeature(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
 class DBInstance(AWSObject):
     resource_type = "AWS::RDS::DBInstance"
 
@@ -141,6 +175,9 @@ class DBInstance(AWSObject):
         'DBSubnetGroupName': (basestring, False),
         'Domain': (basestring, False),
         'DomainIAMRoleName': (basestring, False),
+        'EnableCloudwatchLogExports': ([basestring], False),
+        'EnableIAMDatabaseAuthentication': (boolean, False),
+        'EnablePerformanceInsights': (boolean, False),
         'Engine': (validate_engine, False),
         'EngineVersion': (basestring, False),
         'Iops': (validate_iops, False),
@@ -148,13 +185,17 @@ class DBInstance(AWSObject):
         'LicenseModel': (validate_license_model, False),
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
-        'MultiAZ': (boolean, False),
         'MonitoringInterval': (positive_integer, False),
         'MonitoringRoleArn': (basestring, False),
+        'MultiAZ': (boolean, False),
         'OptionGroupName': (basestring, False),
+        'PerformanceInsightsKMSKeyId': (basestring, False),
+        'PerformanceInsightsRetentionPeriod': (positive_integer, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
         'PreferredMaintenanceWindow': (basestring, False),
+        'ProcessorFeatures': ([ProcessorFeature], False),
+        'PromotionTier': (positive_integer, False),
         'PubliclyAccessible': (boolean, False),
         'SourceDBInstanceIdentifier': (basestring, False),
         'SourceRegion': (basestring, False),
@@ -345,17 +386,30 @@ class DBClusterParameterGroup(AWSObject):
     }
 
 
+class ScalingConfiguration(AWSProperty):
+    props = {
+        'AutoPause': (boolean, False),
+        'MaxCapacity': (validate_capacity, False),
+        'MinCapacity': (validate_capacity, False),
+        'SecondsUntilAutoPause': (positive_integer, False),
+    }
+
+
 class DBCluster(AWSObject):
     resource_type = "AWS::RDS::DBCluster"
 
     props = {
         'AvailabilityZones': ([basestring], False),
+        'BacktrackWindow': (integer_range(0, 259200), False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
         'DatabaseName': (basestring, False),
         'DBClusterIdentifier': (basestring, False),
         'DBClusterParameterGroupName': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
+        'EnableCloudwatchLogExports': ([basestring], False),
+        'EnableIAMDatabaseAuthentication': (boolean, False),
         'Engine': (validate_engine, True),
+        'EngineMode': (validate_engine_mode, False),
         'EngineVersion': (basestring, False),
         'KmsKeyId': (basestring, False),
         'MasterUsername': (basestring, False),
@@ -364,6 +418,7 @@ class DBCluster(AWSObject):
         'PreferredBackupWindow': (validate_backup_window, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'ReplicationSourceIdentifier': (basestring, False),
+        'ScalingConfiguration': (ScalingConfiguration, False),
         'SnapshotIdentifier': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'Tags': ((Tags, list), False),

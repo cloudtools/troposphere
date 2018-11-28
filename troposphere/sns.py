@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .validators import boolean
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -22,8 +23,12 @@ class SubscriptionResource(AWSObject):
     resource_type = "AWS::SNS::Subscription"
 
     props = {
-        'Endpoint': (basestring, True),
+        'DeliveryPolicy': (dict, False),
+        'Endpoint': (basestring, False),
+        'FilterPolicy': (dict, False),
         'Protocol': (basestring, True),
+        'RawMessageDelivery': (boolean, False),
+        'Region': (basestring, False),
         'TopicArn': (basestring, True),
     }
 

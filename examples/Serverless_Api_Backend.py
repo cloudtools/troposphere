@@ -45,7 +45,7 @@ t.add_resource(
         Handler='index.put',
         Runtime='nodejs4.3',
         CodeUri='s3://<bucket>/api_backend.zip',
-        Policies='AmazonDynamoDBReadOnlyAccess',
+        Policies='AmazonDynamoDBFullAccess',
         Environment=Environment(
             Variables={
                 'TABLE_NAME': Ref(simple_table)
@@ -67,7 +67,7 @@ t.add_resource(
         Handler='index.delete',
         Runtime='nodejs4.3',
         CodeUri='s3://<bucket>/api_backend.zip',
-        Policies='AmazonDynamoDBReadOnlyAccess',
+        Policies='AmazonDynamoDBFullAccess',
         Environment=Environment(
             Variables={
                 'TABLE_NAME': Ref(simple_table)

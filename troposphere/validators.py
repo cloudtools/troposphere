@@ -53,11 +53,11 @@ def integer_list_item(allowed_values):
     return integer_list_item_checker
 
 
-def floatingpoint(x):
+def double(x):
     try:
         float(x)
     except (ValueError, TypeError):
-        raise ValueError("%r is not a valid float" % x)
+        raise ValueError("%r is not a valid double" % x)
     else:
         return x
 
@@ -195,9 +195,11 @@ def iam_group_name(group_name):
 
 
 def mutually_exclusive(class_name, properties, conditionals):
+    from . import NoValue
+
     found_list = []
     for c in conditionals:
-        if c in properties:
+        if c in properties and not properties[c] == NoValue:
             found_list.append(c)
     seen = set(found_list)
     specified_count = len(seen)
@@ -287,8 +289,8 @@ def compliance_level(level):
 
 
 def operating_system(os):
-    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX',
-                'SUSE']
+    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'AMAZON_LINUX_2', 'UBUNTU',
+                'REDHAT_ENTERPRISE_LINUX', 'SUSE', 'CENTOS']
     if os not in valid_os:
         raise ValueError(
             'OperatingSystem must be one of: "%s"' % (
@@ -337,3 +339,57 @@ def vpn_tunnel_inside_cidr(cidr):
             ' A size /30 CIDR block from the 169.254.0.0/16 must be specified.'
             % cidr)
     return(cidr)
+
+
+def vpc_endpoint_type(endpoint_type):
+    valid_types = ['Interface', 'Gateway']
+    if endpoint_type not in valid_types:
+        raise ValueError(
+            'VpcEndpointType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return(endpoint_type)
+
+
+def scalable_dimension_type(scalable_dimension):
+    valid_values = ['autoscaling:autoScalingGroup:DesiredCapacity',
+                    'ecs:service:DesiredCount',
+                    'ec2:spot-fleet-request:TargetCapacity',
+                    'rds:cluster:ReadReplicaCount',
+                    'dynamodb:table:ReadCapacityUnits',
+                    'dynamodb:table:WriteCapacityUnits',
+                    'dynamodb:index:ReadCapacityUnits',
+                    'dynamodb:index:WriteCapacityUnits'
+                    ]
+    if scalable_dimension not in valid_values:
+        raise ValueError(
+            'ScalableDimension must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(scalable_dimension)
+
+
+def service_namespace_type(service_namespace):
+    valid_values = ['autoscaling', 'ecs', 'ec2', 'rds', 'dynamodb']
+    if service_namespace not in valid_values:
+        raise ValueError(
+            'ServiceNamespace must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(service_namespace)
+
+
+def statistic_type(statistic):
+    valid_values = ['Average', 'Minimum', 'Maximum',
+                    'SampleCount', 'Sum'
+                    ]
+    if statistic not in valid_values:
+        raise ValueError(
+            'Statistic must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(statistic)
