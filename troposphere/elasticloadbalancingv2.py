@@ -70,6 +70,7 @@ class Condition(AWSProperty):
         'Values': ([basestring], True)
     }
 
+
 class FixedResponseConfig(AWSProperty):
     props = {
         'ContentType': (basestring, False),
