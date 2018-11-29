@@ -30,6 +30,18 @@ def projection_type_validator(x):
     return x
 
 
+VALID_BILLING_MODES = ('PROVISIONED', 'PAY_PER_REQUEST')
+
+
+def validate_billing_mode(billing_mode):
+    """Validate billing mode for Table"""
+
+    if billing_mode not in VALID_BILLING_MODES:
+        raise ValueError("Table billing mode must be one of: %s" %
+                         ", ".join(VALID_BILLING_MODES))
+    return billing_mode
+
+
 class AttributeDefinition(AWSProperty):
     props = {
         "AttributeName": (basestring, True),
@@ -110,6 +122,7 @@ class Table(AWSObject):
 
     props = {
         'AttributeDefinitions': ([AttributeDefinition], True),
+        'BillingMode': (validate_billing_mode, False),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
         'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
