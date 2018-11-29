@@ -73,3 +73,12 @@ class Service(AWSObject):
         'HealthCheckCustomConfig': (HealthCheckCustomConfig, False),
         'Name': (basestring, False),
     }
+
+
+class HttpNamespace(AWSObject):
+    resource_type = "AWS::ServiceDiscovery::HttpNamespace"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+    }
