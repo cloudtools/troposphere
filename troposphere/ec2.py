@@ -943,7 +943,7 @@ class FleetLaunchTemplateConfigRequest(AWSProperty):
             FleetLaunchTemplateSpecificationRequest,
             False
         ),
-        'Overrides': (FleetLaunchTemplateOverridesRequest, False),
+        'Overrides': ([FleetLaunchTemplateOverridesRequest], False),
     }
 
 
@@ -978,7 +978,7 @@ class EC2Fleet(AWSObject):
         'OnDemandOptions': (OnDemandOptionsRequest, False),
         'ReplaceUnhealthyInstances': (boolean, False),
         'SpotOptions': (SpotOptionsRequest, False),
-        'TagSpecifications': [(TagSpecifications), False],
+        'TagSpecifications': ([TagSpecifications], False),
         'TargetCapacitySpecification': (TargetCapacitySpecificationRequest,
                                         False),
         'TerminateInstancesWithExpiration': (boolean, False),
