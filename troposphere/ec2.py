@@ -71,6 +71,7 @@ class EIP(AWSObject):
     props = {
         'InstanceId': (basestring, False),
         'Domain': (basestring, False),
+        'PublicIpv4Pool': (basestring, False),
     }
 
 
