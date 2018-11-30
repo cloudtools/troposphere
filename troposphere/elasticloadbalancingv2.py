@@ -78,7 +78,7 @@ class Action(AWSProperty):
         "FixedResponseConfig": (FixedResponseConfig, False),
         "Order": (integer, False),
         "RedirectConfig": (RedirectConfig, False),
-        "TargetGroupArn": (basestring, True),
+        "TargetGroupArn": (basestring, False),
         "Type": (basestring, True)
     }
 
