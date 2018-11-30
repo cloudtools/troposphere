@@ -143,6 +143,7 @@ class Function(AWSObject):
         'Handler': (basestring, True),
         'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
+        'Layers': ([basestring], False),
         'ReservedConcurrentExecutions': (positive_integer, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
@@ -200,4 +201,35 @@ class Version(AWSObject):
         'CodeSha256': (basestring, False),
         'Description': (basestring, False),
         'FunctionName': (basestring, True),
+    }
+
+
+class Content(AWSProperty):
+    props = {
+        'S3Bucket': (basestring, True),
+        'S3Key': (basestring, True),
+        'S3ObjectVersion': (basestring, False),
+    }
+
+
+class LayerVersion(AWSObject):
+    resource_type = "AWS::Lambda::LayerVersion"
+
+    props = {
+        'CompatibleRuntimes': (basestring, False),
+        'Content': (Content, True),
+        'Description': (basestring, False),
+        'LayerName': (basestring, False),
+        'LicenseInfo': (basestring, False),
+    }
+
+
+class LayerVersionPermission(AWSObject):
+    resource_type = "AWS::Lambda::LayerVersionPermission"
+
+    props = {
+        'Action': (basestring, True),
+        'LayerVersionArn': (basestring, True),
+        'OrganizationId': (basestring, False),
+        'Principal': (basestring, True),
     }
