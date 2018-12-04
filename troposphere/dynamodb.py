@@ -86,7 +86,7 @@ class GlobalSecondaryIndex(AWSProperty):
         "IndexName": (basestring, True),
         "KeySchema": ([KeySchema], True),
         "Projection": (Projection, True),
-        "ProvisionedThroughput": (ProvisionedThroughput, True)
+        "ProvisionedThroughput": (ProvisionedThroughput, False)
     }
 
 
@@ -128,7 +128,7 @@ class Table(AWSObject):
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
         'PointInTimeRecoverySpecification':
             (PointInTimeRecoverySpecification, False),
-        'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'ProvisionedThroughput': (ProvisionedThroughput, False),
         'SSESpecification': (SSESpecification, False),
         'StreamSpecification': (StreamSpecification, False),
         'TableName': (basestring, False),
