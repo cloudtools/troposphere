@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, double, integer_range, json_checker, positive_integer
 )
@@ -152,9 +152,10 @@ class StageDescription(AWSProperty):
         "MethodSettings": ([MethodSetting], False),
         "MetricsEnabled": (bool, False),
         "StageName": (basestring, False),
+        "Tags": ((Tags, list), False),
         "ThrottlingBurstLimit": (positive_integer, False),
         "ThrottlingRateLimit": (positive_integer, False),
-        "Variables": (dict, False)
+        "Variables": (dict, False),
     }
 
     def validate(self):
@@ -368,7 +369,8 @@ class Stage(AWSObject):
         "MethodSettings": ([MethodSetting], False),
         "RestApiId": (basestring, True),
         "StageName": (basestring, True),
-        "Variables": (dict, False)
+        "Tags": ((Tags, list), False),
+        "Variables": (dict, False),
     }
 
 
