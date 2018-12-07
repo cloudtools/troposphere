@@ -79,7 +79,7 @@ class OrganizationAggregationSource(AWSProperty):
     props = {
         'AllAwsRegions': (boolean, False),
         'AwsRegions': ([basestring], False),
-        'RoleARN': (basestring, True),
+        'RoleArn': (basestring, True),
     }
 
 
