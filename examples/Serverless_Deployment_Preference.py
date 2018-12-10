@@ -7,7 +7,8 @@ from troposphere.serverless import Function, DeploymentPreference
 t = Template()
 
 t.add_description(
-    "A function that uses the configured traffic shifting type for a canary deployment.")
+    "A function that uses the configured traffic shifting type "
+    "for a canary deployment.")
 
 t.add_transform('AWS::Serverless-2016-10-31')
 
