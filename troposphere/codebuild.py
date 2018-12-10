@@ -25,6 +25,7 @@ class SourceAuth(AWSProperty):
 
 class Artifacts(AWSProperty):
     props = {
+        'ArtifactIdentifier': (basestring, False),
         'EncryptionDisabled': (boolean, False),
         'Location': (basestring, False),
         'Name': (basestring, False),
@@ -77,6 +78,7 @@ class EnvironmentVariable(AWSProperty):
 
 class Environment(AWSProperty):
     props = {
+        'Certificate': (basestring, False),
         'ComputeType': (basestring, True),
         'EnvironmentVariables': ((list, [EnvironmentVariable]), False),
         'Image': (basestring, True),
@@ -120,6 +122,7 @@ class Source(AWSProperty):
         'InsecureSsl': (boolean, False),
         'Location': (basestring, False),
         'ReportBuildStatus': (boolean, False),
+        'SourceIdentifier': (basestring, False),
         'Type': (basestring, True),
     }
 
