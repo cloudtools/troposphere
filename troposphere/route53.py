@@ -11,7 +11,7 @@ VALID_RULETYPES = ('SYSTEM', 'FORWARD')
 
 
 def validate_ruletype(ruletype):
-    """Validate database Engine for DBInstance """
+    """Validate RuleType for ResolverRule."""
 
     if ruletype not in VALID_RULETYPES:
         raise ValueError("Rule type must be one of: %s" %
