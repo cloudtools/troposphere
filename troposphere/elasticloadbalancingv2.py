@@ -23,12 +23,60 @@ class Certificate(AWSProperty):
     }
 
 
+class AuthenticateCognitoConfig(AWSProperty):
+    props = {
+        'AuthenticationRequestExtraParams': (dict,False),
+        'OnUnauthenticatedRequest':(basestring,False),
+        'Scope':(basestring,False),
+        'SessionCookieName':(basestring,False),
+        'SessionTimeout':(integer, True),
+        'UserPoolArn':(basestring, True),
+        'UserPoolClientId':(basestring, True),
+        'UserPoolDomain':(basestring,True)
+    }
+
+class AuthenticateOidcConfig(AWSProperty):
+    props = {
+        'AuthenticationRequestExtraParams': (dict,False),
+        'AuthorizationEndpoint':(basestring,True),
+        'ClientId':(basestring,True),
+        'ClientSecret':(basestring,True),
+        'Issuer':(basestring,True),
+        'OnUnauthenticatedRequest':(basestring,False),
+        'Scope':(basestring,False),
+        'SessionCookieName':(basestring,False),
+        'SessionTimeout':(integer,False),
+        'TokenEndpoint':(basestring,True),
+        'UserInfoEndpoint':(basestring,True)
+    }
+
+class FixedResponseConfig(AWSProperty):
+    props = {
+        'ContentType':(basestring,False),
+        'MessageBody':(basestring,False),
+        'StatusCode':(basestring,True)
+    }
+
+class RedirectConfig(AWSProperty):
+    props = {
+        'Host':(basestring,False),
+        'Path':(basestring,False),
+        'Port':(integer,False),
+        'Protocol':(basestring,False),
+        'Query':(basestring,False),
+        'StatusCode':(basestring,True)
+    }
+
 class Action(AWSProperty):
     props = {
+        'AuthenticateCognitoConfig': (AuthenticateCognitoConfig, False),
+        'AuthenticateOidcConfig':(AuthenticateOidcConfig,False),
+        'FixedResponseConfig':(FixedResponseConfig,False),
+        'Order':(integer,False),
+        'RedirectConfig':(RedirectConfig,False),
         'TargetGroupArn': (basestring, True),
         'Type': (basestring, True)
     }
-
 
 class Condition(AWSProperty):
     props = {
