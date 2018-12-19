@@ -38,7 +38,7 @@ class AuthenticateCognitoConfig(AWSProperty):
 
 class AuthenticateOidcConfig(AWSProperty):
     props = {
-        'AuthenticationRequestExtraParams': (dict,False),
+        'AuthenticationRequestExtraParams': (dict, False),
         'AuthorizationEndpoint': (basestring, True),
         'ClientId': (basestring, True),
         'ClientSecret': (basestring, True),
