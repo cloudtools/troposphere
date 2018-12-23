@@ -973,8 +973,9 @@ class TransitGatewayRouteTablePropagation(AWSObject):
     props = {
         'TransitGatewayAttachmentId': (basestring, True),
         'TransitGatewayRouteTableId': (basestring, True),
+    }
 
-      
+
 class FleetLaunchTemplateSpecificationRequest(AWSProperty):
     props = {
         'LaunchTemplateId': (basestring, False),
