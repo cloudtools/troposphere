@@ -69,6 +69,7 @@ class Alarm(AWSObject):
         'AlarmDescription': (basestring, False),
         'AlarmName': (basestring, False),
         'ComparisonOperator': (basestring, True),
+        'DatapointsToAlarm': (positive_integer, False),
         'Dimensions': ([MetricDimension], False),
         'EvaluateLowSampleCountPercentile': (basestring, False),
         'EvaluationPeriods': (positive_integer, True),
@@ -83,7 +84,6 @@ class Alarm(AWSObject):
         'Threshold': (double, True),
         'TreatMissingData': (basestring, False),
         'Unit': (basestring, False),
-        'DatapointsToAlarm': (positive_integer, False),
     }
 
     def validate(self):
