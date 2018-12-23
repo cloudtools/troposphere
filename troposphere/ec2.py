@@ -71,6 +71,7 @@ class EIP(AWSObject):
     props = {
         'InstanceId': (basestring, False),
         'Domain': (basestring, False),
+        'PublicIpv4Pool': (basestring, False),
     }
 
 
@@ -972,4 +973,73 @@ class TransitGatewayRouteTablePropagation(AWSObject):
     props = {
         'TransitGatewayAttachmentId': (basestring, True),
         'TransitGatewayRouteTableId': (basestring, True),
+
+      
+class FleetLaunchTemplateSpecificationRequest(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, False),
+    }
+
+
+class FleetLaunchTemplateOverridesRequest(AWSProperty):
+    props = {
+        'AvailabilityZone': (basestring, False),
+        'InstanceType': (basestring, False),
+        'MaxPrice': (basestring, False),
+        'Priority': (double, False),
+        'SubnetId': (basestring, False),
+        'WeightedCapacity': (double, False),
+    }
+
+
+class FleetLaunchTemplateConfigRequest(AWSProperty):
+    props = {
+        'LaunchTemplateSpecification': (
+            FleetLaunchTemplateSpecificationRequest,
+            False
+        ),
+        'Overrides': ([FleetLaunchTemplateOverridesRequest], False),
+    }
+
+
+class OnDemandOptionsRequest(AWSProperty):
+    props = {
+        'AllocationStrategy': (basestring, False),
+    }
+
+
+class SpotOptionsRequest(AWSProperty):
+    props = {
+        'AllocationStrategy': (basestring, False),
+        'InstanceInterruptionBehavior': (basestring, False),
+        'InstancePoolsToUseCount': (integer, False),
+    }
+
+
+class TargetCapacitySpecificationRequest(AWSProperty):
+    props = {
+        'DefaultTargetCapacityType': (basestring, False),
+        'OnDemandTargetCapacity': (integer, False),
+        'SpotTargetCapacity': (integer, False),
+        'TotalTargetCapacity': (integer, False),
+    }
+
+
+class EC2Fleet(AWSObject):
+    resource_type = "AWS::EC2::EC2Fleet"
+    props = {
+        'ExcessCapacityTerminationPolicy': (basestring, False),
+        'LaunchTemplateConfigs': (FleetLaunchTemplateConfigRequest, True),
+        'OnDemandOptions': (OnDemandOptionsRequest, False),
+        'ReplaceUnhealthyInstances': (boolean, False),
+        'SpotOptions': (SpotOptionsRequest, False),
+        'TagSpecifications': ([TagSpecifications], False),
+        'TargetCapacitySpecification': (TargetCapacitySpecificationRequest,
+                                        False),
+        'TerminateInstancesWithExpiration': (boolean, False),
+        'Type': (basestring, False),
+        'ValidFrom': (integer, False),
+        'ValidUntil': (integer, False),
     }

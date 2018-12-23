@@ -1,8 +1,15 @@
 from troposphere import Template
-from troposphere.codedeploy import AutoRollbackConfiguration, \
-    DeploymentStyle, DeploymentGroup, ElbInfoList, LoadBalancerInfo, \
-    OnPremisesInstanceTagFilters
-
+from troposphere.codedeploy import (
+    AutoRollbackConfiguration,
+    DeploymentGroup,
+    DeploymentStyle,
+    Ec2TagFilters,
+    Ec2TagSet,
+    Ec2TagSetListObject,
+    ElbInfoList,
+    LoadBalancerInfo,
+    OnPremisesInstanceTagFilters,
+)
 
 template = Template()
 template.add_version('2010-09-09')
@@ -34,6 +41,39 @@ deployment_group = DeploymentGroup(
     ServiceRoleArn='arn:aws:iam::0123456789:role/codedeploy-role'
 )
 template.add_resource(deployment_group)
+
+# EC2 instances
+deployment_group_ec2 = DeploymentGroup(
+    "DemoDeploymentGroupEC2Instances",
+    DeploymentGroupName='DemoApplicationEc2Instances',
+    ApplicationName='DemoApplicationEc2Instances',
+    AutoRollbackConfiguration=auto_rollback_configuration,
+    DeploymentStyle=DeploymentStyle(
+        DeploymentOption='WITHOUT_TRAFFIC_CONTROL'
+    ),
+    ServiceRoleArn='arn:aws:iam::0123456789:role/codedeploy-role',
+    Ec2TagSet=Ec2TagSet(
+        Ec2TagSetList=[
+            Ec2TagSetListObject(
+                Ec2TagGroup=[
+                    Ec2TagFilters(
+                        Key="CodeDeploy",
+                        Type="KEY_AND_VALUE",
+                        Value="activated"
+                    ),
+                    Ec2TagFilters(
+                        Key="Environment",
+                        Type="KEY_AND_VALUE",
+                        Value="dev"
+                    ),
+                ]
+            )
+        ]
+    )
+)
+
+template.add_resource(deployment_group_ec2)
+
 
 # On premises
 deployment_group_on_premises = DeploymentGroup(

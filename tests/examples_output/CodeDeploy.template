@@ -24,6 +24,41 @@
             },
             "Type": "AWS::CodeDeploy::DeploymentGroup"
         },
+        "DemoDeploymentGroupEC2Instances": {
+            "Properties": {
+                "ApplicationName": "DemoApplicationEc2Instances",
+                "AutoRollbackConfiguration": {
+                    "Enabled": true,
+                    "Events": [
+                        "DEPLOYMENT_FAILURE"
+                    ]
+                },
+                "DeploymentGroupName": "DemoApplicationEc2Instances",
+                "DeploymentStyle": {
+                    "DeploymentOption": "WITHOUT_TRAFFIC_CONTROL"
+                },
+                "Ec2TagSet": {
+                    "Ec2TagSetList": [
+                        {
+                            "Ec2TagGroup": [
+                                {
+                                    "Key": "CodeDeploy",
+                                    "Type": "KEY_AND_VALUE",
+                                    "Value": "activated"
+                                },
+                                {
+                                    "Key": "Environment",
+                                    "Type": "KEY_AND_VALUE",
+                                    "Value": "dev"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "ServiceRoleArn": "arn:aws:iam::0123456789:role/codedeploy-role"
+            },
+            "Type": "AWS::CodeDeploy::DeploymentGroup"
+        },
         "DemoDeploymentGroupOnPremises": {
             "Properties": {
                 "ApplicationName": "DemoApplicationOnPremises",

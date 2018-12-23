@@ -1,7 +1,33 @@
+import re
 from . import AWSObject, AWSProperty, Join, Tags
 from .validators import positive_integer
 
 MEMORY_VALUES = [x for x in range(128, 3009, 64)]
+RESERVED_ENVIRONMENT_VARIABLES = [
+    'AWS_ACCESS_KEY',
+    'AWS_ACCESS_KEY_ID',
+    'AWS_DEFAULT_REGION',
+    'AWS_EXECUTION_ENV',
+    'AWS_LAMBDA_FUNCTION_MEMORY_SIZE',
+    'AWS_LAMBDA_FUNCTION_NAME',
+    'AWS_LAMBDA_FUNCTION_VERSION',
+    'AWS_LAMBDA_LOG_GROUP_NAME',
+    'AWS_LAMBDA_LOG_STREAM_NAME',
+    'AWS_REGION',
+    'AWS_SECRET_ACCESS_KEY',
+    'AWS_SECRET_KEY',
+    'AWS_SECURITY_TOKEN',
+    'AWS_SESSION_TOKEN',
+    'LAMBDA_RUNTIME_DIR',
+    'LAMBDA_TASK_ROOT',
+    'LANG',
+    'LD_LIBRARY_PATH',
+    'NODE_PATH',
+    'PATH',
+    'PYTHONPATH',
+    'TZ'
+]
+ENVIRONMENT_VARIABLES_NAME_PATTERN = r'[a-zA-Z][a-zA-Z0-9_]+'
 
 
 def validate_memory_size(memory_value):
@@ -14,6 +40,18 @@ def validate_memory_size(memory_value):
         raise ValueError("Lambda Function memory size must be one of:\n %s" %
                          ", ".join(str(mb) for mb in MEMORY_VALUES))
     return memory_value
+
+
+def validate_variables_name(variables):
+    for name in variables:
+        if name in RESERVED_ENVIRONMENT_VARIABLES:
+            raise ValueError("Lambda Function environment variables names"
+                             " can't be none of:\n %s" %
+                             ", ".join(RESERVED_ENVIRONMENT_VARIABLES))
+        elif not re.match(ENVIRONMENT_VARIABLES_NAME_PATTERN, name):
+            raise ValueError("Invalid environment variable name: %s" % name)
+
+    return variables
 
 
 class Code(AWSProperty):
@@ -120,7 +158,7 @@ class DeadLetterConfig(AWSProperty):
 class Environment(AWSProperty):
 
     props = {
-        'Variables': (dict, True),
+        'Variables': (validate_variables_name, True),
     }
 
 
@@ -143,6 +181,7 @@ class Function(AWSObject):
         'Handler': (basestring, True),
         'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
+        'Layers': ([basestring], False),
         'ReservedConcurrentExecutions': (positive_integer, False),
         'Role': (basestring, True),
         'Runtime': (basestring, True),
@@ -200,4 +239,35 @@ class Version(AWSObject):
         'CodeSha256': (basestring, False),
         'Description': (basestring, False),
         'FunctionName': (basestring, True),
+    }
+
+
+class Content(AWSProperty):
+    props = {
+        'S3Bucket': (basestring, True),
+        'S3Key': (basestring, True),
+        'S3ObjectVersion': (basestring, False),
+    }
+
+
+class LayerVersion(AWSObject):
+    resource_type = "AWS::Lambda::LayerVersion"
+
+    props = {
+        'CompatibleRuntimes': ([basestring], False),
+        'Content': (Content, True),
+        'Description': (basestring, False),
+        'LayerName': (basestring, False),
+        'LicenseInfo': (basestring, False),
+    }
+
+
+class LayerVersionPermission(AWSObject):
+    resource_type = "AWS::Lambda::LayerVersionPermission"
+
+    props = {
+        'Action': (basestring, True),
+        'LayerVersionArn': (basestring, True),
+        'OrganizationId': (basestring, False),
+        'Principal': (basestring, True),
     }

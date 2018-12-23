@@ -47,6 +47,7 @@ class Topic(AWSObject):
 
     props = {
         'DisplayName': (basestring, False),
+        'KmsMasterKeyId': (basestring, False),
         'Subscription': ([Subscription], False),
         'TopicName': (basestring, False),
     }
