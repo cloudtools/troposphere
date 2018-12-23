@@ -83,6 +83,7 @@ class Alarm(AWSObject):
         'Threshold': (double, True),
         'TreatMissingData': (basestring, False),
         'Unit': (basestring, False),
+        'DatapointsToAlarm': (positive_integer, False),
     }
 
     def validate(self):
