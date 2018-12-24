@@ -47,6 +47,23 @@ class S3Location(AWSProperty):
     }
 
 
+class Hooks(AWSProperty):
+    props = {
+        "PreTraffic": (basestring, False),
+        "PostTraffic": (basestring, False)
+
+    }
+
+
+class DeploymentPreference(AWSProperty):
+    props = {
+        "Type": (basestring, True),
+        "Alarms": (list, False),
+        "Hooks": (Hooks, False),
+        "Enabled": (bool, False)
+    }
+
+
 class Function(AWSObject):
     resource_type = "AWS::Serverless::Function"
 
@@ -67,7 +84,8 @@ class Function(AWSObject):
         'Tracing': (basestring, False),
         'KmsKeyArn': (basestring, False),
         'DeadLetterQueue': (DeadLetterQueue, False),
-        'AutoPublishAlias': (basestring, False)
+        'AutoPublishAlias': (basestring, False),
+        'DeploymentPreference': (DeploymentPreference, False)
     }
 
 
