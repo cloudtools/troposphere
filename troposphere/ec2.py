@@ -903,7 +903,7 @@ class LaunchTemplateData(AWSProperty):
         'ImageId': (basestring, True),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceMarketOptions': (InstanceMarketOptions, False),
-        'InstanceType': (basestring, True),
+        'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (Monitoring, False),
