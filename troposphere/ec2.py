@@ -245,7 +245,7 @@ class ElasticInferenceAccelerator(AWSProperty):
 
 class LicenseSpecification(AWSProperty):
     props = {
-        'LicenseConfigurationArn': (basestring, False),
+        'LicenseConfigurationArn': (basestring, True),
     }
 
 
