@@ -783,6 +783,12 @@ class ClassicLoadBalancer(AWSProperty):
     }
 
 
+class ClassicLoadBalancersConfig(AWSProperty):
+    props = {
+        'ClassicLoadBalancers': ([ClassicLoadBalancer], True)
+    }
+
+
 class TargetGroup(AWSProperty):
     props = {
         'Arn': (basestring, True)
@@ -791,7 +797,7 @@ class TargetGroup(AWSProperty):
 
 class LoadBalancersConfig(AWSProperty):
     props = {
-        'ClassicLoadBalancersConfig': ([ClassicLoadBalancer], False),
+        'ClassicLoadBalancersConfig': ([ClassicLoadBalancersConfig], False),
         'TargetGroupsConfig': (TargetGroup, False)
     }
 
