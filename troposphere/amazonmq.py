@@ -68,3 +68,12 @@ class Configuration(AWSObject):
         'EngineVersion': (basestring, True),
         'Name': (basestring, True),
     }
+
+
+class ConfigurationAssociation(AWSObject):
+    resource_type = "AWS::AmazonMQ::ConfigurationAssociation"
+
+    props = {
+        'Broker': (basestring, True),
+        'Configuration': (ConfigurationId, True),
+    }
