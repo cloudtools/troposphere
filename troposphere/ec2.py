@@ -18,6 +18,20 @@ except ImportError:
     policytypes = dict,
 
 
+VALID_ELASTICINFERENCEACCELERATOR_TYPES = ('eia1.medium', 'eia1.large',
+                                           'eia1.xlarge')
+
+
+def validate_elasticinferenceaccelerator_type(
+        elasticinferenceaccelerator_type):
+    """Validate ElasticInferenceAccelerator for Instance"""
+
+    if elasticinferenceaccelerator_type not in VALID_ELASTICINFERENCEACCELERATOR_TYPES:  # NOQA
+        raise ValueError("Elastic Inference Accelerator Type must be one of: %s" %  # NOQA
+                         ", ".join(VALID_ELASTICINFERENCEACCELERATOR_TYPES))
+    return elasticinferenceaccelerator_type
+
+
 class Tag(AWSProperty):
     props = {
         'Key': (basestring, True),
@@ -223,6 +237,18 @@ class Host(AWSObject):
     }
 
 
+class ElasticInferenceAccelerator(AWSProperty):
+    props = {
+        'Type': (validate_elasticinferenceaccelerator_type, True),
+    }
+
+
+class LicenseSpecification(AWSProperty):
+    props = {
+        'LicenseConfigurationArn': (basestring, False),
+    }
+
+
 class Instance(AWSObject):
     resource_type = "AWS::EC2::Instance"
 
@@ -234,6 +260,7 @@ class Instance(AWSObject):
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
+        'ElasticInferenceAccelerators': ([ElasticInferenceAccelerator], False),
         'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, False),
@@ -244,6 +271,7 @@ class Instance(AWSObject):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'LaunchTemplate': (LaunchTemplateSpecification, False),
+        'LicenseSpecifications': ([LicenseSpecification], False),
         'Monitoring': (boolean, False),
         'NetworkInterfaces': ([NetworkInterfaceProperty], False),
         'PlacementGroupName': (basestring, False),
