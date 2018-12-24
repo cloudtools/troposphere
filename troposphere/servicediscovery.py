@@ -60,6 +60,7 @@ class DnsConfig(AWSProperty):
     props = {
         'DnsRecords': ([DnsRecord], True),
         'NamespaceId': (basestring, True),
+        'RoutingPolicy': (basestring, False),
     }
 
 
@@ -72,4 +73,14 @@ class Service(AWSObject):
         'HealthCheckConfig': (HealthCheckConfig, False),
         'HealthCheckCustomConfig': (HealthCheckCustomConfig, False),
         'Name': (basestring, False),
+        'NamespaceId': (basestring, False),
+    }
+
+
+class HttpNamespace(AWSObject):
+    resource_type = "AWS::ServiceDiscovery::HttpNamespace"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
     }
