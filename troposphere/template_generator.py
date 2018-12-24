@@ -271,6 +271,8 @@ class TemplateGenerator(Template):
             if isinstance(args, Ref):
                 # use the returned ref instead of creating a new object
                 return args
+            if isinstance(args, AWSHelperFn):
+                return self._convert_definition(kwargs)
             assert isinstance(args, Mapping)
             return cls(title=ref, **args)
 
