@@ -24,3 +24,12 @@ class Stream(AWSObject):
         'StreamEncryption': (StreamEncryption, False),
         'Tags': ((Tags, list), False),
     }
+
+
+class StreamConsumer(AWSObject):
+    resource_type = "AWS::Kinesis::StreamConsumer"
+
+    props = {
+        'ConsumerName': (basestring, True),
+        'StreamARN': (basestring, True),
+    }

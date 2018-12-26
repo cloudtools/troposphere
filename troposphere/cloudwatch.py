@@ -5,13 +5,58 @@
 
 from . import AWSObject, AWSProperty
 from .validators import (boolean, double, exactly_one, json_checker,
-                         positive_integer)
+                         positive_integer, integer)
+
+
+VALID_UNITS = ('Seconds', 'Microseconds', 'Milliseconds', 'Bytes', 'Kilobytes',
+               'Megabytes', 'Gigabytes', 'Terabytes', 'Bits', 'Kilobits',
+               'Megabits', 'Gigabits', 'Terabits', 'Percent', 'Count',
+               'Bytes/Second', 'Kilobytes/Second', 'Megabytes/Second',
+               'Gigabytes/Second', 'Terabytes/Second', 'Bits/Second',
+               'Kilobits/Second', 'Megabits/Second', 'Gigabits/Second',
+               'Terabits/Second', 'Count/Second', 'None')
+
+
+def validate_unit(unit):
+    """Validate Units"""
+
+    if unit not in VALID_UNITS:
+        raise ValueError("MetricStat Unit must be one of: %s" %
+                         ", ".join(VALID_UNITS))
+    return unit
 
 
 class MetricDimension(AWSProperty):
     props = {
         'Name': (basestring, True),
         'Value': (basestring, True),
+    }
+
+
+class Metric(AWSProperty):
+    props = {
+        'Dimensions': ([MetricDimension], False),
+        'MetricName': (basestring, False),
+        'Namespace': (basestring, False),
+    }
+
+
+class MetricStat(AWSProperty):
+    props = {
+        'Metric': (Metric, True),
+        'Period': (integer, True),
+        'Stat': (basestring, True),
+        'Unit': (validate_unit, False),
+    }
+
+
+class MetricDataQuery(AWSProperty):
+    props = {
+        'Expression': (basestring, False),
+        'Id': (basestring, True),
+        'Label': (basestring, False),
+        'MetricStat': (MetricStat, False),
+        'ReturnData': (boolean, False),
     }
 
 
@@ -24,15 +69,17 @@ class Alarm(AWSObject):
         'AlarmDescription': (basestring, False),
         'AlarmName': (basestring, False),
         'ComparisonOperator': (basestring, True),
+        'DatapointsToAlarm': (positive_integer, False),
         'Dimensions': ([MetricDimension], False),
         'EvaluateLowSampleCountPercentile': (basestring, False),
         'EvaluationPeriods': (positive_integer, True),
         'ExtendedStatistic': (basestring, False),
         'InsufficientDataActions': ([basestring], False),
-        'MetricName': (basestring, True),
-        'Namespace': (basestring, True),
+        'MetricName': (basestring, False),
+        'Metrics': ([MetricDataQuery], False),
+        'Namespace': (basestring, False),
         'OKActions': ([basestring], False),
-        'Period': (positive_integer, True),
+        'Period': (positive_integer, False),
         'Statistic': (basestring, False),
         'Threshold': (double, True),
         'TreatMissingData': (basestring, False),

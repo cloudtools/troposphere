@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, AWSHelperFn, If, Tags
 from .validators import boolean
 
 
@@ -27,6 +27,14 @@ def projection_type_validator(x):
     if x not in valid_types:
         raise ValueError("ProjectionType must be one of: %s" %
                          ", ".join(valid_types))
+    return x
+
+
+def billing_mode_validator(x):
+    valid_modes = ['PROVISIONED', 'PAY_PER_REQUEST']
+    if x not in valid_modes:
+        raise ValueError("Table billing mode must be one of: %s" %
+                         ", ".join(valid_modes))
     return x
 
 
@@ -74,7 +82,7 @@ class GlobalSecondaryIndex(AWSProperty):
         "IndexName": (basestring, True),
         "KeySchema": ([KeySchema], True),
         "Projection": (Projection, True),
-        "ProvisionedThroughput": (ProvisionedThroughput, True)
+        "ProvisionedThroughput": (ProvisionedThroughput, False)
     }
 
 
@@ -93,16 +101,16 @@ class PointInTimeRecoverySpecification(AWSProperty):
 
 
 class StreamSpecification(AWSProperty):
-        props = {
-            'StreamViewType': (basestring, True),
-        }
+    props = {
+        'StreamViewType': (basestring, True),
+    }
 
 
 class TimeToLiveSpecification(AWSProperty):
-        props = {
-            'AttributeName': (basestring, True),
-            'Enabled': (boolean, True),
-        }
+    props = {
+        'AttributeName': (basestring, True),
+        'Enabled': (boolean, True),
+    }
 
 
 class Table(AWSObject):
@@ -110,15 +118,54 @@ class Table(AWSObject):
 
     props = {
         'AttributeDefinitions': ([AttributeDefinition], True),
+        'BillingMode': (billing_mode_validator, False),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
         'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
         'PointInTimeRecoverySpecification':
             (PointInTimeRecoverySpecification, False),
-        'ProvisionedThroughput': (ProvisionedThroughput, True),
+        'ProvisionedThroughput': (ProvisionedThroughput, False),
         'SSESpecification': (SSESpecification, False),
         'StreamSpecification': (StreamSpecification, False),
         'TableName': (basestring, False),
         'Tags': (Tags, False),
         'TimeToLiveSpecification': (TimeToLiveSpecification, False),
     }
+
+    def validate(self):
+        billing_mode = self.properties.get('BillingMode', 'PROVISIONED')
+        indexes = self.properties.get('GlobalSecondaryIndexes', [])
+        tput_props = [self.properties]
+        tput_props.extend([x.properties for x in indexes])
+
+        def check_if_all(name, props):
+            validated = []
+            for prop in props:
+                is_helper = isinstance(prop.get(name), AWSHelperFn)
+                validated.append(name in prop or is_helper)
+            return all(validated)
+
+        def check_any(name, props):
+            validated = []
+            for prop in props:
+                is_helper = isinstance(prop.get(name), AWSHelperFn)
+                validated.append(name in prop and not is_helper)
+            return any(validated)
+
+        if isinstance(billing_mode, If):
+            if check_any('ProvisionedThroughput', tput_props):
+                raise ValueError(
+                    'Table billing mode is per-request. '
+                    'ProvisionedThroughput property is mutually exclusive')
+            return
+
+        if billing_mode == 'PROVISIONED':
+            if not check_if_all('ProvisionedThroughput', tput_props):
+                raise ValueError(
+                    'Table billing mode is provisioned. '
+                    'ProvisionedThroughput required if available')
+        elif billing_mode == 'PAY_PER_REQUEST':
+            if check_any('ProvisionedThroughput', tput_props):
+                raise ValueError(
+                    'Table billing mode is per-request. '
+                    'ProvisionedThroughput property is mutually exclusive')

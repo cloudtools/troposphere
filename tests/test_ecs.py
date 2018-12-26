@@ -245,7 +245,9 @@ class TestECS(unittest.TestCase):
     def test_docker_volume_configuration(self):
         docker_volume_configuration = ecs.DockerVolumeConfiguration(
             Autoprovision=True,
-            Scope="task"
+            Scope="task",
+            Labels=dict(label="ok"),
+            DriverOpts=dict(option="ok")
         )
         task_definition = ecs.TaskDefinition(
             "mytaskdef",

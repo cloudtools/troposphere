@@ -8,6 +8,44 @@ from .validators import (boolean, double, integer, scalable_dimension_type,
                          service_namespace_type, statistic_type)
 
 
+VALID_PREDICTIVESCALINGMAXCAPACITYBEHAVIOR = (
+    'SetForecastCapacityToMaxCapacity',
+    'SetMaxCapacityToForecastCapacity',
+    'SetMaxCapacityAboveForecastCapacity',
+)
+VALID_PREDICTIVESCALINGMODE = ('ForecastAndScale')
+VALID_SCALINGPOLICYUPDATEBEHAVIOR = ('KeepExternalPolicies',
+                                     'ReplaceExternalPolicies')
+
+
+def validate_predictivescalingmaxcapacitybehavior(
+        predictivescalingmaxcapacitybehavior):
+    """Validate PredictiveScalingMaxCapacityBehavior for ScalingInstruction"""  # noqa
+
+    if predictivescalingmaxcapacitybehavior not in VALID_PREDICTIVESCALINGMAXCAPACITYBEHAVIOR:  # noqa
+        raise ValueError("ScalingInstruction PredictiveScalingMaxCapacityBehavior must be one of: %s" %  # noqa
+                         ", ".join(VALID_PREDICTIVESCALINGMAXCAPACITYBEHAVIOR))
+    return predictivescalingmaxcapacitybehavior
+
+
+def validate_predictivescalingmode(predictivescalingmode):
+    """Validate PredictiveScalingMode for ScalingInstruction"""
+
+    if predictivescalingmode not in VALID_PREDICTIVESCALINGMODE:
+        raise ValueError("ScalingInstruction PredictiveScalingMode must be one of: %s" %  # noqa
+                         ", ".join(VALID_PREDICTIVESCALINGMODE))
+    return predictivescalingmode
+
+
+def validate_scalingpolicyupdatebehavior(scalingpolicyupdatebehavior):
+    """Validate ScalingPolicyUpdateBehavior for ScalingInstruction"""
+
+    if scalingpolicyupdatebehavior not in VALID_SCALINGPOLICYUPDATEBEHAVIOR:
+        raise ValueError("ScalingInstruction ScalingPolicyUpdateBehavior must be one of: %s" %  # noqa
+                         ", ".join(VALID_SCALINGPOLICYUPDATEBEHAVIOR))
+    return scalingpolicyupdatebehavior
+
+
 class TagFilter(AWSProperty):
     props = {
         'Values': ([basestring], False),
@@ -64,17 +102,42 @@ class TargetTrackingConfiguration(AWSProperty):
     }
 
 
+class CustomizedLoadMetricSpecification(AWSObject):
+    props = {
+        'Dimensions': ([MetricDimension], False),
+        'MetricName': (basestring, True),
+        'Namespace': (basestring, True),
+        'Statistic': (basestring, True),
+        'Unit': (basestring, False),
+    }
+
+
+class PredefinedLoadMetricSpecification(AWSObject):
+    props = {
+        'PredefinedLoadMetricType': (basestring, True),
+        'ResourceLabel': (basestring, False),
+    }
+
+
 class ScalingInstruction(AWSProperty):
     props = {
-        'ResourceId': (basestring, True),
-        'ServiceNamespace': (service_namespace_type, True),
-        'ScalableDimension': (scalable_dimension_type, True),
+        'CustomizedLoadMetricSpecification': (CustomizedLoadMetricSpecification, False),  # NOQA
+        'DisableDynamicScaling': (boolean, False),
+        'MaxCapacity': (integer, True),
         'MinCapacity': (integer, True),
+        'PredefinedLoadMetricSpecification': (PredefinedLoadMetricSpecification, False),  # NOQA
+        'PredictiveScalingMaxCapacityBehavior': (validate_predictivescalingmaxcapacitybehavior, False),  # NOQA
+        'PredictiveScalingMaxCapacityBuffer': (integer, False),
+        'PredictiveScalingMode': (validate_predictivescalingmode, False),
+        'ResourceId': (basestring, True),
+        'ScalableDimension': (scalable_dimension_type, True),
+        'ScalingPolicyUpdateBehavior': (validate_scalingpolicyupdatebehavior, False),  # NOQA
+        'ScheduledActionBufferTime': (integer, False),
+        'ServiceNamespace': (service_namespace_type, True),
         'TargetTrackingConfigurations': (
             TargetTrackingConfiguration,
             True
         ),
-        'MaxCapacity': (integer, True)
     }
 
 

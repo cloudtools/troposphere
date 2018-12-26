@@ -1,6 +1,6 @@
 import unittest
 from troposphere import GetAtt, Template, Join, Ref
-from troposphere.awslambda import Code, Function
+from troposphere.awslambda import Code, Function, Environment
 
 
 class TestAWSLambda(unittest.TestCase):
@@ -64,6 +64,14 @@ class TestAWSLambda(unittest.TestCase):
         for z in negative_tests:
             with self.assertRaises(ValueError):
                 Code.check_zip_file(z)
+
+    def test_environment_variable_invalid_name(self):
+        for var in ['1', '2var', '_var', '/var']:
+            with self.assertRaises(ValueError) as context:
+                Environment(Variables={var: 'value'})
+
+            self.assertTrue('Invalid environment variable name: %s' % var
+                            in context.exception)
 
 
 if __name__ == '__main__':

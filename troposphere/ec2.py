@@ -18,6 +18,20 @@ except ImportError:
     policytypes = dict,
 
 
+VALID_ELASTICINFERENCEACCELERATOR_TYPES = ('eia1.medium', 'eia1.large',
+                                           'eia1.xlarge')
+
+
+def validate_elasticinferenceaccelerator_type(
+        elasticinferenceaccelerator_type):
+    """Validate ElasticInferenceAccelerator for Instance"""
+
+    if elasticinferenceaccelerator_type not in VALID_ELASTICINFERENCEACCELERATOR_TYPES:  # NOQA
+        raise ValueError("Elastic Inference Accelerator Type must be one of: %s" %  # NOQA
+                         ", ".join(VALID_ELASTICINFERENCEACCELERATOR_TYPES))
+    return elasticinferenceaccelerator_type
+
+
 class Tag(AWSProperty):
     props = {
         'Key': (basestring, True),
@@ -71,6 +85,7 @@ class EIP(AWSObject):
     props = {
         'InstanceId': (basestring, False),
         'Domain': (basestring, False),
+        'PublicIpv4Pool': (basestring, False),
     }
 
 
@@ -222,6 +237,18 @@ class Host(AWSObject):
     }
 
 
+class ElasticInferenceAccelerator(AWSProperty):
+    props = {
+        'Type': (validate_elasticinferenceaccelerator_type, True),
+    }
+
+
+class LicenseSpecification(AWSProperty):
+    props = {
+        'LicenseConfigurationArn': (basestring, True),
+    }
+
+
 class Instance(AWSObject):
     resource_type = "AWS::EC2::Instance"
 
@@ -233,6 +260,7 @@ class Instance(AWSObject):
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
+        'ElasticInferenceAccelerators': ([ElasticInferenceAccelerator], False),
         'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, False),
@@ -243,6 +271,7 @@ class Instance(AWSObject):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'LaunchTemplate': (LaunchTemplateSpecification, False),
+        'LicenseSpecifications': ([LicenseSpecification], False),
         'Monitoring': (boolean, False),
         'NetworkInterfaces': ([NetworkInterfaceProperty], False),
         'PlacementGroupName': (basestring, False),
@@ -782,6 +811,12 @@ class ClassicLoadBalancer(AWSProperty):
     }
 
 
+class ClassicLoadBalancersConfig(AWSProperty):
+    props = {
+        'ClassicLoadBalancers': ([ClassicLoadBalancer], True)
+    }
+
+
 class TargetGroup(AWSProperty):
     props = {
         'Arn': (basestring, True)
@@ -790,7 +825,7 @@ class TargetGroup(AWSProperty):
 
 class LoadBalancersConfig(AWSProperty):
     props = {
-        'ClassicLoadBalancersConfig': ([ClassicLoadBalancer], False),
+        'ClassicLoadBalancersConfig': ([ClassicLoadBalancersConfig], False),
         'TargetGroupsConfig': (TargetGroup, False)
     }
 
@@ -896,7 +931,7 @@ class LaunchTemplateData(AWSProperty):
         'ImageId': (basestring, True),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceMarketOptions': (InstanceMarketOptions, False),
-        'InstanceType': (basestring, True),
+        'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'Monitoring': (Monitoring, False),
@@ -915,4 +950,131 @@ class LaunchTemplate(AWSObject):
     props = {
         'LaunchTemplateData': (LaunchTemplateData, False),
         'LaunchTemplateName': (basestring, False),
+    }
+
+
+class TransitGateway(AWSObject):
+    resource_type = "AWS::EC2::TransitGateway"
+    props = {
+        'AmazonSideAsn': (integer, False),
+        'AutoAcceptSharedAttachments': (basestring, False),
+        'DefaultRouteTableAssociation': (basestring, False),
+        'DefaultRouteTablePropagation': (basestring, False),
+        'DnsSupport': (basestring, False),
+        'Tags': ((Tags, list), False),
+        'VpnEcmpSupport': (basestring, False),
+    }
+
+
+class TransitGatewayAttachment(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayAttachment"
+    props = {
+        'SubnetIds': ([basestring], True),
+        'Tags': ((Tags, list), False),
+        'TransitGatewayId': (basestring, True),
+        'VpcId': (basestring, True),
+    }
+
+
+class TransitGatewayRoute(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRoute"
+    props = {
+        'Blackhole': (boolean, False),
+        'DestinationCidrBlock': (basestring, False),
+        'TransitGatewayAttachmentId': (basestring, False),
+        'TransitGatewayRouteTableId': (basestring, True),
+    }
+
+
+class TransitGatewayRouteTable(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRouteTable"
+    props = {
+        'Tags': ((Tags, list), False),
+        'TransitGatewayId': (basestring, True),
+    }
+
+
+class TransitGatewayRouteTableAssociation(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRouteTableAssociation"
+    props = {
+        'TransitGatewayAttachmentId': (basestring, True),
+        'TransitGatewayRouteTableId': (basestring, True),
+    }
+
+
+class TransitGatewayRouteTablePropagation(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayRouteTablePropagation"
+    props = {
+        'TransitGatewayAttachmentId': (basestring, True),
+        'TransitGatewayRouteTableId': (basestring, True),
+    }
+
+
+class FleetLaunchTemplateSpecificationRequest(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, False),
+    }
+
+
+class FleetLaunchTemplateOverridesRequest(AWSProperty):
+    props = {
+        'AvailabilityZone': (basestring, False),
+        'InstanceType': (basestring, False),
+        'MaxPrice': (basestring, False),
+        'Priority': (double, False),
+        'SubnetId': (basestring, False),
+        'WeightedCapacity': (double, False),
+    }
+
+
+class FleetLaunchTemplateConfigRequest(AWSProperty):
+    props = {
+        'LaunchTemplateSpecification': (
+            FleetLaunchTemplateSpecificationRequest,
+            False
+        ),
+        'Overrides': ([FleetLaunchTemplateOverridesRequest], False),
+    }
+
+
+class OnDemandOptionsRequest(AWSProperty):
+    props = {
+        'AllocationStrategy': (basestring, False),
+    }
+
+
+class SpotOptionsRequest(AWSProperty):
+    props = {
+        'AllocationStrategy': (basestring, False),
+        'InstanceInterruptionBehavior': (basestring, False),
+        'InstancePoolsToUseCount': (integer, False),
+    }
+
+
+class TargetCapacitySpecificationRequest(AWSProperty):
+    props = {
+        'DefaultTargetCapacityType': (basestring, False),
+        'OnDemandTargetCapacity': (integer, False),
+        'SpotTargetCapacity': (integer, False),
+        'TotalTargetCapacity': (integer, False),
+    }
+
+
+class EC2Fleet(AWSObject):
+    resource_type = "AWS::EC2::EC2Fleet"
+    props = {
+        'ExcessCapacityTerminationPolicy': (basestring, False),
+        'LaunchTemplateConfigs': (FleetLaunchTemplateConfigRequest, True),
+        'OnDemandOptions': (OnDemandOptionsRequest, False),
+        'ReplaceUnhealthyInstances': (boolean, False),
+        'SpotOptions': (SpotOptionsRequest, False),
+        'TagSpecifications': ([TagSpecifications], False),
+        'TargetCapacitySpecification': (TargetCapacitySpecificationRequest,
+                                        False),
+        'TerminateInstancesWithExpiration': (boolean, False),
+        'Type': (basestring, False),
+        'ValidFrom': (integer, False),
+        'ValidUntil': (integer, False),
     }
