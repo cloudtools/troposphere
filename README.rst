@@ -154,6 +154,7 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
+- Alexa:ASK:Skill
 - AWS::AmazonMQ
 - AWS::ApiGateway
 - AWS::AppStream
