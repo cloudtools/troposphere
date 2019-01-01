@@ -7,7 +7,7 @@ def readme():
 
 
 setup(
-    name='ionosphere',
+    name="ionosphere",
     version="0.0.26",
     description="Azure Resource Manager Template creation library",
     long_description=readme(),
@@ -15,11 +15,11 @@ setup(
     author_email="alex.az@quali.com",
     url="https://github.com/qualinext/ionosphere",
     license="New BSD license",
-    packages=['ionosphere', 'ionosphere.helpers'],
-    scripts=['scripts/cfn', 'scripts/cfn2py'],
+    packages=["ionosphere", "ionosphere.helpers"],
+    scripts=["scripts/cfn", "scripts/cfn2py"],
     install_requires=["cfn_flip>=0.2.5", "enum34==1.1.6"],
     test_suite="tests",
     tests_require=[],
-    extras_require={'policy': ['awacs']},
+    extras_require={"policy": ["awacs"]},
     use_2to3=True,
 )

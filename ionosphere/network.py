@@ -348,7 +348,7 @@ class DnsZoneA(ARMObject):
     resource_type = 'Microsoft.Network/dnsZones/A'
     apiVersion = '2017-10-01'
 
-    name_pattern = re.compile(r'^([a-zA-Z0-9]+([-_][a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}\/([a-zA-Z0-9]+([-_][a-zA-Z0-9]+)*)+$')
+    name_pattern = re.compile(r'^([a-zA-Z0-9]+([a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}\/([a-zA-Z0-9]+([a-zA-Z0-9]+)*)+$')
 
     props = {
         'TTL': (int, False),
