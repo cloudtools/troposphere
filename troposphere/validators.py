@@ -393,3 +393,14 @@ def statistic_type(statistic):
             )
         )
     return(statistic)
+
+
+def key_usage_type(key):
+    valid_values = ['ENCRYPT_DECRYPT']
+    if key not in valid_values:
+        raise ValueError(
+            'KeyUsage must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(key)
