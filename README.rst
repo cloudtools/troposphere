@@ -154,8 +154,10 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
+- Alexa:ASK:Skill
 - AWS::AmazonMQ
 - AWS::ApiGateway
+- AWS::AppStream
 - AWS::AppSync
 - AWS::ApplicationAutoScaling
 - AWS::Athena
@@ -175,6 +177,7 @@ Currently supported AWS resource types
 - AWS::Cognito
 - AWS::Config
 - AWS::DAX
+- AWS::DLM
 - AWS::DMS
 - AWS::DataPipeline
 - AWS::DirectoryService
@@ -196,6 +199,8 @@ Currently supported AWS resource types
 - AWS::IAM
 - AWS::Inspector
 - AWS::IoT
+- AWS::IoT1Click
+- AWS::IoTAnalytics
 - AWS::KMS
 - AWS::Kinesis
 - AWS::KinesisAnalytics
@@ -214,6 +219,7 @@ Currently supported AWS resource types
 - AWS::SQS
 - AWS::SSM
 - AWS::SageMaker
+- AWS::SecretsManager
 - AWS::Serverless
 - AWS::ServiceCatalog
 - AWS::ServiceDiscovery

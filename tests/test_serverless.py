@@ -2,7 +2,7 @@ import unittest
 from troposphere import Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
-    Api, DeadLetterQueue, Function, FunctionForPackaging,
+    Api, DeadLetterQueue, DeploymentPreference, Function, FunctionForPackaging,
     S3Event, S3Location, SimpleTable,
 )
 
@@ -70,6 +70,21 @@ class TestServerless(unittest.TestCase):
             Runtime="nodejs",
             CodeUri="s3://bucket/handler.zip",
             AutoPublishAlias="alias"
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        t.to_json()
+
+    def test_optional_deployment_preference(self):
+        serverless_func = Function(
+            "SomeHandler",
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri="s3://bucket/handler.zip",
+            AutoPublishAlias="alias",
+            DeploymentPreference=DeploymentPreference(
+                Type="AllAtOnce"
+            )
         )
         t = Template()
         t.add_resource(serverless_func)

@@ -7,7 +7,6 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, exactly_one, mutually_exclusive,\
     positive_integer
 
-
 KEY_ONLY = "KEY_ONLY"
 VALUE_ONLY = "VALUE_ONLY"
 KEY_AND_VALUE = "KEY_AND_VALUE"
@@ -179,15 +178,9 @@ class Ec2TagSetListObject(AWSProperty):
     }
 
 
-class Ec2TagSetList(AWSProperty):
-    props = {
-        'Ec2TagSetList': ([Ec2TagSetListObject], False)
-    }
-
-
 class Ec2TagSet(AWSProperty):
     props = {
-        'Ec2TagSet': (Ec2TagSetList, False)
+        'Ec2TagSetList': ([Ec2TagSetListObject], False)
     }
 
 

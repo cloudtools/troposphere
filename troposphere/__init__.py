@@ -551,6 +551,10 @@ class Tags(AWSHelperFn):
     def to_dict(self):
         return [encode_to_dict(tag) for tag in self.tags]
 
+    @classmethod
+    def from_dict(cls, title=None, **kwargs):
+        return cls(**kwargs)
+
 
 class Template(object):
     props = {

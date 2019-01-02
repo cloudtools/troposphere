@@ -32,8 +32,23 @@ class ElasticsearchConfig(AWSProperty):
     }
 
 
+class AwsIamConfig(AWSProperty):
+    props = {
+        'SigningRegion': (basestring, False),
+        'SigningServiceName': (basestring, False),
+    }
+
+
+class AuthorizationConfig(AWSProperty):
+    props = {
+        'AuthorizationType': (basestring, True),
+        'AwsIamConfig': (AwsIamConfig, False),
+    }
+
+
 class HttpConfig(AWSProperty):
     props = {
+        'AuthorizationConfig': (AuthorizationConfig, False),
         'Endpoint': (basestring, True),
     }
 
@@ -41,6 +56,23 @@ class HttpConfig(AWSProperty):
 class LambdaConfig(AWSProperty):
     props = {
         'LambdaFunctionArn': (basestring, True),
+    }
+
+
+class RdsHttpEndpointConfig(AWSProperty):
+    props = {
+        'AwsRegion': (basestring, False),
+        'DbClusterIdentifier': (basestring, False),
+        'DatabaseName': (basestring, False),
+        'Schema': (basestring, False),
+        'AwsSecretStoreArn': (basestring, False),
+    }
+
+
+class RelationalDatabaseConfig(AWSProperty):
+    props = {
+        'RelationalDatasourceType': (basestring, False),
+        'RdsHttpEndpointConfig': (RdsHttpEndpointConfig, False),
     }
 
 
@@ -57,6 +89,7 @@ class DataSource(AWSObject):
         'Name': (basestring, True),
         'ServiceRoleArn': (basestring, False),
         'Type': (basestring, True),
+        'RelationalDatabaseConfig': (RelationalDatabaseConfig, False),
     }
 
 
@@ -107,6 +140,12 @@ class GraphQLSchema(AWSObject):
     }
 
 
+class PipelineConfig(AWSProperty):
+    props = {
+        'Functions': ([basestring], False),
+    }
+
+
 class Resolver(AWSObject):
     resource_type = "AWS::AppSync::Resolver"
 
@@ -114,9 +153,26 @@ class Resolver(AWSObject):
         'ApiId': (basestring, True),
         'DataSourceName': (basestring, True),
         'FieldName': (basestring, True),
+        'PipelineConfig': (PipelineConfig, False),
         'RequestMappingTemplate': (basestring, False),
         'RequestMappingTemplateS3Location': (basestring, False),
         'ResponseMappingTemplate': (basestring, False),
         'ResponseMappingTemplateS3Location': (basestring, False),
         'TypeName': (basestring, True),
+    }
+
+
+class FunctionConfiguration(AWSObject):
+    resource_type = "AWS::AppSync::FunctionConfiguration"
+
+    props = {
+        'ApiId': (basestring, True),
+        'Name': (basestring, False),
+        'Description': (basestring, False),
+        'DataSourceName': (basestring, False),
+        'FunctionVersion': (basestring, False),
+        'RequestMappingTemplate': (basestring, False),
+        'RequestMappingTemplateS3Location': (basestring, False),
+        'ResponseMappingTemplate': (basestring, False),
+        'ResponseMappingTemplateS3Location': (basestring, False),
     }

@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer
+from .validators import integer
 
 
 class Endpoint(AWSObject):
@@ -13,16 +13,17 @@ class Endpoint(AWSObject):
     props = {
         'EndpointName': (basestring, False),
         'EndpointConfigName': (basestring, True),
-        'Tags': (Tags, False),
+        'Tags': (Tags, True)
     }
 
 
 class ProductionVariant(AWSProperty):
     props = {
-        'ModelName': (boolean, True),
+        'ModelName': (basestring, True),
         'VariantName': (basestring, True),
         'InitialInstanceCount': (integer, True),
         'InstanceType': (basestring, True),
+        'InitialVariantWeight': (float, True)
     }
 
 
@@ -32,7 +33,8 @@ class EndpointConfig(AWSObject):
     props = {
         'EndpointConfigName': (basestring, False),
         'ProductionVariants': ([ProductionVariant], True),
-        'Tags': (Tags, False),
+        'KmsKeyId': (basestring, False),
+        'Tags': (Tags, True)
     }
 
 
@@ -41,7 +43,14 @@ class ContainerDefinition(AWSProperty):
         'ContainerHostname': (basestring, False),
         'Environment': (dict, False),
         'ModelDataUrl': (basestring, False),
-        'Image': (basestring, True),
+        'Image': (basestring, True)
+    }
+
+
+class VpcConfig(AWSProperty):
+    props = {
+        'Subnets': ([basestring], True),
+        'SecurityGroupIds': ([basestring], True)
     }
 
 
@@ -52,30 +61,14 @@ class Model(AWSObject):
         'ExecutionRoleArn': (basestring, True),
         'PrimaryContainer': (ContainerDefinition, True),
         'ModelName': (basestring, False),
-        'VpcConfig': (basestring, False),
-        'Tags': (Tags, False),
+        'VpcConfig': (VpcConfig, False),
+        'Tags': (Tags, False)
     }
 
 
-class NotebookInstance(AWSObject):
-    resource_type = "AWS::SageMaker::NotebookInstance"
-
+class NotebookInstanceLifecycleHook(AWSProperty):
     props = {
-        'KmsKeyId': (basestring, False),
-        'DirectInternetAccess': (basestring, True),
-        'SubnetId': (basestring, False),
-        'NotebookInstanceName': (basestring, False),
-        'InstanceType': (basestring, True),
-        'LifecycleConfigName': (basestring, False),
-        'SecurityGroupIds': ([basestring], False),
-        'RoleArn': (basestring, True),
-        'Tags': (Tags, False),
-    }
-
-
-class NotebookInstanceLifecycleConfig (AWSProperty):
-    props = {
-        'Content': (basestring, False),
+        'Content': (basestring, False)
     }
 
 
@@ -84,6 +77,22 @@ class NotebookInstanceLifecycleConfig(AWSObject):
 
     props = {
         'NotebookInstanceLifecycleConfigName': (basestring, False),
-        'OnCreate': (NotebookInstanceLifecycleConfig, False),
-        'OnStart': (NotebookInstanceLifecycleConfig, False),
+        'OnCreate': ([NotebookInstanceLifecycleHook], False),
+        'OnStart': ([NotebookInstanceLifecycleHook], False)
+    }
+
+
+class NotebookInstance(AWSObject):
+    resource_type = "AWS::SageMaker::NotebookInstance"
+
+    props = {
+        'KmsKeyId': (basestring, False),
+        'DirectInternetAccess': (basestring, False),
+        'SubnetId': (basestring, False),
+        'NotebookInstanceName': (basestring, False),
+        'InstanceType': (basestring, True),
+        'LifecycleConfigName': (basestring, False),
+        'SecurityGroupIds': ([basestring], False),
+        'RoleArn': (basestring, True),
+        'Tags': (Tags, False)
     }
