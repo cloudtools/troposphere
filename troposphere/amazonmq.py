@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 
@@ -55,6 +55,7 @@ class Broker(AWSObject):
         'PubliclyAccessible': (boolean, True),
         'SecurityGroups': ([basestring], False),
         'SubnetIds': ([basestring], False),
+        'Tags': ((Tags, list), False),
     }
 
 
