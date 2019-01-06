@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, Tags
-from .validators import boolean
+from .validators import boolean, integer_range, key_usage_type
 try:
     from awacs.aws import Policy
     policytypes = (dict, Policy)
@@ -29,5 +29,7 @@ class Key(AWSObject):
         'Enabled': (boolean, False),
         'EnableKeyRotation': (boolean, False),
         'KeyPolicy': (policytypes, True),
+        'KeyUsage': (key_usage_type, False),
+        'PendingWindowInDays': (integer_range(7, 30), False),
         'Tags': ((Tags, list), False)
     }
