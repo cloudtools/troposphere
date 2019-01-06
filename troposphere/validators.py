@@ -414,7 +414,7 @@ def key_usage_type(key):
         )
     return(key)
 
-  
+
 def cloudfront_event_type(event_type):
     valid_values = ['viewer-request', 'viewer-response',
                     'origin-request', 'origin-response']
