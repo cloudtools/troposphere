@@ -195,3 +195,13 @@ class ResolverRule(AWSObject):
         'Tags': (Tags, False),
         'TargetIps': ([TargetAddress], False),
     }
+
+
+class ResolverRuleAssociation(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverRuleAssociation"
+
+    props = {
+        'Name': (basestring, False),
+        'ResolverRuleId': (basestring, True),
+        'VPCId': (basestring, True),
+    }
