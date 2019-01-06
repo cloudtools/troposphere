@@ -4,12 +4,16 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer, positive_integer, network_port
+from .validators import (boolean, cloudfront_restriction_type,
+                         cloudfront_event_type,
+                         cloudfront_forward_type,
+                         cloudfront_viewer_protocol_policy, integer,
+                         positive_integer, priceclass_type, network_port)
 
 
 class Cookies(AWSProperty):
     props = {
-        'Forward': (basestring, True),
+        'Forward': (cloudfront_forward_type, True),
         'WhitelistedNames': ([basestring], False),
     }
 
@@ -25,7 +29,7 @@ class ForwardedValues(AWSProperty):
 
 class LambdaFunctionAssociation(AWSProperty):
     props = {
-        'EventType': (basestring, False),
+        'EventType': (cloudfront_event_type, False),
         'LambdaFunctionARN': (basestring, False),
     }
 
@@ -45,7 +49,7 @@ class CacheBehavior(AWSProperty):
         'SmoothStreaming': (boolean, False),
         'TargetOriginId': (basestring, True),
         'TrustedSigners': ([basestring], False),
-        'ViewerProtocolPolicy': (basestring, True),
+        'ViewerProtocolPolicy': (cloudfront_viewer_protocol_policy, True),
     }
 
 
@@ -63,24 +67,25 @@ class DefaultCacheBehavior(AWSProperty):
         'SmoothStreaming': (boolean, False),
         'TargetOriginId': (basestring, True),
         'TrustedSigners': (list, False),
-        'ViewerProtocolPolicy': (basestring, True),
+        'ViewerProtocolPolicy': (cloudfront_viewer_protocol_policy, True),
     }
 
 
 class S3Origin(AWSProperty):
     props = {
+        'DomainName': (basestring, True),
         'OriginAccessIdentity': (basestring, False),
     }
 
 
-class CustomOrigin(AWSProperty):
+class CustomOriginConfig(AWSProperty):
     props = {
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
         'OriginKeepaliveTimeout': (integer, False),
         'OriginProtocolPolicy': (basestring, True),
-        'OriginSSLProtocols': ([basestring], False),
         'OriginReadTimeout': (integer, False),
+        'OriginSSLProtocols': ([basestring], False),
     }
 
 
@@ -93,12 +98,13 @@ class OriginCustomHeader(AWSProperty):
 
 class Origin(AWSProperty):
     props = {
+        'CustomOriginConfig': (CustomOriginConfig, False),
         'DomainName': (basestring, True),
-        'OriginPath': (basestring, False),
         'Id': (basestring, True),
         'OriginCustomHeaders': ([OriginCustomHeader], False),
+        'OriginPath': (basestring, False),
         'S3OriginConfig': (S3Origin, False),
-        'CustomOriginConfig': (CustomOrigin, False),
+
     }
 
 
@@ -122,7 +128,7 @@ class CustomErrorResponse(AWSProperty):
 class GeoRestriction(AWSProperty):
     props = {
         'Locations': ([basestring], False),
-        'RestrictionType': (basestring, True),
+        'RestrictionType': (cloudfront_restriction_type, True),
     }
 
 
@@ -154,8 +160,8 @@ class DistributionConfig(AWSProperty):
         'HttpVersion': (basestring, False),
         'IPV6Enabled': (boolean, False),
         'Logging': (Logging, False),
-        'Origins': (list, True),
-        'PriceClass': (basestring, False),
+        'Origins': ([Origin], True),
+        'PriceClass': (priceclass_type, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
         'WebACLId': (basestring, False),
@@ -201,7 +207,7 @@ class StreamingDistributionConfig(AWSProperty):
         'Comment': (basestring, True),
         'Enabled': (boolean, True),
         'Logging': (Logging, False),
-        'PriceClass': (basestring, False),
+        'PriceClass': (priceclass_type, False),
         'S3Origin': (S3Origin, True),
         'TrustedSigners': (TrustedSigners, True),
     }

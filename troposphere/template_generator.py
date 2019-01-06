@@ -34,14 +34,18 @@ class TemplateGenerator(Template):
 
     _inspect_members = set()
     _inspect_resources = {}
+    _custom_members = set()
     _inspect_functions = {}
 
-    def __init__(self, cf_template):
+    def __init__(self, cf_template, **kwargs):
         """
         Instantiates a new Troposphere Template based on an existing
         Cloudformation Template.
         """
         super(TemplateGenerator, self).__init__()
+        if 'CustomMembers' in kwargs:
+            self._custom_members = set(kwargs["CustomMembers"])
+
         self._reference_map = {}
         if 'AWSTemplateFormatVersion' in cf_template:
             self.add_version(cf_template['AWSTemplateFormatVersion'])
@@ -60,7 +64,7 @@ class TemplateGenerator(Template):
         for k, v in cf_template.get('Resources', {}).iteritems():
             self.add_resource(self._convert_definition(
                                     v, k,
-                                    self._get_resource_type_cls(v)
+                                    self._get_resource_type_cls(k, v)
             ))
         for k, v in cf_template.get('Outputs', {}).iteritems():
             self.add_output(self._create_instance(Output, v, k))
@@ -103,26 +107,31 @@ class TemplateGenerator(Template):
 
         return self._inspect_functions
 
-    def _get_resource_type_cls(self, resource):
+    def _get_resource_type_cls(self, name, resource):
         """Attempts to return troposphere class that represents Type of
         provided resource. Attempts to find the troposphere class who's
         `resource_type` field is the same as the provided resources `Type`
         field.
 
         :param resource: Resource to find troposphere class for
-        :return: None: If provided resource does not have a `Type` field
-                       If no class found for provided resource
+        :return: None: If no class found for provided resource
                  type: Type of provided resource
+        :raise ResourceTypeNotDefined:
+                  Provided resource does not have a `Type` field
         """
         # If provided resource does not have `Type` field
         if 'Type' not in resource:
-            return None
+            raise ResourceTypeNotDefined(name)
 
         # Attempt to find troposphere resource with:
         #   `resource_type` == resource['Type']
         try:
             return self.inspect_resources[resource['Type']]
         except KeyError:
+            # is there a custom mapping?
+            for custom_member in self._custom_members:
+                if custom_member.resource_type == resource['Type']:
+                    return custom_member
             # If no resource with `resource_type` == resource['Type'] found
             return None
 
@@ -152,10 +161,12 @@ class TemplateGenerator(Template):
                     except TypeError:
                         # If definition['Type'] turns out not to be a custom
                         # type (aka doesn't start with "Custom::")
-
-                        # Make sure expected_type is nothing (as
-                        # it always should be)
-                        assert not expected_type
+                        if ref is not None:
+                            raise ResourceTypeNotFound(ref, definition['Type'])
+                        else:
+                            # Make sure expected_type is nothing (as
+                            # it always should be)
+                            assert not expected_type
 
                 if expected_type:
                     args = self._normalize_properties(definition)
@@ -205,7 +216,8 @@ class TemplateGenerator(Template):
                     args = [args]
                 return [self._create_instance(cls[0], v) for v in args]
 
-        if isinstance(cls, Sequence) or cls not in self.inspect_members:
+        if isinstance(cls, Sequence)\
+           or cls not in self.inspect_members.union(self._custom_members):
             # this object doesn't map to any known object. could be a string
             # or int, or a Ref... or a list of types such as
             # [basestring, FindInMap, Ref] or maybe a
@@ -383,3 +395,20 @@ class TemplateGenerator(Template):
                 module, members_predicate)))
 
         return set(members)
+
+
+class ResourceTypeNotFound(Exception):
+
+    def __init__(self, resource, resource_type):
+        Exception.__init__(self,
+                           "ResourceType not found for " +
+                           resource_type + " - " + resource)
+        self.resource_type = resource_type
+        self.resource = resource
+
+
+class ResourceTypeNotDefined(Exception):
+
+    def __init__(self, resource):
+        Exception.__init__(self, "ResourceType not defined for " + resource)
+        self.resource = resource
