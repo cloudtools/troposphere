@@ -173,6 +173,7 @@ class DBInstance(AWSObject):
         'DBSecurityGroups': (list, False),
         'DBSnapshotIdentifier': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
+        'DeleteAutomatedBackups': (boolean, False),
         'DeletionProtection': (boolean, False),
         'Domain': (basestring, False),
         'DomainIAMRoleName': (basestring, False),
