@@ -30,7 +30,7 @@ myDistribution = t.add_resource(Distribution(
     "myDistribution",
     DistributionConfig=DistributionConfig(
         Origins=[Origin(Id="Origin 1", DomainName=Ref(s3dnsname),
-                        S3OriginConfig=S3Origin())],
+                        S3OriginConfig=S3Origin(DomainName=Ref(s3dnsname)))],
         DefaultCacheBehavior=DefaultCacheBehavior(
             TargetOriginId="Origin 1",
             ForwardedValues=ForwardedValues(
