@@ -25,7 +25,7 @@ from troposphere import (
     Output, Parameter,  # AWSDeclarations
     AWSObject,  # covers resources
     AWSHelperFn, GenericHelperFn,  # covers ref, fn::, etc
-    Tags, autoscaling, cloudformation)
+    Tags, autoscaling, cloudformation, Export)
 from troposphere.policies import UpdatePolicy, CreationPolicy
 
 
@@ -240,6 +240,9 @@ class TemplateGenerator(Template):
 
                 if issubclass(cls, autoscaling.Metadata):
                     return self._generate_autoscaling_metadata(cls, args)
+
+                if issubclass(cls, Export):
+                    return cls(args['Name'])
 
                 args = self._convert_definition(args)
                 if isinstance(args, Ref) and issubclass(cls, Ref):
