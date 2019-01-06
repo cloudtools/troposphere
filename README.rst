@@ -5,7 +5,7 @@ troposphere
 .. image:: https://img.shields.io/pypi/v/troposphere.svg
     :target: https://pypi.python.org/pypi/troposphere
 
-.. image:: https://travis-ci.org/cloudtools/troposphere.png?branch=master
+.. image:: https://travis-ci.org/cloudtools/troposphere.svg?branch=master
     :target: https://travis-ci.org/cloudtools/troposphere
 
 .. image:: https://img.shields.io/pypi/l/troposphere.svg
