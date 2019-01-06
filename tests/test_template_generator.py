@@ -94,6 +94,30 @@ class TestTemplateGenerator(unittest.TestCase):
         self.assertTrue(isinstance(foo, MyMacroResource))
         self.assertEquals("bar", foo.Foo)
 
+    def test_no_nested_name(self):
+        """
+        Prevent regression for  ensuring no nested Name (Issue #977)
+        """
+        template_json = json.loads("""
+        {
+          "AWSTemplateFormatVersion": "2010-09-09",
+          "Description": "Description",
+          "Outputs": {
+            "TestOutput": {
+              "Description": "ARN for TestData",
+              "Export": {
+                "Name": {"Fn::Sub": "${AWS::StackName}-TestOutput"}
+              },
+              "Value": {"Ref": "TestPolicy"}
+            }
+          }
+        }
+        """)
+
+        d = TemplateGenerator(template_json).to_dict()
+        name = d['Outputs']['TestOutput']['Export']['Name']
+        self.assertIn('Fn::Sub', name)
+
 
 class MyCustomResource(AWSObject):
     resource_type = "Custom::Resource"
