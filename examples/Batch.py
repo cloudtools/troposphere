@@ -6,7 +6,8 @@ Create the AWS Batch Compute environment and roles.
 
 from troposphere import GetAtt, Output, Parameter, Ref, Tags, Template
 from troposphere.batch import (ComputeEnvironment, ComputeEnvironmentOrder,
-                               ComputeResources, JobQueue)
+                               ComputeResources, JobQueue,
+                               LaunchTemplateSpecification)
 from troposphere.ec2 import SecurityGroup
 from troposphere.iam import InstanceProfile, Role
 
@@ -80,7 +81,11 @@ BatchComputeEnvironment = t.add_resource(ComputeEnvironment(
         DesiredvCpus=0,
         MinvCpus=0,
         MaxvCpus=10,
+        PlacementGroup="ExampleClusterGroup",
         InstanceTypes=['m4.large'],
+        LaunchTemplate=LaunchTemplateSpecification(
+            LaunchTemplateName='container-volume-encrypt'
+        ),
         InstanceRole=Ref(BatchInstanceProfile),
         SecurityGroupIds=[GetAtt(BatchSecurityGroup, 'GroupId')],
         Subnets=[

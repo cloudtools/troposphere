@@ -1,5 +1,20 @@
 from . import AWSObject, AWSProperty
-from .validators import integer, positive_integer
+from .validators import exactly_one, integer, positive_integer
+
+
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        "LaunchTemplateId": (basestring, False),
+        "LaunchTemplateName": (basestring, False),
+        "Version": (basestring, False),
+    }
+
+    def validate(self):
+        template_ids = [
+            'LaunchTemplateId',
+            'LaunchTemplateName'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, template_ids)
 
 
 class ComputeResources(AWSProperty):
@@ -12,10 +27,12 @@ class ComputeResources(AWSProperty):
         "Type": (basestring, True),
         "Subnets": ([basestring], True),
         "MinvCpus": (positive_integer, True),
+        "LaunchTemplate": (LaunchTemplateSpecification, False),
         "ImageId": (basestring, False),
         "InstanceRole": (basestring, True),
         "InstanceTypes": ([basestring], True),
         "Ec2KeyPair": (basestring, False),
+        "PlacementGroup": (basestring, False),
         "Tags": (dict, False),
         "DesiredvCpus": (positive_integer, False)
     }
