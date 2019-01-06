@@ -1066,7 +1066,7 @@ class EC2Fleet(AWSObject):
     resource_type = "AWS::EC2::EC2Fleet"
     props = {
         'ExcessCapacityTerminationPolicy': (basestring, False),
-        'LaunchTemplateConfigs': (FleetLaunchTemplateConfigRequest, True),
+        'LaunchTemplateConfigs': ([FleetLaunchTemplateConfigRequest], True),
         'OnDemandOptions': (OnDemandOptionsRequest, False),
         'ReplaceUnhealthyInstances': (boolean, False),
         'SpotOptions': (SpotOptionsRequest, False),
@@ -1075,6 +1075,6 @@ class EC2Fleet(AWSObject):
                                         False),
         'TerminateInstancesWithExpiration': (boolean, False),
         'Type': (basestring, False),
-        'ValidFrom': (integer, False),
-        'ValidUntil': (integer, False),
+        'ValidFrom': (str, False),
+        'ValidUntil': (str, False),
     }
