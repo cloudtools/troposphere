@@ -60,6 +60,7 @@ class Model(AWSObject):
     props = {
         'ExecutionRoleArn': (basestring, True),
         'PrimaryContainer': (ContainerDefinition, True),
+        'Containers': ([ContainerDefinition], False),
         'ModelName': (basestring, False),
         'VpcConfig': (VpcConfig, False),
         'Tags': (Tags, False)
