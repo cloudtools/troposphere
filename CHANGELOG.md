@@ -1,5 +1,75 @@
-## 2.3.4 (2018-11-04)
+## 2.4.0 (2018-01-06)
+- Setup tox (#1187)
+- Set line length for Python files in EditorConfig (#1188)
+- Fix EC2 SpotFleet properties #1195 (#1198)
+- Add MultiValueAnswer property for AWS::Route53::RecordSet (#1199)
+- adding RDS properties, per Nov 9 2018 update https://docs.aws.amazon.… (#1201)
+- Add Secrets Managers resources, per Nov 9 2018 update (#1202)
+- Add DLM support, per Nov 12 2018 update (#1203)
+- Adds support for Permissions Boundaries on AWS::IAM::Role and AWS::IAM::User (#1205)
+- Add support for multi-region action in CodePipeline (#1207)
+- Added support for Aurora BacktrackWindow. (#1210)
+- Add AWS::AppStream resources
+- Add Tags and WorkspaceProperties to WorkSpaces::Workspace
+- Add support for AWS::AutoScalingPlans::ScalingPlan (#1197)
+- adding KmsMasterKeyId to Topics, per Nov 19 2018 update
+- adding PublicAccessBlockConfiguration to s3 buckets, per Nov 19 2018 update
+- Validate Lambda environment variable names (#1186)
+- Fix DockerVolumeConfiguration Labels and DriverOpts definition (#1194)
+- Setup to_dict for Tags AWSHelper (#1189)
+- Delete CodeDeploy EC2TagSetList class as it is just a property of EC2TagSet (#1212)
+- Fix bugs and add missing properties in sagemaker (#1214)
+- adding DeletionProtection property to RDS, per Nov 19 2018 update (#1215)
+- adding PublicAccessBlockConfiguration to s3 buckets, per Nov 19 2018 update (#1216)
+- Merge pull request #1217 from axelpavageau/feature/sns-20181119-update
+- Add volume encryption, per Nov 19 2018 update (#1218)
+- Add PublicIpv4Pool property to EIPs, per Nov 19 2018 update (#1219)
+- Add new Lambda resources and props, per Nov 29 2018 update (#1242)
+- Add MixedInstancesPolicy property to autoscaling groups, per Nov 19 2018 update. (#1220)
+- Add tags to API Gateway resources, per Nov 19 2018 update (#1221)
+- Add various EMR properties, per Nov 19 2018 update (#1222)
+- Add new kinesis resource, per Nov 20 2018 update (#1224)
+- Make Lambda::LayerVersion CompatibleRuntimes a list of strings
+- Add new route53 resources, per Nov 20 2018 update (#1223)
+- Add new EC2Fleet resource, per Nov 20 2018 update (#1225)
+- Add new appsync FunctionConfiguration resource & properties, per Nov 20 2018 update (#1226)
+- Update AWS::CloudWatch::Alarm, per Nov 20 2018 update (#1227)
+- CloudWatch MetricDataQuery Id is required
+- Add DatapointsToAlarm to AWS::CloudWatch::Alarm (#1244)
+- Alphabetize DatapointsToAlarm in CloudWatch
+- Update Autoscalingplans properties, per Nov 20 2018 update (#1228)
+- Add Iot1click resources (#1229)
+- Add new Transit Gateway resources, per Nov 26 2018 release (#1232)
+- Fix online merge issue
+- Fixes EC2 SpotFleet LoadBalancersConfig structure (#1233)
+- Sets InstanceType in EC2 LaunchTemplateData to not required. (#1234)
+- Add new HttpNamespace resource & various servicediscovery props, per Nov 28 2018 update (#1237)
+- Add new ec2 properties, per Nov 28 2018 update (#1238)
+- EC2 Instance LicenseConfigurationArn is required
+- Add on-demand billing for DynamoDB tables (#1243)
+- Correct RoleArn case for OrganizationAggregationSource (#1247)
+- Add various codebuild properties, per Dec 6 2018 update (#1249)
+- Add support for DeploymentPreference to AWS::Serverless::Function (#1251)
+- Update typo on EnableCloudwatchLogsExports (#1253)
+- Add new AmazonMQ resource, per Dec 13 2018 update (#1254)
+- Add Alexa Skill resource, per Nov 20 2018 update (#1230)
+- Add new IoTAnalytics resources, per Dec 13 2018 update (#1255)
+- Extend Action to support Redirect and FixedResponse for AWS::ElasticLoadBalancingV2::ListenerRule (#1140)
+- Add support for extensible resource definitions in template generator (#1154)
+- Updates CloudFront with missing parameters and validators (#1235)
+- Added support for AWS Batch PlacementGroup & LaunchTemplate (#1262)
+- Add DeleteAutomatedBackups to RDS DBInstance (#1263)
+- Add missing KMS key properties (#1265)
+- Fix pep errors due to online merge
+- Fix EC2Fleet class definition to match functional correctness of CloudFormation (#1266)
+- Add Tags property to AWS::AmazonMQ::Broker, per 2019 Jan 3 update (#1267)
+- Add Containers property to AWS::SageMaker::Model per 2019 Jan 3 update (#1268)
+- Add AWS::Route53Resolver::ResolverRuleAssociation resource, per 2019 Jan 3 update (#1269)
+- Fix nested 'Name' sections in Output import (#1270)
+- README.rst: Use SVG build status badge (#1271)
+- Add test for nested Name in TemplateGenerator fixed via #1270
 
+## 2.3.4 (2018-11-04)
 - Add CloudFormation::Macro
 - Instance ImageId is no longer required, specifically if using Launch Templates; updated tests (#1137)
 - Fix amazonmq missing properties (#1143)
