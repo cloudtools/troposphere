@@ -8,13 +8,15 @@ t.add_description("2012-09-09")
 rhel_patch_group_name = t.add_parameter(Parameter(
     "RHELPatchGroupName",
     Type=STRING,
-    Description="The value of the RHEL patch group tag that will have the baseline applied to them."
+    Description="The value of the RHEL patch group tag "
+                "that will have the baseline applied to them."
         ))
 
 windows_patch_group_name = t.add_parameter(Parameter(
     "WindowsPatchGroupName",
     Type=STRING,
-    Description="The value of the Windows patch group tag that will have baseline applied to them."
+    Description="The value of the Windows patch group tag"
+                "that will have baseline applied to them."
 ))
 
 linux_filter_group = ssm.PatchFilterGroup(
