@@ -3,18 +3,18 @@
 
 from troposphere import GetAtt, Join, Output
 from troposphere import Parameter, Ref, Template
-from troposphere.cloudfront import Distribution, DistributionConfig
-from troposphere.cloudfront import Origin, DefaultCacheBehavior
-from troposphere.cloudfront import ForwardedValues
+from troposphere.cloudfront import StreamingDistribution
+from troposphere.cloudfront import StreamingDistributionConfig
 from troposphere.cloudfront import S3Origin
+from troposphere.cloudfront import TrustedSigners
 
 
 t = Template()
 
 t.add_description(
     "AWS CloudFormation Sample Template CloudFront_S3: Sample template "
-    "showing how to create an Amazon CloudFront distribution using an "
-    "S3 origin. "
+    "showing how to create an Amazon CloudFront Streaming distribution "
+    "using an S3 origin. "
     "**WARNING** This template creates a CloudFront distribution. "
     "You will be billed for the AWS resources used if you create "
     "a stack from this template.")
@@ -26,19 +26,15 @@ s3dnsname = t.add_parameter(Parameter(
     Type="String",
 ))
 
-myDistribution = t.add_resource(Distribution(
+myDistribution = t.add_resource(StreamingDistribution(
     "myDistribution",
-    DistributionConfig=DistributionConfig(
-        Origins=[Origin(Id="Origin 1", DomainName=Ref(s3dnsname),
-                        S3OriginConfig=S3Origin(DomainName=Ref(s3dnsname)))],
-        DefaultCacheBehavior=DefaultCacheBehavior(
-            TargetOriginId="Origin 1",
-            ForwardedValues=ForwardedValues(
-                QueryString=False
-            ),
-            ViewerProtocolPolicy="allow-all"),
+    StreamingDistributionConfig=StreamingDistributionConfig(
+        Comment="Streaming distribution",
         Enabled=True,
-        HttpVersion='http2'
+        S3Origin=S3Origin(DomainName=Ref(s3dnsname)),
+        TrustedSigners=TrustedSigners(
+            Enabled=False,
+        ),
     )
 ))
 
