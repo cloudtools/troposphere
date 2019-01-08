@@ -89,6 +89,7 @@ class Alarm(AWSObject):
     def validate(self):
         conds = [
             'ExtendedStatistic',
+            'Metrics',
             'Statistic',
         ]
         exactly_one(self.__class__.__name__, self.properties, conds)
