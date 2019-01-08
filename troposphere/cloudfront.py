@@ -73,7 +73,6 @@ class DefaultCacheBehavior(AWSProperty):
 
 class S3Origin(AWSProperty):
     props = {
-        'DomainName': (basestring, True),
         'OriginAccessIdentity': (basestring, False),
     }
 
