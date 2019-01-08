@@ -74,4 +74,4 @@ t.add_resource(ssm.PatchBaseline(
             PatchGroups=[Ref(windows_patch_group_name)]
         ))
 
-print(t.to_yaml())
+print(t.to_json())
