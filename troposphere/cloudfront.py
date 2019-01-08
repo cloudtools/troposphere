@@ -96,6 +96,12 @@ class OriginCustomHeader(AWSProperty):
     }
 
 
+class S3OriginConfig(AWSProperty):
+    props = {
+        'OriginAccessIdentity': (basestring, False),
+    }
+
+
 class Origin(AWSProperty):
     props = {
         'CustomOriginConfig': (CustomOriginConfig, False),
@@ -103,7 +109,7 @@ class Origin(AWSProperty):
         'Id': (basestring, True),
         'OriginCustomHeaders': ([OriginCustomHeader], False),
         'OriginPath': (basestring, False),
-        'S3OriginConfig': (S3Origin, False),
+        'S3OriginConfig': (S3OriginConfig, False),
 
     }
 

@@ -48,11 +48,7 @@
                                 "Ref": "S3DNSName"
                             },
                             "Id": "Origin 1",
-                            "S3OriginConfig": {
-                                "DomainName": {
-                                    "Ref": "S3DNSName"
-                                }
-                            }
+                            "S3OriginConfig": {}
                         }
                     ]
                 }
