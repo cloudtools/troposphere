@@ -31,7 +31,7 @@ myDistribution = t.add_resource(StreamingDistribution(
     StreamingDistributionConfig=StreamingDistributionConfig(
         Comment="Streaming distribution",
         Enabled=True,
-        S3Origin=S3Origin(DomainName=Ref(s3dnsname)),
+        S3Origin=S3Origin(),
         TrustedSigners=TrustedSigners(
             Enabled=False,
         ),
