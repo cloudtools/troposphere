@@ -136,7 +136,9 @@ class Table(AWSObject):
         billing_mode = self.properties.get('BillingMode', 'PROVISIONED')
         indexes = self.properties.get('GlobalSecondaryIndexes', [])
         tput_props = [self.properties]
-        tput_props.extend([x.properties for x in indexes])
+        tput_props.extend([
+            x.properties for x in indexes if not isinstance(x, AWSHelperFn)
+        ])
 
         def check_if_all(name, props):
             validated = []
