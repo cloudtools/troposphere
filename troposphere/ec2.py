@@ -427,8 +427,12 @@ class RouteTable(AWSObject):
 
 
 def check_ports(props):
-    # Specify "all protocols" and ICMPv6
-    ports_optional = ["-1", "58"]
+    # IpProtocol is a required field but not all values allowed require
+    # ToPort and FromPort. The ones that don't need these ports are:
+    ports_optional = [
+        "-1",  # all protocols
+        "58",  # ICMPv6
+    ]
     proto = props['IpProtocol']
 
     if proto not in ports_optional:
