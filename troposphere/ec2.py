@@ -426,6 +426,21 @@ class RouteTable(AWSObject):
     }
 
 
+def check_ports(props):
+    # IpProtocol is a required field but not all values allowed require
+    # ToPort and FromPort. The ones that don't need these ports are:
+    ports_optional = [
+        "-1",  # all protocols
+        "58",  # ICMPv6
+    ]
+    proto = props['IpProtocol']
+
+    if proto not in ports_optional:
+        if not ('ToPort' in props and 'FromPort' in props):
+            raise ValueError(
+                "ToPort/FromPort must be specified for proto %s" % proto)
+
+
 class SecurityGroupEgress(AWSObject):
     resource_type = "AWS::EC2::SecurityGroupEgress"
 
@@ -435,10 +450,10 @@ class SecurityGroupEgress(AWSObject):
         'Description': (basestring, False),
         'DestinationPrefixListId': (basestring, False),
         'DestinationSecurityGroupId': (basestring, False),
-        'FromPort': (network_port, True),
+        'FromPort': (network_port, False),
         'GroupId': (basestring, True),
         'IpProtocol': (basestring, True),
-        'ToPort': (network_port, True),
+        'ToPort': (network_port, False),
         #
         # Workaround for a bug in CloudFormation and EC2 where the
         # DestinationSecurityGroupId property is ignored causing
@@ -457,6 +472,7 @@ class SecurityGroupEgress(AWSObject):
             'DestinationSecurityGroupId',
         ]
         exactly_one(self.__class__.__name__, self.properties, conds)
+        check_ports(self.properties)
 
 
 class SecurityGroupIngress(AWSObject):
@@ -466,14 +482,14 @@ class SecurityGroupIngress(AWSObject):
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
         'Description': (basestring, False),
-        'FromPort': (network_port, False),  # conditional
+        'FromPort': (network_port, False),
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
-        'ToPort': (network_port, False),  # conditional
+        'ToPort': (network_port, False),
     }
 
     def validate(self):
@@ -484,6 +500,7 @@ class SecurityGroupIngress(AWSObject):
             'SourceSecurityGroupId',
         ]
         exactly_one(self.__class__.__name__, self.properties, conds)
+        check_ports(self.properties)
 
 
 class SecurityGroupRule(AWSProperty):
