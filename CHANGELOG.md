@@ -1,3 +1,11 @@
+## 2.4.1 (2018-01-09)
+- Add a S3OriginConfig object to distinguish between Distribution and StreamingDistribution properties (#1273)
+- Add SSM Example for patch baselines and filter groups (#1274)
+- Add better validation for AWS::CloudWatch::Alarm properties (#1276)
+- Allow empty To/From port ranges for SG's for certain IP protocols (#1277)
+- Add additional properties to AWS::Serverless::Api (#1278)
+- Fixes DynamoDB validator error (#1280)
+
 ## 2.4.0 (2018-01-06)
 - Setup tox (#1187)
 - Set line length for Python files in EditorConfig (#1188)
