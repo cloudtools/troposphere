@@ -6,6 +6,7 @@
 import types
 
 from . import AWSObject, AWSProperty
+from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
@@ -43,15 +44,14 @@ class S3Location(AWSProperty):
     props = {
         "Bucket": (basestring, True),
         "Key": (basestring, True),
-        "Version": (basestring, False)
+        "Version": (basestring, False),
     }
 
 
 class Hooks(AWSProperty):
     props = {
         "PreTraffic": (basestring, False),
-        "PostTraffic": (basestring, False)
-
+        "PostTraffic": (basestring, False),
     }
 
 
@@ -60,7 +60,7 @@ class DeploymentPreference(AWSProperty):
         "Type": (basestring, True),
         "Alarms": (list, False),
         "Hooks": (Hooks, False),
-        "Enabled": (bool, False)
+        "Enabled": (bool, False),
     }
 
 
@@ -101,16 +101,100 @@ class FunctionForPackaging(Function):
     props['CodeUri'] = (props['CodeUri'][0], False)
 
 
+class CognitoAuthIdentity(AWSProperty):
+    props = {
+        'Header': (basestring, False),
+        'ValidationExpression': (basestring, False),
+    }
+
+
+class LambdaTokenAuthIdentity(AWSProperty):
+    props = {
+        'Header': (basestring, False),
+        'ValidationExpression': (basestring, False),
+        'ReauthorizeEvery': (basestring, False),
+    }
+
+
+class LambdaRequestAuthIdentity(AWSProperty):
+    props = {
+        'Headers': ([basestring], False),
+        'QueryStrings': ([basestring], False),
+        'StageVariables': ([basestring], False),
+        'Context': ([basestring], False),
+        'ReauthorizeEvery': (basestring, False),
+    }
+
+
+class CognitoAuth(AWSProperty):
+    props = {
+        'UserPoolArn': (basestring, False),
+        'Identity': (CognitoAuthIdentity, False),
+    }
+
+
+class LambdaTokenAuth(AWSProperty):
+    props = {
+        'FunctionPayloadType': (basestring, False),
+        'FunctionArn': (basestring, False),
+        'FunctionInvokeRole': (basestring, False),
+        'Identity': (LambdaTokenAuthIdentity, False),
+    }
+
+
+class LambdaRequestAuth(AWSProperty):
+    props = {
+        'FunctionPayloadType': (basestring, False),
+        'FunctionArn': (basestring, False),
+        'FunctionInvokeRole': (basestring, False),
+        'Identity': (LambdaRequestAuthIdentity, False),
+    }
+
+
+class Authorizers(AWSProperty):
+    props = {
+        'DefaultAuthorizer': (basestring, False),
+        'CognitoAuth': (CognitoAuth, False),
+        'LambdaTokenAuth': (LambdaTokenAuth, False),
+        'LambdaRequestAuth': (LambdaRequestAuth, False),
+    }
+
+
+class Auth(AWSProperty):
+    props = {
+        'DefaultAuthorizer': (basestring, False),
+        'Authorizers': (Authorizers, False),
+    }
+
+
+class Cors(AWSProperty):
+    props = {
+        'AllowCredentials': (basestring, False),
+        'AllowHeaders': (basestring, False),
+        'AllowMethods': (basestring, False),
+        'AllowOrigin': (basestring, True),
+        'MaxAge': (basestring, False),
+    }
+
+
 class Api(AWSObject):
     resource_type = "AWS::Serverless::Api"
 
     props = {
-        'StageName': (basestring, True),
-        'Name': (basestring, False),
-        'DefinitionBody': (dict, False),
-        'DefinitionUri': (basestring, False),
+        'AccessLogSetting': (AccessLogSetting, False),
+        'Auth': (Auth, False),
+        'BinaryMediaTypes': ([basestring], False),
         'CacheClusterEnabled': (bool, False),
         'CacheClusterSize': (basestring, False),
+        'CanarySetting': (CanarySetting, False),
+        'Cors': ((basestring, Cors), False),
+        'DefinitionBody': (dict, False),
+        'DefinitionUri': (basestring, False),
+        'EndpointConfiguration': (basestring, False),
+        'MethodSetting': (MethodSetting, False),
+        'Name': (basestring, False),
+        'StageName': (basestring, True),
+        "TracingEnabled": (bool, False),
         'Variables': (dict, False),
     }
 
