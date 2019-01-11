@@ -7,6 +7,13 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
 
+def resolver_kind_validator(x):
+    valid_types = ["UNIT", "PIPELINE"]
+    if x not in valid_types:
+        raise ValueError("Kind must be one of: %s" % ", ".join(valid_types))
+    return x
+
+
 class ApiKey(AWSObject):
     resource_type = "AWS::AppSync::ApiKey"
 
@@ -153,6 +160,7 @@ class Resolver(AWSObject):
         'ApiId': (basestring, True),
         'DataSourceName': (basestring, True),
         'FieldName': (basestring, True),
+        'Kind': (resolver_kind_validator, False),
         'PipelineConfig': (PipelineConfig, False),
         'RequestMappingTemplate': (basestring, False),
         'RequestMappingTemplateS3Location': (basestring, False),
