@@ -181,6 +181,7 @@ Currently supported AWS resource types
 - AWS::DMS
 - AWS::DataPipeline
 - AWS::DirectoryService
+- AWS::DocDB
 - AWS::DynamoDB
 - AWS::EC2
 - AWS::ECR
