@@ -10,7 +10,7 @@ from .validators import boolean, integer
 def resolver_kind_validator(x):
     valid_types = ["UNIT", "PIPELINE"]
     if x not in valid_types:
-        raise ValueError("KeyType must be one of: %s" % ", ".join(valid_types))
+        raise ValueError("Kind must be one of: %s" % ", ".join(valid_types))
     return x
 
 
@@ -160,8 +160,8 @@ class Resolver(AWSObject):
         'ApiId': (basestring, True),
         'DataSourceName': (basestring, True),
         'FieldName': (basestring, True),
-        'PipelineConfig': (PipelineConfig, False),
         'Kind': (resolver_kind_validator, False),
+        'PipelineConfig': (PipelineConfig, False),
         'RequestMappingTemplate': (basestring, False),
         'RequestMappingTemplateS3Location': (basestring, False),
         'ResponseMappingTemplate': (basestring, False),
