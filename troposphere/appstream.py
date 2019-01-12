@@ -64,20 +64,6 @@ class Fleet(AWSObject):
     }
 
 
-class VpcConfig(AWSProperty):
-    props = {
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetIds': ([basestring], False),
-    }
-
-
-class DomainJoinInfo(AWSProperty):
-    props = {
-        'DirectoryName': (basestring, False),
-        'OrganizationalUnitDistinguishedName': (basestring, False),
-    }
-
-
 class ImageBuilder(AWSObject):
     resource_type = "AWS::AppStream::ImageBuilder"
 
