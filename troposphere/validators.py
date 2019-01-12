@@ -234,7 +234,7 @@ def check_required(class_name, properties, conditionals):
             raise ValueError("Resource %s required in %s" % c, class_name)
 
 
-def json_checker(name, prop):
+def json_checker(prop):
     from . import AWSHelperFn
 
     if isinstance(prop, basestring):
@@ -247,7 +247,7 @@ def json_checker(name, prop):
     elif isinstance(prop, AWSHelperFn):
         return prop
     else:
-        raise ValueError("%s must be a str or dict" % name)
+        raise ValueError("json object must be a str or dict")
 
 
 def notification_type(notification):

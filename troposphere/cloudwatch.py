@@ -107,4 +107,4 @@ class Dashboard(AWSObject):
         name = 'DashboardBody'
         if name in self.properties:
             dashboard_body = self.properties.get(name)
-            self.properties[name] = json_checker(name, dashboard_body)
+            self.properties[name] = json_checker(dashboard_body)

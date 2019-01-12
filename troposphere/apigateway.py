@@ -301,7 +301,7 @@ class Model(AWSObject):
         name = 'Schema'
         if name in self.properties:
             schema = self.properties.get(name)
-            self.properties[name] = json_checker(name, schema)
+            self.properties[name] = json_checker(schema)
 
 
 class RequestValidator(AWSObject):
