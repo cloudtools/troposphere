@@ -197,6 +197,10 @@ class BaseAWSObject(object):
             # a tuple of types.
             elif isinstance(value, expected_type):
                 return self.properties.__setitem__(name, value)
+            
+            # If the value is none and the property is not mandatory, do nothing
+            elif value is None and self.root_props[name][1] is False:
+                return
             else:
                 self._raise_type(name, value, expected_type)
 
