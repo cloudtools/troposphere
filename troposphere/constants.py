@@ -6,11 +6,16 @@ AP_NORTHEAST_1 = 'ap-northeast-1'
 AP_NORTHEAST_2 = 'ap-northeast-2'
 AP_SOUTHEAST_1 = 'ap-southeast-1'
 AP_SOUTHEAST_2 = 'ap-southeast-2'
+AP_SOUTH_1 = 'ap-south-1'
+CA_CENTRAL_1 = 'ca-central-1'
 EU_WEST_1 = 'eu-west-1'
 EU_WEST_2 = 'eu-west-2'
+EU_WEST_3 = 'eu-west-3'
 EU_CENTRAL_1 = 'eu-central-1'
+EU_NORTH_1 = 'eu-north-1'
 SA_EAST_1 = 'sa-east-1'
 US_EAST_1 = 'us-east-1'
+US_EAST_2 = 'us-east-2'
 US_WEST_1 = 'us-west-1'
 US_WEST_2 = 'us-west-2'
 
@@ -28,10 +33,17 @@ AP_NORTHEAST_2C = 'ap-northeast-2c'
 
 AP_SOUTHEAST_1A = 'ap-southeast-1a'
 AP_SOUTHEAST_1B = 'ap-southeast-1b'
+AP_SOUTHEAST_1C = 'ap-southeast-1c'
 
 AP_SOUTHEAST_2A = 'ap-southeast-2a'
 AP_SOUTHEAST_2B = 'ap-southeast-2b'
 AP_SOUTHEAST_2C = 'ap-southeast-2c'
+
+AP_SOUTH_1A = 'ap-south-1a'
+AP_SOUTH_1B = 'ap-south-1b'
+
+CA_CENTRAL_1A = 'ca-central-1a'
+CA_CENTRAL_1B = 'ca-central-1b'
 
 EU_WEST_1A = 'eu-west-1a'
 EU_WEST_1B = 'eu-west-1b'
@@ -39,9 +51,19 @@ EU_WEST_1C = 'eu-west-1c'
 
 EU_WEST_2A = 'eu-west-2a'
 EU_WEST_2B = 'eu-west-2b'
+EU_WEST_2C = 'eu-west-2c'
+
+EU_WEST_3A = 'eu-west-3a'
+EU_WEST_3B = 'eu-west-3b'
+EU_WEST_3C = 'eu-west-3c'
 
 EU_CENTRAL_1A = 'eu-central-1a'
 EU_CENTRAL_1B = 'eu-central-1b'
+EU_CENTRAL_1C = 'eu-central-1c'
+
+EU_NORTH_1A = 'eu-north-1a'
+EU_NORTH_1B = 'eu-north-1b'
+EU_NORTH_1C = 'eu-north-1c'
 
 SA_EAST_1A = 'sa-east-1a'
 SA_EAST_1B = 'sa-east-1b'
@@ -52,6 +74,11 @@ US_EAST_1B = 'us-east-1b'
 US_EAST_1C = 'us-east-1c'
 US_EAST_1D = 'us-east-1d'
 US_EAST_1E = 'us-east-1e'
+US_EAST_1F = 'us-east-1f'
+
+US_EAST_2A = 'us-east-2a'
+US_EAST_2B = 'us-east-2b'
+US_EAST_2C = 'us-east-2c'
 
 US_WEST_1A = 'us-west-1a'
 US_WEST_1B = 'us-west-1b'
