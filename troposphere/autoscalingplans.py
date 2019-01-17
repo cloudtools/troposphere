@@ -13,7 +13,7 @@ VALID_PREDICTIVESCALINGMAXCAPACITYBEHAVIOR = (
     'SetMaxCapacityToForecastCapacity',
     'SetMaxCapacityAboveForecastCapacity',
 )
-VALID_PREDICTIVESCALINGMODE = ('ForecastAndScale')
+VALID_PREDICTIVESCALINGMODE = ('ForecastAndScale', 'ForecastOnly')
 VALID_SCALINGPOLICYUPDATEBEHAVIOR = ('KeepExternalPolicies',
                                      'ReplaceExternalPolicies')
 
@@ -112,7 +112,7 @@ class CustomizedLoadMetricSpecification(AWSObject):
     }
 
 
-class PredefinedLoadMetricSpecification(AWSObject):
+class PredefinedLoadMetricSpecification(AWSProperty):
     props = {
         'PredefinedLoadMetricType': (basestring, True),
         'ResourceLabel': (basestring, False),
@@ -135,7 +135,7 @@ class ScalingInstruction(AWSProperty):
         'ScheduledActionBufferTime': (integer, False),
         'ServiceNamespace': (service_namespace_type, True),
         'TargetTrackingConfigurations': (
-            TargetTrackingConfiguration,
+            [TargetTrackingConfiguration],
             True
         ),
     }
