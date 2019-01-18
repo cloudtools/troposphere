@@ -34,7 +34,7 @@ class ResourcePolicy(AWSObject):
     }
 
 
-class RotationRule(AWSProperty):
+class RotationRules(AWSProperty):
     props = {
         'AutomaticallyAfterDays': (integer, False),
     }
@@ -46,7 +46,7 @@ class RotationSchedule(AWSObject):
     props = {
         'SecretId': (basestring, True),
         'RotationLambdaARN': (basestring, True),
-        'RotationRules': ([RotationRule], False)
+        'RotationRules': (RotationRules, False)
     }
 
 
