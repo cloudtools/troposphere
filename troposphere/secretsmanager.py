@@ -46,7 +46,7 @@ class RotationSchedule(AWSObject):
     props = {
         'SecretId': (basestring, True),
         'RotationLambdaARN': (basestring, True),
-        'RotationRules': ([RotationRule], False)
+        'RotationRules': (RotationRule, False)
     }
 
 
