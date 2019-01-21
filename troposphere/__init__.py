@@ -536,14 +536,18 @@ class Tags(AWSHelperFn):
                 raise(TypeError, "Tags needs to be either kwargs or dict")
             tag_dict = args[0]
 
+        def add_tag(tag_list, k, v):
+            tag_list.append({'Key': k, 'Value': v, })
+
         self.tags = []
-        for k, v in (sorted(tag_dict.items())
-                     if all(isinstance(k, str) for k in tag_dict)
-                     else tag_dict.items()):
-            self.tags.append({
-                'Key': k,
-                'Value': v,
-            })
+
+        # Detect and handle non-string Tag items which do not sort in Python3
+        if all(isinstance(k, str) for k in tag_dict):
+            for k, v in sorted(tag_dict.items()):
+                add_tag(self.tags, k, v)
+        else:
+            for k, v in tag_dict.items():
+                add_tag(self.tags, k, v)
 
     # allow concatenation of the Tags object via '+' operator
     def __add__(self, newtags):
