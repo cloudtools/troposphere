@@ -542,7 +542,7 @@ class Tags(AWSHelperFn):
         self.tags = []
 
         # Detect and handle non-string Tag items which do not sort in Python3
-        if all(isinstance(k, str) for k in tag_dict):
+        if all(isinstance(k, basestring) for k in tag_dict):
             for k, v in sorted(tag_dict.items()):
                 add_tag(self.tags, k, v)
         else:
