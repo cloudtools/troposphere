@@ -537,7 +537,9 @@ class Tags(AWSHelperFn):
             tag_dict = args[0]
 
         self.tags = []
-        for k, v in sorted(tag_dict.iteritems()):
+        for k, v in (sorted(tag_dict.items())
+                     if all(isinstance(k, str) for k in tag_dict)
+                     else tag_dict.items()):
             self.tags.append({
                 'Key': k,
                 'Value': v,

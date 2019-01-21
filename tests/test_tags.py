@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Tags
+from troposphere import Sub, Tags
 from troposphere.autoscaling import Tags as ASTags
 
 
@@ -24,6 +24,11 @@ class TestTags(unittest.TestCase):
             {'Value': 'barval', 'Key': 'bar', 'PropagateAtLaunch': 'false'},
             {'Value': 'bazval', 'Key': 'baz', 'PropagateAtLaunch': 'true'},
         ]
+        self.assertEqual(tags.to_dict(), result)
+
+    def test_Unsortable(self):
+        result = [{'Key': {'Fn::Sub': 'somestring'}, 'Value': 'val'}]
+        tags = Tags({Sub('somestring'): 'val'})
         self.assertEqual(tags.to_dict(), result)
 
     def test_Formats(self):
