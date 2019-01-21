@@ -70,7 +70,8 @@ class Function(AWSObject):
     props = {
         'Handler': (basestring, True),
         'Runtime': (basestring, True),
-        'CodeUri': ((S3Location, basestring), True),
+        'CodeUri': ((S3Location, basestring), False),
+        'InlineCode': (basestring, False),
         'FunctionName': (basestring, False),
         'Description': (basestring, False),
         'MemorySize': (validate_memory_size, False),
@@ -84,9 +85,18 @@ class Function(AWSObject):
         'Tracing': (basestring, False),
         'KmsKeyArn': (basestring, False),
         'DeadLetterQueue': (DeadLetterQueue, False),
+        'DeploymentPreference': (DeploymentPreference, False),
+        'Layers': ([basestring], False),
         'AutoPublishAlias': (basestring, False),
-        'DeploymentPreference': (DeploymentPreference, False)
+        'ReservedConcurrentExecutions': (positive_integer, False),
     }
+
+    def validate(self):
+        conds = [
+            'CodeUri',
+            'InlineCode',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class FunctionForPackaging(Function):
@@ -99,6 +109,9 @@ class FunctionForPackaging(Function):
     resource_type = Function.resource_type
     props = Function.props.copy()
     props['CodeUri'] = (props['CodeUri'][0], False)
+
+    def validate(self):
+        pass
 
 
 class CognitoAuthIdentity(AWSProperty):

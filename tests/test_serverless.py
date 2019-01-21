@@ -8,6 +8,22 @@ from troposphere.serverless import (
 
 
 class TestServerless(unittest.TestCase):
+    def test_exactly_one_code(self):
+        serverless_func = Function(
+            "SomeHandler",
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri=S3Location(
+                Bucket="mybucket",
+                Key="mykey",
+            ),
+            InlineCode="",
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        with self.assertRaises(ValueError):
+            t.to_json()
+
     def test_s3_location(self):
         serverless_func = Function(
             "SomeHandler",
@@ -213,9 +229,23 @@ class TestServerless(unittest.TestCase):
         t.to_json()
 
     def test_packaging(self):
-        func_req = Function.props['CodeUri'][1]
-        package_req = FunctionForPackaging.props['CodeUri'][1]
-        self.assertNotEqual(func_req, package_req)
+        # test for no CodeUri or InlineCode
+        t = Template()
+        t.add_resource(
+            FunctionForPackaging(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                Runtime='python3.6',
+                Policies={
+                    "Statement": [{
+                        "Effect": "Allow",
+                        "Action": ["s3:GetObject", "s3:PutObject"],
+                        "Resource": ["arn:aws:s3:::bucket/*"],
+                    }]
+                },
+            )
+        )
+        t.to_json()
 
 
 if __name__ == '__main__':
