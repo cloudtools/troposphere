@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
@@ -29,7 +29,7 @@ class Cluster(AWSObject):
         'SSESpecification': (SSESpecification, False),
         'SecurityGroupIds': ([basestring], False),
         'SubnetGroupName': (basestring, True),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
     }
 
 
