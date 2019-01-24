@@ -158,7 +158,7 @@ class Resolver(AWSObject):
 
     props = {
         'ApiId': (basestring, True),
-        'DataSourceName': (basestring, True),
+        'DataSourceName': (basestring, False),
         'FieldName': (basestring, True),
         'Kind': (resolver_kind_validator, False),
         'PipelineConfig': (PipelineConfig, False),
