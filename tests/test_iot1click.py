@@ -22,4 +22,4 @@ class TestPlacementTemplate(unittest.TestCase):
                 },
             ),
         ))
-        print template.to_json()
+        template.to_json()

@@ -6,7 +6,7 @@ from troposphere import NoValue, Region
 from troposphere import depends_on_helper
 from troposphere.ec2 import Instance, LaunchTemplateData
 from troposphere.ec2 import Route, SecurityGroupRule
-from troposphere.s3 import Bucket
+from troposphere.s3 import Bucket, PublicRead
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere import cloudformation
 from troposphere.validators import positive_integer
@@ -551,6 +551,34 @@ class TestValidation(unittest.TestCase):
         t = Template()
         t.add_resource(route)
         t.to_json()
+
+
+test_updatereplacepolicy_yaml = """\
+Resources:
+  S3Bucket:
+    Properties:
+      AccessControl: PublicRead
+    Type: AWS::S3::Bucket
+    UpdateReplacePolicy: Retain
+"""
+
+
+class TestAttributes(unittest.TestCase):
+
+    def test_BogusAttribute(self):
+        t = Template()
+        with self.assertRaises(AttributeError):
+            t.add_resource(Bucket("S3Bucket", Bogus='Retain'))
+
+    def test_UpdateReplacePolicy(self):
+        t = Template()
+        t.add_resource(Bucket(
+            "S3Bucket",
+            AccessControl=PublicRead,
+            UpdateReplacePolicy='Retain',
+        ))
+        t.to_yaml()
+        self.assertEqual(t.to_yaml(), test_updatereplacepolicy_yaml)
 
 
 if __name__ == '__main__':

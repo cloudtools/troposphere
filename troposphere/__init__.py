@@ -15,7 +15,7 @@ from . import validators
 
 __version__ = "2.4.1"
 
-# constants for DeletionPolicy
+# constants for DeletionPolicy and UpdateReplacePolicy
 Delete = 'Delete'
 Retain = 'Retain'
 Snapshot = 'Snapshot'
@@ -94,9 +94,10 @@ class BaseAWSObject(object):
         self.do_validation = validation
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
-        self.attributes = ['DependsOn', 'DeletionPolicy',
-                           'Metadata', 'UpdatePolicy',
-                           'Condition', 'CreationPolicy']
+        self.attributes = [
+            'Condition', 'CreationPolicy', 'DeletionPolicy', 'DependsOn',
+            'Metadata', 'UpdatePolicy', 'UpdateReplacePolicy',
+        ]
 
         # try to validate the title if its there
         if self.title:
