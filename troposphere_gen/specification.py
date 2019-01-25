@@ -74,3 +74,25 @@ class Property(Attribute):
             self._update_type = update_type
         else:
             raise ValueError("Invalid update type: %s" % update_type)
+
+
+class Resource():
+    """Parsed resource"""
+
+    def __init__(self, name: str, resourcedict: Dict) -> None:
+        self.name: str = name
+        self.documentation: str = None
+        self.attributes: Dict[str, Attribute] = {}
+        self.properties: Dict[str, Property] = {}
+
+        self.parse(resourcedict)
+
+    def parse(self, resourcedict: Dict) -> None:
+        """Parse JSON resource definition"""
+        self.documentation = resourcedict["Documentation"]
+
+        for name, attributedict in resourcedict["Attributes"].items():
+            self.attributes[name] = Attribute(name, attributedict)
+
+        for name, propertydict in resourcedict["Properties"].items():
+            self.properties[name] = Property(name, propertydict)
