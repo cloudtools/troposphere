@@ -9,10 +9,10 @@ class TestProperty(unittest.TestCase):
             "PrimitiveType": "String"
         }
 
-        prop = Attribute("TestAttribute", attributedict)
+        attrib = Attribute("TestAttribute", attributedict)
 
-        self.assertEqual(PrimitiveType, type(prop.primitive_type))
-        self.assertEqual(None, prop.type)
+        self.assertEqual(PrimitiveType, type(attrib.primitive_type))
+        self.assertEqual(None, attrib.type)
 
     def test_map_primitive(self):
         attributedict = {
@@ -20,11 +20,11 @@ class TestProperty(unittest.TestCase):
             "PrimitiveItemType": "String",
         }
 
-        prop = Attribute("TestAttribute", attributedict)
+        attrib = Attribute("TestAttribute", attributedict)
 
-        self.assertEqual(None, prop.primitive_type)
-        self.assertEqual(MapType, type(prop.type))
-        self.assertEqual(PrimitiveType, type(prop.type.itemtype))
+        self.assertEqual(None, attrib.primitive_type)
+        self.assertEqual(MapType, type(attrib.type))
+        self.assertEqual(PrimitiveType, type(attrib.type.itemtype))
 
     def test_map_subproperty(self):
         attributedict = {
@@ -32,11 +32,11 @@ class TestProperty(unittest.TestCase):
             "ItemType": "SomeType",
         }
 
-        prop = Attribute("TestAttribute", attributedict)
+        attrib = Attribute("TestAttribute", attributedict)
 
-        self.assertEqual(None, prop.primitive_type)
-        self.assertEqual(MapType, type(prop.type))
-        self.assertEqual(Subproperty, type(prop.type.itemtype))
+        self.assertEqual(None, attrib.primitive_type)
+        self.assertEqual(MapType, type(attrib.type))
+        self.assertEqual(Subproperty, type(attrib.type.itemtype))
 
     def test_list_primitive(self):
         attributedict = {
@@ -44,11 +44,11 @@ class TestProperty(unittest.TestCase):
             "PrimitiveItemType": "String",
         }
 
-        prop = Attribute("TestAttribute", attributedict)
+        attrib = Attribute("TestAttribute", attributedict)
 
-        self.assertEqual(None, prop.primitive_type)
-        self.assertEqual(ListType, type(prop.type))
-        self.assertEqual(PrimitiveType, type(prop.type.itemtype))
+        self.assertEqual(None, attrib.primitive_type)
+        self.assertEqual(ListType, type(attrib.type))
+        self.assertEqual(PrimitiveType, type(attrib.type.itemtype))
 
     def test_list_subproperty(self):
         attributedict = {
@@ -56,11 +56,11 @@ class TestProperty(unittest.TestCase):
             "ItemType": "SomeType",
         }
 
-        prop = Attribute("TestAttribute", attributedict)
+        attrib = Attribute("TestAttribute", attributedict)
 
-        self.assertEqual(None, prop.primitive_type)
-        self.assertEqual(ListType, type(prop.type))
-        self.assertEqual(Subproperty, type(prop.type.itemtype))
+        self.assertEqual(None, attrib.primitive_type)
+        self.assertEqual(ListType, type(attrib.type))
+        self.assertEqual(Subproperty, type(attrib.type.itemtype))
 
 
 if __name__ == '__main__':
