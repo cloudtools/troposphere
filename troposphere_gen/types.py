@@ -56,28 +56,28 @@ class Subproperty(BaseType):
         return self.print_class.__name__
 
 
-class Map(BaseType):
+class MapType(BaseType):
     """Map type
 
     Map of subproperties or primitives. The keys are always strings.
     """
 
     def __init__(self, itemtype: Union[Subproperty, PrimitiveType]) -> None:
-        super(Map, self).__init__()
+        super(MapType, self).__init__()
         self.itemtype = itemtype  # type: Union[Subproperty, PrimitiveType]
 
     def __str__(self) -> str:
         return "Dict[str, %s]" % self.itemtype
 
 
-class List(BaseType):
+class ListType(BaseType):
     """List type
 
     List of subproperties or primitives.
     """
 
     def __init__(self, itemtype: Union[Subproperty, PrimitiveType]) -> None:
-        super(List, self).__init__()
+        super(ListType, self).__init__()
         self.itemtype = itemtype  # type: Union[Subproperty, PrimitiveType]
 
     def __str__(self) -> str:
