@@ -331,3 +331,33 @@ class Volume(AWSObject):
         'Name': (basestring, False),
         'StackId': (basestring, True),
     }
+
+
+class EngineAttribute(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
+class Server(AWSObject):
+    resource_type = "AWS::OpsWorksCM::Server"
+
+    props = {
+        'BackupId': (basestring, False),
+        'BackupRetentionCount': (integer, False),
+        'DisableAutomatedBackup': (boolean, False),
+        'Engine': (basestring, False),
+        'EngineAttributes': (EngineAttribute, False),
+        'EngineModel': (basestring, False),
+        'EngineVersion': (basestring, False),
+        'InstanceProfileArn': (basestring, True),
+        'InstanceType': (basestring, True),
+        'KeyPair': (basestring, False),
+        'PreferredBackupWindow': (basestring, False),
+        'PreferredMaintenanceWindow': (basestring, False),
+        'SecurityGroupIds': ([basestring], False),
+        'ServerName': (basestring, False),
+        'ServiceRoleArn': (basestring, True),
+        'SubnetIds': ([basestring], False),
+    }
