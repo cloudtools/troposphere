@@ -36,17 +36,17 @@ class Property():
             self.primitive_type = PrimitiveType(propertydict["PrimitiveType"])
         elif "Type" in propertydict:
             if propertydict["Type"] == "List":
-                self.type = ListType(propertydict["Type"])
+                if "PrimitiveItemType" in propertydict:
+                    self.type = ListType(PrimitiveType(propertydict["PrimitiveItemType"]))
+                elif "ItemType" in propertydict:
+                    self.type = ListType(Subproperty(propertydict["ItemType"]))
             elif propertydict["Type"] == "Map":
-                self.type = MapType(propertydict["Type"])
+                if "PrimitiveItemType" in propertydict:
+                    self.type = MapType(PrimitiveType(propertydict["PrimitiveItemType"]))
+                elif "ItemType" in propertydict:
+                    self.type = MapType(Subproperty(propertydict["ItemType"]))
             else:
                 self.type = Subproperty(propertydict["Type"])
-
-            # Can only happen if Type is 'List' or 'Map'
-            if "PrimitiveItemType" in propertydict:
-                self.type.itemtype = PrimitiveType(propertydict["PrimitiveItemType"])
-            elif "ItemType" in propertydict["ItemType"]:
-                self.type.itemtype = Subproperty(propertydict["ItemType"])
 
         if "DuplicatesAllowed" in propertydict:
             self.duplicate_allowed = propertydict["DuplicatesAllowed"]
