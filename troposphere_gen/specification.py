@@ -12,15 +12,15 @@ class Property():
     """Parsed property"""
 
     def __init__(self, name: str, propertydict: Dict) -> None:
-        self.name = name  # type: str
-        self.documentation = None  # type: str
-        self.duplicate_allowed = None  # type: bool
-        self.item_type = None  # type: Subproperty
-        self.primitive_item_type = None  # type: PrimitiveType
-        self.primitive_type = None  # type: PrimitiveType
-        self.required = None  # type: bool
-        self.type = None  # type: Union[Subproperty, ListType, MapType]
-        self._update_type = None  # type: str
+        self.name: str = name
+        self.documentation: str = None
+        self.duplicate_allowed: bool = None
+        self.item_type: Subproperty = None
+        self.primitive_item_type: PrimitiveType = None
+        self.primitive_type: PrimitiveType = None
+        self.required: bool = None
+        self.type: Union[Subproperty, ListType, MapType] = None
+        self._update_type: str = None
 
         self.parse(propertydict)
 
