@@ -16,8 +16,6 @@ class TestProperty(unittest.TestCase):
 
         self.assertEqual(PrimitiveType, type(prop.primitive_type))
         self.assertEqual(None, prop.type)
-        self.assertEqual(None, prop.primitive_item_type)
-        self.assertEqual(None, prop.item_type)
 
     def test_map_primitive(self):
         propertydict = {
@@ -32,8 +30,6 @@ class TestProperty(unittest.TestCase):
 
         self.assertEqual(None, prop.primitive_type)
         self.assertEqual(MapType, type(prop.type))
-        self.assertEqual(None, prop.primitive_item_type)
-        self.assertEqual(None, prop.item_type)
         self.assertEqual(PrimitiveType, type(prop.type.itemtype))
 
     def test_map_subproperty(self):
@@ -49,8 +45,6 @@ class TestProperty(unittest.TestCase):
 
         self.assertEqual(None, prop.primitive_type)
         self.assertEqual(MapType, type(prop.type))
-        self.assertEqual(None, prop.primitive_item_type)
-        self.assertEqual(None, prop.item_type)
         self.assertEqual(Subproperty, type(prop.type.itemtype))
 
     def test_list_primitive(self):
@@ -66,8 +60,6 @@ class TestProperty(unittest.TestCase):
 
         self.assertEqual(None, prop.primitive_type)
         self.assertEqual(ListType, type(prop.type))
-        self.assertEqual(None, prop.primitive_item_type)
-        self.assertEqual(None, prop.item_type)
         self.assertEqual(PrimitiveType, type(prop.type.itemtype))
 
     def test_list_subproperty(self):
@@ -83,8 +75,6 @@ class TestProperty(unittest.TestCase):
 
         self.assertEqual(None, prop.primitive_type)
         self.assertEqual(ListType, type(prop.type))
-        self.assertEqual(None, prop.primitive_item_type)
-        self.assertEqual(None, prop.item_type)
         self.assertEqual(Subproperty, type(prop.type.itemtype))
 
     def test_subproperty(self):
@@ -101,8 +91,6 @@ class TestProperty(unittest.TestCase):
         self.assertEqual(None, prop.primitive_type)
         self.assertEqual(Subproperty, type(prop.type))
         self.assertEqual(None, prop.type.print_class)
-        self.assertEqual(None, prop.primitive_item_type)
-        self.assertEqual(None, prop.item_type)
 
 
 if __name__ == '__main__':

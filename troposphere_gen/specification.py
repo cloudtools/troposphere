@@ -15,8 +15,6 @@ class Property():
         self.name: str = name
         self.documentation: str = None
         self.duplicate_allowed: bool = None
-        self.item_type: Subproperty = None
-        self.primitive_item_type: PrimitiveType = None
         self.primitive_type: PrimitiveType = None
         self.required: bool = None
         self.type: Union[Subproperty, ListType, MapType] = None
