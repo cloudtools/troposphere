@@ -22,9 +22,7 @@ type_map = {
 
 class BaseType():
     """Base Type all types inherit from"""
-
-    def __init__(self):
-        raise NotImplementedError
+    pass
 
 
 class PrimitiveType(BaseType):
@@ -34,7 +32,6 @@ class PrimitiveType(BaseType):
     """
 
     def __init__(self, type: str):
-        super(PrimitiveType, self).__init__()
         if type in type_map:
             self.type = type_map[type]  # type: type
         else:
@@ -48,7 +45,6 @@ class Subproperty(BaseType):
     """Subproperty type defined in other part of specification"""
 
     def __init__(self, type: str) -> None:
-        super(Subproperty, self).__init__()
         self.type = type  # type: str
         self.print_class = None  # type: type
 
@@ -63,7 +59,6 @@ class MapType(BaseType):
     """
 
     def __init__(self, itemtype: Union[Subproperty, PrimitiveType]) -> None:
-        super(MapType, self).__init__()
         self.itemtype = itemtype  # type: Union[Subproperty, PrimitiveType]
 
     def __str__(self) -> str:
@@ -77,7 +72,6 @@ class ListType(BaseType):
     """
 
     def __init__(self, itemtype: Union[Subproperty, PrimitiveType]) -> None:
-        super(ListType, self).__init__()
         self.itemtype = itemtype  # type: Union[Subproperty, PrimitiveType]
 
     def __str__(self) -> str:
