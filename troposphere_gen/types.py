@@ -38,7 +38,7 @@ class PrimitiveType(BaseType):
         if type in type_map:
             self.type = type_map[type]  # type: type
         else:
-            raise ValueError("Unknown type: %s" % type)
+            raise ValueError("Invalid primitive type: %s" % type)
 
     def __str__(self) -> str:
         return self.type.__name__
