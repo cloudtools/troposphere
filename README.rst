@@ -329,6 +329,23 @@ Duplicating a single instance sample would look like this
 
     print(template.to_json())
 
+UserData
+========
+You can pass in user data script to your launch config using ``from_file`` helper function under helpers/userdata.py file.
+You can also use ``Ref`` method in the script file which will be translated into CloudFormation function.
+
+Example:
+
+.. code:: bash
+
+    #!/bin/bash -ex
+
+    /opt/aws/bin/cfn-init -v --stack "Ref('AWS::StackName')" \
+      --resource LaunchConfig \
+      --configsets ConfigCluster \
+      --region Ref('AWS::Region')
+
+
 Community
 =========
 
