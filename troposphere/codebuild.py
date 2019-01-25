@@ -7,6 +7,28 @@ from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, positive_integer
 
 
+VALID_IMAGE_PULL_CREDENTIALS = ('CODEBUILD', 'SERVICE_ROLE')
+VALID_CREDENTIAL_PROVIDERS = ('SECRETS_MANAGER')
+
+
+def validate_image_pull_credentials(image_pull_credentials):
+    """Validate ImagePullCredentialsType for Project"""
+
+    if image_pull_credentials not in VALID_IMAGE_PULL_CREDENTIALS:
+        raise ValueError("Project ImagePullCredentialsType must be one of: %s" %  # NOQA
+                         ", ".join(VALID_IMAGE_PULL_CREDENTIALS))
+    return image_pull_credentials
+
+
+def validate_credentials_provider(credential_provider):
+    """Validate CredentialProvider for Project's RegistryCredential"""
+
+    if credential_provider not in VALID_CREDENTIAL_PROVIDERS:
+        raise ValueError("RegistryCredential CredentialProvider must be one of: %s" %  # NOQA
+                         ", ".join(VALID_CREDENTIAL_PROVIDERS))
+    return credential_provider
+
+
 class SourceAuth(AWSProperty):
     props = {
         'Resource': (basestring, False),
@@ -76,13 +98,22 @@ class EnvironmentVariable(AWSProperty):
                     ','.join(valid_types))
 
 
+class RegistryCredential(AWSProperty):
+    props = {
+        'Credential': (basestring, True),
+        'CredentialProvider': (validate_credentials_provider, True),
+    }
+
+
 class Environment(AWSProperty):
     props = {
         'Certificate': (basestring, False),
         'ComputeType': (basestring, True),
         'EnvironmentVariables': ((list, [EnvironmentVariable]), False),
         'Image': (basestring, True),
+        'ImagePullCredentialsType': (validate_image_pull_credentials, False),
         'PrivilegedMode': (boolean, False),
+        'RegistryCredential': (RegistryCredential, False),
         'Type': (basestring, True),
     }
 
