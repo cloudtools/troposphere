@@ -4,8 +4,8 @@ These classes parse an AWS CF specification as documented here:
 https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-specification-format.html
 """
 
-from typing import Dict, List, Union
-from .types import PrimitiveType, Subproperty, MapType, ListType
+from typing import Dict, Union
+from troposphere_gen.types import PrimitiveType, Subproperty, MapType, ListType
 
 
 class Attribute():
