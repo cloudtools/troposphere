@@ -4,6 +4,34 @@ from troposphere_gen.types import *
 
 
 class TestProperty(unittest.TestCase):
+    def test_fields(self):
+        propertydict = {
+            "Documentation": "http://example.com/foo",
+            "Type": "List",
+            "PrimitiveItemType": "String",
+            "Required": True,
+            "UpdateType": "Mutable",
+            "DuplicatesAllowed": True
+        }
+
+        prop = Property("TestProperty", propertydict)
+
+        self.assertEqual(propertydict["Documentation"], prop.documentation)
+        self.assertTrue(prop.required)
+        self.assertEqual(propertydict["UpdateType"], prop.update_type)
+        self.assertTrue(prop.duplicate_allowed)
+
+    def test_updatetype_setter_exception(self):
+        propertydict = {
+            "Documentation": "http://example.com/foo",
+            "PrimitiveType": "String",
+            "Required": True,
+            "UpdateType": "Bogus",
+        }
+
+        with self.assertRaises(ValueError):
+            prop = Property("TestProperty", propertydict)
+
     def test_primitive(self):
         propertydict = {
             "Documentation": "http://example.com/foo",
