@@ -59,3 +59,35 @@ class Property():
             self._update_type = update_type
         else:
             raise ValueError("Invalid update type: %s" % update_type)
+
+
+class Attribute():
+    """Parsed attribute"""
+
+    def __init__(self, name: str, attributedict: Dict) -> None:
+        self.name: str = name
+        self.item_type: Subproperty = None
+        self.primitive_item_type: PrimitiveType = None
+        self.primitive_type: PrimitiveType = None
+        self.type: Union[Subproperty, ListType, MapType] = None
+
+        self.parse(attributedict)
+
+    def parse(self, attributedict: Dict) -> None:
+        """Parse JSON attribute definition"""
+        # Determine type
+        if "PrimitiveType" in attributedict:
+            self.primitive_type = PrimitiveType(attributedict["PrimitiveType"])
+        elif "Type" in attributedict:
+            if attributedict["Type"] == "List":
+                if "PrimitiveItemType" in attributedict:
+                    self.type = ListType(PrimitiveType(attributedict["PrimitiveItemType"]))
+                elif "ItemType" in attributedict:
+                    self.type = ListType(Subproperty(attributedict["ItemType"]))
+            elif attributedict["Type"] == "Map":
+                if "PrimitiveItemType" in attributedict:
+                    self.type = MapType(PrimitiveType(attributedict["PrimitiveItemType"]))
+                elif "ItemType" in attributedict:
+                    self.type = MapType(Subproperty(attributedict["ItemType"]))
+            else:
+                self.type = Subproperty(attributedict["Type"])
