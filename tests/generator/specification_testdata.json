@@ -1,0 +1,170 @@
+{
+    "PropertyTypes": {
+        "AWS::Elasticsearch::Domain.EBSOptions": {
+            "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html",
+            "Properties": {
+                "EBSEnabled": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-ebsenabled",
+                    "PrimitiveType": "Boolean",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "Iops": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-iops",
+                    "PrimitiveType": "Integer",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "VolumeSize": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-volumesize",
+                    "PrimitiveType": "Integer",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "VolumeType": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-ebsoptions.html#cfn-elasticsearch-domain-ebsoptions-volumetype",
+                    "PrimitiveType": "String",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                }
+            }
+        },
+        "AWS::Elasticsearch::Domain.ElasticsearchClusterConfig": {
+            "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html",
+            "Properties": {
+                "DedicatedMasterCount": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-dedicatedmastercount",
+                    "PrimitiveType": "Integer",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "DedicatedMasterEnabled": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-dedicatedmasterenabled",
+                    "PrimitiveType": "Boolean",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "DedicatedMasterType": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-dedicatedmastertype",
+                    "PrimitiveType": "String",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "InstanceCount": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instancecount",
+                    "PrimitiveType": "Integer",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "InstanceType": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-instnacetype",
+                    "PrimitiveType": "String",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "ZoneAwarenessEnabled": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-elasticsearchclusterconfig.html#cfn-elasticsearch-domain-elasticseachclusterconfig-zoneawarenessenabled",
+                    "PrimitiveType": "Boolean",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                }
+            }
+        },
+        "AWS::Elasticsearch::Domain.SnapshotOptions": {
+            "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html",
+            "Properties": {
+                "AutomatedSnapshotStartHour": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticsearch-domain-snapshotoptions.html#cfn-elasticsearch-domain-snapshotoptions-automatedsnapshotstarthour",
+                    "PrimitiveType": "Integer",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                }
+            }
+        },
+        "Tag": {
+            "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html",
+            "Properties": {
+                "Key": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-key",
+                    "PrimitiveType": "String",
+                    "Required": true,
+                    "UpdateType": "Immutable"
+                },
+                "Value": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html#cfn-resource-tags-value",
+                    "PrimitiveType": "String",
+                    "Required": true,
+                    "UpdateType": "Immutable"
+                }
+            }
+        }
+    },
+    "ResourceType": {
+        "AWS::Elasticsearch::Domain": {
+            "Attributes": {
+                "DomainArn": {
+                    "PrimitiveType": "String"
+                },
+                "DomainEndpoint": {
+                    "PrimitiveType": "String"
+                }
+            },
+            "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html",
+            "Properties": {
+                "AccessPolicies": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-accesspolicies",
+                    "PrimitiveType": "Json",
+                    "Required": false,
+                    "UpdateType": "Mutable"
+                },
+                "AdvancedOptions": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-advancedoptions",
+                    "DuplicatesAllowed": false,
+                    "PrimitiveItemType": "String",
+                    "Required": false,
+                    "Type": "Map",
+                    "UpdateType": "Mutable"
+                },
+                "DomainName": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-domainname",
+                    "PrimitiveType": "String",
+                    "Required": false,
+                    "UpdateType": "Immutable"
+                },
+                "EBSOptions": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-ebsoptions",
+                    "Required": false,
+                    "Type": "EBSOptions",
+                    "UpdateType": "Mutable"
+                },
+                "ElasticsearchClusterConfig": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchclusterconfig",
+                    "Required": false,
+                    "Type": "ElasticsearchClusterConfig",
+                    "UpdateType": "Mutable"
+                },
+                "ElasticsearchVersion": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-elasticsearchversion",
+                    "PrimitiveType": "String",
+                    "Required": false,
+                    "UpdateType": "Immutable"
+                },
+                "SnapshotOptions": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-snapshotoptions",
+                    "Required": false,
+                    "Type": "SnapshotOptions",
+                    "UpdateType": "Mutable"
+                },
+                "Tags": {
+                    "Documentation": "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html#cfn-elasticsearch-domain-tags",
+                    "DuplicatesAllowed": true,
+                    "ItemType": "Tag",
+                    "Required": false,
+                    "Type": "List",
+                    "UpdateType": "Mutable"
+                }
+            }
+        }
+    },
+    "ResourceSpecificationVersion": "1.4.1"
+}
