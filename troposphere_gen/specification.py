@@ -106,8 +106,7 @@ class Resource():
 
 
 class Specification():
-    def __init__(self, name: str, specificationdict: Dict) -> None:
-        self.name: str = name
+    def __init__(self, specificationdict: Dict) -> None:
         self.resource_specification_version: StrictVersion = None
         self.property_types: Dict[str, Property] = {}
         self.resource_types: Dict[str, Resource] = {}

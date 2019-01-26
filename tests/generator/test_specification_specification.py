@@ -10,7 +10,7 @@ class TestProperty(unittest.TestCase):
         with open("specification_testdata.json", "r") as f:
             specificationdict = json.load(f)
 
-        spec = Specification("SomeSpecification", specificationdict)
+        spec = Specification(specificationdict)
 
         # Check version and whether correct amount of resources and properties exist
         self.assertEqual(StrictVersion(specificationdict["ResourceSpecificationVersion"]),
