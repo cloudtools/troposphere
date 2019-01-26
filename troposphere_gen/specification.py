@@ -55,7 +55,10 @@ class Property(Attribute):
 
     def parse(self, propertydict: Dict) -> None:
         """Parse JSON property definition"""
-        self.documentation = propertydict["Documentation"]
+        if "Documentation" in propertydict:
+            # Not all properties have documentation, for example
+            # AWS::EC2::LaunchTemplate.CapacityReservationPreference
+            self.documentation = propertydict["Documentation"]
 
         # If property contains subproperties, only parse those
         if "Properties" in propertydict:
@@ -63,8 +66,10 @@ class Property(Attribute):
                 self.properties[name] = Property(name, subpropertydict)
             return
 
-        self.update_type = propertydict["UpdateType"]
-        self.required = propertydict["Required"]
+        if "UpdateType" in propertydict:
+            self.update_type = propertydict["UpdateType"]
+        if "Required" in propertydict:
+            self.required = propertydict["Required"]
 
         super(Property, self).parse(propertydict)
 
