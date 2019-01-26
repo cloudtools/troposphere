@@ -9,16 +9,6 @@ are resolved by the parser and the actual generated python class is filled in.
 
 from typing import Union
 
-type_map = {
-    "String": str,
-    "Long": int,
-    "Integer": int,
-    "Double": float,
-    "Boolean": bool,
-    "Timestamp": str,
-    "Json": dict
-}
-
 
 class BaseType():
     """Base Type all types inherit from"""
@@ -28,28 +18,21 @@ class BaseType():
 class PrimitiveType(BaseType):
     """Primitive type
 
-    Primitive types are String, Long, Integer, Double, Boolean, or Timestamp.
+    Primitive types are String, Long, Integer, Double, Boolean, Timestamp, JSON
     """
 
     def __init__(self, type: str):
-        if type in type_map:
-            self.type = type_map[type]  # type: type
+        if type in ["String", "Long", "Integer", "Double", "Boolean", "Timestamp", "Json"]:
+            self.type: str = type
         else:
             raise ValueError("Invalid primitive type: %s" % type)
-
-    def __str__(self) -> str:
-        return self.type.__name__
 
 
 class Subproperty(BaseType):
     """Subproperty type defined in other part of specification"""
 
     def __init__(self, type: str) -> None:
-        self.type = type  # type: str
-        self.print_class = None  # type: type
-
-    def __str__(self) -> str:
-        return self.print_class.__name__
+        self.type: str = type
 
 
 class MapType(BaseType):
@@ -59,10 +42,7 @@ class MapType(BaseType):
     """
 
     def __init__(self, itemtype: Union[Subproperty, PrimitiveType]) -> None:
-        self.itemtype = itemtype  # type: Union[Subproperty, PrimitiveType]
-
-    def __str__(self) -> str:
-        return "Dict[str, %s]" % self.itemtype
+        self.itemtype: Union[Subproperty, PrimitiveType] = itemtype
 
 
 class ListType(BaseType):
@@ -72,7 +52,4 @@ class ListType(BaseType):
     """
 
     def __init__(self, itemtype: Union[Subproperty, PrimitiveType]) -> None:
-        self.itemtype = itemtype  # type: Union[Subproperty, PrimitiveType]
-
-    def __str__(self) -> str:
-        return "List[%s]" % self.itemtype
+        self.itemtype: Union[Subproperty, PrimitiveType] = itemtype

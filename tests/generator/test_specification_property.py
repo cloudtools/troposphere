@@ -118,7 +118,6 @@ class TestProperty(unittest.TestCase):
 
         self.assertEqual(None, prop.primitive_type)
         self.assertEqual(Subproperty, type(prop.type))
-        self.assertEqual(None, prop.type.print_class)
 
 
 if __name__ == '__main__':
