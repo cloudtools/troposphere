@@ -6,6 +6,7 @@ https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-resource-spec
 
 from typing import Dict, Union
 from troposphere_gen.types import PrimitiveType, Subproperty, MapType, ListType
+from distutils.version import StrictVersion
 
 
 class Attribute():
@@ -102,3 +103,24 @@ class Resource():
 
         for name, propertydict in resourcedict["Properties"].items():
             self.properties[name] = Property(name, propertydict)
+
+
+class Specification():
+    def __init__(self, name: str, specificationdict: Dict) -> None:
+        self.name: str = name
+        self.resource_specification_version: StrictVersion = None
+        self.property_types: Dict[str, Property] = {}
+        self.resource_types: Dict[str, Resource] = {}
+
+        self.parse(specificationdict)
+
+    def parse(self, specificationsdict: Dict) -> None:
+        self.resource_specification_version = StrictVersion(specificationsdict["ResourceSpecificationVersion"])
+
+        if "PropertyTypes" in specificationsdict:
+            for name, attributedict in specificationsdict["PropertyTypes"].items():
+                self.property_types[name] = Property(name, attributedict)
+
+        if "ResourceType" in specificationsdict:
+            for name, propertydict in specificationsdict["ResourceType"].items():
+                self.resource_types[name] = Resource(name, propertydict)
