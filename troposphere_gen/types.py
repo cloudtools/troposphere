@@ -23,7 +23,7 @@ class PrimitiveType(BaseType):
 
     def __init__(self, type: str):
         # Map is added here because AWS::ServiceDiscovery::Instance.InstanceAttributes has 'Map' as PrimitiveType
-        # Remove it once AWS fixed this
+        # Remove it once AWS fixed this TODO: remove
         if type in ["String", "Long", "Integer", "Double", "Boolean", "Timestamp", "Json", "Map"]:
             self.type: str = type
         else:
