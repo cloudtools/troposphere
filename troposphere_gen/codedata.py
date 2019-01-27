@@ -3,7 +3,9 @@ from typing import Dict, Union
 import re
 
 from troposphere_gen.specification import Property, Resource
+from troposphere_gen.types import ListType, MapType
 
+from collections import OrderedDict
 
 def module_name_from_namespace(namespace: str) -> str:
     """Parse module name from AWS namespace
@@ -42,8 +44,8 @@ class ModuleData():
     def __init__(self, name: str):
         self.modulename: str = name
 
-        self.properties: Dict[str, ClassData] = {}
-        self.resources: Dict[str, ClassData] = {}
+        self.properties: OrderedDict[str, ClassData] = OrderedDict()
+        self.resources: OrderedDict[str, ClassData] = OrderedDict()
 
     def add_property(self, name: str, property: Property) -> None:
         # Some properties are redefined for different Resources, but produce the exact same code.
@@ -64,6 +66,34 @@ class ModuleData():
             for resource in self.resources.values():
                 if prop.classname == resource.classname:
                     prop.classname += "Property"
+
+    def resolve_dependencies(self):
+        """Make sure classes are defined before they are referenced by other classes"""
+        for i in range(100):    # Make 100 attemps to fix dependencies
+            # Check if property references subproperty of following properties
+            # * Iterate over all properties
+            # * Check if any of the properties coming AFTER current property is
+            #   referenced by checkprop
+            # * If yes, move checkprop to end of properties
+            # * Do 100 attempts at bubble-sort-ish resolving before failing
+            done = True     # Done if clean runthrough with no deps is achieved
+            propertiescopy = self.properties.copy()
+            for checkidx, checkitem in enumerate(propertiescopy.items()):
+                checkname, checkprop = checkitem
+                for idx, prop in enumerate(propertiescopy.values()):
+                    if idx <= checkidx:  # Gone past check prop
+                        continue
+                    for subidx, subprop in enumerate(checkprop.subproperties.values()):
+                        if subprop.type is not None:
+                            if type(subprop.type) is ListType or type(subprop.type) is MapType:
+                                continue    # List and Maps are unaffected
+                            if subprop.type.type == prop.classname:
+                                self.properties.move_to_end(checkname, last=True)
+                                done = False
+            if done:
+                break
+        else:   # Only triggered if for-loop finishes without break!
+            raise Exception(f"Couldn't resolve possible dependency cycle in {self.modulename}")
 
 class ClassData():
     """Convert Property or Resource to required classdata"""
