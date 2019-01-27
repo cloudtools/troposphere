@@ -47,6 +47,7 @@ copyright_header = """\
 """
 spec_version = ""
 
+
 class Override(object):
     """Handle overrides to the base resource specification.
 
