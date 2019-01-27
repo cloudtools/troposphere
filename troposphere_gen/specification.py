@@ -106,11 +106,13 @@ class Resource():
         """Parse JSON resource definition"""
         self.documentation = resourcedict["Documentation"]
 
-        for name, attributedict in resourcedict["Attributes"].items():
-            self.attributes[name] = Attribute(name, attributedict)
+        if "Attributes" in resourcedict:
+            for name, attributedict in resourcedict["Attributes"].items():
+                self.attributes[name] = Attribute(name, attributedict)
 
-        for name, propertydict in resourcedict["Properties"].items():
-            self.properties[name] = Property(name, propertydict)
+        if "Properties" in resourcedict:
+            for name, propertydict in resourcedict["Properties"].items():
+                self.properties[name] = Property(name, propertydict)
 
 
 class Specification():
@@ -128,6 +130,6 @@ class Specification():
             for name, attributedict in specificationsdict["PropertyTypes"].items():
                 self.property_types[name] = Property(name, attributedict)
 
-        if "ResourceType" in specificationsdict:
-            for name, propertydict in specificationsdict["ResourceType"].items():
+        if "ResourceTypes" in specificationsdict:
+            for name, propertydict in specificationsdict["ResourceTypes"].items():
                 self.resource_types[name] = Resource(name, propertydict)
