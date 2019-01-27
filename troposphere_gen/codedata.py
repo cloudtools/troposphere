@@ -1,4 +1,4 @@
-from typing import Dict, Union
+from typing import Dict, Union, List
 
 import re
 
@@ -44,6 +44,8 @@ class ModuleData():
     def __init__(self, name: str):
         self.modulename: str = name
 
+        self.conflictednames: List[str] = []    # List of conflicted properties
+
         self.properties: OrderedDict[str, ClassData] = OrderedDict()
         self.resources: OrderedDict[str, ClassData] = OrderedDict()
 
@@ -62,10 +64,21 @@ class ModuleData():
         self.resources[name] = ClassData(name, resource)
 
     def resolve_name_conflicts(self):
-        for prop in self.properties.values():
+        # Detect if any property has the same name as resource
+        # If yes, append 'Property' to the class name
+        for cd in self.properties.values():
             for resource in self.resources.values():
-                if prop.classname == resource.classname:
-                    prop.classname += "Property"
+                if cd.classname == resource.classname:
+                    self.conflictednames.append(cd.classname)
+                    cd.classname += "Property"
+
+        # Now we have to replace all occurences of this Property with the
+        # adjusted name
+        for cd in self.properties.values():
+            for name, subprop in cd.subproperties.items():
+                if type(subprop.type) is ListType or type(subprop.type) is MapType:
+                    if subprop.type.itemtype.type in self.conflictednames:
+                        cd.conflictedproperties.append(name)
 
     def resolve_dependencies(self):
         """Make sure classes are defined before they are referenced by other classes"""
@@ -111,6 +124,8 @@ class ClassData():
         elif type(data) is Resource:
             self.classname: str = class_name_from_resource_name(name)
         self.data: Property = data
+
+        self.conflictedproperties: List[str] = []
 
         self.subproperties: Dict[str, Property] = {}
         self.get_subproperties()

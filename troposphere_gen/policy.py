@@ -24,7 +24,7 @@ class Policy():
     def __init__(self):
         pass
 
-    def get_type(self, prop: Property) -> str:
+    def get_type(self, prop: Property, deconflict: bool=False) -> str:
         type_map = {
             "String": "str",
             "Long": "int",
@@ -36,21 +36,25 @@ class Policy():
             "Map": "Dict"   # Workaround for AWS::ServiceDiscovery::Instance.InstanceAttributes, see types.py TODO: remove
         }
 
+        deconflicter: str = ""
+        if deconflict:
+            deconflicter = "Property"
+
         if prop.primitive_type is not None:
             return type_map[prop.primitive_type.type]
         else:
             if type(prop.type) == ListType:
                 if prop.type.itemtype.type in type_map:
-                    return f"List[{type_map[prop.type.itemtype.type]}]"
+                    return f"List[{type_map[prop.type.itemtype.type]}{deconflicter}]"
                 else:
-                    return f"List[{prop.type.itemtype.type}]"
+                    return f"List[{prop.type.itemtype.type}{deconflicter}]"
             elif type(prop.type) == MapType:
                 if prop.type.itemtype.type in type_map:
-                    return f"Dict[str, {type_map[prop.type.itemtype.type]}]"
+                    return f"Dict[str, {type_map[prop.type.itemtype.type]}{deconflicter}]"
                 else:
-                    return f"Dict[str, {prop.type.itemtype.type}]"
+                    return f"Dict[str, {prop.type.itemtype.type}]{deconflicter}"
             else:
-                return prop.type.type
+                return f"{prop.type.type}{deconflicter}"
 
     def module_head_format(self, moduledata: ModuleData):
         """Construct module code
@@ -93,7 +97,8 @@ class Policy():
 
         properties: str = ""
         for name, prop in classdata.subproperties.items():
-            properties += f"        '{cc_to_sc(name)}': ({self.get_type(prop)}, {prop.required}),\n"
+            conflicted = name in classdata.conflictedproperties
+            properties += f"        '{cc_to_sc(name)}': ({self.get_type(prop, conflicted)}, {prop.required}),\n"
 
         classcode = (
             f"class {classdata.classname}({parentclass}):\n"
