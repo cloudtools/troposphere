@@ -51,6 +51,9 @@ class Property(Attribute):
         self._update_type: str = None
         self.properties: Dict[str, Property] = {}
 
+        # If name isn't namespaced, property is common (example: Tag)
+        self.common: bool = "::" not in name
+
         super(Property, self).__init__(name, propertydict)
 
     def parse(self, propertydict: Dict) -> None:
