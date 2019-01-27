@@ -21,10 +21,24 @@ def cc_to_sc(name: str) -> str:
 
 
 class Policy():
-    def __init__(self):
+    def get_type(self, prop: Property, deconflict: bool = False) -> str:
         pass
 
-    def get_type(self, prop: Property, deconflict: bool=False) -> str:
+    def module_head_format(self, moduledata: ModuleData, specification: Specification):
+        pass
+
+    def class_format(self, classdata: ClassData) -> str:
+        pass
+
+    def between_class(self) -> str:
+        pass
+
+    def after_import(self) -> str:
+        pass
+
+
+class Policy_3_7(Policy):
+    def get_type(self, prop: Property, deconflict: bool = False) -> str:
         type_map = {
             "String": "str",
             "Long": "int",
@@ -33,7 +47,8 @@ class Policy():
             "Boolean": "bool",
             "Timestamp": "str",  # TODO: Add Timestamp class to troposphere
             "Json": "Dict",
-            "Map": "Dict"   # Workaround for AWS::ServiceDiscovery::Instance.InstanceAttributes, see types.py TODO: remove
+            "Map": "Dict"
+        # Workaround for AWS::ServiceDiscovery::Instance.InstanceAttributes, see types.py TODO: remove
         }
 
         deconflicter: str = ""
@@ -67,6 +82,11 @@ class Policy():
         #
         # See LICENSE file for full license.
 
+        versionstring = str(specification.resource_specification_version)
+        if specification.resource_specification_version.version[2] == 0:
+            # StrictVersion doesn't print patch if it's 0
+            versionstring += ".0"
+
         docstring = (
             f"\"\"\"Module for AWS {modulename} service\n"
             f"Copyright (c) 2012-{datetime.datetime.now().year}, Mark Peek <mark@peek.org>\n"
@@ -75,7 +95,7 @@ class Policy():
             f"See LICENSE file for full license.\n"
             f"\n"
             f"AUOTGENERATED CODE, DO NOT EDIT!\n"
-            f"Generated from Specification Version {specification.resource_specification_version}\n"
+            f"Generated from Specification Version {versionstring}\n"
             f"\"\"\"\n"
         )
 
