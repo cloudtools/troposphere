@@ -7,6 +7,7 @@ example it tells to use the 'print(foo)' syntax for python3 code, and use
 
 from troposphere_gen.codedata import ModuleData, ClassData
 from troposphere_gen.specification import Property, Resource
+from troposphere_gen.types import ListType, MapType
 
 import re
 
@@ -37,6 +38,19 @@ class Policy():
 
         if prop.primitive_type is not None:
             return type_map[prop.primitive_type.type]
+        else:
+            if type(prop.type) == ListType:
+                if prop.item_type is not None:
+                    return f"List[{prop.item_type.type}]"
+                elif prop.primitive_item_type is not None:
+                    return f"List[{prop.primitive_item_type.type}]"
+            elif type(prop.type) == MapType:
+                if prop.item_type is not None:
+                    return f"Dict[str, {prop.item_type.type}]"
+                elif prop.primitive_item_type is not None:
+                    return f"Dict[str, {prop.primitive_item_type.type}]"
+            else:
+                return prop.type.type
 
     def module_head_format(self, moduledata: ModuleData):
         """Construct module code
