@@ -49,12 +49,12 @@ class Policy():
         #
         # See LICENSE file for full license.
 
-        license_head = (
+        docstring = (
             f"\"\"\"Module for AWS {modulename} service\n"
             f"Copyright (c) 2012-{datetime.datetime.now().year}, Mark Peek <mark@peek.org>\n"
             f"All rights reserved.\n"
             f"\n"
-            f"See LICENSE file for full license."
+            f"See LICENSE file for full license.\n"
             f"\"\"\"\n"
         )
 
@@ -63,7 +63,7 @@ class Policy():
         if modulename is not "common":
             imports += "from troposphere.common import Tag\n"
 
-        modulecode = license_head + imports + "\n"
+        modulecode = docstring + imports
 
         return modulecode
 
@@ -89,3 +89,9 @@ class Policy():
         )
 
         return classcode
+
+    def between_class(self) -> str:
+        return "\n\n"
+
+    def after_import(self) -> str:
+        return "\n\n"
