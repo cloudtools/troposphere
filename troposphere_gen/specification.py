@@ -14,8 +14,6 @@ class Attribute():
 
     def __init__(self, name: str, attributedict: Dict) -> None:
         self.name: str = name
-        self.item_type: Subproperty = None
-        self.primitive_item_type: PrimitiveType = None
         self.primitive_type: PrimitiveType = None
         self.type: Union[Subproperty, ListType, MapType] = None
 
