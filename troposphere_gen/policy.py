@@ -58,7 +58,8 @@ class Policy():
             f"\"\"\"\n"
         )
 
-        imports = "\nfrom troposphere import AWSProperty, AWSResource\n"
+        imports = "\nfrom troposphere import AWSProperty, AWSObject\n"
+        imports += "from typing import Dict, List\n"
         if modulename is not "common":
             imports += "from troposphere.common import Tag\n"
 
@@ -78,7 +79,7 @@ class Policy():
 
         properties: str = ""
         for name, prop in classdata.subproperties.items():
-            properties += f"\t\t'{cc_to_sc(name)}': ({self.get_type(prop)}, {prop.required}),\n"
+            properties += f"        '{cc_to_sc(name)}': ({self.get_type(prop)}, {prop.required}),\n"
 
         classcode = (
             f"class {classdata.classname}({parentclass}):\n"
