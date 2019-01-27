@@ -46,9 +46,17 @@ class ModuleData():
         self.resources: Dict[str, ClassData] = {}
 
     def add_property(self, name: str, property: Property) -> None:
+        # Some properties are redefined for different Resources, but produce the exact same code.
+        for existingname in self.properties:
+            if class_name_from_property_name(existingname) == class_name_from_property_name(name):
+                return
         self.properties[name] = ClassData(name, property)
 
     def add_resource(self, name: str, resource: Resource) -> None:
+        # Some properties are redefined for different Resources, but produce the exact same code.
+        for existingname in self.resources:
+            if class_name_from_resource_name(existingname) == class_name_from_resource_name(name):
+                return
         self.resources[name] = ClassData(name, resource)
 
 
@@ -65,8 +73,7 @@ class ClassData():
         self.data: Property = data
 
         self.subproperties: Dict[str, Property] = {}
-        if type(data) is Property:
-            self.get_subproperties()
+        self.get_subproperties()
 
     def get_subproperties(self) -> None:
         """Gets all subproperties of property"""
