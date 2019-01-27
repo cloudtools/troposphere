@@ -40,15 +40,15 @@ class Policy():
             return type_map[prop.primitive_type.type]
         else:
             if type(prop.type) == ListType:
-                if prop.item_type is not None:
-                    return f"List[{prop.item_type.type}]"
-                elif prop.primitive_item_type is not None:
-                    return f"List[{prop.primitive_item_type.type}]"
+                if prop.type.itemtype.type in type_map:
+                    return f"List[{type_map[prop.type.itemtype.type]}]"
+                else:
+                    return f"List[{prop.type.itemtype.type}]"
             elif type(prop.type) == MapType:
-                if prop.item_type is not None:
-                    return f"Dict[str, {prop.item_type.type}]"
-                elif prop.primitive_item_type is not None:
-                    return f"Dict[str, {prop.primitive_item_type.type}]"
+                if prop.type.itemtype.type in type_map:
+                    return f"Dict[str, {type_map[prop.type.itemtype.type]}]"
+                else:
+                    return f"Dict[str, {prop.type.itemtype.type}]"
             else:
                 return prop.type.type
 
