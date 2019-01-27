@@ -137,3 +137,98 @@ class Policy_3_7(Policy):
 
     def after_import(self) -> str:
         return "\n\n"
+
+
+class Policy_2_7(Policy):
+    def get_type(self, prop: Property, deconflict: bool = False) -> str:
+        type_map = {
+            "String": "basestring",
+            "Long": "int",
+            "Integer": "int",
+            "Double": "float",
+            "Boolean": "boolean",
+            "Timestamp": "basestring",  # TODO: Add Timestamp class to troposphere
+            "Json": "dict",
+            "Map": "dict"
+        # Workaround for AWS::ServiceDiscovery::Instance.InstanceAttributes, see types.py TODO: remove
+        }
+
+        deconflicter: str = ""
+        if deconflict:
+            deconflicter = "Property"
+
+        if prop.primitive_type is not None:
+            return type_map[prop.primitive_type.type]
+        else:
+            if type(prop.type) == ListType:
+                return "list"
+            elif type(prop.type) == MapType:
+                return "dict"
+            else:
+                return f"{prop.type.type}{deconflicter}"
+
+    def module_head_format(self, moduledata: ModuleData, specification: Specification):
+        """Construct module code
+
+        """
+        modulename: str = moduledata.modulename
+
+        # Copyright (c) 2012-2018, Mark Peek <mark@peek.org>
+        # All rights reserved.
+        #
+        # See LICENSE file for full license.
+
+        versionstring = str(specification.resource_specification_version)
+        if specification.resource_specification_version.version[2] == 0:
+            # StrictVersion doesn't print patch if it's 0
+            versionstring += ".0"
+
+        docstring = (
+            f"\"\"\"Module for AWS {modulename} service\n"
+            f"Copyright (c) 2012-{datetime.datetime.now().year}, Mark Peek <mark@peek.org>\n"
+            f"All rights reserved.\n"
+            f"\n"
+            f"See LICENSE file for full license.\n"
+            f"\n"
+            f"AUOTGENERATED CODE, DO NOT EDIT!\n"
+            f"Generated from Specification Version {versionstring}\n"
+            f"\"\"\"\n"
+        )
+
+        imports = "\nfrom troposphere import AWSProperty, AWSObject\n"
+        if modulename is not "common":
+            imports += "from troposphere.common import Tag\n"
+
+        modulecode = docstring + imports
+
+        return modulecode
+
+    def class_format(self, classdata: ClassData) -> str:
+        """Construct class code
+
+        """
+
+        if type(classdata.data) is Property:
+            parentclass: str = "AWSProperty"
+        elif type(classdata.data) is Resource:
+            parentclass: str = "AWSObject"
+
+        properties: str = ""
+        for name, prop in classdata.subproperties.items():
+            conflicted = name in classdata.conflictedproperties
+            properties += f"        '{cc_to_sc(name)}': ({self.get_type(prop, conflicted)}, {prop.required}),\n"
+
+        classcode = (
+            f"class {classdata.classname}({parentclass}):\n"
+            f"    props = {{\n"
+            f"{properties}"
+            f"    }}\n"
+        )
+
+        return classcode
+
+    def between_class(self) -> str:
+        return "\n\n"
+
+    def after_import(self) -> str:
+        return "\n\n"
