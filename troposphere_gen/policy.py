@@ -6,7 +6,7 @@ example it tells to use the 'print(foo)' syntax for python3 code, and use
 """
 
 from troposphere_gen.codedata import ModuleData, ClassData
-from troposphere_gen.specification import Property, Resource
+from troposphere_gen.specification import Property, Resource, Specification
 from troposphere_gen.types import ListType, MapType
 
 import re
@@ -56,7 +56,7 @@ class Policy():
             else:
                 return f"{prop.type.type}{deconflicter}"
 
-    def module_head_format(self, moduledata: ModuleData):
+    def module_head_format(self, moduledata: ModuleData, specification: Specification):
         """Construct module code
 
         """
@@ -73,6 +73,9 @@ class Policy():
             f"All rights reserved.\n"
             f"\n"
             f"See LICENSE file for full license.\n"
+            f"\n"
+            f"AUOTGENERATED CODE, DO NOT EDIT!\n"
+            f"Generated from Specification Version {specification.resource_specification_version}\n"
             f"\"\"\"\n"
         )
 
