@@ -1,0 +1,40 @@
+# AWS::Batch overrides
+header: |
+    try:
+        from awacs.aws import Policy
+
+        policytypes = (dict, Policy)
+    except ImportError:
+        policytypes = dict,
+
+    Private = "Private"
+    PublicRead = "PublicRead"
+    PublicReadWrite = "PublicReadWrite"
+    AuthenticatedRead = "AuthenticatedRead"
+    BucketOwnerRead = "BucketOwnerRead"
+    BucketOwnerFullControl = "BucketOwnerFullControl"
+    LogDeliveryWrite = "LogDeliveryWrite"
+classes:
+  CorsRules:
+    MaxAge:
+      validator: common/positive_integer
+  AccelerateConfiguration:
+    AccelerationStatus:
+      validator: s3_transfer_acceleration_status
+  LifecycleRuleTransition:
+    TransitionInDays:
+      validator: common/positive_integer
+  AbortIncompleteMultipartUpload:
+    DaysAfterInitiation:
+      validator: common/positive_integer
+  NoncurrentVersionTransition:
+    TransitionInDays:
+      validator: common/positive_integer
+  Bucket:
+    validator: BucketMixin
+  Rule:
+    validator: RuleMixin
+    ExpirationInDays:
+      validator: common/positive_integer
+    NoncurrentVersionExpirationInDays:
+      validator: common/positive_integer

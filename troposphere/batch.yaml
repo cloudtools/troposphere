@@ -1,0 +1,13 @@
+# AWS::Batch overrides
+classes:
+  ComputeEnvironment:
+    State:
+      validator: validate_environment_state
+  ComputeResources:
+    Tags:
+      validator: dict
+  JobQueue:
+    State:
+      validator: validate_queue_state
+  LaunchTemplateSpecification:
+    validator: LaunchTemplateSpecificationMixin
