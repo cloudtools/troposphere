@@ -86,10 +86,15 @@ class ModuleData():
                     for subidx, subprop in enumerate(checkprop.subproperties.values()):
                         if subprop.type is not None:
                             if type(subprop.type) is ListType or type(subprop.type) is MapType:
-                                continue    # List and Maps are unaffected
-                            if subprop.type.type == prop.classname:
+                                if subprop.type.itemtype.type == prop.classname:
+                                    self.properties.move_to_end(checkname, last=True)
+                                    done = False
+                            elif subprop.type.type == prop.classname:
                                 self.properties.move_to_end(checkname, last=True)
                                 done = False
+                    if done is False:
+                        # Something was moved, continue with next item
+                        break
             if done:
                 break
         else:   # Only triggered if for-loop finishes without break!
