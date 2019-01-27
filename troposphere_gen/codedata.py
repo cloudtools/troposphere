@@ -65,7 +65,8 @@ class ClassData():
         self.data: Property = data
 
         self.subproperties: Dict[str, Property] = {}
-        self.get_subproperties()
+        if type(data) is Property:
+            self.get_subproperties()
 
     def get_subproperties(self) -> None:
         """Gets all subproperties of property"""
