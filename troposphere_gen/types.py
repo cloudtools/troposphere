@@ -22,7 +22,9 @@ class PrimitiveType(BaseType):
     """
 
     def __init__(self, type: str):
-        if type in ["String", "Long", "Integer", "Double", "Boolean", "Timestamp", "Json"]:
+        # Map is added here because AWS::ServiceDiscovery::Instance.InstanceAttributes has 'Map' as PrimitiveType
+        # Remove it once AWS fixed this
+        if type in ["String", "Long", "Integer", "Double", "Boolean", "Timestamp", "Json", "Map"]:
             self.type: str = type
         else:
             raise ValueError("Invalid primitive type: %s" % type)
