@@ -74,14 +74,14 @@ class Policy():
         if type(classdata.data) is Property:
             parentclass: str = "AWSProperty"
         elif type(classdata.data) is Resource:
-            parentclass: str = "AWSResource"
+            parentclass: str = "AWSObject"
 
         properties: str = ""
         for name, prop in classdata.subproperties.items():
-            properties += f"\t\t'{cc_to_sc(name)}': ({self.get_type(prop)}, {prop.required})\n"
+            properties += f"\t\t'{cc_to_sc(name)}': ({self.get_type(prop)}, {prop.required}),\n"
 
         classcode = (
-            f"class {classdata.classname}(AWSProperty):\n"
+            f"class {classdata.classname}({parentclass}):\n"
             f"    props = {{\n"
             f"{properties}"
             f"    }}\n"
