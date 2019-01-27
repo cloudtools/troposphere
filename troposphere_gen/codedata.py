@@ -59,6 +59,11 @@ class ModuleData():
                 return
         self.resources[name] = ClassData(name, resource)
 
+    def resolve_name_conflicts(self):
+        for prop in self.properties.values():
+            for resource in self.resources.values():
+                if prop.classname == resource.classname:
+                    prop.classname += "Property"
 
 class ClassData():
     """Convert Property or Resource to required classdata"""

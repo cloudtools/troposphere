@@ -25,6 +25,9 @@ class Generator():
         self.gen_property_classdata()
         self.gen_resource_classdata()
 
+        for moddata in self.modules.values():
+            moddata.resolve_name_conflicts()
+
     def gen_property_classdata(self):
         """Generates class data for each property and adds it to module"""
         for name, property in self.specification.property_types.items():
