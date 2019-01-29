@@ -7,7 +7,7 @@ ionosphere
 About
 =====
 
-Ionosphere - library to create `Azure Resource Manager Templates`_ descriptions (Ionosphere is porting of troposphere)
+Ionosphere - library to create [Azure Resource Manager Templates](https://docs.microsoft.com/en-us/azure/templates/) descriptions (Ionosphere is porting of troposphere)
 
 The Ionosphere library allows for easier creation of the Azure Resource Manager templates
 JSON by writing Python code to describe the Azure resources. 
@@ -115,10 +115,5 @@ All contributions are welcome.
 Licensing
 =========
 
-Ionosphere is a fork of troposphere which is licensed under the `BSD 2-Clause license`_.
-See `LICENSE`_ for the Ionosphere full license text.
-
-
-.. _`Azure Resource Manager templates`: https://docs.microsoft.com/en-us/azure/templates/
-.. _`LICENSE`: https://github.com/cloudtools/troposphere/blob/master/LICENSE
-.. _`BSD 2-Clause license`: http://opensource.org/licenses/BSD-2-Clause
+Ionosphere is a fork of troposphere which is licensed under the [BSD 2-Clause license](http://opensource.org/licenses/BSD-2-Clause).
+See [LICENSE](https://github.com/cloudtools/ionosphere/blob/master/LICENSE) for the Ionosphere full license text.
