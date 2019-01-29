@@ -1,23 +1,11 @@
 language: python
-sudo: false
 python:
-  - "2.7"
-  - "3.3"
   - "3.4"
   - "3.5"
   - "3.6"
 
-before_install:
-  - pip install --upgrade pip setuptools wheel
-
 install:
-  - pip install --upgrade pycodestyle pyflakes
-
-before_script:
-  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then 2to3 -n -w --no-diffs ionosphere scripts/cfn2py scripts/gen.py examples/CustomResource.py; fi
-  - pycodestyle --version
-  - pycodestyle --show-source --show-pep8 .
-  - pyflakes .
+  - pip install -r test_requirements.txt
 
 script:
-  - python setup.py test
+  - python runtests.py

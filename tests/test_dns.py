@@ -17,7 +17,7 @@ class TestDns(unittest.TestCase):
 
         vnet = VirtualNetwork(vnet_name, template=template)
 
-        nic = NetworkInterface()
+        nic = NetworkInterface('testNic')
 
         dns = DnsZone(dns_name,
                       template=template,

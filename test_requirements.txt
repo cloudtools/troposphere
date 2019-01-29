@@ -1,0 +1,6 @@
+nose
+coverage
+unittest2
+mock
+nose-exclude
+coveralls

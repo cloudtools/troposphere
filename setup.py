@@ -17,7 +17,7 @@ setup(
     license="New BSD license",
     packages=['ionosphere', 'ionosphere.helpers'],
     scripts=['scripts/cfn', 'scripts/cfn2py'],
-    install_requires=["cfn_flip>=0.2.5", "enum34==1.1.6"],
+    install_requires=["enum34==1.1.6"],
     test_suite="tests",
     tests_require=[],
     extras_require={'policy': ['awacs']},

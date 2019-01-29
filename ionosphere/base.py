@@ -1,8 +1,6 @@
 import json
 import re
 
-import cfn_flip as cfn_flip
-
 from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators, AWSHelperFn
 
 # Template Limits
@@ -138,9 +136,6 @@ class ARMTemplate(object):
     def to_json(self, indent=4, sort_keys=True, separators=(',', ': ')):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
-
-    def to_yaml(self, long_form=False):
-        return cfn_flip.to_yaml(self.to_json(), long_form)
 
 
 class ARMObject(AWSObject):
