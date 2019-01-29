@@ -1,7 +1,7 @@
 ionosphere
 ===========
 
-[![License](https://img.shields.io/pypi/l/troposphere.svg)](https://opensource.org/licenses/BSD-2-Clause) [![PyPI](https://img.shields.io/pypi/v/ionosphere.svg?maxAge=2592000&style=plastic)](https://pypi.python.org/pypi/ionosphere/)    
+[![License](https://img.shields.io/pypi/l/troposphere.svg)](https://opensource.org/licenses/BSD-2-Clause) [![PyPI](https://img.shields.io/pypi/v/ionosphere.svg?maxAge=2592000&style=flat)](https://pypi.python.org/pypi/ionosphere/)    
 
 
 About
@@ -74,7 +74,7 @@ networkInterface = NetworkInterface('myvm_nic1',
                                              publicIPAddress=SubResource(id=publicIp.Ref()))],
                                     networkSecurityGroup=SubResource(id=nsg.Ref()))
                                     
-# Add dependencies on VNET & Public IP to the Network Interface
+# Set dependencies on VNET & Public IP to the Network Interface
 networkInterface.with_depends_on([publicIp, vnet])
 
 # Create a parameter for the VM password and add it to the template
