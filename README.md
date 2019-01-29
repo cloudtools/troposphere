@@ -40,7 +40,6 @@ The following example will generate an ARM Template that creates a VNet and an U
 The template also exposes port 22 on the VM to the internet.
 
 ```python
-
 template = ARMTemplate()
 
 vnet = VirtualNetwork("myvnet",
@@ -97,7 +96,6 @@ vm.with_depends_on(networkInterface)
 template.add_resource([vnet, nsg, publicIp, networkInterface, vm])
 
 print(template.to_json())
-
 ```
 
 Contributions
