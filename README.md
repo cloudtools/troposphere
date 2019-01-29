@@ -1,7 +1,7 @@
 ionosphere
 ===========
 
-[![License](https://img.shields.io/pypi/l/troposphere.svg)](https://opensource.org/licenses/BSD-2-Clause) [![PyPI](https://img.shields.io/pypi/v/ionosphere.svg?maxAge=2592000&style=flat)](https://pypi.python.org/pypi/ionosphere/)    
+[![License](https://img.shields.io/pypi/l/troposphere.svg)](https://opensource.org/licenses/BSD-2-Clause) [![PyPI](https://img.shields.io/pypi/v/ionosphere.svg?maxAge=2592000&style=flat)](https://pypi.python.org/pypi/ionosphere/) [![Build Status](https://travis-ci.org/QualiNext/ionosphere.svg?branch=master)](https://travis-ci.org/QualiNext/ionosphere)    
 
 
 About
