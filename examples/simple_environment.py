@@ -7,9 +7,9 @@ from storage import StorageAccount, StorageAccountSku
 template = ARMTemplate(customerUsageAttributionGuid='pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX')
 
 vm_password_param = ARMParameter('vmPassword',
+                                 template=template,
                                  type='secureString',
                                  description='The password for the VM access. User is "adminuser"')
-template.add_parameter(vm_password_param)
 
 vnet = VirtualNetwork("myvnet",
                       addressSpace=AddressSpace(addressPrefixes=['10.0.0.0/24']),
@@ -36,7 +36,7 @@ networkInterface = NetworkInterface('tesmvm_nic1',
                                     ipConfigurations=
                                         [NetworkInterfaceIPConfiguration('tesmvm_nic1_ip_config',
                                                                      privateIPAllocationMethod='Dynamic',
-                                                                     subnet=SubResource(id=vnet.SubnetRef('subnet1')),
+                                                                     subnet=SubResource(id=vnet.subnet_ref('subnet1')),
                                                                      publicIPAddress=SubResource(id=publicIp.Ref()))],
                                     networkSecurityGroup=SubResource(id=nsg.Ref()))
 networkInterface.with_depends_on([publicIp, vnet])
