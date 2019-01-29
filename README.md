@@ -1,9 +1,7 @@
-===========
 ionosphere
 ===========
 
-.. image:: https://img.shields.io/pypi/l/troposphere.svg
-    :target: https://opensource.org/licenses/BSD-2-Clause
+[![License](https://img.shields.io/pypi/l/troposphere.svg)](https://opensource.org/licenses/BSD-2-Clause) [![PyPI](https://img.shields.io/pypi/v/ionosphere.svg?maxAge=2592000&style=plastic)](https://pypi.python.org/pypi/ionosphere/)    
 
 
 About
@@ -36,17 +34,20 @@ Currently supported Azure resource types
 
 Example
 =======
-The following example will generate an ARM Template that creates a VNet and an Ubuntu VM with a public ip in this VNet.
+The following example will generate an ARM Template that creates a VNet and an Ubuntu VM with a public IP.
 The template also exposes port 22 on the VM to the internet.
 
 ```python
+# Create the object
 template = ARMTemplate()
 
+# Create VNET object
 vnet = VirtualNetwork("myvnet",
                       addressSpace=AddressSpace(addressPrefixes=['10.0.0.0/24']),
                       subnets=[Subnet('main_subnet', addressPrefix='10.0.0.0/24')],
                       tags={'key1': 'tag-key1', 'key2': 'tag-key2'})
 
+# Create Network Security Group object with "Allow SSH" rule
 nsg = NetworkSecurityGroup("myNsg",
                            securityRules=[
                                SecurityRule('ssh',
@@ -61,22 +62,28 @@ nsg = NetworkSecurityGroup("myNsg",
                                             priority=200
                                         )])
 
+# Create Public IP Address object
 publicIp = PublicIPAddress('my_vm_nic1_pubip', publicIPAllocationMethod='dynamic')
 
+# Create Network Interface object
 networkInterface = NetworkInterface('myvm_nic1',
-                                    ipConfigurations=
-                                        [NetworkInterfaceIPConfiguration('my_vm_nic1_ip_config',
-                                                                     privateIPAllocationMethod='Dynamic',
-                                                                     subnet=SubResource(id=vnet.subnet_ref('main_subnet')),
-                                                                     publicIPAddress=SubResource(id=publicIp.Ref()))],
+                                    ipConfigurations=[NetworkInterfaceIPConfiguration(
+                                            'my_vm_nic1_ip_config',
+                                             privateIPAllocationMethod='Dynamic',
+                                             subnet=SubResource(id=vnet.subnet_ref('main_subnet')),
+                                             publicIPAddress=SubResource(id=publicIp.Ref()))],
                                     networkSecurityGroup=SubResource(id=nsg.Ref()))
+                                    
+# Add dependencies on VNET & Public IP to the Network Interface
 networkInterface.with_depends_on([publicIp, vnet])
 
+# Create a parameter for the VM password and add it to the template
 vm_password_param = ARMParameter('vmPassword',
                                  template=template,
                                  type='secureString',
                                  description='The password for the VM access. User is "adminuser"')
 
+# Create the Virtual Machince object 
 vm = VirtualMachine('myvm',
                     hardwareProfile=HardwareProfile(vmSize='Basic_A0'),
                     storageProfile=StorageProfile(imageReference=ImageReference(publisher='Canonical',
@@ -91,10 +98,13 @@ vm = VirtualMachine('myvm',
                                         linuxConfiguration=LinuxConfiguration(disablePasswordAuthentication=False)),
                     networkProfile=NetworkProfile(networkInterfaces=
                                                   [NetworkInterfaceReference(id=networkInterface.Ref())]))
+# Set dependency for the VM on the Network Interface
 vm.with_depends_on(networkInterface)
 
+# Add all objects to the arm template
 template.add_resource([vnet, nsg, publicIp, networkInterface, vm])
 
+# Generate ARM Template
 print(template.to_json())
 ```
 
