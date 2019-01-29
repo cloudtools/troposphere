@@ -9,26 +9,106 @@ ionosphere
 About
 =====
 
-ionosphere - library to create `Azure Resource Manager templates`_ descriptions (ionosphere is porting of troposphere)
+Ionosphere - library to create `Azure Resource Manager Templates`_ descriptions (Ionosphere is porting of troposphere)
 
-The ionosphere library allows for easier creation of the Azure Resource Manager templates
+The Ionosphere library allows for easier creation of the Azure Resource Manager templates
 JSON by writing Python code to describe the Azure resources. 
 
 To facilitate catching ARM templates or JSON errors early the library has
 property and type checking built into the classes.
 
 Currently supported Azure resource types
-======================================
+========================================
 
-- TBD
+- Virtual Machine
+- Virtual Machine Extension
+- Virtual Machine Scale Sets
+- Virtual Machine Scale Set Extension
+- Virtual Network
+- Public IP Address
+- Network Interface
+- Network SecurityGroup
+- Application Security Group
+- Load Balancer
+- Dns Zone
+- Application Gateway
+- Storage Account
 
+Example
+=======
+The following example will generate an ARM Template that creates a VNet and an Ubuntu VM with a public ip in this VNet.
+The template also exposes port 22 on the VM to the internet.
 
+```python
+
+template = ARMTemplate()
+
+vnet = VirtualNetwork("myvnet",
+                      addressSpace=AddressSpace(addressPrefixes=['10.0.0.0/24']),
+                      subnets=[Subnet('main_subnet', addressPrefix='10.0.0.0/24')],
+                      tags={'key1': 'tag-key1', 'key2': 'tag-key2'})
+
+nsg = NetworkSecurityGroup("myNsg",
+                           securityRules=[
+                               SecurityRule('ssh',
+                                            description='public ssh access',
+                                            protocol='Tcp',
+                                            destinationPortRange="22",
+                                            destinationAddressPrefix="*",
+                                            sourceAddressPrefix='Internet',
+                                            sourcePortRange='*',
+                                            access='Allow',
+                                            direction='Inbound',
+                                            priority=200
+                                        )])
+
+publicIp = PublicIPAddress('my_vm_nic1_pubip', publicIPAllocationMethod='dynamic')
+
+networkInterface = NetworkInterface('myvm_nic1',
+                                    ipConfigurations=
+                                        [NetworkInterfaceIPConfiguration('my_vm_nic1_ip_config',
+                                                                     privateIPAllocationMethod='Dynamic',
+                                                                     subnet=SubResource(id=vnet.subnet_ref('main_subnet')),
+                                                                     publicIPAddress=SubResource(id=publicIp.Ref()))],
+                                    networkSecurityGroup=SubResource(id=nsg.Ref()))
+networkInterface.with_depends_on([publicIp, vnet])
+
+vm_password_param = ARMParameter('vmPassword',
+                                 template=template,
+                                 type='secureString',
+                                 description='The password for the VM access. User is "adminuser"')
+
+vm = VirtualMachine('myvm',
+                    hardwareProfile=HardwareProfile(vmSize='Basic_A0'),
+                    storageProfile=StorageProfile(imageReference=ImageReference(publisher='Canonical',
+                                                                                offer='UbuntuServer',
+                                                                                sku='16.04-LTS'),
+                                                  osDisk=OsDisk(createOption='FromImage',
+                                                                diskSizeGB=50,
+                                                                managedDisk=ManagedDiskParameters(storageAccountType='Standard_LRS'))),
+                    osProfile=OSProfile(computerName='mytestvm',
+                                        adminUsername='adminuser',
+                                        adminPassword=vm_password_param.Ref(),
+                                        linuxConfiguration=LinuxConfiguration(disablePasswordAuthentication=False)),
+                    networkProfile=NetworkProfile(networkInterfaces=
+                                                  [NetworkInterfaceReference(id=networkInterface.Ref())]))
+vm.with_depends_on(networkInterface)
+
+template.add_resource([vnet, nsg, publicIp, networkInterface, vm])
+
+print(template.to_json())
+
+```
+
+Contributions
+=============
+All contributions are welcome.
 
 Licensing
 =========
 
-troposphere is licensed under the `BSD 2-Clause license`_.
-See `LICENSE`_ for the troposphere full license text.
+Ionosphere is a fork of troposphere which is licensed under the `BSD 2-Clause license`_.
+See `LICENSE`_ for the Ionosphere full license text.
 
 
 .. _`Azure Resource Manager templates`: https://docs.microsoft.com/en-us/azure/templates/
