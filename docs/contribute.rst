@@ -12,7 +12,9 @@ tl;dr
 How to Get Help
 ---------------
 
-See README.md at top of the project for developer mailing list.
+We have a Google Group, cloudtools-dev_, where you can ask questions and
+engage with the troposphere community. Issues and pull requests are always
+welcome!
 
 How to Test Your Code
 ---------------------
@@ -39,3 +41,5 @@ New example code should go into `troposphere/examples`. The expected
 CloudFormation Template should be stored in `troposphere/tests/examples_output/`.
 When tests are run the output of the code in the examples directory will
 be compared with the expected results in the `example_output` directory.
+
+.. _cloudtools-dev: https://groups.google.com/forum/#!forum/cloudtools-dev

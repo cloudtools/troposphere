@@ -365,6 +365,8 @@ See `LICENSE`_ for the troposphere full license text.
     quick_start
     contribute
 
+    examples
+
 Indices and tables
 ==================
 
