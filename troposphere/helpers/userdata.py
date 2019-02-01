@@ -4,25 +4,23 @@ from troposphere import Base64, Join
 
 
 def from_file(filepath, delimiter='', blanklines=False):
-    """
-    Imports userdata from a file.
+    """Imports userdata from a file.
 
     :type filepath: string
-    :param filepath
-    The absolute path to the file.
+
+    :param filepath  The absolute path to the file.
 
     :type delimiter: string
-    :param: delimiter
-    Delimiter to use with the troposphere.Join().
+
+    :param: delimiter  Delimiter to use with the troposphere.Join().
 
     :type blanklines: boolean
-    :param blanklines
-    If blank lines shoud be ignored
+
+    :param blanklines  If blank lines shoud be ignored
 
     rtype: troposphere.Base64
     :return The base64 representation of the file.
     """
-
     data = []
 
     try:
