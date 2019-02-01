@@ -360,12 +360,13 @@ See `LICENSE`_ for the troposphere full license text.
 
 .. toctree::
     :maxdepth: 2
-    :caption: troposphere Documentation
+    :caption: Table of Contents
 
     quick_start
     contribute
 
     examples
+    troposphere
 
 Indices and tables
 ==================
