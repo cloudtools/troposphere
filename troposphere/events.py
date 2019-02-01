@@ -39,6 +39,12 @@ class RunCommandParameters(AWSProperty):
     }
 
 
+class SqsParameters(AWSProperty):
+    props = {
+        'MessageGroupId': (basestring, True),
+    }
+
+
 class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
@@ -50,6 +56,7 @@ class Target(AWSProperty):
         'KinesisParameters': (KinesisParameters, False),
         'RoleArn': (basestring, False),
         'RunCommandParameters': (RunCommandParameters, False),
+        'SqsParameters': (SqsParameters, False),
     }
 
 
