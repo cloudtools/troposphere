@@ -92,6 +92,7 @@ def apigateway():
     ))
 
     # Create a Lambda API method for the Lambda resource
+    api_arn = "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/"
     method = t.add_resource(Method(
         "LambdaMethod",
         DependsOn='FoobarFunction',
@@ -109,7 +110,7 @@ def apigateway():
                 )
             ],
             Uri=Join("", [
-                "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/",
+                api_arn,
                 GetAtt("FoobarFunction", "Arn"),
                 "/invocations"
             ])
