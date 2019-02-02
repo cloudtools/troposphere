@@ -3,7 +3,7 @@ from troposphere import Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
     Api, DeadLetterQueue, DeploymentPreference, Function, FunctionForPackaging,
-    S3Event, S3Location, SimpleTable,
+    LayerVersion, S3Event, S3Location, SimpleTable,
 )
 
 
@@ -158,6 +158,23 @@ class TestServerless(unittest.TestCase):
         t = Template()
         t.add_resource(serverless_table)
         t.to_json()
+
+    def test_layer_version(self):
+        layer_version = LayerVersion(
+            "SomeLayer",
+            ContentUri="someuri",
+        )
+        t = Template()
+        t.add_resource(layer_version)
+        t.to_json()
+
+        layer_version = LayerVersion(
+            "SomeLayer",
+        )
+        t = Template()
+        t.add_resource(layer_version)
+        with self.assertRaises(ValueError):
+            t.to_json()
 
     def test_s3_filter(self):
         t = Template()
