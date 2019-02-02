@@ -21,7 +21,7 @@ from troposphere import GetAtt, Join
 
 
 def apigateway():
-    """Create the tempalte."""
+    """Create the template."""
 
     t = Template()
 
