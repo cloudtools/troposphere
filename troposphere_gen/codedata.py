@@ -4,6 +4,7 @@ import re
 
 from troposphere_gen.specification import Property, Resource
 from troposphere_gen.types import ListType, MapType
+from troposphere_gen.validatordata import ValidatorData
 
 from collections import OrderedDict
 
@@ -116,14 +117,15 @@ class ModuleData():
 class ClassData():
     """Convert Property or Resource to required classdata"""
 
-    def __init__(self, name: str, data: Union[Property, Resource]) -> None:
-        if type(data) is Property and data.common:
+    def __init__(self, name: str, specdata: Union[Property, Resource], validatordata: ValidatorData) -> None:
+        if type(specdata) is Property and specdata.common:
             self.classname: str = name
-        elif type(data) is Property:
+        elif type(specdata) is Property:
             self.classname: str = class_name_from_property_name(name)
-        elif type(data) is Resource:
+        elif type(specdata) is Resource:
             self.classname: str = class_name_from_resource_name(name)
-        self.data: Property = data
+        self.data: Property = specdata
+        self.validatordata: ValidatorData = validatordata
 
         self.conflictedproperties: List[str] = []
 
