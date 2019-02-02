@@ -50,19 +50,19 @@ class ModuleData():
         self.properties: OrderedDict[str, ClassData] = OrderedDict()
         self.resources: OrderedDict[str, ClassData] = OrderedDict()
 
-    def add_property(self, name: str, property: Property) -> None:
+    def add_property(self, name: str, property: Property, validatordata: ValidatorData=None) -> None:
         # Some properties are redefined for different Resources, but produce the exact same code.
         for existingname in self.properties:
             if class_name_from_property_name(existingname) == class_name_from_property_name(name):
                 return
-        self.properties[name] = ClassData(name, property)
+        self.properties[name] = ClassData(name, property, validatordata)
 
-    def add_resource(self, name: str, resource: Resource) -> None:
+    def add_resource(self, name: str, resource: Resource, validatordata: ValidatorData=None) -> None:
         # Some properties are redefined for different Resources, but produce the exact same code.
         for existingname in self.resources:
             if class_name_from_resource_name(existingname) == class_name_from_resource_name(name):
                 return
-        self.resources[name] = ClassData(name, resource)
+        self.resources[name] = ClassData(name, resource, validatordata)
 
     def resolve_name_conflicts(self):
         # Detect if any property has the same name as resource
