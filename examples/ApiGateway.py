@@ -73,7 +73,7 @@ def apigateway():
     ))
 
     # Create the Lambda function
-    foobar_function = t.add_resource(Function(
+    t.add_resource(Function(
         "FoobarFunction",
         Code=Code(
             ZipFile=Join("", code)
@@ -93,7 +93,7 @@ def apigateway():
 
     # Create a Lambda API method for the Lambda resource
     api_arn = "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/"
-    method = t.add_resource(Method(
+    t.add_resource(Method(
         "LambdaMethod",
         DependsOn='FoobarFunction',
         RestApiId=Ref(rest_api),
@@ -148,7 +148,7 @@ def apigateway():
     ))
 
     # Create an API usage plan
-    usagePlan = t.add_resource(UsagePlan(
+    usage_plan = t.add_resource(UsagePlan(
         "ExampleUsagePlan",
         UsagePlanName="ExampleUsagePlan",
         Description="Example usage plan",
@@ -168,11 +168,11 @@ def apigateway():
     ))
 
     # tie the usage plan and key together
-    usagePlanKey = t.add_resource(UsagePlanKey(
+    t.add_resource(UsagePlanKey(
         "ExampleUsagePlanKey",
         KeyId=Ref(key),
         KeyType="API_KEY",
-        UsagePlanId=Ref(usagePlan)
+        UsagePlanId=Ref(usage_plan)
     ))
 
     # Add the deployment endpoint as an output
