@@ -197,5 +197,4 @@ def apigateway():
     return t.to_json()
 
 
-if __name__ == '__main__':
-    apigateway()
+print(apigateway())

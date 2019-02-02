@@ -2,5 +2,5 @@
 Examples
 ========
 
-.. automodule:: examples.ApiGateway
+.. automodule:: examples/ApiGateway.py
     :members:
