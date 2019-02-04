@@ -260,7 +260,7 @@ class StorageDescriptor(AWSProperty):
         'Compressed': (boolean, False),
         'InputFormat': (basestring, False),
         'Location': (basestring, False),
-        'NumberofBuckets': (positive_integer, False),
+        'NumberOfBuckets': (positive_integer, False),
         'OutputFormat': (basestring, False),
         'Parameters': (dict, False),
         'SerdeInfo': (SerdeInfo, False),
