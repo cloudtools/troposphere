@@ -2,7 +2,7 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
-
+import warnings
 
 import cfn_flip
 import collections
@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.4.1"
+__version__ = "2.4.2"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = 'Delete'
@@ -585,11 +585,29 @@ class Template(object):
         self.version = None
         self.transform = None
 
-    def add_description(self, description):
+    def set_description(self, description):
         self.description = description
 
-    def add_metadata(self, metadata):
+    def add_description(self, description):
+        warnings.warn(
+            "The add_description() method is deprecated, please switch to "
+            "using set_description() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_description(description)
+
+    def set_metadata(self, metadata):
         self.metadata = metadata
+
+    def add_metadata(self, metadata):
+        warnings.warn(
+            "The add_metadata() method is deprecated, please switch to using "
+            "set_metadata() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_metadata(metadata)
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
@@ -638,14 +656,32 @@ class Template(object):
                              % MAX_RESOURCES)
         return self._update(self.resources, resource)
 
-    def add_version(self, version=None):
+    def set_version(self, version=None):
         if version:
             self.version = version
         else:
             self.version = "2010-09-09"
 
-    def add_transform(self, transform):
+    def add_version(self, version=None):
+        warnings.warn(
+            "The add_version() method is deprecated, please switch to using "
+            "set_version() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_version(version)
+
+    def set_transform(self, transform):
         self.transform = transform
+
+    def add_transform(self, transform):
+        warnings.warn(
+            "The add_transform() method is deprecated, please switch to using "
+            "set_transform() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_transform(transform)
 
     def to_dict(self):
         t = {}

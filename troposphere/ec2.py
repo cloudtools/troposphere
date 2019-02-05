@@ -508,13 +508,14 @@ class SecurityGroupRule(AWSProperty):
         'CidrIp': (basestring, False),
         'CidrIpv6': (basestring, False),
         'Description': (basestring, False),
+        'DestinationPrefixListId': (basestring, False),
+        'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
         'ToPort': (network_port, False),
-        'DestinationSecurityGroupId': (basestring, False),
     }
 
 

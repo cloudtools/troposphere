@@ -1,3 +1,27 @@
+## 2.4.2 (2018-02-02)
+- Add AWS::DocDB
+- Add UpdateReplacePolicy attribute
+- Use a dict instead of the Tags object for the Tags property on the dax resource (#1045) (#1046)
+- Add better method names for Troposphere objects. (#1169)
+- Update integer_list_item to always cast value to an int for comparison (#1192)
+- Remove name parameter from json_checker (#1260)
+- Remove duplicate VpcConfig/DomainJoinInfo classes from AppStream (#1285)
+- Add 'Kind' property to AWS::AppSync::Resolver (#1287)
+- Add missing region information. (#1288)
+- Fix tag sorting on py3 (#1289)
+- Updated autoscalingplans to match cloudformation doco (#1291)
+- ResourceGroupArn is no longer mandatory for AWS::Inspector::AssessmentTarget (#1292)
+- Fix creating RotationSchedule for SecretsManager (#1293)
+- Add missing serverless properties (Fixes #1294)
+- Make DataSourceName non-mandatory in appsync resolvers (#1296)
+- Add new properties to AWS::CodeBuild::Project, per 2019 Jan 24 update (#1297)
+- Add new AWS::OpsWorksCM::Server resource, per 2019 Jan 24 update (#1298)
+- Add AWS::Serverless::LayerVersion (#1305)
+- Fix for AWS Lambda reserved environment variables (#1306)
+- Add SqsParameters support to Rule Target (#1307)
+- Add DestinationPrefixListId to EC2 SecurityGroupRule (#1309)
+- Fix for pyflakes 2.1.0
+
 ## 2.4.1 (2018-01-09)
 - Add a S3OriginConfig object to distinguish between Distribution and StreamingDistribution properties (#1273)
 - Add SSM Example for patch baselines and filter groups (#1274)

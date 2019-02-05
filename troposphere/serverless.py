@@ -238,6 +238,19 @@ class SimpleTable(AWSObject):
     }
 
 
+class LayerVersion(AWSObject):
+    resource_type = "AWS::Serverless::LayerVersion"
+
+    props = {
+        'CompatibleRuntimes': ([basestring], False),
+        'ContentUri': ((S3Location, basestring), True),
+        'Description': (basestring, False),
+        'LayerName': (basestring, False),
+        'LicenseInfo': (basestring, False),
+        'RetentionPolicy': (basestring, False),
+    }
+
+
 class S3Event(AWSObject):
     resource_type = 'S3'
 
