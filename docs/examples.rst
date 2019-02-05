@@ -2,5 +2,4 @@
 Examples
 ========
 
-.. automodule:: examples/ApiGateway.py
-    :members:
+A place holder for the examples.
