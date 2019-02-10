@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .validators import (
     boolean, double, integer_range, json_checker, positive_integer
 )
