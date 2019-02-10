@@ -4,13 +4,19 @@ troposphere
 
 .. image:: https://img.shields.io/pypi/v/troposphere.svg
     :target: https://pypi.python.org/pypi/troposphere
+    :alt: PyPI Version
 
 .. image:: https://travis-ci.org/cloudtools/troposphere.svg?branch=master
     :target: https://travis-ci.org/cloudtools/troposphere
+    :alt: Build Status
 
 .. image:: https://img.shields.io/pypi/l/troposphere.svg
     :target: https://opensource.org/licenses/BSD-2-Clause
+    :alt: license: New BSD license
 
+.. image:: https://readthedocs.org/projects/troposphere/badge/?version=latest
+    :target: https://troposphere.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 About
 =====
