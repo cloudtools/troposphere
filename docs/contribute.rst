@@ -27,10 +27,11 @@ will be run against any commits to the project.
 #. Activate it: `source ~/virtualenv/troposphere/bin/activate`
 #. `pip install --upgrade pip setuptools wheel`
 #. `pip install -r requirements-dev.txt`
-#. Run tests:
+#. Run tests
     1. `pycodestyle .`
     #. `pyflakes .`
     #. `python setup.py test`
+#. Alternatively, make can be used to run the tests, i.e. `make test`.
 
 Tests are run against Python 2.7, 3.3, 3.4, and 3.5.
 
