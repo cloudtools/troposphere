@@ -69,7 +69,7 @@ class Service(AWSObject):
 
     props = {
         'Description': (basestring, False),
-        'DnsConfig': (DnsConfig, True),
+        'DnsConfig': (DnsConfig, False),
         'HealthCheckConfig': (HealthCheckConfig, False),
         'HealthCheckCustomConfig': (HealthCheckCustomConfig, False),
         'Name': (basestring, False),
