@@ -23,10 +23,12 @@ from setuptools import setup
 # ----------------------------------------------------------------------------
 
 
-def open_file(file_name):
+def file_contents(file_name):
     """Given a file name to a valid file returns the file object."""
     curr_dir = os.path.abspath(os.path.dirname(__file__))
-    return open(os.path.join(curr_dir, file_name))
+    with open(os.path.join(curr_dir, file_name)) as the_file:
+        contents = the_file.read()
+    return contents
 
 
 def get_version():
@@ -45,7 +47,7 @@ setup(
     name='troposphere',
     version=get_version(),
     description="AWS CloudFormation creation library",
-    long_description=open_file("README.rst").readlines(),
+    long_description=file_contents("README.rst"),
 
     author="Mark Peek",
     author_email="mark@peek.org",
@@ -79,7 +81,7 @@ setup(
         'scripts/cfn2py'
     ],
 
-    install_requires=open_file("requirements.txt").readlines(),
+    install_requires=file_contents("requirements.txt"),
     test_suite="tests",
     tests_require=["awacs"],
     extras_require={'policy': ['awacs']},
