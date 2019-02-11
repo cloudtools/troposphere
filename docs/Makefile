@@ -17,3 +17,12 @@ help:
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+
+AG_FILE=troposphere_ag.rst
+IZ_FILE=troposphere_iz.rst
+
+index:
+	printf "troposphere modules a - g\n-------------------------\n\n" > $(AG_FILE)
+	ls ../troposphere/[a-g]*.py | sed 's#../troposphere/\(.*\).py#\1#' | xargs printf ".. automodule:: troposphere.%s\n    :members:\n\n" >> $(AG_FILE)
+	printf "troposphere modules i - z\n-------------------------\n\n" > $(IZ_FILE)
+	ls ../troposphere/[h-z]*.py | sed 's#../troposphere/\(.*\).py#\1#' | xargs printf ".. automodule:: troposphere.%s\n    :members:\n\n" >> $(IZ_FILE)

@@ -2,7 +2,7 @@ troposphere modules a - g
 -------------------------
 
 .. automodule:: troposphere.amazonmq
-        :members:
+    :members:
 
 .. automodule:: troposphere.analytics
     :members:
@@ -147,3 +147,4 @@ troposphere modules a - g
 
 .. automodule:: troposphere.guardduty
     :members:
+
