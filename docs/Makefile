@@ -19,7 +19,14 @@ help:
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
 index:
+	# sphinx-apidoc won't overwrite existing files, so remove them first
 	rm -rf ./apis
+
+	# sphinx-apidoc won't generate a package without a __init__ file
+	#     however, the troposphere tests fail if there is a __init__ file
+	#     so, create the file, create the docs and then remove __init__.py
+	# sleep is there to ensure the system has time to place the file
+	#     before sphinx-apidoc is run
 	touch ../examples/__init__.py
 	sleep 3s
 	sphinx-apidoc -o ./apis ../examples --tocfile examples_toc
