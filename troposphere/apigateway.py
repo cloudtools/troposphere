@@ -3,6 +3,11 @@ from .validators import (
     boolean, double, integer_range, json_checker, positive_integer
 )
 
+import sys
+
+if sys.version_info[0] == "3":
+    basestring = str
+
 
 def validate_authorizer_ttl(ttl_value):
     """ Validate authorizer ttl timeout

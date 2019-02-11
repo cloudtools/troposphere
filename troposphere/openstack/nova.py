@@ -8,6 +8,11 @@
 from troposphere import AWSObject, AWSProperty
 from troposphere.validators import boolean, integer, network_port
 
+import sys
+
+if sys.version_info[0] == "3":
+    basestring = (str,)
+
 
 class BlockDeviceMapping(AWSProperty):
     props = {

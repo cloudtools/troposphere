@@ -39,6 +39,9 @@ PARAMETER_TITLE_MAX = 255
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
+if sys.version_info[0] == "3":
+    basestring = (str,)
+
 
 def is_aws_object_subclass(cls):
     is_aws_object = False

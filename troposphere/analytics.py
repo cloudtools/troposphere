@@ -6,6 +6,11 @@
 from . import AWSObject, AWSProperty
 from .validators import integer
 
+import sys
+
+if sys.version_info[0] == "3":
+    basestring = str
+
 
 class InputParallelism(AWSProperty):
     props = {

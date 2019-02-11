@@ -10,9 +10,14 @@
     :caption: Table of Contents
 
     quick_start
+    apis/examples_toc
+    apis/troposphere_toc
+    apis/tests_toc
+
+    changelog
     contribute
-    examples
-    troposphere
+    code_of_conduct
+    license
 
 Indices and tables
 ==================

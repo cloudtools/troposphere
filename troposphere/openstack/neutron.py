@@ -9,6 +9,11 @@ from troposphere import AWSObject, AWSProperty
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import network_port, positive_integer
 
+import sys
+
+if sys.version_info[0] == "3":
+    basestring = (str,)
+
 
 class Firewall(AWSObject):
     resource_type = "OS::Neutron::Firewall"

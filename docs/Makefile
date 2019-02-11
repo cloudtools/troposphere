@@ -18,11 +18,11 @@ help:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-AG_FILE=troposphere_ag.rst
-IZ_FILE=troposphere_iz.rst
-
 index:
-	printf "troposphere modules a - g\n-------------------------\n\n" > $(AG_FILE)
-	ls ../troposphere/[a-g]*.py | sed 's#../troposphere/\(.*\).py#\1#' | xargs printf ".. automodule:: troposphere.%s\n    :members:\n\n" >> $(AG_FILE)
-	printf "troposphere modules i - z\n-------------------------\n\n" > $(IZ_FILE)
-	ls ../troposphere/[h-z]*.py | sed 's#../troposphere/\(.*\).py#\1#' | xargs printf ".. automodule:: troposphere.%s\n    :members:\n\n" >> $(IZ_FILE)
+	rm -rf ./apis
+	touch ../examples/__init__.py
+	sleep 3s
+	sphinx-apidoc -o ./apis ../examples --tocfile examples_toc
+	sphinx-apidoc -o ./apis ../troposphere --tocfile troposphere_toc
+	sphinx-apidoc -o ./apis ../tests --tocfile tests_toc
+	rm -rf ../examples/__init__.py
