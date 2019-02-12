@@ -358,7 +358,7 @@ class Stage(AWSObject):
     resource_type = "AWS::ApiGateway::Stage"
 
     props = {
-        "AccesLogSetting": (AccessLogSetting, False),
+        "AccessLogSetting": (AccessLogSetting, False),
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
         "CanarySetting": (StageCanarySetting, False),
