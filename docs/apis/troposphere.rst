@@ -36,6 +36,14 @@ troposphere.apigateway module
     :undoc-members:
     :show-inheritance:
 
+troposphere.apigatewayv2 module
+-------------------------------
+
+.. automodule:: troposphere.apigatewayv2
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 troposphere.applicationautoscaling module
 -----------------------------------------
 

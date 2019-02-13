@@ -12,6 +12,14 @@ tests.test\_apigateway module
     :undoc-members:
     :show-inheritance:
 
+tests.test\_apigatewayv2 module
+-------------------------------
+
+.. automodule:: tests.test_apigatewayv2
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 tests.test\_appsync module
 --------------------------
 

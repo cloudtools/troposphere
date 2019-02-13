@@ -160,14 +160,15 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
-- Alexa:ASK:Skill
 - AWS::AmazonMQ
 - AWS::ApiGateway
+- AWS::ApiGatewayV2
 - AWS::AppStream
 - AWS::AppSync
 - AWS::ApplicationAutoScaling
 - AWS::Athena
 - AWS::AutoScaling
+- AWS::AutoScalingPlans
 - AWS::Batch
 - AWS::Budgets
 - AWS::CertificateManager
@@ -216,9 +217,11 @@ Currently supported AWS resource types
 - AWS::Logs
 - AWS::Neptune
 - AWS::OpsWorks
+- AWS::OpsWorksCM
 - AWS::RDS
 - AWS::Redshift
 - AWS::Route53
+- AWS::Route53Resolver
 - AWS::S3
 - AWS::SDB
 - AWS::SES
