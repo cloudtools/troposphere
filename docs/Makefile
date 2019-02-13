@@ -16,13 +16,21 @@ help:
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
+	touch ../examples/__init__.py
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
-
-AG_FILE=troposphere_ag.rst
-IZ_FILE=troposphere_iz.rst
+	rm -rf ../examples/__init__.py
 
 index:
-	printf "troposphere modules a - g\n-------------------------\n\n" > $(AG_FILE)
-	ls ../troposphere/[a-g]*.py | sed 's#../troposphere/\(.*\).py#\1#' | xargs printf ".. automodule:: troposphere.%s\n    :members:\n\n" >> $(AG_FILE)
-	printf "troposphere modules i - z\n-------------------------\n\n" > $(IZ_FILE)
-	ls ../troposphere/[h-z]*.py | sed 's#../troposphere/\(.*\).py#\1#' | xargs printf ".. automodule:: troposphere.%s\n    :members:\n\n" >> $(IZ_FILE)
+	# sphinx-apidoc won't overwrite existing files, so remove them first
+	rm -rf ./apis
+
+	# sphinx-apidoc won't generate a package without a __init__ file
+	#     however, the troposphere tests fail if there is a __init__ file
+	#     so, create the file, create the docs and then remove __init__.py
+	# sleep is there to ensure the system has time to place the file
+	#     before sphinx-apidoc is run
+	touch ../examples/__init__.py
+	sphinx-apidoc -o ./apis ../examples --tocfile examples_toc
+	sphinx-apidoc -o ./apis ../troposphere --tocfile troposphere_toc
+	sphinx-apidoc -o ./apis ../tests --tocfile tests_toc
+	rm -rf ../examples/__init__.py

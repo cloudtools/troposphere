@@ -1,5 +1,5 @@
-Troposphere Basics
-==================
+Quick Start
+===========
 
 Troposphere closely follows CloudFormation, so there isn't much documentation
 specific to Troposphere.  In this documentation there are various examples but
