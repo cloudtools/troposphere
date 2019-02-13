@@ -16,7 +16,9 @@ help:
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile
+	touch ../examples/__init__.py
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
+	rm -rf ../examples/__init__.py
 
 index:
 	# sphinx-apidoc won't overwrite existing files, so remove them first
@@ -28,7 +30,7 @@ index:
 	# sleep is there to ensure the system has time to place the file
 	#     before sphinx-apidoc is run
 	touch ../examples/__init__.py
-	sleep 3s
+	sleep 2s
 	sphinx-apidoc -o ./apis ../examples --tocfile examples_toc
 	sphinx-apidoc -o ./apis ../troposphere --tocfile troposphere_toc
 	sphinx-apidoc -o ./apis ../tests --tocfile tests_toc
