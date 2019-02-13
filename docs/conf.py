@@ -90,7 +90,7 @@ html_theme = html_themes[-1]
 # documentation.
 #
 html_theme_options = {
-    'logo_only': False,
+    'logo_only': True,
     'display_version': False,
     'prev_next_buttons_location': 'bottom',
     'style_external_links': False,
@@ -101,6 +101,9 @@ html_theme_options = {
     'includehidden': True,
     'titles_only': False
 }
+
+html_logo = '_static/images/troposphere_logo_small.png'
+html_favicon = '_static/images/troposphere_favicon.png'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
