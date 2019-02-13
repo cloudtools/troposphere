@@ -21,10 +21,6 @@ and change these types.
 from troposphere import AWSObject
 from troposphere.validators import integer
 
-import sys
-
-if sys.version_info[0] == "3":
-    basestring = str
 
 # ----------------------------------------------------------------------------
 # Class:  AWSAutoScalingGroup

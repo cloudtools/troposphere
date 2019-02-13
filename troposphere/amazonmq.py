@@ -6,11 +6,6 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
-import sys
-
-if sys.version_info[0] == "3":
-    basestring = (str,)
-
 
 class ConfigurationId(AWSProperty):
     props = {
