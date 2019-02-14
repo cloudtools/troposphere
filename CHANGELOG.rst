@@ -1,4 +1,16 @@
-2.4.2 (2018*02*02)
+2.4.3 (2019*02*13)
+------------------
+
+* Fix Glue StorageDescriptor NumberOfBuckets spelling (#1310)
+* ServiceDiscovery::Service DNSConfig is no longer required
+* Sphinx docs (#1311)
+* Add autogeneration of troposphere index files
+* Fix  ApiGateway AccessLogSetting prop spelling (#1316)
+* Docs update (#1314)
+* Add AWS::ApiGatewayV2 Resources (#1312)
+* Updates for new resources being added
+
+2.4.2 (2019*02*02)
 ------------------
 
 * Add AWS::DocDB
@@ -24,7 +36,7 @@
 * Add DestinationPrefixListId to EC2 SecurityGroupRule (#1309)
 * Fix for pyflakes 2.1.0
 
-2.4.1 (2018*01*09)
+2.4.1 (2019*01*09)
 ------------------
 
 * Add a S3OriginConfig object to distinguish between Distribution and StreamingDistribution properties (#1273)
@@ -34,7 +46,7 @@
 * Add additional properties to AWS::Serverless::Api (#1278)
 * Fixes DynamoDB validator error (#1280)
 
-2.4.0 (2018*01*06)
+2.4.0 (2019*01*06)
 ------------------
 
 * Setup tox (#1187)
