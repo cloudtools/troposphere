@@ -55,20 +55,22 @@ setup(
     url="https://github.com/cloudtools/troposphere",
 
     classifiers=[
-        "Development Status :: 2 - Stable",
-        "Environment :: Library",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
-        "Intended Audience :: AWS SysAdmins/Cloud Architects",
 
-        "Operating System :: Linux",
-        "Operating System :: Windows",
-        "Operating System :: Mac OSX",
+        "License :: OSI Approved :: BSD License",
+
+        "Operating System :: MacOS :: MacOS X",
+        "Operating System :: Microsoft :: Windows",
+        "Operating System :: POSIX :: BSD",
+        "Operating System :: POSIX :: Linux",
 
         "Programming Language :: Python",
-        "Python Version :: 3.6",
-        "Python Version :: 3.5",
-        "Python Version :: 3.4",
-        "Python Version :: 2.7",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 2.7",
     ],
 
     packages=[
