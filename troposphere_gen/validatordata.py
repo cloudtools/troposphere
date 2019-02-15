@@ -8,24 +8,47 @@ from typing import Dict
 
 class ValidatorData():
     def __init__(self, validatordata: Dict):
+        self.validators: Dict[str, Validator] = {}
         self.parse(validatordata)
 
-        self.validator: BaseValidator = None
+    def parse(self, validatordata: Dict):
+        for propname, validatordict in validatordata["Properties"].items():
+            self.validators[propname] = Validator(validatordict)
 
+
+class Validator():
+    def __init__(self, validatordata: Dict):
+        # Name of validator function and kwargs to be passed to it
+        self.function: str = None
+        self.kwargs: Dict[str, str] = {}
+
+        # In case of a map we need a validator for both key and value
+        self.map_key_function: str = None
+        self.map_value_function: str = None
+        self.map_key_kwargs: Dict[str, str] = {}
+        self.map_value_kwargs: Dict[str, str] = {}
+
+        self.parse(validatordata)
 
     def parse(self, validatordata: Dict):
-        validatormap = {
-            "regex": RegexValidator,
-            "Map": MapValidator,
-        }
+        # 'Map' type validator is the only special case
+        if validatordata["Validator"] == "Map":
+            keydata = validatordata["ValidatorKey"]
+            for k, v in keydata.items():
+                if k == "Validator":
+                    self.map_key_function = v
+                else:
+                    self.map_key_kwargs[k] = v
 
-
-class BaseValidator:
-    pass
-
-class RegexValidator(BaseValidator):
-    def __init__(self, validatordata: Dict):
-        pass
-
-class MapValidator(BaseValidator):
-    pass
+            valuedata = validatordata["ValidatorValue"]
+            for k, v in valuedata.items():
+                if k == "Validator":
+                    self.map_value_function = v
+                else:
+                    self.map_value_kwargs[k] = v
+        else:
+            for k, v in validatordata.items():
+                if k == "Validator":
+                    self.function = v
+                else:
+                    self.kwargs[k] = v
