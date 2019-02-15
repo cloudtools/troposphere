@@ -207,14 +207,16 @@ class Policy_3_7(Policy):
                 f"                raise ValueError(\"{cc_to_sc(propertydata.name)} map-values must be of type '{self.get_itemtype(propertydata.type)}' (is: '%s')\" % type(v))\n"
             )
             if classdata.validatordata is not None and propertydata.name in classdata.validatordata.validators:
-                type_check += f"            validators.{classdata.validatordata.validators[propertydata.name].map_key_function}(k, self"
-                for k, v in classdata.validatordata.validators[propertydata.name].map_key_kwargs.items():
-                    type_check += f", {k}=\"{v}\""
-                type_check += f")\n"
-                type_check += f"            validators.{classdata.validatordata.validators[propertydata.name].map_value_function}(v, self"
-                for k, v in classdata.validatordata.validators[propertydata.name].map_value_kwargs.items():
-                    type_check += f", {k}=\"{v}\""
-                type_check += f")\n"
+                if classdata.validatordata.validators[propertydata.name].map_key_function is not None:
+                    type_check += f"            validators.{classdata.validatordata.validators[propertydata.name].map_key_function}(k, self"
+                    for k, v in classdata.validatordata.validators[propertydata.name].map_key_kwargs.items():
+                        type_check += f", {k}=\"{v}\""
+                    type_check += f")\n"
+                if classdata.validatordata.validators[propertydata.name].map_value_function is not None:
+                    type_check += f"            validators.{classdata.validatordata.validators[propertydata.name].map_value_function}(v, self"
+                    for k, v in classdata.validatordata.validators[propertydata.name].map_value_kwargs.items():
+                        type_check += f", {k}=\"{v}\""
+                    type_check += f")\n"
         else:  # Subproperty or primitive type
             type_check = (
                 f"        if not isinstance(value, {self.get_type(propertydata, conflicted)}):\n"
