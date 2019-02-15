@@ -115,7 +115,7 @@ class Policy_3_7(Policy):
 
         imports = "\nfrom troposphere.aws_objects import AWSProperty, AWSObject\n"
         imports += "from typing import Dict, List\n"
-        imports += "from troposphere.validators import *\n"
+        imports += "from troposphere import validators\n"
         if modulename is not "common":
             imports += "from troposphere.common import Tag\n"
 
@@ -191,6 +191,11 @@ class Policy_3_7(Policy):
                 f"            if not isinstance(listitem, {self.get_itemtype(propertydata.type)}):\n"
                 f"                raise ValueError(\"{cc_to_sc(propertydata.name)} list-items must be of type '{self.get_itemtype(propertydata.type)}' (is: '%s')\" % type(listitem))\n"
             )
+            if classdata.validatordata is not None and propertydata.name in classdata.validatordata.validators:
+                type_check += f"            validators.{classdata.validatordata.validators[propertydata.name].function}(value, self"
+                for k, v in classdata.validatordata.validators[propertydata.name].kwargs.items():
+                    type_check += f", {k}=\"{v}\""
+                type_check += f")\n"
         elif type(propertydata.type) == MapType:
             type_check = (
                 f"        if not isinstance(value, dict):\n"
@@ -201,11 +206,25 @@ class Policy_3_7(Policy):
                 f"            if not isinstance(v, {self.get_itemtype(propertydata.type)}):\n"
                 f"                raise ValueError(\"{cc_to_sc(propertydata.name)} map-values must be of type '{self.get_itemtype(propertydata.type)}' (is: '%s')\" % type(v))\n"
             )
+            if classdata.validatordata is not None and propertydata.name in classdata.validatordata.validators:
+                type_check += f"            validators.{classdata.validatordata.validators[propertydata.name].map_key_function}(k, self"
+                for k, v in classdata.validatordata.validators[propertydata.name].map_key_kwargs.items():
+                    type_check += f", {k}=\"{v}\""
+                type_check += f")\n"
+                type_check += f"            validators.{classdata.validatordata.validators[propertydata.name].map_value_function}(v, self"
+                for k, v in classdata.validatordata.validators[propertydata.name].map_value_kwargs.items():
+                    type_check += f", {k}=\"{v}\""
+                type_check += f")\n"
         else:  # Subproperty or primitive type
             type_check = (
                 f"        if not isinstance(value, {self.get_type(propertydata, conflicted)}):\n"
                 f"            raise ValueError(\"{cc_to_sc(propertydata.name)} must be of type '{self.get_type(propertydata, conflicted)}' (is: '%s')\" % type(value))\n"
             )
+            if classdata.validatordata is not None and propertydata.name in classdata.validatordata.validators:
+                type_check += f"        validators.{classdata.validatordata.validators[propertydata.name].function}(value, self"
+                for k, v in classdata.validatordata.validators[propertydata.name].kwargs.items():
+                    type_check += f", {k}=\"{v}\""
+                type_check += f")\n"
 
         return (
             f"    @{cc_to_sc(propertydata.name)}.setter\n"
