@@ -33,19 +33,21 @@ class Validator():
     def parse(self, validatordata: Dict):
         # 'Map' type validator is the only special case
         if validatordata["Validator"] == "Map":
-            keydata = validatordata["ValidatorKey"]
-            for k, v in keydata.items():
-                if k == "Validator":
-                    self.map_key_function = v
-                else:
-                    self.map_key_kwargs[k] = v
+            if "ValidatorKey" in validatordata:
+                keydata = validatordata["ValidatorKey"]
+                for k, v in keydata.items():
+                    if k == "Validator":
+                        self.map_key_function = v
+                    else:
+                        self.map_key_kwargs[k] = v
 
-            valuedata = validatordata["ValidatorValue"]
-            for k, v in valuedata.items():
-                if k == "Validator":
-                    self.map_value_function = v
-                else:
-                    self.map_value_kwargs[k] = v
+            if "ValidatorValue" in validatordata:
+                valuedata = validatordata["ValidatorValue"]
+                for k, v in valuedata.items():
+                    if k == "Validator":
+                        self.map_value_function = v
+                    else:
+                        self.map_value_kwargs[k] = v
         else:
             for k, v in validatordata.items():
                 if k == "Validator":
