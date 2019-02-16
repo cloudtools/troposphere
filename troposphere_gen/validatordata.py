@@ -8,15 +8,15 @@ from typing import Dict
 
 class ValidatorData():
     def __init__(self, validatordata: Dict):
-        self.validators: Dict[str, Validator] = {}
+        self.validators: Dict[str, PropertyValidator] = {}
         self.parse(validatordata)
 
     def parse(self, validatordata: Dict):
         for propname, validatordict in validatordata["Properties"].items():
-            self.validators[propname] = Validator(validatordict)
+            self.validators[propname] = PropertyValidator(validatordict)
 
 
-class Validator():
+class PropertyValidator():
     def __init__(self, validatordata: Dict):
         # Name of validator function and kwargs to be passed to it
         self.function: str = None
