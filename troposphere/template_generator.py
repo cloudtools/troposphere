@@ -31,6 +31,11 @@ from troposphere.policies import UpdatePolicy, CreationPolicy
 
 class TemplateGenerator(Template):
     DEPRECATED_MODULES = ['troposphere.dynamodb2']
+    EXCLUDE_MODULES = DEPRECATED_MODULES + [
+        'troposphere.openstack.heat',
+        'troposphere.openstack.neutron',
+        'troposphere.openstack.nova',
+    ]
 
     _inspect_members = set()
     _inspect_resources = {}
@@ -382,7 +387,7 @@ class TemplateGenerator(Template):
             pkg_name
             for importer, pkg_name, is_pkg in
             pkgutil.walk_packages([dirname], prefix="troposphere.")
-            if not is_pkg and pkg_name not in self.DEPRECATED_MODULES]
+            if not is_pkg and pkg_name not in self.EXCLUDE_MODULES]
         module_names.append('troposphere')
 
         modules = []
