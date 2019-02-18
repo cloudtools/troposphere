@@ -9,6 +9,8 @@ from .validators import boolean, integer, positive_integer
 
 VALID_IMAGE_PULL_CREDENTIALS = ('CODEBUILD', 'SERVICE_ROLE')
 VALID_CREDENTIAL_PROVIDERS = ('SECRETS_MANAGER')
+VALID_WEBHOOKFILTER_TYPES = ('EVENT', 'ACTOR_ACCOUNT_ID', 'HEAD_REF',
+                             'BASE_REF', 'FILE_PATH')
 
 
 def validate_image_pull_credentials(image_pull_credentials):
@@ -27,6 +29,15 @@ def validate_credentials_provider(credential_provider):
         raise ValueError("RegistryCredential CredentialProvider must be one of: %s" %  # NOQA
                          ", ".join(VALID_CREDENTIAL_PROVIDERS))
     return credential_provider
+
+
+def validate_webhookfilter_type(webhookfilter_type):
+    """Validate WebHookFilter type property for a Project"""
+
+    if webhookfilter_type not in VALID_WEBHOOKFILTER_TYPES:
+        raise ValueError("Project Webhookfilter Type must be one of: %s" %
+                         ", ".join(VALID_WEBHOOKFILTER_TYPES))
+    return webhookfilter_type
 
 
 class SourceAuth(AWSProperty):
@@ -190,7 +201,7 @@ class Source(AWSProperty):
             raise ValueError(
                 'Source Location: must be defined when type is %s' %
                 source_type
-                )
+            )
 
         auth = self.properties.get('Auth')
         if auth is not None and source_type != 'GITHUB':
@@ -206,9 +217,18 @@ class VpcConfig(AWSProperty):
     }
 
 
+class WebhookFilter(AWSProperty):
+    props = {
+        'ExcludeMatchedPattern': (boolean, False),
+        'Pattern': (basestring, True),
+        'Type': (validate_webhookfilter_type, True),
+    }
+
+
 class ProjectTriggers(AWSProperty):
     props = {
         'Webhook': (boolean, False),
+        'FilterGroups': ([WebhookFilter], False),
     }
 
 
