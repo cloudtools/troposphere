@@ -85,8 +85,8 @@ setup(
 
     install_requires=file_contents("requirements.txt"),
     test_suite="tests",
-    tests_require=["awacs"],
-    extras_require={'policy': ['awacs']},
+    tests_require=["awacs>=0.8"],
+    extras_require={'policy': ['awacs>=0.8']},
 
     use_2to3=True,
 )
