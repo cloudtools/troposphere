@@ -33,7 +33,7 @@ will be run against any commits to the project.
     #. `python setup.py test`
 #. Alternatively, make can be used to run the tests, i.e. `make test`.
 
-Tests are run against Python 2.7, 3.4, 3.5 and 3.6.
+Tests are run against Python 2.7, 3.5, and 3.6.
 
 Contributing Example Code
 -------------------------
