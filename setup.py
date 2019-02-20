@@ -69,7 +69,6 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.5",
-        "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 2.7",
     ],
 
@@ -83,6 +82,7 @@ setup(
         'scripts/cfn2py'
     ],
 
+    python_requires=">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*",
     install_requires=file_contents("requirements.txt"),
     test_suite="tests",
     tests_require=["awacs>=0.8"],
