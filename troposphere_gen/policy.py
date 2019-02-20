@@ -114,8 +114,9 @@ class Policy_3_7(Policy):
         )
 
         imports = "\nfrom troposphere.aws_objects import AWSProperty, AWSObject\n"
-        imports += "from typing import Dict, List\n"
+        imports += "from typing import Dict, List, Union\n"
         imports += "from troposphere import validators\n"
+        imports += "from troposphere.intrinsic_functions import IntrinsicFunction\n"
         if modulename is not "common":
             imports += "from troposphere.common import Tag\n"
 
@@ -144,13 +145,13 @@ class Policy_3_7(Policy):
         init_code = "    def __init__(self,\n"
         for name, prop in classdata.subproperties.items():
             conflicted = name in classdata.conflictedproperties
-            init_code += f"                 {cc_to_sc(name)}: {self.get_type(prop, conflicted)} = None,\n"
+            init_code += f"                 {cc_to_sc(name)}: Union[{self.get_type(prop, conflicted)}, IntrinsicFunction] = None,\n"
         init_code += "                 ):\n"
 
         # Generate field declarations
         for name, prop in classdata.subproperties.items():
             conflicted = name in classdata.conflictedproperties
-            init_code += f"        self._{cc_to_sc(name)}: {self.get_type(prop, conflicted)} = None\n"
+            init_code += f"        self._{cc_to_sc(name)}: Union[{self.get_type(prop, conflicted)}, IntrinsicFunction] = None\n"
             init_code += f"        self.{cc_to_sc(name)} = {cc_to_sc(name)}\n"
 
         property_funcs = ""
@@ -230,10 +231,12 @@ class Policy_3_7(Policy):
 
         return (
             f"    @{cc_to_sc(propertydata.name)}.setter\n"
-            f"    def {cc_to_sc(propertydata.name)}(self, value: {self.get_type(propertydata, conflicted)}) -> None:\n"
+            f"    def {cc_to_sc(propertydata.name)}(self, value: Union[{self.get_type(propertydata, conflicted)}, IntrinsicFunction]) -> None:\n"
             f"        if value is None:\n"
             f"            self._{cc_to_sc(propertydata.name)} = None\n"
             f"            return\n"
+            f"        if isinstance(value, IntrinsicFunction):\n"
+            f"            self._{cc_to_sc(propertydata.name)} = value\n"
             f"{type_check}"
             f"        self._{cc_to_sc(propertydata.name)} = value\n"
         )
