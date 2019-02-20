@@ -1,3 +1,14 @@
+2.4.5 (2019*02*19)
+------------------
+
+* Add "pip install" step for source dist file before a release (#1318)
+* Exclude OpenStack modules within the template generator (#1319)
+* Add AWS::CodeBuild::Project subproperties, per Feb 2019 14 update (#1321)
+* Add AWS::FSx::FileSystem resource, per Feb 2019 15 update (#1322)
+* Add KinesisAnalyticsV2 resources, per 2019 Feb 15 update (#1323)
+* Remove awacs as a hard dependency; ensure awacs>=0.8 otherwise (#1325)
+* Add FSx and KinesisAnalyticsV2 modules to the documentation
+
 2.4.4 (2019*02*13)
 ------------------
 
