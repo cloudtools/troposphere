@@ -396,6 +396,14 @@ troposphere.firehose module
     :undoc-members:
     :show-inheritance:
 
+troposphere.fsx module
+----------------------
+
+.. automodule:: troposphere.fsx
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 troposphere.glue module
 -----------------------
 
@@ -456,6 +464,14 @@ troposphere.kinesis module
 --------------------------
 
 .. automodule:: troposphere.kinesis
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+troposphere.kinesisanalyticsv2 module
+-------------------------------------
+
+.. automodule:: troposphere.kinesisanalyticsv2
     :members:
     :undoc-members:
     :show-inheritance:
