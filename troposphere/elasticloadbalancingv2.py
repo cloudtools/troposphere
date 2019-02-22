@@ -24,6 +24,35 @@ class Certificate(AWSProperty):
     }
 
 
+class AuthenticateCognitoConfig(AWSProperty):
+    props = {
+        "AuthenticationRequestExtraParams": (dict, False),
+        "OnUnauthenticatedRequest": (basestring, False),
+        "Scope": (basestring, False),
+        "SessionCookieName": (basestring, False),
+        "SessionTimeout": (integer, True),
+        "UserPoolArn": (basestring, True),
+        "UserPoolClientId": (basestring, True),
+        "UserPoolDomain": (basestring, True)
+    }
+
+
+class AuthenticateOidcConfig(AWSProperty):
+    props = {
+        "AuthenticationRequestExtraParams": (dict, False),
+        "AuthorizationEndpoint": (basestring, True),
+        "ClientId": (basestring, True),
+        "ClientSecret": (basestring, True),
+        "Issuer": (basestring, True),
+        "OnUnauthenticatedRequest": (basestring, False),
+        "Scope": (basestring, False),
+        "SessionCookieName": (basestring, False),
+        "SessionTimeout": (integer, False),
+        "TokenEndpoint": (basestring, True),
+        "UserInfoEndpoint": (basestring, True)
+    }
+
+
 class RedirectConfig(AWSProperty):
     # https://docs.aws.amazon.com/
     # AWSCloudFormation/latest/UserGuide/
@@ -61,10 +90,13 @@ class FixedResponseConfig(AWSProperty):
 
 class Action(AWSProperty):
     props = {
-        'Type': (basestring, True),
-        'TargetGroupArn': (basestring, False),
-        'RedirectConfig': (RedirectConfig, False),
-        'FixedResponseConfig': (FixedResponseConfig, False)
+        "AuthenticateCognitoConfig": (AuthenticateCognitoConfig, False),
+        "AuthenticateOidcConfig": (AuthenticateOidcConfig, False),
+        "FixedResponseConfig": (FixedResponseConfig, False),
+        "Order": (integer, False),
+        "RedirectConfig": (RedirectConfig, False),
+        "TargetGroupArn": (basestring, False),
+        "Type": (basestring, True)
     }
 
     def validate(self):
