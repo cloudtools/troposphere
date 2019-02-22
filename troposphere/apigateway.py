@@ -48,7 +48,8 @@ class ApiKey(AWSObject):
         "Enabled": (boolean, False),
         "GenerateDistinctId": (boolean, False),
         "Name": (basestring, False),
-        "StageKeys": ([StageKey], False)
+        "StageKeys": ([StageKey], False),
+        "Value": (basestring, False)
     }
 
 
