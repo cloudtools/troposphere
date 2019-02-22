@@ -220,8 +220,10 @@ Currently supported AWS resource types
 - AWS::Neptune
 - AWS::OpsWorks
 - AWS::OpsWorksCM
+- AWS::RAM
 - AWS::RDS
 - AWS::Redshift
+- AWS::RoboMaker
 - AWS::Route53
 - AWS::Route53Resolver
 - AWS::S3

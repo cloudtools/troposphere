@@ -516,6 +516,14 @@ troposphere.policies module
     :undoc-members:
     :show-inheritance:
 
+troposphere.ram module
+----------------------
+
+.. automodule:: troposphere.ram
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 troposphere.rds module
 ----------------------
 
@@ -528,6 +536,14 @@ troposphere.redshift module
 ---------------------------
 
 .. automodule:: troposphere.redshift
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+troposphere.robomaker module
+----------------------------
+
+.. automodule:: troposphere.robomaker
     :members:
     :undoc-members:
     :show-inheritance:
