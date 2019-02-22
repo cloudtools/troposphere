@@ -204,6 +204,7 @@ class DBInstance(AWSObject):
         'StorageEncrypted': (boolean, False),
         'StorageType': (basestring, False),
         'Tags': ((Tags, list), False),
+        'UseDefaultProcessorFeatures': (boolean, False),
         'Timezone': (basestring, False),
         'VPCSecurityGroups': ([basestring], False),
     }
@@ -422,6 +423,7 @@ class DBCluster(AWSObject):
         'PreferredMaintenanceWindow': (basestring, False),
         'ReplicationSourceIdentifier': (basestring, False),
         'ScalingConfiguration': (ScalingConfiguration, False),
+        'SourceRegion': (basestring, False),
         'SnapshotIdentifier': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'Tags': ((Tags, list), False),
