@@ -142,6 +142,7 @@ class Environment(AWSProperty):
 class ProjectCache(AWSProperty):
     props = {
         'Location': (basestring, False),
+        'Modes': ([basestring], False),
         'Type': (basestring, True),
     }
 
