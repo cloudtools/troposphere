@@ -56,6 +56,12 @@ class EncryptionAtRestOptions(AWSProperty):
     }
 
 
+class NodeToNodeEncryptionOptions(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+    }
+
+
 class SnapshotOptions(AWSProperty):
     props = {
         'AutomatedSnapshotStartHour': (integer_range(0, 23), False)
@@ -80,6 +86,7 @@ class Domain(AWSObject):
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
         'EncryptionAtRestOptions': (EncryptionAtRestOptions, False),
+        'NodeToNodeEncryptionOptions': (NodeToNodeEncryptionOptions, False),
         'SnapshotOptions': (SnapshotOptions, False),
         'Tags': ((Tags, list), False),
         'VPCOptions': (VPCOptions, False)
