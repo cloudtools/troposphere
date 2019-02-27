@@ -508,6 +508,7 @@ class Ref(AWSHelperFn):
 AccountId = Ref(AWS_ACCOUNT_ID)
 NotificationARNs = Ref(AWS_NOTIFICATION_ARNS)
 NoValue = Ref(AWS_NO_VALUE)
+Partition = Ref(AWS_PARTITION)
 Region = Ref(AWS_REGION)
 StackId = Ref(AWS_STACK_ID)
 StackName = Ref(AWS_STACK_NAME)
