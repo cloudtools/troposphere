@@ -205,6 +205,14 @@ class Parameter(AWSObject):
     }
 
 
+class PatchSource(AWSProperty):
+    props = {
+        'Configuration': (basestring, False),
+        'Name': (basestring, False),
+        'Products': ([basestring], False),
+    }
+
+
 class PatchBaseline(AWSObject):
     resource_type = "AWS::SSM::PatchBaseline"
 
@@ -212,12 +220,16 @@ class PatchBaseline(AWSObject):
         'ApprovalRules': (RuleGroup, False),
         'ApprovedPatches': ([basestring], False),
         'ApprovedPatchesComplianceLevel': (compliance_level, False),
+        'ApprovedPatchesEnableNonSecurity': (boolean, False),
         'Description': (basestring, False),
         'GlobalFilters': (PatchFilterGroup, False),
         'Name': (basestring, True),
         'OperatingSystem': (operating_system, False),
         'PatchGroups': ([basestring], False),
         'RejectedPatches': ([basestring], False),
+        'RejectedPatchesAction': (basestring, False),
+        'Sources': ([PatchSource], False),
+        'Tags': (Tags, False),
     }
 
 
