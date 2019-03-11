@@ -3,13 +3,14 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
+from . import AWSObject, Tags
 
 
 class Activity(AWSObject):
     resource_type = "AWS::StepFunctions::Activity"
     props = {
         'Name': (basestring, True),
+        'Tags': (Tags, False),
     }
 
 
@@ -19,5 +20,6 @@ class StateMachine(AWSObject):
         'StateMachineName': (basestring, False),
         'DefinitionString': (basestring, True),
         'RoleArn': (basestring, True),
+        'Tags': (Tags, False),
 
     }
