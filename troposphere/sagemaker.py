@@ -93,6 +93,7 @@ class NotebookInstance(AWSObject):
         'LifecycleConfigName': (basestring, False),
         'NotebookInstanceName': (basestring, False),
         'RoleArn': (basestring, True),
+        'RootAccess': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
         'SubnetId': (basestring, False),
         'Tags': (Tags, False),
