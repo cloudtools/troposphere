@@ -841,10 +841,16 @@ class TargetGroup(AWSProperty):
     }
 
 
+class TargetGroupConfig(AWSProperty):
+    props = {
+        'TargetGroups': ([TargetGroup], True),
+    }
+
+
 class LoadBalancersConfig(AWSProperty):
     props = {
         'ClassicLoadBalancersConfig': ([ClassicLoadBalancersConfig], False),
-        'TargetGroupsConfig': (TargetGroup, False)
+        'TargetGroupsConfig': (TargetGroupConfig, False)
     }
 
 
