@@ -512,6 +512,7 @@ Partition = Ref(AWS_PARTITION)
 Region = Ref(AWS_REGION)
 StackId = Ref(AWS_STACK_ID)
 StackName = Ref(AWS_STACK_NAME)
+URLSuffix = Ref(AWS_URL_SUFFIX)
 
 
 class Condition(AWSHelperFn):
