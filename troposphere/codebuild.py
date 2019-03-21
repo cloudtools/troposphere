@@ -290,7 +290,7 @@ class Project(AWSObject):
         'EncryptionKey': (basestring, False),
         'Environment': (Environment, True),
         "LogsConfig": (LogsConfig, False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'SecondaryArtifacts': ([Artifacts], False),
         'SecondarySources': ([Source], False),
         'ServiceRole': (basestring, True),
