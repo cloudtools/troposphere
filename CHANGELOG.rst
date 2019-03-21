@@ -1,3 +1,25 @@
+2.4.6 (2019*03*20)
+------------------
+* Discourage usage of Python 3.4 (#1326)
+* Remove validation for ElastiCache::ReplicationGroup some properties (#1063)
+* Add auth configs for ElasticLoadBalancingV2::ListenerRule actions
+* Add new RDS DBCluster and DBInstance properties (#1329)
+* Add new Elasticsearch Domain property (#1330)
+* Add new ApiGateway Apikey property (#1331)
+* Add new Codebuild ProjectCache property (#1332)
+* Add new AWS::RAM and AWS::RoboMaker resources
+* Add psuedo-parameter Ref for AWS::Partition (#1334)
+* Add SageMaker::NotebookInstance VolumeSizeInGB property
+* Add missing properties in SSM::PatchBaseline (#1339)
+* Add Tags to StepFunctions objects, per 2019 March 07 update (#1340)
+* Update valid values for emr.StepConfig ActionOnFailure (#1350)
+* Add RootAccess prop to AWS::SageMaker::NotebookInstance, per 2019 March 14 update (#1342)
+* Add prop to AWS::OpsWorksCM::Server per 2019 March 14 update (#1343)
+* Add new AWS::CodeBuild::Project props, per 2019 March 14 update (#1344)
+* Fix EC2 SpotFleet LoadBalancersConfig TargetGroupConfig (#1346)
+* Add URLSuffix Ref (#1347)
+* CodeBuild::Project Name is not required (#1348)
+
 2.4.5 (2019*02*19)
 ------------------
 
