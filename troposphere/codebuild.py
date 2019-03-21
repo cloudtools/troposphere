@@ -157,11 +157,18 @@ class ProjectCache(AWSProperty):
                              ','.join(valid_types))
 
 
+class GitSubmodulesConfig(AWSProperty):
+    props = {
+        'FetchSubmodules': (boolean, True),
+    }
+
+
 class Source(AWSProperty):
     props = {
         'Auth': (SourceAuth, False),
         'BuildSpec': (basestring, False),
         'GitCloneDepth': (positive_integer, False),
+        'GitSubmodulesConfig': (GitSubmodulesConfig, False),
         'InsecureSsl': (boolean, False),
         'Location': (basestring, False),
         'ReportBuildStatus': (boolean, False),
@@ -259,6 +266,7 @@ class CloudWatchLogs(AWSProperty):
 
 class S3Logs(AWSProperty):
     props = {
+        "EncryptionDisabled": (boolean, False),
         "Status": (validate_status, True),
         "Location": (basestring, False)
     }
