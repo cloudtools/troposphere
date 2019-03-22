@@ -103,7 +103,8 @@ class Action(AWSProperty):
         one_of(self.__class__.__name__,
                self.properties,
                'Type',
-               ['forward', 'redirect', 'fixed-response'])
+               ['forward', 'redirect', 'fixed-response',
+                'authenticate-cognito', 'authenticate-oidc'])
 
         def requires(action_type, prop):
             if self.properties.get('Type') == action_type and \
