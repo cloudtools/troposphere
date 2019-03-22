@@ -188,7 +188,6 @@ G2_2XLARGE = 'g2.2xlarge'
 G2_8XLARGE = 'g2.8xlarge'
 
 G3S_XLARGE = 'g3s.xlarge'
-G3_2XLARGE = 'g3.2xlarge'
 G3_4XLARGE = 'g3.4xlarge'
 G3_8XLARGE = 'g3.8xlarge'
 G3_16XLARGE = 'g3.16xlarge'
