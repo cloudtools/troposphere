@@ -19,7 +19,9 @@ Default = 'Default'
 OldestInstance = 'OldestInstance'
 NewestInstance = 'NewestInstance'
 OldestLaunchConfiguration = 'OldestLaunchConfiguration'
+OldestLaunchTemplate = 'OldestLaunchTemplate'
 ClosestToNextInstanceHour = 'ClosestToNextInstanceHour'
+AllocationStrategy = 'AllocationStrategy'
 
 
 class Tag(AWSHelperFn):
