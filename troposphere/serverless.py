@@ -9,7 +9,7 @@ from . import AWSObject, AWSProperty
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput, SSESpecification
-from .s3 import Filter
+from .s3 import NotificationFilter
 from .validators import exactly_one, positive_integer
 try:
     from awacs.aws import PolicyDocument
@@ -257,7 +257,7 @@ class S3Event(AWSObject):
     props = {
         'Bucket': (basestring, True),
         'Events': (list, True),
-        'Filter': (Filter, False)
+        'Filter': (NotificationFilter, False)
     }
 
 

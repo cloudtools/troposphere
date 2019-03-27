@@ -1,6 +1,6 @@
 import unittest
 from troposphere import Tags, Template
-from troposphere.s3 import Filter, Rules, S3Key
+from troposphere.s3 import NotificationFilter, FilterRule, S3KeyFilter
 from troposphere.serverless import (
     Api, DeadLetterQueue, DeploymentPreference, Function, FunctionForPackaging,
     LayerVersion, S3Event, S3Location, SimpleTable,
@@ -190,10 +190,10 @@ class TestServerless(unittest.TestCase):
                         'FileUpload',
                         Bucket="bucket",
                         Events=['s3:ObjectCreated:*'],
-                        Filter=Filter(S3Key=S3Key(
+                        Filter=NotificationFilter(S3Key=S3KeyFilter(
                             Rules=[
-                                Rules(Name="prefix", Value="upload/"),
-                                Rules(Name="suffix", Value=".txt"),
+                                FilterRule(Name="prefix", Value="upload/"),
+                                FilterRule(Name="suffix", Value=".txt"),
                             ],
                         ))
                     )

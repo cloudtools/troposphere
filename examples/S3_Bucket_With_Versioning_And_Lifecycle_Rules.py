@@ -3,8 +3,8 @@
 
 from troposphere import Output, Ref, Template
 from troposphere.s3 import Bucket, PublicRead, VersioningConfiguration, \
-    LifecycleConfiguration, LifecycleRule, NoncurrentVersionTransition, \
-    LifecycleRuleTransition
+    LifecycleConfiguration, Rule, NoncurrentVersionTransition, \
+    Transition
 
 t = Template()
 
@@ -30,7 +30,7 @@ s3bucket = t.add_resource(Bucket(
 
     LifecycleConfiguration=LifecycleConfiguration(Rules=[
         # Add a rule to
-        LifecycleRule(
+        Rule(
             # Rule attributes
             Id="S3BucketRule001",
             Prefix="/only-this-sub-dir",
@@ -38,7 +38,7 @@ s3bucket = t.add_resource(Bucket(
             # Applies to current objects
             ExpirationInDays=3650,
             Transitions=[
-                LifecycleRuleTransition(
+                Transition(
                     StorageClass="STANDARD_IA",
                     TransitionInDays=60,
                 ),
