@@ -205,6 +205,7 @@ Currently supported AWS resource types
 - AWS::FSx
 - AWS::Glue
 - AWS::GuardDuty
+- AWS::Greengrass
 - AWS::IAM
 - AWS::Inspector
 - AWS::IoT
