@@ -146,6 +146,30 @@ class PortfolioShare(AWSObject):
     }
 
 
+def validate_tag_update(update):
+    valid_tag_update_values = [
+        "ALLOWED",
+        "NOT_ALLOWED",
+    ]
+    if update not in valid_tag_update_values:
+        raise ValueError(
+            "{} is not a valid tag update value".format(update)
+        )
+    return update
+
+
+class ResourceUpdateConstraint(AWSObject):
+    resource_type = "AWS::ServiceCatalog::ResourceUpdateConstraint"
+
+    props = {
+        'AcceptLanguage': (basestring, False),
+        'Description': (basestring, False),
+        'PortfolioId': (basestring, True),
+        'ProductId': (basestring, True),
+        'TagUpdateOnProvisionedProduct': (validate_tag_update, True),
+    }
+
+
 class TagOption(AWSObject):
     resource_type = "AWS::ServiceCatalog::TagOption"
 
