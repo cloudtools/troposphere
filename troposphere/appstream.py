@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 
@@ -60,6 +60,7 @@ class Fleet(AWSObject):
         'InstanceType': (basestring, True),
         'MaxUserDurationInSeconds': (integer, False),
         'Name': (basestring, False),
+        'Tags': ((Tags, list), False),
         'VpcConfig': (VpcConfig, False),
     }
 
@@ -77,6 +78,7 @@ class ImageBuilder(AWSObject):
         'ImageName': (basestring, False),
         'InstanceType': (basestring, True),
         'Name': (basestring, False),
+        'Tags': ((Tags, list), False),
         'VpcConfig': (VpcConfig, False),
     }
 
@@ -125,6 +127,7 @@ class Stack(AWSObject):
         'Name': (basestring, False),
         'RedirectURL': (basestring, False),
         'StorageConnectors': ([StorageConnector], False),
+        'Tags': ((Tags, list), False),
         'UserSettings': ([UserSetting], False),
     }
 
