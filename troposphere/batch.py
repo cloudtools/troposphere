@@ -70,6 +70,13 @@ class Environment(AWSProperty):
     }
 
 
+class ResourceRequirement(AWSProperty):
+    props = {
+        'Type': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
 class Ulimit(AWSProperty):
 
     props = {
@@ -91,6 +98,7 @@ class ContainerProperties(AWSProperty):
         "Environment": ([Environment], False),
         "JobRoleArn": (basestring, False),
         "ReadonlyRootFilesystem": (bool, False),
+        "ResourceRequirements": ([ResourceRequirement], False),
         "Ulimits": ([Ulimit], False),
         "Vcpus": (positive_integer, True),
         "Image": (basestring, True)
