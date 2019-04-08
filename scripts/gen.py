@@ -66,7 +66,7 @@ class Override(object):
             self.override = {}
 
     def get_header(self):
-            return self.override.get('header', "")
+        return self.override.get('header', "")
 
     def get_required(self, class_name, prop):
         if self.override:
