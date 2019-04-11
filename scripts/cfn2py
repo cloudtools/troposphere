@@ -6,6 +6,11 @@ import argparse
 import json
 import pprint
 
+try:
+    getattr(__builtins__, 'basestring')
+except AttributeError:
+    basestring = str
+
 class object_registry(object):
     """Keep track of objects being created as Parameters or Resources
     in order to map back to due to use in intrinsic functions like
@@ -227,11 +232,6 @@ top_level_aliases = {
 def do_resources(d):
     """Output the template Resources"""
 
-    try:
-        basestring
-    except NameError:
-        basestring = str
-
     resources = d['Resources']
     for k, v in resources.items():
         object_name = objects.add(k)
@@ -301,10 +301,6 @@ function_map = {
 
 def output_value(v):
     """Output a value which may be a string or a set of function calls."""
-    try:
-        basestring
-    except NameError:
-        basestring = str
 
     if isinstance(v, basestring):
         return '"{}"'.format(v.replace('\\', '\\\\').replace('\n', '\\n').replace("\"", "\\\""))
@@ -332,11 +328,6 @@ def output_value(v):
 
 def do_outputs(d):
     """Output the template Outputs"""
-
-    try:
-        basestring
-    except NameError:
-        basestring = str
     
     outputs = d['Outputs']
     for k, v in outputs.items():
