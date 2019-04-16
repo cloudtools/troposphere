@@ -333,20 +333,21 @@ F1_16XLARGE = 'f1.16xlarge'
 # RDS DB instance classes
 #
 
-DB_M3_MEDIUM = 'db.m3.medium'
-DB_M3_LARGE = 'db.m3.large'
-DB_M3_XLARGE = 'db.m3.xlarge'
-DB_M3_2XLARGE = 'db.m3.2xlarge'
-
-DB_R3_LARGE = 'db.r3.large'
-DB_R3_XLARGE = 'db.r3.xlarge'
-DB_R3_2XLARGE = 'db.r3.2xlarge'
-DB_R3_4XLARGE = 'db.r3.4xlarge'
-DB_R3_8XLARGE = 'db.r3.8xlarge'
+DB_T1_MICRO = 'db.t1.micro'
 
 DB_T2_MICRO = 'db.t2.micro'
 DB_T2_SMALL = 'db.t2.small'
 DB_T2_MEDIUM = 'db.t2.medium'
+DB_T2_LARGE = 'db.t2.large'
+DB_T2_XLARGE = 'db.t2.xlarge'
+DB_T2_2XLARGE = 'db.t2.2xlarge'
+
+DB_T3_MICRO = 'db.t3.micro'
+DB_T3_SMALL = 'db.t3.small'
+DB_T3_MEDIUM = 'db.t3.medium'
+DB_T3_LARGE = 'db.t3.large'
+DB_T3_XLARGE = 'db.t3.xlarge'
+DB_T3_2XLARGE = 'db.t3.2xlarge'
 
 DB_M1_SMALL = 'db.m1.small'
 DB_M1_MEDIUM = 'db.m1.medium'
@@ -356,9 +357,57 @@ DB_M1_XLARGE = 'db.m1.xlarge'
 DB_M2_XLARGE = 'db.m2.xlarge'
 DB_M2_2XLARGE = 'db.m2.2xlarge'
 DB_M2_4XLARGE = 'db.m2.4xlarge'
-DB_CR1_8XLARGE = 'db.cr1.8xlarge'
 
-DB_T1_MICRO = 'db.t1.micro'
+DB_M3_MEDIUM = 'db.m3.medium'
+DB_M3_LARGE = 'db.m3.large'
+DB_M3_XLARGE = 'db.m3.xlarge'
+DB_M3_2XLARGE = 'db.m3.2xlarge'
+
+DB_M4_LARGE = 'db.m4.large'
+DB_M4_XLARGE = 'db.m4.xlarge'
+DB_M4_2XLARGE = 'db.m4.2xlarge'
+DB_M4_4XLARGE = 'db.m4.4xlarge'
+DB_M4_10XLARGE = 'db.m4.10xlarge'
+DB_M4_16XLARGE = 'db.m4.16xlarge'
+
+DB_M5_LARGE = 'db.m5.large'
+DB_M5_XLARGE = 'db.m5.xlarge'
+DB_M5_2XLARGE = 'db.m5.2xlarge'
+DB_M5_4XLARGE = 'db.m5.4xlarge'
+DB_M5_12XLARGE = 'db.m5.12xlarge'
+DB_M5_24XLARGE = 'db.m5.24xlarge'
+
+DB_R3_LARGE = 'db.r3.large'
+DB_R3_XLARGE = 'db.r3.xlarge'
+DB_R3_2XLARGE = 'db.r3.2xlarge'
+DB_R3_4XLARGE = 'db.r3.4xlarge'
+DB_R3_8XLARGE = 'db.r3.8xlarge'
+
+DB_R4_LARGE = 'db.r4.large'
+DB_R4_XLARGE = 'db.r4.xlarge'
+DB_R4_2XLARGE = 'db.r4.2xlarge'
+DB_R4_4XLARGE = 'db.r4.4xlarge'
+DB_R4_8XLARGE = 'db.r4.8xlarge'
+DB_R4_16XLARGE = 'db.r4.16xlarge'
+
+DB_R5_LARGE = 'db.r5.large'
+DB_R5_XLARGE = 'db.r5.xlarge'
+DB_R5_2XLARGE = 'db.r5.2xlarge'
+DB_R5_4XLARGE = 'db.r5.4xlarge'
+DB_R5_12XLARGE = 'db.r5.12xlarge'
+DB_R5_24XLARGE = 'db.r5.24xlarge'
+
+DB_X1_16XLARGE = 'db.x1.16xlarge'
+DB_X1_32XLARGE = 'db.x1.32xlarge'
+
+DB_X1E_XLARGE = 'db.x1e.xlarge'
+DB_X1E_2XLARGE = 'db.x1e.2xlarge'
+DB_X1E_4XLARGE = 'db.x1e.4xlarge'
+DB_X1E_8XLARGE = 'db.x1e.8xlarge'
+DB_X1E_16XLARGE = 'db.x1e.16xlarge'
+DB_X1E_32XLARGE = 'db.x1e.32xlarge'
+
+DB_CR1_8XLARGE = 'db.cr1.8xlarge'
 
 #
 # ElastiCache node types
