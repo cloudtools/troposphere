@@ -236,8 +236,22 @@ class WebhookFilter(AWSProperty):
 class ProjectTriggers(AWSProperty):
     props = {
         'Webhook': (boolean, False),
-        'FilterGroups': ([WebhookFilter], False),
+        'FilterGroups': (list, False)
     }
+
+    def __init__(self, title=None, **kwargs):
+        super(AWSProperty, self).__init__(title, **kwargs)
+        if not isinstance(self.FilterGroups, list):
+            self._raise_type('FilterGroups', self.FilterGroups, list)
+        if not isinstance(self.FilterGroups[0], list):
+            self._raise_type('FilterGroups[0]', self.FilterGroups[0], list)
+        count = 0
+        for hook in self.FilterGroups[0]:
+            if not isinstance(hook, WebhookFilter):
+                self._raise_type(
+                    'FilterGroups[0][{}]'.format(count), hook, WebhookFilter
+                )
+            count += 1
 
 
 def validate_status(status):
