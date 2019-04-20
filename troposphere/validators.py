@@ -197,8 +197,11 @@ def iam_group_name(group_name):
 def one_of(class_name, properties, property, conditionals):
     if properties.get(property) not in conditionals:
         raise ValueError(
+            # Ensure we handle None as a valid value
             '%s.%s must be one of: "%s"' % (
-                class_name, property, ', '.join(conditionals)
+                class_name, property, ', '.join(
+                    condition for condition in conditionals if condition
+                )
             )
         )
 

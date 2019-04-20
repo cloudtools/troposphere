@@ -199,6 +199,7 @@ class ListenerRule(AWSObject):
 
 TARGET_TYPE_INSTANCE = 'instance'
 TARGET_TYPE_IP = 'ip'
+TARGET_TYPE_LAMBDA = 'lambda'
 
 
 class TargetGroup(AWSObject):
@@ -213,15 +214,77 @@ class TargetGroup(AWSObject):
         'HealthyThresholdCount': (integer, False),
         'Matcher': (Matcher, False),
         'Name': (basestring, False),
-        'Port': (network_port, True),
-        'Protocol': (basestring, True),
+        'Port': (network_port, False),
+        'Protocol': (basestring, False),
         'Tags': ((Tags, list), False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
         'TargetType': (basestring, False),
         'UnhealthyThresholdCount': (integer, False),
-        'VpcId': (basestring, True),
+        'VpcId': (basestring, False),
     }
+
+    def validate(self):
+        one_of(self.__class__.__name__,
+               self.properties,
+               'TargetType',
+               [
+                   None,
+                   TARGET_TYPE_INSTANCE,
+                   TARGET_TYPE_IP,
+                   TARGET_TYPE_LAMBDA
+               ])
+
+        def check_properties(action_types, props_to_check, required):
+
+            for this_type in action_types:
+
+                self_props = self.properties
+                if self_props.get('TargetType') == this_type:
+
+                    invalid_props = []
+                    for prop in props_to_check:
+
+                        if (prop not in self_props and required is True) or \
+                                (prop in self_props and required is False):
+                            invalid_props.append(prop)
+
+                    if len(invalid_props) > 0:
+
+                        # Make error message more readable in the default case
+                        type_msg = ('Omitting TargetType' if this_type is None
+                                    else 'TargetType of "%s"' % (this_type))
+
+                        raise ValueError(
+                            '%s in "%s" %s definitions of %s' % (
+                                type_msg,
+                                self.__class__.__name__,
+                                "requires" if required is True
+                                else "must not contain",
+                                str(invalid_props).strip('[]')
+                            ))
+
+        # None defaults to instance as per the AWS docs
+        check_properties([
+                            None,
+                            TARGET_TYPE_INSTANCE,
+                            TARGET_TYPE_IP
+                         ],
+                         [
+                            'Port',
+                            'Protocol',
+                            'VpcId'
+                         ],
+                         True)
+        check_properties([
+                            TARGET_TYPE_LAMBDA
+                         ],
+                         [
+                            'Port',
+                            'Protocol',
+                            'VpcId'
+                         ],
+                         False)
 
 
 class LoadBalancer(AWSObject):
