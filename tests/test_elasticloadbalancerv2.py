@@ -1,7 +1,7 @@
 import unittest
 
 from troposphere.elasticloadbalancingv2 import Action, RedirectConfig, \
-    FixedResponseConfig
+    FixedResponseConfig, TargetGroup
 
 
 class TestListenerActions(unittest.TestCase):
@@ -86,6 +86,73 @@ class TestListenerActions(unittest.TestCase):
                     ContentType='text/plain',
                 )
             ).to_dict()
+
+
+class TestTargetGroup(unittest.TestCase):
+
+    def test_lambda_targettype_rejects_properties(self):
+        with self.assertRaises(ValueError) as valueError:
+            TargetGroup(
+                "targetGroup",
+                TargetType="lambda",
+                Port=433,
+                Protocol="HTTPS",
+                VpcId="unknown"
+            ).to_dict()
+        self.assertEqual(
+            "TargetType of \"lambda\" in \"TargetGroup\" must not contain " +
+            "definitions of 'Port', 'Protocol', 'VpcId'",
+            str(valueError.exception)
+        )
+
+    def test_instance_targettype_requires_properties(self):
+        with self.assertRaises(ValueError) as valueError:
+            TargetGroup(
+                "targetGroup",
+                TargetType="instance"
+            ).to_dict()
+        self.assertEqual(
+            "TargetType of \"instance\" in \"TargetGroup\" requires " +
+            "definitions of 'Port', 'Protocol', 'VpcId'",
+            str(valueError.exception)
+        )
+
+    def test_ip_targettype_requires_properties(self):
+        with self.assertRaises(ValueError) as valueError:
+            TargetGroup(
+                "targetGroup",
+                TargetType="ip"
+            ).to_dict()
+        self.assertEqual(
+            "TargetType of \"ip\" in \"TargetGroup\" " +
+            "requires definitions of 'Port', 'Protocol', 'VpcId'",
+            str(valueError.exception)
+        )
+
+    def test_no_targettype_requires_properties(self):
+        with self.assertRaises(ValueError) as valueError:
+            TargetGroup(
+                "targetGroup"
+            ).to_dict()
+        self.assertEqual(
+            "Omitting TargetType in \"TargetGroup\" " +
+            "requires definitions of 'Port', 'Protocol', 'VpcId'",
+            str(valueError.exception)
+        )
+
+    def test_invalid_targettype_is_rejected(self):
+        with self.assertRaises(ValueError) as valueError:
+            TargetGroup(
+                "targetGroup",
+                TargetType="invalid",
+                Port=433,
+                Protocol="HTTPS",
+                VpcId="unknown"
+            ).to_dict()
+        self.assertEqual(
+            "TargetGroup.TargetType must be one of: \"instance, ip, lambda\"",
+            str(valueError.exception)
+        )
 
 
 if __name__ == '__main__':
