@@ -7,7 +7,7 @@ from . import AWSObject, AWSProperty, If, Tags
 from .validators import (
     elb_name, exactly_one, network_port,
     tg_healthcheck_port, integer,
-    one_of
+    one_of, boolean
 )
 
 
@@ -206,6 +206,7 @@ class TargetGroup(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::TargetGroup"
 
     props = {
+        'HealthCheckEnabled': (boolean, False),
         'HealthCheckIntervalSeconds': (integer, False),
         'HealthCheckPath': (basestring, False),
         'HealthCheckPort': (tg_healthcheck_port, False),
