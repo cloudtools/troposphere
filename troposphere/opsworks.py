@@ -349,7 +349,7 @@ class Server(AWSObject):
         'BackupRetentionCount': (integer, False),
         'DisableAutomatedBackup': (boolean, False),
         'Engine': (basestring, False),
-        'EngineAttributes': (EngineAttribute, False),
+        'EngineAttributes': ([EngineAttribute], False),
         'EngineModel': (basestring, False),
         'EngineVersion': (basestring, False),
         'InstanceProfileArn': (basestring, True),
