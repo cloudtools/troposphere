@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 
 from __future__ import print_function
-
 import argparse
 import json
 import pprint
@@ -10,6 +9,7 @@ try:
     getattr(__builtins__, 'basestring')
 except AttributeError:
     basestring = str
+
 
 class object_registry(object):
     """Keep track of objects being created as Parameters or Resources
@@ -30,19 +30,23 @@ class object_registry(object):
         else:
             return output_value(o)
 
+
 objects = object_registry()
 
 object_functions = {
-    "Table":        [ "ProvisionedThroughput", "PrimaryKey", "Element" ],
-    "LoadBalancer": [ "HealthCheck", "ConnectionDrainingPolicy", "AccessLoggingPolicy" ],
-    "Queue":        [ "RedrivePolicy" ],
-    "Bucket":       [ "WebsiteConfiguration" ],
-    "User":         [ "LoginProfile" ],
-    "Topic":        [ "Subscription" ],
-    "Instance":     [ "NetworkInterfaceProperty", "PrivateIpAddressSpecification" ],
-    "RecordSet":    [ "RecordSetType" ],
-    "Policy":       [ "PolicyType" ],
+    "Table":        ["ProvisionedThroughput", "PrimaryKey", "Element"],
+    "LoadBalancer": ["HealthCheck", "ConnectionDrainingPolicy",
+                     "AccessLoggingPolicy"],
+    "Queue":        ["RedrivePolicy"],
+    "Bucket":       ["WebsiteConfiguration"],
+    "User":         ["LoginProfile"],
+    "Topic":        ["Subscription"],
+    "Instance":     ["NetworkInterfaceProperty",
+                     "PrivateIpAddressSpecification"],
+    "RecordSet":    ["RecordSetType"],
+    "Policy":       ["PolicyType"],
 }
+
 
 def additional_imports(o):
     if o in object_functions:
@@ -50,14 +54,18 @@ def additional_imports(o):
     else:
         return o
 
+
 def do_header(d):
     """Output a stock header for the new Python script and also try to
     figure out the Resource imports needed by the template.
     """
-    print('from troposphere import Base64, Select, FindInMap, GetAtt, GetAZs, Join, Output, If, And, Not, Or, Equals, Condition')
+    print('from troposphere import Base64, Select, FindInMap, GetAtt')
+    print('from troposphere import GetAZs, Join, Output, If, And, Not')
+    print('from troposphere import Or, Equals, Condition')
     print('from troposphere import Parameter, Ref, Tags, Template')
     print('from troposphere.cloudformation import Init')
-    print('from troposphere.cloudfront import Distribution, DistributionConfig')
+    print('from troposphere.cloudfront import Distribution')
+    print('from troposphere.cloudfront import DistributionConfig')
     print('from troposphere.cloudfront import Origin, DefaultCacheBehavior')
     print('from troposphere.ec2 import PortRange')
 
@@ -69,7 +77,8 @@ def do_header(d):
             (mod, tropo_object) = generate_troposphere_object(v['Type'])
             if tropo_object not in seen:
                 seen.append(tropo_object)
-                print('from troposphere.{} import {}'.format(mod, additional_imports(tropo_object)))
+                print('from troposphere.{} import {}'
+                      .format(mod, additional_imports(tropo_object)))
     print()
     print()
     print("t = Template()")
@@ -109,6 +118,7 @@ def do_conditions(d):
         print(")")
         print()
 
+
 def do_mappings(d):
     """Output the template Mappings"""
     mappings = d['Mappings']
@@ -139,39 +149,41 @@ def generate_troposphere_object(typename):
 
 def output_dict(d):
     out = []
-    for k,v in d.items():
+    for k, v in d.items():
         out.append("{}={}".format(k.replace('\\', '\\\\'), output_value(v)))
     return ", ".join(out)
 
+
 known_functions = {
-    "DistributionConfig":       1,
-    "DefaultCacheBehavior":     1,
-    "ProvisionedThroughput":    1,
-    "NetworkInterfaces":        1,
-    "WebsiteConfiguration":     1,
-    "RedrivePolicy":            1,
-    "Subscription":             1,
-    "KeySchema":                1,
-    "HashKeyElement":           1,
-    "HealthCheck":              1,
-    "LoginProfile":             1,
-    "ConnectionDrainingPolicy": 1,
-    "AccessLoggingPolicy":      1,
-    "AWS::CloudFormation::Init":1,
-    "PrivateIpAddresses"       :1,
-    "ContainerDefinitions"     :1,
+    "DistributionConfig":        1,
+    "DefaultCacheBehavior":      1,
+    "ProvisionedThroughput":     1,
+    "NetworkInterfaces":         1,
+    "WebsiteConfiguration":      1,
+    "RedrivePolicy":             1,
+    "Subscription":              1,
+    "KeySchema":                 1,
+    "HashKeyElement":            1,
+    "HealthCheck":               1,
+    "LoginProfile":              1,
+    "ConnectionDrainingPolicy":  1,
+    "AccessLoggingPolicy":       1,
+    "AWS::CloudFormation::Init": 1,
+    "PrivateIpAddresses":        1,
+    "ContainerDefinitions":      1,
 }
 
 function_quirks = {
     "KeySchema":          "PrimaryKey",
-    "HashKeyElement":     { "Element": ["AttributeName", "AttributeType"] },
-    "NetworkInterfaces":  [ "NetworkInterfaceProperty" ],
-    "Subscription":       [ "Subscription" ],
-    "LoginProfile":       { "LoginProfile": ["Password"] },
+    "HashKeyElement":     {"Element": ["AttributeName", "AttributeType"]},
+    "NetworkInterfaces":  ["NetworkInterfaceProperty"],
+    "Subscription":       ["Subscription"],
+    "LoginProfile":       {"LoginProfile": ["Password"]},
     "AWS::CloudFormation::Init": {"Init": []},
-    "PrivateIpAddresses" : ["PrivateIpAddressSpecification"],
+    "PrivateIpAddresses": ["PrivateIpAddressSpecification"],
     "ContainerDefinitions": ["ContainerDefinition"],
 }
+
 
 def do_output_function(k, f, v):
     print('    {}={}('.format(k, f))
@@ -181,6 +193,7 @@ def do_output_function(k, f, v):
         else:
             print("        {}={},".format(pk, output_value(pv)))
     print('    ),')
+
 
 def do_output_quirk_list(k, f, v):
     print('    {}=['.format(k))
@@ -194,6 +207,7 @@ def do_output_quirk_list(k, f, v):
         print('    ),')
     print('    ],')
 
+
 def do_output_quirk_mapping(k, v):
     m = function_quirks[k]
     for pk in m.keys():
@@ -202,6 +216,7 @@ def do_output_quirk_mapping(k, v):
             print("        {},".format(output_value(v[e])))
         print('    ),')
 
+
 def do_output_quirk_metadata(k, v):
     m = function_quirks[k]
     for pk in m.keys():
@@ -209,25 +224,28 @@ def do_output_quirk_metadata(k, v):
         print("        {},".format(output_value(v)))
         print('    ),')
 
+
 def do_resources_content(k, v, p=""):
     if k in function_quirks:
-        x = function_quirks[k];
+        x = function_quirks[k]
         if(isinstance(x, dict)):
             if(p == "Metadata"):
                 do_output_quirk_metadata(k, v)
             else:
                 do_output_quirk_mapping(k, v)
         elif(isinstance(x, list)):
-           do_output_quirk_list(k, x[0], v)
+            do_output_quirk_list(k, x[0], v)
         else:
-           do_output_function(k, x, v)
+            do_output_function(k, x, v)
     else:
         do_output_function(k, k, v)
+
 
 top_level_aliases = {
     "RecordSet": "RecordSetType",
     "Policy":    "PolicyType",
 }
+
 
 def do_resources(d):
     """Output the template Resources"""
@@ -257,9 +275,11 @@ def do_resources(d):
                 else:
                     print('    {}={},'.format(pk, output_value(pv)))
         if "DependsOn" in v:
-            print('    {}={},'.format("DependsOn", output_value(v['DependsOn'])))
+            print('    {}={},'
+                  .format("DependsOn", output_value(v['DependsOn'])))
         if "Condition" in v:
-            print('    {}={},'.format("Condition", output_value(v['Condition'])))
+            print('    {}={},'
+                  .format("Condition", output_value(v['Condition'])))
         print("))")
         print()
 
@@ -267,6 +287,7 @@ def do_resources(d):
 def handle_no_objects(name, values):
     """Handle intrinsic functions which do not have a named resource"""
     return name + "(" + ", ".join(map(output_value, values)) + ")"
+
 
 def handle_one_object(name, values):
     """Handle intrinsic functions which have a single named resource"""
@@ -303,7 +324,9 @@ def output_value(v):
     """Output a value which may be a string or a set of function calls."""
 
     if isinstance(v, basestring):
-        return '"{}"'.format(v.replace('\\', '\\\\').replace('\n', '\\n').replace("\"", "\\\""))
+        return '"{}"'.format(v.replace('\\', '\\\\')
+                             .replace('\n', '\\n')
+                             .replace("\"", "\\\""))
     elif isinstance(v, bool):
         return '{}'.format(str(v))
     elif isinstance(v, int):
@@ -322,13 +345,13 @@ def output_value(v):
                 fv = [fv]
             return handler(shortname, fv)
         else:
-            out.append( '"' + fk + '": ' + output_value(fv))
+            out.append('"' + fk + '": ' + output_value(fv))
     return "{ " + ", ".join(out) + " }"
 
 
 def do_outputs(d):
     """Output the template Outputs"""
-    
+
     outputs = d['Outputs']
     for k, v in outputs.items():
         print('{} = t.add_output(Output('.format(k))
