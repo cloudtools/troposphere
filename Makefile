@@ -1,6 +1,6 @@
 .PHONY: 2to3 3to2 spec test
 
-PYDIRS=setup.py examples tests troposphere
+PYDIRS=setup.py examples scripts tests troposphere
 
 test:
 	pycodestyle ${PYDIRS}
