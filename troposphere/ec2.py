@@ -1102,3 +1102,20 @@ class EC2Fleet(AWSObject):
         'ValidFrom': (str, False),
         'ValidUntil': (str, False),
     }
+
+
+class CapacityReservation(AWSObject):
+    resource_type = "AWS::EC2::CapacityReservation"
+    props = {
+        'AvailabilityZone': (basestring, True),
+        'EbsOptimized': (boolean, False),
+        'EndDate': (basestring, False),
+        'EndDateType': (basestring, False),
+        'EphemeralStorage': (boolean, False),
+        'InstanceCount': (integer, True),
+        'InstanceMatchCriteria': (basestring, False),
+        'InstancePlatform': (basestring, True),
+        'InstanceType': (basestring, True),
+        'TagSpecifications': ([TagSpecifications], False),
+        'Tenancy': (basestring, False),
+    }
