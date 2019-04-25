@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
-from troposphere import Base64, Join
+import re
+from troposphere import Base64, Join, Sub
 
 
 def from_file(filepath, delimiter='', blanklines=False):
@@ -28,8 +29,10 @@ def from_file(filepath, delimiter='', blanklines=False):
             for line in f:
                 if blanklines and line.strip('\n\r ') == '':
                     continue
-
-                data.append(line)
+                if re.match('.*\$\{.+?\}.*', line):
+                    data.append(Sub(line))
+                else:
+                    data.append(line)
     except IOError:
         raise IOError('Error opening or reading file: {}'.format(filepath))
 
