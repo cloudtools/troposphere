@@ -474,6 +474,7 @@ def priceclass_type(price_class):
         )
     return(price_class)
 
+
 def ecs_proxy_type(proxy_type):
     valid_types = ['APPMESH']
     if proxy_type not in valid_types:
