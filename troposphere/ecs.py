@@ -1,6 +1,7 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, integer, network_port, positive_integer,
+from .validators import (boolean, integer, network_port, positive_integer,
     ecs_proxy_type
+)
 
 
 LAUNCH_TYPE_EC2 = 'EC2'
