@@ -1,5 +1,6 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, integer, network_port, positive_integer
+from .validators import boolean, integer, network_port, positive_integer,
+    ecs_proxy_type
 
 
 LAUNCH_TYPE_EC2 = 'EC2'
@@ -215,10 +216,18 @@ class Ulimit(AWSProperty):
     }
 
 
+class ContainerDependency(AWSProperty):
+    props = {
+        'Condition': (basestring, True),
+        'ContainerName': (basestring, True)
+    }
+
+
 class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
         'Cpu': (positive_integer, False),
+        'DependsOn': (ContainerDependency, False),
         'DisableNetworking': (boolean, False),
         'DnsSearchDomains': ([basestring], False),
         'DnsServers': ([basestring], False),
@@ -242,6 +251,8 @@ class ContainerDefinition(AWSProperty):
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
         'RepositoryCredentials': (RepositoryCredentials, False),
+        'StartTimeout': (integer, False),
+        'StopTimeout': (integer, False),
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'VolumesFrom': ([VolumesFrom], False),
@@ -273,6 +284,13 @@ class Volume(AWSProperty):
     }
 
 
+class ProxyConfiguration(AWSProperty):
+    props = {
+        'ProxyConfigurationProperties': (dict, False),
+        'Type': (ecs_proxy_type, False)
+    }
+
+
 class TaskDefinition(AWSObject):
     resource_type = "AWS::ECS::TaskDefinition"
 
@@ -287,4 +305,5 @@ class TaskDefinition(AWSObject):
         'RequiresCompatibilities': ([basestring], False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
+        'ProxyConfiguration': (ProxyConfiguration, False)
     }
