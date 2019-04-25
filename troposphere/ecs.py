@@ -1,6 +1,6 @@
 from . import AWSObject, AWSProperty
-from .validators import (boolean, integer, network_port, positive_integer,
-    ecs_proxy_type
+from .validators import (
+    boolean, integer, network_port, positive_integer, ecs_proxy_type
 )
 
 
