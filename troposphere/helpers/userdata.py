@@ -29,7 +29,7 @@ def from_file(filepath, delimiter='', blanklines=False):
             for line in f:
                 if blanklines and line.strip('\n\r ') == '':
                     continue
-                if re.match('.*\$\{.+?\}.*', line):
+                if re.match(r'.*\$\{.+?\}.*', line):
                     data.append(Sub(line))
                 else:
                     data.append(line)
