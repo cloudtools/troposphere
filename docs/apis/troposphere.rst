@@ -52,6 +52,14 @@ troposphere.applicationautoscaling module
     :undoc-members:
     :show-inheritance:
 
+troposphere.appmesh module
+--------------------------
+
+.. automodule:: troposphere.appmesh
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
 troposphere.appstream module
 ----------------------------
 
@@ -408,6 +416,14 @@ troposphere.glue module
 -----------------------
 
 .. automodule:: troposphere.glue
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+troposphere.greengrass module
+-----------------------------
+
+.. automodule:: troposphere.greengrass
     :members:
     :undoc-members:
     :show-inheritance:
