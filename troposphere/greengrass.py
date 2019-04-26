@@ -149,9 +149,9 @@ class FunctionConfiguration(AWSProperty):
         'Environment': (Environment, False),
         'ExecArgs': (basestring, False),
         'Executable': (basestring, False),
-        'MemorySize': (integer, True),
+        'MemorySize': (integer, False),
         'Pinned': (boolean, False),
-        'Timeout': (integer, True),
+        'Timeout': (integer, False),
     }
 
 
@@ -321,6 +321,21 @@ class ResourceInstance(AWSProperty):
         'Id': (basestring, True),
         'Name': (basestring, True),
         'ResourceDataContainer': (ResourceDataContainer, True),
+    }
+
+
+class ResourceDefinitionVersion(AWSProperty):
+    props = {
+        'Resources': ([ResourceInstance], True),
+    }
+
+
+class ResourceDefinition(AWSObject):
+    resource_type = "AWS::Greengrass::ResourceDefinition"
+
+    props = {
+        'InitialVersion': (ResourceDefinitionVersion, False),
+        'Name': (basestring, True),
     }
 
 
