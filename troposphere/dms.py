@@ -75,7 +75,7 @@ class Endpoint(AWSObject):
         'ServerName': (basestring, False),
         'SslMode': (basestring, False),
         'Tags': (Tags, False),
-        'Username': (basestring, True),
+        'Username': (basestring, False),
     }
 
 
