@@ -1,9 +1,10 @@
 language: python
-sudo: false
+dist: xenial
 python:
   - "2.7"
   - "3.5"
   - "3.6"
+  - "3.7.3"
 
 before_install:
   - pip install --upgrade pip setuptools wheel
