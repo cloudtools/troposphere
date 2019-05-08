@@ -204,7 +204,7 @@ class Api(AWSObject):
         'DefinitionBody': (dict, False),
         'DefinitionUri': (basestring, False),
         'EndpointConfiguration': (basestring, False),
-        'MethodSetting': (MethodSetting, False),
+        'MethodSettings': ([MethodSetting], False),
         'Name': (basestring, False),
         'StageName': (basestring, True),
         "TracingEnabled": (bool, False),
