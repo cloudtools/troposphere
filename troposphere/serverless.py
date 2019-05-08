@@ -10,7 +10,7 @@ from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .awslambda import Environment, VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
-from .validators import exactly_one, positive_integer
+from .validators import exactly_one, positive_integer, mutually_exclusive
 try:
     from awacs.aws import PolicyDocument
     policytypes = (dict, list, basestring, PolicyDocument)
@@ -216,7 +216,7 @@ class Api(AWSObject):
             'DefinitionBody',
             'DefinitionUri',
         ]
-        exactly_one(self.__class__.__name__, self.properties, conds)
+        mutually_exclusive(self.__class__.__name__, self.properties, conds)
 
 
 class PrimaryKey(AWSProperty):
