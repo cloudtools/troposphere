@@ -365,6 +365,6 @@ class Trigger(AWSObject):
         'Description': (basestring, False),
         'Name': (basestring, False),
         'Predicate': (Predicate, False),
-        'Schedule': (basestring, False),
+        'Schedule': (Schedule, False),
         'Type': (trigger_type_validator, True),
     }
