@@ -188,11 +188,20 @@ class KernelCapabilities(AWSProperty):
     }
 
 
+class Tmpfs(AWSProperty):
+    props = {
+        'ContainerPath': (basestring, False),
+        'MountOptions': ([basestring], False),
+        'Size': (integer, False),
+    }
+
+
 class LinuxParameters(AWSProperty):
     props = {
         'Capabilities': (KernelCapabilities, False),
         'Devices': ([Device], False),
         'InitProcessEnabled': (boolean, False),
+        'Tmpfs': ([Tmpfs], False),
     }
 
 
