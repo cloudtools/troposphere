@@ -50,7 +50,7 @@ class VirtualService(AWSObject):
     }
 
 
-class HealthCheckPolicy(AWSProperty):
+class HealthCheck(AWSProperty):
     props = {
         'HealthyThreshold': (integer, True),
         'IntervalMillis': (integer, True),
@@ -71,7 +71,7 @@ class PortMapping(AWSProperty):
 
 class Listener(AWSProperty):
     props = {
-        'HealthCheckPolicy': (HealthCheckPolicy, False),
+        'HealthCheck': (HealthCheck, False),
         'PortMapping': (PortMapping, True),
     }
 
