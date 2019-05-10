@@ -228,7 +228,7 @@ class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
         'Cpu': (positive_integer, False),
-        'DependsOn': (ContainerDependency, False),
+        'DependsOn': ([ContainerDependency], False),
         'DisableNetworking': (boolean, False),
         'DnsSearchDomains': ([basestring], False),
         'DnsServers': ([basestring], False),
