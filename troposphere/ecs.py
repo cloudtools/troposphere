@@ -287,7 +287,7 @@ class Volume(AWSProperty):
 
 class ProxyConfiguration(AWSProperty):
     props = {
-        'ProxyConfigurationProperties': (dict, False),
+        'ProxyConfigurationProperties': (list, False),
         'Type': (ecs_proxy_type, False)
     }
 
