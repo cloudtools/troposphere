@@ -120,6 +120,17 @@ class Api(AWSObject):
     }
 
 
+class ApiMapping(AWSObject):
+    resource_type = "AWS::ApiGatewayV2::ApiMapping"
+
+    props = {
+        'ApiId': (basestring, True),
+        'ApiMappingKey': (basestring, False),
+        'DomainName': (basestring, True),
+        'Stage': (basestring, True),
+    }
+
+
 class Authorizer(AWSObject):
     resource_type = "AWS::ApiGatewayV2::Authorizer"
 
@@ -142,6 +153,23 @@ class Deployment(AWSObject):
         "ApiId": (basestring, True),
         "Description": (basestring, False),
         "StageName": (basestring, False),
+    }
+
+
+class DomainNameConfiguration(AWSProperty):
+    props = {
+        'CertificateArn': (basestring, False),
+        'CertificateName': (basestring, False),
+        'EndpointType': (basestring, False),
+    }
+
+
+class DomainName(AWSObject):
+    resource_type = "AWS::ApiGatewayV2::DomainName"
+
+    props = {
+        'DomainName': (basestring, True),
+        'DomainNameConfigurations': ([DomainNameConfiguration], False),
     }
 
 
