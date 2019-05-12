@@ -201,6 +201,7 @@ class LinuxParameters(AWSProperty):
         'Capabilities': (KernelCapabilities, False),
         'Devices': ([Device], False),
         'InitProcessEnabled': (boolean, False),
+        'SharedMemorySize': (integer, False),
         'Tmpfs': ([Tmpfs], False),
     }
 
