@@ -151,6 +151,15 @@ class TestServerless(unittest.TestCase):
         t.add_resource(serverless_api)
         t.to_json()
 
+    def test_api_no_definition(self):
+        serverless_api = Api(
+            "SomeApi",
+            StageName='test',
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
     def test_simple_table(self):
         serverless_table = SimpleTable(
             "SomeTable"
