@@ -297,6 +297,7 @@ class Volume(AWSProperty):
 
 class ProxyConfiguration(AWSProperty):
     props = {
+        'ContainerName': (basestring, True),
         'ProxyConfigurationProperties': (list, False),
         'Type': (ecs_proxy_type, False)
     }
