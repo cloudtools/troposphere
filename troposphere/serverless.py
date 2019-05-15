@@ -61,6 +61,7 @@ class DeploymentPreference(AWSProperty):
         "Alarms": (list, False),
         "Hooks": (Hooks, False),
         "Enabled": (bool, False),
+        "Role": (basestring, False),
     }
 
 
