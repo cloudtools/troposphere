@@ -2,12 +2,16 @@
 # Regions
 #
 
+AP_EAST_1 = 'ap-east-1'
 AP_NORTHEAST_1 = 'ap-northeast-1'
 AP_NORTHEAST_2 = 'ap-northeast-2'
+AP_NORTHEAST_3 = 'ap-northeast-3'
 AP_SOUTHEAST_1 = 'ap-southeast-1'
 AP_SOUTHEAST_2 = 'ap-southeast-2'
 AP_SOUTH_1 = 'ap-south-1'
 CA_CENTRAL_1 = 'ca-central-1'
+CN_NORTH_1 = 'cn-north-1'
+CN_NORTHWEST_1 = 'cn-northwest-1'
 EU_WEST_1 = 'eu-west-1'
 EU_WEST_2 = 'eu-west-2'
 EU_WEST_3 = 'eu-west-3'
@@ -16,6 +20,8 @@ EU_NORTH_1 = 'eu-north-1'
 SA_EAST_1 = 'sa-east-1'
 US_EAST_1 = 'us-east-1'
 US_EAST_2 = 'us-east-2'
+US_GOV_EAST_1 = 'us-gov-east-1'
+US_GOV_WEST_1 = 'us-gov-west-1'
 US_WEST_1 = 'us-west-1'
 US_WEST_2 = 'us-west-2'
 
@@ -31,6 +37,8 @@ AP_NORTHEAST_2A = 'ap-northeast-2a'
 AP_NORTHEAST_2B = 'ap-northeast-2b'
 AP_NORTHEAST_2C = 'ap-northeast-2c'
 
+AP_NORTHEAST_3A = 'ap-northeast-3a'
+
 AP_SOUTHEAST_1A = 'ap-southeast-1a'
 AP_SOUTHEAST_1B = 'ap-southeast-1b'
 AP_SOUTHEAST_1C = 'ap-southeast-1c'
@@ -44,6 +52,13 @@ AP_SOUTH_1B = 'ap-south-1b'
 
 CA_CENTRAL_1A = 'ca-central-1a'
 CA_CENTRAL_1B = 'ca-central-1b'
+
+CN_NORTH_1A = 'cn-north-1a'
+CN_NORTH_1B = 'cn-north-1b'
+
+CN_NORTHWEST_1A = 'cn-northwest-1a'
+CN_NORTHWEST_1B = 'cn-northwest-1b'
+CN_NORTHWEST_1C = 'cn-northwest-1c'
 
 EU_WEST_1A = 'eu-west-1a'
 EU_WEST_1B = 'eu-west-1b'
@@ -84,9 +99,18 @@ US_WEST_1A = 'us-west-1a'
 US_WEST_1B = 'us-west-1b'
 US_WEST_1C = 'us-west-1c'
 
+US_GOV_EAST_1A = 'us-gov-east-1a'
+US_GOV_EAST_1B = 'us-gov-east-1b'
+US_GOV_EAST_1C = 'us-gov-east-1c'
+
+US_GOV_WEST_1A = 'us-gov-west-1a'
+US_GOV_WEST_1B = 'us-gov-west-1b'
+US_GOV_WEST_1C = 'us-gov-west-1c'
+
 US_WEST_2A = 'us-west-2a'
 US_WEST_2B = 'us-west-2b'
 US_WEST_2C = 'us-west-2c'
+US_WEST_2D = 'us-west-2d'
 
 #
 # Networking
