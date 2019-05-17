@@ -190,12 +190,12 @@ class S3DestinationConfiguration(AWSProperty):
 
 class SchemaConfiguration(AWSProperty):
     props = {
-        'RoleARN': (basestring, True)
-        'CatalogId': (basestring, True),
-        'DatabaseName': (basestring, True),
-        'TableName': (basestring, True),
-        'Region': (basestring, True),
-        'VersionId': (basestring, True),
+        'RoleARN': (basestring, False),
+        'CatalogId': (basestring, False),
+        'DatabaseName': (basestring, False),
+        'TableName': (basestring, False),
+        'Region': (basestring, False),
+        'VersionId': (basestring, False),
     }
 class OpenXJsonSerDe(AWSProperty):
     props = {
@@ -223,13 +223,6 @@ class InputFormatConfiguration(AWSProperty):
     }
 
 
-class Serializer(AWSProperty):
-    props = {
-        'ParquetSerDe': (ParquetSerDe, False),
-        'OrcSerDe': (OrcSerDe, False)
-    }
-
-
 class ParquetSerDe(AWSProperty):
     props = {
         'BlockSizeBytes': (positive_integer, False),
@@ -253,6 +246,13 @@ class OrcSerDe(AWSProperty):
         'BloomFilterFalsePositiveProbability': (float, False),
         'DictionaryKeyThreshold': (float, False),
         'FormatVersion': (validate_orcserde_format_version, False)
+    }
+
+
+class Serializer(AWSProperty):
+    props = {
+        'ParquetSerDe': (ParquetSerDe, False),
+        'OrcSerDe': (OrcSerDe, False)
     }
 
 
