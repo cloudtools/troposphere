@@ -14,6 +14,32 @@ def processor_type_validator(x):
                          ", ".join(valid_types))
     return x
 
+def compression_type_validator_orcserde(x):
+    valid_types = ["UNCOMPRESSED", "GZIP", "SNAPPY"]
+    if x not in valid_types:
+        raise ValueError("Type must be one of: %s" %
+                         ", ".join(valid_types))
+    return x
+
+def compression_type_validator_parquet(x):
+    valid_types = ["NONE", "ZLIB", "SNAPPY"]
+    if x not in valid_types:
+        raise ValueError("Type must be one of: %s" %
+                         ", ".join(valid_types))
+    return x
+
+def validate_orcserde_format_version(x):
+    valid_types = ["V0_11", "V0_12"]
+    if x not in valid_types:
+        raise ValueError("Type must be one of: %s" %
+                         ", ".join(valid_types))
+
+def writer_vesion_type_validator(x):
+    valid_types = ["V1", "V2"]
+    if x not in valid_types:
+        raise ValueError("Type must be one of: %s" %
+                         ", ".join(valid_types))
+    return x
 
 def delivery_stream_type_validator(x):
     valid_types = ["DirectPut", "KinesisStreamAsSource"]
@@ -162,6 +188,87 @@ class S3DestinationConfiguration(AWSProperty):
         'RoleARN': (basestring, True),
     }
 
+class SchemaConfiguration(AWSProperty):
+    props = {
+        'RoleARN': (basestring, True)
+        'CatalogId': (basestring, True),
+        'DatabaseName': (basestring, True),
+        'TableName': (basestring, True),
+        'Region': (basestring, True),
+        'VersionId': (basestring, True),
+    }
+class OpenXJsonSerDe(AWSProperty):
+    props = {
+        'ConvertDotsInJsonKeysToUnderscores': (boolean, False),
+        'CaseInsensitive': (boolean, False),
+        'ColumnToJsonKeyMappings': (dict, False)
+    }
+
+
+class HiveJsonSerDe(AWSProperty):
+    props = {
+        'TimestampFormats': (list, False)
+    }
+
+
+class Deserializer(AWSProperty):
+    props = {
+        'OpenXJsonSerDe': (OpenXJsonSerDe, False)
+    }
+
+
+class InputFormatConfiguration(AWSProperty):
+    props = {
+        'Deserializer': (Deserializer, False),
+    }
+
+
+class Serializer(AWSProperty):
+    props = {
+        'ParquetSerDe': (ParquetSerDe, False),
+        'OrcSerDe': (OrcSerDe, False)
+    }
+
+
+class ParquetSerDe(AWSProperty):
+    props = {
+        'BlockSizeBytes': (positive_integer, False),
+        'PageSizeBytes': (positive_integer, False),
+        'Compression': (compression_type_validator_orcserde, False),
+        'EnableDictionaryCompression': (boolean, False),
+        'MaxPaddingBytes': (positive_integer, False),
+        'WriterVersion': (writer_vesion_type_validator, False)
+    }
+
+
+class OrcSerDe(AWSProperty):
+    props = {
+        'StripeSizeBytes': (positive_integer, False),
+        'BlockSizeBytes': (positive_integer, False),
+        'RowIndexStride': (positive_integer, False),
+        'EnablePadding': (boolean, False), 
+        'PaddingTolerance': (float, False),
+        'Compression': (compression_type_validator_parquet),
+        'BloomFilterColumns': (list, False),
+        'BloomFilterFalsePositiveProbability': (float, False),
+        'DictionaryKeyThreshold': (float, False),
+        'FormatVersion': (validate_orcserde_format_version, False)
+    }
+
+
+class OutputFormatConfiguration(AWSProperty):
+    props = {
+        'Serializer': (Serializer, False)
+    }
+
+
+class DataFormatConversionConfiguration(AWSProperty):
+    props = {
+        'SchemaConfiguration': (SchemaConfiguration, False),
+        'InputFormatConfiguration': (InputFormatConfiguration, False),
+        'OutputFormatConfiguration': (OutputFormatConfiguration, False)
+    }
+
 
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
@@ -175,6 +282,7 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
         'RoleARN': (basestring, True),
         'S3BackupConfiguration': (S3DestinationConfiguration, False),
         'S3BackupMode': (s3_backup_mode_extended_s3_validator, False),
+        'DataFormatConversionConfiguration': (DataFormatConversionConfiguration, False)
     }
 
 
