@@ -188,6 +188,7 @@ class S3DestinationConfiguration(AWSProperty):
         'RoleARN': (basestring, True),
     }
 
+
 class SchemaConfiguration(AWSProperty):
     props = {
         'RoleARN': (basestring, False),
@@ -197,6 +198,8 @@ class SchemaConfiguration(AWSProperty):
         'Region': (basestring, False),
         'VersionId': (basestring, False),
     }
+
+
 class OpenXJsonSerDe(AWSProperty):
     props = {
         'ConvertDotsInJsonKeysToUnderscores': (boolean, False),
