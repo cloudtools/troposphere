@@ -266,7 +266,8 @@ class DataFormatConversionConfiguration(AWSProperty):
     props = {
         'SchemaConfiguration': (SchemaConfiguration, False),
         'InputFormatConfiguration': (InputFormatConfiguration, False),
-        'OutputFormatConfiguration': (OutputFormatConfiguration, False)
+        'OutputFormatConfiguration': (OutputFormatConfiguration, False),
+        'Enabled': (boolean, True)
     }
 
 
