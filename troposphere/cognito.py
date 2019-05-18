@@ -130,6 +130,7 @@ class PasswordPolicy(AWSProperty):
         'RequireNumbers': (boolean, False),
         'RequireSymbols': (boolean, False),
         'RequireUppercase': (boolean, False),
+        'TemporaryPasswordValidityDays': (float, False),
     }
 
 
