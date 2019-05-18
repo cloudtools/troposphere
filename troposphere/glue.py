@@ -3,8 +3,20 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, double, integer_range, positive_integer
+
+
+class CsvClassifier(AWSProperty):
+    props = {
+        'AllowSingleColumn': (boolean, False),
+        'ContainsHeader': (basestring, False),
+        'Delimiter': (basestring, False),
+        'DisableValueTrimming': (boolean, False),
+        'Header': ([basestring], False),
+        'Name': (basestring, False),
+        'QuoteSymbol': (basestring, False),
+    }
 
 
 class GrokClassifier(AWSProperty):
@@ -35,6 +47,7 @@ class Classifier(AWSObject):
     resource_type = "AWS::Glue::Classifier"
 
     props = {
+        'CsvClassifier': (CsvClassifier, False),
         'GrokClassifier': (GrokClassifier, False),
         'JsonClassifier': (JsonClassifier, False),
         'XMLClassifier': (XMLClassifier, False),
@@ -43,9 +56,9 @@ class Classifier(AWSObject):
 
 class PhysicalConnectionRequirements(AWSProperty):
     props = {
-        'AvailabilityZone': (basestring, True),
-        'SecurityGroupIdList': ([basestring], True),
-        'SubnetId': (basestring, True),
+        'AvailabilityZone': (basestring, False),
+        'SecurityGroupIdList': ([basestring], False),
+        'SubnetId': (basestring, False),
     }
 
 
@@ -64,10 +77,10 @@ class ConnectionInput(AWSProperty):
         'ConnectionProperties': (dict, True),
         'ConnectionType': (connection_type_validator, True),
         'Description': (basestring, False),
-        'MatchCriteria': ([basestring], True),
+        'MatchCriteria': ([basestring], False),
         'Name': (basestring, False),
         'PhysicalConnectionRequirements':
-            (PhysicalConnectionRequirements, True),
+            (PhysicalConnectionRequirements, False),
     }
 
 
@@ -142,6 +155,7 @@ class Crawler(AWSObject):
     props = {
         'Classifiers': ([basestring], False),
         'Configuration': (basestring, False),
+        'CrawlerSecurityConfiguration': (basestring, False),
         'DatabaseName': (basestring, True),
         'Description': (basestring, False),
         'Name': (basestring, False),
@@ -149,7 +163,40 @@ class Crawler(AWSObject):
         'Schedule': (Schedule, False),
         'SchemaChangePolicy': (SchemaChangePolicy, False),
         'TablePrefix': (basestring, False),
+        'Tags': (Tags, False),
         'Targets': (Targets, True),
+    }
+
+
+class ConnectionPasswordEncryption(AWSProperty):
+    props = {
+        'KmsKeyId': (basestring, False),
+        'ReturnConnectionPasswordEncrypted': (boolean, False),
+    }
+
+
+class EncryptionAtRest(AWSProperty):
+    props = {
+        'CatalogEncryptionMode': (basestring, False),
+        'SseAwsKmsKeyId': (basestring, False),
+    }
+
+
+class DataCatalogEncryptionSettingsProperty(AWSProperty):
+    props = {
+        'ConnectionPasswordEncryption':
+            (ConnectionPasswordEncryption, False),
+        'EncryptionAtRest': (EncryptionAtRest, False),
+    }
+
+
+class DataCatalogEncryptionSettings(AWSObject):
+    resource_type = "AWS::Glue::DataCatalogEncryptionSettings"
+
+    props = {
+        'CatalogId': (basestring, True),
+        'DataCatalogEncryptionSettings':
+            (DataCatalogEncryptionSettingsProperty, True),
     }
 
 
@@ -181,8 +228,10 @@ class DevEndpoint(AWSObject):
         'NumberOfNodes': (positive_integer, False),
         'PublicKey': (basestring, True),
         'RoleArn': (basestring, True),
+        'SecurityConfiguration': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
         'SubnetId': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -219,6 +268,8 @@ class Job(AWSObject):
         'MaxRetries': (double, False),
         'Name': (basestring, False),
         'Role': (basestring, True),
+        'SecurityConfiguration': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -289,6 +340,42 @@ class Partition(AWSObject):
     }
 
 
+class CloudWatchEncryption(AWSProperty):
+    props = {
+        'CloudWatchEncryptionMode': (basestring, False),
+        'KmsKeyArn': (basestring, False),
+    }
+
+
+class JobBookmarksEncryption(AWSProperty):
+    props = {
+        'JobBookmarksEncryptionMode': (basestring, False),
+        'KmsKeyArn': (basestring, False),
+    }
+
+
+class S3Encryptions(AWSProperty):
+    props = {
+    }
+
+
+class EncryptionConfiguration(AWSProperty):
+    props = {
+        'CloudWatchEncryption': (CloudWatchEncryption, False),
+        'JobBookmarksEncryption': (JobBookmarksEncryption, False),
+        'S3Encryptions': (S3Encryptions, False),
+    }
+
+
+class SecurityConfiguration(AWSObject):
+    resource_type = "AWS::Glue::SecurityConfiguration"
+
+    props = {
+        'EncryptionConfiguration': (EncryptionConfiguration, True),
+        'Name': (basestring, True),
+    }
+
+
 def table_type_validator(type):
     valid_types = [
         'EXTERNAL_TABLE',
@@ -302,7 +389,7 @@ def table_type_validator(type):
 class TableInput(AWSProperty):
     props = {
         'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'Owner': (basestring, False),
         'Parameters': (dict, False),
         'PartitionKeys': ([Column], False),
@@ -328,6 +415,7 @@ class Action(AWSProperty):
     props = {
         'Arguments': (dict, False),
         'JobName': (basestring, False),
+        'SecurityConfiguration': (basestring, False),
     }
 
 
@@ -366,5 +454,6 @@ class Trigger(AWSObject):
         'Name': (basestring, False),
         'Predicate': (Predicate, False),
         'Schedule': (basestring, False),
+        'Tags': (Tags, False),
         'Type': (trigger_type_validator, True),
     }
