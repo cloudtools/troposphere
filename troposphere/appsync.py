@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 
@@ -68,18 +68,18 @@ class LambdaConfig(AWSProperty):
 
 class RdsHttpEndpointConfig(AWSProperty):
     props = {
-        'AwsRegion': (basestring, False),
-        'DbClusterIdentifier': (basestring, False),
+        'AwsRegion': (basestring, True),
+        'AwsSecretStoreArn': (basestring, True),
         'DatabaseName': (basestring, False),
+        'DbClusterIdentifier': (basestring, True),
         'Schema': (basestring, False),
-        'AwsSecretStoreArn': (basestring, False),
     }
 
 
 class RelationalDatabaseConfig(AWSProperty):
     props = {
-        'RelationalDatasourceType': (basestring, False),
         'RdsHttpEndpointConfig': (RdsHttpEndpointConfig, False),
+        'RelationalDatasourceType': (basestring, False),
     }
 
 
@@ -100,6 +100,22 @@ class DataSource(AWSObject):
     }
 
 
+class FunctionConfiguration(AWSObject):
+    resource_type = "AWS::AppSync::FunctionConfiguration"
+
+    props = {
+        'ApiId': (basestring, True),
+        'Name': (basestring, False),
+        'Description': (basestring, False),
+        'DataSourceName': (basestring, False),
+        'FunctionVersion': (basestring, False),
+        'RequestMappingTemplate': (basestring, False),
+        'RequestMappingTemplateS3Location': (basestring, False),
+        'ResponseMappingTemplate': (basestring, False),
+        'ResponseMappingTemplateS3Location': (basestring, False),
+    }
+
+
 class LogConfig(AWSProperty):
     props = {
         'CloudWatchLogsRoleArn': (basestring, False),
@@ -112,7 +128,7 @@ class OpenIDConnectConfig(AWSProperty):
         'AuthTTL': (float, False),
         'ClientId': (basestring, False),
         'IatTTL': (float, False),
-        'Issuer': (basestring, True),
+        'Issuer': (basestring, False),
     }
 
 
@@ -125,15 +141,26 @@ class UserPoolConfig(AWSProperty):
     }
 
 
+class AdditionalAuthenticationProviders(AWSProperty):
+    props = {
+        'AuthenticationType': (basestring, True),
+        'OpenIDConnectConfig': (OpenIDConnectConfig, False),
+        'UserPoolConfig': (UserPoolConfig, False),
+    }
+
+
 class GraphQLApi(AWSObject):
     resource_type = "AWS::AppSync::GraphQLApi"
 
     props = {
+        'AdditionalAuthenticationProviders':
+            (AdditionalAuthenticationProviders, False),
         'AuthenticationType': (basestring, True),
         'LogConfig': (LogConfig, False),
         'Name': (basestring, True),
         'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'UserPoolConfig': (UserPoolConfig, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -167,20 +194,4 @@ class Resolver(AWSObject):
         'ResponseMappingTemplate': (basestring, False),
         'ResponseMappingTemplateS3Location': (basestring, False),
         'TypeName': (basestring, True),
-    }
-
-
-class FunctionConfiguration(AWSObject):
-    resource_type = "AWS::AppSync::FunctionConfiguration"
-
-    props = {
-        'ApiId': (basestring, True),
-        'Name': (basestring, False),
-        'Description': (basestring, False),
-        'DataSourceName': (basestring, False),
-        'FunctionVersion': (basestring, False),
-        'RequestMappingTemplate': (basestring, False),
-        'RequestMappingTemplateS3Location': (basestring, False),
-        'ResponseMappingTemplate': (basestring, False),
-        'ResponseMappingTemplateS3Location': (basestring, False),
     }
