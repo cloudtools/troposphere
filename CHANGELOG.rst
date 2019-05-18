@@ -1,3 +1,47 @@
+2.4.7 (2019*05*18)
+------------------
+* Add authenticate-cognito and authenticate-oidc to elb v2 Action's "type" validator (#1352)
+* Update the instance types in constants. (#1353)
+* Add missing Termination Policies (#1354)
+* Add Tags to various AppStream objects, per 2019 March 19 update (#1355)
+* Add new AWS::AppMesh resources, per 2019 March 28 update (#1356)
+* Add ServiceCatalog::ResourceUpdateConstraint
+* Add ResourceRequirements property to Batch::JobDefinition
+* Add an improved troposphere code generator for use with AWS spec files
+* Add a Makefile helper to download the spec file
+* Fix a pep8 issue introduced with pycodestyle 2.5.0
+* Add constants for missing rds instance types (#1365)
+* EngineAttributes should take list (#1363)
+* Added support for lambda in TargetGroup with additional validation (#1376)
+* Fix the scripts for Python3 (#1364)
+* Add #! header and print_function import
+* Add scripts directory to tests
+* Fix pycodestyle issues with scripts
+* Add HealthCheckEnabled to ElasticLoadBalancingV2::TargetGroup
+* Fixed: Codebuild Webhook Filters are to be a list of list of WebhookFilter (#1372)
+* Use enumeration in codebuild FilterGroup validate and add some tests
+* Add AWS::EC2::CapacityReservation resource (#1379)
+* Add AWS::Greengrass (#1384)
+* Add Events::EventBusPolicy (#1386)
+* Add Python 3.7 to travis testing (#1302)
+* Added ECS ProxyConfiguration, DependsOn,  StartTimeout and StopTimeout parameters (#1382)
+* Username property in DMS::Endpoint class should not be required (#1387)
+* Fix MethodSettings on AWS::Serverless::Api (#1391)
+* Adds TmpFs prop to LinuxParameters (#1392)
+* Add SharedMemorySize property to ECS LinuxParameters (#1392)
+* Make DefinitionString and DefinitionBody mutually exclusive, but allow no definition (#1390)
+* Add T3a, M/R5ad, and I3en instances to constants (#1393)
+* Fixed issue #1394 wrong appmesh Listener property and #1396 dependson should be a type list and #1397 proxy props should be list (#1395)
+* Add ApiGatewayV2 ApiMapping and DomainName resources
+* Added missing container name propery (#1398)
+* Update region/az information (#1399)
+* Add missing Role property for serverless DeploymentPreference (#1400)
+* Add DisableTemplateValidation to ServiceCatalog ProvisioningArtifactProperties
+* Add AWS::MediaStore
+* Add multiple changes to AWS::Glue
+* Add AppSync GraphQLApi changes
+* Add TemporaryPasswordValidityDays to Cognito PasswordPolicy
+
 2.4.6 (2019*03*20)
 ------------------
 * Discourage usage of Python 3.4 (#1326)
