@@ -19,6 +19,7 @@ class AcceptedPortfolioShare(AWSObject):
 class ProvisioningArtifactProperties(AWSProperty):
     props = {
         'Description': (basestring, False),
+        'DisableTemplateValidation': (boolean, False),
         'Info': (dict, True),
         'Name': (basestring, False),
     }
