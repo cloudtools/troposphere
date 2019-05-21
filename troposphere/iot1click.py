@@ -3,7 +3,7 @@ from .validators import boolean, json_checker
 
 
 class Device(AWSObject):
-    resource_type = "AWS::IoT1Click::Device",
+    resource_type = "AWS::IoT1Click::Device"
 
     props = {
         'DeviceId': (basestring, True),
