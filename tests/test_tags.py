@@ -21,7 +21,9 @@ class TestTags(unittest.TestCase):
             If('MyCondition', Tag('bar', 'bar'), Tag('baz', 'baz'))
         )
         result = [
-            {"Fn::If": ["MyCondition", {"Key": "bar", "Value": "bar"}, {"Key": "baz", "Value": "baz"}]},
+            {"Fn::If": ["MyCondition",
+                        {"Key": "bar", "Value": "bar"},
+                        {"Key": "baz", "Value": "baz"}]},
             {'Value': 'foo', 'Key': 'foo'},
         ]
         self.assertEqual(tags.to_dict(), result)
