@@ -124,7 +124,7 @@ class JobDefinition(AWSObject):
     props = {
         'ContainerProperties': (ContainerProperties, True),
         'JobDefinitionName': (basestring, False),
-        'Parameters': (dict, True),
+        'Parameters': (dict, False),
         'RetryStrategy': (RetryStrategy, False),
         'Timeout': (Timeout, False),
         'Type': (basestring, True),
