@@ -45,6 +45,13 @@ class Predicates(AWSProperty):
     }
 
 
+class GeoMatchConstraints(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Value': (basestring, True)
+    }
+
+
 class Rules(AWSProperty):
     props = {
         'Action': (Action, True),
@@ -148,4 +155,34 @@ class XssMatchSet(AWSObject):
     props = {
         'Name': (basestring, True),
         'XssMatchTuples': ([XssMatchTuple], False),
+    }
+
+
+class RegexPatternSet(AWSObject):
+    resource_type = "AWS::WAFRegional::RegexPatternSet"
+
+    props = {
+        'Name': (basestring, True),
+        'RegexPatternStrings': ([basestring], True),
+    }
+
+
+class RateBasedRule(AWSObject):
+    resource_type = "AWS::WAFRegional::RateBasedRule"
+
+    props = {
+        'MatchPredicates': ([Predicates], False),
+        'MetricName': (basestring, True),
+        'Name': (basestring, True),
+        'RateKey': (basestring, True),
+        'RateLimit': (integer, True),
+    }
+
+
+class GeoMatchSet(AWSObject):
+    resource_type = "AWS::WAFRegional::GeoMatchSet"
+
+    props = {
+        'GeoMatchConstraints': ([GeoMatchConstraints], False),
+        'Name': (basestring, True),
     }
