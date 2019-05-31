@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import integer
 
 
@@ -214,4 +214,27 @@ class Mesh(AWSObject):
         'MeshName': (basestring, True),
         'Spec': (MeshSpec, False),
         'Tags': ([TagRef], False),
+    }
+
+
+class VirtualRouterListener(AWSProperty):
+    props = {
+        'PortMapping': (PortMapping, True),
+    }
+
+
+class VirtualRouterSpec(AWSProperty):
+    props = {
+        'Listeners': ([VirtualRouterListener], True),
+    }
+
+
+class VirtualRouter(AWSObject):
+    resource_type = "AWS::AppMesh::VirtualRouter"
+
+    props = {
+        'MeshName': (basestring, True),
+        'Spec': (VirtualRouterSpec, True),
+        'Tags': (Tags, False),
+        'VirtualRouterName': (basestring, True),
     }
