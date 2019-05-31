@@ -756,6 +756,7 @@ class NetworkInterfaces(AWSProperty):
         'Description': (basestring, False),
         'DeviceIndex': (integer, True),
         'Groups': ([basestring], False),
+        'InterfaceType': (basestring, False),
         'Ipv6AddressCount': (integer, False),
         'Ipv6Addresses': ([Ipv6Addresses], False),
         'NetworkInterfaceId': (basestring, False),
