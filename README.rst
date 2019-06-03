@@ -223,6 +223,7 @@ Currently supported AWS resource types
 - AWS::Neptune
 - AWS::OpsWorks
 - AWS::OpsWorksCM
+- AWS::PinpointEmail
 - AWS::RAM
 - AWS::RDS
 - AWS::Redshift
