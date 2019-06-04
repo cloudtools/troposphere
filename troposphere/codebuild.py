@@ -149,6 +149,7 @@ class ProjectCache(AWSProperty):
     def validate(self):
         valid_types = [
             'NO_CACHE',
+            'LOCAL',
             'S3',
         ]
         cache_type = self.properties.get('Type')
