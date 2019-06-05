@@ -33,7 +33,7 @@ class Queue(AWSObject):
         'QueueName': (basestring, False),
         'ReceiveMessageWaitTimeSeconds': (integer, False),
         'RedrivePolicy': (RedrivePolicy, False),
-        'Tags': (Tags, False),
+        'Tags': ((Tags, list), False)
         'VisibilityTimeout': (integer, False),
     }
 
