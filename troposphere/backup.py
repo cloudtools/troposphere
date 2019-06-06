@@ -20,7 +20,7 @@ class BackupRuleResourceType(AWSProperty):
         'Lifecycle': (LifecycleResourceType, False),
         'RecoveryPointTags': (json_checker, False),
         'RuleName': (basestring, True),
-        'ScheduleExpresion': (basestring, False),
+        'ScheduleExpression': (basestring, False),
         'StartWindowMinutes': (double, False),
         'TargetBackupVault': (basestring, True),
     }
