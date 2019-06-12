@@ -7,6 +7,23 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import integer
 
 
+class CodeRepository(AWSObject):
+    resource_type = "AWS::SageMaker::CodeRepository"
+
+    props = {
+        "CodeRepositoryName": (basestring, False),
+        "GitConfig": (GitConfig, True)
+    }
+
+
+class GitConfig(AWSProperty):
+    props = {
+        'Branch': (basestring, False),
+        'RepositoryUrl': (basestring, True),
+        'SecretArn': (basestring, False),
+    }
+
+
 class Endpoint(AWSObject):
     resource_type = "AWS::SageMaker::Endpoint"
 
@@ -87,9 +104,6 @@ class NotebookInstance(AWSObject):
     resource_type = "AWS::SageMaker::NotebookInstance"
 
     props = {
-        'AcceleratorTypes': ([basestring], False),
-        'AdditionalCodeRepositories': ([basestring], False),
-        'DefaultCodeRepository': ([basestring], False),
         'DirectInternetAccess': (basestring, False),
         'InstanceType': (basestring, True),
         'KmsKeyId': (basestring, False),
