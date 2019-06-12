@@ -36,9 +36,9 @@ class TestCodeBuildFilters(unittest.TestCase):
         ]).validate()
 
     def test_filter_no_filtergroup(self):
-        match = "'FilterGroups is required when creating triggers'"
-        with self.assertRaisesRegexp(KeyError, match):
-            codebuild.ProjectTriggers().validate()
+        codebuild.ProjectTriggers(Webhook=True).validate()
+        # Technically this is valid, not sure why you would want this though?
+        codebuild.ProjectTriggers().validate()
 
     def test_filter_not_list(self):
         match = "<type 'int'>, expected <type 'list'>"
