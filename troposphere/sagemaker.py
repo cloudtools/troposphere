@@ -87,6 +87,9 @@ class NotebookInstance(AWSObject):
     resource_type = "AWS::SageMaker::NotebookInstance"
 
     props = {
+        'AcceleratorTypes': ([basestring], False),
+        'AdditionalCodeRepositories': ([basestring], False),
+        'DefaultCodeRepository': ([basestring], False),
         'DirectInternetAccess': (basestring, False),
         'InstanceType': (basestring, True),
         'KmsKeyId': (basestring, False),
