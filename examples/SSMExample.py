@@ -3,7 +3,7 @@ from troposphere.constants import STRING
 import troposphere.ssm as ssm
 
 t = Template()
-t.add_description("2012-09-09")
+t.set_description("2012-09-09")
 
 rhel_patch_group_name = t.add_parameter(Parameter(
     "RHELPatchGroupName",

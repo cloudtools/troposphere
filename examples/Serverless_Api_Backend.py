@@ -7,7 +7,7 @@ from troposphere.serverless import Function, ApiEvent, SimpleTable
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "Simple CRUD webservice. State is stored in a SimpleTable (DynamoDB) "
     "resource.")
 

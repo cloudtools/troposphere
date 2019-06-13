@@ -6,7 +6,7 @@ from troposphere import ec2
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template NatGateway: Sample template showing "
     "how to create a public NAT gateway. "
     "**WARNING** This template creates an Amazon NAT gateway. "

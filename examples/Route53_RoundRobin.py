@@ -8,7 +8,7 @@ from troposphere.route53 import RecordSet, RecordSetGroup
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template Route53_RoundRobin: Sample template "
     "showing how to use weighted round robin (WRR) DNS entried via Amazon "
     "Route 53. This contrived sample uses weighted CNAME records to "

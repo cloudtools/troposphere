@@ -8,7 +8,7 @@ from troposphere.iam import User, UserToGroupAddition
 
 t = Template()
 
-t.add_description("AWS CloudFormation Sample Template: This template "
+t.set_description("AWS CloudFormation Sample Template: This template "
                   "demonstrates the creation of IAM User/Group.")
 
 cfnuser = t.add_resource(User(

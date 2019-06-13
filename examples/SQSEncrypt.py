@@ -7,7 +7,7 @@ from troposphere.sqs import Queue
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template SQS: Sample template showing how to "
     "create an SQS queue with Server Side Encryption. **WARNING** This "
     "template creates Amazon SQS Queues. You will be billed for the AWS "

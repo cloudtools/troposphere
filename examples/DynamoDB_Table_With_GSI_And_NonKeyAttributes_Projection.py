@@ -12,7 +12,7 @@ from troposphere.dynamodb import (
 
 template = Template()
 
-template.add_description("Create a dynamodb table with a global secondary "
+template.set_description("Create a dynamodb table with a global secondary "
                          "index")
 # N.B. If you remove the provisioning section this works for
 # LocalSecondaryIndexes aswell.

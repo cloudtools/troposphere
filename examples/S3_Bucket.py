@@ -7,7 +7,7 @@ from troposphere.s3 import Bucket, PublicRead
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template S3_Bucket: Sample template showing "
     "how to create a publicly accessible S3 bucket. "
     "**WARNING** This template creates an Amazon S3 Bucket. "

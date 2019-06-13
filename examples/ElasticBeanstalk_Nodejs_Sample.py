@@ -22,7 +22,7 @@ t = Template()
 
 t.add_version()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template ElasticBeanstalk_Nodejs_Sample: "
     "Configure and launch the AWS Elastic Beanstalk sample application. "
     "**WARNING** This template creates one or more Amazon EC2 instances. You "

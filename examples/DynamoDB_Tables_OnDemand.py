@@ -20,7 +20,7 @@ from troposphere.dynamodb import (
 
 template = Template()
 
-template.add_description("Create two dynamodb tables with "
+template.set_description("Create two dynamodb tables with "
                          "conditional on-demand billing. One "
                          "with global secondary index and one without")
 
