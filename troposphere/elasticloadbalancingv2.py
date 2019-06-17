@@ -30,7 +30,7 @@ class AuthenticateCognitoConfig(AWSProperty):
         "OnUnauthenticatedRequest": (basestring, False),
         "Scope": (basestring, False),
         "SessionCookieName": (basestring, False),
-        "SessionTimeout": (integer, True),
+        "SessionTimeout": (integer, False),
         "UserPoolArn": (basestring, True),
         "UserPoolClientId": (basestring, True),
         "UserPoolDomain": (basestring, True)
@@ -77,14 +77,14 @@ class FixedResponseConfig(AWSProperty):
     props = {
         'ContentType': (basestring, False),
         'MessageBody': (basestring, False),
-        'StatusCode': (basestring, False),
+        'StatusCode': (basestring, True),
     }
 
     def validate(self):
         one_of(self.__class__.__name__,
                self.properties,
                'ContentType',
-               ['text/plain', 'text/css', 'text/html',
+               [None, 'text/plain', 'text/css', 'text/html',
                 'application/javascript', 'application/json'])
 
 
@@ -175,20 +175,20 @@ class SourceIpConfig(AWSProperty):
 
 class Condition(AWSProperty):
     props = {
-        'Field': (basestring, True),
+        'Field': (basestring, False),
         'HostHeaderConfig': (HostHeaderConfig, False),
         'HttpHeaderConfig': (HttpHeaderConfig, False),
         'HttpRequestMethodConfig': (HttpRequestMethodConfig, False),
         'PathPatternConfig': (PathPatternConfig, False),
         'QueryStringConfig': (QueryStringConfig, False),
         'SourceIpConfig': (SourceIpConfig, False),
-        'Values': ([basestring], True)
+        'Values': ([basestring], False),
     }
 
 
 class Matcher(AWSProperty):
     props = {
-        'HttpCode': (basestring, False)
+        'HttpCode': (basestring, True)
     }
 
 
