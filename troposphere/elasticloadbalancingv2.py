@@ -129,9 +129,17 @@ class Action(AWSProperty):
         requires('fixed-response', 'FixedResponseConfig')
 
 
+class HttpHeaderConfig(AWSProperty):
+    props = {
+        'HttpHeaderName': (str, True),
+        'Values': ([str], True)
+    }
+
+
 class Condition(AWSProperty):
     props = {
         'Field': (basestring, True),
+        'HttpHeaderConfig': (HttpHeaderConfig, False),
         'Values': ([basestring], True)
     }
 
