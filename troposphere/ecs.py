@@ -223,6 +223,20 @@ class RepositoryCredentials(AWSProperty):
     }
 
 
+class ResourceRequirement(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class Secret(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'ValueFrom': (basestring, True),
+    }
+
+
 class Ulimit(AWSProperty):
     props = {
         'HardLimit': (integer, True),
@@ -266,6 +280,8 @@ class ContainerDefinition(AWSProperty):
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
         'RepositoryCredentials': (RepositoryCredentials, False),
+        'ResourceRequirements': ([ResourceRequirement], False),
+        'Secrets': ([Secret], False),
         'StartTimeout': (integer, False),
         'StopTimeout': (integer, False),
         'Ulimits': ([Ulimit], False),
