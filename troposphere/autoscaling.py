@@ -63,7 +63,7 @@ class Tags(AWSHelperFn):
 class LifecycleHookSpecification(AWSProperty):
     props = {
         'DefaultResult': (basestring, False),
-        'HeartbeatTimeout': (basestring, False),
+        'HeartbeatTimeout': (integer, False),
         'LifecycleHookName': (basestring, True),
         'LifecycleTransition': (basestring, True),
         'NotificationMetadata': (basestring, False),
