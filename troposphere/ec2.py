@@ -397,6 +397,7 @@ class Route(AWSObject):
         'NatGatewayId': (basestring, False),
         'NetworkInterfaceId': (basestring, False),
         'RouteTableId': (basestring, True),
+        'TransitGatewayId': (basestring, False),
         'VpcPeeringConnectionId': (basestring, False),
     }
 
@@ -411,6 +412,7 @@ class Route(AWSObject):
             'InstanceId',
             'NatGatewayId',
             'NetworkInterfaceId',
+            'TransitGatewayId',
             'VpcPeeringConnectionId'
         ]
         exactly_one(self.__class__.__name__, self.properties, cidr_conds)
