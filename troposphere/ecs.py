@@ -240,7 +240,7 @@ class Secret(AWSProperty):
 class Ulimit(AWSProperty):
     props = {
         'HardLimit': (integer, True),
-        'Name': (basestring, False),
+        'Name': (basestring, True),
         'SoftLimit': (integer, True),
     }
 
@@ -268,14 +268,14 @@ class ContainerDefinition(AWSProperty):
         'ExtraHosts': ([HostEntry], False),
         'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
-        'Image': (basestring, True),
+        'Image': (basestring, False),
         'Links': ([basestring], False),
         'LinuxParameters': (LinuxParameters, False),
         'LogConfiguration': (LogConfiguration, False),
         'Memory': (positive_integer, False),
         'MemoryReservation': (positive_integer, False),
         'MountPoints': ([MountPoint], False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'PortMappings': ([PortMapping], False),
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
@@ -327,7 +327,7 @@ class TaskDefinition(AWSObject):
     resource_type = "AWS::ECS::TaskDefinition"
 
     props = {
-        'ContainerDefinitions': ([ContainerDefinition], True),
+        'ContainerDefinitions': ([ContainerDefinition], False),
         'Cpu': (basestring, False),
         'ExecutionRoleArn': (basestring, False),
         'Family': (basestring, False),
