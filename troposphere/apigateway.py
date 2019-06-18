@@ -371,6 +371,7 @@ class Stage(AWSObject):
         "RestApiId": (basestring, True),
         "StageName": (basestring, True),
         "Tags": ((Tags, list), False),
+        "TracingEnabled": (bool, False),
         "Variables": (dict, False),
     }
 
