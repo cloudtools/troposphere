@@ -397,6 +397,7 @@ class Route(AWSObject):
         'NatGatewayId': (basestring, False),
         'NetworkInterfaceId': (basestring, False),
         'RouteTableId': (basestring, True),
+        'TransitGatewayId': (basestring, False),
         'VpcPeeringConnectionId': (basestring, False),
     }
 
@@ -691,15 +692,22 @@ class VPNConnection(AWSObject):
     resource_type = "AWS::EC2::VPNConnection"
 
     props = {
-        'Type': (basestring, True),
         'CustomerGatewayId': (basestring, True),
         'StaticRoutesOnly': (boolean, False),
-        'Tags': ((Tags, list), False),
-        'VpnGatewayId': (basestring, True),
-        'VpnTunnelOptionsSpecifications': (
-            [VpnTunnelOptionsSpecification], False
-        ),
+        'Tags': (Tags, False),
+        'TransitGatewayId': (basestring, False),
+        'Type': (basestring, True),
+        'VpnGatewayId': (basestring, False),
+        'VpnTunnelOptionsSpecifications':
+            ([VpnTunnelOptionsSpecification], False),
     }
+
+    def validate(self):
+        conds = [
+            'VpnGatewayId',
+            'TransitGatewayId',
+        ]
+        exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class VPNConnectionRoute(AWSObject):
@@ -1119,4 +1127,79 @@ class CapacityReservation(AWSObject):
         'InstanceType': (basestring, True),
         'TagSpecifications': ([TagSpecifications], False),
         'Tenancy': (basestring, False),
+    }
+
+
+class ClientVpnAuthorizationRule(AWSObject):
+    resource_type = "AWS::EC2::ClientVpnAuthorizationRule"
+
+    props = {
+        'AccessGroupId': (basestring, False),
+        'AuthorizeAllGroups': (boolean, False),
+        'ClientVpnEndpointId': (basestring, True),
+        'Description': (basestring, False),
+        'TargetNetworkCidr': (basestring, True),
+    }
+
+
+class CertificateAuthenticationRequest(AWSProperty):
+    props = {
+        'ClientRootCertificateChainArn': (basestring, True),
+    }
+
+
+class DirectoryServiceAuthenticationRequest(AWSProperty):
+    props = {
+        'DirectoryId': (basestring, True),
+    }
+
+
+class ClientAuthenticationRequest(AWSProperty):
+    props = {
+        'ActiveDirectory': (DirectoryServiceAuthenticationRequest, False),
+        'MutualAuthentication': (CertificateAuthenticationRequest, False),
+        'Type': (basestring, True),
+    }
+
+
+class ConnectionLogOptions(AWSProperty):
+    props = {
+        'CloudwatchLogGroup': (basestring, False),
+        'CloudwatchLogStream': (basestring, False),
+        'Enabled': (boolean, True),
+    }
+
+
+class ClientVpnEndpoint(AWSObject):
+    resource_type = "AWS::EC2::ClientVpnEndpoint"
+
+    props = {
+        'AuthenticationOptions': ([ClientAuthenticationRequest], True),
+        'ClientCidrBlock': (basestring, True),
+        'ConnectionLogOptions': (ConnectionLogOptions, True),
+        'Description': (basestring, False),
+        'DnsServers': ([basestring], False),
+        'ServerCertificateArn': (basestring, True),
+        'TagSpecifications': ([TagSpecifications], False),
+        'TransportProtocol': (basestring, False),
+    }
+
+
+class ClientVpnRoute(AWSObject):
+    resource_type = "AWS::EC2::ClientVpnRoute"
+
+    props = {
+        'ClientVpnEndpointId': (basestring, True),
+        'Description': (basestring, False),
+        'DestinationCidrBlock': (basestring, True),
+        'TargetVpcSubnetId': (basestring, True),
+    }
+
+
+class ClientVpnTargetNetworkAssociation(AWSObject):
+    resource_type = "AWS::EC2::ClientVpnTargetNetworkAssociation"
+
+    props = {
+        'ClientVpnEndpointId': (basestring, True),
+        'SubnetId': (basestring, True),
     }
