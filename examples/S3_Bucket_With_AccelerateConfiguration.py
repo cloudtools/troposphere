@@ -6,7 +6,7 @@ from troposphere.s3 import Bucket, PublicRead, AccelerateConfiguration
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template S3_Bucket: Sample template showing :"
     "How to create a publicly accessible S3 bucket. "
     "How to enable S3 Transfer Acceleration. "

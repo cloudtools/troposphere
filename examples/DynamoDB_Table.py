@@ -8,7 +8,7 @@ from troposphere.dynamodb import Table
 
 t = Template()
 
-t.add_description("AWS CloudFormation Sample Template: This template "
+t.set_description("AWS CloudFormation Sample Template: This template "
                   "demonstrates the creation of a DynamoDB table.")
 
 hashkeyname = t.add_parameter(Parameter(

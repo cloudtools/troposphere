@@ -8,7 +8,7 @@ from troposphere.s3 import Bucket, PublicRead, VersioningConfiguration, \
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template S3_Bucket: Sample template showing :"
     "How to create a publicly accessible S3 bucket. "
     "How to enable bucket object versions. "

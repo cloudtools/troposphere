@@ -9,7 +9,7 @@ from troposphere.elasticsearch import SnapshotOptions
 
 templ = Template()
 
-templ.add_description('Elasticsearch Domain example')
+templ.set_description('Elasticsearch Domain example')
 
 es_domain = templ.add_resource(Domain(
     'ElasticsearchDomain',

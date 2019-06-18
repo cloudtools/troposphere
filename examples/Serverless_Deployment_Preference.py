@@ -6,7 +6,7 @@ from troposphere.serverless import Function, DeploymentPreference
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "A function that uses the configured traffic shifting type "
     "for a canary deployment.")
 

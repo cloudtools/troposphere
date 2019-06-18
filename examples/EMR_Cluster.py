@@ -72,7 +72,7 @@ def generate_rules(rules_name):
 
 
 template = Template()
-template.add_description(
+template.set_description(
     "Sample CloudFormation template for creating an EMR cluster"
 )
 

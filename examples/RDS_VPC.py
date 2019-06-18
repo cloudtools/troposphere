@@ -8,7 +8,7 @@ from troposphere.rds import DBInstance, DBSubnetGroup
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template VPC_RDS_DB_Instance: Sample template "
     "showing how to create an RDS DBInstance in an existing Virtual Private "
     "Cloud (VPC). **WARNING** This template creates an Amazon Relational "
