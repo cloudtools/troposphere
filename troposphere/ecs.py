@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, integer, network_port, positive_integer, ecs_proxy_type
 )
@@ -16,6 +16,7 @@ class Cluster(AWSObject):
 
     props = {
         'ClusterName': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -111,6 +112,7 @@ class Service(AWSObject):
         'Cluster': (basestring, False),
         'DeploymentConfiguration': (DeploymentConfiguration, False),
         'DesiredCount': (positive_integer, False),
+        'EnableECSManagedTags': (boolean, False),
         'HealthCheckGracePeriodSeconds': (positive_integer, False),
         'LaunchType': (launch_type_validator, False),
         'LoadBalancers': ([LoadBalancer], False),
@@ -119,9 +121,11 @@ class Service(AWSObject):
         'PlacementConstraints': ([PlacementConstraint], False),
         'PlacementStrategies': ([PlacementStrategy], False),
         'PlatformVersion': (basestring, False),
+        'PropagateTags': (basestring, False),
         'SchedulingStrategy': (basestring, False),
         'ServiceName': (basestring, False),
         'ServiceRegistries': ([ServiceRegistry], False),
+        'Tags': (Tags, False),
         'TaskDefinition': (basestring, True),
     }
 
@@ -315,6 +319,7 @@ class TaskDefinition(AWSObject):
         'NetworkMode': (basestring, False),
         'PlacementConstraints': ([PlacementConstraint], False),
         'RequiresCompatibilities': ([basestring], False),
+        'Tags': (Tags, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
         'ProxyConfiguration': (ProxyConfiguration, False)
