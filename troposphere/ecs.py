@@ -233,6 +233,11 @@ class ContainerDependency(AWSProperty):
         'ContainerName': (basestring, True)
     }
 
+class Secret(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'ValueFrom': (basestring, True)
+    }
 
 class ContainerDefinition(AWSProperty):
     props = {
@@ -262,6 +267,7 @@ class ContainerDefinition(AWSProperty):
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
         'RepositoryCredentials': (RepositoryCredentials, False),
+        'Secrets': ([Secret], False),
         'StartTimeout': (integer, False),
         'StopTimeout': (integer, False),
         'Ulimits': ([Ulimit], False),
