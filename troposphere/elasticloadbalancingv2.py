@@ -129,17 +129,59 @@ class Action(AWSProperty):
         requires('fixed-response', 'FixedResponseConfig')
 
 
+class HostHeaderConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
 class HttpHeaderConfig(AWSProperty):
     props = {
-        'HttpHeaderName': (str, True),
-        'Values': ([str], True)
+        'HttpHeaderName': (basestring, False),
+        'Values': ([basestring], False),
+    }
+
+
+class HttpRequestMethodConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class PathPatternConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class QueryStringKeyValue(AWSProperty):
+    props = {
+        'Key': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
+class QueryStringConfig(AWSProperty):
+    props = {
+        'Values': ([QueryStringKeyValue], False),
+    }
+
+
+class SourceIpConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
     }
 
 
 class Condition(AWSProperty):
     props = {
         'Field': (basestring, True),
+        'HostHeaderConfig': (HostHeaderConfig, False),
         'HttpHeaderConfig': (HttpHeaderConfig, False),
+        'HttpRequestMethodConfig': (HttpRequestMethodConfig, False),
+        'PathPatternConfig': (PathPatternConfig, False),
+        'QueryStringConfig': (QueryStringConfig, False),
+        'SourceIpConfig': (SourceIpConfig, False),
         'Values': ([basestring], True)
     }
 
