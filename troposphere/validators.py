@@ -484,3 +484,11 @@ def ecs_proxy_type(proxy_type):
             )
         )
     return(proxy_type)
+
+
+def backup_vault_name(name):
+    vault_name_re = compile(r'^[a-zA-Z0-9\-\_\.]{1,50}$')  # noqa
+    if vault_name_re.match(name):
+        return name
+    else:
+        raise ValueError("%s is not a valid backup vault name" % name)

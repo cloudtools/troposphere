@@ -49,3 +49,6 @@ nosetests.xml
 
 # Sphinx
 docs/_build/
+
+# VSCode
+.vscode

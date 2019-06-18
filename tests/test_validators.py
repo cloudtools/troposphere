@@ -6,6 +6,7 @@ from troposphere.validators import tg_healthcheck_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
 from troposphere.validators import iam_group_name, iam_user_name, elb_name
+from troposphere.validators import backup_vault_name
 from troposphere.validators import mutually_exclusive, notification_type
 from troposphere.validators import notification_event, task_type
 from troposphere.validators import compliance_level, operating_system
@@ -148,6 +149,13 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
             with self.assertRaises(ValueError):
                 iam_user_name(s)
+
+    def test_backup_vault_name(self):
+        for s in ['a', 'a'*50, 'A', 'Aa', 'A1', 'A-a', 'A_a', 'A.a']:
+            backup_vault_name(s)
+        for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
+            with self.assertRaises(ValueError):
+                backup_vault_name(s)
 
     def test_one_of(self):
         conds = ['Bilbo', 'Frodo']
