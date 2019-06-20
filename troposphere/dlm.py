@@ -8,7 +8,7 @@ from .validators import (integer, boolean)
 
 VALID_STATES = ('ENABLED', 'DISABLED')
 VALID_RESOURCE_TYPES = ('VOLUME')
-VALID_INTERVALS = (12, 24)
+VALID_INTERVALS = (2, 3, 4, 6, 8, 12, 24)
 VALID_INTERVAL_UNITS = ('HOURS')
 
 
