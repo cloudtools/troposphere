@@ -158,6 +158,7 @@ class S3DestinationConfiguration(AWSProperty):
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
         'CompressionFormat': (basestring, True),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
+        'ErrorOutputPrefix': (basestring, False),
         'Prefix': (basestring, False),
         'RoleARN': (basestring, True),
     }
@@ -170,6 +171,7 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
         'CompressionFormat': (basestring, True),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
+        'ErrorOutputPrefix': (basestring, False),
         'Prefix': (basestring, True),
         'ProcessingConfiguration': (ProcessingConfiguration, False),
         'RoleARN': (basestring, True),
