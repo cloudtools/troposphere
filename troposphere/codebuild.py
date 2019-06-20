@@ -302,6 +302,13 @@ class LogsConfig(AWSProperty):
     }
 
 
+class ProjectSourceVersion(AWSProperty):
+    props = {
+        'SourceIdentifier': (basestring, True),
+        'SourceVersion': (basestring, False),
+    }
+
+
 class Project(AWSObject):
     resource_type = "AWS::CodeBuild::Project"
 
@@ -315,6 +322,7 @@ class Project(AWSObject):
         "LogsConfig": (LogsConfig, False),
         'Name': (basestring, False),
         'SecondaryArtifacts': ([Artifacts], False),
+        'SecondarySourceVersions': ([ProjectSourceVersion], False),
         'SecondarySources': ([Source], False),
         'ServiceRole': (basestring, True),
         'Source': (Source, True),
