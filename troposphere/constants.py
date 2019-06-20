@@ -543,7 +543,7 @@ ELASTICSEARCH_I2_2XLARGE = 'i2.2xlarge.elasticsearch'
 KAFKA_M5_LARGE = 'kafka.m5.large'
 KAFKA_M5_XLARGE = 'kafka.m5.xlarge'
 KAFKA_M5_2XLARGE = 'kafka.m5.2xlarge'
-KAFKA_M5_3XLARGE = 'kafka.m5.4xlarge'
+KAFKA_M5_4XLARGE = 'kafka.m5.4xlarge'
 KAFKA_M5_12XLARGE = 'kafka.m5.12xlarge'
 KAFKA_M5_24XLARGE = 'kafka.m5.24xlarge'
 
