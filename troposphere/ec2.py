@@ -233,6 +233,7 @@ class Host(AWSObject):
     props = {
         'AutoPlacement': (basestring, False),
         'AvailabilityZone': (basestring, True),
+        'HostRecovery': (basestring, False),
         'InstanceType': (basestring, True),
     }
 
