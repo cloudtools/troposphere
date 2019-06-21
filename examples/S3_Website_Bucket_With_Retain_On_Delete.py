@@ -11,10 +11,7 @@ t.set_description(
     "AWS CloudFormation Sample Template "
     "S3_Website_Bucket_With_Retain_On_Delete: Sample template showing how to "
     "create a publicly accessible S3 bucket configured for website access "
-    "with a deletion policy of retail on delete. "
-    "**WARNING** This template creates an Amazon EC2 instance. "
-    "You will be billed for the AWS resources used if you create "
-    "a stack from this template.")
+    "with a deletion policy of retail on delete. ")
 
 s3bucket = t.add_resource(Bucket(
     "S3Bucket",
