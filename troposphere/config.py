@@ -137,3 +137,16 @@ class DeliveryChannel(AWSObject):
         'S3KeyPrefix': (basestring, False),
         'SnsTopicARN': (basestring, False),
     }
+
+
+class RemediationConfiguration(AWSObject):
+    resource_type = "AWS::Config::RemediationConfiguration"
+
+    props = {
+        'ConfigRuleName': (basestring, True),
+        'Parameters': (dict, False),
+        'ResourceType': (basestring, False),
+        'TargetId': (basestring, True),
+        'TargetType': (basestring, True),
+        'TargetVersion': (basestring, False),
+    }
