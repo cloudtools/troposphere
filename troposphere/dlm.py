@@ -39,6 +39,12 @@ def validate_state(state):
     return state
 
 
+class Parameters(AWSProperty):
+    props = {
+        'ExcludeBootVolume': (boolean, False),
+    }
+
+
 class CreateRule(AWSProperty):
     props = {
         'Interval': (validate_interval, True),
@@ -65,6 +71,8 @@ class Schedule(AWSProperty):
 
 class PolicyDetails(AWSProperty):
     props = {
+        'Parameters': (Parameters, False),
+        'PolicyType': (basestring, False),
         'ResourceTypes': ([basestring], False),
         'Schedules': ([Schedule], False),
         'TargetTags': ((Tags, list), False),
