@@ -55,6 +55,7 @@ class Fleet(AWSObject):
         'DomainJoinInfo': (DomainJoinInfo, False),
         'EnableDefaultInternetAccess': (boolean, False),
         'FleetType': (basestring, False),
+        'IdleDisconnectTimeoutInSeconds': (integer, False),
         'ImageArn': (basestring, False),
         'ImageName': (basestring, False),
         'InstanceType': (basestring, True),
