@@ -1,3 +1,43 @@
+2.4.8 (2019*06*23)
+------------------
+* [iot1click] resource_type should be a string, not tuple (#1402)
+* Fix Parameters on AWS::Batch::JobDefinition (#1404)
+* Add new wafregional resources (#1406)
+* Add AppMesh::VirtualRouter (#1410)
+* Add InterfaceType to EC2 LaunchTemplate (#1405)
+* Adding AWS::Transfer resources, per 2019 May 23 update (#1407)
+* Adding AWS::PinpointEmail, per 2019 May 23 update (#1408)
+* Add missing LOCAL caching option (#1413)
+* Allow for AWSHelperFn objects in Tags (#1403)
+* Fix bug where FilterGroups were required, when technically they are not (#1424)
+* Adding AWS::Backup resources from May 23, 2019 update (#1419)
+* adding missing X-ray activation property for AWS::ApiGateway::Stage (#1420)
+* Change add_description to set_description in all examples (#1425)
+* Add support for httpHeaderConfig (#1426)
+* Add Config attributes to ELBV2 Condition (#1426)
+* Update ECS resources from June 13, 2019 update (#1430)
+* Add ClientVPN resources (#1431)
+* Change HeartbeatTimeout type to integer (#1415) (#1432)
+* Add transit gateway ID to Route (#1433)
+* Add Sagemaker::CodeRepository (#1422)
+* Adding SageMaker NotebookInstance properties (#1421)
+* Update ElasticLoadBalancingV2 ListenerRule (#1427)
+* Update DLM rule interval values (#1333) (#1437)
+* Add resources for Amazon MSK, from June 13, 2019 update (#1436)
+* Add HostRecovery property to EC2::Host
+* Add SecondarySourceVersions to CodeBuild::Project
+* Add ObjectLock* properties to S3::Bucket
+* Add Ec2SubnetIds property to EMR JobFlowInstancesConfig
+* Add AWS::Amplify
+* Adds 'ErrorOutputPrefix' to *S3DestinationConfiguration (#1439)
+* Add ServiceCatalog::StackSetConstraint and update CFProvisionedProduct
+* Add IdleDisconnectTimeoutInSeconds to AppStream::Fleet
+* Add Config::RemediationConfiguration resource
+* Add AppMesh AwsCloudMapServiceDiscovery and reformat for autogen
+* DLM: add Parameters and PolicyType properties to PolicyDetails
+* IoTAnalytics: add ContentDeliveryRules and VersioningConfiguration to Dataset
+* KinesisFirehose: updates to ExtendedS3DestinationConfiguration
+
 2.4.7 (2019*05*18)
 ------------------
 * Add authenticate-cognito and authenticate-oidc to elb v2 Action's "type" validator (#1352)
