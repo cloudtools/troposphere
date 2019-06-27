@@ -189,6 +189,9 @@ class CloudFrontOriginAccessIdentityConfig(AWSProperty):
     }
 
 
+OriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
+
+
 class CloudFrontOriginAccessIdentity(AWSObject):
     resource_type = "AWS::CloudFront::CloudFrontOriginAccessIdentity"
 
@@ -198,6 +201,9 @@ class CloudFrontOriginAccessIdentity(AWSObject):
             True,
         ),
     }
+
+
+OriginAccessIdentity = CloudFrontOriginAccessIdentity
 
 
 class TrustedSigners(AWSProperty):
