@@ -1,3 +1,8 @@
+2.4.9 (2019*06*26)
+------------------
+* add tag to role (#1441)
+* Fix regression in EC2::VPNConnection - add list back to Tags (#1442)
+
 2.4.8 (2019*06*23)
 ------------------
 * [iot1click] resource_type should be a string, not tuple (#1402)
