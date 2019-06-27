@@ -936,9 +936,11 @@ class TagSpecifications(AWSProperty):
 
 class SpotOptions(AWSProperty):
     props = {
+        'BlockDurationMinutes': (integer, False),
         'InstanceInterruptionBehavior': (basestring, False),
         'MaxPrice': (basestring, False),
-        'SpotInstanceType': (basestring, False)
+        'SpotInstanceType': (basestring, False),
+        'ValidUntil': (basestring, False),
     }
 
 
