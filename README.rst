@@ -240,6 +240,7 @@ Currently supported AWS resource types
 - AWS::SSM
 - AWS::SageMaker
 - AWS::SecretsManager
+- AWS::SecurityHub
 - AWS::Serverless
 - AWS::ServiceCatalog
 - AWS::ServiceDiscovery
