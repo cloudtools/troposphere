@@ -696,7 +696,7 @@ class VPNConnection(AWSObject):
     props = {
         'CustomerGatewayId': (basestring, True),
         'StaticRoutesOnly': (boolean, False),
-        'Tags': (Tags, False),
+        'Tags': ((Tags, list), False),
         'TransitGatewayId': (basestring, False),
         'Type': (basestring, True),
         'VpnGatewayId': (basestring, False),
