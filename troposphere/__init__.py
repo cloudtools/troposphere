@@ -668,6 +668,9 @@ class Template(object):
                              % MAX_RESOURCES)
         return self._update(self.resources, resource)
 
+    def add_rule(self, name, rule):
+        self.rules[name] = rule
+
     def set_version(self, version=None):
         if version:
             self.version = version
