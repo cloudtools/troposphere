@@ -669,6 +669,15 @@ class Template(object):
         return self._update(self.resources, resource)
 
     def add_rule(self, name, rule):
+        """
+        Add a Rule to the template to enforce extra constraints on the
+        parameters. As of June 2019 rules are undocumented in CloudFormation
+        but have the same syntax and behaviour as in ServiceCatalog:
+        https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html
+
+        :param rule: a dict with 'Assertions' (mandatory) and 'RuleCondition'
+                     (optional) keys
+        """
         self.rules[name] = rule
 
     def set_version(self, version=None):
