@@ -30,7 +30,7 @@ class AuthenticateCognitoConfig(AWSProperty):
         "OnUnauthenticatedRequest": (basestring, False),
         "Scope": (basestring, False),
         "SessionCookieName": (basestring, False),
-        "SessionTimeout": (integer, True),
+        "SessionTimeout": (integer, False),
         "UserPoolArn": (basestring, True),
         "UserPoolClientId": (basestring, True),
         "UserPoolDomain": (basestring, True)
@@ -77,14 +77,14 @@ class FixedResponseConfig(AWSProperty):
     props = {
         'ContentType': (basestring, False),
         'MessageBody': (basestring, False),
-        'StatusCode': (basestring, False),
+        'StatusCode': (basestring, True),
     }
 
     def validate(self):
         one_of(self.__class__.__name__,
                self.properties,
                'ContentType',
-               ['text/plain', 'text/css', 'text/html',
+               [None, 'text/plain', 'text/css', 'text/html',
                 'application/javascript', 'application/json'])
 
 
@@ -129,16 +129,66 @@ class Action(AWSProperty):
         requires('fixed-response', 'FixedResponseConfig')
 
 
+class HostHeaderConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class HttpHeaderConfig(AWSProperty):
+    props = {
+        'HttpHeaderName': (basestring, False),
+        'Values': ([basestring], False),
+    }
+
+
+class HttpRequestMethodConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class PathPatternConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class QueryStringKeyValue(AWSProperty):
+    props = {
+        'Key': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
+class QueryStringConfig(AWSProperty):
+    props = {
+        'Values': ([QueryStringKeyValue], False),
+    }
+
+
+class SourceIpConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
 class Condition(AWSProperty):
     props = {
-        'Field': (basestring, True),
-        'Values': ([basestring], True)
+        'Field': (basestring, False),
+        'HostHeaderConfig': (HostHeaderConfig, False),
+        'HttpHeaderConfig': (HttpHeaderConfig, False),
+        'HttpRequestMethodConfig': (HttpRequestMethodConfig, False),
+        'PathPatternConfig': (PathPatternConfig, False),
+        'QueryStringConfig': (QueryStringConfig, False),
+        'SourceIpConfig': (SourceIpConfig, False),
+        'Values': ([basestring], False),
     }
 
 
 class Matcher(AWSProperty):
     props = {
-        'HttpCode': (basestring, False)
+        'HttpCode': (basestring, True)
     }
 
 

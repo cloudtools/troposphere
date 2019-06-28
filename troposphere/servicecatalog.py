@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class AcceptedPortfolioShare(AWSObject):
@@ -50,6 +50,18 @@ class ProvisioningParameter(AWSProperty):
     }
 
 
+class ProvisioningPreferences(AWSProperty):
+    props = {
+        'StackSetAccounts': ([basestring], False),
+        'StackSetFailureToleranceCount': (integer, False),
+        'StackSetFailureTolerancePercentage': (integer, False),
+        'StackSetMaxConcurrencyCount': (integer, False),
+        'StackSetMaxConcurrencyPercentage': (integer, False),
+        'StackSetOperationType': (basestring, False),
+        'StackSetRegions': ([basestring], False),
+    }
+
+
 class CloudFormationProvisionedProduct(AWSObject):
     resource_type = "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
 
@@ -63,6 +75,7 @@ class CloudFormationProvisionedProduct(AWSObject):
         'ProvisioningArtifactId': (basestring, False),
         'ProvisioningArtifactName': (basestring, False),
         'ProvisioningParameters': ([ProvisioningParameter], False),
+        'ProvisioningPreferences': (ProvisioningPreferences, False),
         'Tags': (Tags, False),
     }
 
@@ -168,6 +181,22 @@ class ResourceUpdateConstraint(AWSObject):
         'PortfolioId': (basestring, True),
         'ProductId': (basestring, True),
         'TagUpdateOnProvisionedProduct': (validate_tag_update, True),
+    }
+
+
+class StackSetConstraint(AWSObject):
+    resource_type = "AWS::ServiceCatalog::StackSetConstraint"
+
+    props = {
+        'AcceptLanguage': (basestring, False),
+        'AccountList': ([basestring], True),
+        'AdminRole': (basestring, True),
+        'Description': (basestring, True),
+        'ExecutionRole': (basestring, True),
+        'PortfolioId': (basestring, True),
+        'ProductId': (basestring, True),
+        'RegionList': ([basestring], True),
+        'StackInstanceControl': (basestring, True),
     }
 
 

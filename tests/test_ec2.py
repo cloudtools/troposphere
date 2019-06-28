@@ -97,3 +97,14 @@ class TestEC2(unittest.TestCase):
         )
         with self.assertRaises(ValueError):
             egress.to_dict()
+
+    def test_vpn_conn_cannot_have_customer_gateway_and_transit_gateway(self):
+        vpn = ec2.VPNConnection(
+            "VPNConnection",
+            CustomerGatewayId="cgw-0e11f167",
+            VpnGatewayId="vgw-9a4cacf3",
+            TransitGatewayId="tgw-b2b84747",
+            Type="ipsec.1",
+        )
+        with self.assertRaises(ValueError):
+            vpn.to_dict()

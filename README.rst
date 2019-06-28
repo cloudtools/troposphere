@@ -161,6 +161,7 @@ Currently supported AWS resource types
 ======================================
 
 - AWS::AmazonMQ
+- AWS::Amplify
 - AWS::ApiGateway
 - AWS::ApiGatewayV2
 - AWS::AppMesh
@@ -220,9 +221,11 @@ Currently supported AWS resource types
 - AWS::Lambda
 - AWS::Logs
 - AWS::MediaStore
+- AWS::MSK
 - AWS::Neptune
 - AWS::OpsWorks
 - AWS::OpsWorksCM
+- AWS::PinpointEmail
 - AWS::RAM
 - AWS::RDS
 - AWS::Redshift
@@ -237,10 +240,12 @@ Currently supported AWS resource types
 - AWS::SSM
 - AWS::SageMaker
 - AWS::SecretsManager
+- AWS::SecurityHub
 - AWS::Serverless
 - AWS::ServiceCatalog
 - AWS::ServiceDiscovery
 - AWS::StepFunctions
+- AWS::Transfer
 - AWS::WAF
 - AWS::WAFRegional
 - AWS::WorkSpaces

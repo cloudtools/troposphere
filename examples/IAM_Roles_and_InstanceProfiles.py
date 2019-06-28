@@ -7,7 +7,7 @@ from awacs.sts import AssumeRole
 
 t = Template()
 
-t.add_description("AWS CloudFormation Sample Template: This template "
+t.set_description("AWS CloudFormation Sample Template: This template "
                   "demonstrates the creation of IAM Roles and "
                   "InstanceProfiles.")
 

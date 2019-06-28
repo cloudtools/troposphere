@@ -310,6 +310,7 @@ class JobFlowInstancesConfig(AWSProperty):
         'CoreInstanceGroup': (InstanceGroupConfigProperty, False),
         'Ec2KeyName': (basestring, False),
         'Ec2SubnetId': (basestring, False),
+        'Ec2SubnetIds': ([basestring], False),
         'EmrManagedMasterSecurityGroup': (basestring, False),
         'EmrManagedSlaveSecurityGroup': (basestring, False),
         'HadoopVersion': (basestring, False),

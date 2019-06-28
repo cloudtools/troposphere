@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.4.7"
+__version__ = "2.4.9"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = 'Delete'
@@ -525,24 +525,32 @@ class ImportValue(AWSHelperFn):
         self.data = {'Fn::ImportValue': data}
 
 
+class Tag(AWSHelperFn):
+    def __init__(self, k, v):
+        self.data = {'Key': k, 'Value': v, }
+
+
 class Tags(AWSHelperFn):
     def __init__(self, *args, **kwargs):
+        self.tags = []
         if not args:
             # Assume kwargs variant
             tag_dict = kwargs
         else:
-            if len(args) != 1:
-                raise(TypeError, "Multiple non-kwargs passed to Tags")
-
-            # Validate single argument passed in is a dict
-            if not isinstance(args[0], dict):
-                raise(TypeError, "Tags needs to be either kwargs or dict")
-            tag_dict = args[0]
+            tag_dict = {}
+            for arg in args:
+                # Validate argument passed in is an AWSHelperFn or...
+                if isinstance(arg, AWSHelperFn):
+                    self.tags.append(arg)
+                # Validate argument passed in is a dict
+                elif isinstance(arg, dict):
+                    tag_dict.update(arg)
+                else:
+                    raise(TypeError, "Tags needs to be either kwargs, "
+                                     "dict, or AWSHelperFn")
 
         def add_tag(tag_list, k, v):
             tag_list.append({'Key': k, 'Value': v, })
-
-        self.tags = []
 
         # Detect and handle non-string Tag items which do not sort in Python3
         if all(isinstance(k, basestring) for k in tag_dict):

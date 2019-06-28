@@ -7,7 +7,7 @@ from troposphere.serverless import Function, S3Event
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "A function is triggered off an upload to a bucket. It logs the content "
     "type of the uploaded object.")
 

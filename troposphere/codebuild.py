@@ -149,6 +149,7 @@ class ProjectCache(AWSProperty):
     def validate(self):
         valid_types = [
             'NO_CACHE',
+            'LOCAL',
             'S3',
         ]
         cache_type = self.properties.get('Type')
@@ -240,22 +241,26 @@ class ProjectTriggers(AWSProperty):
     }
 
     def validate(self):
-        if 'FilterGroups' not in self.properties:
-            raise KeyError('FilterGroups is required when creating triggers')
-        if not isinstance(self.FilterGroups, list):
-            self._raise_type('FilterGroups', self.FilterGroups, list)
-        for counti, elem in enumerate(self.properties.get('FilterGroups')):
-            if not isinstance(elem, list):
-                self._raise_type(
-                    'FilterGroups[{}]'.format(counti),
-                    self.FilterGroups[counti], list
-                )
-            for countj, hook in enumerate(self.FilterGroups[counti]):
-                if not isinstance(hook, WebhookFilter):
+        """ FilterGroups, if set, needs to be a list of a list of
+        WebhookFilters
+        """
+        filter_groups = self.properties.get('FilterGroups')
+        if filter_groups is not None:
+            if not isinstance(filter_groups, list):
+                self._raise_type('FilterGroups', filter_groups, list)
+
+            for counti, elem in enumerate(filter_groups):
+                if not isinstance(elem, list):
                     self._raise_type(
-                        'FilterGroups[{}][{}]'.format(counti, countj),
-                        hook, WebhookFilter
+                        'FilterGroups[{}]'.format(counti),
+                        filter_groups[counti], list
                     )
+                for countj, hook in enumerate(filter_groups[counti]):
+                    if not isinstance(hook, WebhookFilter):
+                        self._raise_type(
+                            'FilterGroups[{}][{}]'.format(counti, countj),
+                            hook, WebhookFilter
+                        )
 
 
 def validate_status(status):
@@ -297,6 +302,13 @@ class LogsConfig(AWSProperty):
     }
 
 
+class ProjectSourceVersion(AWSProperty):
+    props = {
+        'SourceIdentifier': (basestring, True),
+        'SourceVersion': (basestring, False),
+    }
+
+
 class Project(AWSObject):
     resource_type = "AWS::CodeBuild::Project"
 
@@ -310,6 +322,7 @@ class Project(AWSObject):
         "LogsConfig": (LogsConfig, False),
         'Name': (basestring, False),
         'SecondaryArtifacts': ([Artifacts], False),
+        'SecondarySourceVersions': ([ProjectSourceVersion], False),
         'SecondarySources': ([Source], False),
         'ServiceRole': (basestring, True),
         'Source': (Source, True),

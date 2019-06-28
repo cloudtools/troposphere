@@ -8,7 +8,7 @@ from troposphere.sqs import Queue, QueuePolicy
 
 t = Template()
 
-t.add_description("AWS CloudFormation Sample Template: This template "
+t.set_description("AWS CloudFormation Sample Template: This template "
                   "demonstrates the creation of a DynamoDB table.")
 
 sqsqueue = t.add_resource(Queue("SQSQueue"))

@@ -9,7 +9,7 @@ from troposphere.route53 import RecordSetType
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template Route53_A: "
     "Sample template showing how to create an Amazon Route 53 A record that "
     "maps to the public IP address of an EC2 instance. It assumes that you "

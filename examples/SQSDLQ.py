@@ -7,7 +7,7 @@ from troposphere.sqs import Queue, RedrivePolicy
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template SQS: Sample template showing how to "
     "create an SQS queue with a dead letter queue. **WARNING** This template "
     "creates Amazon SQS Queues. You will be billed for the AWS resources used "

@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, integer, network_port, positive_integer, ecs_proxy_type
 )
@@ -16,6 +16,7 @@ class Cluster(AWSObject):
 
     props = {
         'ClusterName': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -111,6 +112,7 @@ class Service(AWSObject):
         'Cluster': (basestring, False),
         'DeploymentConfiguration': (DeploymentConfiguration, False),
         'DesiredCount': (positive_integer, False),
+        'EnableECSManagedTags': (boolean, False),
         'HealthCheckGracePeriodSeconds': (positive_integer, False),
         'LaunchType': (launch_type_validator, False),
         'LoadBalancers': ([LoadBalancer], False),
@@ -119,9 +121,11 @@ class Service(AWSObject):
         'PlacementConstraints': ([PlacementConstraint], False),
         'PlacementStrategies': ([PlacementStrategy], False),
         'PlatformVersion': (basestring, False),
+        'PropagateTags': (basestring, False),
         'SchedulingStrategy': (basestring, False),
         'ServiceName': (basestring, False),
         'ServiceRegistries': ([ServiceRegistry], False),
+        'Tags': (Tags, False),
         'TaskDefinition': (basestring, True),
     }
 
@@ -219,10 +223,24 @@ class RepositoryCredentials(AWSProperty):
     }
 
 
+class ResourceRequirement(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class Secret(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'ValueFrom': (basestring, True),
+    }
+
+
 class Ulimit(AWSProperty):
     props = {
         'HardLimit': (integer, True),
-        'Name': (basestring, False),
+        'Name': (basestring, True),
         'SoftLimit': (integer, True),
     }
 
@@ -250,18 +268,20 @@ class ContainerDefinition(AWSProperty):
         'ExtraHosts': ([HostEntry], False),
         'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
-        'Image': (basestring, True),
+        'Image': (basestring, False),
         'Links': ([basestring], False),
         'LinuxParameters': (LinuxParameters, False),
         'LogConfiguration': (LogConfiguration, False),
         'Memory': (positive_integer, False),
         'MemoryReservation': (positive_integer, False),
         'MountPoints': ([MountPoint], False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'PortMappings': ([PortMapping], False),
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
         'RepositoryCredentials': (RepositoryCredentials, False),
+        'ResourceRequirements': ([ResourceRequirement], False),
+        'Secrets': ([Secret], False),
         'StartTimeout': (integer, False),
         'StopTimeout': (integer, False),
         'Ulimits': ([Ulimit], False),
@@ -307,7 +327,7 @@ class TaskDefinition(AWSObject):
     resource_type = "AWS::ECS::TaskDefinition"
 
     props = {
-        'ContainerDefinitions': ([ContainerDefinition], True),
+        'ContainerDefinitions': ([ContainerDefinition], False),
         'Cpu': (basestring, False),
         'ExecutionRoleArn': (basestring, False),
         'Family': (basestring, False),
@@ -315,6 +335,7 @@ class TaskDefinition(AWSObject):
         'NetworkMode': (basestring, False),
         'PlacementConstraints': ([PlacementConstraint], False),
         'RequiresCompatibilities': ([basestring], False),
+        'Tags': (Tags, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
         'ProxyConfiguration': (ProxyConfiguration, False)

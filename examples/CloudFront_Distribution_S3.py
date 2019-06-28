@@ -11,7 +11,7 @@ from troposphere.cloudfront import S3OriginConfig
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template CloudFront_S3: Sample template "
     "showing how to create an Amazon CloudFront distribution using an "
     "S3 origin. "
