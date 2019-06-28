@@ -170,25 +170,23 @@ class TestRules(unittest.TestCase):
         t.add_parameter("Two")
 
         rule = {
-            'ValidateEqual': {
-                'Assertions': [
-                    {
-                        'Assert': {
-                            "Fn::Equals": [
-                                {'Ref': 'One'},
-                                {'Ref': 'Two'},
-                            ],
-                        },
+            "Assertions": [
+                {
+                    "Assert": {
+                        "Fn::Equals": [
+                            {"Ref": "One"},
+                            {"Ref": "Two"},
+                        ],
                     },
-                ],
-            },
+                },
+            ],
         }
-        t.rules.update(rule)
+        t.add_rule("ValidateEqual", rule)
 
-        self.assertEqual(t.rules, rule)
+        self.assertTrue("ValidateEqual" in t.rules)
 
         rendered = t.to_dict()
-        self.assertEqual(rendered['Rules'], rule)
+        self.assertEqual(rendered["Rules"]["ValidateEqual"], rule)
 
 
 if __name__ == '__main__':
