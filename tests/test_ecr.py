@@ -1,4 +1,5 @@
 import unittest
+from troposphere import Tags
 import troposphere.ecr as ecr
 
 
@@ -8,11 +9,6 @@ class TestECS(unittest.TestCase):
         repo = ecr.Repository(
             "ECRRepo",
             RepositoryName="myrepo",
-            Tags=[
-                {
-                    'Key': 'Name',
-                    'Value': 'myrepo',
-                },
-            ]
+            Tags=Tags(Name='myrepo'),
         )
         repo.to_dict()

@@ -20,5 +20,5 @@ class Repository(AWSObject):
         'LifecyclePolicy': (LifecyclePolicy, False),
         'RepositoryName': (basestring, False),
         'RepositoryPolicyText': (policytypes, False),
-        'Tags': ((Tags, list), False),
+        'Tags': (Tags, False),
     }
