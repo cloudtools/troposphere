@@ -678,6 +678,9 @@ class Template(object):
         :param rule: a dict with 'Assertions' (mandatory) and 'RuleCondition'
                      (optional) keys
         """
+        # TODO: check maximum number of Rules, and enforce limit.
+        if name in self.rules:
+            self.handle_duplicate_key(name)
         self.rules[name] = rule
 
     def set_version(self, version=None):
