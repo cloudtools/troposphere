@@ -582,6 +582,7 @@ class Template(object):
         'Mappings': (dict, False),
         'Resources': (dict, False),
         'Outputs': (dict, False),
+        'Rules': (dict, False),
     }
 
     def __init__(self, Description=None, Metadata=None):  # noqa: N803
@@ -592,6 +593,7 @@ class Template(object):
         self.outputs = {}
         self.parameters = {}
         self.resources = {}
+        self.rules = {}
         self.version = None
         self.transform = None
 
@@ -666,6 +668,21 @@ class Template(object):
                              % MAX_RESOURCES)
         return self._update(self.resources, resource)
 
+    def add_rule(self, name, rule):
+        """
+        Add a Rule to the template to enforce extra constraints on the
+        parameters. As of June 2019 rules are undocumented in CloudFormation
+        but have the same syntax and behaviour as in ServiceCatalog:
+        https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html
+
+        :param rule: a dict with 'Assertions' (mandatory) and 'RuleCondition'
+                     (optional) keys
+        """
+        # TODO: check maximum number of Rules, and enforce limit.
+        if name in self.rules:
+            self.handle_duplicate_key(name)
+        self.rules[name] = rule
+
     def set_version(self, version=None):
         if version:
             self.version = version
@@ -711,6 +728,8 @@ class Template(object):
             t['AWSTemplateFormatVersion'] = self.version
         if self.transform:
             t['Transform'] = self.transform
+        if self.rules:
+            t['Rules'] = self.rules
         t['Resources'] = self.resources
 
         return encode_to_dict(t)

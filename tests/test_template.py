@@ -163,5 +163,31 @@ class TestAwsInterface(unittest.TestCase):
         })
 
 
+class TestRules(unittest.TestCase):
+    def test_rules(self):
+        t = Template()
+        t.add_parameter("One")
+        t.add_parameter("Two")
+
+        rule = {
+            "Assertions": [
+                {
+                    "Assert": {
+                        "Fn::Equals": [
+                            {"Ref": "One"},
+                            {"Ref": "Two"},
+                        ],
+                    },
+                },
+            ],
+        }
+        t.add_rule("ValidateEqual", rule)
+
+        self.assertTrue("ValidateEqual" in t.rules)
+
+        rendered = t.to_dict()
+        self.assertEqual(rendered["Rules"]["ValidateEqual"], rule)
+
+
 if __name__ == '__main__':
     unittest.main()
