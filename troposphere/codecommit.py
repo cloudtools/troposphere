@@ -12,10 +12,12 @@ class S3(AWSProperty):
         'ObjectVersion': (basestring, False),
     }
 
+
 class Code(AWSProperty):
     props = {
         'S3': (S3, True)
     }
+
 
 class Trigger(AWSProperty):
     props = {
