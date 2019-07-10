@@ -5,14 +5,14 @@
 
 from . import AWSHelperFn, AWSObject, AWSProperty
 
-class S3:
+class S3(AWSProperty):
     props: {
         'Bucket': (basestring, True),
         'Key': (basestring, True),
         'ObjectVersion': (basestring, False),
     }
 
-class Code:
+class Code(AWSProperty):
     props: {
         'S3': (S3, True)
     }
