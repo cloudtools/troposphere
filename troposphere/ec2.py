@@ -4,19 +4,12 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
+from .compat import policytypes
 from .validators import (
     boolean, exactly_one, integer, integer_range, double,
     network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr,
     vpc_endpoint_type
 )
-
-try:
-    from awacs.aws import Policy
-
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
-
 
 VALID_ELASTICINFERENCEACCELERATOR_TYPES = ('eia1.medium', 'eia1.large',
                                            'eia1.xlarge')

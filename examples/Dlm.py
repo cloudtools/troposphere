@@ -2,7 +2,7 @@ from troposphere import GetAtt, Template, Tags
 from troposphere.dlm import (LifecyclePolicy, PolicyDetails, Schedule,
                              RetainRule, CreateRule)
 from troposphere.iam import Role
-from awacs.aws import Allow, Statement, Principal, Policy
+from awacs.aws import Allow, Statement, Principal, PolicyDocument
 from awacs.sts import AssumeRole
 
 t = Template()
@@ -10,7 +10,7 @@ t.add_version('2010-09-09')
 
 dlm_role = t.add_resource(Role(
     "DlmRole",
-    AssumeRolePolicyDocument=Policy(
+    AssumeRolePolicyDocument=PolicyDocument(
         Statement=[
             Statement(
                 Effect=Allow,

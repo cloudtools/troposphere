@@ -5,15 +5,9 @@
 import warnings
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
+from .compat import policytypes
 from .validators import boolean, integer, positive_integer, s3_bucket_name
 from .validators import s3_transfer_acceleration_status
-
-try:
-    from awacs.aws import Policy
-
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 Private = "Private"
 PublicRead = "PublicRead"

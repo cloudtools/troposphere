@@ -1,9 +1,5 @@
 from . import AWSObject, AWSProperty, Tags
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
+from .compat import policytypes
 
 
 class LifecyclePolicy(AWSProperty):

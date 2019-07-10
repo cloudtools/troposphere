@@ -4,14 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
+from .compat import policytypes
 from .validators import integer, boolean
-
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
-
 
 VALID_TARGET_TYPES = ('AWS::RDS::DBInstance', 'AWS::RDS::DBCluster')
 
