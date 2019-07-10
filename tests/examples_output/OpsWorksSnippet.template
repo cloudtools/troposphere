@@ -41,7 +41,7 @@
                     "MysqlRootPassword": {
                         "Ref": "MysqlRootPassword"
                     },
-                    "MysqlRootPasswordUbiquitous": true
+                    "MysqlRootPasswordUbiquitous": "true"
                 },
                 "AutoAssignElasticIps": false,
                 "AutoAssignPublicIps": true,

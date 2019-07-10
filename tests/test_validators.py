@@ -17,9 +17,9 @@ class TestValidators(unittest.TestCase):
 
     def test_boolean(self):
         for x in [True, "True", "true", 1, "1"]:
-            self.assertEqual(boolean(x), "true", repr(x))
+            self.assertEqual(boolean(x), True, repr(x))
         for x in [False, "False", "false", 0, "0"]:
-            self.assertEqual(boolean(x), "false", repr(x))
+            self.assertEqual(boolean(x), False, repr(x))
         for x in ["000", "111", "abc"]:
             with self.assertRaises(ValueError):
                 boolean(x)
