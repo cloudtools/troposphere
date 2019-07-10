@@ -5,6 +5,7 @@
 
 from . import AWSHelperFn, AWSObject, AWSProperty
 
+
 class S3(AWSProperty):
     props = {
         'Bucket': (basestring, True),
