@@ -5,6 +5,17 @@
 
 from . import AWSHelperFn, AWSObject, AWSProperty
 
+class S3:
+    props: {
+        'Bucket': (basestring, True),
+        'Key': (basestring, True),
+        'ObjectVersion': (basestring, False),
+    }
+
+class Code:
+    props: {
+        'S3': (S3, True)
+    }
 
 class Trigger(AWSProperty):
     props = {
@@ -36,6 +47,7 @@ class Repository(AWSObject):
     resource_type = "AWS::CodeCommit::Repository"
 
     props = {
+        'Code': (Code, False),
         'RepositoryDescription': (basestring, False),
         'RepositoryName': (basestring, True),
         'Triggers': ([Trigger], False),
