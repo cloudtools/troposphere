@@ -220,6 +220,7 @@ Currently supported AWS resource types
 - AWS::KinesisFirehose
 - AWS::Lambda
 - AWS::Logs
+- AWS::MediaLive
 - AWS::MediaStore
 - AWS::MSK
 - AWS::Neptune
