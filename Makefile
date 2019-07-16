@@ -5,7 +5,7 @@ PYDIRS=setup.py examples scripts tests troposphere
 test:
 	pycodestyle ${PYDIRS}
 	pyflakes ${PYDIRS}
-	python setup.py test
+	TROPO_REAL_BOOL=true python setup.py test
 
 spec:
 	curl -O https://d1uauaxba7bl26.cloudfront.net/latest/CloudFormationResourceSpecification.zip
