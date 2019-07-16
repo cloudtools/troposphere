@@ -972,6 +972,7 @@ class LaunchTemplateData(AWSProperty):
         'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LicenseSpecifications': ([LicenseSpecification], False),
         'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
         'Placement': (Placement, False),
