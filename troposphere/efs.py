@@ -1,4 +1,4 @@
-from . import AWSObject, Tags
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean
 
 Bursting = 'bursting'
@@ -22,6 +22,12 @@ def provisioned_throughput_validator(throughput):
     return throughput
 
 
+class LifecyclePolicy(AWSProperty):
+    props = {
+        'TransitionToIA': (basestring, True),
+    }
+
+
 class FileSystem(AWSObject):
     resource_type = "AWS::EFS::FileSystem"
 
@@ -29,6 +35,7 @@ class FileSystem(AWSObject):
         'Encrypted': (boolean, False),
         'FileSystemTags': (Tags, False),
         'KmsKeyId': (basestring, False),
+        'LifecyclePolicies': ([LifecyclePolicy], False),
         'PerformanceMode': (basestring, False),
         'ProvisionedThroughputInMibps': (float, False),
         'ThroughputMode': (throughput_mode_validator, False),
