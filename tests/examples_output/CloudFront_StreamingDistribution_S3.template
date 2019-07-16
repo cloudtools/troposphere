@@ -34,14 +34,14 @@
             "Properties": {
                 "StreamingDistributionConfig": {
                     "Comment": "Streaming distribution",
-                    "Enabled": "true",
+                    "Enabled": true,
                     "S3Origin": {
                         "DomainName": {
                             "Ref": "S3DNSName"
                         }
                     },
                     "TrustedSigners": {
-                        "Enabled": "false"
+                        "Enabled": false
                     }
                 }
             },

@@ -38,7 +38,7 @@
                         "DataId": {
                             "Ref": "WAFManualIPBlockSet"
                         },
-                        "Negated": "false",
+                        "Negated": false,
                         "Type": "IPMatch"
                     }
                 ]
@@ -126,7 +126,7 @@
                         "DataId": {
                             "Ref": "SizeMatchSet"
                         },
-                        "Negated": "false",
+                        "Negated": false,
                         "Type": "SizeConstraint"
                     }
                 ]
@@ -236,7 +236,7 @@
                         "DataId": {
                             "Ref": "SqliMatchSet"
                         },
-                        "Negated": "false",
+                        "Negated": false,
                         "Type": "SqlInjectionMatch"
                     }
                 ]
@@ -326,7 +326,7 @@
                         "DataId": {
                             "Ref": "XssMatchSet"
                         },
-                        "Negated": "false",
+                        "Negated": false,
                         "Type": "XssMatch"
                     }
                 ]

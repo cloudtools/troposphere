@@ -17,22 +17,22 @@
                     "Version": "2012-10-17"
                 },
                 "AdvancedOptions": {
-                    "rest.action.multi.allow_explicit_index": "true"
+                    "rest.action.multi.allow_explicit_index": true
                 },
                 "DomainName": "ExampleElasticsearchDomain",
                 "EBSOptions": {
-                    "EBSEnabled": "true",
+                    "EBSEnabled": true,
                     "Iops": 0,
                     "VolumeSize": 20,
                     "VolumeType": "gp2"
                 },
                 "ElasticsearchClusterConfig": {
                     "DedicatedMasterCount": 3,
-                    "DedicatedMasterEnabled": "true",
+                    "DedicatedMasterEnabled": true,
                     "DedicatedMasterType": "m3.medium.elasticsearch",
                     "InstanceCount": 2,
                     "InstanceType": "m3.medium.elasticsearch",
-                    "ZoneAwarenessEnabled": "true"
+                    "ZoneAwarenessEnabled": true
                 },
                 "SnapshotOptions": {
                     "AutomatedSnapshotStartHour": 0

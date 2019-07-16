@@ -37,7 +37,7 @@
                     },
                     "EncryptionInTransit": {
                         "ClientBroker": "TLSs",
-                        "InCluster": "true"
+                        "InCluster": true
                     }
                 },
                 "EnhancedMonitoring": "PER_BROKER",
