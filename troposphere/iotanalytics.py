@@ -5,11 +5,6 @@
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, json_checker, double
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 
 class RetentionPeriod(AWSProperty):

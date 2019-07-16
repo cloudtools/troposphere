@@ -4,12 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
+from .compat import policytypes
 from .validators import boolean
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 
 class Subscription(AWSProperty):

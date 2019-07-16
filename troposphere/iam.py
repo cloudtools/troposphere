@@ -4,15 +4,9 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
+from .compat import policytypes
 from .validators import integer, boolean, status
 from .validators import iam_path, iam_role_name, iam_group_name, iam_user_name
-
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
-
 
 Active = "Active"
 Inactive = "Inactive"

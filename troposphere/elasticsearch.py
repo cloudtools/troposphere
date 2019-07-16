@@ -4,15 +4,10 @@
 # See LICENSE file for full license.
 
 from . import AWSProperty, AWSObject, Tags
+from .compat import policytypes
 from .validators import boolean, integer, integer_range, positive_integer
 
 VALID_VOLUME_TYPES = ('standard', 'gp2', 'io1')
-
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 
 def validate_volume_type(volume_type):
