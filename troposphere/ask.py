@@ -11,12 +11,14 @@ class Overides(AWSProperty):
         'Manifest': (json_checker, False),
     }
 
+
 class AuthenticationConfiguration(AWSProperty):
     props = {
         'ClientId': (basestring, True),
         'ClientSecret': (basestring, True),
         'RefreshToken': (basestring, True),
     }
+
 
 class SkillPackage(AWSProperty):
     props = {
