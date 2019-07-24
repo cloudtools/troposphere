@@ -115,7 +115,7 @@
                 "TopicPolicy"
             ],
             "Properties": {
-                "IsLogging": "true",
+                "IsLogging": true,
                 "S3BucketName": {
                     "Ref": "S3Bucket"
                 },

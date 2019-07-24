@@ -4,12 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, Tags
-from .validators import boolean
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
+from .compat import policytypes
+from .validators import boolean, integer_range, key_usage_type
 
 
 class Alias(AWSObject):
@@ -29,5 +25,7 @@ class Key(AWSObject):
         'Enabled': (boolean, False),
         'EnableKeyRotation': (boolean, False),
         'KeyPolicy': (policytypes, True),
+        'KeyUsage': (key_usage_type, False),
+        'PendingWindowInDays': (integer_range(7, 30), False),
         'Tags': ((Tags, list), False)
     }

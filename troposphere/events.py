@@ -1,15 +1,37 @@
-# Copyright (c) 2013, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2019, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+
+from . import AWSObject
+from . import AWSProperty
+from .validators import integer
+
+
+class Condition(AWSProperty):
+    props = {
+        'Key': (basestring, False),
+        'Type': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
+class EventBusPolicy(AWSObject):
+    resource_type = "AWS::Events::EventBusPolicy"
+
+    props = {
+        'Action': (basestring, True),
+        'Condition': (Condition, False),
+        'Principal': (basestring, True),
+        'StatementId': (basestring, True),
+    }
 
 
 class EcsParameters(AWSProperty):
     props = {
-        "TaskCount": (int, False),
-        "TaskDefinitionArn": (basestring, True),
+        'TaskCount': (integer, False),
+        'TaskDefinitionArn': (basestring, True),
     }
 
 
@@ -39,10 +61,16 @@ class RunCommandParameters(AWSProperty):
     }
 
 
+class SqsParameters(AWSProperty):
+    props = {
+        'MessageGroupId': (basestring, True),
+    }
+
+
 class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
-        "EcsParameters": (EcsParameters, False),
+        'EcsParameters': (EcsParameters, False),
         'Id': (basestring, True),
         'Input': (basestring, False),
         'InputPath': (basestring, False),
@@ -50,6 +78,7 @@ class Target(AWSProperty):
         'KinesisParameters': (KinesisParameters, False),
         'RoleArn': (basestring, False),
         'RunCommandParameters': (RunCommandParameters, False),
+        'SqsParameters': (SqsParameters, False),
     }
 
 
@@ -57,10 +86,10 @@ class Rule(AWSObject):
     resource_type = "AWS::Events::Rule"
 
     props = {
-
         'Description': (basestring, False),
         'EventPattern': (dict, False),
         'Name': (basestring, False),
+        'RoleArn': (basestring, False),
         'ScheduleExpression': (basestring, False),
         'State': (basestring, False),
         'Targets': ([Target], False),

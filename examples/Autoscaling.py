@@ -12,7 +12,7 @@ import troposphere.elasticloadbalancing as elb
 
 t = Template()
 
-t.add_description("""\
+t.set_description("""\
 Configures autoscaling group for api app""")
 
 SecurityGroup = t.add_parameter(Parameter(

@@ -9,7 +9,7 @@ from troposphere.sqs import Queue
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template SQS_With_CloudWatch_Alarms: Sample "
     "template showing how to create an SQS queue with AWS CloudWatch alarms "
     "on queue depth. **WARNING** This template creates an Amazon SQS Queue "

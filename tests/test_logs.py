@@ -11,6 +11,20 @@ class TestLogs(unittest.TestCase):
         )
         self.assertIn('DeletionPolicy', log_group.to_dict())
 
+    def test_loggroup_retention(self):
+        for days in [7, "7"]:
+            LogGroup(
+                "LogGroupWithDeletionPolicy",
+                RetentionInDays=days,
+            )
+
+        for days in [6, "6"]:
+            with self.assertRaises(ValueError):
+                LogGroup(
+                    "LogGroupWithDeletionPolicy",
+                    RetentionInDays=days,
+                )
+
     def test_log_destination(self):
         log_destination = Destination(
             'MyLogDestination',

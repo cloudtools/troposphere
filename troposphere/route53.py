@@ -7,6 +7,18 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import integer, positive_integer, network_port, boolean
 
 
+VALID_RULETYPES = ('SYSTEM', 'FORWARD')
+
+
+def validate_ruletype(ruletype):
+    """Validate RuleType for ResolverRule."""
+
+    if ruletype not in VALID_RULETYPES:
+        raise ValueError("Rule type must be one of: %s" %
+                         ", ".join(VALID_RULETYPES))
+    return ruletype
+
+
 class AliasTarget(AWSProperty):
     props = {
         'HostedZoneId': (basestring, True),
@@ -46,6 +58,7 @@ class BaseRecordSet(object):
         'HealthCheckId': (basestring, False),
         'HostedZoneId': (basestring, False),
         'HostedZoneName': (basestring, False),
+        'MultiValueAnswer': (boolean, False),
         'Name': (basestring, True),
         'Region': (basestring, False),
         'ResourceRecords': (list, False),
@@ -142,4 +155,53 @@ class HostedZone(AWSObject):
         'Name': (basestring, True),
         'QueryLoggingConfig': (QueryLoggingConfig, False),
         'VPCs': ([HostedZoneVPCs], False),
+    }
+
+
+class IpAddressRequest(AWSProperty):
+    props = {
+        'Ip': (basestring, False),
+        'SubnetId': (basestring, True),
+    }
+
+
+class ResolverEndpoint(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverEndpoint"
+
+    props = {
+        'Direction': (basestring, True),
+        'IpAddresses': ([IpAddressRequest], True),
+        'Name': (basestring, False),
+        'SecurityGroupIds': ([basestring], True),
+        'Tags': (Tags, False),
+    }
+
+
+class TargetAddress(AWSProperty):
+    props = {
+        'Ip': (basestring, True),
+        'Port': (basestring, True),
+    }
+
+
+class ResolverRule(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverRule"
+
+    props = {
+        'DomainName': (basestring, True),
+        'Name': (basestring, False),
+        'ResolverEndpointId': (basestring, False),
+        'RuleType': (validate_ruletype, True),
+        'Tags': (Tags, False),
+        'TargetIps': ([TargetAddress], False),
+    }
+
+
+class ResolverRuleAssociation(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverRuleAssociation"
+
+    props = {
+        'Name': (basestring, False),
+        'ResolverRuleId': (basestring, True),
+        'VPCId': (basestring, True),
     }

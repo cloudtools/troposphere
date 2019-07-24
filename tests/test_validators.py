@@ -1,23 +1,25 @@
 import unittest
-from troposphere import Parameter, Ref
+from troposphere import Parameter, Ref, NoValue
 from troposphere.validators import boolean, integer, integer_range
 from troposphere.validators import positive_integer, network_port
 from troposphere.validators import tg_healthcheck_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
 from troposphere.validators import iam_group_name, iam_user_name, elb_name
+from troposphere.validators import backup_vault_name
 from troposphere.validators import mutually_exclusive, notification_type
 from troposphere.validators import notification_event, task_type
 from troposphere.validators import compliance_level, operating_system
+from troposphere.validators import one_of
 
 
 class TestValidators(unittest.TestCase):
 
     def test_boolean(self):
         for x in [True, "True", "true", 1, "1"]:
-            self.assertEqual(boolean(x), "true", repr(x))
+            self.assertEqual(boolean(x), True, repr(x))
         for x in [False, "False", "false", 0, "0"]:
-            self.assertEqual(boolean(x), "false", repr(x))
+            self.assertEqual(boolean(x), False, repr(x))
         for x in ["000", "111", "abc"]:
             with self.assertRaises(ValueError):
                 boolean(x)
@@ -148,15 +150,42 @@ class TestValidators(unittest.TestCase):
             with self.assertRaises(ValueError):
                 iam_user_name(s)
 
+    def test_backup_vault_name(self):
+        for s in ['a', 'a'*50, 'A', 'Aa', 'A1', 'A-a', 'A_a', 'A.a']:
+            backup_vault_name(s)
+        for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
+            with self.assertRaises(ValueError):
+                backup_vault_name(s)
+
+    def test_one_of(self):
+        conds = ['Bilbo', 'Frodo']
+        one_of('hobbits', {"first": "Bilbo"}, "first", conds)
+        one_of('hobbits', {"first": "Frodo"}, "first", conds)
+        with self.assertRaises(ValueError):
+            one_of('hobbits', {"first": "Gandalf"}, "first", conds)
+            one_of('hobbits', {"first": "Gandalf"}, "second", conds)
+
     def test_mutually_exclusive(self):
         conds = ['a', 'b', 'c']
-        mutually_exclusive('a', ['a'], conds)
-        mutually_exclusive('b', ['b'], conds)
-        mutually_exclusive('c', ['c'], conds)
+        mutually_exclusive('a', {"a": "apple"}, conds)
+        mutually_exclusive('b', {"b": "banana"}, conds)
+        mutually_exclusive('c', {"c": "carrot"}, conds)
         with self.assertRaises(ValueError):
-            mutually_exclusive('ac', ['a', 'c'], conds)
+            mutually_exclusive('ac', {"a": "apple", "c": "carrot"}, conds)
         with self.assertRaises(ValueError):
-            mutually_exclusive('abc', ['a', 'b', 'c'], conds)
+            mutually_exclusive(
+                'abc', {"a": "apple", "b": "banana", "c": "carrot"}, conds
+            )
+
+    def test_mutually_exclusive_novalue(self):
+        conds = ['a', 'b', 'c']
+        properties = {
+            'a': Ref("AWS::NoValue"),
+            'b': NoValue,
+            'c': "AWS::Region",
+        }
+
+        mutually_exclusive("a", properties, conds)
 
     def test_compliance_level(self):
         for s in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFORMATIONAL',

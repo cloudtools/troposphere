@@ -3,8 +3,16 @@
 #
 # See LICENSE file for full license.
 
+import re
+
 from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, network_port
+
+
+def validate_node_group_id(node_group_id):
+    if re.match(r'\d{1,4}', node_group_id):
+        return node_group_id
+    raise ValueError("Invalid NodeGroupId: %s" % node_group_id)
 
 
 class CacheCluster(AWSObject):
@@ -98,11 +106,11 @@ class ReplicationGroup(AWSObject):
         'AuthToken': (basestring, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AutomaticFailoverEnabled': (boolean, False),
-        'CacheNodeType': (basestring, True),
+        'CacheNodeType': (basestring, False),
         'CacheParameterGroupName': (basestring, False),
         'CacheSecurityGroupNames': ([basestring], False),
         'CacheSubnetGroupName': (basestring, False),
-        'Engine': (basestring, True),
+        'Engine': (basestring, False),
         'EngineVersion': (basestring, False),
         'NodeGroupConfiguration': (list, False),
         'NotificationTopicArn': (basestring, False),
@@ -141,6 +149,7 @@ class ReplicationGroup(AWSObject):
 
 class NodeGroupConfiguration(AWSProperty):
     props = {
+        'NodeGroupId': (validate_node_group_id, False),
         'PrimaryAvailabilityZone': (basestring, False),
         'ReplicaAvailabilityZones': (basestring, False),
         'ReplicaCount': (integer, False),

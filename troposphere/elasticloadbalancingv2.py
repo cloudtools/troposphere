@@ -6,7 +6,8 @@
 from . import AWSObject, AWSProperty, If, Tags
 from .validators import (
     elb_name, exactly_one, network_port,
-    tg_healthcheck_port, integer
+    tg_healthcheck_port, integer,
+    one_of, boolean
 )
 
 
@@ -23,23 +24,171 @@ class Certificate(AWSProperty):
     }
 
 
+class AuthenticateCognitoConfig(AWSProperty):
+    props = {
+        "AuthenticationRequestExtraParams": (dict, False),
+        "OnUnauthenticatedRequest": (basestring, False),
+        "Scope": (basestring, False),
+        "SessionCookieName": (basestring, False),
+        "SessionTimeout": (integer, False),
+        "UserPoolArn": (basestring, True),
+        "UserPoolClientId": (basestring, True),
+        "UserPoolDomain": (basestring, True)
+    }
+
+
+class AuthenticateOidcConfig(AWSProperty):
+    props = {
+        "AuthenticationRequestExtraParams": (dict, False),
+        "AuthorizationEndpoint": (basestring, True),
+        "ClientId": (basestring, True),
+        "ClientSecret": (basestring, True),
+        "Issuer": (basestring, True),
+        "OnUnauthenticatedRequest": (basestring, False),
+        "Scope": (basestring, False),
+        "SessionCookieName": (basestring, False),
+        "SessionTimeout": (integer, False),
+        "TokenEndpoint": (basestring, True),
+        "UserInfoEndpoint": (basestring, True)
+    }
+
+
+class RedirectConfig(AWSProperty):
+    # https://docs.aws.amazon.com/
+    # AWSCloudFormation/latest/UserGuide/
+    # aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
+    props = {
+        'Host': (basestring, False),
+        'Path': (basestring, False),
+        'Port': (basestring, False),
+        'Protocol': (basestring, False),
+        'Query': (basestring, False),
+        'StatusCode': (basestring, True),
+    }
+
+    def validate(self):
+        one_of(self.__class__.__name__,
+               self.properties,
+               'StatusCode',
+               ['HTTP_301', 'HTTP_302'])
+
+
+class FixedResponseConfig(AWSProperty):
+    props = {
+        'ContentType': (basestring, False),
+        'MessageBody': (basestring, False),
+        'StatusCode': (basestring, True),
+    }
+
+    def validate(self):
+        one_of(self.__class__.__name__,
+               self.properties,
+               'ContentType',
+               [None, 'text/plain', 'text/css', 'text/html',
+                'application/javascript', 'application/json'])
+
+
 class Action(AWSProperty):
     props = {
-        'TargetGroupArn': (basestring, True),
-        'Type': (basestring, True)
+        "AuthenticateCognitoConfig": (AuthenticateCognitoConfig, False),
+        "AuthenticateOidcConfig": (AuthenticateOidcConfig, False),
+        "FixedResponseConfig": (FixedResponseConfig, False),
+        "Order": (integer, False),
+        "RedirectConfig": (RedirectConfig, False),
+        "TargetGroupArn": (basestring, False),
+        "Type": (basestring, True)
+    }
+
+    def validate(self):
+        one_of(self.__class__.__name__,
+               self.properties,
+               'Type',
+               ['forward', 'redirect', 'fixed-response',
+                'authenticate-cognito', 'authenticate-oidc'])
+
+        def requires(action_type, prop):
+            if self.properties.get('Type') == action_type and \
+                    prop not in self.properties:
+                raise ValueError(
+                    'Type "%s" requires definition of "%s"' % (
+                        action_type, prop
+                    )
+                )
+
+            if prop in self.properties and \
+                    self.properties.get('Type') != action_type:
+                raise ValueError(
+                    'Definition of "%s" allowed only with '
+                    'type "%s", was: "%s"' % (
+                        prop, action_type, self.properties.get('Type')
+                    )
+                )
+
+        requires('forward', 'TargetGroupArn')
+        requires('redirect', 'RedirectConfig')
+        requires('fixed-response', 'FixedResponseConfig')
+
+
+class HostHeaderConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class HttpHeaderConfig(AWSProperty):
+    props = {
+        'HttpHeaderName': (basestring, False),
+        'Values': ([basestring], False),
+    }
+
+
+class HttpRequestMethodConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class PathPatternConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
+    }
+
+
+class QueryStringKeyValue(AWSProperty):
+    props = {
+        'Key': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
+class QueryStringConfig(AWSProperty):
+    props = {
+        'Values': ([QueryStringKeyValue], False),
+    }
+
+
+class SourceIpConfig(AWSProperty):
+    props = {
+        'Values': ([basestring], False),
     }
 
 
 class Condition(AWSProperty):
     props = {
-        'Field': (basestring, True),
-        'Values': ([basestring], True)
+        'Field': (basestring, False),
+        'HostHeaderConfig': (HostHeaderConfig, False),
+        'HttpHeaderConfig': (HttpHeaderConfig, False),
+        'HttpRequestMethodConfig': (HttpRequestMethodConfig, False),
+        'PathPatternConfig': (PathPatternConfig, False),
+        'QueryStringConfig': (QueryStringConfig, False),
+        'SourceIpConfig': (SourceIpConfig, False),
+        'Values': ([basestring], False),
     }
 
 
 class Matcher(AWSProperty):
     props = {
-        'HttpCode': (basestring, False)
+        'HttpCode': (basestring, True)
     }
 
 
@@ -100,12 +249,14 @@ class ListenerRule(AWSObject):
 
 TARGET_TYPE_INSTANCE = 'instance'
 TARGET_TYPE_IP = 'ip'
+TARGET_TYPE_LAMBDA = 'lambda'
 
 
 class TargetGroup(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::TargetGroup"
 
     props = {
+        'HealthCheckEnabled': (boolean, False),
         'HealthCheckIntervalSeconds': (integer, False),
         'HealthCheckPath': (basestring, False),
         'HealthCheckPort': (tg_healthcheck_port, False),
@@ -114,15 +265,77 @@ class TargetGroup(AWSObject):
         'HealthyThresholdCount': (integer, False),
         'Matcher': (Matcher, False),
         'Name': (basestring, False),
-        'Port': (network_port, True),
-        'Protocol': (basestring, True),
+        'Port': (network_port, False),
+        'Protocol': (basestring, False),
         'Tags': ((Tags, list), False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
         'TargetType': (basestring, False),
         'UnhealthyThresholdCount': (integer, False),
-        'VpcId': (basestring, True),
+        'VpcId': (basestring, False),
     }
+
+    def validate(self):
+        one_of(self.__class__.__name__,
+               self.properties,
+               'TargetType',
+               [
+                   None,
+                   TARGET_TYPE_INSTANCE,
+                   TARGET_TYPE_IP,
+                   TARGET_TYPE_LAMBDA
+               ])
+
+        def check_properties(action_types, props_to_check, required):
+
+            for this_type in action_types:
+
+                self_props = self.properties
+                if self_props.get('TargetType') == this_type:
+
+                    invalid_props = []
+                    for prop in props_to_check:
+
+                        if (prop not in self_props and required is True) or \
+                                (prop in self_props and required is False):
+                            invalid_props.append(prop)
+
+                    if len(invalid_props) > 0:
+
+                        # Make error message more readable in the default case
+                        type_msg = ('Omitting TargetType' if this_type is None
+                                    else 'TargetType of "%s"' % (this_type))
+
+                        raise ValueError(
+                            '%s in "%s" %s definitions of %s' % (
+                                type_msg,
+                                self.__class__.__name__,
+                                "requires" if required is True
+                                else "must not contain",
+                                str(invalid_props).strip('[]')
+                            ))
+
+        # None defaults to instance as per the AWS docs
+        check_properties([
+                            None,
+                            TARGET_TYPE_INSTANCE,
+                            TARGET_TYPE_IP
+                         ],
+                         [
+                            'Port',
+                            'Protocol',
+                            'VpcId'
+                         ],
+                         True)
+        check_properties([
+                            TARGET_TYPE_LAMBDA
+                         ],
+                         [
+                            'Port',
+                            'Protocol',
+                            'VpcId'
+                         ],
+                         False)
 
 
 class LoadBalancer(AWSObject):

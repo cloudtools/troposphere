@@ -46,3 +46,9 @@ nosetests.xml
 # Git
 *.diff
 *.patch
+
+# Sphinx
+docs/_build/
+
+# VSCode
+.vscode

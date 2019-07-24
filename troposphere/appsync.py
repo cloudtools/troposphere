@@ -3,8 +3,15 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
+
+
+def resolver_kind_validator(x):
+    valid_types = ["UNIT", "PIPELINE"]
+    if x not in valid_types:
+        raise ValueError("Kind must be one of: %s" % ", ".join(valid_types))
+    return x
 
 
 class ApiKey(AWSObject):
@@ -32,9 +39,47 @@ class ElasticsearchConfig(AWSProperty):
     }
 
 
+class AwsIamConfig(AWSProperty):
+    props = {
+        'SigningRegion': (basestring, False),
+        'SigningServiceName': (basestring, False),
+    }
+
+
+class AuthorizationConfig(AWSProperty):
+    props = {
+        'AuthorizationType': (basestring, True),
+        'AwsIamConfig': (AwsIamConfig, False),
+    }
+
+
+class HttpConfig(AWSProperty):
+    props = {
+        'AuthorizationConfig': (AuthorizationConfig, False),
+        'Endpoint': (basestring, True),
+    }
+
+
 class LambdaConfig(AWSProperty):
     props = {
         'LambdaFunctionArn': (basestring, True),
+    }
+
+
+class RdsHttpEndpointConfig(AWSProperty):
+    props = {
+        'AwsRegion': (basestring, True),
+        'AwsSecretStoreArn': (basestring, True),
+        'DatabaseName': (basestring, False),
+        'DbClusterIdentifier': (basestring, True),
+        'Schema': (basestring, False),
+    }
+
+
+class RelationalDatabaseConfig(AWSProperty):
+    props = {
+        'RdsHttpEndpointConfig': (RdsHttpEndpointConfig, False),
+        'RelationalDatasourceType': (basestring, False),
     }
 
 
@@ -46,10 +91,28 @@ class DataSource(AWSObject):
         'Description': (basestring, False),
         'DynamoDBConfig': (DynamoDBConfig, False),
         'ElasticsearchConfig': (ElasticsearchConfig, False),
+        'HttpConfig': (HttpConfig, False),
         'LambdaConfig': (LambdaConfig, False),
         'Name': (basestring, True),
         'ServiceRoleArn': (basestring, False),
         'Type': (basestring, True),
+        'RelationalDatabaseConfig': (RelationalDatabaseConfig, False),
+    }
+
+
+class FunctionConfiguration(AWSObject):
+    resource_type = "AWS::AppSync::FunctionConfiguration"
+
+    props = {
+        'ApiId': (basestring, True),
+        'Name': (basestring, False),
+        'Description': (basestring, False),
+        'DataSourceName': (basestring, False),
+        'FunctionVersion': (basestring, False),
+        'RequestMappingTemplate': (basestring, False),
+        'RequestMappingTemplateS3Location': (basestring, False),
+        'ResponseMappingTemplate': (basestring, False),
+        'ResponseMappingTemplateS3Location': (basestring, False),
     }
 
 
@@ -65,7 +128,7 @@ class OpenIDConnectConfig(AWSProperty):
         'AuthTTL': (float, False),
         'ClientId': (basestring, False),
         'IatTTL': (float, False),
-        'Issuer': (basestring, True),
+        'Issuer': (basestring, False),
     }
 
 
@@ -78,15 +141,26 @@ class UserPoolConfig(AWSProperty):
     }
 
 
+class AdditionalAuthenticationProviders(AWSProperty):
+    props = {
+        'AuthenticationType': (basestring, True),
+        'OpenIDConnectConfig': (OpenIDConnectConfig, False),
+        'UserPoolConfig': (UserPoolConfig, False),
+    }
+
+
 class GraphQLApi(AWSObject):
     resource_type = "AWS::AppSync::GraphQLApi"
 
     props = {
+        'AdditionalAuthenticationProviders':
+            (AdditionalAuthenticationProviders, False),
         'AuthenticationType': (basestring, True),
         'LogConfig': (LogConfig, False),
         'Name': (basestring, True),
         'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'UserPoolConfig': (UserPoolConfig, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -100,13 +174,21 @@ class GraphQLSchema(AWSObject):
     }
 
 
+class PipelineConfig(AWSProperty):
+    props = {
+        'Functions': ([basestring], False),
+    }
+
+
 class Resolver(AWSObject):
     resource_type = "AWS::AppSync::Resolver"
 
     props = {
         'ApiId': (basestring, True),
-        'DataSourceName': (basestring, True),
+        'DataSourceName': (basestring, False),
         'FieldName': (basestring, True),
+        'Kind': (resolver_kind_validator, False),
+        'PipelineConfig': (PipelineConfig, False),
         'RequestMappingTemplate': (basestring, False),
         'RequestMappingTemplateS3Location': (basestring, False),
         'ResponseMappingTemplate': (basestring, False),

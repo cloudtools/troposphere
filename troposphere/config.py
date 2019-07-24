@@ -79,7 +79,7 @@ class OrganizationAggregationSource(AWSProperty):
     props = {
         'AllAwsRegions': (boolean, False),
         'AwsRegions': ([basestring], False),
-        'RoleARN': (basestring, True),
+        'RoleArn': (basestring, True),
     }
 
 
@@ -95,7 +95,7 @@ class ConfigurationAggregator(AWSObject):
     resource_type = "AWS::Config::ConfigurationAggregator"
 
     props = {
-        'AccountAggregationSources': (AccountAggregationSources, False),
+        'AccountAggregationSources': ([AccountAggregationSources], False),
         'ConfigurationAggregatorName': (basestring, True),
         'OrganizationAggregationSource':
             (OrganizationAggregationSource, False),
@@ -136,4 +136,17 @@ class DeliveryChannel(AWSObject):
         'S3BucketName': (basestring, True),
         'S3KeyPrefix': (basestring, False),
         'SnsTopicARN': (basestring, False),
+    }
+
+
+class RemediationConfiguration(AWSObject):
+    resource_type = "AWS::Config::RemediationConfiguration"
+
+    props = {
+        'ConfigRuleName': (basestring, True),
+        'Parameters': (dict, False),
+        'ResourceType': (basestring, False),
+        'TargetId': (basestring, True),
+        'TargetType': (basestring, True),
+        'TargetVersion': (basestring, False),
     }

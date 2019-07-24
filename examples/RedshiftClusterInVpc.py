@@ -13,7 +13,7 @@ t = Template()
 
 t.add_version("2010-09-09")
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template: Redshift cluster in a VPC")
 
 dbname = t.add_parameter(Parameter(

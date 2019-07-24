@@ -27,6 +27,22 @@
             },
             "Type": "AWS::Lambda::Function"
         },
+        "FoobarPermission": {
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Ref": "FoobarFunction"
+                },
+                "Principal": "events.amazonaws.com",
+                "SourceArn": {
+                    "Fn::GetAtt": [
+                        "FoobarRule",
+                        "Arn"
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
         "FoobarRule": {
             "Properties": {
                 "Description": "Foobar CloudWatch Event",

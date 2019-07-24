@@ -10,7 +10,7 @@ t = Template()
 
 t.add_version("2010-09-09")
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template RDS_Snapshot_On_Delete: Sample "
     "template showing how to create an RDS DBInstance that is snapshotted on "
     "stack deletion. **WARNING** This template creates an Amazon RDS database "

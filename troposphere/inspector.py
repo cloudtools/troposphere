@@ -12,7 +12,7 @@ class AssessmentTarget(AWSObject):
 
     props = {
         'AssessmentTargetName': (basestring, False),
-        'ResourceGroupArn': (basestring, True),
+        'ResourceGroupArn': (basestring, False),
     }
 
 

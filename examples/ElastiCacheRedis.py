@@ -16,7 +16,7 @@ import awacs
 from awacs.aws import (Allow,
                        Statement,
                        Principal,
-                       Policy)
+                       PolicyDocument)
 from awacs.sts import AssumeRole
 
 from troposphere import (Base64,
@@ -41,7 +41,7 @@ def main():
     template = Template()
 
     # Description
-    template.add_description(
+    template.set_description(
         'AWS CloudFormation Sample Template ElastiCache_Redis:'
         'Sample template showing how to create an Amazon'
         'ElastiCache Redis Cluster. **WARNING** This template'
@@ -250,7 +250,7 @@ def main():
     # Resources
     webserverrole = template.add_resource(iam.Role(
         'WebServerRole',
-        AssumeRolePolicyDocument=Policy(
+        AssumeRolePolicyDocument=PolicyDocument(
             Statement=[
                 Statement(
                     Effect=Allow,
@@ -268,7 +268,7 @@ def main():
     template.add_resource(iam.PolicyType(
         'WebServerRolePolicy',
         PolicyName='WebServerRole',
-        PolicyDocument=awacs.aws.Policy(
+        PolicyDocument=PolicyDocument(
             Statement=[awacs.aws.Statement(
                 Action=[awacs.aws.Action("elasticache",
                         "DescribeCacheClusters")],

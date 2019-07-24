@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, If, FindInMap, Ref
-from .validators import boolean, integer
+from .validators import boolean, integer, exactly_one, mutually_exclusive
 from . import cloudformation
 
 
@@ -19,7 +19,9 @@ Default = 'Default'
 OldestInstance = 'OldestInstance'
 NewestInstance = 'NewestInstance'
 OldestLaunchConfiguration = 'OldestLaunchConfiguration'
+OldestLaunchTemplate = 'OldestLaunchTemplate'
 ClosestToNextInstanceHour = 'ClosestToNextInstanceHour'
+AllocationStrategy = 'AllocationStrategy'
 
 
 class Tag(AWSHelperFn):
@@ -61,7 +63,7 @@ class Tags(AWSHelperFn):
 class LifecycleHookSpecification(AWSProperty):
     props = {
         'DefaultResult': (basestring, False),
-        'HeartbeatTimeout': (basestring, False),
+        'HeartbeatTimeout': (integer, False),
         'LifecycleHookName': (basestring, True),
         'LifecycleTransition': (basestring, True),
         'NotificationMetadata': (basestring, False),
@@ -114,6 +116,52 @@ class Metadata(AWSHelperFn):
             )
 
 
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'LaunchTemplateId': (basestring, False),
+        'LaunchTemplateName': (basestring, False),
+        'Version': (basestring, True)
+    }
+
+    def validate(self):
+        template_ids = [
+            'LaunchTemplateId',
+            'LaunchTemplateName'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, template_ids)
+
+
+class InstancesDistribution(AWSProperty):
+    props = {
+        'OnDemandAllocationStrategy': (basestring, False),
+        'OnDemandBaseCapacity': (integer, False),
+        'OnDemandPercentageAboveBaseCapacity': (integer, False),
+        'SpotAllocationStrategy': (basestring, False),
+        'SpotInstancePools': (integer, False),
+        'SpotMaxPrice': (basestring, False),
+    }
+
+
+class LaunchTemplateOverrides(AWSProperty):
+    props = {
+        'InstanceType': (basestring, False),
+    }
+
+
+class LaunchTemplate(AWSProperty):
+    props = {
+        'LaunchTemplateSpecification': (LaunchTemplateSpecification, True),
+        'Overrides': ([LaunchTemplateOverrides], True),
+    }
+
+
+class MixedInstancesPolicy(AWSProperty):
+    props = {
+        'InstancesDistribution': (InstancesDistribution, False),
+        'LaunchTemplate': (LaunchTemplate, True),
+    }
+
+
 class AutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
@@ -126,14 +174,17 @@ class AutoScalingGroup(AWSObject):
         'HealthCheckType': (basestring, False),
         'InstanceId': (basestring, False),
         'LaunchConfigurationName': (basestring, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'LifecycleHookSpecificationList':
             ([LifecycleHookSpecification], False),
         'LoadBalancerNames': (list, False),
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
+        'MixedInstancesPolicy': (MixedInstancesPolicy, False),
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
+        'ServiceLinkedRoleARN': (basestring, False),
         'Tags': ((Tags, list), False),
         'TargetGroupARNs': ([basestring], False),
         'TerminationPolicies': ([basestring], False),
@@ -150,16 +201,17 @@ class AutoScalingGroup(AWSObject):
                         update_policy.AutoScalingRollingUpdate, AWSHelperFn):
                     rolling_update = update_policy.AutoScalingRollingUpdate
 
+                    min_instances = rolling_update.properties.get(
+                        "MinInstancesInService", "0")
                     is_min_no_check = isinstance(
-                        rolling_update.MinInstancesInService,
-                        (FindInMap, Ref)
+                        min_instances, (FindInMap, Ref)
                     )
                     is_max_no_check = isinstance(self.MaxSize,
                                                  (If, FindInMap, Ref))
 
                     if not (is_min_no_check or is_max_no_check):
                         max_count = int(self.MaxSize)
-                        min_count = int(rolling_update.MinInstancesInService)
+                        min_count = int(min_instances)
 
                         if min_count >= max_count:
                             raise ValueError(
@@ -167,16 +219,14 @@ class AutoScalingGroup(AWSObject):
                                 "MinInstancesInService must be less than the "
                                 "autoscaling group's MaxSize")
 
-        launch_config = self.properties.get('LaunchConfigurationName')
-        instance_id = self.properties.get('InstanceId')
-        if launch_config and instance_id:
-            raise ValueError("LaunchConfigurationName and InstanceId "
-                             "are mutually exclusive.")
-        if not launch_config and not instance_id:
-            raise ValueError("Must specify either LaunchConfigurationName or "
-                             "InstanceId: http://docs.aws.amazon.com/AWSCloud"
-                             "Formation/latest/UserGuide/aws-properties-as-gr"
-                             "oup.html#cfn-as-group-instanceid")
+        instance_config_types = [
+            'LaunchConfigurationName',
+            'LaunchTemplate',
+            'InstanceId'
+        ]
+
+        mutually_exclusive(self.__class__.__name__, self.properties,
+                           instance_config_types)
 
         availability_zones = self.properties.get('AvailabilityZones')
         vpc_zone_identifier = self.properties.get('VPCZoneIdentifier')
@@ -204,6 +254,7 @@ class LaunchConfiguration(AWSObject):
         'InstanceType': (basestring, True),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LaunchConfigurationName': (basestring, False),
         'Metadata': (Metadata, False),
         'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),

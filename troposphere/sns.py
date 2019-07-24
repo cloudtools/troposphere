@@ -4,11 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
+from .compat import policytypes
+from .validators import boolean
 
 
 class Subscription(AWSProperty):
@@ -22,8 +19,12 @@ class SubscriptionResource(AWSObject):
     resource_type = "AWS::SNS::Subscription"
 
     props = {
-        'Endpoint': (basestring, True),
+        'DeliveryPolicy': (dict, False),
+        'Endpoint': (basestring, False),
+        'FilterPolicy': (dict, False),
         'Protocol': (basestring, True),
+        'RawMessageDelivery': (boolean, False),
+        'Region': (basestring, False),
         'TopicArn': (basestring, True),
     }
 
@@ -42,6 +43,7 @@ class Topic(AWSObject):
 
     props = {
         'DisplayName': (basestring, False),
+        'KmsMasterKeyId': (basestring, False),
         'Subscription': ([Subscription], False),
         'TopicName': (basestring, False),
     }

@@ -9,7 +9,7 @@ from troposphere.elasticsearch import SnapshotOptions
 
 templ = Template()
 
-templ.add_description('Elasticsearch Domain example')
+templ.set_description('Elasticsearch Domain example')
 
 es_domain = templ.add_resource(Domain(
     'ElasticsearchDomain',
@@ -36,7 +36,7 @@ es_domain = templ.add_resource(Domain(
                         'Action': 'es:*',
                         'Resource': '*'
                     }]},
-    AdvancedOptions={"rest.action.multi.allow_explicit_index": "true"},
+    AdvancedOptions={"rest.action.multi.allow_explicit_index": True},
     VPCOptions=VPCOptions(
        SubnetIds=["subnet-4f2bb123"],
        SecurityGroupIds=["sg-04cf048c"]

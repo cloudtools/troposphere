@@ -1,7 +1,7 @@
 from troposphere import Template
 from troposphere.events import Rule, Target
-from troposphere.awslambda import Function, Code
-from troposphere import GetAtt, Join
+from troposphere.awslambda import Function, Code, Permission
+from troposphere import GetAtt, Join, Ref
 
 
 t = Template()
@@ -53,6 +53,15 @@ rule = t.add_resource(Rule(
     Description="Foobar CloudWatch Event",
     State="ENABLED",
     Targets=[foobar_target]
+))
+
+# Create Lambda Permission
+permission = t.add_resource(Permission(
+    'FoobarPermission',
+    Action='lambda:invokeFunction',
+    Principal='events.amazonaws.com',
+    FunctionName=Ref(foobar_function),
+    SourceArn=GetAtt(rule, 'Arn')
 ))
 
 print(t.to_json())

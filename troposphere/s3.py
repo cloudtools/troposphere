@@ -5,15 +5,9 @@
 import warnings
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
-from .validators import boolean, positive_integer, s3_bucket_name
+from .compat import policytypes
+from .validators import boolean, integer, positive_integer, s3_bucket_name
 from .validators import s3_transfer_acceleration_status
-
-try:
-    from awacs.aws import Policy
-
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 Private = "Private"
 PublicRead = "PublicRead"
@@ -363,6 +357,36 @@ class InventoryConfiguration(AWSProperty):
     }
 
 
+class DefaultRetention(AWSProperty):
+    props = {
+        'Days': (integer, False),
+        'Mode': (basestring, False),
+        'Years': (integer, False),
+    }
+
+
+class ObjectLockRule(AWSProperty):
+    props = {
+        'DefaultRetention': (DefaultRetention, False),
+    }
+
+
+class ObjectLockConfiguration(AWSProperty):
+    props = {
+        'ObjectLockEnabled': (basestring, False),
+        'Rule': (ObjectLockRule, False),
+    }
+
+
+class PublicAccessBlockConfiguration(AWSProperty):
+    props = {
+        'BlockPublicAcls': (boolean, False),
+        'BlockPublicPolicy': (boolean, False),
+        'IgnorePublicAcls': (boolean, False),
+        'RestrictPublicBuckets': (boolean, False),
+    }
+
+
 class Bucket(AWSObject):
     resource_type = "AWS::S3::Bucket"
 
@@ -378,6 +402,10 @@ class Bucket(AWSObject):
         'LoggingConfiguration': (LoggingConfiguration, False),
         'MetricsConfigurations': ([MetricsConfiguration], False),
         'NotificationConfiguration': (NotificationConfiguration, False),
+        'ObjectLockConfiguration': (ObjectLockConfiguration, False),
+        'ObjectLockEnabled': (boolean, False),
+        'PublicAccessBlockConfiguration': (PublicAccessBlockConfiguration,
+                                           False),
         'ReplicationConfiguration': (ReplicationConfiguration, False),
         'Tags': (Tags, False),
         'WebsiteConfiguration': (WebsiteConfiguration, False),

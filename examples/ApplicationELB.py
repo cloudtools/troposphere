@@ -23,7 +23,7 @@ def main():
     template = Template()
     template.add_version("2010-09-09")
 
-    template.add_description(
+    template.set_description(
         "AWS CloudFormation Sample Template: ELB with 2 EC2 instances")
 
     AddAMI(template)

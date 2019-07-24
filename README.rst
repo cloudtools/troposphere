@@ -4,13 +4,19 @@ troposphere
 
 .. image:: https://img.shields.io/pypi/v/troposphere.svg
     :target: https://pypi.python.org/pypi/troposphere
+    :alt: PyPI Version
 
-.. image:: https://travis-ci.org/cloudtools/troposphere.png?branch=master
+.. image:: https://travis-ci.org/cloudtools/troposphere.svg?branch=master
     :target: https://travis-ci.org/cloudtools/troposphere
+    :alt: Build Status
 
 .. image:: https://img.shields.io/pypi/l/troposphere.svg
     :target: https://opensource.org/licenses/BSD-2-Clause
+    :alt: license: New BSD license
 
+.. image:: https://readthedocs.org/projects/troposphere/badge/?version=latest
+    :target: https://troposphere.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
 
 About
 =====
@@ -154,12 +160,19 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
+- AWS::AmazonMQ
+- AWS::Amplify
 - AWS::ApiGateway
-- AWS::ApplicationAutoScaling
+- AWS::ApiGatewayV2
+- AWS::AppMesh
+- AWS::AppStream
 - AWS::AppSync
+- AWS::ApplicationAutoScaling
 - AWS::Athena
 - AWS::AutoScaling
+- AWS::AutoScalingPlans
 - AWS::Batch
+- AWS::Budgets
 - AWS::CertificateManager
 - AWS::Cloud9
 - AWS::CloudFormation
@@ -173,14 +186,17 @@ Currently supported AWS resource types
 - AWS::Cognito
 - AWS::Config
 - AWS::DAX
+- AWS::DLM
 - AWS::DMS
 - AWS::DataPipeline
 - AWS::DirectoryService
+- AWS::DocDB
 - AWS::DynamoDB
 - AWS::EC2
 - AWS::ECR
 - AWS::ECS
 - AWS::EFS
+- AWS::EKS
 - AWS::EMR
 - AWS::ElastiCache
 - AWS::ElasticBeanstalk
@@ -188,31 +204,49 @@ Currently supported AWS resource types
 - AWS::ElasticLoadBalancingV2
 - AWS::Elasticsearch
 - AWS::Events
-- AWS::GuardDuty
+- AWS::FSx
 - AWS::Glue
+- AWS::Greengrass
+- AWS::GuardDuty
 - AWS::IAM
 - AWS::Inspector
 - AWS::IoT
+- AWS::IoT1Click
+- AWS::IoTAnalytics
 - AWS::KMS
 - AWS::Kinesis
 - AWS::KinesisAnalytics
+- AWS::KinesisAnalyticsV2
 - AWS::KinesisFirehose
 - AWS::Lambda
 - AWS::Logs
+- AWS::MediaLive
+- AWS::MediaStore
+- AWS::MSK
+- AWS::Neptune
 - AWS::OpsWorks
+- AWS::OpsWorksCM
+- AWS::PinpointEmail
+- AWS::RAM
 - AWS::RDS
 - AWS::Redshift
+- AWS::RoboMaker
 - AWS::Route53
+- AWS::Route53Resolver
 - AWS::S3
 - AWS::SDB
 - AWS::SES
 - AWS::SNS
 - AWS::SQS
 - AWS::SSM
+- AWS::SageMaker
+- AWS::SecretsManager
+- AWS::SecurityHub
 - AWS::Serverless
 - AWS::ServiceCatalog
 - AWS::ServiceDiscovery
 - AWS::StepFunctions
+- AWS::Transfer
 - AWS::WAF
 - AWS::WAFRegional
 - AWS::WorkSpaces

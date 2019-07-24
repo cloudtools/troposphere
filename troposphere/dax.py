@@ -3,7 +3,14 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, Tags
+from . import AWSObject, AWSProperty
+from .validators import boolean
+
+
+class SSESpecification(AWSProperty):
+    props = {
+        'SSEEnabled': (boolean, False),
+    }
 
 
 class Cluster(AWSObject):
@@ -19,9 +26,10 @@ class Cluster(AWSObject):
         'ParameterGroupName': (basestring, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'ReplicationFactor': (basestring, True),
+        'SSESpecification': (SSESpecification, False),
         'SecurityGroupIds': ([basestring], False),
         'SubnetGroupName': (basestring, True),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
     }
 
 

@@ -7,7 +7,7 @@ from troposphere.rds import DBInstance, DBParameterGroup
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template RDS_with_DBParameterGroup: Sample "
     "template showing how to create an Amazon RDS Database Instance with "
     "a DBParameterGroup.**WARNING** This template creates an Amazon "

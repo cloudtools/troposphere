@@ -1,5 +1,20 @@
 from . import AWSObject, AWSProperty
-from .validators import positive_integer
+from .validators import exactly_one, integer, positive_integer
+
+
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        "LaunchTemplateId": (basestring, False),
+        "LaunchTemplateName": (basestring, False),
+        "Version": (basestring, False),
+    }
+
+    def validate(self):
+        template_ids = [
+            'LaunchTemplateId',
+            'LaunchTemplateName'
+        ]
+        exactly_one(self.__class__.__name__, self.properties, template_ids)
 
 
 class ComputeResources(AWSProperty):
@@ -12,10 +27,12 @@ class ComputeResources(AWSProperty):
         "Type": (basestring, True),
         "Subnets": ([basestring], True),
         "MinvCpus": (positive_integer, True),
+        "LaunchTemplate": (LaunchTemplateSpecification, False),
         "ImageId": (basestring, False),
         "InstanceRole": (basestring, True),
         "InstanceTypes": ([basestring], True),
         "Ec2KeyPair": (basestring, False),
+        "PlacementGroup": (basestring, False),
         "Tags": (dict, False),
         "DesiredvCpus": (positive_integer, False)
     }
@@ -53,6 +70,13 @@ class Environment(AWSProperty):
     }
 
 
+class ResourceRequirement(AWSProperty):
+    props = {
+        'Type': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
 class Ulimit(AWSProperty):
 
     props = {
@@ -74,6 +98,7 @@ class ContainerProperties(AWSProperty):
         "Environment": ([Environment], False),
         "JobRoleArn": (basestring, False),
         "ReadonlyRootFilesystem": (bool, False),
+        "ResourceRequirements": ([ResourceRequirement], False),
         "Ulimits": ([Ulimit], False),
         "Vcpus": (positive_integer, True),
         "Image": (basestring, True)
@@ -87,15 +112,22 @@ class RetryStrategy(AWSProperty):
     }
 
 
+class Timeout(AWSProperty):
+    props = {
+        'AttemptDurationSeconds': (integer, False),
+    }
+
+
 class JobDefinition(AWSObject):
     resource_type = "AWS::Batch::JobDefinition"
 
     props = {
-        "Type": (basestring, True),
-        "Parameters": (dict, True),
-        "ContainerProperties": (ContainerProperties, True),
-        "JobDefinitionName": (basestring, False),
-        "RetryStrategy": (RetryStrategy, False)
+        'ContainerProperties': (ContainerProperties, True),
+        'JobDefinitionName': (basestring, False),
+        'Parameters': (dict, False),
+        'RetryStrategy': (RetryStrategy, False),
+        'Timeout': (Timeout, False),
+        'Type': (basestring, True),
     }
 
 

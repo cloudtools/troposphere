@@ -63,6 +63,7 @@ class Endpoint(AWSObject):
         'CertificateArn': (basestring, False),
         'DatabaseName': (basestring, False),
         'DynamoDbSettings': (DynamoDBSettings, False),
+        'EndpointIdentifier': (basestring, False),
         'EndpointType': (basestring, True),
         'EngineName': (basestring, True),
         'ExtraConnectionAttributes': (basestring, False),
@@ -74,7 +75,7 @@ class Endpoint(AWSObject):
         'ServerName': (basestring, False),
         'SslMode': (basestring, False),
         'Tags': (Tags, False),
-        'Username': (basestring, True),
+        'Username': (basestring, False),
     }
 
 

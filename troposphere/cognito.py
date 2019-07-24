@@ -130,6 +130,7 @@ class PasswordPolicy(AWSProperty):
         'RequireNumbers': (boolean, False),
         'RequireSymbols': (boolean, False),
         'RequireUppercase': (boolean, False),
+        'TemporaryPasswordValidityDays': (float, False),
     }
 
 
@@ -191,6 +192,7 @@ class UserPool(AWSObject):
         'SmsAuthenticationMessage': (basestring, False),
         'SmsConfiguration': (SmsConfiguration, False),
         'SmsVerificationMessage': (basestring, False),
+        'UsernameAttributes': ([basestring], False),
         'UserPoolTags': (dict, False),
     }
 

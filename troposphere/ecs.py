@@ -1,9 +1,14 @@
-from . import AWSObject, AWSProperty
-from .validators import boolean, integer, network_port, positive_integer
+from . import AWSObject, AWSProperty, Tags
+from .validators import (
+    boolean, integer, network_port, positive_integer, ecs_proxy_type
+)
 
 
 LAUNCH_TYPE_EC2 = 'EC2'
 LAUNCH_TYPE_FARGATE = 'FARGATE'
+
+SCHEDULING_STRATEGY_REPLICA = 'REPLICA'
+SCHEDULING_STRATEGY_DAEMON = 'DAEMON'
 
 
 class Cluster(AWSObject):
@@ -11,6 +16,7 @@ class Cluster(AWSObject):
 
     props = {
         'ClusterName': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -42,6 +48,14 @@ def placement_constraint_validator(x):
     valid_values = ['distinctInstance', 'memberOf']
     if x not in valid_values:
         raise ValueError("Placement Constraint type must be one of: %s" %
+                         ', '.join(valid_values))
+    return x
+
+
+def scope_validator(x):
+    valid_values = ['shared', 'task']
+    if x not in valid_values:
+        raise ValueError("Scope type must be one of: %s" %
                          ', '.join(valid_values))
     return x
 
@@ -82,6 +96,15 @@ def launch_type_validator(x):
     return x
 
 
+class ServiceRegistry(AWSProperty):
+    props = {
+        'ContainerName': (basestring, False),
+        'ContainerPort': (integer, False),
+        'Port': (integer, False),
+        'RegistryArn': (basestring, False),
+    }
+
+
 class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
@@ -89,6 +112,7 @@ class Service(AWSObject):
         'Cluster': (basestring, False),
         'DeploymentConfiguration': (DeploymentConfiguration, False),
         'DesiredCount': (positive_integer, False),
+        'EnableECSManagedTags': (boolean, False),
         'HealthCheckGracePeriodSeconds': (positive_integer, False),
         'LaunchType': (launch_type_validator, False),
         'LoadBalancers': ([LoadBalancer], False),
@@ -97,7 +121,11 @@ class Service(AWSObject):
         'PlacementConstraints': ([PlacementConstraint], False),
         'PlacementStrategies': ([PlacementStrategy], False),
         'PlatformVersion': (basestring, False),
+        'PropagateTags': (basestring, False),
+        'SchedulingStrategy': (basestring, False),
         'ServiceName': (basestring, False),
+        'ServiceRegistries': ([ServiceRegistry], False),
+        'Tags': (Tags, False),
         'TaskDefinition': (basestring, True),
     }
 
@@ -147,10 +175,28 @@ class Device(AWSProperty):
     }
 
 
+class HealthCheck(AWSProperty):
+    props = {
+        'Command': ([basestring], True),
+        'Interval': (integer, False),
+        'Retries': (integer, False),
+        'StartPeriod': (integer, False),
+        'Timeout': (integer, False),
+    }
+
+
 class KernelCapabilities(AWSProperty):
     props = {
         'Add': ([basestring], False),
         'Drop': ([basestring], False),
+    }
+
+
+class Tmpfs(AWSProperty):
+    props = {
+        'ContainerPath': (basestring, False),
+        'MountOptions': ([basestring], False),
+        'Size': (integer, False),
     }
 
 
@@ -159,6 +205,8 @@ class LinuxParameters(AWSProperty):
         'Capabilities': (KernelCapabilities, False),
         'Devices': ([Device], False),
         'InitProcessEnabled': (boolean, False),
+        'SharedMemorySize': (integer, False),
+        'Tmpfs': ([Tmpfs], False),
     }
 
 
@@ -169,11 +217,38 @@ class LogConfiguration(AWSProperty):
     }
 
 
+class RepositoryCredentials(AWSProperty):
+    props = {
+        'CredentialsParameter': (basestring, False)
+    }
+
+
+class ResourceRequirement(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class Secret(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'ValueFrom': (basestring, True),
+    }
+
+
 class Ulimit(AWSProperty):
     props = {
         'HardLimit': (integer, True),
-        'Name': (basestring, False),
+        'Name': (basestring, True),
         'SoftLimit': (integer, True),
+    }
+
+
+class ContainerDependency(AWSProperty):
+    props = {
+        'Condition': (basestring, True),
+        'ContainerName': (basestring, True)
     }
 
 
@@ -181,6 +256,7 @@ class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
         'Cpu': (positive_integer, False),
+        'DependsOn': ([ContainerDependency], False),
         'DisableNetworking': (boolean, False),
         'DnsSearchDomains': ([basestring], False),
         'DnsServers': ([basestring], False),
@@ -190,18 +266,24 @@ class ContainerDefinition(AWSProperty):
         'Environment': ([Environment], False),
         'Essential': (boolean, False),
         'ExtraHosts': ([HostEntry], False),
+        'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
-        'Image': (basestring, True),
+        'Image': (basestring, False),
         'Links': ([basestring], False),
         'LinuxParameters': (LinuxParameters, False),
         'LogConfiguration': (LogConfiguration, False),
         'Memory': (positive_integer, False),
         'MemoryReservation': (positive_integer, False),
         'MountPoints': ([MountPoint], False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'PortMappings': ([PortMapping], False),
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
+        'RepositoryCredentials': (RepositoryCredentials, False),
+        'ResourceRequirements': ([ResourceRequirement], False),
+        'Secrets': ([Secret], False),
+        'StartTimeout': (integer, False),
+        'StopTimeout': (integer, False),
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'VolumesFrom': ([VolumesFrom], False),
@@ -215,10 +297,29 @@ class Host(AWSProperty):
     }
 
 
+class DockerVolumeConfiguration(AWSProperty):
+    props = {
+        'Autoprovision': (boolean, False),
+        'Driver': (basestring, False),
+        'DriverOpts': (dict, False),
+        'Labels': (dict, False),
+        'Scope': (scope_validator, False)
+    }
+
+
 class Volume(AWSProperty):
     props = {
+        'DockerVolumeConfiguration': (DockerVolumeConfiguration, False),
         'Name': (basestring, True),
         'Host': (Host, False),
+    }
+
+
+class ProxyConfiguration(AWSProperty):
+    props = {
+        'ContainerName': (basestring, True),
+        'ProxyConfigurationProperties': (list, False),
+        'Type': (ecs_proxy_type, False)
     }
 
 
@@ -226,7 +327,7 @@ class TaskDefinition(AWSObject):
     resource_type = "AWS::ECS::TaskDefinition"
 
     props = {
-        'ContainerDefinitions': ([ContainerDefinition], True),
+        'ContainerDefinitions': ([ContainerDefinition], False),
         'Cpu': (basestring, False),
         'ExecutionRoleArn': (basestring, False),
         'Family': (basestring, False),
@@ -234,6 +335,8 @@ class TaskDefinition(AWSObject):
         'NetworkMode': (basestring, False),
         'PlacementConstraints': ([PlacementConstraint], False),
         'RequiresCompatibilities': ([basestring], False),
+        'Tags': (Tags, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
+        'ProxyConfiguration': (ProxyConfiguration, False)
     }
