@@ -6,19 +6,25 @@
 from . import AWSObject, AWSProperty
 from .validators import json_checker
 
-
-class AuthenticationConfiguration(AWSProperty):
+class Overides(AWSProperty):
     props = {
-        'DefaultAttributes': (json_checker, False),
-        'DeviceTemplates': (json_checker, False),
+        'Manifest': (json_checker, False),
     }
 
-
-class SkillPackage(AWSProperty):
+class AuthenticationConfiguration(AWSProperty):
     props = {
         'ClientId': (basestring, True),
         'ClientSecret': (basestring, True),
         'RefreshToken': (basestring, True),
+    }
+
+class SkillPackage(AWSProperty):
+    props = {
+        'Overides': (Overides, False),
+        'S3Bucket': (basestring, True),
+        'S3BucketRole': (basestring, False),
+        'S3Key': (basestring, True),
+        'S3ObjectVersion': (basestring, False),
     }
 
 
