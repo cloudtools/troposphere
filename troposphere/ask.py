@@ -6,6 +6,7 @@
 from . import AWSObject, AWSProperty
 from .validators import json_checker
 
+
 class Overides(AWSProperty):
     props = {
         'Manifest': (json_checker, False),
