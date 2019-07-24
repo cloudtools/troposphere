@@ -151,7 +151,7 @@ class NodeGroupConfiguration(AWSProperty):
     props = {
         'NodeGroupId': (validate_node_group_id, False),
         'PrimaryAvailabilityZone': (basestring, False),
-        'ReplicaAvailabilityZones': (basestring, False),
+        'ReplicaAvailabilityZones': ([basestring], False),
         'ReplicaCount': (integer, False),
         'Slots': (basestring, False),
     }
