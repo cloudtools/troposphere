@@ -37,11 +37,24 @@ class EnvironmentVariable(AWSProperty):
     }
 
 
+class AutoBranchCreationConfig(AWSProperty):
+    props = {
+        'AutoBranchCreationPatterns': ([basestring], False),
+        'BasicAuthConfig': (BasicAuthConfig, False),
+        'BuildSpec': (basestring, False),
+        'EnableAutoBranchCreation': (boolean, False),
+        'EnableAutoBuild': (boolean, False),
+        'EnvironmentVariables': ([EnvironmentVariable], False),
+        'Stage': (basestring, False),
+    }
+
+
 class App(AWSObject):
     resource_type = "AWS::Amplify::App"
 
     props = {
         'AccessToken': (basestring, False),
+        'AutoBranchCreationConfig': (AutoBranchCreationConfig, False),
         'BasicAuthConfig': (BasicAuthConfig, False),
         'BuildSpec': (basestring, False),
         'CustomRules': ([CustomRule], False),
@@ -64,6 +77,7 @@ class Branch(AWSObject):
         'BranchName': (basestring, True),
         'BuildSpec': (basestring, False),
         'Description': (basestring, False),
+        'EnableAutoBuild': (boolean, False),
         'EnvironmentVariables': ([EnvironmentVariable], False),
         'Stage': (basestring, False),
         'Tags': (Tags, False),
