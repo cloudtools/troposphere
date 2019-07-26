@@ -4,7 +4,6 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import json_checker
 
 
 class Overrides(AWSProperty):
