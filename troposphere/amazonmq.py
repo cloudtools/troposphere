@@ -14,6 +14,13 @@ class ConfigurationId(AWSProperty):
     }
 
 
+class EncryptionOptions(AWSProperty):
+    props = {
+        'KmsKeyId': (basestring, False),
+        'UseAwsOwnedKey': (boolean, True),
+    }
+
+
 class MaintenanceWindow(AWSProperty):
     props = {
         'DayOfWeek': (basestring, True),
@@ -47,6 +54,7 @@ class Broker(AWSObject):
         'Users': ([User], True),
         'Configuration': (ConfigurationId, False),
         'DeploymentMode': (basestring, True),
+        'EncryptionOptions': (EncryptionOptions, False),
         'EngineType': (basestring, True),
         'EngineVersion': (basestring, True),
         'HostInstanceType': (basestring, True),
