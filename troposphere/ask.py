@@ -4,21 +4,29 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import json_checker
+
+
+class Overrides(AWSProperty):
+    props = {
+        'Manifest': (dict, False),
+    }
 
 
 class AuthenticationConfiguration(AWSProperty):
     props = {
-        'DefaultAttributes': (json_checker, False),
-        'DeviceTemplates': (json_checker, False),
+        'ClientId': (basestring, True),
+        'ClientSecret': (basestring, True),
+        'RefreshToken': (basestring, True),
     }
 
 
 class SkillPackage(AWSProperty):
     props = {
-        'ClientId': (basestring, True),
-        'ClientSecret': (basestring, True),
-        'RefreshToken': (basestring, True),
+        'Overrides': (Overrides, False),
+        'S3Bucket': (basestring, True),
+        'S3BucketRole': (basestring, False),
+        'S3Key': (basestring, True),
+        'S3ObjectVersion': (basestring, False),
     }
 
 
