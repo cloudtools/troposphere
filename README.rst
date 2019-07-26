@@ -213,6 +213,7 @@ Currently supported AWS resource types
 - AWS::IoT
 - AWS::IoT1Click
 - AWS::IoTAnalytics
+- AWS::IoTEvents
 - AWS::KMS
 - AWS::Kinesis
 - AWS::KinesisAnalytics
