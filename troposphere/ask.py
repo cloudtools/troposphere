@@ -7,9 +7,9 @@ from . import AWSObject, AWSProperty
 from .validators import json_checker
 
 
-class Overides(AWSProperty):
+class Overrides(AWSProperty):
     props = {
-        'Manifest': (json_checker, False),
+        'Manifest': (dict, False),
     }
 
 
@@ -23,7 +23,7 @@ class AuthenticationConfiguration(AWSProperty):
 
 class SkillPackage(AWSProperty):
     props = {
-        'Overides': (Overides, False),
+        'Overrides': (Overrides, False),
         'S3Bucket': (basestring, True),
         'S3BucketRole': (basestring, False),
         'S3Key': (basestring, True),
