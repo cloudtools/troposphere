@@ -1,3 +1,44 @@
+2.5.0 (2019*07*28)
+------------------
+* Return real booleans in the output (#1409)
+
+  Note: it was noted in #1136 that cfn-lint prefers real booleans. Since this
+  may break existing scripts/updates, it was implemented via #1409 via an
+  environment variable: TROPO_REAL_BOOL=true
+
+  At some point troposphere likely will make this a warning and default to
+  real booleans. Thanks for @michel-k and @ikben for implementing it.
+
+* Add AWS::SecurityHub
+* EC2: Update SpotOptions properties
+* Merge branch 'master' into feature/rules
+* Add Template.add_rule() function to be consistent with the Template API
+* Write doc for add_rule()
+* Adapt test case to the add_rule() interface
+* Add duplicate name check in add_rule
+* Add Tags to ECR Repository definition (#1444)
+* Merge pull request #1412 from vrtdev/feature/rules
+* EBSBlockDevice supports KmsKeyId (#1451)
+* Add Medialive resources (#1447)
+* Fix RecoveryPointTags/BackupVaultTags type for AWS Backup resources (#1448)
+* Add Code property to Codecommit (#1454)
+* Add support for LicenseSpecification for LaunchTemplateData (#1458)
+* Add AWS::MediaLive to README
+* Tweak to allow "make test" work with the real boolean change (#1409)
+* Prefer awacs.aws.PolicyDocument over awacs.aws.Policy (#1338)
+* Add EFS FileSystem LifecyclePolicies (#1456)
+* Fix Transfer::User SshPublicKeys type (#1459)
+* Fix TemporaryPasswordValidityDays type (#1460)
+* Add Cloudwatch AnomalyDetector resource (#1461)
+* Update ASK to the latest AWS documentation (#1467)
+* Adding AllowMajorVersionUpgrade to DMS Replication Instance (#1464)
+* Change ElastiCache ReplicaAvailabilityZones from string to string list (#1468)
+* Add AmazonMQ::Broker EncryptionOptions property
+* Update AWS::Amplify resources
+* Add AWS::IoTEvents
+* Add Tags to AWS::CodeCommit::Repository
+* Add EmailSendingAccount to Cognito::UserPool EmailConfiguration
+
 2.4.9 (2019*06*26)
 ------------------
 * add tag to role (#1441)
