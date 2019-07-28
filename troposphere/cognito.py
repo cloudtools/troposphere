@@ -105,6 +105,7 @@ class DeviceConfiguration(AWSProperty):
 
 class EmailConfiguration(AWSProperty):
     props = {
+        'EmailSendingAccount': (basestring, False),
         'ReplyToEmailAddress': (basestring, False),
         'SourceArn': (basestring, False),
     }
