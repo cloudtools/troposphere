@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 
 
 class S3(AWSProperty):
@@ -53,5 +53,6 @@ class Repository(AWSObject):
         'Code': (Code, False),
         'RepositoryDescription': (basestring, False),
         'RepositoryName': (basestring, True),
+        'Tags': (Tags, False),
         'Triggers': ([Trigger], False),
     }
