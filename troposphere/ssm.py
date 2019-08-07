@@ -155,8 +155,12 @@ class MaintenanceWindow(AWSObject):
         'Cutoff': (integer, True),
         'Description': (basestring, False),
         'Duration': (integer, True),
+        'EndDate': (basestring, False),
         'Name': (basestring, True),
         'Schedule': (basestring, True),
+        'ScheduleTimezone': (basestring, False),
+        'StartDate': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
