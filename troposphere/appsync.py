@@ -154,7 +154,7 @@ class GraphQLApi(AWSObject):
 
     props = {
         'AdditionalAuthenticationProviders':
-            (AdditionalAuthenticationProviders, False),
+            ([AdditionalAuthenticationProviders], False),
         'AuthenticationType': (basestring, True),
         'LogConfig': (LogConfig, False),
         'Name': (basestring, True),
