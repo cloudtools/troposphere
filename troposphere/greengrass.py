@@ -29,6 +29,7 @@ class ConnectorDefinition(AWSObject):
     props = {
         'InitialVersion': (ConnectorDefinitionVersion, False),
         'Name': (basestring, True),
+        'Tags': (dict, False),
     }
 
 
@@ -62,6 +63,7 @@ class CoreDefinition(AWSObject):
     props = {
         'InitialVersion': (CoreDefinitionVersion, False),
         'Name': (basestring, True),
+        'Tags': (dict, False),
     }
 
 
@@ -95,6 +97,7 @@ class DeviceDefinition(AWSObject):
     props = {
         'InitialVersion': (DeviceDefinitionVersion, False),
         'Name': (basestring, True),
+        'Tags': (dict, False),
     }
 
 
@@ -176,6 +179,7 @@ class FunctionDefinition(AWSObject):
     props = {
         'InitialVersion': (FunctionDefinitionVersion, False),
         'Name': (basestring, True),
+        'Tags': (dict, False),
     }
 
 
@@ -208,6 +212,7 @@ class Group(AWSObject):
         'InitialVersion': (GroupVersion, False),
         'Name': (basestring, True),
         'RoleArn': (basestring, False),
+        'Tags': (dict, False),
     }
 
 
@@ -248,6 +253,7 @@ class LoggerDefinition(AWSObject):
     props = {
         'InitialVersion': (LoggerDefinitionVersion, False),
         'Name': (basestring, True),
+        'Tags': (dict, False),
     }
 
 
@@ -336,6 +342,7 @@ class ResourceDefinition(AWSObject):
     props = {
         'InitialVersion': (ResourceDefinitionVersion, False),
         'Name': (basestring, True),
+        'Tags': (dict, False),
     }
 
 
@@ -369,6 +376,7 @@ class SubscriptionDefinition(AWSObject):
     props = {
         'InitialVersion': (SubscriptionDefinitionVersionProperty, False),
         'Name': (basestring, True),
+        'Tags': (dict, False),
     }
 
 
