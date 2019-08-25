@@ -163,7 +163,7 @@ class Crawler(AWSObject):
         'Schedule': (Schedule, False),
         'SchemaChangePolicy': (SchemaChangePolicy, False),
         'TablePrefix': (basestring, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Targets': (Targets, True),
     }
 
