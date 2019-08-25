@@ -120,6 +120,8 @@ class LambdaConfig(AWSProperty):
         'PostConfirmation': (basestring, False),
         'PreAuthentication': (basestring, False),
         'PreSignUp': (basestring, False),
+        'PreTokenGeneration': (basestring, False),
+        'UserMigration': (basestring, False),
         'VerifyAuthChallengeResponse': (basestring, False),
     }
 
@@ -174,6 +176,23 @@ class SmsConfiguration(AWSProperty):
     }
 
 
+class UserPoolAddOns(AWSProperty):
+    props = {
+        'AdvancedSecurityMode': (basestring, False),
+    }
+
+
+class VerificationMessageTemplate(AWSProperty):
+    props = {
+        'DefaultEmailOption': (basestring, False),
+        'EmailMessage': (basestring, False),
+        'EmailMessageByLink': (basestring, False),
+        'EmailSubject': (basestring, False),
+        'EmailSubjectByLink': (basestring, False),
+        'SmsMessage': (basestring, False),
+    }
+
+
 class UserPool(AWSObject):
     resource_type = "AWS::Cognito::UserPool"
 
@@ -188,13 +207,24 @@ class UserPool(AWSObject):
         'LambdaConfig': (LambdaConfig, False),
         'MfaConfiguration': (basestring, False),
         'Policies': (Policies, False),
-        'UserPoolName': (basestring, True),
         'Schema': ([SchemaAttribute], False),
         'SmsAuthenticationMessage': (basestring, False),
         'SmsConfiguration': (SmsConfiguration, False),
         'SmsVerificationMessage': (basestring, False),
-        'UsernameAttributes': ([basestring], False),
+        'UserPoolAddOns': (UserPoolAddOns, False),
+        'UserPoolName': (basestring, False),
         'UserPoolTags': (dict, False),
+        'UsernameAttributes': ([basestring], False),
+        'VerificationMessageTemplate': (VerificationMessageTemplate, False),
+    }
+
+
+class AnalyticsConfiguration(AWSProperty):
+    props = {
+        'ApplicationId': (basestring, False),
+        'ExternalId': (basestring, False),
+        'RoleArn': (basestring, False),
+        'UserDataShared': (boolean, False),
     }
 
 
@@ -202,11 +232,19 @@ class UserPoolClient(AWSObject):
     resource_type = "AWS::Cognito::UserPoolClient"
 
     props = {
+        'AllowedOAuthFlows': ([basestring], False),
+        'AllowedOAuthFlowsUserPoolClient': (boolean, False),
+        'AllowedOAuthScopes': ([basestring], False),
+        'AnalyticsConfiguration': (AnalyticsConfiguration, False),
+        'CallbackURLs': ([basestring], False),
         'ClientName': (basestring, False),
+        'DefaultRedirectURI': (basestring, False),
         'ExplicitAuthFlows': ([basestring], False),
         'GenerateSecret': (boolean, False),
+        'LogoutURLs': ([basestring], False),
         'ReadAttributes': ([basestring], False),
-        'RefreshTokenValidity': (positive_integer, False),
+        'RefreshTokenValidity': (float, False),
+        'SupportedIdentityProviders': ([basestring], False),
         'UserPoolId': (basestring, True),
         'WriteAttributes': ([basestring], False),
     }
