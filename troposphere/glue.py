@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .validators import boolean, double, integer_range, positive_integer
 
 
@@ -231,7 +231,7 @@ class DevEndpoint(AWSObject):
         'SecurityConfiguration': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
         'SubnetId': (basestring, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
     }
 
 
@@ -269,7 +269,7 @@ class Job(AWSObject):
         'Name': (basestring, False),
         'Role': (basestring, True),
         'SecurityConfiguration': (basestring, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
     }
 
 
@@ -454,6 +454,6 @@ class Trigger(AWSObject):
         'Name': (basestring, False),
         'Predicate': (Predicate, False),
         'Schedule': (basestring, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Type': (trigger_type_validator, True),
     }
