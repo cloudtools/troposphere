@@ -33,7 +33,7 @@ t.add_resource(
                 DataVolumeKMSKeyId="ReplaceWithKmsKeyArn"
             ),
             EncryptionInTransit=msk.EncryptionInTransit(
-                ClientBroker="TLSs",
+                ClientBroker="TLS",
                 InCluster=True,
             ),
         ),
