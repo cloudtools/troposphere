@@ -219,6 +219,7 @@ Currently supported AWS resource types
 - AWS::KinesisAnalytics
 - AWS::KinesisAnalyticsV2
 - AWS::KinesisFirehose
+- AWS::LakeFormation
 - AWS::Lambda
 - AWS::Logs
 - AWS::MediaLive
