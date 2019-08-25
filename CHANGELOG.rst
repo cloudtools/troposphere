@@ -1,3 +1,26 @@
+2.5.1 (2019*08*25)
+------------------
+* Fix missing required field in CodeContent object (#1472)
+* updated crawler tag attribute to match aws cloudformation doc (#1482)
+* Change Tags to dict in Glue resources (#1482)
+* Update gen script to understand "Json" Tags to be a dict
+* Fixed a typo in the ClientBroker's value (#1480)
+* Fix test output in MskCluster.template from issue #1480
+* Update MaintenanceWindow Properties (#1476)
+* Modified AdditionalAuthenticationProviders field in GraphQlApi to be a list (#1479)
+* Add new properties to Glue::Job (#1484)
+* Update missing properties in cognito (#1475)
+* Add AWS::LakeFormation
+* Update dms properties
+* Add SageMaker::Workteam
+* Add SplitTunnel to EC2::ClientVpnEndpoint
+* Add Tags properties to some Greengrass resources
+* Add ExcludeVerboseContent to AppSync LogConfig property type
+* Add AWS::ManagedBlockchain
+* Add Glue::MLTransform resource
+* Add AWS::CodeStar
+* Add LinuxParameters to Batch::ContainerProperties
+
 2.5.0 (2019*07*28)
 ------------------
 * Return real booleans in the output (#1409)
