@@ -222,6 +222,7 @@ Currently supported AWS resource types
 - AWS::LakeFormation
 - AWS::Lambda
 - AWS::Logs
+- AWS::ManagedBlockchain
 - AWS::MediaLive
 - AWS::MediaStore
 - AWS::MSK
