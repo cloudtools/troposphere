@@ -278,6 +278,54 @@ class Job(AWSObject):
     }
 
 
+class GlueTables(AWSProperty):
+    props = {
+        'CatalogId': (basestring, False),
+        'ConnectionName': (basestring, False),
+        'DatabaseName': (basestring, True),
+        'TableName': (basestring, True),
+    }
+
+
+class InputRecordTables(AWSProperty):
+    props = {
+        'GlueTables': ([GlueTables], False),
+    }
+
+
+class FindMatchesParameters(AWSProperty):
+    props = {
+        'AccuracyCostTradeoff': (float, False),
+        'EnforceProvidedLabels': (boolean, False),
+        'PrecisionRecallTradeoff': (float, False),
+        'PrimaryKeyColumnName': (basestring, True),
+    }
+
+
+class TransformParameters(AWSProperty):
+    props = {
+        'FindMatchesParameters': (FindMatchesParameters, False),
+        'TransformType': (basestring, True),
+    }
+
+
+class MLTransform(AWSObject):
+    resource_type = "AWS::Glue::MLTransform"
+
+    props = {
+        'Description': (basestring, False),
+        'InputRecordTables': (InputRecordTables, True),
+        'MaxCapacity': (float, False),
+        'MaxRetries': (integer, False),
+        'Name': (basestring, False),
+        'NumberOfWorkers': (integer, False),
+        'Role': (basestring, True),
+        'Timeout': (integer, False),
+        'TransformParameters': (TransformParameters, True),
+        'WorkerType': (basestring, False),
+    }
+
+
 class Column(AWSProperty):
     props = {
         'Comment': (basestring, False),
