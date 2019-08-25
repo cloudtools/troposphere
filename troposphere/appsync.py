@@ -119,6 +119,7 @@ class FunctionConfiguration(AWSObject):
 class LogConfig(AWSProperty):
     props = {
         'CloudWatchLogsRoleArn': (basestring, False),
+        'ExcludeVerboseContent': (boolean, False),
         'FieldLogLevel': (basestring, False),
     }
 
