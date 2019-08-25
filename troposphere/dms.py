@@ -1,4 +1,4 @@
-# Copyright (c) 2017, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2019, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -22,9 +22,26 @@ class Certificate(AWSObject):
     }
 
 
-class DynamoDBSettings(AWSProperty):
+class DynamoDbSettings(AWSProperty):
     props = {
-        'ServiceAccessRoleArn': (basestring, True),
+        'ServiceAccessRoleArn': (basestring, False),
+    }
+
+
+class ElasticsearchSettings(AWSProperty):
+    props = {
+        'EndpointUri': (basestring, False),
+        'ErrorRetryDuration': (integer, False),
+        'FullLoadErrorPercentage': (integer, False),
+        'ServiceAccessRoleArn': (basestring, False),
+    }
+
+
+class KinesisSettings(AWSProperty):
+    props = {
+        'MessageFormat': (basestring, False),
+        'ServiceAccessRoleArn': (basestring, False),
+        'StreamArn': (basestring, False),
     }
 
 
@@ -32,10 +49,10 @@ class MongoDbSettings(AWSProperty):
     props = {
         'AuthMechanism': (basestring, False),
         'AuthSource': (basestring, False),
+        'AuthType': (basestring, False),
         'DatabaseName': (basestring, False),
         'DocsToInvestigate': (basestring, False),
         'ExtractDocId': (basestring, False),
-        'KmsKeyId': (basestring, False),
         'NestingLevel': (basestring, False),
         'Password': (basestring, False),
         'Port': (network_port, False),
@@ -62,11 +79,13 @@ class Endpoint(AWSObject):
     props = {
         'CertificateArn': (basestring, False),
         'DatabaseName': (basestring, False),
-        'DynamoDbSettings': (DynamoDBSettings, False),
+        'DynamoDbSettings': (DynamoDbSettings, False),
+        'ElasticsearchSettings': (ElasticsearchSettings, False),
         'EndpointIdentifier': (basestring, False),
         'EndpointType': (basestring, True),
         'EngineName': (basestring, True),
         'ExtraConnectionAttributes': (basestring, False),
+        'KinesisSettings': (KinesisSettings, False),
         'KmsKeyId': (basestring, False),
         'MongoDbSettings': (MongoDbSettings, False),
         'Password': (basestring, False),
@@ -88,7 +107,7 @@ class EventSubscription(AWSObject):
         'SnsTopicArn': (basestring, True),
         'SourceIds': ([basestring], False),
         'SourceType': (basestring, False),
-        'SubscriptionName': ([basestring], False),
+        'SubscriptionName': (basestring, False),
         'Tags': (Tags, False),
     }
 
@@ -118,8 +137,8 @@ class ReplicationSubnetGroup(AWSObject):
     resource_type = "AWS::DMS::ReplicationSubnetGroup"
 
     props = {
-        'ReplicationSubnetGroupIdentifier': (basestring, False),
         'ReplicationSubnetGroupDescription': (basestring, True),
+        'ReplicationSubnetGroupIdentifier': (basestring, False),
         'SubnetIds': ([basestring], True),
         'Tags': (Tags, False),
     }
@@ -129,7 +148,9 @@ class ReplicationTask(AWSObject):
     resource_type = "AWS::DMS::ReplicationTask"
 
     props = {
+        'CdcStartPosition': (basestring, False),
         'CdcStartTime': (positive_integer, False),
+        'CdcStopPosition': (basestring, False),
         'MigrationType': (basestring, True),
         'ReplicationInstanceArn': (basestring, True),
         'ReplicationTaskIdentifier': (basestring, False),
