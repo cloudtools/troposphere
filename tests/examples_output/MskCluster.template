@@ -36,7 +36,7 @@
                         "DataVolumeKMSKeyId": "ReplaceWithKmsKeyArn"
                     },
                     "EncryptionInTransit": {
-                        "ClientBroker": "TLSs",
+                        "ClientBroker": "TLS",
                         "InCluster": true
                     }
                 },
