@@ -1179,6 +1179,7 @@ class ClientVpnEndpoint(AWSObject):
         'Description': (basestring, False),
         'DnsServers': ([basestring], False),
         'ServerCertificateArn': (basestring, True),
+        'SplitTunnel': (boolean, False),
         'TagSpecifications': ([TagSpecifications], False),
         'TransportProtocol': (basestring, False),
     }
