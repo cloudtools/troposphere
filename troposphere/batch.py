@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import exactly_one, integer, positive_integer
+from .validators import boolean, exactly_one, integer, positive_integer
 
 
 class LaunchTemplateSpecification(AWSProperty):
@@ -35,6 +35,20 @@ class ComputeResources(AWSProperty):
         "PlacementGroup": (basestring, False),
         "Tags": (dict, False),
         "DesiredvCpus": (positive_integer, False)
+    }
+
+
+class Device(AWSProperty):
+    props = {
+        'ContainerPath': (basestring, False),
+        'HostPath': (basestring, False),
+        'Permissions': ([basestring], False),
+    }
+
+
+class LinuxParameters(AWSProperty):
+    props = {
+        'Devices': ([Device], False),
     }
 
 
@@ -89,19 +103,21 @@ class Ulimit(AWSProperty):
 class ContainerProperties(AWSProperty):
 
     props = {
-        "MountPoints": ([MountPoints], False),
-        "User": (basestring, False),
-        "Volumes": ([Volumes], False),
-        "Command": ([basestring], False),
-        "Memory": (positive_integer, True),
-        "Privileged": (bool, False),
-        "Environment": ([Environment], False),
-        "JobRoleArn": (basestring, False),
-        "ReadonlyRootFilesystem": (bool, False),
-        "ResourceRequirements": ([ResourceRequirement], False),
-        "Ulimits": ([Ulimit], False),
-        "Vcpus": (positive_integer, True),
-        "Image": (basestring, True)
+        'Command': ([basestring], False),
+        'Environment': ([Environment], False),
+        'Image': (basestring, True),
+        'InstanceType': (basestring, False),
+        'JobRoleArn': (basestring, False),
+        'LinuxParameters': (LinuxParameters, False),
+        'Memory': (positive_integer, True),
+        'MountPoints': ([MountPoints], False),
+        'Privileged': (boolean, False),
+        'ReadonlyRootFilesystem': (boolean, False),
+        'ResourceRequirements': ([ResourceRequirement], False),
+        'Ulimits': ([Ulimit], False),
+        'User': (basestring, False),
+        'Vcpus': (positive_integer, True),
+        'Volumes': ([Volumes], False),
     }
 
 
