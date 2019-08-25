@@ -401,6 +401,8 @@ def output_class(class_name, properties, override, resource_name=None):
     for key, value in sorted(properties.items()):
         if key == 'Tags':
             value_type = "Tags"
+            if 'PrimitiveType' in value and value['PrimitiveType'] == 'Json':
+                value_type = "dict"
         else:
             value_type = get_type(value)
 
