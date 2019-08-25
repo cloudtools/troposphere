@@ -4,7 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, double, integer_range, positive_integer
+from .validators import boolean, double
+from .validators import integer, integer_range, positive_integer
 
 
 class CsvClassifier(AWSProperty):
@@ -264,12 +265,16 @@ class Job(AWSObject):
         'DefaultArguments': (dict, False),
         'Description': (basestring, False),
         'ExecutionProperty': (ExecutionProperty, False),
+        'GlueVersion': (basestring, False),
         'LogUri': (basestring, False),
+        'MaxCapacity': (double, False),
         'MaxRetries': (double, False),
         'Name': (basestring, False),
+        'NumberOfWorkers': (integer, False),
         'Role': (basestring, True),
         'SecurityConfiguration': (basestring, False),
         'Tags': (dict, False),
+        'WorkerType': (basestring, False),
     }
 
 
