@@ -183,6 +183,7 @@ Currently supported AWS resource types
 - AWS::CodeCommit
 - AWS::CodeDeploy
 - AWS::CodePipeline
+- AWS::CodeStar
 - AWS::Cognito
 - AWS::Config
 - AWS::DAX
