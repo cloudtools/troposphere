@@ -251,6 +251,7 @@ class ExecutionProperty(AWSProperty):
 class JobCommand(AWSProperty):
     props = {
         'Name': (basestring, False),
+        'PythonVersion': (basestring, False),
         'ScriptLocation': (basestring, False),
     }
 
