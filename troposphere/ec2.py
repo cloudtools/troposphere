@@ -959,7 +959,7 @@ class LaunchTemplateData(AWSProperty):
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'IamInstanceProfile': (IamInstanceProfile, False),
-        'ImageId': (basestring, True),
+        'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceMarketOptions': (InstanceMarketOptions, False),
         'InstanceType': (basestring, False),
