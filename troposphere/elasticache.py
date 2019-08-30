@@ -112,6 +112,7 @@ class ReplicationGroup(AWSObject):
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, False),
         'EngineVersion': (basestring, False),
+        'KmsKeyId': (basestring, False),
         'NodeGroupConfiguration': (list, False),
         'NotificationTopicArn': (basestring, False),
         'NumCacheClusters': (integer, False),
