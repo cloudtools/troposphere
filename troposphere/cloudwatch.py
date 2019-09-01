@@ -82,6 +82,7 @@ class Alarm(AWSObject):
         'Period': (positive_integer, False),
         'Statistic': (basestring, False),
         'Threshold': (double, True),
+        'ThresholdMetricId': (basestring, False),
         'TreatMissingData': (basestring, False),
         'Unit': (basestring, False),
     }
