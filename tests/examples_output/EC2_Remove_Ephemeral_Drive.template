@@ -110,11 +110,11 @@
                 "BlockDeviceMappings": [
                     {
                         "DeviceName": "/dev/sdb",
-                        "NoDevice": {}
+                        "NoDevice": ""
                     },
                     {
                         "DeviceName": "/dev/sdc",
-                        "NoDevice": {}
+                        "NoDevice": ""
                     }
                 ],
                 "ImageId": {
