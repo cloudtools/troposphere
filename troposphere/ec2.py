@@ -130,7 +130,7 @@ class EBSBlockDevice(AWSProperty):
     }
 
 
-NO_DEVICE = {}
+NO_DEVICE = ""
 
 
 class BlockDeviceMapping(AWSProperty):
