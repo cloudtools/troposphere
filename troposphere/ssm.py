@@ -78,6 +78,7 @@ class Rule(AWSProperty):
     props = {
         'ApproveAfterDays': (integer, False),
         'ComplianceLevel': (compliance_level, False),
+        'EnableNonSecurity': (boolean, False),
         'PatchFilterGroup': (PatchFilterGroup, False),
     }
 
