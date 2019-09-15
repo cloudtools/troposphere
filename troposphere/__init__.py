@@ -414,8 +414,12 @@ class Base64(AWSHelperFn):
 
 
 class FindInMap(AWSHelperFn):
-    def __init__(self, mapname, key, value):
-        self.data = {'Fn::FindInMap': [self.getdata(mapname), key, value]}
+    def __init__(self, mapname, toplevelkey, secondlevelkey):
+        self.data = {'Fn::FindInMap': [
+            self.getdata(mapname),
+            toplevelkey,
+            secondlevelkey
+        ]}
 
 
 class GetAtt(AWSHelperFn):
