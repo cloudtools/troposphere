@@ -81,7 +81,8 @@ class Alarm(AWSObject):
         'OKActions': ([basestring], False),
         'Period': (positive_integer, False),
         'Statistic': (basestring, False),
-        'Threshold': (double, True),
+        'Threshold': (double, False),
+        'ThresholdMetricId': (basestring, False),
         'TreatMissingData': (basestring, False),
         'Unit': (basestring, False),
     }
