@@ -147,6 +147,14 @@ def validate_capacity(capacity):
     return capacity
 
 
+class DBInstanceRole(AWSProperty):
+    props = {
+        'FeatureName': (basestring, True),
+        'RoleArn': (basestring, True),
+        'Status': (basestring, False),
+    }
+
+
 class ProcessorFeature(AWSProperty):
     props = {
         'Name': (basestring, False),
@@ -160,6 +168,7 @@ class DBInstance(AWSObject):
     props = {
         'AllocatedStorage': (positive_integer, False),
         'AllowMajorVersionUpgrade': (boolean, False),
+        'AssociatedRoles': ([DBInstanceRole], False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
@@ -389,6 +398,14 @@ class DBClusterParameterGroup(AWSObject):
     }
 
 
+class DBClusterRole(AWSProperty):
+    props = {
+        'FeatureName': (basestring, False),
+        'RoleArn': (basestring, True),
+        'Status': (basestring, False),
+    }
+
+
 class ScalingConfiguration(AWSProperty):
     props = {
         'AutoPause': (boolean, False),
@@ -402,6 +419,7 @@ class DBCluster(AWSObject):
     resource_type = "AWS::RDS::DBCluster"
 
     props = {
+        'AssociatedRoles': ([DBClusterRole], False),
         'AvailabilityZones': ([basestring], False),
         'BacktrackWindow': (integer_range(0, 259200), False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
@@ -422,10 +440,13 @@ class DBCluster(AWSObject):
         'PreferredBackupWindow': (validate_backup_window, False),
         'PreferredMaintenanceWindow': (basestring, False),
         'ReplicationSourceIdentifier': (basestring, False),
+        'RestoreType': (basestring, False),
         'ScalingConfiguration': (ScalingConfiguration, False),
-        'SourceRegion': (basestring, False),
         'SnapshotIdentifier': (basestring, False),
+        'SourceDBClusterIdentifier': (basestring, False),
+        'SourceRegion': (basestring, False),
         'StorageEncrypted': (boolean, False),
         'Tags': ((Tags, list), False),
+        'UseLatestRestorableTime': (boolean, False),
         'VpcSecurityGroupIds': ([basestring], False),
     }
