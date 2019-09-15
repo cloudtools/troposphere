@@ -231,6 +231,7 @@ Currently supported AWS resource types
 - AWS::OpsWorks
 - AWS::OpsWorksCM
 - AWS::PinpointEmail
+- AWS::QLDB
 - AWS::RAM
 - AWS::RDS
 - AWS::Redshift
