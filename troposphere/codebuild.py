@@ -326,6 +326,7 @@ class Project(AWSObject):
         'SecondarySources': ([Source], False),
         'ServiceRole': (basestring, True),
         'Source': (Source, True),
+        'SourceVersion': (basestring, False),
         'Tags': (Tags, False),
         'TimeoutInMinutes': (integer, False),
         'Triggers': (ProjectTriggers, False),
