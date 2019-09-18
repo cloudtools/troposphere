@@ -18,8 +18,6 @@ install:
 before_script:
   - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then 2to3 -n -w --no-diffs troposphere scripts/cfn2py scripts/gen.py examples/CustomResource.py tests; fi
   - flake8 --version
-  - pycodestyle --show-source --show-pep8 .
-  - pyflakes .
   - flake8 . --show-source 
 
 script:
