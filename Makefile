@@ -3,8 +3,7 @@
 PYDIRS=setup.py examples scripts tests troposphere
 
 test:
-	pycodestyle ${PYDIRS}
-	pyflakes ${PYDIRS}
+	flake8 ${PYDIRS}
 	TROPO_REAL_BOOL=true python setup.py test
 
 spec:
