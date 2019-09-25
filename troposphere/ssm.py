@@ -205,6 +205,9 @@ class Parameter(AWSObject):
         'AllowedPattern': (basestring, False),
         'Description': (basestring, False),
         'Name': (basestring, False),
+        'Policies': (basestring, False),
+        'Tags': (dict, False),
+        'Tier': (basestring, False),
         'Type': (basestring, True),
         'Value': (basestring, True),
     }
