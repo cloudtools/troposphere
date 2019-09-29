@@ -1,6 +1,6 @@
 import re
 from . import AWSObject, AWSProperty, Join, Tags
-from .validators import positive_integer
+from .validators import boolean, positive_integer
 
 MEMORY_VALUES = [x for x in range(128, 3009, 64)]
 RESERVED_ENVIRONMENT_VARIABLES = [
@@ -136,9 +136,10 @@ class EventSourceMapping(AWSObject):
 
     props = {
         'BatchSize': (positive_integer, False),
-        'Enabled': (bool, False),
+        'Enabled': (boolean, False),
         'EventSourceArn': (basestring, True),
         'FunctionName': (basestring, True),
+        'MaximumBatchingWindowInSeconds': (positive_integer, False),
         'StartingPosition': (basestring, False),
     }
 
