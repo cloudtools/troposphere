@@ -16,6 +16,7 @@ class DBCluster(AWSObject):
         'DBClusterIdentifier': (basestring, False),
         'DBClusterParameterGroupName': (basestring, False),
         'DBSubnetGroupName': (basestring, False),
+        'EnableCloudwatchLogsExports': ([basestring], False),
         'EngineVersion': (basestring, False),
         'KmsKeyId': (basestring, False),
         'MasterUserPassword': (basestring, False),
