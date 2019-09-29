@@ -1,3 +1,32 @@
+2.5.2 (2019*09*29)
+------------------
+* Use double validator instead of a raw float for Double types (#1485)
+* Add PythonVersion to Glue JobCommand (#1486)
+* ImageId in EC2 LaunchTemplateData is no longer required (#1487)
+* Add KmsKeyID prop to AWS::ElastiCache::ReplicationGroup, per 2019 Aug 30 update (#1488)
+* Add threshold metric to CloudWatch::Alarm (#1489)
+* Fix naming of parameters in FindInMap helper. (#1491)
+* Add missing EnableNonSecurity property to SSM Rule (#1493)
+* Add EnableCloudwatchLogsExports to Neptune::DBCluster
+* Update AppMesh::Route properties per 2019-08-29 update
+* Add Config::OrganizationConfigRule resource
+* Add ZoneAwarenessConfig to Elasticsearch ElasticsearchClusterConfig
+* Add AWS::QLDB
+* Update RDS resources per 2019-08-29 update
+* Travis CI: Add flake8 which is a superset of pycodestyle and pyflakes (#1470)
+* Run flake8 via "make test" (#1470)
+* Add SourceVersion to CodeBuild::Project (#1495)
+* Add new Properties to SSM::Parameter (#1496)
+* iam: Add Description field to Role (#1497)
+* Add MaximumBatchingWindowInSeconds to Lambda::EventSourceMapping
+* Update Events::Rule EcsParameters per 2019-08-29 changes
+* Update ECS::TaskDefinition per 2019-08-29 changes
+* Update EC2::Instance per 2019-08-29 changes
+* Update DynamoDB::Table per 2019-08-29 changes
+* Update ApplicationAutoScaling::ScalableTarget per 2019-08-29 changes
+* Update DocDB::DBCluster per 2019-09-26 changes
+* Update Glue per 2019-09-26 changes
+
 2.5.1 (2019*08*25)
 ------------------
 * Fix missing required field in CodeContent object (#1472)
