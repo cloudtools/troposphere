@@ -28,8 +28,26 @@ class EventBusPolicy(AWSObject):
     }
 
 
+class AwsVpcConfiguration(AWSProperty):
+    props = {
+        'AssignPublicIp': (basestring, False),
+        'SecurityGroups': ([basestring], False),
+        'Subnets': ([basestring], True),
+    }
+
+
+class NetworkConfiguration(AWSProperty):
+    props = {
+        'AwsVpcConfiguration': (AwsVpcConfiguration, False),
+    }
+
+
 class EcsParameters(AWSProperty):
     props = {
+        'Group': (basestring, False),
+        'LaunchType': (basestring, False),
+        'NetworkConfiguration': (NetworkConfiguration, False),
+        'PlatformVersion': (basestring, False),
         'TaskCount': (integer, False),
         'TaskDefinitionArn': (basestring, True),
     }
