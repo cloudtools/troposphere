@@ -14,7 +14,7 @@ spec:
 	rm CloudFormationResourceSpecification.zip
 
 spec2:
-	curl -O https://d1uauaxba7bl26.cloudfront.net/latest/CloudFormationResourceSpecification.json
+	curl -O --compress https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
 
 2to3:
 	2to3 -n -w examples > 2to3-examples.patch
