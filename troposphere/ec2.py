@@ -156,6 +156,13 @@ class Placement(AWSProperty):
     }
 
 
+class CpuOptions(AWSProperty):
+    props = {
+        'CoreCount': (integer, False),
+        'ThreadsPerCore': (integer, False),
+    }
+
+
 class CreditSpecification(AWSProperty):
     props = {
         'CPUCredits': (basestring, False),
@@ -251,6 +258,7 @@ class Instance(AWSObject):
         'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
+        'CpuOptions': (CpuOptions, False),
         'CreditSpecification': (CreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
