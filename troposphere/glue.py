@@ -223,16 +223,20 @@ class DevEndpoint(AWSObject):
     resource_type = "AWS::Glue::DevEndpoint"
 
     props = {
+        'Arguments': (dict, False),
         'EndpointName': (basestring, False),
         'ExtraJarsS3Path': (basestring, False),
         'ExtraPythonLibsS3Path': (basestring, False),
-        'NumberOfNodes': (positive_integer, False),
-        'PublicKey': (basestring, True),
+        'GlueVersion': (basestring, False),
+        'NumberOfNodes': (integer, False),
+        'NumberOfWorkers': (integer, False),
+        'PublicKey': (basestring, False),
         'RoleArn': (basestring, True),
         'SecurityConfiguration': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
         'SubnetId': (basestring, False),
         'Tags': (dict, False),
+        'WorkerType': (basestring, False),
     }
 
 
@@ -256,6 +260,12 @@ class JobCommand(AWSProperty):
     }
 
 
+class NotificationProperty(AWSProperty):
+    props = {
+        'NotifyDelayAfter': (integer, False),
+    }
+
+
 class Job(AWSObject):
     resource_type = "AWS::Glue::Job"
 
@@ -271,10 +281,12 @@ class Job(AWSObject):
         'MaxCapacity': (double, False),
         'MaxRetries': (double, False),
         'Name': (basestring, False),
+        'NotificationProperty': (NotificationProperty, False),
         'NumberOfWorkers': (integer, False),
         'Role': (basestring, True),
         'SecurityConfiguration': (basestring, False),
         'Tags': (dict, False),
+        'Timeout': (integer, False),
         'WorkerType': (basestring, False),
     }
 
@@ -508,6 +520,19 @@ class Trigger(AWSObject):
         'Name': (basestring, False),
         'Predicate': (Predicate, False),
         'Schedule': (basestring, False),
+        'StartOnCreation': (boolean, False),
         'Tags': (dict, False),
-        'Type': (trigger_type_validator, True),
+        'Type': (basestring, True),
+        'WorkflowName': (basestring, False),
+    }
+
+
+class Workflow(AWSObject):
+    resource_type = "AWS::Glue::Workflow"
+
+    props = {
+        'DefaultRunProperties': (dict, False),
+        'Description': (basestring, False),
+        'Name': (basestring, False),
+        'Tags': (dict, False),
     }
