@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, double, positive_integer
+from .validators import boolean, positive_integer
 
 
 class CognitoIdentityProvider(AWSProperty):
