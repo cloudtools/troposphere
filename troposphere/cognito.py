@@ -243,7 +243,7 @@ class UserPoolClient(AWSObject):
         'GenerateSecret': (boolean, False),
         'LogoutURLs': ([basestring], False),
         'ReadAttributes': ([basestring], False),
-        'RefreshTokenValidity': (double, False),
+        'RefreshTokenValidity': (positive_integer, False),
         'SupportedIdentityProviders': ([basestring], False),
         'UserPoolId': (basestring, True),
         'WriteAttributes': ([basestring], False),
