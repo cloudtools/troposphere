@@ -488,6 +488,8 @@ class Action(AWSProperty):
 
 class Condition(AWSProperty):
     props = {
+        'CrawlerName': (basestring, False),
+        'CrawlState': (basestring, False),
         'JobName': (basestring, False),
         'LogicalOperator': (basestring, False),
         'State': (basestring, False),
