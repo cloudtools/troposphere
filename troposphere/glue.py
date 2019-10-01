@@ -480,8 +480,8 @@ class Table(AWSObject):
 class Action(AWSProperty):
     props = {
         'Arguments': (dict, False),
-        'JobName': (basestring, False),
         'CrawlerName': (basestring, False),
+        'JobName': (basestring, False),
         'SecurityConfiguration': (basestring, False),
     }
 
