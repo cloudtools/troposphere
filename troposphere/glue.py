@@ -481,6 +481,7 @@ class Action(AWSProperty):
     props = {
         'Arguments': (dict, False),
         'JobName': (basestring, False),
+        'CrawlerName': (basestring, False),
         'SecurityConfiguration': (basestring, False),
     }
 
