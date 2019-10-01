@@ -480,6 +480,7 @@ class Table(AWSObject):
 class Action(AWSProperty):
     props = {
         'Arguments': (dict, False),
+        'CrawlerName': (basestring, False),
         'JobName': (basestring, False),
         'SecurityConfiguration': (basestring, False),
     }
@@ -487,6 +488,8 @@ class Action(AWSProperty):
 
 class Condition(AWSProperty):
     props = {
+        'CrawlerName': (basestring, False),
+        'CrawlState': (basestring, False),
         'JobName': (basestring, False),
         'LogicalOperator': (basestring, False),
         'State': (basestring, False),
