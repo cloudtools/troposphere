@@ -39,6 +39,11 @@ PARAMETER_TITLE_MAX = 255
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
+try:
+    basestring
+except NameError:
+    basestring = str
+
 
 def is_aws_object_subclass(cls):
     is_aws_object = False
@@ -98,6 +103,10 @@ class BaseAWSObject(object):
             'Condition', 'CreationPolicy', 'DeletionPolicy', 'DependsOn',
             'Metadata', 'UpdatePolicy', 'UpdateReplacePolicy',
         ]
+        if 'Tags' in kwargs.keys() and 'Tags' in self.propnames:
+            local_tags = kwargs['Tags']
+            if isinstance(local_tags, list):
+                kwargs['Tags'] = Tags(*local_tags)
 
         # try to validate the title if its there
         if self.title:
