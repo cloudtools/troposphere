@@ -39,6 +39,7 @@ PARAMETER_TITLE_MAX = 255
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
 
+
 try:
     basestring
 except NameError:

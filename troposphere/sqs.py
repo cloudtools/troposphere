@@ -7,10 +7,12 @@ from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .compat import policytypes
 from .validators import integer
 
+
 try:
     basestring
 except NameError:
     basestring = str
+
 
 class RedrivePolicy(AWSProperty):
     props = {
