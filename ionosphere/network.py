@@ -71,6 +71,9 @@ class ApplicationSecurityGroup(ARMObject):
     location = True
 
     props = {}
+    root_props = {
+        'tags': (dict, False)
+    }
 
 
 class SecurityRule(ARMObject):
@@ -474,6 +477,9 @@ class ApplicationGateway(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways'
     apiVersion = '2018-08-01'
     location = True
+    root_props = {
+        'tags': (dict, False)
+    }
     props = {
         'sku': (ApplicationGatewaySku, True),
         'gatewayIPConfigurations': ([ApplicationGatewayIPConfiguration], True),
