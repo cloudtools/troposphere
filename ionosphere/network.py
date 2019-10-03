@@ -71,6 +71,9 @@ class ApplicationSecurityGroup(ARMObject):
     location = True
 
     props = {}
+    root_props = {
+        'tags': (dict, False)
+    }
 
 
 class SecurityRule(ARMObject):
@@ -413,11 +416,12 @@ class ApplicationGatewayBackendHttpSettings(ARMObject):
 
 
 class ApplicationGatewayHttpListener(ARMObject):
-    resource_type =  'Microsoft.Network/applicationGateways/httpListeners'
+    resource_type = 'Microsoft.Network/applicationGateways/httpListeners'
     props = {
         'frontendIPConfiguration': (SubResourceRef, True),
         'frontendPort': (SubResourceRef, True),
         'protocol': (str, True), # Http / Https
+        'host_name': (str, False)
     }
 
 
@@ -473,6 +477,9 @@ class ApplicationGateway(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways'
     apiVersion = '2018-08-01'
     location = True
+    root_props = {
+        'tags': (dict, False)
+    }
     props = {
         'sku': (ApplicationGatewaySku, True),
         'gatewayIPConfigurations': ([ApplicationGatewayIPConfiguration], True),
