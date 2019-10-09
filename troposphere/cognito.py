@@ -205,6 +205,7 @@ class UserPool(AWSObject):
         'EmailVerificationMessage': (basestring, False),
         'EmailVerificationSubject': (basestring, False),
         'LambdaConfig': (LambdaConfig, False),
+        'EnabledMfas': (basestring, False),
         'MfaConfiguration': (basestring, False),
         'Policies': (Policies, False),
         'Schema': ([SchemaAttribute], False),
