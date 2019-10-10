@@ -279,7 +279,7 @@ class UserPoolResourceServer(AWSObject):
       "UserPoolId": (basestring, True)
     }
 
-    
+
 class AttributeType(AWSProperty):
     props = {
         'Name': (basestring, True),
