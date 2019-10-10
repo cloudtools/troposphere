@@ -262,6 +262,24 @@ class UserPoolGroup(AWSObject):
     }
 
 
+class ResourceServerScopeType(AWSProperty):
+    props = {
+        "ScopeDescription": (True),
+        "ScopeName": (basestring, True)
+    }
+
+
+class UserPoolResourceServer(AWSObject):
+    resource_type = "AWS::Cognito::UserPoolResourceServer"
+
+    props = {
+      "Identifier": (basestring, True),
+      "Name": (basestring, True),
+      "Scopes": ([ResourceServerScopeType], False),
+      "UserPoolId": (basestring, True)
+    }
+
+    
 class AttributeType(AWSProperty):
     props = {
         'Name': (basestring, True),
