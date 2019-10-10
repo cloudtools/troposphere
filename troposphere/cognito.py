@@ -264,7 +264,7 @@ class UserPoolGroup(AWSObject):
 
 class ResourceServerScopeType(AWSProperty):
     props = {
-        "ScopeDescription": (True),
+        "ScopeDescription": (basestring, True),
         "ScopeName": (basestring, True)
     }
 
