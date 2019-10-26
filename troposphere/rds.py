@@ -20,7 +20,7 @@ VALID_DB_ENGINES = ('MySQL', 'mysql', 'oracle-se1', 'oracle-se2', 'oracle-se',
 VALID_DB_ENGINE_MODES = ('provisioned', 'serverless')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
-VALID_SCALING_CONFIGURATION_CAPACITIES = (2, 4, 8, 16, 32, 64, 128, 256)
+VALID_SCALING_CONFIGURATION_CAPACITIES = (1, 2, 4, 8, 16, 32, 64, 128, 256)
 
 
 def validate_iops(iops):
