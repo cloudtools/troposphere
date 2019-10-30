@@ -19,7 +19,7 @@ class LaunchTemplateSpecification(AWSProperty):
 
 def validate_allocation_strategy(allocation_strategy):
     """ Validate allocation strategy
-    :param allocation_strategy: Allocation strategy parameter for ComputeResource
+    :param allocation_strategy: Allocation strategy for ComputeResource
     :return: The provided value if valid
     """
     valid_strategies = [
