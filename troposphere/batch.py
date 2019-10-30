@@ -29,7 +29,7 @@ def validate_allocation_strategy(allocation_strategy):
     ]
     if allocation_strategy not in valid_strategies:
         raise ValueError(
-            "{} is not a valid  allocation strategy".format(allocation_strategy)
+            "{} is not a valid strategy".format(allocation_strategy)
         )
     return allocation_strategy
 
