@@ -345,26 +345,13 @@ class SubResource(ARMProperty):
         'id': (str, True),
     }
 
-class SubResourceRef(AWSHelperFn):
-    def __init__(self, root_resource, sub_resource, root, child):
-        sub_resource_ref = self._build_sub_resource_ref(root_resource, sub_resource)
-        root_name = self._get_title(root)
-        child_name = self._get_title(child)
-        self.id = "[resourceId('{0}', '{1}', '{2}')]".format(sub_resource_ref, root_name, child_name)
-        self.data = {'id': self.id}
-
-    def _build_sub_resource_ref(self, root_resource, sub_resource):
-        root_resource_type = self._get_resource_type(root_resource)
-        sub_resource_type = self._get_resource_type(sub_resource)
-        return "{0}/{1}".format(root_resource_type, sub_resource_type)
-
-    def _get_resource_type(self, r):
-        return r if isinstance(r, str) else r.resource_type
-
-    def _get_title(self, obj):
-        if isinstance(obj, str):
-            return obj
-        return obj.title
+    def get_resource_name(self):
+        m = re.match(f'^\[resourceId\((?P<BODY>.+)\)\]$', self.id)
+        if m:
+            return m.group('BODY').split(',')[-1].strip(" '")
+        m = re.match(f'^/.*/(?P<NAME>[a-zA-Z0-9-_.]+)/?$', self.id)
+        if m:
+            return m.group('NAME')
 
 
 class CustomerUsageAttributionTemplate(ARMProperty):

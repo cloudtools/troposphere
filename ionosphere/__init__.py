@@ -251,9 +251,12 @@ class BaseAWSObject(object):
             elif isinstance(value, expected_type):
                 return self.resource.__setitem__(name, value)
             
-            # If the value is none and the property is not mandatory, do nothing
+            # If the value is none and the property is not mandatory, delete it (if exists)
             elif value is None and self.root_props[name][1] is False:
-                return
+                if name in self.resource:
+                    return self.resource.__delitem__(name)
+                else:
+                    return
             else:
                 self._raise_type(name, value, expected_type)
 

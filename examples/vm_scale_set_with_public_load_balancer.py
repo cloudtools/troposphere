@@ -19,24 +19,28 @@ lb_ip_conf = FrontendIPConfiguration('lb_ip_conf',
                                      # subnet=SubResource(id=vnet.SubnetRef('subnet1')),
                                      publicIPAddress=SubResource(id=lb_pub_ip.ref()))
 
-lb_rule = LoadBalancingRule('lbrule',
-                            protocol='Tcp',
-                            loadDistribution='SourceIP',
-                            frontendPort=22,
-                            backendPort=22,
-                            frontendIPConfiguration=FrontendIPConfigurationRef(load_balancer='my_lb',
-                                                                               ip_conf=lb_ip_conf),
-                            probe=ProbeRef(load_balancer='my_lb', probe='testProbe'),
-                            backendAddressPool=BackendAddressPoolRef(load_balancer='my_lb', backend_pool='lb_backend'))
+backend_address_pool = BackendAddressPool(name='lb_backend')
 
 probe = Probe('testProbe', protocol='Tcp', port=22)
 
 lb = LoadBalancer('my_lb',
                   sku=LoadBalancerSku(name='Basic'),
                   frontendIPConfigurations=[lb_ip_conf],
-                  backendAddressPools=[BackendAddressPool(name='lb_backend')],
+                  backendAddressPools=[backend_address_pool],
                   probes=[probe],
-                  loadBalancingRules=[lb_rule])
+                  loadBalancingRules=[])
+
+lb_rule = LoadBalancingRule('lbrule',
+                            protocol='Tcp',
+                            loadDistribution='SourceIP',
+                            frontendPort=22,
+                            backendPort=22,
+                            frontendIPConfiguration=lb.ref_frontend_ip_configuration(lb_ip_conf),
+                            probe=lb.ref_probe(probe),
+                            backendAddressPool=lb.ref_backend_address_pool(backend_address_pool))
+
+lb.loadBalancingRules.append(lb_rule)
+
 lb.with_depends_on([lb_pub_ip, vnet])
 
 #endregion

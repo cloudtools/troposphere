@@ -1,8 +1,8 @@
 import re
-from enum import Enum, IntEnum
+from enum import Enum
 from typing import List
 
-from base import ARMObject, ARMProperty, SubResource, SubResourceRef
+from base import ARMObject, ARMProperty, SubResource
 
 
 class AddressSpace(ARMProperty):
@@ -175,10 +175,6 @@ class NetworkInterfaceIPConfiguration(ARMObject):
         self.properties['privateIPAddress'] = value
 
 
-class NetworkInterfaceIPConfigurationRef(SubResourceRef):
-    def __init__(self, nic_name: str, nic_ip_conf: NetworkInterfaceIPConfiguration):
-        super(NetworkInterfaceIPConfigurationRef, self).__init__(NetworkInterface, 'ipConfigurations', nic_name, nic_ip_conf)
-
 class NetworkInterfaceDnsSettings(ARMProperty):
     props = {
         'dnsServers': ((list, str), False),
@@ -256,30 +252,11 @@ class FrontendIPConfiguration(ARMObject):
         return ARMObject.to_dict(self)
 
 
-class FrontendIPConfigurationRef(SubResourceRef):
-    def __init__(self, load_balancer, ip_conf):
-        super(FrontendIPConfigurationRef, self).__init__(LoadBalancer, 'frontendIpConfigurations', load_balancer,
-                                                         ip_conf)
-
-# class FrontendPortRef(SubResourceRef):
-#     def __init__(self, app_gateway, ip_conf):
-#         super(FrontendPortRef, self).__init__(ApplicationGatway, 'frontendPorts', app_gateway, frontend_port)
-
-class ProbeRef(SubResourceRef):
-    def __init__(self, load_balancer, probe):
-        super(ProbeRef, self).__init__(LoadBalancer, 'probes', load_balancer, probe)
-
-
-class BackendAddressPoolRef(SubResourceRef):
-    def __init__(self, load_balancer, backend_pool):
-        super(BackendAddressPoolRef, self).__init__(LoadBalancer, 'backendAddressPools', load_balancer, backend_pool)
-
-
 class LoadBalancingRule(ARMObject):
     props = {
-        'frontendIPConfiguration': (FrontendIPConfigurationRef, False),
-        'backendAddressPool': (BackendAddressPoolRef, False),
-        'probe': (ProbeRef, False),
+        'frontendIPConfiguration': (SubResource, False),
+        'backendAddressPool': (SubResource, False),
+        'probe': (SubResource, False),
         'protocol': (str, True),  # Udp, Tcp, All
         'loadDistribution': (str, False),  # Possible values are 'Default', 'SourceIP', and 'SourceIPProtocol'
         'frontendPort': (int, True),  # 0-65534, when 0 is "Any port"
@@ -307,15 +284,49 @@ class ApplicationGatewayBackendAddress(ARMProperty):
     }
 
 
+class ApplicationGatewayPathRule(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways/urlPathMaps/pathRules'
+    props = {
+      'paths': ([str], True),
+      'backendAddressPool': (SubResource, True),
+      'backendHttpSettings': (SubResource, True),
+    }
+
+
+class ApplicationGatewayUrlPathMap(ARMObject):
+    resource_type = 'Microsoft.Network/applicationGateways/urlPathMaps'
+    props = {
+      'defaultBackendAddressPool': (SubResource, True),
+      'defaultBackendHttpSettings': (SubResource, True),
+      'pathRules': ([ApplicationGatewayPathRule], True),
+    }
+
+    @property
+    def default_backend_address_pool(self) -> SubResource:
+        return self.properties['defaultBackendAddressPool']
+
+    @property
+    def default_backend_http_settings(self) -> SubResource:
+        return self.properties['defaultBackendHttpSettings']
+
+    @property
+    def path_rules(self) -> List[ApplicationGatewayPathRule]:
+        return self.properties['pathRules']
+
+    @path_rules.setter
+    def path_rules(self, value: List[ApplicationGatewayPathRule]):
+        self.properties['pathRules'] = value
+
+
 class BackendAddressPool(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways/backendAddressPools'
     props = {
       'backendAddresses': ([ApplicationGatewayBackendAddress], False),
-      'backendIPConfigurations': ([NetworkInterfaceIPConfigurationRef], False)
+      'backendIPConfigurations': ([SubResource], False)
     }
 
     @property
-    def backend_addresses(self) -> [ApplicationGatewayBackendAddress]:
+    def backend_addresses(self) -> List[ApplicationGatewayBackendAddress]:
         return self.properties['backendAddresses']
 
 
@@ -339,6 +350,15 @@ class LoadBalancer(ARMObject):
         'sku': (LoadBalancerSku, True),
         'tags': (dict, False)
     }
+
+    def ref_frontend_ip_configuration(self, value: FrontendIPConfiguration) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/frontendIPConfigurations', '{self.title}', '{value.title}')]")
+
+    def ref_backend_address_pool(self, value: BackendAddressPool) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/backendAddressPools', '{self.title}', '{value.title}')]")
+
+    def ref_probe(self, value: Probe) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/probes', '{self.title}', '{value.title}')]")
 
 
 class ARecord(ARMProperty):
@@ -370,7 +390,7 @@ class ZoneType(Enum):
 
 class DnsZone(ARMObject):
     resource_type = 'Microsoft.Network/dnsZones'
-    apiVersion = '2017-10-01'
+    apiVersion = '2018-05-01'
     location = True
     domain_name_pattern = re.compile(r'^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$')
 
@@ -404,6 +424,27 @@ class ApplicationGatewayConnectionDraining(ARMProperty):
     }
 
 
+class ApplicationGatewayHealthProbeMatch(ARMProperty):
+    props = {
+        'body': (str, False),
+        'statusCodes': ([str], True),
+    }
+
+
+class ApplicationGatewayHealthProbe(ARMObject):
+    props = {
+        'protocol': (str, True),
+        'host': (str, False),
+        'path': (str, True),
+        'interval': (int, True),
+        'timeout': (int, True),
+        'unhealthyThreshold': (int, True),
+        'pickHostNameFromBackendHttpSettings': (bool, False),
+        'minServers': (int, False),
+        'match': (ApplicationGatewayHealthProbeMatch, False),
+    }
+
+
 class ApplicationGatewayBackendHttpSettings(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways/backendHttpSettingsCollection'
     props = {
@@ -412,27 +453,54 @@ class ApplicationGatewayBackendHttpSettings(ARMObject):
         'cookieBasedAffinity': (str, False), # Enabled / Disabled
         'connectionDraining': (ApplicationGatewayConnectionDraining, False),
         'requestTimeout': (int, True),
+        'probe': (SubResource, False),
+        'pickHostNameFromBackendAddress': (bool, False)
     }
 
 
 class ApplicationGatewayHttpListener(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways/httpListeners'
     props = {
-        'frontendIPConfiguration': (SubResourceRef, True),
-        'frontendPort': (SubResourceRef, True),
+        'frontendIPConfiguration': (SubResource, True),
+        'frontendPort': (SubResource, True),
+        'sslCertificate': (SubResource, False),
         'protocol': (str, True), # Http / Https
-        'host_name': (str, False)
+        'hostName': (str, False)
     }
+
+    @property
+    def frontend_port(self) -> SubResource:
+        return self.properties['frontendPort']
 
 
 class ApplicationGatewayRequestRoutingRule(ARMObject):
     resource_type =  'Microsoft.Network/applicationGateways/requestRoutingRules'
     props = {
         'ruleType': (str, True), # Basic / PathBasedRouting
-        'httpListener': (SubResourceRef, True),
-        'backendAddressPool': (SubResourceRef, True),
-        'backendHttpSettings': (SubResourceRef, True),
+        'httpListener': (SubResource, True),
+        'backendAddressPool': (SubResource, False),
+        'backendHttpSettings': (SubResource, False),
+        'urlPathMap': (SubResource, False),
     }
+    @property
+    def rule_type(self) -> str:
+        return self.properties['ruleType']
+
+    @property
+    def http_listener(self) -> SubResource:
+        return self.properties['httpListener']
+
+    @property
+    def backend_address_pool(self) -> SubResource:
+        return self.properties['backendAddressPool']
+
+    @property
+    def backend_http_settings(self) -> SubResource:
+        return self.properties['backendHttpSettings']
+
+    @property
+    def url_path_map(self) -> SubResource:
+        return self.properties['urlPathMap']
 
 
 class AutoScaleConfiguration(ARMProperty):
@@ -473,12 +541,33 @@ class ApplicationGatewayIPConfiguration(ARMObject):
     }
 
 
+class ApplicationGatewaySslCertificate(ARMObject):
+    props = {
+        'keyVaultSecretId': (str, False)
+    }
+
+
+class UserAssignedIdentity(ARMProperty):
+    props = {
+        'principalId': (str, True),
+        'clientId': (str, True)
+    }
+
+
+class ApplicationGatewayIdentity(ARMProperty):
+    props = {
+        'type': (str, True),
+        'userAssignedIdentities': (dict, True)  # Dict[str, UserAssignedIdentity]
+    }
+
+
 class ApplicationGateway(ARMObject):
     resource_type = 'Microsoft.Network/applicationGateways'
-    apiVersion = '2018-08-01'
+    apiVersion = '2018-10-01'
     location = True
     root_props = {
-        'tags': (dict, False)
+        'tags': (dict, False),
+        'identity': (ApplicationGatewayIdentity, False)
     }
     props = {
         'sku': (ApplicationGatewaySku, True),
@@ -489,26 +578,38 @@ class ApplicationGateway(ARMObject):
         'backendHttpSettingsCollection': ([ApplicationGatewayBackendHttpSettings], True),
         'httpListeners': ([ApplicationGatewayHttpListener], True),
         'requestRoutingRules': ([ApplicationGatewayRequestRoutingRule], True),
-        'autoscaleConfiguration': (AutoScaleConfiguration, False)
+        'autoscaleConfiguration': (AutoScaleConfiguration, False),
+        'urlPathMaps': ([ApplicationGatewayUrlPathMap], False),
+        'probes': ([ApplicationGatewayHealthProbe], False),
+        'sslCertificates': ([ApplicationGatewaySslCertificate], False)
     }
 
-    def ref_gateway_ip_configuration(self, gateway_ip_configuration: ApplicationGatewayIPConfiguration):
-        return SubResourceRef(ApplicationGateway, 'gatewayIPConfigurations', self.title, gateway_ip_configuration)
+    def ref_gateway_ip_configuration(self, value: ApplicationGatewayIPConfiguration) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/gatewayIPConfigurations', '{self.title}', '{value.title}')]")
 
-    def ref_frontend_ip_configuration(self, frontend_ip_configuration: FrontendIPConfiguration):
-        return SubResourceRef(ApplicationGateway, 'frontendIPConfigurations', self.title, frontend_ip_configuration)
+    def ref_frontend_ip_configuration(self, value: FrontendIPConfiguration) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/frontendIPConfigurations', '{self.title}', '{value.title}')]")
 
-    def ref_frontend_port(self, frontend_port: ApplicationGatewayFrontendPort):
-        return SubResourceRef(ApplicationGateway, 'frontendPorts', self.title, frontend_port)
+    def ref_frontend_port(self, value: ApplicationGatewayFrontendPort) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/frontendPorts', '{self.title}', '{value.title}')]")
 
-    def ref_backend_address_pool(self, backend_address_pool: BackendAddressPool):
-        return SubResourceRef(ApplicationGateway, 'backendAddressPools', self.title, backend_address_pool)
+    def ref_backend_address_pool(self, value: BackendAddressPool) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/backendAddressPools', '{self.title}', '{value.title}')]")
 
-    def ref_backend_http_settings(self, backend_http_settings: ApplicationGatewayBackendHttpSettings):
-        return SubResourceRef(ApplicationGateway, 'backendHttpSettingsCollection', self.title, backend_http_settings)
+    def ref_backend_http_settings(self, value: ApplicationGatewayBackendHttpSettings) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/backendHttpSettingsCollection', '{self.title}', '{value.title}')]")
 
-    def ref_http_listener(self, http_listener: ApplicationGatewayHttpListener):
-        return SubResourceRef(ApplicationGateway, 'httpListeners', self.title, http_listener)
+    def ref_http_listener(self, value: ApplicationGatewayHttpListener) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/httpListeners', '{self.title}', '{value.title}')]")
+
+    def ref_url_path_map(self, value: ApplicationGatewayUrlPathMap) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/urlPathMaps', '{self.title}', '{value.title}')]")
+
+    def ref_health_probe(self, value: ApplicationGatewayHealthProbe) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/probes', '{self.title}', '{value.title}')]")
+
+    def ref_ssl_certificate(self, value: ApplicationGatewaySslCertificate) -> SubResource:
+        return SubResource(id=f"[resourceId('{self.resource_type}/sslCertificates', '{self.title}', '{value.title}')]")
 
     @property
     def gateway_ip_configurationsn(self) -> List[ApplicationGatewayIPConfiguration]:
@@ -535,5 +636,19 @@ class ApplicationGateway(ARMObject):
         return self.properties['httpListeners']
 
     @property
+    def url_path_maps(self) -> List[ApplicationGatewayUrlPathMap]:
+        return self.properties['urlPathMaps']
+
+    @property
     def request_routing_rules(self) -> List[ApplicationGatewayRequestRoutingRule]:
         return self.properties['requestRoutingRules']
+
+    @property
+    def health_probes(self) -> List[ApplicationGatewayHealthProbe]:
+        return self.properties['probes']
+
+    @property
+    def ssl_certificates(self) -> List[ApplicationGatewaySslCertificate]:
+        return self.properties['sslCertificates']
+
+
