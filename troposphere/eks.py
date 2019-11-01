@@ -5,6 +5,7 @@
 
 from . import AWSObject, AWSProperty
 
+
 class LogSetup(AWSProperty):
     props = {
         'Enable': (bool, False),
