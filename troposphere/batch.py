@@ -17,9 +17,27 @@ class LaunchTemplateSpecification(AWSProperty):
         exactly_one(self.__class__.__name__, self.properties, template_ids)
 
 
+def validate_allocation_strategy(allocation_strategy):
+    """ Validate allocation strategy
+    :param allocation_strategy: Allocation strategy for ComputeResource
+    :return: The provided value if valid
+    """
+    valid_strategies = [
+        "BEST_FIT",
+        "BEST_FIT_PROGRESSIVE",
+        "SPOT_CAPACITY_OPTIMIZED"
+    ]
+    if allocation_strategy not in valid_strategies:
+        raise ValueError(
+            "{} is not a valid strategy".format(allocation_strategy)
+        )
+    return allocation_strategy
+
+
 class ComputeResources(AWSProperty):
 
     props = {
+        "AllocationStrategy": (validate_allocation_strategy, False),
         "SpotIamFleetRole": (basestring, False),
         "MaxvCpus": (positive_integer, True),
         "SecurityGroupIds": ([basestring], True),
