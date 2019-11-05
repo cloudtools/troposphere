@@ -32,6 +32,7 @@ class EventBusPolicy(AWSObject):
     props = {
         'Action': (basestring, True),
         'Condition': (Condition, False),
+        'EventBusName': (basestring, False),
         'Principal': (basestring, True),
         'StatementId': (basestring, True),
     }
@@ -114,6 +115,7 @@ class Rule(AWSObject):
 
     props = {
         'Description': (basestring, False),
+        'EventBusName': (basestring, False),
         'EventPattern': (dict, False),
         'Name': (basestring, False),
         'RoleArn': (basestring, False),
