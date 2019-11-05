@@ -17,6 +17,15 @@ class Condition(AWSProperty):
     }
 
 
+class EventBus(AWSObject):
+    resource_type = "AWS::Events::EventBus"
+
+    props = {
+        'EventSourceName': (basestring, False),
+        'Name': (basestring, True)
+    }
+
+
 class EventBusPolicy(AWSObject):
     resource_type = "AWS::Events::EventBusPolicy"
 
