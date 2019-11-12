@@ -12,7 +12,7 @@ class Detector(AWSObject):
 
     props = {
         'Enable': (boolean, True),
-        'FindingPublishingFrequency': ([basestring], False),
+        'FindingPublishingFrequency': (basestring, False),
     }
 
 
