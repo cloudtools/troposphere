@@ -251,6 +251,22 @@ class UserPoolClient(AWSObject):
     }
 
 
+class CustomDomainConfigType(AWSProperty):
+    props = {
+        'CertificateArn': (basestring, False),
+    }
+
+
+class UserPoolDomain(AWSObject):
+    resource_type = "AWS::Cognito::UserPoolDomain"
+
+    props = {
+        'CustomDomainConfig': (CustomDomainConfigType, False),
+        'Domain': (basestring, True),
+        'UserPoolId': (basestring, True),
+    }
+
+
 class UserPoolGroup(AWSObject):
     resource_type = "AWS::Cognito::UserPoolGroup"
 
@@ -259,6 +275,19 @@ class UserPoolGroup(AWSObject):
         'GroupName': (basestring, True),
         'Precedence': (positive_integer, False),
         'RoleArn': (basestring, False),
+        'UserPoolId': (basestring, True),
+    }
+
+
+class UserPoolIdentityProvider(AWSObject):
+    resource_type = "AWS::Cognito::UserPoolIdentityProvider"
+
+    props = {
+        'AttributeMapping': (dict, False),
+        'IdpIdentifiers': ([basestring], False),
+        'ProviderDetails': (dict, False),
+        'ProviderName': (basestring, True),
+        'ProviderType': (basestring, True),
         'UserPoolId': (basestring, True),
     }
 
@@ -278,6 +307,92 @@ class UserPoolResourceServer(AWSObject):
       "Name": (basestring, True),
       "Scopes": ([ResourceServerScopeType], False),
       "UserPoolId": (basestring, True)
+    }
+
+
+class AccountTakeoverActionType(AWSProperty):
+    props = {
+        'EventAction': (basestring, True),
+        'Notify': (boolean, True),
+    }
+
+
+class AccountTakeoverActionsType(AWSProperty):
+    props = {
+        'HighAction': (AccountTakeoverActionType, False),
+        'LowAction': (AccountTakeoverActionType, False),
+        'MediumAction': (AccountTakeoverActionType, False),
+    }
+
+
+class NotifyEmailType(AWSProperty):
+    props = {
+        'HtmlBody': (basestring, False),
+        'Subject': (basestring, True),
+        'TextBody': (basestring, False),
+    }
+
+
+class NotifyConfigurationType(AWSProperty):
+    props = {
+        'BlockEmail': (NotifyEmailType, False),
+        'From': (basestring, False),
+        'MfaEmail': (NotifyEmailType, False),
+        'NoActionEmail': (NotifyEmailType, False),
+        'ReplyTo': (basestring, False),
+        'SourceArn': (basestring, True),
+    }
+
+
+class AccountTakeoverRiskConfigurationType(AWSProperty):
+    props = {
+        'Actions': (AccountTakeoverActionsType, True),
+        'NotifyConfiguration': (NotifyConfigurationType, False),
+    }
+
+
+class CompromisedCredentialsActionsType(AWSProperty):
+    props = {
+        'EventAction': (basestring, True),
+    }
+
+
+class CompromisedCredentialsRiskConfigurationType(AWSProperty):
+    props = {
+        'Actions': (CompromisedCredentialsActionsType, True),
+        'EventFilter': ([basestring], False),
+    }
+
+
+class RiskExceptionConfigurationType(AWSProperty):
+    props = {
+        'BlockedIPRangeList': ([basestring], False),
+        'SkippedIPRangeList': ([basestring], False),
+    }
+
+
+class UserPoolRiskConfigurationAttachment(AWSObject):
+    resource_type = "AWS::Cognito::UserPoolRiskConfigurationAttachment"
+
+    props = {
+        'AccountTakeoverRiskConfiguration':
+            (AccountTakeoverRiskConfigurationType, False),
+        'ClientId': (basestring, True),
+        'CompromisedCredentialsRiskConfiguration':
+            (CompromisedCredentialsRiskConfigurationType, False),
+        'RiskExceptionConfiguration':
+            (RiskExceptionConfigurationType, False),
+        'UserPoolId': (basestring, True),
+    }
+
+
+class UserPoolUICustomizationAttachment(AWSObject):
+    resource_type = "AWS::Cognito::UserPoolUICustomizationAttachment"
+
+    props = {
+        'CSS': (basestring, False),
+        'ClientId': (basestring, True),
+        'UserPoolId': (basestring, True),
     }
 
 
