@@ -996,6 +996,66 @@ class LaunchTemplate(AWSObject):
     }
 
 
+class TrafficMirrorFilter(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorFilter"
+
+    props = {
+        'Description': (basestring, False),
+        'NetworkServices': ([basestring], False),
+        'Tags': (Tags, False),
+    }
+
+
+class TrafficMirrorPortRange(AWSProperty):
+    props = {
+        'FromPort': (integer, True),
+        'ToPort': (integer, True),
+    }
+
+
+class TrafficMirrorFilterRule(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorFilterRule"
+
+    props = {
+        'Description': (basestring, False),
+        'DestinationCidrBlock': (basestring, True),
+        'DestinationPortRange': (TrafficMirrorPortRange, False),
+        'Protocol': (integer, False),
+        'RuleAction': (basestring, True),
+        'RuleNumber': (integer, True),
+        'SourceCidrBlock': (basestring, True),
+        'SourcePortRange': (TrafficMirrorPortRange, False),
+        'TrafficDirection': (basestring, True),
+        'TrafficMirrorFilterId': (basestring, True),
+    }
+
+
+class TrafficMirrorSession(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorSession"
+
+    props = {
+        'Description': (basestring, False),
+        'NetworkInterfaceId': (basestring, True),
+        'PacketLength': (integer, False),
+        'SessionNumber': (integer, True),
+        'Tags': (Tags, False),
+        'TrafficMirrorFilterId': (basestring, True),
+        'TrafficMirrorTargetId': (basestring, True),
+        'VirtualNetworkId': (integer, False),
+    }
+
+
+class TrafficMirrorTarget(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorTarget"
+
+    props = {
+        'Description': (basestring, False),
+        'NetworkInterfaceId': (basestring, False),
+        'NetworkLoadBalancerArn': (basestring, False),
+        'Tags': (Tags, False),
+    }
+
+
 class TransitGateway(AWSObject):
     resource_type = "AWS::EC2::TransitGateway"
     props = {
