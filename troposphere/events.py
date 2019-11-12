@@ -17,12 +17,22 @@ class Condition(AWSProperty):
     }
 
 
+class EventBus(AWSObject):
+    resource_type = "AWS::Events::EventBus"
+
+    props = {
+        'EventSourceName': (basestring, False),
+        'Name': (basestring, True)
+    }
+
+
 class EventBusPolicy(AWSObject):
     resource_type = "AWS::Events::EventBusPolicy"
 
     props = {
         'Action': (basestring, True),
         'Condition': (Condition, False),
+        'EventBusName': (basestring, False),
         'Principal': (basestring, True),
         'StatementId': (basestring, True),
     }
@@ -105,6 +115,7 @@ class Rule(AWSObject):
 
     props = {
         'Description': (basestring, False),
+        'EventBusName': (basestring, False),
         'EventPattern': (dict, False),
         'Name': (basestring, False),
         'RoleArn': (basestring, False),
