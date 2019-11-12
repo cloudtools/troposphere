@@ -230,6 +230,7 @@ Currently supported AWS resource types
 - `AWS::Neptune`_
 - `AWS::OpsWorks`_
 - `AWS::OpsWorksCM`_
+- `AWS::Pinpoint`_
 - `AWS::PinpointEmail`_
 - `AWS::QLDB`_
 - `AWS::RAM`_
@@ -447,6 +448,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Neptune`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Neptune.html
 .. _`AWS::OpsWorks`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorks.html
 .. _`AWS::OpsWorksCM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorksCM.html
+.. _`AWS::Pinpoint`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Pinpoint.html
 .. _`AWS::PinpointEmail`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_PinpointEmail.html
 .. _`AWS::QLDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_QLDB.html
 .. _`AWS::RAM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RAM.html
