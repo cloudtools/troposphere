@@ -326,6 +326,13 @@ class Volume(AWSProperty):
     }
 
 
+class InferenceAccelerator(AWSProperty):
+    props = {
+        'DeviceName': (basestring, False),
+        'DeviceType': (basestring, False),
+    }
+
+
 class ProxyConfiguration(AWSProperty):
     props = {
         'ContainerName': (basestring, True),
@@ -342,6 +349,7 @@ class TaskDefinition(AWSObject):
         'Cpu': (basestring, False),
         'ExecutionRoleArn': (basestring, False),
         'Family': (basestring, False),
+        'InferenceAccelerators': ([InferenceAccelerator], False),
         'IpcMode': (basestring, False),
         'Memory': (basestring, False),
         'NetworkMode': (basestring, False),
