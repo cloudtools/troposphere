@@ -224,6 +224,7 @@ class DomainName(AWSObject):
         "DomainName": (basestring, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "RegionalCertificateArn": (basestring, False),
+        "SecurityPolicy": (basestring, False),
     }
 
 
