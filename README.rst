@@ -184,6 +184,7 @@ Currently supported AWS resource types
 - `AWS::CodeDeploy`_
 - `AWS::CodePipeline`_
 - `AWS::CodeStar`_
+- `AWS::CodeStarNotifications`_
 - `AWS::Cognito`_
 - `AWS::Config`_
 - `AWS::DAX`_
@@ -225,6 +226,7 @@ Currently supported AWS resource types
 - `AWS::Lambda`_
 - `AWS::Logs`_
 - `AWS::ManagedBlockchain`_
+- `AWS::MediaConvert`_
 - `AWS::MediaLive`_
 - `AWS::MediaStore`_
 - `AWS::MSK`_
@@ -402,6 +404,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::CodeCommit`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeCommit.html
 .. _`AWS::CodeDeploy`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeDeploy.html
 .. _`AWS::CodePipeline`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodePipeline.html
+.. _`AWS::CodeStarNotifications`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStarNotifications.html
 .. _`AWS::CodeStar`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStar.html
 .. _`AWS::Cognito`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cognito.html
 .. _`AWS::Config`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Config.html
@@ -444,6 +447,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Lambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lambda.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
 .. _`AWS::ManagedBlockchain`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ManagedBlockchain.html
+.. _`AWS::MediaConvert`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaConvert.html
 .. _`AWS::MediaLive`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaLive.html
 .. _`AWS::MediaStore`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaStore.html
 .. _`AWS::MSK`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MSK.html
