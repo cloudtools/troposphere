@@ -49,6 +49,7 @@ class ApiKey(AWSObject):
         "GenerateDistinctId": (boolean, False),
         "Name": (basestring, False),
         "StageKeys": ([StageKey], False),
+        "Tags": (Tags, False),
         "Value": (basestring, False)
     }
 
@@ -100,7 +101,8 @@ class ClientCertificate(AWSObject):
     resource_type = "AWS::ApiGateway::ClientCertificate"
 
     props = {
-        "Description": (basestring, False)
+        "Description": (basestring, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -225,6 +227,7 @@ class DomainName(AWSObject):
         "EndpointConfiguration": (EndpointConfiguration, False),
         "RegionalCertificateArn": (basestring, False),
         "SecurityPolicy": (basestring, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -353,6 +356,7 @@ class RestApi(AWSObject):
         "Name": (basestring, False),
         "Parameters": (dict, False),
         "Policy": (dict, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -407,6 +411,7 @@ class UsagePlan(AWSObject):
         "ApiStages": ([ApiStage], False),
         "Description": (basestring, False),
         "Quota": (QuotaSettings, False),
+        "Tags": (Tags, False),
         "Throttle": (ThrottleSettings, False),
         "UsagePlanName": (basestring, False),
     }
