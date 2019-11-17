@@ -128,6 +128,19 @@ class SchemaChangePolicy(AWSProperty):
     }
 
 
+class CatalogTarget(AWSProperty):
+    props = {
+        'DatabaseName': (basestring, False),
+        'Tables': ([basestring], False),
+    }
+
+
+class DynamoDBTarget(AWSProperty):
+    props = {
+        'Path': (basestring, False),
+    }
+
+
 class JdbcTarget(AWSProperty):
     props = {
         'ConnectionName': (basestring, False),
@@ -145,6 +158,8 @@ class S3Target(AWSProperty):
 
 class Targets(AWSProperty):
     props = {
+        'CatalogTargets': ([CatalogTarget], False),
+        'DynamoDBTargets': ([DynamoDBTarget], False),
         'JdbcTargets': ([JdbcTarget], False),
         'S3Targets': ([S3Target], False),
     }
