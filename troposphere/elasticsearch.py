@@ -88,6 +88,7 @@ class Domain(AWSObject):
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
         'EncryptionAtRestOptions': (EncryptionAtRestOptions, False),
+        'LogPublishingOptions': (dict, False),
         'NodeToNodeEncryptionOptions': (NodeToNodeEncryptionOptions, False),
         'SnapshotOptions': (SnapshotOptions, False),
         'Tags': ((Tags, list), False),
