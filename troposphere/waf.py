@@ -4,12 +4,12 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, integer
+from .validators import boolean, integer, waf_action_type
 
 
 class Action(AWSProperty):
     props = {
-        'Type': (basestring, True)
+        'Type': (waf_action_type, True)
     }
 
 

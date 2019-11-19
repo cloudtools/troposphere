@@ -492,3 +492,14 @@ def backup_vault_name(name):
         return name
     else:
         raise ValueError("%s is not a valid backup vault name" % name)
+
+
+def waf_action_type(action):
+    valid_actions = ['ALLOW', 'BLOCK', 'COUNT']
+    if action not in valid_actions:
+        raise ValueError(
+            'Type must be one of: "%s"' % (
+                ', '.join(valid_actions)
+            )
+        )
+    return action
