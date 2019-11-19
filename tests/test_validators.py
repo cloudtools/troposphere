@@ -11,6 +11,7 @@ from troposphere.validators import mutually_exclusive, notification_type
 from troposphere.validators import notification_event, task_type
 from troposphere.validators import compliance_level, operating_system
 from troposphere.validators import one_of
+from troposphere.validators import waf_action_type
 
 
 class TestValidators(unittest.TestCase):
@@ -197,7 +198,7 @@ class TestValidators(unittest.TestCase):
 
     def test_notification_event(self):
         for l in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
-                  'Failed'], ['InProgress', 'TimedOut']]:
+                   'Failed'], ['InProgress', 'TimedOut']]:
             notification_event(l)
         for l in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
             with self.assertRaises(ValueError):
@@ -224,6 +225,13 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'foo', 'a', 'l@mbda', 'STEPFUNCTION']:
             with self.assertRaises(ValueError):
                 task_type(s)
+
+    def test_waf_action_type(self):
+        for s in ['ALLOW', 'BLOCK', 'COUNT']:
+            waf_action_type(s)
+        for s in ['', 'deny', 'UNBLOCK', 'COUNTER']:
+            with self.assertRaises(ValueError):
+                waf_action_type(s)
 
 
 if __name__ == '__main__':
