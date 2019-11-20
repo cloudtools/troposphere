@@ -89,8 +89,8 @@
                         },
                         "services": {
                             "cfn-hup": {
-                                "enabled": "true",
-                                "ensureRunning": "true",
+                                "enabled": true,
+                                "ensureRunning": true,
                                 "files": [
                                     "/etc/cfn/cfn-hup.conf",
                                     "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
@@ -101,7 +101,7 @@
                 }
             },
             "Properties": {
-                "AssociatePublicIpAddress": "true",
+                "AssociatePublicIpAddress": true,
                 "IamInstanceProfile": {
                     "Ref": "EC2InstanceProfile"
                 },

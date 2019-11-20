@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean
+from .validators import boolean, integer
 
 
 ONE_HOUR = "One_Hour"
@@ -136,4 +136,74 @@ class DeliveryChannel(AWSObject):
         'S3BucketName': (basestring, True),
         'S3KeyPrefix': (basestring, False),
         'SnsTopicARN': (basestring, False),
+    }
+
+
+class OrganizationCustomRuleMetadata(AWSProperty):
+    props = {
+        'Description': (basestring, False),
+        'InputParameters': (basestring, False),
+        'LambdaFunctionArn': (basestring, True),
+        'MaximumExecutionFrequency': (basestring, False),
+        'OrganizationConfigRuleTriggerTypes': ([basestring], True),
+        'ResourceIdScope': (basestring, False),
+        'ResourceTypesScope': ([basestring], False),
+        'TagKeyScope': (basestring, False),
+        'TagValueScope': (basestring, False),
+    }
+
+
+class OrganizationManagedRuleMetadata(AWSProperty):
+    props = {
+        'Description': (basestring, False),
+        'InputParameters': (basestring, False),
+        'MaximumExecutionFrequency': (basestring, False),
+        'ResourceIdScope': (basestring, False),
+        'ResourceTypesScope': ([basestring], False),
+        'RuleIdentifier': (basestring, True),
+        'TagKeyScope': (basestring, False),
+        'TagValueScope': (basestring, False),
+    }
+
+
+class OrganizationConfigRule(AWSObject):
+    resource_type = "AWS::Config::OrganizationConfigRule"
+
+    props = {
+        'ExcludedAccounts': ([basestring], False),
+        'OrganizationConfigRuleName': (basestring, True),
+        'OrganizationCustomRuleMetadata':
+            (OrganizationCustomRuleMetadata, False),
+        'OrganizationManagedRuleMetadata':
+            (OrganizationManagedRuleMetadata, False),
+    }
+
+
+class SsmControls(AWSProperty):
+    props = {
+        'ConcurrentExecutionRatePercentage': (integer, False),
+        'ErrorPercentage': (integer, False),
+    }
+
+
+class ExecutionControls(AWSProperty):
+    props = {
+        'SsmControls': (SsmControls, False),
+    }
+
+
+class RemediationConfiguration(AWSObject):
+    resource_type = "AWS::Config::RemediationConfiguration"
+
+    props = {
+        'Automatic': (boolean, False),
+        'ConfigRuleName': (basestring, True),
+        'ExecutionControls': (ExecutionControls, False),
+        'MaximumAutomaticAttempts': (integer, False),
+        'Parameters': (dict, False),
+        'ResourceType': (basestring, False),
+        'RetryAttemptSeconds': (integer, False),
+        'TargetId': (basestring, True),
+        'TargetType': (basestring, True),
+        'TargetVersion': (basestring, False),
     }

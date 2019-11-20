@@ -4,7 +4,7 @@ from troposphere import AWSObject, AWSProperty, Output, Parameter
 from troposphere import Cidr, If, Join, Ref, Split, Sub, Template
 from troposphere import NoValue, Region
 from troposphere import depends_on_helper
-from troposphere.ec2 import Instance, LaunchTemplateData
+from troposphere.ec2 import Instance, NetworkInterface
 from troposphere.ec2 import Route, SecurityGroupRule
 from troposphere.s3 import Bucket, PublicRead
 from troposphere.elasticloadbalancing import HealthCheck
@@ -21,7 +21,7 @@ class TestBasic(unittest.TestCase):
     def test_badrequired(self):
         with self.assertRaises(ValueError):
             t = Template()
-            t.add_resource(LaunchTemplateData('launchtemplatedata'))
+            t.add_resource(NetworkInterface('networkinterface'))
             t.to_json()
 
     def test_badtype(self):
@@ -29,10 +29,7 @@ class TestBasic(unittest.TestCase):
             Instance('ec2instance', image_id=0.11)
 
     def test_goodrequired(self):
-        LaunchTemplateData(
-            'launchtemplatedata', ImageId='ami-xxxx',
-            InstanceType='m1.small'
-        )
+        NetworkInterface('interface', SubnetId='abc123')
 
     def test_extraattribute(self):
 

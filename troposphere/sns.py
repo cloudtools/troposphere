@@ -3,13 +3,9 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
+from .compat import policytypes
 from .validators import boolean
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 
 class Subscription(AWSProperty):
@@ -49,5 +45,6 @@ class Topic(AWSObject):
         'DisplayName': (basestring, False),
         'KmsMasterKeyId': (basestring, False),
         'Subscription': ([Subscription], False),
+        'Tags': (Tags, False),
         'TopicName': (basestring, False),
     }

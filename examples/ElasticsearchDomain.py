@@ -36,7 +36,7 @@ es_domain = templ.add_resource(Domain(
                         'Action': 'es:*',
                         'Resource': '*'
                     }]},
-    AdvancedOptions={"rest.action.multi.allow_explicit_index": "true"},
+    AdvancedOptions={"rest.action.multi.allow_explicit_index": True},
     VPCOptions=VPCOptions(
        SubnetIds=["subnet-4f2bb123"],
        SecurityGroupIds=["sg-04cf048c"]

@@ -112,6 +112,7 @@ class ReplicationGroup(AWSObject):
         'CacheSubnetGroupName': (basestring, False),
         'Engine': (basestring, False),
         'EngineVersion': (basestring, False),
+        'KmsKeyId': (basestring, False),
         'NodeGroupConfiguration': (list, False),
         'NotificationTopicArn': (basestring, False),
         'NumCacheClusters': (integer, False),
@@ -151,7 +152,7 @@ class NodeGroupConfiguration(AWSProperty):
     props = {
         'NodeGroupId': (validate_node_group_id, False),
         'PrimaryAvailabilityZone': (basestring, False),
-        'ReplicaAvailabilityZones': (basestring, False),
+        'ReplicaAvailabilityZones': ([basestring], False),
         'ReplicaCount': (integer, False),
         'Slots': (basestring, False),
     }

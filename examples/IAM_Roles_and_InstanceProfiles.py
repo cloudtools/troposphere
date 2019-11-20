@@ -2,7 +2,7 @@ from troposphere import Template, Ref
 
 from troposphere.iam import Role, InstanceProfile
 
-from awacs.aws import Allow, Statement, Principal, Policy
+from awacs.aws import Allow, Statement, Principal, PolicyDocument
 from awacs.sts import AssumeRole
 
 t = Template()
@@ -13,7 +13,7 @@ t.set_description("AWS CloudFormation Sample Template: This template "
 
 cfnrole = t.add_resource(Role(
     "CFNRole",
-    AssumeRolePolicyDocument=Policy(
+    AssumeRolePolicyDocument=PolicyDocument(
         Statement=[
             Statement(
                 Effect=Allow,

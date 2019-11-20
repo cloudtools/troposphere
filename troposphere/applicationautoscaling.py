@@ -19,6 +19,14 @@ class ScheduledAction(AWSProperty):
     }
 
 
+class SuspendedState(AWSProperty):
+    props = {
+        'DynamicScalingInSuspended': (boolean, False),
+        'DynamicScalingOutSuspended': (boolean, False),
+        'ScheduledScalingSuspended': (boolean, False),
+    }
+
+
 class ScalableTarget(AWSObject):
     resource_type = "AWS::ApplicationAutoScaling::ScalableTarget"
 
@@ -30,6 +38,7 @@ class ScalableTarget(AWSObject):
         'ScalableDimension': (basestring, True),
         'ScheduledActions': ([ScheduledAction], False),
         'ServiceNamespace': (basestring, True),
+        'SuspendedState': (SuspendedState, False),
     }
 
 

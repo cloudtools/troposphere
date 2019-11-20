@@ -119,6 +119,7 @@ class FunctionConfiguration(AWSObject):
 class LogConfig(AWSProperty):
     props = {
         'CloudWatchLogsRoleArn': (basestring, False),
+        'ExcludeVerboseContent': (boolean, False),
         'FieldLogLevel': (basestring, False),
     }
 
@@ -141,7 +142,7 @@ class UserPoolConfig(AWSProperty):
     }
 
 
-class AdditionalAuthenticationProviders(AWSProperty):
+class AdditionalAuthenticationProvider(AWSProperty):
     props = {
         'AuthenticationType': (basestring, True),
         'OpenIDConnectConfig': (OpenIDConnectConfig, False),
@@ -154,7 +155,7 @@ class GraphQLApi(AWSObject):
 
     props = {
         'AdditionalAuthenticationProviders':
-            (AdditionalAuthenticationProviders, False),
+            ([AdditionalAuthenticationProvider], False),
         'AuthenticationType': (basestring, True),
         'LogConfig': (LogConfig, False),
         'Name': (basestring, True),

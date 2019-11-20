@@ -16,12 +16,25 @@ class LustreConfiguration(AWSProperty):
     }
 
 
+class SelfManagedActiveDirectoryConfiguration(AWSProperty):
+    props = {
+        'DnsIps': ([basestring], False),
+        'DomainName': (basestring, False),
+        'FileSystemAdministratorsGroup': (basestring, False),
+        'OrganizationalUnitDistinguishedName': (basestring, False),
+        'Password': (basestring, False),
+        'UserName': (basestring, False),
+    }
+
+
 class WindowsConfiguration(AWSProperty):
     props = {
         'ActiveDirectoryId': (basestring, False),
         'AutomaticBackupRetentionDays': (integer, False),
         'CopyTagsToBackups': (boolean, False),
         'DailyAutomaticBackupStartTime': (basestring, False),
+        'SelfManagedActiveDirectoryConfiguration':
+            (SelfManagedActiveDirectoryConfiguration, False),
         'ThroughputCapacity': (integer, False),
         'WeeklyMaintenanceStartTime': (basestring, False),
     }

@@ -4,15 +4,10 @@
 # See LICENSE file for full license.
 
 from . import AWSProperty, AWSObject, Tags
+from .compat import policytypes
 from .validators import boolean, integer, integer_range, positive_integer
 
 VALID_VOLUME_TYPES = ('standard', 'gp2', 'io1')
-
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 
 def validate_volume_type(volume_type):
@@ -38,6 +33,12 @@ class EBSOptions(AWSProperty):
             raise ValueError("Must specify Iops if VolumeType is 'io1'.")
 
 
+class ZoneAwarenessConfig(AWSProperty):
+    props = {
+        'AvailabilityZoneCount': (integer, False),
+    }
+
+
 class ElasticsearchClusterConfig(AWSProperty):
     props = {
         'DedicatedMasterCount': (integer, False),
@@ -45,6 +46,7 @@ class ElasticsearchClusterConfig(AWSProperty):
         'DedicatedMasterType': (basestring, False),
         'InstanceCount': (integer, False),
         'InstanceType': (basestring, False),
+        'ZoneAwarenessConfig': (ZoneAwarenessConfig, False),
         'ZoneAwarenessEnabled': (boolean, False)
     }
 
@@ -86,6 +88,7 @@ class Domain(AWSObject):
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
         'EncryptionAtRestOptions': (EncryptionAtRestOptions, False),
+        'LogPublishingOptions': (dict, False),
         'NodeToNodeEncryptionOptions': (NodeToNodeEncryptionOptions, False),
         'SnapshotOptions': (SnapshotOptions, False),
         'Tags': ((Tags, list), False),

@@ -4,12 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, Tags
+from .compat import policytypes
 from .validators import boolean, integer_range, key_usage_type
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 
 class Alias(AWSObject):

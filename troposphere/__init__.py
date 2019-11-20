@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.4.7"
+__version__ = "2.5.2"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = 'Delete'
@@ -414,8 +414,12 @@ class Base64(AWSHelperFn):
 
 
 class FindInMap(AWSHelperFn):
-    def __init__(self, mapname, key, value):
-        self.data = {'Fn::FindInMap': [self.getdata(mapname), key, value]}
+    def __init__(self, mapname, toplevelkey, secondlevelkey):
+        self.data = {'Fn::FindInMap': [
+            self.getdata(mapname),
+            toplevelkey,
+            secondlevelkey
+        ]}
 
 
 class GetAtt(AWSHelperFn):
@@ -582,6 +586,7 @@ class Template(object):
         'Mappings': (dict, False),
         'Resources': (dict, False),
         'Outputs': (dict, False),
+        'Rules': (dict, False),
     }
 
     def __init__(self, Description=None, Metadata=None):  # noqa: N803
@@ -592,6 +597,7 @@ class Template(object):
         self.outputs = {}
         self.parameters = {}
         self.resources = {}
+        self.rules = {}
         self.version = None
         self.transform = None
 
@@ -646,7 +652,9 @@ class Template(object):
     def add_mapping(self, name, mapping):
         if len(self.mappings) >= MAX_MAPPINGS:
             raise ValueError('Maximum mappings %d reached' % MAX_MAPPINGS)
-        self.mappings[name] = mapping
+        if name not in self.mappings:
+            self.mappings[name] = {}
+        self.mappings[name].update(mapping)
 
     def add_parameter(self, parameter):
         if len(self.parameters) >= MAX_PARAMETERS:
@@ -665,6 +673,21 @@ class Template(object):
             raise ValueError('Maximum number of resources %d reached'
                              % MAX_RESOURCES)
         return self._update(self.resources, resource)
+
+    def add_rule(self, name, rule):
+        """
+        Add a Rule to the template to enforce extra constraints on the
+        parameters. As of June 2019 rules are undocumented in CloudFormation
+        but have the same syntax and behaviour as in ServiceCatalog:
+        https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html
+
+        :param rule: a dict with 'Assertions' (mandatory) and 'RuleCondition'
+                     (optional) keys
+        """
+        # TODO: check maximum number of Rules, and enforce limit.
+        if name in self.rules:
+            self.handle_duplicate_key(name)
+        self.rules[name] = rule
 
     def set_version(self, version=None):
         if version:
@@ -711,6 +734,8 @@ class Template(object):
             t['AWSTemplateFormatVersion'] = self.version
         if self.transform:
             t['Transform'] = self.transform
+        if self.rules:
+            t['Rules'] = self.rules
         t['Resources'] = self.resources
 
         return encode_to_dict(t)

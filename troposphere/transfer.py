@@ -38,11 +38,6 @@ class Server(AWSObject):
     }
 
 
-class SshPublicKey(AWSProperty):
-    props = {
-    }
-
-
 class User(AWSObject):
     resource_type = "AWS::Transfer::User"
 
@@ -51,7 +46,7 @@ class User(AWSObject):
         'Policy': (basestring, False),
         'Role': (basestring, True),
         'ServerId': (basestring, True),
-        'SshPublicKeys': ([SshPublicKey], False),
+        'SshPublicKeys': ([basestring], False),
         'Tags': (Tags, False),
         'UserName': (basestring, True),
     }

@@ -5,11 +5,6 @@
 
 from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, json_checker, double
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
 
 
 class RetentionPeriod(AWSProperty):
@@ -222,6 +217,44 @@ class Action(AWSProperty):
     }
 
 
+class IotEventsDestinationConfiguration(AWSProperty):
+    props = {
+        'InputName': (basestring, True),
+        'RoleArn': (basestring, True),
+    }
+
+
+class GlueConfiguration(AWSProperty):
+    props = {
+        'DatabaseName': (basestring, True),
+        'TableName': (basestring, True),
+    }
+
+
+class S3DestinationConfiguration(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'GlueConfiguration': (GlueConfiguration, False),
+        'Key': (basestring, True),
+        'RoleArn': (basestring, True),
+    }
+
+
+class DatasetContentDeliveryRuleDestination(AWSProperty):
+    props = {
+        'IotEventsDestinationConfiguration':
+            (IotEventsDestinationConfiguration, False),
+        'S3DestinationConfiguration': (S3DestinationConfiguration, False),
+    }
+
+
+class DatasetContentDeliveryRule(AWSProperty):
+    props = {
+        'Destination': (DatasetContentDeliveryRuleDestination, True),
+        'EntryName': (basestring, False),
+    }
+
+
 class Schedule(AWSProperty):
     props = {
         'ScheduleExpression': (basestring, True),
@@ -241,13 +274,22 @@ class Trigger(AWSProperty):
     }
 
 
+class VersioningConfiguration(AWSProperty):
+    props = {
+        'MaxVersions': (integer, False),
+        'Unlimited': (boolean, False),
+    }
+
+
 class Dataset(AWSObject):
     resource_type = "AWS::IoTAnalytics::Dataset"
 
     props = {
         'Actions': ([Action], True),
+        'ContentDeliveryRules': ([DatasetContentDeliveryRule], False),
         'DatasetName': (basestring, False),
         'RetentionPeriod': (RetentionPeriod, False),
-        'Tags': ((Tags, list), False),
+        'Tags': (Tags, False),
         'Triggers': ([Trigger], False),
+        'VersioningConfiguration': (VersioningConfiguration, False),
     }

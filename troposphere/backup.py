@@ -18,7 +18,7 @@ class BackupRuleResourceType(AWSProperty):
     props = {
         'CompletionWindowMinutes': (double, False),
         'Lifecycle': (LifecycleResourceType, False),
-        'RecoveryPointTags': (json_checker, False),
+        'RecoveryPointTags': (dict, False),
         'RuleName': (basestring, True),
         'ScheduleExpression': (basestring, False),
         'StartWindowMinutes': (double, False),
@@ -98,7 +98,7 @@ class BackupVault(AWSObject):
     props = {
         'AccessPolicy': (json_checker, False),
         'BackupVaultName': (backup_vault_name, True),
-        'BackupVaultTags': (json_checker, False),
+        'BackupVaultTags': (dict, False),
         'EncryptionKeyArn': (basestring, False),
         'Notifications': (NotificationObjectType, False),
     }

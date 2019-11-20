@@ -18,7 +18,7 @@ t.add_resource(User(
     Policies=[
         Policy(
             PolicyName="giveaccesstoqueueonly",
-            PolicyDocument=awacs.aws.Policy(
+            PolicyDocument=awacs.aws.PolicyDocument(
                 Statement=[
                     awacs.aws.Statement(
                         Effect=awacs.aws.Allow,
@@ -35,7 +35,7 @@ t.add_resource(User(
         ),
         Policy(
             PolicyName="giveaccesstotopiconly",
-            PolicyDocument=awacs.aws.Policy(
+            PolicyDocument=awacs.aws.PolicyDocument(
                 Statement=[
                     awacs.aws.Statement(
                         Effect=awacs.aws.Allow,

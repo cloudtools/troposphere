@@ -210,10 +210,18 @@ class LinuxParameters(AWSProperty):
     }
 
 
+class Secret(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'ValueFrom': (basestring, True),
+    }
+
+
 class LogConfiguration(AWSProperty):
     props = {
         'LogDriver': (basestring, True),
         'Options': (dict, False),
+        'SecretOptions': ([Secret], False),
     }
 
 
@@ -230,10 +238,10 @@ class ResourceRequirement(AWSProperty):
     }
 
 
-class Secret(AWSProperty):
+class SystemControl(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'ValueFrom': (basestring, True),
+        'Namespace': (basestring, True),
+        'Value': (basestring, True),
     }
 
 
@@ -269,6 +277,7 @@ class ContainerDefinition(AWSProperty):
         'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
         'Image': (basestring, False),
+        'Interactive': (boolean, False),
         'Links': ([basestring], False),
         'LinuxParameters': (LinuxParameters, False),
         'LogConfiguration': (LogConfiguration, False),
@@ -278,12 +287,14 @@ class ContainerDefinition(AWSProperty):
         'Name': (basestring, False),
         'PortMappings': ([PortMapping], False),
         'Privileged': (boolean, False),
+        'PseudoTerminal': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
         'RepositoryCredentials': (RepositoryCredentials, False),
         'ResourceRequirements': ([ResourceRequirement], False),
         'Secrets': ([Secret], False),
         'StartTimeout': (integer, False),
         'StopTimeout': (integer, False),
+        'SystemControls': ([SystemControl], False),
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'VolumesFrom': ([VolumesFrom], False),
@@ -315,6 +326,13 @@ class Volume(AWSProperty):
     }
 
 
+class InferenceAccelerator(AWSProperty):
+    props = {
+        'DeviceName': (basestring, False),
+        'DeviceType': (basestring, False),
+    }
+
+
 class ProxyConfiguration(AWSProperty):
     props = {
         'ContainerName': (basestring, True),
@@ -331,12 +349,15 @@ class TaskDefinition(AWSObject):
         'Cpu': (basestring, False),
         'ExecutionRoleArn': (basestring, False),
         'Family': (basestring, False),
+        'InferenceAccelerators': ([InferenceAccelerator], False),
+        'IpcMode': (basestring, False),
         'Memory': (basestring, False),
         'NetworkMode': (basestring, False),
+        'PidMode': (basestring, False),
         'PlacementConstraints': ([PlacementConstraint], False),
+        'ProxyConfiguration': (ProxyConfiguration, False),
         'RequiresCompatibilities': ([basestring], False),
         'Tags': (Tags, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
-        'ProxyConfiguration': (ProxyConfiguration, False)
     }

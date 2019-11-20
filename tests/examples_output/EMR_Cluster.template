@@ -199,7 +199,7 @@
                                     "VolumesPerInstance": "1"
                                 }
                             ],
-                            "EbsOptimized": "true"
+                            "EbsOptimized": true
                         },
                         "InstanceCount": "1",
                         "InstanceType": "m4.large",
@@ -280,7 +280,7 @@
                         "Value": "EMR Sample Cluster"
                     }
                 ],
-                "VisibleToAllUsers": "true"
+                "VisibleToAllUsers": true
             },
             "Type": "AWS::EMR::Cluster"
         },
@@ -299,8 +299,8 @@
                                 "EncryptionMode": "SSE-KMS"
                             }
                         },
-                        "EnableAtRestEncryption": "true",
-                        "EnableInTransitEncryption": "true",
+                        "EnableAtRestEncryption": true,
+                        "EnableInTransitEncryption": true,
                         "InTransitEncryptionConfiguration": {
                             "TLSCertificateConfiguration": {
                                 "CertificateProviderType": "PEM",

@@ -81,7 +81,8 @@ class Alarm(AWSObject):
         'OKActions': ([basestring], False),
         'Period': (positive_integer, False),
         'Statistic': (basestring, False),
-        'Threshold': (double, True),
+        'Threshold': (double, False),
+        'ThresholdMetricId': (basestring, False),
         'TreatMissingData': (basestring, False),
         'Unit': (basestring, False),
     }
@@ -108,3 +109,29 @@ class Dashboard(AWSObject):
         if name in self.properties:
             dashboard_body = self.properties.get(name)
             self.properties[name] = json_checker(dashboard_body)
+
+
+class Range(AWSProperty):
+    props = {
+        'EndTime': (basestring, True),
+        'StartTime': (basestring, True),
+    }
+
+
+class Configuration(AWSProperty):
+    props = {
+        'ExcludedTimeRanges': ([Range], False),
+        'MetricTimeZone': (basestring, False),
+    }
+
+
+class AnomalyDetector(AWSObject):
+    resource_type = "AWS::CloudWatch::AnomalyDetector"
+
+    props = {
+        'Configuration': (Configuration, False),
+        'Dimensions': ([MetricDimension], False),
+        'MetricName': (basestring, True),
+        'Namespace': (basestring, True),
+        'Stat': (basestring, True)
+    }

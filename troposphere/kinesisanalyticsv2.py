@@ -30,7 +30,7 @@ class S3ContentLocation(AWSProperty):
 class CodeContent(AWSProperty):
     props = {
         'ZipFileContent': (basestring, False),
-        'S3ContentLocation': S3ContentLocation,
+        'S3ContentLocation': (S3ContentLocation, False),
         'TextContent': (basestring, False),
     }
 

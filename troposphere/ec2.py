@@ -4,19 +4,12 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
+from .compat import policytypes
 from .validators import (
     boolean, exactly_one, integer, integer_range, double,
     network_port, positive_integer, vpn_pre_shared_key, vpn_tunnel_inside_cidr,
     vpc_endpoint_type
 )
-
-try:
-    from awacs.aws import Policy
-
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
-
 
 VALID_ELASTICINFERENCEACCELERATOR_TYPES = ('eia1.medium', 'eia1.large',
                                            'eia1.xlarge')
@@ -129,6 +122,7 @@ class EBSBlockDevice(AWSProperty):
     props = {
         'DeleteOnTermination': (boolean, False),
         'Encrypted': (boolean, False),
+        'KmsKeyId': (basestring, False),
         'Iops': (integer, False),  # Conditional
         'SnapshotId': (basestring, False),  # Conditional
         'VolumeSize': (integer, False),  # Conditional
@@ -157,8 +151,18 @@ class MountPoint(AWSProperty):
 
 class Placement(AWSProperty):
     props = {
+        'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'GroupName': (basestring, False),
+        'HostId': (basestring, False),
+        'Tenancy': (basestring, False)
+    }
+
+
+class CpuOptions(AWSProperty):
+    props = {
+        'CoreCount': (integer, False),
+        'ThreadsPerCore': (integer, False),
     }
 
 
@@ -257,6 +261,7 @@ class Instance(AWSObject):
         'Affinity': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': (list, False),
+        'CpuOptions': (CpuOptions, False),
         'CreditSpecification': (CreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
@@ -696,7 +701,7 @@ class VPNConnection(AWSObject):
     props = {
         'CustomerGatewayId': (basestring, True),
         'StaticRoutesOnly': (boolean, False),
-        'Tags': (Tags, False),
+        'Tags': ((Tags, list), False),
         'TransitGatewayId': (basestring, False),
         'Type': (basestring, True),
         'VpnGatewayId': (basestring, False),
@@ -936,9 +941,11 @@ class TagSpecifications(AWSProperty):
 
 class SpotOptions(AWSProperty):
     props = {
+        'BlockDurationMinutes': (integer, False),
         'InstanceInterruptionBehavior': (basestring, False),
         'MaxPrice': (basestring, False),
-        'SpotInstanceType': (basestring, False)
+        'SpotInstanceType': (basestring, False),
+        'ValidUntil': (basestring, False),
     }
 
 
@@ -963,12 +970,13 @@ class LaunchTemplateData(AWSProperty):
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'IamInstanceProfile': (IamInstanceProfile, False),
-        'ImageId': (basestring, True),
+        'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
         'InstanceMarketOptions': (InstanceMarketOptions, False),
         'InstanceType': (basestring, False),
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
+        'LicenseSpecifications': ([LicenseSpecification], False),
         'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
         'Placement': (Placement, False),
@@ -985,6 +993,66 @@ class LaunchTemplate(AWSObject):
     props = {
         'LaunchTemplateData': (LaunchTemplateData, False),
         'LaunchTemplateName': (basestring, False),
+    }
+
+
+class TrafficMirrorFilter(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorFilter"
+
+    props = {
+        'Description': (basestring, False),
+        'NetworkServices': ([basestring], False),
+        'Tags': (Tags, False),
+    }
+
+
+class TrafficMirrorPortRange(AWSProperty):
+    props = {
+        'FromPort': (integer, True),
+        'ToPort': (integer, True),
+    }
+
+
+class TrafficMirrorFilterRule(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorFilterRule"
+
+    props = {
+        'Description': (basestring, False),
+        'DestinationCidrBlock': (basestring, True),
+        'DestinationPortRange': (TrafficMirrorPortRange, False),
+        'Protocol': (integer, False),
+        'RuleAction': (basestring, True),
+        'RuleNumber': (integer, True),
+        'SourceCidrBlock': (basestring, True),
+        'SourcePortRange': (TrafficMirrorPortRange, False),
+        'TrafficDirection': (basestring, True),
+        'TrafficMirrorFilterId': (basestring, True),
+    }
+
+
+class TrafficMirrorSession(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorSession"
+
+    props = {
+        'Description': (basestring, False),
+        'NetworkInterfaceId': (basestring, True),
+        'PacketLength': (integer, False),
+        'SessionNumber': (integer, True),
+        'Tags': (Tags, False),
+        'TrafficMirrorFilterId': (basestring, True),
+        'TrafficMirrorTargetId': (basestring, True),
+        'VirtualNetworkId': (integer, False),
+    }
+
+
+class TrafficMirrorTarget(AWSObject):
+    resource_type = "AWS::EC2::TrafficMirrorTarget"
+
+    props = {
+        'Description': (basestring, False),
+        'NetworkInterfaceId': (basestring, False),
+        'NetworkLoadBalancerArn': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -1182,6 +1250,7 @@ class ClientVpnEndpoint(AWSObject):
         'Description': (basestring, False),
         'DnsServers': ([basestring], False),
         'ServerCertificateArn': (basestring, True),
+        'SplitTunnel': (boolean, False),
         'TagSpecifications': ([TagSpecifications], False),
         'TransportProtocol': (basestring, False),
     }

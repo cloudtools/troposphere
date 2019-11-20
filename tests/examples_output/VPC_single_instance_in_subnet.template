@@ -270,7 +270,7 @@
         "InboundHTTPNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "false",
+                "Egress": false,
                 "NetworkAclId": {
                     "Ref": "NetworkAcl"
                 },
@@ -287,7 +287,7 @@
         "InboundResponsePortsNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "false",
+                "Egress": false,
                 "NetworkAclId": {
                     "Ref": "NetworkAcl"
                 },
@@ -304,7 +304,7 @@
         "InboundSSHNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "false",
+                "Egress": false,
                 "NetworkAclId": {
                     "Ref": "NetworkAcl"
                 },
@@ -375,7 +375,7 @@
         "OutBoundHTTPNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "true",
+                "Egress": true,
                 "NetworkAclId": {
                     "Ref": "NetworkAcl"
                 },
@@ -392,7 +392,7 @@
         "OutBoundHTTPSNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "true",
+                "Egress": true,
                 "NetworkAclId": {
                     "Ref": "NetworkAcl"
                 },
@@ -409,7 +409,7 @@
         "OutBoundResponsePortsNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "true",
+                "Egress": true,
                 "NetworkAclId": {
                     "Ref": "NetworkAcl"
                 },
@@ -585,16 +585,16 @@
                         "services": {
                             "sysvinit": {
                                 "cfn-hup": {
-                                    "enabled": "true",
-                                    "ensureRunning": "true",
+                                    "enabled": true,
+                                    "ensureRunning": true,
                                     "files": [
                                         "/etc/cfn/cfn-hup.conf",
                                         "/etc/cfn/hooks.d/cfn-auto-reloader.conf"
                                     ]
                                 },
                                 "httpd": {
-                                    "enabled": "true",
-                                    "ensureRunning": "true"
+                                    "enabled": true,
+                                    "ensureRunning": true
                                 }
                             }
                         }
@@ -627,8 +627,8 @@
                 },
                 "NetworkInterfaces": [
                     {
-                        "AssociatePublicIpAddress": "true",
-                        "DeleteOnTermination": "true",
+                        "AssociatePublicIpAddress": true,
+                        "DeleteOnTermination": true,
                         "DeviceIndex": "0",
                         "GroupSet": [
                             {

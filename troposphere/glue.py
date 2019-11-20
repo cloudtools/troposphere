@@ -3,8 +3,9 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, double, integer_range, positive_integer
+from . import AWSObject, AWSProperty
+from .validators import boolean, double
+from .validators import integer, integer_range, positive_integer
 
 
 class CsvClassifier(AWSProperty):
@@ -127,6 +128,19 @@ class SchemaChangePolicy(AWSProperty):
     }
 
 
+class CatalogTarget(AWSProperty):
+    props = {
+        'DatabaseName': (basestring, False),
+        'Tables': ([basestring], False),
+    }
+
+
+class DynamoDBTarget(AWSProperty):
+    props = {
+        'Path': (basestring, False),
+    }
+
+
 class JdbcTarget(AWSProperty):
     props = {
         'ConnectionName': (basestring, False),
@@ -144,6 +158,8 @@ class S3Target(AWSProperty):
 
 class Targets(AWSProperty):
     props = {
+        'CatalogTargets': ([CatalogTarget], False),
+        'DynamoDBTargets': ([DynamoDBTarget], False),
         'JdbcTargets': ([JdbcTarget], False),
         'S3Targets': ([S3Target], False),
     }
@@ -163,7 +179,7 @@ class Crawler(AWSObject):
         'Schedule': (Schedule, False),
         'SchemaChangePolicy': (SchemaChangePolicy, False),
         'TablePrefix': (basestring, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Targets': (Targets, True),
     }
 
@@ -222,16 +238,20 @@ class DevEndpoint(AWSObject):
     resource_type = "AWS::Glue::DevEndpoint"
 
     props = {
+        'Arguments': (dict, False),
         'EndpointName': (basestring, False),
         'ExtraJarsS3Path': (basestring, False),
         'ExtraPythonLibsS3Path': (basestring, False),
-        'NumberOfNodes': (positive_integer, False),
-        'PublicKey': (basestring, True),
+        'GlueVersion': (basestring, False),
+        'NumberOfNodes': (integer, False),
+        'NumberOfWorkers': (integer, False),
+        'PublicKey': (basestring, False),
         'RoleArn': (basestring, True),
         'SecurityConfiguration': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
         'SubnetId': (basestring, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
+        'WorkerType': (basestring, False),
     }
 
 
@@ -250,7 +270,14 @@ class ExecutionProperty(AWSProperty):
 class JobCommand(AWSProperty):
     props = {
         'Name': (basestring, False),
+        'PythonVersion': (basestring, False),
         'ScriptLocation': (basestring, False),
+    }
+
+
+class NotificationProperty(AWSProperty):
+    props = {
+        'NotifyDelayAfter': (integer, False),
     }
 
 
@@ -264,12 +291,66 @@ class Job(AWSObject):
         'DefaultArguments': (dict, False),
         'Description': (basestring, False),
         'ExecutionProperty': (ExecutionProperty, False),
+        'GlueVersion': (basestring, False),
         'LogUri': (basestring, False),
+        'MaxCapacity': (double, False),
         'MaxRetries': (double, False),
         'Name': (basestring, False),
+        'NotificationProperty': (NotificationProperty, False),
+        'NumberOfWorkers': (integer, False),
         'Role': (basestring, True),
         'SecurityConfiguration': (basestring, False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
+        'Timeout': (integer, False),
+        'WorkerType': (basestring, False),
+    }
+
+
+class GlueTables(AWSProperty):
+    props = {
+        'CatalogId': (basestring, False),
+        'ConnectionName': (basestring, False),
+        'DatabaseName': (basestring, True),
+        'TableName': (basestring, True),
+    }
+
+
+class InputRecordTables(AWSProperty):
+    props = {
+        'GlueTables': ([GlueTables], False),
+    }
+
+
+class FindMatchesParameters(AWSProperty):
+    props = {
+        'AccuracyCostTradeoff': (float, False),
+        'EnforceProvidedLabels': (boolean, False),
+        'PrecisionRecallTradeoff': (float, False),
+        'PrimaryKeyColumnName': (basestring, True),
+    }
+
+
+class TransformParameters(AWSProperty):
+    props = {
+        'FindMatchesParameters': (FindMatchesParameters, False),
+        'TransformType': (basestring, True),
+    }
+
+
+class MLTransform(AWSObject):
+    resource_type = "AWS::Glue::MLTransform"
+
+    props = {
+        'Description': (basestring, False),
+        'InputRecordTables': (InputRecordTables, True),
+        'MaxCapacity': (float, False),
+        'MaxRetries': (integer, False),
+        'Name': (basestring, False),
+        'NumberOfWorkers': (integer, False),
+        'Role': (basestring, True),
+        'Timeout': (integer, False),
+        'TransformParameters': (TransformParameters, True),
+        'WorkerType': (basestring, False),
     }
 
 
@@ -414,6 +495,7 @@ class Table(AWSObject):
 class Action(AWSProperty):
     props = {
         'Arguments': (dict, False),
+        'CrawlerName': (basestring, False),
         'JobName': (basestring, False),
         'SecurityConfiguration': (basestring, False),
     }
@@ -421,6 +503,8 @@ class Action(AWSProperty):
 
 class Condition(AWSProperty):
     props = {
+        'CrawlerName': (basestring, False),
+        'CrawlState': (basestring, False),
         'JobName': (basestring, False),
         'LogicalOperator': (basestring, False),
         'State': (basestring, False),
@@ -454,6 +538,19 @@ class Trigger(AWSObject):
         'Name': (basestring, False),
         'Predicate': (Predicate, False),
         'Schedule': (basestring, False),
-        'Tags': (Tags, False),
-        'Type': (trigger_type_validator, True),
+        'StartOnCreation': (boolean, False),
+        'Tags': (dict, False),
+        'Type': (basestring, True),
+        'WorkflowName': (basestring, False),
+    }
+
+
+class Workflow(AWSObject):
+    resource_type = "AWS::Glue::Workflow"
+
+    props = {
+        'DefaultRunProperties': (dict, False),
+        'Description': (basestring, False),
+        'Name': (basestring, False),
+        'Tags': (dict, False),
     }

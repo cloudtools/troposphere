@@ -78,6 +78,7 @@ class Rule(AWSProperty):
     props = {
         'ApproveAfterDays': (integer, False),
         'ComplianceLevel': (compliance_level, False),
+        'EnableNonSecurity': (boolean, False),
         'PatchFilterGroup': (PatchFilterGroup, False),
     }
 
@@ -155,8 +156,12 @@ class MaintenanceWindow(AWSObject):
         'Cutoff': (integer, True),
         'Description': (basestring, False),
         'Duration': (integer, True),
+        'EndDate': (basestring, False),
         'Name': (basestring, True),
         'Schedule': (basestring, True),
+        'ScheduleTimezone': (basestring, False),
+        'StartDate': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -200,6 +205,9 @@ class Parameter(AWSObject):
         'AllowedPattern': (basestring, False),
         'Description': (basestring, False),
         'Name': (basestring, False),
+        'Policies': (basestring, False),
+        'Tags': (dict, False),
+        'Tier': (basestring, False),
         'Type': (basestring, True),
         'Value': (basestring, True),
     }

@@ -1,6 +1,6 @@
 from troposphere import Template
 from troposphere.ecr import Repository
-from awacs.aws import Allow, Policy, AWSPrincipal, Statement
+from awacs.aws import Allow, PolicyDocument, AWSPrincipal, Statement
 import awacs.ecr as ecr
 import awacs.iam as iam
 
@@ -11,7 +11,7 @@ t.add_resource(
     Repository(
         'MyRepository',
         RepositoryName='test-repository',
-        RepositoryPolicyText=Policy(
+        RepositoryPolicyText=PolicyDocument(
             Version='2008-10-17',
             Statement=[
                 Statement(

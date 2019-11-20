@@ -119,3 +119,35 @@ class NotebookInstance(AWSObject):
         'Tags': (Tags, False),
         'VolumeSizeInGB': (integer, False),
     }
+
+
+class CognitoMemberDefinition(AWSProperty):
+    props = {
+        'CognitoClientId': (basestring, True),
+        'CognitoUserGroup': (basestring, True),
+        'CognitoUserPool': (basestring, True),
+    }
+
+
+class MemberDefinition(AWSProperty):
+    props = {
+        'CognitoMemberDefinition': (CognitoMemberDefinition, True),
+    }
+
+
+class NotificationConfiguration(AWSProperty):
+    props = {
+        'NotificationTopicArn': (basestring, True),
+    }
+
+
+class Workteam(AWSObject):
+    resource_type = "AWS::SageMaker::Workteam"
+
+    props = {
+        'Description': (basestring, False),
+        'MemberDefinitions': ([MemberDefinition], False),
+        'NotificationConfiguration': (NotificationConfiguration, False),
+        'Tags': (Tags, False),
+        'WorkteamName': (basestring, False),
+    }

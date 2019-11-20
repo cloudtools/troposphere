@@ -230,6 +230,8 @@ class File(object):
             print("from .validators import boolean")
         if self._walk_for_type('Integer'):
             print("from .validators import integer")
+        if self._walk_for_type('Double'):
+            print("from .validators import double")
         vlist = self.override.get_validator_list()
         for override in vlist:
             if override.startswith('common/'):
@@ -321,7 +323,7 @@ def get_required(value):
 
 map_type = {
     'Boolean': 'boolean',
-    'Double': 'float',
+    'Double': 'double',
     'Integer': 'integer',
     'Json': 'dict',
     'Long': 'integer',
@@ -332,7 +334,7 @@ map_type = {
 
 map_type3 = {
     'Boolean': 'bool',
-    'Double': 'float',
+    'Double': 'double',
     'Integer': 'int',
     'Json': 'dict',
     'Long': 'int',
@@ -401,6 +403,8 @@ def output_class(class_name, properties, override, resource_name=None):
     for key, value in sorted(properties.items()):
         if key == 'Tags':
             value_type = "Tags"
+            if 'PrimitiveType' in value and value['PrimitiveType'] == 'Json':
+                value_type = "dict"
         else:
             value_type = get_type(value)
 

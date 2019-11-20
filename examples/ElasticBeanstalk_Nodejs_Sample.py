@@ -14,7 +14,7 @@ from troposphere.elasticbeanstalk import (
 from troposphere.iam import Role, InstanceProfile
 from troposphere.iam import PolicyType as IAMPolicy
 
-from awacs.aws import Allow, Statement, Action, Principal, Policy
+from awacs.aws import Allow, Statement, Action, Principal, PolicyDocument
 from awacs.sts import AssumeRole
 
 
@@ -73,7 +73,7 @@ t.add_mapping("Region2Principal", {
 
 t.add_resource(Role(
     "WebServerRole",
-    AssumeRolePolicyDocument=Policy(
+    AssumeRolePolicyDocument=PolicyDocument(
         Statement=[
             Statement(
                 Effect=Allow, Action=[AssumeRole],
@@ -93,7 +93,7 @@ t.add_resource(Role(
 t.add_resource(IAMPolicy(
     "WebServerRolePolicy",
     PolicyName="WebServerRole",
-    PolicyDocument=Policy(
+    PolicyDocument=PolicyDocument(
         Statement=[
             Statement(Effect=Allow, NotAction=Action("iam", "*"),
                       Resource=["*"])

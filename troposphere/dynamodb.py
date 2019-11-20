@@ -73,7 +73,9 @@ class Projection(AWSProperty):
 
 class SSESpecification(AWSProperty):
     props = {
-        "SSEEnabled": (boolean, True),
+        'KMSMasterKeyId': (basestring, False),
+        'SSEEnabled': (boolean, True),
+        'SSEType': (basestring, False),
     }
 
 
