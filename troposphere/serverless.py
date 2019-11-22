@@ -178,6 +178,7 @@ class Auth(AWSProperty):
     props = {
         'DefaultAuthorizer': (basestring, False),
         'Authorizers': (Authorizers, False),
+        'ResourcePolicy': (dict, False),
     }
 
 
