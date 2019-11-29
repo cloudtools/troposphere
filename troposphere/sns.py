@@ -24,6 +24,7 @@ class SubscriptionResource(AWSObject):
         'FilterPolicy': (dict, False),
         'Protocol': (basestring, True),
         'RawMessageDelivery': (boolean, False),
+        'RedrivePolicy': (dict, False),
         'Region': (basestring, False),
         'TopicArn': (basestring, True),
     }
