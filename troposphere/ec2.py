@@ -965,6 +965,7 @@ class LaunchTemplateCreditSpecification(AWSProperty):
 class LaunchTemplateData(AWSProperty):
     props = {
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'CpuOptions': (CpuOptions, False),
         'CreditSpecification': (LaunchTemplateCreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
