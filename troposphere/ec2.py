@@ -79,6 +79,7 @@ class EIP(AWSObject):
         'InstanceId': (basestring, False),
         'Domain': (basestring, False),
         'PublicIpv4Pool': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
