@@ -214,7 +214,8 @@ class DocumentationVersion(AWSObject):
 class EndpointConfiguration(AWSProperty):
 
     props = {
-        "Types": ([basestring], False)
+        "Types": ([basestring], False),
+        "VpcEndpointIds": ([basestring], False),
     }
 
 
