@@ -98,6 +98,7 @@ class Actions(AWSProperty):
         'Configuration': (dict, False),
         'InputArtifacts': ([InputArtifacts], False),
         'Name': (basestring, True),
+        'Namespace': (basestring, False),
         'OutputArtifacts': ([OutputArtifacts], False),
         'Region': (basestring, False),
         'RoleArn': (basestring, False),
