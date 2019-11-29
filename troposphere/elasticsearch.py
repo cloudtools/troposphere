@@ -18,6 +18,15 @@ def validate_volume_type(volume_type):
     return volume_type
 
 
+class CognitoOptions(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'IdentityPoolId': (basestring, False),
+        'RoleArn': (basestring, False),
+        'UserPoolId': (basestring, False),
+    }
+
+
 class EBSOptions(AWSProperty):
     props = {
         'EBSEnabled': (boolean, False),
@@ -83,6 +92,7 @@ class Domain(AWSObject):
     props = {
         'AccessPolicies': (policytypes, False),
         'AdvancedOptions': (dict, False),
+        'CognitoOptions': (CognitoOptions, False),
         'DomainName': (basestring, False),
         'EBSOptions': (EBSOptions, False),
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
@@ -92,7 +102,7 @@ class Domain(AWSObject):
         'NodeToNodeEncryptionOptions': (NodeToNodeEncryptionOptions, False),
         'SnapshotOptions': (SnapshotOptions, False),
         'Tags': ((Tags, list), False),
-        'VPCOptions': (VPCOptions, False)
+        'VPCOptions': (VPCOptions, False),
     }
 
 
