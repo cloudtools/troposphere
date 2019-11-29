@@ -1,6 +1,6 @@
 import re
 from . import AWSObject, AWSProperty, Join, Tags
-from .validators import boolean, positive_integer
+from .validators import boolean, integer, positive_integer
 
 MEMORY_VALUES = [x for x in range(128, 3009, 64)]
 RESERVED_ENVIRONMENT_VARIABLES = [
@@ -131,15 +131,44 @@ class VPCConfig(AWSProperty):
     }
 
 
+class OnFailure(AWSProperty):
+    props = {
+        'Destination': (basestring, True),
+    }
+
+
+class DestinationConfig(AWSProperty):
+    props = {
+        'OnFailure': (OnFailure, True),
+    }
+
+
+class EventInvokeConfig(AWSObject):
+    resource_type = "AWS::Lambda::EventInvokeConfig"
+
+    props = {
+        'DestinationConfig': (DestinationConfig, False),
+        'FunctionName': (basestring, True),
+        'MaximumEventAgeInSeconds': (integer, False),
+        'MaximumRetryAttempts': (integer, False),
+        'Qualifier': (basestring, True),
+    }
+
+
 class EventSourceMapping(AWSObject):
     resource_type = "AWS::Lambda::EventSourceMapping"
 
     props = {
-        'BatchSize': (positive_integer, False),
+        'BatchSize': (integer, False),
+        'BisectBatchOnFunctionError': (boolean, False),
+        'DestinationConfig': (DestinationConfig, False),
         'Enabled': (boolean, False),
         'EventSourceArn': (basestring, True),
         'FunctionName': (basestring, True),
-        'MaximumBatchingWindowInSeconds': (positive_integer, False),
+        'MaximumBatchingWindowInSeconds': (integer, False),
+        'MaximumRecordAgeInSeconds': (integer, False),
+        'MaximumRetryAttempts': (integer, False),
+        'ParallelizationFactor': (integer, False),
         'StartingPosition': (basestring, False),
     }
 
