@@ -135,3 +135,13 @@ class AnomalyDetector(AWSObject):
         'Namespace': (basestring, True),
         'Stat': (basestring, True)
     }
+
+
+class InsightRule(AWSObject):
+    resource_type = "AWS::CloudWatch::InsightRule"
+
+    props = {
+        'RuleBody': (basestring, True),
+        'RuleName': (basestring, True),
+        'RuleState': (basestring, True),
+    }
