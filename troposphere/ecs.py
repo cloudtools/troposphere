@@ -1,6 +1,6 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, integer, network_port, positive_integer, ecs_proxy_type
+    boolean, double, integer, network_port, positive_integer, ecs_proxy_type
 )
 
 
@@ -25,6 +25,16 @@ class Cluster(AWSObject):
         'ClusterName': (basestring, False),
         'ClusterSettings': ([ClusterSetting], False),
         'Tags': (Tags, False),
+    }
+
+
+class PrimaryTaskSet(AWSObject):
+    resource_type = "AWS::ECS::PrimaryTaskSet"
+
+    props = {
+        'Cluster': (basestring, True),
+        'Service': (basestring, True),
+        'TaskSetId': (basestring, True),
     }
 
 
@@ -383,4 +393,28 @@ class TaskDefinition(AWSObject):
         'Tags': (Tags, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
+    }
+
+
+class Scale(AWSProperty):
+    props = {
+        'Unit': (basestring, False),
+        'Value': (double, False),
+    }
+
+
+class TaskSet(AWSObject):
+    resource_type = "AWS::ECS::TaskSet"
+
+    props = {
+        'Cluster': (basestring, True),
+        'ExternalId': (basestring, False),
+        'LaunchType': (basestring, False),
+        'LoadBalancers': ([LoadBalancer], False),
+        'NetworkConfiguration': (NetworkConfiguration, False),
+        'PlatformVersion': (basestring, False),
+        'Scale': (Scale, False),
+        'Service': (basestring, True),
+        'ServiceRegistries': ([ServiceRegistry], False),
+        'TaskDefinition': (basestring, True),
     }
