@@ -146,6 +146,13 @@ class BootDiagnostics(ARMProperty):
     }
 
 
+class VirtualMachineIdentity(ARMProperty):
+    props = {
+        'type': (str, True),
+        'identityIds': (list, False)  # List[str]
+    }
+
+
 class DiagnosticsProfile(ARMProperty):
     props = {
         'bootDiagnostics': (BootDiagnostics, False)
@@ -198,7 +205,8 @@ class VirtualMachine(ARMObject):
 
     root_props = {
         'plan': (Plan, False),
-        'tags': (dict, False)
+        'tags': (dict, False),
+        'identity': (VirtualMachineIdentity, False)
     }
 
 
