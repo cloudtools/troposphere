@@ -40,6 +40,12 @@ def positive_integer(x):
     return x
 
 
+def positive_integer_or_reference(x):
+    if isinstance(x, basestring):
+        return x
+    return positive_integer(x)
+
+
 def integer_range(minimum_val, maximum_val):
     def integer_range_checker(x):
         i = int(x)

@@ -7,6 +7,7 @@ import warnings
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .compat import policytypes
 from .validators import boolean, integer, positive_integer, s3_bucket_name
+from .validators import positive_integer_or_reference
 from .validators import s3_transfer_acceleration_status
 
 Private = "Private"
@@ -120,7 +121,7 @@ class LifecycleRule(AWSProperty):
         'AbortIncompleteMultipartUpload':
             (AbortIncompleteMultipartUpload, False),
         'ExpirationDate': (basestring, False),
-        'ExpirationInDays': (positive_integer, False),
+        'ExpirationInDays': (positive_integer_or_reference, False),
         'Id': (basestring, False),
         'NoncurrentVersionExpirationInDays': (positive_integer, False),
         'NoncurrentVersionTransition': (NoncurrentVersionTransition, False),
