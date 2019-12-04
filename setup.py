@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='ionosphere',
-    version="0.0.33",
+    version="0.0.34",
     description="Azure Resource Manager Template creation library",
     long_description=readme(),
     author="Alex Azarh",

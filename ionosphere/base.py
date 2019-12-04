@@ -1,7 +1,7 @@
 import json
 import re
 
-from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators, AWSHelperFn
+from ionosphere import encode_to_dict, AWSObject, AWSProperty, Parameter, validators
 
 # Template Limits
 MAX_VARIABLES = 256
@@ -34,6 +34,8 @@ class ARMTemplate(object):
         if customerUsageAttributionGuid:
             self.add_resource(CustomerUsageAttribution(customerUsageAttributionGuid))
 
+    def get_resource_by_name(self, name: str):
+        return next((x for x in self.resources if x.title == name), None)
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
