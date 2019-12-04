@@ -245,6 +245,13 @@ class AliasRoutingConfiguration(AWSProperty):
     }
 
 
+class ProvisionedConcurrencyConfiguration(AWSProperty):
+
+    props = {
+        'ProvisionedConcurrentExecutions': (integer, True),
+    }
+
+
 class Alias(AWSObject):
     resource_type = "AWS::Lambda::Alias"
 
@@ -253,6 +260,8 @@ class Alias(AWSObject):
         'FunctionName': (basestring, True),
         'FunctionVersion': (basestring, True),
         'Name': (basestring, True),
+        'ProvisionedConcurrencyConfig':
+            (ProvisionedConcurrencyConfiguration, False),
         'RoutingConfig': (AliasRoutingConfiguration, False),
     }
 
@@ -264,6 +273,8 @@ class Version(AWSObject):
         'CodeSha256': (basestring, False),
         'Description': (basestring, False),
         'FunctionName': (basestring, True),
+        'ProvisionedConcurrencyConfig':
+            (ProvisionedConcurrencyConfiguration, False),
     }
 
 
