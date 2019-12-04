@@ -260,7 +260,8 @@ class Alias(AWSObject):
         'FunctionName': (basestring, True),
         'FunctionVersion': (basestring, True),
         'Name': (basestring, True),
-        'ProvisionedConcurrencyConfig' : (ProvisionedConcurrencyConfiguration, False),
+        'ProvisionedConcurrencyConfig':
+            (ProvisionedConcurrencyConfiguration, False),
         'RoutingConfig': (AliasRoutingConfiguration, False),
     }
 
@@ -272,7 +273,8 @@ class Version(AWSObject):
         'CodeSha256': (basestring, False),
         'Description': (basestring, False),
         'FunctionName': (basestring, True),
-        'ProvisionedConcurrencyConfig' : (ProvisionedConcurrencyConfiguration, False),
+        'ProvisionedConcurrencyConfig':
+            (ProvisionedConcurrencyConfiguration, False),
     }
 
 
