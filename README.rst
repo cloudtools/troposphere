@@ -160,6 +160,7 @@ Missing required property for the AWS resource:
 Currently supported AWS resource types
 ======================================
 
+- `AWS::AccessAnalyzer`_
 - `AWS::AmazonMQ`_
 - `AWS::Amplify`_
 - `AWS::ApiGateway`_
@@ -382,6 +383,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`LICENSE`: https://github.com/cloudtools/troposphere/blob/master/LICENSE
 .. _`BSD 2-Clause license`: http://opensource.org/licenses/BSD-2-Clause
 
+.. _`AWS::AccessAnalyzer`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AccessAnalyzer.html
 .. _`AWS::AmazonMQ`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AmazonMQ.html
 .. _`AWS::Amplify`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Amplify.html
 .. _`AWS::ApiGateway`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.html
