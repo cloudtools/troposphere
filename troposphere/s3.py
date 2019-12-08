@@ -18,6 +18,37 @@ BucketOwnerFullControl = "BucketOwnerFullControl"
 LogDeliveryWrite = "LogDeliveryWrite"
 
 
+class PublicAccessBlockConfiguration(AWSProperty):
+    props = {
+        'BlockPublicAcls': (boolean, False),
+        'BlockPublicPolicy': (boolean, False),
+        'IgnorePublicAcls': (boolean, False),
+        'RestrictPublicBuckets': (boolean, False),
+    }
+
+
+class VpcConfiguration(AWSProperty):
+    props = {
+        'VpcId': (basestring, False),
+    }
+
+
+class AccessPoint(AWSObject):
+    resource_type = "AWS::S3::AccessPoint"
+
+    props = {
+        'Bucket': (basestring, True),
+        'CreationDate': (basestring, False),
+        'Name': (basestring, False),
+        'NetworkOrigin': (basestring, False),
+        'Policy': (dict, False),
+        'PolicyStatus': (dict, False),
+        'PublicAccessBlockConfiguration':
+            (PublicAccessBlockConfiguration, False),
+        'VpcConfiguration': (VpcConfiguration, False),
+    }
+
+
 class CorsRules(AWSProperty):
     props = {
         'AllowedHeaders': ([basestring], False),
