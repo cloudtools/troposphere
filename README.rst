@@ -206,6 +206,7 @@ Currently supported AWS resource types
 - `AWS::ElasticLoadBalancingV2`_
 - `AWS::Elasticsearch`_
 - `AWS::Events`_
+- `AWS::EventSchemas`_
 - `AWS::FSx`_
 - `AWS::GameLift`_
 - `AWS::Glue`_
@@ -427,6 +428,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::ElasticLoadBalancingV2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElasticLoadBalancingV2.html
 .. _`AWS::Elasticsearch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Elasticsearch.html
 .. _`AWS::Events`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Events.html
+.. _`AWS::EventSchemas`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.html
 .. _`AWS::FSx`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FSx.html
 .. _`AWS::GameLift`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GameLift.html
 .. _`AWS::Glue`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Glue.html
