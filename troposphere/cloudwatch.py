@@ -33,7 +33,7 @@ def validate_treat_missing_data(value):
     """Validate TreatMissingData"""
 
     if value not in VALID_TREAT_MISSING_DATA_TYPES:
-        raise ValueError("TreatMissingData must be one of: %s" %
+        raise ValueError("Alarm TreatMissingData must be one of: %s" %
                          ", ".join(VALID_TREAT_MISSING_DATA_TYPES))
         return value
 

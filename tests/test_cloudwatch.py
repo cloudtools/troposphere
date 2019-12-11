@@ -41,7 +41,7 @@ class TestCloudWatchValidators(unittest.TestCase):
     def test_validate_units(self):
         for unit in cloudwatch.VALID_UNITS:
             cloudwatch.validate_unit(unit)
-        for bad_unit in ['Minutes', 'Bytes/Minute', 'Bits/Second', '']:
+        for bad_unit in ['Minutes', 'Bytes/Minute', 'Bits/Hour', '']:
             with self.assertRaisesRegexp(ValueError, "must be one of"):
                 cloudwatch.validate_unit(bad_unit)
 
