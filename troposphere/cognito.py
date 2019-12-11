@@ -105,7 +105,9 @@ class DeviceConfiguration(AWSProperty):
 
 class EmailConfiguration(AWSProperty):
     props = {
+        'ConfigurationSet': (basestring, False),
         'EmailSendingAccount': (basestring, False),
+        'From': (basestring, False),
         'ReplyToEmailAddress': (basestring, False),
         'SourceArn': (basestring, False),
     }
@@ -243,6 +245,7 @@ class UserPoolClient(AWSObject):
         'ExplicitAuthFlows': ([basestring], False),
         'GenerateSecret': (boolean, False),
         'LogoutURLs': ([basestring], False),
+        'PreventUserExistenceErrors': (basestring, False),
         'ReadAttributes': ([basestring], False),
         'RefreshTokenValidity': (positive_integer, False),
         'SupportedIdentityProviders': ([basestring], False),
@@ -407,6 +410,7 @@ class UserPoolUser(AWSObject):
     resource_type = "AWS::Cognito::UserPoolUser"
 
     props = {
+        'ClientMetadata': (dict, False),
         'DesiredDeliveryMediums': ([basestring], False),
         'ForceAliasCreation': (boolean, False),
         'UserAttributes': ([AttributeType], False),

@@ -3,7 +3,8 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
+from .validators import (boolean, double)
 
 
 class LogSetup(AWSProperty):
@@ -43,5 +44,41 @@ class Cluster(AWSObject):
         'Logging': (Logging, False),
         'ResourcesVpcConfig': (ResourcesVpcConfig, True),
         'RoleArn': (basestring, True),
+        'Version': (basestring, False),
+    }
+
+
+class RemoteAccess(AWSProperty):
+    props = {
+        'Ec2SshKey': (basestring, True),
+        'SourceSecurityGroups': ([basestring], False),
+    }
+
+
+class ScalingConfig(AWSProperty):
+    props = {
+        'DesiredSize': (double, False),
+        'MaxSize': (double, False),
+        'MinSize': (double, False),
+    }
+
+
+class Nodegroup(AWSObject):
+    resource_type = "AWS::EKS::Nodegroup"
+
+    props = {
+        'AmiType': (basestring, False),
+        'ClusterName': (basestring, True),
+        'DiskSize': (double, False),
+        'ForceUpdateEnabled': (boolean, False),
+        'InstanceTypes': ([basestring], False),
+        'Labels': (basestring, False),
+        'NodegroupName': (basestring, False),
+        'NodeRole': (basestring, True),
+        'ReleaseVersion': (basestring, False),
+        'RemoteAccess': (RemoteAccess, False),
+        'ScalingConfig': (ScalingConfig, False),
+        'Subnets': ([basestring], False),
+        'Tags': (Tags, False),
         'Version': (basestring, False),
     }

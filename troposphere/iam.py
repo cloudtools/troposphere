@@ -108,6 +108,7 @@ class User(AWSObject):
         'Path': (iam_path, False),
         'PermissionsBoundary': (basestring, False),
         'Policies': ([Policy], False),
+        'Tags': (Tags, False),
         'UserName': (iam_user_name, False),
     }
 

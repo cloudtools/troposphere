@@ -79,6 +79,7 @@ class EIP(AWSObject):
         'InstanceId': (basestring, False),
         'Domain': (basestring, False),
         'PublicIpv4Pool': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -965,6 +966,7 @@ class LaunchTemplateCreditSpecification(AWSProperty):
 class LaunchTemplateData(AWSProperty):
     props = {
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'CpuOptions': (CpuOptions, False),
         'CreditSpecification': (LaunchTemplateCreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),

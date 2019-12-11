@@ -429,6 +429,7 @@ class DBCluster(AWSObject):
         'DBSubnetGroupName': (basestring, False),
         'DeletionProtection': (boolean, False),
         'EnableCloudwatchLogsExports': ([basestring], False),
+        'EnableHttpEndpoint': (boolean, False),
         'EnableIAMDatabaseAuthentication': (boolean, False),
         'Engine': (validate_engine, True),
         'EngineMode': (validate_engine_mode, False),

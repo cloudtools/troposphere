@@ -1,6 +1,6 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, integer, network_port, positive_integer, ecs_proxy_type
+    boolean, double, integer, network_port, positive_integer, ecs_proxy_type
 )
 
 
@@ -11,12 +11,30 @@ SCHEDULING_STRATEGY_REPLICA = 'REPLICA'
 SCHEDULING_STRATEGY_DAEMON = 'DAEMON'
 
 
+class ClusterSetting(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::ECS::Cluster"
 
     props = {
         'ClusterName': (basestring, False),
+        'ClusterSettings': ([ClusterSetting], False),
         'Tags': (Tags, False),
+    }
+
+
+class PrimaryTaskSet(AWSObject):
+    resource_type = "AWS::ECS::PrimaryTaskSet"
+
+    props = {
+        'Cluster': (basestring, True),
+        'Service': (basestring, True),
+        'TaskSetId': (basestring, True),
     }
 
 
@@ -33,6 +51,12 @@ class DeploymentConfiguration(AWSProperty):
     props = {
         'MaximumPercent': (positive_integer, False),
         'MinimumHealthyPercent': (positive_integer, False),
+    }
+
+
+class DeploymentController(AWSProperty):
+    props = {
+        'Type': (basestring, False),
     }
 
 
@@ -111,6 +135,7 @@ class Service(AWSObject):
     props = {
         'Cluster': (basestring, False),
         'DeploymentConfiguration': (DeploymentConfiguration, False),
+        'DeploymentController': (DeploymentController, False),
         'DesiredCount': (positive_integer, False),
         'EnableECSManagedTags': (boolean, False),
         'HealthCheckGracePeriodSeconds': (positive_integer, False),
@@ -172,6 +197,13 @@ class Device(AWSProperty):
         'ContainerPath': (basestring, False),
         'HostPath': (basestring, False),
         'Permissions': ([basestring], False),
+    }
+
+
+class FirelensConfiguration(AWSProperty):
+    props = {
+        'Options': (dict, False),
+        'Type': (basestring, True),
     }
 
 
@@ -263,7 +295,7 @@ class ContainerDependency(AWSProperty):
 class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
-        'Cpu': (positive_integer, False),
+        'Cpu': (integer, False),
         'DependsOn': ([ContainerDependency], False),
         'DisableNetworking': (boolean, False),
         'DnsSearchDomains': ([basestring], False),
@@ -274,6 +306,7 @@ class ContainerDefinition(AWSProperty):
         'Environment': ([Environment], False),
         'Essential': (boolean, False),
         'ExtraHosts': ([HostEntry], False),
+        'FirelensConfiguration': (FirelensConfiguration, False),
         'HealthCheck': (HealthCheck, False),
         'Hostname': (basestring, False),
         'Image': (basestring, False),
@@ -281,8 +314,8 @@ class ContainerDefinition(AWSProperty):
         'Links': ([basestring], False),
         'LinuxParameters': (LinuxParameters, False),
         'LogConfiguration': (LogConfiguration, False),
-        'Memory': (positive_integer, False),
-        'MemoryReservation': (positive_integer, False),
+        'Memory': (integer, False),
+        'MemoryReservation': (integer, False),
         'MountPoints': ([MountPoint], False),
         'Name': (basestring, False),
         'PortMappings': ([PortMapping], False),
@@ -360,4 +393,28 @@ class TaskDefinition(AWSObject):
         'Tags': (Tags, False),
         'TaskRoleArn': (basestring, False),
         'Volumes': ([Volume], False),
+    }
+
+
+class Scale(AWSProperty):
+    props = {
+        'Unit': (basestring, False),
+        'Value': (double, False),
+    }
+
+
+class TaskSet(AWSObject):
+    resource_type = "AWS::ECS::TaskSet"
+
+    props = {
+        'Cluster': (basestring, True),
+        'ExternalId': (basestring, False),
+        'LaunchType': (basestring, False),
+        'LoadBalancers': ([LoadBalancer], False),
+        'NetworkConfiguration': (NetworkConfiguration, False),
+        'PlatformVersion': (basestring, False),
+        'Scale': (Scale, False),
+        'Service': (basestring, True),
+        'ServiceRegistries': ([ServiceRegistry], False),
+        'TaskDefinition': (basestring, True),
     }

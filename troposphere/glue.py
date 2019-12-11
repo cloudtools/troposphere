@@ -342,8 +342,9 @@ class MLTransform(AWSObject):
 
     props = {
         'Description': (basestring, False),
+        'GlueVersion': (basestring, False),
         'InputRecordTables': (InputRecordTables, True),
-        'MaxCapacity': (float, False),
+        'MaxCapacity': (double, False),
         'MaxRetries': (integer, False),
         'Name': (basestring, False),
         'NumberOfWorkers': (integer, False),
