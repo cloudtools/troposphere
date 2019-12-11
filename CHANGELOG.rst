@@ -1,3 +1,65 @@
+2.5.3 (2019*12*08)
+------------------
+* Switch to using the gzip version of the Resource Specification
+* Amend RefreshTokenValidity to match Cognito changes. (#1498)
+* Update placement object (#1501)
+* Add hyperlinks to AWS resource types (#1499)
+* Added missing CrawlerName field to Glue Action and Condition objects (#1500)
+* Fix multiple mappings being overwritten (#1041)
+* Cognito is missing UserPoolResourceServer (#1509)
+* Add EnabledMfas to cognito UserPool Object. (#1507)
+* Cognito EnabledMfa needs to be a list of strings (#1511)
+* Make Python 3.8 support official (#1513)
+* Added missing rds scaling configuration capacity (#1514)
+* Add AllocationStrategy parameter for AWS::Batch::ComputeEnvironment ComputeResources (#1515)
+* Add SelfManagedActiveDirectoryConfiguration property to fsx (#1516)
+* Add logging capability to EKS Cloudwatch (#1512)
+* Fix some flake8 breakage due to recent commits
+* Output the resource specification version after downloading
+* Add EventBus class in events script (#1518)
+* Add new EC2 resources per 2019-10-03 update
+* Add new cognito resources per 2019-10-03 update
+* Add PlannedBudgetLimits to Budgets::Budget BudgetData
+* Add AWS::Pinpoint
+* Adding missing property for guardduty FindingPublishing (#1517)
+* Support for API Gateway SecurityPolicy (#1521)
+* Add AWS::GameLift
+* Update AppStream per 2019-11-07 update
+* Add AWS::CodeStarNotifications and AWS::MediaConvert
+* Update AppMesh per 2019-11-04 update
+* Add DynamoDBTargets and CatalogTargets to Glue::Crawler
+* Update ApiGateway resources per 2019-11-31 changes
+* Add Tags to CodePipeline CustomActionType and Pipeline
+* Updates to Amplify per 2019-10-31 changes
+* Update Events per 2019-11-31 changes
+* Add InferenceAccelerator to ECS::TaskDefinitiion per 2019-10-31 change
+* Add LogPublishingOptions to Elasticsearch::Domain
+* Add Tags to SNS::Topic per 2019-11-31 changes
+* Add WAF Action Type validator (#1524)
+* Adding AWS::EKS::Nodegroup resource, per Nov 18 2019 update (#1529)
+* Adding CpuOptions support for LaunchTemplateData (#1531)
+* Update AppSync per 2019-11-21 changes
+* Update SNS per 2019-11-21 changes
+* Update OpsWorksCM per 2019-11-21 changes
+* Update IAM per 2019-11-21 changes
+* Update Glue per 2019-11-21 changes
+* Update Elasticsearch per 2019-11-21 changes
+* Update EC2 per 2019-11-21 changes
+* Update Cognito per 2019-11-21 changes
+* Update ApiGateway per 2019-11-21 changes
+* Update RDS per 2019-11-21 changes
+* Update ECS per 2019-11-21 changes
+* Update CloudWatch per 2019-11-21 changes
+* Update ECS per 2019-11-25 changes
+* Update per 2019-11 changes
+* Update CodePipeline per 2019-11-25 changes
+* Add ProvisionedConcurrencyConfiguration for Lambda alias and version (#1533)
+* Add AWS::EventSchemas
+* Add AWS::AccessAnalyzer
+* Add S3::AccessPoint per 2019-12-03 update
+* Update StepFunctions per 2019-12-03 update
+* Update ApiGatewayV2 per 2019-12-04 changes
+
 2.5.2 (2019*09*29)
 ------------------
 * Use double validator instead of a raw float for Double types (#1485)
