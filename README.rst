@@ -260,6 +260,7 @@ Currently supported AWS resource types
 - `AWS::Transfer`_
 - `AWS::WAF`_
 - `AWS::WAFRegional`_
+- `AWS::WAFv2`_
 - `AWS::WorkSpaces`_
 
 Currently supported OpenStack resource types
@@ -484,4 +485,3 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::WAF`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAF.html
 .. _`AWS::WAFRegional`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFRegional.html
 .. _`AWS::WorkSpaces`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WorkSpaces.html
-
