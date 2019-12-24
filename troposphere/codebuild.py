@@ -332,3 +332,41 @@ class Project(AWSObject):
         'Triggers': (ProjectTriggers, False),
         'VpcConfig': (VpcConfig, False),
     }
+
+
+class S3ReportExportConfig(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'EncryptionDisabled': (boolean, False),
+        'EncryptionKey': (basestring, False),
+        'Packaging': (basestring, False),
+        'Path': (basestring, False),
+    }
+
+
+class ReportExportConfig(AWSProperty):
+    props = {
+        'ExportConfigType': (basestring, True),
+        'S3Destination': (S3ReportExportConfig, False),
+    }
+
+
+class ReportGroup(AWSObject):
+    resource_type = "AWS::CodeBuild::ReportGroup"
+
+    props = {
+        'ExportConfig': (ReportExportConfig, True),
+        'Name': (basestring, False),
+        'Type': (basestring, True),
+    }
+
+
+class SourceCredential(AWSObject):
+    resource_type = "AWS::CodeBuild::SourceCredential"
+
+    props = {
+        'AuthType': (basestring, True),
+        'ServerType': (basestring, True),
+        'Token': (basestring, True),
+        'Username': (basestring, False),
+    }
