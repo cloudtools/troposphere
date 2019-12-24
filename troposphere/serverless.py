@@ -7,7 +7,8 @@ import types
 
 from . import AWSObject, AWSProperty
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
-from .awslambda import Environment, VPCConfig, validate_memory_size
+from .awslambda import Environment, ProvisionedConcurrencyConfiguration
+from .awslambda import VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
 from .validators import exactly_one, positive_integer, mutually_exclusive
@@ -90,6 +91,8 @@ class Function(AWSObject):
         'Layers': ([basestring], False),
         'AutoPublishAlias': (basestring, False),
         'ReservedConcurrentExecutions': (positive_integer, False),
+        'ProvisionedConcurrencyConfig':
+            (ProvisionedConcurrencyConfiguration, False),
     }
 
     def validate(self):
