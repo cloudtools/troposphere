@@ -144,6 +144,7 @@ class Document(AWSObject):
         # Need a better implementation of the SSM Document
         'Content': (dict, True),
         'DocumentType': (basestring, False),
+        'Name': (basestring, False),
         'Tags': (Tags, False),
     }
 
