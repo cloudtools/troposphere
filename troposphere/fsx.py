@@ -33,6 +33,8 @@ class WindowsConfiguration(AWSProperty):
         'AutomaticBackupRetentionDays': (integer, False),
         'CopyTagsToBackups': (boolean, False),
         'DailyAutomaticBackupStartTime': (basestring, False),
+        'DeploymentType': (basestring, False),
+        'PreferredSubnetId': (basestring, False),
         'SelfManagedActiveDirectoryConfiguration':
             (SelfManagedActiveDirectoryConfiguration, False),
         'ThroughputCapacity': (integer, False),
