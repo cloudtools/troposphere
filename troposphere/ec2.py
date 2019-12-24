@@ -245,6 +245,7 @@ class Host(AWSObject):
 
 class ElasticInferenceAccelerator(AWSProperty):
     props = {
+        'Count': (integer, False),
         'Type': (validate_elasticinferenceaccelerator_type, True),
     }
 
