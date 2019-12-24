@@ -196,6 +196,7 @@ class DBInstance(AWSObject):
         'LicenseModel': (validate_license_model, False),
         'MasterUsername': (basestring, False),
         'MasterUserPassword': (basestring, False),
+        'MaxAllocatedStorage': (integer, False),
         'MonitoringInterval': (positive_integer, False),
         'MonitoringRoleArn': (basestring, False),
         'MultiAZ': (boolean, False),
