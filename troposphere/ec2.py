@@ -232,6 +232,15 @@ class SsmAssociations(AWSProperty):
     }
 
 
+class GatewayRouteTableAssociation(AWSObject):
+    resource_type = "AWS::EC2::GatewayRouteTableAssociation"
+
+    props = {
+        'GatewayId': (basestring, True),
+        'RouteTableId': (basestring, True),
+    }
+
+
 class Host(AWSObject):
     resource_type = "AWS::EC2::Host"
 
