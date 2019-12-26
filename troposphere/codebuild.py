@@ -11,6 +11,9 @@ VALID_IMAGE_PULL_CREDENTIALS = ('CODEBUILD', 'SERVICE_ROLE')
 VALID_CREDENTIAL_PROVIDERS = ('SECRETS_MANAGER')
 VALID_WEBHOOKFILTER_TYPES = ('EVENT', 'ACTOR_ACCOUNT_ID', 'HEAD_REF',
                              'BASE_REF', 'FILE_PATH')
+VALID_PACKAGING = ('NONE', 'ZIP')
+VALID_EXPORTCONFIG_TYPE = ('S3', 'NO_EXPORT')
+VALID_REPORTGROUP_TYPE = ('TESt')
 
 
 def validate_image_pull_credentials(image_pull_credentials):
@@ -38,6 +41,33 @@ def validate_webhookfilter_type(webhookfilter_type):
         raise ValueError("Project Webhookfilter Type must be one of: %s" %
                          ", ".join(VALID_WEBHOOKFILTER_TYPES))
     return webhookfilter_type
+
+
+def validate_exportconfig_type(exportconfig_type):
+    """Validate ExportConfigType type property for a ReportGroup"""
+
+    if exportconfig_type not in VALID_EXPORTCONFIG_TYPE:
+        raise ValueError("ReportGroup ExportConfigType must be one of: %s" %
+                         ", ".join(VALID_EXPORTCONFIG_TYPE))
+    return exportconfig_type
+
+
+def validate_packaging(packaging):
+    """Validate Packaging property for a ReportGroup"""
+
+    if packaging not in VALID_PACKAGING:
+        raise ValueError("ReportGroup Packaging must be one of: %s" %
+                         ", ".join(VALID_PACKAGING))
+    return packaging
+
+
+def validate_reportgroup_type(reportgroup_type):
+    """Validate Type property for a ReportGroup"""
+
+    if reportgroup_type not in VALID_REPORTGROUP_TYPE:
+        raise ValueError("ReportGroup Type must be one of: %s" %
+                         ", ".join(VALID_REPORTGROUP_TYPE))
+    return reportgroup_type
 
 
 class SourceAuth(AWSProperty):
@@ -331,4 +361,31 @@ class Project(AWSObject):
         'TimeoutInMinutes': (integer, False),
         'Triggers': (ProjectTriggers, False),
         'VpcConfig': (VpcConfig, False),
+    }
+
+
+class S3ReportExportConfig(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'EncryptionDisabled': (boolean, False),
+        'EncryptionKey': (basestring, False),
+        'Packaging': (validate_packaging, False),
+        'Path': (basestring, False)
+    }
+
+
+class ReportExportConfig(AWSProperty):
+    props = {
+        'ExportConfigType': (validate_exportconfig_type, True),
+        'S3Destination': (S3ReportExportConfig, False)
+    }
+
+
+class ReportGroup(AWSObject):
+    resource_type = "AWS::CodeBuild::ReportGroup"
+
+    props = {
+        'ExportConfig': (ReportExportConfig, True),
+        'Name': (basestring, False),
+        'Type': (validate_reportgroup_type, True)
     }
