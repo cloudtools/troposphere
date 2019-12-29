@@ -35,7 +35,7 @@ def validate_treat_missing_data(value):
     if value not in VALID_TREAT_MISSING_DATA_TYPES:
         raise ValueError("Alarm TreatMissingData must be one of: %s" %
                          ", ".join(VALID_TREAT_MISSING_DATA_TYPES))
-        return value
+    return value
 
 
 class MetricDimension(AWSProperty):
