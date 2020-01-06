@@ -138,8 +138,17 @@ class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
         'Ebs': (EBSBlockDevice, False),  # Conditional
-        'NoDevice': (dict, False),
         'VirtualName': (basestring, False),  # Conditional
+        'NoDevice': (dict, False)
+    }
+
+
+class LaunchTemplateBlockDeviceMapping(AWSProperty):
+    props = {
+        'DeviceName': (basestring, True),
+        'Ebs': (EBSBlockDevice, False),  # Conditional
+        'VirtualName': (basestring, False),  # Conditional
+        'NoDevice': (basestring, False)
     }
 
 
@@ -975,7 +984,7 @@ class LaunchTemplateCreditSpecification(AWSProperty):
 
 class LaunchTemplateData(AWSProperty):
     props = {
-        'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'BlockDeviceMappings': ([LaunchTemplateBlockDeviceMapping], False),
         'CpuOptions': (CpuOptions, False),
         'CreditSpecification': (LaunchTemplateCreditSpecification, False),
         'DisableApiTermination': (boolean, False),
