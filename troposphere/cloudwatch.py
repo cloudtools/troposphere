@@ -16,6 +16,9 @@ VALID_UNITS = ('Seconds', 'Microseconds', 'Milliseconds', 'Bytes', 'Kilobytes',
                'Kilobits/Second', 'Megabits/Second', 'Gigabits/Second',
                'Terabits/Second', 'Count/Second', 'None')
 
+VALID_TREAT_MISSING_DATA_TYPES = ('breaching', 'notBreaching', 'ignore',
+                                  'missing')
+
 
 def validate_unit(unit):
     """Validate Units"""
@@ -24,6 +27,15 @@ def validate_unit(unit):
         raise ValueError("MetricStat Unit must be one of: %s" %
                          ", ".join(VALID_UNITS))
     return unit
+
+
+def validate_treat_missing_data(value):
+    """Validate TreatMissingData"""
+
+    if value not in VALID_TREAT_MISSING_DATA_TYPES:
+        raise ValueError("Alarm TreatMissingData must be one of: %s" %
+                         ", ".join(VALID_TREAT_MISSING_DATA_TYPES))
+    return value
 
 
 class MetricDimension(AWSProperty):
@@ -83,7 +95,7 @@ class Alarm(AWSObject):
         'Statistic': (basestring, False),
         'Threshold': (double, False),
         'ThresholdMetricId': (basestring, False),
-        'TreatMissingData': (basestring, False),
+        'TreatMissingData': (validate_treat_missing_data, False),
         'Unit': (basestring, False),
     }
 
