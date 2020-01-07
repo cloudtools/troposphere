@@ -243,7 +243,7 @@ def exactly_one(class_name, properties, conditionals):
 def check_required(class_name, properties, conditionals):
     for c in conditionals:
         if c not in properties:
-            raise ValueError("Resource %s required in %s" % c, class_name)
+            raise ValueError("Resource %s required in %s" % (c, class_name))
 
 
 def json_checker(prop):
