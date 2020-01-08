@@ -325,7 +325,7 @@ class TargetGroup(AWSObject):
                     for prop in props_to_check:
 
                         if (prop not in self_props and required is True) or \
-                            (prop in self_props and required is False):
+                              (prop in self_props and required is False):
                             invalid_props.append(prop)
 
                     if len(invalid_props) > 0:
