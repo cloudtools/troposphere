@@ -88,6 +88,27 @@ class FixedResponseConfig(AWSProperty):
                 'application/javascript', 'application/json'])
 
 
+class WeightedTargetGroups(AWSProperty):
+    props = {
+        'TargetGroupArn': (str, True),
+        'Weight': (integer, False)
+    }
+
+
+class TargetGroupStickinessConfig(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'DurationSeconds': (integer, False)
+    }
+
+
+class ForwardConfig(AWSProperty):
+    props = {
+        'TargetGroups': ([WeightedTargetGroups], False),
+        'TargetGroupStickinessConfig': (TargetGroupStickinessConfig, False)
+    }
+
+
 class Action(AWSProperty):
     props = {
         "AuthenticateCognitoConfig": (AuthenticateCognitoConfig, False),
@@ -96,6 +117,7 @@ class Action(AWSProperty):
         "Order": (integer, False),
         "RedirectConfig": (RedirectConfig, False),
         "TargetGroupArn": (basestring, False),
+        "ForwardConfig": (ForwardConfig, False),
         "Type": (basestring, True)
     }
 
@@ -107,15 +129,21 @@ class Action(AWSProperty):
                 'authenticate-cognito', 'authenticate-oidc'])
 
         def requires(action_type, prop):
+            properties = [definition for definition in
+                          self.properties.keys()]
+
+            any_property = lambda require_prop, input_prop: any(
+                p in require_prop for p in properties)
+
             if self.properties.get('Type') == action_type and \
-                    prop not in self.properties:
+                    not any_property(prop, properties):
                 raise ValueError(
                     'Type "%s" requires definition of "%s"' % (
                         action_type, prop
                     )
                 )
 
-            if prop in self.properties and \
+            if any_property(prop, properties) and \
                     self.properties.get('Type') != action_type:
                 raise ValueError(
                     'Definition of "%s" allowed only with '
@@ -124,9 +152,9 @@ class Action(AWSProperty):
                     )
                 )
 
-        requires('forward', 'TargetGroupArn')
-        requires('redirect', 'RedirectConfig')
-        requires('fixed-response', 'FixedResponseConfig')
+        requires('forward', ['TargetGroupArn', 'ForwardConfig'])
+        requires('redirect', ['RedirectConfig'])
+        requires('fixed-response', ['FixedResponseConfig'])
 
 
 class HostHeaderConfig(AWSProperty):
