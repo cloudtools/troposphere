@@ -266,26 +266,22 @@ Currently supported AWS resource types
 Currently supported OpenStack resource types
 ============================================
 
-- OS::Neutron::Firewall
-- OS::Neutron::FirewallPolicy
-- OS::Neutron::FirewallRule
-- OS::Neutron::FloatingIP
-- OS::Neutron::FloatingIPAssociation
+- `OS::Neutron::Firewall`_
+- `OS::Neutron::FirewallPolicy`_
+- `OS::Neutron::FirewallRule`_
+- `OS::Neutron::FloatingIP`_
+- `OS::Neutron::FloatingIPAssociation`_
 - OS::Neutron::HealthMonitor
 - OS::Neutron::Pool
 - OS::Neutron::LoadBalancer
-- OS::Neutron::Net
+- `OS::Neutron::Net`_
 - OS::Neutron::PoolMember
-- OS::Neutron::Port
-- OS::Neutron::SecurityGroup
+- `OS::Neutron::Port`_
+- `OS::Neutron::SecurityGroup`_
 - OS::Nova::FloatingIP
 - OS::Nova::FloatingIPAssociation
-- OS::Nova::KeyPair
-- OS::Nova::Server
-
-Todo:
-
-- Add additional validity checks
+- `OS::Nova::KeyPair`_
+- `OS::Nova::Server`_
 
 Duplicating a single instance sample would look like this
 =========================================================
@@ -484,4 +480,16 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Transfer`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Transfer.html
 .. _`AWS::WAF`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAF.html
 .. _`AWS::WAFRegional`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFRegional.html
+.. _`AWS::WAFv2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFv2.html
 .. _`AWS::WorkSpaces`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WorkSpaces.html
+
+.. _`OS::Neutron::Firewall`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::Firewall
+.. _`OS::Neutron::FirewallPolicy`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::FirewallPolicy
+.. _`OS::Neutron::FirewallRule`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::FirewallRule
+.. _`OS::Neutron::FloatingIP`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::FloatingIP
+.. _`OS::Neutron::FloatingIPAssociation`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::FloatingIPAssociation
+.. _`OS::Neutron::Net`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::Net
+.. _`OS::Neutron::Port`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::Port
+.. _`OS::Neutron::SecurityGroup`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::SecurityGroup
+.. _`OS::Nova::KeyPair`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Nova::KeyPair
+.. _`OS::Nova::Server`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Nova::Server
