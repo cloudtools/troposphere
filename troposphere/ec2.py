@@ -929,7 +929,7 @@ class PlacementGroup(AWSObject):
     resource_type = "AWS::EC2::PlacementGroup"
 
     props = {
-        'Strategy': (basestring, True),
+        'Strategy': (basestring, False),
     }
 
 
