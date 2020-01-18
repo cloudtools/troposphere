@@ -172,6 +172,7 @@ class DBInstance(AWSObject):
         'AutoMinorVersionUpgrade': (boolean, False),
         'AvailabilityZone': (basestring, False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
+        'CACertificateIdentifier': (basestring, False),
         'CharacterSetName': (basestring, False),
         'CopyTagsToSnapshot': (boolean, False),
         'DBClusterIdentifier': (basestring, False),
