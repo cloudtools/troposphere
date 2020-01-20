@@ -465,3 +465,12 @@ class RuleGroup(AWSObject):
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
     }
+
+
+class WebACLAssociation(AWSObject):
+    resource_type = "AWS::WAFv2::WebACLAssociation"
+
+    props = {
+        'ResourceArn': (basestring, True),
+        'WebACLArn': (basestring, True),
+    }
