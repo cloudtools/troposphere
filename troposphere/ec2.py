@@ -274,6 +274,12 @@ class LicenseSpecification(AWSProperty):
     }
 
 
+class HibernationOptions(AWSProperty):
+    props = {
+        'Configured': (boolean, False),
+    }
+
+
 class Instance(AWSObject):
     resource_type = "AWS::EC2::Instance"
 
@@ -287,6 +293,7 @@ class Instance(AWSObject):
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'ElasticInferenceAccelerators': ([ElasticInferenceAccelerator], False),
+        'HibernationOptions': (HibernationOptions, False),
         'HostId': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, False),
