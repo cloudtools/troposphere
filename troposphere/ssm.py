@@ -242,6 +242,23 @@ class PatchBaseline(AWSObject):
     }
 
 
+class AwsOrganizationsSource(AWSProperty):
+    props = {
+        'OrganizationalUnits': ([basestring], False),
+        'OrganizationSourceType': (basestring, True),
+    }
+
+
+class SyncSource(AWSProperty):
+    props = {
+        'AwsOrganizationsSource': (AwsOrganizationsSource, False),
+        'IncludeFutureRegions': (boolean, False),
+        'SourceRegions': ([basestring], True),
+        'SourceType': (basestring, True),
+
+    }
+
+
 class ResourceDataSync(AWSObject):
     resource_type = "AWS::SSM::ResourceDataSync"
 
@@ -252,4 +269,6 @@ class ResourceDataSync(AWSObject):
         'KMSKeyArn': (basestring, False),
         'SyncFormat': (basestring, True),
         'SyncName': (basestring, True),
+        'SyncSource': (SyncSource, False),
+        'SyncType': (basestring, False),
     }
