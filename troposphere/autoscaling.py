@@ -145,6 +145,7 @@ class InstancesDistribution(AWSProperty):
 class LaunchTemplateOverrides(AWSProperty):
     props = {
         'InstanceType': (basestring, False),
+        'WeightedCapacity': (basestring, False),
     }
 
 
