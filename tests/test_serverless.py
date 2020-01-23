@@ -2,8 +2,9 @@ import unittest
 from troposphere import Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
-    Api, DeadLetterQueue, DeploymentPreference, Function, FunctionForPackaging,
-    LayerVersion, S3Event, S3Location, SimpleTable,
+    Api, Auth, DeadLetterQueue, DeploymentPreference, Function,
+    FunctionForPackaging, LayerVersion, ResourcePolicyStatement, S3Event,
+    S3Location, SimpleTable,
 )
 
 
@@ -155,6 +156,26 @@ class TestServerless(unittest.TestCase):
         serverless_api = Api(
             "SomeApi",
             StageName='test',
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_api_auth_resource_policy(self):
+        serverless_api = Api(
+            title='SomeApi',
+            Auth=Auth(
+                ResourcePolicy=ResourcePolicyStatement(
+                    AwsAccountBlacklist=['testAwsAccountBlacklist'],
+                    AwsAccountWhitelist=['testAwsAccountWhitelist'],
+                    CustomStatements=['testCustomStatements'],
+                    IpRangeBlacklist=['testIpRangeBlacklist'],
+                    IpRangeWhitelist=['testIpRangeWhitelist'],
+                    SourceVpcBlacklist=['testVpcBlacklist'],
+                    SourceVpcWhitelist=['testVpcWhitelist'],
+                ),
+            ),
+            StageName='testStageName',
         )
         t = Template()
         t.add_resource(serverless_api)
