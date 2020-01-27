@@ -150,6 +150,7 @@ Currently supported AWS resource types
 - `AWS::Amplify`_
 - `AWS::ApiGateway`_
 - `AWS::ApiGatewayV2`_
+- `AWS::AppConfig`_
 - `AWS::AppMesh`_
 - `AWS::AppStream`_
 - `AWS::AppSync`_
