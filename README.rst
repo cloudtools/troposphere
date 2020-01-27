@@ -146,6 +146,7 @@ Currently supported AWS resource types
 ======================================
 
 - `AWS::AccessAnalyzer`_
+- `AWS::ACMPCA`_
 - `AWS::AmazonMQ`_
 - `AWS::Amplify`_
 - `AWS::ApiGateway`_
