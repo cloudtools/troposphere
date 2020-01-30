@@ -177,10 +177,26 @@ class Authorizers(AWSProperty):
     }
 
 
+class ResourcePolicyStatement(AWSProperty):
+    props = {
+        'AwsAccountBlacklist': (list, False),
+        'AwsAccountWhitelist': (list, False),
+        'CustomStatements': (list, False),
+        'IpRangeBlacklist': (list, False),
+        'IpRangeWhitelist': (list, False),
+        'SourceVpcBlacklist': (list, False),
+        'SourceVpcWhitelist': (list, False),
+    }
+
+
 class Auth(AWSProperty):
     props = {
-        'DefaultAuthorizer': (basestring, False),
+        'AddDefaultAuthorizerToCorsPreflight': (bool, False),
+        'ApiKeyRequired': (bool, False),
         'Authorizers': (Authorizers, False),
+        'DefaultAuthorizer': (basestring, False),
+        'InvokeRole': (basestring, False),
+        'ResourcePolicy': (ResourcePolicyStatement, False),
     }
 
 
