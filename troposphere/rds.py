@@ -17,7 +17,8 @@ VALID_DB_ENGINES = ('MySQL', 'mysql', 'oracle-se1', 'oracle-se2', 'oracle-se',
                     'oracle-ee', 'sqlserver-ee', 'sqlserver-se',
                     'sqlserver-ex', 'sqlserver-web', 'postgres', 'aurora',
                     'aurora-mysql', 'aurora-postgresql', 'mariadb')
-VALID_DB_ENGINE_MODES = ('provisioned', 'serverless', 'parallelquery', 'global', 'multimaster')
+VALID_DB_ENGINE_MODES = ('provisioned', 'serverless', 'parallelquery',
+                         'global', 'multimaster')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
 VALID_SCALING_CONFIGURATION_CAPACITIES = (1, 2, 4, 8, 16, 32, 64, 128, 256)
