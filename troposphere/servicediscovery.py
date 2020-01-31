@@ -59,7 +59,7 @@ class DnsRecord(AWSProperty):
 class DnsConfig(AWSProperty):
     props = {
         'DnsRecords': ([DnsRecord], True),
-        'NamespaceId': (basestring, True),
+        'NamespaceId': (basestring, False),
         'RoutingPolicy': (basestring, False),
     }
 
