@@ -72,7 +72,7 @@ class Nodegroup(AWSObject):
         'DiskSize': (double, False),
         'ForceUpdateEnabled': (boolean, False),
         'InstanceTypes': ([basestring], False),
-        'Labels': (basestring, False),
+        'Labels': (dict, False),
         'NodegroupName': (basestring, False),
         'NodeRole': (basestring, True),
         'ReleaseVersion': (basestring, False),
