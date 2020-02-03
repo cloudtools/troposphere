@@ -79,6 +79,6 @@ class Nodegroup(AWSObject):
         'RemoteAccess': (RemoteAccess, False),
         'ScalingConfig': (ScalingConfig, False),
         'Subnets': ([basestring], False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Version': (basestring, False),
     }
