@@ -7,7 +7,9 @@ from . import AWSObject, AWSProperty, Tags
 from .compat import policytypes
 from .validators import integer, boolean
 
-VALID_TARGET_TYPES = ('AWS::RDS::DBInstance', 'AWS::RDS::DBCluster')
+VALID_TARGET_TYPES = ('AWS::RDS::DBInstance', 'AWS::RDS::DBCluster',
+                      'AWS::Redshift::Cluster', 'AWS::DocDB::DBInstance',
+                      'AWS::DocDB::DBCluster')
 
 
 def validate_target_types(target_type):
