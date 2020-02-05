@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .validators import (boolean, double)
 
 
