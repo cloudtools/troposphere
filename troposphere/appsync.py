@@ -197,6 +197,7 @@ class GraphQLApi(AWSObject):
         'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'Tags': (Tags, False),
         'UserPoolConfig': (UserPoolConfig, False),
+        'XrayEnabled': (boolean, False),
     }
 
 
