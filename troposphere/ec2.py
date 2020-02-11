@@ -13,6 +13,7 @@ from .validators import (
 
 VALID_ELASTICINFERENCEACCELERATOR_TYPES = ('eia1.medium', 'eia1.large',
                                            'eia1.xlarge')
+VALID_CLIENTVPNENDPOINT_VPNPORT = (443, 1194)
 
 
 def validate_elasticinferenceaccelerator_type(
@@ -23,6 +24,15 @@ def validate_elasticinferenceaccelerator_type(
         raise ValueError("Elastic Inference Accelerator Type must be one of: %s" %  # NOQA
                          ", ".join(VALID_ELASTICINFERENCEACCELERATOR_TYPES))
     return elasticinferenceaccelerator_type
+
+
+def validate_clientvpnendpoint_vpnport(vpnport):
+    """Validate VpnPort for ClientVpnEndpoint"""
+
+    if vpnport not in VALID_CLIENTVPNENDPOINT_VPNPORT:
+        raise ValueError("ClientVpnEndpoint VpnPortmust be one of: %s" %  # NOQA
+                         ", ".join(VALID_CLIENTVPNENDPOINT_VPNPORT))
+    return vpnport
 
 
 class Tag(AWSProperty):
@@ -165,6 +175,8 @@ class Placement(AWSProperty):
         'AvailabilityZone': (basestring, False),
         'GroupName': (basestring, False),
         'HostId': (basestring, False),
+        'HostResourceGroupArn': (basestring, False),
+        'PartitionNumber': (integer, False),
         'Tenancy': (basestring, False)
     }
 
@@ -295,6 +307,7 @@ class Instance(AWSObject):
         'ElasticInferenceAccelerators': ([ElasticInferenceAccelerator], False),
         'HibernationOptions': (HibernationOptions, False),
         'HostId': (basestring, False),
+        'HostResourceGroupArn': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
@@ -989,6 +1002,21 @@ class LaunchTemplateCreditSpecification(AWSProperty):
     }
 
 
+class MetadataOptions(AWSProperty):
+    props = {
+        'HttpEndpoint': (basestring, False),
+        'HttpPutResponseHopLimit': (integer, False),
+        'HttpTokens': (basestring, False),
+    }
+
+
+class LaunchTemplateElasticInferenceAccelerator(AWSProperty):
+    props = {
+        'Count': (integer, False),
+        'Type': (validate_elasticinferenceaccelerator_type, False),
+    }
+
+
 class LaunchTemplateData(AWSProperty):
     props = {
         'BlockDeviceMappings': ([LaunchTemplateBlockDeviceMapping], False),
@@ -997,6 +1025,7 @@ class LaunchTemplateData(AWSProperty):
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
+        'ElasticInferenceAccelerators': ([LaunchTemplateElasticInferenceAccelerator], False),  # NOQA
         'IamInstanceProfile': (IamInstanceProfile, False),
         'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
@@ -1005,6 +1034,7 @@ class LaunchTemplateData(AWSProperty):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'LicenseSpecifications': ([LicenseSpecification], False),
+        'MetadataOptions': (MetadataOptions, False),
         'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
         'Placement': (Placement, False),
@@ -1281,6 +1311,7 @@ class ClientVpnEndpoint(AWSObject):
         'SplitTunnel': (boolean, False),
         'TagSpecifications': ([TagSpecifications], False),
         'TransportProtocol': (basestring, False),
+        'VpnPort': (validate_clientvpnendpoint_vpnport, False),
     }
 
 
