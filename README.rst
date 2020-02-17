@@ -193,6 +193,7 @@ Currently supported AWS resource types
 - `AWS::Elasticsearch`_
 - `AWS::Events`_
 - `AWS::EventSchemas`_
+- `AWS::FMS`_
 - `AWS::FSx`_
 - `AWS::GameLift`_
 - `AWS::Glue`_
