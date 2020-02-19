@@ -385,7 +385,8 @@ class VirtualMachineScaleSets(ARMObject):
     root_props = {
         'sku': (VirtualMachineScaleSetSku, False),
         'plan': (Plan, False),
-        'tags': (dict, False)
+        'tags': (dict, False),
+        'identity': (VirtualMachineIdentity, False)
     }
 
     def to_dict(self):
