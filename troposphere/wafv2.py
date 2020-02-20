@@ -410,17 +410,11 @@ class WebACL(AWSObject):
     }
 
 
-class IPAddresses(AWSProperty):
-    props = {
-        'IPAddresses': ([basestring], False)
-    }
-
-
 class IPSet(AWSObject):
     resource_type = "AWS::WAFv2::IPSet"
 
     props = {
-        'Addresses': (IPAddresses, False),
+        'Addresses': ([basestring], False),
         'Description': (basestring, False),
         'IPAddressVersion': (validate_ipaddress_version, False),
         'Name': (basestring, True),
