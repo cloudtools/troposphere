@@ -221,6 +221,12 @@ class AccountRecoverySetting(AWSProperty):
     }
 
 
+class UsernameConfiguration(AWSProperty):
+    props = {
+        'CaseSensitive': (boolean, False),
+    }
+
+
 class UserPool(AWSObject):
     resource_type = "AWS::Cognito::UserPool"
 
@@ -245,6 +251,7 @@ class UserPool(AWSObject):
         'UserPoolName': (basestring, False),
         'UserPoolTags': (dict, False),
         'UsernameAttributes': ([basestring], False),
+        'UsernameConfiguration': (UsernameConfiguration, False),
         'VerificationMessageTemplate': (VerificationMessageTemplate, False),
     }
 
