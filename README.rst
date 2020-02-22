@@ -369,10 +369,12 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`BSD 2-Clause license`: http://opensource.org/licenses/BSD-2-Clause
 
 .. _`AWS::AccessAnalyzer`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AccessAnalyzer.html
+.. _`AWS::ACMPCA`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ACMPCA.html
 .. _`AWS::AmazonMQ`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AmazonMQ.html
 .. _`AWS::Amplify`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Amplify.html
 .. _`AWS::ApiGateway`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApiGateway.html
 .. _`AWS::ApiGatewayV2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApiGatewayV2.html
+.. _`AWS::AppConfig`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppConfig.html
 .. _`AWS::AppMesh`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppMesh.html
 .. _`AWS::AppStream`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppStream.html
 .. _`AWS::AppSync`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppSync.html
@@ -416,6 +418,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Elasticsearch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Elasticsearch.html
 .. _`AWS::Events`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Events.html
 .. _`AWS::EventSchemas`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.html
+.. _`AWS::FMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FMS.html
 .. _`AWS::FSx`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FSx.html
 .. _`AWS::GameLift`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GameLift.html
 .. _`AWS::Glue`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Glue.html
