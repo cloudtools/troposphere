@@ -1,3 +1,60 @@
+2.6.0 (2020*02*22)
+------------------
+* Add ProvisionedConcurrencyConfig for AWS::Serverless::Function (#1535)
+* Add update policy that allows for in place upgrade of ES cluster (#1537)
+* Add ReportGroup and SourceCredential to CodeBuild
+* Add Count property to EC2::Instance ElasticInferenceAccelerator
+* Add EC2::GatewayRouteTableAssociation
+* Update FSx per 2019-12-19 changes
+* Add MaxAllocatedStorage to RDS::DBInstance
+* Add Name property to SSM::Document
+* Add OpenMonitoring property to MSK::Cluster
+* Break out NoDevice property validation (Fixes #1551) (#1553)
+* Fixed check_required validator error message (#1550)
+* Add test for check_required (#1550)
+* Add CloudWatch Alarm TreatMissingData validator (#1536)
+* Add WAFv2 resources, per Nov 25 2019 update (#1545)
+* linking AWS::WAFv2 and OpenStack resource types in README (#1559)
+* Strategy in AWS::EC2::PlacementGroup is not required (#1560)
+* Combine JSON + YAML example (#1561)
+* Add CACertificateIdentifier to DBInstance (#1557)
+* fixing AWS::Serverless documentation link (#1562)
+* adding new AWS::WAFv2::WebACLAssociation resource, per Jan 16 2020 update (#1567)
+* adding SyncSource & SyncType props to AWS::SSM::ResourceDataSync, per Jan 16 2020 update (#1566)
+* adding AWS::EC2::Instance HibernationOptions property, per Jan 16 2020 update (#1563)
+* Add QueuedTimeoutInMinutes to CodeBuild Project (#1540)
+* Add WeightedCapacity to AutoScaling::AutoScalingGroup LaunchTemplateOverrides (#1565)
+* Use correct curl option for compressed downloads
+* Update properties in AWS::Serverless::Api's Auth (#1568)
+* Add new pinpoint properties, per Jan 23 2020 update (#1569)
+* Add new AWS::RDS::DBCluster VALID_DB_ENGINE_MODES (#1573)
+* ServiceDiscovery DnsConfig NamespaceId is not required (#1575)
+* Add missing SecretTargetAttachment TargetTypes (#1578)
+* Ignore If expression during validation on AutoScalingRollingUpdate min instances (#1577)
+* adding Tags to Server, per Feb 6 2020 update
+* AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment VALID_RUNTIME_ENVIRONMENTS
+* adding misc EC2 properties, per Feb 6 2020 update
+* adding new Config resources, per 2020 Feb 13 update
+* adding new Transfer properties, per 2020 Feb 13 update
+* adding new ACMPCA resources, per Jan 23 2020 update (#1570)
+* adding new AppConfig resource, per Jan 23 2020 update (#1571)
+* Nodegroup tags type (#1576)
+* adding XrayEnabled prop to GraphQLApi, per Feb 6 2020 update (#1579)
+* adding AccountRecoverySetting prop to UserPool, per Feb 6 2020 update (#1580)
+* adding Tags to Server, per Feb 6 2020 update (#1581)
+* Merge pull request #1582 from axelpavageau/feature/20200206-ec2
+* Merge pull request #1584 from cloudtools/PatMyron-patch-5
+* Alphebetize some properties
+* Merge pull request #1585 from axelpavageau/feature/20200213-transfer
+* Merge pull request #1586 from axelpavageau/feature/20200213-config
+* Adding new EC2 resources, per 2020 Feb 13 update (#1587)
+* Adding new FMS resources, per 2020 Feb 13 update (#1588)
+* adding misc Lakeformation properties, per Jan 16 2020 update (#1589)
+* Adding new AWS::Neptune::DBCluster properties, per Feb 18 2020 update (#1594)
+* fixing property according to the documentation's example (#1595)
+* adding UsernameConfiguration prop to UserPool, per Feb 20 2020 update (#1596)
+* Adding new ProjectFileSystemLocation property to CodeBuild::Project, per Feb 20 2020 update (#1597)
+
 2.5.3 (2019*12*08)
 ------------------
 * Switch to using the gzip version of the Resource Specification
