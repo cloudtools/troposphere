@@ -1333,3 +1333,23 @@ class ClientVpnTargetNetworkAssociation(AWSObject):
         'ClientVpnEndpointId': (basestring, True),
         'SubnetId': (basestring, True),
     }
+
+
+class LocalGatewayRoute(AWSObject):
+    resource_type = "AWS::EC2::LocalGatewayRoute"
+
+    props = {
+        'DestinationCidrBlock': (basestring, True),
+        'LocalGatewayRouteTableId': (basestring, True),
+        'LocalGatewayVirtualInterfaceGroupId': (basestring, True),
+    }
+
+
+class LocalGatewayRouteTableVPCAssociation(AWSObject):
+    resource_type = "AWS::EC2::LocalGatewayRouteTableVPCAssociation"
+
+    props = {
+        'LocalGatewayRouteTableId': (basestring, True),
+        'Tags': ((Tags, list), False),
+        'VpcId': (basestring, True),
+    }
