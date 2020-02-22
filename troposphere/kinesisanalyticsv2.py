@@ -7,7 +7,7 @@ from . import AWSObject, AWSProperty
 from .validators import integer, boolean, json_checker
 
 
-VALID_RUNTIME_ENVIRONMENTS = ('SQL-1.0', 'FLINK-1_6')
+VALID_RUNTIME_ENVIRONMENTS = ('SQL-1_0', 'FLINK-1_6', 'FLINK-1_8')
 
 
 def validate_runtime_environment(runtime_environment):
