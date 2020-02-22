@@ -7,6 +7,19 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, positive_integer
 
 
+VALID_RECOVERYOPTION_NAME = (
+    'admin_only', 'verified_email', 'verified_phone_number')
+
+
+def validate_recoveryoption_name(recoveryoption_name):
+    """Validate Name for RecoveryOption"""
+
+    if recoveryoption_name not in VALID_RECOVERYOPTION_NAME:
+        raise ValueError("RecoveryOption Name must be one of: %s" %
+                         ", ".join(VALID_RECOVERYOPTION_NAME))
+    return recoveryoption_name
+
+
 class CognitoIdentityProvider(AWSProperty):
     props = {
         'ClientId': (basestring, False),
@@ -195,6 +208,19 @@ class VerificationMessageTemplate(AWSProperty):
     }
 
 
+class RecoveryOption(AWSProperty):
+    props = {
+        'Name': (validate_recoveryoption_name, False),
+        'Priority': (positive_integer, False)
+    }
+
+
+class AccountRecoverySetting(AWSProperty):
+    props = {
+        'RecoveryMechanisms': ([RecoveryOption], False)
+    }
+
+
 class UsernameConfiguration(AWSProperty):
     props = {
         'CaseSensitive': (boolean, False),
@@ -205,6 +231,7 @@ class UserPool(AWSObject):
     resource_type = "AWS::Cognito::UserPool"
 
     props = {
+        'AccountRecoverySetting': (AccountRecoverySetting, False),
         'AdminCreateUserConfig': (AdminCreateUserConfig, False),
         'AliasAttributes': ([basestring], False),
         'AutoVerifiedAttributes': ([basestring], False),
@@ -313,10 +340,10 @@ class UserPoolResourceServer(AWSObject):
     resource_type = "AWS::Cognito::UserPoolResourceServer"
 
     props = {
-      "Identifier": (basestring, True),
-      "Name": (basestring, True),
-      "Scopes": ([ResourceServerScopeType], False),
-      "UserPoolId": (basestring, True)
+        "Identifier": (basestring, True),
+        "Name": (basestring, True),
+        "Scopes": ([ResourceServerScopeType], False),
+        "UserPoolId": (basestring, True)
     }
 
 

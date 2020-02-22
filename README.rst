@@ -146,10 +146,12 @@ Currently supported AWS resource types
 ======================================
 
 - `AWS::AccessAnalyzer`_
+- `AWS::ACMPCA`_
 - `AWS::AmazonMQ`_
 - `AWS::Amplify`_
 - `AWS::ApiGateway`_
 - `AWS::ApiGatewayV2`_
+- `AWS::AppConfig`_
 - `AWS::AppMesh`_
 - `AWS::AppStream`_
 - `AWS::AppSync`_
@@ -193,6 +195,7 @@ Currently supported AWS resource types
 - `AWS::Elasticsearch`_
 - `AWS::Events`_
 - `AWS::EventSchemas`_
+- `AWS::FMS`_
 - `AWS::FSx`_
 - `AWS::GameLift`_
 - `AWS::Glue`_
