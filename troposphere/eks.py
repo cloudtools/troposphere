@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .validators import (boolean, double)
 
 
@@ -72,13 +72,13 @@ class Nodegroup(AWSObject):
         'DiskSize': (double, False),
         'ForceUpdateEnabled': (boolean, False),
         'InstanceTypes': ([basestring], False),
-        'Labels': (basestring, False),
+        'Labels': (dict, False),
         'NodegroupName': (basestring, False),
         'NodeRole': (basestring, True),
         'ReleaseVersion': (basestring, False),
         'RemoteAccess': (RemoteAccess, False),
         'ScalingConfig': (ScalingConfig, False),
         'Subnets': ([basestring], False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Version': (basestring, False),
     }
