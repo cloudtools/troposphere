@@ -383,12 +383,6 @@ class Rule(AWSProperty):
     }
 
 
-class Rules(AWSProperty):
-    props = {
-        'Rules': ([Rule], False),
-    }
-
-
 class DefaultAction(AWSProperty):
     props = {
         'Allow': (AllowAction, False),
@@ -403,7 +397,7 @@ class WebACL(AWSObject):
         'DefaultAction': (DefaultAction, False),
         'Description': (basestring, False),
         'Name': (basestring, True),
-        'Rules': (Rules, False),
+        'Rules': ([Rule], False),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
@@ -454,7 +448,7 @@ class RuleGroup(AWSObject):
         'Capacity': (integer, False),
         'Description': (basestring, False),
         'Name': (basestring, True),
-        'Rules': (Rules, False),
+        'Rules': ([Rule], False),
         'Scope': (basestring, False),
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
