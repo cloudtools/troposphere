@@ -372,7 +372,7 @@ class OverrideAction(AWSProperty):
     }
 
 
-class Rule(AWSProperty):
+class WebACLRule(AWSProperty):
     props = {
         'Action': (RuleAction, False),
         'Name': (basestring, False),
@@ -397,7 +397,7 @@ class WebACL(AWSObject):
         'DefaultAction': (DefaultAction, False),
         'Description': (basestring, False),
         'Name': (basestring, True),
-        'Rules': ([Rule], False),
+        'Rules': ([WebACLRule], False),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
@@ -441,6 +441,16 @@ class RegexPatternSet(AWSObject):
     }
 
 
+class RuleGroupRule(AWSProperty):
+    props = {
+        'Action': (RuleAction, False),
+        'Name': (basestring, False),
+        'Priority': (integer, False),
+        'Statement': (StatementOne, False),
+        'VisibilityConfig': (VisibilityConfig, False)
+    }
+
+
 class RuleGroup(AWSObject):
     resource_type = "AWS::WAFv2::RuleGroup"
 
@@ -448,7 +458,7 @@ class RuleGroup(AWSObject):
         'Capacity': (integer, False),
         'Description': (basestring, False),
         'Name': (basestring, True),
-        'Rules': ([Rule], False),
+        'Rules': ([RuleGroupRule], False),
         'Scope': (basestring, False),
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
