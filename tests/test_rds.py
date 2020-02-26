@@ -324,8 +324,14 @@ class TestRDSValidators(unittest.TestCase):
         rds.validate_backup_retention_period(10)
 
     def test_validate_capacity(self):
-        for e in rds.VALID_SCALING_CONFIGURATION_CAPACITIES:
+        for e in rds.VALID_MYSQL_SCALING_CONFIGURATION_CAPACITIES:
+            rds.validate_capacity(e)
+
+        for e in rds.VALID_POSTGRESL_SCALING_CONFIGURATION_CAPACITIES:
             rds.validate_capacity(e)
 
         with self.assertRaises(ValueError):
             rds.validate_capacity(3)
+
+        with self.assertRaises(ValueError):
+            rds.validate_capacity(100001)

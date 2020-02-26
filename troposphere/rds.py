@@ -21,7 +21,10 @@ VALID_DB_ENGINE_MODES = ('provisioned', 'serverless', 'parallelquery',
                          'global', 'multimaster')
 VALID_LICENSE_MODELS = ('license-included', 'bring-your-own-license',
                         'general-public-license', 'postgresql-license')
-VALID_SCALING_CONFIGURATION_CAPACITIES = (1, 2, 4, 8, 16, 32, 64, 128, 256)
+VALID_MYSQL_SCALING_CONFIGURATION_CAPACITIES = (1, 2, 4, 8, 16, 32, 64, 128,
+                                                256)
+VALID_POSTGRESL_SCALING_CONFIGURATION_CAPACITIES = (2, 4, 8, 16, 32, 64, 192,
+                                                    384)
 
 
 def validate_iops(iops):
@@ -136,12 +139,14 @@ def validate_backup_retention_period(days):
 def validate_capacity(capacity):
     """Validate ScalingConfiguration capacity for serverless DBCluster"""
 
-    if capacity not in VALID_SCALING_CONFIGURATION_CAPACITIES:
+    if capacity not in VALID_POSTGRESL_SCALING_CONFIGURATION_CAPACITIES and \
+            capacity not in VALID_MYSQL_SCALING_CONFIGURATION_CAPACITIES:
         raise ValueError(
             "ScalingConfiguration capacity must be one of: {}".format(
                 ", ".join(map(
                     str,
-                    VALID_SCALING_CONFIGURATION_CAPACITIES
+                    VALID_MYSQL_SCALING_CONFIGURATION_CAPACITIES +
+                    VALID_POSTGRESL_SCALING_CONFIGURATION_CAPACITIES
                 ))
             )
         )
