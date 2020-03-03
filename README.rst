@@ -200,6 +200,7 @@ Currently supported AWS resource types
 - `AWS::GameLift`_
 - `AWS::Glue`_
 - `AWS::Greengrass`_
+- `AWS::GroundStation`
 - `AWS::GuardDuty`_
 - `AWS::IAM`_
 - `AWS::Inspector`_
