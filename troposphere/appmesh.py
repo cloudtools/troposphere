@@ -14,6 +14,18 @@ from .validators import boolean
 from .validators import integer
 
 
+VALID_LISTENERTLS_MODE = ('STRICT', 'PERMISSIVE', 'DISABLED')
+
+
+def validate_listenertls_mode(listenertls_mode):
+    """Validate Mode for ListernerTls"""
+
+    if listenertls_mode not in VALID_LISTENERTLS_MODE:
+        raise ValueError("ListernerTls Mode must be one of: %s" %
+                         ", ".join(VALID_LISTENERTLS_MODE))
+    return listenertls_mode
+
+
 class EgressFilter(AWSProperty):
     props = {
         'Type': (basestring, True),
@@ -191,8 +203,48 @@ class Route(AWSObject):
     }
 
 
+class TlsValidationContextAcmTrust(AWSProperty):
+    props = {
+        'CertificateAuthorityArns': ([basestring], True),
+    }
+
+
+class TlsValidationContextFileTrust(AWSProperty):
+    props = {
+        'CertificateChain': (basestring, True),
+    }
+
+
+class TlsValidationContextTrust(AWSProperty):
+    props = {
+        'ACM': (TlsValidationContextAcmTrust, False),
+        'File': (TlsValidationContextFileTrust, False)
+    }
+
+
+class TlsValidationContext(AWSProperty):
+    props = {
+        'Trust': (TlsValidationContextTrust, True),
+    }
+
+
+class ClientPolicyTls(AWSProperty):
+    props = {
+        'Enforce': (boolean, False),
+        'Ports': ([integer], False),
+        'Validation': (TlsValidationContext, True),
+    }
+
+
+class ClientPolicy(AWSProperty):
+    props = {
+        'TLS': (ClientPolicyTls, False)
+    }
+
+
 class VirtualServiceBackend(AWSProperty):
     props = {
+        'ClientPolicy': (ClientPolicy, False),
         'VirtualServiceName': (basestring, True),
     }
 
@@ -222,10 +274,38 @@ class PortMapping(AWSProperty):
     }
 
 
+class ListenerTlsAcmCertificate(AWSProperty):
+    props = {
+        'CertificateArn': (basestring, True),
+    }
+
+
+class ListenerTlsFileCertificate(AWSProperty):
+    props = {
+        'CertificateChain': (basestring, True),
+        'PrivateKey': (basestring, True),
+    }
+
+
+class ListenerTlsCertificate(AWSProperty):
+    props = {
+        'ACM': (ListenerTlsAcmCertificate, False),
+        'File': (ListenerTlsFileCertificate, False),
+    }
+
+
+class ListenerTls(AWSProperty):
+    props = {
+        'Certificate': (ListenerTlsCertificate, True),
+        'Mode': (validate_listenertls_mode, True),
+    }
+
+
 class Listener(AWSProperty):
     props = {
         'HealthCheck': (HealthCheck, False),
         'PortMapping': (PortMapping, True),
+        'TLS': (ListenerTls, False),
     }
 
 
@@ -275,8 +355,15 @@ class ServiceDiscovery(AWSProperty):
     }
 
 
+class BackendDefaults(AWSProperty):
+    props = {
+        'ClientPolicy': (ClientPolicy, False),
+    }
+
+
 class VirtualNodeSpec(AWSProperty):
     props = {
+        'BackendDefaults': (BackendDefaults, False),
         'Backends': ([Backend], False),
         'Listeners': ([Listener], False),
         'Logging': (Logging, False),
