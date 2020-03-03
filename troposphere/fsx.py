@@ -6,13 +6,38 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 
+VALID_LUSTRECONFIGURATION_DEPLOYMENTTYPE = ('PERSISTENT_1', 'SCRATCH_1',
+                                            'SCRATCH_2')
+
+
+VALID_LUSTRECONFIGURATION_PERUNITSTORAGETHROUGHPUT = (50, 100, 200)
+
+def validate_lustreconfiguration_deploymenttype(lustreconfiguration_deploymenttype):  # NOQA
+    """Validate DeploymentType for LustreConfiguration"""
+
+    if lustreconfiguration_deploymenttype not in VALID_LUSTRECONFIGURATION_DEPLOYMENTTYPE:  # NOQA
+        raise ValueError("LustreConfiguration DeploymentType must be one of: %s" %  # NOQA
+                         ", ".join(VALID_LUSTRECONFIGURATION_DEPLOYMENTTYPE))
+    return lustreconfiguration_deploymenttype
+
+
+def validate_lustreconfiguration_perunitstoragethroughput(lustreconfiguration_perunitstoragethroughput):  # NOQA
+    """Validate PerUnitStorageThroughput for LustreConfiguration"""
+
+    if lustreconfiguration_perunitstoragethroughput not in VALID_LUSTRECONFIGURATION_PERUNITSTORAGETHROUGHPUT:  # NOQA
+        raise ValueError("LustreConfiguration PerUnitStorageThroughput must be one of: %s" %  # NOQA
+                         ", ".join(VALID_LUSTRECONFIGURATION_PERUNITSTORAGETHROUGHPUT))  # NOQA
+    return lustreconfiguration_perunitstoragethroughput
+
+
 class LustreConfiguration(AWSProperty):
     props = {
+        'DeploymentType': (validate_lustreconfiguration_deploymenttype, False),
         'ExportPath': (basestring, False),
         'ImportedFileChunkSize': (integer, False),
         'ImportPath': (basestring, False),
+        'PerUnitStorageThroughput': (validate_lustreconfiguration_perunitstoragethroughput, False),  # NOQA
         'WeeklyMaintenanceStartTime': (basestring, False),
-
     }
 
 
