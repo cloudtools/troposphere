@@ -157,3 +157,17 @@ class InsightRule(AWSObject):
         'RuleName': (basestring, True),
         'RuleState': (basestring, True),
     }
+
+
+class CompositeAlarm(AWSObject):
+    resource_type = "AWS::CloudWatch::CompositeAlarm"
+
+    props = {
+        'ActionsEnabled': (boolean, False),
+        'AlarmActions': ([basestring], False),
+        'AlarmDescription': (basestring, False),
+        'AlarmName': (basestring, True),
+        'AlarmRule': (basestring, True),
+        'InsufficientDataActions': ([basestring], False),
+        'OKActions': ([basestring], False),
+    }
