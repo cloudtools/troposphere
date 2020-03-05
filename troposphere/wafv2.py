@@ -175,7 +175,7 @@ class ByteMatchStatement(AWSProperty):
         'PositionalConstraint': (validate_positional_constraint, False),
         'SearchString': (basestring, False),
         'SearchStringBase64': (basestring, False),
-        'TextTransformations': (TextTransformations, False)
+        'TextTransformations': ([TextTransformation], True)
     }
 
 
@@ -403,7 +403,7 @@ class WebACL(AWSObject):
         'DefaultAction': (DefaultAction, False),
         'Description': (basestring, False),
         'Name': (basestring, True),
-        'Rules': (Rules, False),
+        'Rules': ([Rule], False),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
