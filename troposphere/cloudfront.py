@@ -154,6 +154,47 @@ class ViewerCertificate(AWSProperty):
     }
 
 
+class StatusCodes(AWSProperty):
+    props = {
+        'Items': ([integer], True),
+        'Quantity': (integer, True),
+    }
+
+
+class OriginGroupFailoverCriteria(AWSProperty):
+    props = {
+        'StatusCodes': (StatusCodes, True),
+    }
+
+
+class OriginGroupMember(AWSProperty):
+    props = {
+        'OriginId': (basestring, True),
+    }
+
+
+class OriginGroupMembers(AWSProperty):
+    props = {
+        'Items': ([OriginGroupMember], False),
+        'Quantity': (integer, False),
+    }
+
+
+class OriginGroup(AWSProperty):
+    props = {
+        'FailoverCriteria': (OriginGroupFailoverCriteria, True),
+        'Id': (basestring, True),
+        'Members': (OriginGroupMembers, True),
+    }
+
+
+class OriginGroups(AWSProperty):
+    props = {
+        'Items': ([OriginGroup], False),
+        'Quantity': (integer, False),
+    }
+
+
 class DistributionConfig(AWSProperty):
     props = {
         'Aliases': (list, False),
@@ -167,6 +208,7 @@ class DistributionConfig(AWSProperty):
         'IPV6Enabled': (boolean, False),
         'Logging': (Logging, False),
         'Origins': ([Origin], True),
+        'OriginGroups': (OriginGroups, False),
         'PriceClass': (priceclass_type, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
