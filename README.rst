@@ -172,6 +172,7 @@ Currently supported AWS resource types
 - `AWS::CodeDeploy`_
 - `AWS::CodePipeline`_
 - `AWS::CodeStar`_
+- `AWS::CodeStarConnections`_
 - `AWS::CodeStarNotifications`_
 - `AWS::Cognito`_
 - `AWS::Config`_
