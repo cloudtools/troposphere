@@ -162,6 +162,7 @@ Currently supported AWS resource types
 - `AWS::Batch`_
 - `AWS::Budgets`_
 - `AWS::CertificateManager`_
+- `AWS::Chatbot`_
 - `AWS::Cloud9`_
 - `AWS::CloudFormation`_
 - `AWS::CloudFront`_
