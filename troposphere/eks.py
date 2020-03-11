@@ -36,10 +36,24 @@ class ResourcesVpcConfig(AWSProperty):
     }
 
 
+class Provider(AWSProperty):
+    props = {
+        'KeyArn': (basestring, False),
+    }
+
+
+class EncryptionConfig(AWSProperty):
+    props = {
+        'Provider': (Provider, False),
+        'Resources': ([basestring], False),
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::EKS::Cluster"
 
     props = {
+        'EncryptionConfig': ([EncryptionConfig], False),
         'Name': (basestring, False),
         'Logging': (Logging, False),
         'ResourcesVpcConfig': (ResourcesVpcConfig, True),
