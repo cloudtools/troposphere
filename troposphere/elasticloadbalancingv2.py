@@ -88,6 +88,27 @@ class FixedResponseConfig(AWSProperty):
                 'application/javascript', 'application/json'])
 
 
+class WeightedTargetGroups(AWSProperty):
+    props = {
+        'TargetGroupArn': (str, True),
+        'Weight': (integer, False)
+    }
+
+
+class TargetGroupStickinessConfig(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'DurationSeconds': (integer, False)
+    }
+
+
+class ForwardConfig(AWSProperty):
+    props = {
+        'TargetGroups': ([WeightedTargetGroups], False),
+        'TargetGroupStickinessConfig': (TargetGroupStickinessConfig, False)
+    }
+
+
 class Action(AWSProperty):
     props = {
         "AuthenticateCognitoConfig": (AuthenticateCognitoConfig, False),
@@ -96,8 +117,13 @@ class Action(AWSProperty):
         "Order": (integer, False),
         "RedirectConfig": (RedirectConfig, False),
         "TargetGroupArn": (basestring, False),
+        "ForwardConfig": (ForwardConfig, False),
         "Type": (basestring, True)
     }
+
+    @staticmethod
+    def any_property(require_prop, properties):
+        return any(p in require_prop for p in properties)
 
     def validate(self):
         one_of(self.__class__.__name__,
@@ -107,16 +133,18 @@ class Action(AWSProperty):
                 'authenticate-cognito', 'authenticate-oidc'])
 
         def requires(action_type, prop):
-            if self.properties.get('Type') == action_type and \
-                    prop not in self.properties:
+            properties = [definition for definition in
+                          self.properties.keys()]
+            if self.properties.get(
+                'Type') == action_type and not self.any_property(prop,
+                                                                 properties):
                 raise ValueError(
                     'Type "%s" requires definition of "%s"' % (
                         action_type, prop
                     )
                 )
-
-            if prop in self.properties and \
-                    self.properties.get('Type') != action_type:
+            if self.any_property(prop, properties) and self.properties.get(
+                    'Type') != action_type:
                 raise ValueError(
                     'Definition of "%s" allowed only with '
                     'type "%s", was: "%s"' % (
@@ -124,9 +152,9 @@ class Action(AWSProperty):
                     )
                 )
 
-        requires('forward', 'TargetGroupArn')
-        requires('redirect', 'RedirectConfig')
-        requires('fixed-response', 'FixedResponseConfig')
+        requires('forward', ['TargetGroupArn', 'ForwardConfig'])
+        requires('redirect', ['RedirectConfig'])
+        requires('fixed-response', ['FixedResponseConfig'])
 
 
 class HostHeaderConfig(AWSProperty):
@@ -297,11 +325,10 @@ class TargetGroup(AWSObject):
                     for prop in props_to_check:
 
                         if (prop not in self_props and required is True) or \
-                                (prop in self_props and required is False):
+                              (prop in self_props and required is False):
                             invalid_props.append(prop)
 
                     if len(invalid_props) > 0:
-
                         # Make error message more readable in the default case
                         type_msg = ('Omitting TargetType' if this_type is None
                                     else 'TargetType of "%s"' % (this_type))
@@ -317,25 +344,25 @@ class TargetGroup(AWSObject):
 
         # None defaults to instance as per the AWS docs
         check_properties([
-                            None,
-                            TARGET_TYPE_INSTANCE,
-                            TARGET_TYPE_IP
-                         ],
-                         [
-                            'Port',
-                            'Protocol',
-                            'VpcId'
-                         ],
-                         True)
+            None,
+            TARGET_TYPE_INSTANCE,
+            TARGET_TYPE_IP
+        ],
+            [
+                'Port',
+                'Protocol',
+                'VpcId'
+            ],
+            True)
         check_properties([
-                            TARGET_TYPE_LAMBDA
-                         ],
-                         [
-                            'Port',
-                            'Protocol',
-                            'VpcId'
-                         ],
-                         False)
+            TARGET_TYPE_LAMBDA
+        ],
+            [
+                'Port',
+                'Protocol',
+                'VpcId'
+            ],
+            False)
 
 
 class LoadBalancer(AWSObject):
