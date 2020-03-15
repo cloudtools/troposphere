@@ -88,24 +88,24 @@ class FixedResponseConfig(AWSProperty):
                 'application/javascript', 'application/json'])
 
 
-class WeightedTargetGroups(AWSProperty):
+class TargetGroupTuple(AWSProperty):
     props = {
         'TargetGroupArn': (str, True),
-        'Weight': (integer, False)
+        'Weight': (integer, False),
     }
 
 
 class TargetGroupStickinessConfig(AWSProperty):
     props = {
+        'DurationSeconds': (integer, False),
         'Enabled': (boolean, False),
-        'DurationSeconds': (integer, False)
     }
 
 
 class ForwardConfig(AWSProperty):
     props = {
-        'TargetGroups': ([WeightedTargetGroups], False),
-        'TargetGroupStickinessConfig': (TargetGroupStickinessConfig, False)
+        'TargetGroups': ([TargetGroupTuple], False),
+        'TargetGroupStickinessConfig': (TargetGroupStickinessConfig, False),
     }
 
 
@@ -135,9 +135,8 @@ class Action(AWSProperty):
         def requires(action_type, prop):
             properties = [definition for definition in
                           self.properties.keys()]
-            if self.properties.get(
-                'Type') == action_type and not self.any_property(prop,
-                                                                 properties):
+            if self.properties.get('Type') == action_type and \
+               not self.any_property(prop, properties):
                 raise ValueError(
                     'Type "%s" requires definition of "%s"' % (
                         action_type, prop
