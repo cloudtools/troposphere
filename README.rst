@@ -424,6 +424,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::GameLift`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GameLift.html
 .. _`AWS::Glue`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Glue.html
 .. _`AWS::Greengrass`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Greengrass.html
+.. _`AWS::GroundStation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GroundStation.html
 .. _`AWS::GuardDuty`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GuardDuty.html
 .. _`AWS::IAM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IAM.html
 .. _`AWS::Inspector`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Inspector.html
