@@ -78,12 +78,6 @@ class TextTransformation(AWSProperty):
     }
 
 
-class TextTransformations(AWSProperty):
-    props = {
-        'TextTransformations': ([TextTransformation], False)
-    }
-
-
 class SingleHeader(AWSProperty):
     props = {
         'Name': (basestring, False)
@@ -140,42 +134,42 @@ class FieldToMatch(AWSProperty):
 
 class RegexPatternSetReferenceStatement(AWSProperty):
     props = {
-        'Arn': (basestring, False),
-        'FieldToMatch': (FieldToMatch, False),
-        'TextTransformations': (TextTransformations, False)
+        'Arn': (basestring, True),
+        'FieldToMatch': (FieldToMatch, True),
+        'TextTransformations': ([TextTransformation], True)
     }
 
 
 class XssMatchStatement(AWSProperty):
     props = {
-        'FieldToMatch': (FieldToMatch, False),
-        'TextTransformations': (TextTransformations, False)
+        'FieldToMatch': (FieldToMatch, True),
+        'TextTransformations': ([TextTransformation], True)
     }
 
 
 class SqliMatchStatement(AWSProperty):
     props = {
-        'FieldToMatch': (FieldToMatch, False),
-        'TextTransformations': (TextTransformations, False)
+        'FieldToMatch': (FieldToMatch, True),
+        'TextTransformations': ([TextTransformation], True)
     }
 
 
 class SizeConstraintStatement(AWSProperty):
     props = {
-        'ComparisonOperator': (validate_comparison_operator, False),
-        'FieldToMatch': (FieldToMatch, False),
-        'Size': (integer, False),
-        'TextTransformations': (TextTransformations, False)
+        'ComparisonOperator': (validate_comparison_operator, True),
+        'FieldToMatch': (FieldToMatch, True),
+        'Size': (integer, True),
+        'TextTransformations': ([TextTransformation], True)
     }
 
 
 class ByteMatchStatement(AWSProperty):
     props = {
-        'FieldToMatch': (FieldToMatch, False),
-        'PositionalConstraint': (validate_positional_constraint, False),
-        'SearchString': (basestring, False),
+        'FieldToMatch': (FieldToMatch, True),
+        'PositionalConstraint': (validate_positional_constraint, True),
+        'SearchString': (basestring, True),
         'SearchStringBase64': (basestring, False),
-        'TextTransformations': (TextTransformations, False)
+        'TextTransformations': ([TextTransformation], True)
     }
 
 
