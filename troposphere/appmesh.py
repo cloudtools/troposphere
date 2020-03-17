@@ -184,6 +184,7 @@ class Route(AWSObject):
 
     props = {
         'MeshName': (basestring, True),
+        'MeshOwner': (basestring, False),
         'RouteName': (basestring, True),
         'Spec': (RouteSpec, True),
         'Tags': (Tags, False),
@@ -289,6 +290,7 @@ class VirtualNode(AWSObject):
 
     props = {
         'MeshName': (basestring, True),
+        'MeshOwner': (basestring, False),
         'Spec': (VirtualNodeSpec, True),
         'Tags': (Tags, False),
         'VirtualNodeName': (basestring, True),
@@ -312,6 +314,7 @@ class VirtualRouter(AWSObject):
 
     props = {
         'MeshName': (basestring, True),
+        'MeshOwner': (basestring, False),
         'Spec': (VirtualRouterSpec, True),
         'Tags': (Tags, False),
         'VirtualRouterName': (basestring, True),
@@ -348,6 +351,7 @@ class VirtualService(AWSObject):
 
     props = {
         'MeshName': (basestring, True),
+        'MeshOwner': (basestring, False),
         'Spec': (VirtualServiceSpec, True),
         'Tags': (Tags, False),
         'VirtualServiceName': (basestring, True),
