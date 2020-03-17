@@ -161,6 +161,7 @@ Currently supported AWS resource types
 - `AWS::AutoScalingPlans`_
 - `AWS::Batch`_
 - `AWS::Budgets`_
+- `AWS::Cassandra`_
 - `AWS::CertificateManager`_
 - `AWS::Chatbot`_
 - `AWS::Cloud9`_
