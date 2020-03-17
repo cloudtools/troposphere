@@ -99,6 +99,42 @@ class OpenMonitoring(AWSProperty):
     }
 
 
+class Firehose(AWSProperty):
+    props = {
+        'DeliveryStream': (basestring, True),
+        "Enabled": (boolean, True),
+    }
+
+
+class CloudWatchLogs(AWSProperty):
+    props = {
+        'Enabled': (boolean, True),
+        'LogGroup': (basestring, False),
+    }
+
+
+class S3(AWSProperty):
+    props = {
+        'Bucket': (basestring, False),
+        'Enabled': (boolean, True),
+        'Prefix': (basestring, False),
+    }
+
+
+class BrokerLogs(AWSProperty):
+    props = {
+        'CloudWatchLogs': (CloudWatchLogs, False),
+        'Firehose': (Firehose, False),
+        'S3': (S3, False),
+    }
+
+
+class LoggingInfo(AWSProperty):
+    props = {
+        'BrokerLogs': (BrokerLogs, True),
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::MSK::Cluster"
 
@@ -110,6 +146,7 @@ class Cluster(AWSObject):
         'EncryptionInfo': (EncryptionInfo, False),
         'EnhancedMonitoring': (basestring, False),
         'KafkaVersion': (basestring, True),
+        'LoggingInfo': (LoggingInfo, False),
         'NumberOfBrokerNodes': (integer, True),
         'OpenMonitoring': (OpenMonitoring, False),
         'Tags': (dict, False),
