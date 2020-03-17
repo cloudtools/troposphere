@@ -288,9 +288,17 @@ class LocalVolumeResourceData(AWSProperty):
     }
 
 
+class ResourceDownloadOwnerSetting(AWSProperty):
+    props = {
+        'GroupOwner': (basestring, True),
+        'GroupPermission': (basestring, True),
+    }
+
+
 class S3MachineLearningModelResourceData(AWSProperty):
     props = {
         'DestinationPath': (basestring, True),
+        'OwnerSetting': (ResourceDownloadOwnerSetting, False),
         'S3Uri': (basestring, True),
     }
 
@@ -298,6 +306,7 @@ class S3MachineLearningModelResourceData(AWSProperty):
 class SageMakerMachineLearningModelResourceData(AWSProperty):
     props = {
         'DestinationPath': (basestring, True),
+        'OwnerSetting': (ResourceDownloadOwnerSetting, False),
         'SageMakerJobArn': (basestring, True),
     }
 
