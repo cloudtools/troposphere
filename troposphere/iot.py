@@ -68,6 +68,13 @@ class FirehoseAction(AWSProperty):
     }
 
 
+class IotAnalyticsAction(AWSProperty):
+    props = {
+        'ChannelName': (basestring, True),
+        'RoleArn': (basestring, True),
+    }
+
+
 class KinesisAction(AWSProperty):
     props = {
         'PartitionKey': (basestring, False),
@@ -113,6 +120,14 @@ class SqsAction(AWSProperty):
     }
 
 
+class StepFunctionsAction(AWSProperty):
+    props = {
+        'ExecutionNamePrefix': (basestring, False),
+        'RoleArn': (basestring, True),
+        'StateMachineName': (basestring, True),
+    }
+
+
 class Action(AWSProperty):
     props = {
         'CloudwatchAlarm': (CloudwatchAlarmAction, False),
@@ -121,12 +136,14 @@ class Action(AWSProperty):
         'DynamoDBv2': (DynamoDBv2Action, False),
         'Elasticsearch': (ElasticsearchAction, False),
         'Firehose': (FirehoseAction, False),
+        'IotAnalytics': (IotAnalyticsAction, False),
         'Kinesis': (KinesisAction, False),
         'Lambda': (LambdaAction, False),
         'Republish': (RepublishAction, False),
         'S3': (S3Action, False),
         'Sns': (SnsAction, False),
         'Sqs': (SqsAction, False),
+        'StepFunctions': (StepFunctionsAction, False)
     }
 
 
