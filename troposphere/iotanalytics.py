@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer, json_checker, double
+from .validators import boolean, integer, double
 
 
 class RetentionPeriod(AWSProperty):
@@ -47,7 +47,7 @@ class Channel(AWSObject):
 
 class AddAttributes(AWSProperty):
     props = {
-        'Attributes': (json_checker, False),
+        'Attributes': (dict, False),
         'Name': (basestring, False),
         'Next': (basestring, False),
     }
