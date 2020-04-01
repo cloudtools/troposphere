@@ -111,6 +111,7 @@ class EnvironmentVariable(AWSProperty):
             valid_types = [
                 'PARAMETER_STORE',
                 'PLAINTEXT',
+                'SECRETS_MANAGER'
             ]
             env_type = self.properties.get('Type')
             if env_type not in valid_types:
