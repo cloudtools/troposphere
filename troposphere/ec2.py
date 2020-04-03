@@ -534,6 +534,7 @@ class SecurityGroupIngress(AWSObject):
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
+        'SourcePrefixListId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
