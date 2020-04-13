@@ -1,10 +1,14 @@
+import pickle
 import unittest
 from troposphere import AWSObject, AWSProperty, Output, Parameter
-from troposphere import If, Join, Ref, Split, Sub, Template
+from troposphere import Cidr, If, Join, Ref, Split, Sub, Template
+from troposphere import NoValue, Region
 from troposphere import depends_on_helper
-from troposphere.ec2 import Instance, Route, SecurityGroupRule
-from troposphere.s3 import Bucket
+from troposphere.ec2 import Instance, NetworkInterface
+from troposphere.ec2 import Route, SecurityGroupRule
+from troposphere.s3 import Bucket, PublicRead
 from troposphere.elasticloadbalancing import HealthCheck
+from troposphere import cloudformation
 from troposphere.validators import positive_integer
 
 
@@ -17,7 +21,7 @@ class TestBasic(unittest.TestCase):
     def test_badrequired(self):
         with self.assertRaises(ValueError):
             t = Template()
-            t.add_resource(Instance('ec2instance'))
+            t.add_resource(NetworkInterface('networkinterface'))
             t.to_json()
 
     def test_badtype(self):
@@ -25,7 +29,7 @@ class TestBasic(unittest.TestCase):
             Instance('ec2instance', image_id=0.11)
 
     def test_goodrequired(self):
-        Instance('ec2instance', ImageId="ami-xxxx", InstanceType="m1.small")
+        NetworkInterface('interface', SubnetId='abc123')
 
     def test_extraattribute(self):
 
@@ -36,12 +40,6 @@ class TestBasic(unittest.TestCase):
 
         instance = ExtendedInstance('ec2instance', attribute='value')
         self.assertEqual(instance.attribute, 'value')
-
-    def test_required_title_error(self):
-        with self.assertRaisesRegexp(ValueError, "title:"):
-            t = Template()
-            t.add_resource(Instance('ec2instance'))
-            t.to_json()
 
     def test_depends_on_helper_with_resource(self):
         resource_name = "Bucket1"
@@ -68,6 +66,14 @@ class TestBasic(unittest.TestCase):
         b3 = Bucket("B3", DependsOn=[b1, b2])
         self.assertEqual(b1.title, b3.DependsOn[0])
         self.assertEqual(b2.title, b3.DependsOn[1])
+
+    def test_pickle_ok(self):
+        # tests that objects can be pickled/un-pickled without hitting issues
+        bucket_name = "test-bucket"
+        b = Bucket("B1", BucketName=bucket_name)
+        p = pickle.dumps(b)
+        b2 = pickle.loads(p)
+        self.assertEqual(b2.BucketName, b.BucketName)
 
 
 def call_correct(x):
@@ -225,6 +231,22 @@ class TestParameter(unittest.TestCase):
         with self.assertRaises(ValueError):
             t.to_json()
 
+    def test_get_or_add_adds(self):
+        t = Template()
+        p = Parameter("param", Type="String", Default="foo")
+        result = t.get_or_add_parameter(p)
+        self.assertEquals(t.parameters["param"], p)
+        self.assertEquals(result, p)
+
+    def test_add_or_get_returns_with_out_adding_duplicate(self):
+        t = Template()
+        p = Parameter("param", Type="String", Default="foo")
+        t.add_parameter(p)
+        result = t.get_or_add_parameter(p)
+        self.assertEquals(t.parameters["param"], p)
+        self.assertEquals(result, p)
+        self.assertEquals(len(t.parameters), 1)
+
     def test_property_default(self):
         p = Parameter("param", Type="String", Default="foo")
         p.validate()
@@ -322,6 +344,38 @@ class TestRef(unittest.TestCase):
         ref = t.to_dict()
         self.assertEqual(ref['Ref'], 'param')
 
+    def test_ref_eq(self):
+        s = "AWS::NoValue"
+        r = Ref(s)
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, NoValue)
+        self.assertEqual(r, NoValue)
+        self.assertEqual(wch.Ref(), "TestResource")
+
+        self.assertNotEqual(r, "AWS::Region")
+        self.assertNotEqual(r, Region)
+        self.assertNotEqual(r, Ref)
+        self.assertNotEqual(wch.Ref(), "NonexistantResource")
+
+    def test_ref_hash(self):
+        s = hash("AWS::NoValue")
+        r = hash(Ref(s))
+
+        wch = cloudformation.WaitConditionHandle("TestResource")
+
+        self.assertEqual(s, r)
+        self.assertEqual(s, hash(NoValue))
+        self.assertEqual(r, hash(NoValue))
+        self.assertEqual(hash(wch.Ref()), hash("TestResource"))
+
+        self.assertNotEqual(r, hash("AWS::Region"))
+        self.assertNotEqual(r, hash(Region))
+        self.assertNotEqual(r, hash(Ref))
+        self.assertNotEqual(hash(wch.Ref()), hash("NonexistantResource"))
+
 
 class TestName(unittest.TestCase):
 
@@ -332,21 +386,61 @@ class TestName(unittest.TestCase):
         self.assertEqual(resource.name, name)
 
 
+class TestCidr(unittest.TestCase):
+
+    def test_getcidr(self):
+        raw = Cidr("10.1.10.1/24", 2)
+        actual = raw.to_dict()
+        expected = {'Fn::Cidr': ["10.1.10.1/24", 2]}
+        self.assertEqual(expected, actual)
+
+    def test_getcidr_withsizemask(self):
+        raw = Cidr("10.1.10.1/24", 2, 10)
+        actual = raw.to_dict()
+        expected = {'Fn::Cidr': ["10.1.10.1/24", 2, 10]}
+        self.assertEqual(expected, actual)
+
+
 class TestSub(unittest.TestCase):
 
-    def test_sub_with_vars(self):
+    def test_sub_without_vars(self):
         s = 'foo ${AWS::Region}'
         raw = Sub(s)
         actual = raw.to_dict()
         expected = {'Fn::Sub': 'foo ${AWS::Region}'}
         self.assertEqual(expected, actual)
 
-    def test_sub_without_vars(self):
+    def test_sub_with_vars_unpakaged(self):
         s = 'foo ${AWS::Region} ${sub1} ${sub2}'
         values = {'sub1': 'uno', 'sub2': 'dos'}
         raw = Sub(s, **values)
         actual = raw.to_dict()
         expected = {'Fn::Sub': ['foo ${AWS::Region} ${sub1} ${sub2}', values]}
+        self.assertEqual(expected, actual)
+
+    def test_sub_with_vars_not_unpakaged(self):
+        s = 'foo ${AWS::Region} ${sub1} ${sub2}'
+        values = {'sub1': 'uno', 'sub2': 'dos'}
+        raw = Sub(s, values)
+        actual = raw.to_dict()
+        expected = {'Fn::Sub': ['foo ${AWS::Region} ${sub1} ${sub2}', values]}
+        self.assertEqual(expected, actual)
+
+    def test_sub_with_vars_mix(self):
+        s = 'foo ${AWS::Region} ${sub1} ${sub2} ${sub3}'
+        values = {'sub1': 'uno', 'sub2': 'dos'}
+        raw = Sub(s, values, sub3='tres')
+        actual = raw.to_dict()
+        expected = {
+            'Fn::Sub': [
+                'foo ${AWS::Region} ${sub1} ${sub2} ${sub3}',
+                {
+                    'sub1': 'uno',
+                    'sub2': 'dos',
+                    'sub3': 'tres'
+                }
+            ]
+        }
         self.assertEqual(expected, actual)
 
 
@@ -454,6 +548,34 @@ class TestValidation(unittest.TestCase):
         t = Template()
         t.add_resource(route)
         t.to_json()
+
+
+test_updatereplacepolicy_yaml = """\
+Resources:
+  S3Bucket:
+    Properties:
+      AccessControl: PublicRead
+    Type: AWS::S3::Bucket
+    UpdateReplacePolicy: Retain
+"""
+
+
+class TestAttributes(unittest.TestCase):
+
+    def test_BogusAttribute(self):
+        t = Template()
+        with self.assertRaises(AttributeError):
+            t.add_resource(Bucket("S3Bucket", Bogus='Retain'))
+
+    def test_UpdateReplacePolicy(self):
+        t = Template()
+        t.add_resource(Bucket(
+            "S3Bucket",
+            AccessControl=PublicRead,
+            UpdateReplacePolicy='Retain',
+        ))
+        t.to_yaml()
+        self.assertEqual(t.to_yaml(), test_updatereplacepolicy_yaml)
 
 
 if __name__ == '__main__':

@@ -129,13 +129,13 @@
             "Type": "AWS::AutoScaling::AutoScalingGroup",
             "UpdatePolicy": {
                 "AutoScalingReplacingUpdate": {
-                    "WillReplace": "true"
+                    "WillReplace": true
                 },
                 "AutoScalingRollingUpdate": {
                     "MaxBatchSize": "1",
                     "MinInstancesInService": "1",
                     "PauseTime": "PT5M",
-                    "WaitOnResourceSignals": "true"
+                    "WaitOnResourceSignals": true
                 }
             }
         },
@@ -218,8 +218,8 @@
                         "services": {
                             "sysvinit": {
                                 "rsyslog": {
-                                    "enabled": "true",
-                                    "ensureRunning": "true",
+                                    "enabled": true,
+                                    "ensureRunning": true,
                                     "files": [
                                         "/etc/rsyslog.d/20-somethin.conf"
                                     ]
@@ -280,7 +280,7 @@
                     "Enabled": true,
                     "Timeout": 120
                 },
-                "CrossZone": "true",
+                "CrossZone": true,
                 "HealthCheck": {
                     "HealthyThreshold": "5",
                     "Interval": "20",

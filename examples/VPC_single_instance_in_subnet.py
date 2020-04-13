@@ -19,7 +19,7 @@ t = Template()
 
 t.add_version('2010-09-09')
 
-t.add_description("""\
+t.set_description("""\
 AWS CloudFormation Sample Template VPC_Single_Instance_In_Subnet: Sample \
 template showing how to create a VPC and add an EC2 instance with an Elastic \
 IP address and a security group. \
@@ -44,7 +44,7 @@ instances',
         MinLength='9',
         MaxLength='18',
         Default='0.0.0.0/0',
-        AllowedPattern="(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
+        AllowedPattern=r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
         ConstraintDescription=(
             "must be a valid IP CIDR range of the form x.x.x.x/x."),
     ))

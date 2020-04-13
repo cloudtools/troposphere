@@ -1,9 +1,5 @@
-from . import AWSObject, AWSProperty
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
+from . import AWSObject, AWSProperty, Tags
+from .compat import policytypes
 
 
 class LifecyclePolicy(AWSProperty):
@@ -20,4 +16,5 @@ class Repository(AWSObject):
         'LifecyclePolicy': (LifecyclePolicy, False),
         'RepositoryName': (basestring, False),
         'RepositoryPolicyText': (policytypes, False),
+        'Tags': (Tags, False),
     }

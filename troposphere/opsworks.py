@@ -53,6 +53,7 @@ def validate_volume_type(volume_type):
 
 class VolumeConfiguration(AWSProperty):
     props = {
+        'Encrypted': (boolean, False),
         'Iops': (integer, False),
         'MountPoint': (basestring, True),
         'NumberOfDisks': (integer, True),
@@ -201,6 +202,7 @@ class Instance(AWSObject):
         'AutoScalingType': (basestring, False),
         'AvailabilityZone': (basestring, False),
         'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'EbsOptimized': (boolean, False),
         'ElasticIps': ([basestring], False),
         'Hostname': (basestring, False),
         'InstallUpdatesOnBoot': (boolean, False),
@@ -213,6 +215,7 @@ class Instance(AWSObject):
         'SubnetId': (basestring, False),
         'Tenancy': (basestring, False),
         'TimeBasedAutoScaling': (TimeBasedAutoScaling, False),
+        'VirtualizationType': (basestring, False),
         'Volumes': ([basestring], False),
     }
 
@@ -327,4 +330,39 @@ class Volume(AWSObject):
         'MountPoint': (basestring, False),
         'Name': (basestring, False),
         'StackId': (basestring, True),
+    }
+
+
+class EngineAttribute(AWSProperty):
+    props = {
+        'Name': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
+class Server(AWSObject):
+    resource_type = "AWS::OpsWorksCM::Server"
+
+    props = {
+        'AssociatePublicIpAddress': (boolean, False),
+        'BackupId': (basestring, False),
+        'BackupRetentionCount': (integer, False),
+        'CustomCertificate': (basestring, False),
+        'CustomDomain': (basestring, False),
+        'CustomPrivateKey': (basestring, False),
+        'DisableAutomatedBackup': (boolean, False),
+        'Engine': (basestring, False),
+        'EngineAttributes': ([EngineAttribute], False),
+        'EngineModel': (basestring, False),
+        'EngineVersion': (basestring, False),
+        'InstanceProfileArn': (basestring, True),
+        'InstanceType': (basestring, True),
+        'KeyPair': (basestring, False),
+        'PreferredBackupWindow': (basestring, False),
+        'PreferredMaintenanceWindow': (basestring, False),
+        'SecurityGroupIds': ([basestring], False),
+        'ServerName': (basestring, False),
+        'ServiceRoleArn': (basestring, True),
+        'SubnetIds': ([basestring], False),
+        'Tags': ((Tags, list), False),
     }

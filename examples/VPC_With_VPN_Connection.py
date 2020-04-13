@@ -23,7 +23,7 @@ t = Template()
 
 t.add_version("2010-09-09")
 
-t.add_description("""\
+t.set_description("""\
 AWS CloudFormation Sample Template VPC_With_VPN_Connection.template: \
 Sample template showing how to create a private subnet with a VPN connection \
 using static routing to an existing VPN endpoint. NOTE: The VPNConnection \
@@ -36,7 +36,7 @@ VPNAddress = t.add_parameter(Parameter(
     Type="String",
     Description="IP Address of your VPN device",
     MinLength="7",
-    AllowedPattern="(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})",
+    AllowedPattern=r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})",
     MaxLength="15",
     ConstraintDescription="must be a valid IP address of the form x.x.x.x",
 ))
@@ -48,7 +48,7 @@ OnPremiseCIDR = t.add_parameter(Parameter(
     Description="IP Address range for your existing infrastructure",
     Default="10.0.0.0/16",
     MinLength="9",
-    AllowedPattern="(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
+    AllowedPattern=r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
     MaxLength="18",
     Type="String",
 ))
@@ -60,7 +60,7 @@ VPCCIDR = t.add_parameter(Parameter(
     Description="IP Address range for the VPN connected VPC",
     Default="10.1.0.0/16",
     MinLength="9",
-    AllowedPattern="(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
+    AllowedPattern=r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
     MaxLength="18",
     Type="String",
 ))
@@ -72,7 +72,7 @@ SubnetCIDR = t.add_parameter(Parameter(
     Description="IP Address range for the VPN connected Subnet",
     Default="10.1.0.0/24",
     MinLength="9",
-    AllowedPattern="(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
+    AllowedPattern=r"(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})/(\d{1,2})",
     MaxLength="18",
     Type="String",
 ))

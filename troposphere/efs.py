@@ -1,5 +1,31 @@
-from . import AWSObject, Tags
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean
+
+Bursting = 'bursting'
+Provisioned = 'provisioned'
+
+
+def throughput_mode_validator(mode):
+    valid_modes = [Bursting, Provisioned]
+    if mode not in valid_modes:
+        raise ValueError(
+            'ThroughputMode must be one of: "%s"' % (', '.join(valid_modes))
+        )
+    return mode
+
+
+def provisioned_throughput_validator(throughput):
+    if throughput < 0.0:
+        raise ValueError(
+            'ProvisionedThroughputInMibps must be greater than or equal to 0.0'
+        )
+    return throughput
+
+
+class LifecyclePolicy(AWSProperty):
+    props = {
+        'TransitionToIA': (basestring, True),
+    }
 
 
 class FileSystem(AWSObject):
@@ -9,7 +35,10 @@ class FileSystem(AWSObject):
         'Encrypted': (boolean, False),
         'FileSystemTags': (Tags, False),
         'KmsKeyId': (basestring, False),
+        'LifecyclePolicies': ([LifecyclePolicy], False),
         'PerformanceMode': (basestring, False),
+        'ProvisionedThroughputInMibps': (float, False),
+        'ThroughputMode': (throughput_mode_validator, False),
     }
 
 

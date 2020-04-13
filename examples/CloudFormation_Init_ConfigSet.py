@@ -5,7 +5,7 @@ import troposphere.ec2 as ec2
 
 t = Template()
 
-t.add_description("Configures an EC2 instance using cfn-init configsets")
+t.set_description("Configures an EC2 instance using cfn-init configsets")
 
 key_name = t.add_parameter(Parameter(
     'KeyName',

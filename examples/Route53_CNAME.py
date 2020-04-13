@@ -8,7 +8,7 @@ from troposphere.route53 import RecordSetType
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template Route53_CNAME: Sample template "
     "showing how to create an Amazon Route 53 CNAME record.  It assumes that "
     "you already  have a Hosted Zone registered with Amazon Route 53. "

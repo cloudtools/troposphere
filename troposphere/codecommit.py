@@ -3,7 +3,21 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, Tags
+
+
+class S3(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'Key': (basestring, True),
+        'ObjectVersion': (basestring, False),
+    }
+
+
+class Code(AWSProperty):
+    props = {
+        'S3': (S3, True)
+    }
 
 
 class Trigger(AWSProperty):
@@ -36,7 +50,9 @@ class Repository(AWSObject):
     resource_type = "AWS::CodeCommit::Repository"
 
     props = {
+        'Code': (Code, False),
         'RepositoryDescription': (basestring, False),
         'RepositoryName': (basestring, True),
+        'Tags': (Tags, False),
         'Triggers': ([Trigger], False),
     }

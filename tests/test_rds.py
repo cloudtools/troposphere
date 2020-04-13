@@ -40,8 +40,8 @@ class TestRDS(unittest.TestCase):
 
         with self.assertRaisesRegexp(
                 ValueError,
-                'Either \(MasterUsername and MasterUserPassword\) or'
-                ' DBSnapshotIdentifier are required'
+                r'Either \(MasterUsername and MasterUserPassword\) or'
+                r' DBSnapshotIdentifier are required'
                 ):
             rds_instance.to_dict()
 
@@ -185,8 +185,7 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass="db.m1.small",
             Engine="postgres",
             StorageType='io1')
-        with self.assertRaisesRegexp(ValueError,
-                                     "Must specify Iops if "):
+        with self.assertRaisesRegexp(ValueError, "Must specify Iops if "):
             i.to_dict()
 
     def test_storage_to_iops_ratio(self):
@@ -197,18 +196,17 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass="db.m1.small",
             Engine="postgres",
             StorageType='io1',
-            Iops=4000,
+            Iops=6000,
             AllocatedStorage=10)
-        with self.assertRaisesRegexp(ValueError,
-                                     " must be at least 100 "):
+        with self.assertRaisesRegexp(ValueError, " must be at least 100 "):
             i.to_dict()
 
         i.AllocatedStorage = 100
-        with self.assertRaisesRegexp(ValueError,
-                                     " must be no less than 1/10th "):
+        with self.assertRaisesRegexp(
+                ValueError, " must be no less than 1/50th "):
             i.to_dict()
 
-        i.AllocatedStorage = 400
+        i.Iops = 5000
         i.to_dict()
 
     def test_snapshot(self):
@@ -242,8 +240,8 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass='db.m4.large',
             DBSubnetGroupName='default',
         )
-        with self.assertRaisesRegexp(ValueError,
-                                     "Resource Engine is required"):
+        with self.assertRaisesRegexp(
+                ValueError, "Resource Engine is required"):
             i.to_dict()
 
 
@@ -267,6 +265,13 @@ class TestRDSValidators(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             rds.validate_engine("bad_engine")
+
+    def test_validate_engine_mode(self):
+        for e in rds.VALID_DB_ENGINE_MODES:
+            rds.validate_engine_mode(e)
+
+        with self.assertRaises(ValueError):
+            rds.validate_engine_mode("bad_engine")
 
     def test_validate_license_model(self):
         for lm in rds.VALID_LICENSE_MODELS:
@@ -313,8 +318,20 @@ class TestRDSValidators(unittest.TestCase):
         for d in (1, 10, 15, 35):
             rds.validate_backup_retention_period(d)
 
-        with self.assertRaisesRegexp(ValueError,
-                                     " cannot be larger than 35 "):
+        with self.assertRaisesRegexp(ValueError, " cannot be larger than 35 "):
             rds.validate_backup_retention_period(40)
 
         rds.validate_backup_retention_period(10)
+
+    def test_validate_capacity(self):
+        for e in rds.VALID_MYSQL_SCALING_CONFIGURATION_CAPACITIES:
+            rds.validate_capacity(e)
+
+        for e in rds.VALID_POSTGRESL_SCALING_CONFIGURATION_CAPACITIES:
+            rds.validate_capacity(e)
+
+        with self.assertRaises(ValueError):
+            rds.validate_capacity(3)
+
+        with self.assertRaises(ValueError):
+            rds.validate_capacity(100001)

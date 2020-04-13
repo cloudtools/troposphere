@@ -1,5 +1,7 @@
-from . import AWSObject, AWSProperty
-from .validators import boolean, json_checker, positive_integer
+from . import AWSObject, AWSProperty, Tags
+from .validators import (
+    boolean, double, integer_range, json_checker, positive_integer
+)
 
 
 def validate_authorizer_ttl(ttl_value):
@@ -11,6 +13,14 @@ def validate_authorizer_ttl(ttl_value):
     if ttl_value > 3600:
         raise ValueError("The AuthorizerResultTtlInSeconds should be <= 3600")
     return ttl_value
+
+
+class AccessLogSetting(AWSProperty):
+
+    props = {
+        "DestinationArn": (basestring, False),
+        "Format": (basestring, False)
+    }
 
 
 class Account(AWSObject):
@@ -38,7 +48,9 @@ class ApiKey(AWSObject):
         "Enabled": (boolean, False),
         "GenerateDistinctId": (boolean, False),
         "Name": (basestring, False),
-        "StageKeys": ([StageKey], False)
+        "StageKeys": ([StageKey], False),
+        "Tags": (Tags, False),
+        "Value": (basestring, False)
     }
 
 
@@ -70,12 +82,44 @@ class BasePathMapping(AWSObject):
     }
 
 
+# Represents:
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-stage-canarysetting.html
+class CanarySetting(AWSProperty):
+
+    props = {
+        "DeploymentId": (basestring, False),
+        "PercentTraffic": ([double], False),
+        "StageVariableOverrides": (dict, False),
+        "UseStageCache": (boolean, False),
+    }
+
+
+StageCanarySetting = CanarySetting
+
+
 class ClientCertificate(AWSObject):
     resource_type = "AWS::ApiGateway::ClientCertificate"
 
     props = {
-        "Description": (basestring, False)
+        "Description": (basestring, False),
+        "Tags": (Tags, False),
     }
+
+
+# Represents:
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-canarysetting.html
+# and
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-deployment-deploymentcanarysettings.html
+class DeploymentCanarySettings(AWSProperty):
+
+    props = {
+        "PercentTraffic": ([double], False),
+        "StageVariableOverrides": (dict, False),
+        "UseStageCache": (boolean, False),
+    }
+
+
+DeploymentCanarySetting = DeploymentCanarySettings
 
 
 class MethodSetting(AWSProperty):
@@ -97,11 +141,13 @@ class MethodSetting(AWSProperty):
 class StageDescription(AWSProperty):
 
     props = {
+        "AccessLogSetting": (AccessLogSetting, False),
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
         "CacheDataEncrypted": (bool, False),
         "CacheTtlInSeconds": (positive_integer, False),
         "CachingEnabled": (bool, False),
+        "CanarySetting": (DeploymentCanarySettings, False),
         "ClientCertificateId": (basestring, False),
         "DataTraceEnabled": (bool, False),
         "Description": (basestring, False),
@@ -109,9 +155,10 @@ class StageDescription(AWSProperty):
         "MethodSettings": ([MethodSetting], False),
         "MetricsEnabled": (bool, False),
         "StageName": (basestring, False),
+        "Tags": ((Tags, list), False),
         "ThrottlingBurstLimit": (positive_integer, False),
         "ThrottlingRateLimit": (positive_integer, False),
-        "Variables": (dict, False)
+        "Variables": (dict, False),
     }
 
     def validate(self):
@@ -126,6 +173,7 @@ class Deployment(AWSObject):
     resource_type = "AWS::ApiGateway::Deployment"
 
     props = {
+        "DeploymentCanarySettings": (DeploymentCanarySettings, False),
         "Description": (basestring, False),
         "RestApiId": (basestring, True),
         "StageDescription": (StageDescription, False),
@@ -166,7 +214,8 @@ class DocumentationVersion(AWSObject):
 class EndpointConfiguration(AWSProperty):
 
     props = {
-        "Types": ([basestring], False)
+        "Types": ([basestring], False),
+        "VpcEndpointIds": ([basestring], False),
     }
 
 
@@ -178,6 +227,8 @@ class DomainName(AWSObject):
         "DomainName": (basestring, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "RegionalCertificateArn": (basestring, False),
+        "SecurityPolicy": (basestring, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -197,6 +248,8 @@ class Integration(AWSProperty):
     props = {
         "CacheKeyParameters": ([basestring], False),
         "CacheNamespace": (basestring, False),
+        "ConnectionId": (basestring, False),
+        "ConnectionType": (basestring, False),
         "ContentHandling": (basestring, False),
         "Credentials": (basestring, False),
         "IntegrationHttpMethod": (basestring, False),
@@ -204,6 +257,7 @@ class Integration(AWSProperty):
         "PassthroughBehavior": (basestring, False),
         "RequestParameters": (dict, False),
         "RequestTemplates": (dict, False),
+        "TimeoutInMillis": (integer_range(50, 29000), False),
         "Type": (basestring, True),
         "Uri": (basestring, False)
     }
@@ -223,6 +277,7 @@ class Method(AWSObject):
 
     props = {
         "ApiKeyRequired": (bool, False),
+        "AuthorizationScopes": ([basestring], False),
         "AuthorizationType": (basestring, True),
         "AuthorizerId": (basestring, False),
         "HttpMethod": (basestring, True),
@@ -252,7 +307,7 @@ class Model(AWSObject):
         name = 'Schema'
         if name in self.properties:
             schema = self.properties.get(name)
-            self.properties[name] = json_checker(name, schema)
+            self.properties[name] = json_checker(schema)
 
 
 class RequestValidator(AWSObject):
@@ -290,6 +345,7 @@ class RestApi(AWSObject):
     resource_type = "AWS::ApiGateway::RestApi"
 
     props = {
+        "ApiKeySourceType": (basestring, False),
         "BinaryMediaTypes": ([basestring], False),
         "Body": (dict, False),
         "BodyS3Location": (S3Location, False),
@@ -297,8 +353,11 @@ class RestApi(AWSObject):
         "Description": (basestring, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (basestring, False),
+        "MinimumCompressionSize": (positive_integer, False),
         "Name": (basestring, False),
-        "Parameters": ([basestring], False),
+        "Parameters": (dict, False),
+        "Policy": (dict, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -306,8 +365,10 @@ class Stage(AWSObject):
     resource_type = "AWS::ApiGateway::Stage"
 
     props = {
+        "AccessLogSetting": (AccessLogSetting, False),
         "CacheClusterEnabled": (bool, False),
         "CacheClusterSize": (basestring, False),
+        "CanarySetting": (StageCanarySetting, False),
         "ClientCertificateId": (basestring, False),
         "DeploymentId": (basestring, True),
         "Description": (basestring, False),
@@ -315,14 +376,9 @@ class Stage(AWSObject):
         "MethodSettings": ([MethodSetting], False),
         "RestApiId": (basestring, True),
         "StageName": (basestring, True),
-        "Variables": (dict, False)
-    }
-
-
-class ApiStage(AWSProperty):
-    props = {
-        "ApiId": (basestring, False),
-        "Stage": (basestring, False),
+        "Tags": ((Tags, list), False),
+        "TracingEnabled": (bool, False),
+        "Variables": (dict, False),
     }
 
 
@@ -341,6 +397,14 @@ class ThrottleSettings(AWSProperty):
     }
 
 
+class ApiStage(AWSProperty):
+    props = {
+        "ApiId": (basestring, False),
+        "Stage": (basestring, False),
+        "Throttle": (ThrottleSettings, False),
+    }
+
+
 class UsagePlan(AWSObject):
     resource_type = "AWS::ApiGateway::UsagePlan"
 
@@ -348,6 +412,7 @@ class UsagePlan(AWSObject):
         "ApiStages": ([ApiStage], False),
         "Description": (basestring, False),
         "Quota": (QuotaSettings, False),
+        "Tags": (Tags, False),
         "Throttle": (ThrottleSettings, False),
         "UsagePlanName": (basestring, False),
     }
@@ -406,4 +471,14 @@ class GatewayResponse(AWSObject):
         "ResponseType": (validate_gateway_response_type, True),
         "RestApiId": (basestring, True),
         "StatusCode": (basestring, False)
+    }
+
+
+class VpcLink(AWSObject):
+    resource_type = "AWS::ApiGateway::VpcLink"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'TargetArns': ([basestring], True),
     }

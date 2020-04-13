@@ -1,0 +1,22 @@
+# troposphere
+# -------------------------------------
+
+# ---- Need libraries installed by setup.py
+cfn_flip>=1.0.2
+awacs>=0.8
+
+# ---- Documentation Libraries
+Sphinx>=1.8
+sphinx_rtd_theme>=0.4.2
+
+# ---- S/W Engineering Libraries
+
+# ---- ---- Styling and Linting
+pycodestyle>=2.4
+pydocstyle>=3.0
+pyflakes>=2.1
+pylint>=1.9
+
+# ---- ---- Testing
+pytest>=4.1
+pytest-cov>=2.6

@@ -2,12 +2,29 @@ import unittest
 from troposphere import Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
-    Api, DeadLetterQueue, Function, FunctionForPackaging,
-    S3Event, S3Location, SimpleTable,
+    Api, Auth, DeadLetterQueue, DeploymentPreference, Function,
+    FunctionForPackaging, LayerVersion, ResourcePolicyStatement, S3Event,
+    S3Location, SimpleTable,
 )
 
 
 class TestServerless(unittest.TestCase):
+    def test_exactly_one_code(self):
+        serverless_func = Function(
+            "SomeHandler",
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri=S3Location(
+                Bucket="mybucket",
+                Key="mykey",
+            ),
+            InlineCode="",
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        with self.assertRaises(ValueError):
+            t.to_json()
+
     def test_s3_location(self):
         serverless_func = Function(
             "SomeHandler",
@@ -75,6 +92,21 @@ class TestServerless(unittest.TestCase):
         t.add_resource(serverless_func)
         t.to_json()
 
+    def test_optional_deployment_preference(self):
+        serverless_func = Function(
+            "SomeHandler",
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri="s3://bucket/handler.zip",
+            AutoPublishAlias="alias",
+            DeploymentPreference=DeploymentPreference(
+                Type="AllAtOnce"
+            )
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        t.to_json()
+
     def test_required_api_definitionuri(self):
         serverless_api = Api(
             "SomeApi",
@@ -120,6 +152,35 @@ class TestServerless(unittest.TestCase):
         t.add_resource(serverless_api)
         t.to_json()
 
+    def test_api_no_definition(self):
+        serverless_api = Api(
+            "SomeApi",
+            StageName='test',
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_api_auth_resource_policy(self):
+        serverless_api = Api(
+            title='SomeApi',
+            Auth=Auth(
+                ResourcePolicy=ResourcePolicyStatement(
+                    AwsAccountBlacklist=['testAwsAccountBlacklist'],
+                    AwsAccountWhitelist=['testAwsAccountWhitelist'],
+                    CustomStatements=['testCustomStatements'],
+                    IpRangeBlacklist=['testIpRangeBlacklist'],
+                    IpRangeWhitelist=['testIpRangeWhitelist'],
+                    SourceVpcBlacklist=['testVpcBlacklist'],
+                    SourceVpcWhitelist=['testVpcWhitelist'],
+                ),
+            ),
+            StageName='testStageName',
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
     def test_simple_table(self):
         serverless_table = SimpleTable(
             "SomeTable"
@@ -127,6 +188,23 @@ class TestServerless(unittest.TestCase):
         t = Template()
         t.add_resource(serverless_table)
         t.to_json()
+
+    def test_layer_version(self):
+        layer_version = LayerVersion(
+            "SomeLayer",
+            ContentUri="someuri",
+        )
+        t = Template()
+        t.add_resource(layer_version)
+        t.to_json()
+
+        layer_version = LayerVersion(
+            "SomeLayer",
+        )
+        t = Template()
+        t.add_resource(layer_version)
+        with self.assertRaises(ValueError):
+            t.to_json()
 
     def test_s3_filter(self):
         t = Template()
@@ -198,9 +276,23 @@ class TestServerless(unittest.TestCase):
         t.to_json()
 
     def test_packaging(self):
-        func_req = Function.props['CodeUri'][1]
-        package_req = FunctionForPackaging.props['CodeUri'][1]
-        self.assertNotEqual(func_req, package_req)
+        # test for no CodeUri or InlineCode
+        t = Template()
+        t.add_resource(
+            FunctionForPackaging(
+                "ProcessorFunction",
+                Handler='process_file.handler',
+                Runtime='python3.6',
+                Policies={
+                    "Statement": [{
+                        "Effect": "Allow",
+                        "Action": ["s3:GetObject", "s3:PutObject"],
+                        "Resource": ["arn:aws:s3:::bucket/*"],
+                    }]
+                },
+            )
+        )
+        t.to_json()
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
-
+import warnings
 
 import cfn_flip
 import collections
@@ -13,9 +13,9 @@ import types
 
 from . import validators
 
-__version__ = "2.2.0"
+__version__ = "2.6.0"
 
-# constants for DeletionPolicy
+# constants for DeletionPolicy and UpdateReplacePolicy
 Delete = 'Delete'
 Retain = 'Retain'
 Snapshot = 'Snapshot'
@@ -94,9 +94,10 @@ class BaseAWSObject(object):
         self.do_validation = validation
         # Cache the keys for validity checks
         self.propnames = self.props.keys()
-        self.attributes = ['DependsOn', 'DeletionPolicy',
-                           'Metadata', 'UpdatePolicy',
-                           'Condition', 'CreationPolicy']
+        self.attributes = [
+            'Condition', 'CreationPolicy', 'DeletionPolicy', 'DependsOn',
+            'Metadata', 'UpdatePolicy', 'UpdateReplacePolicy',
+        ]
 
         # try to validate the title if its there
         if self.title:
@@ -125,11 +126,21 @@ class BaseAWSObject(object):
         for k, v in kwargs.items():
             self.__setattr__(k, v)
 
+        self.add_to_template()
+
+    def add_to_template(self):
         # Bound it to template if we know it
         if self.template is not None:
             self.template.add_resource(self)
 
     def __getattr__(self, name):
+        # If pickle loads this object, then __getattr__ will cause
+        # an infinite loop when pickle invokes this object to look for
+        # __setstate__ before attributes is "loaded" into this object.
+        # Therefore, short circuit the rest of this call if attributes
+        # is not loaded yet.
+        if "attributes" not in self.__dict__:
+            raise AttributeError(name)
         try:
             if name in self.attributes:
                 return self.resource[name]
@@ -403,13 +414,25 @@ class Base64(AWSHelperFn):
 
 
 class FindInMap(AWSHelperFn):
-    def __init__(self, mapname, key, value):
-        self.data = {'Fn::FindInMap': [self.getdata(mapname), key, value]}
+    def __init__(self, mapname, toplevelkey, secondlevelkey):
+        self.data = {'Fn::FindInMap': [
+            self.getdata(mapname),
+            toplevelkey,
+            secondlevelkey
+        ]}
 
 
 class GetAtt(AWSHelperFn):
     def __init__(self, logicalName, attrName):  # noqa: N803
         self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
+
+
+class Cidr(AWSHelperFn):
+    def __init__(self, ipblock, count, sizemask=None):
+        if sizemask:
+            self.data = {'Fn::Cidr': [ipblock, count, sizemask]}
+        else:
+            self.data = {'Fn::Cidr': [ipblock, count]}
 
 
 class GetAZs(AWSHelperFn):
@@ -455,7 +478,10 @@ class Split(AWSHelperFn):
 
 
 class Sub(AWSHelperFn):
-    def __init__(self, input_str, **values):
+    def __init__(self, input_str, dict_values=None, **values):
+        # merge dict
+        if dict_values:
+            values.update(dict_values)
         self.data = {'Fn::Sub': [input_str, values] if values else input_str}
 
 
@@ -473,14 +499,24 @@ class Ref(AWSHelperFn):
     def __init__(self, data):
         self.data = {'Ref': self.getdata(data)}
 
+    def __eq__(self, other):
+        if isinstance(other, self.__class__):
+            return self.data == other.data
+        return self.data.values()[0] == other
+
+    def __hash__(self):
+        return hash(self.data.values()[0])
+
 
 # Pseudo Parameter Ref's
 AccountId = Ref(AWS_ACCOUNT_ID)
 NotificationARNs = Ref(AWS_NOTIFICATION_ARNS)
 NoValue = Ref(AWS_NO_VALUE)
+Partition = Ref(AWS_PARTITION)
 Region = Ref(AWS_REGION)
 StackId = Ref(AWS_STACK_ID)
 StackName = Ref(AWS_STACK_NAME)
+URLSuffix = Ref(AWS_URL_SUFFIX)
 
 
 class Condition(AWSHelperFn):
@@ -493,26 +529,40 @@ class ImportValue(AWSHelperFn):
         self.data = {'Fn::ImportValue': data}
 
 
+class Tag(AWSHelperFn):
+    def __init__(self, k, v):
+        self.data = {'Key': k, 'Value': v, }
+
+
 class Tags(AWSHelperFn):
     def __init__(self, *args, **kwargs):
+        self.tags = []
         if not args:
             # Assume kwargs variant
             tag_dict = kwargs
         else:
-            if len(args) != 1:
-                raise(TypeError, "Multiple non-kwargs passed to Tags")
+            tag_dict = {}
+            for arg in args:
+                # Validate argument passed in is an AWSHelperFn or...
+                if isinstance(arg, AWSHelperFn):
+                    self.tags.append(arg)
+                # Validate argument passed in is a dict
+                elif isinstance(arg, dict):
+                    tag_dict.update(arg)
+                else:
+                    raise(TypeError, "Tags needs to be either kwargs, "
+                                     "dict, or AWSHelperFn")
 
-            # Validate single argument passed in is a dict
-            if not isinstance(args[0], dict):
-                raise(TypeError, "Tags needs to be either kwargs or dict")
-            tag_dict = args[0]
+        def add_tag(tag_list, k, v):
+            tag_list.append({'Key': k, 'Value': v, })
 
-        self.tags = []
-        for k, v in sorted(tag_dict.iteritems()):
-            self.tags.append({
-                'Key': k,
-                'Value': v,
-            })
+        # Detect and handle non-string Tag items which do not sort in Python3
+        if all(isinstance(k, basestring) for k in tag_dict):
+            for k, v in sorted(tag_dict.items()):
+                add_tag(self.tags, k, v)
+        else:
+            for k, v in tag_dict.items():
+                add_tag(self.tags, k, v)
 
     # allow concatenation of the Tags object via '+' operator
     def __add__(self, newtags):
@@ -521,6 +571,10 @@ class Tags(AWSHelperFn):
 
     def to_dict(self):
         return [encode_to_dict(tag) for tag in self.tags]
+
+    @classmethod
+    def from_dict(cls, title=None, **kwargs):
+        return cls(**kwargs)
 
 
 class Template(object):
@@ -532,6 +586,7 @@ class Template(object):
         'Mappings': (dict, False),
         'Resources': (dict, False),
         'Outputs': (dict, False),
+        'Rules': (dict, False),
     }
 
     def __init__(self, Description=None, Metadata=None):  # noqa: N803
@@ -542,17 +597,37 @@ class Template(object):
         self.outputs = {}
         self.parameters = {}
         self.resources = {}
+        self.rules = {}
         self.version = None
         self.transform = None
 
-    def add_description(self, description):
+    def set_description(self, description):
         self.description = description
 
-    def add_metadata(self, metadata):
+    def add_description(self, description):
+        warnings.warn(
+            "The add_description() method is deprecated, please switch to "
+            "using set_description() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_description(description)
+
+    def set_metadata(self, metadata):
         self.metadata = metadata
+
+    def add_metadata(self, metadata):
+        warnings.warn(
+            "The add_metadata() method is deprecated, please switch to using "
+            "set_metadata() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_metadata(metadata)
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
+        return name
 
     def handle_duplicate_key(self, key):
         raise ValueError('duplicate key "%s" detected' % key)
@@ -577,12 +652,21 @@ class Template(object):
     def add_mapping(self, name, mapping):
         if len(self.mappings) >= MAX_MAPPINGS:
             raise ValueError('Maximum mappings %d reached' % MAX_MAPPINGS)
-        self.mappings[name] = mapping
+        if name not in self.mappings:
+            self.mappings[name] = {}
+        self.mappings[name].update(mapping)
 
     def add_parameter(self, parameter):
         if len(self.parameters) >= MAX_PARAMETERS:
             raise ValueError('Maximum parameters %d reached' % MAX_PARAMETERS)
         return self._update(self.parameters, parameter)
+
+    def get_or_add_parameter(self, parameter):
+        if parameter.title in self.parameters:
+            return self.parameters[parameter.title]
+        else:
+            self.add_parameter(parameter)
+        return parameter
 
     def add_resource(self, resource):
         if len(self.resources) >= MAX_RESOURCES:
@@ -590,14 +674,47 @@ class Template(object):
                              % MAX_RESOURCES)
         return self._update(self.resources, resource)
 
-    def add_version(self, version=None):
+    def add_rule(self, name, rule):
+        """
+        Add a Rule to the template to enforce extra constraints on the
+        parameters. As of June 2019 rules are undocumented in CloudFormation
+        but have the same syntax and behaviour as in ServiceCatalog:
+        https://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html
+
+        :param rule: a dict with 'Assertions' (mandatory) and 'RuleCondition'
+                     (optional) keys
+        """
+        # TODO: check maximum number of Rules, and enforce limit.
+        if name in self.rules:
+            self.handle_duplicate_key(name)
+        self.rules[name] = rule
+
+    def set_version(self, version=None):
         if version:
             self.version = version
         else:
             self.version = "2010-09-09"
 
-    def add_transform(self, transform):
+    def add_version(self, version=None):
+        warnings.warn(
+            "The add_version() method is deprecated, please switch to using "
+            "set_version() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_version(version)
+
+    def set_transform(self, transform):
         self.transform = transform
+
+    def add_transform(self, transform):
+        warnings.warn(
+            "The add_transform() method is deprecated, please switch to using "
+            "set_transform() instead.\n",
+            DeprecationWarning,
+            stacklevel=2
+        )
+        return self.set_transform(transform)
 
     def to_dict(self):
         t = {}
@@ -617,16 +734,77 @@ class Template(object):
             t['AWSTemplateFormatVersion'] = self.version
         if self.transform:
             t['Transform'] = self.transform
+        if self.rules:
+            t['Rules'] = self.rules
         t['Resources'] = self.resources
 
         return encode_to_dict(t)
+
+    def set_parameter_label(self, parameter, label):
+        """
+        Sets the Label used in the User Interface for the given parameter.
+        :type parameter: str or Parameter
+        :type label: str
+        """
+        labels = self.metadata\
+            .setdefault("AWS::CloudFormation::Interface", {})\
+            .setdefault("ParameterLabels", {})
+
+        if isinstance(parameter, BaseAWSObject):
+            parameter = parameter.title
+
+        labels[parameter] = {"default": label}
+
+    def add_parameter_to_group(self, parameter, group_name):
+        """
+        Add a parameter under a group (created if needed).
+        :type parameter: str or Parameter
+        :type group_name: str
+        """
+        groups = self.metadata \
+            .setdefault("AWS::CloudFormation::Interface", {}) \
+            .setdefault("ParameterGroups", [])
+
+        if isinstance(parameter, BaseAWSObject):
+            parameter = parameter.title
+
+        # Check if group_name already exists
+        existing_group = None
+        for group in groups:
+            if group["Label"]["default"] == group_name:
+                existing_group = group
+                break
+
+        if existing_group is None:
+            existing_group = {
+                "Label": {"default": group_name},
+                "Parameters": [],
+            }
+            groups.append(existing_group)
+
+        existing_group["Parameters"].append(parameter)
+
+        return group_name
 
     def to_json(self, indent=4, sort_keys=True, separators=(',', ': ')):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
 
-    def to_yaml(self, long_form=False):
-        return cfn_flip.to_yaml(self.to_json(), long_form)
+    def to_yaml(self, clean_up=False, long_form=False):
+        return cfn_flip.to_yaml(self.to_json(), clean_up=clean_up,
+                                long_form=long_form)
+
+    def __eq__(self, other):
+        if isinstance(other, Template):
+            return (self.to_json() == other.to_json())
+        else:
+            return False
+
+    def __ne__(self, other):
+        return (not self.__eq__(other))
+
+    def __hash__(self):
+        return hash(self.to_json())
 
 
 class Export(AWSHelperFn):
@@ -642,6 +820,11 @@ class Output(AWSDeclaration):
         'Export': (Export, False),
         'Value': (basestring, True),
     }
+
+    def add_to_template(self):
+        # Bound it to template if we know it
+        if self.template is not None:
+            self.template.add_output(self)
 
 
 class Parameter(AWSDeclaration):
@@ -660,6 +843,11 @@ class Parameter(AWSDeclaration):
         'Description': (basestring, False),
         'ConstraintDescription': (basestring, False),
     }
+
+    def add_to_template(self):
+        # Bound it to template if we know it
+        if self.template is not None:
+            self.template.add_parameter(self)
 
     def validate_title(self):
         if len(self.title) > PARAMETER_TITLE_MAX:

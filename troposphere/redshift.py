@@ -21,6 +21,7 @@ class Cluster(AWSObject):
         'AllowVersionUpgrade': (boolean, False),
         'AutomatedSnapshotRetentionPeriod': (integer, False),
         'AvailabilityZone': (basestring, False),
+        'ClusterIdentifier': (basestring, False),
         'ClusterParameterGroupName': (basestring, False),
         'ClusterSecurityGroups': (list, False),
         'ClusterSubnetGroupName': (basestring, False),

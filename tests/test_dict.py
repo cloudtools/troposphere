@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Template, Ref
+from troposphere import Template, Ref, Tags
 from troposphere import ecs
 from troposphere import iam
 
@@ -66,13 +66,20 @@ class TestDict(unittest.TestCase):
     def test_sub_property_helper_fn(self):
         self.d["Environment"][0]["Value"] = Ref("RegistryStorage")
         cd = ecs.ContainerDefinition.from_dict("mycontainer", self.d)
-        self.assertEquals(cd.Environment[0].Value.data,
-                          {"Ref": "RegistryStorage"})
+        self.assertEquals(
+            cd.Environment[0].Value.data, {"Ref": "RegistryStorage"})
 
     def test_invalid_subproperty_definition(self):
         self.d["Environment"][0] = "BadValue"
         with self.assertRaises(ValueError):
             ecs.ContainerDefinition.from_dict("mycontainer", self.d)
+
+    def test_tags_from_dict(self):
+        d = {"key1": "value1", "key2": "value2"}
+        expected = [{"Key": k, "Value": v} for k, v in d.items()]
+        tags = Tags.from_dict(**d)
+
+        self.assertEquals(sorted(expected), sorted(tags.tags))
 
 
 if __name__ == '__main__':

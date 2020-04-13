@@ -7,7 +7,7 @@ from troposphere.cloudformation import WaitCondition, WaitConditionHandle
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "Example template showing how the WaitCondition and WaitConditionHandle "
     "are configured. With this template, the stack will not complete until "
     "either the WaitCondition timeout occurs, or you manually signal the "

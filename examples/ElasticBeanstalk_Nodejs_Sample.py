@@ -14,7 +14,7 @@ from troposphere.elasticbeanstalk import (
 from troposphere.iam import Role, InstanceProfile
 from troposphere.iam import PolicyType as IAMPolicy
 
-from awacs.aws import Allow, Statement, Action, Principal, Policy
+from awacs.aws import Allow, Statement, Action, Principal, PolicyDocument
 from awacs.sts import AssumeRole
 
 
@@ -22,7 +22,7 @@ t = Template()
 
 t.add_version()
 
-t.add_description(
+t.set_description(
     "AWS CloudFormation Sample Template ElasticBeanstalk_Nodejs_Sample: "
     "Configure and launch the AWS Elastic Beanstalk sample application. "
     "**WARNING** This template creates one or more Amazon EC2 instances. You "
@@ -73,7 +73,7 @@ t.add_mapping("Region2Principal", {
 
 t.add_resource(Role(
     "WebServerRole",
-    AssumeRolePolicyDocument=Policy(
+    AssumeRolePolicyDocument=PolicyDocument(
         Statement=[
             Statement(
                 Effect=Allow, Action=[AssumeRole],
@@ -93,7 +93,7 @@ t.add_resource(Role(
 t.add_resource(IAMPolicy(
     "WebServerRolePolicy",
     PolicyName="WebServerRole",
-    PolicyDocument=Policy(
+    PolicyDocument=PolicyDocument(
         Statement=[
             Statement(Effect=Allow, NotAction=Action("iam", "*"),
                       Resource=["*"])

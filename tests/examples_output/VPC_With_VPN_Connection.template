@@ -88,7 +88,7 @@
         "InboundPrivateNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "false",
+                "Egress": false,
                 "NetworkAclId": {
                     "Ref": "PrivateNetworkAcl"
                 },
@@ -105,7 +105,7 @@
         "OutBoundPrivateNetworkAclEntry": {
             "Properties": {
                 "CidrBlock": "0.0.0.0/0",
-                "Egress": "true",
+                "Egress": true,
                 "NetworkAclId": {
                     "Ref": "PrivateNetworkAcl"
                 },
@@ -221,8 +221,8 @@
                 "CidrBlock": {
                     "Ref": "VPCCIDR"
                 },
-                "EnableDnsHostnames": "true",
-                "EnableDnsSupport": "true",
+                "EnableDnsHostnames": true,
+                "EnableDnsSupport": true,
                 "Tags": [
                     {
                         "Key": "Application",
@@ -243,7 +243,7 @@
                 "CustomerGatewayId": {
                     "Ref": "CustomerGateway"
                 },
-                "StaticRoutesOnly": "true",
+                "StaticRoutesOnly": true,
                 "Type": "ipsec.1",
                 "VpnGatewayId": {
                     "Ref": "VPNGateway"
