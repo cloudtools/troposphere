@@ -512,3 +512,14 @@ def waf_action_type(action):
             )
         )
     return action
+
+
+def storage_type(storage_type):
+    valid_storage_types = ['SSD', 'HDD']
+    if storage_type not in valid_storage_types:
+        raise ValueError(
+            'StorageType must be one of: "%s"' % (
+                ', '.join(valid_storage_types)
+            )
+        )
+    return storage_type
