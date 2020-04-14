@@ -229,6 +229,7 @@ Currently supported AWS resource types
 - `AWS::RAM`_
 - `AWS::RDS`_
 - `AWS::Redshift`_
+- `AWS::ResourceGroups`_
 - `AWS::RoboMaker`_
 - `AWS::Route53`_
 - `AWS::Route53Resolver`_
