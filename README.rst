@@ -221,6 +221,7 @@ Currently supported AWS resource types
 - `AWS::MediaStore`_
 - `AWS::MSK`_
 - `AWS::Neptune`_
+- `AWS::NetworkManager`_
 - `AWS::OpsWorks`_
 - `AWS::OpsWorksCM`_
 - `AWS::Pinpoint`_
