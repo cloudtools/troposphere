@@ -1308,10 +1308,12 @@ class ClientVpnEndpoint(AWSObject):
         'ConnectionLogOptions': (ConnectionLogOptions, True),
         'Description': (basestring, False),
         'DnsServers': ([basestring], False),
+        'SecurityGroupIds': ([basestring], False),
         'ServerCertificateArn': (basestring, True),
         'SplitTunnel': (boolean, False),
         'TagSpecifications': ([TagSpecifications], False),
         'TransportProtocol': (basestring, False),
+        'VpcId': (basestring, False),
         'VpnPort': (validate_clientvpnendpoint_vpnport, False),
     }
 
