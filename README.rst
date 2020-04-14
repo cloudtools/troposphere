@@ -172,6 +172,7 @@ Currently supported AWS resource types
 - `AWS::CodeBuild`_
 - `AWS::CodeCommit`_
 - `AWS::CodeDeploy`_
+_ `AWS::CodeGuruProfiler`_
 - `AWS::CodePipeline`_
 - `AWS::CodeStar`_
 - `AWS::CodeStarConnections`_
