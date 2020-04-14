@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (boolean, double, exactly_one, json_checker,
                          positive_integer, integer)
 
@@ -156,6 +156,7 @@ class InsightRule(AWSObject):
         'RuleBody': (basestring, True),
         'RuleName': (basestring, True),
         'RuleState': (basestring, True),
+        'Tags': (Tags, False),
     }
 
 
