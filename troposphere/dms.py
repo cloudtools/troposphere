@@ -73,6 +73,13 @@ class S3Settings(AWSProperty):
     }
 
 
+class KafkaSettings(AWSProperty):
+    props = {
+        'Broker': (basestring, False),
+        'Topic': (basestring, False),
+    }
+
+
 class Endpoint(AWSObject):
     resource_type = "AWS::DMS::Endpoint"
 
@@ -85,6 +92,7 @@ class Endpoint(AWSObject):
         'EndpointType': (basestring, True),
         'EngineName': (basestring, True),
         'ExtraConnectionAttributes': (basestring, False),
+        'KafkaSettings': (KafkaSettings, False),
         'KinesisSettings': (KinesisSettings, False),
         'KmsKeyId': (basestring, False),
         'MongoDbSettings': (MongoDbSettings, False),
