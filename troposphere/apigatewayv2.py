@@ -207,12 +207,19 @@ class DomainName(AWSObject):
     }
 
 
+class TlsConfig(AWSProperty):
+    props = {
+        'ServerNameToVerify': (basestring, False),
+    }
+
+
 class Integration(AWSObject):
     resource_type = "AWS::ApiGatewayV2::Integration"
 
     props = {
         'ApiId': (basestring, True),
         'ConnectionType': (basestring, False),
+        'ConnectionId': (basestring, False),
         'ContentHandlingStrategy': (validate_content_handling_strategy, False),
         'CredentialsArn': (basestring, False),
         'Description': (basestring, False),
@@ -225,6 +232,7 @@ class Integration(AWSObject):
         'RequestTemplates': (dict, False),
         'TemplateSelectionExpression': (basestring, False),
         'TimeoutInMillis': (integer_range(50, 29000), False),
+        'TlsConfig': (TlsConfig, False),
     }
 
 
