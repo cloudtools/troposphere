@@ -179,6 +179,7 @@ class AutoScalingGroup(AWSObject):
         'LifecycleHookSpecificationList':
             ([LifecycleHookSpecification], False),
         'LoadBalancerNames': (list, False),
+        'MaxInstanceLifetime': (integer, False),
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
