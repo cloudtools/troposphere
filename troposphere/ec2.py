@@ -629,6 +629,7 @@ class Volume(AWSObject):
         'Encrypted': (boolean, False),
         'Iops': (positive_integer, False),
         'KmsKeyId': (basestring, False),
+        'MultiAttachEnabled': (boolean, False),
         'Size': (positive_integer, False),
         'SnapshotId': (basestring, False),
         'Tags': ((Tags, list), False),
