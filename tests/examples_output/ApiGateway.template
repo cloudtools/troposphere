@@ -54,6 +54,12 @@
                         },
                         "Stage": {
                             "Ref": "v1Stage"
+                        },
+                        "Throttle": {
+                            "/": {
+                                "BurstLimit": 500,
+                                "RateLimit": 5000
+                            }
                         }
                     }
                 ],
