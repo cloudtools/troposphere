@@ -176,6 +176,7 @@ Currently supported AWS resource types
 - `AWS::Cognito`_
 - `AWS::Config`_
 - `AWS::DAX`_
+_ `AWS::Detective`_
 - `AWS::DLM`_
 - `AWS::DMS`_
 - `AWS::DataPipeline`_
