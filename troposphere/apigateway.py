@@ -401,7 +401,7 @@ class ApiStage(AWSProperty):
     props = {
         "ApiId": (basestring, False),
         "Stage": (basestring, False),
-        "Throttle": (ThrottleSettings, False),
+        "Throttle": (dict, False),
     }
 
 
