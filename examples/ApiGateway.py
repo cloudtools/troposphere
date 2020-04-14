@@ -150,7 +150,7 @@ usagePlan = t.add_resource(UsagePlan(
             ApiId=Ref(rest_api),
             Stage=Ref(stage),
             Throttle=({
-                "/":
+                "/some/api/path/GET":
                     ThrottleSettings(
                         BurstLimit=500,
                         RateLimit=5000
