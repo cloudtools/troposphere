@@ -352,7 +352,7 @@ class RestApi(AWSObject):
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
-        "FailOnWarnings": (basestring, False),
+        "FailOnWarnings": (bool, False),
         "MinimumCompressionSize": (positive_integer, False),
         "Name": (basestring, False),
         "Parameters": (dict, False),
