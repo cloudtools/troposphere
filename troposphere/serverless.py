@@ -334,7 +334,10 @@ class ScheduleEvent(AWSObject):
 
     props = {
         'Schedule': (basestring, True),
-        'Input': (basestring, False)
+        'Input': (basestring, False),
+        'Description': (basestring, False),
+        'Enabled': (bool, False),
+        'Name': (basestring, False)
     }
 
 
