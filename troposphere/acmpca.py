@@ -93,7 +93,7 @@ class RevocationConfiguration(AWSProperty):
     }
 
 
-class Subject(AWSObject):
+class Subject(AWSProperty):
     props = {
         'CommonName': (basestring, False),
         'Country': (basestring, False),
