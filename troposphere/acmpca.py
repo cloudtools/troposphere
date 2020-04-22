@@ -55,7 +55,7 @@ class Validity(AWSProperty):
     }
 
 
-class Certificate(AWSProperty):
+class Certificate(AWSObject):
     resource_type = "AWS::ACMPCA::Certificate"
 
     props = {
