@@ -245,6 +245,7 @@ Currently supported AWS resource types
 - `AWS::ServiceCatalog`_
 - `AWS::ServiceDiscovery`_
 - `AWS::StepFunctions`_
+_ `AWS::Synthetics`_
 - `AWS::Transfer`_
 - `AWS::WAF`_
 - `AWS::WAFRegional`_
