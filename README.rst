@@ -202,6 +202,7 @@ Currently supported AWS resource types
 - `AWS::Greengrass`_
 - `AWS::GuardDuty`_
 - `AWS::IAM`_
+_ `AWS::ImageBuilder`_
 - `AWS::Inspector`_
 - `AWS::IoT`_
 - `AWS::IoT1Click`_
