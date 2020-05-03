@@ -383,6 +383,27 @@ class DnsZoneA(ARMObject):
             raise ValueError('Name "%s" is not valid' % self.title)
 
 
+class PrivateDnsZoneA(ARMObject):
+    resource_type = 'Microsoft.Network/privateDnsZones/A'
+    apiVersion = '2018-09-01'
+    location = True
+
+    name_pattern = re.compile(r'^([a-zA-Z0-9]+([-_][a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}\/([a-zA-Z0-9]+([-_][a-zA-Z0-9]+)*)+$')
+
+    props = {
+        'ttl': (int, False),
+        'aRecords': ([ARecord], False)
+    }
+
+    root_props = {
+        'location': (str, True)
+    }
+
+    def validate_title(self):
+        if not PrivateDnsZoneA.name_pattern.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
+
+
 class ZoneType(Enum):
     Private = 0
     Public = 1
@@ -407,6 +428,46 @@ class DnsZone(ARMObject):
 
     def validate_title(self):
         if not DnsZone.domain_name_pattern.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
+
+
+class PrivateDnsZones(ARMObject):
+    resource_type = 'Microsoft.Network/privateDnsZones'
+    apiVersion = '2018-09-01'
+    location = True
+    domain_name_pattern = re.compile(r'^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}$')
+
+    props = {
+    }
+
+    root_props = {
+        'location': (str, True),
+        'tags': (dict, False)
+    }
+
+    def validate_title(self):
+        if not PrivateDnsZones.domain_name_pattern.match(self.title):
+            raise ValueError('Name "%s" is not valid' % self.title)
+
+
+class VirtualNetworkLink(ARMObject):
+    resource_type = 'Microsoft.Network/privateDnsZones/virtualNetworkLinks'
+    apiVersion = '2018-09-01'
+    location = True
+    vnet_link_name_pattern = re.compile(r'^([a-z0-9]+(-[a-z0-9]+)*\.)+[a-z]{2,}\/.+$')
+
+    props = {
+        'registrationEnabled': (bool, False),
+        'virtualNetwork': (SubResource, True)
+    }
+
+    root_props = {
+        'location': (str, True),
+        'tags': (dict, False)
+    }
+
+    def validate_title(self):
+        if not VirtualNetworkLink.vnet_link_name_pattern.match(self.title):
             raise ValueError('Name "%s" is not valid' % self.title)
 
 
