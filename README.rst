@@ -388,6 +388,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::AutoScalingPlans`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScalingPlans.html
 .. _`AWS::Batch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Batch.html
 .. _`AWS::Budgets`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Budgets.html
+.. _`AWS::Cassandra`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cassandra.html
 .. _`AWS::CertificateManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CertificateManager.html
 .. _`AWS::Chatbot`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Chatbot.html
 .. _`AWS::Cloud9`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cloud9.html
