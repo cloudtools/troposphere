@@ -401,6 +401,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::CodeBuild`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeBuild.html
 .. _`AWS::CodeCommit`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeCommit.html
 .. _`AWS::CodeDeploy`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeDeploy.html
+.. _`AWS::CodeGuruProfiler`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeGuruProfiler.html
 .. _`AWS::CodePipeline`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodePipeline.html
 .. _`AWS::CodeStarConnections`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStarConnections.html
 .. _`AWS::CodeStarNotifications`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStarNotifications.html
@@ -462,6 +463,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::RAM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RAM.html
 .. _`AWS::RDS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RDS.html
 .. _`AWS::Redshift`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Redshift.html
+.. _`AWS::ResourceGroups`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ResourceGroups.html
 .. _`AWS::RoboMaker`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RoboMaker.html
 .. _`AWS::Route53`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53.html
 .. _`AWS::Route53Resolver`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.html
