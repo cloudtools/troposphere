@@ -43,7 +43,7 @@
                 ],
                 "DatasetName": "testdataset",
                 "RetentionPeriod": {
-                    "Unlimited": "true"
+                    "Unlimited": true
                 },
                 "Tags": [
                     {
@@ -59,7 +59,7 @@
                     }
                 ],
                 "VersioningConfiguration": {
-                    "Unlimited": "true"
+                    "Unlimited": true
                 }
             },
             "Type": "AWS::IoTAnalytics::Dataset"
