@@ -1,6 +1,6 @@
 from . import AWSObject, AWSProperty
 from .compat import policytypes
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class CloudwatchAlarmAction(AWSProperty):
@@ -91,6 +91,7 @@ class LambdaAction(AWSProperty):
 
 class RepublishAction(AWSProperty):
     props = {
+        'Qos': (integer, False),
         'RoleArn': (basestring, True),
         'Topic': (basestring, True),
     }
@@ -120,6 +121,85 @@ class SqsAction(AWSProperty):
     }
 
 
+class SigV4Authorization(AWSProperty):
+    props = {
+        'RoleArn': (basestring, True),
+        'ServiceName': (basestring, True),
+        'SigningRegion': (basestring, True),
+    }
+
+
+class HttpActionHeader(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class HttpAuthorization(AWSProperty):
+    props = {
+        'Sigv4': (SigV4Authorization, False),
+    }
+
+
+class HttpAction(AWSProperty):
+    props = {
+        'Auth': (HttpAuthorization, False),
+        'ConfirmationUrl': (basestring, False),
+        'Headers': ([HttpActionHeader], False),
+        'Url': (basestring, True),
+    }
+
+
+class IotEventsAction(AWSProperty):
+    props = {
+        'InputName': (basestring, True),
+        'MessageId': (basestring, False),
+        'RoleArn': (basestring, True),
+    }
+
+
+class AssetPropertyVariant(AWSProperty):
+    props = {
+        'BooleanValue': (basestring, False),
+        'DoubleValue': (basestring, False),
+        'IntegerValue': (basestring, False),
+        'StringValue': (basestring, False),
+    }
+
+
+class AssetPropertyTimestamp(AWSProperty):
+    props = {
+        'OffsetInNanos': (basestring, False),
+        'TimeInSeconds': (basestring, True),
+    }
+
+
+class AssetPropertyValue(AWSProperty):
+    props = {
+        'Quality': (basestring, False),
+        'Timestamp': (AssetPropertyTimestamp, True),
+        'Value': (AssetPropertyVariant, True),
+    }
+
+
+class PutAssetPropertyValueEntry(AWSProperty):
+    props = {
+        'AssetId': (basestring, False),
+        'EntryId': (basestring, False),
+        'PropertyAlias': (basestring, False),
+        'PropertyId': (basestring, False),
+        'PropertyValues': ([AssetPropertyValue], True),
+    }
+
+
+class IotSiteWiseAction(AWSProperty):
+    props = {
+        'PutAssetPropertyValueEntries': ([PutAssetPropertyValueEntry], True),
+        'RoleArn': (basestring, True),
+    }
+
+
 class StepFunctionsAction(AWSProperty):
     props = {
         'ExecutionNamePrefix': (basestring, False),
@@ -136,7 +216,10 @@ class Action(AWSProperty):
         'DynamoDBv2': (DynamoDBv2Action, False),
         'Elasticsearch': (ElasticsearchAction, False),
         'Firehose': (FirehoseAction, False),
+        'Http': (HttpAction, False),
         'IotAnalytics': (IotAnalyticsAction, False),
+        'IotEvents': (IotEventsAction, False),
+        'IotSiteWise': (IotSiteWiseAction, False),
         'Kinesis': (KinesisAction, False),
         'Lambda': (LambdaAction, False),
         'Republish': (RepublishAction, False),
