@@ -38,7 +38,7 @@ class Code(AWSProperty):
     }
 
 
-class ResourceDataSync(AWSObject):
+class Canary(AWSObject):
     resource_type = "AWS::Synthetics::Canary"
 
     props = {
@@ -46,6 +46,7 @@ class ResourceDataSync(AWSObject):
         'Code': (Code, True),
         'ExecutionRoleArn': (basestring, True),
         'FailureRetentionPeriod': (integer, False),
+        'Name': (basestring, True),
         'RunConfig': (RunConfig, False),
         'RuntimeVersion': (canary_runtime_version, True),
         'Schedule': (Schedule, True),
