@@ -44,11 +44,13 @@ class Server(AWSObject):
     resource_type = "AWS::Transfer::Server"
 
     props = {
+        'Certificate': (basestring, False),
         'EndpointDetails': (EndpointDetails, False),
         'EndpointType': (basestring, False),
         'IdentityProviderDetails': (IdentityProviderDetails, False),
         'IdentityProviderType': (basestring, False),
         'LoggingRole': (basestring, False),
+        'Protocols': ([basestring], False),
         'Tags': (Tags, False),
     }
 
