@@ -26,7 +26,7 @@ class Logging(AWSProperty):
 class InfrastructureConfiguration(AWSObject):
     resource_type = "AWS::ImageBuilder::InfrastructureConfiguration"
 
-    pros = {
+    props = {
         'Description': (basestring, False),
         'InstanceProfileName': (basestring, True),
         'InstanceTypes': ([basestring], False),
