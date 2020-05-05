@@ -162,7 +162,7 @@ Currently supported AWS resource types
 - `AWS::Batch`_
 - `AWS::Budgets`_
 - `AWS::Cassandra`_
-_ `AWS::CE`_
+- `AWS::CE`_
 - `AWS::CertificateManager`_
 - `AWS::Chatbot`_
 - `AWS::Cloud9`_
@@ -173,7 +173,7 @@ _ `AWS::CE`_
 - `AWS::CodeBuild`_
 - `AWS::CodeCommit`_
 - `AWS::CodeDeploy`_
-_ `AWS::CodeGuruProfiler`_
+- `AWS::CodeGuruProfiler`_
 - `AWS::CodePipeline`_
 - `AWS::CodeStar`_
 - `AWS::CodeStarConnections`_
@@ -181,7 +181,7 @@ _ `AWS::CodeGuruProfiler`_
 - `AWS::Cognito`_
 - `AWS::Config`_
 - `AWS::DAX`_
-_ `AWS::Detective`_
+- `AWS::Detective`_
 - `AWS::DLM`_
 - `AWS::DMS`_
 - `AWS::DataPipeline`_
@@ -209,7 +209,7 @@ _ `AWS::Detective`_
 - `AWS::GroundStation`
 - `AWS::GuardDuty`_
 - `AWS::IAM`_
-_ `AWS::ImageBuilder`_
+- `AWS::ImageBuilder`_
 - `AWS::Inspector`_
 - `AWS::IoT`_
 - `AWS::IoT1Click`_
@@ -255,7 +255,7 @@ _ `AWS::ImageBuilder`_
 - `AWS::ServiceCatalog`_
 - `AWS::ServiceDiscovery`_
 - `AWS::StepFunctions`_
-_ `AWS::Synthetics`_
+- `AWS::Synthetics`_
 - `AWS::Transfer`_
 - `AWS::WAF`_
 - `AWS::WAFRegional`_
