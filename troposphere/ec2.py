@@ -1123,6 +1123,7 @@ class TransitGateway(AWSObject):
         'AutoAcceptSharedAttachments': (basestring, False),
         'DefaultRouteTableAssociation': (basestring, False),
         'DefaultRouteTablePropagation': (basestring, False),
+        'Description': (basestring, False),
         'DnsSupport': (basestring, False),
         'Tags': ((Tags, list), False),
         'VpnEcmpSupport': (basestring, False),
