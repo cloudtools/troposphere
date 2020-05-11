@@ -144,3 +144,15 @@ class Component(AWSObject):
         'Uri': (basestring, False),
         'Version': (basestring, True),
     }
+
+
+class Image(AWSObject):
+    resource_type = "AWS::ImageBuilder::Image"
+
+    props = {
+        'DistributionConfigurationArn': (basestring, False),
+        'ImageRecipeArn': (basestring, True),
+        'ImageTestsConfiguration': (ImageTestsConfiguration, True),
+        'InfrastructureConfigurationArn': (basestring, True),
+        'Tags': (json_checker, False),
+    }
