@@ -399,19 +399,13 @@ class Regex(AWSProperty):
     }
 
 
-class RegularExpressionList(AWSProperty):
-    props = {
-        'RegularExpressionList': ([Regex], False)
-    }
-
-
 class RegexPatternSet(AWSObject):
     resource_type = "AWS::WAFv2::RegexPatternSet"
 
     props = {
         'Description': (basestring, False),
         'Name': (basestring, True),
-        'RegularExpressionList': (RegularExpressionList, False),
+        'RegularExpressionList': ([Regex], True),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
     }
