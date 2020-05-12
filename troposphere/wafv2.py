@@ -372,7 +372,7 @@ class WebACL(AWSObject):
     props = {
         'DefaultAction': (DefaultAction, False),
         'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'Rules': ([WebACLRule], False),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
@@ -387,7 +387,7 @@ class IPSet(AWSObject):
         'Addresses': ([basestring], False),
         'Description': (basestring, False),
         'IPAddressVersion': (validate_ipaddress_version, False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
     }
@@ -410,7 +410,7 @@ class RegexPatternSet(AWSObject):
 
     props = {
         'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'RegularExpressionList': (RegularExpressionList, False),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
@@ -433,7 +433,7 @@ class RuleGroup(AWSObject):
     props = {
         'Capacity': (integer, False),
         'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Name': (basestring, False),
         'Rules': ([RuleGroupRule], False),
         'Scope': (basestring, False),
         'Tags': (Tags, False),
