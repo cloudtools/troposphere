@@ -53,11 +53,11 @@ class TemplateGenerator(Template):
 
         self._reference_map = {}
         if 'AWSTemplateFormatVersion' in cf_template:
-            self.add_version(cf_template['AWSTemplateFormatVersion'])
+            self.set_version(cf_template['AWSTemplateFormatVersion'])
         if 'Transform' in cf_template:
             self.add_transform(cf_template['Transform'])
         if 'Description' in cf_template:
-            self.add_description(cf_template['Description'])
+            self.set_description(cf_template['Description'])
         if 'Metadata' in cf_template:
             self.add_metadata(cf_template['Metadata'])
         for k, v in cf_template.get('Parameters', {}).iteritems():
