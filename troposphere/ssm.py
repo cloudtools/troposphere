@@ -134,6 +134,7 @@ class Association(AWSObject):
         'Parameters': (dict, False),
         'ScheduleExpression': (basestring, False),
         'Targets': ([Targets], False),
+        'WaitForSuccessTimeoutSeconds': (integer, False),
     }
 
 
