@@ -55,7 +55,7 @@ class Validity(AWSProperty):
     }
 
 
-class Certificate(AWSProperty):
+class Certificate(AWSObject):
     resource_type = "AWS::ACMPCA::Certificate"
 
     props = {
@@ -93,7 +93,7 @@ class RevocationConfiguration(AWSProperty):
     }
 
 
-class Subject(AWSObject):
+class Subject(AWSProperty):
     props = {
         'CommonName': (basestring, False),
         'Country': (basestring, False),

@@ -51,6 +51,12 @@
                             "Lambda": {
                                 "FunctionArn": "arn"
                             }
+                        },
+                        {
+                            "IotAnalytics": {
+                                "ChannelName": "mychannel",
+                                "RoleArn": "arn"
+                            }
                         }
                     ],
                     "RuleDisabled": true,

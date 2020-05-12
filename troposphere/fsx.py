@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer
+from .validators import boolean, integer, storage_type
 
 
 VALID_LUSTRECONFIGURATION_DEPLOYMENTTYPE = ('PERSISTENT_1', 'SCRATCH_1',
@@ -77,6 +77,7 @@ class FileSystem(AWSObject):
         'LustreConfiguration': (LustreConfiguration, False),
         'SecurityGroupIds': ([basestring], False),
         'StorageCapacity': (integer, False),
+        'StorageType': (storage_type, False),
         'SubnetIds': ([basestring], False),
         'Tags': (Tags, False),
         'WindowsConfiguration': (WindowsConfiguration, False),

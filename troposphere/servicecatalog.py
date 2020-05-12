@@ -98,6 +98,7 @@ class LaunchRoleConstraint(AWSObject):
     props = {
         'AcceptLanguage': (basestring, False),
         'Description': (basestring, False),
+        'LocalRoleName': (basestring, False),
         'PortfolioId': (basestring, True),
         'ProductId': (basestring, True),
         'RoleArn': (basestring, True),

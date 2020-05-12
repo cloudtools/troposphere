@@ -1,3 +1,64 @@
+2.6.1 (2020*05*04)
+------------------
+* Fix README for PyPI upload
+* Remove extra PublicAccessBlockConfiguration in s3 (Fixes #1541)
+* Added support for ForwardConfig in Listener (#1555)
+* Fix up a couple of items for ELBv2 from #1555
+* Fixing a missimplementation of rules, caused by a bug in the document… (#1599)
+* fix: include valid postgres capacity configurations (#1602)
+* adding misc AppMesh properties, per Feb 27 2020 update
+* adding misc FSX properties, per Feb 27 2020 update
+* Adding new AWS::CloudWatch::CompositeAlarm object, per March 2 2020 update
+* Adding new AWS::GroundStation resources, per Feb 27 2020 update
+* Add README link for GroundStation (#1606)
+* Fixup WAFv2 TextTransformations property and required (#1607)
+* Adding cloudfront OriginGroups properties, per March 5 2020 update
+* AWS::EC2::SecurityGroupIngress.SourcePrefixListId (#1622)
+* adding AWS::Athena::WorkGroup, per March 5 2020 update
+* Adding EncryptionConfig props to AWS::EKS::Cluster, per March 5 2020 update (#1610)
+* adding AWS::CodeStarConnections::Connection, per Marche 5 2020 update
+* Adding AWS::Chatbot::SlackChannelConfiguration, per March 5 2020 update
+* Fixup recent CodeStarConnections and Chatbot additions
+* Fixes to acmpca (#1660)
+* adding misc Greengrass props, per March 09 2020 update
+* adding misc AWS::MSK::Cluster properties, per March 12 2020 update
+* Adding MeshOwner prop to misc AppMesh objects, per March 12 2020 update
+* Adding new AWS::Cassandra resources, per March 16 2020 update
+* Fixup link and comments for AWS::Cassandra (related to #1616)
+* Fix several problems in wafv2
+* Add IotAnalyticsAction and StepFunctionsAction to IoT TopicRule Actions
+* Add missing IoTAnalytics properties, add Datastore object, add test IoTAnalytics example
+* Attributes for AddAttributes is a dict
+* add secrets manager type to codebuild environment variable types
+* Usageplan throttle (#2)
+* update example to include method as required
+* Adding AWS::ResourceGroups::Group resource, per March 19, 2020 update
+* Adding AWS::CodeGuruProfiler::ProfilingGroup resource, per March 19, 2020 update
+* Fixup links in README.rst
+* adding AWS::EC2::ClientVpnEndpoint properties, per March 19, 2020 update
+* Adding AWS::DMS::Endpoint props, per March 23, 2020 update
+* Adding AWS::AutoScaling::AutoScalingGroup props, per March 26, 2020 update
+* Adding misc AWS::ApiGatewayV2::Integration properties, per March 26, 2020 update
+* Adding AWS::ServiceCatalog::LaunchRoleConstraint props, per April 2, 2020 update
+* Adding AWS::CloudWatch::InsightRule props, per April 2, 2020 update
+* Fix new test changes to use TROPO_REAL_BOOL
+* Change ApiGateway::RestApi FailOnWarnings from basestring to boolean (Fixes #1655)
+* Update SAM Schedule event source spec
+* AWS::SecurityHub::Hub Tags uses the wrong format
+* Adding AWS::NetworkManager resource, per March 19, 2020 update
+* Adding AWS::Detective resources, per March 26, 2020 update
+* Adding misc AWS::IoT props, per March 26, 2020 update
+* Adding AWS::EC2::Volume props, per March 26, 2020 update
+* Adding AWS::FSx::FileSystem properties, per April 2, 2020 update
+* Adding misc AWS::Glue properties, per April 16, 2020 update
+* Adding new AWS::Synthetics::Canary resource, per April 23, 2020 update
+* Adding AWS::ImageBuilder resources, per April 23, 2020 update
+* Adding new AWS::CE::CostCategory resource, per April 23, 2020 update
+* Fix typo: pros => props
+* Update EventSchemas per 2020-04-30 changes
+* Update Synthetics per 2020-04-30 changes
+* Update Transfer per 2020-04-30 changes
+
 2.6.0 (2020*02*22)
 ------------------
 * Add ProvisionedConcurrencyConfig for AWS::Serverless::Function (#1535)
