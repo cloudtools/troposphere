@@ -333,3 +333,14 @@ class Stage(AWSObject):
         'StageVariables': (dict, False),
         'Tags': (dict, False),
     }
+
+
+class VpcLink(AWSObject):
+    resource_type = "AWS::ApiGatewayV2::VpcLink"
+
+    props = {
+        'Name': (basestring, True),
+        'SecurityGroupIds': ([basestring], False),
+        'SubnetIds': ([basestring], True),
+        'Tags': (dict, False),
+    }
