@@ -393,19 +393,13 @@ class IPSet(AWSObject):
     }
 
 
-class Regex(AWSProperty):
-    props = {
-        'RegexString': (basestring, False)
-    }
-
-
 class RegexPatternSet(AWSObject):
     resource_type = "AWS::WAFv2::RegexPatternSet"
 
     props = {
         'Description': (basestring, False),
         'Name': (basestring, True),
-        'RegularExpressionList': ([Regex], True),
+        'RegularExpressionList': ([basestring], True),
         'Scope': (basestring, True),
         'Tags': (Tags, False),
     }
