@@ -76,6 +76,10 @@ class TestBasic(unittest.TestCase):
         self.assertEqual(b2.BucketName, b.BucketName)
 
 
+def double(x):
+    return positive_integer(x) * 2
+
+
 def call_correct(x):
     return x
 
@@ -94,6 +98,7 @@ class FakeAWSObject(AWSObject):
         'multilist': ([bool, int, float], False),
         'multituple': ((bool, int), False),
         'helperfun': (positive_integer, False),
+        'listhelperfun': ([double], False),
     }
 
     def validate(self):
@@ -152,6 +157,20 @@ class TestValidators(unittest.TestCase):
 
     def test_helperfun(self):
         FakeAWSObject('fake', helperfun=Ref('fake_ref'))
+
+    def test_listhelperfun(self):
+        with self.assertRaises(TypeError):
+            FakeAWSObject('fake', listhelperfun=1)
+
+        x = FakeAWSObject('fake', listhelperfun=[1, 2])
+        if x.listhelperfun != [2, 4]:
+            raise ValueError
+
+        with self.assertRaises(ValueError):
+            FakeAWSObject('fake', listhelperfun=[1, -2])
+
+        with self.assertRaises(ValueError):
+            FakeAWSObject('fake', listhelperfun=[1, "foo"])
 
     def test_exception(self):
         def ExceptionValidator(x):
