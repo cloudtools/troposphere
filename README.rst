@@ -204,6 +204,7 @@ Currently supported AWS resource types
 - `AWS::FMS`_
 - `AWS::FSx`_
 - `AWS::GameLift`_
+- `AWS::GlobalAccelerator`_
 - `AWS::Glue`_
 - `AWS::Greengrass`_
 - `AWS::GroundStation`
