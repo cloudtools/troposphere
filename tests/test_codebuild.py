@@ -20,6 +20,22 @@ class TestCodeBuild(unittest.TestCase):
         )
         environment.to_dict()
 
+    def test_arm_environment(self):
+        environment = codebuild.Environment(
+            ComputeType='BUILD_GENERAL1_LARGE',
+            Image='aws/codebuild/amazonlinux2-aarch64-standard:1.0',
+            Type='ARM_CONTAINER'
+        )
+        environment.to_dict()
+
+    def test_linux_gpu_environment(self):
+        environment = codebuild.Environment(
+            ComputeType='BUILD_GENERAL1_LARGE',
+            Image='aws/codebuild/standard:4.0',
+            Type='LINUX_GPU_CONTAINER'
+        )
+        environment.to_dict()
+
     def test_source_codepipeline(self):
         source = codebuild.Source(
             Type='CODEPIPELINE'
