@@ -16,10 +16,15 @@ Troposhere: |
   from troposphere import Ref
   import troposphere.ec2 as ec2
 
-  instance = ec2.Instance('MyInstance')
+  list_instances = ["One", "Two", "Three", "Four"]
 
-  instance.ImageId = Ref('ImageId')
-  instance.InstanceType = Ref('InstanceType')
-  instance.Tags = ec2.Tags(Name = Ref('InstanceName'))
+  instance_name = macro_parameters["InstanceName"]
 
-  macro_template.add_resource(instance)
+  for el in list_instances:
+    instance = ec2.Instance('MyInstance{}'.format(el))
+
+    instance.ImageId = Ref('ImageId')
+    instance.InstanceType = Ref('InstanceType')
+    instance.Tags = ec2.Tags(Name = instance_name + el)
+
+    macro_template.add_resource(instance)
