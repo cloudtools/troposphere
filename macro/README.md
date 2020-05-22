@@ -41,7 +41,7 @@ The `Troposphere` macro adds the ability to create CloudFormation resources from
         --template-file example.py
     ```
 
-## Usate
+## Usage
  
 Just add your resources to macro_template object, the template object is created by macro itself.
 You can provide your troposphere code in Troposphere tag.
@@ -73,3 +73,4 @@ Troposhere: |
 
   macro_template.add_resource(instance)
 ```
+
