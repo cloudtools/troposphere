@@ -205,6 +205,7 @@ class Parameter(AWSObject):
 
     props = {
         'AllowedPattern': (basestring, False),
+        'DataType': (basestring, False),
         'Description': (basestring, False),
         'Name': (basestring, False),
         'Policies': (basestring, False),
