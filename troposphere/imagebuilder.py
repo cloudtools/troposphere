@@ -4,8 +4,8 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import (integer, boolean, json_checker,
-                         component_platforms, imagepipeline_status,
+from .validators import (integer, boolean, component_platforms,
+                         imagepipeline_status,
                          schedule_pipelineexecutionstartcondition,
                          ebsinstanceblockdevicespecification_volume_type)
 
@@ -36,7 +36,7 @@ class InfrastructureConfiguration(AWSObject):
         'SecurityGroupIds': ([basestring], False),
         'SnsTopicArn': (basestring, False),
         'SubnetId': (basestring, False),
-        'Tags': (json_checker, False),
+        'Tags': (dict, False),
         'TerminateInstanceOnFailure': (boolean, False)
     }
 
@@ -57,7 +57,7 @@ class InstanceBlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, False),
         'Ebs': (EbsInstanceBlockDeviceSpecification, False),
-        'NoDevice': (boolean, False),
+        'NoDevice': (basestring, False),
         'VirtualName': (basestring, False),
     }
 
@@ -77,7 +77,7 @@ class ImageRecipe(AWSObject):
         'Description': (basestring, False),
         'Name': (basestring, True),
         'ParentImage': (basestring, True),
-        'Tags': (json_checker, False),
+        'Tags': (dict, False),
         'Version': (basestring, True)
     }
 
@@ -108,13 +108,13 @@ class ImagePipeline(AWSObject):
         'Name': (basestring, True),
         'Schedule': (Schedule, False),
         'Status': (imagepipeline_status, False),
-        'Tags': (json_checker, False),
+        'Tags': (dict, False),
     }
 
 
 class Distribution(AWSProperty):
     props = {
-        'AmiDistributionConfiguration': (json_checker, False),
+        'AmiDistributionConfiguration': (dict, False),
         'LicenseConfigurationArns': ([basestring], False),
         'Region': (basestring, False),
     }
@@ -127,7 +127,7 @@ class DistributionConfiguration(AWSObject):
         'Description': (basestring, False),
         'Distributions': ([Distribution], True),
         'Name': (basestring, True),
-        'Tags': (json_checker, False),
+        'Tags': (dict, False),
     }
 
 
@@ -136,11 +136,12 @@ class Component(AWSObject):
 
     props = {
         'ChangeDescription': (basestring, False),
+        'Data': (basestring, False),
         'Description': (basestring, False),
         'KmsKeyId': (basestring, False),
         'Name': (basestring, True),
         'Platform': (component_platforms, True),
-        'Tags': (json_checker, False),
+        'Tags': (dict, False),
         'Uri': (basestring, False),
         'Version': (basestring, True),
     }
@@ -154,5 +155,5 @@ class Image(AWSObject):
         'ImageRecipeArn': (basestring, True),
         'ImageTestsConfiguration': (ImageTestsConfiguration, True),
         'InfrastructureConfigurationArn': (basestring, True),
-        'Tags': (json_checker, False),
+        'Tags': (dict, False),
     }
