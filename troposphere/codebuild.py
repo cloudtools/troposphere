@@ -380,6 +380,7 @@ class ReportGroup(AWSObject):
     props = {
         'ExportConfig': (ReportExportConfig, True),
         'Name': (basestring, False),
+        'Tags': (Tags, False),
         'Type': (basestring, True),
     }
 
