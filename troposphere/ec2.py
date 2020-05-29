@@ -1028,6 +1028,7 @@ class LaunchTemplateData(AWSProperty):
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'ElasticInferenceAccelerators': ([LaunchTemplateElasticInferenceAccelerator], False),  # NOQA
+        'HibernationOptions': (HibernationOptions, False),
         'IamInstanceProfile': (IamInstanceProfile, False),
         'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
