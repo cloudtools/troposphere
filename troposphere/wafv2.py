@@ -58,16 +58,10 @@ class ExcludedRule(AWSProperty):
     }
 
 
-class ExcludedRules(AWSProperty):
-    props = {
-        'ExcludedRules': ([ExcludedRule], False)
-    }
-
-
 class RuleGroupReferenceStatement(AWSProperty):
     props = {
         'Arn': (basestring, False),
-        'ExcludedRules': (ExcludedRules, False)
+        'ExcludedRules': ([ExcludedRule], False)
     }
 
 
@@ -187,7 +181,7 @@ class IPSetReferenceStatement(AWSProperty):
 
 class ManagedRuleGroupStatement(AWSProperty):
     props = {
-        'ExcludedRules': (ExcludedRules, False),
+        'ExcludedRules': ([ExcludedRule], False)
         'Name': (basestring, False),
         'VendorName': (basestring, False),
     }
