@@ -181,7 +181,7 @@ class IPSetReferenceStatement(AWSProperty):
 
 class ManagedRuleGroupStatement(AWSProperty):
     props = {
-        'ExcludedRules': ([ExcludedRule], False)
+        'ExcludedRules': ([ExcludedRule], False),
         'Name': (basestring, False),
         'VendorName': (basestring, False),
     }
