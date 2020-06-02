@@ -137,9 +137,16 @@ class OnFailure(AWSProperty):
     }
 
 
+class OnSuccess(AWSProperty):
+    props = {
+        'Destination': (basestring, True),
+    }
+
+
 class DestinationConfig(AWSProperty):
     props = {
         'OnFailure': (OnFailure, True),
+        'OnSuccess': (OnSuccess, True),
     }
 
 
