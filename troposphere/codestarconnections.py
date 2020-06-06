@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 
-from . import AWSObject
+from . import AWSObject, Tags
 
 
 VALID_CONNECTION_PROVIDERTYPE = ('Bitbucket')
@@ -25,4 +25,5 @@ class Connection(AWSObject):
     props = {
         'ConnectionName': (basestring, True),
         'ProviderType': (validate_connection_providertype, True),
+        'Tags': (Tags, False),
     }

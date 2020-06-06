@@ -195,6 +195,12 @@ class BaseAWSObject(object):
                 if not isinstance(value, list):
                     self._raise_type(name, value, expected_type)
 
+                # Special case a list of a single validation function
+                if (len(expected_type) == 1 and
+                   isinstance(expected_type[0], types.FunctionType)):
+                    new_value = map(expected_type[0], value)
+                    return self.properties.__setitem__(name, new_value)
+
                 # Iterate over the list and make sure it matches our
                 # type checks (as above accept AWSHelperFn because
                 # we can't do the validation ourselves)

@@ -47,7 +47,7 @@ class Canary(AWSObject):
         'ExecutionRoleArn': (basestring, True),
         'FailureRetentionPeriod': (integer, False),
         'Name': (basestring, True),
-        'RunConfig': (RunConfig, False),
+        'RunConfig': (RunConfig, True),
         'RuntimeVersion': (canary_runtime_version, True),
         'Schedule': (Schedule, True),
         'StartCanaryAfterCreation': (boolean, True),

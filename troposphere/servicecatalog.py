@@ -36,6 +36,7 @@ class CloudFormationProduct(AWSObject):
         'Owner': (basestring, True),
         'ProvisioningArtifactParameters':
             ([ProvisioningArtifactProperties], True),
+        'ReplaceProvisioningArtifacts': (boolean, False),
         'SupportDescription': (basestring, False),
         'SupportEmail': (basestring, False),
         'SupportUrl': (basestring, False),

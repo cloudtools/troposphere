@@ -593,7 +593,18 @@ def ebsinstanceblockdevicespecification_volume_type(type):
     return type
 
 
-def accelerator_ipaddresstype(type):
+def containerlevelmetrics_status(status):
+    valid_status = ['DISABLED', 'ENABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'ContainerLevelMetrics must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return status
+  
+  
+  def accelerator_ipaddresstype(type):
     valid_types = ['IPV4']
     if type not in valid_types:
         raise ValueError(

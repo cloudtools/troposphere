@@ -80,6 +80,18 @@ class KafkaSettings(AWSProperty):
     }
 
 
+class NeptuneSettings(AWSProperty):
+    props = {
+        'ErrorRetryDuration': (integer, False),
+        'IamAuthEnabled': (boolean, False),
+        'MaxFileSize': (integer, False),
+        'MaxRetryCount': (integer, False),
+        'S3BucketFolder': (basestring, False),
+        'S3BucketName': (basestring, False),
+        'ServiceAccessRoleArn': (basestring, False),
+    }
+
+
 class Endpoint(AWSObject):
     resource_type = "AWS::DMS::Endpoint"
 
@@ -96,6 +108,7 @@ class Endpoint(AWSObject):
         'KinesisSettings': (KinesisSettings, False),
         'KmsKeyId': (basestring, False),
         'MongoDbSettings': (MongoDbSettings, False),
+        'NeptuneSettings': (NeptuneSettings, False),
         'Password': (basestring, False),
         'Port': (network_port, False),
         'S3Settings': (S3Settings, False),
@@ -167,4 +180,5 @@ class ReplicationTask(AWSObject):
         'TableMappings': (basestring, True),
         'Tags': (Tags, False),
         'TargetEndpointArn': (basestring, True),
+        'TaskData': (basestring, True),
     }
