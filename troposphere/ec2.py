@@ -1286,9 +1286,16 @@ class DirectoryServiceAuthenticationRequest(AWSProperty):
     }
 
 
+class FederatedAuthenticationRequest(AWSProperty):
+    props = {
+        'SAMLProviderArn': (basestring, True),
+    }
+
+
 class ClientAuthenticationRequest(AWSProperty):
     props = {
         'ActiveDirectory': (DirectoryServiceAuthenticationRequest, False),
+        'FederatedAuthentication': (FederatedAuthenticationRequest, False),
         'MutualAuthentication': (CertificateAuthenticationRequest, False),
         'Type': (basestring, True),
     }
