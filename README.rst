@@ -224,6 +224,7 @@ Currently supported AWS resource types
 - `AWS::LakeFormation`_
 - `AWS::Lambda`_
 - `AWS::Logs`_
+- `AWS::Macie`_
 - `AWS::ManagedBlockchain`_
 - `AWS::MediaConvert`_
 - `AWS::MediaLive`_
@@ -459,6 +460,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::LakeFormation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LakeFormation.html
 .. _`AWS::Lambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lambda.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
+.. _`AWS::Macie`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Macie.html
 .. _`AWS::ManagedBlockchain`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ManagedBlockchain.html
 .. _`AWS::MediaConvert`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaConvert.html
 .. _`AWS::MediaLive`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaLive.html
