@@ -310,6 +310,55 @@ class DBParameterGroup(AWSObject):
     }
 
 
+class AuthFormat(AWSProperty):
+    props = {
+        'AuthScheme': (basestring, False),
+        'Description': (basestring, False),
+        'IAMAuth': (basestring, False),
+        'SecretArn': (basestring, False),
+        'UserName': (basestring, False),
+    }
+
+
+class DBProxy(AWSObject):
+    resource_type = "AWS::RDS::DBProxy"
+
+    props = {
+        'Auth': ([AuthFormat], True),
+        'DBProxyName': (basestring, True),
+        'DebugLogging': (boolean, False),
+        'EngineFamily': (basestring, True),
+        'IdleClientTimeout': (integer, False),
+        'RequireTLS': (boolean, False),
+        'RoleArn': (basestring, True),
+        'Tags': (Tags, False),
+        'VpcSecurityGroupIds': ([basestring], False),
+        'VpcSubnetIds': ([basestring], True),
+    }
+
+
+class ConnectionPoolConfigurationInfoFormat(AWSProperty):
+    props = {
+        'ConnectionBorrowTimeout': (integer, False),
+        'InitQuery': (basestring, False),
+        'MaxConnectionsPercent': (integer, False),
+        'MaxIdleConnectionsPercent': (integer, False),
+        'SessionPinningFilters': ([basestring], False),
+    }
+
+
+class DBProxyTargetGroup(AWSObject):
+    resource_type = "AWS::RDS::DBProxyTargetGroup"
+
+    props = {
+        'ConnectionPoolConfigurationInfo':
+            (ConnectionPoolConfigurationInfoFormat, False),
+        'DBClusterIdentifiers': ([basestring], False),
+        'DBInstanceIdentifiers': ([basestring], False),
+        'DBProxyName': (basestring, True),
+    }
+
+
 class DBSubnetGroup(AWSObject):
     resource_type = "AWS::RDS::DBSubnetGroup"
 
