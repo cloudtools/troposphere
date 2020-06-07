@@ -10,5 +10,6 @@ class ProfilingGroup(AWSObject):
     resource_type = "AWS::CodeGuruProfiler::ProfilingGroup"
 
     props = {
+        'AgentPermissions': (dict, False),
         'ProfilingGroupName': (basestring, True),
     }
