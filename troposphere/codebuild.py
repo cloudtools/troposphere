@@ -141,7 +141,9 @@ class Environment(AWSProperty):
 
     def validate(self):
         valid_types = [
+            'ARM_CONTAINER',
             'LINUX_CONTAINER',
+            'LINUX_GPU_CONTAINER',
             'WINDOWS_CONTAINER',
         ]
         env_type = self.properties.get('Type')
