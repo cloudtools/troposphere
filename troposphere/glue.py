@@ -440,8 +440,8 @@ class JobBookmarksEncryption(AWSProperty):
 
 class S3Encryption(AWSProperty):
     props = {
-        'KmsKeyArn': (str, False),
-        'S3EncryptionMode': (str, False),
+        'KmsKeyArn': (basestring, False),
+        'S3EncryptionMode': (basestring, False),
     }
 
 
