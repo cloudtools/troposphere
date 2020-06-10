@@ -438,7 +438,7 @@ class JobBookmarksEncryption(AWSProperty):
     }
 
 
-class S3Encryptions(AWSProperty):
+class S3Encryption(AWSProperty):
     props = {
         'KmsKeyArn': (str, False),
         'S3EncryptionMode': (str, False),
@@ -449,7 +449,7 @@ class EncryptionConfiguration(AWSProperty):
     props = {
         'CloudWatchEncryption': (CloudWatchEncryption, False),
         'JobBookmarksEncryption': (JobBookmarksEncryption, False),
-        'S3Encryptions': ((S3Encryptions, list), False),
+        'S3Encryptions': ([S3Encryption], False),
     }
 
 
