@@ -50,19 +50,13 @@ class S3Location(AWSProperty):
     }
 
 
-class DefinitionSubstitutions(AWSProperty):
-    props = {
-
-    }
-
-
 class StateMachine(AWSObject):
     resource_type = "AWS::StepFunctions::StateMachine"
 
     props = {
         'DefinitionS3Location': (S3Location, False),
         'DefinitionString': (basestring, True),
-        'DefinitionSubstitutions': (DefinitionSubstitutions, False),
+        'DefinitionSubstitutions': (dict, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
         'RoleArn': (basestring, True),
         'StateMachineName': (basestring, False),
