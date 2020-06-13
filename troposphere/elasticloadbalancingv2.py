@@ -221,8 +221,9 @@ class Matcher(AWSProperty):
 
 class SubnetMapping(AWSProperty):
     props = {
-        'AllocationId': (basestring, True),
-        'SubnetId': (basestring, True)
+        'AllocationId': (basestring, False),
+        'PrivateIPv4Address': (basestring, False),
+        'SubnetId': (basestring, True),
     }
 
 
@@ -368,13 +369,13 @@ class LoadBalancer(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
     props = {
+        'IpAddressType': (basestring, False),
         'LoadBalancerAttributes': ([LoadBalancerAttributes], False),
         'Name': (elb_name, False),
         'Scheme': (basestring, False),
-        'IpAddressType': (basestring, False),
-        'SecurityGroups': (list, False),
+        'SecurityGroups': ([basestring], False),
         'SubnetMappings': ([SubnetMapping], False),
-        'Subnets': (list, False),
+        'Subnets': ([basestring], False),
         'Tags': ((Tags, list), False),
         'Type': (basestring, False),
     }
