@@ -631,6 +631,7 @@ class Volume(AWSObject):
         'Iops': (positive_integer, False),
         'KmsKeyId': (basestring, False),
         'MultiAttachEnabled': (boolean, False),
+        'OutpostArn': (basestring, False),
         'Size': (positive_integer, False),
         'SnapshotId': (basestring, False),
         'Tags': ((Tags, list), False),
