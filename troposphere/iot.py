@@ -292,3 +292,24 @@ class Certificate(AWSObject):
         'CertificateSigningRequest': (basestring, True),
         'Status': (basestring, True),
     }
+
+
+class ProvisioningHook(AWSProperty):
+    props = {
+        'PayloadVersion': (basestring, False),
+        'TargetArn': (basestring, False),
+    }
+
+
+class ProvisioningTemplate(AWSObject):
+    resource_type = "AWS::IoT::ProvisioningTemplate"
+
+    props = {
+        'Description': (basestring, False),
+        'Enabled': (boolean, False),
+        'PreProvisioningHook': (ProvisioningHook, False),
+        'ProvisioningRoleArn': (basestring, True),
+        'Tags': (dict, False),
+        'TemplateBody': (basestring, True),
+        'TemplateName': (basestring, False),
+    }
