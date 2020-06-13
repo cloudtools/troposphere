@@ -104,13 +104,14 @@ class S3OriginConfig(AWSProperty):
 
 class Origin(AWSProperty):
     props = {
+        'ConnectionAttempts': (integer, False),
+        'ConnectionTimeout': (integer, False),
         'CustomOriginConfig': (CustomOriginConfig, False),
         'DomainName': (basestring, True),
         'Id': (basestring, True),
         'OriginCustomHeaders': ([OriginCustomHeader], False),
         'OriginPath': (basestring, False),
         'S3OriginConfig': (S3OriginConfig, False),
-
     }
 
 
@@ -265,6 +266,6 @@ class StreamingDistribution(AWSObject):
     resource_type = "AWS::CloudFront::StreamingDistribution"
 
     props = {
-        'StreamingDistributionConfig': (StreamingDistributionConfig, True,),
+        'StreamingDistributionConfig': (StreamingDistributionConfig, True),
         'Tags': ((Tags, list), False),
     }
