@@ -181,21 +181,25 @@ class EventSourceMapping(AWSObject):
 
 
 class DeadLetterConfig(AWSProperty):
-
     props = {
         'TargetArn': (basestring, False),
     }
 
 
 class Environment(AWSProperty):
-
     props = {
         'Variables': (validate_variables_name, True),
     }
 
 
-class TracingConfig(AWSProperty):
+class FileSystemConfig(AWSProperty):
+    props = {
+        'Arn': (basestring, True),
+        'LocalMountPath': (basestring, True),
+    }
 
+
+class TracingConfig(AWSProperty):
     props = {
         'Mode': (basestring, False),
     }
@@ -209,6 +213,7 @@ class Function(AWSObject):
         'Description': (basestring, False),
         'DeadLetterConfig': (DeadLetterConfig, False),
         'Environment': (Environment, False),
+        'FileSystemConfigs': ([FileSystemConfig], False),
         'FunctionName': (basestring, False),
         'Handler': (basestring, True),
         'KmsKeyArn': (basestring, False),
