@@ -68,6 +68,7 @@ class FileSystem(AWSObject):
 
     props = {
         'Encrypted': (boolean, False),
+        'FileSystemPolicy': (dict, False),
         'FileSystemTags': (Tags, False),
         'KmsKeyId': (basestring, False),
         'LifecyclePolicies': ([LifecyclePolicy], False),
