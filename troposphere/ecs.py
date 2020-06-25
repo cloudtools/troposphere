@@ -1,6 +1,7 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, double, integer, network_port, positive_integer, integer_range, ecs_proxy_type
+    boolean, double, integer, network_port, positive_integer,
+    integer_range, ecs_proxy_type
 )
 
 LAUNCH_TYPE_EC2 = 'EC2'
@@ -18,7 +19,7 @@ class ManagedScaling(AWSProperty):
         "MaximumScalingStepSize": (integer_range(1, 10000), False),
         "MinimumScalingStepSize": (integer_range(1, 10000), False),
         "Status": (basestring, False),
-        "TargetCapacity": (integer_range(1, 100), False)
+        "TargetCapacity": (integer_range(1, 100), False),
     }
 
 
@@ -29,7 +30,7 @@ class AutoScalingGroupProvider(AWSProperty):
     props = {
         'AutoScalingGroupArn': (basestring, True),
         'ManagedScaling': (ManagedScaling, False),
-        'ManagedTerminationProtection': (basestring, False)
+        'ManagedTerminationProtection': (basestring, False),
     }
 
 
@@ -39,9 +40,9 @@ class CapacityProvider(AWSObject):
     """
     resource_type = "AWS::ECS::CapacityProvider"
     props = {
+        'AutoScalingGroupProvider': (AutoScalingGroupProvider, True),
         'Name': (basestring, False),
         'Tags': (Tags, False),
-        'AutoScalingGroupProvider': (AutoScalingGroupProvider, True)
     }
 
 
@@ -51,8 +52,8 @@ class CapacityProviderStrategyItem(AWSProperty):
     """
     props = {
         'Base': (integer, False),
+        'CapacityProvider': (basestring, False),
         'Weight': (integer, False),
-        'CapacityProvider': (basestring, False)
     }
 
 
@@ -67,11 +68,11 @@ class Cluster(AWSObject):
     resource_type = "AWS::ECS::Cluster"
 
     props = {
+        'CapacityProviders': ([basestring], False),
         'ClusterName': (basestring, False),
         'ClusterSettings': ([ClusterSetting], False),
-        'CapacityProviders': ([basestring], False),
         'DefaultCapacityProviderStrategy': (
-        [CapacityProviderStrategyItem], False),
+            [CapacityProviderStrategyItem], False),
         'Tags': (Tags, False),
     }
 
