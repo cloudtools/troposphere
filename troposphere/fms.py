@@ -11,6 +11,7 @@ from .validators import json_checker, boolean
 class IEMap(AWSProperty):
     props = {
         'ACCOUNT': ([basestring], False),
+        'ORGUNIT': ([basestring], False),
     }
 
 
