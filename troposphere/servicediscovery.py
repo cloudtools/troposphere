@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 
 
 class Instance(AWSObject):
@@ -22,6 +22,7 @@ class PrivateDnsNamespace(AWSObject):
     props = {
         'Description': (basestring, False),
         'Name': (basestring, True),
+        'Tags': (Tags, False),
         'Vpc': (basestring, True),
     }
 
@@ -32,6 +33,7 @@ class PublicDnsNamespace(AWSObject):
     props = {
         'Description': (basestring, False),
         'Name': (basestring, True),
+        'Tags': (Tags, False),
     }
 
 
@@ -74,6 +76,7 @@ class Service(AWSObject):
         'HealthCheckCustomConfig': (HealthCheckCustomConfig, False),
         'Name': (basestring, False),
         'NamespaceId': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -83,4 +86,5 @@ class HttpNamespace(AWSObject):
     props = {
         'Description': (basestring, False),
         'Name': (basestring, True),
+        'Tags': (Tags, False),
     }
