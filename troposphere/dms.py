@@ -180,5 +180,5 @@ class ReplicationTask(AWSObject):
         'TableMappings': (basestring, True),
         'Tags': (Tags, False),
         'TargetEndpointArn': (basestring, True),
-        'TaskData': (basestring, True),
+        'TaskData': (basestring, False),
     }
