@@ -356,6 +356,7 @@ class DBProxyTargetGroup(AWSObject):
         'DBClusterIdentifiers': ([basestring], False),
         'DBInstanceIdentifiers': ([basestring], False),
         'DBProxyName': (basestring, True),
+        'TargetGroupName': (basestring, True),
     }
 
 
