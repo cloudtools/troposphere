@@ -207,6 +207,22 @@ class Application(AWSObject):
     }
 
 
+class CloudWatchLoggingOption(AWSProperty):
+    props = {
+        'LogStreamARN': (basestring, True),
+    }
+
+
+class ApplicationCloudWatchLoggingOption(AWSObject):
+    resource_type = \
+        "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
+
+    props = {
+        'ApplicationName': (basestring, True),
+        'CloudWatchLoggingOption': (CloudWatchLoggingOption, True),
+    }
+
+
 class S3ReferenceDataSource(AWSProperty):
     props = {
         'BucketARN': (basestring, False),
