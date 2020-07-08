@@ -545,6 +545,7 @@ class SecurityGroupIngress(AWSObject):
         conds = [
             'CidrIp',
             'CidrIpv6',
+            'SourcePrefixListId',
             'SourceSecurityGroupName',
             'SourceSecurityGroupId',
         ]
