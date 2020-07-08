@@ -59,6 +59,7 @@ class ContainerDefinition(AWSProperty):
     props = {
         'ContainerHostname': (basestring, False),
         'Environment': (dict, False),
+        'Mode': (basestring, False),
         'ModelDataUrl': (basestring, False),
         'Image': (basestring, True)
     }
