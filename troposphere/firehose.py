@@ -122,10 +122,19 @@ class ProcessingConfiguration(AWSProperty):
     }
 
 
+class VpcConfiguration(AWSProperty):
+    props = {
+        'RoleARN': (basestring, True),
+        'SecurityGroupIds': ([basestring], True),
+        'SubnetIds': ([basestring], True),
+    }
+
+
 class ElasticsearchDestinationConfiguration(AWSProperty):
     props = {
         'BufferingHints': (BufferingHints, True),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'ClusterEndpoint': (basestring, False),
         'DomainARN': (basestring, True),
         'IndexName': (basestring, True),
         'IndexRotationPeriod': (index_rotation_period_validator, True),
@@ -135,6 +144,7 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
         'S3BackupMode': (s3_backup_mode_elastic_search_validator, True),
         'S3Configuration': (S3Configuration, False),
         'TypeName': (basestring, True),
+        'VpcConfiguration': (VpcConfiguration, False),
     }
 
 
