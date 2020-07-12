@@ -246,6 +246,7 @@ class Listener(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::Listener"
 
     props = {
+        'AlpnPolicy': ([basestring], False),
         'Certificates': ([Certificate], False),
         'DefaultActions': ([Action], True),
         'LoadBalancerArn': (basestring, True),
