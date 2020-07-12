@@ -431,6 +431,25 @@ class NetworkInterfacePermission(AWSObject):
     }
 
 
+class Entry(AWSProperty):
+    props = {
+        'Cidr': (basestring, True),
+        'Description': (basestring, False),
+    }
+
+
+class PrefixList(AWSObject):
+    resource_type = "AWS::EC2::PrefixList"
+
+    props = {
+        'AddressFamily': (basestring, True),
+        'Entries': ([Entry], False),
+        'MaxEntries': (integer, True),
+        'PrefixListName': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
 class Route(AWSObject):
     resource_type = "AWS::EC2::Route"
 
