@@ -17,13 +17,14 @@ class VPCConfig(AWSProperty):
 
 class Schedule(AWSProperty):
     props = {
-        'DurationInSeconds': (basestring, True),
+        'DurationInSeconds': (basestring, False),
         'Expression': (basestring, True),
     }
 
 
 class RunConfig(AWSProperty):
     props = {
+        'MemoryInMB': (integer, False),
         'TimeoutInSeconds': (integer, True),
     }
 
@@ -47,7 +48,7 @@ class Canary(AWSObject):
         'ExecutionRoleArn': (basestring, True),
         'FailureRetentionPeriod': (integer, False),
         'Name': (basestring, True),
-        'RunConfig': (RunConfig, True),
+        'RunConfig': (RunConfig, False),
         'RuntimeVersion': (canary_runtime_version, True),
         'Schedule': (Schedule, True),
         'StartCanaryAfterCreation': (boolean, True),
