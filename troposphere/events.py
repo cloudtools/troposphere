@@ -87,6 +87,14 @@ class EcsParameters(AWSProperty):
     }
 
 
+class HttpParameters(AWSProperty):
+    props = {
+        'HeaderParameters': (dict, False),
+        'PathParameterValues': ([basestring], False),
+        'QueryStringParameters': (dict, False),
+    }
+
+
 class InputTransformer(AWSProperty):
     props = {
         'InputPathsMap': (dict, False),
@@ -124,6 +132,7 @@ class Target(AWSProperty):
         'Arn': (basestring, True),
         'BatchParameters': (BatchParameters, False),
         'EcsParameters': (EcsParameters, False),
+        'HttpParameters': (HttpParameters, False),
         'Id': (basestring, True),
         'Input': (basestring, False),
         'InputPath': (basestring, False),
