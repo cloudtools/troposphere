@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 VALID_WORKGROUP_STATE = ('ENABLED', 'DISABLED')
@@ -27,6 +27,18 @@ def validate_encryptionconfiguration_encryptionoption(encryptionconfiguration_en
         raise ValueError("EncryptionConfiguration EncryptionOption must be one of: %s" %  # NOQA
                          ", ".join(VALID_ENCRYPTIONCONFIGURATION_ENCRYPTIONOPTION))  # NOQA
     return encryptionconfiguration_encryptionoption
+
+
+class DataCatalog(AWSObject):
+    resource_type = "AWS::Athena::DataCatalog"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'Parameters': (dict, False),
+        'Tags': (Tags, False),
+        'Type': (basestring, True),
+    }
 
 
 class NamedQuery(AWSObject):
