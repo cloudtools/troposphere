@@ -171,6 +171,13 @@ class ProjectCache(AWSProperty):
                              ','.join(valid_types))
 
 
+class BuildStatusConfig(AWSProperty):
+    props = {
+        'Context': (basestring, False),
+        'TargetUrl': (basestring, False),
+    }
+
+
 class GitSubmodulesConfig(AWSProperty):
     props = {
         'FetchSubmodules': (boolean, True),
@@ -181,6 +188,7 @@ class Source(AWSProperty):
     props = {
         'Auth': (SourceAuth, False),
         'BuildSpec': (basestring, False),
+        'BuildStatusConfig': (BuildStatusConfig, False),
         'GitCloneDepth': (positive_integer, False),
         'GitSubmodulesConfig': (GitSubmodulesConfig, False),
         'InsecureSsl': (boolean, False),
