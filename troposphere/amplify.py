@@ -101,6 +101,9 @@ class Domain(AWSObject):
 
     props = {
         'AppId': (basestring, True),
+        'AutoSubDomainCreationPatterns': ([basestring], False),
+        'AutoSubDomainIAMRole': (basestring, False),
         'DomainName': (basestring, True),
+        'EnableAutoSubDomain': (boolean, False),
         'SubDomainSettings': ([SubDomainSetting], True),
     }
