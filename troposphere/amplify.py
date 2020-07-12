@@ -61,6 +61,7 @@ class App(AWSObject):
         'BuildSpec': (basestring, False),
         'CustomRules': ([CustomRule], False),
         'Description': (basestring, False),
+        'EnableBranchAutoDeletion': (boolean, False),
         'EnvironmentVariables': ([EnvironmentVariable], False),
         'IAMServiceRole': (basestring, False),
         'Name': (basestring, True),
