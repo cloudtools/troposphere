@@ -1,3 +1,73 @@
+2.6.2 (2020*07*12)
+------------------
+* Add Description property to EC2::TransitGateway (#1674)
+* Adding AWS::ImageBuilder::Image object, per May 7, 2020 update
+* Adding missing AWS::ApiGatewayV2::VpcLink object
+* Adding new AWS::SSM::Association property, per May 7, 2020 update
+* Update template_generator.py
+* Handle list type properties with a function validator (#1673)
+* Change RegularExpressionList
+* Remove Regex object in favour of basestring
+* Bug Fixes: wafv2 names not required
+* Update instance types in constants
+* Add AWS::CodeStarConnections::Connection props, per May 14, 2020 update
+* Adding misc AWS::DMS properties, per May 14, 2020 update
+* Adding misc AWS::MediaStore::Container properties, per May 14, 2020 update
+* updating AWS::ServiceCatalog::CloudFormationProduct properties, per May 14, 2020 update
+* Changing AWS::Synthetics::Canary props, per May 14, 2020 update
+* Adding misc AWS::GlobalAccelerator objects, per May 14, 2020 update
+* Adding new AWS::Macie resources, per May 14, 2020 update
+* Add sample Aurora Serverless RDS template
+* Fixing misc AWS::ImageBuilder properties
+* Updating AWS::StepFunctions::StateMachine props, per May 21, 2020 update
+* Update AWS::SSM::Parameter properties, per May 21, 2020 update
+* Update AWS::CodeBuild::ReportGroup properties, per May 21, 2020 update
+* Fix bools in example output
+* Adding hibernation options to LaunchTemplateData
+* ExcludedRules are listed directly, not wrapped
+* fix syntax
+* add OnSuccess
+* Update AWS::EFS::AccessPoint per 2020-05-28 changes
+* Update AWS::CodeGuruProfiler::ProfilingGroup per 2020-06-03 changes
+* Update AWS::EC2::ClientVpnEndpoint per 2020-05-28 changes
+* Add DBProxy and DBProxyTargetGroup to AWS::RDS per 2020-06-04 changes
+*  Add support for ARM and GPU containers for CodeBuild (#1699)
+* Fix S3Encryptions in Glue EncryptionConfiguration (#1725)
+* Convert stepfunctions.DefinitionSubstitutions to dict (#1726)
+* Add GroundStation link (#1727)
+* Update AWS::ElasticLoadBalancingV2::LoadBalancer per 2020-06-11 changes
+* Update AWS::ElastiCache::ReplicationGroup per 2020-06-11 changes
+* Update AWS::CloudFront::Distribution per 2020-06-11 changes
+* Update AWS::CertificateManager::Certificate per 2020-06-11 changes
+* Update AWS::EC2::Volume per 2020-06-11 changes
+* Add AWS::IoT::ProvisioningTemplate per 2020-06-04 changes (Fixes #1723)
+* Added Serverless::Application and Serverless ApplicationLocation (#1549)
+* Fix required setting for SageMaker::Model PrimaryContainer (Fixes #1729)
+* Added capacity providers
+* Update AWS::EFS::FileSystem per 2020-06-16 changes
+* Update AWS::Lambda::Function per 2020-06-16 changes
+* Update AWS::FMS::Policy per 2020-06-18 changes
+* Fix tests and alphabetize properties in ECS
+* Update AWS::ServiceDiscovery per 2020-06-22 changes
+* This isn't required
+* Update AWS::AppMesh per 2020-06-25 changes
+* Support attribute Mode for SageMaker Model ContainerDefinition
+* Add SourcePrefixListId to the ec2.SecurityGroupIngress validator (Fixes #1739)
+* Add ApplicationCloudWatchLoggingOption for KinesisAnalyticsV2 (Fixes #1738)
+* Add required TargetGroupName to DBProxyTargetGroup
+* Add VpcConfiguration to AWS::KinesisFirehose::DeliveryStream (Fixes #1717)
+* Update AWS::Events::Rule per 2020-07-06 changes
+* Add AWS::QLDB::Stream per 2020-07-08 update
+* Add AWS::CodeGuruProfiler::ProfilingGroup.ComputePlatform per 2020-07-09 update
+* Add AWS::CodeBuild::Project Source: BuildStatusConfig per 2020-0709 update
+* Add AWS::Athena::DataCatalog per 2020-07-09 update
+* Add AWS::EC2::PrefixList per 2020-07-09 update
+* Add AWS::ElasticLoadBalancingV2::Listener.AlpnPolicy per 2020-07-09 update
+* Update AWS::Synthetics per 2020-07-09 update
+* Add AWS::Amplify::App.EnableBranchAutoDeletion per 2020-07-09 update
+* Update AWS::FSx::FileSystem.LustreConfiguration per 2020-07-09 update
+* Update AWS::Amplify::Domain per 2020-07-09 update
+
 2.6.1 (2020*05*04)
 ------------------
 * Fix README for PyPI upload
