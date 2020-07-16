@@ -30,7 +30,7 @@ class Endpoint(AWSObject):
     props = {
         'EndpointName': (basestring, False),
         'EndpointConfigName': (basestring, True),
-        'Tags': (Tags, True)
+        'Tags': (Tags, False)
     }
 
 
@@ -51,7 +51,7 @@ class EndpointConfig(AWSObject):
         'EndpointConfigName': (basestring, False),
         'ProductionVariants': ([ProductionVariant], True),
         'KmsKeyId': (basestring, False),
-        'Tags': (Tags, True)
+        'Tags': (Tags, False)
     }
 
 
