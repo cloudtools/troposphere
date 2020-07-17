@@ -145,8 +145,8 @@ class OnSuccess(AWSProperty):
 
 class DestinationConfig(AWSProperty):
     props = {
-        'OnFailure': (OnFailure, True),
-        'OnSuccess': (OnSuccess, True),
+        'OnFailure': (OnFailure, False),
+        'OnSuccess': (OnSuccess, False),
     }
 
 
