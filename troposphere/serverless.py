@@ -7,11 +7,16 @@ import types
 
 from . import AWSObject, AWSProperty
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
-from .awslambda import Environment, ProvisionedConcurrencyConfiguration
+from .awslambda import (
+    Environment, ProvisionedConcurrencyConfiguration, DestinationConfig
+)
 from .awslambda import VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
-from .validators import exactly_one, positive_integer, mutually_exclusive
+from .validators import (
+    exactly_one, positive_integer, mutually_exclusive, integer_range
+)
+
 
 try:
     from awacs.aws import PolicyDocument
@@ -307,7 +312,14 @@ class KinesisEvent(AWSObject):
     props = {
         'Stream': (basestring, True),
         'StartingPosition': (starting_position_validator, True),
-        'BatchSize': (positive_integer, False)
+        'BatchSize': (positive_integer, False),
+        'BisectBatchOnFunctionError': (bool, False),
+        'DestinationConfig': (DestinationConfig, False),
+        'Enabled': (bool, False),
+        'MaximumBatchingWindowInSeconds': (positive_integer, False),
+        'MaximumRecordAgeInSeconds': (integer_range(60, 604800), False),
+        'MaximumRetryAttempts': (positive_integer, False),
+        'ParallelizationFactor': (integer_range(1, 10), False)
     }
 
 
