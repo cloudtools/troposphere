@@ -217,6 +217,41 @@ class Cors(AWSProperty):
     }
 
 
+class Route53(AWSProperty):
+    props = {
+        'DistributionDomainName': (basestring, False),
+        'EvaluateTargetHealth': (bool, False),
+        'HostedZoneId': (basestring, False),
+        'HostedZoneName': (basestring, False),
+        'IpV6': (bool, False),
+    }
+
+    def validate(self):
+        conds = [
+            'HostedZoneId',
+            'HostedZoneName',
+        ]
+        mutually_exclusive(self.__class__.__name__, self.properties, conds)
+
+
+class Domain(AWSProperty):
+    props = {
+        'BasePath': (list, False),
+        'CertificateArn': (basestring, True),
+        'DomainName': (basestring, True),
+        'EndpointConfiguration': (basestring, False),
+        'Route53': (Route53, False),
+    }
+
+    def validate(self):
+        valid_types = ['REGIONAL', 'EDGE']
+        if ('EndpointConfiguration' in self.properties and
+                self.properties['EndpointConfiguration'] not in valid_types):
+            raise ValueError(
+                'EndpointConfiguration must be either REGIONAL or EDGE'
+            )
+
+
 class Api(AWSObject):
     resource_type = "AWS::Serverless::Api"
 
@@ -230,6 +265,7 @@ class Api(AWSObject):
         'Cors': ((basestring, Cors), False),
         'DefinitionBody': (dict, False),
         'DefinitionUri': (basestring, False),
+        'Domain': (Domain, False),
         'EndpointConfiguration': (basestring, False),
         'MethodSettings': ([MethodSetting], False),
         'Name': (basestring, False),
