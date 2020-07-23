@@ -216,12 +216,12 @@ class TestValidators(unittest.TestCase):
                 compliance_level(s)
 
     def test_notification_event(self):
-        for l in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
-                   'Failed'], ['InProgress', 'TimedOut']]:
-            notification_event(l)
-        for l in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
+        for item in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
+                      'Failed'], ['InProgress', 'TimedOut']]:
+            notification_event(item)
+        for item in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
             with self.assertRaises(ValueError):
-                notification_event(l)
+                notification_event(item)
 
     def test_notification_type(self):
         for s in ['Command', 'Invocation']:

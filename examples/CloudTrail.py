@@ -1,5 +1,5 @@
-"""Converted from CloudTrail example."""
-"""http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html."""  # NOQA
+# Converted from CloudTrail example.
+# http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-trail.html.
 
 from troposphere import GetAtt, Join
 from troposphere import Parameter, Ref, Template
