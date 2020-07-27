@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean
+from .validators import boolean, one_of
 
 Bursting = 'bursting'
 Provisioned = 'provisioned'
@@ -63,10 +63,26 @@ class LifecyclePolicy(AWSProperty):
     }
 
 
+class BackupPolicy(AWSProperty):
+    props = {
+        'Status': (basestring, True),
+    }
+
+    def validate(self):
+        conds = [
+            'DISABLED',
+            'DISABLING',
+            'ENABLED',
+            'ENABLING'
+        ]
+        one_of(self.__class__.__name__, self.properties, 'Status' ,conds)
+
+
 class FileSystem(AWSObject):
     resource_type = "AWS::EFS::FileSystem"
 
     props = {
+        'BackupPolicy': (BackupPolicy, False),
         'Encrypted': (boolean, False),
         'FileSystemPolicy': (dict, False),
         'FileSystemTags': (Tags, False),
