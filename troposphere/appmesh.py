@@ -13,7 +13,6 @@ from troposphere import Tags
 from .validators import boolean
 from .validators import integer
 
-
 VALID_LISTENERTLS_MODE = ('STRICT', 'PERMISSIVE', 'DISABLED')
 
 
@@ -475,4 +474,142 @@ class VirtualService(AWSObject):
         'Spec': (VirtualServiceSpec, True),
         'Tags': (Tags, False),
         'VirtualServiceName': (basestring, True),
+    }
+
+
+class VirtualGatewayListener(AWSProperty):
+    """
+    VirtualGatewayListener for VirtualGatewaySpec
+    Same as Listener but without the Timeout property as per doc reference.
+    """
+    props = {
+        'HealthCheck': (HealthCheck, False),
+        'PortMapping': (PortMapping, True),
+        'TLS': (ListenerTls, False),
+    }
+
+
+class VirtualGatewaySpec(AWSProperty):
+    """
+    VirtualGatewaySpec for VirtualGateway
+    """
+    props = {
+        "BackendDefaults": (BackendDefaults, False),
+        "Listeners": ([VirtualGatewayListener], True),
+        "Logging": (Logging, False)
+    }
+
+
+class VirtualGateway(AWSOject):
+    """
+    Class to create AWS::AppMesh::VirtualGateway
+    """
+    resource_type = "AWS::AppMesh::VirtualGateway"
+    props = {
+        "MeshName": (basestring, True),
+        "MeshOwner": (basestring, False),
+        "Spec": (VirtualGatewaySpec, True),
+        "Tags": ([Tags], False),
+        "VirtualGatewayName": (basestring, True)
+    }
+
+
+class GatewayHttpRouteMatch(AWSProperty):
+    """
+    GatewayHttpRouteMatch for GatewayHttpRoute
+    """
+    props = {
+        'Prefix': (basestring, True),
+    }
+
+
+class GatewayRouteVirtualService(AWSProperty):
+    """
+    GatewayRouteVirtualService for GatewayRouteTarget
+    """
+    props = {
+        "VirtualServiceName": (basestring, True)
+    }
+
+
+class GatewayRouteTarget(AWSProperty):
+    """
+    Gateway Target for GatewayHttpRouteAction
+    """
+
+    props = {
+        "VirtualService": (GatewayRouteVirtualService, True)
+    }
+
+
+class GatewayHttpRouteAction(AWSProperty):
+    """
+    GatewayHttpRouteAction for GatewayHttpRoute
+    """
+    props = {
+        'Target': (GatewayRouteTarget, True)
+    }
+
+
+class GatewayHttpRoute(AWSProperty):
+    """
+    HTTP route for Appmesh Gateway HTTP Route Spec
+    """
+    props = {
+            'Action': (GatewayHttpRouteAction, True),
+            'Match': (GatewayHttpRouteMatch, True)
+        }
+
+
+class GatewayGrpcRouteMatch(AWSProperty):
+    """
+    GatewayGrpcRouteMatch for GatewayGrpcRoute
+    """
+    props = {
+        'ServiceName': (basestring, False),
+    }
+
+
+class GatewayGrpcRouteAction(AWSProperty):
+    """
+    GatewayGrpcRouteAction for GatewayGrpcRoute
+    """
+    props = {
+        'WeightedTargets': (GatewayRouteTarget, True),
+    }
+
+
+class GatewayGrpcRoute(AWSProperty):
+    """
+    GatewayGrpcRoute for GatewayRouteSpec
+    """
+    props = {
+        'Action': (GatewayGrpcRouteAction, True),
+        'Match': (GatewayGrpcRouteMatch, True)
+    }
+
+
+class GatewayRouteSpec(AWSProperty):
+    """
+    GatewayRouteSpec for GatewayRoute
+    """
+    props = {
+        'GrpcRoute': (GatewayGrpcRoute, False),
+        'Http2Route': (GatewayHttpRoute, False),
+        'HttpRoute': (GatewayHttpRoute, False)
+    }
+
+
+class GatewayRoute(AWSObject):
+    """
+    Class to construct AWS::AppMesh::GatewayRoute
+    """
+    resource_type = "AWS::AppMesh::GatewayRoute"
+    props = {
+      "GatewayRouteName": (basestring, True),
+      "MeshName": (basestring, True),
+      "MeshOwner": (basestring, False),
+      "Spec": (GatewayRouteSpec, True),
+      "Tags": ([Tags], False),
+      "VirtualGatewayName": (basestring, True)
     }
