@@ -680,3 +680,15 @@ def findingsfilter_action(action):
             )
         )
     return action
+
+
+def ecs_efs_encryption_status(status):
+    """
+    ECS EFS Encryption In Transit allowed Values
+    """
+    allowed_values = ["ENABLED", "DISABLED"]
+    if status not in allowed_values:
+        raise ValueError(
+            f"ECS EFS Encryption in transit can only be one of",
+            allowed_values
+        )
