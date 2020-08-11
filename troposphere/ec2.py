@@ -581,6 +581,7 @@ class SecurityGroupRule(AWSProperty):
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
+        'SourcePrefixListId': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
