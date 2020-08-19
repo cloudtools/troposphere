@@ -164,9 +164,9 @@ class RedshiftDestinationConfiguration(AWSProperty):
 class S3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
         'ErrorOutputPrefix': (basestring, False),
         'Prefix': (basestring, False),
@@ -263,9 +263,9 @@ class DataFormatConversionConfiguration(AWSProperty):
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
         'DataFormatConversionConfiguration':
             (DataFormatConversionConfiguration, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
