@@ -143,7 +143,7 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
         'RoleARN': (basestring, True),
         'S3BackupMode': (s3_backup_mode_elastic_search_validator, True),
         'S3Configuration': (S3Configuration, False),
-        'TypeName': (basestring, True),
+        'TypeName': (basestring, False),
         'VpcConfiguration': (VpcConfiguration, False),
     }
 
