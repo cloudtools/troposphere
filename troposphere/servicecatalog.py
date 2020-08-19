@@ -102,7 +102,7 @@ class LaunchRoleConstraint(AWSObject):
         'LocalRoleName': (basestring, False),
         'PortfolioId': (basestring, True),
         'ProductId': (basestring, True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (basestring, False),
     }
 
 
