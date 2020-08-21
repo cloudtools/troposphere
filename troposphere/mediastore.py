@@ -4,10 +4,10 @@
 # See LICENSE file for full license.
 
 
-from . import AWSObject
+from . import AWSObject, Tags
 from . import AWSProperty
 from .validators import boolean
-from .validators import integer
+from .validators import integer, containerlevelmetrics_status
 
 
 class CorsRule(AWSProperty):
@@ -20,6 +20,20 @@ class CorsRule(AWSProperty):
     }
 
 
+class MetricPolicyRule(AWSProperty):
+    props = {
+        'ObjectGroup': (basestring, True),
+        'ObjectGroupName': (basestring, True),
+    }
+
+
+class MetricPolicy(AWSProperty):
+    props = {
+        'ContainerLevelMetrics': (containerlevelmetrics_status, True),
+        'MetricPolicyRules': ([MetricPolicyRule], False),
+    }
+
+
 class Container(AWSObject):
     resource_type = "AWS::MediaStore::Container"
 
@@ -28,5 +42,7 @@ class Container(AWSObject):
         'ContainerName': (basestring, True),
         'CorsPolicy': ([CorsRule], False),
         'LifecyclePolicy': (basestring, False),
+        'MetricPolicy': (MetricPolicy, False),
         'Policy': (basestring, False),
+        'Tags': (Tags, False),
     }

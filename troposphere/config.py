@@ -207,3 +207,37 @@ class RemediationConfiguration(AWSObject):
         'TargetType': (basestring, True),
         'TargetVersion': (basestring, False),
     }
+
+
+class ConformancePackInputParameter(AWSProperty):
+    props = {
+        'ParameterName': (basestring, True),
+        'ParameterValue': (basestring, True),
+    }
+
+
+class ConformancePack(AWSObject):
+    resource_type = "AWS::Config::ConformancePack"
+
+    props = {
+        'ConformancePackInputParameters': ([ConformancePackInputParameter], False),  # NOQA
+        'ConformancePackName': (basestring, True),
+        'DeliveryS3Bucket': (basestring, True),
+        'DeliveryS3KeyPrefix': (basestring, False),
+        'TemplateBody': (basestring, False),
+        'TemplateS3Uri': (basestring, False),
+    }
+
+
+class OrganizationConformancePack(AWSObject):
+    resource_type = "AWS::Config::OrganizationConformancePack"
+
+    props = {
+        'ConformancePackInputParameters': ([ConformancePackInputParameter], False),  # NOQA
+        'DeliveryS3Bucket': (basestring, True),
+        'DeliveryS3KeyPrefix': (basestring, False),
+        'ExcludedAccounts': ([basestring], False),
+        'OrganizationConformancePackName': (basestring, True),
+        'TemplateBody': (basestring, False),
+        'TemplateS3Uri': (basestring, False),
+    }

@@ -98,6 +98,16 @@ class SubnetGroup(AWSObject):
     }
 
 
+class NodeGroupConfiguration(AWSProperty):
+    props = {
+        'NodeGroupId': (basestring, False),
+        'PrimaryAvailabilityZone': (basestring, False),
+        'ReplicaAvailabilityZones': ([basestring], False),
+        'ReplicaCount': (integer, False),
+        'Slots': (basestring, False),
+    }
+
+
 class ReplicationGroup(AWSObject):
     resource_type = "AWS::ElastiCache::ReplicationGroup"
 
@@ -113,7 +123,8 @@ class ReplicationGroup(AWSObject):
         'Engine': (basestring, False),
         'EngineVersion': (basestring, False),
         'KmsKeyId': (basestring, False),
-        'NodeGroupConfiguration': (list, False),
+        'MultiAZEnabled': (boolean, False),
+        'NodeGroupConfiguration': ([NodeGroupConfiguration], False),
         'NotificationTopicArn': (basestring, False),
         'NumCacheClusters': (integer, False),
         'NumNodeGroups': (integer, False),
@@ -128,8 +139,8 @@ class ReplicationGroup(AWSObject):
         'SnapshotArns': ([basestring], False),
         'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
-        'SnapshottingClusterId': (basestring, False),
         'SnapshotWindow': (basestring, False),
+        'SnapshottingClusterId': (basestring, False),
         'Tags': (Tags, False),
         'TransitEncryptionEnabled': (boolean, False),
     }

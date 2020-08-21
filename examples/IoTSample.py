@@ -9,6 +9,7 @@ from troposphere.iot import (
     TopicRulePayload,
     Action,
     LambdaAction,
+    IotAnalyticsAction,
 )
 
 
@@ -59,6 +60,12 @@ topic_rule = TopicRule(
             Action(
                 Lambda=LambdaAction(
                     FunctionArn='arn',
+                ),
+            ),
+            Action(
+                IotAnalytics=IotAnalyticsAction(
+                    ChannelName='mychannel',
+                    RoleArn='arn',
                 ),
             ),
         ],

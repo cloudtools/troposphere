@@ -364,4 +364,5 @@ class Server(AWSObject):
         'ServerName': (basestring, False),
         'ServiceRoleArn': (basestring, True),
         'SubnetIds': ([basestring], False),
+        'Tags': ((Tags, list), False),
     }

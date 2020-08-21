@@ -12,8 +12,10 @@ from .awslambda import VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
 from .validators import exactly_one, positive_integer, mutually_exclusive
+
 try:
     from awacs.aws import PolicyDocument
+
     policytypes = (dict, list, basestring, PolicyDocument)
 except ImportError:
     policytypes = (dict, list, basestring)
@@ -177,10 +179,26 @@ class Authorizers(AWSProperty):
     }
 
 
+class ResourcePolicyStatement(AWSProperty):
+    props = {
+        'AwsAccountBlacklist': (list, False),
+        'AwsAccountWhitelist': (list, False),
+        'CustomStatements': (list, False),
+        'IpRangeBlacklist': (list, False),
+        'IpRangeWhitelist': (list, False),
+        'SourceVpcBlacklist': (list, False),
+        'SourceVpcWhitelist': (list, False),
+    }
+
+
 class Auth(AWSProperty):
     props = {
-        'DefaultAuthorizer': (basestring, False),
+        'AddDefaultAuthorizerToCorsPreflight': (bool, False),
+        'ApiKeyRequired': (bool, False),
         'Authorizers': (Authorizers, False),
+        'DefaultAuthorizer': (basestring, False),
+        'InvokeRole': (basestring, False),
+        'ResourcePolicy': (ResourcePolicyStatement, False),
     }
 
 
@@ -318,7 +336,10 @@ class ScheduleEvent(AWSObject):
 
     props = {
         'Schedule': (basestring, True),
-        'Input': (basestring, False)
+        'Input': (basestring, False),
+        'Description': (basestring, False),
+        'Enabled': (bool, False),
+        'Name': (basestring, False)
     }
 
 
@@ -357,3 +378,29 @@ class SQSEvent(AWSObject):
     def validate(self):
         if (not 1 <= self.properties['BatchSize'] <= 10):
             raise ValueError('BatchSize must be between 1 and 10')
+
+
+class ApplicationLocation(AWSProperty):
+    props = {
+        "ApplicationId": (basestring, True),
+        "SemanticVersion": (basestring, True),
+    }
+
+
+class Application(AWSObject):
+    resource_type = "AWS::Serverless::Application"
+
+    props = {
+        'Location': ((ApplicationLocation, basestring), True),
+        'NotificationARNs': ([basestring], False),
+        'Parameters': (dict, False),
+        'Tags': (dict, False),
+        'TimeoutInMinutes': (positive_integer, False),
+    }
+
+    def validate(self):
+        conds = [
+            'DefinitionBody',
+            'DefinitionUri',
+        ]
+        mutually_exclusive(self.__class__.__name__, self.properties, conds)

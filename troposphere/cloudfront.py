@@ -104,13 +104,14 @@ class S3OriginConfig(AWSProperty):
 
 class Origin(AWSProperty):
     props = {
+        'ConnectionAttempts': (integer, False),
+        'ConnectionTimeout': (integer, False),
         'CustomOriginConfig': (CustomOriginConfig, False),
         'DomainName': (basestring, True),
         'Id': (basestring, True),
         'OriginCustomHeaders': ([OriginCustomHeader], False),
         'OriginPath': (basestring, False),
         'S3OriginConfig': (S3OriginConfig, False),
-
     }
 
 
@@ -154,6 +155,47 @@ class ViewerCertificate(AWSProperty):
     }
 
 
+class StatusCodes(AWSProperty):
+    props = {
+        'Items': ([integer], True),
+        'Quantity': (integer, True),
+    }
+
+
+class OriginGroupFailoverCriteria(AWSProperty):
+    props = {
+        'StatusCodes': (StatusCodes, True),
+    }
+
+
+class OriginGroupMember(AWSProperty):
+    props = {
+        'OriginId': (basestring, True),
+    }
+
+
+class OriginGroupMembers(AWSProperty):
+    props = {
+        'Items': ([OriginGroupMember], False),
+        'Quantity': (integer, False),
+    }
+
+
+class OriginGroup(AWSProperty):
+    props = {
+        'FailoverCriteria': (OriginGroupFailoverCriteria, True),
+        'Id': (basestring, True),
+        'Members': (OriginGroupMembers, True),
+    }
+
+
+class OriginGroups(AWSProperty):
+    props = {
+        'Items': ([OriginGroup], False),
+        'Quantity': (integer, False),
+    }
+
+
 class DistributionConfig(AWSProperty):
     props = {
         'Aliases': (list, False),
@@ -167,6 +209,7 @@ class DistributionConfig(AWSProperty):
         'IPV6Enabled': (boolean, False),
         'Logging': (Logging, False),
         'Origins': ([Origin], True),
+        'OriginGroups': (OriginGroups, False),
         'PriceClass': (priceclass_type, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
@@ -223,6 +266,6 @@ class StreamingDistribution(AWSObject):
     resource_type = "AWS::CloudFront::StreamingDistribution"
 
     props = {
-        'StreamingDistributionConfig': (StreamingDistributionConfig, True,),
+        'StreamingDistributionConfig': (StreamingDistributionConfig, True),
         'Tags': ((Tags, list), False),
     }

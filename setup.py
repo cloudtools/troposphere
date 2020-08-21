@@ -48,6 +48,7 @@ setup(
     version=get_version(),
     description="AWS CloudFormation creation library",
     long_description=file_contents("README.rst"),
+    long_description_content_type='text/x-rst',
 
     author="Mark Peek",
     author_email="mark@peek.org",

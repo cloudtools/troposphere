@@ -1,7 +1,7 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean, double, integer, network_port, positive_integer, ecs_proxy_type,
-    ecs_efs_encryption_status
+    ecs_efs_encryption_status, integer_range
 )
 
 LAUNCH_TYPE_EC2 = 'EC2'
@@ -9,6 +9,52 @@ LAUNCH_TYPE_FARGATE = 'FARGATE'
 
 SCHEDULING_STRATEGY_REPLICA = 'REPLICA'
 SCHEDULING_STRATEGY_DAEMON = 'DAEMON'
+
+
+class ManagedScaling(AWSProperty):
+    """
+    Class for ManagedScaling for AutoScalingGroupProvider
+    """
+    props = {
+        "MaximumScalingStepSize": (integer_range(1, 10000), False),
+        "MinimumScalingStepSize": (integer_range(1, 10000), False),
+        "Status": (basestring, False),
+        "TargetCapacity": (integer_range(1, 100), False),
+    }
+
+
+class AutoScalingGroupProvider(AWSProperty):
+    """
+    Class for property AutoScalingGroupProvider in AWS::ECS::CpacityProvider
+    """
+    props = {
+        'AutoScalingGroupArn': (basestring, True),
+        'ManagedScaling': (ManagedScaling, False),
+        'ManagedTerminationProtection': (basestring, False),
+    }
+
+
+class CapacityProvider(AWSObject):
+    """
+    Class for AWS::ECS::CpacityProvider
+    """
+    resource_type = "AWS::ECS::CapacityProvider"
+    props = {
+        'AutoScalingGroupProvider': (AutoScalingGroupProvider, True),
+        'Name': (basestring, False),
+        'Tags': (Tags, False),
+    }
+
+
+class CapacityProviderStrategyItem(AWSProperty):
+    """
+    Class for the AWS::ECS::Cluster-CapacityProviderStrategyItem
+    """
+    props = {
+        'Base': (integer, False),
+        'CapacityProvider': (basestring, False),
+        'Weight': (integer, False),
+    }
 
 
 class ClusterSetting(AWSProperty):
@@ -22,8 +68,11 @@ class Cluster(AWSObject):
     resource_type = "AWS::ECS::Cluster"
 
     props = {
+        'CapacityProviders': ([basestring], False),
         'ClusterName': (basestring, False),
         'ClusterSettings': ([ClusterSetting], False),
+        'DefaultCapacityProviderStrategy': (
+            [CapacityProviderStrategyItem], False),
         'Tags': (Tags, False),
     }
 

@@ -54,6 +54,12 @@
                         },
                         "Stage": {
                             "Ref": "v1Stage"
+                        },
+                        "Throttle": {
+                            "/some/api/path/GET": {
+                                "BurstLimit": 500,
+                                "RateLimit": 5000
+                            }
                         }
                     }
                 ],

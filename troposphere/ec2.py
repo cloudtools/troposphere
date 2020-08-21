@@ -13,6 +13,7 @@ from .validators import (
 
 VALID_ELASTICINFERENCEACCELERATOR_TYPES = ('eia1.medium', 'eia1.large',
                                            'eia1.xlarge')
+VALID_CLIENTVPNENDPOINT_VPNPORT = (443, 1194)
 
 
 def validate_elasticinferenceaccelerator_type(
@@ -23,6 +24,15 @@ def validate_elasticinferenceaccelerator_type(
         raise ValueError("Elastic Inference Accelerator Type must be one of: %s" %  # NOQA
                          ", ".join(VALID_ELASTICINFERENCEACCELERATOR_TYPES))
     return elasticinferenceaccelerator_type
+
+
+def validate_clientvpnendpoint_vpnport(vpnport):
+    """Validate VpnPort for ClientVpnEndpoint"""
+
+    if vpnport not in VALID_CLIENTVPNENDPOINT_VPNPORT:
+        raise ValueError("ClientVpnEndpoint VpnPortmust be one of: %s" %  # NOQA
+                         ", ".join(VALID_CLIENTVPNENDPOINT_VPNPORT))
+    return vpnport
 
 
 class Tag(AWSProperty):
@@ -138,8 +148,17 @@ class BlockDeviceMapping(AWSProperty):
     props = {
         'DeviceName': (basestring, True),
         'Ebs': (EBSBlockDevice, False),  # Conditional
-        'NoDevice': (dict, False),
         'VirtualName': (basestring, False),  # Conditional
+        'NoDevice': (dict, False)
+    }
+
+
+class LaunchTemplateBlockDeviceMapping(AWSProperty):
+    props = {
+        'DeviceName': (basestring, True),
+        'Ebs': (EBSBlockDevice, False),  # Conditional
+        'VirtualName': (basestring, False),  # Conditional
+        'NoDevice': (basestring, False)
     }
 
 
@@ -156,6 +175,8 @@ class Placement(AWSProperty):
         'AvailabilityZone': (basestring, False),
         'GroupName': (basestring, False),
         'HostId': (basestring, False),
+        'HostResourceGroupArn': (basestring, False),
+        'PartitionNumber': (integer, False),
         'Tenancy': (basestring, False)
     }
 
@@ -265,6 +286,12 @@ class LicenseSpecification(AWSProperty):
     }
 
 
+class HibernationOptions(AWSProperty):
+    props = {
+        'Configured': (boolean, False),
+    }
+
+
 class Instance(AWSObject):
     resource_type = "AWS::EC2::Instance"
 
@@ -278,7 +305,9 @@ class Instance(AWSObject):
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'ElasticInferenceAccelerators': ([ElasticInferenceAccelerator], False),
+        'HibernationOptions': (HibernationOptions, False),
         'HostId': (basestring, False),
+        'HostResourceGroupArn': (basestring, False),
         'IamInstanceProfile': (basestring, False),
         'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
@@ -402,6 +431,25 @@ class NetworkInterfacePermission(AWSObject):
     }
 
 
+class Entry(AWSProperty):
+    props = {
+        'Cidr': (basestring, True),
+        'Description': (basestring, False),
+    }
+
+
+class PrefixList(AWSObject):
+    resource_type = "AWS::EC2::PrefixList"
+
+    props = {
+        'AddressFamily': (basestring, True),
+        'Entries': ([Entry], False),
+        'MaxEntries': (integer, True),
+        'PrefixListName': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
 class Route(AWSObject):
     resource_type = "AWS::EC2::Route"
 
@@ -505,6 +553,7 @@ class SecurityGroupIngress(AWSObject):
         'GroupName': (basestring, False),
         'GroupId': (basestring, False),
         'IpProtocol': (basestring, True),
+        'SourcePrefixListId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
@@ -515,6 +564,7 @@ class SecurityGroupIngress(AWSObject):
         conds = [
             'CidrIp',
             'CidrIpv6',
+            'SourcePrefixListId',
             'SourceSecurityGroupName',
             'SourceSecurityGroupId',
         ]
@@ -531,6 +581,7 @@ class SecurityGroupRule(AWSProperty):
         'DestinationSecurityGroupId': (basestring, False),
         'FromPort': (network_port, False),
         'IpProtocol': (basestring, True),
+        'SourcePrefixListId': (basestring, False),
         'SourceSecurityGroupId': (basestring, False),
         'SourceSecurityGroupName': (basestring, False),
         'SourceSecurityGroupOwnerId': (basestring, False),
@@ -600,6 +651,8 @@ class Volume(AWSObject):
         'Encrypted': (boolean, False),
         'Iops': (positive_integer, False),
         'KmsKeyId': (basestring, False),
+        'MultiAttachEnabled': (boolean, False),
+        'OutpostArn': (basestring, False),
         'Size': (positive_integer, False),
         'SnapshotId': (basestring, False),
         'Tags': ((Tags, list), False),
@@ -920,7 +973,7 @@ class PlacementGroup(AWSObject):
     resource_type = "AWS::EC2::PlacementGroup"
 
     props = {
-        'Strategy': (basestring, True),
+        'Strategy': (basestring, False),
     }
 
 
@@ -973,14 +1026,31 @@ class LaunchTemplateCreditSpecification(AWSProperty):
     }
 
 
+class MetadataOptions(AWSProperty):
+    props = {
+        'HttpEndpoint': (basestring, False),
+        'HttpPutResponseHopLimit': (integer, False),
+        'HttpTokens': (basestring, False),
+    }
+
+
+class LaunchTemplateElasticInferenceAccelerator(AWSProperty):
+    props = {
+        'Count': (integer, False),
+        'Type': (validate_elasticinferenceaccelerator_type, False),
+    }
+
+
 class LaunchTemplateData(AWSProperty):
     props = {
-        'BlockDeviceMappings': ([BlockDeviceMapping], False),
+        'BlockDeviceMappings': ([LaunchTemplateBlockDeviceMapping], False),
         'CpuOptions': (CpuOptions, False),
         'CreditSpecification': (LaunchTemplateCreditSpecification, False),
         'DisableApiTermination': (boolean, False),
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
+        'ElasticInferenceAccelerators': ([LaunchTemplateElasticInferenceAccelerator], False),  # NOQA
+        'HibernationOptions': (HibernationOptions, False),
         'IamInstanceProfile': (IamInstanceProfile, False),
         'ImageId': (basestring, False),
         'InstanceInitiatedShutdownBehavior': (basestring, False),
@@ -989,6 +1059,7 @@ class LaunchTemplateData(AWSProperty):
         'KernelId': (basestring, False),
         'KeyName': (basestring, False),
         'LicenseSpecifications': ([LicenseSpecification], False),
+        'MetadataOptions': (MetadataOptions, False),
         'Monitoring': (Monitoring, False),
         'NetworkInterfaces': ([NetworkInterfaces], False),
         'Placement': (Placement, False),
@@ -1075,6 +1146,7 @@ class TransitGateway(AWSObject):
         'AutoAcceptSharedAttachments': (basestring, False),
         'DefaultRouteTableAssociation': (basestring, False),
         'DefaultRouteTablePropagation': (basestring, False),
+        'Description': (basestring, False),
         'DnsSupport': (basestring, False),
         'Tags': ((Tags, list), False),
         'VpnEcmpSupport': (basestring, False),
@@ -1236,9 +1308,16 @@ class DirectoryServiceAuthenticationRequest(AWSProperty):
     }
 
 
+class FederatedAuthenticationRequest(AWSProperty):
+    props = {
+        'SAMLProviderArn': (basestring, True),
+    }
+
+
 class ClientAuthenticationRequest(AWSProperty):
     props = {
         'ActiveDirectory': (DirectoryServiceAuthenticationRequest, False),
+        'FederatedAuthentication': (FederatedAuthenticationRequest, False),
         'MutualAuthentication': (CertificateAuthenticationRequest, False),
         'Type': (basestring, True),
     }
@@ -1261,10 +1340,13 @@ class ClientVpnEndpoint(AWSObject):
         'ConnectionLogOptions': (ConnectionLogOptions, True),
         'Description': (basestring, False),
         'DnsServers': ([basestring], False),
+        'SecurityGroupIds': ([basestring], False),
         'ServerCertificateArn': (basestring, True),
         'SplitTunnel': (boolean, False),
         'TagSpecifications': ([TagSpecifications], False),
         'TransportProtocol': (basestring, False),
+        'VpcId': (basestring, False),
+        'VpnPort': (validate_clientvpnendpoint_vpnport, False),
     }
 
 
@@ -1285,4 +1367,24 @@ class ClientVpnTargetNetworkAssociation(AWSObject):
     props = {
         'ClientVpnEndpointId': (basestring, True),
         'SubnetId': (basestring, True),
+    }
+
+
+class LocalGatewayRoute(AWSObject):
+    resource_type = "AWS::EC2::LocalGatewayRoute"
+
+    props = {
+        'DestinationCidrBlock': (basestring, True),
+        'LocalGatewayRouteTableId': (basestring, True),
+        'LocalGatewayVirtualInterfaceGroupId': (basestring, True),
+    }
+
+
+class LocalGatewayRouteTableVPCAssociation(AWSObject):
+    resource_type = "AWS::EC2::LocalGatewayRouteTableVPCAssociation"
+
+    props = {
+        'LocalGatewayRouteTableId': (basestring, True),
+        'Tags': ((Tags, list), False),
+        'VpcId': (basestring, True),
     }

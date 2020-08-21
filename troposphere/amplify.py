@@ -61,6 +61,7 @@ class App(AWSObject):
         'BuildSpec': (basestring, False),
         'CustomRules': ([CustomRule], False),
         'Description': (basestring, False),
+        'EnableBranchAutoDeletion': (boolean, False),
         'EnvironmentVariables': ([EnvironmentVariable], False),
         'IAMServiceRole': (basestring, False),
         'Name': (basestring, True),
@@ -100,6 +101,9 @@ class Domain(AWSObject):
 
     props = {
         'AppId': (basestring, True),
+        'AutoSubDomainCreationPatterns': ([basestring], False),
+        'AutoSubDomainIAMRole': (basestring, False),
         'DomainName': (basestring, True),
+        'EnableAutoSubDomain': (boolean, False),
         'SubDomainSettings': ([SubDomainSetting], True),
     }

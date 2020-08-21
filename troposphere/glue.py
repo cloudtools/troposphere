@@ -246,6 +246,7 @@ class DevEndpoint(AWSObject):
         'NumberOfNodes': (integer, False),
         'NumberOfWorkers': (integer, False),
         'PublicKey': (basestring, False),
+        'PublicKeys': ([basestring], False),
         'RoleArn': (basestring, True),
         'SecurityConfiguration': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
@@ -349,6 +350,7 @@ class MLTransform(AWSObject):
         'Name': (basestring, False),
         'NumberOfWorkers': (integer, False),
         'Role': (basestring, True),
+        'Tags': (dict, False),
         'Timeout': (integer, False),
         'TransformParameters': (TransformParameters, True),
         'WorkerType': (basestring, False),
@@ -436,8 +438,10 @@ class JobBookmarksEncryption(AWSProperty):
     }
 
 
-class S3Encryptions(AWSProperty):
+class S3Encryption(AWSProperty):
     props = {
+        'KmsKeyArn': (basestring, False),
+        'S3EncryptionMode': (basestring, False),
     }
 
 
@@ -445,7 +449,7 @@ class EncryptionConfiguration(AWSProperty):
     props = {
         'CloudWatchEncryption': (CloudWatchEncryption, False),
         'JobBookmarksEncryption': (JobBookmarksEncryption, False),
-        'S3Encryptions': (S3Encryptions, False),
+        'S3Encryptions': ([S3Encryption], False),
     }
 
 

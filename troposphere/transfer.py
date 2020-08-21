@@ -12,9 +12,24 @@ from . import AWSProperty
 from troposphere import Tags
 
 
+VALID_HOMEDIRECTORY_TYPE = ('LOGICAL', 'PATH')
+
+
+def validate_homedirectory_type(homedirectory_type):
+    """Validate HomeDirectoryType for User"""
+
+    if homedirectory_type not in VALID_HOMEDIRECTORY_TYPE:  # NOQA
+        raise ValueError("User HomeDirectoryType must be one of: %s" %  # NOQA
+                         ", ".join(VALID_HOMEDIRECTORY_TYPE))
+    return homedirectory_type
+
+
 class EndpointDetails(AWSProperty):
     props = {
-        'VpcEndpointId': (basestring, True),
+        'AddressAllocationIds': ([basestring], False),
+        'SubnetIds': ([basestring], False),
+        'VpcEndpointId': (basestring, False),
+        'VpcId': (basestring, False),
     }
 
 
@@ -29,12 +44,21 @@ class Server(AWSObject):
     resource_type = "AWS::Transfer::Server"
 
     props = {
+        'Certificate': (basestring, False),
         'EndpointDetails': (EndpointDetails, False),
         'EndpointType': (basestring, False),
         'IdentityProviderDetails': (IdentityProviderDetails, False),
         'IdentityProviderType': (basestring, False),
         'LoggingRole': (basestring, False),
+        'Protocols': ([basestring], False),
         'Tags': (Tags, False),
+    }
+
+
+class HomeDirectoryMapEntry(AWSProperty):
+    props = {
+        'Entry': (basestring, True),
+        'Target': (basestring, True),
     }
 
 
@@ -43,6 +67,8 @@ class User(AWSObject):
 
     props = {
         'HomeDirectory': (basestring, False),
+        'HomeDirectoryMappings': ([HomeDirectoryMapEntry], False),
+        'HomeDirectoryType': (validate_homedirectory_type, False),
         'Policy': (basestring, False),
         'Role': (basestring, True),
         'ServerId': (basestring, True),

@@ -1,3 +1,191 @@
+2.6.2 (2020*07*12)
+------------------
+* Add Description property to EC2::TransitGateway (#1674)
+* Adding AWS::ImageBuilder::Image object, per May 7, 2020 update
+* Adding missing AWS::ApiGatewayV2::VpcLink object
+* Adding new AWS::SSM::Association property, per May 7, 2020 update
+* Update template_generator.py
+* Handle list type properties with a function validator (#1673)
+* Change RegularExpressionList
+* Remove Regex object in favour of basestring
+* Bug Fixes: wafv2 names not required
+* Update instance types in constants
+* Add AWS::CodeStarConnections::Connection props, per May 14, 2020 update
+* Adding misc AWS::DMS properties, per May 14, 2020 update
+* Adding misc AWS::MediaStore::Container properties, per May 14, 2020 update
+* updating AWS::ServiceCatalog::CloudFormationProduct properties, per May 14, 2020 update
+* Changing AWS::Synthetics::Canary props, per May 14, 2020 update
+* Adding misc AWS::GlobalAccelerator objects, per May 14, 2020 update
+* Adding new AWS::Macie resources, per May 14, 2020 update
+* Add sample Aurora Serverless RDS template
+* Fixing misc AWS::ImageBuilder properties
+* Updating AWS::StepFunctions::StateMachine props, per May 21, 2020 update
+* Update AWS::SSM::Parameter properties, per May 21, 2020 update
+* Update AWS::CodeBuild::ReportGroup properties, per May 21, 2020 update
+* Fix bools in example output
+* Adding hibernation options to LaunchTemplateData
+* ExcludedRules are listed directly, not wrapped
+* fix syntax
+* add OnSuccess
+* Update AWS::EFS::AccessPoint per 2020-05-28 changes
+* Update AWS::CodeGuruProfiler::ProfilingGroup per 2020-06-03 changes
+* Update AWS::EC2::ClientVpnEndpoint per 2020-05-28 changes
+* Add DBProxy and DBProxyTargetGroup to AWS::RDS per 2020-06-04 changes
+*  Add support for ARM and GPU containers for CodeBuild (#1699)
+* Fix S3Encryptions in Glue EncryptionConfiguration (#1725)
+* Convert stepfunctions.DefinitionSubstitutions to dict (#1726)
+* Add GroundStation link (#1727)
+* Update AWS::ElasticLoadBalancingV2::LoadBalancer per 2020-06-11 changes
+* Update AWS::ElastiCache::ReplicationGroup per 2020-06-11 changes
+* Update AWS::CloudFront::Distribution per 2020-06-11 changes
+* Update AWS::CertificateManager::Certificate per 2020-06-11 changes
+* Update AWS::EC2::Volume per 2020-06-11 changes
+* Add AWS::IoT::ProvisioningTemplate per 2020-06-04 changes (Fixes #1723)
+* Added Serverless::Application and Serverless ApplicationLocation (#1549)
+* Fix required setting for SageMaker::Model PrimaryContainer (Fixes #1729)
+* Added capacity providers
+* Update AWS::EFS::FileSystem per 2020-06-16 changes
+* Update AWS::Lambda::Function per 2020-06-16 changes
+* Update AWS::FMS::Policy per 2020-06-18 changes
+* Fix tests and alphabetize properties in ECS
+* Update AWS::ServiceDiscovery per 2020-06-22 changes
+* This isn't required
+* Update AWS::AppMesh per 2020-06-25 changes
+* Support attribute Mode for SageMaker Model ContainerDefinition
+* Add SourcePrefixListId to the ec2.SecurityGroupIngress validator (Fixes #1739)
+* Add ApplicationCloudWatchLoggingOption for KinesisAnalyticsV2 (Fixes #1738)
+* Add required TargetGroupName to DBProxyTargetGroup
+* Add VpcConfiguration to AWS::KinesisFirehose::DeliveryStream (Fixes #1717)
+* Update AWS::Events::Rule per 2020-07-06 changes
+* Add AWS::QLDB::Stream per 2020-07-08 update
+* Add AWS::CodeGuruProfiler::ProfilingGroup.ComputePlatform per 2020-07-09 update
+* Add AWS::CodeBuild::Project Source: BuildStatusConfig per 2020-0709 update
+* Add AWS::Athena::DataCatalog per 2020-07-09 update
+* Add AWS::EC2::PrefixList per 2020-07-09 update
+* Add AWS::ElasticLoadBalancingV2::Listener.AlpnPolicy per 2020-07-09 update
+* Update AWS::Synthetics per 2020-07-09 update
+* Add AWS::Amplify::App.EnableBranchAutoDeletion per 2020-07-09 update
+* Update AWS::FSx::FileSystem.LustreConfiguration per 2020-07-09 update
+* Update AWS::Amplify::Domain per 2020-07-09 update
+
+2.6.1 (2020*05*04)
+------------------
+* Fix README for PyPI upload
+* Remove extra PublicAccessBlockConfiguration in s3 (Fixes #1541)
+* Added support for ForwardConfig in Listener (#1555)
+* Fix up a couple of items for ELBv2 from #1555
+* Fixing a missimplementation of rules, caused by a bug in the document… (#1599)
+* fix: include valid postgres capacity configurations (#1602)
+* adding misc AppMesh properties, per Feb 27 2020 update
+* adding misc FSX properties, per Feb 27 2020 update
+* Adding new AWS::CloudWatch::CompositeAlarm object, per March 2 2020 update
+* Adding new AWS::GroundStation resources, per Feb 27 2020 update
+* Add README link for GroundStation (#1606)
+* Fixup WAFv2 TextTransformations property and required (#1607)
+* Adding cloudfront OriginGroups properties, per March 5 2020 update
+* AWS::EC2::SecurityGroupIngress.SourcePrefixListId (#1622)
+* adding AWS::Athena::WorkGroup, per March 5 2020 update
+* Adding EncryptionConfig props to AWS::EKS::Cluster, per March 5 2020 update (#1610)
+* adding AWS::CodeStarConnections::Connection, per Marche 5 2020 update
+* Adding AWS::Chatbot::SlackChannelConfiguration, per March 5 2020 update
+* Fixup recent CodeStarConnections and Chatbot additions
+* Fixes to acmpca (#1660)
+* adding misc Greengrass props, per March 09 2020 update
+* adding misc AWS::MSK::Cluster properties, per March 12 2020 update
+* Adding MeshOwner prop to misc AppMesh objects, per March 12 2020 update
+* Adding new AWS::Cassandra resources, per March 16 2020 update
+* Fixup link and comments for AWS::Cassandra (related to #1616)
+* Fix several problems in wafv2
+* Add IotAnalyticsAction and StepFunctionsAction to IoT TopicRule Actions
+* Add missing IoTAnalytics properties, add Datastore object, add test IoTAnalytics example
+* Attributes for AddAttributes is a dict
+* add secrets manager type to codebuild environment variable types
+* Usageplan throttle (#2)
+* update example to include method as required
+* Adding AWS::ResourceGroups::Group resource, per March 19, 2020 update
+* Adding AWS::CodeGuruProfiler::ProfilingGroup resource, per March 19, 2020 update
+* Fixup links in README.rst
+* adding AWS::EC2::ClientVpnEndpoint properties, per March 19, 2020 update
+* Adding AWS::DMS::Endpoint props, per March 23, 2020 update
+* Adding AWS::AutoScaling::AutoScalingGroup props, per March 26, 2020 update
+* Adding misc AWS::ApiGatewayV2::Integration properties, per March 26, 2020 update
+* Adding AWS::ServiceCatalog::LaunchRoleConstraint props, per April 2, 2020 update
+* Adding AWS::CloudWatch::InsightRule props, per April 2, 2020 update
+* Fix new test changes to use TROPO_REAL_BOOL
+* Change ApiGateway::RestApi FailOnWarnings from basestring to boolean (Fixes #1655)
+* Update SAM Schedule event source spec
+* AWS::SecurityHub::Hub Tags uses the wrong format
+* Adding AWS::NetworkManager resource, per March 19, 2020 update
+* Adding AWS::Detective resources, per March 26, 2020 update
+* Adding misc AWS::IoT props, per March 26, 2020 update
+* Adding AWS::EC2::Volume props, per March 26, 2020 update
+* Adding AWS::FSx::FileSystem properties, per April 2, 2020 update
+* Adding misc AWS::Glue properties, per April 16, 2020 update
+* Adding new AWS::Synthetics::Canary resource, per April 23, 2020 update
+* Adding AWS::ImageBuilder resources, per April 23, 2020 update
+* Adding new AWS::CE::CostCategory resource, per April 23, 2020 update
+* Fix typo: pros => props
+* Update EventSchemas per 2020-04-30 changes
+* Update Synthetics per 2020-04-30 changes
+* Update Transfer per 2020-04-30 changes
+
+2.6.0 (2020*02*22)
+------------------
+* Add ProvisionedConcurrencyConfig for AWS::Serverless::Function (#1535)
+* Add update policy that allows for in place upgrade of ES cluster (#1537)
+* Add ReportGroup and SourceCredential to CodeBuild
+* Add Count property to EC2::Instance ElasticInferenceAccelerator
+* Add EC2::GatewayRouteTableAssociation
+* Update FSx per 2019-12-19 changes
+* Add MaxAllocatedStorage to RDS::DBInstance
+* Add Name property to SSM::Document
+* Add OpenMonitoring property to MSK::Cluster
+* Break out NoDevice property validation (Fixes #1551) (#1553)
+* Fixed check_required validator error message (#1550)
+* Add test for check_required (#1550)
+* Add CloudWatch Alarm TreatMissingData validator (#1536)
+* Add WAFv2 resources, per Nov 25 2019 update (#1545)
+* linking AWS::WAFv2 and OpenStack resource types in README (#1559)
+* Strategy in AWS::EC2::PlacementGroup is not required (#1560)
+* Combine JSON + YAML example (#1561)
+* Add CACertificateIdentifier to DBInstance (#1557)
+* fixing AWS::Serverless documentation link (#1562)
+* adding new AWS::WAFv2::WebACLAssociation resource, per Jan 16 2020 update (#1567)
+* adding SyncSource & SyncType props to AWS::SSM::ResourceDataSync, per Jan 16 2020 update (#1566)
+* adding AWS::EC2::Instance HibernationOptions property, per Jan 16 2020 update (#1563)
+* Add QueuedTimeoutInMinutes to CodeBuild Project (#1540)
+* Add WeightedCapacity to AutoScaling::AutoScalingGroup LaunchTemplateOverrides (#1565)
+* Use correct curl option for compressed downloads
+* Update properties in AWS::Serverless::Api's Auth (#1568)
+* Add new pinpoint properties, per Jan 23 2020 update (#1569)
+* Add new AWS::RDS::DBCluster VALID_DB_ENGINE_MODES (#1573)
+* ServiceDiscovery DnsConfig NamespaceId is not required (#1575)
+* Add missing SecretTargetAttachment TargetTypes (#1578)
+* Ignore If expression during validation on AutoScalingRollingUpdate min instances (#1577)
+* adding Tags to Server, per Feb 6 2020 update
+* AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment VALID_RUNTIME_ENVIRONMENTS
+* adding misc EC2 properties, per Feb 6 2020 update
+* adding new Config resources, per 2020 Feb 13 update
+* adding new Transfer properties, per 2020 Feb 13 update
+* adding new ACMPCA resources, per Jan 23 2020 update (#1570)
+* adding new AppConfig resource, per Jan 23 2020 update (#1571)
+* Nodegroup tags type (#1576)
+* adding XrayEnabled prop to GraphQLApi, per Feb 6 2020 update (#1579)
+* adding AccountRecoverySetting prop to UserPool, per Feb 6 2020 update (#1580)
+* adding Tags to Server, per Feb 6 2020 update (#1581)
+* Merge pull request #1582 from axelpavageau/feature/20200206-ec2
+* Merge pull request #1584 from cloudtools/PatMyron-patch-5
+* Alphebetize some properties
+* Merge pull request #1585 from axelpavageau/feature/20200213-transfer
+* Merge pull request #1586 from axelpavageau/feature/20200213-config
+* Adding new EC2 resources, per 2020 Feb 13 update (#1587)
+* Adding new FMS resources, per 2020 Feb 13 update (#1588)
+* adding misc Lakeformation properties, per Jan 16 2020 update (#1589)
+* Adding new AWS::Neptune::DBCluster properties, per Feb 18 2020 update (#1594)
+* fixing property according to the documentation's example (#1595)
+* adding UsernameConfiguration prop to UserPool, per Feb 20 2020 update (#1596)
+* Adding new ProjectFileSystemLocation property to CodeBuild::Project, per Feb 20 2020 update (#1597)
+
 2.5.3 (2019*12*08)
 ------------------
 * Switch to using the gzip version of the Resource Specification

@@ -122,10 +122,19 @@ class ProcessingConfiguration(AWSProperty):
     }
 
 
+class VpcConfiguration(AWSProperty):
+    props = {
+        'RoleARN': (basestring, True),
+        'SecurityGroupIds': ([basestring], True),
+        'SubnetIds': ([basestring], True),
+    }
+
+
 class ElasticsearchDestinationConfiguration(AWSProperty):
     props = {
         'BufferingHints': (BufferingHints, True),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'ClusterEndpoint': (basestring, False),
         'DomainARN': (basestring, True),
         'IndexName': (basestring, True),
         'IndexRotationPeriod': (index_rotation_period_validator, True),
@@ -134,7 +143,8 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
         'RoleARN': (basestring, True),
         'S3BackupMode': (s3_backup_mode_elastic_search_validator, True),
         'S3Configuration': (S3Configuration, False),
-        'TypeName': (basestring, True),
+        'TypeName': (basestring, False),
+        'VpcConfiguration': (VpcConfiguration, False),
     }
 
 
@@ -154,9 +164,9 @@ class RedshiftDestinationConfiguration(AWSProperty):
 class S3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
         'ErrorOutputPrefix': (basestring, False),
         'Prefix': (basestring, False),
@@ -253,9 +263,9 @@ class DataFormatConversionConfiguration(AWSProperty):
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
         'DataFormatConversionConfiguration':
             (DataFormatConversionConfiguration, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),

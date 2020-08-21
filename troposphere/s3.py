@@ -409,15 +409,6 @@ class ObjectLockConfiguration(AWSProperty):
     }
 
 
-class PublicAccessBlockConfiguration(AWSProperty):
-    props = {
-        'BlockPublicAcls': (boolean, False),
-        'BlockPublicPolicy': (boolean, False),
-        'IgnorePublicAcls': (boolean, False),
-        'RestrictPublicBuckets': (boolean, False),
-    }
-
-
 class Bucket(AWSObject):
     resource_type = "AWS::S3::Bucket"
 

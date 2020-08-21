@@ -8,12 +8,12 @@
 
 
 from . import AWSObject
-from troposphere import Tags
+from .validators import json_checker
 
 
 class Hub(AWSObject):
     resource_type = "AWS::SecurityHub::Hub"
 
     props = {
-        'Tags': (Tags, False),
+        'Tags': (json_checker, False),
     }
