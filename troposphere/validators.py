@@ -680,3 +680,12 @@ def findingsfilter_action(action):
             )
         )
     return action
+
+
+def ecs_efs_encryption_status(status):
+    valid_status = ['ENABLED', 'DISABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'ECS EFS Encryption in transit can only be one of' % (
+                ', '.join(valid_status))
+        )

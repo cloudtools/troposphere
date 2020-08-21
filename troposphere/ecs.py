@@ -1,7 +1,7 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, double, integer, network_port, positive_integer,
-    integer_range, ecs_proxy_type
+    boolean, double, integer, network_port, positive_integer, integer_range,
+    ecs_proxy_type, ecs_efs_encryption_status
 )
 
 LAUNCH_TYPE_EC2 = 'EC2'
@@ -400,11 +400,29 @@ class DockerVolumeConfiguration(AWSProperty):
     }
 
 
+class AuthorizationConfig(AWSProperty):
+    props = {
+        'AccessPointId': (basestring, False),
+        'IAM': (basestring, False)
+    }
+
+
+class EFSVolumeConfiguration(AWSProperty):
+    props = {
+        'AuthorizationConfig': AuthorizationConfig,
+        'FilesystemId': (basestring, True),
+        'RootDirectory': (basestring, False),
+        'TransitEncryption': (ecs_efs_encryption_status, False),
+        'TransitEncryptionPort': (integer_range(1, (2 ** 16) - 1), False)
+    }
+
+
 class Volume(AWSProperty):
     props = {
         'DockerVolumeConfiguration': (DockerVolumeConfiguration, False),
         'Name': (basestring, True),
         'Host': (Host, False),
+        'EFSVolumeConfiguration': (EFSVolumeConfiguration, False)
     }
 
 
