@@ -1,8 +1,8 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
-    boolean, double, integer, network_port, positive_integer, ecs_proxy_type
+    boolean, double, integer, network_port, positive_integer, ecs_proxy_type,
+    ecs_efs_encryption_status
 )
-
 
 LAUNCH_TYPE_EC2 = 'EC2'
 LAUNCH_TYPE_FARGATE = 'FARGATE'
@@ -356,6 +356,7 @@ class Volume(AWSProperty):
         'DockerVolumeConfiguration': (DockerVolumeConfiguration, False),
         'Name': (basestring, True),
         'Host': (Host, False),
+        'EFSVolumeConfiguration': (EFSVolumeConfiguration, False)
     }
 
 
@@ -417,4 +418,20 @@ class TaskSet(AWSObject):
         'Service': (basestring, True),
         'ServiceRegistries': ([ServiceRegistry], False),
         'TaskDefinition': (basestring, True),
+    }
+
+
+class AuthorizationConfig(AWSProperty):
+    props = {
+        'AccessPointId': (basestring, False),
+        'IAM': (basestring, False)
+    }
+
+class EFSVolumeConfiguration(AWSProperty):
+    props = {
+        'AuthorizationConfig': AuthorizationConfig,
+        'FilesystemId': (basestring, True),
+        'RootDirectory': (basestring, False),
+        'TransitEncryption': (ecs_efs_encryption_status, False),
+        'TransitEncryptionPort': (integer_range(1, (2 ** 16) - 1), False)
     }
