@@ -513,6 +513,7 @@ def waf_action_type(action):
         )
     return action
 
+
 def resourcequery_type(type):
     valid_types = ['TAG_FILTERS_1_0', 'CLOUDFORMATION_STACK_1_0']
     if type not in valid_types:
@@ -679,6 +680,7 @@ def findingsfilter_action(action):
             )
         )
     return action
+
 
 def ecs_efs_encryption_status(status):
     valid_status = ['ENABLED', 'DISABLED']
