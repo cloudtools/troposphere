@@ -399,6 +399,12 @@ class DockerVolumeConfiguration(AWSProperty):
         'Scope': (scope_validator, False)
     }
 
+class AuthorizationConfig(AWSProperty):
+    props = {
+        'AccessPointId': (basestring, False),
+        'IAM': (basestring, False)
+    }
+
 class EFSVolumeConfiguration(AWSProperty):
     props = {
         'AuthorizationConfig': AuthorizationConfig,
@@ -475,10 +481,4 @@ class TaskSet(AWSObject):
         'Service': (basestring, True),
         'ServiceRegistries': ([ServiceRegistry], False),
         'TaskDefinition': (basestring, True),
-    }
-
-class AuthorizationConfig(AWSProperty):
-    props = {
-        'AccessPointId': (basestring, False),
-        'IAM': (basestring, False)
     }
