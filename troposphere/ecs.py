@@ -477,7 +477,6 @@ class TaskSet(AWSObject):
         'TaskDefinition': (basestring, True),
     }
 
-
 class AuthorizationConfig(AWSProperty):
     props = {
         'AccessPointId': (basestring, False),
