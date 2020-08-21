@@ -399,6 +399,14 @@ class DockerVolumeConfiguration(AWSProperty):
         'Scope': (scope_validator, False)
     }
 
+class EFSVolumeConfiguration(AWSProperty):
+    props = {
+        'AuthorizationConfig': AuthorizationConfig,
+        'FilesystemId': (basestring, True),
+        'RootDirectory': (basestring, False),
+        'TransitEncryption': (ecs_efs_encryption_status, False),
+        'TransitEncryptionPort': (integer_range(1, (2 ** 16) - 1), False)
+    }
 
 class Volume(AWSProperty):
     props = {
@@ -474,13 +482,4 @@ class AuthorizationConfig(AWSProperty):
     props = {
         'AccessPointId': (basestring, False),
         'IAM': (basestring, False)
-    }
-
-class EFSVolumeConfiguration(AWSProperty):
-    props = {
-        'AuthorizationConfig': AuthorizationConfig,
-        'FilesystemId': (basestring, True),
-        'RootDirectory': (basestring, False),
-        'TransitEncryption': (ecs_efs_encryption_status, False),
-        'TransitEncryptionPort': (integer_range(1, (2 ** 16) - 1), False)
     }
