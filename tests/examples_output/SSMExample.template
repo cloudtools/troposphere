@@ -11,6 +11,14 @@
         }
     },
     "Resources": {
+        "LinuxBaselineTimestampParameter": {
+            "Properties": {
+                "Name": "/OS/REDHAT",
+                "Type": "String",
+                "Value": "Redhat TIME_STAMP_VALUE"
+            },
+            "Type": "AWS::SSM::Parameter"
+        },
         "RHELBASELINE": {
             "Properties": {
                 "ApprovalRules": {
@@ -76,6 +84,14 @@
                 ]
             },
             "Type": "AWS::SSM::PatchBaseline"
+        },
+        "WindowsBaselineTimestampParameter": {
+            "Properties": {
+                "Name": "/OS/WINDOWS",
+                "Type": "String",
+                "Value": "Windows TIMESTAMP_VALUE"
+            },
+            "Type": "AWS::SSM::Parameter"
         }
     }
 }
