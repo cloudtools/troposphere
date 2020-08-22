@@ -1,3 +1,5 @@
+import time
+
 from troposphere import Ref, Template, Parameter
 from troposphere.constants import STRING
 import troposphere.ssm as ssm
@@ -73,5 +75,19 @@ t.add_resource(ssm.PatchBaseline(
             OperatingSystem="WINDOWS",
             PatchGroups=[Ref(windows_patch_group_name)]
         ))
+
+t.add_resource(ssm.Parameter(
+        "WindowsBaselineTimestampParameter",
+        Name="/OS/WINDOWS",
+        Type="String",
+        Value=f"timestampe: {time.time()}"
+    ))
+
+t.add_resource(ssm.Parameter(
+        "LinuxBaselineTimestampParameter",
+        Name="/OS/REDHAT",
+        Type="String",
+        Value=f"Redhat baseline timestamp: {time.time()}"
+    ))
 
 print(t.to_json())
