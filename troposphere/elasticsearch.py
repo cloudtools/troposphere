@@ -81,8 +81,24 @@ class SnapshotOptions(AWSProperty):
 
 class VPCOptions(AWSProperty):
     props = {
-        "SecurityGroupIds": ([basestring], False),
-        "SubnetIds": ([basestring], False)
+        'SecurityGroupIds': ([basestring], False),
+        'SubnetIds': ([basestring], False)
+    }
+
+
+class MasterUserOptions(AWSProperty):
+    props = {
+        'MasterUserARN': (basestring, False),
+        'MasterUserName': (basestring, False),
+        'MasterUserPassword': (basestring, False),
+    }
+
+
+class AdvancedSecurityOptionsInput(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'InternalUserDatabaseEnabled': (boolean, False),
+        'MasterUserOptions': (MasterUserOptions, False),
     }
 
 
@@ -92,6 +108,7 @@ class Domain(AWSObject):
     props = {
         'AccessPolicies': (policytypes, False),
         'AdvancedOptions': (dict, False),
+        'AdvancedSecurityOptions': (AdvancedSecurityOptionsInput, False),
         'CognitoOptions': (CognitoOptions, False),
         'DomainName': (basestring, False),
         'EBSOptions': (EBSOptions, False),
