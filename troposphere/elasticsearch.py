@@ -98,7 +98,7 @@ class AdvancedSecurityOptionsInput(AWSProperty):
     props = {
         'Enabled': (boolean, False),
         'InternalUserDatabaseEnabled': (boolean, False),
-        'MasterUserOptions': MasterUserOptions,
+        'MasterUserOptions': (MasterUserOptions, false),
     }
 
 
