@@ -75,7 +75,7 @@ class BackupPolicy(AWSProperty):
             'ENABLED',
             'ENABLING'
         ]
-        one_of(self.__class__.__name__, self.properties, 'Status' ,conds)
+        one_of(self.__class__.__name__, self.properties, 'Status', conds)
 
 
 class FileSystem(AWSObject):

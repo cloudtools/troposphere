@@ -49,7 +49,7 @@ class TestEfs(unittest.TestCase):
 
         result = file_system.to_dict()
         self.assertEqual(result["Type"], "AWS::EFS::FileSystem")
-    
+
     def test_validateBackupPolicy(self):
         with self.assertRaises(ValueError):
             backup_policy = efs.BackupPolicy(
@@ -63,6 +63,7 @@ class TestEfs(unittest.TestCase):
 
         result = backup_policy.to_dict()
         self.assertEqual(result["Status"], "ENABLED")
+
 
 if __name__ == "__main__":
     unittest.main()
