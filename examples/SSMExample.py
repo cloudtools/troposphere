@@ -74,4 +74,18 @@ t.add_resource(ssm.PatchBaseline(
             PatchGroups=[Ref(windows_patch_group_name)]
         ))
 
+t.add_resource(ssm.Parameter(
+        "WindowsBaselineTimestampParameter",
+        Name="/OS/WINDOWS",
+        Type="String",
+        Value="Windows TIMESTAMP_VALUE"
+    ))
+
+t.add_resource(ssm.Parameter(
+        "LinuxBaselineTimestampParameter",
+        Name="/OS/REDHAT",
+        Type="String",
+        Value="Redhat TIME_STAMP_VALUE"
+    ))
+
 print(t.to_json())
