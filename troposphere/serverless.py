@@ -269,6 +269,7 @@ class Api(AWSObject):
         'EndpointConfiguration': (basestring, False),
         'MethodSettings': ([MethodSetting], False),
         'Name': (basestring, False),
+        'OpenApiVersion': (basestring, False),
         'StageName': (basestring, True),
         "TracingEnabled": (bool, False),
         'Variables': (dict, False),
