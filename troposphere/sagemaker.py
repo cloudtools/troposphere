@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import integer
+from .validators import boolean, integer
 
 
 class GitConfig(AWSProperty):
@@ -34,6 +34,30 @@ class Endpoint(AWSObject):
     }
 
 
+class CaptureContentTypeHeader(AWSProperty):
+    props = {
+        'CsvContentTypes': ([basestring], False),
+        'JsonContentTypes': ([basestring], False),
+    }
+
+
+class CaptureOption(AWSProperty):
+    props = {
+        'CaptureMode': (basestring, True),
+    }
+
+
+class DataCaptureConfig(AWSProperty):
+    props = {
+        'CaptureContentTypeHeader': (CaptureContentTypeHeader, False),
+        'CaptureOptions': ([CaptureOption], True),
+        'DestinationS3Uri': (basestring, True),
+        'EnableCapture': (boolean, False),
+        'InitialSamplingPercentage': (integer, True),
+        'KmsKeyId': (basestring, False),
+    }
+
+
 class ProductionVariant(AWSProperty):
     props = {
         'ModelName': (basestring, True),
@@ -48,10 +72,11 @@ class EndpointConfig(AWSObject):
     resource_type = "AWS::SageMaker::EndpointConfig"
 
     props = {
+        'DataCaptureConfig': (DataCaptureConfig, False),
         'EndpointConfigName': (basestring, False),
-        'ProductionVariants': ([ProductionVariant], True),
         'KmsKeyId': (basestring, False),
-        'Tags': (Tags, False)
+        'ProductionVariants': ([ProductionVariant], True),
+        'Tags': (Tags, False),
     }
 
 
