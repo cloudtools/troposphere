@@ -24,6 +24,7 @@ class Connection(AWSObject):
 
     props = {
         'ConnectionName': (basestring, True),
+        'HostArn': (basestring, False),
         'ProviderType': (validate_connection_providertype, True),
         'Tags': (Tags, False),
     }
