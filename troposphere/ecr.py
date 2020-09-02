@@ -1,4 +1,5 @@
 from . import AWSObject, AWSProperty, Tags
+from .validators import json_checker
 from .compat import policytypes
 
 
@@ -13,6 +14,8 @@ class Repository(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
     props = {
+        'ImageScanningConfiguration': (json_checker, False),
+        'ImageTagMutability': (basestring, False),
         'LifecyclePolicy': (LifecyclePolicy, False),
         'RepositoryName': (basestring, False),
         'RepositoryPolicyText': (policytypes, False),
