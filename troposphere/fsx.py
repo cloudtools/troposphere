@@ -12,6 +12,7 @@ VALID_LUSTRECONFIGURATION_DEPLOYMENTTYPE = ('PERSISTENT_1', 'SCRATCH_1',
 
 VALID_LUSTRECONFIGURATION_PERUNITSTORAGETHROUGHPUT = (50, 100, 200)
 
+
 def validate_lustreconfiguration_deploymenttype(lustreconfiguration_deploymenttype):  # NOQA
     """Validate DeploymentType for LustreConfiguration"""
 

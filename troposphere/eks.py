@@ -77,6 +77,14 @@ class ScalingConfig(AWSProperty):
     }
 
 
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'Id': (basestring, False),
+        'Name': (basestring, False),
+        'Version': (basestring, False),
+    }
+
+
 class Nodegroup(AWSObject):
     resource_type = "AWS::EKS::Nodegroup"
 
@@ -87,6 +95,7 @@ class Nodegroup(AWSObject):
         'ForceUpdateEnabled': (boolean, False),
         'InstanceTypes': ([basestring], False),
         'Labels': (dict, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'NodegroupName': (basestring, False),
         'NodeRole': (basestring, True),
         'ReleaseVersion': (basestring, False),
