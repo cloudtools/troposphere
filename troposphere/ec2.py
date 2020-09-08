@@ -834,7 +834,7 @@ class NetworkInterfaces(AWSProperty):
         'AssociatePublicIpAddress': (boolean, False),
         'DeleteOnTermination': (boolean, False),
         'Description': (basestring, False),
-        'DeviceIndex': (integer, False),
+        'DeviceIndex': (integer, True),
         'Groups': ([basestring], False),
         'InterfaceType': (basestring, False),
         'Ipv6AddressCount': (integer, False),
