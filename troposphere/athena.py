@@ -105,7 +105,7 @@ class WorkGroup(AWSObject):
         'Name': (basestring, True),
         'RecursiveDeleteOption': (boolean, False),
         'State': (validate_workgroup_state, False),
-        'Tags': (dict, False),
+        'Tags': ((Tags, list), False),
         'WorkGroupConfiguration': (WorkGroupConfiguration, False),
         'WorkGroupConfigurationUpdates': (WorkGroupConfigurationUpdates,
                                           False),
