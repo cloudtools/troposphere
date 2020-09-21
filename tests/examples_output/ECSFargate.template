@@ -18,7 +18,7 @@
                 "DesiredCount": 1,
                 "LaunchType": "FARGATE",
                 "NetworkConfiguration": {
-                    "AwsvpcConfiguration": {
+                    "AwsVpcConfiguration": {
                         "Subnets": [
                             {
                                 "Ref": "Subnet"

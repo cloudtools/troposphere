@@ -147,7 +147,7 @@ class PlacementStrategy(AWSProperty):
     }
 
 
-class AwsvpcConfiguration(AWSProperty):
+class AwsVpcConfiguration(AWSProperty):
     props = {
         'AssignPublicIp': (basestring, False),
         'SecurityGroups': (list, False),
@@ -157,7 +157,7 @@ class AwsvpcConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     props = {
-        'AwsvpcConfiguration': (AwsvpcConfiguration, False),
+        'AwsVpcConfiguration': (AwsVpcConfiguration, False),
     }
 
 
