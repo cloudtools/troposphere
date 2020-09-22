@@ -88,7 +88,7 @@ class TestECS(unittest.TestCase):
             ],
             LaunchType='FARGATE',
             NetworkConfiguration=ecs.NetworkConfiguration(
-                AwsvpcConfiguration=ecs.AwsvpcConfiguration(
+                AwsVpcConfiguration=ecs.AwsVpcConfiguration(
                     AssignPublicIp='DISABLED',
                     SecurityGroups=['sg-1234'],
                     Subnets=['subnet-1234']
