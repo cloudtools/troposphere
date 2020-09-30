@@ -252,6 +252,24 @@ class Domain(AWSProperty):
             )
 
 
+class EndpointConfiguration(AWSProperty):
+    props = {
+        "Type": (basestring, False),
+        "VPCEndpointIds": (list, False)
+    }
+
+    def validate(self):
+        valid_types = ["REGIONAL", "EDGE", "PRIVATE"]
+        if (
+            "Type" in self.properties
+            and self.properties["Type"]
+            not in valid_types
+        ):
+            raise ValueError(
+                "EndpointConfiguration Type must be REGIONAL, EDGE or PRIVATE"
+            )
+
+
 class Api(AWSObject):
     resource_type = "AWS::Serverless::Api"
 
@@ -266,7 +284,7 @@ class Api(AWSObject):
         'DefinitionBody': (dict, False),
         'DefinitionUri': (basestring, False),
         'Domain': (Domain, False),
-        'EndpointConfiguration': (basestring, False),
+        'EndpointConfiguration': (EndpointConfiguration, False),
         'MethodSettings': ([MethodSetting], False),
         'Name': (basestring, False),
         'OpenApiVersion': (basestring, False),
@@ -453,3 +471,4 @@ class Application(AWSObject):
             'DefinitionUri',
         ]
         mutually_exclusive(self.__class__.__name__, self.properties, conds)
+
