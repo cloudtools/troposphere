@@ -68,5 +68,5 @@ class StateMachine(AWSObject):
         'StateMachineName': (basestring, False),
         'StateMachineType': (basestring, False),
         'Tags': (Tags, False),
-        'TracingConfiguration': (TracingConfiguration, False)
+        'TracingConfiguration': (TracingConfiguration, False),
     }
