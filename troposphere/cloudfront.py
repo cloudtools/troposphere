@@ -8,6 +8,11 @@ from .validators import (boolean, cloudfront_restriction_type,
                          cloudfront_event_type,
                          cloudfront_forward_type,
                          cloudfront_cache_cookie_behavior,
+                         cloudfront_cache_header_behavior,
+                         cloudfront_cache_query_string_behavior,
+                         cloudfront_origin_request_cookie_behavior,
+                         cloudfront_origin_request_header_behavior,
+                         cloudfront_origin_request_query_string_behavior,
                          cloudfront_viewer_protocol_policy, integer,
                          positive_integer, priceclass_type, network_port)
 
