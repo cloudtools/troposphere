@@ -281,7 +281,7 @@ class StreamingDistribution(AWSObject):
 class CacheCookiesConfig(AWSProperty):
     props = {
         'CookieBehavior': (cloudfront_cache_cookie_behavior, True),
-        'Cookies': ([basestring], False), 
+        'Cookies': ([basestring], False),
     }
 
 
@@ -329,16 +329,10 @@ class CachePolicy(AWSObject):
     }
 
 
-
-
-
-
-
-
 class OriginRequestCookiesConfig(AWSProperty):
     props = {
         'CookieBehavior': (cloudfront_origin_request_cookie_behavior, True),
-        'Cookies': ([basestring], False), 
+        'Cookies': ([basestring], False),
     }
 
 
