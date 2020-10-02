@@ -50,6 +50,12 @@ class S3Location(AWSProperty):
     }
 
 
+class TracingConfiguration(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+    }
+
+
 class StateMachine(AWSObject):
     resource_type = "AWS::StepFunctions::StateMachine"
 
@@ -62,4 +68,5 @@ class StateMachine(AWSObject):
         'StateMachineName': (basestring, False),
         'StateMachineType': (basestring, False),
         'Tags': (Tags, False),
+        'TracingConfiguration': (TracingConfiguration, False),
     }
