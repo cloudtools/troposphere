@@ -52,7 +52,7 @@ class S3Location(AWSProperty):
 
 class TracingConfiguration(AWSProperty):
     props = {
-        'Enabled': (boolean, False)
+        'Enabled': (boolean, False),
     }
 
 
