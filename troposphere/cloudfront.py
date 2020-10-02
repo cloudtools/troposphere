@@ -7,6 +7,7 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import (boolean, cloudfront_restriction_type,
                          cloudfront_event_type,
                          cloudfront_forward_type,
+                         cloudfront_cache_cookie_behavior,
                          cloudfront_viewer_protocol_policy, integer,
                          positive_integer, priceclass_type, network_port)
 
@@ -274,4 +275,101 @@ class StreamingDistribution(AWSObject):
     props = {
         'StreamingDistributionConfig': (StreamingDistributionConfig, True),
         'Tags': ((Tags, list), False),
+    }
+
+
+class CacheCookiesConfig(AWSProperty):
+    props = {
+        'CookieBehavior': (cloudfront_cache_cookie_behavior, True),
+        'Cookies': ([basestring], False), 
+    }
+
+
+class CacheHeadersConfig(AWSProperty):
+    props = {
+        'HeaderBehavior': (cloudfront_cache_header_behavior, True),
+        'Headers': ([basestring], False),
+    }
+
+
+class CacheQueryStringsConfig(AWSProperty):
+    props = {
+        'QueryStringBehavior': (
+            cloudfront_cache_query_string_behavior, True),
+        'QueryStrings': ([basestring], False),
+    }
+
+
+class ParametersInCacheKeyAndForwardedToOrigin(AWSProperty):
+    props = {
+        'CookiesConfig': (CacheCookiesConfig, True),
+        'EnableAcceptEncodingGzip': (boolean, True),
+        'HeadersConfig': (CacheHeadersConfig, True),
+        'QueryStringsConfig': (CacheQueryStringsConfig, True),
+    }
+
+
+class CachePolicyConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, False),
+        'DefaultTTL': (integer, False),
+        'MaxTTL': (integer, False),
+        'MinTTL': (integer, False),
+        'Name': (basestring, True),
+        'ParametersInCacheKeyAndForwardedToOrigin': (
+            ParametersInCacheKeyAndForwardedToOrigin, False),
+    }
+
+
+class CachePolicy(AWSObject):
+    resource_type = "AWS::CloudFront::CachePolicy"
+
+    props = {
+        'CachePolicyConfig': (CachePolicyConfig, True),
+    }
+
+
+
+
+
+
+
+
+class OriginRequestCookiesConfig(AWSProperty):
+    props = {
+        'CookieBehavior': (cloudfront_origin_request_cookie_behavior, True),
+        'Cookies': ([basestring], False), 
+    }
+
+
+class OriginRequestHeadersConfig(AWSProperty):
+    props = {
+        'HeaderBehavior': (cloudfront_origin_request_header_behavior, True),
+        'Headers': ([basestring], False),
+    }
+
+
+class OriginRequestQueryStringsConfig(AWSProperty):
+    props = {
+        'QueryStringBehavior': (
+            cloudfront_origin_request_query_string_behavior, True),
+        'QueryStrings': ([basestring], False),
+    }
+
+
+class OriginRequestPolicyConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, False),
+        'CookiesConfig': (OriginRequestCookiesConfig, True),
+        'HeadersConfig': (OriginRequestHeadersConfig, True),
+        'Name': (basestring, True),
+        'QueryStringsConfig': (OriginRequestQueryStringsConfig, True),
+    }
+
+
+class OriginRequestPolicy(AWSObject):
+    resource_type = "AWS::CloudFront::OriginRequestPolicy"
+
+    props = {
+        'OriginRequestPolicyConfig': (OriginRequestPolicyConfig, True),
     }

@@ -472,6 +472,73 @@ def cloudfront_forward_type(forward):
     return(forward)
 
 
+def cloudfront_cache_cookie_behavior(cookie_behavior):
+    valid_values = ['none', 'whitelist', 'allExcept', 'all']
+    if cookie_behavior not in valid_values:
+        raise ValueError(
+            'CookieBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(cookie_behavior)
+
+
+def cloudfront_cache_header_behavior(header_behavior):
+    valid_values = ['none', 'whitelist']
+    if header_behavior not in valid_values:
+        raise ValueError(
+            'HeaderBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(header_behavior)
+
+
+def cloudfront_cache_query_string_behavior(query_string_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if query_string_behavior not in valid_values:
+        raise ValueError(
+            'QueryStringBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(query_string_behavior)
+
+
+def cloudfront_origin_request_cookie_behavior(cookie_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if cookie_behavior not in valid_values:
+        raise ValueError(
+            'CookieBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(cookie_behavior)
+
+
+def cloudfront_origin_request_header_behavior(header_behavior):
+    valid_values = [
+        'none', 'whitelist', 'allViewer', 'allViewerAndWhitelistCloudFront']
+    if header_behavior not in valid_values:
+        raise ValueError(
+            'HeaderBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(header_behavior)
+
+
+def cloudfront_origin_request_query_string_behavior(query_string_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if query_string_behavior not in valid_values:
+        raise ValueError(
+            'QueryStringBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(query_string_behavior)
+
+
 def priceclass_type(price_class):
     valid_values = ['PriceClass_100', 'PriceClass_200',
                     'PriceClass_All']
