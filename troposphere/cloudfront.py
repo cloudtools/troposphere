@@ -317,12 +317,12 @@ class ParametersInCacheKeyAndForwardedToOrigin(AWSProperty):
 class CachePolicyConfig(AWSProperty):
     props = {
         'Comment': (basestring, False),
-        'DefaultTTL': (integer, False),
-        'MaxTTL': (integer, False),
+        'DefaultTTL': (integer, True),
+        'MaxTTL': (integer, True),
         'MinTTL': (integer, True),
         'Name': (basestring, True),
         'ParametersInCacheKeyAndForwardedToOrigin': (
-            ParametersInCacheKeyAndForwardedToOrigin, False),
+            ParametersInCacheKeyAndForwardedToOrigin, True),
     }
 
 
