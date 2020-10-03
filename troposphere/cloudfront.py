@@ -309,6 +309,7 @@ class ParametersInCacheKeyAndForwardedToOrigin(AWSProperty):
     props = {
         'CookiesConfig': (CacheCookiesConfig, True),
         'EnableAcceptEncodingGzip': (boolean, True),
+        'EnableAcceptEncodingBrotli': (boolean, False),
         'HeadersConfig': (CacheHeadersConfig, True),
         'QueryStringsConfig': (CacheQueryStringsConfig, True),
     }
