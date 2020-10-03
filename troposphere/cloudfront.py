@@ -319,7 +319,7 @@ class CachePolicyConfig(AWSProperty):
         'Comment': (basestring, False),
         'DefaultTTL': (integer, False),
         'MaxTTL': (integer, False),
-        'MinTTL': (integer, False),
+        'MinTTL': (integer, True),
         'Name': (basestring, True),
         'ParametersInCacheKeyAndForwardedToOrigin': (
             ParametersInCacheKeyAndForwardedToOrigin, False),
