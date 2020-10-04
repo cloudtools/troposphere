@@ -500,7 +500,7 @@ class VirtualGatewaySpec(AWSProperty):
     }
 
 
-class VirtualGateway(AWSOject):
+class VirtualGateway(AWSObject):
     """
     Class to create AWS::AppMesh::VirtualGateway
     """
