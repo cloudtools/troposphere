@@ -70,6 +70,7 @@ class CloudFormationProvisionedProduct(AWSObject):
         'AcceptLanguage': (basestring, False),
         'NotificationArns': ([basestring], False),
         'PathId': (basestring, False),
+        'PathName': (basestring, False),
         'ProductId': (basestring, False),
         'ProductName': (basestring, False),
         'ProvisionedProductName': (basestring, False),
