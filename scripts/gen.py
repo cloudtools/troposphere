@@ -39,7 +39,7 @@ import sys
 # - Need to figure out the correct Timestamp type
 
 copyright_header = """\
-# Copyright (c) 2012-2019, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2020, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -523,6 +523,6 @@ if __name__ == '__main__':
         f.add_property(class_name, properties)
 
     if args.name:
-        r.output_file(args.name)
+        r.output_file(args.name.lower())
     else:
         r.output_files()
