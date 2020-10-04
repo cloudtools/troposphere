@@ -50,6 +50,15 @@ class Tag(AWSProperty):
         super(Tag, self).__init__(**kwargs)
 
 
+class CarrierGateway(AWSObject):
+    resource_type = "AWS::EC2::CarrierGateway"
+
+    props = {
+        'Tags': (Tags, False),
+        'VpcId': (basestring, True),
+    }
+
+
 class CustomerGateway(AWSObject):
     resource_type = "AWS::EC2::CustomerGateway"
 
