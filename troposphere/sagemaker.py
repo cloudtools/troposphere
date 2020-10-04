@@ -110,6 +110,164 @@ class Model(AWSObject):
     }
 
 
+class MonitoringExecutionSummary(AWSProperty):
+    props = {
+        'CreationTime': (basestring, True),
+        'EndpointName': (basestring, False),
+        'FailureReason': (basestring, False),
+        'LastModifiedTime': (basestring, True),
+        'MonitoringExecutionStatus': (basestring, True),
+        'MonitoringScheduleName': (basestring, True),
+        'ProcessingJobArn': (basestring, False),
+        'ScheduledTime': (basestring, True),
+    }
+
+
+class ConstraintsResource(AWSProperty):
+    props = {
+        'S3Uri': (basestring, False),
+    }
+
+
+class StatisticsResource(AWSProperty):
+    props = {
+        'S3Uri': (basestring, False),
+    }
+
+
+class BaselineConfig(AWSProperty):
+    props = {
+        'ConstraintsResource': (ConstraintsResource, False),
+        'StatisticsResource': (StatisticsResource, False),
+    }
+
+
+class MonitoringAppSpecification(AWSProperty):
+    props = {
+        'ContainerArguments': ([basestring], False),
+        'ContainerEntrypoint': ([basestring], False),
+        'ImageUri': (basestring, True),
+        'PostAnalyticsProcessorSourceUri': (basestring, False),
+        'RecordPreprocessorSourceUri': (basestring, False),
+    }
+
+
+class EndpointInput(AWSProperty):
+    props = {
+        'EndpointName': (basestring, True),
+        'LocalPath': (basestring, True),
+        'S3DataDistributionType': (basestring, False),
+        'S3InputMode': (basestring, False),
+    }
+
+
+class MonitoringInput(AWSProperty):
+    props = {
+        'EndpointInput': (EndpointInput, True),
+    }
+
+
+class MonitoringInputs(AWSProperty):
+    props = {
+        'MonitoringInputs': ([MonitoringInput], False),
+    }
+
+
+class S3Output(AWSProperty):
+    props = {
+        'LocalPath': (basestring, True),
+        'S3UploadMode': (basestring, False),
+        'S3Uri': (basestring, True),
+    }
+
+
+class MonitoringOutput(AWSProperty):
+    props = {
+        'S3Output': (S3Output, True),
+    }
+
+
+class MonitoringOutputConfig(AWSProperty):
+    props = {
+        'KmsKeyId': (basestring, False),
+        'MonitoringOutputs': ([MonitoringOutput], True),
+    }
+
+
+class ClusterConfig(AWSProperty):
+    props = {
+        'InstanceCount': (integer, True),
+        'InstanceType': (basestring, True),
+        'VolumeKmsKeyId': (basestring, False),
+        'VolumeSizeInGB': (integer, True),
+    }
+
+
+class MonitoringResources(AWSProperty):
+    props = {
+        'ClusterConfig': (ClusterConfig, True),
+    }
+
+
+class NetworkConfig(AWSProperty):
+    props = {
+        'EnableInterContainerTrafficEncryption': (boolean, False),
+        'EnableNetworkIsolation': (boolean, False),
+        'VpcConfig': (VpcConfig, False),
+    }
+
+
+class StoppingCondition(AWSProperty):
+    props = {
+        'MaxRuntimeInSeconds': (integer, True),
+    }
+
+
+class MonitoringJobDefinition(AWSProperty):
+    props = {
+        'BaselineConfig': (BaselineConfig, False),
+        'Environment': (dict, False),
+        'MonitoringAppSpecification': (MonitoringAppSpecification, True),
+        'MonitoringInputs': (MonitoringInputs, True),
+        'MonitoringOutputConfig': (MonitoringOutputConfig, True),
+        'MonitoringResources': (MonitoringResources, True),
+        'NetworkConfig': (NetworkConfig, False),
+        'RoleArn': (basestring, True),
+        'StoppingCondition': (StoppingCondition, False),
+    }
+
+
+class ScheduleConfig(AWSProperty):
+    props = {
+        'ScheduleExpression': (basestring, True),
+    }
+
+
+class MonitoringScheduleConfig(AWSProperty):
+    props = {
+        'MonitoringJobDefinition': (MonitoringJobDefinition, True),
+        'ScheduleConfig': (ScheduleConfig, False),
+    }
+
+
+class MonitoringSchedule(AWSObject):
+    resource_type = "AWS::SageMaker::MonitoringSchedule"
+
+    props = {
+        'CreationTime': (basestring, False),
+        'EndpointName': (basestring, False),
+        'FailureReason': (basestring, False),
+        'LastModifiedTime': (basestring, False),
+        'LastMonitoringExecutionSummary':
+            (MonitoringExecutionSummary, False),
+        'MonitoringScheduleArn': (basestring, False),
+        'MonitoringScheduleConfig': (MonitoringScheduleConfig, True),
+        'MonitoringScheduleName': (basestring, True),
+        'MonitoringScheduleStatus': (basestring, False),
+        'Tags': (Tags, False),
+    }
+
+
 class NotebookInstanceLifecycleHook(AWSProperty):
     props = {
         'Content': (basestring, False)
