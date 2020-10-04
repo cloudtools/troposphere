@@ -341,6 +341,13 @@ class ContainerDependency(AWSProperty):
     }
 
 
+class EnvironmentFile(AWSProperty):
+    props = {
+        'Type': (basestring, False),
+        'Value': (basestring, False),
+    }
+
+
 class ContainerDefinition(AWSProperty):
     props = {
         'Command': ([basestring], False),
@@ -353,6 +360,7 @@ class ContainerDefinition(AWSProperty):
         'DockerSecurityOptions': ([basestring], False),
         'EntryPoint': ([basestring], False),
         'Environment': ([Environment], False),
+        'EnvironmentFiles': ([EnvironmentFile], False),
         'Essential': (boolean, False),
         'ExtraHosts': ([HostEntry], False),
         'FirelensConfiguration': (FirelensConfiguration, False),
