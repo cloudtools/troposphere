@@ -112,9 +112,12 @@ class FlowLog(AWSObject):
         'DeliverLogsPermissionArn': (basestring, False),
         'LogDestination': (basestring, False),
         'LogDestinationType': (basestring, False),
+        'LogFormat': (basestring, False),
         'LogGroupName': (basestring, False),
+        'MaxAggregationInterval': (integer, False),
         'ResourceId': (basestring, True),
         'ResourceType': (basestring, True),
+        'Tags': (Tags, False),
         'TrafficType': (basestring, True),
     }
 
