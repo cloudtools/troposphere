@@ -177,6 +177,7 @@ class EventSourceMapping(AWSObject):
         'MaximumRetryAttempts': (integer, False),
         'ParallelizationFactor': (integer, False),
         'StartingPosition': (basestring, False),
+        'Topics': ([basestring], False),
     }
 
 
