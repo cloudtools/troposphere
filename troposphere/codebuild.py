@@ -152,6 +152,22 @@ class Environment(AWSProperty):
                              ','.join(valid_types))
 
 
+class BatchRestrictions(AWSProperty):
+    props = {
+        'ComputeTypesAllowed': ([basestring], False),
+        'MaximumBuildsAllowed': (integer, False),
+    }
+
+
+class ProjectBuildBatchConfig(AWSProperty):
+    props = {
+        'CombineArtifacts': (boolean, False),
+        'Restrictions': (BatchRestrictions, False),
+        'ServiceRole': (basestring, False),
+        'TimeoutInMins': (integer, False),
+    }
+
+
 class ProjectCache(AWSProperty):
     props = {
         'Location': (basestring, False),
@@ -346,6 +362,7 @@ class Project(AWSObject):
     props = {
         'Artifacts': (Artifacts, True),
         'BadgeEnabled': (boolean, False),
+        'BuildBatchConfig': (ProjectBuildBatchConfig, False),
         'Cache': (ProjectCache, False),
         'Description': (basestring, False),
         'EncryptionKey': (basestring, False),
