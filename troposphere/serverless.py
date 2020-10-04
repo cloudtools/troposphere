@@ -471,4 +471,3 @@ class Application(AWSObject):
             'DefinitionUri',
         ]
         mutually_exclusive(self.__class__.__name__, self.properties, conds)
-
