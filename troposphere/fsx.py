@@ -33,6 +33,7 @@ def validate_lustreconfiguration_perunitstoragethroughput(lustreconfiguration_pe
 
 class LustreConfiguration(AWSProperty):
     props = {
+        'AutoImportPolicy': (basestring, False),
         'AutomaticBackupRetentionDays': (integer, False),
         'CopyTagsToBackups': (boolean, False),
         'DailyAutomaticBackupStartTime': (basestring, False),
