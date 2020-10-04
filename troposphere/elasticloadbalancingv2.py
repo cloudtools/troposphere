@@ -281,6 +281,16 @@ TARGET_TYPE_IP = 'ip'
 TARGET_TYPE_LAMBDA = 'lambda'
 
 
+def validate_target_type(target_type):
+    valid_types = [TARGET_TYPE_INSTANCE, TARGET_TYPE_IP, TARGET_TYPE_LAMBDA]
+    if target_type not in valid_types:
+        raise ValueError(
+            'TargetGroup.TargetType must be one of: "%s"' %
+            ', '.join(valid_types)
+        )
+    return target_type
+
+
 class TargetGroup(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::TargetGroup"
 
@@ -299,22 +309,12 @@ class TargetGroup(AWSObject):
         'Tags': ((Tags, list), False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
-        'TargetType': (basestring, False),
+        'TargetType': (validate_target_type, False),
         'UnhealthyThresholdCount': (integer, False),
         'VpcId': (basestring, False),
     }
 
     def validate(self):
-        one_of(self.__class__.__name__,
-               self.properties,
-               'TargetType',
-               [
-                   None,
-                   TARGET_TYPE_INSTANCE,
-                   TARGET_TYPE_IP,
-                   TARGET_TYPE_LAMBDA
-               ])
-
         def check_properties(action_types, props_to_check, required):
 
             for this_type in action_types:
@@ -332,7 +332,7 @@ class TargetGroup(AWSObject):
                     if len(invalid_props) > 0:
                         # Make error message more readable in the default case
                         type_msg = ('Omitting TargetType' if this_type is None
-                                    else 'TargetType of "%s"' % (this_type))
+                                    else 'TargetType of "%s"' % this_type)
 
                         raise ValueError(
                             '%s in "%s" %s definitions of %s' % (
