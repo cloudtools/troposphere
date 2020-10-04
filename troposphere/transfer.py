@@ -51,6 +51,7 @@ class Server(AWSObject):
         'IdentityProviderType': (basestring, False),
         'LoggingRole': (basestring, False),
         'Protocols': ([basestring], False),
+        'SecurityPolicyName': (basestring, False),
         'Tags': (Tags, False),
     }
 
