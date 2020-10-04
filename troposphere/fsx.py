@@ -38,6 +38,7 @@ class LustreConfiguration(AWSProperty):
         'CopyTagsToBackups': (boolean, False),
         'DailyAutomaticBackupStartTime': (basestring, False),
         'DeploymentType': (validate_lustreconfiguration_deploymenttype, False),
+        'DriveCacheType': (basestring, False),
         'ExportPath': (basestring, False),
         'ImportedFileChunkSize': (integer, False),
         'ImportPath': (basestring, False),
