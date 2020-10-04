@@ -37,6 +37,7 @@ class SocketAddress(AWSProperty):
 class DataflowEndpoint(AWSProperty):
     props = {
         'Address': (SocketAddress, False),
+        'Mtu': (integer, False),
         'Name': (basestring, False),
     }
 
