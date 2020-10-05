@@ -175,6 +175,7 @@ Currently supported AWS resource types
 - `AWS::CodeCommit`_
 - `AWS::CodeDeploy`_
 - `AWS::CodeGuruProfiler`_
+- `AWS::CodeGuruReviewer`_
 - `AWS::CodePipeline`_
 - `AWS::CodeStar`_
 - `AWS::CodeStarConnections`_
@@ -412,6 +413,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::CodeCommit`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeCommit.html
 .. _`AWS::CodeDeploy`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeDeploy.html
 .. _`AWS::CodeGuruProfiler`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeGuruProfiler.html
+.. _`AWS::CodeGuruReviewer`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeGuruReviewer.html
 .. _`AWS::CodePipeline`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodePipeline.html
 .. _`AWS::CodeStarConnections`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStarConnections.html
 .. _`AWS::CodeStarNotifications`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStarNotifications.html
