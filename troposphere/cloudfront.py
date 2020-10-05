@@ -373,3 +373,28 @@ class OriginRequestPolicy(AWSObject):
     props = {
         'OriginRequestPolicyConfig': (OriginRequestPolicyConfig, True),
     }
+
+
+class KinesisStreamConfig(AWSProperty):
+    props = {
+        'RoleArn': (basestring, True),
+        'StreamArn': (basestring, True),
+    }
+
+
+class EndPoint(AWSProperty):
+    props = {
+        'KinesisStreamConfig': (KinesisStreamConfig, True),
+        'StreamType': (basestring, True),
+    }
+
+
+class RealtimeLogConfig(AWSObject):
+    resource_type = "AWS::CloudFront::RealtimeLogConfig"
+
+    props = {
+        'EndPoints': ([EndPoint], True),
+        'Fields': ([basestring], True),
+        'Name': (basestring, True),
+        'SamplingRate': (float, True),
+    }
