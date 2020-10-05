@@ -253,6 +253,7 @@ Currently supported AWS resource types
 - `AWS::SNS`_
 - `AWS::SQS`_
 - `AWS::SSM`_
+- `AWS::SSO`_
 - `AWS::SageMaker`_
 - `AWS::SecretsManager`_
 - `AWS::SecurityHub`_
@@ -492,6 +493,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::SNS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SNS.html
 .. _`AWS::SQS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SQS.html
 .. _`AWS::SSM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSM.html
+.. _`AWS::SSO`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSO.html
 .. _`AWS::SageMaker`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SageMaker.html
 .. _`AWS::SecretsManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SecretsManager.html
 .. _`AWS::SecurityHub`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SecurityHub.html
