@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (boolean, double)
 
 
@@ -59,6 +59,33 @@ class Cluster(AWSObject):
         'ResourcesVpcConfig': (ResourcesVpcConfig, True),
         'RoleArn': (basestring, True),
         'Version': (basestring, False),
+    }
+
+
+class Label(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class Selector(AWSProperty):
+    props = {
+        'Labels': ([Label], False),
+        'Namespace': (basestring, True),
+    }
+
+
+class FargateProfile(AWSObject):
+    resource_type = "AWS::EKS::FargateProfile"
+
+    props = {
+        'ClusterName': (basestring, True),
+        'FargateProfileName': (basestring, False),
+        'PodExecutionRoleArn': (basestring, True),
+        'Selectors': ([Selector], True),
+        'Subnets': ([basestring], False),
+        'Tags': (Tags, False),
     }
 
 
