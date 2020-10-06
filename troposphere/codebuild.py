@@ -405,6 +405,7 @@ class ReportGroup(AWSObject):
     resource_type = "AWS::CodeBuild::ReportGroup"
 
     props = {
+        'DeleteReports': (boolean, False),
         'ExportConfig': (ReportExportConfig, True),
         'Name': (basestring, False),
         'Tags': (Tags, False),
