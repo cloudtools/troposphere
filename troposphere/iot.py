@@ -3,6 +3,20 @@ from .compat import policytypes
 from .validators import boolean, integer
 
 
+class Authorizer(AWSObject):
+    resource_type = "AWS::IoT::Authorizer"
+
+    props = {
+        'AuthorizerFunctionArn': (basestring, True),
+        'AuthorizerName': (basestring, False),
+        'SigningDisabled': (boolean, False),
+        'Status': (basestring, False),
+        'Tags': (dict, False),
+        'TokenKeyName': (basestring, False),
+        # 'TokenSigningPublicKeys': (TokenSigningPublicKeys, False),
+    }
+
+
 class CloudwatchAlarmAction(AWSProperty):
     props = {
         'AlarmName': (basestring, True),
