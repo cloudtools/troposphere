@@ -604,7 +604,8 @@ def storage_type(storage_type):
 
 
 def canary_runtime_version(runtime_version):
-    valid_runtime_versions = ['syn-nodejs-2.0', 'syn-nodejs-2.0-beta', 'syn-1.0']
+    valid_runtime_versions = [
+        'syn-nodejs-2.0', 'syn-nodejs-2.0-beta', 'syn-1.0']
     if runtime_version not in valid_runtime_versions:
         raise ValueError(
             'RuntimeVersion must be one of: "%s"' % (
