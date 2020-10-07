@@ -133,6 +133,7 @@ class Api(AWSObject):
         'CorsConfiguration': (Cors, False),
         'CredentialsArn': (basestring, False),
         'Description': (basestring, False),
+        'DisableExecuteApiEndpoint': (boolean, False),
         'DisableSchemaValidation': (boolean, False),
         'FailOnWarnings': (boolean, False),
         'Name': (basestring, False),
