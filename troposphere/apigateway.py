@@ -219,6 +219,13 @@ class EndpointConfiguration(AWSProperty):
     }
 
 
+class MutualTlsAuthentication(AWSProperty):
+    props = {
+        'TruststoreUri': (basestring, False),
+        'TruststoreVersion': (basestring, False),
+    }
+
+
 class DomainName(AWSObject):
     resource_type = "AWS::ApiGateway::DomainName"
 
@@ -226,6 +233,7 @@ class DomainName(AWSObject):
         "CertificateArn": (basestring, False),
         "DomainName": (basestring, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
+        'MutualTlsAuthentication': (MutualTlsAuthentication, False),
         "RegionalCertificateArn": (basestring, False),
         "SecurityPolicy": (basestring, False),
         "Tags": (Tags, False),
