@@ -111,7 +111,7 @@ class OpenMonitoring(AWSProperty):
 class Firehose(AWSProperty):
     props = {
         'DeliveryStream': (basestring, True),
-        "Enabled": (boolean, True),
+        'Enabled': (boolean, True),
     }
 
 
