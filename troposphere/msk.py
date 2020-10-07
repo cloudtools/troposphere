@@ -33,7 +33,15 @@ class BrokerNodeGroupInfo(AWSProperty):
         'SecurityGroups': ([basestring], False),
         'StorageInfo': (StorageInfo, False),
     }
+class Scram(AWSProperty):
+    props = {
+        'Enabled': (boolean, True),
+    }
 
+class Sasl(AWSProperty):
+    props = {
+        'Scram': (Scram, True),
+    }
 
 class Tls(AWSProperty):
     props = {
@@ -44,6 +52,7 @@ class Tls(AWSProperty):
 class ClientAuthentication(AWSProperty):
     props = {
         'Tls': (Tls, False),
+        'Sasl': (Sasl, False),
     }
 
 
