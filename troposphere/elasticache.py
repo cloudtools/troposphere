@@ -100,7 +100,7 @@ class SubnetGroup(AWSObject):
 
 class NodeGroupConfiguration(AWSProperty):
     props = {
-        'NodeGroupId': (basestring, False),
+        'NodeGroupId': (validate_node_group_id, False),
         'PrimaryAvailabilityZone': (basestring, False),
         'ReplicaAvailabilityZones': ([basestring], False),
         'ReplicaCount': (integer, False),
@@ -157,13 +157,3 @@ class ReplicationGroup(AWSObject):
                 )
 
         return True
-
-
-class NodeGroupConfiguration(AWSProperty):
-    props = {
-        'NodeGroupId': (validate_node_group_id, False),
-        'PrimaryAvailabilityZone': (basestring, False),
-        'ReplicaAvailabilityZones': ([basestring], False),
-        'ReplicaCount': (integer, False),
-        'Slots': (basestring, False),
-    }
