@@ -200,12 +200,20 @@ class DomainNameConfiguration(AWSProperty):
     }
 
 
+class MutualTlsAuthentication(AWSProperty):
+    props = {
+        'TruststoreUri': (basestring, False),
+        'TruststoreVersion': (basestring, False),
+    }
+
+
 class DomainName(AWSObject):
     resource_type = "AWS::ApiGatewayV2::DomainName"
 
     props = {
         'DomainName': (basestring, True),
         'DomainNameConfigurations': ([DomainNameConfiguration], False),
+        'MutualTlsAuthentication': (MutualTlsAuthentication, False),
         'Tags': (dict, False),
     }
 
