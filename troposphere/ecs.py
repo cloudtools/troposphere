@@ -182,6 +182,7 @@ class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
     props = {
+        'CapacityProviderStrategy': ([CapacityProviderStrategyItem], False),
         'Cluster': (basestring, False),
         'DeploymentConfiguration': (DeploymentConfiguration, False),
         'DeploymentController': (DeploymentController, False),
