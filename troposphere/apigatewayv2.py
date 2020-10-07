@@ -169,9 +169,11 @@ class Authorizer(AWSObject):
     props = {
         'ApiId': (basestring, True),
         'AuthorizerCredentialsArn': (basestring, False),
+        'AuthorizerPayloadFormatVersion': (basestring, False),
         'AuthorizerResultTtlInSeconds': (validate_authorizer_ttl, False),
         'AuthorizerType': (validate_authorizer_type, True),
         'AuthorizerUri': (basestring, False),
+        'EnableSimpleResponses': (boolean, False),
         'IdentitySource': ([basestring], True),
         'IdentityValidationExpression': (basestring, False),
         'JwtConfiguration': (JWTConfiguration, False),
