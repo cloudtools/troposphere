@@ -64,9 +64,37 @@ class Device(AWSProperty):
     }
 
 
+class Tmpfs(AWSProperty):
+    props = {
+        'ContainerPath': (basestring, True),
+        'MountOptions': ([basestring], False),
+        'Size': (integer, True),
+    }
+
+
 class LinuxParameters(AWSProperty):
     props = {
         'Devices': ([Device], False),
+        'InitProcessEnabled': (boolean, False),
+        'MaxSwap': (integer, False),
+        'SharedMemorySize': (integer, False),
+        'Swappiness': (integer, False),
+        'Tmpfs': ([Tmpfs], False),
+    }
+
+
+class Secret(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'ValueFrom': (basestring, True),
+    }
+
+
+class LogConfiguration(AWSProperty):
+    props = {
+        'LogDriver': (basestring, True),
+        'Options': (dict, False),
+        'SecretOptions': ([Secret], False),
     }
 
 
@@ -123,15 +151,18 @@ class ContainerProperties(AWSProperty):
     props = {
         'Command': ([basestring], False),
         'Environment': ([Environment], False),
+        'ExecutionRoleArn': (basestring, False),
         'Image': (basestring, True),
         'InstanceType': (basestring, False),
         'JobRoleArn': (basestring, False),
         'LinuxParameters': (LinuxParameters, False),
+        'LogConfiguration': (LogConfiguration, False),
         'Memory': (positive_integer, True),
         'MountPoints': ([MountPoints], False),
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
         'ResourceRequirements': ([ResourceRequirement], False),
+        'Secrets': ([Secret], False),
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'Vcpus': (positive_integer, True),
