@@ -29,13 +29,6 @@ class Logging(AWSProperty):
     }
 
 
-class ResourcesVpcConfig(AWSProperty):
-    props = {
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetIds': ([basestring], True),
-    }
-
-
 class Provider(AWSProperty):
     props = {
         'KeyArn': (basestring, False),
@@ -49,11 +42,25 @@ class EncryptionConfig(AWSProperty):
     }
 
 
+class KubernetesNetworkConfig(AWSProperty):
+    props = {
+        'ServiceIpv4Cidr': (basestring, False),
+    }
+
+
+class ResourcesVpcConfig(AWSProperty):
+    props = {
+        'SecurityGroupIds': ([basestring], False),
+        'SubnetIds': ([basestring], True),
+    }
+
+
 class Cluster(AWSObject):
     resource_type = "AWS::EKS::Cluster"
 
     props = {
         'EncryptionConfig': ([EncryptionConfig], False),
+        'KubernetesNetworkConfig': (KubernetesNetworkConfig, False),
         'Name': (basestring, False),
         'Logging': (Logging, False),
         'ResourcesVpcConfig': (ResourcesVpcConfig, True),
