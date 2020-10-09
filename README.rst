@@ -172,6 +172,7 @@ Currently supported AWS resource types
 - `AWS::CloudFront`_
 - `AWS::CloudTrail`_
 - `AWS::CloudWatch`_
+- `AWS::CodeArtifact`_
 - `AWS::CodeBuild`_
 - `AWS::CodeCommit`_
 - `AWS::CodeDeploy`_
@@ -414,6 +415,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::CloudFront`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CloudFront.html
 .. _`AWS::CloudTrail`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CloudTrail.html
 .. _`AWS::CloudWatch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CloudWatch.html
+.. _`AWS::CodeArtifact`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeArtifact.html
 .. _`AWS::CodeBuild`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeBuild.html
 .. _`AWS::CodeCommit`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeCommit.html
 .. _`AWS::CodeDeploy`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeDeploy.html
