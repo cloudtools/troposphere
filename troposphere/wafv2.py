@@ -167,15 +167,32 @@ class ByteMatchStatement(AWSProperty):
     }
 
 
+class ForwardedIPConfiguration(AWSProperty):
+    props = {
+        'FallbackBehavior': (basestring, True),
+        'HeaderName': (basestring, True),
+    }
+
+
 class GeoMatchStatement(AWSProperty):
     props = {
-        'CountryCodes': ([basestring], False)
+        'CountryCodes': ([basestring], False),
+        'ForwardedIPConfig': (ForwardedIPConfiguration, False),
+    }
+
+
+class IPSetForwardedIPConfiguration(AWSProperty):
+    props = {
+        'FallbackBehavior': (basestring, True),
+        'HeaderName': (basestring, True),
+        'Position': (basestring, True),
     }
 
 
 class IPSetReferenceStatement(AWSProperty):
     props = {
-        'Arn': (basestring, False)
+        'Arn': (basestring, False),
+        'IPSetForwardedIPConfig': (IPSetForwardedIPConfiguration, False),
     }
 
 
@@ -224,6 +241,7 @@ class OrStatementTwo(AWSProperty):
 class RateBasedStatementTwo(AWSProperty):
     props = {
         'AggregateKeyType': (basestring, False),
+        'ForwardedIPConfig': (ForwardedIPConfiguration, False),
         'Limit': (integer, False),
         'ScopeDownStatement': StatementThree
     }
@@ -270,6 +288,7 @@ class OrStatementOne(AWSProperty):
 class RateBasedStatementOne(AWSProperty):
     props = {
         'AggregateKeyType': (basestring, False),
+        'ForwardedIPConfig': (ForwardedIPConfiguration, False),
         'Limit': (integer, False),
         'ScopeDownStatement': (StatementTwo, False)
     }
