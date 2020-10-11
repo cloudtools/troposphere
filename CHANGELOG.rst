@@ -1,3 +1,92 @@
+2.6.3 (2020*10*11)
+------------------
+* SageMaker: Mark tags props as optional, per AWS documentation.
+* Add c5a, c6g, and r6g to instance types in constants
+* Make flake8 happy again
+* AWS::ServiceCatalog::LaunchRoleConstraint.RoleArn not required (#1765)
+* AWS::DocDB::DBCluster.DeletionProtection (#1748)
+* AWS::KinesisFirehose::DeliveryStream BufferingHints and CompressionFormat not required in S3DestinationConfigurations (#1766)
+* AWS::KinesisFirehose::DeliveryStream.ElasticsearchDestinationConfiguration.TypeName not required (#1767)
+* AWS::StepFunctions::StateMachine DefinitionString and S3Location.Version not required (#1768)
+* Add AWS::EC2::SecurityGroup.Ingress.SourcePrefixListId to SecurityGroupRule (#1762)
+* AWS::Elasticsearch::Domain.AdvancedSecurityOptions (#1775)
+* AWS::Glue::Connection.ConnectionInput.ConnectionType AllowedValues expansion (#1777)
+* Add additional properties to KinesisEvent
+* Change OnFailure and OnSuccess as not required per CloudFormation reference
+* Add AWS::Serverless::Api's Domain
+* Support for OpenApiVersion in serverless.Api
+* add efs backupPolicy
+* Fix some flake8 errors
+* Add ECS Fargate EFS mounting capability
+* Add new instance types to constants
+* Added SSM Parameter examples (#1770)
+* Update SecretsManager per 2020-07-23 update and alphabetize cleanups
+* Update SageMaker::EndpointConfig per 2020-07-23 update
+* Update CodeStarConnections::Connection per 2020-07-23 update
+* Update CloudFront::Distribution per 2020-07-23 update
+* Add ECR ImageScanningConfiguration and ImageTagMutability (Fixes #1544)
+* AWS::EKS::Nodegroup.LaunchTemplate (#1780)
+* AWS::SecretsManager::RotationSchedule.RotationLambdaARN not required (#1783)
+* Fix capitalization in AwsVpcConfiguration (#1788)
+* AWS::StepFunctions::StateMachine.TracingConfiguration (#1795)
+* AppMesh Gateway support (#1758)
+* fixing tags data type (#1785)
+* Added Types to EndpointConfiguration (#1793)
+* update TargetGroup.TargetType to support Ref values (#1794)
+* Run tests against Python 3.9 (#1790)
+* Cloudfront cache and origin policy (#1796)
+* Fix typo AWSOject => AWSObject
+* Remove list for Tags attribute
+* Remove trailing blank line from serverless.py
+* Update CodeGuruProfiler per 2020-07-30
+* Add Mtu to GroundStation::DataflowEndpoint per 2020-07-30 changes
+* Update EC2::FlowLog per 2020-07-30 changes
+* Add AutoImportPolicy to FSx::LustreConfiguration per 2020-08-06
+* Add BuildBatchConfig to CodeBuild::Project per 2020-08-06 changes
+* Revert "Fix capitalization in AwsVpcConfiguration (#1788)" (#1798)
+* Add EC2::CarrierGateway per 2020-08-13 changes
+* Add new ApplicationInsights::Application per 2020-08-13 changes
+* Tweaks to the gen.py script
+* Add SageMaker::MonitoringSchedule from 2020-08-13 changes
+* Add SecurityPolicy to Transfer::Server from 2020-08-13 changes
+* Add Topics to Lambda::EventSourceMapping from 2020-08-13 changes
+* Add DriveCacheType to FSx LustreConfiguration from 2020-08-13 changes
+* Add EnvironmentFiles to ECS::TaskDefinition from 2020-08-13 changes
+* Update Route53Resolver per 2020-08-27 changes
+* Update GameLift resources per 2020-08-27
+* Update ServiceCatalog per 2020-08-27 changes
+* Update CodeCommit per 2020-08-31 changes
+* Add EKS::FargateProfile per 2020-09-03 changes
+* Add AWS::CodeGuruReviewer per 2020-09-03 changes
+* Add CloudFront::RealtimeLogConfig per 2020-09-03 changes
+* Add AWS::Kendra per 2020-09-10 changes
+* Add AWS::SSO per 2020-09-10 changes
+* Add IoT::Authorizer per 2020-09-10 changes
+* Add DeleteReports to CodeBuild::ReportGroup per 2020-09-10 changes
+* AWS::Synthetics::Canary.RuntimeVersion AllowedValues expansion (#1801)
+* Update ApiGatewayV2::Authorizer per 2020-09-10 changes
+* Add CloudFormation::StackSet per 2020-09-17 changes
+* Add AWS::AppFlow per 2020-09-17 changes
+* Add DisableExecuteApiEndpoint to ApiGatewayV2::Api per 2020-09-17 changes
+* Add MutualTlsAuthentication to ApiGateway::DomainName per 2020-09-17 changes
+* Add MutualTlsAuthentication to ApiGatewayV2::DomainName per 2020-09-17 changes
+* AWS::MSK::Cluster.ClientAuthentication.Sasl (#1802)
+* Add WorkSpaces::ConnectionAlias per 2020-10-01 changes
+* Fix formatting in MSK
+* Update AWS::Batch per 2020-10-01 changes
+* Add CapacityProviderStrategy to ECS::Service per 2020-10-01 changes
+* Remove duplicate elasticache NodeGroupConfiguration property (Fixes #1803)
+* Add AWS::Timestream per 2020-10-08 changes
+* Add AWS::CodeArtifact per 2020-10-08 changes
+* Update Backup per 2020-10-08 changes
+* Update AmazonMQ per 2020-10-08 changes
+* Update EKS per 2020-10-08 changes
+* AWS::AutoScaling::AutoScalingGroup.NewInstancesProtectedFromScaleIn (#1804)
+* Improve grammar on install steps (#1800)
+* Update DLM to support cross region copy (Fixes #1799)
+* Update WAFv2 per 2020-0723 changes (Fixes #1797)
+* Update ECR::Repository.ImageScanningConfiguration to output the correct json (Fixes #1791)
+
 2.6.2 (2020*07*12)
 ------------------
 * Add Description property to EC2::TransitGateway (#1674)
