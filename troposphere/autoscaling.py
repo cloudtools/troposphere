@@ -148,6 +148,7 @@ class AutoScalingGroup(AWSObject):
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
+        'NewInstancesProtectedFromScaleIn': (boolean, False),
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
         'ServiceLinkedRoleARN': (basestring, False),
