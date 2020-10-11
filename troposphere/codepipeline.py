@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 
@@ -85,13 +85,22 @@ class ArtifactStore(AWSProperty):
     }
 
 
+class ArtifactStoreMap(AWSProperty):
+    props = {
+        'ArtifactStore': (ArtifactStore, True),
+        'Region': (basestring, True)
+    }
+
+
 class Actions(AWSProperty):
     props = {
         'ActionTypeId': (ActionTypeId, True),
         'Configuration': (dict, False),
         'InputArtifacts': ([InputArtifacts], False),
         'Name': (basestring, True),
+        'Namespace': (basestring, False),
         'OutputArtifacts': ([OutputArtifacts], False),
+        'Region': (basestring, False),
         'RoleArn': (basestring, False),
         'RunOrder': (integer, False)
     }
@@ -115,7 +124,8 @@ class CustomActionType(AWSObject):
         'OutputArtifactDetails': (ArtifactDetails, True),
         'Provider': (basestring, True),
         'Settings': (Settings, False),
-        'Version': (basestring, False)
+        'Tags': (Tags, False),
+        'Version': (basestring, False),
     }
 
 
@@ -123,11 +133,42 @@ class Pipeline(AWSObject):
     resource_type = "AWS::CodePipeline::Pipeline"
 
     props = {
-        'ArtifactStore': (ArtifactStore, True),
+        'ArtifactStore': (ArtifactStore, False),
+        'ArtifactStores': ([ArtifactStoreMap], False),
         'DisableInboundStageTransitions':
             ([DisableInboundStageTransitions], False),
         'Name': (basestring, False),
         'RestartExecutionOnUpdate': (boolean, False),
         'RoleArn': (basestring, True),
-        'Stages': ([Stages], True)
+        'Stages': ([Stages], True),
+        'Tags': (Tags, False),
+    }
+
+
+class WebhookAuthConfiguration(AWSProperty):
+    props = {
+        'AllowedIPRange': (basestring, False),
+        'SecretToken': (basestring, False),
+    }
+
+
+class WebhookFilterRule(AWSProperty):
+    props = {
+        'JsonPath': (basestring, True),
+        'MatchEquals': (basestring, False),
+    }
+
+
+class Webhook(AWSObject):
+    resource_type = "AWS::CodePipeline::Webhook"
+
+    props = {
+        'Authentication': (basestring, True),
+        'AuthenticationConfiguration': (WebhookAuthConfiguration, True),
+        'Filters': ([WebhookFilterRule], True),
+        'Name': (basestring, False),
+        'RegisterWithThirdParty': (boolean, False),
+        'TargetAction': (basestring, True),
+        'TargetPipeline': (basestring, True),
+        'TargetPipelineVersion': (integer, True),
     }

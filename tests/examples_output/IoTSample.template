@@ -51,9 +51,15 @@
                             "Lambda": {
                                 "FunctionArn": "arn"
                             }
+                        },
+                        {
+                            "IotAnalytics": {
+                                "ChannelName": "mychannel",
+                                "RoleArn": "arn"
+                            }
                         }
                     ],
-                    "RuleDisabled": "true",
+                    "RuleDisabled": true,
                     "Sql": "SELECT temp FROM SomeTopic WHERE temp > 60"
                 }
             },

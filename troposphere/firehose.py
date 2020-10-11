@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import boolean, positive_integer
+from .validators import boolean, integer, positive_integer
 
 
 def processor_type_validator(x):
@@ -88,7 +88,7 @@ class S3Configuration(AWSProperty):
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
         'CompressionFormat': (basestring, True),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'Prefix': (basestring, True),
+        'Prefix': (basestring, False),
         'RoleARN': (basestring, True)
     }
 
@@ -122,10 +122,19 @@ class ProcessingConfiguration(AWSProperty):
     }
 
 
+class VpcConfiguration(AWSProperty):
+    props = {
+        'RoleARN': (basestring, True),
+        'SecurityGroupIds': ([basestring], True),
+        'SubnetIds': ([basestring], True),
+    }
+
+
 class ElasticsearchDestinationConfiguration(AWSProperty):
     props = {
         'BufferingHints': (BufferingHints, True),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'ClusterEndpoint': (basestring, False),
         'DomainARN': (basestring, True),
         'IndexName': (basestring, True),
         'IndexRotationPeriod': (index_rotation_period_validator, True),
@@ -134,7 +143,8 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
         'RoleARN': (basestring, True),
         'S3BackupMode': (s3_backup_mode_elastic_search_validator, True),
         'S3Configuration': (S3Configuration, False),
-        'TypeName': (basestring, True),
+        'TypeName': (basestring, False),
+        'VpcConfiguration': (VpcConfiguration, False),
     }
 
 
@@ -154,23 +164,113 @@ class RedshiftDestinationConfiguration(AWSProperty):
 class S3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'Prefix': (basestring, True),
+        'ErrorOutputPrefix': (basestring, False),
+        'Prefix': (basestring, False),
         'RoleARN': (basestring, True),
+    }
+
+
+class HiveJsonSerDe(AWSProperty):
+    props = {
+        'TimestampFormats': ([basestring], False),
+    }
+
+
+class OpenXJsonSerDe(AWSProperty):
+    props = {
+        'CaseInsensitive': (boolean, False),
+        'ColumnToJsonKeyMappings': (dict, False),
+        'ConvertDotsInJsonKeysToUnderscores': (boolean, False),
+    }
+
+
+class Deserializer(AWSProperty):
+    props = {
+        'HiveJsonSerDe': (HiveJsonSerDe, False),
+        'OpenXJsonSerDe': (OpenXJsonSerDe, False),
+    }
+
+
+class InputFormatConfiguration(AWSProperty):
+    props = {
+        'Deserializer': (Deserializer, True),
+    }
+
+
+class OrcSerDe(AWSProperty):
+    props = {
+        'BlockSizeBytes': (integer, False),
+        'BloomFilterColumns': ([basestring], False),
+        'BloomFilterFalsePositiveProbability': (float, False),
+        'Compression': (basestring, False),
+        'DictionaryKeyThreshold': (float, False),
+        'EnablePadding': (boolean, False),
+        'FormatVersion': (basestring, False),
+        'PaddingTolerance': (float, False),
+        'RowIndexStride': (integer, False),
+        'StripeSizeBytes': (integer, False),
+    }
+
+
+class ParquetSerDe(AWSProperty):
+    props = {
+        'BlockSizeBytes': (integer, False),
+        'Compression': (basestring, False),
+        'EnableDictionaryCompression': (boolean, False),
+        'MaxPaddingBytes': (integer, False),
+        'PageSizeBytes': (integer, False),
+        'WriterVersion': (basestring, False),
+    }
+
+
+class Serializer(AWSProperty):
+    props = {
+        'OrcSerDe': (OrcSerDe, False),
+        'ParquetSerDe': (ParquetSerDe, False),
+    }
+
+
+class OutputFormatConfiguration(AWSProperty):
+    props = {
+        'Serializer': (Serializer, True),
+    }
+
+
+class SchemaConfiguration(AWSProperty):
+    props = {
+        'CatalogId': (basestring, True),
+        'DatabaseName': (basestring, True),
+        'Region': (basestring, True),
+        'RoleARN': (basestring, True),
+        'TableName': (basestring, True),
+        'VersionId': (basestring, True),
+    }
+
+
+class DataFormatConversionConfiguration(AWSProperty):
+    props = {
+        'Enabled': (boolean, True),
+        'InputFormatConfiguration': (InputFormatConfiguration, True),
+        'OutputFormatConfiguration': (OutputFormatConfiguration, True),
+        'SchemaConfiguration': (SchemaConfiguration, True),
     }
 
 
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
+        'DataFormatConversionConfiguration':
+            (DataFormatConversionConfiguration, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'Prefix': (basestring, True),
+        'ErrorOutputPrefix': (basestring, False),
+        'Prefix': (basestring, False),
         'ProcessingConfiguration': (ProcessingConfiguration, False),
         'RoleARN': (basestring, True),
         'S3BackupConfiguration': (S3DestinationConfiguration, False),

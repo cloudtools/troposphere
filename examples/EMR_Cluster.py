@@ -15,14 +15,14 @@ kms_key = 'arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234'
 
 security_configuration = {
     'EncryptionConfiguration': {
-        'EnableInTransitEncryption': 'true',
+        'EnableInTransitEncryption': True,
         'InTransitEncryptionConfiguration': {
             'TLSCertificateConfiguration': {
                 'CertificateProviderType': 'PEM',
                 'S3Object': 's3://MyConfigStore/artifacts/MyCerts.zip'
             }
         },
-        'EnableAtRestEncryption': 'true',
+        'EnableAtRestEncryption': True,
         'AtRestEncryptionConfiguration': {
             'S3EncryptionConfiguration': {
                 'EncryptionMode': 'SSE-KMS',
@@ -72,7 +72,7 @@ def generate_rules(rules_name):
 
 
 template = Template()
-template.add_description(
+template.set_description(
     "Sample CloudFormation template for creating an EMR cluster"
 )
 

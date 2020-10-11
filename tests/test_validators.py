@@ -6,18 +6,21 @@ from troposphere.validators import tg_healthcheck_port
 from troposphere.validators import s3_bucket_name, encoding, status
 from troposphere.validators import iam_path, iam_names, iam_role_name
 from troposphere.validators import iam_group_name, iam_user_name, elb_name
+from troposphere.validators import backup_vault_name, check_required
 from troposphere.validators import mutually_exclusive, notification_type
 from troposphere.validators import notification_event, task_type
 from troposphere.validators import compliance_level, operating_system
+from troposphere.validators import one_of
+from troposphere.validators import waf_action_type
 
 
 class TestValidators(unittest.TestCase):
 
     def test_boolean(self):
         for x in [True, "True", "true", 1, "1"]:
-            self.assertEqual(boolean(x), "true", repr(x))
+            self.assertEqual(boolean(x), True, repr(x))
         for x in [False, "False", "false", 0, "0"]:
-            self.assertEqual(boolean(x), "false", repr(x))
+            self.assertEqual(boolean(x), False, repr(x))
         for x in ["000", "111", "abc"]:
             with self.assertRaises(ValueError):
                 boolean(x)
@@ -148,6 +151,40 @@ class TestValidators(unittest.TestCase):
             with self.assertRaises(ValueError):
                 iam_user_name(s)
 
+    def test_backup_vault_name(self):
+        for s in ['a', 'a'*50, 'A', 'Aa', 'A1', 'A-a', 'A_a', 'A.a']:
+            backup_vault_name(s)
+        for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
+            with self.assertRaises(ValueError):
+                backup_vault_name(s)
+
+    def test_check_required(self):
+        class_name = "test_class"
+        props = {
+            'foo': 1,
+            'bar': 2,
+        }
+        conditionals = {
+            'foo',
+            'bar',
+        }
+        check_required(class_name, props, conditionals)
+        conditionals = {
+            'foo',
+            'bar',
+            'baz',
+        }
+        with self.assertRaises(ValueError):
+            check_required(class_name, props, conditionals)
+
+    def test_one_of(self):
+        conds = ['Bilbo', 'Frodo']
+        one_of('hobbits', {"first": "Bilbo"}, "first", conds)
+        one_of('hobbits', {"first": "Frodo"}, "first", conds)
+        with self.assertRaises(ValueError):
+            one_of('hobbits', {"first": "Gandalf"}, "first", conds)
+            one_of('hobbits', {"first": "Gandalf"}, "second", conds)
+
     def test_mutually_exclusive(self):
         conds = ['a', 'b', 'c']
         mutually_exclusive('a', {"a": "apple"}, conds)
@@ -179,12 +216,12 @@ class TestValidators(unittest.TestCase):
                 compliance_level(s)
 
     def test_notification_event(self):
-        for l in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
-                  'Failed'], ['InProgress', 'TimedOut']]:
-            notification_event(l)
-        for l in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
+        for item in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
+                      'Failed'], ['InProgress', 'TimedOut']]:
+            notification_event(item)
+        for item in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
             with self.assertRaises(ValueError):
-                notification_event(l)
+                notification_event(item)
 
     def test_notification_type(self):
         for s in ['Command', 'Invocation']:
@@ -207,6 +244,13 @@ class TestValidators(unittest.TestCase):
         for s in ['', 'foo', 'a', 'l@mbda', 'STEPFUNCTION']:
             with self.assertRaises(ValueError):
                 task_type(s)
+
+    def test_waf_action_type(self):
+        for s in ['ALLOW', 'BLOCK', 'COUNT']:
+            waf_action_type(s)
+        for s in ['', 'deny', 'UNBLOCK', 'COUNTER']:
+            with self.assertRaises(ValueError):
+                waf_action_type(s)
 
 
 if __name__ == '__main__':

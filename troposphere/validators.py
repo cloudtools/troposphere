@@ -4,15 +4,24 @@
 # See LICENSE file for full license.
 
 import json
+import os
 from re import compile
 
 
-def boolean(x):
-    if x in [True, 1, '1', 'true', 'True']:
-        return "true"
-    if x in [False, 0, '0', 'false', 'False']:
-        return "false"
-    raise ValueError
+if os.getenv("TROPO_REAL_BOOL") in ['1', 'true', 'True']:
+    def boolean(x):
+        if x in [True, 1, '1', 'true', 'True']:
+            return True
+        if x in [False, 0, '0', 'false', 'False']:
+            return False
+        raise ValueError
+else:
+    def boolean(x):
+        if x in [True, 1, '1', 'true', 'True']:
+            return "true"
+        if x in [False, 0, '0', 'false', 'False']:
+            return "false"
+        raise ValueError
 
 
 def integer(x):
@@ -44,7 +53,7 @@ def integer_range(minimum_val, maximum_val):
 
 def integer_list_item(allowed_values):
     def integer_list_item_checker(x):
-        i = positive_integer(x)
+        i = int(x)
         if i in allowed_values:
             return x
         raise ValueError('Integer must be one of following: %s' %
@@ -53,11 +62,11 @@ def integer_list_item(allowed_values):
     return integer_list_item_checker
 
 
-def floatingpoint(x):
+def double(x):
     try:
         float(x)
     except (ValueError, TypeError):
-        raise ValueError("%r is not a valid float" % x)
+        raise ValueError("%r is not a valid double" % x)
     else:
         return x
 
@@ -194,6 +203,18 @@ def iam_group_name(group_name):
     return group_name
 
 
+def one_of(class_name, properties, property, conditionals):
+    if properties.get(property) not in conditionals:
+        raise ValueError(
+            # Ensure we handle None as a valid value
+            '%s.%s must be one of: "%s"' % (
+                class_name, property, ', '.join(
+                    condition for condition in conditionals if condition
+                )
+            )
+        )
+
+
 def mutually_exclusive(class_name, properties, conditionals):
     from . import NoValue
 
@@ -206,7 +227,7 @@ def mutually_exclusive(class_name, properties, conditionals):
     if specified_count > 1:
         raise ValueError(('%s: only one of the following'
                           ' can be specified: %s') % (
-                          class_name, ', '.join(conditionals)))
+            class_name, ', '.join(conditionals)))
     return specified_count
 
 
@@ -215,17 +236,17 @@ def exactly_one(class_name, properties, conditionals):
     if specified_count != 1:
         raise ValueError(('%s: one of the following'
                           ' must be specified: %s') % (
-                          class_name, ', '.join(conditionals)))
+            class_name, ', '.join(conditionals)))
     return specified_count
 
 
 def check_required(class_name, properties, conditionals):
     for c in conditionals:
         if c not in properties:
-            raise ValueError("Resource %s required in %s" % c, class_name)
+            raise ValueError("Resource %s required in %s" % (c, class_name))
 
 
-def json_checker(name, prop):
+def json_checker(prop):
     from . import AWSHelperFn
 
     if isinstance(prop, basestring):
@@ -238,7 +259,7 @@ def json_checker(name, prop):
     elif isinstance(prop, AWSHelperFn):
         return prop
     else:
-        raise ValueError("%s must be a str or dict" % name)
+        raise ValueError("json object must be a str or dict")
 
 
 def notification_type(notification):
@@ -289,8 +310,8 @@ def compliance_level(level):
 
 
 def operating_system(os):
-    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU', 'REDHAT_ENTERPRISE_LINUX',
-                'SUSE', 'CENTOS']
+    valid_os = ['WINDOWS', 'AMAZON_LINUX', 'AMAZON_LINUX_2', 'UBUNTU',
+                'REDHAT_ENTERPRISE_LINUX', 'SUSE', 'CENTOS']
     if os not in valid_os:
         raise ValueError(
             'OperatingSystem must be one of: "%s"' % (
@@ -350,3 +371,389 @@ def vpc_endpoint_type(endpoint_type):
             )
         )
     return(endpoint_type)
+
+
+def scalable_dimension_type(scalable_dimension):
+    valid_values = ['autoscaling:autoScalingGroup:DesiredCapacity',
+                    'ecs:service:DesiredCount',
+                    'ec2:spot-fleet-request:TargetCapacity',
+                    'rds:cluster:ReadReplicaCount',
+                    'dynamodb:table:ReadCapacityUnits',
+                    'dynamodb:table:WriteCapacityUnits',
+                    'dynamodb:index:ReadCapacityUnits',
+                    'dynamodb:index:WriteCapacityUnits'
+                    ]
+    if scalable_dimension not in valid_values:
+        raise ValueError(
+            'ScalableDimension must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(scalable_dimension)
+
+
+def service_namespace_type(service_namespace):
+    valid_values = ['autoscaling', 'ecs', 'ec2', 'rds', 'dynamodb']
+    if service_namespace not in valid_values:
+        raise ValueError(
+            'ServiceNamespace must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(service_namespace)
+
+
+def statistic_type(statistic):
+    valid_values = ['Average', 'Minimum', 'Maximum',
+                    'SampleCount', 'Sum'
+                    ]
+    if statistic not in valid_values:
+        raise ValueError(
+            'Statistic must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(statistic)
+
+
+def key_usage_type(key):
+    valid_values = ['ENCRYPT_DECRYPT']
+    if key not in valid_values:
+        raise ValueError(
+            'KeyUsage must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(key)
+
+
+def cloudfront_event_type(event_type):
+    valid_values = ['viewer-request', 'viewer-response',
+                    'origin-request', 'origin-response']
+    if event_type not in valid_values:
+        raise ValueError(
+            'EventType must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(event_type)
+
+
+def cloudfront_viewer_protocol_policy(viewer_protocol_policy):
+    valid_values = ['allow-all', 'redirect-to-https', 'https-only']
+    if viewer_protocol_policy not in valid_values:
+        raise ValueError(
+            'ViewerProtocolPolicy must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(viewer_protocol_policy)
+
+
+def cloudfront_restriction_type(restriction_type):
+    valid_values = ['none', 'blacklist', 'whitelist']
+    if restriction_type not in valid_values:
+        raise ValueError(
+            'RestrictionType must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(restriction_type)
+
+
+def cloudfront_forward_type(forward):
+    valid_values = ['none', 'all', 'whitelist']
+    if forward not in valid_values:
+        raise ValueError(
+            'Forward must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(forward)
+
+
+def cloudfront_cache_cookie_behavior(cookie_behavior):
+    valid_values = ['none', 'whitelist', 'allExcept', 'all']
+    if cookie_behavior not in valid_values:
+        raise ValueError(
+            'CookieBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(cookie_behavior)
+
+
+def cloudfront_cache_header_behavior(header_behavior):
+    valid_values = ['none', 'whitelist']
+    if header_behavior not in valid_values:
+        raise ValueError(
+            'HeaderBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(header_behavior)
+
+
+def cloudfront_cache_query_string_behavior(query_string_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if query_string_behavior not in valid_values:
+        raise ValueError(
+            'QueryStringBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(query_string_behavior)
+
+
+def cloudfront_origin_request_cookie_behavior(cookie_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if cookie_behavior not in valid_values:
+        raise ValueError(
+            'CookieBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(cookie_behavior)
+
+
+def cloudfront_origin_request_header_behavior(header_behavior):
+    valid_values = [
+        'none', 'whitelist', 'allViewer', 'allViewerAndWhitelistCloudFront']
+    if header_behavior not in valid_values:
+        raise ValueError(
+            'HeaderBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(header_behavior)
+
+
+def cloudfront_origin_request_query_string_behavior(query_string_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if query_string_behavior not in valid_values:
+        raise ValueError(
+            'QueryStringBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(query_string_behavior)
+
+
+def priceclass_type(price_class):
+    valid_values = ['PriceClass_100', 'PriceClass_200',
+                    'PriceClass_All']
+    if price_class not in valid_values:
+        raise ValueError(
+            'PriceClass must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(price_class)
+
+
+def ecs_proxy_type(proxy_type):
+    valid_types = ['APPMESH']
+    if proxy_type not in valid_types:
+        raise ValueError(
+            'Type must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return(proxy_type)
+
+
+def backup_vault_name(name):
+    vault_name_re = compile(r'^[a-zA-Z0-9\-\_\.]{1,50}$')  # noqa
+    if vault_name_re.match(name):
+        return name
+    else:
+        raise ValueError("%s is not a valid backup vault name" % name)
+
+
+def waf_action_type(action):
+    valid_actions = ['ALLOW', 'BLOCK', 'COUNT']
+    if action not in valid_actions:
+        raise ValueError(
+            'Type must be one of: "%s"' % (
+                ', '.join(valid_actions)
+            )
+        )
+    return action
+
+
+def resourcequery_type(type):
+    valid_types = ['TAG_FILTERS_1_0', 'CLOUDFORMATION_STACK_1_0']
+    if type not in valid_types:
+        raise ValueError(
+            'Type must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return type
+
+
+def storage_type(storage_type):
+    valid_storage_types = ['SSD', 'HDD']
+    if storage_type not in valid_storage_types:
+        raise ValueError(
+            'StorageType must be one of: "%s"' % (
+                ', '.join(valid_storage_types)
+            )
+        )
+    return storage_type
+
+
+def canary_runtime_version(runtime_version):
+    valid_runtime_versions = [
+        'syn-nodejs-2.0', 'syn-nodejs-2.0-beta', 'syn-1.0']
+    if runtime_version not in valid_runtime_versions:
+        raise ValueError(
+            'RuntimeVersion must be one of: "%s"' % (
+                ', '.join(valid_runtime_versions)
+            )
+        )
+    return(runtime_version)
+
+
+def component_platforms(component_platform):
+    valid_component_platforms = ['Linux', 'Windows']
+    if component_platform not in valid_component_platforms:
+        raise ValueError(
+            'Platform must be one of: "%s"' % (
+                ', '.join(valid_component_platforms)
+            )
+        )
+    return component_platform
+
+
+def imagepipeline_status(status):
+    valid_status = ['DISABLED', 'ENABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'Status must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return status
+
+
+def schedule_pipelineexecutionstartcondition(startcondition):
+    valid_startcondition = [
+        'EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE',
+        'EXPRESSION_MATCH_ONLY']
+    if startcondition not in valid_startcondition:
+        raise ValueError(
+            'PipelineExecutionStartCondition must be one of: "%s"' % (
+                ', '.join(valid_startcondition)
+            )
+        )
+    return startcondition
+
+
+def ebsinstanceblockdevicespecification_volume_type(type):
+    valid_types = ['gp2', 'io1', 'sc1', 'st1', 'standard']
+    if type not in valid_types:
+        raise ValueError(
+            'VolumeType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return type
+
+
+def containerlevelmetrics_status(status):
+    valid_status = ['DISABLED', 'ENABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'ContainerLevelMetrics must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return status
+
+
+def accelerator_ipaddresstype(type):
+    valid_types = ['IPV4']
+    if type not in valid_types:
+        raise ValueError(
+            'IpAddressType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return type
+
+
+def listener_clientaffinity(affinity):
+    valid_affinities = ['NONE', 'SOURCE_IP']
+    if affinity not in valid_affinities:
+        raise ValueError(
+            'ClientAffinity must be one of: "%s"' % (
+                ', '.join(valid_affinities)
+            )
+        )
+    return affinity
+
+
+def listener_protocol(protocol):
+    valid_protocols = ['TCP', 'UDP']
+    if protocol not in valid_protocols:
+        raise ValueError(
+            'Protocol must be one of: "%s"' % (
+                ', '.join(valid_protocols)
+            )
+        )
+    return protocol
+
+
+def endpointgroup_healthcheckprotocol(protocol):
+    valid_protocols = ['HTTP', 'HTTPS', 'TCP']
+    if protocol not in valid_protocols:
+        raise ValueError(
+            'HealthCheckProtocol must be one of: "%s"' % (
+                ', '.join(valid_protocols)
+            )
+        )
+    return protocol
+
+
+def session_findingpublishingfrequency(frequency):
+    valid_frequencies = ['FIFTEEN_MINUTES',
+                         'ONE_HOUR', 'SIX_HOURS']
+    if frequency not in valid_frequencies:
+        raise ValueError(
+            'FindingPublishingFrequency must be one of: "%s"' % (
+                ', '.join(valid_frequencies)
+            )
+        )
+    return frequency
+
+
+def session_status(status):
+    valid_status = ['ENABLED', 'DISABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'Status must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return status
+
+
+def findingsfilter_action(action):
+    valid_actions = ['ARCHIVE', 'NOOP']
+    if action not in valid_actions:
+        raise ValueError(
+            'Action must be one of: "%s"' % (
+                ', '.join(valid_actions)
+            )
+        )
+    return action
+
+
+def ecs_efs_encryption_status(status):
+    valid_status = ['ENABLED', 'DISABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'ECS EFS Encryption in transit can only be one of' % (
+                ', '.join(valid_status))
+        )

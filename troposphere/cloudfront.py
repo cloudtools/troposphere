@@ -4,12 +4,22 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer, positive_integer, network_port
+from .validators import (boolean, cloudfront_restriction_type,
+                         cloudfront_event_type,
+                         cloudfront_forward_type,
+                         cloudfront_cache_cookie_behavior,
+                         cloudfront_cache_header_behavior,
+                         cloudfront_cache_query_string_behavior,
+                         cloudfront_origin_request_cookie_behavior,
+                         cloudfront_origin_request_header_behavior,
+                         cloudfront_origin_request_query_string_behavior,
+                         cloudfront_viewer_protocol_policy, integer,
+                         positive_integer, priceclass_type, network_port)
 
 
 class Cookies(AWSProperty):
     props = {
-        'Forward': (basestring, True),
+        'Forward': (cloudfront_forward_type, True),
         'WhitelistedNames': ([basestring], False),
     }
 
@@ -25,7 +35,7 @@ class ForwardedValues(AWSProperty):
 
 class LambdaFunctionAssociation(AWSProperty):
     props = {
-        'EventType': (basestring, False),
+        'EventType': (cloudfront_event_type, False),
         'LambdaFunctionARN': (basestring, False),
     }
 
@@ -33,52 +43,61 @@ class LambdaFunctionAssociation(AWSProperty):
 class CacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
+        'CachePolicyId': (basestring, False),
         'CachedMethods': ([basestring], False),
         'Compress': (boolean, False),
         'DefaultTTL': (integer, False),
-        'ForwardedValues': (ForwardedValues, True),
+        'FieldLevelEncryptionId': (basestring, False),
+        'ForwardedValues': (ForwardedValues, False),
         'LambdaFunctionAssociations': ([LambdaFunctionAssociation], False),
         'MaxTTL': (integer, False),
         'MinTTL': (integer, False),
+        'OriginRequestPolicyId': (basestring, False),
         'PathPattern': (basestring, True),
+        'RealtimeLogConfigArn': (basestring, False),
         'SmoothStreaming': (boolean, False),
         'TargetOriginId': (basestring, True),
         'TrustedSigners': ([basestring], False),
-        'ViewerProtocolPolicy': (basestring, True),
+        'ViewerProtocolPolicy': (cloudfront_viewer_protocol_policy, True),
     }
 
 
 class DefaultCacheBehavior(AWSProperty):
     props = {
         'AllowedMethods': ([basestring], False),
+        'CachePolicyId': (basestring, False),
         'CachedMethods': ([basestring], False),
         'Compress': (boolean, False),
         'DefaultTTL': (integer, False),
-        'ForwardedValues': (ForwardedValues, True),
+        'FieldLevelEncryptionId': (basestring, False),
+        'ForwardedValues': (ForwardedValues, False),
         'LambdaFunctionAssociations': ([LambdaFunctionAssociation], False),
         'MaxTTL': (integer, False),
         'MinTTL': (integer, False),
+        'OriginRequestPolicyId': (basestring, False),
+        'RealtimeLogConfigArn': (basestring, False),
         'SmoothStreaming': (boolean, False),
         'TargetOriginId': (basestring, True),
         'TrustedSigners': (list, False),
-        'ViewerProtocolPolicy': (basestring, True),
+        'ViewerProtocolPolicy': (cloudfront_viewer_protocol_policy, True),
     }
 
 
 class S3Origin(AWSProperty):
     props = {
+        'DomainName': (basestring, True),
         'OriginAccessIdentity': (basestring, False),
     }
 
 
-class CustomOrigin(AWSProperty):
+class CustomOriginConfig(AWSProperty):
     props = {
         'HTTPPort': (network_port, False),
         'HTTPSPort': (network_port, False),
         'OriginKeepaliveTimeout': (integer, False),
         'OriginProtocolPolicy': (basestring, True),
-        'OriginSSLProtocols': ([basestring], False),
         'OriginReadTimeout': (integer, False),
+        'OriginSSLProtocols': ([basestring], False),
     }
 
 
@@ -89,14 +108,22 @@ class OriginCustomHeader(AWSProperty):
     }
 
 
+class S3OriginConfig(AWSProperty):
+    props = {
+        'OriginAccessIdentity': (basestring, False),
+    }
+
+
 class Origin(AWSProperty):
     props = {
+        'ConnectionAttempts': (integer, False),
+        'ConnectionTimeout': (integer, False),
+        'CustomOriginConfig': (CustomOriginConfig, False),
         'DomainName': (basestring, True),
-        'OriginPath': (basestring, False),
         'Id': (basestring, True),
         'OriginCustomHeaders': ([OriginCustomHeader], False),
-        'S3OriginConfig': (S3Origin, False),
-        'CustomOriginConfig': (CustomOrigin, False),
+        'OriginPath': (basestring, False),
+        'S3OriginConfig': (S3OriginConfig, False),
     }
 
 
@@ -120,7 +147,7 @@ class CustomErrorResponse(AWSProperty):
 class GeoRestriction(AWSProperty):
     props = {
         'Locations': ([basestring], False),
-        'RestrictionType': (basestring, True),
+        'RestrictionType': (cloudfront_restriction_type, True),
     }
 
 
@@ -140,6 +167,47 @@ class ViewerCertificate(AWSProperty):
     }
 
 
+class StatusCodes(AWSProperty):
+    props = {
+        'Items': ([integer], True),
+        'Quantity': (integer, True),
+    }
+
+
+class OriginGroupFailoverCriteria(AWSProperty):
+    props = {
+        'StatusCodes': (StatusCodes, True),
+    }
+
+
+class OriginGroupMember(AWSProperty):
+    props = {
+        'OriginId': (basestring, True),
+    }
+
+
+class OriginGroupMembers(AWSProperty):
+    props = {
+        'Items': ([OriginGroupMember], False),
+        'Quantity': (integer, False),
+    }
+
+
+class OriginGroup(AWSProperty):
+    props = {
+        'FailoverCriteria': (OriginGroupFailoverCriteria, True),
+        'Id': (basestring, True),
+        'Members': (OriginGroupMembers, True),
+    }
+
+
+class OriginGroups(AWSProperty):
+    props = {
+        'Items': ([OriginGroup], False),
+        'Quantity': (integer, False),
+    }
+
+
 class DistributionConfig(AWSProperty):
     props = {
         'Aliases': (list, False),
@@ -152,8 +220,9 @@ class DistributionConfig(AWSProperty):
         'HttpVersion': (basestring, False),
         'IPV6Enabled': (boolean, False),
         'Logging': (Logging, False),
-        'Origins': (list, True),
-        'PriceClass': (basestring, False),
+        'Origins': ([Origin], True),
+        'OriginGroups': (OriginGroups, False),
+        'PriceClass': (priceclass_type, False),
         'Restrictions': (Restrictions, False),
         'ViewerCertificate': (ViewerCertificate, False),
         'WebACLId': (basestring, False),
@@ -199,7 +268,7 @@ class StreamingDistributionConfig(AWSProperty):
         'Comment': (basestring, True),
         'Enabled': (boolean, True),
         'Logging': (Logging, False),
-        'PriceClass': (basestring, False),
+        'PriceClass': (priceclass_type, False),
         'S3Origin': (S3Origin, True),
         'TrustedSigners': (TrustedSigners, True),
     }
@@ -209,6 +278,123 @@ class StreamingDistribution(AWSObject):
     resource_type = "AWS::CloudFront::StreamingDistribution"
 
     props = {
-        'StreamingDistributionConfig': (StreamingDistributionConfig, True,),
+        'StreamingDistributionConfig': (StreamingDistributionConfig, True),
         'Tags': ((Tags, list), False),
+    }
+
+
+class CacheCookiesConfig(AWSProperty):
+    props = {
+        'CookieBehavior': (cloudfront_cache_cookie_behavior, True),
+        'Cookies': ([basestring], False),
+    }
+
+
+class CacheHeadersConfig(AWSProperty):
+    props = {
+        'HeaderBehavior': (cloudfront_cache_header_behavior, True),
+        'Headers': ([basestring], False),
+    }
+
+
+class CacheQueryStringsConfig(AWSProperty):
+    props = {
+        'QueryStringBehavior': (
+            cloudfront_cache_query_string_behavior, True),
+        'QueryStrings': ([basestring], False),
+    }
+
+
+class ParametersInCacheKeyAndForwardedToOrigin(AWSProperty):
+    props = {
+        'CookiesConfig': (CacheCookiesConfig, True),
+        'EnableAcceptEncodingGzip': (boolean, True),
+        'EnableAcceptEncodingBrotli': (boolean, False),
+        'HeadersConfig': (CacheHeadersConfig, True),
+        'QueryStringsConfig': (CacheQueryStringsConfig, True),
+    }
+
+
+class CachePolicyConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, False),
+        'DefaultTTL': (integer, True),
+        'MaxTTL': (integer, True),
+        'MinTTL': (integer, True),
+        'Name': (basestring, True),
+        'ParametersInCacheKeyAndForwardedToOrigin': (
+            ParametersInCacheKeyAndForwardedToOrigin, True),
+    }
+
+
+class CachePolicy(AWSObject):
+    resource_type = "AWS::CloudFront::CachePolicy"
+
+    props = {
+        'CachePolicyConfig': (CachePolicyConfig, True),
+    }
+
+
+class OriginRequestCookiesConfig(AWSProperty):
+    props = {
+        'CookieBehavior': (cloudfront_origin_request_cookie_behavior, True),
+        'Cookies': ([basestring], False),
+    }
+
+
+class OriginRequestHeadersConfig(AWSProperty):
+    props = {
+        'HeaderBehavior': (cloudfront_origin_request_header_behavior, True),
+        'Headers': ([basestring], False),
+    }
+
+
+class OriginRequestQueryStringsConfig(AWSProperty):
+    props = {
+        'QueryStringBehavior': (
+            cloudfront_origin_request_query_string_behavior, True),
+        'QueryStrings': ([basestring], False),
+    }
+
+
+class OriginRequestPolicyConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, False),
+        'CookiesConfig': (OriginRequestCookiesConfig, True),
+        'HeadersConfig': (OriginRequestHeadersConfig, True),
+        'Name': (basestring, True),
+        'QueryStringsConfig': (OriginRequestQueryStringsConfig, True),
+    }
+
+
+class OriginRequestPolicy(AWSObject):
+    resource_type = "AWS::CloudFront::OriginRequestPolicy"
+
+    props = {
+        'OriginRequestPolicyConfig': (OriginRequestPolicyConfig, True),
+    }
+
+
+class KinesisStreamConfig(AWSProperty):
+    props = {
+        'RoleArn': (basestring, True),
+        'StreamArn': (basestring, True),
+    }
+
+
+class EndPoint(AWSProperty):
+    props = {
+        'KinesisStreamConfig': (KinesisStreamConfig, True),
+        'StreamType': (basestring, True),
+    }
+
+
+class RealtimeLogConfig(AWSObject):
+    resource_type = "AWS::CloudFront::RealtimeLogConfig"
+
+    props = {
+        'EndPoints': ([EndPoint], True),
+        'Fields': ([basestring], True),
+        'Name': (basestring, True),
+        'SamplingRate': (float, True),
     }

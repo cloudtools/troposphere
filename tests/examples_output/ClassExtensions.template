@@ -4,7 +4,7 @@
             "Properties": {
                 "ImageId": "ami-xxxx",
                 "InstanceType": "t1.micro",
-                "Monitoring": "true",
+                "Monitoring": true,
                 "SecurityGroups": [
                     "frontend"
                 ]
@@ -15,7 +15,7 @@
             "Properties": {
                 "ImageId": "ami-xxxx",
                 "InstanceType": "m2.large",
-                "Monitoring": "true",
+                "Monitoring": true,
                 "SecurityGroups": [
                     "processing"
                 ]

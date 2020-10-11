@@ -1,9 +1,6 @@
-from . import AWSObject, AWSProperty
-try:
-    from awacs.aws import Policy
-    policytypes = (dict, Policy)
-except ImportError:
-    policytypes = dict,
+from . import AWSObject, AWSProperty, Tags
+from .validators import json_checker
+from .compat import policytypes
 
 
 class LifecyclePolicy(AWSProperty):
@@ -17,7 +14,10 @@ class Repository(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
     props = {
+        'ImageScanningConfiguration': (json_checker, False),
+        'ImageTagMutability': (basestring, False),
         'LifecyclePolicy': (LifecyclePolicy, False),
         'RepositoryName': (basestring, False),
         'RepositoryPolicyText': (policytypes, False),
+        'Tags': (Tags, False),
     }

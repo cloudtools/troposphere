@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty
-from .validators import boolean, floatingpoint, integer, positive_integer
+from .validators import boolean, double, integer, positive_integer
 
 
 class ScalableTargetAction(AWSProperty):
@@ -19,6 +19,14 @@ class ScheduledAction(AWSProperty):
     }
 
 
+class SuspendedState(AWSProperty):
+    props = {
+        'DynamicScalingInSuspended': (boolean, False),
+        'DynamicScalingOutSuspended': (boolean, False),
+        'ScheduledScalingSuspended': (boolean, False),
+    }
+
+
 class ScalableTarget(AWSObject):
     resource_type = "AWS::ApplicationAutoScaling::ScalableTarget"
 
@@ -30,6 +38,7 @@ class ScalableTarget(AWSObject):
         'ScalableDimension': (basestring, True),
         'ScheduledActions': ([ScheduledAction], False),
         'ServiceNamespace': (basestring, True),
+        'SuspendedState': (SuspendedState, False),
     }
 
 
@@ -84,7 +93,7 @@ class TargetTrackingScalingPolicyConfiguration(AWSProperty):
             (PredefinedMetricSpecification, False),
         'ScaleInCooldown': (positive_integer, False),
         'ScaleOutCooldown': (positive_integer, False),
-        'TargetValue': (floatingpoint, True),
+        'TargetValue': (double, True),
     }
 
 

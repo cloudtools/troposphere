@@ -1,3 +1,0 @@
-awacs
-pycodestyle
-pyflakes

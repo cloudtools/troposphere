@@ -12,6 +12,7 @@ class Detector(AWSObject):
 
     props = {
         'Enable': (boolean, True),
+        'FindingPublishingFrequency': (basestring, False),
     }
 
 
@@ -62,7 +63,7 @@ class Master(AWSObject):
 
     props = {
         'DetectorId': (basestring, True),
-        'InvitationId': (basestring, True),
+        'InvitationId': (basestring, False),
         'MasterId': (basestring, True),
     }
 

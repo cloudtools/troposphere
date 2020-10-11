@@ -13,7 +13,7 @@ class CustomPlacementGroup(AWSCustomObject):
 
 t = Template()
 
-t.add_description(
+t.set_description(
     "Example template showing how a Lambda Function CustomResource might look"
     "For information on AWS Lambda-backed Custom Resources see:"
     "http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/"

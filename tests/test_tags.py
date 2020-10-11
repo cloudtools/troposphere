@@ -1,5 +1,5 @@
 import unittest
-from troposphere import Tags
+from troposphere import If, Sub, Tag, Tags
 from troposphere.autoscaling import Tags as ASTags
 
 
@@ -15,6 +15,19 @@ class TestTags(unittest.TestCase):
         ]
         self.assertEqual(tags.to_dict(), result)
 
+    def test_TagConditional(self):
+        tags = Tags(
+            {'foo': 'foo'},
+            If('MyCondition', Tag('bar', 'bar'), Tag('baz', 'baz'))
+        )
+        result = [
+            {"Fn::If": ["MyCondition",
+                        {"Key": "bar", "Value": "bar"},
+                        {"Key": "baz", "Value": "baz"}]},
+            {'Value': 'foo', 'Key': 'foo'},
+        ]
+        self.assertEqual(tags.to_dict(), result)
+
     def test_ASTagAddition(self):
         tags = ASTags(foo=('fooval', True))
         tags += ASTags(bar=('barval', False))
@@ -24,6 +37,11 @@ class TestTags(unittest.TestCase):
             {'Value': 'barval', 'Key': 'bar', 'PropagateAtLaunch': 'false'},
             {'Value': 'bazval', 'Key': 'baz', 'PropagateAtLaunch': 'true'},
         ]
+        self.assertEqual(tags.to_dict(), result)
+
+    def test_Unsortable(self):
+        result = [{'Key': {'Fn::Sub': 'somestring'}, 'Value': 'val'}]
+        tags = Tags({Sub('somestring'): 'val'})
         self.assertEqual(tags.to_dict(), result)
 
     def test_Formats(self):

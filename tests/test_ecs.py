@@ -39,6 +39,30 @@ class TestECS(unittest.TestCase):
 
         ecs_service.to_dict()
 
+    def test_allow_scheduling_strategy(self):
+        task_definition = ecs.TaskDefinition(
+            "mytaskdef",
+            ContainerDefinitions=[
+                ecs.ContainerDefinition(
+                    Image="myimage",
+                    Memory="300",
+                    Name="mycontainer",
+                )
+            ],
+            Volumes=[
+                ecs.Volume(Name="my-vol"),
+            ],
+        )
+        ecs_service = ecs.Service(
+            'Service',
+            Cluster='cluster',
+            DesiredCount=2,
+            TaskDefinition=Ref(task_definition),
+            SchedulingStrategy=ecs.SCHEDULING_STRATEGY_DAEMON
+        )
+
+        ecs_service.to_dict()
+
     def test_fargate_launch_type(self):
         task_definition = ecs.TaskDefinition(
             "mytaskdef",
@@ -217,3 +241,39 @@ class TestECS(unittest.TestCase):
         )
 
         container_definition.to_dict()
+
+    def test_docker_volume_configuration(self):
+        docker_volume_configuration = ecs.DockerVolumeConfiguration(
+            Autoprovision=True,
+            Scope="task",
+            Labels=dict(label="ok"),
+            DriverOpts=dict(option="ok")
+        )
+        task_definition = ecs.TaskDefinition(
+            "mytaskdef",
+            ContainerDefinitions=[
+                ecs.ContainerDefinition(
+                    Image="myimage",
+                    Memory="300",
+                    Name="mycontainer",
+                )
+            ],
+            Volumes=[
+                ecs.Volume(
+                    Name="my-vol",
+                    DockerVolumeConfiguration=docker_volume_configuration
+                ),
+            ],
+        )
+        task_definition.to_dict()
+
+
+class TestECSValidators(unittest.TestCase):
+
+    def test_scope_validator(self):
+        valid_values = ['shared', 'task']
+        for x in valid_values:
+            ecs.scope_validator(x)
+
+        with self.assertRaises(ValueError):
+            ecs.scope_validator("bad_scope")

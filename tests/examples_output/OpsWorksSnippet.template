@@ -43,14 +43,14 @@
                     },
                     "MysqlRootPasswordUbiquitous": "true"
                 },
-                "AutoAssignElasticIps": "false",
-                "AutoAssignPublicIps": "true",
+                "AutoAssignElasticIps": false,
+                "AutoAssignPublicIps": true,
                 "CustomRecipes": {
                     "Setup": [
                         "phpapp::dbsetup"
                     ]
                 },
-                "EnableAutoHealing": "true",
+                "EnableAutoHealing": true,
                 "Name": "MyMySQL",
                 "Shortname": "db-layer",
                 "StackId": {
@@ -165,14 +165,14 @@
         },
         "myLayer": {
             "Properties": {
-                "AutoAssignElasticIps": "false",
-                "AutoAssignPublicIps": "true",
+                "AutoAssignElasticIps": false,
+                "AutoAssignPublicIps": true,
                 "CustomRecipes": {
                     "Configure": [
                         "phpapp::appsetup"
                     ]
                 },
-                "EnableAutoHealing": "true",
+                "EnableAutoHealing": true,
                 "Name": "MyPHPApp",
                 "Shortname": "php-app",
                 "StackId": {
@@ -221,7 +221,7 @@
                         ]
                     ]
                 },
-                "UseCustomCookbooks": "true"
+                "UseCustomCookbooks": true
             },
             "Type": "AWS::OpsWorks::Stack"
         }

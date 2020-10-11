@@ -41,8 +41,12 @@
                     "InstanceTypes": [
                         "m4.large"
                     ],
+                    "LaunchTemplate": {
+                        "LaunchTemplateName": "container-volume-encrypt"
+                    },
                     "MaxvCpus": 10,
                     "MinvCpus": 0,
+                    "PlacementGroup": "ExampleClusterGroup",
                     "SecurityGroupIds": [
                         {
                             "Fn::GetAtt": [

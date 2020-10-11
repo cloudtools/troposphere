@@ -2,7 +2,7 @@ from troposphere import FindInMap, Ref, Template, Parameter, Tags
 from troposphere.iam import InstanceProfile, Role
 from troposphere.efs import FileSystem, MountTarget
 from troposphere.ec2 import SecurityGroup, SecurityGroupRule, Instance
-from awacs.aws import Allow, Statement, Policy, Action
+from awacs.aws import Allow, Statement, PolicyDocument, Action
 
 
 template = Template()
@@ -89,7 +89,7 @@ template.add_resource(efs_mount_target)
 # pass in the FileSystem name as UserData.
 efs_host_role = Role(
     "EFSHostRole",
-    AssumeRolePolicyDocument=Policy(
+    AssumeRolePolicyDocument=PolicyDocument(
         Statement=[
             Statement(
                 Effect=Allow,

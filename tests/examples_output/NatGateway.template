@@ -102,7 +102,7 @@
                 "CidrBlock": {
                     "Ref": "PrivateSubnetCidr"
                 },
-                "MapPublicIpOnLaunch": "false",
+                "MapPublicIpOnLaunch": false,
                 "VpcId": {
                     "Ref": "VPC"
                 }
@@ -145,7 +145,7 @@
                 "CidrBlock": {
                     "Ref": "PublicSubnetCidr"
                 },
-                "MapPublicIpOnLaunch": "true",
+                "MapPublicIpOnLaunch": true,
                 "VpcId": {
                     "Ref": "VPC"
                 }

@@ -111,5 +111,83 @@ class TestEquality(unittest.TestCase):
         self.assertEqual(len(set([t1, t2])), 1)
 
 
+class TestAwsInterface(unittest.TestCase):
+    def test_parameter_label(self):
+        t = Template()
+        p1 = t.add_parameter(Parameter("Foo"))
+        t.add_parameter(Parameter("Bar"))
+        t.set_parameter_label(p1, "Foo label")
+
+        t.set_parameter_label("Bar", "Bar label")
+
+        self.assertEqual(t.metadata, {
+            "AWS::CloudFormation::Interface": {
+                "ParameterLabels": {
+                    "Foo": {"default": "Foo label"},
+                    "Bar": {"default": "Bar label"},
+                },
+            },
+        })
+
+    def test_parameter_label_replace(self):
+        t = Template()
+        p1 = t.add_parameter(Parameter("Foo"))
+        t.add_parameter(Parameter("Bar"))
+        t.set_parameter_label(p1, "Foo label")
+        t.set_parameter_label("Foo", "Bar label")
+
+        self.assertEqual(t.metadata, {
+            "AWS::CloudFormation::Interface": {
+                "ParameterLabels": {
+                    "Foo": {"default": "Bar label"},
+                },
+            },
+        })
+
+    def test_parameter_group(self):
+        t = Template()
+        p1 = t.add_parameter(Parameter("Foo"))
+        t.add_parameter(Parameter("Bar"))
+        t.add_parameter_to_group(p1, "gr")
+        t.add_parameter_to_group("Bar", "gr")
+
+        self.assertEqual(t.metadata, {
+            "AWS::CloudFormation::Interface": {
+                "ParameterGroups": [
+                    {
+                        "Label": {"default": "gr"},
+                        "Parameters": ["Foo", "Bar"],
+                    },
+                ],
+            },
+        })
+
+
+class TestRules(unittest.TestCase):
+    def test_rules(self):
+        t = Template()
+        t.add_parameter("One")
+        t.add_parameter("Two")
+
+        rule = {
+            "Assertions": [
+                {
+                    "Assert": {
+                        "Fn::Equals": [
+                            {"Ref": "One"},
+                            {"Ref": "Two"},
+                        ],
+                    },
+                },
+            ],
+        }
+        t.add_rule("ValidateEqual", rule)
+
+        self.assertTrue("ValidateEqual" in t.rules)
+
+        rendered = t.to_dict()
+        self.assertEqual(rendered["Rules"]["ValidateEqual"], rule)
+
+
 if __name__ == '__main__':
     unittest.main()

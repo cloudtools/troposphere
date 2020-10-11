@@ -3,8 +3,16 @@
 #
 # See LICENSE file for full license.
 
+import re
+
 from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, network_port
+
+
+def validate_node_group_id(node_group_id):
+    if re.match(r'\d{1,4}', node_group_id):
+        return node_group_id
+    raise ValueError("Invalid NodeGroupId: %s" % node_group_id)
 
 
 class CacheCluster(AWSObject):
@@ -90,6 +98,16 @@ class SubnetGroup(AWSObject):
     }
 
 
+class NodeGroupConfiguration(AWSProperty):
+    props = {
+        'NodeGroupId': (validate_node_group_id, False),
+        'PrimaryAvailabilityZone': (basestring, False),
+        'ReplicaAvailabilityZones': ([basestring], False),
+        'ReplicaCount': (integer, False),
+        'Slots': (basestring, False),
+    }
+
+
 class ReplicationGroup(AWSObject):
     resource_type = "AWS::ElastiCache::ReplicationGroup"
 
@@ -98,13 +116,15 @@ class ReplicationGroup(AWSObject):
         'AuthToken': (basestring, False),
         'AutoMinorVersionUpgrade': (boolean, False),
         'AutomaticFailoverEnabled': (boolean, False),
-        'CacheNodeType': (basestring, True),
+        'CacheNodeType': (basestring, False),
         'CacheParameterGroupName': (basestring, False),
         'CacheSecurityGroupNames': ([basestring], False),
         'CacheSubnetGroupName': (basestring, False),
-        'Engine': (basestring, True),
+        'Engine': (basestring, False),
         'EngineVersion': (basestring, False),
-        'NodeGroupConfiguration': (list, False),
+        'KmsKeyId': (basestring, False),
+        'MultiAZEnabled': (boolean, False),
+        'NodeGroupConfiguration': ([NodeGroupConfiguration], False),
         'NotificationTopicArn': (basestring, False),
         'NumCacheClusters': (integer, False),
         'NumNodeGroups': (integer, False),
@@ -119,8 +139,8 @@ class ReplicationGroup(AWSObject):
         'SnapshotArns': ([basestring], False),
         'SnapshotName': (basestring, False),
         'SnapshotRetentionLimit': (integer, False),
-        'SnapshottingClusterId': (basestring, False),
         'SnapshotWindow': (basestring, False),
+        'SnapshottingClusterId': (basestring, False),
         'Tags': (Tags, False),
         'TransitEncryptionEnabled': (boolean, False),
     }
@@ -137,12 +157,3 @@ class ReplicationGroup(AWSObject):
                 )
 
         return True
-
-
-class NodeGroupConfiguration(AWSProperty):
-    props = {
-        'PrimaryAvailabilityZone': (basestring, False),
-        'ReplicaAvailabilityZones': (basestring, False),
-        'ReplicaCount': (integer, False),
-        'Slots': (basestring, False),
-    }

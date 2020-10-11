@@ -40,6 +40,7 @@ def create_test_class(testname, **kwargs):
 
 
 def load_tests(loader, tests, pattern):
+    EXCLUDE_EXAMPLES = ['OpenStack_AutoScaling.py', 'OpenStack_Server.py']
     # Filter out all *.py files from the examples directory
     examples = 'examples'
     regex = re.compile(r'.py$', re.I)
@@ -48,6 +49,8 @@ def load_tests(loader, tests, pattern):
     suite = unittest.TestSuite()
 
     for f in example_filesnames:
+        if f in EXCLUDE_EXAMPLES:
+            continue
         testname = 'test_' + f[:-3]
         expected_output = open('tests/examples_output/%s.template' %
                                f[:-3]).read()
