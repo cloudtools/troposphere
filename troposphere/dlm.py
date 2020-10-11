@@ -53,6 +53,32 @@ class CreateRule(AWSProperty):
     }
 
 
+class CrossRegionCopyRetainRule(AWSProperty):
+    props = {
+        'Interval': (integer, True),
+        'IntervalUnit': (basestring, True),
+    }
+
+
+class CrossRegionCopyRule(AWSProperty):
+    props = {
+        'CmkArn': (basestring, False),
+        'CopyTags': (boolean, False),
+        'Encrypted': (boolean, True),
+        'RetainRule': (CrossRegionCopyRetainRule, False),
+        'TargetRegion': (basestring, True),
+    }
+
+
+class FastRestoreRule(AWSProperty):
+    props = {
+        'AvailabilityZones': ([basestring], False),
+        'Count': (integer, False),
+        'Interval': (integer, False),
+        'IntervalUnit': (basestring, False),
+    }
+
+
 class RetainRule(AWSProperty):
     props = {
         'Count': (integer, True),
@@ -63,6 +89,8 @@ class Schedule(AWSProperty):
     props = {
         'CopyTags': (boolean, False),
         'CreateRule': (CreateRule, False),
+        'CrossRegionCopyRules': ([CrossRegionCopyRule], False),
+        'FastRestoreRule': (FastRestoreRule, False),
         'Name': (basestring, False),
         'RetainRule': (RetainRule, False),
         'TagsToAdd': ((Tags, list), False),
