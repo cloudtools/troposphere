@@ -14,7 +14,7 @@ class Repository(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
     props = {
-        'ImageScanningConfiguration': (json_checker, False),
+        'ImageScanningConfiguration': (dict, False),
         'ImageTagMutability': (basestring, False),
         'LifecyclePolicy': (LifecyclePolicy, False),
         'RepositoryName': (basestring, False),
