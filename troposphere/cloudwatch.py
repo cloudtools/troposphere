@@ -68,6 +68,7 @@ class MetricDataQuery(AWSProperty):
         'Id': (basestring, True),
         'Label': (basestring, False),
         'MetricStat': (MetricStat, False),
+        'Period': (integer, False),
         'ReturnData': (boolean, False),
     }
 
