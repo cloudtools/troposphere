@@ -1,5 +1,4 @@
 from . import AWSObject, AWSProperty, Tags
-from .validators import json_checker
 from .compat import policytypes
 
 
