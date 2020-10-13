@@ -2,6 +2,7 @@
 # Regions
 #
 
+AF_SOUTH_1 = 'af-south-1'
 AP_EAST_1 = 'ap-east-1'
 AP_NORTHEAST_1 = 'ap-northeast-1'
 AP_NORTHEAST_2 = 'ap-northeast-2'
@@ -17,6 +18,8 @@ EU_WEST_2 = 'eu-west-2'
 EU_WEST_3 = 'eu-west-3'
 EU_CENTRAL_1 = 'eu-central-1'
 EU_NORTH_1 = 'eu-north-1'
+EU_SOUTH_1 = 'eu-south-1'
+ME_SOUTH_1 = 'me-south-1'
 SA_EAST_1 = 'sa-east-1'
 US_EAST_1 = 'us-east-1'
 US_EAST_2 = 'us-east-2'
@@ -29,13 +32,23 @@ US_WEST_2 = 'us-west-2'
 # Availability Zones
 #
 
+AF_SOUTH_1A = 'af-south-1a'
+AF_SOUTH_1B = 'af-south-1b'
+AF_SOUTH_1C = 'af-south-1c'
+
+AP_EAST_1A = 'ap-east-1a'
+AP_EAST_1B = 'ap-east-1b'
+AP_EAST_1C = 'ap-east-1c'
+
 AP_NORTHEAST_1A = 'ap-northeast-1a'
 AP_NORTHEAST_1B = 'ap-northeast-1b'
 AP_NORTHEAST_1C = 'ap-northeast-1c'
+AP_NORTHEAST_1D = 'ap-northeast-1d'
 
 AP_NORTHEAST_2A = 'ap-northeast-2a'
 AP_NORTHEAST_2B = 'ap-northeast-2b'
 AP_NORTHEAST_2C = 'ap-northeast-2c'
+AP_NORTHEAST_2D = 'ap-northeast-2d'
 
 AP_NORTHEAST_3A = 'ap-northeast-3a'
 
@@ -49,9 +62,11 @@ AP_SOUTHEAST_2C = 'ap-southeast-2c'
 
 AP_SOUTH_1A = 'ap-south-1a'
 AP_SOUTH_1B = 'ap-south-1b'
+AP_SOUTH_1C = 'ap-south-1c'
 
 CA_CENTRAL_1A = 'ca-central-1a'
 CA_CENTRAL_1B = 'ca-central-1b'
+CA_CENTRAL_1B = 'ca-central-1d'
 
 CN_NORTH_1A = 'cn-north-1a'
 CN_NORTH_1B = 'cn-north-1b'
@@ -79,6 +94,14 @@ EU_CENTRAL_1C = 'eu-central-1c'
 EU_NORTH_1A = 'eu-north-1a'
 EU_NORTH_1B = 'eu-north-1b'
 EU_NORTH_1C = 'eu-north-1c'
+
+EU_SOUTH_1A = 'eu-south-1a'
+EU_SOUTH_1B = 'eu-south-1b'
+EU_SOUTH_1C = 'eu-south-1c'
+
+ME_SOUTH_1A = 'me-south-1a'
+ME_SOUTH_1B = 'me-south-1b'
+ME_SOUTH_1C = 'me-south-1c'
 
 SA_EAST_1A = 'sa-east-1a'
 SA_EAST_1B = 'sa-east-1b'
