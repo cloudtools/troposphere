@@ -626,9 +626,13 @@ CACHE_T1_MICRO = 'cache.t1.micro'
 # Elasticsearch instance types
 #
 
+# Note: t2.micro.elasticsearch is deprecated.
 ELASTICSEARCH_T2_MICRO = 't2.micro.elasticsearch'
 ELASTICSEARCH_T2_SMALL = 't2.small.elasticsearch'
 ELASTICSEARCH_T2_MEDIUM = 't2.medium.elasticsearch'
+
+ELASTICSEARCH_T3_SMALL = 't3.small.elasticsearch'
+ELASTICSEARCH_T3_MEDIUM = 't3.medium.elasticsearch'
 
 ELASTICSEARCH_M3_MEDIUM = 'm3.medium.elasticsearch'
 ELASTICSEARCH_M3_LARGE = 'm3.large.elasticsearch'
@@ -641,11 +645,24 @@ ELASTICSEARCH_M4_2XLARGE = 'm4.2xlarge.elasticsearch'
 ELASTICSEARCH_M4_4XLARGE = 'm4.4xlarge.elasticsearch'
 ELASTICSEARCH_M4_10XLARGE = 'm4.10xlarge.elasticsearch'
 
+ELASTICSEARCH_M5_LARGE = 'm5.large.elasticsearch'
+ELASTICSEARCH_M5_XLARGE = 'm5.xlarge.elasticsearch'
+ELASTICSEARCH_M5_2XLARGE = 'm5.2xlarge.elasticsearch'
+ELASTICSEARCH_M5_4XLARGE = 'm5.4xlarge.elasticsearch'
+ELASTICSEARCH_M5_12XLARGE = 'm5.12xlarge.elasticsearch'
+
 ELASTICSEARCH_C4_LARGE = 'c4.large.elasticsearch'
 ELASTICSEARCH_C4_XLARGE = 'c4.xlarge.elasticsearch'
 ELASTICSEARCH_C4_2XLARGE = 'c4.2xlarge.elasticsearch'
 ELASTICSEARCH_C4_4XLARGE = 'c4.4xlarge.elasticsearch'
 ELASTICSEARCH_C4_8XLARGE = 'c4.8xlarge.elasticsearch'
+
+ELASTICSEARCH_C5_LARGE = 'c5.large.elasticsearch'
+ELASTICSEARCH_C5_XLARGE = 'c5.xlarge.elasticsearch'
+ELASTICSEARCH_C5_2XLARGE = 'c5.2xlarge.elasticsearch'
+ELASTICSEARCH_C5_4XLARGE = 'c5.4xlarge.elasticsearch'
+ELASTICSEARCH_C5_9XLARGE = 'c5.9xlarge.elasticsearch'
+ELASTICSEARCH_C5_18XLARGE = 'c5.18xlarge.elasticsearch'
 
 ELASTICSEARCH_R3_LARGE = 'r3.large.elasticsearch'
 ELASTICSEARCH_R3_XLARGE = 'r3.xlarge.elasticsearch'
@@ -660,8 +677,21 @@ ELASTICSEARCH_R4_4XLARGE = 'r4.4xlarge.elasticsearch'
 ELASTICSEARCH_R4_8XLARGE = 'r4.8xlarge.elasticsearch'
 ELASTICSEARCH_R4_16XLARGE = 'r4.16xlarge.elasticsearch'
 
+ELASTICSEARCH_R5_LARGE = 'r5.large.elasticsearch'
+ELASTICSEARCH_R5_XLARGE = 'r5.xlarge.elasticsearch'
+ELASTICSEARCH_R5_2XLARGE = 'r5.2xlarge.elasticsearch'
+ELASTICSEARCH_R5_4XLARGE = 'r5.4xlarge.elasticsearch'
+ELASTICSEARCH_R5_12XLARGE = 'r5.12xlarge.elasticsearch'
+
 ELASTICSEARCH_I2_XLARGE = 'i2.xlarge.elasticsearch'
 ELASTICSEARCH_I2_2XLARGE = 'i2.2xlarge.elasticsearch'
+
+ELASTICSEARCH_I3_LARGE = 'i3.large.elasticsearch'
+ELASTICSEARCH_I3_XLARGE = 'i3.xlarge.elasticsearch'
+ELASTICSEARCH_I3_2XLARGE = 'i3.2xlarge.elasticsearch'
+ELASTICSEARCH_I3_4XLARGE = 'i3.4xlarge.elasticsearch'
+ELASTICSEARCH_I3_8XLARGE = 'i3.8xlarge.elasticsearch'
+ELASTICSEARCH_I3_16XLARGE = 'i3.16xlarge.elasticsearch'
 
 #
 # Kafka brokers instance types
