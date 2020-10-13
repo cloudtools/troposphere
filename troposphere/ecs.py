@@ -418,7 +418,7 @@ class AuthorizationConfig(AWSProperty):
 
 class EFSVolumeConfiguration(AWSProperty):
     props = {
-        'AuthorizationConfig': AuthorizationConfig,
+        'AuthorizationConfig': (AuthorizationConfig, False),
         'FilesystemId': (basestring, True),
         'RootDirectory': (basestring, False),
         'TransitEncryption': (ecs_efs_encryption_status, False),
