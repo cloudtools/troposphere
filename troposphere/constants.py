@@ -66,7 +66,7 @@ AP_SOUTH_1C = 'ap-south-1c'
 
 CA_CENTRAL_1A = 'ca-central-1a'
 CA_CENTRAL_1B = 'ca-central-1b'
-CA_CENTRAL_1B = 'ca-central-1d'
+CA_CENTRAL_1D = 'ca-central-1d'
 
 CN_NORTH_1A = 'cn-north-1a'
 CN_NORTH_1B = 'cn-north-1b'
