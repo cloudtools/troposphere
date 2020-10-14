@@ -693,6 +693,9 @@ ELASTICSEARCH_I3_4XLARGE = 'i3.4xlarge.elasticsearch'
 ELASTICSEARCH_I3_8XLARGE = 'i3.8xlarge.elasticsearch'
 ELASTICSEARCH_I3_16XLARGE = 'i3.16xlarge.elasticsearch'
 
+ELASTICSEARCH_ULTRAWARM1_MEDIUM = 'ultrawarm1.medium.elasticsearch'
+ELASTICSEARCH_ULTRAWARM1_LARGE = 'ultrawarm1.large.elasticsearch'
+
 #
 # Kafka brokers instance types
 #
