@@ -8,6 +8,10 @@ from .compat import policytypes
 from .validators import boolean, integer, integer_range, positive_integer
 
 VALID_VOLUME_TYPES = ('standard', 'gp2', 'io1')
+VALID_TLS_SECURITY_POLICIES = (
+    'Policy-Min-TLS-1-0-2019-07',
+    'Policy-Min-TLS-1-2-2019-07'
+    )
 
 
 def validate_volume_type(volume_type):
@@ -18,12 +22,27 @@ def validate_volume_type(volume_type):
     return volume_type
 
 
+def validate_tls_security_policy(tls_security_policy):
+    """Validate VolumeType for ElasticsearchDomain"""
+    if tls_security_policy not in VALID_TLS_SECURITY_POLICIES:
+        raise ValueError("Minimum TLS Security Policy must be one of: %s" %
+                         ", ".join(VALID_TLS_SECURITY_POLICIES))
+    return tls_security_policy
+
+
 class CognitoOptions(AWSProperty):
     props = {
         'Enabled': (boolean, False),
         'IdentityPoolId': (basestring, False),
         'RoleArn': (basestring, False),
         'UserPoolId': (basestring, False),
+    }
+
+
+class DomainEndpointOptions(AWSProperty):
+    props = {
+        'EnforceHTTPS': (boolean, False),
+        'TLSSecurityPolicy': (validate_tls_security_policy, False),
     }
 
 
@@ -111,6 +130,7 @@ class Domain(AWSObject):
         'AdvancedSecurityOptions': (AdvancedSecurityOptionsInput, False),
         'CognitoOptions': (CognitoOptions, False),
         'DomainName': (basestring, False),
+        'DomainEndpointOptions': (DomainEndpointOptions, False),
         'EBSOptions': (EBSOptions, False),
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),
