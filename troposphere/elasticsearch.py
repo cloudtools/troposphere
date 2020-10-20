@@ -23,7 +23,7 @@ def validate_volume_type(volume_type):
 
 
 def validate_tls_security_policy(tls_security_policy):
-    """Validate VolumeType for ElasticsearchDomain"""
+    """Validate TLS Security Policy for ElasticsearchDomain"""
     if tls_security_policy not in VALID_TLS_SECURITY_POLICIES:
         raise ValueError("Minimum TLS Security Policy must be one of: %s" %
                          ", ".join(VALID_TLS_SECURITY_POLICIES))
