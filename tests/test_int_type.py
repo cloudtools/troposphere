@@ -44,7 +44,7 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
     def _get_all_troposphere_modules(self, dirname):
         return [
             pkg_name
-            for importer, pkg_name, is_pkg in pkgutil.walk_packages(dirname)
+            for importer, pkg_name, is_pkg in pkgutil.walk_packages([dirname])
             if not is_pkg and pkg_name.startswith('troposphere')
         ]
 

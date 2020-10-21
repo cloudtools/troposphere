@@ -75,11 +75,14 @@ class TestDict(unittest.TestCase):
             ecs.ContainerDefinition.from_dict("mycontainer", self.d)
 
     def test_tags_from_dict(self):
+        def key(k):
+            return (k["Key"], k["Value"])
+
         d = {"key1": "value1", "key2": "value2"}
         expected = [{"Key": k, "Value": v} for k, v in d.items()]
         tags = Tags.from_dict(**d)
 
-        self.assertEqual(sorted(expected), sorted(tags.tags))
+        self.assertEqual(sorted(expected, key=key), sorted(tags.tags, key=key))
 
 
 if __name__ == '__main__':
