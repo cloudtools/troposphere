@@ -1,14 +1,8 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
-from __future__ import print_function
 import argparse
 import json
 import pprint
-
-try:
-    getattr(__builtins__, 'basestring')
-except AttributeError:
-    basestring = str
 
 
 class object_registry(object):
@@ -258,7 +252,7 @@ def do_resources(d):
             tropo_object = top_level_aliases[tropo_object]
         print('{} = t.add_resource({}('.format(object_name, tropo_object))
         print('    "{}",'.format(k))
-        for p in filter(lambda x: x in v, ['Metadata', 'Properties']):
+        for p in (x for x in ['Metadata', 'Properties'] if x in v):
             for pk, pv in v[p].items():
                 if pk == "Tags":
                     print('    Tags=Tags(')
@@ -270,7 +264,7 @@ def do_resources(d):
                     print("    {}={}({}),".format(pk, pk, output_dict(pv)))
                 elif pk in known_functions:
                     do_resources_content(pk, pv, p)
-                elif isinstance(pv, basestring):
+                elif isinstance(pv, str):
                     print('    {}="{}",'.format(pk, pv))
                 else:
                     print('    {}={},'.format(pk, output_value(pv)))
@@ -323,7 +317,7 @@ function_map = {
 def output_value(v):
     """Output a value which may be a string or a set of function calls."""
 
-    if isinstance(v, basestring):
+    if isinstance(v, str):
         return '"{}"'.format(v.replace('\\', '\\\\')
                              .replace('\n', '\\n')
                              .replace("\"", "\\\""))
@@ -357,7 +351,7 @@ def do_outputs(d):
         print('{} = t.add_output(Output('.format(k))
         print('    "{}",'.format(k))
         for pk, pv in v.items():
-            if isinstance(pv, basestring):
+            if isinstance(pv, str):
                 print('    {}="{}",'.format(pk, pv))
             else:
                 print('    {}={},'.format(pk, output_value(pv)))
