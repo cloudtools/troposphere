@@ -381,7 +381,7 @@ class TestRef(unittest.TestCase):
 
     def test_ref_hash(self):
         s = hash("AWS::NoValue")
-        r = hash(Ref(s))
+        r = hash(Ref("AWS::NoValue"))
 
         wch = cloudformation.WaitConditionHandle("TestResource")
 
