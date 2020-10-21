@@ -556,7 +556,9 @@ class Tags(AWSHelperFn):
                 elif isinstance(arg, dict):
                     tag_dict.update(arg)
                 else:
-                    raise TypeError
+                    raise TypeError(
+                        "Tags needs to be either kwargs, dict, or AWSHelperFn"
+                    )
 
         def add_tag(tag_list, k, v):
             tag_list.append({'Key': k, 'Value': v, })
