@@ -6,11 +6,6 @@ from troposphere import Template, AWSObject
 from troposphere.template_generator import\
     TemplateGenerator, ResourceTypeNotDefined, ResourceTypeNotFound
 
-try:
-    u = str
-except NameError:
-    u = str
-
 
 class TestTemplateGenerator(unittest.TestCase):
     def test_resource_type_not_defined(self):

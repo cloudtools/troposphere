@@ -1,17 +1,8 @@
+import io
 import os
 import re
 import sys
 import unittest
-
-try:
-    import io as io
-except ImportError:
-    import io
-
-try:
-    u = str
-except NameError:
-    u = str
 
 
 class TestExamples(unittest.TestCase):
@@ -34,7 +25,7 @@ class TestExamples(unittest.TestCase):
         # rewind fake stdout so we can read it
         stdout.seek(0)
         actual_output = stdout.read()
-        self.assertEqual(u(self.expected_output), u(actual_output))
+        self.assertEqual(str(self.expected_output), str(actual_output))
 
 
 def create_test_class(testname, **kwargs):
