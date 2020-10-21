@@ -5,11 +5,6 @@ import json
 
 from troposphere.template_generator import TemplateGenerator
 
-try:
-    u = str
-except NameError:
-    u = str
-
 
 class TestTemplateGenerator(unittest.TestCase):
     maxDiff = None
