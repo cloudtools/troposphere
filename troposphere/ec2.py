@@ -1015,6 +1015,19 @@ class TagSpecifications(AWSProperty):
     }
 
 
+class CapacityReservationTarget(AWSProperty):
+    props = {
+        'CapacityReservationId': (basestring, False),
+    }
+
+
+class CapacityReservationSpecification(AWSProperty):
+    props = {
+        'CapacityReservationPreference': (basestring, False),
+        'CapacityReservationTarget': (CapacityReservationTarget, False),
+    }
+
+
 class SpotOptions(AWSProperty):
     props = {
         'BlockDurationMinutes': (integer, False),
@@ -1056,6 +1069,8 @@ class LaunchTemplateElasticInferenceAccelerator(AWSProperty):
 class LaunchTemplateData(AWSProperty):
     props = {
         'BlockDeviceMappings': ([LaunchTemplateBlockDeviceMapping], False),
+        'CapacityReservationSpecification':
+            (CapacityReservationSpecification, False),
         'CpuOptions': (CpuOptions, False),
         'CreditSpecification': (LaunchTemplateCreditSpecification, False),
         'DisableApiTermination': (boolean, False),
