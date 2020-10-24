@@ -25,6 +25,7 @@ class ResourcePolicy(AWSObject):
     resource_type = "AWS::SecretsManager::ResourcePolicy"
 
     props = {
+        'BlockPublicPolicy': (boolean, False),
         'SecretId': (basestring, True),
         'ResourcePolicy': (policytypes, True),
     }
