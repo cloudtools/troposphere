@@ -191,6 +191,7 @@ class JobDefinition(AWSObject):
         'JobDefinitionName': (basestring, False),
         'Parameters': (dict, False),
         'RetryStrategy': (RetryStrategy, False),
+        "Tags": (dict, False),
         'Timeout': (Timeout, False),
         'Type': (basestring, True),
     }
@@ -220,7 +221,8 @@ class ComputeEnvironment(AWSObject):
         "ServiceRole": (basestring, True),
         "ComputeEnvironmentName": (basestring, False),
         "ComputeResources": (ComputeResources, True),
-        "State": (validate_environment_state, False)
+        "State": (validate_environment_state, False),
+        "Tags": (dict, False),
     }
 
 
@@ -255,5 +257,6 @@ class JobQueue(AWSObject):
         "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], True),
         "Priority": (positive_integer, True),
         "State": (validate_queue_state, False),
-        "JobQueueName": (basestring, False)
+        "JobQueueName": (basestring, False),
+        "Tags": (dict, False),
     }
