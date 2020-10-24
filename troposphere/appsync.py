@@ -36,6 +36,7 @@ class ApiKey(AWSObject):
 
     props = {
         'ApiId': (basestring, True),
+        'ApiKeyId': (basestring, False),
         'Description': (basestring, False),
         'Expires': (double, False),
     }
