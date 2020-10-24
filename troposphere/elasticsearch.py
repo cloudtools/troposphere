@@ -74,6 +74,9 @@ class ElasticsearchClusterConfig(AWSProperty):
         'DedicatedMasterType': (basestring, False),
         'InstanceCount': (integer, False),
         'InstanceType': (basestring, False),
+        'WarmCount': (integer, False),
+        'WarmEnabled': (boolean, False),
+        'WarmType': (basestring, False),
         'ZoneAwarenessConfig': (ZoneAwarenessConfig, False),
         'ZoneAwarenessEnabled': (boolean, False)
     }
