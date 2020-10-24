@@ -54,6 +54,13 @@ class BufferingHints(AWSProperty):
     }
 
 
+class DeliveryStreamEncryptionConfigurationInput(AWSProperty):
+    props = {
+        'KeyARN': (basestring, False),
+        'KeyType': (basestring, True),
+    }
+
+
 class CloudWatchLoggingOptions(AWSProperty):
     props = {
         'Enabled': (boolean, False),
@@ -309,6 +316,8 @@ class DeliveryStream(AWSObject):
     resource_type = "AWS::KinesisFirehose::DeliveryStream"
 
     props = {
+        'DeliveryStreamEncryptionConfigurationInput':
+            (DeliveryStreamEncryptionConfigurationInput, False),
         'DeliveryStreamName': (basestring, False),
         'DeliveryStreamType': (delivery_stream_type_validator, False),
         'ElasticsearchDestinationConfiguration': (ElasticsearchDestinationConfiguration, False),  # noqa
