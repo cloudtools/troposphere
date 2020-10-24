@@ -43,7 +43,9 @@ class Topic(AWSObject):
     resource_type = "AWS::SNS::Topic"
 
     props = {
+        'ContentBasedDeduplication': (boolean, False),
         'DisplayName': (basestring, False),
+        'FifoTopic': (boolean, False),
         'KmsMasterKeyId': (basestring, False),
         'Subscription': ([Subscription], False),
         'Tags': (Tags, False),
