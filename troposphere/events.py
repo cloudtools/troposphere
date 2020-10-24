@@ -62,6 +62,12 @@ class BatchParameters(AWSProperty):
     }
 
 
+class DeadLetterConfig(AWSProperty):
+    props = {
+        'Arn': (basestring, False),
+    }
+
+
 class AwsVpcConfiguration(AWSProperty):
     props = {
         'AssignPublicIp': (basestring, False),
@@ -108,6 +114,13 @@ class KinesisParameters(AWSProperty):
     }
 
 
+class RetryPolicy(AWSProperty):
+    props = {
+        'MaximumEventAgeInSeconds': (integer, False),
+        'MaximumRetryAttempts': (integer, False),
+    }
+
+
 class RunCommandTarget(AWSProperty):
     props = {
         'Key': (basestring, True),
@@ -131,6 +144,7 @@ class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
         'BatchParameters': (BatchParameters, False),
+        'DeadLetterConfig': (DeadLetterConfig, False),
         'EcsParameters': (EcsParameters, False),
         'HttpParameters': (HttpParameters, False),
         'Id': (basestring, True),
@@ -138,6 +152,7 @@ class Target(AWSProperty):
         'InputPath': (basestring, False),
         'InputTransformer': (InputTransformer, False),
         'KinesisParameters': (KinesisParameters, False),
+        'RetryPolicy': (RetryPolicy, False),
         'RoleArn': (basestring, False),
         'RunCommandParameters': (RunCommandParameters, False),
         'SqsParameters': (SqsParameters, False),
