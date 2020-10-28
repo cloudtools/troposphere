@@ -36,6 +36,7 @@ class ForwardedValues(AWSProperty):
 class LambdaFunctionAssociation(AWSProperty):
     props = {
         'EventType': (cloudfront_event_type, False),
+        'IncludeBody': (boolean, False),
         'LambdaFunctionARN': (basestring, False),
     }
 
