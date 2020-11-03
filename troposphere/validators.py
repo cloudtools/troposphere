@@ -651,7 +651,7 @@ def schedule_pipelineexecutionstartcondition(startcondition):
 
 
 def ebsinstanceblockdevicespecification_volume_type(type):
-    valid_types = ['gp2', 'io1', 'sc1', 'st1', 'standard']
+    valid_types = ['gp2', 'io1', 'io2', 'sc1', 'st1', 'standard']
     if type not in valid_types:
         raise ValueError(
             'VolumeType must be one of: "%s"' % (
