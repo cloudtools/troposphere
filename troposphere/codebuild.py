@@ -145,6 +145,7 @@ class Environment(AWSProperty):
             'LINUX_CONTAINER',
             'LINUX_GPU_CONTAINER',
             'WINDOWS_CONTAINER',
+            'WINDOWS_SERVER_2019_CONTAINER',
         ]
         env_type = self.properties.get('Type')
         if env_type not in valid_types:
