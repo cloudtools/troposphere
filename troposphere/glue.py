@@ -68,6 +68,7 @@ def connection_type_validator(type):
         'JDBC',
         'KAFKA',
         'MONGODB',
+        'NETWORK',
         'SFTP',
     ]
     if type not in valid_types:
