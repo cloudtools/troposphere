@@ -25,6 +25,7 @@ class Repository(AWSObject):
     props = {
         'Description': (basestring, False),
         'DomainName': (basestring, True),
+        'DomainOwner': (basestring, False),
         'ExternalConnections': ([basestring], False),
         'PermissionsPolicyDocument': (dict, False),
         'RepositoryName': (basestring, True),
