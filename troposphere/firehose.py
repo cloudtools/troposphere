@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, positive_integer
 
 
@@ -327,4 +327,5 @@ class DeliveryStream(AWSObject):
         'S3DestinationConfiguration': (S3DestinationConfiguration, False),
         'SplunkDestinationConfiguration':
             (SplunkDestinationConfiguration, False),
+        'Tags': (Tags, False),
     }
