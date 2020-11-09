@@ -265,10 +265,19 @@ class AnalyticsConfiguration(AWSProperty):
     }
 
 
+class TokenValidityUnits(AWSProperty):
+    props = {
+        'AccessToken': (basestring, False),
+        'IdToken': (basestring, False),
+        'RefreshToken': (basestring, False),
+    }
+
+
 class UserPoolClient(AWSObject):
     resource_type = "AWS::Cognito::UserPoolClient"
 
     props = {
+        'AccessTokenValidity': (positive_integer, False),
         'AllowedOAuthFlows': ([basestring], False),
         'AllowedOAuthFlowsUserPoolClient': (boolean, False),
         'AllowedOAuthScopes': ([basestring], False),
@@ -278,11 +287,13 @@ class UserPoolClient(AWSObject):
         'DefaultRedirectURI': (basestring, False),
         'ExplicitAuthFlows': ([basestring], False),
         'GenerateSecret': (boolean, False),
+        'IdTokenValidity': (positive_integer, False),
         'LogoutURLs': ([basestring], False),
         'PreventUserExistenceErrors': (basestring, False),
         'ReadAttributes': ([basestring], False),
         'RefreshTokenValidity': (positive_integer, False),
         'SupportedIdentityProviders': ([basestring], False),
+        'TokenValidityUnits': (TokenValidityUnits, False),
         'UserPoolId': (basestring, True),
         'WriteAttributes': ([basestring], False),
     }
