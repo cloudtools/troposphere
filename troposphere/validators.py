@@ -363,7 +363,7 @@ def vpn_tunnel_inside_cidr(cidr):
 
 
 def vpc_endpoint_type(endpoint_type):
-    valid_types = ['Interface', 'Gateway']
+    valid_types = ['Interface', 'Gateway', 'GatewayLoadBalancer']
     if endpoint_type not in valid_types:
         raise ValueError(
             'VpcEndpointType must be one of: "%s"' % (
