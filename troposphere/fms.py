@@ -28,7 +28,7 @@ class Policy(AWSObject):
         'ResourceTags': (Tags, False),
         'ResourceType': (basestring, True),
         'ResourceTypeList': ([basestring], True),
-        'SecurityServicePolicyData': (json_checker, True),
+        'SecurityServicePolicyData': (SecurityServicePolicyData, True),
         'Tags': (Tags, False),
     }
 
@@ -39,4 +39,11 @@ class NotificationChannel(AWSObject):
     props = {
         'SnsRoleName': (basestring, True),
         'SnsTopicArn': (basestring, True),
+    }
+
+
+class SecurityServicePolicyData(AWSProperty):
+    props = {
+        'Type': (basestring, True),
+        'ManagedServiceData': (basestring, True)
     }
