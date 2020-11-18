@@ -388,12 +388,22 @@ class DynamoDBEvent(AWSObject):
     }
 
 
+class RequestModel(AWSProperty):
+    props = {
+        'Model': (basestring, True),
+        'Required': (bool, False)
+    }
+
+
 class ApiEvent(AWSObject):
     resource_type = 'Api'
 
     props = {
+        'Auth': (Auth, False),
         'Path': (basestring, True),
         'Method': (basestring, True),
+        'RequestModel': (RequestModel, False),
+        'RequestParameters': (basestring, False),
         'RestApiId': (basestring, False)
     }
 
