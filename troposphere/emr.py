@@ -271,8 +271,8 @@ class OnDemandProvisioningSpecification(AWSProperty):
 
         if allocation_strategy not in valid_values:
             raise ValueError(
-                'Only lowest-price is a valid AllocationStrategy'
-            )
+                'AllocationStrategy %s is not valid. Valid options are %s' %
+                (allocation_strategy, ', '.join(valid_values)))
 
 
 class SpotProvisioningSpecification(AWSProperty):
@@ -291,8 +291,8 @@ class SpotProvisioningSpecification(AWSProperty):
 
             if allocation_strategy not in valid_values:
                 raise ValueError(
-                    'Only capacity-optimized is a valid AllocationStrategy'
-                )
+                    'AllocationStrategy %s is not valid. Valid options are %s' %
+                    (allocation_strategy, ', '.join(valid_values)))
 
 
 class InstanceFleetProvisioningSpecifications(AWSProperty):
