@@ -21,9 +21,17 @@ class LifecycleResourceType(AWSProperty):
     }
 
 
+class CopyActionResourceType(AWSProperty):
+    props = {
+        'DestinationBackupVaultArn': (basestring, True),
+        'Lifecycle': (LifecycleResourceType, False),
+    }
+
+
 class BackupRuleResourceType(AWSProperty):
     props = {
         'CompletionWindowMinutes': (double, False),
+        'CopyActions': ([CopyActionResourceType], False),
         'Lifecycle': (LifecycleResourceType, False),
         'RecoveryPointTags': (dict, False),
         'RuleName': (basestring, True),

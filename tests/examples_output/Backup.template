@@ -8,6 +8,14 @@
                     "BackupPlanName": "BackupPlan",
                     "BackupPlanRule": [
                         {
+                            "CopyActions": [
+                                {
+                                    "DestinationBackupVaultArn": "arn:aws:backup:ca-central-1:111112222212:backup-vault:TestVault",
+                                    "Lifecycle": {
+                                        "DeleteAfterDays": 31
+                                    }
+                                }
+                            ],
                             "Lifecycle": {
                                 "DeleteAfterDays": 31
                             },
