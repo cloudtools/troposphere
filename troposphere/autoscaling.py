@@ -60,6 +60,14 @@ class Tags(AWSHelperFn):
         return self.tags
 
 
+class MetadataOptions(AWSProperty):
+    props = {
+        'HttpEndpoint': (basestring, False),
+        'HttpPutResponseHopLimit': (integer, False),
+        'HttpTokens': (basestring, False),
+    }
+
+
 class LifecycleHookSpecification(AWSProperty):
     props = {
         'DefaultResult': (basestring, False),
@@ -181,6 +189,7 @@ class AutoScalingGroup(AWSObject):
         'LoadBalancerNames': (list, False),
         'MaxInstanceLifetime': (integer, False),
         'MaxSize': (integer, True),
+        'MetadataOptions': (MetadataOptions, False),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
         'MixedInstancesPolicy': (MixedInstancesPolicy, False),
