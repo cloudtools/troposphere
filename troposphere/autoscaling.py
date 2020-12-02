@@ -169,6 +169,7 @@ class AutoScalingGroup(AWSObject):
     props = {
         'AutoScalingGroupName': (basestring, False),
         'AvailabilityZones': (list, False),
+        'CapacityRebalance': (boolean, False),
         'Cooldown': (integer, False),
         'DesiredCapacity': (integer, False),
         'HealthCheckGracePeriod': (integer, False),
