@@ -1,6 +1,6 @@
 import unittest
 from troposphere import GetAtt, Template, Join, Ref
-from troposphere.awslambda import Code, Function, Environment
+from troposphere.awslambda import Code, Function, Environment, validate_memory_size
 
 
 class TestAWSLambda(unittest.TestCase):
@@ -89,6 +89,24 @@ class TestAWSLambda(unittest.TestCase):
                 Environment(Variables={var: 'value'})
             except ValueError:
                 self.fail("Environment() raised ValueError")
+
+    def test_validate_memory_size_boundaries(self):
+        for var in ['128', '10240']:
+            validate_memory_size(var)
+
+    def test_validate_memory_size_throws(self):
+        for var in ['1', '111111111111111111111']:
+            with self.assertRaises(ValueError) as context:
+                validate_memory_size(var)
+
+            self.assertTrue("Lambda Function memory size must be one of:"
+                            in context.exception.args[0])
+
+            self.assertTrue("128,"
+                            in context.exception.args[0])
+
+            self.assertTrue(", 10240"
+                            in context.exception.args[0])
 
 
 if __name__ == '__main__':
