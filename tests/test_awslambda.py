@@ -1,6 +1,9 @@
 import unittest
 from troposphere import GetAtt, Template, Join, Ref
-from troposphere.awslambda import Code, Function, Environment, validate_memory_size
+from troposphere.awslambda import Code,\
+    Function,\
+    Environment,\
+    validate_memory_size
 
 
 class TestAWSLambda(unittest.TestCase):
