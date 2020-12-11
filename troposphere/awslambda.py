@@ -51,6 +51,7 @@ def validate_variables_name(variables):
 
 class Code(AWSProperty):
     props = {
+        'ImageUri': (basestring, False),
         'S3Bucket': (basestring, False),
         'S3Key': (basestring, False),
         'S3ObjectVersion': (basestring, False),
@@ -102,11 +103,14 @@ class Code(AWSProperty):
             return
 
     def validate(self):
+        image_uri = self.properties.get('ImageUri')
         zip_file = self.properties.get('ZipFile')
         s3_bucket = self.properties.get('S3Bucket')
         s3_key = self.properties.get('S3Key')
         s3_object_version = self.properties.get('S3ObjectVersion')
 
+        if zip_file and image_uri:
+            raise ValueError("You can't specify both 'ImageUri' and 'ZipFile'")
         if zip_file and s3_bucket:
             raise ValueError("You can't specify both 'S3Bucket' and 'ZipFile'")
         if zip_file and s3_key:
@@ -115,11 +119,17 @@ class Code(AWSProperty):
             raise ValueError(
                 "You can't specify both 'S3ObjectVersion' and 'ZipFile'"
             )
+        if image_uri and (s3_bucket or s3_key or s3_object_version):
+            raise ValueError(
+                "You can't specify 'ImageUri' and any of 'S3Bucket', 'S3Key', "
+                "or 'S3ObjectVersion' at the same time"
+            )
         Code.check_zip_file(zip_file)
-        if not zip_file and not (s3_bucket and s3_key):
+        if not zip_file and not (s3_bucket and s3_key) and not image_uri:
             raise ValueError(
                 "You must specify a bucket location (both the 'S3Bucket' and "
-                "'S3Key' properties) or the 'ZipFile' property"
+                "'S3Key' properties), the 'ImageUri' property, "
+                "or the 'ZipFile' property"
             )
 
 
