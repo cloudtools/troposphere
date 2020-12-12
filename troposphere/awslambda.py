@@ -3,6 +3,7 @@ from . import AWSObject, AWSProperty, Join, Tags
 from .validators import boolean, integer, positive_integer
 
 MEMORY_VALUES = [x for x in range(128, 3009, 64)]
+PACKAGE_TYPES = ['Image', 'Zip']
 RESERVED_ENVIRONMENT_VARIABLES = [
     'AWS_ACCESS_KEY',
     'AWS_ACCESS_KEY_ID',
@@ -35,6 +36,20 @@ def validate_memory_size(memory_value):
         raise ValueError("Lambda Function memory size must be one of:\n %s" %
                          ", ".join(str(mb) for mb in MEMORY_VALUES))
     return memory_value
+
+
+def validate_package_type(package_type):
+    """Validate PackageType for Lambda Function.
+    :param package_type: The PackageType specified in the Function.
+    :return: The provided package type if it is valid.
+    """
+    if package_type not in PACKAGE_TYPES:
+        raise ValueError(
+            "Lambda Function PackageType must be one of: {}".format(
+                ', '.join(PACKAGE_TYPES)
+            )
+        )
+    return package_type
 
 
 def validate_variables_name(variables):
@@ -245,14 +260,15 @@ class Function(AWSObject):
         'Environment': (Environment, False),
         'FileSystemConfigs': ([FileSystemConfig], False),
         'FunctionName': (basestring, False),
-        'Handler': (basestring, True),
+        'Handler': (basestring, False),
         'ImageConfig': (ImageConfig, False),
         'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
         'Layers': ([basestring], False),
+        'PackageType': (validate_package_type, False),
         'ReservedConcurrentExecutions': (positive_integer, False),
         'Role': (basestring, True),
-        'Runtime': (basestring, True),
+        'Runtime': (basestring, False),
         'Tags': (Tags, False),
         'Timeout': (positive_integer, False),
         'TracingConfig': (TracingConfig, False),
