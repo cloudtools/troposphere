@@ -133,6 +133,25 @@ class Code(AWSProperty):
             )
 
 
+class ImageConfig(AWSProperty):
+    props = {
+        'Command': ([basestring], False),
+        'EntryPoint': ([basestring], False),
+        'WorkingDirectory': (basestring, False)
+    }
+
+    def validate(self):
+        command = self.properties.get('Command')
+        if command and len(command) > 1500:
+            raise ValueError("Maximum items in 'Command' is 1500")
+        entry_point = self.properties.get('EntryPoint')
+        if entry_point and len(entry_point) > 1500:
+            raise ValueError("Maximum items in 'EntryPoint' is 1500")
+        working_directory = self.properties.get('WorkingDirectory')
+        if working_directory and len(working_directory) > 1000:
+            raise ValueError("Maximum length of 'WorkingDirectory' is 1000")
+
+
 class VPCConfig(AWSProperty):
 
     props = {
@@ -227,6 +246,7 @@ class Function(AWSObject):
         'FileSystemConfigs': ([FileSystemConfig], False),
         'FunctionName': (basestring, False),
         'Handler': (basestring, True),
+        'ImageConfig': (ImageConfig, False),
         'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
         'Layers': ([basestring], False),
