@@ -226,7 +226,5 @@ class TestImageConfig(unittest.TestCase):
             ImageConfig(WorkingDirectory="x" * 1001).validate()
 
 
-
-
 if __name__ == '__main__':
     unittest.main()
