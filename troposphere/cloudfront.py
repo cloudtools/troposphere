@@ -114,6 +114,11 @@ class S3OriginConfig(AWSProperty):
         'OriginAccessIdentity': (basestring, False),
     }
 
+class OriginShield(AWSProperty):
+    props = {
+        'Enabled': (boolean, True),
+        'OriginShieldRegion': (basestring, False),
+    }
 
 class Origin(AWSProperty):
     props = {
@@ -124,6 +129,7 @@ class Origin(AWSProperty):
         'Id': (basestring, True),
         'OriginCustomHeaders': ([OriginCustomHeader], False),
         'OriginPath': (basestring, False),
+        'OriginShield': (OriginShield, False),
         'S3OriginConfig': (S3OriginConfig, False),
     }
 
