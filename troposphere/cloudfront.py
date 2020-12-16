@@ -80,6 +80,7 @@ class DefaultCacheBehavior(AWSProperty):
         'RealtimeLogConfigArn': (basestring, False),
         'SmoothStreaming': (boolean, False),
         'TargetOriginId': (basestring, True),
+        'TrustedKeyGroups': ([basestring], False),
         'TrustedSigners': (list, False),
         'ViewerProtocolPolicy': (cloudfront_viewer_protocol_policy, True),
     }
