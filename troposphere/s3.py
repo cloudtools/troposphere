@@ -295,6 +295,12 @@ class ReplicationConfigurationRulesDestination(AWSProperty):
     }
 
 
+class ReplicaModifications(AWSProperty):
+    props = {
+        'Status': (basestring, True),
+    }
+
+
 class SseKmsEncryptedObjects(AWSProperty):
     props = {
         'Status': (basestring, True),
@@ -303,7 +309,8 @@ class SseKmsEncryptedObjects(AWSProperty):
 
 class SourceSelectionCriteria(AWSProperty):
     props = {
-        'SseKmsEncryptedObjects': (SseKmsEncryptedObjects, True),
+        'ReplicaModifications': (ReplicaModifications, False),
+        'SseKmsEncryptedObjects': (SseKmsEncryptedObjects, False),
     }
 
 
