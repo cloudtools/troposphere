@@ -235,6 +235,7 @@ Currently supported AWS resource types
 - `AWS::MediaLive`_
 - `AWS::MediaStore`_
 - `AWS::MSK`_
+- `AWS::MWAA`_
 - `AWS::Neptune`_
 - `AWS::NetworkManager`_
 - `AWS::OpsWorks`_
@@ -478,6 +479,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::MediaLive`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaLive.html
 .. _`AWS::MediaStore`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaStore.html
 .. _`AWS::MSK`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MSK.html
+.. _`AWS::MWAA`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MWAA.html
 .. _`AWS::Neptune`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Neptune.html
 .. _`AWS::NetworkManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkManager.html
 .. _`AWS::OpsWorks`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorks.html
