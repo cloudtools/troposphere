@@ -42,8 +42,8 @@ class LoggingConfiguration(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     props = {
-        'SecurityGroupIds': (list, False),
-        'SubnetIds': (list, False),
+        'SecurityGroupIds': (list, True),
+        'SubnetIds': (list, True),
     }
 
 
