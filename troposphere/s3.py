@@ -371,6 +371,7 @@ class ServerSideEncryptionByDefault(AWSProperty):
 
 class ServerSideEncryptionRule(AWSProperty):
     props = {
+        'BucketKeyEnabled': (boolean, False),
         'ServerSideEncryptionByDefault':
             (ServerSideEncryptionByDefault, False),
     }
