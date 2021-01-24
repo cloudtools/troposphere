@@ -65,8 +65,10 @@ class PhysicalConnectionRequirements(AWSProperty):
 
 def connection_type_validator(type):
     valid_types = [
+        'CUSTOM',
         'JDBC',
         'KAFKA',
+        'MARKETPLACE',
         'MONGODB',
         'NETWORK',
         'SFTP',
