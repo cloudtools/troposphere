@@ -2,7 +2,15 @@ import re
 from . import AWSObject, AWSProperty, Join, Tags
 from .validators import boolean, integer, positive_integer
 
-MEMORY_VALUES = [x for x in range(128, 3009, 64)]
+
+MINIMUM_MEMORY = 128
+MAXIMUM_MEMORY = 10240
+MEMORY_INCREMENT = 64
+MEMORY_VALUES = [x for x in range(
+    MINIMUM_MEMORY,
+    MAXIMUM_MEMORY + MEMORY_INCREMENT,
+    MEMORY_INCREMENT)]
+
 PACKAGE_TYPES = ['Image', 'Zip']
 RESERVED_ENVIRONMENT_VARIABLES = [
     'AWS_ACCESS_KEY',
