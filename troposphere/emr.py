@@ -259,13 +259,14 @@ class InstanceGroupConfigProperty(AWSProperty):
         'Name': (basestring, False),
     }
 
+
 class OnDemandProvisioningSpecification(AWSProperty):
     props = {
         'AllocationStrategy': (basestring, True),
     }
 
     def validate(self):
-        valid_values = [ 'lowest-price' ]
+        valid_values = ['lowest-price']
 
         allocation_strategy = self.properties.get('AllocationStrategy', None)
 
@@ -285,14 +286,15 @@ class SpotProvisioningSpecification(AWSProperty):
 
     def validate(self):
         if 'AllocationStrategy' in self.properties:
-            valid_values = [ 'capacity-optimized' ]
+            valid_values = ['capacity-optimized']
 
-            allocation_strategy = self.properties.get('AllocationStrategy', None)
+            allocation_strategy = self.properties.get(
+                'AllocationStrategy', None)
 
             if allocation_strategy not in valid_values:
                 raise ValueError(
-                    'AllocationStrategy %s is not valid. Valid options are %s' %
-                    (allocation_strategy, ', '.join(valid_values)))
+                    'AllocationStrategy %s is not valid. Valid options are %s'
+                    % (allocation_strategy, ', '.join(valid_values)))
 
 
 class InstanceFleetProvisioningSpecifications(AWSProperty):
