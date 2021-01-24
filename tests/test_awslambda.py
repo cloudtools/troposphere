@@ -248,6 +248,6 @@ class TestImageConfig(unittest.TestCase):
             self.assertTrue(", 10240"
                             in context.exception.args[0])
 
-            
+
 if __name__ == '__main__':
     unittest.main()
