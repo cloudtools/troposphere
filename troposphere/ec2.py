@@ -13,6 +13,7 @@ from .validators import (
 
 VALID_ELASTICINFERENCEACCELERATOR_TYPES = ('eia1.medium', 'eia1.large',
                                            'eia1.xlarge')
+VALID_CLIENTVPNENDPOINT_SELFSERVICEPORTAL = ('disabled', 'enabled')
 VALID_CLIENTVPNENDPOINT_VPNPORT = (443, 1194)
 
 
@@ -26,11 +27,22 @@ def validate_elasticinferenceaccelerator_type(
     return elasticinferenceaccelerator_type
 
 
+def validate_clientvpnendpoint_selfserviceportal(value):
+    """Validate SelfServicePortal for ClientVpnEndpoint."""
+    if value not in VALID_CLIENTVPNENDPOINT_SELFSERVICEPORTAL:
+        raise ValueError(
+            "ClientVpnEndpoint.SelfServicePortal must be one of: {}".format(
+                ", ".join(VALID_CLIENTVPNENDPOINT_SELFSERVICEPORTAL)
+            )
+        )
+    return value
+
+
 def validate_clientvpnendpoint_vpnport(vpnport):
     """Validate VpnPort for ClientVpnEndpoint"""
 
     if vpnport not in VALID_CLIENTVPNENDPOINT_VPNPORT:
-        raise ValueError("ClientVpnEndpoint VpnPortmust be one of: %s" %  # NOQA
+        raise ValueError("ClientVpnEndpoint VpnPort must be one of: %s" %  # NOQA
                          ", ".join(VALID_CLIENTVPNENDPOINT_VPNPORT))
     return vpnport
 
@@ -1331,13 +1343,14 @@ class CertificateAuthenticationRequest(AWSProperty):
 
 class DirectoryServiceAuthenticationRequest(AWSProperty):
     props = {
-        'DirectoryId': (basestring, True),
+        'DirectoryId': (basestring, True)
     }
 
 
 class FederatedAuthenticationRequest(AWSProperty):
     props = {
         'SAMLProviderArn': (basestring, True),
+        'SelfServiceSAMLProviderArn': (basestring, False)
     }
 
 
@@ -1347,6 +1360,13 @@ class ClientAuthenticationRequest(AWSProperty):
         'FederatedAuthentication': (FederatedAuthenticationRequest, False),
         'MutualAuthentication': (CertificateAuthenticationRequest, False),
         'Type': (basestring, True),
+    }
+
+
+class ClientConnectOptions(AWSProperty):
+    props = {
+        'Enabled': (bool, True),
+        'LambdaFunctionArn': (basestring, False)
     }
 
 
@@ -1364,10 +1384,14 @@ class ClientVpnEndpoint(AWSObject):
     props = {
         'AuthenticationOptions': ([ClientAuthenticationRequest], True),
         'ClientCidrBlock': (basestring, True),
+        'ClientConnectOptions': (ClientConnectOptions, False),
         'ConnectionLogOptions': (ConnectionLogOptions, True),
         'Description': (basestring, False),
         'DnsServers': ([basestring], False),
         'SecurityGroupIds': ([basestring], False),
+        'SelfServicePortal': (
+            validate_clientvpnendpoint_selfserviceportal, False
+        ),
         'ServerCertificateArn': (basestring, True),
         'SplitTunnel': (boolean, False),
         'TagSpecifications': ([TagSpecifications], False),
