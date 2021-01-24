@@ -2,6 +2,7 @@ import re
 from . import AWSObject, AWSProperty, Join, Tags
 from .validators import boolean, integer, positive_integer
 
+
 MINIMUM_MEMORY = 128
 MAXIMUM_MEMORY = 10240
 MEMORY_INCREMENT = 64
@@ -9,6 +10,8 @@ MEMORY_VALUES = [x for x in range(
     MINIMUM_MEMORY,
     MAXIMUM_MEMORY + MEMORY_INCREMENT,
     MEMORY_INCREMENT)]
+
+PACKAGE_TYPES = ['Image', 'Zip']
 RESERVED_ENVIRONMENT_VARIABLES = [
     'AWS_ACCESS_KEY',
     'AWS_ACCESS_KEY_ID',
@@ -43,6 +46,20 @@ def validate_memory_size(memory_value):
     return memory_value
 
 
+def validate_package_type(package_type):
+    """Validate PackageType for Lambda Function.
+    :param package_type: The PackageType specified in the Function.
+    :return: The provided package type if it is valid.
+    """
+    if package_type not in PACKAGE_TYPES:
+        raise ValueError(
+            "Lambda Function PackageType must be one of: {}".format(
+                ', '.join(PACKAGE_TYPES)
+            )
+        )
+    return package_type
+
+
 def validate_variables_name(variables):
     for name in variables:
         if name in RESERVED_ENVIRONMENT_VARIABLES:
@@ -57,6 +74,7 @@ def validate_variables_name(variables):
 
 class Code(AWSProperty):
     props = {
+        'ImageUri': (basestring, False),
         'S3Bucket': (basestring, False),
         'S3Key': (basestring, False),
         'S3ObjectVersion': (basestring, False),
@@ -108,11 +126,14 @@ class Code(AWSProperty):
             return
 
     def validate(self):
+        image_uri = self.properties.get('ImageUri')
         zip_file = self.properties.get('ZipFile')
         s3_bucket = self.properties.get('S3Bucket')
         s3_key = self.properties.get('S3Key')
         s3_object_version = self.properties.get('S3ObjectVersion')
 
+        if zip_file and image_uri:
+            raise ValueError("You can't specify both 'ImageUri' and 'ZipFile'")
         if zip_file and s3_bucket:
             raise ValueError("You can't specify both 'S3Bucket' and 'ZipFile'")
         if zip_file and s3_key:
@@ -121,12 +142,37 @@ class Code(AWSProperty):
             raise ValueError(
                 "You can't specify both 'S3ObjectVersion' and 'ZipFile'"
             )
+        if image_uri and (s3_bucket or s3_key or s3_object_version):
+            raise ValueError(
+                "You can't specify 'ImageUri' and any of 'S3Bucket', 'S3Key', "
+                "or 'S3ObjectVersion' at the same time"
+            )
         Code.check_zip_file(zip_file)
-        if not zip_file and not (s3_bucket and s3_key):
+        if not zip_file and not (s3_bucket and s3_key) and not image_uri:
             raise ValueError(
                 "You must specify a bucket location (both the 'S3Bucket' and "
-                "'S3Key' properties) or the 'ZipFile' property"
+                "'S3Key' properties), the 'ImageUri' property, "
+                "or the 'ZipFile' property"
             )
+
+
+class ImageConfig(AWSProperty):
+    props = {
+        'Command': ([basestring], False),
+        'EntryPoint': ([basestring], False),
+        'WorkingDirectory': (basestring, False)
+    }
+
+    def validate(self):
+        command = self.properties.get('Command')
+        if command and len(command) > 1500:
+            raise ValueError("Maximum items in 'Command' is 1500")
+        entry_point = self.properties.get('EntryPoint')
+        if entry_point and len(entry_point) > 1500:
+            raise ValueError("Maximum items in 'EntryPoint' is 1500")
+        working_directory = self.properties.get('WorkingDirectory')
+        if working_directory and len(working_directory) > 1000:
+            raise ValueError("Maximum length of 'WorkingDirectory' is 1000")
 
 
 class VPCConfig(AWSProperty):
@@ -222,13 +268,15 @@ class Function(AWSObject):
         'Environment': (Environment, False),
         'FileSystemConfigs': ([FileSystemConfig], False),
         'FunctionName': (basestring, False),
-        'Handler': (basestring, True),
+        'Handler': (basestring, False),
+        'ImageConfig': (ImageConfig, False),
         'KmsKeyArn': (basestring, False),
         'MemorySize': (validate_memory_size, False),
         'Layers': ([basestring], False),
+        'PackageType': (validate_package_type, False),
         'ReservedConcurrentExecutions': (positive_integer, False),
         'Role': (basestring, True),
-        'Runtime': (basestring, True),
+        'Runtime': (basestring, False),
         'Tags': (Tags, False),
         'Timeout': (positive_integer, False),
         'TracingConfig': (TracingConfig, False),
