@@ -96,10 +96,21 @@ class LoadBalancer(AWSProperty):
     }
 
 
+class DeploymentCircuitBreaker(AWSProperty):
+    """
+    Property for AWS::ECS::Service DeploymentCircuitBreaker
+    """
+    props = {
+        "Enable": (boolean, True),
+        "RollBack": (boolean, True)
+    }
+
+
 class DeploymentConfiguration(AWSProperty):
     props = {
+        'DeploymentCircuitBreaker': (DeploymentCircuitBreaker, False),
         'MaximumPercent': (positive_integer, False),
-        'MinimumHealthyPercent': (positive_integer, False),
+        'MinimumHealthyPercent': (positive_integer, False)
     }
 
 
