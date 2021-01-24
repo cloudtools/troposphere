@@ -60,6 +60,14 @@ class Tags(AWSHelperFn):
         return self.tags
 
 
+class MetadataOptions(AWSProperty):
+    props = {
+        'HttpEndpoint': (basestring, False),
+        'HttpPutResponseHopLimit': (integer, False),
+        'HttpTokens': (basestring, False),
+    }
+
+
 class LifecycleHookSpecification(AWSProperty):
     props = {
         'DefaultResult': (basestring, False),
@@ -259,6 +267,7 @@ class LaunchConfiguration(AWSObject):
         'KeyName': (basestring, False),
         'LaunchConfigurationName': (basestring, False),
         'Metadata': (Metadata, False),
+        'MetadataOptions': (MetadataOptions, False),
         'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),
         'SecurityGroups': (list, False),
