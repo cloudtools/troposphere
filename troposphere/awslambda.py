@@ -358,6 +358,28 @@ class Alias(AWSObject):
     }
 
 
+class AllowedPublishers(AWSProperty):
+    props = {
+        'SigningProfileVersionArns': ([basestring], True),
+    }
+
+
+class CodeSigningPolicies(AWSProperty):
+    props = {
+        'UntrustedArtifactOnDeployment': (basestring, True),
+    }
+
+
+class CodeSigningConfig(AWSObject):
+    resource_type = "AWS::Lambda::CodeSigningConfig"
+
+    props = {
+        'AllowedPublishers': (AllowedPublishers, True),
+        'CodeSigningPolicies': (CodeSigningPolicies, False),
+        'Description': (basestring, False),
+    }
+
+
 class Version(AWSObject):
     resource_type = "AWS::Lambda::Version"
 
