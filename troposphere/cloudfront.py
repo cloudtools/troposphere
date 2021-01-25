@@ -386,6 +386,39 @@ class OriginRequestPolicy(AWSObject):
     }
 
 
+class KeyGroupConfig(AWSProperty):
+    props = {
+        'Comment': (basestring, False),
+        'Items': ([basestring], True),
+        'Name': (basestring, True),
+    }
+
+
+class KeyGroup(AWSObject):
+    resource_type = "AWS::CloudFront::KeyGroup"
+
+    props = {
+        'KeyGroupConfig': (KeyGroupConfig, True),
+    }
+
+
+class PublicKeyConfig(AWSProperty):
+    props = {
+        'CallerReference': (basestring, True),
+        'Comment': (basestring, False),
+        'EncodedKey': (basestring, True),
+        'Name': (basestring, True),
+    }
+
+
+class PublicKey(AWSObject):
+    resource_type = "AWS::CloudFront::PublicKey"
+
+    props = {
+        'PublicKeyConfig': (PublicKeyConfig, True),
+    }
+
+
 class KinesisStreamConfig(AWSProperty):
     props = {
         'RoleArn': (basestring, True),
