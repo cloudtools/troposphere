@@ -248,14 +248,16 @@ class PrivateIpAddressSpecification(AWSProperty):
 
 class NetworkInterfaceProperty(AWSProperty):
     props = {
+        'AssociateCarrierIpAddress': (boolean, False),
         'AssociatePublicIpAddress': (boolean, False),
         'DeleteOnTermination': (boolean, False),
         'Description': (basestring, False),
         'DeviceIndex': (integer, True),
         'GroupSet': ([basestring], False),
-        'NetworkInterfaceId': (basestring, False),
         'Ipv6AddressCount': (integer, False),
         'Ipv6Addresses': ([Ipv6Addresses], False),
+        'NetworkCardIndex': (integer, False),
+        'NetworkInterfaceId': (basestring, False),
         'PrivateIpAddress': (basestring, False),
         'PrivateIpAddresses': ([PrivateIpAddressSpecification], False),
         'SecondaryPrivateIpAddressCount': (integer, False),
@@ -310,6 +312,12 @@ class LicenseSpecification(AWSProperty):
     }
 
 
+class EnclaveOptions(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+    }
+
+
 class HibernationOptions(AWSProperty):
     props = {
         'Configured': (boolean, False),
@@ -329,6 +337,7 @@ class Instance(AWSObject):
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'ElasticInferenceAccelerators': ([ElasticInferenceAccelerator], False),
+        'EnclaveOptions': (EnclaveOptions, False),
         'HibernationOptions': (HibernationOptions, False),
         'HostId': (basestring, False),
         'HostResourceGroupArn': (basestring, False),
@@ -1096,6 +1105,7 @@ class LaunchTemplateData(AWSProperty):
         'EbsOptimized': (boolean, False),
         'ElasticGpuSpecifications': ([ElasticGpuSpecification], False),
         'ElasticInferenceAccelerators': ([LaunchTemplateElasticInferenceAccelerator], False),  # NOQA
+        'EnclaveOptions': (EnclaveOptions, False),
         'HibernationOptions': (HibernationOptions, False),
         'IamInstanceProfile': (IamInstanceProfile, False),
         'ImageId': (basestring, False),
