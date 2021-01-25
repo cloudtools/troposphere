@@ -759,7 +759,8 @@ class VPCEndpointService(AWSObject):
 
     props = {
         'AcceptanceRequired': (boolean, False),
-        'NetworkLoadBalancerArns': ([basestring], True),
+        'GatewayLoadBalancerArns': ([basestring], False),
+        'NetworkLoadBalancerArns': ([basestring], False),
     }
 
 
