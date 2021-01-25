@@ -124,6 +124,7 @@ class Nodegroup(AWSObject):
 
     props = {
         'AmiType': (basestring, False),
+        'CapacityType': (basestring, False),
         'ClusterName': (basestring, True),
         'DiskSize': (double, False),
         'ForceUpdateEnabled': (boolean, False),
