@@ -49,6 +49,7 @@ class EventBusPolicy(AWSObject):
         'Condition': (Condition, False),
         'EventBusName': (basestring, False),
         'Principal': (basestring, True),
+        'Statement': (dict, False),
         'StatementId': (basestring, True),
     }
 
