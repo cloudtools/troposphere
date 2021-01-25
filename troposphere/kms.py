@@ -22,9 +22,10 @@ class Key(AWSObject):
 
     props = {
         'Description': (basestring, False),
-        'Enabled': (boolean, False),
         'EnableKeyRotation': (boolean, False),
+        'Enabled': (boolean, False),
         'KeyPolicy': (policytypes, True),
+        'KeySpec': (basestring, False),
         'KeyUsage': (key_usage_type, False),
         'PendingWindowInDays': (integer_range(7, 30), False),
         'Tags': ((Tags, list), False)
