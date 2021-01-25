@@ -12,6 +12,18 @@ from . import AWSProperty
 from .validators import integer
 
 
+class Archive(AWSObject):
+    resource_type = "AWS::Events::Archive"
+
+    props = {
+        'ArchiveName': (basestring, False),
+        'Description': (basestring, False),
+        'EventPattern': (dict, False),
+        'RetentionDays': (integer, False),
+        'SourceArn': (basestring, True),
+    }
+
+
 class EventBus(AWSObject):
     resource_type = "AWS::Events::EventBus"
 
