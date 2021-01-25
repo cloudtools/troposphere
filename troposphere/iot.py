@@ -1,4 +1,4 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .compat import policytypes
 from .validators import boolean, integer
 
@@ -14,6 +14,28 @@ class Authorizer(AWSObject):
         'Tags': (dict, False),
         'TokenKeyName': (basestring, False),
         # 'TokenSigningPublicKeys': (TokenSigningPublicKeys, False),
+    }
+
+
+class AuthorizerConfig(AWSProperty):
+    props = {
+        'AllowAuthorizerOverride': (boolean, False),
+        'DefaultAuthorizerName': (basestring, False),
+    }
+
+
+class DomainConfiguration(AWSObject):
+    resource_type = "AWS::IoT::DomainConfiguration"
+
+    props = {
+        'AuthorizerConfig': (AuthorizerConfig, False),
+        'DomainConfigurationName': (basestring, False),
+        'DomainConfigurationStatus': (basestring, False),
+        'DomainName': (basestring, False),
+        'ServerCertificateArns': ([basestring], False),
+        'ServiceType': (basestring, False),
+        'Tags': (Tags, False),
+        'ValidationCertificateArn': (basestring, False),
     }
 
 
