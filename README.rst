@@ -221,6 +221,7 @@ Currently supported AWS resource types
 - `AWS::IoTAnalytics`_
 - `AWS::IoTEvents`_
 - `AWS::IoTSiteWise`_
+- `AWS::IVS`_
 - `AWS::KMS`_
 - `AWS::Kendra`_
 - `AWS::Kinesis`_
@@ -465,6 +466,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::IoTAnalytics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTAnalytics.html
 .. _`AWS::IoTEvents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTEvents.html
 .. _`AWS::IoTSiteWise`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTSiteWise.html
+.. _`AWS::IVS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IVS.html
 .. _`AWS::KMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KMS.html
 .. _`AWS::Kendra`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Kendra.html
 .. _`AWS::Kinesis`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Kinesis.html
