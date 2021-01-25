@@ -170,10 +170,35 @@ class ContainerProperties(AWSProperty):
     }
 
 
+class NodeRangeProperty(AWSProperty):
+    props = {
+        'Container': (ContainerProperties, False),
+        'TargetNodes': (basestring, True),
+    }
+
+
+class NodeProperties(AWSProperty):
+    props = {
+        'MainNode': (integer, True),
+        'NodeRangeProperties': ([NodeRangeProperty], True),
+        'NumNodes': (integer, True),
+    }
+
+
+class EvaluateOnExit(AWSProperty):
+    props = {
+        'Action': (basestring, True),
+        'OnExitCode': (basestring, False),
+        'OnReason': (basestring, False),
+        'OnStatusReason': (basestring, False),
+    }
+
+
 class RetryStrategy(AWSProperty):
 
     props = {
-        "Attempts": (positive_integer, False)
+        'Attempts': (positive_integer, False),
+        'EvaluateOnExit': ([EvaluateOnExit], False),
     }
 
 
@@ -187,11 +212,14 @@ class JobDefinition(AWSObject):
     resource_type = "AWS::Batch::JobDefinition"
 
     props = {
-        'ContainerProperties': (ContainerProperties, True),
+        'ContainerProperties': (ContainerProperties, False),
         'JobDefinitionName': (basestring, False),
+        'NodeProperties': (NodeProperties, False),
         'Parameters': (dict, False),
+        'PlatformCapabilities': ([basestring], False),
+        'PropagateTags': (boolean, False),
         'RetryStrategy': (RetryStrategy, False),
-        "Tags": (dict, False),
+        'Tags': (dict, False),
         'Timeout': (Timeout, False),
         'Type': (basestring, True),
     }
