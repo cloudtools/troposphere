@@ -415,6 +415,19 @@ class EventSubscription(AWSObject):
     }
 
 
+class GlobalCluster(AWSObject):
+    resource_type = "AWS::RDS::GlobalCluster"
+
+    props = {
+        'DeletionProtection': (boolean, False),
+        'Engine': (basestring, False),
+        'EngineVersion': (basestring, False),
+        'GlobalClusterIdentifier': (basestring, False),
+        'SourceDBClusterIdentifier': (basestring, False),
+        'StorageEncrypted': (boolean, False),
+    }
+
+
 class OptionSetting(AWSProperty):
     props = {
         'Name': (basestring, False),
