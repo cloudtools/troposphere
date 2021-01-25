@@ -478,15 +478,18 @@ class Route(AWSObject):
     resource_type = "AWS::EC2::Route"
 
     props = {
+        'CarrierGatewayId': (basestring, False),
         'DestinationCidrBlock': (basestring, False),
         'DestinationIpv6CidrBlock': (basestring, False),
         'EgressOnlyInternetGatewayId': (basestring, False),
         'GatewayId': (basestring, False),
         'InstanceId': (basestring, False),
+        'LocalGatewayId': (basestring, False),
         'NatGatewayId': (basestring, False),
         'NetworkInterfaceId': (basestring, False),
         'RouteTableId': (basestring, True),
         'TransitGatewayId': (basestring, False),
+        'VpcEndpointId': (basestring, False),
         'VpcPeeringConnectionId': (basestring, False),
     }
 
@@ -496,13 +499,16 @@ class Route(AWSObject):
             'DestinationIpv6CidrBlock',
         ]
         gateway_conds = [
+            'CarrierGatewayId',
             'EgressOnlyInternetGatewayId',
             'GatewayId',
             'InstanceId',
+            'LocalGatewayId',
             'NatGatewayId',
             'NetworkInterfaceId',
             'TransitGatewayId',
-            'VpcPeeringConnectionId'
+            'VpcEndpointId',
+            'VpcPeeringConnectionId',
         ]
         exactly_one(self.__class__.__name__, self.properties, cidr_conds)
         exactly_one(self.__class__.__name__, self.properties, gateway_conds)
