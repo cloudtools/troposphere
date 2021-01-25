@@ -349,3 +349,28 @@ class ProvisioningTemplate(AWSObject):
         'TemplateBody': (basestring, True),
         'TemplateName': (basestring, False),
     }
+
+
+class HttpUrlDestinationSummary(AWSProperty):
+    props = {
+        'ConfirmationUrl': (basestring, False),
+    }
+
+
+class VpcDestinationProperties(AWSProperty):
+    props = {
+        'RoleArn': (basestring, False),
+        'SecurityGroups': ([basestring], False),
+        'SubnetIds': ([basestring], False),
+        'VpcId': (basestring, False),
+    }
+
+
+class TopicRuleDestination(AWSObject):
+    resource_type = "AWS::IoT::TopicRuleDestination"
+
+    props = {
+        'HttpUrlProperties': (HttpUrlDestinationSummary, False),
+        'Status': (basestring, False),
+        'VpcProperties': (VpcDestinationProperties, False),
+    }
