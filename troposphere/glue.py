@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, double
 from .validators import integer, integer_range, positive_integer
 
@@ -426,6 +426,48 @@ class Partition(AWSObject):
         'DatabaseName': (basestring, True),
         'PartitionInput': (PartitionInput, True),
         'TableName': (basestring, True),
+    }
+
+
+class Registry(AWSObject):
+    resource_type = "AWS::Glue::Registry"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class SchemaVersion(AWSProperty):
+    props = {
+        'IsLatest': (boolean, False),
+        'VersionNumber': (integer, False),
+    }
+
+
+class Schema(AWSObject):
+    resource_type = "AWS::Glue::Schema"
+
+    props = {
+        'CheckpointVersion': (SchemaVersion, False),
+        'Compatibility': (basestring, True),
+        'DataFormat': (basestring, True),
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'Registry': (Registry, False),
+        'SchemaDefinition': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class SchemaVersionMetadata(AWSObject):
+    resource_type = "AWS::Glue::SchemaVersionMetadata"
+
+    props = {
+        'Key': (basestring, True),
+        'SchemaVersionId': (basestring, True),
+        'Value': (basestring, True),
     }
 
 
