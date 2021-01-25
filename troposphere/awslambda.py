@@ -214,6 +214,25 @@ class EventInvokeConfig(AWSObject):
     }
 
 
+class Endpoints(AWSProperty):
+    props = {
+        'KafkaBootstrapServers': ([basestring], False),
+    }
+
+
+class SelfManagedEventSource(AWSProperty):
+    props = {
+        'Endpoints': (Endpoints, False),
+    }
+
+
+class SourceAccessConfiguration(AWSProperty):
+    props = {
+        'Type': (basestring, False),
+        'URI': (basestring, False),
+    }
+
+
 class EventSourceMapping(AWSObject):
     resource_type = "AWS::Lambda::EventSourceMapping"
 
@@ -222,14 +241,20 @@ class EventSourceMapping(AWSObject):
         'BisectBatchOnFunctionError': (boolean, False),
         'DestinationConfig': (DestinationConfig, False),
         'Enabled': (boolean, False),
-        'EventSourceArn': (basestring, True),
+        'EventSourceArn': (basestring, False),
         'FunctionName': (basestring, True),
+        'FunctionResponseTypes': ([basestring], False),
         'MaximumBatchingWindowInSeconds': (integer, False),
         'MaximumRecordAgeInSeconds': (integer, False),
         'MaximumRetryAttempts': (integer, False),
         'ParallelizationFactor': (integer, False),
+        'PartialBatchResponse': (boolean, False),
+        'Queues': ([basestring], False),
+        'SelfManagedEventSource': (SelfManagedEventSource, False),
+        'SourceAccessConfigurations': ([SourceAccessConfiguration], False),
         'StartingPosition': (basestring, False),
         'Topics': ([basestring], False),
+        'TumblingWindowInSeconds': (integer, False),
     }
 
 
