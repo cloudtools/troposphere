@@ -39,7 +39,7 @@ import sys
 # - Need to figure out the correct Timestamp type
 
 copyright_header = """\
-# Copyright (c) 2012-2020, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
