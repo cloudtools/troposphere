@@ -102,7 +102,7 @@ class DeploymentCircuitBreaker(AWSProperty):
     """
     props = {
         "Enable": (boolean, True),
-        "RollBack": (boolean, True)
+        "Rollback": (boolean, True)
     }
 
 
