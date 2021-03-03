@@ -12,6 +12,18 @@ from . import AWSProperty
 from .validators import integer
 
 
+class Archive(AWSObject):
+    resource_type = "AWS::Events::Archive"
+
+    props = {
+        'ArchiveName': (basestring, False),
+        'Description': (basestring, False),
+        'EventPattern': (dict, False),
+        'RetentionDays': (integer, False),
+        'SourceArn': (basestring, True),
+    }
+
+
 class EventBus(AWSObject):
     resource_type = "AWS::Events::EventBus"
 
@@ -37,6 +49,7 @@ class EventBusPolicy(AWSObject):
         'Condition': (Condition, False),
         'EventBusName': (basestring, False),
         'Principal': (basestring, True),
+        'Statement': (dict, False),
         'StatementId': (basestring, True),
     }
 
@@ -59,6 +72,12 @@ class BatchParameters(AWSProperty):
         'JobDefinition': (basestring, True),
         'JobName': (basestring, True),
         'RetryStrategy': (BatchRetryStrategy, False),
+    }
+
+
+class DeadLetterConfig(AWSProperty):
+    props = {
+        'Arn': (basestring, False),
     }
 
 
@@ -87,6 +106,14 @@ class EcsParameters(AWSProperty):
     }
 
 
+class HttpParameters(AWSProperty):
+    props = {
+        'HeaderParameters': (dict, False),
+        'PathParameterValues': ([basestring], False),
+        'QueryStringParameters': (dict, False),
+    }
+
+
 class InputTransformer(AWSProperty):
     props = {
         'InputPathsMap': (dict, False),
@@ -97,6 +124,13 @@ class InputTransformer(AWSProperty):
 class KinesisParameters(AWSProperty):
     props = {
         'PartitionKeyPath': (basestring, True),
+    }
+
+
+class RetryPolicy(AWSProperty):
+    props = {
+        'MaximumEventAgeInSeconds': (integer, False),
+        'MaximumRetryAttempts': (integer, False),
     }
 
 
@@ -123,12 +157,15 @@ class Target(AWSProperty):
     props = {
         'Arn': (basestring, True),
         'BatchParameters': (BatchParameters, False),
+        'DeadLetterConfig': (DeadLetterConfig, False),
         'EcsParameters': (EcsParameters, False),
+        'HttpParameters': (HttpParameters, False),
         'Id': (basestring, True),
         'Input': (basestring, False),
         'InputPath': (basestring, False),
         'InputTransformer': (InputTransformer, False),
         'KinesisParameters': (KinesisParameters, False),
+        'RetryPolicy': (RetryPolicy, False),
         'RoleArn': (basestring, False),
         'RunCommandParameters': (RunCommandParameters, False),
         'SqsParameters': (SqsParameters, False),

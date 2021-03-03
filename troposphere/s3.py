@@ -6,8 +6,8 @@ import warnings
 
 from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 from .compat import policytypes
-from .validators import boolean, integer, positive_integer, s3_bucket_name
-from .validators import s3_transfer_acceleration_status
+from .validators import boolean, double, integer, positive_integer
+from .validators import s3_bucket_name, s3_transfer_acceleration_status
 
 Private = "Private"
 PublicRead = "PublicRead"
@@ -295,6 +295,12 @@ class ReplicationConfigurationRulesDestination(AWSProperty):
     }
 
 
+class ReplicaModifications(AWSProperty):
+    props = {
+        'Status': (basestring, True),
+    }
+
+
 class SseKmsEncryptedObjects(AWSProperty):
     props = {
         'Status': (basestring, True),
@@ -303,7 +309,8 @@ class SseKmsEncryptedObjects(AWSProperty):
 
 class SourceSelectionCriteria(AWSProperty):
     props = {
-        'SseKmsEncryptedObjects': (SseKmsEncryptedObjects, True),
+        'ReplicaModifications': (ReplicaModifications, False),
+        'SseKmsEncryptedObjects': (SseKmsEncryptedObjects, False),
     }
 
 
@@ -364,6 +371,7 @@ class ServerSideEncryptionByDefault(AWSProperty):
 
 class ServerSideEncryptionRule(AWSProperty):
     props = {
+        'BucketKeyEnabled': (boolean, False),
         'ServerSideEncryptionByDefault':
             (ServerSideEncryptionByDefault, False),
     }
@@ -406,15 +414,6 @@ class ObjectLockConfiguration(AWSProperty):
     props = {
         'ObjectLockEnabled': (basestring, False),
         'Rule': (ObjectLockRule, False),
-    }
-
-
-class PublicAccessBlockConfiguration(AWSProperty):
-    props = {
-        'BlockPublicAcls': (boolean, False),
-        'BlockPublicPolicy': (boolean, False),
-        'IgnorePublicAcls': (boolean, False),
-        'RestrictPublicBuckets': (boolean, False),
     }
 
 
@@ -468,4 +467,80 @@ class BucketPolicy(AWSObject):
     props = {
         'Bucket': (basestring, True),
         'PolicyDocument': (policytypes, True),
+    }
+
+
+class ActivityMetrics(AWSProperty):
+    props = {
+        'IsEnabled': (boolean, False),
+    }
+
+
+class SelectionCriteria(AWSProperty):
+    props = {
+        'Delimiter': (basestring, False),
+        'MaxDepth': (integer, False),
+        'MinStorageBytesPercentage': (double, False),
+    }
+
+
+class PrefixLevelStorageMetrics(AWSProperty):
+    props = {
+        'IsEnabled': (boolean, False),
+        'SelectionCriteria': (SelectionCriteria, False),
+    }
+
+
+class PrefixLevel(AWSProperty):
+    props = {
+        'StorageMetrics': (PrefixLevelStorageMetrics, True),
+    }
+
+
+class BucketLevel(AWSProperty):
+    props = {
+        'ActivityMetrics': (ActivityMetrics, False),
+        'PrefixLevel': (PrefixLevel, False),
+    }
+
+
+class AccountLevel(AWSProperty):
+    props = {
+        'ActivityMetrics': (ActivityMetrics, False),
+        'BucketLevel': (BucketLevel, True),
+    }
+
+
+class AwsOrg(AWSProperty):
+    props = {
+        'Arn': (basestring, True),
+    }
+
+
+class BucketsAndRegions(AWSProperty):
+    props = {
+        'Buckets': ([basestring], False),
+        'Regions': ([basestring], False),
+    }
+
+
+class StorageLensConfiguration(AWSProperty):
+    props = {
+        'AccountLevel': (AccountLevel, True),
+        'AwsOrg': (AwsOrg, False),
+        'DataExport': (DataExport, False),
+        'Exclude': (BucketsAndRegions, False),
+        'Id': (basestring, True),
+        'Include': (BucketsAndRegions, False),
+        'IsEnabled': (boolean, True),
+        'StorageLensArn': (basestring, False),
+    }
+
+
+class StorageLens(AWSObject):
+    resource_type = "AWS::S3::StorageLens"
+
+    props = {
+        'StorageLensConfiguration': (StorageLensConfiguration, True),
+        'Tags': (Tags, False),
     }

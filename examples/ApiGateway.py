@@ -9,7 +9,6 @@ from troposphere.iam import Role, Policy
 from troposphere.awslambda import Function, Code
 from troposphere import GetAtt, Join
 
-
 t = Template()
 
 # Create the Api Gateway
@@ -149,8 +148,16 @@ usagePlan = t.add_resource(UsagePlan(
     ApiStages=[
         ApiStage(
             ApiId=Ref(rest_api),
-            Stage=Ref(stage)
-        )]
+            Stage=Ref(stage),
+            Throttle=({
+                "/some/api/path/GET":
+                    ThrottleSettings(
+                        BurstLimit=500,
+                        RateLimit=5000
+                    )
+            })
+        )
+    ]
 ))
 
 # tie the usage plan and key together
@@ -179,6 +186,5 @@ t.add_output([
         Description="API key"
     ),
 ])
-
 
 print(t.to_json())

@@ -36,6 +36,7 @@ class CloudFormationProduct(AWSObject):
         'Owner': (basestring, True),
         'ProvisioningArtifactParameters':
             ([ProvisioningArtifactProperties], True),
+        'ReplaceProvisioningArtifacts': (boolean, False),
         'SupportDescription': (basestring, False),
         'SupportEmail': (basestring, False),
         'SupportUrl': (basestring, False),
@@ -69,6 +70,7 @@ class CloudFormationProvisionedProduct(AWSObject):
         'AcceptLanguage': (basestring, False),
         'NotificationArns': ([basestring], False),
         'PathId': (basestring, False),
+        'PathName': (basestring, False),
         'ProductId': (basestring, False),
         'ProductName': (basestring, False),
         'ProvisionedProductName': (basestring, False),
@@ -98,9 +100,10 @@ class LaunchRoleConstraint(AWSObject):
     props = {
         'AcceptLanguage': (basestring, False),
         'Description': (basestring, False),
+        'LocalRoleName': (basestring, False),
         'PortfolioId': (basestring, True),
         'ProductId': (basestring, True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (basestring, False),
     }
 
 

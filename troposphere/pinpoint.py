@@ -274,9 +274,11 @@ class EmailTemplate(AWSObject):
     resource_type = "AWS::Pinpoint::EmailTemplate"
 
     props = {
+        'DefaultSubstitutions': (basestring, False),
         'HtmlPart': (basestring, False),
         'Subject': (basestring, True),
         'Tags': (dict, False),
+        'TemplateDescription': (basestring, False),
         'TemplateName': (basestring, True),
         'TextPart': (basestring, False),
     }
@@ -344,8 +346,10 @@ class PushTemplate(AWSObject):
         'APNS': (APNSPushNotificationTemplate, False),
         'Baidu': (AndroidPushNotificationTemplate, False),
         'Default': (DefaultPushNotificationTemplate, False),
+        'DefaultSubstitutions': (basestring, False),
         'GCM': (AndroidPushNotificationTemplate, False),
         'Tags': (dict, False),
+        'TemplateDescription': (basestring, False),
         'TemplateName': (basestring, True),
     }
 
@@ -457,7 +461,9 @@ class SmsTemplate(AWSObject):
 
     props = {
         'Body': (basestring, True),
+        'DefaultSubstitutions': (basestring, False),
         'Tags': (dict, False),
+        'TemplateDescription': (basestring, False),
         'TemplateName': (basestring, True),
     }
 

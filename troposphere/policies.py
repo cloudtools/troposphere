@@ -41,6 +41,7 @@ class UpdatePolicy(AWSAttribute):
         'AutoScalingReplacingUpdate': (AutoScalingReplacingUpdate, False),
         'CodeDeployLambdaAliasUpdate': (CodeDeployLambdaAliasUpdate, False),
         'UseOnlineResharding': (boolean, False),
+        'EnableVersionUpgrade': (boolean, False),
     }
 
 

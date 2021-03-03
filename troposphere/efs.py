@@ -1,5 +1,5 @@
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean
+from .validators import boolean, one_of
 
 Bursting = 'bursting'
 Provisioned = 'provisioned'
@@ -22,17 +22,69 @@ def provisioned_throughput_validator(throughput):
     return throughput
 
 
+class PosixUser(AWSProperty):
+    props = {
+        'Gid': (basestring, True),
+        'SecondaryGids': ([basestring], False),
+        'Uid': (basestring, True),
+    }
+
+
+class CreationInfo(AWSProperty):
+    props = {
+        'OwnerGid': (basestring, True),
+        'OwnerUid': (basestring, True),
+        'Permissions': (basestring, True),
+    }
+
+
+class RootDirectory(AWSProperty):
+    props = {
+        'CreationInfo': (CreationInfo, False),
+        'Path': (basestring, False),
+    }
+
+
+class AccessPoint(AWSObject):
+    resource_type = "AWS::EFS::AccessPoint"
+
+    props = {
+        'AccessPointTags': (Tags, False),
+        'ClientToken': (basestring, False),
+        'FileSystemId': (basestring, True),
+        'PosixUser': (PosixUser, False),
+        'RootDirectory': (RootDirectory, False),
+    }
+
+
 class LifecyclePolicy(AWSProperty):
     props = {
         'TransitionToIA': (basestring, True),
     }
 
 
+class BackupPolicy(AWSProperty):
+    props = {
+        'Status': (basestring, True),
+    }
+
+    def validate(self):
+        conds = [
+            'DISABLED',
+            'DISABLING',
+            'ENABLED',
+            'ENABLING'
+        ]
+        one_of(self.__class__.__name__, self.properties, 'Status', conds)
+
+
 class FileSystem(AWSObject):
     resource_type = "AWS::EFS::FileSystem"
 
     props = {
+        'BackupPolicy': (BackupPolicy, False),
         'Encrypted': (boolean, False),
+        'FileSystemPolicy': (dict, False),
         'FileSystemTags': (Tags, False),
         'KmsKeyId': (basestring, False),
         'LifecyclePolicies': ([LifecyclePolicy], False),

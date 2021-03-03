@@ -8,6 +8,10 @@ from .compat import policytypes
 from .validators import boolean, integer, integer_range, positive_integer
 
 VALID_VOLUME_TYPES = ('standard', 'gp2', 'io1')
+VALID_TLS_SECURITY_POLICIES = (
+    'Policy-Min-TLS-1-0-2019-07',
+    'Policy-Min-TLS-1-2-2019-07'
+    )
 
 
 def validate_volume_type(volume_type):
@@ -18,12 +22,27 @@ def validate_volume_type(volume_type):
     return volume_type
 
 
+def validate_tls_security_policy(tls_security_policy):
+    """Validate TLS Security Policy for ElasticsearchDomain"""
+    if tls_security_policy not in VALID_TLS_SECURITY_POLICIES:
+        raise ValueError("Minimum TLS Security Policy must be one of: %s" %
+                         ", ".join(VALID_TLS_SECURITY_POLICIES))
+    return tls_security_policy
+
+
 class CognitoOptions(AWSProperty):
     props = {
         'Enabled': (boolean, False),
         'IdentityPoolId': (basestring, False),
         'RoleArn': (basestring, False),
         'UserPoolId': (basestring, False),
+    }
+
+
+class DomainEndpointOptions(AWSProperty):
+    props = {
+        'EnforceHTTPS': (boolean, False),
+        'TLSSecurityPolicy': (validate_tls_security_policy, False),
     }
 
 
@@ -55,6 +74,9 @@ class ElasticsearchClusterConfig(AWSProperty):
         'DedicatedMasterType': (basestring, False),
         'InstanceCount': (integer, False),
         'InstanceType': (basestring, False),
+        'WarmCount': (integer, False),
+        'WarmEnabled': (boolean, False),
+        'WarmType': (basestring, False),
         'ZoneAwarenessConfig': (ZoneAwarenessConfig, False),
         'ZoneAwarenessEnabled': (boolean, False)
     }
@@ -81,8 +103,24 @@ class SnapshotOptions(AWSProperty):
 
 class VPCOptions(AWSProperty):
     props = {
-        "SecurityGroupIds": ([basestring], False),
-        "SubnetIds": ([basestring], False)
+        'SecurityGroupIds': ([basestring], False),
+        'SubnetIds': ([basestring], False)
+    }
+
+
+class MasterUserOptions(AWSProperty):
+    props = {
+        'MasterUserARN': (basestring, False),
+        'MasterUserName': (basestring, False),
+        'MasterUserPassword': (basestring, False),
+    }
+
+
+class AdvancedSecurityOptionsInput(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'InternalUserDatabaseEnabled': (boolean, False),
+        'MasterUserOptions': (MasterUserOptions, False),
     }
 
 
@@ -92,8 +130,10 @@ class Domain(AWSObject):
     props = {
         'AccessPolicies': (policytypes, False),
         'AdvancedOptions': (dict, False),
+        'AdvancedSecurityOptions': (AdvancedSecurityOptionsInput, False),
         'CognitoOptions': (CognitoOptions, False),
         'DomainName': (basestring, False),
+        'DomainEndpointOptions': (DomainEndpointOptions, False),
         'EBSOptions': (EBSOptions, False),
         'ElasticsearchClusterConfig': (ElasticsearchClusterConfig, False),
         'ElasticsearchVersion': (basestring, False),

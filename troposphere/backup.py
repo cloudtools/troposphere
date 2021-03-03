@@ -7,6 +7,13 @@ from . import AWSObject, AWSProperty, If
 from .validators import backup_vault_name, double, exactly_one, json_checker
 
 
+class AdvancedBackupSettingResourceType(AWSProperty):
+    props = {
+        'BackupOptions': (dict, True),
+        'ResourceType': (basestring, True),
+    }
+
+
 class LifecycleResourceType(AWSProperty):
     props = {
         'DeleteAfterDays': (double, False),
@@ -14,9 +21,17 @@ class LifecycleResourceType(AWSProperty):
     }
 
 
+class CopyActionResourceType(AWSProperty):
+    props = {
+        'DestinationBackupVaultArn': (basestring, True),
+        'Lifecycle': (LifecycleResourceType, False),
+    }
+
+
 class BackupRuleResourceType(AWSProperty):
     props = {
         'CompletionWindowMinutes': (double, False),
+        'CopyActions': ([CopyActionResourceType], False),
         'Lifecycle': (LifecycleResourceType, False),
         'RecoveryPointTags': (dict, False),
         'RuleName': (basestring, True),
@@ -28,6 +43,8 @@ class BackupRuleResourceType(AWSProperty):
 
 class BackupPlanResourceType(AWSProperty):
     props = {
+        'AdvancedBackupSettings':
+            ([AdvancedBackupSettingResourceType], False),
         'BackupPlanName': (basestring, True),
         'BackupPlanRule': ([BackupRuleResourceType], True),
     }

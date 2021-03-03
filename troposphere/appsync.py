@@ -36,6 +36,7 @@ class ApiKey(AWSObject):
 
     props = {
         'ApiId': (basestring, True),
+        'ApiKeyId': (basestring, False),
         'Description': (basestring, False),
         'Expires': (double, False),
     }
@@ -197,6 +198,7 @@ class GraphQLApi(AWSObject):
         'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'Tags': (Tags, False),
         'UserPoolConfig': (UserPoolConfig, False),
+        'XrayEnabled': (boolean, False),
     }
 
 

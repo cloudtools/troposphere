@@ -1,9 +1,15 @@
 import unittest
 from troposphere import GetAtt, Template, Join, Ref
-from troposphere.awslambda import Code, Function, Environment
+
+from troposphere.awslambda import Code,\
+    Function,\
+    Environment,\
+    ImageConfig,\
+    validate_memory_size
 
 
 class TestAWSLambda(unittest.TestCase):
+
     def test_exclusive(self):
         lambda_func = Function(
             "AMIIDLookup",
@@ -89,6 +95,158 @@ class TestAWSLambda(unittest.TestCase):
                 Environment(Variables={var: 'value'})
             except ValueError:
                 self.fail("Environment() raised ValueError")
+
+    def test_package_type_image(self):
+        Function(
+            "TestFunction",
+            Code=Code(
+                ImageUri="something"
+            ),
+            PackageType="Image",
+            Role=GetAtt("LambdaExecutionRole", "Arn"),
+        ).validate()
+
+    def test_package_type_invalid(self):
+        with self.assertRaises(ValueError):
+            Function(
+                "TestFunction",
+                Code=Code(
+                    ImageUri="something"
+                ),
+                PackageType="Invalid",
+                Role=GetAtt("LambdaExecutionRole", "Arn"),
+            ).validate()
+
+    def test_package_type_zip(self):
+        Function(
+            "TestFunction",
+            Code=Code(
+                ZipFile=Join("", [
+                    "var response = require('cfn-response');",
+                    "exports.handler = function(event, context) {",
+                    "  var input = parseInt(event.ResourceProperties.Input);",
+                    "  var responseData = {Value: input * 5};",
+                    "  response.send("
+                    "    event, context, response.SUCCESS, responseData"
+                    "  );",
+                    "};"
+                ]),
+            ),
+            Handler="index.handler",
+            PackageType="Zip",
+            Role=GetAtt("LambdaExecutionRole", "Arn"),
+            Runtime="nodejs",
+        ).validate()
+
+
+class TestCode(unittest.TestCase):
+    def test_validate_image_uri(self):
+        Code(ImageUri="something").validate()
+
+    def test_validate_image_and_zip(self):
+        with self.assertRaises(ValueError):
+            Code(ImageUri="something", ZipFile="something").validate()
+
+    def test_validate_image_and_s3(self):
+        s3_props = [
+            {"S3Bucket": "bucket"},
+            {"S3Key": "key"},
+            {"S3ObjectVersion": "version"},
+            {"S3Bucket": "bucket", "S3Key": "key"},
+            {"S3Bucket": "bucket", "S3ObjectVersion": "version"},
+            {"S3Key": "key", "S3ObjectVersion": "version"},
+            {
+                "S3Bucket": "bucket",
+                "S3Key": "key",
+                "S3ObjectVersion": "version"
+            },
+        ]
+        for props in s3_props:
+            with self.assertRaises(ValueError):
+                Code(ImageUri="something", **props).validate()
+
+    def test_validate_s3(self):
+        Code(S3Bucket="bucket", S3Key="key").validate()
+        Code(
+            S3Bucket="bucket",
+            S3Key="key",
+            S3ObjectVersion="version"
+        ).validate()
+
+    def test_validate_s3_missing_required(self):
+        s3_props = [
+            {"S3Bucket": "bucket"},
+            {"S3Key": "key"},
+            {"S3ObjectVersion": "version"},
+            {"S3Bucket": "bucket", "S3ObjectVersion": "version"},
+            {"S3Key": "key", "S3ObjectVersion": "version"},
+        ]
+        for props in s3_props:
+            with self.assertRaises(ValueError):
+                Code(**props).validate()
+
+    def test_validate_zip_and_s3(self):
+        s3_props = [
+            {"S3Bucket": "bucket"},
+            {"S3Key": "key"},
+            {"S3ObjectVersion": "version"},
+            {"S3Bucket": "bucket", "S3Key": "key"},
+            {"S3Bucket": "bucket", "S3ObjectVersion": "version"},
+            {"S3Key": "key", "S3ObjectVersion": "version"},
+            {
+                "S3Bucket": "bucket",
+                "S3Key": "key",
+                "S3ObjectVersion": "version"
+            },
+        ]
+        for props in s3_props:
+            with self.assertRaises(ValueError):
+                Code(ZipFile="something", **props).validate()
+
+
+class TestImageConfig(unittest.TestCase):
+
+    def test_validate_command(self):
+        ImageConfig(Command=["something"] * 1500).validate()
+
+    def test_validate_command_too_long(self):
+        with self.assertRaises(ValueError):
+            ImageConfig(Command=["something"] * 1501).validate()
+
+    def test_validate_empty(self):
+        ImageConfig().validate()
+
+    def test_validate_entry_point(self):
+        ImageConfig(EntryPoint=["something"] * 1500).validate()
+
+    def test_validate_entry_point_too_long(self):
+        with self.assertRaises(ValueError):
+            ImageConfig(EntryPoint=["something"] * 1501).validate()
+
+    def test_validate_working_directory(self):
+        ImageConfig(WorkingDirectory="x" * 1000).validate()
+
+    def test_validate_working_directory_too_long(self):
+        with self.assertRaises(ValueError):
+            ImageConfig(WorkingDirectory="x" * 1001).validate()
+
+    def test_validate_memory_size_boundaries(self):
+        for var in ['128', '10240']:
+            validate_memory_size(var)
+
+    def test_validate_memory_size_throws(self):
+        for var in ['1', '111111111111111111111']:
+            with self.assertRaises(ValueError) as context:
+                validate_memory_size(var)
+
+            self.assertTrue("Lambda Function memory size must be one of:"
+                            in context.exception.args[0])
+
+            self.assertTrue("128,"
+                            in context.exception.args[0])
+
+            self.assertTrue(", 10240"
+                            in context.exception.args[0])
 
 
 if __name__ == '__main__':

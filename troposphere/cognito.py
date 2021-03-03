@@ -7,6 +7,19 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, positive_integer
 
 
+VALID_RECOVERYOPTION_NAME = (
+    'admin_only', 'verified_email', 'verified_phone_number')
+
+
+def validate_recoveryoption_name(recoveryoption_name):
+    """Validate Name for RecoveryOption"""
+
+    if recoveryoption_name not in VALID_RECOVERYOPTION_NAME:
+        raise ValueError("RecoveryOption Name must be one of: %s" %
+                         ", ".join(VALID_RECOVERYOPTION_NAME))
+    return recoveryoption_name
+
+
 class CognitoIdentityProvider(AWSProperty):
     props = {
         'ClientId': (basestring, False),
@@ -195,10 +208,30 @@ class VerificationMessageTemplate(AWSProperty):
     }
 
 
+class RecoveryOption(AWSProperty):
+    props = {
+        'Name': (validate_recoveryoption_name, False),
+        'Priority': (positive_integer, False)
+    }
+
+
+class AccountRecoverySetting(AWSProperty):
+    props = {
+        'RecoveryMechanisms': ([RecoveryOption], False)
+    }
+
+
+class UsernameConfiguration(AWSProperty):
+    props = {
+        'CaseSensitive': (boolean, False),
+    }
+
+
 class UserPool(AWSObject):
     resource_type = "AWS::Cognito::UserPool"
 
     props = {
+        'AccountRecoverySetting': (AccountRecoverySetting, False),
         'AdminCreateUserConfig': (AdminCreateUserConfig, False),
         'AliasAttributes': ([basestring], False),
         'AutoVerifiedAttributes': ([basestring], False),
@@ -218,6 +251,7 @@ class UserPool(AWSObject):
         'UserPoolName': (basestring, False),
         'UserPoolTags': (dict, False),
         'UsernameAttributes': ([basestring], False),
+        'UsernameConfiguration': (UsernameConfiguration, False),
         'VerificationMessageTemplate': (VerificationMessageTemplate, False),
     }
 
@@ -231,10 +265,19 @@ class AnalyticsConfiguration(AWSProperty):
     }
 
 
+class TokenValidityUnits(AWSProperty):
+    props = {
+        'AccessToken': (basestring, False),
+        'IdToken': (basestring, False),
+        'RefreshToken': (basestring, False),
+    }
+
+
 class UserPoolClient(AWSObject):
     resource_type = "AWS::Cognito::UserPoolClient"
 
     props = {
+        'AccessTokenValidity': (positive_integer, False),
         'AllowedOAuthFlows': ([basestring], False),
         'AllowedOAuthFlowsUserPoolClient': (boolean, False),
         'AllowedOAuthScopes': ([basestring], False),
@@ -244,11 +287,13 @@ class UserPoolClient(AWSObject):
         'DefaultRedirectURI': (basestring, False),
         'ExplicitAuthFlows': ([basestring], False),
         'GenerateSecret': (boolean, False),
+        'IdTokenValidity': (positive_integer, False),
         'LogoutURLs': ([basestring], False),
         'PreventUserExistenceErrors': (basestring, False),
         'ReadAttributes': ([basestring], False),
         'RefreshTokenValidity': (positive_integer, False),
         'SupportedIdentityProviders': ([basestring], False),
+        'TokenValidityUnits': (TokenValidityUnits, False),
         'UserPoolId': (basestring, True),
         'WriteAttributes': ([basestring], False),
     }
@@ -306,10 +351,10 @@ class UserPoolResourceServer(AWSObject):
     resource_type = "AWS::Cognito::UserPoolResourceServer"
 
     props = {
-      "Identifier": (basestring, True),
-      "Name": (basestring, True),
-      "Scopes": ([ResourceServerScopeType], False),
-      "UserPoolId": (basestring, True)
+        "Identifier": (basestring, True),
+        "Name": (basestring, True),
+        "Scopes": ([ResourceServerScopeType], False),
+        "UserPoolId": (basestring, True)
     }
 
 

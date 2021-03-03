@@ -1,9 +1,10 @@
 import unittest
-from troposphere import Tags, Template
+from troposphere import ImportValue, Parameter, Ref, Sub, Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
-    Api, DeadLetterQueue, DeploymentPreference, Function, FunctionForPackaging,
-    LayerVersion, S3Event, S3Location, SimpleTable,
+    Api, Auth, DeadLetterQueue, DeploymentPreference, Domain,
+    EndpointConfiguration, Function, FunctionForPackaging, LayerVersion,
+    ResourcePolicyStatement, Route53, S3Event, S3Location, SimpleTable,
 )
 
 
@@ -157,6 +158,61 @@ class TestServerless(unittest.TestCase):
             StageName='test',
         )
         t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_api_auth_resource_policy(self):
+        serverless_api = Api(
+            title='SomeApi',
+            Auth=Auth(
+                ResourcePolicy=ResourcePolicyStatement(
+                    AwsAccountBlacklist=['testAwsAccountBlacklist'],
+                    AwsAccountWhitelist=['testAwsAccountWhitelist'],
+                    CustomStatements=['testCustomStatements'],
+                    IpRangeBlacklist=['testIpRangeBlacklist'],
+                    IpRangeWhitelist=['testIpRangeWhitelist'],
+                    SourceVpcBlacklist=['testVpcBlacklist'],
+                    SourceVpcWhitelist=['testVpcWhitelist'],
+                ),
+            ),
+            StageName='testStageName',
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_api_with_endpoint_configuation(self):
+        serverless_api = Api(
+            title="SomeApi",
+            StageName="testStageName",
+            EndpointConfiguration=EndpointConfiguration(
+                Type="PRIVATE"
+            ),
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_api_with_domain(self):
+        certificate = Parameter('certificate', Type='String')
+        serverless_api = Api(
+            'SomeApi',
+            StageName='test',
+            Domain=Domain(
+                BasePath=['/'],
+                CertificateArn=Ref(certificate),
+                DomainName=Sub(
+                    'subdomain.${Zone}', Zone=ImportValue('MyZone')
+                ),
+                EndpointConfiguration='REGIONAL',
+                Route53=Route53(
+                    HostedZoneId=ImportValue('MyZone'),
+                    IpV6=True,
+                ),
+            ),
+        )
+        t = Template()
+        t.add_parameter(certificate)
         t.add_resource(serverless_api)
         t.to_json()
 

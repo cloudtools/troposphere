@@ -48,6 +48,7 @@ setup(
     version=get_version(),
     description="AWS CloudFormation creation library",
     long_description=file_contents("README.rst"),
+    long_description_content_type='text/x-rst',
 
     author="Mark Peek",
     author_email="mark@peek.org",
@@ -66,6 +67,7 @@ setup(
         "Operating System :: POSIX :: Linux",
 
         "Programming Language :: Python",
+        "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.6",

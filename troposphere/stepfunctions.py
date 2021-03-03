@@ -42,14 +42,31 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
+class S3Location(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'Key': (basestring, True),
+        'Version': (basestring, False)
+    }
+
+
+class TracingConfiguration(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+    }
+
+
 class StateMachine(AWSObject):
     resource_type = "AWS::StepFunctions::StateMachine"
 
     props = {
-        'DefinitionString': (basestring, True),
+        'DefinitionS3Location': (S3Location, False),
+        'DefinitionString': (basestring, False),
+        'DefinitionSubstitutions': (dict, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
         'RoleArn': (basestring, True),
         'StateMachineName': (basestring, False),
         'StateMachineType': (basestring, False),
         'Tags': (Tags, False),
+        'TracingConfiguration': (TracingConfiguration, False),
     }

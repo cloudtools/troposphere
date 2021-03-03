@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (boolean, double, exactly_one, json_checker,
                          positive_integer, integer)
 
@@ -16,6 +16,9 @@ VALID_UNITS = ('Seconds', 'Microseconds', 'Milliseconds', 'Bytes', 'Kilobytes',
                'Kilobits/Second', 'Megabits/Second', 'Gigabits/Second',
                'Terabits/Second', 'Count/Second', 'None')
 
+VALID_TREAT_MISSING_DATA_TYPES = ('breaching', 'notBreaching', 'ignore',
+                                  'missing')
+
 
 def validate_unit(unit):
     """Validate Units"""
@@ -24,6 +27,15 @@ def validate_unit(unit):
         raise ValueError("MetricStat Unit must be one of: %s" %
                          ", ".join(VALID_UNITS))
     return unit
+
+
+def validate_treat_missing_data(value):
+    """Validate TreatMissingData"""
+
+    if value not in VALID_TREAT_MISSING_DATA_TYPES:
+        raise ValueError("Alarm TreatMissingData must be one of: %s" %
+                         ", ".join(VALID_TREAT_MISSING_DATA_TYPES))
+    return value
 
 
 class MetricDimension(AWSProperty):
@@ -56,6 +68,7 @@ class MetricDataQuery(AWSProperty):
         'Id': (basestring, True),
         'Label': (basestring, False),
         'MetricStat': (MetricStat, False),
+        'Period': (integer, False),
         'ReturnData': (boolean, False),
     }
 
@@ -83,7 +96,7 @@ class Alarm(AWSObject):
         'Statistic': (basestring, False),
         'Threshold': (double, False),
         'ThresholdMetricId': (basestring, False),
-        'TreatMissingData': (basestring, False),
+        'TreatMissingData': (validate_treat_missing_data, False),
         'Unit': (basestring, False),
     }
 
@@ -144,4 +157,19 @@ class InsightRule(AWSObject):
         'RuleBody': (basestring, True),
         'RuleName': (basestring, True),
         'RuleState': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class CompositeAlarm(AWSObject):
+    resource_type = "AWS::CloudWatch::CompositeAlarm"
+
+    props = {
+        'ActionsEnabled': (boolean, False),
+        'AlarmActions': ([basestring], False),
+        'AlarmDescription': (basestring, False),
+        'AlarmName': (basestring, True),
+        'AlarmRule': (basestring, True),
+        'InsufficientDataActions': ([basestring], False),
+        'OKActions': ([basestring], False),
     }

@@ -32,6 +32,65 @@ class CustomResource(AWSCustomObject):
     }
 
 
+class AutoDeployment(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'RetainStacksOnAccountRemoval': (boolean, False),
+    }
+
+
+class OperationPreferences(AWSProperty):
+    props = {
+        'FailureToleranceCount': (integer, False),
+        'FailureTolerancePercentage': (integer, False),
+        'MaxConcurrentCount': (integer, False),
+        'MaxConcurrentPercentage': (integer, False),
+        'RegionOrder': ([basestring], False),
+    }
+
+
+class Parameter(AWSProperty):
+    props = {
+        'ParameterKey': (basestring, True),
+        'ParameterValue': (basestring, True),
+    }
+
+
+class DeploymentTargets(AWSProperty):
+    props = {
+        'Accounts': ([basestring], False),
+        'OrganizationalUnitIds': ([basestring], False),
+    }
+
+
+class StackInstances(AWSProperty):
+    props = {
+        'DeploymentTargets': (DeploymentTargets, True),
+        'ParameterOverrides': ([Parameter], False),
+        'Regions': ([basestring], True),
+    }
+
+
+class StackSet(AWSObject):
+    resource_type = "AWS::CloudFormation::StackSet"
+
+    props = {
+        'AdministrationRoleARN': (basestring, False),
+        'AutoDeployment': (AutoDeployment, False),
+        'Capabilities': ([basestring], False),
+        'Description': (basestring, False),
+        'ExecutionRoleName': (basestring, False),
+        'OperationPreferences': (OperationPreferences, False),
+        'Parameters': ([Parameter], False),
+        'PermissionModel': (basestring, False),
+        'StackInstancesGroup': ([StackInstances], False),
+        'StackSetName': (basestring, False),
+        'Tags': (Tags, False),
+        'TemplateBody': (basestring, False),
+        'TemplateURL': (basestring, False),
+    }
+
+
 class WaitCondition(AWSObject):
     resource_type = "AWS::CloudFormation::WaitCondition"
 

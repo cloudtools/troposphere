@@ -60,6 +60,14 @@ class Tags(AWSHelperFn):
         return self.tags
 
 
+class MetadataOptions(AWSProperty):
+    props = {
+        'HttpEndpoint': (basestring, False),
+        'HttpPutResponseHopLimit': (integer, False),
+        'HttpTokens': (basestring, False),
+    }
+
+
 class LifecycleHookSpecification(AWSProperty):
     props = {
         'DefaultResult': (basestring, False),
@@ -145,6 +153,7 @@ class InstancesDistribution(AWSProperty):
 class LaunchTemplateOverrides(AWSProperty):
     props = {
         'InstanceType': (basestring, False),
+        'WeightedCapacity': (basestring, False),
     }
 
 
@@ -168,6 +177,7 @@ class AutoScalingGroup(AWSObject):
     props = {
         'AutoScalingGroupName': (basestring, False),
         'AvailabilityZones': (list, False),
+        'CapacityRebalance': (boolean, False),
         'Cooldown': (integer, False),
         'DesiredCapacity': (integer, False),
         'HealthCheckGracePeriod': (integer, False),
@@ -178,10 +188,12 @@ class AutoScalingGroup(AWSObject):
         'LifecycleHookSpecificationList':
             ([LifecycleHookSpecification], False),
         'LoadBalancerNames': (list, False),
+        'MaxInstanceLifetime': (integer, False),
         'MaxSize': (integer, True),
         'MetricsCollection': ([MetricsCollection], False),
         'MinSize': (integer, True),
         'MixedInstancesPolicy': (MixedInstancesPolicy, False),
+        'NewInstancesProtectedFromScaleIn': (boolean, False),
         'NotificationConfigurations': ([NotificationConfigurations], False),
         'PlacementGroup': (basestring, False),
         'ServiceLinkedRoleARN': (basestring, False),
@@ -204,7 +216,7 @@ class AutoScalingGroup(AWSObject):
                     min_instances = rolling_update.properties.get(
                         "MinInstancesInService", "0")
                     is_min_no_check = isinstance(
-                        min_instances, (FindInMap, Ref)
+                        min_instances, (If, FindInMap, Ref)
                     )
                     is_max_no_check = isinstance(self.MaxSize,
                                                  (If, FindInMap, Ref))
@@ -256,6 +268,7 @@ class LaunchConfiguration(AWSObject):
         'KeyName': (basestring, False),
         'LaunchConfigurationName': (basestring, False),
         'Metadata': (Metadata, False),
+        'MetadataOptions': (MetadataOptions, False),
         'PlacementTenancy': (basestring, False),
         'RamDiskId': (basestring, False),
         'SecurityGroups': (list, False),

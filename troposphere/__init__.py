@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.5.3"
+__version__ = "2.6.3"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = 'Delete'
@@ -31,10 +31,10 @@ AWS_STACK_NAME = 'AWS::StackName'
 AWS_URL_SUFFIX = 'AWS::URLSuffix'
 
 # Template Limits
-MAX_MAPPINGS = 100
-MAX_OUTPUTS = 60
-MAX_PARAMETERS = 60
-MAX_RESOURCES = 200
+MAX_MAPPINGS = 200
+MAX_OUTPUTS = 200
+MAX_PARAMETERS = 200
+MAX_RESOURCES = 500
 PARAMETER_TITLE_MAX = 255
 
 valid_names = re.compile(r'^[a-zA-Z0-9]+$')
@@ -194,6 +194,12 @@ class BaseAWSObject(object):
                 # If we're expecting a list, then make sure it is a list
                 if not isinstance(value, list):
                     self._raise_type(name, value, expected_type)
+
+                # Special case a list of a single validation function
+                if (len(expected_type) == 1 and
+                   isinstance(expected_type[0], types.FunctionType)):
+                    new_value = map(expected_type[0], value)
+                    return self.properties.__setitem__(name, new_value)
 
                 # Iterate over the list and make sure it matches our
                 # type checks (as above accept AWSHelperFn because

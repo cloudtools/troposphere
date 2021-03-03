@@ -227,7 +227,7 @@ def mutually_exclusive(class_name, properties, conditionals):
     if specified_count > 1:
         raise ValueError(('%s: only one of the following'
                           ' can be specified: %s') % (
-                          class_name, ', '.join(conditionals)))
+            class_name, ', '.join(conditionals)))
     return specified_count
 
 
@@ -236,14 +236,14 @@ def exactly_one(class_name, properties, conditionals):
     if specified_count != 1:
         raise ValueError(('%s: one of the following'
                           ' must be specified: %s') % (
-                          class_name, ', '.join(conditionals)))
+            class_name, ', '.join(conditionals)))
     return specified_count
 
 
 def check_required(class_name, properties, conditionals):
     for c in conditionals:
         if c not in properties:
-            raise ValueError("Resource %s required in %s" % c, class_name)
+            raise ValueError("Resource %s required in %s" % (c, class_name))
 
 
 def json_checker(prop):
@@ -311,7 +311,8 @@ def compliance_level(level):
 
 def operating_system(os):
     valid_os = ['WINDOWS', 'AMAZON_LINUX', 'AMAZON_LINUX_2', 'UBUNTU',
-                'REDHAT_ENTERPRISE_LINUX', 'SUSE', 'CENTOS']
+                'REDHAT_ENTERPRISE_LINUX', 'SUSE', 'CENTOS', 'DEBIAN',
+                'ORACLE_LINUX']
     if os not in valid_os:
         raise ValueError(
             'OperatingSystem must be one of: "%s"' % (
@@ -363,7 +364,7 @@ def vpn_tunnel_inside_cidr(cidr):
 
 
 def vpc_endpoint_type(endpoint_type):
-    valid_types = ['Interface', 'Gateway']
+    valid_types = ['Interface', 'Gateway', 'GatewayLoadBalancer']
     if endpoint_type not in valid_types:
         raise ValueError(
             'VpcEndpointType must be one of: "%s"' % (
@@ -472,6 +473,73 @@ def cloudfront_forward_type(forward):
     return(forward)
 
 
+def cloudfront_cache_cookie_behavior(cookie_behavior):
+    valid_values = ['none', 'whitelist', 'allExcept', 'all']
+    if cookie_behavior not in valid_values:
+        raise ValueError(
+            'CookieBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(cookie_behavior)
+
+
+def cloudfront_cache_header_behavior(header_behavior):
+    valid_values = ['none', 'whitelist']
+    if header_behavior not in valid_values:
+        raise ValueError(
+            'HeaderBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(header_behavior)
+
+
+def cloudfront_cache_query_string_behavior(query_string_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if query_string_behavior not in valid_values:
+        raise ValueError(
+            'QueryStringBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(query_string_behavior)
+
+
+def cloudfront_origin_request_cookie_behavior(cookie_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if cookie_behavior not in valid_values:
+        raise ValueError(
+            'CookieBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(cookie_behavior)
+
+
+def cloudfront_origin_request_header_behavior(header_behavior):
+    valid_values = [
+        'none', 'whitelist', 'allViewer', 'allViewerAndWhitelistCloudFront']
+    if header_behavior not in valid_values:
+        raise ValueError(
+            'HeaderBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(header_behavior)
+
+
+def cloudfront_origin_request_query_string_behavior(query_string_behavior):
+    valid_values = ['none', 'whitelist', 'all']
+    if query_string_behavior not in valid_values:
+        raise ValueError(
+            'QueryStringBehavior must be one of: "%s"' % (
+                ', '.join(valid_values)
+            )
+        )
+    return(query_string_behavior)
+
+
 def priceclass_type(price_class):
     valid_values = ['PriceClass_100', 'PriceClass_200',
                     'PriceClass_All']
@@ -512,3 +580,182 @@ def waf_action_type(action):
             )
         )
     return action
+
+
+def resourcequery_type(type):
+    valid_types = ['TAG_FILTERS_1_0', 'CLOUDFORMATION_STACK_1_0']
+    if type not in valid_types:
+        raise ValueError(
+            'Type must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return type
+
+
+def storage_type(storage_type):
+    valid_storage_types = ['SSD', 'HDD']
+    if storage_type not in valid_storage_types:
+        raise ValueError(
+            'StorageType must be one of: "%s"' % (
+                ', '.join(valid_storage_types)
+            )
+        )
+    return storage_type
+
+
+def canary_runtime_version(runtime_version):
+    valid_runtime_versions = [
+        'syn-nodejs-2.0', 'syn-nodejs-2.0-beta', 'syn-1.0']
+    if runtime_version not in valid_runtime_versions:
+        raise ValueError(
+            'RuntimeVersion must be one of: "%s"' % (
+                ', '.join(valid_runtime_versions)
+            )
+        )
+    return(runtime_version)
+
+
+def component_platforms(component_platform):
+    valid_component_platforms = ['Linux', 'Windows']
+    if component_platform not in valid_component_platforms:
+        raise ValueError(
+            'Platform must be one of: "%s"' % (
+                ', '.join(valid_component_platforms)
+            )
+        )
+    return component_platform
+
+
+def imagepipeline_status(status):
+    valid_status = ['DISABLED', 'ENABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'Status must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return status
+
+
+def schedule_pipelineexecutionstartcondition(startcondition):
+    valid_startcondition = [
+        'EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE',
+        'EXPRESSION_MATCH_ONLY']
+    if startcondition not in valid_startcondition:
+        raise ValueError(
+            'PipelineExecutionStartCondition must be one of: "%s"' % (
+                ', '.join(valid_startcondition)
+            )
+        )
+    return startcondition
+
+
+def ebsinstanceblockdevicespecification_volume_type(type):
+    valid_types = ['gp2', 'io1', 'io2', 'sc1', 'st1', 'standard']
+    if type not in valid_types:
+        raise ValueError(
+            'VolumeType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return type
+
+
+def containerlevelmetrics_status(status):
+    valid_status = ['DISABLED', 'ENABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'ContainerLevelMetrics must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return status
+
+
+def accelerator_ipaddresstype(type):
+    valid_types = ['IPV4']
+    if type not in valid_types:
+        raise ValueError(
+            'IpAddressType must be one of: "%s"' % (
+                ', '.join(valid_types)
+            )
+        )
+    return type
+
+
+def listener_clientaffinity(affinity):
+    valid_affinities = ['NONE', 'SOURCE_IP']
+    if affinity not in valid_affinities:
+        raise ValueError(
+            'ClientAffinity must be one of: "%s"' % (
+                ', '.join(valid_affinities)
+            )
+        )
+    return affinity
+
+
+def listener_protocol(protocol):
+    valid_protocols = ['TCP', 'UDP']
+    if protocol not in valid_protocols:
+        raise ValueError(
+            'Protocol must be one of: "%s"' % (
+                ', '.join(valid_protocols)
+            )
+        )
+    return protocol
+
+
+def endpointgroup_healthcheckprotocol(protocol):
+    valid_protocols = ['HTTP', 'HTTPS', 'TCP']
+    if protocol not in valid_protocols:
+        raise ValueError(
+            'HealthCheckProtocol must be one of: "%s"' % (
+                ', '.join(valid_protocols)
+            )
+        )
+    return protocol
+
+
+def session_findingpublishingfrequency(frequency):
+    valid_frequencies = ['FIFTEEN_MINUTES',
+                         'ONE_HOUR', 'SIX_HOURS']
+    if frequency not in valid_frequencies:
+        raise ValueError(
+            'FindingPublishingFrequency must be one of: "%s"' % (
+                ', '.join(valid_frequencies)
+            )
+        )
+    return frequency
+
+
+def session_status(status):
+    valid_status = ['ENABLED', 'DISABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'Status must be one of: "%s"' % (
+                ', '.join(valid_status)
+            )
+        )
+    return status
+
+
+def findingsfilter_action(action):
+    valid_actions = ['ARCHIVE', 'NOOP']
+    if action not in valid_actions:
+        raise ValueError(
+            'Action must be one of: "%s"' % (
+                ', '.join(valid_actions)
+            )
+        )
+    return action
+
+
+def ecs_efs_encryption_status(status):
+    valid_status = ['ENABLED', 'DISABLED']
+    if status not in valid_status:
+        raise ValueError(
+            'ECS EFS Encryption in transit can only be one of: "%s"' % (
+                ', '.join(valid_status))
+        )
+    return status

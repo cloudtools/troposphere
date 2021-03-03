@@ -133,6 +133,7 @@ class Api(AWSObject):
         'CorsConfiguration': (Cors, False),
         'CredentialsArn': (basestring, False),
         'Description': (basestring, False),
+        'DisableExecuteApiEndpoint': (boolean, False),
         'DisableSchemaValidation': (boolean, False),
         'FailOnWarnings': (boolean, False),
         'Name': (basestring, False),
@@ -169,9 +170,11 @@ class Authorizer(AWSObject):
     props = {
         'ApiId': (basestring, True),
         'AuthorizerCredentialsArn': (basestring, False),
+        'AuthorizerPayloadFormatVersion': (basestring, False),
         'AuthorizerResultTtlInSeconds': (validate_authorizer_ttl, False),
         'AuthorizerType': (validate_authorizer_type, True),
         'AuthorizerUri': (basestring, False),
+        'EnableSimpleResponses': (boolean, False),
         'IdentitySource': ([basestring], True),
         'IdentityValidationExpression': (basestring, False),
         'JwtConfiguration': (JWTConfiguration, False),
@@ -197,13 +200,27 @@ class DomainNameConfiguration(AWSProperty):
     }
 
 
+class MutualTlsAuthentication(AWSProperty):
+    props = {
+        'TruststoreUri': (basestring, False),
+        'TruststoreVersion': (basestring, False),
+    }
+
+
 class DomainName(AWSObject):
     resource_type = "AWS::ApiGatewayV2::DomainName"
 
     props = {
         'DomainName': (basestring, True),
         'DomainNameConfigurations': ([DomainNameConfiguration], False),
+        'MutualTlsAuthentication': (MutualTlsAuthentication, False),
         'Tags': (dict, False),
+    }
+
+
+class TlsConfig(AWSProperty):
+    props = {
+        'ServerNameToVerify': (basestring, False),
     }
 
 
@@ -213,6 +230,7 @@ class Integration(AWSObject):
     props = {
         'ApiId': (basestring, True),
         'ConnectionType': (basestring, False),
+        'ConnectionId': (basestring, False),
         'ContentHandlingStrategy': (validate_content_handling_strategy, False),
         'CredentialsArn': (basestring, False),
         'Description': (basestring, False),
@@ -225,6 +243,7 @@ class Integration(AWSObject):
         'RequestTemplates': (dict, False),
         'TemplateSelectionExpression': (basestring, False),
         'TimeoutInMillis': (integer_range(50, 29000), False),
+        'TlsConfig': (TlsConfig, False),
     }
 
 
@@ -323,5 +342,16 @@ class Stage(AWSObject):
         'RouteSettings': (dict, False),
         'StageName': (basestring, True),
         'StageVariables': (dict, False),
+        'Tags': (dict, False),
+    }
+
+
+class VpcLink(AWSObject):
+    resource_type = "AWS::ApiGatewayV2::VpcLink"
+
+    props = {
+        'Name': (basestring, True),
+        'SecurityGroupIds': ([basestring], False),
+        'SubnetIds': ([basestring], True),
         'Tags': (dict, False),
     }

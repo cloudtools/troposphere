@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer, json_checker, double
+from .validators import boolean, integer, double
 
 
 class RetentionPeriod(AWSProperty):
@@ -14,11 +14,32 @@ class RetentionPeriod(AWSProperty):
     }
 
 
+class CustomerManagedS3(AWSProperty):
+    props = {
+        'Bucket': (basestring, True),
+        'KeyPrefix': (basestring, False),
+        'RoleArn': (basestring, True),
+    }
+
+
+class ServiceManagedS3(AWSProperty):
+    props = {
+    }
+
+
+class ChannelStorage(AWSProperty):
+    props = {
+        'CustomerManagedS3': (CustomerManagedS3, False),
+        'ServiceManagedS3': (ServiceManagedS3, False),
+    }
+
+
 class Channel(AWSObject):
     resource_type = "AWS::IoTAnalytics::Channel"
 
     props = {
         'ChannelName': (basestring, False),
+        'ChannelStorage': (ChannelStorage, False),
         'RetentionPeriod': (RetentionPeriod, False),
         'Tags': ((Tags, list), False),
     }
@@ -26,7 +47,7 @@ class Channel(AWSObject):
 
 class AddAttributes(AWSProperty):
     props = {
-        'Attributes': (json_checker, False),
+        'Attributes': (dict, False),
         'Name': (basestring, False),
         'Next': (basestring, False),
     }
@@ -40,7 +61,7 @@ class ActivityChannel(AWSProperty):
     }
 
 
-class Datastore(AWSProperty):
+class ActivityDatastore(AWSProperty):
     props = {
         'DatastoreName': (basestring, False),
         'Name': (basestring, False),
@@ -113,7 +134,7 @@ class Activity(AWSProperty):
     props = {
         'AddAttributes': (AddAttributes, False),
         'Channel': (ActivityChannel, False),
-        'Datastore': (Datastore, False),
+        'Datastore': (ActivityDatastore, False),
         'DeviceRegistryEnrich': (DeviceRegistryEnrich, False),
         'DeviceShadowEnrich': (DeviceShadowEnrich, False),
         'Filter': (Filter, False),
@@ -130,23 +151,6 @@ class Pipeline(AWSObject):
     props = {
         'PipelineActivities': ([Activity], True),
         'PipelineName': (basestring, False),
-        'Tags': ((Tags, list), False),
-    }
-
-
-class RetentionPeriod(AWSProperty):
-    props = {
-        'NumberOfDays': (integer, False),
-        'Unlimited': (boolean, False),
-    }
-
-
-class Datastore(AWSObject):
-    resource_type = "AWS::IoTAnalytics::Datastore"
-
-    props = {
-        'DatastoreName': (basestring, False),
-        'RetentionPeriod': (RetentionPeriod, False),
         'Tags': ((Tags, list), False),
     }
 
@@ -292,4 +296,22 @@ class Dataset(AWSObject):
         'Tags': (Tags, False),
         'Triggers': ([Trigger], False),
         'VersioningConfiguration': (VersioningConfiguration, False),
+    }
+
+
+class DatastoreStorage(AWSProperty):
+    props = {
+        'CustomerManagedS3': (CustomerManagedS3, False),
+        'ServiceManagedS3': (ServiceManagedS3, False),
+    }
+
+
+class Datastore(AWSObject):
+    resource_type = "AWS::IoTAnalytics::Datastore"
+
+    props = {
+        'DatastoreName': (basestring, False),
+        'DatastoreStorage': (DatastoreStorage, False),
+        'RetentionPeriod': (RetentionPeriod, False),
+        'Tags': ((Tags, list), False),
     }

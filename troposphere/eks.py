@@ -29,6 +29,25 @@ class Logging(AWSProperty):
     }
 
 
+class Provider(AWSProperty):
+    props = {
+        'KeyArn': (basestring, False),
+    }
+
+
+class EncryptionConfig(AWSProperty):
+    props = {
+        'Provider': (Provider, False),
+        'Resources': ([basestring], False),
+    }
+
+
+class KubernetesNetworkConfig(AWSProperty):
+    props = {
+        'ServiceIpv4Cidr': (basestring, False),
+    }
+
+
 class ResourcesVpcConfig(AWSProperty):
     props = {
         'SecurityGroupIds': ([basestring], False),
@@ -40,11 +59,40 @@ class Cluster(AWSObject):
     resource_type = "AWS::EKS::Cluster"
 
     props = {
+        'EncryptionConfig': ([EncryptionConfig], False),
+        'KubernetesNetworkConfig': (KubernetesNetworkConfig, False),
         'Name': (basestring, False),
         'Logging': (Logging, False),
         'ResourcesVpcConfig': (ResourcesVpcConfig, True),
         'RoleArn': (basestring, True),
         'Version': (basestring, False),
+    }
+
+
+class Label(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class Selector(AWSProperty):
+    props = {
+        'Labels': ([Label], False),
+        'Namespace': (basestring, True),
+    }
+
+
+class FargateProfile(AWSObject):
+    resource_type = "AWS::EKS::FargateProfile"
+
+    props = {
+        'ClusterName': (basestring, True),
+        'FargateProfileName': (basestring, False),
+        'PodExecutionRoleArn': (basestring, True),
+        'Selectors': ([Selector], True),
+        'Subnets': ([basestring], False),
+        'Tags': (Tags, False),
     }
 
 
@@ -63,22 +111,32 @@ class ScalingConfig(AWSProperty):
     }
 
 
+class LaunchTemplateSpecification(AWSProperty):
+    props = {
+        'Id': (basestring, False),
+        'Name': (basestring, False),
+        'Version': (basestring, False),
+    }
+
+
 class Nodegroup(AWSObject):
     resource_type = "AWS::EKS::Nodegroup"
 
     props = {
         'AmiType': (basestring, False),
+        'CapacityType': (basestring, False),
         'ClusterName': (basestring, True),
         'DiskSize': (double, False),
         'ForceUpdateEnabled': (boolean, False),
         'InstanceTypes': ([basestring], False),
-        'Labels': (basestring, False),
+        'Labels': (dict, False),
+        'LaunchTemplate': (LaunchTemplateSpecification, False),
         'NodegroupName': (basestring, False),
         'NodeRole': (basestring, True),
         'ReleaseVersion': (basestring, False),
         'RemoteAccess': (RemoteAccess, False),
         'ScalingConfig': (ScalingConfig, False),
         'Subnets': ([basestring], False),
-        'Tags': (Tags, False),
+        'Tags': (dict, False),
         'Version': (basestring, False),
     }

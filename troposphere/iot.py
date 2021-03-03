@@ -1,6 +1,42 @@
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .compat import policytypes
-from .validators import boolean
+from .validators import boolean, integer
+
+
+class Authorizer(AWSObject):
+    resource_type = "AWS::IoT::Authorizer"
+
+    props = {
+        'AuthorizerFunctionArn': (basestring, True),
+        'AuthorizerName': (basestring, False),
+        'SigningDisabled': (boolean, False),
+        'Status': (basestring, False),
+        'Tags': (dict, False),
+        'TokenKeyName': (basestring, False),
+        # 'TokenSigningPublicKeys': (TokenSigningPublicKeys, False),
+    }
+
+
+class AuthorizerConfig(AWSProperty):
+    props = {
+        'AllowAuthorizerOverride': (boolean, False),
+        'DefaultAuthorizerName': (basestring, False),
+    }
+
+
+class DomainConfiguration(AWSObject):
+    resource_type = "AWS::IoT::DomainConfiguration"
+
+    props = {
+        'AuthorizerConfig': (AuthorizerConfig, False),
+        'DomainConfigurationName': (basestring, False),
+        'DomainConfigurationStatus': (basestring, False),
+        'DomainName': (basestring, False),
+        'ServerCertificateArns': ([basestring], False),
+        'ServiceType': (basestring, False),
+        'Tags': (Tags, False),
+        'ValidationCertificateArn': (basestring, False),
+    }
 
 
 class CloudwatchAlarmAction(AWSProperty):
@@ -68,6 +104,13 @@ class FirehoseAction(AWSProperty):
     }
 
 
+class IotAnalyticsAction(AWSProperty):
+    props = {
+        'ChannelName': (basestring, True),
+        'RoleArn': (basestring, True),
+    }
+
+
 class KinesisAction(AWSProperty):
     props = {
         'PartitionKey': (basestring, False),
@@ -84,6 +127,7 @@ class LambdaAction(AWSProperty):
 
 class RepublishAction(AWSProperty):
     props = {
+        'Qos': (integer, False),
         'RoleArn': (basestring, True),
         'Topic': (basestring, True),
     }
@@ -113,6 +157,93 @@ class SqsAction(AWSProperty):
     }
 
 
+class SigV4Authorization(AWSProperty):
+    props = {
+        'RoleArn': (basestring, True),
+        'ServiceName': (basestring, True),
+        'SigningRegion': (basestring, True),
+    }
+
+
+class HttpActionHeader(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class HttpAuthorization(AWSProperty):
+    props = {
+        'Sigv4': (SigV4Authorization, False),
+    }
+
+
+class HttpAction(AWSProperty):
+    props = {
+        'Auth': (HttpAuthorization, False),
+        'ConfirmationUrl': (basestring, False),
+        'Headers': ([HttpActionHeader], False),
+        'Url': (basestring, True),
+    }
+
+
+class IotEventsAction(AWSProperty):
+    props = {
+        'InputName': (basestring, True),
+        'MessageId': (basestring, False),
+        'RoleArn': (basestring, True),
+    }
+
+
+class AssetPropertyVariant(AWSProperty):
+    props = {
+        'BooleanValue': (basestring, False),
+        'DoubleValue': (basestring, False),
+        'IntegerValue': (basestring, False),
+        'StringValue': (basestring, False),
+    }
+
+
+class AssetPropertyTimestamp(AWSProperty):
+    props = {
+        'OffsetInNanos': (basestring, False),
+        'TimeInSeconds': (basestring, True),
+    }
+
+
+class AssetPropertyValue(AWSProperty):
+    props = {
+        'Quality': (basestring, False),
+        'Timestamp': (AssetPropertyTimestamp, True),
+        'Value': (AssetPropertyVariant, True),
+    }
+
+
+class PutAssetPropertyValueEntry(AWSProperty):
+    props = {
+        'AssetId': (basestring, False),
+        'EntryId': (basestring, False),
+        'PropertyAlias': (basestring, False),
+        'PropertyId': (basestring, False),
+        'PropertyValues': ([AssetPropertyValue], True),
+    }
+
+
+class IotSiteWiseAction(AWSProperty):
+    props = {
+        'PutAssetPropertyValueEntries': ([PutAssetPropertyValueEntry], True),
+        'RoleArn': (basestring, True),
+    }
+
+
+class StepFunctionsAction(AWSProperty):
+    props = {
+        'ExecutionNamePrefix': (basestring, False),
+        'RoleArn': (basestring, True),
+        'StateMachineName': (basestring, True),
+    }
+
+
 class Action(AWSProperty):
     props = {
         'CloudwatchAlarm': (CloudwatchAlarmAction, False),
@@ -121,12 +252,17 @@ class Action(AWSProperty):
         'DynamoDBv2': (DynamoDBv2Action, False),
         'Elasticsearch': (ElasticsearchAction, False),
         'Firehose': (FirehoseAction, False),
+        'Http': (HttpAction, False),
+        'IotAnalytics': (IotAnalyticsAction, False),
+        'IotEvents': (IotEventsAction, False),
+        'IotSiteWise': (IotSiteWiseAction, False),
         'Kinesis': (KinesisAction, False),
         'Lambda': (LambdaAction, False),
         'Republish': (RepublishAction, False),
         'S3': (S3Action, False),
         'Sns': (SnsAction, False),
         'Sqs': (SqsAction, False),
+        'StepFunctions': (StepFunctionsAction, False)
     }
 
 
@@ -191,4 +327,50 @@ class Certificate(AWSObject):
     props = {
         'CertificateSigningRequest': (basestring, True),
         'Status': (basestring, True),
+    }
+
+
+class ProvisioningHook(AWSProperty):
+    props = {
+        'PayloadVersion': (basestring, False),
+        'TargetArn': (basestring, False),
+    }
+
+
+class ProvisioningTemplate(AWSObject):
+    resource_type = "AWS::IoT::ProvisioningTemplate"
+
+    props = {
+        'Description': (basestring, False),
+        'Enabled': (boolean, False),
+        'PreProvisioningHook': (ProvisioningHook, False),
+        'ProvisioningRoleArn': (basestring, True),
+        'Tags': (dict, False),
+        'TemplateBody': (basestring, True),
+        'TemplateName': (basestring, False),
+    }
+
+
+class HttpUrlDestinationSummary(AWSProperty):
+    props = {
+        'ConfirmationUrl': (basestring, False),
+    }
+
+
+class VpcDestinationProperties(AWSProperty):
+    props = {
+        'RoleArn': (basestring, False),
+        'SecurityGroups': ([basestring], False),
+        'SubnetIds': ([basestring], False),
+        'VpcId': (basestring, False),
+    }
+
+
+class TopicRuleDestination(AWSObject):
+    resource_type = "AWS::IoT::TopicRuleDestination"
+
+    props = {
+        'HttpUrlProperties': (HttpUrlDestinationSummary, False),
+        'Status': (basestring, False),
+        'VpcProperties': (VpcDestinationProperties, False),
     }

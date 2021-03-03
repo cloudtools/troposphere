@@ -64,9 +64,37 @@ class Device(AWSProperty):
     }
 
 
+class Tmpfs(AWSProperty):
+    props = {
+        'ContainerPath': (basestring, True),
+        'MountOptions': ([basestring], False),
+        'Size': (integer, True),
+    }
+
+
 class LinuxParameters(AWSProperty):
     props = {
         'Devices': ([Device], False),
+        'InitProcessEnabled': (boolean, False),
+        'MaxSwap': (integer, False),
+        'SharedMemorySize': (integer, False),
+        'Swappiness': (integer, False),
+        'Tmpfs': ([Tmpfs], False),
+    }
+
+
+class Secret(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'ValueFrom': (basestring, True),
+    }
+
+
+class LogConfiguration(AWSProperty):
+    props = {
+        'LogDriver': (basestring, True),
+        'Options': (dict, False),
+        'SecretOptions': ([Secret], False),
     }
 
 
@@ -123,15 +151,18 @@ class ContainerProperties(AWSProperty):
     props = {
         'Command': ([basestring], False),
         'Environment': ([Environment], False),
+        'ExecutionRoleArn': (basestring, False),
         'Image': (basestring, True),
         'InstanceType': (basestring, False),
         'JobRoleArn': (basestring, False),
         'LinuxParameters': (LinuxParameters, False),
+        'LogConfiguration': (LogConfiguration, False),
         'Memory': (positive_integer, True),
         'MountPoints': ([MountPoints], False),
         'Privileged': (boolean, False),
         'ReadonlyRootFilesystem': (boolean, False),
         'ResourceRequirements': ([ResourceRequirement], False),
+        'Secrets': ([Secret], False),
         'Ulimits': ([Ulimit], False),
         'User': (basestring, False),
         'Vcpus': (positive_integer, True),
@@ -139,10 +170,35 @@ class ContainerProperties(AWSProperty):
     }
 
 
+class NodeRangeProperty(AWSProperty):
+    props = {
+        'Container': (ContainerProperties, False),
+        'TargetNodes': (basestring, True),
+    }
+
+
+class NodeProperties(AWSProperty):
+    props = {
+        'MainNode': (integer, True),
+        'NodeRangeProperties': ([NodeRangeProperty], True),
+        'NumNodes': (integer, True),
+    }
+
+
+class EvaluateOnExit(AWSProperty):
+    props = {
+        'Action': (basestring, True),
+        'OnExitCode': (basestring, False),
+        'OnReason': (basestring, False),
+        'OnStatusReason': (basestring, False),
+    }
+
+
 class RetryStrategy(AWSProperty):
 
     props = {
-        "Attempts": (positive_integer, False)
+        'Attempts': (positive_integer, False),
+        'EvaluateOnExit': ([EvaluateOnExit], False),
     }
 
 
@@ -156,10 +212,14 @@ class JobDefinition(AWSObject):
     resource_type = "AWS::Batch::JobDefinition"
 
     props = {
-        'ContainerProperties': (ContainerProperties, True),
+        'ContainerProperties': (ContainerProperties, False),
         'JobDefinitionName': (basestring, False),
+        'NodeProperties': (NodeProperties, False),
         'Parameters': (dict, False),
+        'PlatformCapabilities': ([basestring], False),
+        'PropagateTags': (boolean, False),
         'RetryStrategy': (RetryStrategy, False),
+        'Tags': (dict, False),
         'Timeout': (Timeout, False),
         'Type': (basestring, True),
     }
@@ -189,7 +249,8 @@ class ComputeEnvironment(AWSObject):
         "ServiceRole": (basestring, True),
         "ComputeEnvironmentName": (basestring, False),
         "ComputeResources": (ComputeResources, True),
-        "State": (validate_environment_state, False)
+        "State": (validate_environment_state, False),
+        "Tags": (dict, False),
     }
 
 
@@ -224,5 +285,6 @@ class JobQueue(AWSObject):
         "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], True),
         "Priority": (positive_integer, True),
         "State": (validate_queue_state, False),
-        "JobQueueName": (basestring, False)
+        "JobQueueName": (basestring, False),
+        "Tags": (dict, False),
     }

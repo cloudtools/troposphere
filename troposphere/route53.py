@@ -177,6 +177,25 @@ class ResolverEndpoint(AWSObject):
     }
 
 
+class ResolverQueryLoggingConfig(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverQueryLoggingConfig"
+
+    props = {
+        'DestinationArn': (basestring, False),
+        'Name': (basestring, False),
+    }
+
+
+class ResolverQueryLoggingConfigAssociation(AWSObject):
+    resource_type = \
+        "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
+
+    props = {
+        'ResolverQueryLogConfigId': (basestring, False),
+        'ResourceId': (basestring, False),
+    }
+
+
 class TargetAddress(AWSProperty):
     props = {
         'Ip': (basestring, True),

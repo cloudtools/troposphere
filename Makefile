@@ -14,7 +14,7 @@ spec:
 	rm CloudFormationResourceSpecification.zip
 
 spec2:
-	curl -O --compress https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
+	curl -O --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
 	/bin/echo -n "Downloaded version: " && jq .ResourceSpecificationVersion CloudFormationResourceSpecification.json
 
 2to3:

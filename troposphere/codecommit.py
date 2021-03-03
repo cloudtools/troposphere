@@ -16,6 +16,7 @@ class S3(AWSProperty):
 
 class Code(AWSProperty):
     props = {
+        'BranchName': (basestring, False),
         'S3': (S3, True)
     }
 

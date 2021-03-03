@@ -1,13 +1,9 @@
 import unittest
 
 from troposphere import Template, Parameter, Output
+from troposphere import MAX_MAPPINGS, MAX_OUTPUTS
+from troposphere import MAX_PARAMETERS, MAX_RESOURCES
 from troposphere.s3 import Bucket
-
-# Template Limits
-MAX_MAPPINGS = 100
-MAX_OUTPUTS = 60
-MAX_PARAMETERS = 60
-MAX_RESOURCES = 200
 
 
 class TestInitArguments(unittest.TestCase):

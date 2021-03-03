@@ -219,6 +219,13 @@ class EndpointConfiguration(AWSProperty):
     }
 
 
+class MutualTlsAuthentication(AWSProperty):
+    props = {
+        'TruststoreUri': (basestring, False),
+        'TruststoreVersion': (basestring, False),
+    }
+
+
 class DomainName(AWSObject):
     resource_type = "AWS::ApiGateway::DomainName"
 
@@ -226,6 +233,7 @@ class DomainName(AWSObject):
         "CertificateArn": (basestring, False),
         "DomainName": (basestring, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
+        'MutualTlsAuthentication': (MutualTlsAuthentication, False),
         "RegionalCertificateArn": (basestring, False),
         "SecurityPolicy": (basestring, False),
         "Tags": (Tags, False),
@@ -352,7 +360,7 @@ class RestApi(AWSObject):
         "CloneFrom": (basestring, False),
         "Description": (basestring, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
-        "FailOnWarnings": (basestring, False),
+        "FailOnWarnings": (boolean, False),
         "MinimumCompressionSize": (positive_integer, False),
         "Name": (basestring, False),
         "Parameters": (dict, False),
@@ -401,7 +409,7 @@ class ApiStage(AWSProperty):
     props = {
         "ApiId": (basestring, False),
         "Stage": (basestring, False),
-        "Throttle": (ThrottleSettings, False),
+        "Throttle": (dict, False),
     }
 
 

@@ -43,10 +43,33 @@ class TableResource(AWSProperty):
     }
 
 
+class DataLocationResource(AWSProperty):
+    props = {
+        'S3Resource': (basestring, False),
+    }
+
+
+class ColumnWildcard(AWSProperty):
+    props = {
+        'ExcludedColumnNames': ([basestring], False),
+    }
+
+
+class TableWithColumnsResource(AWSProperty):
+    props = {
+        'ColumnNames': ([basestring], False),
+        'ColumnWildcard': (ColumnWildcard, False),
+        'DatabaseName': (basestring, False),
+        'Name': (basestring, False),
+    }
+
+
 class Resource(AWSProperty):
     props = {
         'DatabaseResource': (DatabaseResource, False),
+        'DataLocationResource': (DataLocationResource, False),
         'TableResource': (TableResource, False),
+        'TableWithColumnsResource': (TableWithColumnsResource, False),
     }
 
 

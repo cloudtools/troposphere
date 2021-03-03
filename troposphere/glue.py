@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, double
 from .validators import integer, integer_range, positive_integer
 
@@ -65,7 +65,12 @@ class PhysicalConnectionRequirements(AWSProperty):
 
 def connection_type_validator(type):
     valid_types = [
+        'CUSTOM',
         'JDBC',
+        'KAFKA',
+        'MARKETPLACE',
+        'MONGODB',
+        'NETWORK',
         'SFTP',
     ]
     if type not in valid_types:
@@ -246,6 +251,7 @@ class DevEndpoint(AWSObject):
         'NumberOfNodes': (integer, False),
         'NumberOfWorkers': (integer, False),
         'PublicKey': (basestring, False),
+        'PublicKeys': ([basestring], False),
         'RoleArn': (basestring, True),
         'SecurityConfiguration': (basestring, False),
         'SecurityGroupIds': ([basestring], False),
@@ -349,6 +355,7 @@ class MLTransform(AWSObject):
         'Name': (basestring, False),
         'NumberOfWorkers': (integer, False),
         'Role': (basestring, True),
+        'Tags': (dict, False),
         'Timeout': (integer, False),
         'TransformParameters': (TransformParameters, True),
         'WorkerType': (basestring, False),
@@ -422,6 +429,48 @@ class Partition(AWSObject):
     }
 
 
+class Registry(AWSObject):
+    resource_type = "AWS::Glue::Registry"
+
+    props = {
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class SchemaVersion(AWSProperty):
+    props = {
+        'IsLatest': (boolean, False),
+        'VersionNumber': (integer, False),
+    }
+
+
+class Schema(AWSObject):
+    resource_type = "AWS::Glue::Schema"
+
+    props = {
+        'CheckpointVersion': (SchemaVersion, False),
+        'Compatibility': (basestring, True),
+        'DataFormat': (basestring, True),
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+        'Registry': (Registry, False),
+        'SchemaDefinition': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class SchemaVersionMetadata(AWSObject):
+    resource_type = "AWS::Glue::SchemaVersionMetadata"
+
+    props = {
+        'Key': (basestring, True),
+        'SchemaVersionId': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
 class CloudWatchEncryption(AWSProperty):
     props = {
         'CloudWatchEncryptionMode': (basestring, False),
@@ -436,8 +485,10 @@ class JobBookmarksEncryption(AWSProperty):
     }
 
 
-class S3Encryptions(AWSProperty):
+class S3Encryption(AWSProperty):
     props = {
+        'KmsKeyArn': (basestring, False),
+        'S3EncryptionMode': (basestring, False),
     }
 
 
@@ -445,7 +496,7 @@ class EncryptionConfiguration(AWSProperty):
     props = {
         'CloudWatchEncryption': (CloudWatchEncryption, False),
         'JobBookmarksEncryption': (JobBookmarksEncryption, False),
-        'S3Encryptions': (S3Encryptions, False),
+        'S3Encryptions': ([S3Encryption], False),
     }
 
 

@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer, positive_integer
 
 
@@ -51,6 +51,13 @@ class BufferingHints(AWSProperty):
     props = {
         'IntervalInSeconds': (positive_integer, True),
         'SizeInMBs': (positive_integer, True)
+    }
+
+
+class DeliveryStreamEncryptionConfigurationInput(AWSProperty):
+    props = {
+        'KeyARN': (basestring, False),
+        'KeyType': (basestring, True),
     }
 
 
@@ -122,10 +129,19 @@ class ProcessingConfiguration(AWSProperty):
     }
 
 
+class VpcConfiguration(AWSProperty):
+    props = {
+        'RoleARN': (basestring, True),
+        'SecurityGroupIds': ([basestring], True),
+        'SubnetIds': ([basestring], True),
+    }
+
+
 class ElasticsearchDestinationConfiguration(AWSProperty):
     props = {
         'BufferingHints': (BufferingHints, True),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
+        'ClusterEndpoint': (basestring, False),
         'DomainARN': (basestring, True),
         'IndexName': (basestring, True),
         'IndexRotationPeriod': (index_rotation_period_validator, True),
@@ -134,7 +150,8 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
         'RoleARN': (basestring, True),
         'S3BackupMode': (s3_backup_mode_elastic_search_validator, True),
         'S3Configuration': (S3Configuration, False),
-        'TypeName': (basestring, True),
+        'TypeName': (basestring, False),
+        'VpcConfiguration': (VpcConfiguration, False),
     }
 
 
@@ -154,9 +171,9 @@ class RedshiftDestinationConfiguration(AWSProperty):
 class S3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
         'ErrorOutputPrefix': (basestring, False),
         'Prefix': (basestring, False),
@@ -253,9 +270,9 @@ class DataFormatConversionConfiguration(AWSProperty):
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
         'BucketARN': (basestring, True),
-        'BufferingHints': (BufferingHints, True),
+        'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (basestring, False),
         'DataFormatConversionConfiguration':
             (DataFormatConversionConfiguration, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
@@ -299,6 +316,8 @@ class DeliveryStream(AWSObject):
     resource_type = "AWS::KinesisFirehose::DeliveryStream"
 
     props = {
+        'DeliveryStreamEncryptionConfigurationInput':
+            (DeliveryStreamEncryptionConfigurationInput, False),
         'DeliveryStreamName': (basestring, False),
         'DeliveryStreamType': (delivery_stream_type_validator, False),
         'ElasticsearchDestinationConfiguration': (ElasticsearchDestinationConfiguration, False),  # noqa
@@ -308,4 +327,5 @@ class DeliveryStream(AWSObject):
         'S3DestinationConfiguration': (S3DestinationConfiguration, False),
         'SplunkDestinationConfiguration':
             (SplunkDestinationConfiguration, False),
+        'Tags': (Tags, False),
     }

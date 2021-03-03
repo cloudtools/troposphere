@@ -7,12 +7,20 @@ import types
 
 from . import AWSObject, AWSProperty
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
-from .awslambda import Environment, VPCConfig, validate_memory_size
+from .awslambda import (
+    Environment, ProvisionedConcurrencyConfiguration, DestinationConfig
+)
+from .awslambda import VPCConfig, validate_memory_size
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
-from .validators import exactly_one, positive_integer, mutually_exclusive
+from .validators import (
+    exactly_one, positive_integer, mutually_exclusive, integer_range
+)
+
+
 try:
     from awacs.aws import PolicyDocument
+
     policytypes = (dict, list, basestring, PolicyDocument)
 except ImportError:
     policytypes = (dict, list, basestring)
@@ -90,6 +98,8 @@ class Function(AWSObject):
         'Layers': ([basestring], False),
         'AutoPublishAlias': (basestring, False),
         'ReservedConcurrentExecutions': (positive_integer, False),
+        'ProvisionedConcurrencyConfig':
+            (ProvisionedConcurrencyConfiguration, False),
     }
 
     def validate(self):
@@ -174,10 +184,26 @@ class Authorizers(AWSProperty):
     }
 
 
+class ResourcePolicyStatement(AWSProperty):
+    props = {
+        'AwsAccountBlacklist': (list, False),
+        'AwsAccountWhitelist': (list, False),
+        'CustomStatements': (list, False),
+        'IpRangeBlacklist': (list, False),
+        'IpRangeWhitelist': (list, False),
+        'SourceVpcBlacklist': (list, False),
+        'SourceVpcWhitelist': (list, False),
+    }
+
+
 class Auth(AWSProperty):
     props = {
-        'DefaultAuthorizer': (basestring, False),
+        'AddDefaultAuthorizerToCorsPreflight': (bool, False),
+        'ApiKeyRequired': (bool, False),
         'Authorizers': (Authorizers, False),
+        'DefaultAuthorizer': (basestring, False),
+        'InvokeRole': (basestring, False),
+        'ResourcePolicy': (ResourcePolicyStatement, False),
     }
 
 
@@ -189,6 +215,59 @@ class Cors(AWSProperty):
         'AllowOrigin': (basestring, True),
         'MaxAge': (basestring, False),
     }
+
+
+class Route53(AWSProperty):
+    props = {
+        'DistributionDomainName': (basestring, False),
+        'EvaluateTargetHealth': (bool, False),
+        'HostedZoneId': (basestring, False),
+        'HostedZoneName': (basestring, False),
+        'IpV6': (bool, False),
+    }
+
+    def validate(self):
+        conds = [
+            'HostedZoneId',
+            'HostedZoneName',
+        ]
+        mutually_exclusive(self.__class__.__name__, self.properties, conds)
+
+
+class Domain(AWSProperty):
+    props = {
+        'BasePath': (list, False),
+        'CertificateArn': (basestring, True),
+        'DomainName': (basestring, True),
+        'EndpointConfiguration': (basestring, False),
+        'Route53': (Route53, False),
+    }
+
+    def validate(self):
+        valid_types = ['REGIONAL', 'EDGE']
+        if ('EndpointConfiguration' in self.properties and
+                self.properties['EndpointConfiguration'] not in valid_types):
+            raise ValueError(
+                'EndpointConfiguration must be either REGIONAL or EDGE'
+            )
+
+
+class EndpointConfiguration(AWSProperty):
+    props = {
+        "Type": (basestring, False),
+        "VPCEndpointIds": (list, False)
+    }
+
+    def validate(self):
+        valid_types = ["REGIONAL", "EDGE", "PRIVATE"]
+        if (
+            "Type" in self.properties
+            and self.properties["Type"]
+            not in valid_types
+        ):
+            raise ValueError(
+                "EndpointConfiguration Type must be REGIONAL, EDGE or PRIVATE"
+            )
 
 
 class Api(AWSObject):
@@ -204,9 +283,11 @@ class Api(AWSObject):
         'Cors': ((basestring, Cors), False),
         'DefinitionBody': (dict, False),
         'DefinitionUri': (basestring, False),
-        'EndpointConfiguration': (basestring, False),
+        'Domain': (Domain, False),
+        'EndpointConfiguration': (EndpointConfiguration, False),
         'MethodSettings': ([MethodSetting], False),
         'Name': (basestring, False),
+        'OpenApiVersion': (basestring, False),
         'StageName': (basestring, True),
         "TracingEnabled": (bool, False),
         'Variables': (dict, False),
@@ -286,7 +367,14 @@ class KinesisEvent(AWSObject):
     props = {
         'Stream': (basestring, True),
         'StartingPosition': (starting_position_validator, True),
-        'BatchSize': (positive_integer, False)
+        'BatchSize': (positive_integer, False),
+        'BisectBatchOnFunctionError': (bool, False),
+        'DestinationConfig': (DestinationConfig, False),
+        'Enabled': (bool, False),
+        'MaximumBatchingWindowInSeconds': (positive_integer, False),
+        'MaximumRecordAgeInSeconds': (integer_range(60, 604800), False),
+        'MaximumRetryAttempts': (positive_integer, False),
+        'ParallelizationFactor': (integer_range(1, 10), False)
     }
 
 
@@ -300,12 +388,22 @@ class DynamoDBEvent(AWSObject):
     }
 
 
+class RequestModel(AWSProperty):
+    props = {
+        'Model': (basestring, True),
+        'Required': (bool, False)
+    }
+
+
 class ApiEvent(AWSObject):
     resource_type = 'Api'
 
     props = {
+        'Auth': (Auth, False),
         'Path': (basestring, True),
         'Method': (basestring, True),
+        'RequestModel': (RequestModel, False),
+        'RequestParameters': (basestring, False),
         'RestApiId': (basestring, False)
     }
 
@@ -315,7 +413,10 @@ class ScheduleEvent(AWSObject):
 
     props = {
         'Schedule': (basestring, True),
-        'Input': (basestring, False)
+        'Input': (basestring, False),
+        'Description': (basestring, False),
+        'Enabled': (bool, False),
+        'Name': (basestring, False)
     }
 
 
@@ -354,3 +455,29 @@ class SQSEvent(AWSObject):
     def validate(self):
         if (not 1 <= self.properties['BatchSize'] <= 10):
             raise ValueError('BatchSize must be between 1 and 10')
+
+
+class ApplicationLocation(AWSProperty):
+    props = {
+        "ApplicationId": (basestring, True),
+        "SemanticVersion": (basestring, True),
+    }
+
+
+class Application(AWSObject):
+    resource_type = "AWS::Serverless::Application"
+
+    props = {
+        'Location': ((ApplicationLocation, basestring), True),
+        'NotificationARNs': ([basestring], False),
+        'Parameters': (dict, False),
+        'Tags': (dict, False),
+        'TimeoutInMinutes': (positive_integer, False),
+    }
+
+    def validate(self):
+        conds = [
+            'DefinitionBody',
+            'DefinitionUri',
+        ]
+        mutually_exclusive(self.__class__.__name__, self.properties, conds)

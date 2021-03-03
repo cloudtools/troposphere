@@ -16,7 +16,7 @@ def from_file(filepath, delimiter='', blanklines=False):
 
     :type blanklines: boolean
 
-    :param blanklines  If blank lines shoud be ignored
+    :param blanklines  If blank lines should be ignored
 
     rtype: troposphere.Base64
     :return The base64 representation of the file.
