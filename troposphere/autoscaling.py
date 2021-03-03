@@ -44,7 +44,7 @@ class Tags(AWSHelperFn):
                 propagate = boolean(v[1])
                 v = v[0]
             else:
-                propagate = self.defaultPropagateAtLaunch
+                propagate = boolean(self.defaultPropagateAtLaunch)
             self.tags.append({
                 'Key': k,
                 'Value': v,
