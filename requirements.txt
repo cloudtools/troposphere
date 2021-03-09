@@ -2,4 +2,4 @@
 # -------------------------------------
 
 # ---- Need libraries installed by setup.py
-cfn_flip>=1.0.2
+cfn_flip>=1.2.1
