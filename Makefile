@@ -28,7 +28,7 @@ spec2:
 release-test:
 	python setup.py sdist
 	make release-test-27
-	make release-test-38
+	make release-test-39
 
 p27dir=p27
 release-test-27:
@@ -41,16 +41,16 @@ release-test-27:
 	deactivate && \
 	rm -rf ${p27dir}
 
-p38dir=p38
-release-test-38:
-	@echo "Python 3.8 test"
+p39dir=p39
+release-test-39:
+	@echo "Python 3.9 test"
 	ver=`python -c 'import troposphere; print troposphere.__version__'` && \
-	rm -rf ${p38dir} && \
-	python3.8 -m venv ${p38dir} && \
-	. ${p38dir}/bin/activate && \
-	pip3.8 install dist/troposphere-$${ver}.tar.gz && \
+	rm -rf ${p39dir} && \
+	python3.9 -m venv ${p39dir} && \
+	. ${p39dir}/bin/activate && \
+	pip3.9 install dist/troposphere-$${ver}.tar.gz && \
 	deactivate && \
-	rm -rf ${p38dir}
+	rm -rf ${p39dir}
 
 clean:
-	rm -rf ${p27dir} ${p38dir} troposphere.egg-info
+	rm -rf ${p27dir} ${p39dir} troposphere.egg-info
