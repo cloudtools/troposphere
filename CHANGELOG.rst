@@ -1,3 +1,81 @@
+2.6.4 (2021*03*08)
+------------------
+* Remove extraneous import
+* Fix required value for ecs.EFSVolumeConfiguation AuthorizationConfig (Fixes #1806)
+* Added Period attribute to CloudWath::Alarm MetricDataQuery (#1805)
+* Fix issues with ecs.EFSVolumeConfiguration usage (#1808)
+* Updating region and availability zone constants (#1810)
+* fixing typo in updated region and availability zone constants
+* Add mising constants for Elasticsearch data and master node instance sizes. (#1809)
+* AWS::Elasticsearch::Domain.DomainEndpointOptions (#1811)
+* increased CloudFormation template limits (#1814)
+* Fix tests with new template limits (Related to #1814)
+* Add CapacityReservationSpecification to EC2::LaunchTemplateData (Fixes #1813)
+* Update Appstream per 2020-10-22 changes
+* Update SecretsManager::ResourcePolicy per 2020-10-22 changes
+* Add Tags to resources in Batch per 2020-10-22 changes
+* Update SNS::Topic per 2020-10-22 changes
+* Update Events per 2020-10-22 changes
+* Update KinesisFirehose::DeliveryStream per 2020-10-22 changes
+* Update AppSync::ApiKey per 2020-10-22 changes
+* Update Elasticsearch per 2020-10-22 changes
+* AWS::CloudFront::Distribution.LambdaFunctionAssociation.IncludeBody (#1819)
+* AWS::SSM::PatchBaseline.OperatingSystem AllowedValues expansion (#1823)
+* AWS::ImageBuilder::ImageRecipe.EbsInstanceBlockDeviceSpecification.VolumeType AllowedValues expansion (io2) (#1824)
+* AWS::CodeBuild::Project.Environment.Type AllowedValues expansion (WINDOWS_SERVER_2019_CONTAINER) (#1825)
+* AWS::Glue::Connection.ConnectionInput.ConnectionType AllowedValues expansion (NETWORK) (#1826)
+* Update AWS::Cognito::UserPoolClient (#1818)
+* Update firehose.py (#1830)
+* Update AWS::CodeArtifact::Repository (#1829)
+* AWS::EC2::VPCEndpoint.VpcEndpointType AllowedValues expansion (GatewayLoadBalancer) (#1833)
+* AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment AllowedValues expansion (FLINK-1_11)
+* AWS::Kinesis::Stream.ShardCount required (#1841)
+* flake8 fixes (#1845)
+* Add ReplicaModifications of s3 (#1850)
+* Update serverless apievent (#1836)
+* Add AllocationStrategy to EMR instance fleet configuration (#1837)
+* Add CopyActions prop to BackupRuleResourceType (#1838)
+* Fix formatting in recent EMR PR
+* AWS::AutoScaling::LaunchConfiguration.MetadataOptions (#1840)
+* AWS::AutoScaling::AutoScalingGroup.CapacityRebalance (#1842)
+* AWS Lambda Has Increased Memory Limits (#1844)
+* AWS::Lambda::Function support for container image deployment package (#1846)
+* Fix tests from previous merge
+* AWS::CloudFront::Distribution.CacheBehavior.TrustedKeyGroups (#1847)
+* AWS::CloudFront::Distribution.Origin.OriginShield (#1848)
+* docs: fix simple typo, shoud -> should (#1851)
+* AWS::Glue::Connection.ConnectionInput.ConnectionType AllowedValues expansion (#1852)
+* Adding DeploymentCircuitBreaker property for ECS Service (#1853)
+* ec2: add ClientVpnEndpoint.ClientConnectOptions & SelfServicePortal (#1854)
+* s3: add property BucketKeyEnabled (#1857)
+* Add g4ad, c6gn, d3, and d3en instance types to constants (#1859)
+* Add IoTSiteWise
+* Add IVS
+* Update copyright year
+* Add RDS::GlobalCluster per 2020-11-05 update
+* Add IoT::DomainConfiguration per 2020-11-05 update
+* Add Events::Archive per 2020-11-05 update
+* Updates to AWS::Lambda EventSourceMapping
+* Updates for EC2::Route
+* Updates to Batch::JobDefinition per 2020-11-05 updates
+* Update CodeArtifact per 2020-11-05 changes
+* Update AppMesh per 2020-11-12 changes
+* Update EC2::VPCEndpointService per 2020-11-12 changes
+* Add S3::StorageLens per 2020-11-19 changes
+* Add NetworkFirewall per 2020-11-19 changes
+* Update Glue per 2020-11-19 changes
+* Update CloudFront per 2020-11-19 changes
+* Update KMS per 2020-11-19 changes
+* Update Events per 2020-11-19 changes
+* Update EC2 per 2020-11-19 changes
+* Update Amplify per 2020-11-19 changes
+* Update Lambda per 2020-11-23 changes
+* Update GameList per 2020-11-24 changes
+* Update EKS per 2020-12-17 changes
+* Update SSO per 2020-12-18 changes
+* Add IoT::TopicRuleDestination per 2020-12-18 changes
+* Move "make release-test" to use python-3.9
+
 2.6.3 (2020*10*11)
 ------------------
 * SageMaker: Mark tags props as optional, per AWS documentation.
