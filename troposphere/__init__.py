@@ -796,8 +796,8 @@ class Template(object):
         return json.dumps(self.to_dict(), indent=indent,
                           sort_keys=sort_keys, separators=separators)
 
-    def to_yaml(self, clean_up=False, long_form=False):
-        return cfn_flip.to_yaml(self.to_json(), clean_up=clean_up,
+    def to_yaml(self, clean_up=False, long_form=False, sort_keys=True):
+        return cfn_flip.to_yaml(self.to_json(sort_keys=sort_keys), clean_up=clean_up,
                                 long_form=long_form)
 
     def __eq__(self, other):
