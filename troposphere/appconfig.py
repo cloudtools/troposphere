@@ -104,6 +104,19 @@ class ConfigurationProfile(AWSObject):
     }
 
 
+class HostedConfigurationVersion(AWSObject):
+    resource_type = "AWS::AppConfig::HostedConfigurationVersion"
+
+    props = {
+        'ApplicationId': (basestring, True),
+        'ConfigurationProfileId': (basestring, True),
+        'Content': (basestring, True),
+        'ContentType': (basestring, True),
+        'Description': (basestring, False),
+        'LatestVersionNumber': (double, False),
+    }
+
+
 class Application(AWSObject):
     resource_type = "AWS::AppConfig::Application"
 
