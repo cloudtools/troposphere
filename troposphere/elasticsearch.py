@@ -41,6 +41,9 @@ class CognitoOptions(AWSProperty):
 
 class DomainEndpointOptions(AWSProperty):
     props = {
+        'CustomEndpoint': (basestring, False),
+        'CustomEndpointCertificateArn': (basestring, False),
+        'CustomEndpointEnabled': (boolean, False),  # Conditional
         'EnforceHTTPS': (boolean, False),
         'TLSSecurityPolicy': (validate_tls_security_policy, False),
     }
