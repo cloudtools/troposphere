@@ -159,6 +159,7 @@ class EBSBlockDevice(AWSProperty):
         'Encrypted': (boolean, False),
         'KmsKeyId': (basestring, False),
         'Iops': (integer, False),  # Conditional
+        'Throughput': (integer, False),  # Conditional
         'SnapshotId': (basestring, False),  # Conditional
         'VolumeSize': (integer, False),  # Conditional
         'VolumeType': (basestring, False),
