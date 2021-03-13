@@ -46,7 +46,7 @@ class ApplicationCodeConfiguration(AWSProperty):
 class PropertyGroup(AWSProperty):
     props = {
         'PropertyGroupId': (basestring, False),
-        'PropertyMap': (json_checker, False),
+        'PropertyMap': (dict, False),
     }
 
 
