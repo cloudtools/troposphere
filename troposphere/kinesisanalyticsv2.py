@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import integer, boolean, json_checker
+from .validators import integer, boolean
 
 
 VALID_RUNTIME_ENVIRONMENTS = ('SQL-1_0', 'FLINK-1_6', 'FLINK-1_8',
