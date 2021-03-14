@@ -238,6 +238,7 @@ Currently supported AWS resource types
 - `AWS::Logs`_
 - `AWS::Macie`_
 - `AWS::ManagedBlockchain`_
+- `AWS::MediaConnect`_
 - `AWS::MediaConvert`_
 - `AWS::MediaLive`_
 - `AWS::MediaStore`_
@@ -489,6 +490,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
 .. _`AWS::Macie`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Macie.html
 .. _`AWS::ManagedBlockchain`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ManagedBlockchain.html
+.. _`AWS::MediaConnect`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaConnect.html
 .. _`AWS::MediaConvert`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaConvert.html
 .. _`AWS::MediaLive`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaLive.html
 .. _`AWS::MediaStore`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaStore.html
