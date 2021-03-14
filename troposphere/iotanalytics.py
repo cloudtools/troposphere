@@ -306,12 +306,39 @@ class DatastoreStorage(AWSProperty):
     }
 
 
+class Column(AWSProperty):
+    props = {
+        'Name': (basestring, True),
+        'Type': (basestring, True),
+    }
+
+
+class SchemaDefinition(AWSProperty):
+    props = {
+        'Columns': ([Column], False),
+    }
+
+
+class ParquetConfiguration(AWSProperty):
+    props = {
+        'SchemaDefinition': (SchemaDefinition, False),
+    }
+
+
+class FileFormatConfiguration(AWSProperty):
+    props = {
+        'JsonConfiguration': (dict, False),
+        'ParquetConfiguration': (ParquetConfiguration, False),
+    }
+
+
 class Datastore(AWSObject):
     resource_type = "AWS::IoTAnalytics::Datastore"
 
     props = {
         'DatastoreName': (basestring, False),
         'DatastoreStorage': (DatastoreStorage, False),
+        'FileFormatConfiguration': (FileFormatConfiguration, False),
         'RetentionPeriod': (RetentionPeriod, False),
         'Tags': ((Tags, list), False),
     }
