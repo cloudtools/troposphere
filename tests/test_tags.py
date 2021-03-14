@@ -33,9 +33,9 @@ class TestTags(unittest.TestCase):
         tags += ASTags(bar=('barval', False))
         tags = tags + ASTags(baz='bazval')
         result = [
-            {'Value': 'fooval', 'Key': 'foo', 'PropagateAtLaunch': 'true'},
-            {'Value': 'barval', 'Key': 'bar', 'PropagateAtLaunch': 'false'},
-            {'Value': 'bazval', 'Key': 'baz', 'PropagateAtLaunch': 'true'},
+            {'Value': 'fooval', 'Key': 'foo', 'PropagateAtLaunch': True},
+            {'Value': 'barval', 'Key': 'bar', 'PropagateAtLaunch': False},
+            {'Value': 'bazval', 'Key': 'baz', 'PropagateAtLaunch': True},
         ]
         self.assertEqual(tags.to_dict(), result)
 

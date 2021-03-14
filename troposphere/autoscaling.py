@@ -41,10 +41,10 @@ class Tags(AWSHelperFn):
         self.tags = []
         for k, v in sorted(kwargs.iteritems()):
             if type(v) in self.manyType:
-                propagate = str(v[1]).lower()
+                propagate = boolean(v[1])
                 v = v[0]
             else:
-                propagate = str(self.defaultPropagateAtLaunch).lower()
+                propagate = boolean(self.defaultPropagateAtLaunch)
             self.tags.append({
                 'Key': k,
                 'Value': v,
