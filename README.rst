@@ -135,12 +135,12 @@ Missing required property for the AWS resource:
     >>> from troposphere import Template
     >>> import troposphere.ec2 as ec2
     >>> t = Template()
-    >>> t.add_resource(ec2.Instance("ec2instance", InstanceType="m3.medium"))
-    <troposphere.ec2.Instance object at 0x109ee2e50>
+    >>> t.add_resource(ec2.Subnet("ec2subnet", VpcId="vpcid"))
+    <troposphere.ec2.Subnet object at 0x100830ed0>
     >>> print(t.to_json())
     Traceback (most recent call last):
     ...
-    ValueError: Resource ImageId required in type AWS::EC2::Instance
+    ValueError: Resource CidrBlock required in type AWS::EC2::Subnet (title: ec2subnet)
 
 Currently supported AWS resource types
 ======================================
