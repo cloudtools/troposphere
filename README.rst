@@ -192,6 +192,7 @@ Currently supported AWS resource types
 - `AWS::DataPipeline`_
 - `AWS::DirectoryService`_
 - `AWS::DocDB`_
+- `AWS::DevOpsGuru`_
 - `AWS::DynamoDB`_
 - `AWS::EC2`_
 - `AWS::ECR`_
@@ -441,6 +442,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::DataPipeline`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataPipeline.html
 .. _`AWS::DirectoryService`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DirectoryService.html
 .. _`AWS::DocDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DocDB.html
+.. _`AWS::DevOpsGuru`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DevOpsGuru.html
 .. _`AWS::DynamoDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DynamoDB.html
 .. _`AWS::EC2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EC2.html
 .. _`AWS::ECR`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ECR.html
