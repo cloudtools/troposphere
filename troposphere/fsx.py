@@ -61,6 +61,7 @@ class SelfManagedActiveDirectoryConfiguration(AWSProperty):
 class WindowsConfiguration(AWSProperty):
     props = {
         'ActiveDirectoryId': (basestring, False),
+        'Aliases': ([basestring], False),
         'AutomaticBackupRetentionDays': (integer, False),
         'CopyTagsToBackups': (boolean, False),
         'DailyAutomaticBackupStartTime': (basestring, False),
