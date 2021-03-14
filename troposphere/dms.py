@@ -22,6 +22,13 @@ class Certificate(AWSObject):
     }
 
 
+class DocDbSettings(AWSProperty):
+    props = {
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
+    }
+
+
 class DynamoDbSettings(AWSProperty):
     props = {
         'ServiceAccessRoleArn': (basestring, False),
@@ -37,11 +44,32 @@ class ElasticsearchSettings(AWSProperty):
     }
 
 
+class IbmDb2Settings(AWSProperty):
+    props = {
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
+    }
+
+
+class KafkaSettings(AWSProperty):
+    props = {
+        'Broker': (basestring, False),
+        'Topic': (basestring, False),
+    }
+
+
 class KinesisSettings(AWSProperty):
     props = {
         'MessageFormat': (basestring, False),
         'ServiceAccessRoleArn': (basestring, False),
         'StreamArn': (basestring, False),
+    }
+
+
+class MicrosoftSqlServerSettings(AWSProperty):
+    props = {
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
     }
 
 
@@ -56,27 +84,17 @@ class MongoDbSettings(AWSProperty):
         'NestingLevel': (basestring, False),
         'Password': (basestring, False),
         'Port': (network_port, False),
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
         'ServerName': (basestring, False),
         'Username': (basestring, False),
     }
 
 
-class S3Settings(AWSProperty):
+class MySqlSettings(AWSProperty):
     props = {
-        'BucketFolder': (basestring, False),
-        'BucketName': (basestring, False),
-        'CompressionType': (basestring, False),
-        'CsvDelimiter': (basestring, False),
-        'CsvRowDelimiter': (basestring, False),
-        'ExternalTableDefinition': (basestring, False),
-        'ServiceAccessRoleArn': (basestring, False),
-    }
-
-
-class KafkaSettings(AWSProperty):
-    props = {
-        'Broker': (basestring, False),
-        'Topic': (basestring, False),
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
     }
 
 
@@ -92,28 +110,78 @@ class NeptuneSettings(AWSProperty):
     }
 
 
+class OracleSettings(AWSProperty):
+    props = {
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerOracleAsmAccessRoleArn': (basestring, False),
+        'SecretsManagerOracleAsmSecretId': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
+    }
+
+
+class PostgreSqlSettings(AWSProperty):
+    props = {
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
+    }
+
+
+class RedshiftSettings(AWSProperty):
+    props = {
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
+    }
+
+
+class S3Settings(AWSProperty):
+    props = {
+        'BucketFolder': (basestring, False),
+        'BucketName': (basestring, False),
+        'CompressionType': (basestring, False),
+        'CsvDelimiter': (basestring, False),
+        'CsvRowDelimiter': (basestring, False),
+        'ExternalTableDefinition': (basestring, False),
+        'ServiceAccessRoleArn': (basestring, False),
+    }
+
+
+class SybaseSettings(AWSProperty):
+    props = {
+        'SecretsManagerAccessRoleArn': (basestring, False),
+        'SecretsManagerSecretId': (basestring, False),
+    }
+
+
 class Endpoint(AWSObject):
     resource_type = "AWS::DMS::Endpoint"
 
     props = {
         'CertificateArn': (basestring, False),
         'DatabaseName': (basestring, False),
+        'DocDbSettings': (DocDbSettings, False),
         'DynamoDbSettings': (DynamoDbSettings, False),
         'ElasticsearchSettings': (ElasticsearchSettings, False),
         'EndpointIdentifier': (basestring, False),
         'EndpointType': (basestring, True),
         'EngineName': (basestring, True),
         'ExtraConnectionAttributes': (basestring, False),
+        'IbmDb2Settings': (IbmDb2Settings, False),
         'KafkaSettings': (KafkaSettings, False),
         'KinesisSettings': (KinesisSettings, False),
         'KmsKeyId': (basestring, False),
+        'MicrosoftSqlServerSettings': (MicrosoftSqlServerSettings, False),
         'MongoDbSettings': (MongoDbSettings, False),
+        'MySqlSettings': (MySqlSettings, False),
         'NeptuneSettings': (NeptuneSettings, False),
+        'OracleSettings': (OracleSettings, False),
         'Password': (basestring, False),
         'Port': (network_port, False),
+        'PostgreSqlSettings': (PostgreSqlSettings, False),
+        'RedshiftSettings': (RedshiftSettings, False),
         'S3Settings': (S3Settings, False),
         'ServerName': (basestring, False),
         'SslMode': (basestring, False),
+        'SybaseSettings': (SybaseSettings, False),
         'Tags': (Tags, False),
         'Username': (basestring, False),
     }
