@@ -143,6 +143,7 @@ class ReplicationGroup(AWSObject):
         'SnapshottingClusterId': (basestring, False),
         'Tags': (Tags, False),
         'TransitEncryptionEnabled': (boolean, False),
+        'UserGroupIds': ([basestring], False),
     }
 
     def validate(self):
