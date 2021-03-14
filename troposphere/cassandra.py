@@ -6,7 +6,8 @@
 
 from . import AWSObject
 from . import AWSProperty
-from .validators import integer
+from . import Tags
+from .validators import boolean, integer
 
 
 VALID_CLUSTERINGKEYCOLUMN_ORDERBY = ('ASC', 'DESC')
@@ -32,6 +33,7 @@ class Keyspace(AWSObject):
 
     props = {
         'KeyspaceName': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -71,6 +73,8 @@ class Table(AWSObject):
         "ClusteringKeyColumns": ([ClusteringKeyColumn], False),
         "KeyspaceName": (basestring, True),
         "PartitionKeyColumns": ([Column], True),
+        'PointInTimeRecoveryEnabled': (boolean, False),
         "RegularColumns": ([Column], False),
         "TableName": (basestring, False),
+        'Tags': (Tags, False),
     }
