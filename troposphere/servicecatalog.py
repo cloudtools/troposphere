@@ -46,8 +46,8 @@ class CloudFormationProduct(AWSObject):
 
 class ProvisioningParameter(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Value': (basestring, False),
+        'Key': (basestring, True),
+        'Value': (basestring, True),
     }
 
 
@@ -160,6 +160,7 @@ class PortfolioShare(AWSObject):
         'AcceptLanguage': (basestring, False),
         'AccountId': (basestring, True),
         'PortfolioId': (basestring, True),
+        'ShareTagOptions': (boolean, False),
     }
 
 
@@ -184,6 +185,35 @@ class ResourceUpdateConstraint(AWSObject):
         'PortfolioId': (basestring, True),
         'ProductId': (basestring, True),
         'TagUpdateOnProvisionedProduct': (validate_tag_update, True),
+    }
+
+
+class DefinitionParameter(AWSProperty):
+    props = {
+        'Key': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class ServiceAction(AWSObject):
+    resource_type = "AWS::ServiceCatalog::ServiceAction"
+
+    props = {
+        'AcceptLanguage': (basestring, False),
+        'Definition': ([DefinitionParameter], True),
+        'DefinitionType': (basestring, True),
+        'Description': (basestring, False),
+        'Name': (basestring, True),
+    }
+
+
+class ServiceActionAssociation(AWSObject):
+    resource_type = "AWS::ServiceCatalog::ServiceActionAssociation"
+
+    props = {
+        'ProductId': (basestring, True),
+        'ProvisioningArtifactId': (basestring, True),
+        'ServiceActionId': (basestring, True),
     }
 
 
