@@ -48,6 +48,133 @@ def validate_certificateauthority_type(certificateauthority_type):
     return certificateauthority_type
 
 
+class Qualifier(AWSProperty):
+    props = {
+        'CpsUri': (basestring, True),
+    }
+
+
+class PolicyQualifierInfo(AWSProperty):
+    props = {
+        'PolicyQualifierId': (basestring, True),
+        'Qualifier': (Qualifier, True),
+    }
+
+
+class PolicyQualifierInfoList(AWSProperty):
+    props = {
+        'PolicyQualifierInfoList': ([PolicyQualifierInfo], False),
+    }
+
+
+class PolicyInformation(AWSProperty):
+    props = {
+        'CertPolicyId': (basestring, True),
+        'PolicyQualifiers': (PolicyQualifierInfoList, False),
+    }
+
+
+class CertificatePolicyList(AWSProperty):
+    props = {
+        'CertificatePolicyList': ([PolicyInformation], False),
+    }
+
+
+class ExtendedKeyUsage(AWSProperty):
+    props = {
+        'ExtendedKeyUsageObjectIdentifier': (basestring, False),
+        'ExtendedKeyUsageType': (basestring, False),
+    }
+
+
+class ExtendedKeyUsageList(AWSProperty):
+    props = {
+        'ExtendedKeyUsageList': ([ExtendedKeyUsage], False),
+    }
+
+
+class EdiPartyName(AWSProperty):
+    props = {
+        'NameAssigner': (basestring, True),
+        'PartyName': (basestring, True),
+    }
+
+
+class OtherName(AWSProperty):
+    props = {
+        'TypeId': (basestring, True),
+        'Value': (basestring, True),
+    }
+
+
+class Subject(AWSProperty):
+    props = {
+        'CommonName': (basestring, False),
+        'Country': (basestring, False),
+        'DistinguishedNameQualifier': (basestring, False),
+        'GenerationQualifier': (basestring, False),
+        'GivenName': (basestring, False),
+        'Initials': (basestring, False),
+        'Locality': (basestring, False),
+        'Organization': (basestring, False),
+        'OrganizationalUnit': (basestring, False),
+        'Pseudonym': (basestring, False),
+        'SerialNumber': (basestring, False),
+        'State': (basestring, False),
+        'Surname': (basestring, False),
+        'Title': (basestring, False),
+    }
+
+
+class GeneralName(AWSProperty):
+    props = {
+        'DirectoryName': (Subject, False),
+        'DnsName': (basestring, False),
+        'EdiPartyName': (EdiPartyName, False),
+        'IpAddress': (basestring, False),
+        'OtherName': (OtherName, False),
+        'RegisteredId': (basestring, False),
+        'Rfc822Name': (basestring, False),
+        'UniformResourceIdentifier': (basestring, False),
+    }
+
+
+class GeneralNameList(AWSProperty):
+    props = {
+        'GeneralNameList': ([GeneralName], False),
+    }
+
+
+class KeyUsage(AWSProperty):
+    props = {
+        'CRLSign': (boolean, False),
+        'DataEncipherment': (boolean, False),
+        'DecipherOnly': (boolean, False),
+        'DigitalSignature': (boolean, False),
+        'EncipherOnly': (boolean, False),
+        'KeyAgreement': (boolean, False),
+        'KeyCertSign': (boolean, False),
+        'KeyEncipherment': (boolean, False),
+        'NonRepudiation': (boolean, False),
+    }
+
+
+class Extensions(AWSProperty):
+    props = {
+        'CertificatePolicies': (CertificatePolicyList, False),
+        'ExtendedKeyUsage': (ExtendedKeyUsageList, False),
+        'KeyUsage': (KeyUsage, False),
+        'SubjectAlternativeNames': (GeneralNameList, False),
+    }
+
+
+class ApiPassthrough(AWSProperty):
+    props = {
+        'Extensions': (Extensions, False),
+        'Subject': (Subject, False),
+    }
+
+
 class Validity(AWSProperty):
     props = {
         'Type': (validate_validity_type, True),
@@ -59,11 +186,13 @@ class Certificate(AWSObject):
     resource_type = "AWS::ACMPCA::Certificate"
 
     props = {
+        'ApiPassthrough': (ApiPassthrough, False),
         'CertificateAuthorityArn': (basestring, True),
         'CertificateSigningRequest': (basestring, True),
         'SigningAlgorithm': (validate_signing_algorithm, True),
         'TemplateArn': (basestring, False),
         'Validity': (Validity, True),
+        'ValidityNotBefore': (Validity, False),
     }
 
 
