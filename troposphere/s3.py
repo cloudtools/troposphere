@@ -273,6 +273,24 @@ class NotificationConfiguration(AWSProperty):
     }
 
 
+class OwnershipControlsRule(AWSProperty):
+    props = {
+        'ObjectOwnership': (basestring, False),
+    }
+
+
+class OwnershipControls(AWSProperty):
+    props = {
+        'Rules': ([OwnershipControlsRule], True),
+    }
+
+
+class DeleteMarkerReplication(AWSProperty):
+    props = {
+        'Status': (basestring, False),
+    }
+
+
 class AccessControlTranslation(AWSProperty):
     props = {
         'Owner': (basestring, True),
@@ -285,13 +303,50 @@ class EncryptionConfiguration(AWSProperty):
     }
 
 
+class ReplicationTimeValue(AWSProperty):
+    props = {
+        'Minutes': (integer, True),
+    }
+
+
+class Metrics(AWSProperty):
+    props = {
+        'EventThreshold': (ReplicationTimeValue, False),
+        'Status': (basestring, True),
+    }
+
+
+class ReplicationTime(AWSProperty):
+    props = {
+        'Status': (basestring, True),
+        'Time': (ReplicationTimeValue, True),
+    }
+
+
 class ReplicationConfigurationRulesDestination(AWSProperty):
     props = {
         'AccessControlTranslation': (AccessControlTranslation, False),
         'Account': (basestring, False),
         'Bucket': (basestring, True),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
+        'Metrics': (Metrics, False),
+        'ReplicationTime': (ReplicationTime, False),
         'StorageClass': (basestring, False),
+    }
+
+
+class ReplicationRuleAndOperator(AWSProperty):
+    props = {
+        'Prefix': (basestring, False),
+        'TagFilters': ([TagFilter], False),
+    }
+
+
+class ReplicationRuleFilter(AWSProperty):
+    props = {
+        'And': (ReplicationRuleAndOperator, False),
+        'Prefix': (basestring, False),
+        'TagFilter': (TagFilter, False),
     }
 
 
@@ -316,9 +371,12 @@ class SourceSelectionCriteria(AWSProperty):
 
 class ReplicationConfigurationRules(AWSProperty):
     props = {
+        'DeleteMarkerReplication': (DeleteMarkerReplication, False),
         'Destination': (ReplicationConfigurationRulesDestination, True),
+        'Filter': (ReplicationRuleFilter, False),
         'Id': (basestring, False),
         'Prefix': (basestring, True),
+        'Priority': (integer, False),
         'SourceSelectionCriteria': (SourceSelectionCriteria, False),
         'Status': (basestring, True)
     }
@@ -421,8 +479,8 @@ class Bucket(AWSObject):
     resource_type = "AWS::S3::Bucket"
 
     props = {
-        'AccessControl': (basestring, False),
         'AccelerateConfiguration': (AccelerateConfiguration, False),
+        'AccessControl': (basestring, False),
         'AnalyticsConfigurations': ([AnalyticsConfiguration], False),
         'BucketEncryption': (BucketEncryption, False),
         'BucketName': (s3_bucket_name, False),
@@ -434,12 +492,13 @@ class Bucket(AWSObject):
         'NotificationConfiguration': (NotificationConfiguration, False),
         'ObjectLockConfiguration': (ObjectLockConfiguration, False),
         'ObjectLockEnabled': (boolean, False),
+        'OwnershipControls': (OwnershipControls, False),
         'PublicAccessBlockConfiguration': (PublicAccessBlockConfiguration,
                                            False),
         'ReplicationConfiguration': (ReplicationConfiguration, False),
         'Tags': (Tags, False),
+        'VersioningConfiguration': (VersioningConfiguration, False),
         'WebsiteConfiguration': (WebsiteConfiguration, False),
-        'VersioningConfiguration': (VersioningConfiguration, False)
     }
 
     access_control_types = [
