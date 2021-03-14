@@ -259,6 +259,26 @@ class DatasetContentDeliveryRule(AWSProperty):
     }
 
 
+class DeltaTimeSessionWindowConfiguration(AWSProperty):
+    props = {
+        'TimeoutInMinutes': (integer, True),
+    }
+
+
+class LateDataRuleConfiguration(AWSProperty):
+    props = {
+        'DeltaTimeSessionWindowConfiguration':
+            (DeltaTimeSessionWindowConfiguration, False),
+    }
+
+
+class LateDataRule(AWSProperty):
+    props = {
+        'RuleConfiguration': (LateDataRuleConfiguration, True),
+        'RuleName': (basestring, False),
+    }
+
+
 class Schedule(AWSProperty):
     props = {
         'ScheduleExpression': (basestring, True),
@@ -292,6 +312,7 @@ class Dataset(AWSObject):
         'Actions': ([Action], True),
         'ContentDeliveryRules': ([DatasetContentDeliveryRule], False),
         'DatasetName': (basestring, False),
+        'LateDataRules': ([LateDataRule], False),
         'RetentionPeriod': (RetentionPeriod, False),
         'Tags': (Tags, False),
         'Triggers': ([Trigger], False),
