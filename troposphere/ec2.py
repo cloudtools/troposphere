@@ -675,6 +675,7 @@ class Subnet(AWSObject):
         'CidrBlock': (basestring, True),
         'Ipv6CidrBlock': (basestring, False),
         'MapPublicIpOnLaunch': (boolean, False),
+        'OutpostArn': (basestring, False),
         'Tags': ((Tags, list), False),
         'VpcId': (basestring, True),
     }
