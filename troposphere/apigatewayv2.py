@@ -235,6 +235,7 @@ class Integration(AWSObject):
         'CredentialsArn': (basestring, False),
         'Description': (basestring, False),
         'IntegrationMethod': (basestring, False),
+        'IntegrationSubType': (basestring, False),
         'IntegrationType': (validate_integration_type, True),
         'IntegrationUri': (basestring, False),
         'PassthroughBehavior': (validate_passthrough_behavior, False),
