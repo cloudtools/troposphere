@@ -60,6 +60,45 @@ class CacheCluster(AWSObject):
         return True
 
 
+class GlobalReplicationGroupMember(AWSProperty):
+    props = {
+        'ReplicationGroupId': (basestring, False),
+        'ReplicationGroupRegion': (basestring, False),
+        'Role': (basestring, False),
+    }
+
+
+class ReshardingConfiguration(AWSProperty):
+    props = {
+        'NodeGroupId': (basestring, False),
+        'PreferredAvailabilityZones': ([basestring], False),
+    }
+
+
+class RegionalConfiguration(AWSProperty):
+    props = {
+        'ReplicationGroupId': (basestring, False),
+        'ReplicationGroupRegion': (basestring, False),
+        'ReshardingConfigurations': ([ReshardingConfiguration], False),
+    }
+
+
+class GlobalReplicationGroup(AWSObject):
+    resource_type = "AWS::ElastiCache::GlobalReplicationGroup"
+
+    props = {
+        'AutomaticFailoverEnabled': (boolean, False),
+        'CacheNodeType': (basestring, False),
+        'CacheParameterGroupName': (basestring, False),
+        'EngineVersion': (basestring, False),
+        'GlobalNodeGroupCount': (integer, False),
+        'GlobalReplicationGroupDescription': (basestring, False),
+        'GlobalReplicationGroupIdSuffix': (basestring, False),
+        'Members': ([GlobalReplicationGroupMember], True),
+        'RegionalConfigurations': ([RegionalConfiguration], False),
+    }
+
+
 class ParameterGroup(AWSObject):
     resource_type = "AWS::ElastiCache::ParameterGroup"
 
