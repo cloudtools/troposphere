@@ -2,6 +2,13 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, exactly_one, integer, positive_integer
 
 
+class Ec2ConfigurationObject(AWSProperty):
+    props = {
+        'ImageIdOverride': (basestring, False),
+        'ImageType': (basestring, True),
+    }
+
+
 class LaunchTemplateSpecification(AWSProperty):
     props = {
         "LaunchTemplateId": (basestring, False),
@@ -38,21 +45,22 @@ class ComputeResources(AWSProperty):
 
     props = {
         "AllocationStrategy": (validate_allocation_strategy, False),
-        "SpotIamFleetRole": (basestring, False),
-        "MaxvCpus": (positive_integer, True),
-        "SecurityGroupIds": ([basestring], True),
         "BidPercentage": (positive_integer, False),
-        "Type": (basestring, True),
-        "Subnets": ([basestring], True),
-        "MinvCpus": (positive_integer, True),
-        "LaunchTemplate": (LaunchTemplateSpecification, False),
-        "ImageId": (basestring, False),
-        "InstanceRole": (basestring, True),
-        "InstanceTypes": ([basestring], True),
+        "DesiredvCpus": (positive_integer, False),
+        'Ec2Configuration': ([Ec2ConfigurationObject], False),
         "Ec2KeyPair": (basestring, False),
+        "ImageId": (basestring, False),
+        "InstanceRole": (basestring, False),
+        "InstanceTypes": ([basestring], False),
+        "LaunchTemplate": (LaunchTemplateSpecification, False),
+        "MaxvCpus": (positive_integer, True),
+        "MinvCpus": (positive_integer, False),
         "PlacementGroup": (basestring, False),
+        "SecurityGroupIds": ([basestring], False),
+        "SpotIamFleetRole": (basestring, False),
+        "Subnets": ([basestring], True),
         "Tags": (dict, False),
-        "DesiredvCpus": (positive_integer, False)
+        "Type": (basestring, True),
     }
 
 
