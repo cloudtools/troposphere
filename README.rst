@@ -201,6 +201,7 @@ Currently supported AWS resource types
 - `AWS::EFS`_
 - `AWS::EKS`_
 - `AWS::EMR`_
+- `AWS::EMRContainers`_
 - `AWS::ElastiCache`_
 - `AWS::ElasticBeanstalk`_
 - `AWS::ElasticLoadBalancing`_
@@ -456,6 +457,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::EFS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EFS.html
 .. _`AWS::EKS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EKS.html
 .. _`AWS::EMR`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EMR.html
+.. _`AWS::EMRContainers`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EMRContainers.html
 .. _`AWS::ElastiCache`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElastiCache.html
 .. _`AWS::ElasticBeanstalk`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElasticBeanstalk.html
 .. _`AWS::ElasticLoadBalancing`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElasticLoadBalancing.html
