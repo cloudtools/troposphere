@@ -337,6 +337,19 @@ class DBProxy(AWSObject):
     }
 
 
+class DBProxyEndpoint(AWSObject):
+    resource_type = "AWS::RDS::DBProxyEndpoint"
+
+    props = {
+        'DBProxyEndpointName': (basestring, True),
+        'DBProxyName': (basestring, True),
+        'Tags': (Tags, False),
+        'TargetRole': (basestring, False),
+        'VpcSecurityGroupIds': ([basestring], False),
+        'VpcSubnetIds': ([basestring], True),
+    }
+
+
 class ConnectionPoolConfigurationInfoFormat(AWSProperty):
     props = {
         'ConnectionBorrowTimeout': (integer, False),
