@@ -232,6 +232,7 @@ Currently supported AWS resource types
 - `AWS::KinesisFirehose`_
 - `AWS::LakeFormation`_
 - `AWS::Lambda`_
+- `AWS::LicenseManager`_
 - `AWS::Logs`_
 - `AWS::Macie`_
 - `AWS::ManagedBlockchain`_
@@ -480,6 +481,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::KinesisFirehose`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KinesisFirehose.html
 .. _`AWS::LakeFormation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LakeFormation.html
 .. _`AWS::Lambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lambda.html
+.. _`AWS::LicenseManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LicenseManager.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
 .. _`AWS::Macie`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Macie.html
 .. _`AWS::ManagedBlockchain`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ManagedBlockchain.html
