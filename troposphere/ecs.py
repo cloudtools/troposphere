@@ -77,6 +77,25 @@ class Cluster(AWSObject):
     }
 
 
+class CapacityProviderStrategy(AWSProperty):
+    props = {
+        'Base': (integer, False),
+        'CapacityProvider': (basestring, True),
+        'Weight': (integer, False),
+    }
+
+
+class ClusterCapacityProviderAssociations(AWSObject):
+    resource_type = "AWS::ECS::ClusterCapacityProviderAssociations"
+
+    props = {
+        'CapacityProviders': ([basestring], True),
+        'Cluster': (basestring, True),
+        'DefaultCapacityProviderStrategy':
+            ([CapacityProviderStrategy], True),
+    }
+
+
 class PrimaryTaskSet(AWSObject):
     resource_type = "AWS::ECS::PrimaryTaskSet"
 
