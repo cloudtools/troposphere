@@ -19,6 +19,25 @@ def validate_ruletype(ruletype):
     return ruletype
 
 
+class DNSSEC(AWSObject):
+    resource_type = "AWS::Route53::DNSSEC"
+
+    props = {
+        'HostedZoneId': (basestring, True),
+    }
+
+
+class KeySigningKey(AWSObject):
+    resource_type = "AWS::Route53::KeySigningKey"
+
+    props = {
+        'HostedZoneId': (basestring, True),
+        'KeyManagementServiceArn': (basestring, True),
+        'Name': (basestring, True),
+        'Status': (basestring, True),
+    }
+
+
 class AliasTarget(AWSProperty):
     props = {
         'HostedZoneId': (basestring, True),
@@ -155,6 +174,14 @@ class HostedZone(AWSObject):
         'Name': (basestring, True),
         'QueryLoggingConfig': (QueryLoggingConfig, False),
         'VPCs': ([HostedZoneVPCs], False),
+    }
+
+
+class ResolverDNSSECConfig(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverDNSSECConfig"
+
+    props = {
+        'ResourceId': (basestring, False),
     }
 
 
