@@ -159,6 +159,7 @@ Currently supported AWS resource types
 - `AWS::ApplicationAutoScaling`_
 - `AWS::ApplicationInsights`_
 - `AWS::Athena`_
+- `AWS::AuditManager`_
 - `AWS::AutoScaling`_
 - `AWS::AutoScalingPlans`_
 - `AWS::Batch`_
@@ -406,6 +407,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::ApplicationAutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationAutoScaling.html
 .. _`AWS::ApplicationInsights`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationInsights.html
 .. _`AWS::Athena`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Athena.html
+.. _`AWS::AuditManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AuditManager.html
 .. _`AWS::AutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScaling.html
 .. _`AWS::AutoScalingPlans`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScalingPlans.html
 .. _`AWS::Batch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Batch.html
