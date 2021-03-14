@@ -59,9 +59,34 @@ class InstanceProfile(AWSObject):
     resource_type = "AWS::IAM::InstanceProfile"
 
     props = {
+        'InstanceProfileName': (basestring, False),
         'Path': (iam_path, False),
         'Roles': (list, True),
-        'InstanceProfileName': (basestring, False),
+    }
+
+
+class ManagedPolicy(AWSObject):
+    resource_type = "AWS::IAM::ManagedPolicy"
+
+    props = {
+        'Description': (basestring, False),
+        'Groups': ([basestring], False),
+        'ManagedPolicyName': (basestring, False),
+        'Path': (iam_path, False),
+        'PolicyDocument': (policytypes, True),
+        'Roles': ([basestring], False),
+        'Users': ([basestring], False),
+    }
+
+
+class OIDCProvider(AWSObject):
+    resource_type = "AWS::IAM::OIDCProvider"
+
+    props = {
+        'ClientIdList': ([basestring], False),
+        'Tags': (Tags, False),
+        'ThumbprintList': ([basestring], True),
+        'Url': (basestring, False),
     }
 
 
@@ -78,6 +103,29 @@ class Role(AWSObject):
         'Policies': ([Policy], False),
         'RoleName': (iam_role_name, False),
         'Tags': ((Tags, list), False),
+    }
+
+
+class SAMLProvider(AWSObject):
+    resource_type = "AWS::IAM::SAMLProvider"
+
+    props = {
+        'Name': (basestring, False),
+        'SamlMetadataDocument': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class ServerCertificate(AWSObject):
+    resource_type = "AWS::IAM::ServerCertificate"
+
+    props = {
+        'CertificateBody': (basestring, False),
+        'CertificateChain': (basestring, False),
+        'Path': (basestring, False),
+        'PrivateKey': (basestring, False),
+        'ServerCertificateName': (basestring, False),
+        'Tags': (Tags, False),
     }
 
 
@@ -122,15 +170,12 @@ class UserToGroupAddition(AWSObject):
     }
 
 
-class ManagedPolicy(AWSObject):
-    resource_type = "AWS::IAM::ManagedPolicy"
+class VirtualMFADevice(AWSObject):
+    resource_type = "AWS::IAM::VirtualMFADevice"
 
     props = {
-        'Description': (basestring, False),
-        'Groups': ([basestring], False),
-        'ManagedPolicyName': (basestring, False),
-        'Path': (iam_path, False),
-        'PolicyDocument': (policytypes, True),
-        'Roles': ([basestring], False),
-        'Users': ([basestring], False),
+        'Path': (basestring, False),
+        'Tags': (Tags, False),
+        'Users': ([basestring], True),
+        'VirtualMfaDeviceName': (basestring, False),
     }
