@@ -68,7 +68,7 @@ class WindowsConfiguration(AWSProperty):
         'PreferredSubnetId': (basestring, False),
         'SelfManagedActiveDirectoryConfiguration':
             (SelfManagedActiveDirectoryConfiguration, False),
-        'ThroughputCapacity': (integer, False),
+        'ThroughputCapacity': (integer, True),
         'WeeklyMaintenanceStartTime': (basestring, False),
     }
 
