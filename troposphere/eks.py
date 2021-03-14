@@ -7,6 +7,19 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import (boolean, double)
 
 
+class Addon(AWSObject):
+    resource_type = "AWS::EKS::Addon"
+
+    props = {
+        'AddonName': (basestring, True),
+        'AddonVersion': (basestring, False),
+        'ClusterName': (basestring, True),
+        'ResolveConflicts': (basestring, False),
+        'ServiceAccountRoleArn': (basestring, False),
+        'Tags': (Tags, False),
+    }
+
+
 class LogSetup(AWSProperty):
     props = {
         'Enable': (bool, False),
