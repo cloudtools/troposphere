@@ -271,6 +271,7 @@ Currently supported AWS resource types
 - `AWS::SecurityHub`_
 - `AWS::Serverless`_
 - `AWS::ServiceCatalog`_
+- `AWS::ServiceCatalogAppRegistry`_
 - `AWS::ServiceDiscovery`_
 - `AWS::StepFunctions`_
 - `AWS::Synthetics`_
@@ -524,6 +525,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::SecurityHub`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SecurityHub.html
 .. _`AWS::Serverless`: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html
 .. _`AWS::ServiceCatalog`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalog.html
+.. _`AWS::ServiceCatalogAppRegistry`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.html
 .. _`AWS::ServiceDiscovery`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceDiscovery.html
 .. _`AWS::StepFunctions`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_StepFunctions.html
 .. _`AWS::Synthetics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Synthetics.html
