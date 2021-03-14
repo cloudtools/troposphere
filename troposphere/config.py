@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
 
 
@@ -240,4 +240,15 @@ class OrganizationConformancePack(AWSObject):
         'OrganizationConformancePackName': (basestring, True),
         'TemplateBody': (basestring, False),
         'TemplateS3Uri': (basestring, False),
+    }
+
+
+class StoredQuery(AWSObject):
+    resource_type = "AWS::Config::StoredQuery"
+
+    props = {
+        'QueryDescription': (basestring, False),
+        'QueryExpression': (basestring, True),
+        'QueryName': (basestring, True),
+        'Tags': (Tags, False),
     }
