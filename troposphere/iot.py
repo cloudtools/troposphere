@@ -1,6 +1,64 @@
 from . import AWSObject, AWSProperty, Tags
 from .compat import policytypes
-from .validators import boolean, integer
+from .validators import boolean, double, integer
+
+
+class AuditCheckConfiguration(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+    }
+
+
+class AuditCheckConfigurations(AWSProperty):
+    props = {
+        'AuthenticatedCognitoRoleOverlyPermissiveCheck':
+            (AuditCheckConfiguration, False),
+        'CaCertificateExpiringCheck': (AuditCheckConfiguration, False),
+        'CaCertificateKeyQualityCheck': (AuditCheckConfiguration, False),
+        'ConflictingClientIdsCheck': (AuditCheckConfiguration, False),
+        'DeviceCertificateExpiringCheck': (AuditCheckConfiguration, False),
+        'DeviceCertificateKeyQualityCheck':
+            (AuditCheckConfiguration, False),
+        'DeviceCertificateSharedCheck': (AuditCheckConfiguration, False),
+        'IotPolicyOverlyPermissiveCheck': (AuditCheckConfiguration, False),
+        'IotRoleAliasAllowsAccessToUnusedServicesCheck':
+            (AuditCheckConfiguration, False),
+        'IotRoleAliasOverlyPermissiveCheck':
+            (AuditCheckConfiguration, False),
+        'LoggingDisabledCheck': (AuditCheckConfiguration, False),
+        'RevokedCaCertificateStillActiveCheck':
+            (AuditCheckConfiguration, False),
+        'RevokedDeviceCertificateStillActiveCheck':
+            (AuditCheckConfiguration, False),
+        'UnauthenticatedCognitoRoleOverlyPermissiveCheck':
+            (AuditCheckConfiguration, False),
+    }
+
+
+class AuditNotificationTarget(AWSProperty):
+    props = {
+        'Enabled': (boolean, False),
+        'RoleArn': (basestring, False),
+        'TargetArn': (basestring, False),
+    }
+
+
+class AuditNotificationTargetConfigurations(AWSProperty):
+    props = {
+        'Sns': (AuditNotificationTarget, False),
+    }
+
+
+class AccountAuditConfiguration(AWSObject):
+    resource_type = "AWS::IoT::AccountAuditConfiguration"
+
+    props = {
+        'AccountId': (basestring, True),
+        'AuditCheckConfigurations': (AuditCheckConfigurations, True),
+        'AuditNotificationTargetConfigurations':
+            (AuditNotificationTargetConfigurations, False),
+        'RoleArn': (basestring, True),
+    }
 
 
 class Authorizer(AWSObject):
@@ -14,6 +72,40 @@ class Authorizer(AWSObject):
         'Tags': (dict, False),
         'TokenKeyName': (basestring, False),
         # 'TokenSigningPublicKeys': (TokenSigningPublicKeys, False),
+    }
+
+
+class Certificate(AWSObject):
+    resource_type = "AWS::IoT::Certificate"
+
+    props = {
+        'CACertificatePem': (basestring, False),
+        'CertificateMode': (basestring, False),
+        'CertificatePem': (basestring, False),
+        'CertificateSigningRequest': (basestring, False),
+        'Status': (basestring, True),
+    }
+
+
+class CustomMetric(AWSObject):
+    resource_type = "AWS::IoT::CustomMetric"
+
+    props = {
+        'DisplayName': (basestring, False),
+        'MetricName': (basestring, False),
+        'MetricType': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class Dimension(AWSObject):
+    resource_type = "AWS::IoT::Dimension"
+
+    props = {
+        'Name': (basestring, False),
+        'StringValues': ([basestring], True),
+        'Tags': (Tags, False),
+        'Type': (basestring, True),
     }
 
 
@@ -36,6 +128,68 @@ class DomainConfiguration(AWSObject):
         'ServiceType': (basestring, False),
         'Tags': (Tags, False),
         'ValidationCertificateArn': (basestring, False),
+    }
+
+
+class AddThingsToThingGroupParams(AWSProperty):
+    props = {
+        'OverrideDynamicGroups': (boolean, False),
+        'ThingGroupNames': ([basestring], True),
+    }
+
+
+class EnableIoTLoggingParams(AWSProperty):
+    props = {
+        'LogLevel': (basestring, True),
+        'RoleArnForLogging': (basestring, True),
+    }
+
+
+class PublishFindingToSnsParams(AWSProperty):
+    props = {
+        'TopicArn': (basestring, True),
+    }
+
+
+class ReplaceDefaultPolicyVersionParams(AWSProperty):
+    props = {
+        'TemplateName': (basestring, True),
+    }
+
+
+class UpdateCACertificateParams(AWSProperty):
+    props = {
+        'Action': (basestring, True),
+    }
+
+
+class UpdateDeviceCertificateParams(AWSProperty):
+    props = {
+        'Action': (basestring, True),
+    }
+
+
+class ActionParams(AWSProperty):
+    props = {
+        'AddThingsToThingGroupParams': (AddThingsToThingGroupParams, False),
+        'EnableIoTLoggingParams': (EnableIoTLoggingParams, False),
+        'PublishFindingToSnsParams': (PublishFindingToSnsParams, False),
+        'ReplaceDefaultPolicyVersionParams':
+            (ReplaceDefaultPolicyVersionParams, False),
+        'UpdateCACertificateParams': (UpdateCACertificateParams, False),
+        'UpdateDeviceCertificateParams':
+            (UpdateDeviceCertificateParams, False),
+    }
+
+
+class MitigationAction(AWSObject):
+    resource_type = "AWS::IoT::MitigationAction"
+
+    props = {
+        'ActionName': (basestring, False),
+        'ActionParams': (ActionParams, True),
+        'RoleArn': (basestring, True),
+        'Tags': (Tags, False),
     }
 
 
@@ -321,15 +475,6 @@ class Policy(AWSObject):
     }
 
 
-class Certificate(AWSObject):
-    resource_type = "AWS::IoT::Certificate"
-
-    props = {
-        'CertificateSigningRequest': (basestring, True),
-        'Status': (basestring, True),
-    }
-
-
 class ProvisioningHook(AWSProperty):
     props = {
         'PayloadVersion': (basestring, False),
@@ -348,6 +493,92 @@ class ProvisioningTemplate(AWSObject):
         'Tags': (dict, False),
         'TemplateBody': (basestring, True),
         'TemplateName': (basestring, False),
+    }
+
+
+class ScheduledAudit(AWSObject):
+    resource_type = "AWS::IoT::ScheduledAudit"
+
+    props = {
+        'DayOfMonth': (basestring, False),
+        'DayOfWeek': (basestring, False),
+        'Frequency': (basestring, True),
+        'ScheduledAuditName': (basestring, False),
+        'Tags': (Tags, False),
+        'TargetCheckNames': ([basestring], True),
+    }
+
+
+class MachineLearningDetectionConfig(AWSProperty):
+    props = {
+        'ConfidenceLevel': (basestring, False),
+    }
+
+
+class MetricValue(AWSProperty):
+    props = {
+        'Cidrs': ([basestring], False),
+        'Count': (basestring, False),
+        'Number': (double, False),
+        'Numbers': ([double], False),
+        'Ports': ([integer], False),
+        'Strings': ([basestring], False),
+    }
+
+
+class StatisticalThreshold(AWSProperty):
+    props = {
+        'Statistic': (basestring, False),
+    }
+
+
+class BehaviorCriteria(AWSProperty):
+    props = {
+        'ComparisonOperator': (basestring, False),
+        'ConsecutiveDatapointsToAlarm': (integer, False),
+        'ConsecutiveDatapointsToClear': (integer, False),
+        'DurationSeconds': (integer, False),
+        'MlDetectionConfig': (MachineLearningDetectionConfig, False),
+        'StatisticalThreshold': (StatisticalThreshold, False),
+        'Value': (MetricValue, False),
+    }
+
+
+class MetricDimension(AWSProperty):
+    props = {
+        'DimensionName': (basestring, True),
+        'Operator': (basestring, False),
+    }
+
+
+class Behavior(AWSProperty):
+    props = {
+        'Criteria': (BehaviorCriteria, False),
+        'Metric': (basestring, False),
+        'MetricDimension': (MetricDimension, False),
+        'Name': (basestring, True),
+        'SuppressAlerts': (boolean, False),
+    }
+
+
+class MetricToRetain(AWSProperty):
+    props = {
+        'Metric': (basestring, True),
+        'MetricDimension': (MetricDimension, False),
+    }
+
+
+class SecurityProfile(AWSObject):
+    resource_type = "AWS::IoT::SecurityProfile"
+
+    props = {
+        'AdditionalMetricsToRetainV2': ([MetricToRetain], False),
+        'AlertTargets': (dict, False),
+        'Behaviors': ([Behavior], False),
+        'SecurityProfileDescription': (basestring, False),
+        'SecurityProfileName': (basestring, False),
+        'Tags': (Tags, False),
+        'TargetArns': ([basestring], False),
     }
 
 
