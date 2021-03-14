@@ -75,6 +75,13 @@ class GenerateSecretString(AWSProperty):
     }
 
 
+class ReplicaRegion(AWSProperty):
+    props = {
+        'KmsKeyId': (basestring, False),
+        'Region': (basestring, True),
+    }
+
+
 class Secret(AWSObject):
     resource_type = "AWS::SecretsManager::Secret"
 
@@ -83,6 +90,7 @@ class Secret(AWSObject):
         'GenerateSecretString': (GenerateSecretString, False),
         'KmsKeyId': (basestring, False),
         'Name': (basestring, False),
+        'ReplicaRegions': ([ReplicaRegion], False),
         'SecretString': (basestring, False),
         'Tags': ((Tags, list), False),
     }
