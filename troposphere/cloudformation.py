@@ -8,6 +8,25 @@ from . import encode_to_dict
 from .validators import boolean, check_required, encoding, integer
 
 
+class ModuleDefaultVersion(AWSObject):
+    resource_type = "AWS::CloudFormation::ModuleDefaultVersion"
+
+    props = {
+        'Arn': (basestring, False),
+        'ModuleName': (basestring, False),
+        'VersionId': (basestring, False),
+    }
+
+
+class ModuleVersion(AWSObject):
+    resource_type = "AWS::CloudFormation::ModuleVersion"
+
+    props = {
+        'ModuleName': (basestring, True),
+        'ModulePackage': (basestring, True),
+    }
+
+
 class Stack(AWSObject):
     resource_type = "AWS::CloudFormation::Stack"
 
