@@ -45,6 +45,12 @@ class AttributeDefinition(AWSProperty):
     }
 
 
+class ContributorInsightsSpecification(AWSProperty):
+    props = {
+        'Enabled': (boolean, True),
+    }
+
+
 class KeySchema(AWSProperty):
     props = {
         "AttributeName": (basestring, True),
@@ -121,6 +127,8 @@ class Table(AWSObject):
     props = {
         'AttributeDefinitions': ([AttributeDefinition], True),
         'BillingMode': (billing_mode_validator, False),
+        'ContributorInsightsSpecification':
+            (ContributorInsightsSpecification, False),
         'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
         'KeySchema': ([KeySchema], True),
         'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
