@@ -27,6 +27,34 @@ class ModuleVersion(AWSObject):
     }
 
 
+class ResourceDefaultVersion(AWSObject):
+    resource_type = "AWS::CloudFormation::ResourceDefaultVersion"
+
+    props = {
+        'TypeName': (basestring, False),
+        'TypeVersionArn': (basestring, False),
+        'VersionId': (basestring, False),
+    }
+
+
+class LoggingConfig(AWSProperty):
+    props = {
+        'LogGroupName': (basestring, False),
+        'LogRoleArn': (basestring, False),
+    }
+
+
+class ResourceVersion(AWSObject):
+    resource_type = "AWS::CloudFormation::ResourceVersion"
+
+    props = {
+        'ExecutionRoleArn': (basestring, False),
+        'LoggingConfig': (LoggingConfig, False),
+        'SchemaHandlerPackage': (basestring, True),
+        'TypeName': (basestring, True),
+    }
+
+
 class Stack(AWSObject):
     resource_type = "AWS::CloudFormation::Stack"
 
