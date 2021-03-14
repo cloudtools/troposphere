@@ -82,6 +82,7 @@ class FileSystem(AWSObject):
     resource_type = "AWS::EFS::FileSystem"
 
     props = {
+        'AvailabilityZoneName': (basestring, False),
         'BackupPolicy': (BackupPolicy, False),
         'Encrypted': (boolean, False),
         'FileSystemPolicy': (dict, False),
