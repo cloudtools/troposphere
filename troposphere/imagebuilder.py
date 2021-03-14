@@ -3,11 +3,99 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import (integer, boolean, component_platforms,
                          imagepipeline_status,
                          schedule_pipelineexecutionstartcondition,
                          ebsinstanceblockdevicespecification_volume_type)
+
+
+class Component(AWSObject):
+    resource_type = "AWS::ImageBuilder::Component"
+
+    props = {
+        'ChangeDescription': (basestring, False),
+        'Data': (basestring, False),
+        'Description': (basestring, False),
+        'KmsKeyId': (basestring, False),
+        'Name': (basestring, True),
+        'Platform': (component_platforms, True),
+        'Tags': (dict, False),
+        'Uri': (basestring, False),
+        'Version': (basestring, True),
+    }
+
+
+class ComponentConfiguration(AWSProperty):
+    props = {
+        'ComponentArn': (basestring, False),
+    }
+
+
+class TargetContainerRepository(AWSProperty):
+    props = {
+        'RepositoryName': (basestring, False),
+        'Service': (basestring, False),
+    }
+
+
+class ContainerRecipe(AWSObject):
+    resource_type = "AWS::ImageBuilder::ContainerRecipe"
+
+    props = {
+        'Components': ([ComponentConfiguration], True),
+        'ContainerType': (basestring, True),
+        'Description': (basestring, False),
+        'DockerfileTemplateData': (basestring, False),
+        'DockerfileTemplateUri': (basestring, False),
+        'ImageOsVersionOverride': (basestring, False),
+        'KmsKeyId': (basestring, False),
+        'Name': (basestring, True),
+        'ParentImage': (basestring, True),
+        'PlatformOverride': (basestring, False),
+        'Tags': (Tags, False),
+        'TargetRepository': (TargetContainerRepository, True),
+        'Version': (basestring, True),
+        'WorkingDirectory': (basestring, False),
+    }
+
+
+class Distribution(AWSProperty):
+    props = {
+        'AmiDistributionConfiguration': (dict, False),
+        'LicenseConfigurationArns': ([basestring], False),
+        'Region': (basestring, False),
+    }
+
+
+class DistributionConfiguration(AWSObject):
+    resource_type = "AWS::ImageBuilder::DistributionConfiguration"
+
+    props = {
+        'Description': (basestring, False),
+        'Distributions': ([Distribution], True),
+        'Name': (basestring, True),
+        'Tags': (dict, False),
+    }
+
+
+class ImageTestsConfiguration(AWSProperty):
+    props = {
+        'ImageTestsEnabled': (boolean, False),
+        'TimeoutMinutes': (integer, False),
+    }
+
+
+class Image(AWSObject):
+    resource_type = "AWS::ImageBuilder::Image"
+
+    props = {
+        'DistributionConfigurationArn': (basestring, False),
+        'ImageRecipeArn': (basestring, True),
+        'ImageTestsConfiguration': (ImageTestsConfiguration, True),
+        'InfrastructureConfigurationArn': (basestring, True),
+        'Tags': (dict, False),
+    }
 
 
 class S3Logs(AWSProperty):
@@ -82,13 +170,6 @@ class ImageRecipe(AWSObject):
     }
 
 
-class ImageTestsConfiguration(AWSProperty):
-    props = {
-        'ImageTestsEnabled': (boolean, False),
-        'TimeoutMinutes': (integer, False),
-    }
-
-
 class Schedule(AWSProperty):
     props = {
         'PipelineExecutionStartCondition': (schedule_pipelineexecutionstartcondition, False),  # NOQA
@@ -108,52 +189,5 @@ class ImagePipeline(AWSObject):
         'Name': (basestring, True),
         'Schedule': (Schedule, False),
         'Status': (imagepipeline_status, False),
-        'Tags': (dict, False),
-    }
-
-
-class Distribution(AWSProperty):
-    props = {
-        'AmiDistributionConfiguration': (dict, False),
-        'LicenseConfigurationArns': ([basestring], False),
-        'Region': (basestring, False),
-    }
-
-
-class DistributionConfiguration(AWSObject):
-    resource_type = "AWS::ImageBuilder::DistributionConfiguration"
-
-    props = {
-        'Description': (basestring, False),
-        'Distributions': ([Distribution], True),
-        'Name': (basestring, True),
-        'Tags': (dict, False),
-    }
-
-
-class Component(AWSObject):
-    resource_type = "AWS::ImageBuilder::Component"
-
-    props = {
-        'ChangeDescription': (basestring, False),
-        'Data': (basestring, False),
-        'Description': (basestring, False),
-        'KmsKeyId': (basestring, False),
-        'Name': (basestring, True),
-        'Platform': (component_platforms, True),
-        'Tags': (dict, False),
-        'Uri': (basestring, False),
-        'Version': (basestring, True),
-    }
-
-
-class Image(AWSObject):
-    resource_type = "AWS::ImageBuilder::Image"
-
-    props = {
-        'DistributionConfigurationArn': (basestring, False),
-        'ImageRecipeArn': (basestring, True),
-        'ImageTestsConfiguration': (ImageTestsConfiguration, True),
-        'InfrastructureConfigurationArn': (basestring, True),
         'Tags': (dict, False),
     }
