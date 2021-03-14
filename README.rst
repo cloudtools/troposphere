@@ -190,6 +190,7 @@ Currently supported AWS resource types
 - `AWS::DLM`_
 - `AWS::DMS`_
 - `AWS::DataPipeline`_
+- `AWS::DataSync`_
 - `AWS::DirectoryService`_
 - `AWS::DocDB`_
 - `AWS::DevOpsGuru`_
@@ -439,6 +440,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Detective`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Detective.html
 .. _`AWS::DLM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DLM.html
 .. _`AWS::DMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DMS.html
+.. _`AWS::DataSync`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataSync.html
 .. _`AWS::DataPipeline`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataPipeline.html
 .. _`AWS::DirectoryService`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DirectoryService.html
 .. _`AWS::DocDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DocDB.html
