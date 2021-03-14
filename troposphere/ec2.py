@@ -240,6 +240,30 @@ class LaunchTemplateSpecification(AWSProperty):
     }
 
 
+class NetworkInsightsAnalysis(AWSObject):
+    resource_type = "AWS::EC2::NetworkInsightsAnalysis"
+
+    props = {
+        'FilterInArns': ([basestring], False),
+        'NetworkInsightsPathId': (basestring, True),
+        'Tags': (Tags, False),
+    }
+
+
+class NetworkInsightsPath(AWSObject):
+    resource_type = "AWS::EC2::NetworkInsightsPath"
+
+    props = {
+        'Destination': (basestring, True),
+        'DestinationIp': (basestring, False),
+        'DestinationPort': (integer, False),
+        'Protocol': (basestring, True),
+        'Source': (basestring, True),
+        'SourceIp': (basestring, False),
+        'Tags': (Tags, False),
+    }
+
+
 class PrivateIpAddressSpecification(AWSProperty):
     props = {
         'Primary': (boolean, True),
@@ -975,6 +999,18 @@ class LoadBalancersConfig(AWSProperty):
     }
 
 
+class SpotCapacityRebalance(AWSProperty):
+    props = {
+        'ReplacementStrategy': (basestring, False),
+    }
+
+
+class SpotMaintenanceStrategies(AWSProperty):
+    props = {
+        'CapacityRebalance': (SpotCapacityRebalance, False),
+    }
+
+
 class SpotFleetRequestConfigData(AWSProperty):
 
     props = {
@@ -982,10 +1018,16 @@ class SpotFleetRequestConfigData(AWSProperty):
         'ExcessCapacityTerminationPolicy': (basestring, False),
         'IamFleetRole': (basestring, True),
         'InstanceInterruptionBehavior': (basestring, False),
+        'InstancePoolsToUseCount': (integer, False),
         'LaunchSpecifications': ([LaunchSpecifications], False),
         'LaunchTemplateConfigs': ([LaunchTemplateConfigs], False),
         'LoadBalancersConfig': (LoadBalancersConfig, False),
+        'OnDemandAllocationStrategy': (basestring, False),
+        'OnDemandMaxTotalPrice': (basestring, False),
+        'OnDemandTargetCapacity': (integer, False),
         'ReplaceUnhealthyInstances': (boolean, False),
+        'SpotMaintenanceStrategies': (SpotMaintenanceStrategies, False),
+        'SpotMaxTotalPrice': (basestring, False),
         'SpotPrice': (basestring, False),
         'TargetCapacity': (positive_integer, True),
         'TerminateInstancesWithExpiration': (boolean, False),
@@ -1133,6 +1175,7 @@ class LaunchTemplate(AWSObject):
     props = {
         'LaunchTemplateData': (LaunchTemplateData, False),
         'LaunchTemplateName': (basestring, False),
+        'TagSpecifications': ([TagSpecifications], False),
     }
 
 
@@ -1217,6 +1260,62 @@ class TransitGatewayAttachment(AWSObject):
         'Tags': ((Tags, list), False),
         'TransitGatewayId': (basestring, True),
         'VpcId': (basestring, True),
+    }
+
+
+class TransitGatewayConnectOptions(AWSProperty):
+    props = {
+        'Protocol': (basestring, False),
+    }
+
+
+class TransitGatewayConnect(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayConnect"
+
+    props = {
+        'Options': (TransitGatewayConnectOptions, True),
+        'Tags': (Tags, False),
+        'TransportTransitGatewayAttachmentId': (basestring, True),
+    }
+
+
+class TransitGatewayMulticastDomain(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayMulticastDomain"
+
+    props = {
+        'Options': (dict, False),
+        'Tags': (Tags, False),
+        'TransitGatewayId': (basestring, True),
+    }
+
+
+class TransitGatewayMulticastDomainAssociation(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayMulticastDomainAssociation"
+
+    props = {
+        'SubnetId': (basestring, True),
+        'TransitGatewayAttachmentId': (basestring, True),
+        'TransitGatewayMulticastDomainId': (basestring, True),
+    }
+
+
+class TransitGatewayMulticastGroupMember(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayMulticastGroupMember"
+
+    props = {
+        'GroupIpAddress': (basestring, True),
+        'NetworkInterfaceId': (basestring, True),
+        'TransitGatewayMulticastDomainId': (basestring, True),
+    }
+
+
+class TransitGatewayMulticastGroupSource(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayMulticastGroupSource"
+
+    props = {
+        'GroupIpAddress': (basestring, True),
+        'NetworkInterfaceId': (basestring, True),
+        'TransitGatewayMulticastDomainId': (basestring, True),
     }
 
 
