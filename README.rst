@@ -252,6 +252,7 @@ Currently supported AWS resource types
 - `AWS::Pinpoint`_
 - `AWS::PinpointEmail`_
 - `AWS::QLDB`_
+- `AWS::QuickSight`_
 - `AWS::RAM`_
 - `AWS::RDS`_
 - `AWS::Redshift`_
@@ -506,6 +507,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Pinpoint`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Pinpoint.html
 .. _`AWS::PinpointEmail`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_PinpointEmail.html
 .. _`AWS::QLDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_QLDB.html
+.. _`AWS::QuickSight`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_QuickSight.html
 .. _`AWS::RAM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RAM.html
 .. _`AWS::RDS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RDS.html
 .. _`AWS::Redshift`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Redshift.html
