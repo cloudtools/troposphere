@@ -27,6 +27,7 @@ def validate_homedirectory_type(homedirectory_type):
 class EndpointDetails(AWSProperty):
     props = {
         'AddressAllocationIds': ([basestring], False),
+        'SecurityGroupIds': ([basestring], False),
         'SubnetIds': ([basestring], False),
         'VpcEndpointId': (basestring, False),
         'VpcId': (basestring, False),
