@@ -180,6 +180,11 @@ class File(object):
         """Decode a properties type looking for a specific type."""
         if 'PrimitiveType' in properties:
             return properties['PrimitiveType'] == check_type
+
+        # If there's no Type defined, punt it for now...
+        if 'Type' not in properties:
+            return False
+
         if properties['Type'] == 'List':
             if 'ItemType' in properties:
                 return properties['ItemType'] == check_type
@@ -203,6 +208,8 @@ class File(object):
     def _get_property_type(self, value):
         """Decode the values type and return a non-primitive property type."""
         if 'PrimitiveType' in value:
+            return None
+        if 'Type' not in value:
             return None
         if value['Type'] == 'List':
             if 'ItemType' in value:
@@ -258,6 +265,11 @@ class File(object):
         for prop_name in prop_type_list:
             if prop_name == 'Tag':
                 continue
+
+            # prevent recursive properties
+            if prop_name == name:
+                continue
+
             child = self.build_tree(prop_name, self.properties[prop_name])
             if child is not None:
                 n.add_child(child)
@@ -346,6 +358,10 @@ map_type3 = {
 def get_type(value):
     if 'PrimitiveType' in value:
         return map_type.get(value['PrimitiveType'], value['PrimitiveType'])
+
+    if 'Type' not in value:
+        return 'dict'
+
     if value['Type'] == 'List':
         if 'ItemType' in value:
             return "[%s]" % value['ItemType']
