@@ -5,6 +5,7 @@ Steps to release a new version
 ------------------------------
 
 - Change version in troposphere/\_\_init\_\_.py
+- Change version in docs/conf.py
 - Update CHANGELOG.md with changes made since last release
 - Verify release installs on Python2 and Python 3: ``make release-test``
 - Create a signed tag: ``git tag --sign -m "Release 1.1.1" 1.1.1``
