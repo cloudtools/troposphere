@@ -265,6 +265,7 @@ Currently supported AWS resource types
 - `AWS::Route53`_
 - `AWS::Route53Resolver`_
 - `AWS::S3`_
+- `AWS::S3ObjectLambda`_
 - `AWS::S3Outposts`_
 - `AWS::SDB`_
 - `AWS::SES`_
@@ -525,6 +526,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Route53`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53.html
 .. _`AWS::Route53Resolver`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.html
 .. _`AWS::S3`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3.html
+.. _`AWS::S3ObjectLambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3ObjectLambda.html
 .. _`AWS::S3Outposts`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3Outposts.html
 .. _`AWS::SDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SDB.html
 .. _`AWS::SES`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SES.html
