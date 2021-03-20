@@ -1,3 +1,79 @@
+2.7.0 (2021*03*20)
+------------------
+* Fix typo in ECS DeploymentCircuitBreaker RollBack => Rollback (Fixes #1877)
+* added sort flag to yaml method arguments (#1090)
+* Fix line length issue from previous commit (#1090)
+* docs: use Template.set_metadata instead of add_metadata (#1864)
+* change PropertyMap in kinesisanalyticsv2 PropertyGroup to dict (#1863)
+* Fix tests by removing import of json_checker in kinesisanalyticsv2 (#1863)
+* Adding optional Elasticsearch::Domain options for custom endpoints (#1866)
+* Add support for AppConfig::HostedConfigurationVersion (#1870)
+* Add constants for RDS instance types: M5d, M6g. (#1875)
+* Support Throughput for gp3 ebs volumes (#1873)
+* Add GreengrassV2 per 2020-12-18 changes
+* Add AuditManager per 2020-12-18 changes
+* Update SageMaker per 2020-12-18, 2021-01-21, 2021-02-11, and 2021-02-25 changes
+* Add LicenseManager per 2020-12-18 changes
+* Update ECR per 2020-12-18 and 2021-02-04 changes
+* Update EC2 per 2020-12-18, 2021-02-12, 2021-02-25, and 2021-03-11 changes
+* Add DevOpsGuru per 2020-12-18 changes
+* Update CloudFormation per 2020-12-18 changes
+* Update S3 with some missing properties
+* Update FSx per 2020-12-18 changes
+* Update ElastiCache per 2020-12-18 changes
+* Add DataSync per 2021-01-07 changes
+* Update Route53 and Route53Resolver per 2021-01-07 changes
+* Update Config per 2021-01-07 changes
+* Add MediaConnect per 2021-01-07 changes
+* Update ApiGatewayV2 per 2021-01-07 changes
+* Add IoTWireless per 2021-01-07 changes
+* Update SSO per 2021-01-07 changes
+* Add ServiceCatalogAppRegistry per 2021-01-14 changes
+* Add QuickSight per 2021-01-14 changes
+* Add EMRContainers per 2021-01-14 changes
+* Update ACMPCA per 2021-01-21 changes
+* Add LookoutVision per 2021-01-28 changes
+* Update ImageBuilder per 2021-02-04 changes and reorder classes a bit
+* Update ElastiCache per 2021-02-04 changes
+* Update Casandra per 2021-02-04 changes
+* Update IoTAnalytics per 2021-02-05 changes
+* Update ServiceCatalog per 2021-02-11 changes
+* Update CloudFormation per 2021-02-11 changes
+* Update DMS per 2021-02-11 changes
+* Update IoTAnalytics per 2021-02-18 changes
+* Update FSx per 2021-02-18 changes
+* Update Kendra per 2021-02-18 changes
+* Update AppMesh per 2021-02-21 changes
+* Update DynamoDB per 2021-02-22 changes
+* Update Pinpoint per 2021-02-24 changes
+* Update IAM per 2021-02-25 changes
+* Update EKS per 2021-02-25 changes
+* Update IoTSiteWise per 2021-03-01 changes
+* Add S3Outposts per 2021-03-04 changes
+* Update IoT per 2021-03-04 changes
+* Update Events per 2021-03-04 changes
+* Update SecretsManager per 2021-03-04 changes
+* Update StepFunctions per 2021-03-10 changes
+* Update RDS per 2021-03-11 changes
+* Update ECS per 2021-03-11 changes
+* Update CE per 2021-03-11 changes
+* Update EFS per 2021-03-11 changes
+* Update required fields for Batch::ComputeResources (Fixes #1880)
+* Fix autoscaling.Tags to use boolean instead of str (#1874)
+* Add OutpostArn to EC2::Subnet (Fixes #1849)
+* Update Transfer per 2020-10-22 changes (Fixes #1817)
+* Add MediaPackage per 2020-10-22 changes (Fixes #1815)
+* Update README with functioning example of missing required property (Fixes #1763)
+* Update EMR per 2020-10-22 and 2021-02-25 changes (Fixes #1816)
+* Add DataBrew (Fixes #1862)
+* Update version in docs (#1882)
+* Fix some corner cases in the autogenerator
+* Update CertificateManager per 2021-03-11 changes
+* Update Detective per 2021-03-15 changes
+* Update ECS per 2021-03-16 changes
+* Add S3ObjectLambda per 2021-03-18 changes
+* Add FIS per 2021-03-18 changes
+
 2.6.4 (2021*03*08)
 ------------------
 * Remove extraneous import

@@ -13,7 +13,7 @@ import types
 
 from . import validators
 
-__version__ = "2.6.4"
+__version__ = "2.7.0"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = 'Delete'
