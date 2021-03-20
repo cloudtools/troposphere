@@ -57,6 +57,30 @@ class CapacityProviderStrategyItem(AWSProperty):
     }
 
 
+class ExecuteCommandLogConfiguration(AWSProperty):
+    props = {
+        'CloudWatchEncryptionEnabled': (boolean, False),
+        'CloudWatchLogGroupName': (basestring, False),
+        'S3BucketName': (basestring, False),
+        'S3EncryptionEnabled': (boolean, False),
+        'S3KeyPrefix': (basestring, False),
+    }
+
+
+class ExecuteCommandConfiguration(AWSProperty):
+    props = {
+        'KmsKeyId': (basestring, False),
+        'LogConfiguration': (ExecuteCommandLogConfiguration, False),
+        'Logging': (basestring, False),
+    }
+
+
+class ClusterConfiguration(AWSProperty):
+    props = {
+        'ExecuteCommandConfiguration': (ExecuteCommandConfiguration, False),
+    }
+
+
 class ClusterSetting(AWSProperty):
     props = {
         'Name': (basestring, True),
@@ -71,6 +95,7 @@ class Cluster(AWSObject):
         'CapacityProviders': ([basestring], False),
         'ClusterName': (basestring, False),
         'ClusterSettings': ([ClusterSetting], False),
+        'Configuration': (ClusterConfiguration, False),
         'DefaultCapacityProviderStrategy': (
             [CapacityProviderStrategyItem], False),
         'Tags': (Tags, False),
@@ -218,6 +243,7 @@ class Service(AWSObject):
         'DeploymentController': (DeploymentController, False),
         'DesiredCount': (positive_integer, False),
         'EnableECSManagedTags': (boolean, False),
+        'EnableExecuteCommand': (boolean, False),
         'HealthCheckGracePeriodSeconds': (positive_integer, False),
         'LaunchType': (launch_type_validator, False),
         'LoadBalancers': ([LoadBalancer], False),
