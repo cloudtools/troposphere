@@ -363,6 +363,22 @@ class KerberosAttributes(AWSProperty):
     }
 
 
+class ComputeLimits(AWSProperty):
+    props = {
+        'MaximumCapacityUnits': (integer, True),
+        'MaximumCoreCapacityUnits': (integer, False),
+        'MaximumOnDemandCapacityUnits': (integer, False),
+        'MinimumCapacityUnits': (integer, True),
+        'UnitType': (basestring, True),
+    }
+
+
+class ManagedScalingPolicy(AWSProperty):
+    props = {
+        'ComputeLimits': (ComputeLimits, False),
+    }
+
+
 class HadoopJarStepConfig(AWSProperty):
     props = {
         'Args': ([basestring], False),
@@ -394,12 +410,15 @@ class Cluster(AWSObject):
         'Instances': (JobFlowInstancesConfig, True),
         'JobFlowRole': (basestring, True),
         'KerberosAttributes': (KerberosAttributes, False),
+        'LogEncryptionKmsKeyId': (basestring, False),
         'LogUri': (basestring, False),
+        'ManagedScalingPolicy': (ManagedScalingPolicy, False),
         'Name': (basestring, True),
         'ReleaseLabel': (basestring, False),
         'ScaleDownBehavior': (basestring, False),
         'SecurityConfiguration': (basestring, False),
         'ServiceRole': (basestring, True),
+        'StepConcurrencyLevel': (integer, False),
         'Steps': ([StepConfig], False),
         'Tags': ((Tags, list), False),
         'VisibleToAllUsers': (boolean, False)
@@ -454,4 +473,33 @@ class Step(AWSObject):
         'HadoopJarStep': (HadoopJarStepConfig, True),
         'JobFlowId': (basestring, True),
         'Name': (basestring, True)
+    }
+
+
+class Studio(AWSObject):
+    resource_type = "AWS::EMR::Studio"
+
+    props = {
+        'AuthMode': (basestring, True),
+        'DefaultS3Location': (basestring, True),
+        'Description': (basestring, False),
+        'EngineSecurityGroupId': (basestring, True),
+        'Name': (basestring, True),
+        'ServiceRole': (basestring, True),
+        'SubnetIds': ([basestring], True),
+        'Tags': (Tags, False),
+        'UserRole': (basestring, True),
+        'VpcId': (basestring, True),
+        'WorkspaceSecurityGroupId': (basestring, True),
+    }
+
+
+class StudioSessionMapping(AWSObject):
+    resource_type = "AWS::EMR::StudioSessionMapping"
+
+    props = {
+        'IdentityName': (basestring, True),
+        'IdentityType': (basestring, True),
+        'SessionPolicyArn': (basestring, True),
+        'StudioId': (basestring, True),
     }
