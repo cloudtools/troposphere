@@ -185,6 +185,7 @@ Currently supported AWS resource types
 - `AWS::CodeStarNotifications`_
 - `AWS::Cognito`_
 - `AWS::Config`_
+- `AWS::DataBrew`_
 - `AWS::DAX`_
 - `AWS::Detective`_
 - `AWS::DLM`_
@@ -444,6 +445,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::CodeStar`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStar.html
 .. _`AWS::Cognito`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cognito.html
 .. _`AWS::Config`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Config.html
+.. _`AWS::DataBrew`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataBrew.html
 .. _`AWS::DAX`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DAX.html
 .. _`AWS::Detective`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Detective.html
 .. _`AWS::DLM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DLM.html
