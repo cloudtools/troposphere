@@ -18,4 +18,4 @@ MySecret = t.add_resource(Secret(
     )
 ))
 
-print((t.to_json()))
+print(t.to_json())

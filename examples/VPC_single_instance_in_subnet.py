@@ -415,4 +415,4 @@ t.add_output(
                         GetAtt('WebServerInstance',
                                'PublicIp')]))])
 
-print((t.to_json()))
+print(t.to_json())

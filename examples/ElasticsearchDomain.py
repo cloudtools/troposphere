@@ -43,4 +43,4 @@ es_domain = templ.add_resource(Domain(
     )
 ))
 
-print((templ.to_json()))
+print(templ.to_json())

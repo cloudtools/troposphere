@@ -30,4 +30,4 @@ t.add_output(Output(
     Description="Name of S3 bucket with s3 transfer acceleration enabled",
 ))
 
-print((t.to_json()))
+print(t.to_json())

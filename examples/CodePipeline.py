@@ -112,4 +112,4 @@ pipeline = t.add_resource(Pipeline(
 ))
 
 
-print((t.to_json()))
+print(t.to_json())

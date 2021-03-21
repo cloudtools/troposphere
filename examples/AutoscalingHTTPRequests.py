@@ -270,4 +270,4 @@ HTTPRequestAlarm = t.add_resource(Alarm(
     AlarmActions=[Ref(ScalePolicy)]
 ))
 
-print((t.to_json()))
+print(t.to_json())

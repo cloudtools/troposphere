@@ -28,4 +28,4 @@ placementgroup_a = t.add_resource(CustomPlacementGroup(
     PlacementGroupName="ExampleClusterGroup",
 ))
 
-print((t.to_json()))
+print(t.to_json())

@@ -29,4 +29,4 @@ cfninstanceprofile = t.add_resource(InstanceProfile(
     Roles=[Ref(cfnrole)]
 ))
 
-print((t.to_json()))
+print(t.to_json())

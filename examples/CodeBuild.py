@@ -29,4 +29,4 @@ project = Project(
 )
 template.add_resource(project)
 
-print((template.to_json()))
+print(template.to_json())
