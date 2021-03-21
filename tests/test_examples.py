@@ -46,7 +46,7 @@ def load_tests(loader, tests, pattern):
     # Filter out all *.py files from the examples directory
     examples = 'examples'
     regex = re.compile(r'.py$', re.I)
-    example_filesnames = list(filter(regex.search, os.listdir(examples)))
+    example_filesnames = filter(regex.search, os.listdir(examples))
 
     suite = unittest.TestSuite()
 

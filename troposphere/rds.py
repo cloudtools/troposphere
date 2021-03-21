@@ -241,7 +241,7 @@ class DBInstance(AWSObject):
                 'DBSnapshotIdentifier',
             )
 
-            invalid_properties = [s for s in list(self.properties.keys()) if
+            invalid_properties = [s for s in self.properties.keys() if
                                   s in invalid_replica_properties]
 
             if invalid_properties:
