@@ -1,12 +1,10 @@
 language: python
 dist: xenial
 python:
-  - "2.7"
-  - "3.5"
   - "3.6"
   - "3.7.3"
   - "3.8"
-  - "3.9-dev"
+  - "3.9"
 env:
   global:
     - TROPO_REAL_BOOL=true
@@ -18,7 +16,6 @@ install:
   - pip install --upgrade flake8
 
 before_script:
-  - if [[ $TRAVIS_PYTHON_VERSION == 3* ]]; then 2to3 -n -w --no-diffs troposphere scripts/cfn2py scripts/gen.py examples/CustomResource.py tests; fi
   - flake8 --version
   - flake8 . --show-source 
 
