@@ -182,4 +182,4 @@ myApp = template.add_resource(App(
     },
 ))
 
-print((template.to_json()))
+print(template.to_json())

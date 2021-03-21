@@ -212,4 +212,4 @@ VPCId = t.add_output(Output(
     Value=Ref(VPC),
 ))
 
-print((t.to_json()))
+print(t.to_json())

@@ -53,4 +53,4 @@ t.add_resource(User(
     ]
 ))
 
-print((t.to_json()))
+print(t.to_json())

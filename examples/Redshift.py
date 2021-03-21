@@ -111,4 +111,4 @@ t.add_output(Output(
                GetAtt(redshiftcluster, "Endpoint.Port")]),
 ))
 
-print((t.to_json()))
+print(t.to_json())

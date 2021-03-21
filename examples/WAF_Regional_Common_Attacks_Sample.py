@@ -225,4 +225,4 @@ MyWebACL = t.add_resource(WebACL(
     MetricName=Ref(WebACLName),
 ))
 
-print((t.to_json()))
+print(t.to_json())

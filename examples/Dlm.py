@@ -55,4 +55,4 @@ lifecycle_policy = t.add_resource(LifecyclePolicy(
     )
 ))
 
-print((t.to_json()))
+print(t.to_json())

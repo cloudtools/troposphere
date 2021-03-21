@@ -42,4 +42,4 @@ t = Template()
 t.add_resource(scalable_target)
 t.add_resource(scaling_policy)
 
-print((t.to_json()))
+print(t.to_json())

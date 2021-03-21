@@ -241,4 +241,4 @@ AutoscalingGroup = t.add_resource(AutoScalingGroup(
     )
 ))
 
-print((t.to_json()))
+print(t.to_json())

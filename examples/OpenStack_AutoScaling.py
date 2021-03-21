@@ -135,4 +135,4 @@ autoscaling_group = template.add_resource(heat.AWSAutoScalingGroup(
     LoadBalancerNames=Ref(loadbalancer),
 ))
 
-print((template.to_json()))
+print(template.to_json())

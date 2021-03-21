@@ -156,4 +156,4 @@ AllSecurityGroups = t.add_output(Output(
     Value=Join(", ", GetAtt(AllSecurityGroups, "Value")),
 ))
 
-print((t.to_json()))
+print(t.to_json())

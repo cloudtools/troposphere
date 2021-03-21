@@ -64,4 +64,4 @@ permission = t.add_resource(Permission(
     SourceArn=GetAtt(rule, 'Arn')
 ))
 
-print((t.to_json()))
+print(t.to_json())

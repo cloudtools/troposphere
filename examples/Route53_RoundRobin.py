@@ -52,4 +52,4 @@ myDNSRecord = t.add_resource(RecordSetGroup(
 ))
 
 
-print((t.to_json()))
+print(t.to_json())

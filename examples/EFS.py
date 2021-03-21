@@ -128,4 +128,4 @@ template.add_resource(ec2_instance)
 # for example:
 #   mount us-west-1a.fs-abcd1234.efs.us-west-1.amazonaws.com: /path
 
-print((template.to_json()))
+print(template.to_json())

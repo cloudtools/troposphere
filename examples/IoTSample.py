@@ -79,4 +79,4 @@ t.add_resource(thing)
 t.add_resource(thing_principal)
 t.add_resource(topic_rule)
 
-print((t.to_json()))
+print(t.to_json())
