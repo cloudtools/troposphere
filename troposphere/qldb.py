@@ -18,8 +18,8 @@ class Ledger(AWSObject):
 
     props = {
         'DeletionProtection': (boolean, False),
-        'Name': (basestring, False),
-        'PermissionsMode': (basestring, True),
+        'Name': (str, False),
+        'PermissionsMode': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -27,7 +27,7 @@ class Ledger(AWSObject):
 class KinesisConfiguration(AWSProperty):
     props = {
         'AggregationEnabled': (boolean, False),
-        'StreamArn': (basestring, False),
+        'StreamArn': (str, False),
     }
 
 
@@ -35,11 +35,11 @@ class Stream(AWSObject):
     resource_type = "AWS::QLDB::Stream"
 
     props = {
-        'ExclusiveEndTime': (basestring, False),
-        'InclusiveStartTime': (basestring, True),
+        'ExclusiveEndTime': (str, False),
+        'InclusiveStartTime': (str, True),
         'KinesisConfiguration': (KinesisConfiguration, True),
-        'LedgerName': (basestring, True),
-        'RoleArn': (basestring, True),
-        'StreamName': (basestring, True),
+        'LedgerName': (str, True),
+        'RoleArn': (str, True),
+        'StreamName': (str, True),
         'Tags': (Tags, False),
     }

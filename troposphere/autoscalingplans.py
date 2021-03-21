@@ -48,39 +48,39 @@ def validate_scalingpolicyupdatebehavior(scalingpolicyupdatebehavior):
 
 class TagFilter(AWSProperty):
     props = {
-        'Values': ([basestring], False),
-        'Key': (basestring, True)
+        'Values': ([str], False),
+        'Key': (str, True)
     }
 
 
 class ApplicationSource(AWSProperty):
     props = {
-        'CloudFormationStackARN': (basestring, False),
+        'CloudFormationStackARN': (str, False),
         'TagFilters': ([TagFilter], False)
     }
 
 
 class PredefinedScalingMetricSpecification(AWSProperty):
     props = {
-        'ResourceLabel': (basestring, False),
-        'PredefinedScalingMetricType': (basestring, True)
+        'ResourceLabel': (str, False),
+        'PredefinedScalingMetricType': (str, True)
     }
 
 
 class MetricDimension(AWSProperty):
     props = {
-        'Value': (basestring, True),
-        'Name': (basestring, True)
+        'Value': (str, True),
+        'Name': (str, True)
     }
 
 
 class CustomizedScalingMetricSpecification(AWSProperty):
     props = {
-        'MetricName': (basestring, True),
+        'MetricName': (str, True),
         'Statistic': (statistic_type, True),
         'Dimensions': ([MetricDimension], False),
-        'Unit': (basestring, False),
-        'Namespace': (basestring, True)
+        'Unit': (str, False),
+        'Namespace': (str, True)
     }
 
 
@@ -105,17 +105,17 @@ class TargetTrackingConfiguration(AWSProperty):
 class CustomizedLoadMetricSpecification(AWSObject):
     props = {
         'Dimensions': ([MetricDimension], False),
-        'MetricName': (basestring, True),
-        'Namespace': (basestring, True),
-        'Statistic': (basestring, True),
-        'Unit': (basestring, False),
+        'MetricName': (str, True),
+        'Namespace': (str, True),
+        'Statistic': (str, True),
+        'Unit': (str, False),
     }
 
 
 class PredefinedLoadMetricSpecification(AWSProperty):
     props = {
-        'PredefinedLoadMetricType': (basestring, True),
-        'ResourceLabel': (basestring, False),
+        'PredefinedLoadMetricType': (str, True),
+        'ResourceLabel': (str, False),
     }
 
 
@@ -129,7 +129,7 @@ class ScalingInstruction(AWSProperty):
         'PredictiveScalingMaxCapacityBehavior': (validate_predictivescalingmaxcapacitybehavior, False),  # NOQA
         'PredictiveScalingMaxCapacityBuffer': (integer, False),
         'PredictiveScalingMode': (validate_predictivescalingmode, False),
-        'ResourceId': (basestring, True),
+        'ResourceId': (str, True),
         'ScalableDimension': (scalable_dimension_type, True),
         'ScalingPolicyUpdateBehavior': (validate_scalingpolicyupdatebehavior, False),  # NOQA
         'ScheduledActionBufferTime': (integer, False),

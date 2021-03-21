@@ -93,4 +93,4 @@ deployment_group_on_premises = DeploymentGroup(
 )
 template.add_resource(deployment_group_on_premises)
 
-print(template.to_json())
+print((template.to_json()))

@@ -56,16 +56,16 @@ class BufferingHints(AWSProperty):
 
 class DeliveryStreamEncryptionConfigurationInput(AWSProperty):
     props = {
-        'KeyARN': (basestring, False),
-        'KeyType': (basestring, True),
+        'KeyARN': (str, False),
+        'KeyType': (str, True),
     }
 
 
 class CloudWatchLoggingOptions(AWSProperty):
     props = {
         'Enabled': (boolean, False),
-        'LogGroupName': (basestring, False),  # Conditional
-        'LogStreamName': (basestring, False),  # Conditional
+        'LogGroupName': (str, False),  # Conditional
+        'LogStreamName': (str, False),  # Conditional
     }
 
 
@@ -77,41 +77,41 @@ class RetryOptions(AWSProperty):
 
 class KMSEncryptionConfig(AWSProperty):
     props = {
-        'AWSKMSKeyARN': (basestring, True),
+        'AWSKMSKeyARN': (str, True),
     }
 
 
 class EncryptionConfiguration(AWSProperty):
     props = {
         'KMSEncryptionConfig': (KMSEncryptionConfig, False),
-        'NoEncryptionConfig': (basestring, False),
+        'NoEncryptionConfig': (str, False),
     }
 
 
 class S3Configuration(AWSProperty):
     props = {
-        'BucketARN': (basestring, True),
+        'BucketARN': (str, True),
         'BufferingHints': (BufferingHints, True),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, True),
+        'CompressionFormat': (str, True),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'Prefix': (basestring, False),
-        'RoleARN': (basestring, True)
+        'Prefix': (str, False),
+        'RoleARN': (str, True)
     }
 
 
 class CopyCommand(AWSProperty):
     props = {
-        'CopyOptions': (basestring, False),
-        'DataTableColumns': (basestring, False),
-        'DataTableName': (basestring, True),
+        'CopyOptions': (str, False),
+        'DataTableColumns': (str, False),
+        'DataTableName': (str, True),
     }
 
 
 class ProcessorParameter(AWSProperty):
     props = {
-        'ParameterName': (basestring, True),
-        'ParameterValue': (basestring, True),
+        'ParameterName': (str, True),
+        'ParameterValue': (str, True),
     }
 
 
@@ -131,9 +131,9 @@ class ProcessingConfiguration(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     props = {
-        'RoleARN': (basestring, True),
-        'SecurityGroupIds': ([basestring], True),
-        'SubnetIds': ([basestring], True),
+        'RoleARN': (str, True),
+        'SecurityGroupIds': ([str], True),
+        'SubnetIds': ([str], True),
     }
 
 
@@ -141,16 +141,16 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
     props = {
         'BufferingHints': (BufferingHints, True),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'ClusterEndpoint': (basestring, False),
-        'DomainARN': (basestring, True),
-        'IndexName': (basestring, True),
+        'ClusterEndpoint': (str, False),
+        'DomainARN': (str, True),
+        'IndexName': (str, True),
         'IndexRotationPeriod': (index_rotation_period_validator, True),
         'ProcessingConfiguration': (ProcessingConfiguration, False),
         'RetryOptions': (RetryOptions, False),
-        'RoleARN': (basestring, True),
+        'RoleARN': (str, True),
         'S3BackupMode': (s3_backup_mode_elastic_search_validator, True),
         'S3Configuration': (S3Configuration, False),
-        'TypeName': (basestring, False),
+        'TypeName': (str, False),
         'VpcConfiguration': (VpcConfiguration, False),
     }
 
@@ -158,32 +158,32 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
 class RedshiftDestinationConfiguration(AWSProperty):
     props = {
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'ClusterJDBCURL': (basestring, True),
+        'ClusterJDBCURL': (str, True),
         'CopyCommand': (CopyCommand, True),
-        'Password': (basestring, True),
+        'Password': (str, True),
         'ProcessingConfiguration': (ProcessingConfiguration, False),
-        'RoleARN': (basestring, True),
+        'RoleARN': (str, True),
         'S3Configuration': (S3Configuration, True),
-        'Username': (basestring, True),
+        'Username': (str, True),
     }
 
 
 class S3DestinationConfiguration(AWSProperty):
     props = {
-        'BucketARN': (basestring, True),
+        'BucketARN': (str, True),
         'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, False),
+        'CompressionFormat': (str, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'ErrorOutputPrefix': (basestring, False),
-        'Prefix': (basestring, False),
-        'RoleARN': (basestring, True),
+        'ErrorOutputPrefix': (str, False),
+        'Prefix': (str, False),
+        'RoleARN': (str, True),
     }
 
 
 class HiveJsonSerDe(AWSProperty):
     props = {
-        'TimestampFormats': ([basestring], False),
+        'TimestampFormats': ([str], False),
     }
 
 
@@ -211,12 +211,12 @@ class InputFormatConfiguration(AWSProperty):
 class OrcSerDe(AWSProperty):
     props = {
         'BlockSizeBytes': (integer, False),
-        'BloomFilterColumns': ([basestring], False),
+        'BloomFilterColumns': ([str], False),
         'BloomFilterFalsePositiveProbability': (float, False),
-        'Compression': (basestring, False),
+        'Compression': (str, False),
         'DictionaryKeyThreshold': (float, False),
         'EnablePadding': (boolean, False),
-        'FormatVersion': (basestring, False),
+        'FormatVersion': (str, False),
         'PaddingTolerance': (float, False),
         'RowIndexStride': (integer, False),
         'StripeSizeBytes': (integer, False),
@@ -226,11 +226,11 @@ class OrcSerDe(AWSProperty):
 class ParquetSerDe(AWSProperty):
     props = {
         'BlockSizeBytes': (integer, False),
-        'Compression': (basestring, False),
+        'Compression': (str, False),
         'EnableDictionaryCompression': (boolean, False),
         'MaxPaddingBytes': (integer, False),
         'PageSizeBytes': (integer, False),
-        'WriterVersion': (basestring, False),
+        'WriterVersion': (str, False),
     }
 
 
@@ -249,12 +249,12 @@ class OutputFormatConfiguration(AWSProperty):
 
 class SchemaConfiguration(AWSProperty):
     props = {
-        'CatalogId': (basestring, True),
-        'DatabaseName': (basestring, True),
-        'Region': (basestring, True),
-        'RoleARN': (basestring, True),
-        'TableName': (basestring, True),
-        'VersionId': (basestring, True),
+        'CatalogId': (str, True),
+        'DatabaseName': (str, True),
+        'Region': (str, True),
+        'RoleARN': (str, True),
+        'TableName': (str, True),
+        'VersionId': (str, True),
     }
 
 
@@ -269,17 +269,17 @@ class DataFormatConversionConfiguration(AWSProperty):
 
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
-        'BucketARN': (basestring, True),
+        'BucketARN': (str, True),
         'BufferingHints': (BufferingHints, False),
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
-        'CompressionFormat': (basestring, False),
+        'CompressionFormat': (str, False),
         'DataFormatConversionConfiguration':
             (DataFormatConversionConfiguration, False),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'ErrorOutputPrefix': (basestring, False),
-        'Prefix': (basestring, False),
+        'ErrorOutputPrefix': (str, False),
+        'Prefix': (str, False),
         'ProcessingConfiguration': (ProcessingConfiguration, False),
-        'RoleARN': (basestring, True),
+        'RoleARN': (str, True),
         'S3BackupConfiguration': (S3DestinationConfiguration, False),
         'S3BackupMode': (s3_backup_mode_extended_s3_validator, False),
     }
@@ -287,8 +287,8 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
 
 class KinesisStreamSourceConfiguration(AWSProperty):
     props = {
-        'KinesisStreamARN': (basestring, True),
-        'RoleARN': (basestring, True)
+        'KinesisStreamARN': (str, True),
+        'RoleARN': (str, True)
     }
 
 
@@ -302,12 +302,12 @@ class SplunkDestinationConfiguration(AWSProperty):
     props = {
         'CloudWatchLoggingOptions': (CloudWatchLoggingOptions, False),
         'HECAcknowledgmentTimeoutInSeconds': (positive_integer, False),
-        'HECEndpoint': (basestring, True),
-        'HECEndpointType': (basestring, True),
-        'HECToken': (basestring, True),
+        'HECEndpoint': (str, True),
+        'HECEndpointType': (str, True),
+        'HECToken': (str, True),
         'ProcessingConfiguration': (ProcessingConfiguration, False),
         'RetryOptions': (SplunkRetryOptions, False),
-        'S3BackupMode': (basestring, False),
+        'S3BackupMode': (str, False),
         'S3Configuration': (S3DestinationConfiguration, True),
     }
 
@@ -318,7 +318,7 @@ class DeliveryStream(AWSObject):
     props = {
         'DeliveryStreamEncryptionConfigurationInput':
             (DeliveryStreamEncryptionConfigurationInput, False),
-        'DeliveryStreamName': (basestring, False),
+        'DeliveryStreamName': (str, False),
         'DeliveryStreamType': (delivery_stream_type_validator, False),
         'ElasticsearchDestinationConfiguration': (ElasticsearchDestinationConfiguration, False),  # noqa
         'ExtendedS3DestinationConfiguration': (ExtendedS3DestinationConfiguration, False),  # noqa

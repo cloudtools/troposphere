@@ -14,7 +14,7 @@ from troposphere import Tags
 
 class EksInfo(AWSProperty):
     props = {
-        'Namespace': (basestring, True),
+        'Namespace': (str, True),
     }
 
 
@@ -26,9 +26,9 @@ class ContainerInfo(AWSProperty):
 
 class ContainerProvider(AWSProperty):
     props = {
-        'Id': (basestring, True),
+        'Id': (str, True),
         'Info': (ContainerInfo, True),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
@@ -37,6 +37,6 @@ class VirtualCluster(AWSObject):
 
     props = {
         'ContainerProvider': (ContainerProvider, True),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }

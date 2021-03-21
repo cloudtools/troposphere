@@ -13,8 +13,8 @@ from . import AWSProperty
 
 class ExperimentTemplateStopCondition(AWSProperty):
     props = {
-        'source': (basestring, True),
-        'value': (basestring, False),
+        'source': (str, True),
+        'value': (str, False),
     }
 
 
@@ -23,8 +23,8 @@ class ExperimentTemplate(AWSObject):
 
     props = {
         'actions': (dict, False),
-        'description': (basestring, True),
-        'roleArn': (basestring, True),
+        'description': (str, True),
+        'roleArn': (str, True),
         'stopConditions': ([ExperimentTemplateStopCondition], True),
         'tags': (dict, True),
         'targets': (dict, True),

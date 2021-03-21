@@ -11,8 +11,8 @@ class AssessmentTarget(AWSObject):
     resource_type = "AWS::Inspector::AssessmentTarget"
 
     props = {
-        'AssessmentTargetName': (basestring, False),
-        'ResourceGroupArn': (basestring, False),
+        'AssessmentTargetName': (str, False),
+        'ResourceGroupArn': (str, False),
     }
 
 
@@ -20,10 +20,10 @@ class AssessmentTemplate(AWSObject):
     resource_type = "AWS::Inspector::AssessmentTemplate"
 
     props = {
-        'AssessmentTargetArn': (basestring, True),
-        'AssessmentTemplateName': (basestring, False),
+        'AssessmentTargetArn': (str, True),
+        'AssessmentTemplateName': (str, False),
         'DurationInSeconds': (integer, True),
-        'RulesPackageArns': ([basestring], True),
+        'RulesPackageArns': ([str], True),
         'UserAttributesForFindings': (Tags, False),
     }
 

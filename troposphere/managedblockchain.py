@@ -14,8 +14,8 @@ from .validators import integer
 
 class MemberFabricConfiguration(AWSProperty):
     props = {
-        'AdminPassword': (basestring, True),
-        'AdminUsername': (basestring, True),
+        'AdminPassword': (str, True),
+        'AdminUsername': (str, True),
     }
 
 
@@ -27,16 +27,16 @@ class MemberFrameworkConfiguration(AWSProperty):
 
 class MemberConfiguration(AWSProperty):
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'MemberFrameworkConfiguration':
             (MemberFrameworkConfiguration, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
     }
 
 
 class NetworkFabricConfiguration(AWSProperty):
     props = {
-        'Edition': (basestring, True),
+        'Edition': (str, True),
     }
 
 
@@ -49,7 +49,7 @@ class NetworkFrameworkConfiguration(AWSProperty):
 class ApprovalThresholdPolicy(AWSProperty):
     props = {
         'ProposalDurationInHours': (integer, False),
-        'ThresholdComparator': (basestring, False),
+        'ThresholdComparator': (str, False),
         'ThresholdPercentage': (integer, False),
     }
 
@@ -62,10 +62,10 @@ class VotingPolicy(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     props = {
-        'Description': (basestring, False),
-        'Framework': (basestring, True),
-        'FrameworkVersion': (basestring, True),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Framework': (str, True),
+        'FrameworkVersion': (str, True),
+        'Name': (str, True),
         'NetworkFrameworkConfiguration':
             (NetworkFrameworkConfiguration, False),
         'VotingPolicy': (VotingPolicy, True),
@@ -76,17 +76,17 @@ class Member(AWSObject):
     resource_type = "AWS::ManagedBlockchain::Member"
 
     props = {
-        'InvitationId': (basestring, False),
+        'InvitationId': (str, False),
         'MemberConfiguration': (MemberConfiguration, True),
         'NetworkConfiguration': (NetworkConfiguration, False),
-        'NetworkId': (basestring, False),
+        'NetworkId': (str, False),
     }
 
 
 class NodeConfiguration(AWSProperty):
     props = {
-        'AvailabilityZone': (basestring, True),
-        'InstanceType': (basestring, True),
+        'AvailabilityZone': (str, True),
+        'InstanceType': (str, True),
     }
 
 
@@ -94,7 +94,7 @@ class Node(AWSObject):
     resource_type = "AWS::ManagedBlockchain::Node"
 
     props = {
-        'MemberId': (basestring, True),
-        'NetworkId': (basestring, True),
+        'MemberId': (str, True),
+        'NetworkId': (str, True),
         'NodeConfiguration': (NodeConfiguration, True),
     }

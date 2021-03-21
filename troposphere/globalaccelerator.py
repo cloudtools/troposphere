@@ -16,9 +16,9 @@ class Accelerator(AWSObject):
 
     props = {
         'Enabled': (boolean, False),
-        'IpAddresses': ([basestring], False),
+        'IpAddresses': ([str], False),
         'IpAddressType': (accelerator_ipaddresstype, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -34,7 +34,7 @@ class Listener(AWSObject):
     resource_type = "AWS::GlobalAccelerator::Listener"
 
     props = {
-        'AcceleratorArn': (basestring, True),
+        'AcceleratorArn': (str, True),
         'ClientAffinity': (listener_clientaffinity, False),
         'PortRanges': ([PortRange], True),
         'Protocol': (listener_protocol, False),
@@ -44,7 +44,7 @@ class Listener(AWSObject):
 class EndpointConfiguration(AWSProperty):
     props = {
         'ClientIPPreservationEnabled': (boolean, False),
-        'EndpointId': (basestring, True),
+        'EndpointId': (str, True),
         'Weight': (integer, False),
     }
 
@@ -54,12 +54,12 @@ class EndpointGroup(AWSObject):
 
     props = {
         'EndpointConfigurations': ([EndpointConfiguration], False),
-        'EndpointGroupRegion': (basestring, True),
+        'EndpointGroupRegion': (str, True),
         'HealthCheckIntervalSeconds': (integer, False),
-        'HealthCheckPath': (basestring, False),
+        'HealthCheckPath': (str, False),
         'HealthCheckPort': (integer, False),
         'HealthCheckProtocol': (endpointgroup_healthcheckprotocol, False),
-        'ListenerArn': (basestring, True),
+        'ListenerArn': (str, True),
         'ThresholdCount': (integer, False),
         'TrafficDialPercentage': (double, False),
     }

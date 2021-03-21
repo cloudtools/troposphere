@@ -22,12 +22,12 @@ class ApiCache(AWSObject):
     resource_type = "AWS::AppSync::ApiCache"
 
     props = {
-        'ApiCachingBehavior': (basestring, True),
-        'ApiId': (basestring, True),
+        'ApiCachingBehavior': (str, True),
+        'ApiId': (str, True),
         'AtRestEncryptionEnabled': (boolean, False),
         'TransitEncryptionEnabled': (boolean, False),
         'Ttl': (double, True),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
@@ -35,26 +35,26 @@ class ApiKey(AWSObject):
     resource_type = "AWS::AppSync::ApiKey"
 
     props = {
-        'ApiId': (basestring, True),
-        'ApiKeyId': (basestring, False),
-        'Description': (basestring, False),
+        'ApiId': (str, True),
+        'ApiKeyId': (str, False),
+        'Description': (str, False),
         'Expires': (double, False),
     }
 
 
 class DeltaSyncConfig(AWSProperty):
     props = {
-        'BaseTableTTL': (basestring, True),
-        'DeltaSyncTableName': (basestring, True),
-        'DeltaSyncTableTTL': (basestring, True),
+        'BaseTableTTL': (str, True),
+        'DeltaSyncTableName': (str, True),
+        'DeltaSyncTableTTL': (str, True),
     }
 
 
 class DynamoDBConfig(AWSProperty):
     props = {
-        'AwsRegion': (basestring, True),
+        'AwsRegion': (str, True),
         'DeltaSyncConfig': (DeltaSyncConfig, False),
-        'TableName': (basestring, True),
+        'TableName': (str, True),
         'UseCallerCredentials': (boolean, False),
         'Versioned': (boolean, False),
     }
@@ -62,21 +62,21 @@ class DynamoDBConfig(AWSProperty):
 
 class ElasticsearchConfig(AWSProperty):
     props = {
-        'AwsRegion': (basestring, True),
-        'Endpoint': (basestring, True),
+        'AwsRegion': (str, True),
+        'Endpoint': (str, True),
     }
 
 
 class AwsIamConfig(AWSProperty):
     props = {
-        'SigningRegion': (basestring, False),
-        'SigningServiceName': (basestring, False),
+        'SigningRegion': (str, False),
+        'SigningServiceName': (str, False),
     }
 
 
 class AuthorizationConfig(AWSProperty):
     props = {
-        'AuthorizationType': (basestring, True),
+        'AuthorizationType': (str, True),
         'AwsIamConfig': (AwsIamConfig, False),
     }
 
@@ -84,30 +84,30 @@ class AuthorizationConfig(AWSProperty):
 class HttpConfig(AWSProperty):
     props = {
         'AuthorizationConfig': (AuthorizationConfig, False),
-        'Endpoint': (basestring, True),
+        'Endpoint': (str, True),
     }
 
 
 class LambdaConfig(AWSProperty):
     props = {
-        'LambdaFunctionArn': (basestring, True),
+        'LambdaFunctionArn': (str, True),
     }
 
 
 class RdsHttpEndpointConfig(AWSProperty):
     props = {
-        'AwsRegion': (basestring, True),
-        'AwsSecretStoreArn': (basestring, True),
-        'DatabaseName': (basestring, False),
-        'DbClusterIdentifier': (basestring, True),
-        'Schema': (basestring, False),
+        'AwsRegion': (str, True),
+        'AwsSecretStoreArn': (str, True),
+        'DatabaseName': (str, False),
+        'DbClusterIdentifier': (str, True),
+        'Schema': (str, False),
     }
 
 
 class RelationalDatabaseConfig(AWSProperty):
     props = {
         'RdsHttpEndpointConfig': (RdsHttpEndpointConfig, False),
-        'RelationalDatasourceType': (basestring, True),
+        'RelationalDatasourceType': (str, True),
     }
 
 
@@ -115,16 +115,16 @@ class DataSource(AWSObject):
     resource_type = "AWS::AppSync::DataSource"
 
     props = {
-        'ApiId': (basestring, True),
-        'Description': (basestring, False),
+        'ApiId': (str, True),
+        'Description': (str, False),
         'DynamoDBConfig': (DynamoDBConfig, False),
         'ElasticsearchConfig': (ElasticsearchConfig, False),
         'HttpConfig': (HttpConfig, False),
         'LambdaConfig': (LambdaConfig, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'RelationalDatabaseConfig': (RelationalDatabaseConfig, False),
-        'ServiceRoleArn': (basestring, False),
-        'Type': (basestring, True),
+        'ServiceRoleArn': (str, False),
+        'Type': (str, True),
     }
 
 
@@ -132,38 +132,38 @@ class FunctionConfiguration(AWSObject):
     resource_type = "AWS::AppSync::FunctionConfiguration"
 
     props = {
-        'ApiId': (basestring, True),
-        'DataSourceName': (basestring, True),
-        'Description': (basestring, False),
-        'FunctionVersion': (basestring, True),
-        'Name': (basestring, True),
-        'RequestMappingTemplate': (basestring, False),
-        'RequestMappingTemplateS3Location': (basestring, False),
-        'ResponseMappingTemplate': (basestring, False),
-        'ResponseMappingTemplateS3Location': (basestring, False),
+        'ApiId': (str, True),
+        'DataSourceName': (str, True),
+        'Description': (str, False),
+        'FunctionVersion': (str, True),
+        'Name': (str, True),
+        'RequestMappingTemplate': (str, False),
+        'RequestMappingTemplateS3Location': (str, False),
+        'ResponseMappingTemplate': (str, False),
+        'ResponseMappingTemplateS3Location': (str, False),
     }
 
 
 class CognitoUserPoolConfig(AWSProperty):
     props = {
-        'AppIdClientRegex': (basestring, False),
-        'AwsRegion': (basestring, False),
-        'UserPoolId': (basestring, False),
+        'AppIdClientRegex': (str, False),
+        'AwsRegion': (str, False),
+        'UserPoolId': (str, False),
     }
 
 
 class OpenIDConnectConfig(AWSProperty):
     props = {
         'AuthTTL': (double, False),
-        'ClientId': (basestring, False),
+        'ClientId': (str, False),
         'IatTTL': (double, False),
-        'Issuer': (basestring, False),
+        'Issuer': (str, False),
     }
 
 
 class AdditionalAuthenticationProvider(AWSProperty):
     props = {
-        'AuthenticationType': (basestring, True),
+        'AuthenticationType': (str, True),
         'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'UserPoolConfig': (CognitoUserPoolConfig, False),
     }
@@ -171,18 +171,18 @@ class AdditionalAuthenticationProvider(AWSProperty):
 
 class LogConfig(AWSProperty):
     props = {
-        'CloudWatchLogsRoleArn': (basestring, False),
+        'CloudWatchLogsRoleArn': (str, False),
         'ExcludeVerboseContent': (boolean, False),
-        'FieldLogLevel': (basestring, False),
+        'FieldLogLevel': (str, False),
     }
 
 
 class UserPoolConfig(AWSProperty):
     props = {
-        'AppIdClientRegex': (basestring, False),
-        'AwsRegion': (basestring, False),
-        'DefaultAction': (basestring, False),
-        'UserPoolId': (basestring, False),
+        'AppIdClientRegex': (str, False),
+        'AwsRegion': (str, False),
+        'DefaultAction': (str, False),
+        'UserPoolId': (str, False),
     }
 
 
@@ -192,9 +192,9 @@ class GraphQLApi(AWSObject):
     props = {
         'AdditionalAuthenticationProviders':
             ([AdditionalAuthenticationProvider], False),
-        'AuthenticationType': (basestring, True),
+        'AuthenticationType': (str, True),
         'LogConfig': (LogConfig, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'OpenIDConnectConfig': (OpenIDConnectConfig, False),
         'Tags': (Tags, False),
         'UserPoolConfig': (UserPoolConfig, False),
@@ -206,35 +206,35 @@ class GraphQLSchema(AWSObject):
     resource_type = "AWS::AppSync::GraphQLSchema"
 
     props = {
-        'ApiId': (basestring, True),
-        'Definition': (basestring, False),
-        'DefinitionS3Location': (basestring, False),
+        'ApiId': (str, True),
+        'Definition': (str, False),
+        'DefinitionS3Location': (str, False),
     }
 
 
 class CachingConfig(AWSProperty):
     props = {
-        'CachingKeys': ([basestring], False),
+        'CachingKeys': ([str], False),
         'Ttl': (double, False),
     }
 
 
 class PipelineConfig(AWSProperty):
     props = {
-        'Functions': ([basestring], False),
+        'Functions': ([str], False),
     }
 
 
 class LambdaConflictHandlerConfig(AWSProperty):
     props = {
-        'LambdaConflictHandlerArn': (basestring, False),
+        'LambdaConflictHandlerArn': (str, False),
     }
 
 
 class SyncConfig(AWSProperty):
     props = {
-        'ConflictDetection': (basestring, True),
-        'ConflictHandler': (basestring, False),
+        'ConflictDetection': (str, True),
+        'ConflictHandler': (str, False),
         'LambdaConflictHandlerConfig': (LambdaConflictHandlerConfig, False),
     }
 
@@ -243,16 +243,16 @@ class Resolver(AWSObject):
     resource_type = "AWS::AppSync::Resolver"
 
     props = {
-        'ApiId': (basestring, True),
+        'ApiId': (str, True),
         'CachingConfig': (CachingConfig, False),
-        'DataSourceName': (basestring, False),
-        'FieldName': (basestring, True),
+        'DataSourceName': (str, False),
+        'FieldName': (str, True),
         'Kind': (resolver_kind_validator, False),
         'PipelineConfig': (PipelineConfig, False),
-        'RequestMappingTemplate': (basestring, False),
-        'RequestMappingTemplateS3Location': (basestring, False),
-        'ResponseMappingTemplate': (basestring, False),
-        'ResponseMappingTemplateS3Location': (basestring, False),
+        'RequestMappingTemplate': (str, False),
+        'RequestMappingTemplateS3Location': (str, False),
+        'ResponseMappingTemplate': (str, False),
+        'ResponseMappingTemplateS3Location': (str, False),
         'SyncConfig': (SyncConfig, False),
-        'TypeName': (basestring, True),
+        'TypeName': (str, True),
     }

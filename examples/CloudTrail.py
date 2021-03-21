@@ -93,4 +93,4 @@ myTrail = t.add_resource(Trail(
     DependsOn=["BucketPolicy", "TopicPolicy"],
 ))
 
-print(t.to_json())
+print((t.to_json()))

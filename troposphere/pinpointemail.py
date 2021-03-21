@@ -15,7 +15,7 @@ from .validators import boolean
 
 class DeliveryOptions(AWSProperty):
     props = {
-        'SendingPoolName': (basestring, False),
+        'SendingPoolName': (str, False),
     }
 
 
@@ -33,7 +33,7 @@ class SendingOptions(AWSProperty):
 
 class TrackingOptions(AWSProperty):
     props = {
-        'CustomRedirectDomain': (basestring, False),
+        'CustomRedirectDomain': (str, False),
     }
 
 
@@ -42,7 +42,7 @@ class ConfigurationSet(AWSObject):
 
     props = {
         'DeliveryOptions': (DeliveryOptions, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'ReputationOptions': (ReputationOptions, False),
         'SendingOptions': (SendingOptions, False),
         'Tags': (Tags, False),
@@ -52,9 +52,9 @@ class ConfigurationSet(AWSObject):
 
 class DimensionConfiguration(AWSProperty):
     props = {
-        'DefaultDimensionValue': (basestring, True),
-        'DimensionName': (basestring, True),
-        'DimensionValueSource': (basestring, True),
+        'DefaultDimensionValue': (str, True),
+        'DimensionName': (str, True),
+        'DimensionValueSource': (str, True),
     }
 
 
@@ -66,20 +66,20 @@ class CloudWatchDestination(AWSProperty):
 
 class KinesisFirehoseDestination(AWSProperty):
     props = {
-        'DeliveryStreamArn': (basestring, True),
-        'IamRoleArn': (basestring, True),
+        'DeliveryStreamArn': (str, True),
+        'IamRoleArn': (str, True),
     }
 
 
 class PinpointDestination(AWSProperty):
     props = {
-        'ApplicationArn': (basestring, False),
+        'ApplicationArn': (str, False),
     }
 
 
 class SnsDestination(AWSProperty):
     props = {
-        'TopicArn': (basestring, True),
+        'TopicArn': (str, True),
     }
 
 
@@ -88,7 +88,7 @@ class EventDestination(AWSProperty):
         'CloudWatchDestination': (CloudWatchDestination, False),
         'Enabled': (boolean, False),
         'KinesisFirehoseDestination': (KinesisFirehoseDestination, False),
-        'MatchingEventTypes': ([basestring], True),
+        'MatchingEventTypes': ([str], True),
         'PinpointDestination': (PinpointDestination, False),
         'SnsDestination': (SnsDestination, False),
     }
@@ -98,9 +98,9 @@ class ConfigurationSetEventDestination(AWSObject):
     resource_type = "AWS::PinpointEmail::ConfigurationSetEventDestination"
 
     props = {
-        'ConfigurationSetName': (basestring, True),
+        'ConfigurationSetName': (str, True),
         'EventDestination': (EventDestination, False),
-        'EventDestinationName': (basestring, True),
+        'EventDestinationName': (str, True),
     }
 
 
@@ -108,15 +108,15 @@ class DedicatedIpPool(AWSObject):
     resource_type = "AWS::PinpointEmail::DedicatedIpPool"
 
     props = {
-        'PoolName': (basestring, False),
+        'PoolName': (str, False),
         'Tags': (Tags, False),
     }
 
 
 class MailFromAttributes(AWSProperty):
     props = {
-        'BehaviorOnMxFailure': (basestring, False),
-        'MailFromDomain': (basestring, False),
+        'BehaviorOnMxFailure': (str, False),
+        'MailFromDomain': (str, False),
     }
 
 
@@ -127,6 +127,6 @@ class Identity(AWSObject):
         'DkimSigningEnabled': (boolean, False),
         'FeedbackForwardingEnabled': (boolean, False),
         'MailFromAttributes': (MailFromAttributes, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }

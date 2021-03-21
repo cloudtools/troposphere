@@ -16,8 +16,8 @@ class Application(AWSObject):
     resource_type = "AWS::ServiceCatalogAppRegistry::Application"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -32,8 +32,8 @@ class AttributeGroup(AWSObject):
 
     props = {
         'Attributes': (Attributes, True),
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -42,8 +42,8 @@ class AttributeGroupAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation"
 
     props = {
-        'Application': (basestring, True),
-        'AttributeGroup': (basestring, True),
+        'Application': (str, True),
+        'AttributeGroup': (str, True),
     }
 
 
@@ -51,7 +51,7 @@ class ResourceAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalogAppRegistry::ResourceAssociation"
 
     props = {
-        'Application': (basestring, True),
-        'Resource': (basestring, True),
-        'ResourceType': (basestring, True),
+        'Application': (str, True),
+        'Resource': (str, True),
+        'ResourceType': (str, True),
     }

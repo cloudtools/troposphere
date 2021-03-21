@@ -16,39 +16,39 @@ from .validators import boolean
 class BasicAuthConfig(AWSProperty):
     props = {
         'EnableBasicAuth': (boolean, False),
-        'Password': (basestring, True),
-        'Username': (basestring, True),
+        'Password': (str, True),
+        'Username': (str, True),
     }
 
 
 class EnvironmentVariable(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Value': (basestring, True),
+        'Name': (str, True),
+        'Value': (str, True),
     }
 
 
 class AutoBranchCreationConfig(AWSProperty):
     props = {
-        'AutoBranchCreationPatterns': ([basestring], False),
+        'AutoBranchCreationPatterns': ([str], False),
         'BasicAuthConfig': (BasicAuthConfig, False),
-        'BuildSpec': (basestring, False),
+        'BuildSpec': (str, False),
         'EnableAutoBranchCreation': (boolean, False),
         'EnableAutoBuild': (boolean, False),
         'EnablePerformanceMode': (boolean, False),
         'EnablePullRequestPreview': (boolean, False),
         'EnvironmentVariables': ([EnvironmentVariable], False),
-        'PullRequestEnvironmentName': (basestring, False),
-        'Stage': (basestring, False),
+        'PullRequestEnvironmentName': (str, False),
+        'Stage': (str, False),
     }
 
 
 class CustomRule(AWSProperty):
     props = {
-        'Condition': (basestring, False),
-        'Source': (basestring, True),
-        'Status': (basestring, False),
-        'Target': (basestring, True),
+        'Condition': (str, False),
+        'Source': (str, True),
+        'Status': (str, False),
+        'Target': (str, True),
     }
 
 
@@ -56,19 +56,19 @@ class App(AWSObject):
     resource_type = "AWS::Amplify::App"
 
     props = {
-        'AccessToken': (basestring, False),
+        'AccessToken': (str, False),
         'AutoBranchCreationConfig': (AutoBranchCreationConfig, False),
         'BasicAuthConfig': (BasicAuthConfig, False),
-        'BuildSpec': (basestring, False),
-        'CustomHeaders': (basestring, False),
+        'BuildSpec': (str, False),
+        'CustomHeaders': (str, False),
         'CustomRules': ([CustomRule], False),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'EnableBranchAutoDeletion': (boolean, False),
         'EnvironmentVariables': ([EnvironmentVariable], False),
-        'IAMServiceRole': (basestring, False),
-        'Name': (basestring, True),
-        'OauthToken': (basestring, False),
-        'Repository': (basestring, False),
+        'IAMServiceRole': (str, False),
+        'Name': (str, True),
+        'OauthToken': (str, False),
+        'Repository': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -77,25 +77,25 @@ class Branch(AWSObject):
     resource_type = "AWS::Amplify::Branch"
 
     props = {
-        'AppId': (basestring, True),
+        'AppId': (str, True),
         'BasicAuthConfig': (BasicAuthConfig, False),
-        'BranchName': (basestring, True),
-        'BuildSpec': (basestring, False),
-        'Description': (basestring, False),
+        'BranchName': (str, True),
+        'BuildSpec': (str, False),
+        'Description': (str, False),
         'EnableAutoBuild': (boolean, False),
         'EnablePerformanceMode': (boolean, False),
         'EnablePullRequestPreview': (boolean, False),
         'EnvironmentVariables': ([EnvironmentVariable], False),
-        'PullRequestEnvironmentName': (basestring, False),
-        'Stage': (basestring, False),
+        'PullRequestEnvironmentName': (str, False),
+        'Stage': (str, False),
         'Tags': (Tags, False),
     }
 
 
 class SubDomainSetting(AWSProperty):
     props = {
-        'BranchName': (basestring, True),
-        'Prefix': (basestring, True),
+        'BranchName': (str, True),
+        'Prefix': (str, True),
     }
 
 
@@ -103,10 +103,10 @@ class Domain(AWSObject):
     resource_type = "AWS::Amplify::Domain"
 
     props = {
-        'AppId': (basestring, True),
-        'AutoSubDomainCreationPatterns': ([basestring], False),
-        'AutoSubDomainIAMRole': (basestring, False),
-        'DomainName': (basestring, True),
+        'AppId': (str, True),
+        'AutoSubDomainCreationPatterns': ([str], False),
+        'AutoSubDomainIAMRole': (str, False),
+        'DomainName': (str, True),
         'EnableAutoSubDomain': (boolean, False),
         'SubDomainSettings': ([SubDomainSetting], True),
     }

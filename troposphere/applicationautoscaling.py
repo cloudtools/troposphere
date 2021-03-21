@@ -11,11 +11,11 @@ class ScalableTargetAction(AWSProperty):
 
 class ScheduledAction(AWSProperty):
     props = {
-        'EndTime': (basestring, False),
+        'EndTime': (str, False),
         'ScalableTargetAction': (ScalableTargetAction, False),
-        'Schedule': (basestring, True),
-        'ScheduledActionName': (basestring, True),
-        'StartTime': (basestring, False),
+        'Schedule': (str, True),
+        'ScheduledActionName': (str, True),
+        'StartTime': (str, False),
     }
 
 
@@ -33,11 +33,11 @@ class ScalableTarget(AWSObject):
     props = {
         'MaxCapacity': (integer, True),
         'MinCapacity': (integer, True),
-        'ResourceId': (basestring, True),
-        'RoleARN': (basestring, True),
-        'ScalableDimension': (basestring, True),
+        'ResourceId': (str, True),
+        'RoleARN': (str, True),
+        'ScalableDimension': (str, True),
         'ScheduledActions': ([ScheduledAction], False),
-        'ServiceNamespace': (basestring, True),
+        'ServiceNamespace': (str, True),
         'SuspendedState': (SuspendedState, False),
     }
 
@@ -52,9 +52,9 @@ class StepAdjustment(AWSProperty):
 
 class StepScalingPolicyConfiguration(AWSProperty):
     props = {
-        'AdjustmentType': (basestring, False),
+        'AdjustmentType': (str, False),
         'Cooldown': (integer, False),
-        'MetricAggregationType': (basestring, False),
+        'MetricAggregationType': (str, False),
         'MinAdjustmentMagnitude': (integer, False),
         'StepAdjustments': ([StepAdjustment], False),
     }
@@ -62,25 +62,25 @@ class StepScalingPolicyConfiguration(AWSProperty):
 
 class MetricDimension(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Value': (basestring, True),
+        'Name': (str, True),
+        'Value': (str, True),
     }
 
 
 class CustomizedMetricSpecification(AWSProperty):
     props = {
         'Dimensions': ([MetricDimension], False),
-        'MetricName': (basestring, False),
-        'Namespace': (basestring, False),
-        'Statistic': (basestring, False),
-        'Unit': (basestring, True),
+        'MetricName': (str, False),
+        'Namespace': (str, False),
+        'Statistic': (str, False),
+        'Unit': (str, True),
     }
 
 
 class PredefinedMetricSpecification(AWSProperty):
     props = {
-        'PredefinedMetricType': (basestring, True),
-        'ResourceLabel': (basestring, False),
+        'PredefinedMetricType': (str, True),
+        'ResourceLabel': (str, False),
     }
 
 
@@ -101,12 +101,12 @@ class ScalingPolicy(AWSObject):
     resource_type = "AWS::ApplicationAutoScaling::ScalingPolicy"
 
     props = {
-        'PolicyName': (basestring, True),
-        'PolicyType': (basestring, False),
-        'ResourceId': (basestring, False),
-        'ScalableDimension': (basestring, False),
-        'ServiceNamespace': (basestring, False),
-        'ScalingTargetId': (basestring, False),
+        'PolicyName': (str, True),
+        'PolicyType': (str, False),
+        'ResourceId': (str, False),
+        'ScalableDimension': (str, False),
+        'ServiceNamespace': (str, False),
+        'ScalingTargetId': (str, False),
         'StepScalingPolicyConfiguration': (
             StepScalingPolicyConfiguration,
             False,

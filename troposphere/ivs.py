@@ -17,10 +17,10 @@ class Channel(AWSObject):
 
     props = {
         'Authorized': (boolean, False),
-        'LatencyMode': (basestring, False),
-        'Name': (basestring, False),
+        'LatencyMode': (str, False),
+        'Name': (str, False),
         'Tags': (Tags, False),
-        'Type': (basestring, False),
+        'Type': (str, False),
     }
 
 
@@ -28,8 +28,8 @@ class PlaybackKeyPair(AWSObject):
     resource_type = "AWS::IVS::PlaybackKeyPair"
 
     props = {
-        'Name': (basestring, False),
-        'PublicKeyMaterial': (basestring, True),
+        'Name': (str, False),
+        'PublicKeyMaterial': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -38,6 +38,6 @@ class StreamKey(AWSObject):
     resource_type = "AWS::IVS::StreamKey"
 
     props = {
-        'ChannelArn': (basestring, True),
+        'ChannelArn': (str, True),
         'Tags': (Tags, False),
     }

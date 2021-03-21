@@ -26,41 +26,41 @@ class DataLakeSettings(AWSObject):
 
 class DataLakePrincipal(AWSProperty):
     props = {
-        'DataLakePrincipalIdentifier': (basestring, False),
+        'DataLakePrincipalIdentifier': (str, False),
     }
 
 
 class DatabaseResource(AWSProperty):
     props = {
-        'Name': (basestring, False),
+        'Name': (str, False),
     }
 
 
 class TableResource(AWSProperty):
     props = {
-        'DatabaseName': (basestring, False),
-        'Name': (basestring, False),
+        'DatabaseName': (str, False),
+        'Name': (str, False),
     }
 
 
 class DataLocationResource(AWSProperty):
     props = {
-        'S3Resource': (basestring, False),
+        'S3Resource': (str, False),
     }
 
 
 class ColumnWildcard(AWSProperty):
     props = {
-        'ExcludedColumnNames': ([basestring], False),
+        'ExcludedColumnNames': ([str], False),
     }
 
 
 class TableWithColumnsResource(AWSProperty):
     props = {
-        'ColumnNames': ([basestring], False),
+        'ColumnNames': ([str], False),
         'ColumnWildcard': (ColumnWildcard, False),
-        'DatabaseName': (basestring, False),
-        'Name': (basestring, False),
+        'DatabaseName': (str, False),
+        'Name': (str, False),
     }
 
 
@@ -78,7 +78,7 @@ class Permissions(AWSObject):
 
     props = {
         'DataLakePrincipal': (DataLakePrincipal, True),
-        'Permissions': ([basestring], False),
-        'PermissionsWithGrantOption': ([basestring], False),
+        'Permissions': ([str], False),
+        'PermissionsWithGrantOption': ([str], False),
         'Resource': (Resource, True),
     }

@@ -16,7 +16,7 @@ from .validators import integer
 
 class SubnetMapping(AWSProperty):
     props = {
-        'SubnetId': (basestring, True),
+        'SubnetId': (str, True),
     }
 
 
@@ -25,20 +25,20 @@ class Firewall(AWSObject):
 
     props = {
         'DeleteProtection': (boolean, False),
-        'Description': (basestring, False),
-        'FirewallName': (basestring, True),
-        'FirewallPolicyArn': (basestring, True),
+        'Description': (str, False),
+        'FirewallName': (str, True),
+        'FirewallPolicyArn': (str, True),
         'FirewallPolicyChangeProtection': (boolean, False),
         'SubnetChangeProtection': (boolean, False),
         'SubnetMappings': ([SubnetMapping], True),
         'Tags': (Tags, False),
-        'VpcId': (basestring, True),
+        'VpcId': (str, True),
     }
 
 
 class Dimension(AWSProperty):
     props = {
-        'Value': (basestring, True),
+        'Value': (str, True),
     }
 
 
@@ -57,20 +57,20 @@ class ActionDefinition(AWSProperty):
 class CustomAction(AWSProperty):
     props = {
         'ActionDefinition': (ActionDefinition, True),
-        'ActionName': (basestring, True),
+        'ActionName': (str, True),
     }
 
 
 class StatefulRuleGroupReference(AWSProperty):
     props = {
-        'ResourceArn': (basestring, True),
+        'ResourceArn': (str, True),
     }
 
 
 class StatelessRuleGroupReference(AWSProperty):
     props = {
         'Priority': (integer, True),
-        'ResourceArn': (basestring, True),
+        'ResourceArn': (str, True),
     }
 
 
@@ -79,8 +79,8 @@ class FirewallPolicy(AWSProperty):
         'StatefulRuleGroupReferences':
             ([StatefulRuleGroupReference], False),
         'StatelessCustomActions': ([CustomAction], False),
-        'StatelessDefaultActions': ([basestring], True),
-        'StatelessFragmentDefaultActions': ([basestring], True),
+        'StatelessDefaultActions': ([str], True),
+        'StatelessFragmentDefaultActions': ([str], True),
         'StatelessRuleGroupReferences':
             ([StatelessRuleGroupReference], False),
     }
@@ -89,8 +89,8 @@ class FirewallPolicy(AWSProperty):
 class LogDestinationConfig(AWSProperty):
     props = {
         'LogDestination': (dict, True),
-        'LogDestinationType': (basestring, True),
-        'LogType': (basestring, True),
+        'LogDestinationType': (str, True),
+        'LogType': (str, True),
     }
 
 
@@ -109,33 +109,33 @@ class RuleVariables(AWSProperty):
 
 class RulesSourceList(AWSProperty):
     props = {
-        'GeneratedRulesType': (basestring, True),
-        'TargetTypes': ([basestring], True),
-        'Targets': ([basestring], True),
+        'GeneratedRulesType': (str, True),
+        'TargetTypes': ([str], True),
+        'Targets': ([str], True),
     }
 
 
 class Header(AWSProperty):
     props = {
-        'Destination': (basestring, True),
-        'DestinationPort': (basestring, True),
-        'Direction': (basestring, True),
-        'Protocol': (basestring, True),
-        'Source': (basestring, True),
-        'SourcePort': (basestring, True),
+        'Destination': (str, True),
+        'DestinationPort': (str, True),
+        'Direction': (str, True),
+        'Protocol': (str, True),
+        'Source': (str, True),
+        'SourcePort': (str, True),
     }
 
 
 class RuleOption(AWSProperty):
     props = {
-        'Keyword': (basestring, True),
-        'Settings': ([basestring], False),
+        'Keyword': (str, True),
+        'Settings': ([str], False),
     }
 
 
 class StatefulRule(AWSProperty):
     props = {
-        'Action': (basestring, True),
+        'Action': (str, True),
         'Header': (Header, True),
         'RuleOptions': ([RuleOption], True),
     }
@@ -143,7 +143,7 @@ class StatefulRule(AWSProperty):
 
 class Address(AWSProperty):
     props = {
-        'AddressDefinition': (basestring, True),
+        'AddressDefinition': (str, True),
     }
 
 
@@ -156,8 +156,8 @@ class PortRange(AWSProperty):
 
 class TCPFlagField(AWSProperty):
     props = {
-        'Flags': ([basestring], True),
-        'Masks': ([basestring], False),
+        'Flags': ([str], True),
+        'Masks': ([str], False),
     }
 
 
@@ -174,7 +174,7 @@ class MatchAttributes(AWSProperty):
 
 class RuleDefinition(AWSProperty):
     props = {
-        'Actions': ([basestring], True),
+        'Actions': ([str], True),
         'MatchAttributes': (MatchAttributes, True),
     }
 
@@ -196,7 +196,7 @@ class StatelessRulesAndCustomActions(AWSProperty):
 class RulesSource(AWSProperty):
     props = {
         'RulesSourceList': (RulesSourceList, False),
-        'RulesString': (basestring, False),
+        'RulesString': (str, False),
         'StatefulRules': ([StatefulRule], False),
         'StatelessRulesAndCustomActions':
             (StatelessRulesAndCustomActions, False),

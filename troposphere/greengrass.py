@@ -11,8 +11,8 @@ from .validators import integer
 
 class Connector(AWSProperty):
     props = {
-        'ConnectorArn': (basestring, True),
-        'Id': (basestring, True),
+        'ConnectorArn': (str, True),
+        'Id': (str, True),
         'Parameters': (dict, False),
     }
 
@@ -28,7 +28,7 @@ class ConnectorDefinition(AWSObject):
 
     props = {
         'InitialVersion': (ConnectorDefinitionVersion, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (dict, False),
     }
 
@@ -37,17 +37,17 @@ class ConnectorDefinitionVersion(AWSObject):
     resource_type = "AWS::Greengrass::ConnectorDefinitionVersion"
 
     props = {
-        'ConnectorDefinitionId': (basestring, True),
+        'ConnectorDefinitionId': (str, True),
         'Connectors': ([Connector], True),
     }
 
 
 class Core(AWSProperty):
     props = {
-        'CertificateArn': (basestring, True),
-        'Id': (basestring, True),
+        'CertificateArn': (str, True),
+        'Id': (str, True),
         'SyncShadow': (boolean, False),
-        'ThingArn': (basestring, True),
+        'ThingArn': (str, True),
     }
 
 
@@ -62,7 +62,7 @@ class CoreDefinition(AWSObject):
 
     props = {
         'InitialVersion': (CoreDefinitionVersion, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (dict, False),
     }
 
@@ -71,17 +71,17 @@ class CoreDefinitionVersion(AWSObject):
     resource_type = "AWS::Greengrass::CoreDefinitionVersion"
 
     props = {
-        'CoreDefinitionId': (basestring, True),
+        'CoreDefinitionId': (str, True),
         'Cores': ([Core], True),
     }
 
 
 class Device(AWSProperty):
     props = {
-        'CertificateArn': (basestring, True),
-        'Id': (basestring, True),
+        'CertificateArn': (str, True),
+        'Id': (str, True),
         'SyncShadow': (boolean, False),
-        'ThingArn': (basestring, True),
+        'ThingArn': (str, True),
     }
 
 
@@ -96,7 +96,7 @@ class DeviceDefinition(AWSObject):
 
     props = {
         'InitialVersion': (DeviceDefinitionVersion, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (dict, False),
     }
 
@@ -105,7 +105,7 @@ class DeviceDefinitionVersion(AWSObject):
     resource_type = "AWS::Greengrass::DeviceDefinitionVersion"
 
     props = {
-        'DeviceDefinitionId': (basestring, True),
+        'DeviceDefinitionId': (str, True),
         'Devices': ([Device], True),
     }
 
@@ -119,7 +119,7 @@ class RunAs(AWSProperty):
 
 class Execution(AWSProperty):
     props = {
-        'IsolationMode': (basestring, False),
+        'IsolationMode': (str, False),
         'RunAs': (RunAs, False),
     }
 
@@ -132,8 +132,8 @@ class DefaultConfig(AWSProperty):
 
 class ResourceAccessPolicy(AWSProperty):
     props = {
-        'Permission': (basestring, False),
-        'ResourceId': (basestring, True),
+        'Permission': (str, False),
+        'ResourceId': (str, True),
     }
 
 
@@ -148,10 +148,10 @@ class Environment(AWSProperty):
 
 class FunctionConfiguration(AWSProperty):
     props = {
-        'EncodingType': (basestring, False),
+        'EncodingType': (str, False),
         'Environment': (Environment, False),
-        'ExecArgs': (basestring, False),
-        'Executable': (basestring, False),
+        'ExecArgs': (str, False),
+        'Executable': (str, False),
         'MemorySize': (integer, False),
         'Pinned': (boolean, False),
         'Timeout': (integer, False),
@@ -160,9 +160,9 @@ class FunctionConfiguration(AWSProperty):
 
 class Function(AWSProperty):
     props = {
-        'FunctionArn': (basestring, True),
+        'FunctionArn': (str, True),
         'FunctionConfiguration': (FunctionConfiguration, True),
-        'Id': (basestring, True),
+        'Id': (str, True),
     }
 
 
@@ -178,7 +178,7 @@ class FunctionDefinition(AWSObject):
 
     props = {
         'InitialVersion': (FunctionDefinitionVersion, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (dict, False),
     }
 
@@ -188,20 +188,20 @@ class FunctionDefinitionVersion(AWSObject):
 
     props = {
         'DefaultConfig': (DefaultConfig, False),
-        'FunctionDefinitionId': (basestring, True),
+        'FunctionDefinitionId': (str, True),
         'Functions': ([Function], True),
     }
 
 
 class GroupVersion(AWSProperty):
     props = {
-        'ConnectorDefinitionVersionArn': (basestring, False),
-        'CoreDefinitionVersionArn': (basestring, False),
-        'DeviceDefinitionVersionArn': (basestring, False),
-        'FunctionDefinitionVersionArn': (basestring, False),
-        'LoggerDefinitionVersionArn': (basestring, False),
-        'ResourceDefinitionVersionArn': (basestring, False),
-        'SubscriptionDefinitionVersionArn': (basestring, False),
+        'ConnectorDefinitionVersionArn': (str, False),
+        'CoreDefinitionVersionArn': (str, False),
+        'DeviceDefinitionVersionArn': (str, False),
+        'FunctionDefinitionVersionArn': (str, False),
+        'LoggerDefinitionVersionArn': (str, False),
+        'ResourceDefinitionVersionArn': (str, False),
+        'SubscriptionDefinitionVersionArn': (str, False),
     }
 
 
@@ -210,8 +210,8 @@ class Group(AWSObject):
 
     props = {
         'InitialVersion': (GroupVersion, False),
-        'Name': (basestring, True),
-        'RoleArn': (basestring, False),
+        'Name': (str, True),
+        'RoleArn': (str, False),
         'Tags': (dict, False),
     }
 
@@ -220,24 +220,24 @@ class GroupVersion(AWSObject):
     resource_type = "AWS::Greengrass::GroupVersion"
 
     props = {
-        'ConnectorDefinitionVersionArn': (basestring, False),
-        'CoreDefinitionVersionArn': (basestring, False),
-        'DeviceDefinitionVersionArn': (basestring, False),
-        'FunctionDefinitionVersionArn': (basestring, False),
-        'GroupId': (basestring, True),
-        'LoggerDefinitionVersionArn': (basestring, False),
-        'ResourceDefinitionVersionArn': (basestring, False),
-        'SubscriptionDefinitionVersionArn': (basestring, False),
+        'ConnectorDefinitionVersionArn': (str, False),
+        'CoreDefinitionVersionArn': (str, False),
+        'DeviceDefinitionVersionArn': (str, False),
+        'FunctionDefinitionVersionArn': (str, False),
+        'GroupId': (str, True),
+        'LoggerDefinitionVersionArn': (str, False),
+        'ResourceDefinitionVersionArn': (str, False),
+        'SubscriptionDefinitionVersionArn': (str, False),
     }
 
 
 class Logger(AWSProperty):
     props = {
-        'Component': (basestring, True),
-        'Id': (basestring, True),
-        'Level': (basestring, True),
+        'Component': (str, True),
+        'Id': (str, True),
+        'Level': (str, True),
         'Space': (integer, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
@@ -252,7 +252,7 @@ class LoggerDefinition(AWSObject):
 
     props = {
         'InitialVersion': (LoggerDefinitionVersion, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (dict, False),
     }
 
@@ -261,7 +261,7 @@ class LoggerDefinitionVersion(AWSObject):
     resource_type = "AWS::Greengrass::LoggerDefinitionVersion"
 
     props = {
-        'LoggerDefinitionId': (basestring, True),
+        'LoggerDefinitionId': (str, True),
         'Loggers': ([Logger], True),
     }
 
@@ -269,52 +269,52 @@ class LoggerDefinitionVersion(AWSObject):
 class GroupOwnerSetting(AWSProperty):
     props = {
         'AutoAddGroupOwner': (boolean, True),
-        'GroupOwner': (basestring, False),
+        'GroupOwner': (str, False),
     }
 
 
 class LocalDeviceResourceData(AWSProperty):
     props = {
         'GroupOwnerSetting': (GroupOwnerSetting, False),
-        'SourcePath': (basestring, True),
+        'SourcePath': (str, True),
     }
 
 
 class LocalVolumeResourceData(AWSProperty):
     props = {
-        'DestinationPath': (basestring, True),
+        'DestinationPath': (str, True),
         'GroupOwnerSetting': (GroupOwnerSetting, False),
-        'SourcePath': (basestring, True),
+        'SourcePath': (str, True),
     }
 
 
 class ResourceDownloadOwnerSetting(AWSProperty):
     props = {
-        'GroupOwner': (basestring, True),
-        'GroupPermission': (basestring, True),
+        'GroupOwner': (str, True),
+        'GroupPermission': (str, True),
     }
 
 
 class S3MachineLearningModelResourceData(AWSProperty):
     props = {
-        'DestinationPath': (basestring, True),
+        'DestinationPath': (str, True),
         'OwnerSetting': (ResourceDownloadOwnerSetting, False),
-        'S3Uri': (basestring, True),
+        'S3Uri': (str, True),
     }
 
 
 class SageMakerMachineLearningModelResourceData(AWSProperty):
     props = {
-        'DestinationPath': (basestring, True),
+        'DestinationPath': (str, True),
         'OwnerSetting': (ResourceDownloadOwnerSetting, False),
-        'SageMakerJobArn': (basestring, True),
+        'SageMakerJobArn': (str, True),
     }
 
 
 class SecretsManagerSecretResourceData(AWSProperty):
     props = {
-        'ARN': (basestring, True),
-        'AdditionalStagingLabelsToDownload': ([basestring], False),
+        'ARN': (str, True),
+        'AdditionalStagingLabelsToDownload': ([str], False),
     }
 
 
@@ -333,8 +333,8 @@ class ResourceDataContainer(AWSProperty):
 
 class ResourceInstance(AWSProperty):
     props = {
-        'Id': (basestring, True),
-        'Name': (basestring, True),
+        'Id': (str, True),
+        'Name': (str, True),
         'ResourceDataContainer': (ResourceDataContainer, True),
     }
 
@@ -350,7 +350,7 @@ class ResourceDefinition(AWSObject):
 
     props = {
         'InitialVersion': (ResourceDefinitionVersion, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (dict, False),
     }
 
@@ -359,17 +359,17 @@ class ResourceDefinitionVersion(AWSObject):
     resource_type = "AWS::Greengrass::ResourceDefinitionVersion"
 
     props = {
-        'ResourceDefinitionId': (basestring, True),
+        'ResourceDefinitionId': (str, True),
         'Resources': ([ResourceInstance], True),
     }
 
 
 class Subscription(AWSProperty):
     props = {
-        'Id': (basestring, True),
-        'Source': (basestring, True),
-        'Subject': (basestring, True),
-        'Target': (basestring, True),
+        'Id': (str, True),
+        'Source': (str, True),
+        'Subject': (str, True),
+        'Target': (str, True),
     }
 
 
@@ -384,7 +384,7 @@ class SubscriptionDefinition(AWSObject):
 
     props = {
         'InitialVersion': (SubscriptionDefinitionVersionProperty, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (dict, False),
     }
 
@@ -393,6 +393,6 @@ class SubscriptionDefinitionVersion(AWSObject):
     resource_type = "AWS::Greengrass::SubscriptionDefinitionVersion"
 
     props = {
-        'SubscriptionDefinitionId': (basestring, True),
+        'SubscriptionDefinitionId': (str, True),
         'Subscriptions': ([Subscription], True),
     }

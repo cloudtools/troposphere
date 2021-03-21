@@ -94,4 +94,4 @@ template.add_resource(
     )
 )
 
-print(template.to_json())
+print((template.to_json()))

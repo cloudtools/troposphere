@@ -16,18 +16,18 @@ class AnomalyMonitor(AWSObject):
     resource_type = "AWS::CE::AnomalyMonitor"
 
     props = {
-        'MonitorDimension': (basestring, False),
-        'MonitorName': (basestring, True),
-        'MonitorSpecification': (basestring, False),
-        'MonitorType': (basestring, True),
+        'MonitorDimension': (str, False),
+        'MonitorName': (str, True),
+        'MonitorSpecification': (str, False),
+        'MonitorType': (str, True),
     }
 
 
 class Subscriber(AWSProperty):
     props = {
-        'Address': (basestring, True),
-        'Status': (basestring, False),
-        'Type': (basestring, True),
+        'Address': (str, True),
+        'Status': (str, False),
+        'Type': (str, True),
     }
 
 
@@ -35,10 +35,10 @@ class AnomalySubscription(AWSObject):
     resource_type = "AWS::CE::AnomalySubscription"
 
     props = {
-        'Frequency': (basestring, True),
-        'MonitorArnList': ([basestring], True),
+        'Frequency': (str, True),
+        'MonitorArnList': ([str], True),
         'Subscribers': ([Subscriber], True),
-        'SubscriptionName': (basestring, True),
+        'SubscriptionName': (str, True),
         'Threshold': (double, True),
     }
 
@@ -47,7 +47,7 @@ class CostCategory(AWSObject):
     resource_type = "AWS::CE::CostCategory"
 
     props = {
-        'Name': (basestring, True),
-        'RuleVersion': (basestring, True),
-        'Rules': (basestring, True),
+        'Name': (str, True),
+        'RuleVersion': (str, True),
+        'Rules': (str, True),
     }

@@ -10,7 +10,7 @@ from .validators import backup_vault_name, double, exactly_one, json_checker
 class AdvancedBackupSettingResourceType(AWSProperty):
     props = {
         'BackupOptions': (dict, True),
-        'ResourceType': (basestring, True),
+        'ResourceType': (str, True),
     }
 
 
@@ -23,7 +23,7 @@ class LifecycleResourceType(AWSProperty):
 
 class CopyActionResourceType(AWSProperty):
     props = {
-        'DestinationBackupVaultArn': (basestring, True),
+        'DestinationBackupVaultArn': (str, True),
         'Lifecycle': (LifecycleResourceType, False),
     }
 
@@ -34,10 +34,10 @@ class BackupRuleResourceType(AWSProperty):
         'CopyActions': ([CopyActionResourceType], False),
         'Lifecycle': (LifecycleResourceType, False),
         'RecoveryPointTags': (dict, False),
-        'RuleName': (basestring, True),
-        'ScheduleExpression': (basestring, False),
+        'RuleName': (str, True),
+        'ScheduleExpression': (str, False),
         'StartWindowMinutes': (double, False),
-        'TargetBackupVault': (basestring, True),
+        'TargetBackupVault': (str, True),
     }
 
 
@@ -45,7 +45,7 @@ class BackupPlanResourceType(AWSProperty):
     props = {
         'AdvancedBackupSettings':
             ([AdvancedBackupSettingResourceType], False),
-        'BackupPlanName': (basestring, True),
+        'BackupPlanName': (str, True),
         'BackupPlanRule': ([BackupRuleResourceType], True),
     }
 
@@ -61,18 +61,18 @@ class BackupPlan(AWSObject):
 
 class ConditionResourceType(AWSProperty):
     props = {
-        'ConditionKey': (basestring, True),
-        'ConditionType': (basestring, True),
-        'ConditionValue': (basestring, True),
+        'ConditionKey': (str, True),
+        'ConditionType': (str, True),
+        'ConditionValue': (str, True),
     }
 
 
 class BackupSelectionResourceType(AWSProperty):
     props = {
-        'IamRoleArn': (basestring, True),
+        'IamRoleArn': (str, True),
         'ListOfTags': ([ConditionResourceType], False),
-        'Resources': ([basestring], False),
-        'SelectionName': (basestring, True),
+        'Resources': ([str], False),
+        'SelectionName': (str, True),
     }
 
     def validate(self):
@@ -97,15 +97,15 @@ class BackupSelection(AWSObject):
     resource_type = "AWS::Backup::BackupSelection"
 
     props = {
-        'BackupPlanId': (basestring, True),
+        'BackupPlanId': (str, True),
         'BackupSelection': (BackupSelectionResourceType, True),
     }
 
 
 class NotificationObjectType(AWSProperty):
     props = {
-        'BackupVaultEvents': ([basestring], True),
-        'SNSTopicArn': (basestring, True)
+        'BackupVaultEvents': ([str], True),
+        'SNSTopicArn': (str, True)
     }
 
 
@@ -116,6 +116,6 @@ class BackupVault(AWSObject):
         'AccessPolicy': (json_checker, False),
         'BackupVaultName': (backup_vault_name, True),
         'BackupVaultTags': (dict, False),
-        'EncryptionKeyArn': (basestring, False),
+        'EncryptionKeyArn': (str, False),
         'Notifications': (NotificationObjectType, False),
     }

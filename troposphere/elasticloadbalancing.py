@@ -10,8 +10,8 @@ from .validators import (
 
 class AppCookieStickinessPolicy(AWSProperty):
     props = {
-        'CookieName': (basestring, True),
-        'PolicyName': (basestring, True),
+        'CookieName': (str, True),
+        'PolicyName': (str, True),
     }
 
 
@@ -19,7 +19,7 @@ class HealthCheck(AWSProperty):
     props = {
         'HealthyThreshold': (integer_range(2, 10), True),
         'Interval': (positive_integer, True),
-        'Target': (basestring, True),
+        'Target': (str, True),
         'Timeout': (positive_integer, True),
         'UnhealthyThreshold': (integer_range(2, 10), True),
     }
@@ -27,19 +27,19 @@ class HealthCheck(AWSProperty):
 
 class LBCookieStickinessPolicy(AWSProperty):
     props = {
-        'CookieExpirationPeriod': (basestring, False),
-        'PolicyName': (basestring, False),
+        'CookieExpirationPeriod': (str, False),
+        'PolicyName': (str, False),
     }
 
 
 class Listener(AWSProperty):
     props = {
         'InstancePort': (network_port, True),
-        'InstanceProtocol': (basestring, False),
+        'InstanceProtocol': (str, False),
         'LoadBalancerPort': (network_port, True),
         'PolicyNames': (list, False),
-        'Protocol': (basestring, True),
-        'SSLCertificateId': (basestring, False),
+        'Protocol': (str, True),
+        'SSLCertificateId': (str, False),
     }
 
 
@@ -48,8 +48,8 @@ class Policy(AWSProperty):
         'Attributes': ([dict], False),
         'InstancePorts': (list, False),
         'LoadBalancerPorts': (list, False),
-        'PolicyName': (basestring, True),
-        'PolicyType': (basestring, True),
+        'PolicyName': (str, True),
+        'PolicyType': (str, True),
     }
 
 
@@ -70,8 +70,8 @@ class AccessLoggingPolicy(AWSProperty):
     props = {
         'EmitInterval': (integer, False),
         'Enabled': (bool, True),
-        'S3BucketName': (basestring, False),
-        'S3BucketPrefix': (basestring, False),
+        'S3BucketName': (str, False),
+        'S3BucketPrefix': (str, False),
     }
 
 
@@ -91,7 +91,7 @@ class LoadBalancer(AWSObject):
         'LoadBalancerName': (elb_name, False),
         'Listeners': (list, True),
         'Policies': (list, False),
-        'Scheme': (basestring, False),
+        'Scheme': (str, False),
         'SecurityGroups': (list, False),
         'Subnets': (list, False),
         'Tags': ((Tags, list), False),

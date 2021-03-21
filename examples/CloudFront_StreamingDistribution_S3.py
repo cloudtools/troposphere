@@ -45,4 +45,4 @@ t.add_output([
         Value=Join("", ["http://", GetAtt(myDistribution, "DomainName")])),
 ])
 
-print(t.to_json())
+print((t.to_json()))

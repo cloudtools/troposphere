@@ -4,16 +4,16 @@ from .validators import boolean, exactly_one, integer, positive_integer
 
 class Ec2ConfigurationObject(AWSProperty):
     props = {
-        'ImageIdOverride': (basestring, False),
-        'ImageType': (basestring, True),
+        'ImageIdOverride': (str, False),
+        'ImageType': (str, True),
     }
 
 
 class LaunchTemplateSpecification(AWSProperty):
     props = {
-        "LaunchTemplateId": (basestring, False),
-        "LaunchTemplateName": (basestring, False),
-        "Version": (basestring, False),
+        "LaunchTemplateId": (str, False),
+        "LaunchTemplateName": (str, False),
+        "Version": (str, False),
     }
 
     def validate(self):
@@ -48,34 +48,34 @@ class ComputeResources(AWSProperty):
         "BidPercentage": (positive_integer, False),
         "DesiredvCpus": (positive_integer, False),
         'Ec2Configuration': ([Ec2ConfigurationObject], False),
-        "Ec2KeyPair": (basestring, False),
-        "ImageId": (basestring, False),
-        "InstanceRole": (basestring, False),
-        "InstanceTypes": ([basestring], False),
+        "Ec2KeyPair": (str, False),
+        "ImageId": (str, False),
+        "InstanceRole": (str, False),
+        "InstanceTypes": ([str], False),
         "LaunchTemplate": (LaunchTemplateSpecification, False),
         "MaxvCpus": (positive_integer, True),
         "MinvCpus": (positive_integer, False),
-        "PlacementGroup": (basestring, False),
-        "SecurityGroupIds": ([basestring], False),
-        "SpotIamFleetRole": (basestring, False),
-        "Subnets": ([basestring], True),
+        "PlacementGroup": (str, False),
+        "SecurityGroupIds": ([str], False),
+        "SpotIamFleetRole": (str, False),
+        "Subnets": ([str], True),
         "Tags": (dict, False),
-        "Type": (basestring, True),
+        "Type": (str, True),
     }
 
 
 class Device(AWSProperty):
     props = {
-        'ContainerPath': (basestring, False),
-        'HostPath': (basestring, False),
-        'Permissions': ([basestring], False),
+        'ContainerPath': (str, False),
+        'HostPath': (str, False),
+        'Permissions': ([str], False),
     }
 
 
 class Tmpfs(AWSProperty):
     props = {
-        'ContainerPath': (basestring, True),
-        'MountOptions': ([basestring], False),
+        'ContainerPath': (str, True),
+        'MountOptions': ([str], False),
         'Size': (integer, True),
     }
 
@@ -93,14 +93,14 @@ class LinuxParameters(AWSProperty):
 
 class Secret(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'ValueFrom': (basestring, True),
+        'Name': (str, True),
+        'ValueFrom': (str, True),
     }
 
 
 class LogConfiguration(AWSProperty):
     props = {
-        'LogDriver': (basestring, True),
+        'LogDriver': (str, True),
         'Options': (dict, False),
         'SecretOptions': ([Secret], False),
     }
@@ -110,15 +110,15 @@ class MountPoints(AWSProperty):
 
     props = {
         "ReadOnly": (bool, False),
-        "SourceVolume": (basestring, False),
-        "ContainerPath": (basestring, False)
+        "SourceVolume": (str, False),
+        "ContainerPath": (str, False)
     }
 
 
 class VolumesHost(AWSProperty):
 
     props = {
-        "SourcePath": (basestring, False)
+        "SourcePath": (str, False)
     }
 
 
@@ -126,22 +126,22 @@ class Volumes(AWSProperty):
 
     props = {
         "Host": (VolumesHost, False),
-        "Name": (basestring, False)
+        "Name": (str, False)
     }
 
 
 class Environment(AWSProperty):
 
     props = {
-        "Value": (basestring, False),
-        "Name": (basestring, False)
+        "Value": (str, False),
+        "Name": (str, False)
     }
 
 
 class ResourceRequirement(AWSProperty):
     props = {
-        'Type': (basestring, False),
-        'Value': (basestring, False),
+        'Type': (str, False),
+        'Value': (str, False),
     }
 
 
@@ -150,19 +150,19 @@ class Ulimit(AWSProperty):
     props = {
         "SoftLimit": (positive_integer, True),
         "HardLimit": (positive_integer, True),
-        "Name": (basestring, True)
+        "Name": (str, True)
     }
 
 
 class ContainerProperties(AWSProperty):
 
     props = {
-        'Command': ([basestring], False),
+        'Command': ([str], False),
         'Environment': ([Environment], False),
-        'ExecutionRoleArn': (basestring, False),
-        'Image': (basestring, True),
-        'InstanceType': (basestring, False),
-        'JobRoleArn': (basestring, False),
+        'ExecutionRoleArn': (str, False),
+        'Image': (str, True),
+        'InstanceType': (str, False),
+        'JobRoleArn': (str, False),
         'LinuxParameters': (LinuxParameters, False),
         'LogConfiguration': (LogConfiguration, False),
         'Memory': (positive_integer, True),
@@ -172,7 +172,7 @@ class ContainerProperties(AWSProperty):
         'ResourceRequirements': ([ResourceRequirement], False),
         'Secrets': ([Secret], False),
         'Ulimits': ([Ulimit], False),
-        'User': (basestring, False),
+        'User': (str, False),
         'Vcpus': (positive_integer, True),
         'Volumes': ([Volumes], False),
     }
@@ -181,7 +181,7 @@ class ContainerProperties(AWSProperty):
 class NodeRangeProperty(AWSProperty):
     props = {
         'Container': (ContainerProperties, False),
-        'TargetNodes': (basestring, True),
+        'TargetNodes': (str, True),
     }
 
 
@@ -195,10 +195,10 @@ class NodeProperties(AWSProperty):
 
 class EvaluateOnExit(AWSProperty):
     props = {
-        'Action': (basestring, True),
-        'OnExitCode': (basestring, False),
-        'OnReason': (basestring, False),
-        'OnStatusReason': (basestring, False),
+        'Action': (str, True),
+        'OnExitCode': (str, False),
+        'OnReason': (str, False),
+        'OnStatusReason': (str, False),
     }
 
 
@@ -221,15 +221,15 @@ class JobDefinition(AWSObject):
 
     props = {
         'ContainerProperties': (ContainerProperties, False),
-        'JobDefinitionName': (basestring, False),
+        'JobDefinitionName': (str, False),
         'NodeProperties': (NodeProperties, False),
         'Parameters': (dict, False),
-        'PlatformCapabilities': ([basestring], False),
+        'PlatformCapabilities': ([str], False),
         'PropagateTags': (boolean, False),
         'RetryStrategy': (RetryStrategy, False),
         'Tags': (dict, False),
         'Timeout': (Timeout, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
@@ -253,9 +253,9 @@ class ComputeEnvironment(AWSObject):
     resource_type = "AWS::Batch::ComputeEnvironment"
 
     props = {
-        "Type": (basestring, True),
-        "ServiceRole": (basestring, True),
-        "ComputeEnvironmentName": (basestring, False),
+        "Type": (str, True),
+        "ServiceRole": (str, True),
+        "ComputeEnvironmentName": (str, False),
         "ComputeResources": (ComputeResources, True),
         "State": (validate_environment_state, False),
         "Tags": (dict, False),
@@ -265,7 +265,7 @@ class ComputeEnvironment(AWSObject):
 class ComputeEnvironmentOrder(AWSProperty):
 
     props = {
-        "ComputeEnvironment": (basestring, True),
+        "ComputeEnvironment": (str, True),
         "Order": (positive_integer, True)
     }
 
@@ -293,6 +293,6 @@ class JobQueue(AWSObject):
         "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], True),
         "Priority": (positive_integer, True),
         "State": (validate_queue_state, False),
-        "JobQueueName": (basestring, False),
+        "JobQueueName": (str, False),
         "Tags": (dict, False),
     }

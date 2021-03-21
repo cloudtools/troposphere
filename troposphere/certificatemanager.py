@@ -29,9 +29,9 @@ class Account(AWSObject):
 
 class DomainValidationOption(AWSProperty):
     props = {
-        'DomainName': (basestring, True),
-        'HostedZoneId': (basestring, False),
-        'ValidationDomain': (basestring, False),
+        'DomainName': (str, True),
+        'HostedZoneId': (str, False),
+        'ValidationDomain': (str, False),
     }
 
 
@@ -39,11 +39,11 @@ class Certificate(AWSObject):
     resource_type = "AWS::CertificateManager::Certificate"
 
     props = {
-        'CertificateAuthorityArn': (basestring, False),
-        'CertificateTransparencyLoggingPreference': (basestring, False),
-        'DomainName': (basestring, True),
+        'CertificateAuthorityArn': (str, False),
+        'CertificateTransparencyLoggingPreference': (str, False),
+        'DomainName': (str, True),
         'DomainValidationOptions': ([DomainValidationOption], False),
-        'SubjectAlternativeNames': ([basestring], False),
+        'SubjectAlternativeNames': ([str], False),
         'Tags': ((Tags, list), False),
-        'ValidationMethod': (basestring, False),
+        'ValidationMethod': (str, False),
     }

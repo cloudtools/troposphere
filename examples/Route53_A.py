@@ -53,4 +53,4 @@ myDNSRecord = t.add_resource(RecordSetType(
 
 t.add_output(Output("DomainName", Value=Ref(myDNSRecord)))
 
-print(t.to_json())
+print((t.to_json()))

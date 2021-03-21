@@ -10,8 +10,8 @@ from .validators import boolean
 
 class Subscription(AWSProperty):
     props = {
-        'Endpoint': (basestring, True),
-        'Protocol': (basestring, True),
+        'Endpoint': (str, True),
+        'Protocol': (str, True),
     }
 
 
@@ -20,13 +20,13 @@ class SubscriptionResource(AWSObject):
 
     props = {
         'DeliveryPolicy': (dict, False),
-        'Endpoint': (basestring, False),
+        'Endpoint': (str, False),
         'FilterPolicy': (dict, False),
-        'Protocol': (basestring, True),
+        'Protocol': (str, True),
         'RawMessageDelivery': (boolean, False),
         'RedrivePolicy': (dict, False),
-        'Region': (basestring, False),
-        'TopicArn': (basestring, True),
+        'Region': (str, False),
+        'TopicArn': (str, True),
     }
 
 
@@ -44,10 +44,10 @@ class Topic(AWSObject):
 
     props = {
         'ContentBasedDeduplication': (boolean, False),
-        'DisplayName': (basestring, False),
+        'DisplayName': (str, False),
         'FifoTopic': (boolean, False),
-        'KmsMasterKeyId': (basestring, False),
+        'KmsMasterKeyId': (str, False),
         'Subscription': ([Subscription], False),
         'Tags': (Tags, False),
-        'TopicName': (basestring, False),
+        'TopicName': (str, False),
     }

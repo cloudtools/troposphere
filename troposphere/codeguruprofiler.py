@@ -14,8 +14,8 @@ from troposphere import Tags
 
 class Channel(AWSProperty):
     props = {
-        'channelId': (basestring, False),
-        'channelUri': (basestring, True),
+        'channelId': (str, False),
+        'channelUri': (str, True),
     }
 
 
@@ -25,7 +25,7 @@ class ProfilingGroup(AWSObject):
     props = {
         'AgentPermissions': (dict, False),
         'AnomalyDetectionNotificationConfiguration': ([Channel], False),
-        'ComputePlatform': (basestring, False),
-        'ProfilingGroupName': (basestring, True),
+        'ComputePlatform': (str, False),
+        'ProfilingGroupName': (str, True),
         'Tags': (Tags, False),
     }

@@ -118,4 +118,4 @@ t.add_output([
     Output('ExampleJobQueue', Value=Ref(ExampleJobQueue))
 ])
 
-print(t.to_json())
+print((t.to_json()))

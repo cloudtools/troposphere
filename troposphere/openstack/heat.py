@@ -41,13 +41,13 @@ class AWSAutoScalingGroup(AWSObject):
     props = {
         'AvailabilityZones': (list, True),
         'Cooldown': (integer, False),
-        'DesiredCapacity': (basestring, False),
+        'DesiredCapacity': (str, False),
         'HealthCheckGracePeriod': (integer, False),
-        'HealthCheckType': (basestring, False),
-        'LaunchConfigurationName': (basestring, True),
+        'HealthCheckType': (str, False),
+        'LaunchConfigurationName': (str, True),
         'LoadBalancerNames': (list, False),
-        'MaxSize': (basestring, True),
-        'MinSize': (basestring, True),
+        'MaxSize': (str, True),
+        'MinSize': (str, True),
         'Tags': (list, False),
         'VPCZoneIdentifier': (list, False),
     }

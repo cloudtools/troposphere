@@ -39,4 +39,4 @@ t.add_output([
     ),
 ])
 
-print(t.to_json())
+print((t.to_json()))

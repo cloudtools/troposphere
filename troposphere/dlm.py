@@ -49,33 +49,33 @@ class CreateRule(AWSProperty):
     props = {
         'Interval': (validate_interval, True),
         'IntervalUnit': (validate_interval_unit, True),
-        'Times': ([basestring], False),
+        'Times': ([str], False),
     }
 
 
 class CrossRegionCopyRetainRule(AWSProperty):
     props = {
         'Interval': (integer, True),
-        'IntervalUnit': (basestring, True),
+        'IntervalUnit': (str, True),
     }
 
 
 class CrossRegionCopyRule(AWSProperty):
     props = {
-        'CmkArn': (basestring, False),
+        'CmkArn': (str, False),
         'CopyTags': (boolean, False),
         'Encrypted': (boolean, True),
         'RetainRule': (CrossRegionCopyRetainRule, False),
-        'TargetRegion': (basestring, True),
+        'TargetRegion': (str, True),
     }
 
 
 class FastRestoreRule(AWSProperty):
     props = {
-        'AvailabilityZones': ([basestring], False),
+        'AvailabilityZones': ([str], False),
         'Count': (integer, False),
         'Interval': (integer, False),
-        'IntervalUnit': (basestring, False),
+        'IntervalUnit': (str, False),
     }
 
 
@@ -91,7 +91,7 @@ class Schedule(AWSProperty):
         'CreateRule': (CreateRule, False),
         'CrossRegionCopyRules': ([CrossRegionCopyRule], False),
         'FastRestoreRule': (FastRestoreRule, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'RetainRule': (RetainRule, False),
         'TagsToAdd': ((Tags, list), False),
     }
@@ -100,8 +100,8 @@ class Schedule(AWSProperty):
 class PolicyDetails(AWSProperty):
     props = {
         'Parameters': (Parameters, False),
-        'PolicyType': (basestring, False),
-        'ResourceTypes': ([basestring], False),
+        'PolicyType': (str, False),
+        'ResourceTypes': ([str], False),
         'Schedules': ([Schedule], False),
         'TargetTags': ((Tags, list), False),
     }
@@ -111,8 +111,8 @@ class LifecyclePolicy(AWSObject):
     resource_type = "AWS::DLM::LifecyclePolicy"
 
     props = {
-        'Description': (basestring, False),
-        'ExecutionRoleArn': (basestring, False),
+        'Description': (str, False),
+        'ExecutionRoleArn': (str, False),
         'PolicyDetails': (PolicyDetails, False),
         'State': (validate_state, False),
     }

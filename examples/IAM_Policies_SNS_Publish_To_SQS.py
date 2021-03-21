@@ -48,4 +48,4 @@ t.add_resource(QueuePolicy(
     }
 ))
 
-print(t.to_json())
+print((t.to_json()))

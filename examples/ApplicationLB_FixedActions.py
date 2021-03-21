@@ -158,7 +158,7 @@ def main():
         ]
     )
 
-    print(template.to_json())
+    print((template.to_json()))
 
 
 if __name__ == '__main__':

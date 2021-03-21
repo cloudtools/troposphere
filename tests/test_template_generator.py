@@ -7,7 +7,7 @@ from troposphere.template_generator import\
     TemplateGenerator, ResourceTypeNotDefined, ResourceTypeNotFound
 
 try:
-    u = unicode
+    u = str
 except NameError:
     u = str
 
@@ -92,7 +92,7 @@ class TestTemplateGenerator(unittest.TestCase):
         self.assertDictEqual(template.to_dict(), generated.to_dict())
         foo = generated.resources["foo"]
         self.assertTrue(isinstance(foo, MyMacroResource))
-        self.assertEquals("bar", foo.Foo)
+        self.assertEqual("bar", foo.Foo)
 
     def test_no_nested_name(self):
         """
@@ -123,8 +123,8 @@ class MyCustomResource(AWSObject):
     resource_type = "Custom::Resource"
 
     props = {
-        'Foo': (basestring, True),
-        'ServiceToken': (basestring, True),
+        'Foo': (str, True),
+        'ServiceToken': (str, True),
     }
 
 
@@ -132,7 +132,7 @@ class MyMacroResource(AWSObject):
     resource_type = "Some::Special::Resource"
 
     props = {
-        'Foo': (basestring, True),
+        'Foo': (str, True),
     }
 
 

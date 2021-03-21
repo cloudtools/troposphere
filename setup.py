@@ -11,8 +11,8 @@ Install troposphere in the current python environment.
 
 
 # ---- Future
-from __future__ import print_function
-from __future__ import with_statement
+
+
 
 # ---- System
 import os

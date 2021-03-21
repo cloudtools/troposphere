@@ -17,31 +17,31 @@ from .validators import integer
 class ComponentPlatform(AWSProperty):
     props = {
         'Attributes': (dict, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
     }
 
 
 class LambdaEventSource(AWSProperty):
     props = {
-        'Topic': (basestring, False),
-        'Type': (basestring, False),
+        'Topic': (str, False),
+        'Type': (str, False),
     }
 
 
 class LambdaDeviceMount(AWSProperty):
     props = {
         'AddGroupOwner': (boolean, False),
-        'Path': (basestring, False),
-        'Permission': (basestring, False),
+        'Path': (str, False),
+        'Permission': (str, False),
     }
 
 
 class LambdaVolumeMount(AWSProperty):
     props = {
         'AddGroupOwner': (boolean, False),
-        'DestinationPath': (basestring, False),
-        'Permission': (basestring, False),
-        'SourcePath': (basestring, False),
+        'DestinationPath': (str, False),
+        'Permission': (str, False),
+        'SourcePath': (str, False),
     }
 
 
@@ -57,7 +57,7 @@ class LambdaContainerParams(AWSProperty):
 class LambdaLinuxProcessParams(AWSProperty):
     props = {
         'ContainerParams': (LambdaContainerParams, False),
-        'IsolationMode': (basestring, False),
+        'IsolationMode': (str, False),
     }
 
 
@@ -65,8 +65,8 @@ class LambdaExecutionParameters(AWSProperty):
     props = {
         'EnvironmentVariables': (dict, False),
         'EventSources': ([LambdaEventSource], False),
-        'ExecArgs': ([basestring], False),
-        'InputPayloadEncodingType': (basestring, False),
+        'ExecArgs': ([str], False),
+        'InputPayloadEncodingType': (str, False),
         'LinuxProcessParams': (LambdaLinuxProcessParams, False),
         'MaxIdleTimeInSeconds': (integer, False),
         'MaxInstancesCount': (integer, False),
@@ -81,10 +81,10 @@ class LambdaFunctionRecipeSource(AWSProperty):
     props = {
         'ComponentDependencies': (dict, False),
         'ComponentLambdaParameters': (LambdaExecutionParameters, False),
-        'ComponentName': (basestring, False),
+        'ComponentName': (str, False),
         'ComponentPlatforms': ([ComponentPlatform], False),
-        'ComponentVersion': (basestring, False),
-        'LambdaArn': (basestring, False),
+        'ComponentVersion': (str, False),
+        'LambdaArn': (str, False),
     }
 
 
@@ -92,7 +92,7 @@ class ComponentVersion(AWSObject):
     resource_type = "AWS::GreengrassV2::ComponentVersion"
 
     props = {
-        'InlineRecipe': (basestring, False),
+        'InlineRecipe': (str, False),
         'LambdaFunction': (LambdaFunctionRecipeSource, False),
         'Tags': (Tags, False),
     }

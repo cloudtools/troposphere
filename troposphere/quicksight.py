@@ -16,21 +16,21 @@ from .validators import double
 
 class AnalysisError(AWSProperty):
     props = {
-        'Message': (basestring, False),
-        'Type': (basestring, False),
+        'Message': (str, False),
+        'Type': (str, False),
     }
 
 
 class DataSetReference(AWSProperty):
     props = {
-        'DataSetArn': (basestring, True),
-        'DataSetPlaceholder': (basestring, True),
+        'DataSetArn': (str, True),
+        'DataSetPlaceholder': (str, True),
     }
 
 
 class AnalysisSourceTemplate(AWSProperty):
     props = {
-        'Arn': (basestring, True),
+        'Arn': (str, True),
         'DataSetReferences': ([DataSetReference], True),
     }
 
@@ -43,29 +43,29 @@ class AnalysisSourceEntity(AWSProperty):
 
 class DateTimeParameter(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Values': ([basestring], True),
+        'Name': (str, True),
+        'Values': ([str], True),
     }
 
 
 class DecimalParameter(AWSProperty):
     props = {
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Values': ([double], True),
     }
 
 
 class IntegerParameter(AWSProperty):
     props = {
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Values': ([double], True),
     }
 
 
 class StringParameter(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Values': ([basestring], True),
+        'Name': (str, True),
+        'Values': ([str], True),
     }
 
 
@@ -80,8 +80,8 @@ class Parameters(AWSProperty):
 
 class ResourcePermission(AWSProperty):
     props = {
-        'Actions': ([basestring], True),
-        'Principal': (basestring, True),
+        'Actions': ([str], True),
+        'Principal': (str, True),
     }
 
 
@@ -89,33 +89,33 @@ class Analysis(AWSObject):
     resource_type = "AWS::QuickSight::Analysis"
 
     props = {
-        'AnalysisId': (basestring, True),
-        'AwsAccountId': (basestring, True),
+        'AnalysisId': (str, True),
+        'AwsAccountId': (str, True),
         'Errors': ([AnalysisError], False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Parameters': (Parameters, False),
         'Permissions': ([ResourcePermission], False),
         'SourceEntity': (AnalysisSourceEntity, False),
         'Tags': (Tags, False),
-        'ThemeArn': (basestring, False),
+        'ThemeArn': (str, False),
     }
 
 
 class AdHocFilteringOption(AWSProperty):
     props = {
-        'AvailabilityStatus': (basestring, False),
+        'AvailabilityStatus': (str, False),
     }
 
 
 class ExportToCSVOption(AWSProperty):
     props = {
-        'AvailabilityStatus': (basestring, False),
+        'AvailabilityStatus': (str, False),
     }
 
 
 class SheetControlsOption(AWSProperty):
     props = {
-        'VisibilityState': (basestring, False),
+        'VisibilityState': (str, False),
     }
 
 
@@ -129,7 +129,7 @@ class DashboardPublishOptions(AWSProperty):
 
 class DashboardSourceTemplate(AWSProperty):
     props = {
-        'Arn': (basestring, True),
+        'Arn': (str, True),
         'DataSetReferences': ([DataSetReference], True),
     }
 
@@ -144,29 +144,29 @@ class Dashboard(AWSObject):
     resource_type = "AWS::QuickSight::Dashboard"
 
     props = {
-        'AwsAccountId': (basestring, True),
-        'DashboardId': (basestring, True),
+        'AwsAccountId': (str, True),
+        'DashboardId': (str, True),
         'DashboardPublishOptions': (DashboardPublishOptions, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Parameters': (Parameters, False),
         'Permissions': ([ResourcePermission], False),
         'SourceEntity': (DashboardSourceEntity, False),
         'Tags': (Tags, False),
-        'ThemeArn': (basestring, False),
-        'VersionDescription': (basestring, False),
+        'ThemeArn': (str, False),
+        'VersionDescription': (str, False),
     }
 
 
 class TemplateSourceAnalysis(AWSProperty):
     props = {
-        'Arn': (basestring, True),
+        'Arn': (str, True),
         'DataSetReferences': ([DataSetReference], True),
     }
 
 
 class TemplateSourceTemplate(AWSProperty):
     props = {
-        'Arn': (basestring, True),
+        'Arn': (str, True),
     }
 
 
@@ -181,21 +181,21 @@ class Template(AWSObject):
     resource_type = "AWS::QuickSight::Template"
 
     props = {
-        'AwsAccountId': (basestring, True),
-        'Name': (basestring, False),
+        'AwsAccountId': (str, True),
+        'Name': (str, False),
         'Permissions': ([ResourcePermission], False),
         'SourceEntity': (TemplateSourceEntity, False),
         'Tags': (Tags, False),
-        'TemplateId': (basestring, True),
-        'VersionDescription': (basestring, False),
+        'TemplateId': (str, True),
+        'VersionDescription': (str, False),
     }
 
 
 class DataColorPalette(AWSProperty):
     props = {
-        'Colors': ([basestring], False),
-        'EmptyFillColor': (basestring, False),
-        'MinMaxGradient': ([basestring], False),
+        'Colors': ([str], False),
+        'EmptyFillColor': (str, False),
+        'MinMaxGradient': ([str], False),
     }
 
 
@@ -239,7 +239,7 @@ class SheetStyle(AWSProperty):
 
 class Font(AWSProperty):
     props = {
-        'FontFamily': (basestring, False),
+        'FontFamily': (str, False),
     }
 
 
@@ -251,22 +251,22 @@ class Typography(AWSProperty):
 
 class UIColorPalette(AWSProperty):
     props = {
-        'Accent': (basestring, False),
-        'AccentForeground': (basestring, False),
-        'Danger': (basestring, False),
-        'DangerForeground': (basestring, False),
-        'Dimension': (basestring, False),
-        'DimensionForeground': (basestring, False),
-        'Measure': (basestring, False),
-        'MeasureForeground': (basestring, False),
-        'PrimaryBackground': (basestring, False),
-        'PrimaryForeground': (basestring, False),
-        'SecondaryBackground': (basestring, False),
-        'SecondaryForeground': (basestring, False),
-        'Success': (basestring, False),
-        'SuccessForeground': (basestring, False),
-        'Warning': (basestring, False),
-        'WarningForeground': (basestring, False),
+        'Accent': (str, False),
+        'AccentForeground': (str, False),
+        'Danger': (str, False),
+        'DangerForeground': (str, False),
+        'Dimension': (str, False),
+        'DimensionForeground': (str, False),
+        'Measure': (str, False),
+        'MeasureForeground': (str, False),
+        'PrimaryBackground': (str, False),
+        'PrimaryForeground': (str, False),
+        'SecondaryBackground': (str, False),
+        'SecondaryForeground': (str, False),
+        'Success': (str, False),
+        'SuccessForeground': (str, False),
+        'Warning': (str, False),
+        'WarningForeground': (str, False),
     }
 
 
@@ -283,12 +283,12 @@ class Theme(AWSObject):
     resource_type = "AWS::QuickSight::Theme"
 
     props = {
-        'AwsAccountId': (basestring, True),
-        'BaseThemeId': (basestring, False),
+        'AwsAccountId': (str, True),
+        'BaseThemeId': (str, False),
         'Configuration': (ThemeConfiguration, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Permissions': ([ResourcePermission], False),
         'Tags': (Tags, False),
-        'ThemeId': (basestring, True),
-        'VersionDescription': (basestring, False),
+        'ThemeId': (str, True),
+        'VersionDescription': (str, False),
     }

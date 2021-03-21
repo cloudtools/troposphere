@@ -17,12 +17,12 @@ class Grant(AWSObject):
     resource_type = "AWS::LicenseManager::Grant"
 
     props = {
-        'AllowedOperations': ([basestring], False),
-        'GrantName': (basestring, False),
-        'HomeRegion': (basestring, False),
-        'LicenseArn': (basestring, False),
-        'Principals': ([basestring], False),
-        'Status': (basestring, False),
+        'AllowedOperations': ([str], False),
+        'GrantName': (str, False),
+        'HomeRegion': (str, False),
+        'LicenseArn': (str, False),
+        'Principals': ([str], False),
+        'Status': (str, False),
     }
 
 
@@ -43,7 +43,7 @@ class ConsumptionConfiguration(AWSProperty):
     props = {
         'BorrowConfiguration': (BorrowConfiguration, False),
         'ProvisionalConfiguration': (ProvisionalConfiguration, False),
-        'RenewType': (basestring, False),
+        'RenewType': (str, False),
     }
 
 
@@ -51,31 +51,31 @@ class Entitlement(AWSProperty):
     props = {
         'AllowCheckIn': (boolean, False),
         'MaxCount': (integer, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Overage': (boolean, False),
-        'Unit': (basestring, True),
-        'Value': (basestring, False),
+        'Unit': (str, True),
+        'Value': (str, False),
     }
 
 
 class IssuerData(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'SignKey': (basestring, False),
+        'Name': (str, True),
+        'SignKey': (str, False),
     }
 
 
 class Metadata(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Value': (basestring, True),
+        'Name': (str, True),
+        'Value': (str, True),
     }
 
 
 class ValidityDateFormat(AWSProperty):
     props = {
-        'Begin': (basestring, True),
-        'End': (basestring, True),
+        'Begin': (str, True),
+        'End': (str, True),
     }
 
 
@@ -83,15 +83,15 @@ class License(AWSObject):
     resource_type = "AWS::LicenseManager::License"
 
     props = {
-        'Beneficiary': (basestring, False),
+        'Beneficiary': (str, False),
         'ConsumptionConfiguration': (ConsumptionConfiguration, True),
         'Entitlements': ([Entitlement], True),
-        'HomeRegion': (basestring, True),
+        'HomeRegion': (str, True),
         'Issuer': (IssuerData, True),
         'LicenseMetadata': ([Metadata], False),
-        'LicenseName': (basestring, True),
-        'ProductName': (basestring, True),
-        'ProductSKU': (basestring, False),
-        'Status': (basestring, False),
+        'LicenseName': (str, True),
+        'ProductName': (str, True),
+        'ProductSKU': (str, False),
+        'Status': (str, False),
         'Validity': (ValidityDateFormat, True),
     }

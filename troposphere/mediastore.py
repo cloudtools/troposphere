@@ -12,18 +12,18 @@ from .validators import integer, containerlevelmetrics_status
 
 class CorsRule(AWSProperty):
     props = {
-        'AllowedHeaders': ([basestring], False),
-        'AllowedMethods': ([basestring], False),
-        'AllowedOrigins': ([basestring], False),
-        'ExposeHeaders': ([basestring], False),
+        'AllowedHeaders': ([str], False),
+        'AllowedMethods': ([str], False),
+        'AllowedOrigins': ([str], False),
+        'ExposeHeaders': ([str], False),
         'MaxAgeSeconds': (integer, False),
     }
 
 
 class MetricPolicyRule(AWSProperty):
     props = {
-        'ObjectGroup': (basestring, True),
-        'ObjectGroupName': (basestring, True),
+        'ObjectGroup': (str, True),
+        'ObjectGroupName': (str, True),
     }
 
 
@@ -39,10 +39,10 @@ class Container(AWSObject):
 
     props = {
         'AccessLoggingEnabled': (boolean, False),
-        'ContainerName': (basestring, True),
+        'ContainerName': (str, True),
         'CorsPolicy': ([CorsRule], False),
-        'LifecyclePolicy': (basestring, False),
+        'LifecyclePolicy': (str, False),
         'MetricPolicy': (MetricPolicy, False),
-        'Policy': (basestring, False),
+        'Policy': (str, False),
         'Tags': (Tags, False),
     }

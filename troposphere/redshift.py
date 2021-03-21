@@ -9,8 +9,8 @@ from .validators import boolean, integer
 
 class LoggingProperties(AWSProperty):
     props = {
-        'BucketName': (basestring, True),
-        'S3KeyPrefix': (basestring, False),
+        'BucketName': (str, True),
+        'S3KeyPrefix': (str, False),
     }
 
 
@@ -20,31 +20,31 @@ class Cluster(AWSObject):
     props = {
         'AllowVersionUpgrade': (boolean, False),
         'AutomatedSnapshotRetentionPeriod': (integer, False),
-        'AvailabilityZone': (basestring, False),
-        'ClusterIdentifier': (basestring, False),
-        'ClusterParameterGroupName': (basestring, False),
+        'AvailabilityZone': (str, False),
+        'ClusterIdentifier': (str, False),
+        'ClusterParameterGroupName': (str, False),
         'ClusterSecurityGroups': (list, False),
-        'ClusterSubnetGroupName': (basestring, False),
-        'ClusterType': (basestring, True),
-        'ClusterVersion': (basestring, False),
-        'DBName': (basestring, True),
-        'ElasticIp': (basestring, False),
+        'ClusterSubnetGroupName': (str, False),
+        'ClusterType': (str, True),
+        'ClusterVersion': (str, False),
+        'DBName': (str, True),
+        'ElasticIp': (str, False),
         'Encrypted': (boolean, False),
-        'HsmClientCertificateIdentifier': (basestring, False),
-        'HsmConfigurationIdentifier': (basestring, False),
-        'IamRoles': ([basestring], False),
-        'KmsKeyId': (basestring, False),
+        'HsmClientCertificateIdentifier': (str, False),
+        'HsmConfigurationIdentifier': (str, False),
+        'IamRoles': ([str], False),
+        'KmsKeyId': (str, False),
         'LoggingProperties': (LoggingProperties, False),
-        'MasterUsername': (basestring, True),
-        'MasterUserPassword': (basestring, True),
-        'NodeType': (basestring, True),
+        'MasterUsername': (str, True),
+        'MasterUserPassword': (str, True),
+        'NodeType': (str, True),
         'NumberOfNodes': (integer, False),  # Conditional
-        'OwnerAccount': (basestring, False),
+        'OwnerAccount': (str, False),
         'Port': (integer, False),
-        'PreferredMaintenanceWindow': (basestring, False),
+        'PreferredMaintenanceWindow': (str, False),
         'PubliclyAccessible': (boolean, False),
-        'SnapshotClusterIdentifier': (basestring, False),
-        'SnapshotIdentifier': (basestring, False),
+        'SnapshotClusterIdentifier': (str, False),
+        'SnapshotIdentifier': (str, False),
         'Tags': (Tags, False),
         'VpcSecurityGroupIds': (list, False),
     }
@@ -52,8 +52,8 @@ class Cluster(AWSObject):
 
 class AmazonRedshiftParameter(AWSProperty):
     props = {
-        'ParameterName': (basestring, True),
-        'ParameterValue': (basestring, True),
+        'ParameterName': (str, True),
+        'ParameterValue': (str, True),
     }
 
 
@@ -61,8 +61,8 @@ class ClusterParameterGroup(AWSObject):
     resource_type = "AWS::Redshift::ClusterParameterGroup"
 
     props = {
-        'Description': (basestring, True),
-        'ParameterGroupFamily': (basestring, True),
+        'Description': (str, True),
+        'ParameterGroupFamily': (str, True),
         'Parameters': ([AmazonRedshiftParameter], False),
         'Tags': (Tags, False),
     }
@@ -72,7 +72,7 @@ class ClusterSecurityGroup(AWSObject):
     resource_type = "AWS::Redshift::ClusterSecurityGroup"
 
     props = {
-        'Description': (basestring, True),
+        'Description': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -81,10 +81,10 @@ class ClusterSecurityGroupIngress(AWSObject):
     resource_type = "AWS::Redshift::ClusterSecurityGroupIngress"
 
     props = {
-        'ClusterSecurityGroupName': (basestring, True),
-        'CIDRIP': (basestring, False),
-        'EC2SecurityGroupName': (basestring, False),
-        'EC2SecurityGroupOwnerId': (basestring, False),
+        'ClusterSecurityGroupName': (str, True),
+        'CIDRIP': (str, False),
+        'EC2SecurityGroupName': (str, False),
+        'EC2SecurityGroupOwnerId': (str, False),
     }
 
 
@@ -92,7 +92,7 @@ class ClusterSubnetGroup(AWSObject):
     resource_type = "AWS::Redshift::ClusterSubnetGroup"
 
     props = {
-        'Description': (basestring, True),
+        'Description': (str, True),
         'SubnetIds': (list, True),
         'Tags': (Tags, False),
     }

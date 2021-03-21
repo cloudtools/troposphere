@@ -6,8 +6,8 @@ class CustomPlacementGroup(AWSCustomObject):
     resource_type = "Custom::PlacementGroup"
 
     props = {
-        'ServiceToken': (basestring, True),
-        'PlacementGroupName': (basestring, True)
+        'ServiceToken': (str, True),
+        'PlacementGroupName': (str, True)
     }
 
 
@@ -28,4 +28,4 @@ placementgroup_a = t.add_resource(CustomPlacementGroup(
     PlacementGroupName="ExampleClusterGroup",
 ))
 
-print(t.to_json())
+print((t.to_json()))

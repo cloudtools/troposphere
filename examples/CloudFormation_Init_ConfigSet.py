@@ -94,4 +94,4 @@ t.add_output(Output(
     Value=GetAtt(ec2_instance, 'PublicIp')
 ))
 
-print(t.to_json())
+print((t.to_json()))

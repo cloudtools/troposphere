@@ -46,4 +46,4 @@ service = t.add_resource(Service(
     )
 ))
 
-print(t.to_json())
+print((t.to_json()))

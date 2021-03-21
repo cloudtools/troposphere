@@ -15,7 +15,7 @@ from .validators import integer
 
 class VpcConfiguration(AWSProperty):
     props = {
-        'VpcId': (basestring, False),
+        'VpcId': (str, False),
     }
 
 
@@ -23,8 +23,8 @@ class AccessPoint(AWSObject):
     resource_type = "AWS::S3Outposts::AccessPoint"
 
     props = {
-        'Bucket': (basestring, True),
-        'Name': (basestring, True),
+        'Bucket': (str, True),
+        'Name': (str, True),
         'Policy': (dict, False),
         'VpcConfiguration': (VpcConfiguration, True),
     }
@@ -40,11 +40,11 @@ class Rule(AWSProperty):
     props = {
         'AbortIncompleteMultipartUpload':
             (AbortIncompleteMultipartUpload, False),
-        'ExpirationDate': (basestring, False),
+        'ExpirationDate': (str, False),
         'ExpirationInDays': (integer, False),
         'Filter': (dict, False),
-        'Id': (basestring, False),
-        'Status': (basestring, False),
+        'Id': (str, False),
+        'Status': (str, False),
     }
 
 
@@ -58,9 +58,9 @@ class Bucket(AWSObject):
     resource_type = "AWS::S3Outposts::Bucket"
 
     props = {
-        'BucketName': (basestring, True),
+        'BucketName': (str, True),
         'LifecycleConfiguration': (LifecycleConfiguration, False),
-        'OutpostId': (basestring, True),
+        'OutpostId': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -69,7 +69,7 @@ class BucketPolicy(AWSObject):
     resource_type = "AWS::S3Outposts::BucketPolicy"
 
     props = {
-        'Bucket': (basestring, True),
+        'Bucket': (str, True),
         'PolicyDocument': (dict, True),
     }
 
@@ -78,7 +78,7 @@ class Endpoint(AWSObject):
     resource_type = "AWS::S3Outposts::Endpoint"
 
     props = {
-        'OutpostId': (basestring, True),
-        'SecurityGroupId': (basestring, True),
-        'SubnetId': (basestring, True),
+        'OutpostId': (str, True),
+        'SecurityGroupId': (str, True),
+        'SubnetId': (str, True),
     }

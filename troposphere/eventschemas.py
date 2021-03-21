@@ -15,8 +15,8 @@ class Discoverer(AWSObject):
     resource_type = "AWS::EventSchemas::Discoverer"
 
     props = {
-        'Description': (basestring, False),
-        'SourceArn': (basestring, True),
+        'Description': (str, False),
+        'SourceArn': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -25,8 +25,8 @@ class Registry(AWSObject):
     resource_type = "AWS::EventSchemas::Registry"
 
     props = {
-        'Description': (basestring, False),
-        'RegistryName': (basestring, False),
+        'Description': (str, False),
+        'RegistryName': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -36,8 +36,8 @@ class RegistryPolicy(AWSObject):
 
     props = {
         'Policy': (dict, True),
-        'RegistryName': (basestring, True),
-        'RevisionId': (basestring, False),
+        'RegistryName': (str, True),
+        'RevisionId': (str, False),
     }
 
 
@@ -45,10 +45,10 @@ class Schema(AWSObject):
     resource_type = "AWS::EventSchemas::Schema"
 
     props = {
-        'Content': (basestring, True),
-        'Description': (basestring, False),
-        'RegistryName': (basestring, True),
-        'SchemaName': (basestring, False),
+        'Content': (str, True),
+        'Description': (str, False),
+        'RegistryName': (str, True),
+        'SchemaName': (str, False),
         'Tags': (Tags, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }

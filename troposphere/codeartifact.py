@@ -15,8 +15,8 @@ class Domain(AWSObject):
     resource_type = "AWS::CodeArtifact::Domain"
 
     props = {
-        'DomainName': (basestring, True),
-        'EncryptionKey': (basestring, False),
+        'DomainName': (str, True),
+        'EncryptionKey': (str, False),
         'PermissionsPolicyDocument': (dict, False),
         'Tags': (Tags, False),
     }
@@ -26,12 +26,12 @@ class Repository(AWSObject):
     resource_type = "AWS::CodeArtifact::Repository"
 
     props = {
-        'Description': (basestring, False),
-        'DomainName': (basestring, True),
-        'DomainOwner': (basestring, False),
-        'ExternalConnections': ([basestring], False),
+        'Description': (str, False),
+        'DomainName': (str, True),
+        'DomainOwner': (str, False),
+        'ExternalConnections': ([str], False),
         'PermissionsPolicyDocument': (dict, False),
-        'RepositoryName': (basestring, True),
+        'RepositoryName': (str, True),
         'Tags': (Tags, False),
-        'Upstreams': ([basestring], False),
+        'Upstreams': ([str], False),
     }

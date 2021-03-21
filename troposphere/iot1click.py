@@ -6,7 +6,7 @@ class Device(AWSObject):
     resource_type = "AWS::IoT1Click::Device"
 
     props = {
-        'DeviceId': (basestring, True),
+        'DeviceId': (str, True),
         'Enabled': (boolean, True),
     }
 
@@ -17,8 +17,8 @@ class Placement(AWSObject):
     props = {
         'AssociatedDevices': (json_checker, False),
         'Attributes': (json_checker, False),
-        'PlacementName': (basestring, False),
-        'ProjectName': (basestring, True),
+        'PlacementName': (str, False),
+        'ProjectName': (str, True),
     }
 
 
@@ -33,7 +33,7 @@ class Project(AWSObject):
     resource_type = "AWS::IoT1Click::Project"
 
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'PlacementTemplate': (PlacementTemplate, True),
-        'ProjectName': (basestring, False),
+        'ProjectName': (str, False),
     }

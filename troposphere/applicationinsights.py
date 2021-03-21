@@ -16,33 +16,33 @@ from .validators import integer
 
 class Alarm(AWSProperty):
     props = {
-        'AlarmName': (basestring, True),
-        'Severity': (basestring, False),
+        'AlarmName': (str, True),
+        'Severity': (str, False),
     }
 
 
 class AlarmMetric(AWSProperty):
     props = {
-        'AlarmMetricName': (basestring, True),
+        'AlarmMetricName': (str, True),
     }
 
 
 class Log(AWSProperty):
     props = {
-        'Encoding': (basestring, False),
-        'LogGroupName': (basestring, False),
-        'LogPath': (basestring, False),
-        'LogType': (basestring, True),
-        'PatternSet': (basestring, False),
+        'Encoding': (str, False),
+        'LogGroupName': (str, False),
+        'LogPath': (str, False),
+        'LogType': (str, True),
+        'PatternSet': (str, False),
     }
 
 
 class WindowsEvent(AWSProperty):
     props = {
-        'EventLevels': ([basestring], True),
-        'EventName': (basestring, True),
-        'LogGroupName': (basestring, True),
-        'PatternSet': (basestring, False),
+        'EventLevels': ([str], True),
+        'EventName': (str, True),
+        'LogGroupName': (str, True),
+        'PatternSet': (str, False),
     }
 
 
@@ -67,7 +67,7 @@ class SubComponentTypeConfiguration(AWSProperty):
     props = {
         'SubComponentConfigurationDetails':
             (SubComponentConfigurationDetails, True),
-        'SubComponentType': (basestring, True),
+        'SubComponentType': (str, True),
     }
 
 
@@ -81,27 +81,27 @@ class ComponentConfiguration(AWSProperty):
 
 class ComponentMonitoringSetting(AWSProperty):
     props = {
-        'ComponentARN': (basestring, False),
-        'ComponentConfigurationMode': (basestring, False),
-        'ComponentName': (basestring, False),
+        'ComponentARN': (str, False),
+        'ComponentConfigurationMode': (str, False),
+        'ComponentName': (str, False),
         'CustomComponentConfiguration': (ComponentConfiguration, False),
         'DefaultOverwriteComponentConfiguration':
             (ComponentConfiguration, False),
-        'Tier': (basestring, False),
+        'Tier': (str, False),
     }
 
 
 class CustomComponent(AWSProperty):
     props = {
-        'ComponentName': (basestring, True),
-        'ResourceList': ([basestring], True),
+        'ComponentName': (str, True),
+        'ResourceList': ([str], True),
     }
 
 
 class LogPattern(AWSProperty):
     props = {
-        'Pattern': (basestring, True),
-        'PatternName': (basestring, True),
+        'Pattern': (str, True),
+        'PatternName': (str, True),
         'Rank': (integer, True),
     }
 
@@ -109,7 +109,7 @@ class LogPattern(AWSProperty):
 class LogPatternSet(AWSProperty):
     props = {
         'LogPatterns': ([LogPattern], True),
-        'PatternSetName': (basestring, True),
+        'PatternSetName': (str, True),
     }
 
 
@@ -124,7 +124,7 @@ class Application(AWSObject):
         'CustomComponents': ([CustomComponent], False),
         'LogPatternSets': ([LogPatternSet], False),
         'OpsCenterEnabled': (boolean, False),
-        'OpsItemSNSTopicArn': (basestring, False),
-        'ResourceGroupName': (basestring, True),
+        'OpsItemSNSTopicArn': (str, False),
+        'ResourceGroupName': (str, True),
         'Tags': (Tags, False),
     }

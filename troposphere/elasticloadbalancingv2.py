@@ -13,43 +13,43 @@ from .validators import (
 
 class LoadBalancerAttributes(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Value': (basestring, False)
+        'Key': (str, False),
+        'Value': (str, False)
     }
 
 
 class Certificate(AWSProperty):
     props = {
-        'CertificateArn': (basestring, False)
+        'CertificateArn': (str, False)
     }
 
 
 class AuthenticateCognitoConfig(AWSProperty):
     props = {
         "AuthenticationRequestExtraParams": (dict, False),
-        "OnUnauthenticatedRequest": (basestring, False),
-        "Scope": (basestring, False),
-        "SessionCookieName": (basestring, False),
+        "OnUnauthenticatedRequest": (str, False),
+        "Scope": (str, False),
+        "SessionCookieName": (str, False),
         "SessionTimeout": (integer, False),
-        "UserPoolArn": (basestring, True),
-        "UserPoolClientId": (basestring, True),
-        "UserPoolDomain": (basestring, True)
+        "UserPoolArn": (str, True),
+        "UserPoolClientId": (str, True),
+        "UserPoolDomain": (str, True)
     }
 
 
 class AuthenticateOidcConfig(AWSProperty):
     props = {
         "AuthenticationRequestExtraParams": (dict, False),
-        "AuthorizationEndpoint": (basestring, True),
-        "ClientId": (basestring, True),
-        "ClientSecret": (basestring, True),
-        "Issuer": (basestring, True),
-        "OnUnauthenticatedRequest": (basestring, False),
-        "Scope": (basestring, False),
-        "SessionCookieName": (basestring, False),
+        "AuthorizationEndpoint": (str, True),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "Issuer": (str, True),
+        "OnUnauthenticatedRequest": (str, False),
+        "Scope": (str, False),
+        "SessionCookieName": (str, False),
         "SessionTimeout": (integer, False),
-        "TokenEndpoint": (basestring, True),
-        "UserInfoEndpoint": (basestring, True)
+        "TokenEndpoint": (str, True),
+        "UserInfoEndpoint": (str, True)
     }
 
 
@@ -58,12 +58,12 @@ class RedirectConfig(AWSProperty):
     # AWSCloudFormation/latest/UserGuide/
     # aws-properties-elasticloadbalancingv2-listener-redirectconfig.html
     props = {
-        'Host': (basestring, False),
-        'Path': (basestring, False),
-        'Port': (basestring, False),
-        'Protocol': (basestring, False),
-        'Query': (basestring, False),
-        'StatusCode': (basestring, True),
+        'Host': (str, False),
+        'Path': (str, False),
+        'Port': (str, False),
+        'Protocol': (str, False),
+        'Query': (str, False),
+        'StatusCode': (str, True),
     }
 
     def validate(self):
@@ -75,9 +75,9 @@ class RedirectConfig(AWSProperty):
 
 class FixedResponseConfig(AWSProperty):
     props = {
-        'ContentType': (basestring, False),
-        'MessageBody': (basestring, False),
-        'StatusCode': (basestring, True),
+        'ContentType': (str, False),
+        'MessageBody': (str, False),
+        'StatusCode': (str, True),
     }
 
     def validate(self):
@@ -116,9 +116,9 @@ class Action(AWSProperty):
         "FixedResponseConfig": (FixedResponseConfig, False),
         "Order": (integer, False),
         "RedirectConfig": (RedirectConfig, False),
-        "TargetGroupArn": (basestring, False),
+        "TargetGroupArn": (str, False),
         "ForwardConfig": (ForwardConfig, False),
-        "Type": (basestring, True)
+        "Type": (str, True)
     }
 
     @staticmethod
@@ -134,7 +134,7 @@ class Action(AWSProperty):
 
         def requires(action_type, prop):
             properties = [definition for definition in
-                          self.properties.keys()]
+                          list(self.properties.keys())]
             if self.properties.get('Type') == action_type and \
                not self.any_property(prop, properties):
                 raise ValueError(
@@ -158,33 +158,33 @@ class Action(AWSProperty):
 
 class HostHeaderConfig(AWSProperty):
     props = {
-        'Values': ([basestring], False),
+        'Values': ([str], False),
     }
 
 
 class HttpHeaderConfig(AWSProperty):
     props = {
-        'HttpHeaderName': (basestring, False),
-        'Values': ([basestring], False),
+        'HttpHeaderName': (str, False),
+        'Values': ([str], False),
     }
 
 
 class HttpRequestMethodConfig(AWSProperty):
     props = {
-        'Values': ([basestring], False),
+        'Values': ([str], False),
     }
 
 
 class PathPatternConfig(AWSProperty):
     props = {
-        'Values': ([basestring], False),
+        'Values': ([str], False),
     }
 
 
 class QueryStringKeyValue(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Value': (basestring, False),
+        'Key': (str, False),
+        'Value': (str, False),
     }
 
 
@@ -196,48 +196,48 @@ class QueryStringConfig(AWSProperty):
 
 class SourceIpConfig(AWSProperty):
     props = {
-        'Values': ([basestring], False),
+        'Values': ([str], False),
     }
 
 
 class Condition(AWSProperty):
     props = {
-        'Field': (basestring, False),
+        'Field': (str, False),
         'HostHeaderConfig': (HostHeaderConfig, False),
         'HttpHeaderConfig': (HttpHeaderConfig, False),
         'HttpRequestMethodConfig': (HttpRequestMethodConfig, False),
         'PathPatternConfig': (PathPatternConfig, False),
         'QueryStringConfig': (QueryStringConfig, False),
         'SourceIpConfig': (SourceIpConfig, False),
-        'Values': ([basestring], False),
+        'Values': ([str], False),
     }
 
 
 class Matcher(AWSProperty):
     props = {
-        'HttpCode': (basestring, True)
+        'HttpCode': (str, True)
     }
 
 
 class SubnetMapping(AWSProperty):
     props = {
-        'AllocationId': (basestring, False),
-        'PrivateIPv4Address': (basestring, False),
-        'SubnetId': (basestring, True),
+        'AllocationId': (str, False),
+        'PrivateIPv4Address': (str, False),
+        'SubnetId': (str, True),
     }
 
 
 class TargetGroupAttribute(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Value': (basestring, False)
+        'Key': (str, False),
+        'Value': (str, False)
     }
 
 
 class TargetDescription(AWSProperty):
     props = {
-        'AvailabilityZone': (basestring, False),
-        'Id': (basestring, True),
+        'AvailabilityZone': (str, False),
+        'Id': (str, True),
         'Port': (network_port, False)
     }
 
@@ -246,13 +246,13 @@ class Listener(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::Listener"
 
     props = {
-        'AlpnPolicy': ([basestring], False),
+        'AlpnPolicy': ([str], False),
         'Certificates': ([Certificate], False),
         'DefaultActions': ([Action], True),
-        'LoadBalancerArn': (basestring, True),
+        'LoadBalancerArn': (str, True),
         'Port': (network_port, True),
-        'Protocol': (basestring, True),
-        'SslPolicy': (basestring, False)
+        'Protocol': (str, True),
+        'SslPolicy': (str, False)
     }
 
 
@@ -261,7 +261,7 @@ class ListenerCertificate(AWSObject):
 
     props = {
         'Certificates': ([Certificate], True),
-        'ListenerArn': (basestring, True),
+        'ListenerArn': (str, True),
     }
 
 
@@ -271,7 +271,7 @@ class ListenerRule(AWSObject):
     props = {
         'Actions': ([Action], True),
         'Conditions': ([Condition], True),
-        'ListenerArn': (basestring, True),
+        'ListenerArn': (str, True),
         'Priority': (integer, True)
     }
 
@@ -297,21 +297,21 @@ class TargetGroup(AWSObject):
     props = {
         'HealthCheckEnabled': (boolean, False),
         'HealthCheckIntervalSeconds': (integer, False),
-        'HealthCheckPath': (basestring, False),
+        'HealthCheckPath': (str, False),
         'HealthCheckPort': (tg_healthcheck_port, False),
-        'HealthCheckProtocol': (basestring, False),
+        'HealthCheckProtocol': (str, False),
         'HealthCheckTimeoutSeconds': (integer, False),
         'HealthyThresholdCount': (integer, False),
         'Matcher': (Matcher, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Port': (network_port, False),
-        'Protocol': (basestring, False),
+        'Protocol': (str, False),
         'Tags': ((Tags, list), False),
         'TargetGroupAttributes': ([TargetGroupAttribute], False),
         'Targets': ([TargetDescription], False),
         'TargetType': (validate_target_type, False),
         'UnhealthyThresholdCount': (integer, False),
-        'VpcId': (basestring, False),
+        'VpcId': (str, False),
     }
 
     def validate(self):
@@ -370,15 +370,15 @@ class LoadBalancer(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
     props = {
-        'IpAddressType': (basestring, False),
+        'IpAddressType': (str, False),
         'LoadBalancerAttributes': ([LoadBalancerAttributes], False),
         'Name': (elb_name, False),
-        'Scheme': (basestring, False),
-        'SecurityGroups': ([basestring], False),
+        'Scheme': (str, False),
+        'SecurityGroups': ([str], False),
         'SubnetMappings': ([SubnetMapping], False),
-        'Subnets': ([basestring], False),
+        'Subnets': ([str], False),
         'Tags': ((Tags, list), False),
-        'Type': (basestring, False),
+        'Type': (str, False),
     }
 
     def validate(self):

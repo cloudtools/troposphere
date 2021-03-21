@@ -18,7 +18,7 @@ class AccessKey(AWSObject):
     props = {
         'Serial': (integer, False),
         'Status': (status, False),
-        'UserName': (basestring, True),
+        'UserName': (str, True),
     }
 
 
@@ -26,18 +26,18 @@ class PolicyType(AWSObject):
     resource_type = "AWS::IAM::Policy"
 
     props = {
-        'Groups': ([basestring], False),
+        'Groups': ([str], False),
         'PolicyDocument': (policytypes, True),
-        'PolicyName': (basestring, True),
-        'Roles': ([basestring], False),
-        'Users': ([basestring], False),
+        'PolicyName': (str, True),
+        'Roles': ([str], False),
+        'Users': ([str], False),
     }
 
 
 class Policy(AWSProperty):
     props = {
         'PolicyDocument': (policytypes, True),
-        'PolicyName': (basestring, True),
+        'PolicyName': (str, True),
     }
 
 
@@ -49,7 +49,7 @@ class Group(AWSObject):
 
     props = {
         'GroupName': (iam_group_name, False),
-        'ManagedPolicyArns': ([basestring], False),
+        'ManagedPolicyArns': ([str], False),
         'Path': (iam_path, False),
         'Policies': ([Policy], False),
     }
@@ -59,7 +59,7 @@ class InstanceProfile(AWSObject):
     resource_type = "AWS::IAM::InstanceProfile"
 
     props = {
-        'InstanceProfileName': (basestring, False),
+        'InstanceProfileName': (str, False),
         'Path': (iam_path, False),
         'Roles': (list, True),
     }
@@ -69,13 +69,13 @@ class ManagedPolicy(AWSObject):
     resource_type = "AWS::IAM::ManagedPolicy"
 
     props = {
-        'Description': (basestring, False),
-        'Groups': ([basestring], False),
-        'ManagedPolicyName': (basestring, False),
+        'Description': (str, False),
+        'Groups': ([str], False),
+        'ManagedPolicyName': (str, False),
         'Path': (iam_path, False),
         'PolicyDocument': (policytypes, True),
-        'Roles': ([basestring], False),
-        'Users': ([basestring], False),
+        'Roles': ([str], False),
+        'Users': ([str], False),
     }
 
 
@@ -83,10 +83,10 @@ class OIDCProvider(AWSObject):
     resource_type = "AWS::IAM::OIDCProvider"
 
     props = {
-        'ClientIdList': ([basestring], False),
+        'ClientIdList': ([str], False),
         'Tags': (Tags, False),
-        'ThumbprintList': ([basestring], True),
-        'Url': (basestring, False),
+        'ThumbprintList': ([str], True),
+        'Url': (str, False),
     }
 
 
@@ -95,11 +95,11 @@ class Role(AWSObject):
 
     props = {
         'AssumeRolePolicyDocument': (policytypes, True),
-        'Description': (basestring, False),
-        'ManagedPolicyArns': ([basestring], False),
+        'Description': (str, False),
+        'ManagedPolicyArns': ([str], False),
         'MaxSessionDuration': (integer, False),
         'Path': (iam_path, False),
-        'PermissionsBoundary': (basestring, False),
+        'PermissionsBoundary': (str, False),
         'Policies': ([Policy], False),
         'RoleName': (iam_role_name, False),
         'Tags': ((Tags, list), False),
@@ -110,8 +110,8 @@ class SAMLProvider(AWSObject):
     resource_type = "AWS::IAM::SAMLProvider"
 
     props = {
-        'Name': (basestring, False),
-        'SamlMetadataDocument': (basestring, True),
+        'Name': (str, False),
+        'SamlMetadataDocument': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -120,11 +120,11 @@ class ServerCertificate(AWSObject):
     resource_type = "AWS::IAM::ServerCertificate"
 
     props = {
-        'CertificateBody': (basestring, False),
-        'CertificateChain': (basestring, False),
-        'Path': (basestring, False),
-        'PrivateKey': (basestring, False),
-        'ServerCertificateName': (basestring, False),
+        'CertificateBody': (str, False),
+        'CertificateChain': (str, False),
+        'Path': (str, False),
+        'PrivateKey': (str, False),
+        'ServerCertificateName': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -133,15 +133,15 @@ class ServiceLinkedRole(AWSObject):
     resource_type = "AWS::IAM::ServiceLinkedRole"
 
     props = {
-        'AWSServiceName': (basestring, True),
-        'CustomSuffix': (basestring, False),
-        'Description': (basestring, False),
+        'AWSServiceName': (str, True),
+        'CustomSuffix': (str, False),
+        'Description': (str, False),
     }
 
 
 class LoginProfile(AWSProperty):
     props = {
-        'Password': (basestring, True),
+        'Password': (str, True),
         'PasswordResetRequired': (boolean, False),
     }
 
@@ -150,11 +150,11 @@ class User(AWSObject):
     resource_type = "AWS::IAM::User"
 
     props = {
-        'Groups': ([basestring], False),
+        'Groups': ([str], False),
         'LoginProfile': (LoginProfile, False),
-        'ManagedPolicyArns': ([basestring], False),
+        'ManagedPolicyArns': ([str], False),
         'Path': (iam_path, False),
-        'PermissionsBoundary': (basestring, False),
+        'PermissionsBoundary': (str, False),
         'Policies': ([Policy], False),
         'Tags': (Tags, False),
         'UserName': (iam_user_name, False),
@@ -165,7 +165,7 @@ class UserToGroupAddition(AWSObject):
     resource_type = "AWS::IAM::UserToGroupAddition"
 
     props = {
-        'GroupName': (basestring, True),
+        'GroupName': (str, True),
         'Users': (list, True),
     }
 
@@ -174,8 +174,8 @@ class VirtualMFADevice(AWSObject):
     resource_type = "AWS::IAM::VirtualMFADevice"
 
     props = {
-        'Path': (basestring, False),
+        'Path': (str, False),
         'Tags': (Tags, False),
-        'Users': ([basestring], True),
-        'VirtualMfaDeviceName': (basestring, False),
+        'Users': ([str], True),
+        'VirtualMfaDeviceName': (str, False),
     }

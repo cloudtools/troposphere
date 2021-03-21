@@ -8,8 +8,8 @@ from .validators import boolean, integer, double, json_checker
 
 class DataflowEdge(AWSProperty):
     props = {
-        'Destination': (basestring, True),
-        'Source': (basestring, True),
+        'Destination': (str, True),
+        'Source': (str, True),
     }
 
 
@@ -21,15 +21,15 @@ class MissionProfile(AWSObject):
         'ContactPrePassDurationSeconds': (integer, False),
         'DataflowEdges': ([DataflowEdge], True),
         'MinimumViableContactDurationSeconds': (integer, True),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (Tags, False),
-        'TrackingConfigArn': (basestring, True),
+        'TrackingConfigArn': (str, True),
     }
 
 
 class SocketAddress(AWSProperty):
     props = {
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Port': (integer, False),
     }
 
@@ -38,15 +38,15 @@ class DataflowEndpoint(AWSProperty):
     props = {
         'Address': (SocketAddress, False),
         'Mtu': (integer, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
     }
 
 
 class SecurityDetails(AWSProperty):
     props = {
-        'RoleArn': (basestring, False),
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetIds': ([basestring], False),
+        'RoleArn': (str, False),
+        'SecurityGroupIds': ([str], False),
+        'SubnetIds': ([str], False),
     }
 
 
@@ -71,14 +71,14 @@ class DemodulationConfig(AWSProperty):
 
 class Bandwidth(AWSProperty):
     props = {
-        'Units': (basestring, True),
+        'Units': (str, True),
         'Value': (double, True),
     }
 
 
 class Frequency(AWSProperty):
     props = {
-        'Units': (basestring, True),
+        'Units': (str, True),
         'Value': (double, True),
     }
 
@@ -87,7 +87,7 @@ class SpectrumConfig(AWSProperty):
     props = {
         'Bandwidth': (Bandwidth, True),
         'CenterFrequency': (Frequency, True),
-        'Polarization': (basestring, False),
+        'Polarization': (str, False),
     }
 
 
@@ -109,7 +109,7 @@ class SpectrumConfig(AWSProperty):
     props = {
         'Bandwidth': (Bandwidth, True),
         'CenterFrequency': (Frequency, True),
-        'Polarization': (basestring, False),
+        'Polarization': (str, False),
     }
 
 
@@ -124,7 +124,7 @@ class DataflowEndpointGroup(AWSObject):
 
 class Eirp(AWSObject):
     props = {
-        'Units': (basestring, True),
+        'Units': (str, True),
         'Value': (double, True),
     }
 
@@ -138,20 +138,20 @@ class AntennaUplinkConfig(AWSObject):
 
 class DataflowEndpointConfig(AWSProperty):
     props = {
-        'DataflowEndpointName': (basestring, True),
-        'DataflowEndpointRegion': (basestring, False),
+        'DataflowEndpointName': (str, True),
+        'DataflowEndpointRegion': (str, False),
     }
 
 
 class TrackingConfig(AWSProperty):
     props = {
-        'AutoTrack': (basestring, True),
+        'AutoTrack': (str, True),
     }
 
 
 class UplinkEchoConfig(AWSProperty):
     props = {
-        'AntennaUplinkConfigArn': (basestring, True),
+        'AntennaUplinkConfigArn': (str, True),
         'Enabled': (boolean, True),
     }
 
@@ -172,6 +172,6 @@ class Config(AWSObject):
 
     props = {
         'ConfigData': (ConfigData, True),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }

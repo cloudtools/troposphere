@@ -7,10 +7,10 @@ class Destination(AWSObject):
     resource_type = "AWS::Logs::Destination"
 
     props = {
-        'DestinationName': (basestring, True),
-        'DestinationPolicy': (basestring, True),
-        'RoleArn': (basestring, True),
-        'TargetArn': (basestring, True),
+        'DestinationName': (str, True),
+        'DestinationPolicy': (str, True),
+        'RoleArn': (str, True),
+        'TargetArn': (str, True),
     }
 
 
@@ -18,7 +18,7 @@ class LogGroup(AWSObject):
     resource_type = "AWS::Logs::LogGroup"
 
     props = {
-        'LogGroupName': (basestring, False),
+        'LogGroupName': (str, False),
         'RetentionInDays': (integer_list_item(RETENTION_DAYS), False),
     }
 
@@ -27,17 +27,17 @@ class LogStream(AWSObject):
     resource_type = "AWS::Logs::LogStream"
 
     props = {
-        'LogGroupName': (basestring, True),
-        'LogStreamName': (basestring, False)
+        'LogGroupName': (str, True),
+        'LogStreamName': (str, False)
     }
 
 
 class MetricTransformation(AWSProperty):
     props = {
         'DefaultValue': (float, False),
-        'MetricName': (basestring, True),
-        'MetricNamespace': (basestring, True),
-        'MetricValue': (basestring, True),
+        'MetricName': (str, True),
+        'MetricNamespace': (str, True),
+        'MetricValue': (str, True),
     }
 
 
@@ -45,8 +45,8 @@ class MetricFilter(AWSObject):
     resource_type = "AWS::Logs::MetricFilter"
 
     props = {
-        'FilterPattern': (basestring, True),
-        'LogGroupName': (basestring, True),
+        'FilterPattern': (str, True),
+        'LogGroupName': (str, True),
         'MetricTransformations': ([MetricTransformation], True),
     }
 
@@ -55,8 +55,8 @@ class SubscriptionFilter(AWSObject):
     resource_type = "AWS::Logs::SubscriptionFilter"
 
     props = {
-        'DestinationArn': (basestring, True),
-        'FilterPattern': (basestring, True),
-        'LogGroupName': (basestring, True),
-        'RoleArn': (basestring, False),
+        'DestinationArn': (str, True),
+        'FilterPattern': (str, True),
+        'LogGroupName': (str, True),
+        'RoleArn': (str, False),
     }

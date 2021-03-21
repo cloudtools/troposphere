@@ -33,11 +33,11 @@ class DataCatalog(AWSObject):
     resource_type = "AWS::Athena::DataCatalog"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Parameters': (dict, False),
         'Tags': (Tags, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
@@ -45,10 +45,10 @@ class NamedQuery(AWSObject):
     resource_type = "AWS::Athena::NamedQuery"
 
     props = {
-        'Database': (basestring, True),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'QueryString': (basestring, True),
+        'Database': (str, True),
+        'Description': (str, False),
+        'Name': (str, False),
+        'QueryString': (str, True),
     }
 
 
@@ -56,14 +56,14 @@ class EncryptionConfiguration(AWSProperty):
     props = {
         'EncryptionOption': (validate_encryptionconfiguration_encryptionoption,
                              False),
-        'KmsKey': (basestring, False),
+        'KmsKey': (str, False),
     }
 
 
 class ResultConfiguration(AWSProperty):
     props = {
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'OutputLocation': (basestring, False),
+        'OutputLocation': (str, False),
     }
 
 
@@ -80,7 +80,7 @@ class WorkGroupConfiguration(AWSProperty):
 class ResultConfigurationUpdates(AWSProperty):
     props = {
         'EncryptionConfiguration': (EncryptionConfiguration, False),
-        'OutputLocation': (basestring, False),
+        'OutputLocation': (str, False),
         'RemoveEncryptionConfiguration': (boolean, False),
         'RemoveOutputLocation': (boolean, False),
     }
@@ -101,8 +101,8 @@ class WorkGroup(AWSObject):
     resource_type = "AWS::Athena::WorkGroup"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'RecursiveDeleteOption': (boolean, False),
         'State': (validate_workgroup_state, False),
         'Tags': (Tags, False),

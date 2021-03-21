@@ -226,4 +226,4 @@ template.add_output(Output(
 ))
 
 
-print(template.to_json())
+print((template.to_json()))

@@ -9,8 +9,8 @@ from .validators import boolean
 
 class VpcSettings(AWSProperty):
     props = {
-        'SubnetIds': ([basestring], True),
-        'VpcId': (basestring, True),
+        'SubnetIds': ([str], True),
+        'VpcId': (str, True),
     }
 
 
@@ -19,11 +19,11 @@ class MicrosoftAD(AWSObject):
 
     props = {
         'CreateAlias': (boolean, False),
-        'Edition': (basestring, False),
+        'Edition': (str, False),
         'EnableSso': (boolean, False),
-        'Name': (basestring, True),
-        'Password': (basestring, True),
-        'ShortName': (basestring, False),
+        'Name': (str, True),
+        'Password': (str, True),
+        'ShortName': (str, False),
         'VpcSettings': (VpcSettings, True)
     }
 
@@ -33,11 +33,11 @@ class SimpleAD(AWSObject):
 
     props = {
         'CreateAlias': (boolean, False),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'EnableSso': (boolean, False),
-        'Name': (basestring, True),
-        'Password': (basestring, True),
-        'ShortName': (basestring, False),
-        'Size': (basestring, True),
+        'Name': (str, True),
+        'Password': (str, True),
+        'ShortName': (str, False),
+        'Size': (str, True),
         'VpcSettings': (VpcSettings, True),
     }

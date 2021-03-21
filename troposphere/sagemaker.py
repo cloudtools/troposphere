@@ -9,9 +9,9 @@ from .validators import boolean, integer
 
 class ResourceSpec(AWSProperty):
     props = {
-        'InstanceType': (basestring, False),
-        'SageMakerImageArn': (basestring, False),
-        'SageMakerImageVersionArn': (basestring, False),
+        'InstanceType': (str, False),
+        'SageMakerImageArn': (str, False),
+        'SageMakerImageVersionArn': (str, False),
     }
 
 
@@ -19,12 +19,12 @@ class App(AWSObject):
     resource_type = "AWS::SageMaker::App"
 
     props = {
-        'AppName': (basestring, True),
-        'AppType': (basestring, True),
-        'DomainId': (basestring, True),
+        'AppName': (str, True),
+        'AppType': (str, True),
+        'DomainId': (str, True),
         'ResourceSpec': (ResourceSpec, False),
         'Tags': (Tags, False),
-        'UserProfileName': (basestring, True),
+        'UserProfileName': (str, True),
     }
 
 
@@ -32,14 +32,14 @@ class FileSystemConfig(AWSProperty):
     props = {
         'DefaultGid': (integer, False),
         'DefaultUid': (integer, False),
-        'MountPath': (basestring, False),
+        'MountPath': (str, False),
     }
 
 
 class KernelSpec(AWSProperty):
     props = {
-        'DisplayName': (basestring, False),
-        'Name': (basestring, True),
+        'DisplayName': (str, False),
+        'Name': (str, True),
     }
 
 
@@ -54,7 +54,7 @@ class AppImageConfig(AWSObject):
     resource_type = "AWS::SageMaker::AppImageConfig"
 
     props = {
-        'AppImageConfigName': (basestring, True),
+        'AppImageConfigName': (str, True),
         'KernelGatewayImageConfig': (KernelGatewayImageConfig, False),
         'Tags': (Tags, False),
     }
@@ -62,9 +62,9 @@ class AppImageConfig(AWSObject):
 
 class GitConfig(AWSProperty):
     props = {
-        'Branch': (basestring, False),
-        'RepositoryUrl': (basestring, True),
-        'SecretArn': (basestring, False),
+        'Branch': (str, False),
+        'RepositoryUrl': (str, True),
+        'SecretArn': (str, False),
     }
 
 
@@ -72,37 +72,37 @@ class CodeRepository(AWSObject):
     resource_type = "AWS::SageMaker::CodeRepository"
 
     props = {
-        'CodeRepositoryName': (basestring, False),
+        'CodeRepositoryName': (str, False),
         'GitConfig': (GitConfig, True),
     }
 
 
 class DataQualityAppSpecification(AWSProperty):
     props = {
-        'ContainerArguments': ([basestring], False),
-        'ContainerEntrypoint': ([basestring], False),
+        'ContainerArguments': ([str], False),
+        'ContainerEntrypoint': ([str], False),
         'Environment': (dict, False),
-        'ImageUri': (basestring, True),
-        'PostAnalyticsProcessorSourceUri': (basestring, False),
-        'RecordPreprocessorSourceUri': (basestring, False),
+        'ImageUri': (str, True),
+        'PostAnalyticsProcessorSourceUri': (str, False),
+        'RecordPreprocessorSourceUri': (str, False),
     }
 
 
 class ConstraintsResource(AWSProperty):
     props = {
-        'S3Uri': (basestring, False),
+        'S3Uri': (str, False),
     }
 
 
 class StatisticsResource(AWSProperty):
     props = {
-        'S3Uri': (basestring, False),
+        'S3Uri': (str, False),
     }
 
 
 class DataQualityBaselineConfig(AWSProperty):
     props = {
-        'BaseliningJobName': (basestring, False),
+        'BaseliningJobName': (str, False),
         'ConstraintsResource': (ConstraintsResource, False),
         'StatisticsResource': (StatisticsResource, False),
     }
@@ -110,10 +110,10 @@ class DataQualityBaselineConfig(AWSProperty):
 
 class EndpointInput(AWSProperty):
     props = {
-        'EndpointName': (basestring, True),
-        'LocalPath': (basestring, True),
-        'S3DataDistributionType': (basestring, False),
-        'S3InputMode': (basestring, False),
+        'EndpointName': (str, True),
+        'LocalPath': (str, True),
+        'S3DataDistributionType': (str, False),
+        'S3InputMode': (str, False),
     }
 
 
@@ -125,9 +125,9 @@ class DataQualityJobInput(AWSProperty):
 
 class S3Output(AWSProperty):
     props = {
-        'LocalPath': (basestring, True),
-        'S3UploadMode': (basestring, False),
-        'S3Uri': (basestring, True),
+        'LocalPath': (str, True),
+        'S3UploadMode': (str, False),
+        'S3Uri': (str, True),
     }
 
 
@@ -139,7 +139,7 @@ class MonitoringOutput(AWSProperty):
 
 class MonitoringOutputConfig(AWSProperty):
     props = {
-        'KmsKeyId': (basestring, False),
+        'KmsKeyId': (str, False),
         'MonitoringOutputs': ([MonitoringOutput], True),
     }
 
@@ -147,8 +147,8 @@ class MonitoringOutputConfig(AWSProperty):
 class ClusterConfig(AWSProperty):
     props = {
         'InstanceCount': (integer, True),
-        'InstanceType': (basestring, True),
-        'VolumeKmsKeyId': (basestring, False),
+        'InstanceType': (str, True),
+        'VolumeKmsKeyId': (str, False),
         'VolumeSizeInGB': (integer, True),
     }
 
@@ -161,8 +161,8 @@ class MonitoringResources(AWSProperty):
 
 class VpcConfig(AWSProperty):
     props = {
-        'Subnets': ([basestring], True),
-        'SecurityGroupIds': ([basestring], True),
+        'Subnets': ([str], True),
+        'SecurityGroupIds': ([str], True),
     }
 
 
@@ -188,10 +188,10 @@ class DataQualityJobDefinition(AWSObject):
         'DataQualityBaselineConfig': (DataQualityBaselineConfig, False),
         'DataQualityJobInput': (DataQualityJobInput, True),
         'DataQualityJobOutputConfig': (MonitoringOutputConfig, True),
-        'JobDefinitionName': (basestring, False),
+        'JobDefinitionName': (str, False),
         'JobResources': (MonitoringResources, True),
         'NetworkConfig': (NetworkConfig, False),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'StoppingCondition': (StoppingCondition, False),
         'Tags': (Tags, False),
     }
@@ -202,15 +202,15 @@ class Device(AWSObject):
 
     props = {
         'Device': (dict, False),
-        'DeviceFleetName': (basestring, True),
+        'DeviceFleetName': (str, True),
         'Tags': (Tags, False),
     }
 
 
 class EdgeOutputConfig(AWSProperty):
     props = {
-        'KmsKeyId': (basestring, False),
-        'S3OutputLocation': (basestring, True),
+        'KmsKeyId': (str, False),
+        'S3OutputLocation': (str, True),
     }
 
 
@@ -218,10 +218,10 @@ class DeviceFleet(AWSObject):
     resource_type = "AWS::SageMaker::DeviceFleet"
 
     props = {
-        'Description': (basestring, False),
-        'DeviceFleetName': (basestring, True),
+        'Description': (str, False),
+        'DeviceFleetName': (str, True),
         'OutputConfig': (EdgeOutputConfig, True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -234,8 +234,8 @@ class JupyterServerAppSettings(AWSProperty):
 
 class CustomImage(AWSProperty):
     props = {
-        'AppImageConfigName': (basestring, True),
-        'ImageName': (basestring, True),
+        'AppImageConfigName': (str, True),
+        'ImageName': (str, True),
         'ImageVersionNumber': (integer, False),
     }
 
@@ -249,18 +249,18 @@ class KernelGatewayAppSettings(AWSProperty):
 
 class SharingSettings(AWSProperty):
     props = {
-        'NotebookOutputOption': (basestring, False),
-        'S3KmsKeyId': (basestring, False),
-        'S3OutputPath': (basestring, False),
+        'NotebookOutputOption': (str, False),
+        'S3KmsKeyId': (str, False),
+        'S3OutputPath': (str, False),
     }
 
 
 class UserSettings(AWSProperty):
     props = {
-        'ExecutionRole': (basestring, False),
+        'ExecutionRole': (str, False),
         'JupyterServerAppSettings': (JupyterServerAppSettings, False),
         'KernelGatewayAppSettings': (KernelGatewayAppSettings, False),
-        'SecurityGroups': ([basestring], False),
+        'SecurityGroups': ([str], False),
         'SharingSettings': (SharingSettings, False),
     }
 
@@ -269,20 +269,20 @@ class Domain(AWSObject):
     resource_type = "AWS::SageMaker::Domain"
 
     props = {
-        'AppNetworkAccessType': (basestring, False),
-        'AuthMode': (basestring, True),
+        'AppNetworkAccessType': (str, False),
+        'AuthMode': (str, True),
         'DefaultUserSettings': (UserSettings, True),
-        'DomainName': (basestring, True),
-        'KmsKeyId': (basestring, False),
-        'SubnetIds': ([basestring], True),
+        'DomainName': (str, True),
+        'KmsKeyId': (str, False),
+        'SubnetIds': ([str], True),
         'Tags': (Tags, False),
-        'VpcId': (basestring, True),
+        'VpcId': (str, True),
     }
 
 
 class Alarm(AWSProperty):
     props = {
-        'AlarmName': (basestring, True),
+        'AlarmName': (str, True),
     }
 
 
@@ -294,7 +294,7 @@ class AutoRollbackConfig(AWSProperty):
 
 class CapacitySize(AWSProperty):
     props = {
-        'Type': (basestring, True),
+        'Type': (str, True),
         'Value': (integer, True),
     }
 
@@ -302,7 +302,7 @@ class CapacitySize(AWSProperty):
 class TrafficRoutingConfig(AWSProperty):
     props = {
         'CanarySize': (CapacitySize, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
         'WaitIntervalInSeconds': (integer, False),
     }
 
@@ -324,7 +324,7 @@ class DeploymentConfig(AWSProperty):
 
 class VariantProperty(AWSProperty):
     props = {
-        'VariantPropertyType': (basestring, False),
+        'VariantPropertyType': (str, False),
     }
 
 
@@ -333,8 +333,8 @@ class Endpoint(AWSObject):
 
     props = {
         'DeploymentConfig': (DeploymentConfig, False),
-        'EndpointConfigName': (basestring, True),
-        'EndpointName': (basestring, False),
+        'EndpointConfigName': (str, True),
+        'EndpointName': (str, False),
         'ExcludeRetainedVariantProperties': ([VariantProperty], False),
         'RetainAllVariantProperties': (boolean, False),
         'Tags': (Tags, False),
@@ -343,14 +343,14 @@ class Endpoint(AWSObject):
 
 class CaptureContentTypeHeader(AWSProperty):
     props = {
-        'CsvContentTypes': ([basestring], False),
-        'JsonContentTypes': ([basestring], False),
+        'CsvContentTypes': ([str], False),
+        'JsonContentTypes': ([str], False),
     }
 
 
 class CaptureOption(AWSProperty):
     props = {
-        'CaptureMode': (basestring, True),
+        'CaptureMode': (str, True),
     }
 
 
@@ -358,19 +358,19 @@ class DataCaptureConfig(AWSProperty):
     props = {
         'CaptureContentTypeHeader': (CaptureContentTypeHeader, False),
         'CaptureOptions': ([CaptureOption], True),
-        'DestinationS3Uri': (basestring, True),
+        'DestinationS3Uri': (str, True),
         'EnableCapture': (boolean, False),
         'InitialSamplingPercentage': (integer, True),
-        'KmsKeyId': (basestring, False),
+        'KmsKeyId': (str, False),
     }
 
 
 class ProductionVariant(AWSProperty):
     props = {
-        'ModelName': (basestring, True),
-        'VariantName': (basestring, True),
+        'ModelName': (str, True),
+        'VariantName': (str, True),
         'InitialInstanceCount': (integer, True),
-        'InstanceType': (basestring, True),
+        'InstanceType': (str, True),
         'InitialVariantWeight': (float, True)
     }
 
@@ -380,8 +380,8 @@ class EndpointConfig(AWSObject):
 
     props = {
         'DataCaptureConfig': (DataCaptureConfig, False),
-        'EndpointConfigName': (basestring, False),
-        'KmsKeyId': (basestring, False),
+        'EndpointConfigName': (str, False),
+        'KmsKeyId': (str, False),
         'ProductionVariants': ([ProductionVariant], True),
         'Tags': (Tags, False),
     }
@@ -389,8 +389,8 @@ class EndpointConfig(AWSObject):
 
 class FeatureDefinition(AWSProperty):
     props = {
-        'FeatureName': (basestring, True),
-        'FeatureType': (basestring, True),
+        'FeatureName': (str, True),
+        'FeatureType': (str, True),
     }
 
 
@@ -398,14 +398,14 @@ class FeatureGroup(AWSObject):
     resource_type = "AWS::SageMaker::FeatureGroup"
 
     props = {
-        'Description': (basestring, False),
-        'EventTimeFeatureName': (basestring, True),
+        'Description': (str, False),
+        'EventTimeFeatureName': (str, True),
         'FeatureDefinitions': ([FeatureDefinition], True),
-        'FeatureGroupName': (basestring, True),
+        'FeatureGroupName': (str, True),
         'OfflineStoreConfig': (dict, False),
         'OnlineStoreConfig': (dict, False),
-        'RecordIdentifierFeatureName': (basestring, True),
-        'RoleArn': (basestring, False),
+        'RecordIdentifierFeatureName': (str, True),
+        'RoleArn': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -414,10 +414,10 @@ class Image(AWSObject):
     resource_type = "AWS::SageMaker::Image"
 
     props = {
-        'ImageDescription': (basestring, False),
-        'ImageDisplayName': (basestring, False),
-        'ImageName': (basestring, True),
-        'ImageRoleArn': (basestring, True),
+        'ImageDescription': (str, False),
+        'ImageDisplayName': (str, False),
+        'ImageName': (str, True),
+        'ImageRoleArn': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -426,39 +426,39 @@ class ImageVersion(AWSObject):
     resource_type = "AWS::SageMaker::ImageVersion"
 
     props = {
-        'BaseImage': (basestring, True),
-        'ImageName': (basestring, True),
+        'BaseImage': (str, True),
+        'ImageName': (str, True),
     }
 
 
 class ImageConfig(AWSProperty):
     props = {
-        'RepositoryAccessMode': (basestring, True),
+        'RepositoryAccessMode': (str, True),
     }
 
 
 class MultiModelConfig(AWSProperty):
     props = {
-        'ModelCacheSetting': (basestring, False),
+        'ModelCacheSetting': (str, False),
     }
 
 
 class ContainerDefinition(AWSProperty):
     props = {
-        'ContainerHostname': (basestring, False),
+        'ContainerHostname': (str, False),
         'Environment': (dict, False),
-        'Image': (basestring, False),
+        'Image': (str, False),
         'ImageConfig': (ImageConfig, False),
-        'Mode': (basestring, False),
-        'ModelDataUrl': (basestring, False),
-        'ModelPackageName': (basestring, False),
+        'Mode': (str, False),
+        'ModelDataUrl': (str, False),
+        'ModelPackageName': (str, False),
         'MultiModelConfig': (MultiModelConfig, False),
     }
 
 
 class InferenceExecutionConfig(AWSProperty):
     props = {
-        'Mode': (basestring, True),
+        'Mode': (str, True),
     }
 
 
@@ -468,9 +468,9 @@ class Model(AWSObject):
     props = {
         'Containers': ([ContainerDefinition], False),
         'EnableNetworkIsolation': (boolean, False),
-        'ExecutionRoleArn': (basestring, True),
+        'ExecutionRoleArn': (str, True),
         'InferenceExecutionConfig': (InferenceExecutionConfig, False),
-        'ModelName': (basestring, False),
+        'ModelName': (str, False),
         'PrimaryContainer': (ContainerDefinition, False),
         'Tags': (Tags, False),
         'VpcConfig': (VpcConfig, False),
@@ -479,22 +479,22 @@ class Model(AWSObject):
 
 class ModelBiasAppSpecification(AWSProperty):
     props = {
-        'ConfigUri': (basestring, True),
+        'ConfigUri': (str, True),
         'Environment': (dict, False),
-        'ImageUri': (basestring, True),
+        'ImageUri': (str, True),
     }
 
 
 class ModelBiasBaselineConfig(AWSProperty):
     props = {
-        'BaseliningJobName': (basestring, False),
+        'BaseliningJobName': (str, False),
         'ConstraintsResource': (ConstraintsResource, False),
     }
 
 
 class MonitoringGroundTruthS3Input(AWSProperty):
     props = {
-        'S3Uri': (basestring, True),
+        'S3Uri': (str, True),
     }
 
 
@@ -509,14 +509,14 @@ class ModelBiasJobDefinition(AWSObject):
     resource_type = "AWS::SageMaker::ModelBiasJobDefinition"
 
     props = {
-        'JobDefinitionName': (basestring, False),
+        'JobDefinitionName': (str, False),
         'JobResources': (MonitoringResources, True),
         'ModelBiasAppSpecification': (ModelBiasAppSpecification, True),
         'ModelBiasBaselineConfig': (ModelBiasBaselineConfig, False),
         'ModelBiasJobInput': (ModelBiasJobInput, True),
         'ModelBiasJobOutputConfig': (MonitoringOutputConfig, True),
         'NetworkConfig': (NetworkConfig, False),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'StoppingCondition': (StoppingCondition, False),
         'Tags': (Tags, False),
     }
@@ -524,15 +524,15 @@ class ModelBiasJobDefinition(AWSObject):
 
 class ModelExplainabilityAppSpecification(AWSProperty):
     props = {
-        'ConfigUri': (basestring, True),
+        'ConfigUri': (str, True),
         'Environment': (dict, False),
-        'ImageUri': (basestring, True),
+        'ImageUri': (str, True),
     }
 
 
 class ModelExplainabilityBaselineConfig(AWSProperty):
     props = {
-        'BaseliningJobName': (basestring, False),
+        'BaseliningJobName': (str, False),
         'ConstraintsResource': (ConstraintsResource, False),
     }
 
@@ -547,7 +547,7 @@ class ModelExplainabilityJobDefinition(AWSObject):
     resource_type = "AWS::SageMaker::ModelExplainabilityJobDefinition"
 
     props = {
-        'JobDefinitionName': (basestring, False),
+        'JobDefinitionName': (str, False),
         'JobResources': (MonitoringResources, True),
         'ModelExplainabilityAppSpecification':
             (ModelExplainabilityAppSpecification, True),
@@ -557,7 +557,7 @@ class ModelExplainabilityJobDefinition(AWSObject):
         'ModelExplainabilityJobOutputConfig':
             (MonitoringOutputConfig, True),
         'NetworkConfig': (NetworkConfig, False),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'StoppingCondition': (StoppingCondition, False),
         'Tags': (Tags, False),
     }
@@ -567,8 +567,8 @@ class ModelPackageGroup(AWSObject):
     resource_type = "AWS::SageMaker::ModelPackageGroup"
 
     props = {
-        'ModelPackageGroupDescription': (basestring, False),
-        'ModelPackageGroupName': (basestring, True),
+        'ModelPackageGroupDescription': (str, False),
+        'ModelPackageGroupName': (str, True),
         'ModelPackageGroupPolicy': (dict, False),
         'Tags': (Tags, False),
     }
@@ -576,19 +576,19 @@ class ModelPackageGroup(AWSObject):
 
 class ModelQualityAppSpecification(AWSProperty):
     props = {
-        'ContainerArguments': ([basestring], False),
-        'ContainerEntrypoint': ([basestring], False),
+        'ContainerArguments': ([str], False),
+        'ContainerEntrypoint': ([str], False),
         'Environment': (dict, False),
-        'ImageUri': (basestring, True),
-        'PostAnalyticsProcessorSourceUri': (basestring, False),
-        'ProblemType': (basestring, True),
-        'RecordPreprocessorSourceUri': (basestring, False),
+        'ImageUri': (str, True),
+        'PostAnalyticsProcessorSourceUri': (str, False),
+        'ProblemType': (str, True),
+        'RecordPreprocessorSourceUri': (str, False),
     }
 
 
 class ModelQualityBaselineConfig(AWSProperty):
     props = {
-        'BaseliningJobName': (basestring, False),
+        'BaseliningJobName': (str, False),
         'ConstraintsResource': (ConstraintsResource, False),
     }
 
@@ -604,7 +604,7 @@ class ModelQualityJobDefinition(AWSObject):
     resource_type = "AWS::SageMaker::ModelQualityJobDefinition"
 
     props = {
-        'JobDefinitionName': (basestring, False),
+        'JobDefinitionName': (str, False),
         'JobResources': (MonitoringResources, True),
         'ModelQualityAppSpecification':
             (ModelQualityAppSpecification, True),
@@ -612,7 +612,7 @@ class ModelQualityJobDefinition(AWSObject):
         'ModelQualityJobInput': (ModelQualityJobInput, True),
         'ModelQualityJobOutputConfig': (MonitoringOutputConfig, True),
         'NetworkConfig': (NetworkConfig, False),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'StoppingCondition': (StoppingCondition, False),
         'Tags': (Tags, False),
     }
@@ -620,14 +620,14 @@ class ModelQualityJobDefinition(AWSObject):
 
 class MonitoringExecutionSummary(AWSProperty):
     props = {
-        'CreationTime': (basestring, True),
-        'EndpointName': (basestring, False),
-        'FailureReason': (basestring, False),
-        'LastModifiedTime': (basestring, True),
-        'MonitoringExecutionStatus': (basestring, True),
-        'MonitoringScheduleName': (basestring, True),
-        'ProcessingJobArn': (basestring, False),
-        'ScheduledTime': (basestring, True),
+        'CreationTime': (str, True),
+        'EndpointName': (str, False),
+        'FailureReason': (str, False),
+        'LastModifiedTime': (str, True),
+        'MonitoringExecutionStatus': (str, True),
+        'MonitoringScheduleName': (str, True),
+        'ProcessingJobArn': (str, False),
+        'ScheduledTime': (str, True),
     }
 
 
@@ -640,11 +640,11 @@ class BaselineConfig(AWSProperty):
 
 class MonitoringAppSpecification(AWSProperty):
     props = {
-        'ContainerArguments': ([basestring], False),
-        'ContainerEntrypoint': ([basestring], False),
-        'ImageUri': (basestring, True),
-        'PostAnalyticsProcessorSourceUri': (basestring, False),
-        'RecordPreprocessorSourceUri': (basestring, False),
+        'ContainerArguments': ([str], False),
+        'ContainerEntrypoint': ([str], False),
+        'ImageUri': (str, True),
+        'PostAnalyticsProcessorSourceUri': (str, False),
+        'RecordPreprocessorSourceUri': (str, False),
     }
 
 
@@ -669,14 +669,14 @@ class MonitoringJobDefinition(AWSProperty):
         'MonitoringOutputConfig': (MonitoringOutputConfig, True),
         'MonitoringResources': (MonitoringResources, True),
         'NetworkConfig': (NetworkConfig, False),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'StoppingCondition': (StoppingCondition, False),
     }
 
 
 class ScheduleConfig(AWSProperty):
     props = {
-        'ScheduleExpression': (basestring, True),
+        'ScheduleExpression': (str, True),
     }
 
 
@@ -691,16 +691,16 @@ class MonitoringSchedule(AWSObject):
     resource_type = "AWS::SageMaker::MonitoringSchedule"
 
     props = {
-        'CreationTime': (basestring, False),
-        'EndpointName': (basestring, False),
-        'FailureReason': (basestring, False),
-        'LastModifiedTime': (basestring, False),
+        'CreationTime': (str, False),
+        'EndpointName': (str, False),
+        'FailureReason': (str, False),
+        'LastModifiedTime': (str, False),
         'LastMonitoringExecutionSummary':
             (MonitoringExecutionSummary, False),
-        'MonitoringScheduleArn': (basestring, False),
+        'MonitoringScheduleArn': (str, False),
         'MonitoringScheduleConfig': (MonitoringScheduleConfig, True),
-        'MonitoringScheduleName': (basestring, True),
-        'MonitoringScheduleStatus': (basestring, False),
+        'MonitoringScheduleName': (str, True),
+        'MonitoringScheduleStatus': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -709,18 +709,18 @@ class NotebookInstance(AWSObject):
     resource_type = "AWS::SageMaker::NotebookInstance"
 
     props = {
-        'AcceleratorTypes': ([basestring], False),
-        'AdditionalCodeRepositories': ([basestring], False),
-        'DefaultCodeRepository': (basestring, False),
-        'DirectInternetAccess': (basestring, False),
-        'InstanceType': (basestring, True),
-        'KmsKeyId': (basestring, False),
-        'LifecycleConfigName': (basestring, False),
-        'NotebookInstanceName': (basestring, False),
-        'RoleArn': (basestring, True),
-        'RootAccess': (basestring, False),
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetId': (basestring, False),
+        'AcceleratorTypes': ([str], False),
+        'AdditionalCodeRepositories': ([str], False),
+        'DefaultCodeRepository': (str, False),
+        'DirectInternetAccess': (str, False),
+        'InstanceType': (str, True),
+        'KmsKeyId': (str, False),
+        'LifecycleConfigName': (str, False),
+        'NotebookInstanceName': (str, False),
+        'RoleArn': (str, True),
+        'RootAccess': (str, False),
+        'SecurityGroupIds': ([str], False),
+        'SubnetId': (str, False),
         'Tags': (Tags, False),
         'VolumeSizeInGB': (integer, False),
     }
@@ -728,7 +728,7 @@ class NotebookInstance(AWSObject):
 
 class NotebookInstanceLifecycleHook(AWSProperty):
     props = {
-        'Content': (basestring, False),
+        'Content': (str, False),
     }
 
 
@@ -736,7 +736,7 @@ class NotebookInstanceLifecycleConfig(AWSObject):
     resource_type = "AWS::SageMaker::NotebookInstanceLifecycleConfig"
 
     props = {
-        'NotebookInstanceLifecycleConfigName': (basestring, False),
+        'NotebookInstanceLifecycleConfigName': (str, False),
         'OnCreate': ([NotebookInstanceLifecycleHook], False),
         'OnStart': ([NotebookInstanceLifecycleHook], False),
     }
@@ -747,10 +747,10 @@ class Pipeline(AWSObject):
 
     props = {
         'PipelineDefinition': (dict, True),
-        'PipelineDescription': (basestring, False),
-        'PipelineDisplayName': (basestring, False),
-        'PipelineName': (basestring, True),
-        'RoleArn': (basestring, True),
+        'PipelineDescription': (str, False),
+        'PipelineDisplayName': (str, False),
+        'PipelineName': (str, True),
+        'RoleArn': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -759,8 +759,8 @@ class Project(AWSObject):
     resource_type = "AWS::SageMaker::Project"
 
     props = {
-        'ProjectDescription': (basestring, False),
-        'ProjectName': (basestring, True),
+        'ProjectDescription': (str, False),
+        'ProjectName': (str, True),
         'ServiceCatalogProvisioningDetails': (dict, True),
         'Tags': (Tags, False),
     }
@@ -770,20 +770,20 @@ class UserProfile(AWSObject):
     resource_type = "AWS::SageMaker::UserProfile"
 
     props = {
-        'DomainId': (basestring, True),
-        'SingleSignOnUserIdentifier': (basestring, False),
-        'SingleSignOnUserValue': (basestring, False),
+        'DomainId': (str, True),
+        'SingleSignOnUserIdentifier': (str, False),
+        'SingleSignOnUserValue': (str, False),
         'Tags': (Tags, False),
-        'UserProfileName': (basestring, True),
+        'UserProfileName': (str, True),
         'UserSettings': (UserSettings, False),
     }
 
 
 class CognitoMemberDefinition(AWSProperty):
     props = {
-        'CognitoClientId': (basestring, True),
-        'CognitoUserGroup': (basestring, True),
-        'CognitoUserPool': (basestring, True),
+        'CognitoClientId': (str, True),
+        'CognitoUserGroup': (str, True),
+        'CognitoUserPool': (str, True),
     }
 
 
@@ -795,7 +795,7 @@ class MemberDefinition(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     props = {
-        'NotificationTopicArn': (basestring, True),
+        'NotificationTopicArn': (str, True),
     }
 
 
@@ -803,9 +803,9 @@ class Workteam(AWSObject):
     resource_type = "AWS::SageMaker::Workteam"
 
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'MemberDefinitions': ([MemberDefinition], False),
         'NotificationConfiguration': (NotificationConfiguration, False),
         'Tags': (Tags, False),
-        'WorkteamName': (basestring, False),
+        'WorkteamName': (str, False),
     }

@@ -54,13 +54,13 @@ def validate_positional_constraint(positional_constraint):
 
 class ExcludedRule(AWSProperty):
     props = {
-        'Name': (basestring, False)
+        'Name': (str, False)
     }
 
 
 class RuleGroupReferenceStatement(AWSProperty):
     props = {
-        'Arn': (basestring, False),
+        'Arn': (str, False),
         'ExcludedRules': ([ExcludedRule], False)
     }
 
@@ -74,13 +74,13 @@ class TextTransformation(AWSProperty):
 
 class SingleHeader(AWSProperty):
     props = {
-        'Name': (basestring, False)
+        'Name': (str, False)
     }
 
 
 class SingleQueryArgument(AWSProperty):
     props = {
-        'Name': (basestring, False)
+        'Name': (str, False)
     }
 
 
@@ -128,7 +128,7 @@ class FieldToMatch(AWSProperty):
 
 class RegexPatternSetReferenceStatement(AWSProperty):
     props = {
-        'Arn': (basestring, True),
+        'Arn': (str, True),
         'FieldToMatch': (FieldToMatch, True),
         'TextTransformations': ([TextTransformation], True)
     }
@@ -161,37 +161,37 @@ class ByteMatchStatement(AWSProperty):
     props = {
         'FieldToMatch': (FieldToMatch, True),
         'PositionalConstraint': (validate_positional_constraint, True),
-        'SearchString': (basestring, True),
-        'SearchStringBase64': (basestring, False),
+        'SearchString': (str, True),
+        'SearchStringBase64': (str, False),
         'TextTransformations': ([TextTransformation], True)
     }
 
 
 class ForwardedIPConfiguration(AWSProperty):
     props = {
-        'FallbackBehavior': (basestring, True),
-        'HeaderName': (basestring, True),
+        'FallbackBehavior': (str, True),
+        'HeaderName': (str, True),
     }
 
 
 class GeoMatchStatement(AWSProperty):
     props = {
-        'CountryCodes': ([basestring], False),
+        'CountryCodes': ([str], False),
         'ForwardedIPConfig': (ForwardedIPConfiguration, False),
     }
 
 
 class IPSetForwardedIPConfiguration(AWSProperty):
     props = {
-        'FallbackBehavior': (basestring, True),
-        'HeaderName': (basestring, True),
-        'Position': (basestring, True),
+        'FallbackBehavior': (str, True),
+        'HeaderName': (str, True),
+        'Position': (str, True),
     }
 
 
 class IPSetReferenceStatement(AWSProperty):
     props = {
-        'Arn': (basestring, False),
+        'Arn': (str, False),
         'IPSetForwardedIPConfig': (IPSetForwardedIPConfiguration, False),
     }
 
@@ -199,8 +199,8 @@ class IPSetReferenceStatement(AWSProperty):
 class ManagedRuleGroupStatement(AWSProperty):
     props = {
         'ExcludedRules': ([ExcludedRule], False),
-        'Name': (basestring, False),
-        'VendorName': (basestring, False),
+        'Name': (str, False),
+        'VendorName': (str, False),
     }
 
 
@@ -240,7 +240,7 @@ class OrStatementTwo(AWSProperty):
 
 class RateBasedStatementTwo(AWSProperty):
     props = {
-        'AggregateKeyType': (basestring, False),
+        'AggregateKeyType': (str, False),
         'ForwardedIPConfig': (ForwardedIPConfiguration, False),
         'Limit': (integer, False),
         'ScopeDownStatement': StatementThree
@@ -287,7 +287,7 @@ class OrStatementOne(AWSProperty):
 
 class RateBasedStatementOne(AWSProperty):
     props = {
-        'AggregateKeyType': (basestring, False),
+        'AggregateKeyType': (str, False),
         'ForwardedIPConfig': (ForwardedIPConfiguration, False),
         'Limit': (integer, False),
         'ScopeDownStatement': (StatementTwo, False)
@@ -317,7 +317,7 @@ class StatementOne(AWSProperty):
 class VisibilityConfig(AWSProperty):
     props = {
         'CloudWatchMetricsEnabled': (boolean, False),
-        'MetricName': (basestring, False),
+        'MetricName': (str, False),
         'SampledRequestsEnabled': (boolean, False)
     }
 
@@ -364,7 +364,7 @@ class OverrideAction(AWSProperty):
 class WebACLRule(AWSProperty):
     props = {
         'Action': (RuleAction, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'OverrideAction': (OverrideAction, False),
         'Priority': (integer, False),
         'Statement': (StatementOne, False),
@@ -384,10 +384,10 @@ class WebACL(AWSObject):
 
     props = {
         'DefaultAction': (DefaultAction, False),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
+        'Description': (str, False),
+        'Name': (str, False),
         'Rules': ([WebACLRule], False),
-        'Scope': (basestring, True),
+        'Scope': (str, True),
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
     }
@@ -397,11 +397,11 @@ class IPSet(AWSObject):
     resource_type = "AWS::WAFv2::IPSet"
 
     props = {
-        'Addresses': ([basestring], False),
-        'Description': (basestring, False),
+        'Addresses': ([str], False),
+        'Description': (str, False),
         'IPAddressVersion': (validate_ipaddress_version, False),
-        'Name': (basestring, False),
-        'Scope': (basestring, True),
+        'Name': (str, False),
+        'Scope': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -410,10 +410,10 @@ class RegexPatternSet(AWSObject):
     resource_type = "AWS::WAFv2::RegexPatternSet"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'RegularExpressionList': ([basestring], True),
-        'Scope': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, False),
+        'RegularExpressionList': ([str], True),
+        'Scope': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -421,7 +421,7 @@ class RegexPatternSet(AWSObject):
 class RuleGroupRule(AWSProperty):
     props = {
         'Action': (RuleAction, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Priority': (integer, False),
         'Statement': (StatementOne, False),
         'VisibilityConfig': (VisibilityConfig, False)
@@ -433,10 +433,10 @@ class RuleGroup(AWSObject):
 
     props = {
         'Capacity': (integer, False),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
+        'Description': (str, False),
+        'Name': (str, False),
         'Rules': ([RuleGroupRule], False),
-        'Scope': (basestring, False),
+        'Scope': (str, False),
         'Tags': (Tags, False),
         'VisibilityConfig': (VisibilityConfig, False)
     }
@@ -446,6 +446,6 @@ class WebACLAssociation(AWSObject):
     resource_type = "AWS::WAFv2::WebACLAssociation"
 
     props = {
-        'ResourceArn': (basestring, True),
-        'WebACLArn': (basestring, True),
+        'ResourceArn': (str, True),
+        'WebACLArn': (str, True),
     }

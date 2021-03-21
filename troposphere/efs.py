@@ -24,24 +24,24 @@ def provisioned_throughput_validator(throughput):
 
 class PosixUser(AWSProperty):
     props = {
-        'Gid': (basestring, True),
-        'SecondaryGids': ([basestring], False),
-        'Uid': (basestring, True),
+        'Gid': (str, True),
+        'SecondaryGids': ([str], False),
+        'Uid': (str, True),
     }
 
 
 class CreationInfo(AWSProperty):
     props = {
-        'OwnerGid': (basestring, True),
-        'OwnerUid': (basestring, True),
-        'Permissions': (basestring, True),
+        'OwnerGid': (str, True),
+        'OwnerUid': (str, True),
+        'Permissions': (str, True),
     }
 
 
 class RootDirectory(AWSProperty):
     props = {
         'CreationInfo': (CreationInfo, False),
-        'Path': (basestring, False),
+        'Path': (str, False),
     }
 
 
@@ -50,8 +50,8 @@ class AccessPoint(AWSObject):
 
     props = {
         'AccessPointTags': (Tags, False),
-        'ClientToken': (basestring, False),
-        'FileSystemId': (basestring, True),
+        'ClientToken': (str, False),
+        'FileSystemId': (str, True),
         'PosixUser': (PosixUser, False),
         'RootDirectory': (RootDirectory, False),
     }
@@ -59,13 +59,13 @@ class AccessPoint(AWSObject):
 
 class LifecyclePolicy(AWSProperty):
     props = {
-        'TransitionToIA': (basestring, True),
+        'TransitionToIA': (str, True),
     }
 
 
 class BackupPolicy(AWSProperty):
     props = {
-        'Status': (basestring, True),
+        'Status': (str, True),
     }
 
     def validate(self):
@@ -82,14 +82,14 @@ class FileSystem(AWSObject):
     resource_type = "AWS::EFS::FileSystem"
 
     props = {
-        'AvailabilityZoneName': (basestring, False),
+        'AvailabilityZoneName': (str, False),
         'BackupPolicy': (BackupPolicy, False),
         'Encrypted': (boolean, False),
         'FileSystemPolicy': (dict, False),
         'FileSystemTags': (Tags, False),
-        'KmsKeyId': (basestring, False),
+        'KmsKeyId': (str, False),
         'LifecyclePolicies': ([LifecyclePolicy], False),
-        'PerformanceMode': (basestring, False),
+        'PerformanceMode': (str, False),
         'ProvisionedThroughputInMibps': (float, False),
         'ThroughputMode': (throughput_mode_validator, False),
     }
@@ -99,8 +99,8 @@ class MountTarget(AWSObject):
     resource_type = "AWS::EFS::MountTarget"
 
     props = {
-        'FileSystemId': (basestring, True),
-        'IpAddress': (basestring, False),
-        'SecurityGroups': ([basestring], True),
-        'SubnetId': (basestring, True),
+        'FileSystemId': (str, True),
+        'IpAddress': (str, False),
+        'SecurityGroups': ([str], True),
+        'SubnetId': (str, True),
     }

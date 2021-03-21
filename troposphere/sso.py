@@ -16,18 +16,18 @@ class Assignment(AWSObject):
     resource_type = "AWS::SSO::Assignment"
 
     props = {
-        'InstanceArn': (basestring, True),
-        'PermissionSetArn': (basestring, True),
-        'PrincipalId': (basestring, True),
-        'PrincipalType': (basestring, True),
-        'TargetId': (basestring, True),
-        'TargetType': (basestring, True),
+        'InstanceArn': (str, True),
+        'PermissionSetArn': (str, True),
+        'PrincipalId': (str, True),
+        'PrincipalType': (str, True),
+        'TargetId': (str, True),
+        'TargetType': (str, True),
     }
 
 
 class AccessControlAttributeValueSourceList(AWSProperty):
     props = {
-        'AccessControlAttributeValueSourceList': ([basestring], False),
+        'AccessControlAttributeValueSourceList': ([str], False),
     }
 
 
@@ -39,7 +39,7 @@ class AccessControlAttributeValue(AWSProperty):
 
 class AccessControlAttribute(AWSProperty):
     props = {
-        'Key': (basestring, True),
+        'Key': (str, True),
         'Value': (AccessControlAttributeValue, True),
     }
 
@@ -49,7 +49,7 @@ class InstanceAccessControlAttributeConfiguration(AWSObject):
 
     props = {
         'AccessControlAttributes': ([AccessControlAttribute], False),
-        'InstanceArn': (basestring, True),
+        'InstanceArn': (str, True),
     }
 
 
@@ -57,12 +57,12 @@ class PermissionSet(AWSObject):
     resource_type = "AWS::SSO::PermissionSet"
 
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'InlinePolicy': (dict, False),
-        'InstanceArn': (basestring, True),
-        'ManagedPolicies': ([basestring], False),
-        'Name': (basestring, True),
-        'RelayStateType': (basestring, False),
-        'SessionDuration': (basestring, False),
+        'InstanceArn': (str, True),
+        'ManagedPolicies': ([str], False),
+        'Name': (str, True),
+        'RelayStateType': (str, False),
+        'SessionDuration': (str, False),
         'Tags': (Tags, False),
     }

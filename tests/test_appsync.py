@@ -4,7 +4,7 @@ from troposphere.appsync import Resolver, PipelineConfig
 
 class TestAppsyncResolver(unittest.TestCase):
     def test_resolver_kind_bad_value(self):
-        with self.assertRaisesRegexp(ValueError, 'Kind must be one of'):
+        with self.assertRaisesRegex(ValueError, 'Kind must be one of'):
             Resolver(
                 'MutationField',
                 DataSourceName='SomeDatasource',

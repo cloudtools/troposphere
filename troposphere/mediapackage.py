@@ -16,8 +16,8 @@ from .validators import integer
 
 class EgressEndpoint(AWSProperty):
     props = {
-        'PackagingConfigurationId': (basestring, True),
-        'Url': (basestring, True),
+        'PackagingConfigurationId': (str, True),
+        'Url': (str, True),
     }
 
 
@@ -26,11 +26,11 @@ class Asset(AWSObject):
 
     props = {
         'EgressEndpoints': ([EgressEndpoint], False),
-        'Id': (basestring, True),
-        'PackagingGroupId': (basestring, True),
-        'ResourceId': (basestring, False),
-        'SourceArn': (basestring, True),
-        'SourceRoleArn': (basestring, True),
+        'Id': (str, True),
+        'PackagingGroupId': (str, True),
+        'ResourceId': (str, False),
+        'SourceArn': (str, True),
+        'SourceRoleArn': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -39,24 +39,24 @@ class Channel(AWSObject):
     resource_type = "AWS::MediaPackage::Channel"
 
     props = {
-        'Description': (basestring, False),
-        'Id': (basestring, True),
+        'Description': (str, False),
+        'Id': (str, True),
         'Tags': (Tags, False),
     }
 
 
 class Authorization(AWSProperty):
     props = {
-        'CdnIdentifierSecret': (basestring, True),
-        'SecretsRoleArn': (basestring, True),
+        'CdnIdentifierSecret': (str, True),
+        'SecretsRoleArn': (str, True),
     }
 
 
 class SpekeKeyProvider(AWSProperty):
     props = {
-        'RoleArn': (basestring, True),
-        'SystemIds': ([basestring], True),
-        'Url': (basestring, True),
+        'RoleArn': (str, True),
+        'SystemIds': ([str], True),
+        'Url': (str, True),
     }
 
 
@@ -70,15 +70,15 @@ class StreamSelection(AWSProperty):
     props = {
         'MaxVideoBitsPerSecond': (integer, False),
         'MinVideoBitsPerSecond': (integer, False),
-        'StreamOrder': (basestring, False),
+        'StreamOrder': (str, False),
     }
 
 
 class HlsManifest(AWSProperty):
     props = {
-        'AdMarkers': (basestring, False),
+        'AdMarkers': (str, False),
         'IncludeIframeOnlyStream': (boolean, False),
-        'ManifestName': (basestring, False),
+        'ManifestName': (str, False),
         'ProgramDateTimeIntervalSeconds': (integer, False),
         'RepeatExtXKey': (boolean, False),
         'StreamSelection': (StreamSelection, False),
@@ -101,10 +101,10 @@ class DashEncryption(AWSProperty):
 
 class DashManifest(AWSProperty):
     props = {
-        'ManifestLayout': (basestring, False),
-        'ManifestName': (basestring, False),
+        'ManifestLayout': (str, False),
+        'ManifestName': (str, False),
         'MinBufferTimeSeconds': (integer, False),
-        'Profile': (basestring, False),
+        'Profile': (str, False),
         'StreamSelection': (StreamSelection, False),
     }
 
@@ -113,16 +113,16 @@ class DashPackage(AWSProperty):
     props = {
         'DashManifests': ([DashManifest], True),
         'Encryption': (DashEncryption, False),
-        'PeriodTriggers': ([basestring], False),
+        'PeriodTriggers': ([str], False),
         'SegmentDurationSeconds': (integer, False),
-        'SegmentTemplateFormat': (basestring, False),
+        'SegmentTemplateFormat': (str, False),
     }
 
 
 class HlsEncryption(AWSProperty):
     props = {
-        'ConstantInitializationVector': (basestring, False),
-        'EncryptionMethod': (basestring, False),
+        'ConstantInitializationVector': (str, False),
+        'EncryptionMethod': (str, False),
         'SpekeKeyProvider': (SpekeKeyProvider, True),
     }
 
@@ -144,7 +144,7 @@ class MssEncryption(AWSProperty):
 
 class MssManifest(AWSProperty):
     props = {
-        'ManifestName': (basestring, False),
+        'ManifestName': (str, False),
         'StreamSelection': (StreamSelection, False),
     }
 
@@ -162,19 +162,19 @@ class OriginEndpoint(AWSObject):
 
     props = {
         'Authorization': (Authorization, False),
-        'ChannelId': (basestring, True),
+        'ChannelId': (str, True),
         'CmafPackage': (CmafPackage, False),
         'DashPackage': (DashPackage, False),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'HlsPackage': (HlsPackage, False),
-        'Id': (basestring, True),
-        'ManifestName': (basestring, False),
+        'Id': (str, True),
+        'ManifestName': (str, False),
         'MssPackage': (MssPackage, False),
-        'Origination': (basestring, False),
+        'Origination': (str, False),
         'StartoverWindowSeconds': (integer, False),
         'Tags': (Tags, False),
         'TimeDelaySeconds': (integer, False),
-        'Whitelist': ([basestring], False),
+        'Whitelist': ([str], False),
     }
 
 
@@ -185,9 +185,9 @@ class PackagingConfiguration(AWSObject):
         'CmafPackage': (CmafPackage, False),
         'DashPackage': (DashPackage, False),
         'HlsPackage': (HlsPackage, False),
-        'Id': (basestring, True),
+        'Id': (str, True),
         'MssPackage': (MssPackage, False),
-        'PackagingGroupId': (basestring, True),
+        'PackagingGroupId': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -197,6 +197,6 @@ class PackagingGroup(AWSObject):
 
     props = {
         'Authorization': (Authorization, False),
-        'Id': (basestring, True),
+        'Id': (str, True),
         'Tags': (Tags, False),
     }

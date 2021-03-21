@@ -17,18 +17,18 @@ class Cluster(AWSObject):
     resource_type = "AWS::DAX::Cluster"
 
     props = {
-        'AvailabilityZones': (basestring, False),
-        'ClusterName': (basestring, False),
-        'Description': (basestring, False),
-        'IAMRoleARN': (basestring, True),
-        'NodeType': (basestring, True),
-        'NotificationTopicARN': (basestring, False),
-        'ParameterGroupName': (basestring, False),
-        'PreferredMaintenanceWindow': (basestring, False),
-        'ReplicationFactor': (basestring, True),
+        'AvailabilityZones': (str, False),
+        'ClusterName': (str, False),
+        'Description': (str, False),
+        'IAMRoleARN': (str, True),
+        'NodeType': (str, True),
+        'NotificationTopicARN': (str, False),
+        'ParameterGroupName': (str, False),
+        'PreferredMaintenanceWindow': (str, False),
+        'ReplicationFactor': (str, True),
         'SSESpecification': (SSESpecification, False),
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetGroupName': (basestring, True),
+        'SecurityGroupIds': ([str], False),
+        'SubnetGroupName': (str, True),
         'Tags': (dict, False),
     }
 
@@ -37,8 +37,8 @@ class ParameterGroup(AWSObject):
     resource_type = "AWS::DAX::ParameterGroup"
 
     props = {
-        'Description': (basestring, False),
-        'ParameterGroupName': (basestring, False),
+        'Description': (str, False),
+        'ParameterGroupName': (str, False),
         'ParameterNameValues': (dict, False),
     }
 
@@ -47,7 +47,7 @@ class SubnetGroup(AWSObject):
     resource_type = "AWS::DAX::SubnetGroup"
 
     props = {
-        'Description': (basestring, False),
-        'SubnetGroupName': (basestring, False),
-        'SubnetIds': ([basestring], False),
+        'Description': (str, False),
+        'SubnetGroupName': (str, False),
+        'SubnetIds': ([str], False),
     }

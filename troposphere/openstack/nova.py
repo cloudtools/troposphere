@@ -12,9 +12,9 @@ from troposphere.validators import boolean, integer, network_port
 class BlockDeviceMapping(AWSProperty):
     props = {
         'delete_on_termination': (boolean, False),
-        'device_name': (basestring, True),
-        'snapshot_id': (basestring, False),
-        'volume_id': (basestring, False),
+        'device_name': (str, True),
+        'snapshot_id': (str, False),
+        'volume_id': (str, False),
         'volume_size': (integer, False),
     }
 
@@ -23,15 +23,15 @@ class BlockDeviceMappingV2(AWSProperty):
     props = {
         'boot_index': (integer, False),
         'delete_on_termination': (boolean, False),
-        'device_name': (basestring, False),
-        'device_type': (basestring, False),
-        'disk_bus': (basestring, False),
-        'ephemeral_format': (basestring, False),
+        'device_name': (str, False),
+        'device_type': (str, False),
+        'disk_bus': (str, False),
+        'ephemeral_format': (str, False),
         'ephemeral_size': (integer, False),
-        'image_id': (basestring, False),
-        'snapshot_id': (basestring, False),
+        'image_id': (str, False),
+        'snapshot_id': (str, False),
         'swap_size': (integer, False),
-        'volume_id': (basestring, False),
+        'volume_id': (str, False),
         'volume_size': (integer, False),
     }
 
@@ -60,8 +60,8 @@ class BlockDeviceMappingV2(AWSProperty):
 
 class Network(AWSProperty):
     props = {
-        'fixed_ip': (basestring, False),
-        'network': (basestring, False),
+        'fixed_ip': (str, False),
+        'network': (str, False),
         'port': (network_port, False),
     }
 
@@ -70,7 +70,7 @@ class FloatingIP(AWSObject):
     resource_type = "OS::Nova::FloatingIP"
 
     props = {
-        'pool': (basestring, False),
+        'pool': (str, False),
     }
 
 
@@ -78,8 +78,8 @@ class FloatingIPAssociation(AWSObject):
     resource_type = "OS::Nova::FloatingIPAssociation"
 
     props = {
-        'floating_ip': (basestring, True),
-        'server_ip': (basestring, True),
+        'floating_ip': (str, True),
+        'server_ip': (str, True),
     }
 
 
@@ -87,8 +87,8 @@ class KeyPair(AWSObject):
     resource_type = "OS::Nova::KeyPair"
 
     props = {
-        'name': (basestring, True),
-        'public_key': (basestring, False),
+        'name': (str, True),
+        'public_key': (str, False),
         'save_private_key': (boolean, False),
     }
 
@@ -97,28 +97,28 @@ class Server(AWSObject):
     resource_type = "OS::Nova::Server"
 
     props = {
-        'admin_pass': (basestring, False),
-        'admin_user': (basestring, False),
-        'availability_zone': (basestring, False),
+        'admin_pass': (str, False),
+        'admin_user': (str, False),
+        'availability_zone': (str, False),
         'block_device_mapping': (list, False),
         'block_device_mapping_v2': (list, False),
-        'config_drive': (basestring, False),
-        'diskConfig': (basestring, False),
-        'flavor': (basestring, False),
-        'flavor_update_policy': (basestring, False),
-        'image': (basestring, True),
-        'image_update_policy': (basestring, False),
-        'key_name': (basestring, False),
+        'config_drive': (str, False),
+        'diskConfig': (str, False),
+        'flavor': (str, False),
+        'flavor_update_policy': (str, False),
+        'image': (str, True),
+        'image_update_policy': (str, False),
+        'key_name': (str, False),
         'metadata': (dict, False),
-        'name': (basestring, False),
+        'name': (str, False),
         'personality': (dict, False),
         'networks': (list, True),
-        'reservation_id': (basestring, False),
+        'reservation_id': (str, False),
         'scheduler_hints': (dict, False),
         'security_groups': (list, False),
-        'software_config_transport': (basestring, False),
-        'user_data': (basestring, False),
-        'user_data_format': (basestring, False),
+        'software_config_transport': (str, False),
+        'user_data': (str, False),
+        'user_data_format': (str, False),
     }
 
     def validate(self):

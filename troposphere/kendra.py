@@ -16,9 +16,9 @@ from .validators import integer
 
 class ConfluenceAttachmentToIndexFieldMapping(AWSProperty):
     props = {
-        'DataSourceFieldName': (basestring, True),
-        'DateFieldFormat': (basestring, False),
-        'IndexFieldName': (basestring, True),
+        'DataSourceFieldName': (str, True),
+        'DateFieldFormat': (str, False),
+        'IndexFieldName': (str, True),
     }
 
 
@@ -39,9 +39,9 @@ class ConfluenceAttachmentConfiguration(AWSProperty):
 
 class ConfluenceBlogToIndexFieldMapping(AWSProperty):
     props = {
-        'DataSourceFieldName': (basestring, True),
-        'DateFieldFormat': (basestring, False),
-        'IndexFieldName': (basestring, True),
+        'DataSourceFieldName': (str, True),
+        'DateFieldFormat': (str, False),
+        'IndexFieldName': (str, True),
     }
 
 
@@ -60,9 +60,9 @@ class ConfluenceBlogConfiguration(AWSProperty):
 
 class ConfluencePageToIndexFieldMapping(AWSProperty):
     props = {
-        'DataSourceFieldName': (basestring, True),
-        'DateFieldFormat': (basestring, False),
-        'IndexFieldName': (basestring, True),
+        'DataSourceFieldName': (str, True),
+        'DateFieldFormat': (str, False),
+        'IndexFieldName': (str, True),
     }
 
 
@@ -81,9 +81,9 @@ class ConfluencePageConfiguration(AWSProperty):
 
 class ConfluenceSpaceToIndexFieldMapping(AWSProperty):
     props = {
-        'DataSourceFieldName': (basestring, True),
-        'DateFieldFormat': (basestring, False),
-        'IndexFieldName': (basestring, True),
+        'DataSourceFieldName': (str, True),
+        'DateFieldFormat': (str, False),
+        'IndexFieldName': (str, True),
     }
 
 
@@ -96,7 +96,7 @@ class ConfluenceSpaceFieldMappingsList(AWSProperty):
 
 class ConfluenceSpaceList(AWSProperty):
     props = {
-        'ConfluenceSpaceList': ([basestring], False),
+        'ConfluenceSpaceList': ([str], False),
     }
 
 
@@ -112,14 +112,14 @@ class ConfluenceSpaceConfiguration(AWSProperty):
 
 class DataSourceInclusionsExclusionsStrings(AWSProperty):
     props = {
-        'DataSourceInclusionsExclusionsStrings': ([basestring], False),
+        'DataSourceInclusionsExclusionsStrings': ([str], False),
     }
 
 
 class DataSourceVpcConfiguration(AWSProperty):
     props = {
-        'SecurityGroupIds': ([basestring], True),
-        'SubnetIds': ([basestring], True),
+        'SecurityGroupIds': ([str], True),
+        'SubnetIds': ([str], True),
     }
 
 
@@ -131,31 +131,31 @@ class ConfluenceConfiguration(AWSProperty):
         'ExclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
         'InclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
         'PageConfiguration': (ConfluencePageConfiguration, False),
-        'SecretArn': (basestring, True),
-        'ServerUrl': (basestring, True),
+        'SecretArn': (str, True),
+        'ServerUrl': (str, True),
         'SpaceConfiguration': (ConfluenceSpaceConfiguration, False),
-        'Version': (basestring, True),
+        'Version': (str, True),
         'VpcConfiguration': (DataSourceVpcConfiguration, False),
     }
 
 
 class AclConfiguration(AWSProperty):
     props = {
-        'AllowedGroupsColumnName': (basestring, True),
+        'AllowedGroupsColumnName': (str, True),
     }
 
 
 class ChangeDetectingColumns(AWSProperty):
     props = {
-        'ChangeDetectingColumns': ([basestring], False),
+        'ChangeDetectingColumns': ([str], False),
     }
 
 
 class DataSourceToIndexFieldMapping(AWSProperty):
     props = {
-        'DataSourceFieldName': (basestring, True),
-        'DateFieldFormat': (basestring, False),
-        'IndexFieldName': (basestring, True),
+        'DataSourceFieldName': (str, True),
+        'DateFieldFormat': (str, False),
+        'IndexFieldName': (str, True),
     }
 
 
@@ -169,26 +169,26 @@ class DataSourceToIndexFieldMappingList(AWSProperty):
 class ColumnConfiguration(AWSProperty):
     props = {
         'ChangeDetectingColumns': (ChangeDetectingColumns, True),
-        'DocumentDataColumnName': (basestring, True),
-        'DocumentIdColumnName': (basestring, True),
-        'DocumentTitleColumnName': (basestring, False),
+        'DocumentDataColumnName': (str, True),
+        'DocumentIdColumnName': (str, True),
+        'DocumentTitleColumnName': (str, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
     }
 
 
 class ConnectionConfiguration(AWSProperty):
     props = {
-        'DatabaseHost': (basestring, True),
-        'DatabaseName': (basestring, True),
+        'DatabaseHost': (str, True),
+        'DatabaseName': (str, True),
         'DatabasePort': (integer, True),
-        'SecretArn': (basestring, True),
-        'TableName': (basestring, True),
+        'SecretArn': (str, True),
+        'TableName': (str, True),
     }
 
 
 class SqlConfiguration(AWSProperty):
     props = {
-        'QueryIdentifiersEnclosingOption': (basestring, False),
+        'QueryIdentifiersEnclosingOption': (str, False),
     }
 
 
@@ -197,7 +197,7 @@ class DatabaseConfiguration(AWSProperty):
         'AclConfiguration': (AclConfiguration, False),
         'ColumnConfiguration': (ColumnConfiguration, True),
         'ConnectionConfiguration': (ConnectionConfiguration, True),
-        'DatabaseEngineType': (basestring, True),
+        'DatabaseEngineType': (str, True),
         'SqlConfiguration': (SqlConfiguration, False),
         'VpcConfiguration': (DataSourceVpcConfiguration, False),
     }
@@ -205,19 +205,19 @@ class DatabaseConfiguration(AWSProperty):
 
 class ExcludeMimeTypesList(AWSProperty):
     props = {
-        'ExcludeMimeTypesList': ([basestring], False),
+        'ExcludeMimeTypesList': ([str], False),
     }
 
 
 class ExcludeSharedDrivesList(AWSProperty):
     props = {
-        'ExcludeSharedDrivesList': ([basestring], False),
+        'ExcludeSharedDrivesList': ([str], False),
     }
 
 
 class ExcludeUserAccountsList(AWSProperty):
     props = {
-        'ExcludeUserAccountsList': ([basestring], False),
+        'ExcludeUserAccountsList': ([str], False),
     }
 
 
@@ -229,20 +229,20 @@ class GoogleDriveConfiguration(AWSProperty):
         'ExclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
         'InclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
-        'SecretArn': (basestring, True),
+        'SecretArn': (str, True),
     }
 
 
 class OneDriveUserList(AWSProperty):
     props = {
-        'OneDriveUserList': ([basestring], False),
+        'OneDriveUserList': ([str], False),
     }
 
 
 class S3Path(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'Key': (basestring, True),
+        'Bucket': (str, True),
+        'Key': (str, True),
     }
 
 
@@ -260,20 +260,20 @@ class OneDriveConfiguration(AWSProperty):
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
         'InclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
         'OneDriveUsers': (OneDriveUsers, True),
-        'SecretArn': (basestring, True),
-        'TenantDomain': (basestring, True),
+        'SecretArn': (str, True),
+        'TenantDomain': (str, True),
     }
 
 
 class AccessControlListConfiguration(AWSProperty):
     props = {
-        'KeyPath': (basestring, False),
+        'KeyPath': (str, False),
     }
 
 
 class DocumentsMetadataConfiguration(AWSProperty):
     props = {
-        'S3Prefix': (basestring, False),
+        'S3Prefix': (str, False),
     }
 
 
@@ -281,7 +281,7 @@ class S3DataSourceConfiguration(AWSProperty):
     props = {
         'AccessControlListConfiguration':
             (AccessControlListConfiguration, False),
-        'BucketName': (basestring, True),
+        'BucketName': (str, True),
         'DocumentsMetadataConfiguration':
             (DocumentsMetadataConfiguration, False),
         'ExclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
@@ -292,14 +292,14 @@ class S3DataSourceConfiguration(AWSProperty):
 
 class SalesforceChatterFeedIncludeFilterTypes(AWSProperty):
     props = {
-        'SalesforceChatterFeedIncludeFilterTypes': ([basestring], False),
+        'SalesforceChatterFeedIncludeFilterTypes': ([str], False),
     }
 
 
 class SalesforceChatterFeedConfiguration(AWSProperty):
     props = {
-        'DocumentDataFieldName': (basestring, True),
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentDataFieldName': (str, True),
+        'DocumentTitleFieldName': (str, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
         'IncludeFilterTypes':
             (SalesforceChatterFeedIncludeFilterTypes, False),
@@ -308,10 +308,10 @@ class SalesforceChatterFeedConfiguration(AWSProperty):
 
 class SalesforceCustomKnowledgeArticleTypeConfiguration(AWSProperty):
     props = {
-        'DocumentDataFieldName': (basestring, True),
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentDataFieldName': (str, True),
+        'DocumentTitleFieldName': (str, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
     }
 
 
@@ -324,14 +324,14 @@ class SalesforceCustomKnowledgeArticleTypeConfigurationList(AWSProperty):
 
 class SalesforceKnowledgeArticleStateList(AWSProperty):
     props = {
-        'SalesforceKnowledgeArticleStateList': ([basestring], False),
+        'SalesforceKnowledgeArticleStateList': ([str], False),
     }
 
 
 class SalesforceStandardKnowledgeArticleTypeConfiguration(AWSProperty):
     props = {
-        'DocumentDataFieldName': (basestring, True),
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentDataFieldName': (str, True),
+        'DocumentTitleFieldName': (str, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
     }
 
@@ -348,17 +348,17 @@ class SalesforceKnowledgeArticleConfiguration(AWSProperty):
 
 class SalesforceStandardObjectAttachmentConfiguration(AWSProperty):
     props = {
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentTitleFieldName': (str, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
     }
 
 
 class SalesforceStandardObjectConfiguration(AWSProperty):
     props = {
-        'DocumentDataFieldName': (basestring, True),
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentDataFieldName': (str, True),
+        'DocumentTitleFieldName': (str, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
     }
 
 
@@ -380,8 +380,8 @@ class SalesforceConfiguration(AWSProperty):
             (DataSourceInclusionsExclusionsStrings, False),
         'KnowledgeArticleConfiguration':
             (SalesforceKnowledgeArticleConfiguration, False),
-        'SecretArn': (basestring, True),
-        'ServerUrl': (basestring, True),
+        'SecretArn': (str, True),
+        'ServerUrl': (str, True),
         'StandardObjectAttachmentConfiguration':
             (SalesforceStandardObjectAttachmentConfiguration, False),
         'StandardObjectConfigurations':
@@ -392,8 +392,8 @@ class SalesforceConfiguration(AWSProperty):
 class ServiceNowKnowledgeArticleConfiguration(AWSProperty):
     props = {
         'CrawlAttachments': (boolean, False),
-        'DocumentDataFieldName': (basestring, True),
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentDataFieldName': (str, True),
+        'DocumentTitleFieldName': (str, False),
         'ExcludeAttachmentFilePatterns':
             (DataSourceInclusionsExclusionsStrings, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
@@ -405,8 +405,8 @@ class ServiceNowKnowledgeArticleConfiguration(AWSProperty):
 class ServiceNowServiceCatalogConfiguration(AWSProperty):
     props = {
         'CrawlAttachments': (boolean, False),
-        'DocumentDataFieldName': (basestring, True),
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentDataFieldName': (str, True),
+        'DocumentTitleFieldName': (str, False),
         'ExcludeAttachmentFilePatterns':
             (DataSourceInclusionsExclusionsStrings, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
@@ -417,13 +417,13 @@ class ServiceNowServiceCatalogConfiguration(AWSProperty):
 
 class ServiceNowConfiguration(AWSProperty):
     props = {
-        'HostUrl': (basestring, True),
+        'HostUrl': (str, True),
         'KnowledgeArticleConfiguration':
             (ServiceNowKnowledgeArticleConfiguration, False),
-        'SecretArn': (basestring, True),
+        'SecretArn': (str, True),
         'ServiceCatalogConfiguration':
             (ServiceNowServiceCatalogConfiguration, False),
-        'ServiceNowBuildVersion': (basestring, True),
+        'ServiceNowBuildVersion': (str, True),
     }
 
 
@@ -431,13 +431,13 @@ class SharePointConfiguration(AWSProperty):
     props = {
         'CrawlAttachments': (boolean, False),
         'DisableLocalGroups': (boolean, False),
-        'DocumentTitleFieldName': (basestring, False),
+        'DocumentTitleFieldName': (str, False),
         'ExclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
         'FieldMappings': (DataSourceToIndexFieldMappingList, False),
         'InclusionPatterns': (DataSourceInclusionsExclusionsStrings, False),
-        'SecretArn': (basestring, True),
-        'SharePointVersion': (basestring, True),
-        'Urls': ([basestring], True),
+        'SecretArn': (str, True),
+        'SharePointVersion': (str, True),
+        'Urls': ([str], True),
         'UseChangeLog': (boolean, False),
         'VpcConfiguration': (DataSourceVpcConfiguration, False),
     }
@@ -461,13 +461,13 @@ class DataSource(AWSObject):
 
     props = {
         'DataSourceConfiguration': (DataSourceConfiguration, False),
-        'Description': (basestring, False),
-        'IndexId': (basestring, True),
-        'Name': (basestring, True),
-        'RoleArn': (basestring, False),
-        'Schedule': (basestring, False),
+        'Description': (str, False),
+        'IndexId': (str, True),
+        'Name': (str, True),
+        'RoleArn': (str, False),
+        'Schedule': (str, False),
         'Tags': (Tags, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
@@ -475,11 +475,11 @@ class Faq(AWSObject):
     resource_type = "AWS::Kendra::Faq"
 
     props = {
-        'Description': (basestring, False),
-        'FileFormat': (basestring, False),
-        'IndexId': (basestring, True),
-        'Name': (basestring, True),
-        'RoleArn': (basestring, True),
+        'Description': (str, False),
+        'FileFormat': (str, False),
+        'IndexId': (str, True),
+        'Name': (str, True),
+        'RoleArn': (str, True),
         'S3Path': (S3Path, True),
         'Tags': (Tags, False),
     }
@@ -494,7 +494,7 @@ class CapacityUnitsConfiguration(AWSProperty):
 
 class ValueImportanceItem(AWSProperty):
     props = {
-        'Key': (basestring, False),
+        'Key': (str, False),
         'Value': (integer, False),
     }
 
@@ -507,10 +507,10 @@ class ValueImportanceItems(AWSProperty):
 
 class Relevance(AWSProperty):
     props = {
-        'Duration': (basestring, False),
+        'Duration': (str, False),
         'Freshness': (boolean, False),
         'Importance': (integer, False),
-        'RankOrder': (basestring, False),
+        'RankOrder': (str, False),
         'ValueImportanceItems': (ValueImportanceItems, False),
     }
 
@@ -526,35 +526,35 @@ class Search(AWSProperty):
 
 class DocumentMetadataConfiguration(AWSProperty):
     props = {
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Relevance': (Relevance, False),
         'Search': (Search, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
 class ServerSideEncryptionConfiguration(AWSProperty):
     props = {
-        'KmsKeyId': (basestring, False),
+        'KmsKeyId': (str, False),
     }
 
 
 class JsonTokenTypeConfiguration(AWSProperty):
     props = {
-        'GroupAttributeField': (basestring, True),
-        'UserNameAttributeField': (basestring, True),
+        'GroupAttributeField': (str, True),
+        'UserNameAttributeField': (str, True),
     }
 
 
 class JwtTokenTypeConfiguration(AWSProperty):
     props = {
-        'ClaimRegex': (basestring, False),
-        'GroupAttributeField': (basestring, False),
-        'Issuer': (basestring, False),
-        'KeyLocation': (basestring, True),
-        'SecretManagerArn': (basestring, False),
-        'URL': (basestring, False),
-        'UserNameAttributeField': (basestring, False),
+        'ClaimRegex': (str, False),
+        'GroupAttributeField': (str, False),
+        'Issuer': (str, False),
+        'KeyLocation': (str, True),
+        'SecretManagerArn': (str, False),
+        'URL': (str, False),
+        'UserNameAttributeField': (str, False),
     }
 
 
@@ -570,15 +570,15 @@ class Index(AWSObject):
 
     props = {
         'CapacityUnits': (CapacityUnitsConfiguration, False),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'DocumentMetadataConfigurations':
             ([DocumentMetadataConfiguration], False),
-        'Edition': (basestring, True),
-        'Name': (basestring, True),
-        'RoleArn': (basestring, True),
+        'Edition': (str, True),
+        'Name': (str, True),
+        'RoleArn': (str, True),
         'ServerSideEncryptionConfiguration':
             (ServerSideEncryptionConfiguration, False),
         'Tags': (Tags, False),
-        'UserContextPolicy': (basestring, False),
+        'UserContextPolicy': (str, False),
         'UserTokenConfigurations': ([UserTokenConfiguration], False),
     }

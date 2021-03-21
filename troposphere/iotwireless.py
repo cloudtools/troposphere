@@ -18,11 +18,11 @@ class Destination(AWSObject):
     resource_type = "AWS::IoTWireless::Destination"
 
     props = {
-        'Description': (basestring, False),
-        'Expression': (basestring, True),
-        'ExpressionType': (basestring, True),
-        'Name': (basestring, True),
-        'RoleArn': (basestring, True),
+        'Description': (str, False),
+        'Expression': (str, True),
+        'ExpressionType': (str, True),
+        'Name': (str, True),
+        'RoleArn': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -31,14 +31,14 @@ class LoRaWANDeviceProfile(AWSProperty):
     props = {
         'ClassBTimeout': (integer, False),
         'ClassCTimeout': (integer, False),
-        'MacVersion': (basestring, False),
+        'MacVersion': (str, False),
         'MaxDutyCycle': (integer, False),
         'MaxEirp': (integer, False),
         'PingSlotDr': (integer, False),
         'PingSlotFreq': (integer, False),
         'PingSlotPeriod': (integer, False),
-        'RegParamsRevision': (basestring, False),
-        'RfRegion': (basestring, False),
+        'RegParamsRevision': (str, False),
+        'RfRegion': (str, False),
         'Supports32BitFCnt': (boolean, False),
         'SupportsClassB': (boolean, False),
         'SupportsClassC': (boolean, False),
@@ -51,7 +51,7 @@ class DeviceProfile(AWSObject):
 
     props = {
         'LoRaWAN': (LoRaWANDeviceProfile, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -59,11 +59,11 @@ class DeviceProfile(AWSObject):
 class LoRaWANServiceProfile(AWSProperty):
     props = {
         'AddGwMetadata': (boolean, False),
-        'ChannelMask': (basestring, False),
+        'ChannelMask': (str, False),
         'DevStatusReqFreq': (integer, False),
         'DlBucketSize': (integer, False),
         'DlRate': (integer, False),
-        'DlRatePolicy': (basestring, False),
+        'DlRatePolicy': (str, False),
         'DrMax': (integer, False),
         'DrMin': (integer, False),
         'HrAllowed': (boolean, False),
@@ -76,7 +76,7 @@ class LoRaWANServiceProfile(AWSProperty):
         'TargetPer': (integer, False),
         'UlBucketSize': (integer, False),
         'UlRate': (integer, False),
-        'UlRatePolicy': (basestring, False),
+        'UlRatePolicy': (str, False),
     }
 
 
@@ -85,53 +85,53 @@ class ServiceProfile(AWSObject):
 
     props = {
         'LoRaWAN': (LoRaWANServiceProfile, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Tags': (Tags, False),
     }
 
 
 class SessionKeysAbpV10x(AWSProperty):
     props = {
-        'AppSKey': (basestring, True),
-        'NwkSKey': (basestring, True),
+        'AppSKey': (str, True),
+        'NwkSKey': (str, True),
     }
 
 
 class AbpV10x(AWSProperty):
     props = {
-        'DevAddr': (basestring, True),
+        'DevAddr': (str, True),
         'SessionKeys': (SessionKeysAbpV10x, True),
     }
 
 
 class SessionKeysAbpV11(AWSProperty):
     props = {
-        'AppSKey': (basestring, True),
-        'FNwkSIntKey': (basestring, True),
-        'NwkSEncKey': (basestring, True),
-        'SNwkSIntKey': (basestring, True),
+        'AppSKey': (str, True),
+        'FNwkSIntKey': (str, True),
+        'NwkSEncKey': (str, True),
+        'SNwkSIntKey': (str, True),
     }
 
 
 class AbpV11(AWSProperty):
     props = {
-        'DevAddr': (basestring, True),
+        'DevAddr': (str, True),
         'SessionKeys': (SessionKeysAbpV11, True),
     }
 
 
 class OtaaV10x(AWSProperty):
     props = {
-        'AppEui': (basestring, True),
-        'AppKey': (basestring, True),
+        'AppEui': (str, True),
+        'AppKey': (str, True),
     }
 
 
 class OtaaV11(AWSProperty):
     props = {
-        'AppKey': (basestring, True),
-        'JoinEui': (basestring, True),
-        'NwkKey': (basestring, True),
+        'AppKey': (str, True),
+        'JoinEui': (str, True),
+        'NwkKey': (str, True),
     }
 
 
@@ -139,11 +139,11 @@ class LoRaWANDevice(AWSProperty):
     props = {
         'AbpV10x': (AbpV10x, False),
         'AbpV11': (AbpV11, False),
-        'DevEui': (basestring, False),
-        'DeviceProfileId': (basestring, False),
+        'DevEui': (str, False),
+        'DeviceProfileId': (str, False),
         'OtaaV10x': (OtaaV10x, False),
         'OtaaV11': (OtaaV11, False),
-        'ServiceProfileId': (basestring, False),
+        'ServiceProfileId': (str, False),
     }
 
 
@@ -151,21 +151,21 @@ class WirelessDevice(AWSObject):
     resource_type = "AWS::IoTWireless::WirelessDevice"
 
     props = {
-        'Description': (basestring, False),
-        'DestinationName': (basestring, True),
-        'LastUplinkReceivedAt': (basestring, False),
+        'Description': (str, False),
+        'DestinationName': (str, True),
+        'LastUplinkReceivedAt': (str, False),
         'LoRaWAN': (LoRaWANDevice, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Tags': (Tags, False),
-        'ThingArn': (basestring, False),
-        'Type': (basestring, True),
+        'ThingArn': (str, False),
+        'Type': (str, True),
     }
 
 
 class LoRaWANGateway(AWSProperty):
     props = {
-        'GatewayEui': (basestring, True),
-        'RfRegion': (basestring, True),
+        'GatewayEui': (str, True),
+        'RfRegion': (str, True),
     }
 
 
@@ -173,10 +173,10 @@ class WirelessGateway(AWSObject):
     resource_type = "AWS::IoTWireless::WirelessGateway"
 
     props = {
-        'Description': (basestring, False),
-        'LastUplinkReceivedAt': (basestring, False),
+        'Description': (str, False),
+        'LastUplinkReceivedAt': (str, False),
         'LoRaWAN': (LoRaWANGateway, True),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Tags': (Tags, False),
-        'ThingArn': (basestring, False),
+        'ThingArn': (str, False),
     }

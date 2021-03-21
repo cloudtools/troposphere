@@ -16,7 +16,7 @@ class PublicRepository(AWSObject):
 
     props = {
         'RepositoryCatalogData': (dict, False),
-        'RepositoryName': (basestring, False),
+        'RepositoryName': (str, False),
         'RepositoryPolicyText': (policytypes, False),
         'Tags': (Tags, False),
     }
@@ -32,8 +32,8 @@ class RegistryPolicy(AWSObject):
 
 class ReplicationDestination(AWSProperty):
     props = {
-        'Region': (basestring, True),
-        'RegistryId': (basestring, True),
+        'Region': (str, True),
+        'RegistryId': (str, True),
     }
 
 
@@ -60,8 +60,8 @@ class ReplicationConfiguration(AWSObject):
 
 class LifecyclePolicy(AWSProperty):
     props = {
-        'LifecyclePolicyText': (basestring, False),
-        'RegistryId': (basestring, False),
+        'LifecyclePolicyText': (str, False),
+        'RegistryId': (str, False),
     }
 
 
@@ -70,9 +70,9 @@ class Repository(AWSObject):
 
     props = {
         'ImageScanningConfiguration': (dict, False),
-        'ImageTagMutability': (basestring, False),
+        'ImageTagMutability': (str, False),
         'LifecyclePolicy': (LifecyclePolicy, False),
-        'RepositoryName': (basestring, False),
+        'RepositoryName': (str, False),
         'RepositoryPolicyText': (policytypes, False),
         'Tags': (Tags, False),
     }

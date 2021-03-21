@@ -155,16 +155,16 @@ def validate_capacity(capacity):
 
 class DBInstanceRole(AWSProperty):
     props = {
-        'FeatureName': (basestring, True),
-        'RoleArn': (basestring, True),
-        'Status': (basestring, False),
+        'FeatureName': (str, True),
+        'RoleArn': (str, True),
+        'Status': (str, False),
     }
 
 
 class ProcessorFeature(AWSProperty):
     props = {
-        'Name': (basestring, False),
-        'Value': (basestring, False),
+        'Name': (str, False),
+        'Value': (str, False),
     }
 
 
@@ -176,54 +176,54 @@ class DBInstance(AWSObject):
         'AllowMajorVersionUpgrade': (boolean, False),
         'AssociatedRoles': ([DBInstanceRole], False),
         'AutoMinorVersionUpgrade': (boolean, False),
-        'AvailabilityZone': (basestring, False),
+        'AvailabilityZone': (str, False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
-        'CACertificateIdentifier': (basestring, False),
-        'CharacterSetName': (basestring, False),
+        'CACertificateIdentifier': (str, False),
+        'CharacterSetName': (str, False),
         'CopyTagsToSnapshot': (boolean, False),
-        'DBClusterIdentifier': (basestring, False),
-        'DBInstanceClass': (basestring, True),
-        'DBInstanceIdentifier': (basestring, False),
-        'DBName': (basestring, False),
-        'DBParameterGroupName': (basestring, False),
+        'DBClusterIdentifier': (str, False),
+        'DBInstanceClass': (str, True),
+        'DBInstanceIdentifier': (str, False),
+        'DBName': (str, False),
+        'DBParameterGroupName': (str, False),
         'DBSecurityGroups': (list, False),
-        'DBSnapshotIdentifier': (basestring, False),
-        'DBSubnetGroupName': (basestring, False),
+        'DBSnapshotIdentifier': (str, False),
+        'DBSubnetGroupName': (str, False),
         'DeleteAutomatedBackups': (boolean, False),
         'DeletionProtection': (boolean, False),
-        'Domain': (basestring, False),
-        'DomainIAMRoleName': (basestring, False),
-        'EnableCloudwatchLogsExports': ([basestring], False),
+        'Domain': (str, False),
+        'DomainIAMRoleName': (str, False),
+        'EnableCloudwatchLogsExports': ([str], False),
         'EnableIAMDatabaseAuthentication': (boolean, False),
         'EnablePerformanceInsights': (boolean, False),
         'Engine': (validate_engine, False),
-        'EngineVersion': (basestring, False),
+        'EngineVersion': (str, False),
         'Iops': (validate_iops, False),
-        'KmsKeyId': (basestring, False),
+        'KmsKeyId': (str, False),
         'LicenseModel': (validate_license_model, False),
-        'MasterUsername': (basestring, False),
-        'MasterUserPassword': (basestring, False),
+        'MasterUsername': (str, False),
+        'MasterUserPassword': (str, False),
         'MaxAllocatedStorage': (integer, False),
         'MonitoringInterval': (positive_integer, False),
-        'MonitoringRoleArn': (basestring, False),
+        'MonitoringRoleArn': (str, False),
         'MultiAZ': (boolean, False),
-        'OptionGroupName': (basestring, False),
-        'PerformanceInsightsKMSKeyId': (basestring, False),
+        'OptionGroupName': (str, False),
+        'PerformanceInsightsKMSKeyId': (str, False),
         'PerformanceInsightsRetentionPeriod': (positive_integer, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
-        'PreferredMaintenanceWindow': (basestring, False),
+        'PreferredMaintenanceWindow': (str, False),
         'ProcessorFeatures': ([ProcessorFeature], False),
         'PromotionTier': (positive_integer, False),
         'PubliclyAccessible': (boolean, False),
-        'SourceDBInstanceIdentifier': (basestring, False),
-        'SourceRegion': (basestring, False),
+        'SourceDBInstanceIdentifier': (str, False),
+        'SourceRegion': (str, False),
         'StorageEncrypted': (boolean, False),
-        'StorageType': (basestring, False),
+        'StorageType': (str, False),
         'Tags': ((Tags, list), False),
         'UseDefaultProcessorFeatures': (boolean, False),
-        'Timezone': (basestring, False),
-        'VPCSecurityGroups': ([basestring], False),
+        'Timezone': (str, False),
+        'VPCSecurityGroups': ([str], False),
     }
 
     def validate(self):
@@ -241,7 +241,7 @@ class DBInstance(AWSObject):
                 'DBSnapshotIdentifier',
             )
 
-            invalid_properties = [s for s in self.properties.keys() if
+            invalid_properties = [s for s in list(self.properties.keys()) if
                                   s in invalid_replica_properties]
 
             if invalid_properties:
@@ -303,8 +303,8 @@ class DBParameterGroup(AWSObject):
     resource_type = "AWS::RDS::DBParameterGroup"
 
     props = {
-        'Description': (basestring, False),
-        'Family': (basestring, False),
+        'Description': (str, False),
+        'Family': (str, False),
         'Parameters': (dict, False),
         'Tags': ((Tags, list), False),
     }
@@ -312,11 +312,11 @@ class DBParameterGroup(AWSObject):
 
 class AuthFormat(AWSProperty):
     props = {
-        'AuthScheme': (basestring, False),
-        'Description': (basestring, False),
-        'IAMAuth': (basestring, False),
-        'SecretArn': (basestring, False),
-        'UserName': (basestring, False),
+        'AuthScheme': (str, False),
+        'Description': (str, False),
+        'IAMAuth': (str, False),
+        'SecretArn': (str, False),
+        'UserName': (str, False),
     }
 
 
@@ -325,15 +325,15 @@ class DBProxy(AWSObject):
 
     props = {
         'Auth': ([AuthFormat], True),
-        'DBProxyName': (basestring, True),
+        'DBProxyName': (str, True),
         'DebugLogging': (boolean, False),
-        'EngineFamily': (basestring, True),
+        'EngineFamily': (str, True),
         'IdleClientTimeout': (integer, False),
         'RequireTLS': (boolean, False),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'Tags': (Tags, False),
-        'VpcSecurityGroupIds': ([basestring], False),
-        'VpcSubnetIds': ([basestring], True),
+        'VpcSecurityGroupIds': ([str], False),
+        'VpcSubnetIds': ([str], True),
     }
 
 
@@ -341,22 +341,22 @@ class DBProxyEndpoint(AWSObject):
     resource_type = "AWS::RDS::DBProxyEndpoint"
 
     props = {
-        'DBProxyEndpointName': (basestring, True),
-        'DBProxyName': (basestring, True),
+        'DBProxyEndpointName': (str, True),
+        'DBProxyName': (str, True),
         'Tags': (Tags, False),
-        'TargetRole': (basestring, False),
-        'VpcSecurityGroupIds': ([basestring], False),
-        'VpcSubnetIds': ([basestring], True),
+        'TargetRole': (str, False),
+        'VpcSecurityGroupIds': ([str], False),
+        'VpcSubnetIds': ([str], True),
     }
 
 
 class ConnectionPoolConfigurationInfoFormat(AWSProperty):
     props = {
         'ConnectionBorrowTimeout': (integer, False),
-        'InitQuery': (basestring, False),
+        'InitQuery': (str, False),
         'MaxConnectionsPercent': (integer, False),
         'MaxIdleConnectionsPercent': (integer, False),
-        'SessionPinningFilters': ([basestring], False),
+        'SessionPinningFilters': ([str], False),
     }
 
 
@@ -366,10 +366,10 @@ class DBProxyTargetGroup(AWSObject):
     props = {
         'ConnectionPoolConfigurationInfo':
             (ConnectionPoolConfigurationInfoFormat, False),
-        'DBClusterIdentifiers': ([basestring], False),
-        'DBInstanceIdentifiers': ([basestring], False),
-        'DBProxyName': (basestring, True),
-        'TargetGroupName': (basestring, True),
+        'DBClusterIdentifiers': ([str], False),
+        'DBInstanceIdentifiers': ([str], False),
+        'DBProxyName': (str, True),
+        'TargetGroupName': (str, True),
     }
 
 
@@ -377,8 +377,8 @@ class DBSubnetGroup(AWSObject):
     resource_type = "AWS::RDS::DBSubnetGroup"
 
     props = {
-        'DBSubnetGroupDescription': (basestring, True),
-        'DBSubnetGroupName': (basestring, False),
+        'DBSubnetGroupDescription': (str, True),
+        'DBSubnetGroupName': (str, False),
         'SubnetIds': (list, True),
         'Tags': ((Tags, list), False),
     }
@@ -386,10 +386,10 @@ class DBSubnetGroup(AWSObject):
 
 class RDSSecurityGroup(AWSProperty):
     props = {
-        'CIDRIP': (basestring, False),
-        'EC2SecurityGroupId': (basestring, False),
-        'EC2SecurityGroupName': (basestring, False),
-        'EC2SecurityGroupOwnerId': (basestring, False),
+        'CIDRIP': (str, False),
+        'EC2SecurityGroupId': (str, False),
+        'EC2SecurityGroupName': (str, False),
+        'EC2SecurityGroupOwnerId': (str, False),
     }
 
 
@@ -397,9 +397,9 @@ class DBSecurityGroup(AWSObject):
     resource_type = "AWS::RDS::DBSecurityGroup"
 
     props = {
-        'EC2VpcId': (basestring, False),
+        'EC2VpcId': (str, False),
         'DBSecurityGroupIngress': (list, True),
-        'GroupDescription': (basestring, True),
+        'GroupDescription': (str, True),
         'Tags': ((Tags, list), False),
     }
 
@@ -408,11 +408,11 @@ class DBSecurityGroupIngress(AWSObject):
     resource_type = "AWS::RDS::DBSecurityGroupIngress"
 
     props = {
-        'CIDRIP': (basestring, False),
-        'DBSecurityGroupName': (basestring, True),
-        'EC2SecurityGroupId': (basestring, False),
-        'EC2SecurityGroupName': (basestring, False),
-        'EC2SecurityGroupOwnerId': (basestring, False),
+        'CIDRIP': (str, False),
+        'DBSecurityGroupName': (str, True),
+        'EC2SecurityGroupId': (str, False),
+        'EC2SecurityGroupName': (str, False),
+        'EC2SecurityGroupOwnerId': (str, False),
     }
 
 
@@ -421,10 +421,10 @@ class EventSubscription(AWSObject):
 
     props = {
         'Enabled': (boolean, False),
-        'EventCategories': ([basestring], False),
-        'SnsTopicArn': (basestring, True),
-        'SourceIds': ([basestring], False),
-        'SourceType': (basestring, False),
+        'EventCategories': ([str], False),
+        'SnsTopicArn': (str, True),
+        'SourceIds': ([str], False),
+        'SourceType': (str, False),
     }
 
 
@@ -433,29 +433,29 @@ class GlobalCluster(AWSObject):
 
     props = {
         'DeletionProtection': (boolean, False),
-        'Engine': (basestring, False),
-        'EngineVersion': (basestring, False),
-        'GlobalClusterIdentifier': (basestring, False),
-        'SourceDBClusterIdentifier': (basestring, False),
+        'Engine': (str, False),
+        'EngineVersion': (str, False),
+        'GlobalClusterIdentifier': (str, False),
+        'SourceDBClusterIdentifier': (str, False),
         'StorageEncrypted': (boolean, False),
     }
 
 
 class OptionSetting(AWSProperty):
     props = {
-        'Name': (basestring, False),
-        'Value': (basestring, False),
+        'Name': (str, False),
+        'Value': (str, False),
     }
 
 
 class OptionConfiguration(AWSProperty):
     props = {
-        'DBSecurityGroupMemberships': ([basestring], False),
-        'OptionName': (basestring, True),
+        'DBSecurityGroupMemberships': ([str], False),
+        'OptionName': (str, True),
         'OptionSettings': ([OptionSetting], False),
-        'OptionVersion': (basestring, False),
+        'OptionVersion': (str, False),
         'Port': (network_port, False),
-        'VpcSecurityGroupMemberships': ([basestring], False),
+        'VpcSecurityGroupMemberships': ([str], False),
     }
 
 
@@ -463,9 +463,9 @@ class OptionGroup(AWSObject):
     resource_type = "AWS::RDS::OptionGroup"
 
     props = {
-        'EngineName': (basestring, True),
-        'MajorEngineVersion': (basestring, True),
-        'OptionGroupDescription': (basestring, True),
+        'EngineName': (str, True),
+        'MajorEngineVersion': (str, True),
+        'OptionGroupDescription': (str, True),
         'OptionConfigurations': ([OptionConfiguration], True),
         'Tags': ((Tags, list), False),
     }
@@ -475,8 +475,8 @@ class DBClusterParameterGroup(AWSObject):
     resource_type = "AWS::RDS::DBClusterParameterGroup"
 
     props = {
-        'Description': (basestring, True),
-        'Family': (basestring, True),
+        'Description': (str, True),
+        'Family': (str, True),
         'Parameters': (dict, False),
         'Tags': ((Tags, list), False),
     }
@@ -484,9 +484,9 @@ class DBClusterParameterGroup(AWSObject):
 
 class DBClusterRole(AWSProperty):
     props = {
-        'FeatureName': (basestring, False),
-        'RoleArn': (basestring, True),
-        'Status': (basestring, False),
+        'FeatureName': (str, False),
+        'RoleArn': (str, True),
+        'Status': (str, False),
     }
 
 
@@ -504,34 +504,34 @@ class DBCluster(AWSObject):
 
     props = {
         'AssociatedRoles': ([DBClusterRole], False),
-        'AvailabilityZones': ([basestring], False),
+        'AvailabilityZones': ([str], False),
         'BacktrackWindow': (integer_range(0, 259200), False),
         'BackupRetentionPeriod': (validate_backup_retention_period, False),
-        'DatabaseName': (basestring, False),
-        'DBClusterIdentifier': (basestring, False),
-        'DBClusterParameterGroupName': (basestring, False),
-        'DBSubnetGroupName': (basestring, False),
+        'DatabaseName': (str, False),
+        'DBClusterIdentifier': (str, False),
+        'DBClusterParameterGroupName': (str, False),
+        'DBSubnetGroupName': (str, False),
         'DeletionProtection': (boolean, False),
-        'EnableCloudwatchLogsExports': ([basestring], False),
+        'EnableCloudwatchLogsExports': ([str], False),
         'EnableHttpEndpoint': (boolean, False),
         'EnableIAMDatabaseAuthentication': (boolean, False),
         'Engine': (validate_engine, True),
         'EngineMode': (validate_engine_mode, False),
-        'EngineVersion': (basestring, False),
-        'KmsKeyId': (basestring, False),
-        'MasterUsername': (basestring, False),
-        'MasterUserPassword': (basestring, False),
+        'EngineVersion': (str, False),
+        'KmsKeyId': (str, False),
+        'MasterUsername': (str, False),
+        'MasterUserPassword': (str, False),
         'Port': (network_port, False),
         'PreferredBackupWindow': (validate_backup_window, False),
-        'PreferredMaintenanceWindow': (basestring, False),
-        'ReplicationSourceIdentifier': (basestring, False),
-        'RestoreType': (basestring, False),
+        'PreferredMaintenanceWindow': (str, False),
+        'ReplicationSourceIdentifier': (str, False),
+        'RestoreType': (str, False),
         'ScalingConfiguration': (ScalingConfiguration, False),
-        'SnapshotIdentifier': (basestring, False),
-        'SourceDBClusterIdentifier': (basestring, False),
-        'SourceRegion': (basestring, False),
+        'SnapshotIdentifier': (str, False),
+        'SourceDBClusterIdentifier': (str, False),
+        'SourceRegion': (str, False),
         'StorageEncrypted': (boolean, False),
         'Tags': ((Tags, list), False),
         'UseLatestRestorableTime': (boolean, False),
-        'VpcSecurityGroupIds': ([basestring], False),
+        'VpcSecurityGroupIds': ([str], False),
     }

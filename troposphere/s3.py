@@ -29,7 +29,7 @@ class PublicAccessBlockConfiguration(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     props = {
-        'VpcId': (basestring, False),
+        'VpcId': (str, False),
     }
 
 
@@ -37,10 +37,10 @@ class AccessPoint(AWSObject):
     resource_type = "AWS::S3::AccessPoint"
 
     props = {
-        'Bucket': (basestring, True),
-        'CreationDate': (basestring, False),
-        'Name': (basestring, False),
-        'NetworkOrigin': (basestring, False),
+        'Bucket': (str, True),
+        'CreationDate': (str, False),
+        'Name': (str, False),
+        'NetworkOrigin': (str, False),
         'Policy': (dict, False),
         'PolicyStatus': (dict, False),
         'PublicAccessBlockConfiguration':
@@ -51,11 +51,11 @@ class AccessPoint(AWSObject):
 
 class CorsRules(AWSProperty):
     props = {
-        'AllowedHeaders': ([basestring], False),
-        'AllowedMethods': ([basestring], True),
-        'AllowedOrigins': ([basestring], True),
-        'ExposedHeaders': ([basestring], False),
-        'Id': (basestring, False),
+        'AllowedHeaders': ([str], False),
+        'AllowedMethods': ([str], True),
+        'AllowedOrigins': ([str], True),
+        'ExposedHeaders': ([str], False),
+        'Id': (str, False),
         'MaxAge': (positive_integer, False),
     }
 
@@ -68,7 +68,7 @@ class CorsConfiguration(AWSProperty):
 
 class VersioningConfiguration(AWSProperty):
     props = {
-        'Status': (basestring, False),
+        'Status': (str, False),
     }
 
 
@@ -80,25 +80,25 @@ class AccelerateConfiguration(AWSProperty):
 
 class RedirectAllRequestsTo(AWSProperty):
     props = {
-        'HostName': (basestring, True),
-        'Protocol': (basestring, False),
+        'HostName': (str, True),
+        'Protocol': (str, False),
     }
 
 
 class RedirectRule(AWSProperty):
     props = {
-        'HostName': (basestring, False),
-        'HttpRedirectCode': (basestring, False),
-        'Protocol': (basestring, False),
-        'ReplaceKeyPrefixWith': (basestring, False),
-        'ReplaceKeyWith': (basestring, False),
+        'HostName': (str, False),
+        'HttpRedirectCode': (str, False),
+        'Protocol': (str, False),
+        'ReplaceKeyPrefixWith': (str, False),
+        'ReplaceKeyWith': (str, False),
     }
 
 
 class RoutingRuleCondition(AWSProperty):
     props = {
-        'HttpErrorCodeReturnedEquals': (basestring, False),
-        'KeyPrefixEquals': (basestring, False),
+        'HttpErrorCodeReturnedEquals': (str, False),
+        'KeyPrefixEquals': (str, False),
     }
 
 
@@ -111,8 +111,8 @@ class RoutingRule(AWSProperty):
 
 class WebsiteConfiguration(AWSProperty):
     props = {
-        'IndexDocument': (basestring, False),
-        'ErrorDocument': (basestring, False),
+        'IndexDocument': (str, False),
+        'ErrorDocument': (str, False),
         'RedirectAllRequestsTo': (RedirectAllRequestsTo, False),
         'RoutingRules': ([RoutingRule], False),
     }
@@ -120,8 +120,8 @@ class WebsiteConfiguration(AWSProperty):
 
 class LifecycleRuleTransition(AWSProperty):
     props = {
-        'StorageClass': (basestring, True),
-        'TransitionDate': (basestring, False),
+        'StorageClass': (str, True),
+        'TransitionDate': (str, False),
         'TransitionInDays': (positive_integer, False),
     }
 
@@ -134,15 +134,15 @@ class AbortIncompleteMultipartUpload(AWSProperty):
 
 class NoncurrentVersionTransition(AWSProperty):
     props = {
-        'StorageClass': (basestring, True),
+        'StorageClass': (str, True),
         'TransitionInDays': (positive_integer, True),
     }
 
 
 class TagFilter(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'Value': (basestring, True),
+        'Key': (str, True),
+        'Value': (str, True),
     }
 
 
@@ -150,14 +150,14 @@ class LifecycleRule(AWSProperty):
     props = {
         'AbortIncompleteMultipartUpload':
             (AbortIncompleteMultipartUpload, False),
-        'ExpirationDate': (basestring, False),
+        'ExpirationDate': (str, False),
         'ExpirationInDays': (positive_integer, False),
-        'Id': (basestring, False),
+        'Id': (str, False),
         'NoncurrentVersionExpirationInDays': (positive_integer, False),
         'NoncurrentVersionTransition': (NoncurrentVersionTransition, False),
         'NoncurrentVersionTransitions': ([NoncurrentVersionTransition], False),
-        'Prefix': (basestring, False),
-        'Status': (basestring, True),
+        'Prefix': (str, False),
+        'Status': (str, True),
         'TagFilters': ([TagFilter], False),
         'Transition': (LifecycleRuleTransition, False),
         'Transitions': ([LifecycleRuleTransition], False)
@@ -210,14 +210,14 @@ class LifecycleConfiguration(AWSProperty):
 class LoggingConfiguration(AWSProperty):
     props = {
         'DestinationBucketName': (s3_bucket_name, False),
-        'LogFilePrefix': (basestring, False),
+        'LogFilePrefix': (str, False),
     }
 
 
 class Rules(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Value': (basestring, True)
+        'Name': (str, True),
+        'Value': (str, True)
     }
 
 
@@ -235,32 +235,32 @@ class Filter(AWSProperty):
 
 class LambdaConfigurations(AWSProperty):
     props = {
-        'Event': (basestring, True),
+        'Event': (str, True),
         'Filter': (Filter, False),
-        'Function': (basestring, True),
+        'Function': (str, True),
     }
 
 
 class QueueConfigurations(AWSProperty):
     props = {
-        'Event': (basestring, True),
+        'Event': (str, True),
         'Filter': (Filter, False),
-        'Queue': (basestring, True),
+        'Queue': (str, True),
     }
 
 
 class TopicConfigurations(AWSProperty):
     props = {
-        'Event': (basestring, True),
+        'Event': (str, True),
         'Filter': (Filter, False),
-        'Topic': (basestring, True),
+        'Topic': (str, True),
     }
 
 
 class MetricsConfiguration(AWSProperty):
     props = {
-        'Id': (basestring, True),
-        'Prefix': (basestring, False),
+        'Id': (str, True),
+        'Prefix': (str, False),
         'TagFilters': ([TagFilter], False),
     }
 
@@ -275,7 +275,7 @@ class NotificationConfiguration(AWSProperty):
 
 class OwnershipControlsRule(AWSProperty):
     props = {
-        'ObjectOwnership': (basestring, False),
+        'ObjectOwnership': (str, False),
     }
 
 
@@ -287,19 +287,19 @@ class OwnershipControls(AWSProperty):
 
 class DeleteMarkerReplication(AWSProperty):
     props = {
-        'Status': (basestring, False),
+        'Status': (str, False),
     }
 
 
 class AccessControlTranslation(AWSProperty):
     props = {
-        'Owner': (basestring, True),
+        'Owner': (str, True),
     }
 
 
 class EncryptionConfiguration(AWSProperty):
     props = {
-        'ReplicaKmsKeyID': (basestring, True),
+        'ReplicaKmsKeyID': (str, True),
     }
 
 
@@ -312,13 +312,13 @@ class ReplicationTimeValue(AWSProperty):
 class Metrics(AWSProperty):
     props = {
         'EventThreshold': (ReplicationTimeValue, False),
-        'Status': (basestring, True),
+        'Status': (str, True),
     }
 
 
 class ReplicationTime(AWSProperty):
     props = {
-        'Status': (basestring, True),
+        'Status': (str, True),
         'Time': (ReplicationTimeValue, True),
     }
 
@@ -326,18 +326,18 @@ class ReplicationTime(AWSProperty):
 class ReplicationConfigurationRulesDestination(AWSProperty):
     props = {
         'AccessControlTranslation': (AccessControlTranslation, False),
-        'Account': (basestring, False),
-        'Bucket': (basestring, True),
+        'Account': (str, False),
+        'Bucket': (str, True),
         'EncryptionConfiguration': (EncryptionConfiguration, False),
         'Metrics': (Metrics, False),
         'ReplicationTime': (ReplicationTime, False),
-        'StorageClass': (basestring, False),
+        'StorageClass': (str, False),
     }
 
 
 class ReplicationRuleAndOperator(AWSProperty):
     props = {
-        'Prefix': (basestring, False),
+        'Prefix': (str, False),
         'TagFilters': ([TagFilter], False),
     }
 
@@ -345,20 +345,20 @@ class ReplicationRuleAndOperator(AWSProperty):
 class ReplicationRuleFilter(AWSProperty):
     props = {
         'And': (ReplicationRuleAndOperator, False),
-        'Prefix': (basestring, False),
+        'Prefix': (str, False),
         'TagFilter': (TagFilter, False),
     }
 
 
 class ReplicaModifications(AWSProperty):
     props = {
-        'Status': (basestring, True),
+        'Status': (str, True),
     }
 
 
 class SseKmsEncryptedObjects(AWSProperty):
     props = {
-        'Status': (basestring, True),
+        'Status': (str, True),
     }
 
 
@@ -374,34 +374,34 @@ class ReplicationConfigurationRules(AWSProperty):
         'DeleteMarkerReplication': (DeleteMarkerReplication, False),
         'Destination': (ReplicationConfigurationRulesDestination, True),
         'Filter': (ReplicationRuleFilter, False),
-        'Id': (basestring, False),
-        'Prefix': (basestring, True),
+        'Id': (str, False),
+        'Prefix': (str, True),
         'Priority': (integer, False),
         'SourceSelectionCriteria': (SourceSelectionCriteria, False),
-        'Status': (basestring, True)
+        'Status': (str, True)
     }
 
 
 class ReplicationConfiguration(AWSProperty):
     props = {
-        'Role': (basestring, True),
+        'Role': (str, True),
         'Rules': ([ReplicationConfigurationRules], True)
     }
 
 
 class Destination(AWSProperty):
     props = {
-        'BucketAccountId': (basestring, False),
-        'BucketArn': (basestring, True),
-        'Format': (basestring, True),
-        'Prefix': (basestring, False),
+        'BucketAccountId': (str, False),
+        'BucketArn': (str, True),
+        'Format': (str, True),
+        'Prefix': (str, False),
     }
 
 
 class DataExport(AWSProperty):
     props = {
         'Destination': (Destination, True),
-        'OutputSchemaVersion': (basestring, True),
+        'OutputSchemaVersion': (str, True),
     }
 
 
@@ -413,8 +413,8 @@ class StorageClassAnalysis(AWSProperty):
 
 class AnalyticsConfiguration(AWSProperty):
     props = {
-        'Id': (basestring, True),
-        'Prefix': (basestring, False),
+        'Id': (str, True),
+        'Prefix': (str, False),
         'StorageClassAnalysis': (StorageClassAnalysis, True),
         'TagFilters': ([TagFilter], False),
     }
@@ -422,8 +422,8 @@ class AnalyticsConfiguration(AWSProperty):
 
 class ServerSideEncryptionByDefault(AWSProperty):
     props = {
-        'KMSMasterKeyID': (basestring, False),
-        'SSEAlgorithm': (basestring, True),
+        'KMSMasterKeyID': (str, False),
+        'SSEAlgorithm': (str, True),
     }
 
 
@@ -446,18 +446,18 @@ class InventoryConfiguration(AWSProperty):
     props = {
         'Destination': (Destination, True),
         'Enabled': (boolean, True),
-        'Id': (basestring, True),
-        'IncludedObjectVersions': (basestring, True),
-        'OptionalFields': ([basestring], True),
-        'Prefix': (basestring, False),
-        'ScheduleFrequency': (basestring, True),
+        'Id': (str, True),
+        'IncludedObjectVersions': (str, True),
+        'OptionalFields': ([str], True),
+        'Prefix': (str, False),
+        'ScheduleFrequency': (str, True),
     }
 
 
 class DefaultRetention(AWSProperty):
     props = {
         'Days': (integer, False),
-        'Mode': (basestring, False),
+        'Mode': (str, False),
         'Years': (integer, False),
     }
 
@@ -470,7 +470,7 @@ class ObjectLockRule(AWSProperty):
 
 class ObjectLockConfiguration(AWSProperty):
     props = {
-        'ObjectLockEnabled': (basestring, False),
+        'ObjectLockEnabled': (str, False),
         'Rule': (ObjectLockRule, False),
     }
 
@@ -480,7 +480,7 @@ class Bucket(AWSObject):
 
     props = {
         'AccelerateConfiguration': (AccelerateConfiguration, False),
-        'AccessControl': (basestring, False),
+        'AccessControl': (str, False),
         'AnalyticsConfigurations': ([AnalyticsConfiguration], False),
         'BucketEncryption': (BucketEncryption, False),
         'BucketName': (s3_bucket_name, False),
@@ -524,7 +524,7 @@ class BucketPolicy(AWSObject):
     resource_type = "AWS::S3::BucketPolicy"
 
     props = {
-        'Bucket': (basestring, True),
+        'Bucket': (str, True),
         'PolicyDocument': (policytypes, True),
     }
 
@@ -537,7 +537,7 @@ class ActivityMetrics(AWSProperty):
 
 class SelectionCriteria(AWSProperty):
     props = {
-        'Delimiter': (basestring, False),
+        'Delimiter': (str, False),
         'MaxDepth': (integer, False),
         'MinStorageBytesPercentage': (double, False),
     }
@@ -572,14 +572,14 @@ class AccountLevel(AWSProperty):
 
 class AwsOrg(AWSProperty):
     props = {
-        'Arn': (basestring, True),
+        'Arn': (str, True),
     }
 
 
 class BucketsAndRegions(AWSProperty):
     props = {
-        'Buckets': ([basestring], False),
-        'Regions': ([basestring], False),
+        'Buckets': ([str], False),
+        'Regions': ([str], False),
     }
 
 
@@ -589,10 +589,10 @@ class StorageLensConfiguration(AWSProperty):
         'AwsOrg': (AwsOrg, False),
         'DataExport': (DataExport, False),
         'Exclude': (BucketsAndRegions, False),
-        'Id': (basestring, True),
+        'Id': (str, True),
         'Include': (BucketsAndRegions, False),
         'IsEnabled': (boolean, True),
-        'StorageLensArn': (basestring, False),
+        'StorageLensArn': (str, False),
     }
 
 

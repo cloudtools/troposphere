@@ -23,8 +23,8 @@ class Connection(AWSObject):
     resource_type = "AWS::CodeStarConnections::Connection"
 
     props = {
-        'ConnectionName': (basestring, True),
-        'HostArn': (basestring, False),
+        'ConnectionName': (str, True),
+        'HostArn': (str, False),
         'ProviderType': (validate_connection_providertype, True),
         'Tags': (Tags, False),
     }

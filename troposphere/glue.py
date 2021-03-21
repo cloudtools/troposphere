@@ -11,36 +11,36 @@ from .validators import integer, integer_range, positive_integer
 class CsvClassifier(AWSProperty):
     props = {
         'AllowSingleColumn': (boolean, False),
-        'ContainsHeader': (basestring, False),
-        'Delimiter': (basestring, False),
+        'ContainsHeader': (str, False),
+        'Delimiter': (str, False),
         'DisableValueTrimming': (boolean, False),
-        'Header': ([basestring], False),
-        'Name': (basestring, False),
-        'QuoteSymbol': (basestring, False),
+        'Header': ([str], False),
+        'Name': (str, False),
+        'QuoteSymbol': (str, False),
     }
 
 
 class GrokClassifier(AWSProperty):
     props = {
-        'Classification': (basestring, True),
-        'CustomPatterns': (basestring, False),
-        'GrokPattern': (basestring, True),
-        'Name': (basestring, False),
+        'Classification': (str, True),
+        'CustomPatterns': (str, False),
+        'GrokPattern': (str, True),
+        'Name': (str, False),
     }
 
 
 class JsonClassifier(AWSProperty):
     props = {
-        'JsonPath': (basestring, True),
-        'Name': (basestring, False),
+        'JsonPath': (str, True),
+        'Name': (str, False),
     }
 
 
 class XMLClassifier(AWSProperty):
     props = {
-        'Classification': (basestring, True),
-        'Name': (basestring, False),
-        'RowTag': (basestring, True),
+        'Classification': (str, True),
+        'Name': (str, False),
+        'RowTag': (str, True),
     }
 
 
@@ -57,9 +57,9 @@ class Classifier(AWSObject):
 
 class PhysicalConnectionRequirements(AWSProperty):
     props = {
-        'AvailabilityZone': (basestring, False),
-        'SecurityGroupIdList': ([basestring], False),
-        'SubnetId': (basestring, False),
+        'AvailabilityZone': (str, False),
+        'SecurityGroupIdList': ([str], False),
+        'SubnetId': (str, False),
     }
 
 
@@ -82,9 +82,9 @@ class ConnectionInput(AWSProperty):
     props = {
         'ConnectionProperties': (dict, True),
         'ConnectionType': (connection_type_validator, True),
-        'Description': (basestring, False),
-        'MatchCriteria': ([basestring], False),
-        'Name': (basestring, False),
+        'Description': (str, False),
+        'MatchCriteria': ([str], False),
+        'Name': (str, False),
         'PhysicalConnectionRequirements':
             (PhysicalConnectionRequirements, False),
     }
@@ -94,14 +94,14 @@ class Connection(AWSObject):
     resource_type = "AWS::Glue::Connection"
 
     props = {
-        'CatalogId': (basestring, True),
+        'CatalogId': (str, True),
         'ConnectionInput': (ConnectionInput, True),
     }
 
 
 class Schedule(AWSProperty):
     props = {
-        'ScheduleExpression': (basestring, False),
+        'ScheduleExpression': (str, False),
     }
 
 
@@ -135,29 +135,29 @@ class SchemaChangePolicy(AWSProperty):
 
 class CatalogTarget(AWSProperty):
     props = {
-        'DatabaseName': (basestring, False),
-        'Tables': ([basestring], False),
+        'DatabaseName': (str, False),
+        'Tables': ([str], False),
     }
 
 
 class DynamoDBTarget(AWSProperty):
     props = {
-        'Path': (basestring, False),
+        'Path': (str, False),
     }
 
 
 class JdbcTarget(AWSProperty):
     props = {
-        'ConnectionName': (basestring, False),
-        'Exclusions': ([basestring], False),
-        'Path': (basestring, False),
+        'ConnectionName': (str, False),
+        'Exclusions': ([str], False),
+        'Path': (str, False),
     }
 
 
 class S3Target(AWSProperty):
     props = {
-        'Exclusions': ([basestring], False),
-        'Path': (basestring, False),
+        'Exclusions': ([str], False),
+        'Path': (str, False),
     }
 
 
@@ -174,16 +174,16 @@ class Crawler(AWSObject):
     resource_type = "AWS::Glue::Crawler"
 
     props = {
-        'Classifiers': ([basestring], False),
-        'Configuration': (basestring, False),
-        'CrawlerSecurityConfiguration': (basestring, False),
-        'DatabaseName': (basestring, True),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'Role': (basestring, True),
+        'Classifiers': ([str], False),
+        'Configuration': (str, False),
+        'CrawlerSecurityConfiguration': (str, False),
+        'DatabaseName': (str, True),
+        'Description': (str, False),
+        'Name': (str, False),
+        'Role': (str, True),
         'Schedule': (Schedule, False),
         'SchemaChangePolicy': (SchemaChangePolicy, False),
-        'TablePrefix': (basestring, False),
+        'TablePrefix': (str, False),
         'Tags': (dict, False),
         'Targets': (Targets, True),
     }
@@ -191,15 +191,15 @@ class Crawler(AWSObject):
 
 class ConnectionPasswordEncryption(AWSProperty):
     props = {
-        'KmsKeyId': (basestring, False),
+        'KmsKeyId': (str, False),
         'ReturnConnectionPasswordEncrypted': (boolean, False),
     }
 
 
 class EncryptionAtRest(AWSProperty):
     props = {
-        'CatalogEncryptionMode': (basestring, False),
-        'SseAwsKmsKeyId': (basestring, False),
+        'CatalogEncryptionMode': (str, False),
+        'SseAwsKmsKeyId': (str, False),
     }
 
 
@@ -215,7 +215,7 @@ class DataCatalogEncryptionSettings(AWSObject):
     resource_type = "AWS::Glue::DataCatalogEncryptionSettings"
 
     props = {
-        'CatalogId': (basestring, True),
+        'CatalogId': (str, True),
         'DataCatalogEncryptionSettings':
             (DataCatalogEncryptionSettingsProperty, True),
     }
@@ -223,9 +223,9 @@ class DataCatalogEncryptionSettings(AWSObject):
 
 class DatabaseInput(AWSProperty):
     props = {
-        'Description': (basestring, False),
-        'LocationUri': (basestring, False),
-        'Name': (basestring, False),
+        'Description': (str, False),
+        'LocationUri': (str, False),
+        'Name': (str, False),
         'Parameters': (dict, False),
     }
 
@@ -234,7 +234,7 @@ class Database(AWSObject):
     resource_type = "AWS::Glue::Database"
 
     props = {
-        'CatalogId': (basestring, True),
+        'CatalogId': (str, True),
         'DatabaseInput': (DatabaseInput, True),
     }
 
@@ -244,26 +244,26 @@ class DevEndpoint(AWSObject):
 
     props = {
         'Arguments': (dict, False),
-        'EndpointName': (basestring, False),
-        'ExtraJarsS3Path': (basestring, False),
-        'ExtraPythonLibsS3Path': (basestring, False),
-        'GlueVersion': (basestring, False),
+        'EndpointName': (str, False),
+        'ExtraJarsS3Path': (str, False),
+        'ExtraPythonLibsS3Path': (str, False),
+        'GlueVersion': (str, False),
         'NumberOfNodes': (integer, False),
         'NumberOfWorkers': (integer, False),
-        'PublicKey': (basestring, False),
-        'PublicKeys': ([basestring], False),
-        'RoleArn': (basestring, True),
-        'SecurityConfiguration': (basestring, False),
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetId': (basestring, False),
+        'PublicKey': (str, False),
+        'PublicKeys': ([str], False),
+        'RoleArn': (str, True),
+        'SecurityConfiguration': (str, False),
+        'SecurityGroupIds': ([str], False),
+        'SubnetId': (str, False),
         'Tags': (dict, False),
-        'WorkerType': (basestring, False),
+        'WorkerType': (str, False),
     }
 
 
 class ConnectionsList(AWSProperty):
     props = {
-        'Connections': ([basestring], False),
+        'Connections': ([str], False),
     }
 
 
@@ -275,9 +275,9 @@ class ExecutionProperty(AWSProperty):
 
 class JobCommand(AWSProperty):
     props = {
-        'Name': (basestring, False),
-        'PythonVersion': (basestring, False),
-        'ScriptLocation': (basestring, False),
+        'Name': (str, False),
+        'PythonVersion': (str, False),
+        'ScriptLocation': (str, False),
     }
 
 
@@ -295,29 +295,29 @@ class Job(AWSObject):
         'Command': (JobCommand, True),
         'Connections': (ConnectionsList, False),
         'DefaultArguments': (dict, False),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'ExecutionProperty': (ExecutionProperty, False),
-        'GlueVersion': (basestring, False),
-        'LogUri': (basestring, False),
+        'GlueVersion': (str, False),
+        'LogUri': (str, False),
         'MaxCapacity': (double, False),
         'MaxRetries': (double, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'NotificationProperty': (NotificationProperty, False),
         'NumberOfWorkers': (integer, False),
-        'Role': (basestring, True),
-        'SecurityConfiguration': (basestring, False),
+        'Role': (str, True),
+        'SecurityConfiguration': (str, False),
         'Tags': (dict, False),
         'Timeout': (integer, False),
-        'WorkerType': (basestring, False),
+        'WorkerType': (str, False),
     }
 
 
 class GlueTables(AWSProperty):
     props = {
-        'CatalogId': (basestring, False),
-        'ConnectionName': (basestring, False),
-        'DatabaseName': (basestring, True),
-        'TableName': (basestring, True),
+        'CatalogId': (str, False),
+        'ConnectionName': (str, False),
+        'DatabaseName': (str, True),
+        'TableName': (str, True),
     }
 
 
@@ -332,14 +332,14 @@ class FindMatchesParameters(AWSProperty):
         'AccuracyCostTradeoff': (float, False),
         'EnforceProvidedLabels': (boolean, False),
         'PrecisionRecallTradeoff': (float, False),
-        'PrimaryKeyColumnName': (basestring, True),
+        'PrimaryKeyColumnName': (str, True),
     }
 
 
 class TransformParameters(AWSProperty):
     props = {
         'FindMatchesParameters': (FindMatchesParameters, False),
-        'TransformType': (basestring, True),
+        'TransformType': (str, True),
     }
 
 
@@ -347,61 +347,61 @@ class MLTransform(AWSObject):
     resource_type = "AWS::Glue::MLTransform"
 
     props = {
-        'Description': (basestring, False),
-        'GlueVersion': (basestring, False),
+        'Description': (str, False),
+        'GlueVersion': (str, False),
         'InputRecordTables': (InputRecordTables, True),
         'MaxCapacity': (double, False),
         'MaxRetries': (integer, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'NumberOfWorkers': (integer, False),
-        'Role': (basestring, True),
+        'Role': (str, True),
         'Tags': (dict, False),
         'Timeout': (integer, False),
         'TransformParameters': (TransformParameters, True),
-        'WorkerType': (basestring, False),
+        'WorkerType': (str, False),
     }
 
 
 class Column(AWSProperty):
     props = {
-        'Comment': (basestring, False),
-        'Name': (basestring, True),
-        'Type': (basestring, False),
+        'Comment': (str, False),
+        'Name': (str, True),
+        'Type': (str, False),
     }
 
 
 class Order(AWSProperty):
     props = {
-        'Column': (basestring, True),
+        'Column': (str, True),
         'SortOrder': (integer_range(0, 1), False),
     }
 
 
 class SerdeInfo(AWSProperty):
     props = {
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Parameters': (dict, False),
-        'SerializationLibrary': (basestring, False),
+        'SerializationLibrary': (str, False),
     }
 
 
 class SkewedInfo(AWSProperty):
     props = {
-        'SkewedColumnNames': ([basestring], False),
-        'SkewedColumnValues': ([basestring], False),
+        'SkewedColumnNames': ([str], False),
+        'SkewedColumnValues': ([str], False),
         'SkewedColumnValueLocationMaps': (dict, False),
     }
 
 
 class StorageDescriptor(AWSProperty):
     props = {
-        'BucketColumns': ([basestring], False),
+        'BucketColumns': ([str], False),
         'Columns': ([Column], False),
         'Compressed': (boolean, False),
-        'InputFormat': (basestring, False),
-        'Location': (basestring, False),
+        'InputFormat': (str, False),
+        'Location': (str, False),
         'NumberOfBuckets': (positive_integer, False),
-        'OutputFormat': (basestring, False),
+        'OutputFormat': (str, False),
         'Parameters': (dict, False),
         'SerdeInfo': (SerdeInfo, False),
         'SkewedInfo': (SkewedInfo, False),
@@ -414,7 +414,7 @@ class PartitionInput(AWSProperty):
     props = {
         'Parameters': (dict, False),
         'StorageDescriptor': (StorageDescriptor, False),
-        'Values': ([basestring], True),
+        'Values': ([str], True),
     }
 
 
@@ -422,10 +422,10 @@ class Partition(AWSObject):
     resource_type = "AWS::Glue::Partition"
 
     props = {
-        'CatalogId': (basestring, True),
-        'DatabaseName': (basestring, True),
+        'CatalogId': (str, True),
+        'DatabaseName': (str, True),
         'PartitionInput': (PartitionInput, True),
-        'TableName': (basestring, True),
+        'TableName': (str, True),
     }
 
 
@@ -433,8 +433,8 @@ class Registry(AWSObject):
     resource_type = "AWS::Glue::Registry"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -451,12 +451,12 @@ class Schema(AWSObject):
 
     props = {
         'CheckpointVersion': (SchemaVersion, False),
-        'Compatibility': (basestring, True),
-        'DataFormat': (basestring, True),
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Compatibility': (str, True),
+        'DataFormat': (str, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Registry': (Registry, False),
-        'SchemaDefinition': (basestring, True),
+        'SchemaDefinition': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -465,30 +465,30 @@ class SchemaVersionMetadata(AWSObject):
     resource_type = "AWS::Glue::SchemaVersionMetadata"
 
     props = {
-        'Key': (basestring, True),
-        'SchemaVersionId': (basestring, True),
-        'Value': (basestring, True),
+        'Key': (str, True),
+        'SchemaVersionId': (str, True),
+        'Value': (str, True),
     }
 
 
 class CloudWatchEncryption(AWSProperty):
     props = {
-        'CloudWatchEncryptionMode': (basestring, False),
-        'KmsKeyArn': (basestring, False),
+        'CloudWatchEncryptionMode': (str, False),
+        'KmsKeyArn': (str, False),
     }
 
 
 class JobBookmarksEncryption(AWSProperty):
     props = {
-        'JobBookmarksEncryptionMode': (basestring, False),
-        'KmsKeyArn': (basestring, False),
+        'JobBookmarksEncryptionMode': (str, False),
+        'KmsKeyArn': (str, False),
     }
 
 
 class S3Encryption(AWSProperty):
     props = {
-        'KmsKeyArn': (basestring, False),
-        'S3EncryptionMode': (basestring, False),
+        'KmsKeyArn': (str, False),
+        'S3EncryptionMode': (str, False),
     }
 
 
@@ -505,7 +505,7 @@ class SecurityConfiguration(AWSObject):
 
     props = {
         'EncryptionConfiguration': (EncryptionConfiguration, True),
-        'Name': (basestring, True),
+        'Name': (str, True),
     }
 
 
@@ -521,16 +521,16 @@ def table_type_validator(type):
 
 class TableInput(AWSProperty):
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'Owner': (basestring, False),
+        'Description': (str, False),
+        'Name': (str, False),
+        'Owner': (str, False),
         'Parameters': (dict, False),
         'PartitionKeys': ([Column], False),
         'Retention': (positive_integer, False),
         'StorageDescriptor': (StorageDescriptor, False),
         'TableType': (table_type_validator, False),
-        'ViewExpandedText': (basestring, False),
-        'ViewOriginalText': (basestring, False),
+        'ViewExpandedText': (str, False),
+        'ViewOriginalText': (str, False),
     }
 
 
@@ -538,8 +538,8 @@ class Table(AWSObject):
     resource_type = "AWS::Glue::Table"
 
     props = {
-        'CatalogId': (basestring, True),
-        'DatabaseName': (basestring, True),
+        'CatalogId': (str, True),
+        'DatabaseName': (str, True),
         'TableInput': (TableInput, True),
     }
 
@@ -547,26 +547,26 @@ class Table(AWSObject):
 class Action(AWSProperty):
     props = {
         'Arguments': (dict, False),
-        'CrawlerName': (basestring, False),
-        'JobName': (basestring, False),
-        'SecurityConfiguration': (basestring, False),
+        'CrawlerName': (str, False),
+        'JobName': (str, False),
+        'SecurityConfiguration': (str, False),
     }
 
 
 class Condition(AWSProperty):
     props = {
-        'CrawlerName': (basestring, False),
-        'CrawlState': (basestring, False),
-        'JobName': (basestring, False),
-        'LogicalOperator': (basestring, False),
-        'State': (basestring, False),
+        'CrawlerName': (str, False),
+        'CrawlState': (str, False),
+        'JobName': (str, False),
+        'LogicalOperator': (str, False),
+        'State': (str, False),
     }
 
 
 class Predicate(AWSProperty):
     props = {
         'Conditions': ([Condition], False),
-        'Logical': (basestring, False),
+        'Logical': (str, False),
     }
 
 
@@ -586,14 +586,14 @@ class Trigger(AWSObject):
 
     props = {
         'Actions': ([Action], True),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
+        'Description': (str, False),
+        'Name': (str, False),
         'Predicate': (Predicate, False),
-        'Schedule': (basestring, False),
+        'Schedule': (str, False),
         'StartOnCreation': (boolean, False),
         'Tags': (dict, False),
-        'Type': (basestring, True),
-        'WorkflowName': (basestring, False),
+        'Type': (str, True),
+        'WorkflowName': (str, False),
     }
 
 
@@ -602,7 +602,7 @@ class Workflow(AWSObject):
 
     props = {
         'DefaultRunProperties': (dict, False),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
+        'Description': (str, False),
+        'Name': (str, False),
         'Tags': (dict, False),
     }
