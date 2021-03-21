@@ -17,14 +17,14 @@ class Activity(AWSObject):
     resource_type = "AWS::StepFunctions::Activity"
 
     props = {
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }
 
 
 class CloudWatchLogsLogGroup(AWSProperty):
     props = {
-        'LogGroupArn': (basestring, False),
+        'LogGroupArn': (str, False),
     }
 
 
@@ -38,15 +38,15 @@ class LoggingConfiguration(AWSProperty):
     props = {
         'Destinations': ([LogDestination], False),
         'IncludeExecutionData': (boolean, False),
-        'Level': (basestring, False),
+        'Level': (str, False),
     }
 
 
 class S3Location(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'Key': (basestring, True),
-        'Version': (basestring, False),
+        'Bucket': (str, True),
+        'Key': (str, True),
+        'Version': (str, False),
     }
 
 
@@ -62,12 +62,12 @@ class StateMachine(AWSObject):
     props = {
         'Definition': (dict, False),
         'DefinitionS3Location': (S3Location, False),
-        'DefinitionString': (basestring, False),
+        'DefinitionString': (str, False),
         'DefinitionSubstitutions': (dict, False),
         'LoggingConfiguration': (LoggingConfiguration, False),
-        'RoleArn': (basestring, True),
-        'StateMachineName': (basestring, False),
-        'StateMachineType': (basestring, False),
+        'RoleArn': (str, True),
+        'StateMachineName': (str, False),
+        'StateMachineType': (str, False),
         'Tags': (Tags, False),
         'TracingConfiguration': (TracingConfiguration, False),
     }

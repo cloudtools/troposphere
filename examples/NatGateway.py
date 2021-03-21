@@ -120,4 +120,4 @@ t.add_output(Output(
     Description='Nat Elastic IP',
 ))
 
-print(t.to_json())
+print((t.to_json()))

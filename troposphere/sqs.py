@@ -10,7 +10,7 @@ from .validators import integer
 
 class RedrivePolicy(AWSProperty):
     props = {
-        'deadLetterTargetArn': (basestring, False),
+        'deadLetterTargetArn': (str, False),
         'maxReceiveCount': (integer, False),
     }
 
@@ -22,11 +22,11 @@ class Queue(AWSObject):
         'ContentBasedDeduplication': (bool, False),
         'DelaySeconds': (integer, False),
         'FifoQueue': (bool, False),
-        'KmsMasterKeyId': (basestring, False),
+        'KmsMasterKeyId': (str, False),
         'KmsDataKeyReusePeriodSeconds': (integer, False),
         'MaximumMessageSize': (integer, False),
         'MessageRetentionPeriod': (integer, False),
-        'QueueName': (basestring, False),
+        'QueueName': (str, False),
         'ReceiveMessageWaitTimeSeconds': (integer, False),
         'RedrivePolicy': (RedrivePolicy, False),
         'Tags': (Tags, False),

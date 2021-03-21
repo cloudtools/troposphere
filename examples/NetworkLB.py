@@ -165,7 +165,7 @@ def main():
         Value=Join("", ["http://", GetAtt(NetworkLB, "DNSName")])
     ))
 
-    print(template.to_json())
+    print((template.to_json()))
 
 
 if __name__ == '__main__':

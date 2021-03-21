@@ -6,7 +6,7 @@ http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
 In addition to troposphere, this script requires awacs (Amazon Web Access
 Control Subsystem)
 """
-from __future__ import absolute_import, division, print_function
+
 
 import troposphere.ec2 as ec2
 import troposphere.elasticache as elasticache

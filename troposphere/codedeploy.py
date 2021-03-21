@@ -14,25 +14,25 @@ KEY_AND_VALUE = "KEY_AND_VALUE"
 
 class GitHubLocation(AWSProperty):
     props = {
-        'CommitId': (basestring, True),
-        'Repository': (basestring, True),
+        'CommitId': (str, True),
+        'Repository': (str, True),
     }
 
 
 class S3Location(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'BundleType': (basestring, True),
-        'ETag': (basestring, False),
-        'Key': (basestring, True),
-        'Version': (basestring, False),
+        'Bucket': (str, True),
+        'BundleType': (str, True),
+        'ETag': (str, False),
+        'Key': (str, True),
+        'Version': (str, False),
     }
 
 
 class Revision(AWSProperty):
     props = {
         'GitHubLocation': (GitHubLocation, False),
-        'RevisionType': (basestring, False),
+        'RevisionType': (str, False),
         'S3Location': (S3Location, False),
     }
 
@@ -56,13 +56,13 @@ def deployment_type_validator(x):
 class AutoRollbackConfiguration(AWSProperty):
     props = {
         'Enabled': (bool, False),
-        'Events': ([basestring], False)
+        'Events': ([str], False)
     }
 
 
 class Deployment(AWSProperty):
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'IgnoreApplicationStopFailures': (bool, False),
         'Revision': (Revision, True),
     }
@@ -77,29 +77,29 @@ class DeploymentStyle(AWSProperty):
 
 class Ec2TagFilters(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Type': (basestring, True),
-        'Value': (basestring, False),
+        'Key': (str, False),
+        'Type': (str, True),
+        'Value': (str, False),
     }
 
 
 class TagFilters(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Type': (basestring, False),
-        'Value': (basestring, False)
+        'Key': (str, False),
+        'Type': (str, False),
+        'Value': (str, False)
     }
 
 
 class ElbInfoList(AWSProperty):
     props = {
-        'Name': (basestring, False)
+        'Name': (str, False)
     }
 
 
 class TargetGroupInfoList(AWSProperty):
     props = {
-        'Name': (basestring, False)
+        'Name': (str, False)
     }
 
 
@@ -119,15 +119,15 @@ class LoadBalancerInfo(AWSProperty):
 
 class OnPremisesInstanceTagFilters(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Type': (basestring, False),
-        'Value': (basestring, False),
+        'Key': (str, False),
+        'Type': (str, False),
+        'Value': (str, False),
     }
 
 
 class MinimumHealthyHosts(AWSProperty):
     props = {
-        'Type': (basestring, False),
+        'Type': (str, False),
         'Value': (positive_integer, False),
     }
 
@@ -136,8 +136,8 @@ class Application(AWSObject):
     resource_type = "AWS::CodeDeploy::Application"
 
     props = {
-        'ApplicationName': (basestring, False),
-        'ComputePlatform': (basestring, False),
+        'ApplicationName': (str, False),
+        'ComputePlatform': (str, False),
     }
 
 
@@ -145,14 +145,14 @@ class DeploymentConfig(AWSObject):
     resource_type = "AWS::CodeDeploy::DeploymentConfig"
 
     props = {
-        'DeploymentConfigName': (basestring, False),
+        'DeploymentConfigName': (str, False),
         'MinimumHealthyHosts': (MinimumHealthyHosts, False),
     }
 
 
 class Alarm(AWSProperty):
     props = {
-        'Name': (basestring, False),
+        'Name': (str, False),
     }
 
 
@@ -166,9 +166,9 @@ class AlarmConfiguration(AWSProperty):
 
 class TriggerConfig(AWSProperty):
     props = {
-        'TriggerEvents': ([basestring], False),
-        'TriggerName': (basestring, False),
-        'TriggerTargetArn': (basestring, False),
+        'TriggerEvents': ([str], False),
+        'TriggerName': (str, False),
+        'TriggerTargetArn': (str, False),
     }
 
 
@@ -207,12 +207,12 @@ class DeploymentGroup(AWSObject):
 
     props = {
         'AlarmConfiguration': (AlarmConfiguration, False),
-        'ApplicationName': (basestring, True),
+        'ApplicationName': (str, True),
         'AutoRollbackConfiguration': (AutoRollbackConfiguration, False),
-        'AutoScalingGroups': ([basestring], False),
+        'AutoScalingGroups': ([str], False),
         'Deployment': (Deployment, False),
-        'DeploymentConfigName': (basestring, False),
-        'DeploymentGroupName': (basestring, False),
+        'DeploymentConfigName': (str, False),
+        'DeploymentGroupName': (str, False),
         'DeploymentStyle': (DeploymentStyle, False),
         'Ec2TagFilters': ([Ec2TagFilters], False),
         'Ec2TagSet': (Ec2TagSet, False),
@@ -221,7 +221,7 @@ class DeploymentGroup(AWSObject):
             [OnPremisesInstanceTagFilters], False
         ),
         'OnPremisesInstanceTagSet': (OnPremisesTagSet, False),
-        'ServiceRoleArn': (basestring, True),
+        'ServiceRoleArn': (str, True),
         'TriggerConfigurations': ([TriggerConfig], False),
     }
 

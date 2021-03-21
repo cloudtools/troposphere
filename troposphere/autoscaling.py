@@ -39,7 +39,7 @@ class Tags(AWSHelperFn):
 
     def __init__(self, **kwargs):
         self.tags = []
-        for k, v in sorted(kwargs.iteritems()):
+        for k, v in sorted(kwargs.items()):
             if type(v) in self.manyType:
                 propagate = boolean(v[1])
                 v = v[0]
@@ -62,34 +62,34 @@ class Tags(AWSHelperFn):
 
 class MetadataOptions(AWSProperty):
     props = {
-        'HttpEndpoint': (basestring, False),
+        'HttpEndpoint': (str, False),
         'HttpPutResponseHopLimit': (integer, False),
-        'HttpTokens': (basestring, False),
+        'HttpTokens': (str, False),
     }
 
 
 class LifecycleHookSpecification(AWSProperty):
     props = {
-        'DefaultResult': (basestring, False),
+        'DefaultResult': (str, False),
         'HeartbeatTimeout': (integer, False),
-        'LifecycleHookName': (basestring, True),
-        'LifecycleTransition': (basestring, True),
-        'NotificationMetadata': (basestring, False),
-        'NotificationTargetARN': (basestring, False),
-        'RoleARN': (basestring, False),
+        'LifecycleHookName': (str, True),
+        'LifecycleTransition': (str, True),
+        'NotificationMetadata': (str, False),
+        'NotificationTargetARN': (str, False),
+        'RoleARN': (str, False),
     }
 
 
 class NotificationConfigurations(AWSProperty):
     props = {
-        'TopicARN': (basestring, True),
+        'TopicARN': (str, True),
         'NotificationTypes': (list, True),
     }
 
 
 class MetricsCollection(AWSProperty):
     props = {
-        'Granularity': (basestring, True),
+        'Granularity': (str, True),
         'Metrics': (list, False),
     }
 
@@ -126,9 +126,9 @@ class Metadata(AWSHelperFn):
 
 class LaunchTemplateSpecification(AWSProperty):
     props = {
-        'LaunchTemplateId': (basestring, False),
-        'LaunchTemplateName': (basestring, False),
-        'Version': (basestring, True)
+        'LaunchTemplateId': (str, False),
+        'LaunchTemplateName': (str, False),
+        'Version': (str, True)
     }
 
     def validate(self):
@@ -141,19 +141,19 @@ class LaunchTemplateSpecification(AWSProperty):
 
 class InstancesDistribution(AWSProperty):
     props = {
-        'OnDemandAllocationStrategy': (basestring, False),
+        'OnDemandAllocationStrategy': (str, False),
         'OnDemandBaseCapacity': (integer, False),
         'OnDemandPercentageAboveBaseCapacity': (integer, False),
-        'SpotAllocationStrategy': (basestring, False),
+        'SpotAllocationStrategy': (str, False),
         'SpotInstancePools': (integer, False),
-        'SpotMaxPrice': (basestring, False),
+        'SpotMaxPrice': (str, False),
     }
 
 
 class LaunchTemplateOverrides(AWSProperty):
     props = {
-        'InstanceType': (basestring, False),
-        'WeightedCapacity': (basestring, False),
+        'InstanceType': (str, False),
+        'WeightedCapacity': (str, False),
     }
 
 
@@ -175,15 +175,15 @@ class AutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
-        'AutoScalingGroupName': (basestring, False),
+        'AutoScalingGroupName': (str, False),
         'AvailabilityZones': (list, False),
         'CapacityRebalance': (boolean, False),
         'Cooldown': (integer, False),
         'DesiredCapacity': (integer, False),
         'HealthCheckGracePeriod': (integer, False),
-        'HealthCheckType': (basestring, False),
-        'InstanceId': (basestring, False),
-        'LaunchConfigurationName': (basestring, False),
+        'HealthCheckType': (str, False),
+        'InstanceId': (str, False),
+        'LaunchConfigurationName': (str, False),
         'LaunchTemplate': (LaunchTemplateSpecification, False),
         'LifecycleHookSpecificationList':
             ([LifecycleHookSpecification], False),
@@ -195,11 +195,11 @@ class AutoScalingGroup(AWSObject):
         'MixedInstancesPolicy': (MixedInstancesPolicy, False),
         'NewInstancesProtectedFromScaleIn': (boolean, False),
         'NotificationConfigurations': ([NotificationConfigurations], False),
-        'PlacementGroup': (basestring, False),
-        'ServiceLinkedRoleARN': (basestring, False),
+        'PlacementGroup': (str, False),
+        'ServiceLinkedRoleARN': (str, False),
         'Tags': ((Tags, list), False),
-        'TargetGroupARNs': ([basestring], False),
-        'TerminationPolicies': ([basestring], False),
+        'TargetGroupARNs': ([str], False),
+        'TerminationPolicies': ([str], False),
         'VPCZoneIdentifier': (list, False),
     }
 
@@ -256,24 +256,24 @@ class LaunchConfiguration(AWSObject):
     props = {
         'AssociatePublicIpAddress': (boolean, False),
         'BlockDeviceMappings': (list, False),
-        'ClassicLinkVPCId': (basestring, False),
-        'ClassicLinkVPCSecurityGroups': ([basestring], False),
+        'ClassicLinkVPCId': (str, False),
+        'ClassicLinkVPCSecurityGroups': ([str], False),
         'EbsOptimized': (boolean, False),
-        'IamInstanceProfile': (basestring, False),
-        'ImageId': (basestring, True),
-        'InstanceId': (basestring, False),
+        'IamInstanceProfile': (str, False),
+        'ImageId': (str, True),
+        'InstanceId': (str, False),
         'InstanceMonitoring': (boolean, False),
-        'InstanceType': (basestring, True),
-        'KernelId': (basestring, False),
-        'KeyName': (basestring, False),
-        'LaunchConfigurationName': (basestring, False),
+        'InstanceType': (str, True),
+        'KernelId': (str, False),
+        'KeyName': (str, False),
+        'LaunchConfigurationName': (str, False),
         'Metadata': (Metadata, False),
         'MetadataOptions': (MetadataOptions, False),
-        'PlacementTenancy': (basestring, False),
-        'RamDiskId': (basestring, False),
+        'PlacementTenancy': (str, False),
+        'RamDiskId': (str, False),
         'SecurityGroups': (list, False),
-        'SpotPrice': (basestring, False),
-        'UserData': (basestring, False),
+        'SpotPrice': (str, False),
+        'UserData': (str, False),
     }
 
 
@@ -287,25 +287,25 @@ class StepAdjustments(AWSProperty):
 
 class MetricDimension(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Value': (basestring, True),
+        'Name': (str, True),
+        'Value': (str, True),
     }
 
 
 class CustomizedMetricSpecification(AWSProperty):
     props = {
         'Dimensions': ([MetricDimension], False),
-        'MetricName': (basestring, True),
-        'Namespace': (basestring, True),
-        'Statistic': (basestring, True),
-        'Unit': (basestring, False),
+        'MetricName': (str, True),
+        'Namespace': (str, True),
+        'Statistic': (str, True),
+        'Unit': (str, False),
     }
 
 
 class PredefinedMetricSpecification(AWSProperty):
     props = {
-        'PredefinedMetricType': (basestring, True),
-        'ResourceLabel': (basestring, False),
+        'PredefinedMetricType': (str, True),
+        'ResourceLabel': (str, False),
     }
 
 
@@ -324,13 +324,13 @@ class ScalingPolicy(AWSObject):
     resource_type = "AWS::AutoScaling::ScalingPolicy"
 
     props = {
-        'AdjustmentType': (basestring, False),
-        'AutoScalingGroupName': (basestring, True),
+        'AdjustmentType': (str, False),
+        'AutoScalingGroupName': (str, True),
         'Cooldown': (integer, False),
         'EstimatedInstanceWarmup': (integer, False),
-        'MetricAggregationType': (basestring, False),
+        'MetricAggregationType': (str, False),
         'MinAdjustmentMagnitude': (integer, False),
-        'PolicyType': (basestring, False),
+        'PolicyType': (str, False),
         'ScalingAdjustment': (integer, False),
         'StepAdjustments': ([StepAdjustments], False),
         'TargetTrackingConfiguration': (TargetTrackingConfiguration, False),
@@ -341,13 +341,13 @@ class ScheduledAction(AWSObject):
     resource_type = "AWS::AutoScaling::ScheduledAction"
 
     props = {
-        'AutoScalingGroupName': (basestring, True),
+        'AutoScalingGroupName': (str, True),
         'DesiredCapacity': (integer, False),
-        'EndTime': (basestring, False),
+        'EndTime': (str, False),
         'MaxSize': (integer, False),
         'MinSize': (integer, False),
-        'Recurrence': (basestring, False),
-        'StartTime': (basestring, False),
+        'Recurrence': (str, False),
+        'StartTime': (str, False),
     }
 
 
@@ -355,14 +355,14 @@ class LifecycleHook(AWSObject):
     resource_type = "AWS::AutoScaling::LifecycleHook"
 
     props = {
-        'AutoScalingGroupName': (basestring, True),
-        'DefaultResult': (basestring, False),
+        'AutoScalingGroupName': (str, True),
+        'DefaultResult': (str, False),
         'HeartbeatTimeout': (integer, False),
-        'LifecycleHookName': (basestring, False),
-        'LifecycleTransition': (basestring, True),
-        'NotificationMetadata': (basestring, False),
-        'NotificationTargetARN': (basestring, False),
-        'RoleARN': (basestring, False),
+        'LifecycleHookName': (str, False),
+        'LifecycleTransition': (str, True),
+        'NotificationMetadata': (str, False),
+        'NotificationTargetARN': (str, False),
+        'RoleARN': (str, False),
     }
 
 
@@ -370,16 +370,16 @@ class Trigger(AWSObject):
     resource_type = "AWS::AutoScaling::Trigger"
 
     props = {
-        'AutoScalingGroupName': (basestring, True),
+        'AutoScalingGroupName': (str, True),
         'BreachDuration': (integer, True),
         'Dimensions': (list, True),
         'LowerBreachScaleIncrement': (integer, False),
         'LowerThreshold': (integer, True),
-        'MetricName': (basestring, True),
-        'Namespace': (basestring, True),
+        'MetricName': (str, True),
+        'Namespace': (str, True),
         'Period': (integer, True),
-        'Statistic': (basestring, True),
-        'Unit': (basestring, False),
+        'Statistic': (str, True),
+        'Unit': (str, False),
         'UpperBreachScaleIncrement': (integer, False),
         'UpperThreshold': (integer, True),
     }
@@ -391,17 +391,17 @@ class EBSBlockDevice(AWSProperty):
         'DeleteOnTermination': (boolean, False),
         'Encrypted': (boolean, False),
         'Iops': (integer, False),
-        'SnapshotId': (basestring, False),
+        'SnapshotId': (str, False),
         'VolumeSize': (integer, False),
-        'VolumeType': (basestring, False),
+        'VolumeType': (str, False),
     }
 
 
 class BlockDeviceMapping(AWSProperty):
     # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html
     props = {
-        'DeviceName': (basestring, True),
+        'DeviceName': (str, True),
         'Ebs': (EBSBlockDevice, False),
         'NoDevice': (boolean, False),
-        'VirtualName': (basestring, False),
+        'VirtualName': (str, False),
     }

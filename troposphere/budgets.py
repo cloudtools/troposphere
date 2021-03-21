@@ -32,43 +32,43 @@ class CostTypes(AWSProperty):
 class Spend(AWSProperty):
     props = {
         'Amount': (double, True),
-        'Unit': (basestring, True),
+        'Unit': (str, True),
     }
 
 
 class TimePeriod(AWSProperty):
     props = {
-        'End': (basestring, False),
-        'Start': (basestring, False),
+        'End': (str, False),
+        'Start': (str, False),
     }
 
 
 class BudgetData(AWSProperty):
     props = {
         'BudgetLimit': (Spend, False),
-        'BudgetName': (basestring, False),
-        'BudgetType': (basestring, True),
+        'BudgetName': (str, False),
+        'BudgetType': (str, True),
         'CostFilters': (dict, False),
         'CostTypes': (CostTypes, False),
         'PlannedBudgetLimits': (dict, False),
         'TimePeriod': (TimePeriod, False),
-        'TimeUnit': (basestring, True),
+        'TimeUnit': (str, True),
     }
 
 
 class Notification(AWSProperty):
     props = {
-        'ComparisonOperator': (basestring, True),
-        'NotificationType': (basestring, True),
+        'ComparisonOperator': (str, True),
+        'NotificationType': (str, True),
         'Threshold': (double, True),
-        'ThresholdType': (basestring, False),
+        'ThresholdType': (str, False),
     }
 
 
 class Subscriber(AWSProperty):
     props = {
-        'Address': (basestring, True),
-        'SubscriptionType': (basestring, True),
+        'Address': (str, True),
+        'SubscriptionType': (str, True),
     }
 
 

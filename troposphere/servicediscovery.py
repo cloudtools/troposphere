@@ -11,8 +11,8 @@ class Instance(AWSObject):
 
     props = {
         'InstanceAttributes': (dict, True),
-        'InstanceId': (basestring, False),
-        'ServiceId': (basestring, True),
+        'InstanceId': (str, False),
+        'ServiceId': (str, True),
     }
 
 
@@ -20,10 +20,10 @@ class PrivateDnsNamespace(AWSObject):
     resource_type = "AWS::ServiceDiscovery::PrivateDnsNamespace"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Tags': (Tags, False),
-        'Vpc': (basestring, True),
+        'Vpc': (str, True),
     }
 
 
@@ -31,8 +31,8 @@ class PublicDnsNamespace(AWSObject):
     resource_type = "AWS::ServiceDiscovery::PublicDnsNamespace"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -40,8 +40,8 @@ class PublicDnsNamespace(AWSObject):
 class HealthCheckConfig(AWSProperty):
     props = {
         'FailureThreshold': (float, False),
-        'ResourcePath': (basestring, False),
-        'Type': (basestring, True),
+        'ResourcePath': (str, False),
+        'Type': (str, True),
     }
 
 
@@ -53,16 +53,16 @@ class HealthCheckCustomConfig(AWSProperty):
 
 class DnsRecord(AWSProperty):
     props = {
-        'TTL': (basestring, True),
-        'Type': (basestring, True),
+        'TTL': (str, True),
+        'Type': (str, True),
     }
 
 
 class DnsConfig(AWSProperty):
     props = {
         'DnsRecords': ([DnsRecord], True),
-        'NamespaceId': (basestring, False),
-        'RoutingPolicy': (basestring, False),
+        'NamespaceId': (str, False),
+        'RoutingPolicy': (str, False),
     }
 
 
@@ -70,12 +70,12 @@ class Service(AWSObject):
     resource_type = "AWS::ServiceDiscovery::Service"
 
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'DnsConfig': (DnsConfig, False),
         'HealthCheckConfig': (HealthCheckConfig, False),
         'HealthCheckCustomConfig': (HealthCheckCustomConfig, False),
-        'Name': (basestring, False),
-        'NamespaceId': (basestring, False),
+        'Name': (str, False),
+        'NamespaceId': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -84,7 +84,7 @@ class HttpNamespace(AWSObject):
     resource_type = "AWS::ServiceDiscovery::HttpNamespace"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }

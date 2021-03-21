@@ -52,8 +52,8 @@ def validate_projectfilesystemlocation_type(projectfilesystemlocation_type):
 
 class SourceAuth(AWSProperty):
     props = {
-        'Resource': (basestring, False),
-        'Type': (basestring, True),
+        'Resource': (str, False),
+        'Type': (str, True),
     }
 
     def validate(self):
@@ -68,15 +68,15 @@ class SourceAuth(AWSProperty):
 
 class Artifacts(AWSProperty):
     props = {
-        'ArtifactIdentifier': (basestring, False),
+        'ArtifactIdentifier': (str, False),
         'EncryptionDisabled': (boolean, False),
-        'Location': (basestring, False),
-        'Name': (basestring, False),
-        'NamespaceType': (basestring, False),
+        'Location': (str, False),
+        'Name': (str, False),
+        'NamespaceType': (str, False),
         'OverrideArtifactName': (boolean, False),
-        'Packaging': (basestring, False),
-        'Path': (basestring, False),
-        'Type': (basestring, True),
+        'Packaging': (str, False),
+        'Path': (str, False),
+        'Type': (str, True),
     }
 
     def validate(self):
@@ -101,9 +101,9 @@ class Artifacts(AWSProperty):
 
 class EnvironmentVariable(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Type': (basestring, False),
-        'Value': (basestring, True),
+        'Name': (str, True),
+        'Type': (str, False),
+        'Value': (str, True),
     }
 
     def validate(self):
@@ -122,21 +122,21 @@ class EnvironmentVariable(AWSProperty):
 
 class RegistryCredential(AWSProperty):
     props = {
-        'Credential': (basestring, True),
+        'Credential': (str, True),
         'CredentialProvider': (validate_credentials_provider, True),
     }
 
 
 class Environment(AWSProperty):
     props = {
-        'Certificate': (basestring, False),
-        'ComputeType': (basestring, True),
+        'Certificate': (str, False),
+        'ComputeType': (str, True),
         'EnvironmentVariables': ((list, [EnvironmentVariable]), False),
-        'Image': (basestring, True),
+        'Image': (str, True),
         'ImagePullCredentialsType': (validate_image_pull_credentials, False),
         'PrivilegedMode': (boolean, False),
         'RegistryCredential': (RegistryCredential, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
     def validate(self):
@@ -155,7 +155,7 @@ class Environment(AWSProperty):
 
 class BatchRestrictions(AWSProperty):
     props = {
-        'ComputeTypesAllowed': ([basestring], False),
+        'ComputeTypesAllowed': ([str], False),
         'MaximumBuildsAllowed': (integer, False),
     }
 
@@ -164,16 +164,16 @@ class ProjectBuildBatchConfig(AWSProperty):
     props = {
         'CombineArtifacts': (boolean, False),
         'Restrictions': (BatchRestrictions, False),
-        'ServiceRole': (basestring, False),
+        'ServiceRole': (str, False),
         'TimeoutInMins': (integer, False),
     }
 
 
 class ProjectCache(AWSProperty):
     props = {
-        'Location': (basestring, False),
-        'Modes': ([basestring], False),
-        'Type': (basestring, True),
+        'Location': (str, False),
+        'Modes': ([str], False),
+        'Type': (str, True),
     }
 
     def validate(self):
@@ -190,8 +190,8 @@ class ProjectCache(AWSProperty):
 
 class BuildStatusConfig(AWSProperty):
     props = {
-        'Context': (basestring, False),
-        'TargetUrl': (basestring, False),
+        'Context': (str, False),
+        'TargetUrl': (str, False),
     }
 
 
@@ -204,15 +204,15 @@ class GitSubmodulesConfig(AWSProperty):
 class Source(AWSProperty):
     props = {
         'Auth': (SourceAuth, False),
-        'BuildSpec': (basestring, False),
+        'BuildSpec': (str, False),
         'BuildStatusConfig': (BuildStatusConfig, False),
         'GitCloneDepth': (positive_integer, False),
         'GitSubmodulesConfig': (GitSubmodulesConfig, False),
         'InsecureSsl': (boolean, False),
-        'Location': (basestring, False),
+        'Location': (str, False),
         'ReportBuildStatus': (boolean, False),
-        'SourceIdentifier': (basestring, False),
-        'Type': (basestring, True),
+        'SourceIdentifier': (str, False),
+        'Type': (str, True),
     }
 
     def validate(self):
@@ -258,16 +258,16 @@ class Source(AWSProperty):
 
 class VpcConfig(AWSProperty):
     props = {
-        'SecurityGroupIds': ([basestring], True),
-        'Subnets': ([basestring], True),
-        'VpcId': (basestring, True),
+        'SecurityGroupIds': ([str], True),
+        'Subnets': ([str], True),
+        'VpcId': (str, True),
     }
 
 
 class WebhookFilter(AWSProperty):
     props = {
         'ExcludeMatchedPattern': (boolean, False),
-        'Pattern': (basestring, True),
+        'Pattern': (str, True),
         'Type': (validate_webhookfilter_type, True),
     }
 
@@ -320,8 +320,8 @@ def validate_status(status):
 class CloudWatchLogs(AWSProperty):
     props = {
         "Status": (validate_status, True),
-        "GroupName": (basestring, False),
-        "StreamName": (basestring, False)
+        "GroupName": (str, False),
+        "StreamName": (str, False)
     }
 
 
@@ -329,7 +329,7 @@ class S3Logs(AWSProperty):
     props = {
         "EncryptionDisabled": (boolean, False),
         "Status": (validate_status, True),
-        "Location": (basestring, False)
+        "Location": (str, False)
     }
 
 
@@ -342,17 +342,17 @@ class LogsConfig(AWSProperty):
 
 class ProjectSourceVersion(AWSProperty):
     props = {
-        'SourceIdentifier': (basestring, True),
-        'SourceVersion': (basestring, False),
+        'SourceIdentifier': (str, True),
+        'SourceVersion': (str, False),
     }
 
 
 class ProjectFileSystemLocation(AWSProperty):
     props = {
-        'Identifier': (basestring, True),
-        'Location': (basestring, True),
-        'MountOptions': (basestring, False),
-        'MountPoint': (basestring, True),
+        'Identifier': (str, True),
+        'Location': (str, True),
+        'MountOptions': (str, False),
+        'MountPoint': (str, True),
         'Type': (validate_projectfilesystemlocation_type, True),
     }
 
@@ -365,19 +365,19 @@ class Project(AWSObject):
         'BadgeEnabled': (boolean, False),
         'BuildBatchConfig': (ProjectBuildBatchConfig, False),
         'Cache': (ProjectCache, False),
-        'Description': (basestring, False),
-        'EncryptionKey': (basestring, False),
+        'Description': (str, False),
+        'EncryptionKey': (str, False),
         'Environment': (Environment, True),
         'FileSystemLocations': ([ProjectFileSystemLocation], False),
         'LogsConfig': (LogsConfig, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'QueuedTimeoutInMinutes': (integer, False),
         'SecondaryArtifacts': ([Artifacts], False),
         'SecondarySourceVersions': ([ProjectSourceVersion], False),
         'SecondarySources': ([Source], False),
-        'ServiceRole': (basestring, True),
+        'ServiceRole': (str, True),
         'Source': (Source, True),
-        'SourceVersion': (basestring, False),
+        'SourceVersion': (str, False),
         'Tags': (Tags, False),
         'TimeoutInMinutes': (integer, False),
         'Triggers': (ProjectTriggers, False),
@@ -387,17 +387,17 @@ class Project(AWSObject):
 
 class S3ReportExportConfig(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
+        'Bucket': (str, True),
         'EncryptionDisabled': (boolean, False),
-        'EncryptionKey': (basestring, False),
-        'Packaging': (basestring, False),
-        'Path': (basestring, False),
+        'EncryptionKey': (str, False),
+        'Packaging': (str, False),
+        'Path': (str, False),
     }
 
 
 class ReportExportConfig(AWSProperty):
     props = {
-        'ExportConfigType': (basestring, True),
+        'ExportConfigType': (str, True),
         'S3Destination': (S3ReportExportConfig, False),
     }
 
@@ -408,9 +408,9 @@ class ReportGroup(AWSObject):
     props = {
         'DeleteReports': (boolean, False),
         'ExportConfig': (ReportExportConfig, True),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Tags': (Tags, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
@@ -418,8 +418,8 @@ class SourceCredential(AWSObject):
     resource_type = "AWS::CodeBuild::SourceCredential"
 
     props = {
-        'AuthType': (basestring, True),
-        'ServerType': (basestring, True),
-        'Token': (basestring, True),
-        'Username': (basestring, False),
+        'AuthType': (str, True),
+        'ServerType': (str, True),
+        'Token': (str, True),
+        'Username': (str, False),
     }

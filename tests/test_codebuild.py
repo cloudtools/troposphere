@@ -58,13 +58,13 @@ class TestCodeBuildFilters(unittest.TestCase):
 
     def test_filter_not_list(self):
         match = "<type 'int'>, expected <type 'list'>"
-        with self.assertRaisesRegexp(TypeError, match):
+        with self.assertRaisesRegex(TypeError, match):
             codebuild.ProjectTriggers(FilterGroups=42).validate()
 
     def test_filter_element_not_a_list(self):
         wh = codebuild.WebhookFilter
         match = "is <type 'str'>, expected <type 'list'>"
-        with self.assertRaisesRegexp(TypeError, match):
+        with self.assertRaisesRegex(TypeError, match):
             codebuild.ProjectTriggers(FilterGroups=[
                 [wh(Type="EVENT", Pattern="PULL_REQUEST_CREATED")],
                 "not a list",
@@ -74,7 +74,7 @@ class TestCodeBuildFilters(unittest.TestCase):
     def test_filter_fail(self):
         wh = codebuild.WebhookFilter
         match = "<type 'NoneType'>"
-        with self.assertRaisesRegexp(TypeError, match):
+        with self.assertRaisesRegex(TypeError, match):
             codebuild.ProjectTriggers(FilterGroups=[
                 [wh(Type="EVENT", Pattern="PULL_REQUEST_CREATED")],
                 [wh(Type="EVENT", Pattern="PULL_REQUEST_CREATED")],

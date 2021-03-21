@@ -11,17 +11,17 @@ class AcceptedPortfolioShare(AWSObject):
     resource_type = "AWS::ServiceCatalog::AcceptedPortfolioShare"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'PortfolioId': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'PortfolioId': (str, True),
     }
 
 
 class ProvisioningArtifactProperties(AWSProperty):
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'DisableTemplateValidation': (boolean, False),
         'Info': (dict, True),
-        'Name': (basestring, False),
+        'Name': (str, False),
     }
 
 
@@ -29,37 +29,37 @@ class CloudFormationProduct(AWSObject):
     resource_type = "AWS::ServiceCatalog::CloudFormationProduct"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'Description': (basestring, False),
-        'Distributor': (basestring, False),
-        'Name': (basestring, True),
-        'Owner': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'Description': (str, False),
+        'Distributor': (str, False),
+        'Name': (str, True),
+        'Owner': (str, True),
         'ProvisioningArtifactParameters':
             ([ProvisioningArtifactProperties], True),
         'ReplaceProvisioningArtifacts': (boolean, False),
-        'SupportDescription': (basestring, False),
-        'SupportEmail': (basestring, False),
-        'SupportUrl': (basestring, False),
+        'SupportDescription': (str, False),
+        'SupportEmail': (str, False),
+        'SupportUrl': (str, False),
         'Tags': (Tags, False),
     }
 
 
 class ProvisioningParameter(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'Value': (basestring, True),
+        'Key': (str, True),
+        'Value': (str, True),
     }
 
 
 class ProvisioningPreferences(AWSProperty):
     props = {
-        'StackSetAccounts': ([basestring], False),
+        'StackSetAccounts': ([str], False),
         'StackSetFailureToleranceCount': (integer, False),
         'StackSetFailureTolerancePercentage': (integer, False),
         'StackSetMaxConcurrencyCount': (integer, False),
         'StackSetMaxConcurrencyPercentage': (integer, False),
-        'StackSetOperationType': (basestring, False),
-        'StackSetRegions': ([basestring], False),
+        'StackSetOperationType': (str, False),
+        'StackSetRegions': ([str], False),
     }
 
 
@@ -67,15 +67,15 @@ class CloudFormationProvisionedProduct(AWSObject):
     resource_type = "AWS::ServiceCatalog::CloudFormationProvisionedProduct"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'NotificationArns': ([basestring], False),
-        'PathId': (basestring, False),
-        'PathName': (basestring, False),
-        'ProductId': (basestring, False),
-        'ProductName': (basestring, False),
-        'ProvisionedProductName': (basestring, False),
-        'ProvisioningArtifactId': (basestring, False),
-        'ProvisioningArtifactName': (basestring, False),
+        'AcceptLanguage': (str, False),
+        'NotificationArns': ([str], False),
+        'PathId': (str, False),
+        'PathName': (str, False),
+        'ProductId': (str, False),
+        'ProductName': (str, False),
+        'ProvisionedProductName': (str, False),
+        'ProvisioningArtifactId': (str, False),
+        'ProvisioningArtifactName': (str, False),
         'ProvisioningParameters': ([ProvisioningParameter], False),
         'ProvisioningPreferences': (ProvisioningPreferences, False),
         'Tags': (Tags, False),
@@ -86,11 +86,11 @@ class LaunchNotificationConstraint(AWSObject):
     resource_type = "AWS::ServiceCatalog::LaunchNotificationConstraint"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'Description': (basestring, False),
-        'NotificationArns': ([basestring], True),
-        'PortfolioId': (basestring, True),
-        'ProductId': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'Description': (str, False),
+        'NotificationArns': ([str], True),
+        'PortfolioId': (str, True),
+        'ProductId': (str, True),
     }
 
 
@@ -98,12 +98,12 @@ class LaunchRoleConstraint(AWSObject):
     resource_type = "AWS::ServiceCatalog::LaunchRoleConstraint"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'Description': (basestring, False),
-        'LocalRoleName': (basestring, False),
-        'PortfolioId': (basestring, True),
-        'ProductId': (basestring, True),
-        'RoleArn': (basestring, False),
+        'AcceptLanguage': (str, False),
+        'Description': (str, False),
+        'LocalRoleName': (str, False),
+        'PortfolioId': (str, True),
+        'ProductId': (str, True),
+        'RoleArn': (str, False),
     }
 
 
@@ -111,11 +111,11 @@ class LaunchTemplateConstraint(AWSObject):
     resource_type = "AWS::ServiceCatalog::LaunchTemplateConstraint"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'Description': (basestring, False),
-        'PortfolioId': (basestring, True),
-        'ProductId': (basestring, True),
-        'Rules': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'Description': (str, False),
+        'PortfolioId': (str, True),
+        'ProductId': (str, True),
+        'Rules': (str, True),
     }
 
 
@@ -123,10 +123,10 @@ class Portfolio(AWSObject):
     resource_type = "AWS::ServiceCatalog::Portfolio"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'Description': (basestring, False),
-        'DisplayName': (basestring, True),
-        'ProviderName': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'Description': (str, False),
+        'DisplayName': (str, True),
+        'ProviderName': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -135,10 +135,10 @@ class PortfolioPrincipalAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalog::PortfolioPrincipalAssociation"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'PortfolioId': (basestring, True),
-        'PrincipalARN': (basestring, True),
-        'PrincipalType': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'PortfolioId': (str, True),
+        'PrincipalARN': (str, True),
+        'PrincipalType': (str, True),
     }
 
 
@@ -146,10 +146,10 @@ class PortfolioProductAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalog::PortfolioProductAssociation"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'PortfolioId': (basestring, True),
-        'ProductId': (basestring, True),
-        'SourcePortfolioId': (basestring, False),
+        'AcceptLanguage': (str, False),
+        'PortfolioId': (str, True),
+        'ProductId': (str, True),
+        'SourcePortfolioId': (str, False),
     }
 
 
@@ -157,9 +157,9 @@ class PortfolioShare(AWSObject):
     resource_type = "AWS::ServiceCatalog::PortfolioShare"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'AccountId': (basestring, True),
-        'PortfolioId': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'AccountId': (str, True),
+        'PortfolioId': (str, True),
         'ShareTagOptions': (boolean, False),
     }
 
@@ -180,18 +180,18 @@ class ResourceUpdateConstraint(AWSObject):
     resource_type = "AWS::ServiceCatalog::ResourceUpdateConstraint"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'Description': (basestring, False),
-        'PortfolioId': (basestring, True),
-        'ProductId': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'Description': (str, False),
+        'PortfolioId': (str, True),
+        'ProductId': (str, True),
         'TagUpdateOnProvisionedProduct': (validate_tag_update, True),
     }
 
 
 class DefinitionParameter(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'Value': (basestring, True),
+        'Key': (str, True),
+        'Value': (str, True),
     }
 
 
@@ -199,11 +199,11 @@ class ServiceAction(AWSObject):
     resource_type = "AWS::ServiceCatalog::ServiceAction"
 
     props = {
-        'AcceptLanguage': (basestring, False),
+        'AcceptLanguage': (str, False),
         'Definition': ([DefinitionParameter], True),
-        'DefinitionType': (basestring, True),
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'DefinitionType': (str, True),
+        'Description': (str, False),
+        'Name': (str, True),
     }
 
 
@@ -211,9 +211,9 @@ class ServiceActionAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalog::ServiceActionAssociation"
 
     props = {
-        'ProductId': (basestring, True),
-        'ProvisioningArtifactId': (basestring, True),
-        'ServiceActionId': (basestring, True),
+        'ProductId': (str, True),
+        'ProvisioningArtifactId': (str, True),
+        'ServiceActionId': (str, True),
     }
 
 
@@ -221,15 +221,15 @@ class StackSetConstraint(AWSObject):
     resource_type = "AWS::ServiceCatalog::StackSetConstraint"
 
     props = {
-        'AcceptLanguage': (basestring, False),
-        'AccountList': ([basestring], True),
-        'AdminRole': (basestring, True),
-        'Description': (basestring, True),
-        'ExecutionRole': (basestring, True),
-        'PortfolioId': (basestring, True),
-        'ProductId': (basestring, True),
-        'RegionList': ([basestring], True),
-        'StackInstanceControl': (basestring, True),
+        'AcceptLanguage': (str, False),
+        'AccountList': ([str], True),
+        'AdminRole': (str, True),
+        'Description': (str, True),
+        'ExecutionRole': (str, True),
+        'PortfolioId': (str, True),
+        'ProductId': (str, True),
+        'RegionList': ([str], True),
+        'StackInstanceControl': (str, True),
     }
 
 
@@ -238,8 +238,8 @@ class TagOption(AWSObject):
 
     props = {
         'Active': (boolean, False),
-        'Key': (basestring, True),
-        'Value': (basestring, True),
+        'Key': (str, True),
+        'Value': (str, True),
     }
 
 
@@ -247,6 +247,6 @@ class TagOptionAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalog::TagOptionAssociation"
 
     props = {
-        'ResourceId': (basestring, True),
-        'TagOptionId': (basestring, True),
+        'ResourceId': (str, True),
+        'TagOptionId': (str, True),
     }

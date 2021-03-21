@@ -15,22 +15,22 @@ class InputParallelism(AWSProperty):
 
 class RecordColumn(AWSProperty):
     props = {
-        'Mapping': (basestring, False),
-        'Name': (basestring, True),
-        'SqlType': (basestring, True),
+        'Mapping': (str, False),
+        'Name': (str, True),
+        'SqlType': (str, True),
     }
 
 
 class CSVMappingParameters(AWSProperty):
     props = {
-        'RecordColumnDelimiter': (basestring, True),
-        'RecordRowDelimiter': (basestring, True),
+        'RecordColumnDelimiter': (str, True),
+        'RecordRowDelimiter': (str, True),
     }
 
 
 class JSONMappingParameters(AWSProperty):
     props = {
-        'RecordRowPath': (basestring, True),
+        'RecordRowPath': (str, True),
     }
 
 
@@ -44,36 +44,36 @@ class MappingParameters(AWSProperty):
 class RecordFormat(AWSProperty):
     props = {
         'MappingParameters': (MappingParameters, False),
-        'RecordFormatType': (basestring, True),
+        'RecordFormatType': (str, True),
     }
 
 
 class InputSchema(AWSProperty):
     props = {
         'RecordColumns': ([RecordColumn], True),
-        'RecordEncoding': (basestring, False),
+        'RecordEncoding': (str, False),
         'RecordFormat': (RecordFormat, True),
     }
 
 
 class KinesisFirehoseInput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
-        'RoleARN': (basestring, True),
+        'ResourceARN': (str, True),
+        'RoleARN': (str, True),
     }
 
 
 class KinesisStreamsInput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
-        'RoleARN': (basestring, True),
+        'ResourceARN': (str, True),
+        'RoleARN': (str, True),
     }
 
 
 class InputLambdaProcessor(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
-        'RoleARN': (basestring, True),
+        'ResourceARN': (str, True),
+        'RoleARN': (str, True),
     }
 
 
@@ -85,7 +85,7 @@ class InputProcessingConfiguration(AWSProperty):
 
 class Input(AWSProperty):
     props = {
-        'NamePrefix': (basestring, True),
+        'NamePrefix': (str, True),
         'InputParallelism': (InputParallelism, False),
         'InputSchema': (InputSchema, True),
         'KinesisFirehoseInput': (KinesisFirehoseInput, False),
@@ -98,37 +98,37 @@ class Application(AWSObject):
     resource_type = "AWS::KinesisAnalytics::Application"
 
     props = {
-        'ApplicationName': (basestring, False),
-        'ApplicationDescription': (basestring, False),
-        'ApplicationCode': (basestring, False),
+        'ApplicationName': (str, False),
+        'ApplicationDescription': (str, False),
+        'ApplicationCode': (str, False),
         'Inputs': ([Input], True),
     }
 
 
 class DestinationSchema(AWSProperty):
     props = {
-        'RecordFormatType': (basestring, False),
+        'RecordFormatType': (str, False),
     }
 
 
 class KinesisFirehoseOutput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
-        'RoleARN': (basestring, True),
+        'ResourceARN': (str, True),
+        'RoleARN': (str, True),
     }
 
 
 class KinesisStreamsOutput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
-        'RoleARN': (basestring, True),
+        'ResourceARN': (str, True),
+        'RoleARN': (str, True),
     }
 
 
 class LambdaOutput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
-        'RoleARN': (basestring, True),
+        'ResourceARN': (str, True),
+        'RoleARN': (str, True),
     }
 
 
@@ -138,7 +138,7 @@ class Output(AWSProperty):
         'KinesisFirehoseOutput': (KinesisFirehoseOutput, False),
         'KinesisStreamsOutput': (KinesisStreamsOutput, False),
         'LambdaOutput': (LambdaOutput, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
     }
 
 
@@ -146,7 +146,7 @@ class ApplicationOutput(AWSObject):
     resource_type = "AWS::KinesisAnalytics::ApplicationOutput"
 
     props = {
-        'ApplicationName': (basestring, True),
+        'ApplicationName': (str, True),
         'Output': (Output, True),
     }
 
@@ -154,16 +154,16 @@ class ApplicationOutput(AWSObject):
 class ReferenceSchema(AWSProperty):
     props = {
         'RecordColumns': ([RecordColumn], True),
-        'RecordEncoding': (basestring, False),
+        'RecordEncoding': (str, False),
         'RecordFormat': (RecordFormat, True),
     }
 
 
 class S3ReferenceDataSource(AWSProperty):
     props = {
-        'BucketARN': (basestring, False),
-        'FileKey': (basestring, False),
-        'ReferenceRoleARN': (basestring, False),
+        'BucketARN': (str, False),
+        'FileKey': (str, False),
+        'ReferenceRoleARN': (str, False),
     }
 
 
@@ -171,7 +171,7 @@ class ReferenceDataSource(AWSProperty):
     props = {
         'ReferenceSchema': (ReferenceSchema, True),
         'S3ReferenceDataSource': (S3ReferenceDataSource, False),
-        'TableName': (basestring, False),
+        'TableName': (str, False),
     }
 
 
@@ -179,6 +179,6 @@ class ApplicationReferenceDataSource(AWSObject):
     resource_type = "AWS::KinesisAnalytics::ApplicationReferenceDataSource"
 
     props = {
-        'ApplicationName': (basestring, True),
+        'ApplicationName': (str, True),
         'ReferenceDataSource': (ReferenceDataSource, True),
     }

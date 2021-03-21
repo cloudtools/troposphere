@@ -14,16 +14,16 @@ from .validators import boolean
 
 class TransformationConfiguration(AWSProperty):
     props = {
-        'Actions': ([basestring], False),
+        'Actions': ([str], False),
         'ContentTransformation': (dict, False),
     }
 
 
 class ObjectLambdaConfiguration(AWSProperty):
     props = {
-        'AllowedFeatures': ([basestring], False),
+        'AllowedFeatures': ([str], False),
         'CloudWatchMetricsEnabled': (boolean, False),
-        'SupportingAccessPoint': (basestring, True),
+        'SupportingAccessPoint': (str, True),
         'TransformationConfigurations':
             ([TransformationConfiguration], True),
     }
@@ -33,7 +33,7 @@ class AccessPoint(AWSObject):
     resource_type = "AWS::S3ObjectLambda::AccessPoint"
 
     props = {
-        'Name': (basestring, True),
+        'Name': (str, True),
         'ObjectLambdaConfiguration': (ObjectLambdaConfiguration, False),
     }
 
@@ -42,6 +42,6 @@ class AccessPointPolicy(AWSObject):
     resource_type = "AWS::S3ObjectLambda::AccessPointPolicy"
 
     props = {
-        'ObjectLambdaAccessPoint': (basestring, True),
+        'ObjectLambdaAccessPoint': (str, True),
         'PolicyDocument': (dict, True),
     }

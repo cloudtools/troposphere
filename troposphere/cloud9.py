@@ -9,8 +9,8 @@ from .validators import integer
 
 class Repository(AWSProperty):
     props = {
-        'PathComponent': (basestring, True),
-        'RepositoryUrl': (basestring, True),
+        'PathComponent': (str, True),
+        'RepositoryUrl': (str, True),
     }
 
 
@@ -19,10 +19,10 @@ class EnvironmentEC2(AWSObject):
 
     props = {
         'AutomaticStopTimeMinutes': (integer, False),
-        'Description': (basestring, False),
-        'InstanceType': (basestring, True),
-        'Name': (basestring, False),
-        'OwnerArn': (basestring, False),
+        'Description': (str, False),
+        'InstanceType': (str, True),
+        'Name': (str, False),
+        'OwnerArn': (str, False),
         'Repositories': ([Repository], False),
-        'SubnetId': (basestring, False),
+        'SubnetId': (str, False),
     }

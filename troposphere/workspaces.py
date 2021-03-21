@@ -18,16 +18,16 @@ class ConnectionAlias(AWSObject):
     resource_type = "AWS::WorkSpaces::ConnectionAlias"
 
     props = {
-        'ConnectionString': (basestring, True),
+        'ConnectionString': (str, True),
         'Tags': (Tags, False),
     }
 
 
 class WorkspaceProperties(AWSProperty):
     props = {
-        'ComputeTypeName': (basestring, False),
+        'ComputeTypeName': (str, False),
         'RootVolumeSizeGib': (integer, False),
-        'RunningMode': (basestring, False),
+        'RunningMode': (str, False),
         'RunningModeAutoStopTimeoutInMinutes': (integer, False),
         'UserVolumeSizeGib': (integer, False),
     }
@@ -37,12 +37,12 @@ class Workspace(AWSObject):
     resource_type = "AWS::WorkSpaces::Workspace"
 
     props = {
-        'BundleId': (basestring, True),
-        'DirectoryId': (basestring, True),
+        'BundleId': (str, True),
+        'DirectoryId': (str, True),
         'RootVolumeEncryptionEnabled': (boolean, False),
         'Tags': (Tags, False),
-        'UserName': (basestring, True),
+        'UserName': (str, True),
         'UserVolumeEncryptionEnabled': (boolean, False),
-        'VolumeEncryptionKey': (basestring, False),
+        'VolumeEncryptionKey': (str, False),
         'WorkspaceProperties': (WorkspaceProperties, False),
     }

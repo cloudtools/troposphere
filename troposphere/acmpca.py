@@ -50,13 +50,13 @@ def validate_certificateauthority_type(certificateauthority_type):
 
 class Qualifier(AWSProperty):
     props = {
-        'CpsUri': (basestring, True),
+        'CpsUri': (str, True),
     }
 
 
 class PolicyQualifierInfo(AWSProperty):
     props = {
-        'PolicyQualifierId': (basestring, True),
+        'PolicyQualifierId': (str, True),
         'Qualifier': (Qualifier, True),
     }
 
@@ -69,7 +69,7 @@ class PolicyQualifierInfoList(AWSProperty):
 
 class PolicyInformation(AWSProperty):
     props = {
-        'CertPolicyId': (basestring, True),
+        'CertPolicyId': (str, True),
         'PolicyQualifiers': (PolicyQualifierInfoList, False),
     }
 
@@ -82,8 +82,8 @@ class CertificatePolicyList(AWSProperty):
 
 class ExtendedKeyUsage(AWSProperty):
     props = {
-        'ExtendedKeyUsageObjectIdentifier': (basestring, False),
-        'ExtendedKeyUsageType': (basestring, False),
+        'ExtendedKeyUsageObjectIdentifier': (str, False),
+        'ExtendedKeyUsageType': (str, False),
     }
 
 
@@ -95,47 +95,47 @@ class ExtendedKeyUsageList(AWSProperty):
 
 class EdiPartyName(AWSProperty):
     props = {
-        'NameAssigner': (basestring, True),
-        'PartyName': (basestring, True),
+        'NameAssigner': (str, True),
+        'PartyName': (str, True),
     }
 
 
 class OtherName(AWSProperty):
     props = {
-        'TypeId': (basestring, True),
-        'Value': (basestring, True),
+        'TypeId': (str, True),
+        'Value': (str, True),
     }
 
 
 class Subject(AWSProperty):
     props = {
-        'CommonName': (basestring, False),
-        'Country': (basestring, False),
-        'DistinguishedNameQualifier': (basestring, False),
-        'GenerationQualifier': (basestring, False),
-        'GivenName': (basestring, False),
-        'Initials': (basestring, False),
-        'Locality': (basestring, False),
-        'Organization': (basestring, False),
-        'OrganizationalUnit': (basestring, False),
-        'Pseudonym': (basestring, False),
-        'SerialNumber': (basestring, False),
-        'State': (basestring, False),
-        'Surname': (basestring, False),
-        'Title': (basestring, False),
+        'CommonName': (str, False),
+        'Country': (str, False),
+        'DistinguishedNameQualifier': (str, False),
+        'GenerationQualifier': (str, False),
+        'GivenName': (str, False),
+        'Initials': (str, False),
+        'Locality': (str, False),
+        'Organization': (str, False),
+        'OrganizationalUnit': (str, False),
+        'Pseudonym': (str, False),
+        'SerialNumber': (str, False),
+        'State': (str, False),
+        'Surname': (str, False),
+        'Title': (str, False),
     }
 
 
 class GeneralName(AWSProperty):
     props = {
         'DirectoryName': (Subject, False),
-        'DnsName': (basestring, False),
+        'DnsName': (str, False),
         'EdiPartyName': (EdiPartyName, False),
-        'IpAddress': (basestring, False),
+        'IpAddress': (str, False),
         'OtherName': (OtherName, False),
-        'RegisteredId': (basestring, False),
-        'Rfc822Name': (basestring, False),
-        'UniformResourceIdentifier': (basestring, False),
+        'RegisteredId': (str, False),
+        'Rfc822Name': (str, False),
+        'UniformResourceIdentifier': (str, False),
     }
 
 
@@ -187,10 +187,10 @@ class Certificate(AWSObject):
 
     props = {
         'ApiPassthrough': (ApiPassthrough, False),
-        'CertificateAuthorityArn': (basestring, True),
-        'CertificateSigningRequest': (basestring, True),
+        'CertificateAuthorityArn': (str, True),
+        'CertificateSigningRequest': (str, True),
         'SigningAlgorithm': (validate_signing_algorithm, True),
-        'TemplateArn': (basestring, False),
+        'TemplateArn': (str, False),
         'Validity': (Validity, True),
         'ValidityNotBefore': (Validity, False),
     }
@@ -200,19 +200,19 @@ class CertificateAuthorityActivation(AWSObject):
     resource_type = "AWS::ACMPCA::CertificateAuthorityActivation"
 
     props = {
-        'Certificate': (basestring, True),
-        'CertificateAuthorityArn': (basestring, True),
-        'CertificateChain': (basestring, False),
-        'Status': (basestring, False),
+        'Certificate': (str, True),
+        'CertificateAuthorityArn': (str, True),
+        'CertificateChain': (str, False),
+        'Status': (str, False),
     }
 
 
 class CrlConfiguration(AWSProperty):
     props = {
-        'CustomCname': (basestring, False),
+        'CustomCname': (str, False),
         'Enabled': (boolean, False),
         'ExpirationInDays': (integer, False),
-        'S3BucketName': (basestring, False),
+        'S3BucketName': (str, False),
     }
 
 
@@ -224,20 +224,20 @@ class RevocationConfiguration(AWSProperty):
 
 class Subject(AWSProperty):
     props = {
-        'CommonName': (basestring, False),
-        'Country': (basestring, False),
-        'DistinguishedNameQualifier': (basestring, False),
-        'GenerationQualifier': (basestring, False),
-        'GivenName': (basestring, False),
-        'Initials': (basestring, False),
-        'Locality': (basestring, False),
-        'Organization': (basestring, False),
-        'OrganizationalUnit': (basestring, False),
-        'Pseudonym': (basestring, False),
-        'SerialNumber': (basestring, False),
-        'State': (basestring, False),
-        'Surname': (basestring, False),
-        'Title': (basestring, False),
+        'CommonName': (str, False),
+        'Country': (str, False),
+        'DistinguishedNameQualifier': (str, False),
+        'GenerationQualifier': (str, False),
+        'GivenName': (str, False),
+        'Initials': (str, False),
+        'Locality': (str, False),
+        'Organization': (str, False),
+        'OrganizationalUnit': (str, False),
+        'Pseudonym': (str, False),
+        'SerialNumber': (str, False),
+        'State': (str, False),
+        'Surname': (str, False),
+        'Title': (str, False),
     }
 
 

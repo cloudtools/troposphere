@@ -13,8 +13,8 @@ class ResourceShare(AWSObject):
 
     props = {
         'AllowExternalPrincipals': (boolean, False),
-        'Name': (basestring, True),
-        'Principals': ([basestring], False),
-        'ResourceArns': ([basestring], False),
+        'Name': (str, True),
+        'Principals': ([str], False),
+        'ResourceArns': ([str], False),
         'Tags': (Tags, False),
     }

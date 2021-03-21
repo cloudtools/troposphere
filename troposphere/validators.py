@@ -249,7 +249,7 @@ def check_required(class_name, properties, conditionals):
 def json_checker(prop):
     from . import AWSHelperFn
 
-    if isinstance(prop, basestring):
+    if isinstance(prop, str):
         # Verify it is a valid json string
         json.loads(prop)
         return prop

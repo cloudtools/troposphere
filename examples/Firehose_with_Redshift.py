@@ -56,4 +56,4 @@ t.add_resource(DeliveryStream(
     )
 ))
 
-print(t.to_json())
+print((t.to_json()))

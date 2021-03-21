@@ -88,4 +88,4 @@ t.add_resource(ssm.Parameter(
         Value="Redhat TIME_STAMP_VALUE"
     ))
 
-print(t.to_json())
+print((t.to_json()))

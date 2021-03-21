@@ -23,11 +23,11 @@ class SlackChannelConfiguration(AWSObject):
     resource_type = "AWS::Chatbot::SlackChannelConfiguration"
 
     props = {
-        'Arn': (basestring, False),
-        'ConfigurationName': (basestring, True),
-        'IamRoleArn': (basestring, True),
+        'Arn': (str, False),
+        'ConfigurationName': (str, True),
+        'IamRoleArn': (str, True),
         'LoggingLevel': (validate_logginglevel, False),
-        'SlackChannelId': (basestring, True),
-        'SlackWorkspaceId': (basestring, True),
-        'SnsTopicArns': ([basestring], False),
+        'SlackChannelId': (str, True),
+        'SlackWorkspaceId': (str, True),
+        'SnsTopicArns': ([str], False),
     }

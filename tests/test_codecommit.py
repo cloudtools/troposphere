@@ -27,7 +27,7 @@ class TestCodeCommit(unittest.TestCase):
                 'deleteReference',
             ]
         )
-        with self.assertRaisesRegexp(ValueError, "Trigger events: all"):
+        with self.assertRaisesRegex(ValueError, "Trigger events: all"):
             trigger.to_dict()
 
         trigger = cc.Trigger(
@@ -36,5 +36,5 @@ class TestCodeCommit(unittest.TestCase):
                 'foobar',
             ]
         )
-        with self.assertRaisesRegexp(ValueError, "invalid event foobar"):
+        with self.assertRaisesRegex(ValueError, "invalid event foobar"):
             trigger.to_dict()

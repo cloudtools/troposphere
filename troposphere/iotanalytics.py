@@ -16,9 +16,9 @@ class RetentionPeriod(AWSProperty):
 
 class CustomerManagedS3(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'KeyPrefix': (basestring, False),
-        'RoleArn': (basestring, True),
+        'Bucket': (str, True),
+        'KeyPrefix': (str, False),
+        'RoleArn': (str, True),
     }
 
 
@@ -38,7 +38,7 @@ class Channel(AWSObject):
     resource_type = "AWS::IoTAnalytics::Channel"
 
     props = {
-        'ChannelName': (basestring, False),
+        'ChannelName': (str, False),
         'ChannelStorage': (ChannelStorage, False),
         'RetentionPeriod': (RetentionPeriod, False),
         'Tags': ((Tags, list), False),
@@ -48,85 +48,85 @@ class Channel(AWSObject):
 class AddAttributes(AWSProperty):
     props = {
         'Attributes': (dict, False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
+        'Name': (str, False),
+        'Next': (str, False),
     }
 
 
 class ActivityChannel(AWSProperty):
     props = {
-        'ChannelName': (basestring, False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
+        'ChannelName': (str, False),
+        'Name': (str, False),
+        'Next': (str, False),
     }
 
 
 class ActivityDatastore(AWSProperty):
     props = {
-        'DatastoreName': (basestring, False),
-        'Name': (basestring, False),
+        'DatastoreName': (str, False),
+        'Name': (str, False),
     }
 
 
 class DeviceRegistryEnrich(AWSProperty):
     props = {
-        'Attribute': (basestring, False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
-        'RoleArn': (basestring, False),
-        'ThingName': (basestring, False),
+        'Attribute': (str, False),
+        'Name': (str, False),
+        'Next': (str, False),
+        'RoleArn': (str, False),
+        'ThingName': (str, False),
     }
 
 
 class DeviceShadowEnrich(AWSProperty):
     props = {
-        'Attribute': (basestring, False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
-        'RoleArn': (basestring, False),
-        'ThingName': (basestring, False),
+        'Attribute': (str, False),
+        'Name': (str, False),
+        'Next': (str, False),
+        'RoleArn': (str, False),
+        'ThingName': (str, False),
     }
 
 
 class Filter(AWSProperty):
     props = {
-        'Filter': (basestring, False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
+        'Filter': (str, False),
+        'Name': (str, False),
+        'Next': (str, False),
     }
 
 
 class Lambda(AWSProperty):
     props = {
         'BatchSize': (integer, False),
-        'LambdaName': (basestring, False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
+        'LambdaName': (str, False),
+        'Name': (str, False),
+        'Next': (str, False),
     }
 
 
 class Math(AWSProperty):
     props = {
-        'Attribute': (basestring, False),
-        'Math': (basestring, False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
+        'Attribute': (str, False),
+        'Math': (str, False),
+        'Name': (str, False),
+        'Next': (str, False),
     }
 
 
 class RemoveAttributes(AWSProperty):
     props = {
-        'Attributes': ([basestring], False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
+        'Attributes': ([str], False),
+        'Name': (str, False),
+        'Next': (str, False),
     }
 
 
 class SelectAttributes(AWSProperty):
     props = {
-        'Attributes': ([basestring], False),
-        'Name': (basestring, False),
-        'Next': (basestring, False),
+        'Attributes': ([str], False),
+        'Name': (str, False),
+        'Next': (str, False),
     }
 
 
@@ -150,27 +150,27 @@ class Pipeline(AWSObject):
 
     props = {
         'PipelineActivities': ([Activity], True),
-        'PipelineName': (basestring, False),
+        'PipelineName': (str, False),
         'Tags': ((Tags, list), False),
     }
 
 
 class ResourceConfiguration(AWSProperty):
     props = {
-        'ComputeType': (basestring, True),
+        'ComputeType': (str, True),
         'VolumeSizeInGB': (integer, True),
     }
 
 
 class DatasetContentVersionValue(AWSProperty):
     props = {
-        'DatasetName': (basestring, False),
+        'DatasetName': (str, False),
     }
 
 
 class OutputFileUriValue(AWSProperty):
     props = {
-        'FileName': (basestring, False),
+        'FileName': (str, False),
     }
 
 
@@ -179,15 +179,15 @@ class Variable(AWSProperty):
         'DatasetContentVersionValue': (DatasetContentVersionValue, False),
         'DoubleValue': (double, False),
         'OutputFileUriValue': (OutputFileUriValue, False),
-        'StringValue': (basestring, False),
-        'VariableName': (basestring, False)
+        'StringValue': (str, False),
+        'VariableName': (str, False)
     }
 
 
 class ContainerAction(AWSProperty):
     props = {
-        'ExecutionRoleArn': (basestring, True),
-        'Image': (basestring, True),
+        'ExecutionRoleArn': (str, True),
+        'Image': (str, True),
         'ResourceConfiguration': (ResourceConfiguration, False),
         'Variables': ([Variable], False),
     }
@@ -195,7 +195,7 @@ class ContainerAction(AWSProperty):
 
 class DeltaTime(AWSProperty):
     props = {
-        'TimeExpression': (basestring, True),
+        'TimeExpression': (str, True),
         'OffsetSeconds': (integer, True),
     }
 
@@ -209,13 +209,13 @@ class QueryActionFilter(AWSProperty):
 class QueryAction(AWSProperty):
     props = {
         'Filters': ([QueryActionFilter], False),
-        'SqlQuery': (basestring, False),
+        'SqlQuery': (str, False),
     }
 
 
 class Action(AWSProperty):
     props = {
-        'ActionName': (basestring, True),
+        'ActionName': (str, True),
         'ContainerAction': (ContainerAction, False),
         'QueryAction': (QueryAction, False)
     }
@@ -223,24 +223,24 @@ class Action(AWSProperty):
 
 class IotEventsDestinationConfiguration(AWSProperty):
     props = {
-        'InputName': (basestring, True),
-        'RoleArn': (basestring, True),
+        'InputName': (str, True),
+        'RoleArn': (str, True),
     }
 
 
 class GlueConfiguration(AWSProperty):
     props = {
-        'DatabaseName': (basestring, True),
-        'TableName': (basestring, True),
+        'DatabaseName': (str, True),
+        'TableName': (str, True),
     }
 
 
 class S3DestinationConfiguration(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
+        'Bucket': (str, True),
         'GlueConfiguration': (GlueConfiguration, False),
-        'Key': (basestring, True),
-        'RoleArn': (basestring, True),
+        'Key': (str, True),
+        'RoleArn': (str, True),
     }
 
 
@@ -255,7 +255,7 @@ class DatasetContentDeliveryRuleDestination(AWSProperty):
 class DatasetContentDeliveryRule(AWSProperty):
     props = {
         'Destination': (DatasetContentDeliveryRuleDestination, True),
-        'EntryName': (basestring, False),
+        'EntryName': (str, False),
     }
 
 
@@ -275,19 +275,19 @@ class LateDataRuleConfiguration(AWSProperty):
 class LateDataRule(AWSProperty):
     props = {
         'RuleConfiguration': (LateDataRuleConfiguration, True),
-        'RuleName': (basestring, False),
+        'RuleName': (str, False),
     }
 
 
 class Schedule(AWSProperty):
     props = {
-        'ScheduleExpression': (basestring, True),
+        'ScheduleExpression': (str, True),
     }
 
 
 class TriggeringDataset(AWSProperty):
     props = {
-        'DatasetName': (basestring, True),
+        'DatasetName': (str, True),
     }
 
 
@@ -311,7 +311,7 @@ class Dataset(AWSObject):
     props = {
         'Actions': ([Action], True),
         'ContentDeliveryRules': ([DatasetContentDeliveryRule], False),
-        'DatasetName': (basestring, False),
+        'DatasetName': (str, False),
         'LateDataRules': ([LateDataRule], False),
         'RetentionPeriod': (RetentionPeriod, False),
         'Tags': (Tags, False),
@@ -329,8 +329,8 @@ class DatastoreStorage(AWSProperty):
 
 class Column(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Type': (basestring, True),
+        'Name': (str, True),
+        'Type': (str, True),
     }
 
 
@@ -357,7 +357,7 @@ class Datastore(AWSObject):
     resource_type = "AWS::IoTAnalytics::Datastore"
 
     props = {
-        'DatastoreName': (basestring, False),
+        'DatastoreName': (str, False),
         'DatastoreStorage': (DatastoreStorage, False),
         'FileFormatConfiguration': (FileFormatConfiguration, False),
         'RetentionPeriod': (RetentionPeriod, False),

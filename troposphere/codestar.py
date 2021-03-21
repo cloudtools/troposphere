@@ -14,9 +14,9 @@ from .validators import boolean
 
 class S3(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'Key': (basestring, True),
-        'ObjectVersion': (basestring, False),
+        'Bucket': (str, True),
+        'Key': (str, True),
+        'ObjectVersion': (str, False),
     }
 
 
@@ -33,8 +33,8 @@ class GitHubRepository(AWSObject):
         'Code': (Code, False),
         'EnableIssues': (boolean, False),
         'IsPrivate': (boolean, False),
-        'RepositoryAccessToken': (basestring, True),
-        'RepositoryDescription': (basestring, False),
-        'RepositoryName': (basestring, True),
-        'RepositoryOwner': (basestring, True),
+        'RepositoryAccessToken': (str, True),
+        'RepositoryDescription': (str, False),
+        'RepositoryName': (str, True),
+        'RepositoryOwner': (str, True),
     }

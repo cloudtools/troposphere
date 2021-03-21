@@ -27,10 +27,10 @@ class StorageInfo(AWSProperty):
 
 class BrokerNodeGroupInfo(AWSProperty):
     props = {
-        'BrokerAZDistribution': (basestring, False),
-        'ClientSubnets': ([basestring], True),
-        'InstanceType': (basestring, True),
-        'SecurityGroups': ([basestring], False),
+        'BrokerAZDistribution': (str, False),
+        'ClientSubnets': ([str], True),
+        'InstanceType': (str, True),
+        'SecurityGroups': ([str], False),
         'StorageInfo': (StorageInfo, False),
     }
 
@@ -49,7 +49,7 @@ class Sasl(AWSProperty):
 
 class Tls(AWSProperty):
     props = {
-        'CertificateAuthorityArnList': ([basestring], False),
+        'CertificateAuthorityArnList': ([str], False),
     }
 
 
@@ -62,20 +62,20 @@ class ClientAuthentication(AWSProperty):
 
 class ConfigurationInfo(AWSProperty):
     props = {
-        'Arn': (basestring, True),
+        'Arn': (str, True),
         'Revision': (integer, True),
     }
 
 
 class EncryptionAtRest(AWSProperty):
     props = {
-        'DataVolumeKMSKeyId': (basestring, True),
+        'DataVolumeKMSKeyId': (str, True),
     }
 
 
 class EncryptionInTransit(AWSProperty):
     props = {
-        'ClientBroker': (basestring, False),
+        'ClientBroker': (str, False),
         'InCluster': (boolean, False),
     }
 
@@ -114,7 +114,7 @@ class OpenMonitoring(AWSProperty):
 
 class Firehose(AWSProperty):
     props = {
-        'DeliveryStream': (basestring, True),
+        'DeliveryStream': (str, True),
         'Enabled': (boolean, True),
     }
 
@@ -122,15 +122,15 @@ class Firehose(AWSProperty):
 class CloudWatchLogs(AWSProperty):
     props = {
         'Enabled': (boolean, True),
-        'LogGroup': (basestring, False),
+        'LogGroup': (str, False),
     }
 
 
 class S3(AWSProperty):
     props = {
-        'Bucket': (basestring, False),
+        'Bucket': (str, False),
         'Enabled': (boolean, True),
-        'Prefix': (basestring, False),
+        'Prefix': (str, False),
     }
 
 
@@ -154,11 +154,11 @@ class Cluster(AWSObject):
     props = {
         'BrokerNodeGroupInfo': (BrokerNodeGroupInfo, True),
         'ClientAuthentication': (ClientAuthentication, False),
-        'ClusterName': (basestring, True),
+        'ClusterName': (str, True),
         'ConfigurationInfo': (ConfigurationInfo, False),
         'EncryptionInfo': (EncryptionInfo, False),
-        'EnhancedMonitoring': (basestring, False),
-        'KafkaVersion': (basestring, True),
+        'EnhancedMonitoring': (str, False),
+        'KafkaVersion': (str, True),
         'LoggingInfo': (LoggingInfo, False),
         'NumberOfBrokerNodes': (integer, True),
         'OpenMonitoring': (OpenMonitoring, False),

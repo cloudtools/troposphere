@@ -9,16 +9,16 @@ from .validators import (integer, boolean, canary_runtime_version)
 
 class VPCConfig(AWSProperty):
     props = {
-        'SecurityGroupIds': ([basestring], True),
-        'SubnetIds': ([basestring], True),
-        'VpcId': (basestring, False),
+        'SecurityGroupIds': ([str], True),
+        'SubnetIds': ([str], True),
+        'VpcId': (str, False),
     }
 
 
 class Schedule(AWSProperty):
     props = {
-        'DurationInSeconds': (basestring, False),
-        'Expression': (basestring, True),
+        'DurationInSeconds': (str, False),
+        'Expression': (str, True),
     }
 
 
@@ -31,11 +31,11 @@ class RunConfig(AWSProperty):
 
 class Code(AWSProperty):
     props = {
-        'Handler': (basestring, False),
-        'S3Bucket': (basestring, False),
-        'S3Key': (basestring, False),
-        'S3ObjectVersion': (basestring, False),
-        'Script': (basestring, False),
+        'Handler': (str, False),
+        'S3Bucket': (str, False),
+        'S3Key': (str, False),
+        'S3ObjectVersion': (str, False),
+        'Script': (str, False),
     }
 
 
@@ -43,11 +43,11 @@ class Canary(AWSObject):
     resource_type = "AWS::Synthetics::Canary"
 
     props = {
-        'ArtifactS3Location': (basestring, True),
+        'ArtifactS3Location': (str, True),
         'Code': (Code, True),
-        'ExecutionRoleArn': (basestring, True),
+        'ExecutionRoleArn': (str, True),
         'FailureRetentionPeriod': (integer, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'RunConfig': (RunConfig, False),
         'RuntimeVersion': (canary_runtime_version, True),
         'Schedule': (Schedule, True),

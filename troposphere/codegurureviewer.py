@@ -14,8 +14,8 @@ class RepositoryAssociation(AWSObject):
     resource_type = "AWS::CodeGuruReviewer::RepositoryAssociation"
 
     props = {
-        'ConnectionArn': (basestring, False),
-        'Name': (basestring, True),
-        'Owner': (basestring, False),
-        'Type': (basestring, True),
+        'ConnectionArn': (str, False),
+        'Name': (str, True),
+        'Owner': (str, False),
+        'Type': (str, True),
     }

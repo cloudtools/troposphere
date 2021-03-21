@@ -12,17 +12,17 @@ class Detector(AWSObject):
 
     props = {
         'Enable': (boolean, True),
-        'FindingPublishingFrequency': (basestring, False),
+        'FindingPublishingFrequency': (str, False),
     }
 
 
 class Condition(AWSProperty):
     props = {
-        'Eq': ([basestring], False),
+        'Eq': ([str], False),
         'Gte': (integer, False),
         'Lt': (integer, False),
         'Lte': (integer, False),
-        'Neq': ([basestring], False),
+        'Neq': ([str], False),
     }
 
 
@@ -37,11 +37,11 @@ class Filter(AWSObject):
     resource_type = "AWS::GuardDuty::Filter"
 
     props = {
-        'Action': (basestring, True),
-        'Description': (basestring, True),
-        'DetectorId': (basestring, True),
+        'Action': (str, True),
+        'Description': (str, True),
+        'DetectorId': (str, True),
         'FindingCriteria': (FindingCriteria, True),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Rank': (integer, True),
     }
 
@@ -51,10 +51,10 @@ class IPSet(AWSObject):
 
     props = {
         'Activate': (boolean, True),
-        'DetectorId': (basestring, True),
-        'Format': (basestring, True),
-        'Location': (basestring, True),
-        'Name': (basestring, False),
+        'DetectorId': (str, True),
+        'Format': (str, True),
+        'Location': (str, True),
+        'Name': (str, False),
     }
 
 
@@ -62,9 +62,9 @@ class Master(AWSObject):
     resource_type = "AWS::GuardDuty::Master"
 
     props = {
-        'DetectorId': (basestring, True),
-        'InvitationId': (basestring, False),
-        'MasterId': (basestring, True),
+        'DetectorId': (str, True),
+        'InvitationId': (str, False),
+        'MasterId': (str, True),
     }
 
 
@@ -72,11 +72,11 @@ class Member(AWSObject):
     resource_type = "AWS::GuardDuty::Member"
 
     props = {
-        'DetectorId': (basestring, True),
-        'Email': (basestring, True),
-        'MemberId': (basestring, True),
-        'Message': (basestring, False),
-        'Status': (basestring, False),
+        'DetectorId': (str, True),
+        'Email': (str, True),
+        'MemberId': (str, True),
+        'Message': (str, False),
+        'Status': (str, False),
         'DisableEmailNotification': (bool, False),
     }
 
@@ -86,8 +86,8 @@ class ThreatIntelSet(AWSObject):
 
     props = {
         'Activate': (boolean, True),
-        'DetectorId': (basestring, True),
-        'Format': (basestring, True),
-        'Location': (basestring, True),
-        'Name': (basestring, False),
+        'DetectorId': (str, True),
+        'Format': (str, True),
+        'Location': (str, True),
+        'Name': (str, False),
     }

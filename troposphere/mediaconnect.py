@@ -15,39 +15,39 @@ from .validators import integer
 class FailoverConfig(AWSProperty):
     props = {
         'RecoveryWindow': (integer, False),
-        'State': (basestring, False),
+        'State': (str, False),
     }
 
 
 class Encryption(AWSProperty):
     props = {
-        'Algorithm': (basestring, True),
-        'ConstantInitializationVector': (basestring, False),
-        'DeviceId': (basestring, False),
-        'KeyType': (basestring, False),
-        'Region': (basestring, False),
-        'ResourceId': (basestring, False),
-        'RoleArn': (basestring, True),
-        'SecretArn': (basestring, False),
-        'Url': (basestring, False),
+        'Algorithm': (str, True),
+        'ConstantInitializationVector': (str, False),
+        'DeviceId': (str, False),
+        'KeyType': (str, False),
+        'Region': (str, False),
+        'ResourceId': (str, False),
+        'RoleArn': (str, True),
+        'SecretArn': (str, False),
+        'Url': (str, False),
     }
 
 
 class Source(AWSProperty):
     props = {
         'Decryption': (Encryption, False),
-        'Description': (basestring, False),
-        'EntitlementArn': (basestring, False),
-        'IngestIp': (basestring, False),
+        'Description': (str, False),
+        'EntitlementArn': (str, False),
+        'IngestIp': (str, False),
         'IngestPort': (integer, False),
         'MaxBitrate': (integer, False),
         'MaxLatency': (integer, False),
-        'Name': (basestring, False),
-        'Protocol': (basestring, False),
-        'SourceArn': (basestring, False),
-        'StreamId': (basestring, False),
-        'VpcInterfaceName': (basestring, False),
-        'WhitelistCidr': (basestring, False),
+        'Name': (str, False),
+        'Protocol': (str, False),
+        'SourceArn': (str, False),
+        'StreamId': (str, False),
+        'VpcInterfaceName': (str, False),
+        'WhitelistCidr': (str, False),
     }
 
 
@@ -55,8 +55,8 @@ class Flow(AWSObject):
     resource_type = "AWS::MediaConnect::Flow"
 
     props = {
-        'AvailabilityZone': (basestring, False),
-        'Name': (basestring, True),
+        'AvailabilityZone': (str, False),
+        'Name': (str, True),
         'Source': (Source, True),
         'SourceFailoverConfig': (FailoverConfig, False),
     }
@@ -67,18 +67,18 @@ class FlowEntitlement(AWSObject):
 
     props = {
         'DataTransferSubscriberFeePercent': (integer, False),
-        'Description': (basestring, True),
+        'Description': (str, True),
         'Encryption': (Encryption, False),
-        'EntitlementStatus': (basestring, False),
-        'FlowArn': (basestring, True),
-        'Name': (basestring, True),
-        'Subscribers': ([basestring], True),
+        'EntitlementStatus': (str, False),
+        'FlowArn': (str, True),
+        'Name': (str, True),
+        'Subscribers': ([str], True),
     }
 
 
 class VpcInterfaceAttachment(AWSProperty):
     props = {
-        'VpcInterfaceName': (basestring, False),
+        'VpcInterfaceName': (str, False),
     }
 
 
@@ -86,18 +86,18 @@ class FlowOutput(AWSObject):
     resource_type = "AWS::MediaConnect::FlowOutput"
 
     props = {
-        'CidrAllowList': ([basestring], False),
-        'Description': (basestring, False),
-        'Destination': (basestring, False),
+        'CidrAllowList': ([str], False),
+        'Description': (str, False),
+        'Destination': (str, False),
         'Encryption': (Encryption, False),
-        'FlowArn': (basestring, True),
+        'FlowArn': (str, True),
         'MaxLatency': (integer, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Port': (integer, False),
-        'Protocol': (basestring, True),
-        'RemoteId': (basestring, False),
+        'Protocol': (str, True),
+        'RemoteId': (str, False),
         'SmoothingLatency': (integer, False),
-        'StreamId': (basestring, False),
+        'StreamId': (str, False),
         'VpcInterfaceAttachment': (VpcInterfaceAttachment, False),
     }
 
@@ -107,17 +107,17 @@ class FlowSource(AWSObject):
 
     props = {
         'Decryption': (Encryption, False),
-        'Description': (basestring, True),
-        'EntitlementArn': (basestring, False),
-        'FlowArn': (basestring, False),
+        'Description': (str, True),
+        'EntitlementArn': (str, False),
+        'FlowArn': (str, False),
         'IngestPort': (integer, False),
         'MaxBitrate': (integer, False),
         'MaxLatency': (integer, False),
-        'Name': (basestring, True),
-        'Protocol': (basestring, False),
-        'StreamId': (basestring, False),
-        'VpcInterfaceName': (basestring, False),
-        'WhitelistCidr': (basestring, False),
+        'Name': (str, True),
+        'Protocol': (str, False),
+        'StreamId': (str, False),
+        'VpcInterfaceName': (str, False),
+        'WhitelistCidr': (str, False),
     }
 
 
@@ -125,9 +125,9 @@ class FlowVpcInterface(AWSObject):
     resource_type = "AWS::MediaConnect::FlowVpcInterface"
 
     props = {
-        'FlowArn': (basestring, True),
-        'Name': (basestring, True),
-        'RoleArn': (basestring, True),
-        'SecurityGroupIds': ([basestring], True),
-        'SubnetId': (basestring, True),
+        'FlowArn': (str, True),
+        'Name': (str, True),
+        'RoleArn': (str, True),
+        'SecurityGroupIds': ([str], True),
+        'SubnetId': (str, True),
     }

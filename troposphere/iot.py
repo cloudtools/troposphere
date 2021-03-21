@@ -38,8 +38,8 @@ class AuditCheckConfigurations(AWSProperty):
 class AuditNotificationTarget(AWSProperty):
     props = {
         'Enabled': (boolean, False),
-        'RoleArn': (basestring, False),
-        'TargetArn': (basestring, False),
+        'RoleArn': (str, False),
+        'TargetArn': (str, False),
     }
 
 
@@ -53,11 +53,11 @@ class AccountAuditConfiguration(AWSObject):
     resource_type = "AWS::IoT::AccountAuditConfiguration"
 
     props = {
-        'AccountId': (basestring, True),
+        'AccountId': (str, True),
         'AuditCheckConfigurations': (AuditCheckConfigurations, True),
         'AuditNotificationTargetConfigurations':
             (AuditNotificationTargetConfigurations, False),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
     }
 
 
@@ -65,12 +65,12 @@ class Authorizer(AWSObject):
     resource_type = "AWS::IoT::Authorizer"
 
     props = {
-        'AuthorizerFunctionArn': (basestring, True),
-        'AuthorizerName': (basestring, False),
+        'AuthorizerFunctionArn': (str, True),
+        'AuthorizerName': (str, False),
         'SigningDisabled': (boolean, False),
-        'Status': (basestring, False),
+        'Status': (str, False),
         'Tags': (dict, False),
-        'TokenKeyName': (basestring, False),
+        'TokenKeyName': (str, False),
         # 'TokenSigningPublicKeys': (TokenSigningPublicKeys, False),
     }
 
@@ -79,11 +79,11 @@ class Certificate(AWSObject):
     resource_type = "AWS::IoT::Certificate"
 
     props = {
-        'CACertificatePem': (basestring, False),
-        'CertificateMode': (basestring, False),
-        'CertificatePem': (basestring, False),
-        'CertificateSigningRequest': (basestring, False),
-        'Status': (basestring, True),
+        'CACertificatePem': (str, False),
+        'CertificateMode': (str, False),
+        'CertificatePem': (str, False),
+        'CertificateSigningRequest': (str, False),
+        'Status': (str, True),
     }
 
 
@@ -91,9 +91,9 @@ class CustomMetric(AWSObject):
     resource_type = "AWS::IoT::CustomMetric"
 
     props = {
-        'DisplayName': (basestring, False),
-        'MetricName': (basestring, False),
-        'MetricType': (basestring, True),
+        'DisplayName': (str, False),
+        'MetricName': (str, False),
+        'MetricType': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -102,17 +102,17 @@ class Dimension(AWSObject):
     resource_type = "AWS::IoT::Dimension"
 
     props = {
-        'Name': (basestring, False),
-        'StringValues': ([basestring], True),
+        'Name': (str, False),
+        'StringValues': ([str], True),
         'Tags': (Tags, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }
 
 
 class AuthorizerConfig(AWSProperty):
     props = {
         'AllowAuthorizerOverride': (boolean, False),
-        'DefaultAuthorizerName': (basestring, False),
+        'DefaultAuthorizerName': (str, False),
     }
 
 
@@ -121,51 +121,51 @@ class DomainConfiguration(AWSObject):
 
     props = {
         'AuthorizerConfig': (AuthorizerConfig, False),
-        'DomainConfigurationName': (basestring, False),
-        'DomainConfigurationStatus': (basestring, False),
-        'DomainName': (basestring, False),
-        'ServerCertificateArns': ([basestring], False),
-        'ServiceType': (basestring, False),
+        'DomainConfigurationName': (str, False),
+        'DomainConfigurationStatus': (str, False),
+        'DomainName': (str, False),
+        'ServerCertificateArns': ([str], False),
+        'ServiceType': (str, False),
         'Tags': (Tags, False),
-        'ValidationCertificateArn': (basestring, False),
+        'ValidationCertificateArn': (str, False),
     }
 
 
 class AddThingsToThingGroupParams(AWSProperty):
     props = {
         'OverrideDynamicGroups': (boolean, False),
-        'ThingGroupNames': ([basestring], True),
+        'ThingGroupNames': ([str], True),
     }
 
 
 class EnableIoTLoggingParams(AWSProperty):
     props = {
-        'LogLevel': (basestring, True),
-        'RoleArnForLogging': (basestring, True),
+        'LogLevel': (str, True),
+        'RoleArnForLogging': (str, True),
     }
 
 
 class PublishFindingToSnsParams(AWSProperty):
     props = {
-        'TopicArn': (basestring, True),
+        'TopicArn': (str, True),
     }
 
 
 class ReplaceDefaultPolicyVersionParams(AWSProperty):
     props = {
-        'TemplateName': (basestring, True),
+        'TemplateName': (str, True),
     }
 
 
 class UpdateCACertificateParams(AWSProperty):
     props = {
-        'Action': (basestring, True),
+        'Action': (str, True),
     }
 
 
 class UpdateDeviceCertificateParams(AWSProperty):
     props = {
-        'Action': (basestring, True),
+        'Action': (str, True),
     }
 
 
@@ -186,143 +186,143 @@ class MitigationAction(AWSObject):
     resource_type = "AWS::IoT::MitigationAction"
 
     props = {
-        'ActionName': (basestring, False),
+        'ActionName': (str, False),
         'ActionParams': (ActionParams, True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
         'Tags': (Tags, False),
     }
 
 
 class CloudwatchAlarmAction(AWSProperty):
     props = {
-        'AlarmName': (basestring, True),
-        'RoleArn': (basestring, True),
-        'StateReason': (basestring, True),
-        'StateValue': (basestring, True),
+        'AlarmName': (str, True),
+        'RoleArn': (str, True),
+        'StateReason': (str, True),
+        'StateValue': (str, True),
     }
 
 
 class CloudwatchMetricAction(AWSProperty):
     props = {
-        'MetricName': (basestring, True),
-        'MetricNamespace': (basestring, True),
-        'MetricTimestamp': (basestring, False),
-        'MetricUnit': (basestring, True),
-        'MetricValue': (basestring, True),
-        'RoleArn': (basestring, True),
+        'MetricName': (str, True),
+        'MetricNamespace': (str, True),
+        'MetricTimestamp': (str, False),
+        'MetricUnit': (str, True),
+        'MetricValue': (str, True),
+        'RoleArn': (str, True),
     }
 
 
 class DynamoDBAction(AWSProperty):
     props = {
-        'HashKeyField': (basestring, True),
-        'HashKeyType': (basestring, False),
-        'HashKeyValue': (basestring, True),
-        'PayloadField': (basestring, False),
-        'RangeKeyField': (basestring, False),
-        'RangeKeyType': (basestring, False),
-        'RangeKeyValue': (basestring, False),
-        'RoleArn': (basestring, True),
-        'TableName': (basestring, True),
+        'HashKeyField': (str, True),
+        'HashKeyType': (str, False),
+        'HashKeyValue': (str, True),
+        'PayloadField': (str, False),
+        'RangeKeyField': (str, False),
+        'RangeKeyType': (str, False),
+        'RangeKeyValue': (str, False),
+        'RoleArn': (str, True),
+        'TableName': (str, True),
     }
 
 
 class PutItemInput(AWSProperty):
     props = {
-        'TableName': (basestring, True),
+        'TableName': (str, True),
     }
 
 
 class DynamoDBv2Action(AWSProperty):
     props = {
         'PutItem': (PutItemInput, False),
-        'RoleArn': (basestring, False),
+        'RoleArn': (str, False),
     }
 
 
 class ElasticsearchAction(AWSProperty):
     props = {
-        'Endpoint': (basestring, True),
-        'Id': (basestring, True),
-        'Index': (basestring, True),
-        'RoleArn': (basestring, True),
-        'Type': (basestring, True),
+        'Endpoint': (str, True),
+        'Id': (str, True),
+        'Index': (str, True),
+        'RoleArn': (str, True),
+        'Type': (str, True),
     }
 
 
 class FirehoseAction(AWSProperty):
     props = {
-        'DeliveryStreamName': (basestring, True),
-        'RoleArn': (basestring, True),
-        'Separator': (basestring, False),
+        'DeliveryStreamName': (str, True),
+        'RoleArn': (str, True),
+        'Separator': (str, False),
     }
 
 
 class IotAnalyticsAction(AWSProperty):
     props = {
-        'ChannelName': (basestring, True),
-        'RoleArn': (basestring, True),
+        'ChannelName': (str, True),
+        'RoleArn': (str, True),
     }
 
 
 class KinesisAction(AWSProperty):
     props = {
-        'PartitionKey': (basestring, False),
-        'RoleArn': (basestring, True),
-        'StreamName': (basestring, True),
+        'PartitionKey': (str, False),
+        'RoleArn': (str, True),
+        'StreamName': (str, True),
     }
 
 
 class LambdaAction(AWSProperty):
     props = {
-        'FunctionArn': (basestring, True),
+        'FunctionArn': (str, True),
     }
 
 
 class RepublishAction(AWSProperty):
     props = {
         'Qos': (integer, False),
-        'RoleArn': (basestring, True),
-        'Topic': (basestring, True),
+        'RoleArn': (str, True),
+        'Topic': (str, True),
     }
 
 
 class S3Action(AWSProperty):
     props = {
-        'BucketName': (basestring, True),
-        'Key': (basestring, True),
-        'RoleArn': (basestring, True),
+        'BucketName': (str, True),
+        'Key': (str, True),
+        'RoleArn': (str, True),
     }
 
 
 class SnsAction(AWSProperty):
     props = {
-        'MessageFormat': (basestring, False),
-        'RoleArn': (basestring, True),
-        'TargetArn': (basestring, True),
+        'MessageFormat': (str, False),
+        'RoleArn': (str, True),
+        'TargetArn': (str, True),
     }
 
 
 class SqsAction(AWSProperty):
     props = {
-        'QueueUrl': (basestring, True),
-        'RoleArn': (basestring, True),
-        'UseBase64': (basestring, False),
+        'QueueUrl': (str, True),
+        'RoleArn': (str, True),
+        'UseBase64': (str, False),
     }
 
 
 class SigV4Authorization(AWSProperty):
     props = {
-        'RoleArn': (basestring, True),
-        'ServiceName': (basestring, True),
-        'SigningRegion': (basestring, True),
+        'RoleArn': (str, True),
+        'ServiceName': (str, True),
+        'SigningRegion': (str, True),
     }
 
 
 class HttpActionHeader(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'Value': (basestring, True),
+        'Key': (str, True),
+        'Value': (str, True),
     }
 
 
@@ -335,39 +335,39 @@ class HttpAuthorization(AWSProperty):
 class HttpAction(AWSProperty):
     props = {
         'Auth': (HttpAuthorization, False),
-        'ConfirmationUrl': (basestring, False),
+        'ConfirmationUrl': (str, False),
         'Headers': ([HttpActionHeader], False),
-        'Url': (basestring, True),
+        'Url': (str, True),
     }
 
 
 class IotEventsAction(AWSProperty):
     props = {
-        'InputName': (basestring, True),
-        'MessageId': (basestring, False),
-        'RoleArn': (basestring, True),
+        'InputName': (str, True),
+        'MessageId': (str, False),
+        'RoleArn': (str, True),
     }
 
 
 class AssetPropertyVariant(AWSProperty):
     props = {
-        'BooleanValue': (basestring, False),
-        'DoubleValue': (basestring, False),
-        'IntegerValue': (basestring, False),
-        'StringValue': (basestring, False),
+        'BooleanValue': (str, False),
+        'DoubleValue': (str, False),
+        'IntegerValue': (str, False),
+        'StringValue': (str, False),
     }
 
 
 class AssetPropertyTimestamp(AWSProperty):
     props = {
-        'OffsetInNanos': (basestring, False),
-        'TimeInSeconds': (basestring, True),
+        'OffsetInNanos': (str, False),
+        'TimeInSeconds': (str, True),
     }
 
 
 class AssetPropertyValue(AWSProperty):
     props = {
-        'Quality': (basestring, False),
+        'Quality': (str, False),
         'Timestamp': (AssetPropertyTimestamp, True),
         'Value': (AssetPropertyVariant, True),
     }
@@ -375,10 +375,10 @@ class AssetPropertyValue(AWSProperty):
 
 class PutAssetPropertyValueEntry(AWSProperty):
     props = {
-        'AssetId': (basestring, False),
-        'EntryId': (basestring, False),
-        'PropertyAlias': (basestring, False),
-        'PropertyId': (basestring, False),
+        'AssetId': (str, False),
+        'EntryId': (str, False),
+        'PropertyAlias': (str, False),
+        'PropertyId': (str, False),
         'PropertyValues': ([AssetPropertyValue], True),
     }
 
@@ -386,15 +386,15 @@ class PutAssetPropertyValueEntry(AWSProperty):
 class IotSiteWiseAction(AWSProperty):
     props = {
         'PutAssetPropertyValueEntries': ([PutAssetPropertyValueEntry], True),
-        'RoleArn': (basestring, True),
+        'RoleArn': (str, True),
     }
 
 
 class StepFunctionsAction(AWSProperty):
     props = {
-        'ExecutionNamePrefix': (basestring, False),
-        'RoleArn': (basestring, True),
-        'StateMachineName': (basestring, True),
+        'ExecutionNamePrefix': (str, False),
+        'RoleArn': (str, True),
+        'StateMachineName': (str, True),
     }
 
 
@@ -423,10 +423,10 @@ class Action(AWSProperty):
 class TopicRulePayload(AWSProperty):
     props = {
         'Actions': ([Action], True),
-        'AwsIotSqlVersion': (basestring, False),
-        'Description': (basestring, False),
+        'AwsIotSqlVersion': (str, False),
+        'Description': (str, False),
         'RuleDisabled': (boolean, True),
-        'Sql': (basestring, True),
+        'Sql': (str, True),
     }
 
 
@@ -434,7 +434,7 @@ class TopicRule(AWSObject):
     resource_type = "AWS::IoT::TopicRule"
 
     props = {
-        'RuleName': (basestring, False),
+        'RuleName': (str, False),
         'TopicRulePayload': (TopicRulePayload, True),
     }
 
@@ -443,8 +443,8 @@ class ThingPrincipalAttachment(AWSObject):
     resource_type = "AWS::IoT::ThingPrincipalAttachment"
 
     props = {
-        'Principal': (basestring, True),
-        'ThingName': (basestring, True),
+        'Principal': (str, True),
+        'ThingName': (str, True),
     }
 
 
@@ -453,7 +453,7 @@ class Thing(AWSObject):
 
     props = {
         'AttributePayload': (dict, False),
-        'ThingName': (basestring, False),
+        'ThingName': (str, False),
     }
 
 
@@ -461,8 +461,8 @@ class PolicyPrincipalAttachment(AWSObject):
     resource_type = "AWS::IoT::PolicyPrincipalAttachment"
 
     props = {
-        'PolicyName': (basestring, True),
-        'Principal': (basestring, True),
+        'PolicyName': (str, True),
+        'Principal': (str, True),
     }
 
 
@@ -471,14 +471,14 @@ class Policy(AWSObject):
 
     props = {
         'PolicyDocument': (policytypes, True),
-        'PolicyName': (basestring, False),
+        'PolicyName': (str, False),
     }
 
 
 class ProvisioningHook(AWSProperty):
     props = {
-        'PayloadVersion': (basestring, False),
-        'TargetArn': (basestring, False),
+        'PayloadVersion': (str, False),
+        'TargetArn': (str, False),
     }
 
 
@@ -486,13 +486,13 @@ class ProvisioningTemplate(AWSObject):
     resource_type = "AWS::IoT::ProvisioningTemplate"
 
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'Enabled': (boolean, False),
         'PreProvisioningHook': (ProvisioningHook, False),
-        'ProvisioningRoleArn': (basestring, True),
+        'ProvisioningRoleArn': (str, True),
         'Tags': (dict, False),
-        'TemplateBody': (basestring, True),
-        'TemplateName': (basestring, False),
+        'TemplateBody': (str, True),
+        'TemplateName': (str, False),
     }
 
 
@@ -500,41 +500,41 @@ class ScheduledAudit(AWSObject):
     resource_type = "AWS::IoT::ScheduledAudit"
 
     props = {
-        'DayOfMonth': (basestring, False),
-        'DayOfWeek': (basestring, False),
-        'Frequency': (basestring, True),
-        'ScheduledAuditName': (basestring, False),
+        'DayOfMonth': (str, False),
+        'DayOfWeek': (str, False),
+        'Frequency': (str, True),
+        'ScheduledAuditName': (str, False),
         'Tags': (Tags, False),
-        'TargetCheckNames': ([basestring], True),
+        'TargetCheckNames': ([str], True),
     }
 
 
 class MachineLearningDetectionConfig(AWSProperty):
     props = {
-        'ConfidenceLevel': (basestring, False),
+        'ConfidenceLevel': (str, False),
     }
 
 
 class MetricValue(AWSProperty):
     props = {
-        'Cidrs': ([basestring], False),
-        'Count': (basestring, False),
+        'Cidrs': ([str], False),
+        'Count': (str, False),
         'Number': (double, False),
         'Numbers': ([double], False),
         'Ports': ([integer], False),
-        'Strings': ([basestring], False),
+        'Strings': ([str], False),
     }
 
 
 class StatisticalThreshold(AWSProperty):
     props = {
-        'Statistic': (basestring, False),
+        'Statistic': (str, False),
     }
 
 
 class BehaviorCriteria(AWSProperty):
     props = {
-        'ComparisonOperator': (basestring, False),
+        'ComparisonOperator': (str, False),
         'ConsecutiveDatapointsToAlarm': (integer, False),
         'ConsecutiveDatapointsToClear': (integer, False),
         'DurationSeconds': (integer, False),
@@ -546,24 +546,24 @@ class BehaviorCriteria(AWSProperty):
 
 class MetricDimension(AWSProperty):
     props = {
-        'DimensionName': (basestring, True),
-        'Operator': (basestring, False),
+        'DimensionName': (str, True),
+        'Operator': (str, False),
     }
 
 
 class Behavior(AWSProperty):
     props = {
         'Criteria': (BehaviorCriteria, False),
-        'Metric': (basestring, False),
+        'Metric': (str, False),
         'MetricDimension': (MetricDimension, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'SuppressAlerts': (boolean, False),
     }
 
 
 class MetricToRetain(AWSProperty):
     props = {
-        'Metric': (basestring, True),
+        'Metric': (str, True),
         'MetricDimension': (MetricDimension, False),
     }
 
@@ -575,25 +575,25 @@ class SecurityProfile(AWSObject):
         'AdditionalMetricsToRetainV2': ([MetricToRetain], False),
         'AlertTargets': (dict, False),
         'Behaviors': ([Behavior], False),
-        'SecurityProfileDescription': (basestring, False),
-        'SecurityProfileName': (basestring, False),
+        'SecurityProfileDescription': (str, False),
+        'SecurityProfileName': (str, False),
         'Tags': (Tags, False),
-        'TargetArns': ([basestring], False),
+        'TargetArns': ([str], False),
     }
 
 
 class HttpUrlDestinationSummary(AWSProperty):
     props = {
-        'ConfirmationUrl': (basestring, False),
+        'ConfirmationUrl': (str, False),
     }
 
 
 class VpcDestinationProperties(AWSProperty):
     props = {
-        'RoleArn': (basestring, False),
-        'SecurityGroups': ([basestring], False),
-        'SubnetIds': ([basestring], False),
-        'VpcId': (basestring, False),
+        'RoleArn': (str, False),
+        'SecurityGroups': ([str], False),
+        'SubnetIds': ([str], False),
+        'VpcId': (str, False),
     }
 
 
@@ -602,6 +602,6 @@ class TopicRuleDestination(AWSObject):
 
     props = {
         'HttpUrlProperties': (HttpUrlDestinationSummary, False),
-        'Status': (basestring, False),
+        'Status': (str, False),
         'VpcProperties': (VpcDestinationProperties, False),
     }

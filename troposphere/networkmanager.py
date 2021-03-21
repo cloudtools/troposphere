@@ -10,16 +10,16 @@ class TransitGatewayRegistration(AWSObject):
     resource_type = "AWS::NetworkManager::TransitGatewayRegistration"
 
     props = {
-        'GlobalNetworkId': (basestring, True),
-        'TransitGatewayArn': (basestring, True),
+        'GlobalNetworkId': (str, True),
+        'TransitGatewayArn': (str, True),
     }
 
 
 class Location(AWSProperty):
     props = {
-        'Address': (basestring, False),
-        'Latitude': (basestring, False),
-        'Longitude': (basestring, False),
+        'Address': (str, False),
+        'Latitude': (str, False),
+        'Longitude': (str, False),
     }
 
 
@@ -27,8 +27,8 @@ class Site(AWSObject):
     resource_type = "AWS::NetworkManager::Site"
 
     props = {
-        'Description': (basestring, False),
-        'GlobalNetworkId': (basestring, True),
+        'Description': (str, False),
+        'GlobalNetworkId': (str, True),
         'Location': (Location, False),
         'Tags': (Tags, False),
     }
@@ -38,16 +38,16 @@ class LinkAssociation(AWSObject):
     resource_type = "AWS::NetworkManager::LinkAssociation"
 
     props = {
-        'DeviceId': (basestring, True),
-        'GlobalNetworkId': (basestring, True),
-        'LinkId': (basestring, True),
+        'DeviceId': (str, True),
+        'GlobalNetworkId': (str, True),
+        'LinkId': (str, True),
     }
 
 
 class Bandwidth(AWSProperty):
     props = {
-        'DownloadSpeed': (basestring, False),
-        'UploadSpeed': (basestring, False),
+        'DownloadSpeed': (str, False),
+        'UploadSpeed': (str, False),
     }
 
 
@@ -56,12 +56,12 @@ class Link(AWSObject):
 
     props = {
         'Bandwidth': (Bandwidth, True),
-        'Description': (basestring, False),
-        'GlobalNetworkId': (basestring, True),
-        'Provider': (basestring, False),
-        'SiteId': (basestring, True),
+        'Description': (str, False),
+        'GlobalNetworkId': (str, True),
+        'Provider': (str, False),
+        'SiteId': (str, True),
         'Tags': (Tags, False),
-        'Type': (basestring, False),
+        'Type': (str, False),
     }
 
 
@@ -69,7 +69,7 @@ class GlobalNetwork(AWSObject):
     resource_type = "AWS::NetworkManager::GlobalNetwork"
 
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -78,15 +78,15 @@ class Device(AWSObject):
     resource_type = "AWS::NetworkManager::Device"
 
     props = {
-        'Description': (basestring, False),
-        'GlobalNetworkId': (basestring, True),
-        'Location': (basestring, False),
-        'Model': (basestring, False),
-        'SerialNumber': (basestring, False),
-        'SiteId': (basestring, False),
+        'Description': (str, False),
+        'GlobalNetworkId': (str, True),
+        'Location': (str, False),
+        'Model': (str, False),
+        'SerialNumber': (str, False),
+        'SiteId': (str, False),
         'Tags': (Tags, False),
-        'Type': (basestring, False),
-        'Vendor': (basestring, False),
+        'Type': (str, False),
+        'Vendor': (str, False),
     }
 
 
@@ -94,8 +94,8 @@ class CustomerGatewayAssociation(AWSObject):
     resource_type = "AWS::NetworkManager::CustomerGatewayAssociation"
 
     props = {
-        'CustomerGatewayArn': (basestring, True),
-        'DeviceId': (basestring, True),
-        'GlobalNetworkId': (basestring, True),
-        'LinkId': (basestring, False),
+        'CustomerGatewayArn': (str, True),
+        'DeviceId': (str, True),
+        'GlobalNetworkId': (str, True),
+        'LinkId': (str, False),
     }

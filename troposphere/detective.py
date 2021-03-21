@@ -19,8 +19,8 @@ class MemberInvitation(AWSObject):
 
     props = {
         'DisableEmailNotification': (boolean, False),
-        'GraphArn': (basestring, True),
-        'MemberEmailAddress': (basestring, True),
-        'MemberId': (basestring, True),
-        'Message': (basestring, False),
+        'GraphArn': (str, True),
+        'MemberEmailAddress': (str, True),
+        'MemberId': (str, True),
+        'Message': (str, False),
     }

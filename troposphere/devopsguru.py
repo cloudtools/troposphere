@@ -13,7 +13,7 @@ from . import AWSProperty
 
 class SnsChannelConfig(AWSProperty):
     props = {
-        'TopicArn': (basestring, False),
+        'TopicArn': (str, False),
     }
 
 
@@ -33,7 +33,7 @@ class NotificationChannel(AWSObject):
 
 class CloudFormationCollectionFilter(AWSProperty):
     props = {
-        'StackNames': ([basestring], False),
+        'StackNames': ([str], False),
     }
 
 

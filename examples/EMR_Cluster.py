@@ -274,4 +274,4 @@ step = template.add_resource(emr.Step(
     JobFlowId=Ref(cluster)
 ))
 
-print(template.to_json())
+print((template.to_json()))

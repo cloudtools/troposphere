@@ -15,8 +15,8 @@ class Database(AWSObject):
     resource_type = "AWS::Timestream::Database"
 
     props = {
-        'DatabaseName': (basestring, False),
-        'KmsKeyId': (basestring, False),
+        'DatabaseName': (str, False),
+        'KmsKeyId': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -25,8 +25,8 @@ class Table(AWSObject):
     resource_type = "AWS::Timestream::Table"
 
     props = {
-        'DatabaseName': (basestring, True),
+        'DatabaseName': (str, True),
         'RetentionProperties': (dict, False),
-        'TableName': (basestring, False),
+        'TableName': (str, False),
         'Tags': (Tags, False),
     }

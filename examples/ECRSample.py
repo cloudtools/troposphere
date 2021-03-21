@@ -36,4 +36,4 @@ t.add_resource(
     )
 )
 
-print(t.to_json())
+print((t.to_json()))

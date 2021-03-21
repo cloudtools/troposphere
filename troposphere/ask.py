@@ -14,19 +14,19 @@ class Overrides(AWSProperty):
 
 class AuthenticationConfiguration(AWSProperty):
     props = {
-        'ClientId': (basestring, True),
-        'ClientSecret': (basestring, True),
-        'RefreshToken': (basestring, True),
+        'ClientId': (str, True),
+        'ClientSecret': (str, True),
+        'RefreshToken': (str, True),
     }
 
 
 class SkillPackage(AWSProperty):
     props = {
         'Overrides': (Overrides, False),
-        'S3Bucket': (basestring, True),
-        'S3BucketRole': (basestring, False),
-        'S3Key': (basestring, True),
-        'S3ObjectVersion': (basestring, False),
+        'S3Bucket': (str, True),
+        'S3BucketRole': (str, False),
+        'S3Key': (str, True),
+        'S3ObjectVersion': (str, False),
     }
 
 
@@ -36,5 +36,5 @@ class Skill(AWSObject):
     props = {
         'AuthenticationConfiguration': (AuthenticationConfiguration, True),
         'SkillPackage': (SkillPackage, True),
-        'VendorId': (basestring, True),
+        'VendorId': (str, True),
     }

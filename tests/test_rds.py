@@ -38,7 +38,7 @@ class TestRDS(unittest.TestCase):
             Engine='MySQL'
         )
 
-        with self.assertRaisesRegexp(
+        with self.assertRaisesRegex(
                 ValueError,
                 r'Either \(MasterUsername and MasterUserPassword\) or'
                 r' DBSnapshotIdentifier are required'
@@ -72,7 +72,7 @@ class TestRDS(unittest.TestCase):
             DBSnapshotIdentifier="SomeDBSnapshotIdentifier",
         )
 
-        with self.assertRaisesRegexp(
+        with self.assertRaisesRegex(
                 ValueError,
                 'BackupRetentionPeriod, DBName, DBSnapshotIdentifier, '
                 'MasterUserPassword, MasterUsername, '
@@ -95,7 +95,7 @@ class TestRDS(unittest.TestCase):
                      '12345678-1234-1234-1234-123456789012'
         )
 
-        with self.assertRaisesRegexp(
+        with self.assertRaisesRegex(
                 ValueError,
                 'If KmsKeyId is provided, StorageEncrypted is required'
                 ):
@@ -104,7 +104,7 @@ class TestRDS(unittest.TestCase):
     def test_it_allows_an_rds_instance_with_iops(self):
         # ensure troposphere works with longs and ints
         try:
-            long_number = long(2000)
+            long_number = int(2000)
         except NameError:
             # Python 3 doesn't have 'long' anymore
             long_number = 2000
@@ -150,12 +150,12 @@ class TestRDS(unittest.TestCase):
             Engine="postgres",
             AvailabilityZone="us-east-1",
             MultiAZ=True)
-        with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
+        with self.assertRaisesRegex(ValueError, "if MultiAZ is set to "):
             i.to_dict()
         i.MultiAZ = "false"
         i.to_dict()
         i.MultiAZ = "true"
-        with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
+        with self.assertRaisesRegex(ValueError, "if MultiAZ is set to "):
             i.to_dict()
 
         i.MultiAZ = Ref(AWS_NO_VALUE)
@@ -185,7 +185,7 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass="db.m1.small",
             Engine="postgres",
             StorageType='io1')
-        with self.assertRaisesRegexp(ValueError, "Must specify Iops if "):
+        with self.assertRaisesRegex(ValueError, "Must specify Iops if "):
             i.to_dict()
 
     def test_storage_to_iops_ratio(self):
@@ -198,11 +198,11 @@ class TestRDS(unittest.TestCase):
             StorageType='io1',
             Iops=6000,
             AllocatedStorage=10)
-        with self.assertRaisesRegexp(ValueError, " must be at least 100 "):
+        with self.assertRaisesRegex(ValueError, " must be at least 100 "):
             i.to_dict()
 
         i.AllocatedStorage = 100
-        with self.assertRaisesRegexp(
+        with self.assertRaisesRegex(
                 ValueError, " must be no less than 1/50th "):
             i.to_dict()
 
@@ -240,7 +240,7 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass='db.m4.large',
             DBSubnetGroupName='default',
         )
-        with self.assertRaisesRegexp(
+        with self.assertRaisesRegex(
                 ValueError, "Resource Engine is required"):
             i.to_dict()
 
@@ -287,10 +287,10 @@ class TestRDSValidators(unittest.TestCase):
 
         bad_format = ("bad_backup_window", "28:11-10:00", "10:00-28:11")
         for w in bad_format:
-            with self.assertRaisesRegexp(ValueError, "must be in the format"):
+            with self.assertRaisesRegex(ValueError, "must be in the format"):
                 rds.validate_backup_window(w)
 
-        with self.assertRaisesRegexp(ValueError, "must be at least 30 "):
+        with self.assertRaisesRegex(ValueError, "must be at least 30 "):
             rds.validate_backup_window("10:00-10:10")
 
     def test_validate_maintenance_window(self):
@@ -302,23 +302,23 @@ class TestRDSValidators(unittest.TestCase):
 
         bad_format = ("bad_mainteance", "Mon:10:00-Tue:28:00", "10:00-22:00")
         for w in bad_format:
-            with self.assertRaisesRegexp(ValueError, "must be in the format"):
+            with self.assertRaisesRegex(ValueError, "must be in the format"):
                 rds.validate_maintenance_window(w)
 
         bad_days = ("Boo:10:00-Woo:10:30", "Boo:10:00-Tue:10:30",
                     "Mon:10:00-Boo:10:30")
         for w in bad_days:
-            with self.assertRaisesRegexp(ValueError, " day part of ranges "):
+            with self.assertRaisesRegex(ValueError, " day part of ranges "):
                 rds.validate_maintenance_window(w)
 
-        with self.assertRaisesRegexp(ValueError, "must be at least 30 "):
+        with self.assertRaisesRegex(ValueError, "must be at least 30 "):
             rds.validate_maintenance_window("Mon:10:00-Mon:10:10")
 
     def test_validate_backup_retention_period(self):
         for d in (1, 10, 15, 35):
             rds.validate_backup_retention_period(d)
 
-        with self.assertRaisesRegexp(ValueError, " cannot be larger than 35 "):
+        with self.assertRaisesRegex(ValueError, " cannot be larger than 35 "):
             rds.validate_backup_retention_period(40)
 
         rds.validate_backup_retention_period(10)

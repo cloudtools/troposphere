@@ -33,44 +33,44 @@ def validate_lustreconfiguration_perunitstoragethroughput(lustreconfiguration_pe
 
 class LustreConfiguration(AWSProperty):
     props = {
-        'AutoImportPolicy': (basestring, False),
+        'AutoImportPolicy': (str, False),
         'AutomaticBackupRetentionDays': (integer, False),
         'CopyTagsToBackups': (boolean, False),
-        'DailyAutomaticBackupStartTime': (basestring, False),
+        'DailyAutomaticBackupStartTime': (str, False),
         'DeploymentType': (validate_lustreconfiguration_deploymenttype, False),
-        'DriveCacheType': (basestring, False),
-        'ExportPath': (basestring, False),
+        'DriveCacheType': (str, False),
+        'ExportPath': (str, False),
         'ImportedFileChunkSize': (integer, False),
-        'ImportPath': (basestring, False),
+        'ImportPath': (str, False),
         'PerUnitStorageThroughput': (validate_lustreconfiguration_perunitstoragethroughput, False),  # NOQA
-        'WeeklyMaintenanceStartTime': (basestring, False),
+        'WeeklyMaintenanceStartTime': (str, False),
     }
 
 
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     props = {
-        'DnsIps': ([basestring], False),
-        'DomainName': (basestring, False),
-        'FileSystemAdministratorsGroup': (basestring, False),
-        'OrganizationalUnitDistinguishedName': (basestring, False),
-        'Password': (basestring, False),
-        'UserName': (basestring, False),
+        'DnsIps': ([str], False),
+        'DomainName': (str, False),
+        'FileSystemAdministratorsGroup': (str, False),
+        'OrganizationalUnitDistinguishedName': (str, False),
+        'Password': (str, False),
+        'UserName': (str, False),
     }
 
 
 class WindowsConfiguration(AWSProperty):
     props = {
-        'ActiveDirectoryId': (basestring, False),
-        'Aliases': ([basestring], False),
+        'ActiveDirectoryId': (str, False),
+        'Aliases': ([str], False),
         'AutomaticBackupRetentionDays': (integer, False),
         'CopyTagsToBackups': (boolean, False),
-        'DailyAutomaticBackupStartTime': (basestring, False),
-        'DeploymentType': (basestring, False),
-        'PreferredSubnetId': (basestring, False),
+        'DailyAutomaticBackupStartTime': (str, False),
+        'DeploymentType': (str, False),
+        'PreferredSubnetId': (str, False),
         'SelfManagedActiveDirectoryConfiguration':
             (SelfManagedActiveDirectoryConfiguration, False),
         'ThroughputCapacity': (integer, True),
-        'WeeklyMaintenanceStartTime': (basestring, False),
+        'WeeklyMaintenanceStartTime': (str, False),
     }
 
 
@@ -78,14 +78,14 @@ class FileSystem(AWSObject):
     resource_type = 'AWS::FSx::FileSystem'
 
     props = {
-        'BackupId': (basestring, False),
-        'FileSystemType': (basestring, False),
-        'KmsKeyId': (basestring, False),
+        'BackupId': (str, False),
+        'FileSystemType': (str, False),
+        'KmsKeyId': (str, False),
         'LustreConfiguration': (LustreConfiguration, False),
-        'SecurityGroupIds': ([basestring], False),
+        'SecurityGroupIds': ([str], False),
         'StorageCapacity': (integer, False),
         'StorageType': (storage_type, False),
-        'SubnetIds': ([basestring], False),
+        'SubnetIds': ([str], False),
         'Tags': (Tags, False),
         'WindowsConfiguration': (WindowsConfiguration, False),
     }

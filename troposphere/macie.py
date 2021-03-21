@@ -23,12 +23,12 @@ class CustomDataIdentifier(AWSObject):
     resource_type = "AWS::Macie::CustomDataIdentifier"
 
     props = {
-        'Description': (basestring, False),
-        'IgnoreWords': ([basestring], False),
-        'Keywords': ([basestring], False),
+        'Description': (str, False),
+        'IgnoreWords': ([str], False),
+        'Keywords': ([str], False),
         'MaximumMatchDistance': (integer, False),
-        'Name': (basestring, True),
-        'Regex': (basestring, True)
+        'Name': (str, True),
+        'Regex': (str, True)
     }
 
 
@@ -43,8 +43,8 @@ class FindingsFilter(AWSObject):
 
     props = {
         'Action': (findingsfilter_action, False),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'FindingCriteria': (FindingCriteria, False),
-        'Name': (basestring, False),
+        'Name': (str, False),
         'Position': (integer, False)
     }

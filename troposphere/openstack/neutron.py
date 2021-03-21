@@ -15,9 +15,9 @@ class Firewall(AWSObject):
 
     props = {
         'admin_state_up': (boolean, False),
-        'description': (basestring, False),
-        'firewall_policy_id': (basestring, True),
-        'name': (basestring, False),
+        'description': (str, False),
+        'firewall_policy_id': (str, True),
+        'name': (str, False),
     }
 
 
@@ -26,9 +26,9 @@ class FirewallPolicy(AWSObject):
 
     props = {
         'audited': (boolean, False),
-        'description': (basestring, False),
+        'description': (str, False),
         'firewall_rules': (list, True),
-        'name': (basestring, False),
+        'name': (str, False),
         'shared': (boolean, False),
     }
 
@@ -37,16 +37,16 @@ class FirewallRule(AWSObject):
     resource_type = "OS::Neutron::FirewallRule"
 
     props = {
-        'action': (basestring, False),
-        'description': (basestring, False),
-        'destination_ip_address': (basestring, False),
+        'action': (str, False),
+        'description': (str, False),
+        'destination_ip_address': (str, False),
         'destination_port': (network_port, False),
         'enabled': (boolean, False),
-        'ip_version': (basestring, False),
-        'name': (basestring, False),
-        'protocol': (basestring, False),
+        'ip_version': (str, False),
+        'name': (str, False),
+        'protocol': (str, False),
         'shared': (boolean, False),
-        'source_ip_address': (basestring, False),
+        'source_ip_address': (str, False),
         'source_port': (network_port, False),
     }
 
@@ -79,9 +79,9 @@ class FloatingIP(AWSObject):
     resource_type = "OS::Neutron::FloatingIP"
 
     props = {
-        'fixed_ip_address': (basestring, False),
-        'floating_network_id': (basestring, True),
-        'port_id': (basestring, False),
+        'fixed_ip_address': (str, False),
+        'floating_network_id': (str, True),
+        'port_id': (str, False),
         'value_specs': (dict, False),
     }
 
@@ -90,9 +90,9 @@ class FloatingIPAssociation(AWSObject):
     resource_type = "OS::Neutron::FloatingIPAssociation"
 
     props = {
-        'fixed_ip_address': (basestring, False),
-        'floatingip_id': (basestring, True),
-        'port_id': (basestring, False),
+        'fixed_ip_address': (str, False),
+        'floatingip_id': (str, True),
+        'port_id': (str, False),
     }
 
 
@@ -102,12 +102,12 @@ class HealthMonitor(AWSObject):
     props = {
         'admin_state_up': (boolean, False),
         'delay': (positive_integer, True),
-        'expected_codes': (basestring, False),
-        'http_method': (basestring, False),
+        'expected_codes': (str, False),
+        'http_method': (str, False),
         'max_retries': (integer, True),
         'timeout': (integer, True),
-        'type': (basestring, True),
-        'url_path': (basestring, False),
+        'type': (str, True),
+        'url_path': (str, False),
     }
 
     def validate(self):
@@ -124,8 +124,8 @@ class HealthMonitor(AWSObject):
 
 class SessionPersistence(AWSProperty):
     props = {
-        'cookie_name': (basestring, False),
-        'type': (basestring, False),
+        'cookie_name': (str, False),
+        'type': (str, False),
     }
 
     def validate(self):
@@ -146,11 +146,11 @@ class SessionPersistence(AWSProperty):
 
 class VIP(AWSProperty):
     props = {
-        'address': (basestring, False),
+        'address': (str, False),
         'admin_state_up': (boolean, False),
         'connection_limit': (integer, True),
-        'description': (basestring, False),
-        'name': (basestring, False),
+        'description': (str, False),
+        'name': (str, False),
         'protocol_port': (network_port, True),
         'session_persistence': (SessionPersistence, False),
     }
@@ -161,12 +161,12 @@ class Pool(AWSObject):
 
     props = {
         'admin_state_up': (boolean, False),
-        'description': (basestring, False),
-        'lb_method': (basestring, True),
+        'description': (str, False),
+        'lb_method': (str, True),
         'monitors': (list, False),
-        'name': (basestring, False),
-        'protocol': (basestring, True),
-        'subnet_id': (basestring, True),
+        'name': (str, False),
+        'protocol': (str, True),
+        'subnet_id': (str, True),
         'vip': (VIP, False),
     }
 
@@ -206,9 +206,9 @@ class Net(AWSObject):
 
     props = {
         'admin_state_up': (boolean, False),
-        'name': (basestring, False),
+        'name': (str, False),
         'shared': (boolean, False),
-        'tenant_id': (basestring, False),
+        'tenant_id': (str, False),
         'value_specs': (dict, False),
     }
 
@@ -217,7 +217,7 @@ class PoolMember(AWSObject):
     resource_type = "OS::Neutron::PoolMember"
 
     props = {
-        'address': (basestring, True),
+        'address': (str, True),
         'admin_state_up': (boolean, False),
         'pool_id': (Pool, True),
         'protocol_port': (network_port, True),
@@ -227,15 +227,15 @@ class PoolMember(AWSObject):
 
 class AddressPair(AWSProperty):
     props = {
-        'ip_address': (basestring, True),
-        'mac_address': (basestring, False),
+        'ip_address': (str, True),
+        'mac_address': (str, False),
     }
 
 
 class FixedIP(AWSProperty):
     props = {
-        'ip_address': (basestring, False),
-        'subnet_id': (basestring, False),
+        'ip_address': (str, False),
+        'subnet_id': (str, False),
     }
 
 
@@ -245,11 +245,11 @@ class Port(AWSObject):
     props = {
         'admin_state_up': (boolean, False),
         'allowed_address_pairs': (list, False),
-        'device_id': (basestring, False),
+        'device_id': (str, False),
         'fixed_ips': (list, False),
-        'mac_address': (basestring, False),
-        'name': (basestring, False),
-        'network_id': (basestring, True),
+        'mac_address': (str, False),
+        'name': (str, False),
+        'network_id': (str, True),
         'security_groups': (list, False),
         'value_specs': (dict, False),
     }
@@ -259,22 +259,22 @@ class SecurityGroup(AWSObject):
     resource_type = "OS::Neutron::SecurityGroup"
 
     props = {
-        'description': (basestring, True),
-        'name': (basestring, False),
+        'description': (str, True),
+        'name': (str, False),
         'rules': (list, False),
     }
 
 
 class SecurityGroupRule(AWSProperty):
     props = {
-        'direction': (basestring, False),
-        'ethertype': (basestring, False),
+        'direction': (str, False),
+        'ethertype': (str, False),
         'port_range_max': (network_port, False),
         'port_range_min': (network_port, False),
-        'protocol': (basestring, False),
-        'remote_group_id': (basestring, False),
-        'remote_ip_prefix': (basestring, False),
-        'remote_mode': (basestring, False),
+        'protocol': (str, False),
+        'remote_group_id': (str, False),
+        'remote_ip_prefix': (str, False),
+        'remote_mode': (str, False),
     }
 
     def validate(self):

@@ -40,16 +40,16 @@ def validate_treat_missing_data(value):
 
 class MetricDimension(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Value': (basestring, True),
+        'Name': (str, True),
+        'Value': (str, True),
     }
 
 
 class Metric(AWSProperty):
     props = {
         'Dimensions': ([MetricDimension], False),
-        'MetricName': (basestring, False),
-        'Namespace': (basestring, False),
+        'MetricName': (str, False),
+        'Namespace': (str, False),
     }
 
 
@@ -57,16 +57,16 @@ class MetricStat(AWSProperty):
     props = {
         'Metric': (Metric, True),
         'Period': (integer, True),
-        'Stat': (basestring, True),
+        'Stat': (str, True),
         'Unit': (validate_unit, False),
     }
 
 
 class MetricDataQuery(AWSProperty):
     props = {
-        'Expression': (basestring, False),
-        'Id': (basestring, True),
-        'Label': (basestring, False),
+        'Expression': (str, False),
+        'Id': (str, True),
+        'Label': (str, False),
         'MetricStat': (MetricStat, False),
         'Period': (integer, False),
         'ReturnData': (boolean, False),
@@ -78,26 +78,26 @@ class Alarm(AWSObject):
 
     props = {
         'ActionsEnabled': (boolean, False),
-        'AlarmActions': ([basestring], False),
-        'AlarmDescription': (basestring, False),
-        'AlarmName': (basestring, False),
-        'ComparisonOperator': (basestring, True),
+        'AlarmActions': ([str], False),
+        'AlarmDescription': (str, False),
+        'AlarmName': (str, False),
+        'ComparisonOperator': (str, True),
         'DatapointsToAlarm': (positive_integer, False),
         'Dimensions': ([MetricDimension], False),
-        'EvaluateLowSampleCountPercentile': (basestring, False),
+        'EvaluateLowSampleCountPercentile': (str, False),
         'EvaluationPeriods': (positive_integer, True),
-        'ExtendedStatistic': (basestring, False),
-        'InsufficientDataActions': ([basestring], False),
-        'MetricName': (basestring, False),
+        'ExtendedStatistic': (str, False),
+        'InsufficientDataActions': ([str], False),
+        'MetricName': (str, False),
         'Metrics': ([MetricDataQuery], False),
-        'Namespace': (basestring, False),
-        'OKActions': ([basestring], False),
+        'Namespace': (str, False),
+        'OKActions': ([str], False),
         'Period': (positive_integer, False),
-        'Statistic': (basestring, False),
+        'Statistic': (str, False),
         'Threshold': (double, False),
-        'ThresholdMetricId': (basestring, False),
+        'ThresholdMetricId': (str, False),
         'TreatMissingData': (validate_treat_missing_data, False),
-        'Unit': (basestring, False),
+        'Unit': (str, False),
     }
 
     def validate(self):
@@ -113,8 +113,8 @@ class Dashboard(AWSObject):
     resource_type = "AWS::CloudWatch::Dashboard"
 
     props = {
-        'DashboardBody': ((basestring, dict), True),
-        'DashboardName': (basestring, False),
+        'DashboardBody': ((str, dict), True),
+        'DashboardName': (str, False),
     }
 
     def validate(self):
@@ -126,15 +126,15 @@ class Dashboard(AWSObject):
 
 class Range(AWSProperty):
     props = {
-        'EndTime': (basestring, True),
-        'StartTime': (basestring, True),
+        'EndTime': (str, True),
+        'StartTime': (str, True),
     }
 
 
 class Configuration(AWSProperty):
     props = {
         'ExcludedTimeRanges': ([Range], False),
-        'MetricTimeZone': (basestring, False),
+        'MetricTimeZone': (str, False),
     }
 
 
@@ -144,9 +144,9 @@ class AnomalyDetector(AWSObject):
     props = {
         'Configuration': (Configuration, False),
         'Dimensions': ([MetricDimension], False),
-        'MetricName': (basestring, True),
-        'Namespace': (basestring, True),
-        'Stat': (basestring, True)
+        'MetricName': (str, True),
+        'Namespace': (str, True),
+        'Stat': (str, True)
     }
 
 
@@ -154,9 +154,9 @@ class InsightRule(AWSObject):
     resource_type = "AWS::CloudWatch::InsightRule"
 
     props = {
-        'RuleBody': (basestring, True),
-        'RuleName': (basestring, True),
-        'RuleState': (basestring, True),
+        'RuleBody': (str, True),
+        'RuleName': (str, True),
+        'RuleState': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -166,10 +166,10 @@ class CompositeAlarm(AWSObject):
 
     props = {
         'ActionsEnabled': (boolean, False),
-        'AlarmActions': ([basestring], False),
-        'AlarmDescription': (basestring, False),
-        'AlarmName': (basestring, True),
-        'AlarmRule': (basestring, True),
-        'InsufficientDataActions': ([basestring], False),
-        'OKActions': ([basestring], False),
+        'AlarmActions': ([str], False),
+        'AlarmDescription': (str, False),
+        'AlarmName': (str, True),
+        'AlarmRule': (str, True),
+        'InsufficientDataActions': ([str], False),
+        'OKActions': ([str], False),
     }

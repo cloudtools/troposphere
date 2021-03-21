@@ -8,7 +8,7 @@ class AutoScalingRollingUpdate(AWSProperty):
         'MinInstancesInService': (integer, False),
         'MinSuccessfulInstancesPercent': (integer, False),
         'PauseTime': (validate_pausetime, False),
-        'SuspendProcesses': ([basestring], False),
+        'SuspendProcesses': ([str], False),
         'WaitOnResourceSignals': (boolean, False),
     }
 
@@ -27,9 +27,9 @@ class AutoScalingReplacingUpdate(AWSProperty):
 
 class CodeDeployLambdaAliasUpdate(AWSProperty):
     props = {
-        'AfterAllowTrafficHook': (basestring, False),
+        'AfterAllowTrafficHook': (str, False),
         'ApplicationName': (boolean, True),
-        'BeforeAllowTrafficHook': (basestring, False),
+        'BeforeAllowTrafficHook': (str, False),
         'DeploymentGroupName': (boolean, True),
     }
 

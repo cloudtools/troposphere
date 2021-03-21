@@ -60,18 +60,18 @@ class TemplateGenerator(Template):
             self.set_description(cf_template['Description'])
         if 'Metadata' in cf_template:
             self.add_metadata(cf_template['Metadata'])
-        for k, v in cf_template.get('Parameters', {}).iteritems():
+        for k, v in cf_template.get('Parameters', {}).items():
             self.add_parameter(self._create_instance(Parameter, v, k))
-        for k, v in cf_template.get('Mappings', {}).iteritems():
+        for k, v in cf_template.get('Mappings', {}).items():
             self.add_mapping(k, self._convert_definition(v))
-        for k, v in cf_template.get('Conditions', {}).iteritems():
+        for k, v in cf_template.get('Conditions', {}).items():
             self.add_condition(k, self._convert_definition(v, k))
-        for k, v in cf_template.get('Resources', {}).iteritems():
+        for k, v in cf_template.get('Resources', {}).items():
             self.add_resource(self._convert_definition(
                                     v, k,
                                     self._get_resource_type_cls(k, v)
             ))
-        for k, v in cf_template.get('Outputs', {}).iteritems():
+        for k, v in cf_template.get('Outputs', {}).items():
             self.add_output(self._create_instance(Output, v, k))
 
     @property
@@ -179,19 +179,19 @@ class TemplateGenerator(Template):
 
             if len(definition) == 1:  # This might be a function?
                 function_type = self._get_function_type(
-                    definition.keys()[0])
+                    list(definition.keys())[0])
                 if function_type:
                     return self._create_instance(
-                        function_type, definition.values()[0])
+                        function_type, list(definition.values())[0])
 
             # nothing special here - return as dict
             d = {}
-            for k, v in definition.iteritems():
+            for k, v in definition.items():
                 d[k] = self._convert_definition(v)
             return d
 
         elif (isinstance(definition, Sequence) and
-                not isinstance(definition, basestring)):
+                not isinstance(definition, str)):
             return [self._convert_definition(v) for v in definition]
 
         # anything else is returned as-is
@@ -216,7 +216,7 @@ class TemplateGenerator(Template):
         if isinstance(cls, Sequence):
             if len(cls) == 1:
                 # a list of 1 type means we must provide a list of such objects
-                if (isinstance(args, basestring) or
+                if (isinstance(args, str) or
                         not isinstance(args, Sequence)):
                     args = [args]
                 return [self._create_instance(cls[0], v) for v in args]
@@ -240,7 +240,7 @@ class TemplateGenerator(Template):
                     return cls(arg_dict)
 
                 if (isinstance(args, Sequence) and
-                        not isinstance(args, basestring)):
+                        not isinstance(args, str)):
                     return cls(*self._convert_definition(args))
 
                 if issubclass(cls, autoscaling.Metadata):

@@ -15,18 +15,18 @@ from .validators import boolean
 
 class Filter(AWSProperty):
     props = {
-        'Contains': ([basestring], False),
-        'Eq': ([basestring], False),
+        'Contains': ([str], False),
+        'Eq': ([str], False),
         'Exists': (boolean, False),
-        'Neq': ([basestring], False),
-        'Property': (basestring, True),
+        'Neq': ([str], False),
+        'Property': (str, True),
     }
 
 
 class ArchiveRule(AWSProperty):
     props = {
         'Filter': ([Filter], True),
-        'RuleName': (basestring, True),
+        'RuleName': (str, True),
     }
 
 
@@ -34,8 +34,8 @@ class Analyzer(AWSObject):
     resource_type = "AWS::AccessAnalyzer::Analyzer"
 
     props = {
-        'AnalyzerName': (basestring, False),
+        'AnalyzerName': (str, False),
         'ArchiveRules': ([ArchiveRule], False),
         'Tags': (Tags, False),
-        'Type': (basestring, True),
+        'Type': (str, True),
     }

@@ -6,7 +6,7 @@ import json
 from troposphere.template_generator import TemplateGenerator
 
 try:
-    u = unicode
+    u = str
 except NameError:
     u = str
 
@@ -44,7 +44,7 @@ def load_tests(loader, tests, pattern):
     # Filter out all *.py files from the examples directory
     examples = 'examples'
     regex = re.compile(r'.py$', re.I)
-    example_filesnames = filter(regex.search, os.listdir(examples))
+    example_filesnames = list(filter(regex.search, os.listdir(examples)))
 
     suite = unittest.TestSuite()
 

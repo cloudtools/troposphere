@@ -11,7 +11,7 @@ from .validators import (integer, boolean, s3_bucket_name, notification_type,
 
 class NotificationConfig(AWSProperty):
     props = {
-        'NotificationArn': (basestring, False),
+        'NotificationArn': (str, False),
         'NotificationEvents': (notification_event, False),
         'NotificationType': (notification_type, False),
     }
@@ -19,52 +19,52 @@ class NotificationConfig(AWSProperty):
 
 class LoggingInfo(AWSProperty):
     props = {
-        'Region': (basestring, True),
+        'Region': (str, True),
         'S3Bucket': (s3_bucket_name, True),
-        'S3Prefix': (basestring, False),
+        'S3Prefix': (str, False),
     }
 
 
 class MaintenanceWindowAutomationParameters(AWSProperty):
     props = {
-        'DocumentVersion': (basestring, False),
+        'DocumentVersion': (str, False),
         'Parameters': (dict, False),
     }
 
 
 class MaintenanceWindowLambdaParameters(AWSProperty):
     props = {
-        'ClientContext': (basestring, False),
+        'ClientContext': (str, False),
         'Payload': (json_checker, False),
-        'Qualifier': (basestring, False),
+        'Qualifier': (str, False),
     }
 
 
 class MaintenanceWindowRunCommandParameters(AWSProperty):
     props = {
-        'Comment': (basestring, False),
-        'DocumentHash': (basestring, False),
-        'DocumentHashType': (basestring, False),
+        'Comment': (str, False),
+        'DocumentHash': (str, False),
+        'DocumentHashType': (str, False),
         'NotificationConfig': (NotificationConfig, False),
         'OutputS3BucketName': (s3_bucket_name, False),
-        'OutputS3KeyPrefix': (basestring, False),
+        'OutputS3KeyPrefix': (str, False),
         'Parameters': (dict, False),
-        'ServiceRoleArn': (basestring, False),
+        'ServiceRoleArn': (str, False),
         'TimeoutSeconds': (integer, False),
     }
 
 
 class MaintenanceWindowStepFunctionsParameters(AWSProperty):
     props = {
-        'Input': (basestring, False),
-        'Name': (basestring, False),
+        'Input': (str, False),
+        'Name': (str, False),
     }
 
 
 class PatchFilter(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'Values': ([basestring], True),
+        'Key': (str, True),
+        'Values': ([str], True),
     }
 
 
@@ -104,15 +104,15 @@ class TaskInvocationParameters(AWSProperty):
 
 class Targets(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'Values': ([basestring], True),
+        'Key': (str, True),
+        'Values': ([str], True),
     }
 
 
 class S3OutputLocation(AWSProperty):
     props = {
-        'OutputS3BucketName': (basestring, False),
-        'OutputS3KeyPrefix': (basestring, False),
+        'OutputS3BucketName': (str, False),
+        'OutputS3KeyPrefix': (str, False),
     }
 
 
@@ -126,13 +126,13 @@ class Association(AWSObject):
     resource_type = "AWS::SSM::Association"
 
     props = {
-        'AssociationName': (basestring, False),
-        'DocumentVersion': (basestring, False),
-        'InstanceId': (basestring, False),
-        'Name': (basestring, True),
+        'AssociationName': (str, False),
+        'DocumentVersion': (str, False),
+        'InstanceId': (str, False),
+        'Name': (str, True),
         'OutputLocation': (InstanceAssociationOutputLocation, False),
         'Parameters': (dict, False),
-        'ScheduleExpression': (basestring, False),
+        'ScheduleExpression': (str, False),
         'Targets': ([Targets], False),
         'WaitForSuccessTimeoutSeconds': (integer, False),
     }
@@ -144,8 +144,8 @@ class Document(AWSObject):
     props = {
         # Need a better implementation of the SSM Document
         'Content': (dict, True),
-        'DocumentType': (basestring, False),
-        'Name': (basestring, False),
+        'DocumentType': (str, False),
+        'Name': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -156,13 +156,13 @@ class MaintenanceWindow(AWSObject):
     props = {
         'AllowUnassociatedTargets': (boolean, True),
         'Cutoff': (integer, True),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'Duration': (integer, True),
-        'EndDate': (basestring, False),
-        'Name': (basestring, True),
-        'Schedule': (basestring, True),
-        'ScheduleTimezone': (basestring, False),
-        'StartDate': (basestring, False),
+        'EndDate': (str, False),
+        'Name': (str, True),
+        'Schedule': (str, True),
+        'ScheduleTimezone': (str, False),
+        'StartDate': (str, False),
         'Tags': (Tags, False),
     }
 
@@ -171,12 +171,12 @@ class MaintenanceWindowTarget(AWSObject):
     resource_type = "AWS::SSM::MaintenanceWindowTarget"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'OwnerInformation': (basestring, False),
-        'ResourceType': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, False),
+        'OwnerInformation': (str, False),
+        'ResourceType': (str, True),
         'Targets': ([Targets], True),
-        'WindowId': (basestring, True),
+        'WindowId': (str, True),
     }
 
 
@@ -184,19 +184,19 @@ class MaintenanceWindowTask(AWSObject):
     resource_type = "AWS::SSM::MaintenanceWindowTask"
 
     props = {
-        'Description': (basestring, False),
+        'Description': (str, False),
         'LoggingInfo': (LoggingInfo, False),
-        'MaxConcurrency': (basestring, False),
-        'MaxErrors': (basestring, True),
-        'Name': (basestring, False),
+        'MaxConcurrency': (str, False),
+        'MaxErrors': (str, True),
+        'Name': (str, False),
         'Priority': (integer, True),
-        'ServiceRoleArn': (basestring, True),
+        'ServiceRoleArn': (str, True),
         'Targets': ([Targets], True),
-        'TaskArn': (basestring, True),
+        'TaskArn': (str, True),
         'TaskInvocationParameters': (TaskInvocationParameters, False),
         'TaskParameters': (dict, False),
         'TaskType': (task_type, True),
-        'WindowId': (basestring, False),
+        'WindowId': (str, False),
     }
 
 
@@ -204,23 +204,23 @@ class Parameter(AWSObject):
     resource_type = "AWS::SSM::Parameter"
 
     props = {
-        'AllowedPattern': (basestring, False),
-        'DataType': (basestring, False),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'Policies': (basestring, False),
+        'AllowedPattern': (str, False),
+        'DataType': (str, False),
+        'Description': (str, False),
+        'Name': (str, False),
+        'Policies': (str, False),
         'Tags': (dict, False),
-        'Tier': (basestring, False),
-        'Type': (basestring, True),
-        'Value': (basestring, True),
+        'Tier': (str, False),
+        'Type': (str, True),
+        'Value': (str, True),
     }
 
 
 class PatchSource(AWSProperty):
     props = {
-        'Configuration': (basestring, False),
-        'Name': (basestring, False),
-        'Products': ([basestring], False),
+        'Configuration': (str, False),
+        'Name': (str, False),
+        'Products': ([str], False),
     }
 
 
@@ -229,16 +229,16 @@ class PatchBaseline(AWSObject):
 
     props = {
         'ApprovalRules': (RuleGroup, False),
-        'ApprovedPatches': ([basestring], False),
+        'ApprovedPatches': ([str], False),
         'ApprovedPatchesComplianceLevel': (compliance_level, False),
         'ApprovedPatchesEnableNonSecurity': (boolean, False),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'GlobalFilters': (PatchFilterGroup, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'OperatingSystem': (operating_system, False),
-        'PatchGroups': ([basestring], False),
-        'RejectedPatches': ([basestring], False),
-        'RejectedPatchesAction': (basestring, False),
+        'PatchGroups': ([str], False),
+        'RejectedPatches': ([str], False),
+        'RejectedPatchesAction': (str, False),
         'Sources': ([PatchSource], False),
         'Tags': (Tags, False),
     }
@@ -246,8 +246,8 @@ class PatchBaseline(AWSObject):
 
 class AwsOrganizationsSource(AWSProperty):
     props = {
-        'OrganizationalUnits': ([basestring], False),
-        'OrganizationSourceType': (basestring, True),
+        'OrganizationalUnits': ([str], False),
+        'OrganizationSourceType': (str, True),
     }
 
 
@@ -255,8 +255,8 @@ class SyncSource(AWSProperty):
     props = {
         'AwsOrganizationsSource': (AwsOrganizationsSource, False),
         'IncludeFutureRegions': (boolean, False),
-        'SourceRegions': ([basestring], True),
-        'SourceType': (basestring, True),
+        'SourceRegions': ([str], True),
+        'SourceType': (str, True),
 
     }
 
@@ -265,12 +265,12 @@ class ResourceDataSync(AWSObject):
     resource_type = "AWS::SSM::ResourceDataSync"
 
     props = {
-        'BucketName': (basestring, True),
-        'BucketPrefix': (basestring, False),
-        'BucketRegion': (basestring, True),
-        'KMSKeyArn': (basestring, False),
-        'SyncFormat': (basestring, True),
-        'SyncName': (basestring, True),
+        'BucketName': (str, True),
+        'BucketPrefix': (str, False),
+        'BucketRegion': (str, True),
+        'KMSKeyArn': (str, False),
+        'SyncFormat': (str, True),
+        'SyncName': (str, True),
         'SyncSource': (SyncSource, False),
-        'SyncType': (basestring, False),
+        'SyncType': (str, False),
     }

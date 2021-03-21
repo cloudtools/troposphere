@@ -123,4 +123,4 @@ t.add_resource(pipeline)
 t.add_resource(datastore)
 t.add_resource(dataset)
 
-print(t.to_json())
+print((t.to_json()))

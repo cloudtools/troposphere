@@ -16,64 +16,64 @@ from .validators import integer
 
 class ClearTimer(AWSProperty):
     props = {
-        'TimerName': (basestring, False),
+        'TimerName': (str, False),
     }
 
 
 class Firehose(AWSProperty):
     props = {
-        'DeliveryStreamName': (basestring, False),
-        'Separator': (basestring, False),
+        'DeliveryStreamName': (str, False),
+        'Separator': (str, False),
     }
 
 
 class IotEvents(AWSProperty):
     props = {
-        'InputName': (basestring, False),
+        'InputName': (str, False),
     }
 
 
 class IotTopicPublish(AWSProperty):
     props = {
-        'MqttTopic': (basestring, False),
+        'MqttTopic': (str, False),
     }
 
 
 class Lambda(AWSProperty):
     props = {
-        'FunctionArn': (basestring, False),
+        'FunctionArn': (str, False),
     }
 
 
 class ResetTimer(AWSProperty):
     props = {
-        'TimerName': (basestring, False),
+        'TimerName': (str, False),
     }
 
 
 class SetTimer(AWSProperty):
     props = {
         'Seconds': (integer, False),
-        'TimerName': (basestring, False),
+        'TimerName': (str, False),
     }
 
 
 class SetVariable(AWSProperty):
     props = {
-        'Value': (basestring, False),
-        'VariableName': (basestring, False),
+        'Value': (str, False),
+        'VariableName': (str, False),
     }
 
 
 class Sns(AWSProperty):
     props = {
-        'TargetArn': (basestring, False),
+        'TargetArn': (str, False),
     }
 
 
 class Sqs(AWSProperty):
     props = {
-        'QueueUrl': (basestring, False),
+        'QueueUrl': (str, False),
         'UseBase64': (boolean, False),
     }
 
@@ -96,8 +96,8 @@ class Action(AWSProperty):
 class Event(AWSProperty):
     props = {
         'Actions': ([Action], False),
-        'Condition': (basestring, False),
-        'EventName': (basestring, False),
+        'Condition': (str, False),
+        'EventName': (str, False),
     }
 
 
@@ -116,9 +116,9 @@ class OnExit(AWSProperty):
 class TransitionEvent(AWSProperty):
     props = {
         'Actions': ([Action], False),
-        'Condition': (basestring, False),
-        'EventName': (basestring, False),
-        'NextState': (basestring, False),
+        'Condition': (str, False),
+        'EventName': (str, False),
+        'NextState': (str, False),
     }
 
 
@@ -134,13 +134,13 @@ class State(AWSProperty):
         'OnEnter': (OnEnter, False),
         'OnExit': (OnExit, False),
         'OnInput': (OnInput, False),
-        'StateName': (basestring, False),
+        'StateName': (str, False),
     }
 
 
 class DetectorModelDefinition(AWSProperty):
     props = {
-        'InitialStateName': (basestring, False),
+        'InitialStateName': (str, False),
         'States': ([State], False),
     }
 
@@ -150,17 +150,17 @@ class DetectorModel(AWSObject):
 
     props = {
         'DetectorModelDefinition': (DetectorModelDefinition, False),
-        'DetectorModelDescription': (basestring, False),
-        'DetectorModelName': (basestring, False),
-        'Key': (basestring, False),
-        'RoleArn': (basestring, False),
+        'DetectorModelDescription': (str, False),
+        'DetectorModelName': (str, False),
+        'Key': (str, False),
+        'RoleArn': (str, False),
         'Tags': (Tags, False),
     }
 
 
 class Attribute(AWSProperty):
     props = {
-        'JsonPath': (basestring, False),
+        'JsonPath': (str, False),
     }
 
 
@@ -175,7 +175,7 @@ class Input(AWSObject):
 
     props = {
         'InputDefinition': (InputDefinition, False),
-        'InputDescription': (basestring, False),
-        'InputName': (basestring, False),
+        'InputDescription': (str, False),
+        'InputName': (str, False),
         'Tags': (Tags, False),
     }

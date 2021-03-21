@@ -49,31 +49,31 @@ Timeout = t.add_parameter(Parameter(
 ))
 
 t.add_mapping("AWSInstanceType2Arch",
-              {u'm1.small': {u'Arch': u'PV64'},
-               u't2.micro': {u'Arch': u'HVM64'}}
+              {'m1.small': {'Arch': 'PV64'},
+               't2.micro': {'Arch': 'HVM64'}}
               )
 
 t.add_mapping("AWSRegionArch2AMI",
-              {u'ap-northeast-1': {u'HVM64': u'ami-cbf90ecb',
-                                   u'PV64': u'ami-27f90e27'},
-               u'ap-southeast-1': {u'HVM64': u'ami-68d8e93a',
-                                   u'PV64': u'ami-acd9e8fe'},
-               u'ap-southeast-2': {u'HVM64': u'ami-fd9cecc7',
-                                   u'PV64': u'ami-ff9cecc5'},
-               u'cn-north-1': {u'HVM64': u'ami-f239abcb',
-                               u'PV64': u'ami-fa39abc3'},
-               u'eu-central-1': {u'HVM64': u'ami-a8221fb5',
-                                 u'PV64': u'ami-ac221fb1'},
-               u'eu-west-1': {u'HVM64': u'ami-a10897d6',
-                              u'PV64': u'ami-bf0897c8'},
-               u'sa-east-1': {u'HVM64': u'ami-b52890a8',
-                              u'PV64': u'ami-bb2890a6'},
-               u'us-east-1': {u'HVM64': u'ami-1ecae776',
-                              u'PV64': u'ami-1ccae774'},
-               u'us-west-1': {u'HVM64': u'ami-d114f295',
-                              u'PV64': u'ami-d514f291'},
-               u'us-west-2': {u'HVM64': u'ami-e7527ed7',
-                              u'PV64': u'ami-ff527ecf'}}
+              {'ap-northeast-1': {'HVM64': 'ami-cbf90ecb',
+                                   'PV64': 'ami-27f90e27'},
+               'ap-southeast-1': {'HVM64': 'ami-68d8e93a',
+                                   'PV64': 'ami-acd9e8fe'},
+               'ap-southeast-2': {'HVM64': 'ami-fd9cecc7',
+                                   'PV64': 'ami-ff9cecc5'},
+               'cn-north-1': {'HVM64': 'ami-f239abcb',
+                               'PV64': 'ami-fa39abc3'},
+               'eu-central-1': {'HVM64': 'ami-a8221fb5',
+                                 'PV64': 'ami-ac221fb1'},
+               'eu-west-1': {'HVM64': 'ami-a10897d6',
+                              'PV64': 'ami-bf0897c8'},
+               'sa-east-1': {'HVM64': 'ami-b52890a8',
+                              'PV64': 'ami-bb2890a6'},
+               'us-east-1': {'HVM64': 'ami-1ecae776',
+                              'PV64': 'ami-1ccae774'},
+               'us-west-1': {'HVM64': 'ami-d114f295',
+                              'PV64': 'ami-d514f291'},
+               'us-west-2': {'HVM64': 'ami-e7527ed7',
+                              'PV64': 'ami-ff527ecf'}}
               )
 
 code = [
@@ -156,4 +156,4 @@ AllSecurityGroups = t.add_output(Output(
     Value=Join(", ", GetAtt(AllSecurityGroups, "Value")),
 ))
 
-print(t.to_json())
+print((t.to_json()))

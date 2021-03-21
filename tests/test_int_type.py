@@ -32,7 +32,7 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
         return result
 
     def assertNoIntType(self, obj):
-        for prop_name, (types, required) in obj.props.items():
+        for prop_name, (types, required) in list(obj.props.items()):
             error_msg = (
                 "{}.props['{}'] should have `validators.integer` "
                 "rather than `int`".format(obj.__name__, prop_name))

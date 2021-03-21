@@ -12,8 +12,8 @@ from .validators import integer
 
 class AudioLanguageSelection(AWSProperty):
     props = {
-        'LanguageCode': (basestring, False),
-        'LanguageSelectionPolicy': (basestring, False),
+        'LanguageCode': (str, False),
+        'LanguageSelectionPolicy': (str, False),
     }
 
 
@@ -32,7 +32,7 @@ class AudioSelectorSettings(AWSProperty):
 
 class AudioSelector(AWSProperty):
     props = {
-        'Name': (basestring, False),
+        'Name': (str, False),
         'SelectorSettings': (AudioSelectorSettings, False),
     }
 
@@ -50,8 +50,8 @@ class DvbSubSourceSettings(AWSProperty):
 
 class EmbeddedSourceSettings(AWSProperty):
     props = {
-        'Convert608To708': (basestring, False),
-        'Scte20Detection': (basestring, False),
+        'Convert608To708': (str, False),
+        'Scte20Detection': (str, False),
         'Source608ChannelNumber': (integer, False),
         'Source608TrackNumber': (integer, False),
     }
@@ -59,7 +59,7 @@ class EmbeddedSourceSettings(AWSProperty):
 
 class Scte20SourceSettings(AWSProperty):
     props = {
-        'Convert608To708': (basestring, False),
+        'Convert608To708': (str, False),
         'Source608ChannelNumber': (integer, False),
     }
 
@@ -72,7 +72,7 @@ class Scte27SourceSettings(AWSProperty):
 
 class TeletextSourceSettings(AWSProperty):
     props = {
-        'PageNumber': (basestring, False),
+        'PageNumber': (str, False),
     }
 
 
@@ -89,8 +89,8 @@ class CaptionSelectorSettings(AWSProperty):
 
 class CaptionSelector(AWSProperty):
     props = {
-        'LanguageCode': (basestring, False),
-        'Name': (basestring, False),
+        'LanguageCode': (str, False),
+        'Name': (str, False),
         'SelectorSettings': (CaptionSelectorSettings, False),
     }
 
@@ -107,7 +107,7 @@ class HlsInputSettings(AWSProperty):
 class NetworkInputSettings(AWSProperty):
     props = {
         'HlsInputSettings': (HlsInputSettings, False),
-        'ServerValidation': (basestring, False),
+        'ServerValidation': (str, False),
     }
 
 
@@ -132,8 +132,8 @@ class VideoSelectorSettings(AWSProperty):
 
 class VideoSelector(AWSProperty):
     props = {
-        'ColorSpace': (basestring, False),
-        'ColorSpaceUsage': (basestring, False),
+        'ColorSpace': (str, False),
+        'ColorSpaceUsage': (str, False),
         'SelectorSettings': (VideoSelectorSettings, False),
     }
 
@@ -142,50 +142,50 @@ class InputSettings(AWSProperty):
     props = {
         'AudioSelectors': ([AudioSelector], False),
         'CaptionSelectors': ([CaptionSelector], False),
-        'DeblockFilter': (basestring, False),
-        'DenoiseFilter': (basestring, False),
+        'DeblockFilter': (str, False),
+        'DenoiseFilter': (str, False),
         'FilterStrength': (integer, False),
-        'InputFilter': (basestring, False),
+        'InputFilter': (str, False),
         'NetworkInputSettings': (NetworkInputSettings, False),
-        'SourceEndBehavior': (basestring, False),
+        'SourceEndBehavior': (str, False),
         'VideoSelector': (VideoSelector, False),
     }
 
 
 class InputAttachment(AWSProperty):
     props = {
-        'InputAttachmentName': (basestring, False),
-        'InputId': (basestring, False),
+        'InputAttachmentName': (str, False),
+        'InputId': (str, False),
         'InputSettings': (InputSettings, False),
     }
 
 
 class InputSpecification(AWSProperty):
     props = {
-        'Codec': (basestring, False),
-        'MaximumBitrate': (basestring, False),
-        'Resolution': (basestring, False),
+        'Codec': (str, False),
+        'MaximumBitrate': (str, False),
+        'Resolution': (str, False),
     }
 
 
 class MediaPackageOutputDestinationSettings(AWSProperty):
     props = {
-        'ChannelId': (basestring, False),
+        'ChannelId': (str, False),
     }
 
 
 class OutputDestinationSettings(AWSProperty):
     props = {
-        'PasswordParam': (basestring, False),
-        'StreamName': (basestring, False),
-        'Url': (basestring, False),
-        'Username': (basestring, False),
+        'PasswordParam': (str, False),
+        'StreamName': (str, False),
+        'Url': (str, False),
+        'Username': (str, False),
     }
 
 
 class OutputDestination(AWSProperty):
     props = {
-        'Id': (basestring, False),
+        'Id': (str, False),
         'MediaPackageSettings':
             ([MediaPackageOutputDestinationSettings], False),
         'Settings': ([OutputDestinationSettings], False),
@@ -196,42 +196,42 @@ class Channel(AWSObject):
     resource_type = "AWS::MediaLive::Channel"
 
     props = {
-        'ChannelClass': (basestring, False),
+        'ChannelClass': (str, False),
         'Destinations': ([OutputDestination], False),
         'EncoderSettings': (dict, False),
         'InputAttachments': ([InputAttachment], False),
         'InputSpecification': (InputSpecification, False),
-        'LogLevel': (basestring, False),
-        'Name': (basestring, False),
-        'RoleArn': (basestring, False),
+        'LogLevel': (str, False),
+        'Name': (str, False),
+        'RoleArn': (str, False),
         'Tags': (Tags, False),
     }
 
 
 class InputDestinationRequest(AWSProperty):
     props = {
-        'StreamName': (basestring, False),
+        'StreamName': (str, False),
     }
 
 
 class InputSourceRequest(AWSProperty):
     props = {
-        'PasswordParam': (basestring, False),
-        'Url': (basestring, False),
-        'Username': (basestring, False),
+        'PasswordParam': (str, False),
+        'Url': (str, False),
+        'Username': (str, False),
     }
 
 
 class InputVpcRequest(AWSProperty):
     props = {
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetIds': ([basestring], False),
+        'SecurityGroupIds': ([str], False),
+        'SubnetIds': ([str], False),
     }
 
 
 class MediaConnectFlowRequest(AWSProperty):
     props = {
-        'FlowArn': (basestring, False),
+        'FlowArn': (str, False),
     }
 
 
@@ -240,20 +240,20 @@ class Input(AWSObject):
 
     props = {
         'Destinations': ([InputDestinationRequest], False),
-        'InputSecurityGroups': ([basestring], False),
+        'InputSecurityGroups': ([str], False),
         'MediaConnectFlows': ([MediaConnectFlowRequest], False),
-        'Name': (basestring, False),
-        'RoleArn': (basestring, False),
+        'Name': (str, False),
+        'RoleArn': (str, False),
         'Sources': ([InputSourceRequest], False),
         'Tags': (Tags, False),
-        'Type': (basestring, False),
+        'Type': (str, False),
         'Vpc': (InputVpcRequest, False),
     }
 
 
 class InputWhitelistRuleCidr(AWSProperty):
     props = {
-        'Cidr': (basestring, False),
+        'Cidr': (str, False),
     }
 
 

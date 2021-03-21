@@ -60,4 +60,4 @@ openstack_instance = template.add_resource(nova.Server(
     ]))
 ))
 
-print(template.to_json())
+print((template.to_json()))

@@ -8,26 +8,26 @@ from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 
 class S3(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'Key': (basestring, True),
-        'ObjectVersion': (basestring, False),
+        'Bucket': (str, True),
+        'Key': (str, True),
+        'ObjectVersion': (str, False),
     }
 
 
 class Code(AWSProperty):
     props = {
-        'BranchName': (basestring, False),
+        'BranchName': (str, False),
         'S3': (S3, True)
     }
 
 
 class Trigger(AWSProperty):
     props = {
-        'Branches': ([basestring], False),
-        'CustomData': (basestring, False),
-        'DestinationArn': (basestring, False),
-        'Events': ([basestring], False),
-        'Name': (basestring, False),
+        'Branches': ([str], False),
+        'CustomData': (str, False),
+        'DestinationArn': (str, False),
+        'Events': ([str], False),
+        'Name': (str, False),
     }
 
     def validate(self):
@@ -52,8 +52,8 @@ class Repository(AWSObject):
 
     props = {
         'Code': (Code, False),
-        'RepositoryDescription': (basestring, False),
-        'RepositoryName': (basestring, True),
+        'RepositoryDescription': (str, False),
+        'RepositoryName': (str, True),
         'Tags': (Tags, False),
         'Triggers': ([Trigger], False),
     }

@@ -40,11 +40,11 @@ class DeploymentStrategy(AWSObject):
 
     props = {
         'DeploymentDurationInMinutes': (double, True),
-        'Description': (basestring, False),
+        'Description': (str, False),
         'FinalBakeTimeInMinutes': (double, False),
         'GrowthFactor': (double, True),
         'GrowthType': (validate_growth_type, False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'ReplicateTo': (validate_replicate_to, True),
         'Tags': (Tags, False),
     }
@@ -52,8 +52,8 @@ class DeploymentStrategy(AWSObject):
 
 class Monitors(AWSProperty):
     props = {
-        'AlarmArn': (basestring, False),
-        'AlarmRoleArn': (basestring, False),
+        'AlarmArn': (str, False),
+        'AlarmRoleArn': (str, False),
     }
 
 
@@ -61,10 +61,10 @@ class Environment(AWSObject):
     resource_type = "AWS::AppConfig::Environment"
 
     props = {
-        'ApplicationId': (basestring, True),
-        'Description': (basestring, False),
+        'ApplicationId': (str, True),
+        'Description': (str, False),
         'Monitors': ([Monitors], False),
-        'Name': (basestring, True),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }
 
@@ -73,19 +73,19 @@ class Deployment(AWSObject):
     resource_type = "AWS::AppConfig::Deployment"
 
     props = {
-        'ApplicationId': (basestring, True),
-        'ConfigurationProfileId': (basestring, True),
-        'ConfigurationVersion': (basestring, True),
-        'DeploymentStrategyId': (basestring, True),
-        'Description': (basestring, False),
-        'EnvironmentId': (basestring, True),
+        'ApplicationId': (str, True),
+        'ConfigurationProfileId': (str, True),
+        'ConfigurationVersion': (str, True),
+        'DeploymentStrategyId': (str, True),
+        'Description': (str, False),
+        'EnvironmentId': (str, True),
         'Tags': (Tags, False),
     }
 
 
 class Validators(AWSProperty):
     props = {
-        'Content': (basestring, False),
+        'Content': (str, False),
         'Type': (validate_validator_type, False),
     }
 
@@ -94,11 +94,11 @@ class ConfigurationProfile(AWSObject):
     resource_type = "AWS::AppConfig::ConfigurationProfile"
 
     props = {
-        'ApplicationId': (basestring, True),
-        'Description': (basestring, False),
-        'LocationUri': (basestring, True),
-        'Name': (basestring, True),
-        'RetrievalRoleArn': (basestring, False),
+        'ApplicationId': (str, True),
+        'Description': (str, False),
+        'LocationUri': (str, True),
+        'Name': (str, True),
+        'RetrievalRoleArn': (str, False),
         'Tags': (Tags, False),
         'Validators': ([Validators], False)
     }
@@ -108,11 +108,11 @@ class HostedConfigurationVersion(AWSObject):
     resource_type = "AWS::AppConfig::HostedConfigurationVersion"
 
     props = {
-        'ApplicationId': (basestring, True),
-        'ConfigurationProfileId': (basestring, True),
-        'Content': (basestring, True),
-        'ContentType': (basestring, True),
-        'Description': (basestring, False),
+        'ApplicationId': (str, True),
+        'ConfigurationProfileId': (str, True),
+        'Content': (str, True),
+        'ContentType': (str, True),
+        'Description': (str, False),
         'LatestVersionNumber': (double, False),
     }
 
@@ -121,7 +121,7 @@ class Application(AWSObject):
     resource_type = "AWS::AppConfig::Application"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'Tags': (Tags, False),
     }

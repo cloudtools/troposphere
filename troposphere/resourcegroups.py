@@ -9,15 +9,15 @@ from .validators import (resourcequery_type)
 
 class TagFilter(AWSProperty):
     props = {
-        'Key': (basestring, False),
-        'Values': ([basestring], False),
+        'Key': (str, False),
+        'Values': ([str], False),
     }
 
 
 class Query(AWSProperty):
     props = {
-        'ResourceTypeFilters': ([basestring], False),
-        'StackIdentifier': (basestring, False),
+        'ResourceTypeFilters': ([str], False),
+        'StackIdentifier': (str, False),
         'TagFilters': ([TagFilter], False),
     }
 
@@ -33,8 +33,8 @@ class Group(AWSObject):
     resource_type = "AWS::ResourceGroups::Group"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, True),
+        'Description': (str, False),
+        'Name': (str, True),
         'ResourceQuery': (ResourceQuery, False),
         'Tags': (Tags, False),
     }

@@ -42,4 +42,4 @@ t.add_resource(SecretTargetAttachment(
     TargetId=Ref(Instance),
 ))
 
-print(t.to_json())
+print((t.to_json()))

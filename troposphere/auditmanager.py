@@ -14,29 +14,29 @@ from troposphere import Tags
 
 class AWSAccount(AWSProperty):
     props = {
-        'EmailAddress': (basestring, False),
-        'Id': (basestring, False),
-        'Name': (basestring, False),
+        'EmailAddress': (str, False),
+        'Id': (str, False),
+        'Name': (str, False),
     }
 
 
 class AssessmentReportsDestination(AWSProperty):
     props = {
-        'Destination': (basestring, False),
-        'DestinationType': (basestring, False),
+        'Destination': (str, False),
+        'DestinationType': (str, False),
     }
 
 
 class Role(AWSProperty):
     props = {
-        'RoleArn': (basestring, False),
-        'RoleType': (basestring, False),
+        'RoleArn': (str, False),
+        'RoleType': (str, False),
     }
 
 
 class AWSService(AWSProperty):
     props = {
-        'ServiceName': (basestring, False),
+        'ServiceName': (str, False),
     }
 
 
@@ -54,11 +54,11 @@ class Assessment(AWSObject):
         'AssessmentReportsDestination':
             (AssessmentReportsDestination, False),
         'AwsAccount': (AWSAccount, False),
-        'Description': (basestring, False),
-        'FrameworkId': (basestring, False),
-        'Name': (basestring, False),
+        'Description': (str, False),
+        'FrameworkId': (str, False),
+        'Name': (str, False),
         'Roles': ([Role], False),
         'Scope': (Scope, False),
-        'Status': (basestring, False),
+        'Status': (str, False),
         'Tags': (Tags, False),
     }

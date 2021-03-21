@@ -13,8 +13,8 @@ from . import AWSProperty
 
 class Target(AWSProperty):
     props = {
-        'TargetAddress': (basestring, False),
-        'TargetType': (basestring, False),
+        'TargetAddress': (str, False),
+        'TargetType': (str, False),
     }
 
 
@@ -22,11 +22,11 @@ class NotificationRule(AWSObject):
     resource_type = "AWS::CodeStarNotifications::NotificationRule"
 
     props = {
-        'DetailType': (basestring, True),
-        'EventTypeIds': ([basestring], True),
-        'Name': (basestring, True),
-        'Resource': (basestring, True),
-        'Status': (basestring, False),
+        'DetailType': (str, True),
+        'EventTypeIds': ([str], True),
+        'Name': (str, True),
+        'Resource': (str, True),
+        'Status': (str, False),
         'Tags': (dict, False),
         'Targets': ([Target], True),
     }
