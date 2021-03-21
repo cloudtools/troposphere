@@ -93,7 +93,7 @@ class BaseAWSObject(object):
         self.template = template
         self.do_validation = validation
         # Cache the keys for validity checks
-        self.propnames = self.props.keys()
+        self.propnames = set(self.props.keys())
         self.attributes = [
             'Condition', 'CreationPolicy', 'DeletionPolicy', 'DependsOn',
             'Metadata', 'UpdatePolicy', 'UpdateReplacePolicy',
