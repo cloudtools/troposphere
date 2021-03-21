@@ -57,12 +57,12 @@ def encode_to_dict(obj):
         return encode_to_dict(obj.to_dict())
     elif isinstance(obj, (list, tuple)):
         new_lst = []
-        for o in list(obj):
+        for o in obj:
             new_lst.append(encode_to_dict(o))
         return new_lst
     elif isinstance(obj, dict):
         props = {}
-        for name, prop in list(obj.items()):
+        for name, prop in obj.items():
             props[name] = encode_to_dict(prop)
 
         return props
@@ -93,7 +93,7 @@ class BaseAWSObject(object):
         self.template = template
         self.do_validation = validation
         # Cache the keys for validity checks
-        self.propnames = list(self.props.keys())
+        self.propnames = self.props.keys()
         self.attributes = [
             'Condition', 'CreationPolicy', 'DeletionPolicy', 'DependsOn',
             'Metadata', 'UpdatePolicy', 'UpdateReplacePolicy',
@@ -117,13 +117,13 @@ class BaseAWSObject(object):
         self.__initialized = True
 
         # Check for properties defined in the class
-        for k, (_, required) in list(self.props.items()):
+        for k, (_, required) in self.props.items():
             v = getattr(type(self), k, None)
             if v is not None and k not in kwargs:
                 self.__setattr__(k, v)
 
         # Now that it is initialized, populate it with the kwargs
-        for k, v in list(kwargs.items()):
+        for k, v in kwargs.items():
             self.__setattr__(k, v)
 
         self.add_to_template()
@@ -155,7 +155,7 @@ class BaseAWSObject(object):
             raise AttributeError(name)
 
     def __setattr__(self, name, value):
-        if name in list(self.__dict__.keys()) \
+        if name in self.__dict__.keys() \
                 or '_BaseAWSObject__initialized' not in self.__dict__:
             return dict.__setattr__(self, name, value)
         elif name in self.attributes:
@@ -257,7 +257,7 @@ class BaseAWSObject(object):
             return encode_to_dict(self.resource)
         elif hasattr(self, 'resource_type'):
             d = {}
-            for k, v in list(self.resource.items()):
+            for k, v in self.resource.items():
                 if k != 'Properties':
                     d[k] = v
             return d
@@ -267,7 +267,7 @@ class BaseAWSObject(object):
     @classmethod
     def _from_dict(cls, title=None, **kwargs):
         props = {}
-        for prop_name, value in list(kwargs.items()):
+        for prop_name, value in kwargs.items():
             try:
                 prop_attrs = cls.props[prop_name]
             except KeyError:
@@ -308,7 +308,7 @@ class BaseAWSObject(object):
         return cls._from_dict(title, **d)
 
     def _validate_props(self):
-        for k, (_, required) in list(self.props.items()):
+        for k, (_, required) in self.props.items():
             if required and k not in self.properties:
                 rtype = getattr(self, 'resource_type', "<unknown type>")
                 title = getattr(self, 'title')
@@ -566,7 +566,7 @@ class Tags(AWSHelperFn):
             for k, v in sorted(tag_dict.items()):
                 add_tag(self.tags, k, v)
         else:
-            for k, v in list(tag_dict.items()):
+            for k, v in tag_dict.items():
                 add_tag(self.tags, k, v)
 
     # allow concatenation of the Tags object via '+' operator
@@ -886,7 +886,7 @@ class Parameter(AWSDeclaration):
                 allowed = [float, int]
                 # See if the default value can be coerced into one
                 # of the correct types
-                if not any([check_type(x, default) for x in allowed]):
+                if not any(check_type(x, default) for x in allowed):
                     raise ValueError(error_str %
                                      (param_type, type(default), default))
             elif param_type == 'List<Number>':
@@ -897,7 +897,7 @@ class Parameter(AWSDeclaration):
                 dlist = default.split(",")
                 for d in dlist:
                     # Verify the split array are all numbers
-                    if not any([check_type(x, d) for x in allowed]):
+                    if not any(check_type(x, d) for x in allowed):
                         raise ValueError(error_str %
                                          (param_type, type(d), dlist))
 

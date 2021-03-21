@@ -149,7 +149,7 @@ class WaitCondition(AWSObject):
 
     def validate(self):
         if 'CreationPolicy' in self.resource:
-            for k in list(self.props.keys()):
+            for k in self.props.keys():
                 if k in self.properties:
                     raise ValueError(
                         "Property %s cannot be specified with CreationPolicy" %

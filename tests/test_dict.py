@@ -76,7 +76,7 @@ class TestDict(unittest.TestCase):
 
     def test_tags_from_dict(self):
         d = {"key1": "value1", "key2": "value2"}
-        expected = [{"Key": k, "Value": v} for k, v in list(d.items())]
+        expected = [{"Key": k, "Value": v} for k, v in d.items()]
         tags = Tags.from_dict(**d)
 
         self.assertEqual(sorted(expected), sorted(tags.tags))

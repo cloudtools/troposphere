@@ -134,7 +134,7 @@ class Action(AWSProperty):
 
         def requires(action_type, prop):
             properties = [definition for definition in
-                          list(self.properties.keys())]
+                          self.properties.keys()]
             if self.properties.get('Type') == action_type and \
                not self.any_property(prop, properties):
                 raise ValueError(
