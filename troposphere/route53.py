@@ -68,7 +68,7 @@ class GeoLocation(AWSProperty):
     }
 
 
-class BaseRecordSet(object):
+class BaseRecordSet:
     props = {
         'AliasTarget': (AliasTarget, False),
         'Comment': (str, False),

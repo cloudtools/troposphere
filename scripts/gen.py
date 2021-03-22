@@ -51,7 +51,7 @@ copyright_header = """\
 spec_version = ""
 
 
-class Override(object):
+class Override:
     """Handle overrides to the base resource specification.
 
     While the resource specification is the main source of truth for
@@ -119,7 +119,7 @@ class Override(object):
         return sorted(vlist)
 
 
-class Node(object):
+class Node:
     """Node object for building a per-file/service dependecy tree.
 
     Simple node object for creating and traversing the resource and
@@ -136,7 +136,7 @@ class Node(object):
         self.children.append(node)
 
 
-class File(object):
+class File:
     """Decribes a file object which contains resources for a given AWS service.
 
     The main output of this generator is a file containing all the property
@@ -308,7 +308,7 @@ class File(object):
             self.output_tree(t, seen)
 
 
-class Resources(object):
+class Resources:
     def __init__(self):
         self.files = {}
 

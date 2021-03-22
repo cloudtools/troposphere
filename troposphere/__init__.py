@@ -87,7 +87,7 @@ def depends_on_helper(obj):
     return obj
 
 
-class BaseAWSObject(object):
+class BaseAWSObject:
     def __init__(self, title, template=None, validation=True, **kwargs):
         self.title = title
         self.template = template
@@ -394,7 +394,7 @@ class UpdatePolicy(BaseAWSObject):
         )
 
 
-class AWSHelperFn(object):
+class AWSHelperFn:
     def getdata(self, data):
         if isinstance(data, BaseAWSObject):
             return data.title
@@ -584,7 +584,7 @@ class Tags(AWSHelperFn):
         return cls(**kwargs)
 
 
-class Template(object):
+class Template:
     props = {
         'AWSTemplateFormatVersion': (str, False),
         'Transform': (str, False),
