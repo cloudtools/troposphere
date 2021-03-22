@@ -36,7 +36,7 @@ class TestBasic(unittest.TestCase):
         class ExtendedInstance(Instance):
             def __init__(self, *args, **kwargs):
                 self.attribute = None
-                super(ExtendedInstance, self).__init__(*args, **kwargs)
+                super().__init__(*args, **kwargs)
 
         instance = ExtendedInstance('ec2instance', attribute='value')
         self.assertEqual(instance.attribute, 'value')

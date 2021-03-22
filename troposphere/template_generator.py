@@ -47,7 +47,7 @@ class TemplateGenerator(Template):
         Instantiates a new Troposphere Template based on an existing
         Cloudformation Template.
         """
-        super(TemplateGenerator, self).__init__()
+        super().__init__()
         if 'CustomMembers' in kwargs:
             self._custom_members = set(kwargs["CustomMembers"])
 

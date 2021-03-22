@@ -340,7 +340,7 @@ class AWSDeclaration(BaseAWSObject):
     """
 
     def __init__(self, title, **kwargs):
-        super(AWSDeclaration, self).__init__(title, **kwargs)
+        super().__init__(title, **kwargs)
 
     def ref(self):
         return Ref(self)
@@ -357,7 +357,7 @@ class AWSProperty(BaseAWSObject):
     dictname = None
 
     def __init__(self, title=None, **kwargs):
-        super(AWSProperty, self).__init__(title, **kwargs)
+        super().__init__(title, **kwargs)
 
 
 class AWSAttribute(BaseAWSObject):
@@ -370,7 +370,7 @@ class AWSAttribute(BaseAWSObject):
     """
 
     def __init__(self, title=None, **kwargs):
-        super(AWSAttribute, self).__init__(title, **kwargs)
+        super().__init__(title, **kwargs)
 
 
 def validate_delimiter(delimiter):
@@ -862,7 +862,7 @@ class Parameter(AWSDeclaration):
         if len(self.title) > PARAMETER_TITLE_MAX:
             raise ValueError("Parameter title can be no longer than "
                              "%d characters" % PARAMETER_TITLE_MAX)
-        super(Parameter, self).validate_title()
+        super().validate_title()
 
     def validate(self):
         def check_type(t, v):
