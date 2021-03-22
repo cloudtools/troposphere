@@ -1,5 +1,3 @@
-
-
 from troposphere import (
     Template, Parameter, Ref, Condition, Equals, And, Or, Not, If
 )

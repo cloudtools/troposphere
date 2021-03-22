@@ -1,5 +1,4 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 # Converted from VPC_With_VPN_Connection.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates
 
