@@ -57,7 +57,7 @@ class AliasTarget(AWSProperty):
             kwargs['DNSName'] = dnsname
         if evaluatetargethealth is not None:
             kwargs['EvaluateTargetHealth'] = evaluatetargethealth
-        super(AliasTarget, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
 
 class GeoLocation(AWSProperty):

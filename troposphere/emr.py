@@ -37,7 +37,7 @@ class KeyValue(AWSProperty):
             kwargs['Key'] = key
         if value is not None:
             kwargs['Value'] = value
-        super(KeyValue, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
 
 MetricDimension = KeyValue

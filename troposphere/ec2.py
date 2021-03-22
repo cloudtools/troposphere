@@ -59,7 +59,7 @@ class Tag(AWSProperty):
             kwargs['Key'] = key
         if value is not None:
             kwargs['Value'] = value
-        super(Tag, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
 
 class CarrierGateway(AWSObject):
