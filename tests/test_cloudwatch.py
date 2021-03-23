@@ -27,7 +27,7 @@ class TestModel(unittest.TestCase):
             DashboardBody=d
         )
         dashboard.validate()
-        self.assertEqual(dashboard.properties['DashboardBody'], '{"c": "d"}')
+        self.assertEqual(dashboard.properties['DashboardBody'], {"c": "d"})
 
         # Check invalid Dashboard type
         with self.assertRaises(TypeError):

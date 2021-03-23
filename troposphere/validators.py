@@ -253,10 +253,15 @@ def json_checker(prop):
         # Verify it is a valid json string
         json.loads(prop)
         return prop
-    elif isinstance(prop, dict):
-        # Convert the dict to a basestring
-        return json.dumps(prop)
     elif isinstance(prop, AWSHelperFn):
+        return prop
+    elif isinstance(prop, dict):
+        # Recursively validate JSON
+        for attr, attr_val in prop.items():
+            if isinstance(attr_val, basestring):
+                json.dumps(attr_val)
+            elif isinstance(attr_val, dict):
+                prop[attr] = json_checker(attr, attr_val)
         return prop
     else:
         raise ValueError("json object must be a str or dict")

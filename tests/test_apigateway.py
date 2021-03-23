@@ -37,7 +37,7 @@ class TestModel(unittest.TestCase):
             Schema=d
         )
         model.validate()
-        self.assertEqual(model.properties['Schema'], '{"c": "d"}')
+        self.assertEqual(model.properties['Schema'], {"c": "d"})
 
         # Check invalid Schema type
         with self.assertRaises(TypeError):
