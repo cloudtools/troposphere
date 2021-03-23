@@ -1,9 +1,23 @@
 # Converted from EC2InstanceSample.template located at:
 # http://aws.amazon.com/cloudformation/aws-cloudformation-templates/
+from io import open
+import os
 
 from troposphere import Base64, FindInMap, GetAtt
 from troposphere import Parameter, Output, Ref, Template
 import troposphere.ec2 as ec2
+
+
+def get_user_data(hostname, domain):
+    """ Open local YAML config template and substitute hostname & domain """
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    config_path = os.path.join(dir_path, 'cloud-config.yaml')
+    with open(config_path, encoding='utf-8') as f:
+        data = f.read()
+        data = data.replace('${InstanceHostname}', hostname)
+        data = data.replace('${PublicDomainName}', domain)
+
+    return data
 
 
 template = Template()
@@ -31,7 +45,7 @@ ec2_instance = template.add_resource(ec2.Instance(
     InstanceType="t1.micro",
     KeyName=Ref(keyname_param),
     SecurityGroups=["default"],
-    UserData=Base64("80")
+    UserData=Base64(get_user_data('hostname', 'hostname.example.com')),
 ))
 
 template.add_output([

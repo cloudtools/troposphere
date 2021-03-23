@@ -103,7 +103,7 @@
                     "default"
                 ],
                 "UserData": {
-                    "Fn::Base64": "80"
+                    "Fn::Base64": "#cloud-config\nhostname: hostname\nfqdn: hostname.hostname.example.com\nmanage_etc_hosts: true\npackage_update: true\npackage_upgrade: true\npackages:\n  - build-essential\n  - curl\n  - git\nruncmd:\n  - |\n    echo \"-----BEGIN RSA PRIVATE KEY-----\n    AAAAAAAAAAAAAAAAAAAAAAAAAA\n    -----END RSA PRIVATE KEY-----\n    \" > /home/ubuntu/.ssh/id_rsa\n  - chmod 600 /home/ubuntu/.ssh/id_rsa\n  - chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa\n  - ssh -oStrictHostKeyChecking=no -T git@github.com\nssh_authorized_keys:\n  - ssh-rsa AAAA==\n  - ssh-rsa AAAA==\npower_state:\n  timeout: 120\n  message: Rebooting to ensure hostname has stuck correctly and apply any kernel updates\n  mode: reboot\n"
                 }
             },
             "Type": "AWS::EC2::Instance"

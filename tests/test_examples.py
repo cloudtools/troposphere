@@ -19,7 +19,7 @@ class TestExamples(unittest.TestCase):
             sys.stdout = stdout
             with open(self.filename) as f:
                 code = compile(f.read(), self.filename, 'exec')
-                exec(code, {'__name__': '__main__'})
+                exec(code, {'__name__': '__main__', '__file__': self.filename})
         finally:
             sys.stdout = saved
         # rewind fake stdout so we can read it
