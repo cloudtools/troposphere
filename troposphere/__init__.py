@@ -908,7 +908,8 @@ class Parameter(AWSDeclaration):
                 if p in self.properties:
                     raise ValueError("%s can only be used with parameters of "
                                      "the String type." % p)
-        if self.properties['Type'] != 'Number':
+        if (self.properties['Type'] != 'Number' and
+            self.properties['Type'] != 'List<Number>'):
             for p in self.NUMBER_PROPERTIES:
                 if p in self.properties:
                     raise ValueError("%s can only be used with parameters of "
