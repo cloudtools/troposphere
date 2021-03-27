@@ -36,7 +36,7 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
             error_msg = (
                 "{}.props['{}'] should have `validators.integer` "
                 "rather than `int`".format(obj.__name__, prop_name))
-            if isinstance(types, collections.Iterable):
+            if isinstance(types, collections.abc.Iterable):
                 assert int not in types, error_msg
             else:
                 assert types != int, error_msg
