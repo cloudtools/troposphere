@@ -241,6 +241,7 @@ Currently supported AWS resource types
 - `AWS::Lambda`_
 - `AWS::LicenseManager`_
 - `AWS::Logs`_
+- `AWS::LookoutMetrics`_
 - `AWS::LookoutVision`_
 - `AWS::Macie`_
 - `AWS::ManagedBlockchain`_
@@ -505,6 +506,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Lambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lambda.html
 .. _`AWS::LicenseManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LicenseManager.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
+.. _`AWS::LookoutMetrics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutMetrics.html
 .. _`AWS::LookoutVision`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutVision.html
 .. _`AWS::Macie`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Macie.html
 .. _`AWS::ManagedBlockchain`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ManagedBlockchain.html
