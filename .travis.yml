@@ -13,7 +13,7 @@ before_install:
   - pip install --upgrade pip setuptools wheel
 
 install:
-  - pip install --upgrade flake8
+  - pip install --upgrade flake8 cfn_flip>=1.0.2
 
 before_script:
   - flake8 --version
