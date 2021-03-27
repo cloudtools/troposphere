@@ -1,3 +1,43 @@
+3.0.0 (2021*MM*DD) (Unreleased)
+Breaking changes:
+* Python 3.6+ (Python 2.x and earlier Python 3.x support is now deprecated due to Python EOL)
+* Remove previously deprecated Template methods.
+  To update to currently supported methods, substitute:
+    add_description() => set_description()
+    add_metadata() => set_metadata()
+    add_transform() => set_transform()
+    add_version() => set_version()
+* Remove deprecated troposphere.UpdatePolicy()
+* Remove deprecated troposphere.dynamodb2. Use troposphere.dynamodb instead.
+* Remove StageName deprecation warning in apigateway StageDescription
+
+Changes:
+* Run '2to3 -n -w --no-diffs .'
+* Require Python >= 3.6
+* [utils,examples] Revert changes to print functions made by 2to3
+* Remove unnecessary conversions of iterables to lists
+* Cleanup scripts
+* Restore TypeError's message
+* Cleanup ImportErrors and NameErrors
+* [tests] Make necessary adjustments
+* [examples] Fix indentation
+* Make BaseAWSObject.propnames pickleable
+* Remove '# -*- coding: utf-8 -*-'
+* Stop inheriting from object explicitly
+* Modernize super() calls
+* AWS::MWAA Adding for managed airflow (#1858)
+* Add constants for EC2 instance types: T4g. (#1885)
+* Add AppIntegrations per 2021-03-25 changes
+* Add LookoutMetrics per 2021-03-25 changes
+* Add CustomerProfiles per 2021-03-25 changes
+* Fix Python3 deprecation: import from collections.abc
+* Run black and isort over main directories (examples scripts tests troposphere)
+* Switch to using setup.cfg and add test checks for black/isort
+* Remove previously deprecated Template methods
+* Remove deprecated troposphere.UpdatePolicy()
+* Remove troposphere.dynamodb2. Use troposphere.dynamodb instead.
+* Remove StageName deprecation warning in apigateway StageDescription
+
 2.7.0 (2021*03*20)
 ------------------
 * Fix typo in ECS DeploymentCircuitBreaker RollBack => Rollback (Fixes #1877)
