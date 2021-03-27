@@ -2,7 +2,7 @@ from troposphere import Template
 from troposphere.codebuild import Artifacts, Environment, Project, Source
 
 template = Template()
-template.add_version("2010-09-09")
+template.set_version("2010-09-09")
 
 artifacts = Artifacts(Type="NO_ARTIFACTS")
 

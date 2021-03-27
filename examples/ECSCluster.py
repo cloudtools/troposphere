@@ -12,7 +12,7 @@ from troposphere.ecs import Cluster
 from troposphere.iam import InstanceProfile, PolicyType, Role
 
 t = Template()
-t.add_version("2010-09-09")
+t.set_version("2010-09-09")
 
 PolicyEcr = t.add_resource(
     PolicyType(

@@ -7,7 +7,7 @@ from troposphere.iam import Policy, Role
 
 t = Template()
 
-t.add_version("2010-09-09")
+t.set_version("2010-09-09")
 
 ExistingVPC = t.add_parameter(
     Parameter(

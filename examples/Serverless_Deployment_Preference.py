@@ -11,7 +11,7 @@ t.set_description(
     "for a canary deployment."
 )
 
-t.add_transform("AWS::Serverless-2016-10-31")
+t.set_transform("AWS::Serverless-2016-10-31")
 
 t.add_resource(
     Function(

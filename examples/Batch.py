@@ -16,7 +16,7 @@ from troposphere.ec2 import SecurityGroup
 from troposphere.iam import InstanceProfile, Role
 
 t = Template("AWS Batch")
-t.add_version()
+t.set_version()
 
 PrivateSubnetA = t.add_parameter(Parameter("PrivateSubnetA", Type="String"))
 

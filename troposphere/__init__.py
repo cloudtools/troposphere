@@ -7,7 +7,6 @@ import json
 import re
 import sys
 import types
-import warnings
 
 import cfn_flip
 
@@ -629,26 +628,8 @@ class Template:
     def set_description(self, description):
         self.description = description
 
-    def add_description(self, description):
-        warnings.warn(
-            "The add_description() method is deprecated, please switch to "
-            "using set_description() instead.\n",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-        return self.set_description(description)
-
     def set_metadata(self, metadata):
         self.metadata = metadata
-
-    def add_metadata(self, metadata):
-        warnings.warn(
-            "The add_metadata() method is deprecated, please switch to using "
-            "set_metadata() instead.\n",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-        return self.set_metadata(metadata)
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
@@ -719,26 +700,8 @@ class Template:
         else:
             self.version = "2010-09-09"
 
-    def add_version(self, version=None):
-        warnings.warn(
-            "The add_version() method is deprecated, please switch to using "
-            "set_version() instead.\n",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-        return self.set_version(version)
-
     def set_transform(self, transform):
         self.transform = transform
-
-    def add_transform(self, transform):
-        warnings.warn(
-            "The add_transform() method is deprecated, please switch to using "
-            "set_transform() instead.\n",
-            DeprecationWarning,
-            stacklevel=2,
-        )
-        return self.set_transform(transform)
 
     def to_dict(self):
         t = {}

@@ -2,7 +2,7 @@ from troposphere import Tags, Template
 from troposphere.secretsmanager import GenerateSecretString, Secret
 
 t = Template()
-t.add_version("2010-09-09")
+t.set_version("2010-09-09")
 
 MySecret = t.add_resource(
     Secret(

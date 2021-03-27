@@ -32,7 +32,7 @@ def AddAMI(template):
 
 def main():
     template = Template()
-    template.add_version("2010-09-09")
+    template.set_version("2010-09-09")
 
     template.set_description(
         "AWS CloudFormation Sample Template: NLB with 1 EC2 instance"

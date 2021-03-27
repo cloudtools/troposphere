@@ -12,7 +12,7 @@ t.set_description(
     "type of the uploaded object."
 )
 
-t.add_transform("AWS::Serverless-2016-10-31")
+t.set_transform("AWS::Serverless-2016-10-31")
 
 
 s3_bucket = t.add_resource(Bucket("Bucket"))

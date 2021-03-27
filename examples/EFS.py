@@ -6,7 +6,7 @@ from troposphere.efs import FileSystem, MountTarget
 from troposphere.iam import InstanceProfile, Role
 
 template = Template()
-template.add_version("2010-09-09")
+template.set_version("2010-09-09")
 
 template.add_mapping(
     "RegionMap",

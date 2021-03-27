@@ -16,7 +16,7 @@ from troposphere.opsworks import (
 
 template = Template()
 
-template.add_version("2010-09-09")
+template.set_version("2010-09-09")
 
 ServiceRole = template.add_parameter(
     Parameter(

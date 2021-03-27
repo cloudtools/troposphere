@@ -19,7 +19,7 @@ from troposphere.iam import Role
 
 t = Template()
 
-t.add_version()
+t.set_version()
 
 t.set_description(
     "AWS CloudFormation Sample Template ElasticBeanstalk_Nodejs_Sample: "

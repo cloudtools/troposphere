@@ -34,7 +34,7 @@ class TestInitArguments(unittest.TestCase):
     def test_transform(self):
         transform = "AWS::Serverless-2016-10-31"
         template = Template()
-        template.add_transform(transform)
+        template.set_transform(transform)
         self.assertEqual(template.transform, transform)
 
 

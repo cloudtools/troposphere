@@ -7,7 +7,7 @@ from troposphere.secretsmanager import (
 )
 
 t = Template()
-t.add_version("2010-09-09")
+t.set_version("2010-09-09")
 
 DbSecret = t.add_resource(
     Secret(

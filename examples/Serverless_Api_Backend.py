@@ -11,7 +11,7 @@ t.set_description(
     "Simple CRUD webservice. State is stored in a SimpleTable (DynamoDB) " "resource."
 )
 
-t.add_transform("AWS::Serverless-2016-10-31")
+t.set_transform("AWS::Serverless-2016-10-31")
 
 simple_table = t.add_resource(SimpleTable("Table"))
 

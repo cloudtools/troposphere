@@ -52,7 +52,7 @@ cond_clean = """Resources:
 class TestYAML(unittest.TestCase):
     def test_s3_bucket(self):
         t = Template()
-        t.add_description("S3 Bucket Example")
+        t.set_description("S3 Bucket Example")
         s3bucket = t.add_resource(
             s3.Bucket(
                 "S3Bucket",
