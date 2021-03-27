@@ -5,6 +5,8 @@ PYDIRS=setup.py examples scripts tests troposphere
 test:
 	flake8 ${PYDIRS}
 	TROPO_REAL_BOOL=true python setup.py test
+	black --check ${PYDIRS}
+	isort --check ${PYDIRS}
 
 spec:
 	curl -O https://d1uauaxba7bl26.cloudfront.net/latest/CloudFormationResourceSpecification.zip
