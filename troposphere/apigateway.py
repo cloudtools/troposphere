@@ -151,12 +151,6 @@ class StageDescription(AWSProperty):
         "Variables": (dict, False),
     }
 
-    def validate(self):
-        if "StageName" in self.properties:
-            raise DeprecationWarning(
-                "The StageName property has been deprecated " "in StageDescription"
-            )
-
 
 class Deployment(AWSObject):
     resource_type = "AWS::ApiGateway::Deployment"
