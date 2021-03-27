@@ -7,22 +7,21 @@
 # Resource specification version: 31.2.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class Domain(AWSObject):
     resource_type = "AWS::CustomerProfiles::Domain"
 
     props = {
-        'DeadLetterQueueUrl': (str, False),
-        'DefaultEncryptionKey': (str, False),
-        'DefaultExpirationDays': (integer, False),
-        'DomainName': (str, True),
-        'Tags': (Tags, False),
+        "DeadLetterQueueUrl": (str, False),
+        "DefaultEncryptionKey": (str, False),
+        "DefaultExpirationDays": (integer, False),
+        "DomainName": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -30,39 +29,39 @@ class Integration(AWSObject):
     resource_type = "AWS::CustomerProfiles::Integration"
 
     props = {
-        'DomainName': (str, True),
-        'ObjectTypeName': (str, False),
-        'Tags': (Tags, False),
-        'Uri': (str, False),
+        "DomainName": (str, True),
+        "ObjectTypeName": (str, False),
+        "Tags": (Tags, False),
+        "Uri": (str, False),
     }
 
 
 class ObjectTypeField(AWSProperty):
     props = {
-        'ContentType': (str, False),
-        'Source': (str, False),
-        'Target': (str, False),
+        "ContentType": (str, False),
+        "Source": (str, False),
+        "Target": (str, False),
     }
 
 
 class FieldMap(AWSProperty):
     props = {
-        'Name': (str, False),
-        'ObjectTypeField': (ObjectTypeField, False),
+        "Name": (str, False),
+        "ObjectTypeField": (ObjectTypeField, False),
     }
 
 
 class ObjectTypeKey(AWSProperty):
     props = {
-        'FieldNames': ([str], False),
-        'StandardIdentifiers': ([str], False),
+        "FieldNames": ([str], False),
+        "StandardIdentifiers": ([str], False),
     }
 
 
 class KeyMap(AWSProperty):
     props = {
-        'Name': (str, False),
-        'ObjectTypeKeyList': ([ObjectTypeKey], False),
+        "Name": (str, False),
+        "ObjectTypeKeyList": ([ObjectTypeKey], False),
     }
 
 
@@ -70,14 +69,14 @@ class ObjectType(AWSObject):
     resource_type = "AWS::CustomerProfiles::ObjectType"
 
     props = {
-        'AllowProfileCreation': (boolean, False),
-        'Description': (str, False),
-        'DomainName': (str, True),
-        'EncryptionKey': (str, False),
-        'ExpirationDays': (integer, False),
-        'Fields': ([FieldMap], False),
-        'Keys': ([KeyMap], False),
-        'ObjectTypeName': (str, False),
-        'Tags': (Tags, False),
-        'TemplateId': (str, False),
+        "AllowProfileCreation": (boolean, False),
+        "Description": (str, False),
+        "DomainName": (str, True),
+        "EncryptionKey": (str, False),
+        "ExpirationDays": (integer, False),
+        "Fields": ([FieldMap], False),
+        "Keys": ([KeyMap], False),
+        "ObjectTypeName": (str, False),
+        "Tags": (Tags, False),
+        "TemplateId": (str, False),
     }

@@ -7,19 +7,18 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
+from . import AWSObject, AWSProperty
 
 
 class SnsChannelConfig(AWSProperty):
     props = {
-        'TopicArn': (str, False),
+        "TopicArn": (str, False),
     }
 
 
 class NotificationChannelConfig(AWSProperty):
     props = {
-        'Sns': (SnsChannelConfig, False),
+        "Sns": (SnsChannelConfig, False),
     }
 
 
@@ -27,19 +26,19 @@ class NotificationChannel(AWSObject):
     resource_type = "AWS::DevOpsGuru::NotificationChannel"
 
     props = {
-        'Config': (NotificationChannelConfig, True),
+        "Config": (NotificationChannelConfig, True),
     }
 
 
 class CloudFormationCollectionFilter(AWSProperty):
     props = {
-        'StackNames': ([str], False),
+        "StackNames": ([str], False),
     }
 
 
 class ResourceCollectionFilter(AWSProperty):
     props = {
-        'CloudFormation': (CloudFormationCollectionFilter, False),
+        "CloudFormation": (CloudFormationCollectionFilter, False),
     }
 
 
@@ -47,5 +46,5 @@ class ResourceCollection(AWSObject):
     resource_type = "AWS::DevOpsGuru::ResourceCollection"
 
     props = {
-        'ResourceCollectionFilter': (ResourceCollectionFilter, True),
+        "ResourceCollectionFilter": (ResourceCollectionFilter, True),
     }

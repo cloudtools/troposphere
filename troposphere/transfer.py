@@ -7,37 +7,38 @@
 # Resource specification version: 3.3.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
 
+from . import AWSObject, AWSProperty
 
-VALID_HOMEDIRECTORY_TYPE = ('LOGICAL', 'PATH')
+VALID_HOMEDIRECTORY_TYPE = ("LOGICAL", "PATH")
 
 
 def validate_homedirectory_type(homedirectory_type):
     """Validate HomeDirectoryType for User"""
 
     if homedirectory_type not in VALID_HOMEDIRECTORY_TYPE:  # NOQA
-        raise ValueError("User HomeDirectoryType must be one of: %s" %  # NOQA
-                         ", ".join(VALID_HOMEDIRECTORY_TYPE))
+        raise ValueError(
+            "User HomeDirectoryType must be one of: %s"
+            % ", ".join(VALID_HOMEDIRECTORY_TYPE)  # NOQA
+        )
     return homedirectory_type
 
 
 class EndpointDetails(AWSProperty):
     props = {
-        'AddressAllocationIds': ([str], False),
-        'SecurityGroupIds': ([str], False),
-        'SubnetIds': ([str], False),
-        'VpcEndpointId': (str, False),
-        'VpcId': (str, False),
+        "AddressAllocationIds": ([str], False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
+        "VpcEndpointId": (str, False),
+        "VpcId": (str, False),
     }
 
 
 class IdentityProviderDetails(AWSProperty):
     props = {
-        'InvocationRole': (str, True),
-        'Url': (str, True),
+        "InvocationRole": (str, True),
+        "Url": (str, True),
     }
 
 
@@ -45,22 +46,22 @@ class Server(AWSObject):
     resource_type = "AWS::Transfer::Server"
 
     props = {
-        'Certificate': (str, False),
-        'EndpointDetails': (EndpointDetails, False),
-        'EndpointType': (str, False),
-        'IdentityProviderDetails': (IdentityProviderDetails, False),
-        'IdentityProviderType': (str, False),
-        'LoggingRole': (str, False),
-        'Protocols': ([str], False),
-        'SecurityPolicyName': (str, False),
-        'Tags': (Tags, False),
+        "Certificate": (str, False),
+        "EndpointDetails": (EndpointDetails, False),
+        "EndpointType": (str, False),
+        "IdentityProviderDetails": (IdentityProviderDetails, False),
+        "IdentityProviderType": (str, False),
+        "LoggingRole": (str, False),
+        "Protocols": ([str], False),
+        "SecurityPolicyName": (str, False),
+        "Tags": (Tags, False),
     }
 
 
 class HomeDirectoryMapEntry(AWSProperty):
     props = {
-        'Entry': (str, True),
-        'Target': (str, True),
+        "Entry": (str, True),
+        "Target": (str, True),
     }
 
 
@@ -68,13 +69,13 @@ class User(AWSObject):
     resource_type = "AWS::Transfer::User"
 
     props = {
-        'HomeDirectory': (str, False),
-        'HomeDirectoryMappings': ([HomeDirectoryMapEntry], False),
-        'HomeDirectoryType': (validate_homedirectory_type, False),
-        'Policy': (str, False),
-        'Role': (str, True),
-        'ServerId': (str, True),
-        'SshPublicKeys': ([str], False),
-        'Tags': (Tags, False),
-        'UserName': (str, True),
+        "HomeDirectory": (str, False),
+        "HomeDirectoryMappings": ([HomeDirectoryMapEntry], False),
+        "HomeDirectoryType": (validate_homedirectory_type, False),
+        "Policy": (str, False),
+        "Role": (str, True),
+        "ServerId": (str, True),
+        "SshPublicKeys": ([str], False),
+        "Tags": (Tags, False),
+        "UserName": (str, True),
     }

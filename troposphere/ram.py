@@ -3,8 +3,9 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
 from troposphere import Tags
+
+from . import AWSObject
 from .validators import boolean
 
 
@@ -12,9 +13,9 @@ class ResourceShare(AWSObject):
     resource_type = "AWS::RAM::ResourceShare"
 
     props = {
-        'AllowExternalPrincipals': (boolean, False),
-        'Name': (str, True),
-        'Principals': ([str], False),
-        'ResourceArns': ([str], False),
-        'Tags': (Tags, False),
+        "AllowExternalPrincipals": (boolean, False),
+        "Name": (str, True),
+        "Principals": ([str], False),
+        "ResourceArns": ([str], False),
+        "Tags": (Tags, False),
     }

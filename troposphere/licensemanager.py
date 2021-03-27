@@ -7,75 +7,73 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
-from .validators import boolean
-from .validators import integer
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class Grant(AWSObject):
     resource_type = "AWS::LicenseManager::Grant"
 
     props = {
-        'AllowedOperations': ([str], False),
-        'GrantName': (str, False),
-        'HomeRegion': (str, False),
-        'LicenseArn': (str, False),
-        'Principals': ([str], False),
-        'Status': (str, False),
+        "AllowedOperations": ([str], False),
+        "GrantName": (str, False),
+        "HomeRegion": (str, False),
+        "LicenseArn": (str, False),
+        "Principals": ([str], False),
+        "Status": (str, False),
     }
 
 
 class BorrowConfiguration(AWSProperty):
     props = {
-        'AllowEarlyCheckIn': (boolean, True),
-        'MaxTimeToLiveInMinutes': (integer, True),
+        "AllowEarlyCheckIn": (boolean, True),
+        "MaxTimeToLiveInMinutes": (integer, True),
     }
 
 
 class ProvisionalConfiguration(AWSProperty):
     props = {
-        'MaxTimeToLiveInMinutes': (integer, True),
+        "MaxTimeToLiveInMinutes": (integer, True),
     }
 
 
 class ConsumptionConfiguration(AWSProperty):
     props = {
-        'BorrowConfiguration': (BorrowConfiguration, False),
-        'ProvisionalConfiguration': (ProvisionalConfiguration, False),
-        'RenewType': (str, False),
+        "BorrowConfiguration": (BorrowConfiguration, False),
+        "ProvisionalConfiguration": (ProvisionalConfiguration, False),
+        "RenewType": (str, False),
     }
 
 
 class Entitlement(AWSProperty):
     props = {
-        'AllowCheckIn': (boolean, False),
-        'MaxCount': (integer, False),
-        'Name': (str, True),
-        'Overage': (boolean, False),
-        'Unit': (str, True),
-        'Value': (str, False),
+        "AllowCheckIn": (boolean, False),
+        "MaxCount": (integer, False),
+        "Name": (str, True),
+        "Overage": (boolean, False),
+        "Unit": (str, True),
+        "Value": (str, False),
     }
 
 
 class IssuerData(AWSProperty):
     props = {
-        'Name': (str, True),
-        'SignKey': (str, False),
+        "Name": (str, True),
+        "SignKey": (str, False),
     }
 
 
 class Metadata(AWSProperty):
     props = {
-        'Name': (str, True),
-        'Value': (str, True),
+        "Name": (str, True),
+        "Value": (str, True),
     }
 
 
 class ValidityDateFormat(AWSProperty):
     props = {
-        'Begin': (str, True),
-        'End': (str, True),
+        "Begin": (str, True),
+        "End": (str, True),
     }
 
 
@@ -83,15 +81,15 @@ class License(AWSObject):
     resource_type = "AWS::LicenseManager::License"
 
     props = {
-        'Beneficiary': (str, False),
-        'ConsumptionConfiguration': (ConsumptionConfiguration, True),
-        'Entitlements': ([Entitlement], True),
-        'HomeRegion': (str, True),
-        'Issuer': (IssuerData, True),
-        'LicenseMetadata': ([Metadata], False),
-        'LicenseName': (str, True),
-        'ProductName': (str, True),
-        'ProductSKU': (str, False),
-        'Status': (str, False),
-        'Validity': (ValidityDateFormat, True),
+        "Beneficiary": (str, False),
+        "ConsumptionConfiguration": (ConsumptionConfiguration, True),
+        "Entitlements": ([Entitlement], True),
+        "HomeRegion": (str, True),
+        "Issuer": (IssuerData, True),
+        "LicenseMetadata": ([Metadata], False),
+        "LicenseName": (str, True),
+        "ProductName": (str, True),
+        "ProductSKU": (str, False),
+        "Status": (str, False),
+        "Validity": (ValidityDateFormat, True),
     }

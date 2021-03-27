@@ -1,15 +1,16 @@
 import unittest
-from troposphere import GetAtt, Template, Join, Ref
 
-from troposphere.awslambda import Code,\
-    Function,\
-    Environment,\
-    ImageConfig,\
-    validate_memory_size
+from troposphere import GetAtt, Join, Ref, Template
+from troposphere.awslambda import (
+    Code,
+    Environment,
+    Function,
+    ImageConfig,
+    validate_memory_size,
+)
 
 
 class TestAWSLambda(unittest.TestCase):
-
     def test_exclusive(self):
         lambda_func = Function(
             "AMIIDLookup",
@@ -32,16 +33,19 @@ class TestAWSLambda(unittest.TestCase):
             Handler="index.handler",
             Role=GetAtt("LambdaExecutionRole", "Arn"),
             Code=Code(
-                ZipFile=Join("", [
-                    "var response = require('cfn-response');",
-                    "exports.handler = function(event, context) {",
-                    "  var input = parseInt(event.ResourceProperties.Input);",
-                    "  var responseData = {Value: input * 5};",
-                    "  response.send("
-                    "    event, context, response.SUCCESS, responseData"
-                    "  );",
-                    "};"
-                ]),
+                ZipFile=Join(
+                    "",
+                    [
+                        "var response = require('cfn-response');",
+                        "exports.handler = function(event, context) {",
+                        "  var input = parseInt(event.ResourceProperties.Input);",
+                        "  var responseData = {Value: input * 5};",
+                        "  response.send("
+                        "    event, context, response.SUCCESS, responseData"
+                        "  );",
+                        "};",
+                    ],
+                ),
             ),
             Runtime="nodejs",
             Timeout="25",
@@ -52,56 +56,59 @@ class TestAWSLambda(unittest.TestCase):
 
     def test_check_zip_file(self):
         positive_tests = [
-            'a'*4096,
-            Join('', ['a'*4096]),
-            Join('', ['a', 10]),
-            Join('', ['a'*4096, Ref('EmptyParameter')]),
-            Join('ab', ['a'*2047, 'a'*2047]),
-            GetAtt('foo', 'bar'),
+            "a" * 4096,
+            Join("", ["a" * 4096]),
+            Join("", ["a", 10]),
+            Join("", ["a" * 4096, Ref("EmptyParameter")]),
+            Join("ab", ["a" * 2047, "a" * 2047]),
+            GetAtt("foo", "bar"),
         ]
         for z in positive_tests:
             Code.check_zip_file(z)
         negative_tests = [
-            'a'*4097,
-            Join('', ['a'*4097]),
-            Join('', ['a'*4097, Ref('EmptyParameter')]),
-            Join('abc', ['a'*2047, 'a'*2047]),
+            "a" * 4097,
+            Join("", ["a" * 4097]),
+            Join("", ["a" * 4097, Ref("EmptyParameter")]),
+            Join("abc", ["a" * 2047, "a" * 2047]),
         ]
         for z in negative_tests:
             with self.assertRaises(ValueError):
                 Code.check_zip_file(z)
 
     def test_environment_variable_invalid_name(self):
-        for var in ['1', '2var', '_var', '/var']:
+        for var in ["1", "2var", "_var", "/var"]:
             with self.assertRaises(ValueError) as context:
-                Environment(Variables={var: 'value'})
+                Environment(Variables={var: "value"})
 
-            self.assertTrue('Invalid environment variable name: %s' % var
-                            in context.exception.args)
+            self.assertTrue(
+                "Invalid environment variable name: %s" % var in context.exception.args
+            )
 
     def test_environment_variable_reserved(self):
-        for var in ['AWS_ACCESS_KEY', 'AWS_ACCESS_KEY_ID',
-                    'AWS_LAMBDA_FUNCTION_MEMORY_SIZE']:
+        for var in [
+            "AWS_ACCESS_KEY",
+            "AWS_ACCESS_KEY_ID",
+            "AWS_LAMBDA_FUNCTION_MEMORY_SIZE",
+        ]:
             with self.assertRaises(ValueError) as context:
-                Environment(Variables={var: 'value'})
+                Environment(Variables={var: "value"})
 
-            self.assertTrue("Lambda Function environment variables names "
-                            "can't be none of"
-                            in context.exception.args[0])
+            self.assertTrue(
+                "Lambda Function environment variables names "
+                "can't be none of" in context.exception.args[0]
+            )
 
     def test_environment_variable_not_reserved(self):
-        for var in ['NODE_PATH', 'NODE_ENV', 'FOO']:
+        for var in ["NODE_PATH", "NODE_ENV", "FOO"]:
             try:
-                Environment(Variables={var: 'value'})
+                Environment(Variables={var: "value"})
             except ValueError:
                 self.fail("Environment() raised ValueError")
 
     def test_package_type_image(self):
         Function(
             "TestFunction",
-            Code=Code(
-                ImageUri="something"
-            ),
+            Code=Code(ImageUri="something"),
             PackageType="Image",
             Role=GetAtt("LambdaExecutionRole", "Arn"),
         ).validate()
@@ -110,9 +117,7 @@ class TestAWSLambda(unittest.TestCase):
         with self.assertRaises(ValueError):
             Function(
                 "TestFunction",
-                Code=Code(
-                    ImageUri="something"
-                ),
+                Code=Code(ImageUri="something"),
                 PackageType="Invalid",
                 Role=GetAtt("LambdaExecutionRole", "Arn"),
             ).validate()
@@ -121,16 +126,19 @@ class TestAWSLambda(unittest.TestCase):
         Function(
             "TestFunction",
             Code=Code(
-                ZipFile=Join("", [
-                    "var response = require('cfn-response');",
-                    "exports.handler = function(event, context) {",
-                    "  var input = parseInt(event.ResourceProperties.Input);",
-                    "  var responseData = {Value: input * 5};",
-                    "  response.send("
-                    "    event, context, response.SUCCESS, responseData"
-                    "  );",
-                    "};"
-                ]),
+                ZipFile=Join(
+                    "",
+                    [
+                        "var response = require('cfn-response');",
+                        "exports.handler = function(event, context) {",
+                        "  var input = parseInt(event.ResourceProperties.Input);",
+                        "  var responseData = {Value: input * 5};",
+                        "  response.send("
+                        "    event, context, response.SUCCESS, responseData"
+                        "  );",
+                        "};",
+                    ],
+                ),
             ),
             Handler="index.handler",
             PackageType="Zip",
@@ -155,11 +163,7 @@ class TestCode(unittest.TestCase):
             {"S3Bucket": "bucket", "S3Key": "key"},
             {"S3Bucket": "bucket", "S3ObjectVersion": "version"},
             {"S3Key": "key", "S3ObjectVersion": "version"},
-            {
-                "S3Bucket": "bucket",
-                "S3Key": "key",
-                "S3ObjectVersion": "version"
-            },
+            {"S3Bucket": "bucket", "S3Key": "key", "S3ObjectVersion": "version"},
         ]
         for props in s3_props:
             with self.assertRaises(ValueError):
@@ -167,11 +171,7 @@ class TestCode(unittest.TestCase):
 
     def test_validate_s3(self):
         Code(S3Bucket="bucket", S3Key="key").validate()
-        Code(
-            S3Bucket="bucket",
-            S3Key="key",
-            S3ObjectVersion="version"
-        ).validate()
+        Code(S3Bucket="bucket", S3Key="key", S3ObjectVersion="version").validate()
 
     def test_validate_s3_missing_required(self):
         s3_props = [
@@ -193,11 +193,7 @@ class TestCode(unittest.TestCase):
             {"S3Bucket": "bucket", "S3Key": "key"},
             {"S3Bucket": "bucket", "S3ObjectVersion": "version"},
             {"S3Key": "key", "S3ObjectVersion": "version"},
-            {
-                "S3Bucket": "bucket",
-                "S3Key": "key",
-                "S3ObjectVersion": "version"
-            },
+            {"S3Bucket": "bucket", "S3Key": "key", "S3ObjectVersion": "version"},
         ]
         for props in s3_props:
             with self.assertRaises(ValueError):
@@ -205,7 +201,6 @@ class TestCode(unittest.TestCase):
 
 
 class TestImageConfig(unittest.TestCase):
-
     def test_validate_command(self):
         ImageConfig(Command=["something"] * 1500).validate()
 
@@ -231,23 +226,23 @@ class TestImageConfig(unittest.TestCase):
             ImageConfig(WorkingDirectory="x" * 1001).validate()
 
     def test_validate_memory_size_boundaries(self):
-        for var in ['128', '10240']:
+        for var in ["128", "10240"]:
             validate_memory_size(var)
 
     def test_validate_memory_size_throws(self):
-        for var in ['1', '111111111111111111111']:
+        for var in ["1", "111111111111111111111"]:
             with self.assertRaises(ValueError) as context:
                 validate_memory_size(var)
 
-            self.assertTrue("Lambda Function memory size must be one of:"
-                            in context.exception.args[0])
+            self.assertTrue(
+                "Lambda Function memory size must be one of:"
+                in context.exception.args[0]
+            )
 
-            self.assertTrue("128,"
-                            in context.exception.args[0])
+            self.assertTrue("128," in context.exception.args[0])
 
-            self.assertTrue(", 10240"
-                            in context.exception.args[0])
+            self.assertTrue(", 10240" in context.exception.args[0])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

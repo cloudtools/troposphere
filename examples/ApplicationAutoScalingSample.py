@@ -1,33 +1,32 @@
-from troposphere import Template, Ref
+from troposphere import Ref, Template
 from troposphere.applicationautoscaling import (
     ScalableTarget,
+    ScalingPolicy,
     StepAdjustment,
     StepScalingPolicyConfiguration,
-    ScalingPolicy,
 )
-
 
 t = Template()
 
 scalable_target = ScalableTarget(
-    'scalableTarget',
+    "scalableTarget",
     MaxCapacity=2,
     MinCapacity=1,
-    ResourceId='service/ecsStack',
-    RoleARN='Access Management (IAM) role',
-    ScalableDimension='ecs:service:DesiredCount',
-    ServiceNamespace='ecs',
+    ResourceId="service/ecsStack",
+    RoleARN="Access Management (IAM) role",
+    ScalableDimension="ecs:service:DesiredCount",
+    ServiceNamespace="ecs",
 )
 
 scaling_policy = ScalingPolicy(
-    'scalingPolicy',
-    PolicyName='AStepPolicy',
-    PolicyType='StepScaling',
+    "scalingPolicy",
+    PolicyName="AStepPolicy",
+    PolicyType="StepScaling",
     ScalingTargetId=Ref(scalable_target),
     StepScalingPolicyConfiguration=StepScalingPolicyConfiguration(
-        AdjustmentType='PercentChangeInCapacity',
+        AdjustmentType="PercentChangeInCapacity",
         Cooldown=60,
-        MetricAggregationType='Average',
+        MetricAggregationType="Average",
         StepAdjustments=[
             StepAdjustment(
                 MetricIntervalLowerBound=0,

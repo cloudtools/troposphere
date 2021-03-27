@@ -7,26 +7,26 @@
 # Resource specification version: 10.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
 class Filter(AWSProperty):
     props = {
-        'Contains': ([str], False),
-        'Eq': ([str], False),
-        'Exists': (boolean, False),
-        'Neq': ([str], False),
-        'Property': (str, True),
+        "Contains": ([str], False),
+        "Eq": ([str], False),
+        "Exists": (boolean, False),
+        "Neq": ([str], False),
+        "Property": (str, True),
     }
 
 
 class ArchiveRule(AWSProperty):
     props = {
-        'Filter': ([Filter], True),
-        'RuleName': (str, True),
+        "Filter": ([Filter], True),
+        "RuleName": (str, True),
     }
 
 
@@ -34,8 +34,8 @@ class Analyzer(AWSObject):
     resource_type = "AWS::AccessAnalyzer::Analyzer"
 
     props = {
-        'AnalyzerName': (str, False),
-        'ArchiveRules': ([ArchiveRule], False),
-        'Tags': (Tags, False),
-        'Type': (str, True),
+        "AnalyzerName": (str, False),
+        "ArchiveRules": ([ArchiveRule], False),
+        "Tags": (Tags, False),
+        "Type": (str, True),
     }

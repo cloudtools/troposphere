@@ -7,43 +7,43 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 
 
 class AWSAccount(AWSProperty):
     props = {
-        'EmailAddress': (str, False),
-        'Id': (str, False),
-        'Name': (str, False),
+        "EmailAddress": (str, False),
+        "Id": (str, False),
+        "Name": (str, False),
     }
 
 
 class AssessmentReportsDestination(AWSProperty):
     props = {
-        'Destination': (str, False),
-        'DestinationType': (str, False),
+        "Destination": (str, False),
+        "DestinationType": (str, False),
     }
 
 
 class Role(AWSProperty):
     props = {
-        'RoleArn': (str, False),
-        'RoleType': (str, False),
+        "RoleArn": (str, False),
+        "RoleType": (str, False),
     }
 
 
 class AWSService(AWSProperty):
     props = {
-        'ServiceName': (str, False),
+        "ServiceName": (str, False),
     }
 
 
 class Scope(AWSProperty):
     props = {
-        'AwsAccounts': ([AWSAccount], False),
-        'AwsServices': ([AWSService], False),
+        "AwsAccounts": ([AWSAccount], False),
+        "AwsServices": ([AWSService], False),
     }
 
 
@@ -51,14 +51,13 @@ class Assessment(AWSObject):
     resource_type = "AWS::AuditManager::Assessment"
 
     props = {
-        'AssessmentReportsDestination':
-            (AssessmentReportsDestination, False),
-        'AwsAccount': (AWSAccount, False),
-        'Description': (str, False),
-        'FrameworkId': (str, False),
-        'Name': (str, False),
-        'Roles': ([Role], False),
-        'Scope': (Scope, False),
-        'Status': (str, False),
-        'Tags': (Tags, False),
+        "AssessmentReportsDestination": (AssessmentReportsDestination, False),
+        "AwsAccount": (AWSAccount, False),
+        "Description": (str, False),
+        "FrameworkId": (str, False),
+        "Name": (str, False),
+        "Roles": ([Role], False),
+        "Scope": (Scope, False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
     }

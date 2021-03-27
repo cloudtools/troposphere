@@ -7,25 +7,23 @@
 # Resource specification version: 31.1.0
 
 
-from . import AWSObject
-from . import AWSProperty
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
 class TransformationConfiguration(AWSProperty):
     props = {
-        'Actions': ([str], False),
-        'ContentTransformation': (dict, False),
+        "Actions": ([str], False),
+        "ContentTransformation": (dict, False),
     }
 
 
 class ObjectLambdaConfiguration(AWSProperty):
     props = {
-        'AllowedFeatures': ([str], False),
-        'CloudWatchMetricsEnabled': (boolean, False),
-        'SupportingAccessPoint': (str, True),
-        'TransformationConfigurations':
-            ([TransformationConfiguration], True),
+        "AllowedFeatures": ([str], False),
+        "CloudWatchMetricsEnabled": (boolean, False),
+        "SupportingAccessPoint": (str, True),
+        "TransformationConfigurations": ([TransformationConfiguration], True),
     }
 
 
@@ -33,8 +31,8 @@ class AccessPoint(AWSObject):
     resource_type = "AWS::S3ObjectLambda::AccessPoint"
 
     props = {
-        'Name': (str, True),
-        'ObjectLambdaConfiguration': (ObjectLambdaConfiguration, False),
+        "Name": (str, True),
+        "ObjectLambdaConfiguration": (ObjectLambdaConfiguration, False),
     }
 
 
@@ -42,6 +40,6 @@ class AccessPointPolicy(AWSObject):
     resource_type = "AWS::S3ObjectLambda::AccessPointPolicy"
 
     props = {
-        'ObjectLambdaAccessPoint': (str, True),
-        'PolicyDocument': (dict, True),
+        "ObjectLambdaAccessPoint": (str, True),
+        "PolicyDocument": (dict, True),
     }

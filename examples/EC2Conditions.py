@@ -1,8 +1,15 @@
 from troposphere import (
-    Template, Parameter, Ref, Condition, Equals, And, Or, Not, If
+    And,
+    Condition,
+    Equals,
+    If,
+    Not,
+    Or,
+    Parameter,
+    Ref,
+    Template,
+    ec2,
 )
-from troposphere import ec2
-
 
 parameters = {
     "One": Parameter(
@@ -24,53 +31,36 @@ parameters = {
     "SshKeyName": Parameter(
         "SshKeyName",
         Type="String",
-    )
+    ),
 }
 
 conditions = {
-    "OneEqualsFoo": Equals(
-        Ref("One"),
-        "Foo"
-    ),
-    "NotOneEqualsFoo": Not(
-        Condition("OneEqualsFoo")
-    ),
-    "BarEqualsTwo": Equals(
-        "Bar",
-        Ref("Two")
-    ),
-    "ThreeEqualsFour": Equals(
-        Ref("Three"),
-        Ref("Four")
-    ),
+    "OneEqualsFoo": Equals(Ref("One"), "Foo"),
+    "NotOneEqualsFoo": Not(Condition("OneEqualsFoo")),
+    "BarEqualsTwo": Equals("Bar", Ref("Two")),
+    "ThreeEqualsFour": Equals(Ref("Three"), Ref("Four")),
     "OneEqualsFooOrBarEqualsTwo": Or(
-        Condition("OneEqualsFoo"),
-        Condition("BarEqualsTwo")
+        Condition("OneEqualsFoo"), Condition("BarEqualsTwo")
     ),
     "OneEqualsFooAndNotBarEqualsTwo": And(
-        Condition("OneEqualsFoo"),
-        Not(Condition("BarEqualsTwo"))
+        Condition("OneEqualsFoo"), Not(Condition("BarEqualsTwo"))
     ),
     "OneEqualsFooAndBarEqualsTwoAndThreeEqualsPft": And(
         Condition("OneEqualsFoo"),
         Condition("BarEqualsTwo"),
-        Equals(Ref("Three"), "Pft")
+        Equals(Ref("Three"), "Pft"),
     ),
     "OneIsQuzAndThreeEqualsFour": And(
-        Equals(Ref("One"), "Quz"),
-        Condition("ThreeEqualsFour")
+        Equals(Ref("One"), "Quz"), Condition("ThreeEqualsFour")
     ),
     "LaunchInstance": And(
         Condition("OneEqualsFoo"),
         Condition("NotOneEqualsFoo"),
         Condition("BarEqualsTwo"),
         Condition("OneEqualsFooAndNotBarEqualsTwo"),
-        Condition("OneIsQuzAndThreeEqualsFour")
+        Condition("OneIsQuzAndThreeEqualsFour"),
     ),
-    "LaunchWithGusto": And(
-        Condition("LaunchInstance"),
-        Equals(Ref("One"), "Gusto")
-    )
+    "LaunchWithGusto": And(Condition("LaunchInstance"), Equals(Ref("One"), "Gusto")),
 }
 
 resources = {

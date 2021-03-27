@@ -7,18 +7,19 @@
 # Resource specification version: 25.0.0
 
 
-from . import AWSObject
 from troposphere import Tags
+
+from . import AWSObject
 
 
 class Domain(AWSObject):
     resource_type = "AWS::CodeArtifact::Domain"
 
     props = {
-        'DomainName': (str, True),
-        'EncryptionKey': (str, False),
-        'PermissionsPolicyDocument': (dict, False),
-        'Tags': (Tags, False),
+        "DomainName": (str, True),
+        "EncryptionKey": (str, False),
+        "PermissionsPolicyDocument": (dict, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -26,12 +27,12 @@ class Repository(AWSObject):
     resource_type = "AWS::CodeArtifact::Repository"
 
     props = {
-        'Description': (str, False),
-        'DomainName': (str, True),
-        'DomainOwner': (str, False),
-        'ExternalConnections': ([str], False),
-        'PermissionsPolicyDocument': (dict, False),
-        'RepositoryName': (str, True),
-        'Tags': (Tags, False),
-        'Upstreams': ([str], False),
+        "Description": (str, False),
+        "DomainName": (str, True),
+        "DomainOwner": (str, False),
+        "ExternalConnections": ([str], False),
+        "PermissionsPolicyDocument": (dict, False),
+        "RepositoryName": (str, True),
+        "Tags": (Tags, False),
+        "Upstreams": ([str], False),
     }

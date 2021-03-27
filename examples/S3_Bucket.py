@@ -4,7 +4,6 @@
 from troposphere import Output, Ref, Template
 from troposphere.s3 import Bucket, PublicRead
 
-
 t = Template()
 
 t.set_description(
@@ -12,14 +11,22 @@ t.set_description(
     "how to create a publicly accessible S3 bucket. "
     "**WARNING** This template creates an Amazon S3 Bucket. "
     "You will be billed for the AWS resources used if you create "
-    "a stack from this template.")
+    "a stack from this template."
+)
 
-s3bucket = t.add_resource(Bucket("S3Bucket", AccessControl=PublicRead,))
+s3bucket = t.add_resource(
+    Bucket(
+        "S3Bucket",
+        AccessControl=PublicRead,
+    )
+)
 
-t.add_output(Output(
-    "BucketName",
-    Value=Ref(s3bucket),
-    Description="Name of S3 bucket to hold website content"
-))
+t.add_output(
+    Output(
+        "BucketName",
+        Value=Ref(s3bucket),
+        Description="Name of S3 bucket to hold website content",
+    )
+)
 
 print(t.to_json())

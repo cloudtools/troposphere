@@ -1,30 +1,30 @@
 import unittest
+
 import troposphere.codecommit as cc
 
 
 class TestCodeCommit(unittest.TestCase):
-
     def test_trigger(self):
         trigger = cc.Trigger(
             Events=[
-                'all',
+                "all",
             ]
         )
         trigger.to_dict()
 
         trigger = cc.Trigger(
             Events=[
-                'updateReference',
-                'createReference',
-                'deleteReference',
+                "updateReference",
+                "createReference",
+                "deleteReference",
             ]
         )
         trigger.to_dict()
 
         trigger = cc.Trigger(
             Events=[
-                'all',
-                'deleteReference',
+                "all",
+                "deleteReference",
             ]
         )
         with self.assertRaisesRegex(ValueError, "Trigger events: all"):
@@ -32,8 +32,8 @@ class TestCodeCommit(unittest.TestCase):
 
         trigger = cc.Trigger(
             Events=[
-                'deleteReference',
-                'foobar',
+                "deleteReference",
+                "foobar",
             ]
         )
         with self.assertRaisesRegex(ValueError, "invalid event foobar"):

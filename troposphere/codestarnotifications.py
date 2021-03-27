@@ -7,14 +7,13 @@
 # Resource specification version: 8.1.0
 
 
-from . import AWSObject
-from . import AWSProperty
+from . import AWSObject, AWSProperty
 
 
 class Target(AWSProperty):
     props = {
-        'TargetAddress': (str, False),
-        'TargetType': (str, False),
+        "TargetAddress": (str, False),
+        "TargetType": (str, False),
     }
 
 
@@ -22,11 +21,11 @@ class NotificationRule(AWSObject):
     resource_type = "AWS::CodeStarNotifications::NotificationRule"
 
     props = {
-        'DetailType': (str, True),
-        'EventTypeIds': ([str], True),
-        'Name': (str, True),
-        'Resource': (str, True),
-        'Status': (str, False),
-        'Tags': (dict, False),
-        'Targets': ([Target], True),
+        "DetailType": (str, True),
+        "EventTypeIds": ([str], True),
+        "Name": (str, True),
+        "Resource": (str, True),
+        "Status": (str, False),
+        "Tags": (dict, False),
+        "Targets": ([Target], True),
     }

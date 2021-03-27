@@ -7,17 +7,18 @@
 # Resource specification version: 18.7.0
 
 
-from . import AWSObject
 from troposphere import Tags
+
+from . import AWSObject
 
 
 class Database(AWSObject):
     resource_type = "AWS::Timestream::Database"
 
     props = {
-        'DatabaseName': (str, False),
-        'KmsKeyId': (str, False),
-        'Tags': (Tags, False),
+        "DatabaseName": (str, False),
+        "KmsKeyId": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -25,8 +26,8 @@ class Table(AWSObject):
     resource_type = "AWS::Timestream::Table"
 
     props = {
-        'DatabaseName': (str, True),
-        'RetentionProperties': (dict, False),
-        'TableName': (str, False),
-        'Tags': (Tags, False),
+        "DatabaseName": (str, True),
+        "RetentionProperties": (dict, False),
+        "TableName": (str, False),
+        "Tags": (Tags, False),
     }

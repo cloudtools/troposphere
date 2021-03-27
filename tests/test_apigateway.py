@@ -1,4 +1,5 @@
 import unittest
+
 from troposphere import Join
 from troposphere.apigateway import GatewayResponse, Model
 
@@ -31,27 +32,19 @@ class TestModel(unittest.TestCase):
 
         # Check accepting dict and converting to string in validate
         d = {"c": "d"}
-        model = Model(
-            "schema",
-            RestApiId="apiid",
-            Schema=d
-        )
+        model = Model("schema", RestApiId="apiid", Schema=d)
         model.validate()
-        self.assertEqual(model.properties['Schema'], '{"c": "d"}')
+        self.assertEqual(model.properties["Schema"], '{"c": "d"}')
 
         # Check invalid Schema type
         with self.assertRaises(TypeError):
-            model = Model(
-                "schema",
-                RestApiId="apiid",
-                Schema=1
-            )
+            model = Model("schema", RestApiId="apiid", Schema=1)
 
         # Check Schema being an AWSHelperFn
         model = Model(
             "schema",
             RestApiId="apiid",
-            Schema=Join(':', ['{"a', ': "b"}']),
+            Schema=Join(":", ['{"a', ': "b"}']),
         )
         model.validate()
 
@@ -62,7 +55,7 @@ class TestGatewayResponse(unittest.TestCase):
             "GatewayResponse",
             ResponseType="DEFAULT_4XX",
             RestApiId="apiid",
-            StatusCode="200"
+            StatusCode="200",
         )
         gateway_response.validate()
 
@@ -71,9 +64,9 @@ class TestGatewayResponse(unittest.TestCase):
                 "GatewayResponse",
                 ResponseType="INVALID_RESPONSE_TYPE",
                 RestApiId="apiid",
-                StatusCode="200"
+                StatusCode="200",
             )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

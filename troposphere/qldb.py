@@ -7,9 +7,9 @@
 # Resource specification version: 16.1.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
@@ -17,17 +17,17 @@ class Ledger(AWSObject):
     resource_type = "AWS::QLDB::Ledger"
 
     props = {
-        'DeletionProtection': (boolean, False),
-        'Name': (str, False),
-        'PermissionsMode': (str, True),
-        'Tags': (Tags, False),
+        "DeletionProtection": (boolean, False),
+        "Name": (str, False),
+        "PermissionsMode": (str, True),
+        "Tags": (Tags, False),
     }
 
 
 class KinesisConfiguration(AWSProperty):
     props = {
-        'AggregationEnabled': (boolean, False),
-        'StreamArn': (str, False),
+        "AggregationEnabled": (boolean, False),
+        "StreamArn": (str, False),
     }
 
 
@@ -35,11 +35,11 @@ class Stream(AWSObject):
     resource_type = "AWS::QLDB::Stream"
 
     props = {
-        'ExclusiveEndTime': (str, False),
-        'InclusiveStartTime': (str, True),
-        'KinesisConfiguration': (KinesisConfiguration, True),
-        'LedgerName': (str, True),
-        'RoleArn': (str, True),
-        'StreamName': (str, True),
-        'Tags': (Tags, False),
+        "ExclusiveEndTime": (str, False),
+        "InclusiveStartTime": (str, True),
+        "KinesisConfiguration": (KinesisConfiguration, True),
+        "LedgerName": (str, True),
+        "RoleArn": (str, True),
+        "StreamName": (str, True),
+        "Tags": (Tags, False),
     }

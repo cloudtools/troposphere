@@ -1,11 +1,9 @@
 from . import AWSObject, AWSProperty, Tags
-from .validators import (
-    boolean, double, integer_range, json_checker, positive_integer
-)
+from .validators import boolean, double, integer_range, json_checker, positive_integer
 
 
 def validate_authorizer_ttl(ttl_value):
-    """ Validate authorizer ttl timeout
+    """Validate authorizer ttl timeout
     :param ttl_value: The TTL timeout in seconds
     :return: The provided TTL value if valid
     """
@@ -17,26 +15,18 @@ def validate_authorizer_ttl(ttl_value):
 
 class AccessLogSetting(AWSProperty):
 
-    props = {
-        "DestinationArn": (str, False),
-        "Format": (str, False)
-    }
+    props = {"DestinationArn": (str, False), "Format": (str, False)}
 
 
 class Account(AWSObject):
     resource_type = "AWS::ApiGateway::Account"
 
-    props = {
-        "CloudWatchRoleArn": (str, False)
-    }
+    props = {"CloudWatchRoleArn": (str, False)}
 
 
 class StageKey(AWSProperty):
 
-    props = {
-        "RestApiId": (str, False),
-        "StageName": (str, False)
-    }
+    props = {"RestApiId": (str, False), "StageName": (str, False)}
 
 
 class ApiKey(AWSObject):
@@ -50,7 +40,7 @@ class ApiKey(AWSObject):
         "Name": (str, False),
         "StageKeys": ([StageKey], False),
         "Tags": (Tags, False),
-        "Value": (str, False)
+        "Value": (str, False),
     }
 
 
@@ -67,7 +57,7 @@ class Authorizer(AWSObject):
         "Name": (str, True),
         "ProviderARNs": ([str], False),
         "RestApiId": (str, False),
-        "Type": (str, True)
+        "Type": (str, True),
     }
 
 
@@ -78,7 +68,7 @@ class BasePathMapping(AWSObject):
         "BasePath": (str, False),
         "DomainName": (str, True),
         "RestApiId": (str, True),
-        "Stage": (str, False)
+        "Stage": (str, False),
     }
 
 
@@ -134,7 +124,7 @@ class MethodSetting(AWSProperty):
         "MetricsEnabled": (bool, False),
         "ResourcePath": (str, True),
         "ThrottlingBurstLimit": (positive_integer, False),
-        "ThrottlingRateLimit": (positive_integer, False)
+        "ThrottlingRateLimit": (positive_integer, False),
     }
 
 
@@ -162,10 +152,9 @@ class StageDescription(AWSProperty):
     }
 
     def validate(self):
-        if 'StageName' in self.properties:
+        if "StageName" in self.properties:
             raise DeprecationWarning(
-                "The StageName property has been deprecated "
-                "in StageDescription"
+                "The StageName property has been deprecated " "in StageDescription"
             )
 
 
@@ -177,7 +166,7 @@ class Deployment(AWSObject):
         "Description": (str, False),
         "RestApiId": (str, True),
         "StageDescription": (StageDescription, False),
-        "StageName": (str, False)
+        "StageName": (str, False),
     }
 
 
@@ -221,8 +210,8 @@ class EndpointConfiguration(AWSProperty):
 
 class MutualTlsAuthentication(AWSProperty):
     props = {
-        'TruststoreUri': (str, False),
-        'TruststoreVersion': (str, False),
+        "TruststoreUri": (str, False),
+        "TruststoreVersion": (str, False),
     }
 
 
@@ -233,7 +222,7 @@ class DomainName(AWSObject):
         "CertificateArn": (str, False),
         "DomainName": (str, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
-        'MutualTlsAuthentication': (MutualTlsAuthentication, False),
+        "MutualTlsAuthentication": (MutualTlsAuthentication, False),
         "RegionalCertificateArn": (str, False),
         "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
@@ -247,7 +236,7 @@ class IntegrationResponse(AWSProperty):
         "ResponseParameters": (dict, False),
         "ResponseTemplates": (dict, False),
         "SelectionPattern": (str, False),
-        "StatusCode": (str, False)
+        "StatusCode": (str, False),
     }
 
 
@@ -267,7 +256,7 @@ class Integration(AWSProperty):
         "RequestTemplates": (dict, False),
         "TimeoutInMillis": (integer_range(50, 29000), False),
         "Type": (str, True),
-        "Uri": (str, False)
+        "Uri": (str, False),
     }
 
 
@@ -276,7 +265,7 @@ class MethodResponse(AWSProperty):
     props = {
         "ResponseModels": (dict, False),
         "ResponseParameters": (dict, False),
-        "StatusCode": (str, True)
+        "StatusCode": (str, True),
     }
 
 
@@ -296,7 +285,7 @@ class Method(AWSObject):
         "RequestParameters": (dict, False),
         "RequestValidatorId": (str, False),
         "ResourceId": (str, True),
-        "RestApiId": (str, True)
+        "RestApiId": (str, True),
     }
 
 
@@ -308,11 +297,11 @@ class Model(AWSObject):
         "Description": (str, False),
         "Name": (str, False),
         "RestApiId": (str, True),
-        "Schema": ((str, dict), False)
+        "Schema": ((str, dict), False),
     }
 
     def validate(self):
-        name = 'Schema'
+        name = "Schema"
         if name in self.properties:
             schema = self.properties.get(name)
             self.properties[name] = json_checker(schema)
@@ -332,11 +321,7 @@ class RequestValidator(AWSObject):
 class Resource(AWSObject):
     resource_type = "AWS::ApiGateway::Resource"
 
-    props = {
-        "ParentId": (str, True),
-        "PathPart": (str, True),
-        "RestApiId": (str, True)
-    }
+    props = {"ParentId": (str, True), "PathPart": (str, True), "RestApiId": (str, True)}
 
 
 class S3Location(AWSProperty):
@@ -345,7 +330,7 @@ class S3Location(AWSProperty):
         "Bucket": (str, False),
         "ETag": (str, False),
         "Key": (str, False),
-        "Version": (str, False)
+        "Version": (str, False),
     }
 
 
@@ -437,7 +422,7 @@ class UsagePlanKey(AWSObject):
 
 
 def validate_gateway_response_type(response_type):
-    """ Validate response type
+    """Validate response type
     :param response_type: The GatewayResponse response type
     :return: The provided value if valid
     """
@@ -461,12 +446,10 @@ def validate_gateway_response_type(response_type):
         "RESOURCE_NOT_FOUND",
         "THROTTLED",
         "UNAUTHORIZED",
-        "UNSUPPORTED_MEDIA_TYPE"
+        "UNSUPPORTED_MEDIA_TYPE",
     ]
     if response_type not in valid_response_types:
-        raise ValueError(
-            "{} is not a valid ResponseType".format(response_type)
-        )
+        raise ValueError("{} is not a valid ResponseType".format(response_type))
     return response_type
 
 
@@ -478,7 +461,7 @@ class GatewayResponse(AWSObject):
         "ResponseTemplates": (dict, False),
         "ResponseType": (validate_gateway_response_type, True),
         "RestApiId": (str, True),
-        "StatusCode": (str, False)
+        "StatusCode": (str, False),
     }
 
 
@@ -486,7 +469,7 @@ class VpcLink(AWSObject):
     resource_type = "AWS::ApiGateway::VpcLink"
 
     props = {
-        'Description': (str, False),
-        'Name': (str, True),
-        'TargetArns': ([str], True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "TargetArns": ([str], True),
     }

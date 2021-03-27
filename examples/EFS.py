@@ -1,47 +1,54 @@
-from troposphere import FindInMap, Ref, Template, Parameter, Tags
-from troposphere.iam import InstanceProfile, Role
-from troposphere.efs import FileSystem, MountTarget
-from troposphere.ec2 import SecurityGroup, SecurityGroupRule, Instance
-from awacs.aws import Allow, Statement, PolicyDocument, Action
+from awacs.aws import Action, Allow, PolicyDocument, Statement
 
+from troposphere import FindInMap, Parameter, Ref, Tags, Template
+from troposphere.ec2 import Instance, SecurityGroup, SecurityGroupRule
+from troposphere.efs import FileSystem, MountTarget
+from troposphere.iam import InstanceProfile, Role
 
 template = Template()
-template.add_version('2010-09-09')
+template.add_version("2010-09-09")
 
-template.add_mapping('RegionMap', {
-    "us-east-1": {"AMI": "ami-7f418316"},
-    "us-west-1": {"AMI": "ami-951945d0"},
-    "us-west-2": {"AMI": "ami-16fd7026"},
-    "eu-west-1": {"AMI": "ami-24506250"},
-    "sa-east-1": {"AMI": "ami-3e3be423"},
-    "ap-southeast-1": {"AMI": "ami-74dda626"},
-    "ap-northeast-1": {"AMI": "ami-dcfa4edd"}
-})
+template.add_mapping(
+    "RegionMap",
+    {
+        "us-east-1": {"AMI": "ami-7f418316"},
+        "us-west-1": {"AMI": "ami-951945d0"},
+        "us-west-2": {"AMI": "ami-16fd7026"},
+        "eu-west-1": {"AMI": "ami-24506250"},
+        "sa-east-1": {"AMI": "ami-3e3be423"},
+        "ap-southeast-1": {"AMI": "ami-74dda626"},
+        "ap-northeast-1": {"AMI": "ami-dcfa4edd"},
+    },
+)
 
-keyname_param = template.add_parameter(Parameter(
-    "KeyName",
-    Description="Name of an existing EC2 KeyPair to enable SSH "
-                "access to the instance",
-    Type="String",
-))
+keyname_param = template.add_parameter(
+    Parameter(
+        "KeyName",
+        Description="Name of an existing EC2 KeyPair to enable SSH "
+        "access to the instance",
+        Type="String",
+    )
+)
 
-vpcid_param = template.add_parameter(Parameter(
-    "VpcId",
-    Description="VPC ID where the MountTarget and instance should be created",
-    Type="String",
-))
+vpcid_param = template.add_parameter(
+    Parameter(
+        "VpcId",
+        Description="VPC ID where the MountTarget and instance should be created",
+        Type="String",
+    )
+)
 
-subnetid_param = template.add_parameter(Parameter(
-    "SubnetId",
-    Description="Subnet ID where the MountTarget and instance "
-                "should be created",
-    Type="String",
-))
+subnetid_param = template.add_parameter(
+    Parameter(
+        "SubnetId",
+        Description="Subnet ID where the MountTarget and instance " "should be created",
+        Type="String",
+    )
+)
 
 # security group for the host
 efs_host_security_group = SecurityGroup(
-    "EFSHostSecurityGroup",
-    GroupDescription="EC2 Instance Security Group"
+    "EFSHostSecurityGroup", GroupDescription="EC2 Instance Security Group"
 )
 template.add_resource(efs_host_security_group)
 
@@ -49,10 +56,10 @@ template.add_resource(efs_host_security_group)
 # instance(s) from the efs_host_security_group to access the mount target
 # given by this security group.
 efs_security_group_rule = SecurityGroupRule(
-    IpProtocol='tcp',
-    FromPort='2049',
-    ToPort='2049',
-    SourceSecurityGroupId=Ref(efs_host_security_group)
+    IpProtocol="tcp",
+    FromPort="2049",
+    ToPort="2049",
+    SourceSecurityGroupId=Ref(efs_host_security_group),
 )
 
 # Security group that's applied to the Mount Targets.
@@ -60,17 +67,14 @@ efs_security_group = SecurityGroup(
     "SecurityGroup",
     SecurityGroupIngress=[efs_security_group_rule],
     VpcId=Ref(vpcid_param),
-    GroupDescription="Allow NFS over TCP"
+    GroupDescription="Allow NFS over TCP",
 )
 template.add_resource(efs_security_group)
 
 # Create FileSystem. This is the actual filesystem, which has one or more
 # mount targets. Give it some tags so we can identify it later.
-tags = Tags(Name='MyEFSFileSystem')
-efs_file_system = FileSystem(
-    "MyEFSFileSystem",
-    FileSystemTags=tags
-)
+tags = Tags(Name="MyEFSFileSystem")
+efs_file_system = FileSystem("MyEFSFileSystem", FileSystemTags=tags)
 template.add_resource(efs_file_system)
 
 # create MountTarget. You really want a mount target in each subnet where
@@ -80,7 +84,7 @@ efs_mount_target = MountTarget(
     "MyEFSMountTarget",
     FileSystemId=Ref(efs_file_system),
     SecurityGroups=[Ref(efs_security_group)],
-    SubnetId=Ref(subnetid_param)
+    SubnetId=Ref(subnetid_param),
 )
 template.add_resource(efs_mount_target)
 
@@ -94,19 +98,18 @@ efs_host_role = Role(
             Statement(
                 Effect=Allow,
                 Action=[
-                    Action('elasticfilesystem', 'DescribeFileSystems'),
-                    Action('elasticfilesystem', 'DescribeTags')
+                    Action("elasticfilesystem", "DescribeFileSystems"),
+                    Action("elasticfilesystem", "DescribeTags"),
                 ],
-                Resource=["*"]
+                Resource=["*"],
             )
         ]
-    )
+    ),
 )
 template.add_resource(efs_host_role)
 
 efs_host_instance_profile = InstanceProfile(
-    "EFSInstanceProfile",
-    Roles=[Ref(efs_host_role)]
+    "EFSInstanceProfile", Roles=[Ref(efs_host_role)]
 )
 template.add_resource(efs_host_instance_profile)
 
@@ -118,7 +121,7 @@ ec2_instance = Instance(
     KeyName=Ref(keyname_param),
     SecurityGroups=[Ref(efs_host_security_group)],
     IamInstanceProfile=Ref(efs_host_instance_profile),
-    DependsOn=efs_mount_target
+    DependsOn=efs_mount_target,
 )
 template.add_resource(ec2_instance)
 

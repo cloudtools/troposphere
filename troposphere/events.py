@@ -7,22 +7,20 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
-from .validators import boolean
-from .validators import integer
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class ApiDestination(AWSObject):
     resource_type = "AWS::Events::ApiDestination"
 
     props = {
-        'ConnectionArn': (str, True),
-        'Description': (str, False),
-        'HttpMethod': (str, True),
-        'InvocationEndpoint': (str, True),
-        'InvocationRateLimitPerSecond': (integer, False),
-        'Name': (str, False),
+        "ConnectionArn": (str, True),
+        "Description": (str, False),
+        "HttpMethod": (str, True),
+        "InvocationEndpoint": (str, True),
+        "InvocationRateLimitPerSecond": (integer, False),
+        "Name": (str, False),
     }
 
 
@@ -30,11 +28,11 @@ class Archive(AWSObject):
     resource_type = "AWS::Events::Archive"
 
     props = {
-        'ArchiveName': (str, False),
-        'Description': (str, False),
-        'EventPattern': (dict, False),
-        'RetentionDays': (integer, False),
-        'SourceArn': (str, True),
+        "ArchiveName": (str, False),
+        "Description": (str, False),
+        "EventPattern": (dict, False),
+        "RetentionDays": (integer, False),
+        "SourceArn": (str, True),
     }
 
 
@@ -42,10 +40,10 @@ class Connection(AWSObject):
     resource_type = "AWS::Events::Connection"
 
     props = {
-        'AuthParameters': (dict, True),
-        'AuthorizationType': (str, True),
-        'Description': (str, False),
-        'Name': (str, False),
+        "AuthParameters": (dict, True),
+        "AuthorizationType": (str, True),
+        "Description": (str, False),
+        "Name": (str, False),
     }
 
 
@@ -53,16 +51,16 @@ class EventBus(AWSObject):
     resource_type = "AWS::Events::EventBus"
 
     props = {
-        'EventSourceName': (str, False),
-        'Name': (str, True),
+        "EventSourceName": (str, False),
+        "Name": (str, True),
     }
 
 
 class Condition(AWSProperty):
     props = {
-        'Key': (str, False),
-        'Type': (str, False),
-        'Value': (str, False),
+        "Key": (str, False),
+        "Type": (str, False),
+        "Value": (str, False),
     }
 
 
@@ -70,142 +68,142 @@ class EventBusPolicy(AWSObject):
     resource_type = "AWS::Events::EventBusPolicy"
 
     props = {
-        'Action': (str, False),
-        'Condition': (Condition, False),
-        'EventBusName': (str, False),
-        'Principal': (str, False),
-        'Statement': (dict, False),
-        'StatementId': (str, True),
+        "Action": (str, False),
+        "Condition": (Condition, False),
+        "EventBusName": (str, False),
+        "Principal": (str, False),
+        "Statement": (dict, False),
+        "StatementId": (str, True),
     }
 
 
 class BatchArrayProperties(AWSProperty):
     props = {
-        'Size': (integer, False),
+        "Size": (integer, False),
     }
 
 
 class BatchRetryStrategy(AWSProperty):
     props = {
-        'Attempts': (integer, False),
+        "Attempts": (integer, False),
     }
 
 
 class BatchParameters(AWSProperty):
     props = {
-        'ArrayProperties': (BatchArrayProperties, False),
-        'JobDefinition': (str, True),
-        'JobName': (str, True),
-        'RetryStrategy': (BatchRetryStrategy, False),
+        "ArrayProperties": (BatchArrayProperties, False),
+        "JobDefinition": (str, True),
+        "JobName": (str, True),
+        "RetryStrategy": (BatchRetryStrategy, False),
     }
 
 
 class DeadLetterConfig(AWSProperty):
     props = {
-        'Arn': (str, False),
+        "Arn": (str, False),
     }
 
 
 class AwsVpcConfiguration(AWSProperty):
     props = {
-        'AssignPublicIp': (str, False),
-        'SecurityGroups': ([str], False),
-        'Subnets': ([str], True),
+        "AssignPublicIp": (str, False),
+        "SecurityGroups": ([str], False),
+        "Subnets": ([str], True),
     }
 
 
 class NetworkConfiguration(AWSProperty):
     props = {
-        'AwsVpcConfiguration': (AwsVpcConfiguration, False),
+        "AwsVpcConfiguration": (AwsVpcConfiguration, False),
     }
 
 
 class EcsParameters(AWSProperty):
     props = {
-        'Group': (str, False),
-        'LaunchType': (str, False),
-        'NetworkConfiguration': (NetworkConfiguration, False),
-        'PlatformVersion': (str, False),
-        'TaskCount': (integer, False),
-        'TaskDefinitionArn': (str, True),
+        "Group": (str, False),
+        "LaunchType": (str, False),
+        "NetworkConfiguration": (NetworkConfiguration, False),
+        "PlatformVersion": (str, False),
+        "TaskCount": (integer, False),
+        "TaskDefinitionArn": (str, True),
     }
 
 
 class HttpParameters(AWSProperty):
     props = {
-        'HeaderParameters': (dict, False),
-        'PathParameterValues': ([str], False),
-        'QueryStringParameters': (dict, False),
+        "HeaderParameters": (dict, False),
+        "PathParameterValues": ([str], False),
+        "QueryStringParameters": (dict, False),
     }
 
 
 class InputTransformer(AWSProperty):
     props = {
-        'InputPathsMap': (dict, False),
-        'InputTemplate': (str, True),
+        "InputPathsMap": (dict, False),
+        "InputTemplate": (str, True),
     }
 
 
 class KinesisParameters(AWSProperty):
     props = {
-        'PartitionKeyPath': (str, True),
+        "PartitionKeyPath": (str, True),
     }
 
 
 class RedshiftDataParameters(AWSProperty):
     props = {
-        'Database': (str, True),
-        'DbUser': (str, False),
-        'SecretManagerArn': (str, False),
-        'Sql': (str, True),
-        'StatementName': (str, False),
-        'WithEvent': (boolean, False),
+        "Database": (str, True),
+        "DbUser": (str, False),
+        "SecretManagerArn": (str, False),
+        "Sql": (str, True),
+        "StatementName": (str, False),
+        "WithEvent": (boolean, False),
     }
 
 
 class RetryPolicy(AWSProperty):
     props = {
-        'MaximumEventAgeInSeconds': (integer, False),
-        'MaximumRetryAttempts': (integer, False),
+        "MaximumEventAgeInSeconds": (integer, False),
+        "MaximumRetryAttempts": (integer, False),
     }
 
 
 class RunCommandTarget(AWSProperty):
     props = {
-        'Key': (str, True),
-        'Values': ([str], True),
+        "Key": (str, True),
+        "Values": ([str], True),
     }
 
 
 class RunCommandParameters(AWSProperty):
     props = {
-        'RunCommandTargets': ([RunCommandTarget], True),
+        "RunCommandTargets": ([RunCommandTarget], True),
     }
 
 
 class SqsParameters(AWSProperty):
     props = {
-        'MessageGroupId': (str, True),
+        "MessageGroupId": (str, True),
     }
 
 
 class Target(AWSProperty):
     props = {
-        'Arn': (str, True),
-        'BatchParameters': (BatchParameters, False),
-        'DeadLetterConfig': (DeadLetterConfig, False),
-        'EcsParameters': (EcsParameters, False),
-        'HttpParameters': (HttpParameters, False),
-        'Id': (str, True),
-        'Input': (str, False),
-        'InputPath': (str, False),
-        'InputTransformer': (InputTransformer, False),
-        'KinesisParameters': (KinesisParameters, False),
-        'RedshiftDataParameters': (RedshiftDataParameters, False),
-        'RetryPolicy': (RetryPolicy, False),
-        'RoleArn': (str, False),
-        'RunCommandParameters': (RunCommandParameters, False),
-        'SqsParameters': (SqsParameters, False),
+        "Arn": (str, True),
+        "BatchParameters": (BatchParameters, False),
+        "DeadLetterConfig": (DeadLetterConfig, False),
+        "EcsParameters": (EcsParameters, False),
+        "HttpParameters": (HttpParameters, False),
+        "Id": (str, True),
+        "Input": (str, False),
+        "InputPath": (str, False),
+        "InputTransformer": (InputTransformer, False),
+        "KinesisParameters": (KinesisParameters, False),
+        "RedshiftDataParameters": (RedshiftDataParameters, False),
+        "RetryPolicy": (RetryPolicy, False),
+        "RoleArn": (str, False),
+        "RunCommandParameters": (RunCommandParameters, False),
+        "SqsParameters": (SqsParameters, False),
     }
 
 
@@ -213,12 +211,12 @@ class Rule(AWSObject):
     resource_type = "AWS::Events::Rule"
 
     props = {
-        'Description': (str, False),
-        'EventBusName': (str, False),
-        'EventPattern': (dict, False),
-        'Name': (str, False),
-        'RoleArn': (str, False),
-        'ScheduleExpression': (str, False),
-        'State': (str, False),
-        'Targets': ([Target], False),
+        "Description": (str, False),
+        "EventBusName": (str, False),
+        "EventPattern": (dict, False),
+        "Name": (str, False),
+        "RoleArn": (str, False),
+        "ScheduleExpression": (str, False),
+        "State": (str, False),
+        "Targets": ([Target], False),
     }

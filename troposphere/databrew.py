@@ -7,52 +7,51 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class Dataset(AWSObject):
     resource_type = "AWS::DataBrew::Dataset"
 
     props = {
-        'Format': (str, False),
-        'FormatOptions': (dict, False),
-        'Input': (dict, True),
-        'Name': (str, True),
-        'Tags': (Tags, False),
+        "Format": (str, False),
+        "FormatOptions": (dict, False),
+        "Input": (dict, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 
 class CsvOutputOptions(AWSProperty):
     props = {
-        'Delimiter': (str, False),
+        "Delimiter": (str, False),
     }
 
 
 class OutputFormatOptions(AWSProperty):
     props = {
-        'Csv': (CsvOutputOptions, False),
+        "Csv": (CsvOutputOptions, False),
     }
 
 
 class S3Location(AWSProperty):
     props = {
-        'Bucket': (str, True),
-        'Key': (str, False),
+        "Bucket": (str, True),
+        "Key": (str, False),
     }
 
 
 class Output(AWSProperty):
     props = {
-        'CompressionFormat': (str, False),
-        'Format': (str, False),
-        'FormatOptions': (OutputFormatOptions, False),
-        'Location': (S3Location, True),
-        'Overwrite': (boolean, False),
-        'PartitionColumns': ([str], False),
+        "CompressionFormat": (str, False),
+        "Format": (str, False),
+        "FormatOptions": (OutputFormatOptions, False),
+        "Location": (S3Location, True),
+        "Overwrite": (boolean, False),
+        "PartitionColumns": ([str], False),
     }
 
 
@@ -60,22 +59,22 @@ class Job(AWSObject):
     resource_type = "AWS::DataBrew::Job"
 
     props = {
-        'DatasetName': (str, False),
-        'EncryptionKeyArn': (str, False),
-        'EncryptionMode': (str, False),
-        'JobSample': (dict, False),
-        'LogSubscription': (str, False),
-        'MaxCapacity': (integer, False),
-        'MaxRetries': (integer, False),
-        'Name': (str, True),
-        'OutputLocation': (dict, False),
-        'Outputs': ([Output], False),
-        'ProjectName': (str, False),
-        'Recipe': (dict, False),
-        'RoleArn': (str, True),
-        'Tags': (Tags, False),
-        'Timeout': (integer, False),
-        'Type': (str, True),
+        "DatasetName": (str, False),
+        "EncryptionKeyArn": (str, False),
+        "EncryptionMode": (str, False),
+        "JobSample": (dict, False),
+        "LogSubscription": (str, False),
+        "MaxCapacity": (integer, False),
+        "MaxRetries": (integer, False),
+        "Name": (str, True),
+        "OutputLocation": (dict, False),
+        "Outputs": ([Output], False),
+        "ProjectName": (str, False),
+        "Recipe": (dict, False),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+        "Timeout": (integer, False),
+        "Type": (str, True),
     }
 
 
@@ -83,156 +82,156 @@ class Project(AWSObject):
     resource_type = "AWS::DataBrew::Project"
 
     props = {
-        'DatasetName': (str, True),
-        'Name': (str, True),
-        'RecipeName': (str, True),
-        'RoleArn': (str, True),
-        'Sample': (dict, False),
-        'Tags': (Tags, False),
+        "DatasetName": (str, True),
+        "Name": (str, True),
+        "RecipeName": (str, True),
+        "RoleArn": (str, True),
+        "Sample": (dict, False),
+        "Tags": (Tags, False),
     }
 
 
 class DataCatalogInputDefinition(AWSProperty):
     props = {
-        'CatalogId': (str, False),
-        'DatabaseName': (str, False),
-        'TableName': (str, False),
-        'TempDirectory': (S3Location, False),
+        "CatalogId": (str, False),
+        "DatabaseName": (str, False),
+        "TableName": (str, False),
+        "TempDirectory": (S3Location, False),
     }
 
 
 class SecondaryInput(AWSProperty):
     props = {
-        'DataCatalogInputDefinition': (DataCatalogInputDefinition, False),
-        'S3InputDefinition': (S3Location, False),
+        "DataCatalogInputDefinition": (DataCatalogInputDefinition, False),
+        "S3InputDefinition": (S3Location, False),
     }
 
 
 class RecipeParameters(AWSProperty):
     props = {
-        'AggregateFunction': (str, False),
-        'Base': (str, False),
-        'CaseStatement': (str, False),
-        'CategoryMap': (str, False),
-        'CharsToRemove': (str, False),
-        'CollapseConsecutiveWhitespace': (str, False),
-        'ColumnDataType': (str, False),
-        'ColumnRange': (str, False),
-        'Count': (str, False),
-        'CustomCharacters': (str, False),
-        'CustomStopWords': (str, False),
-        'CustomValue': (str, False),
-        'DatasetsColumns': (str, False),
-        'DateAddValue': (str, False),
-        'DateTimeFormat': (str, False),
-        'DateTimeParameters': (str, False),
-        'DeleteOtherRows': (str, False),
-        'Delimiter': (str, False),
-        'EndPattern': (str, False),
-        'EndPosition': (str, False),
-        'EndValue': (str, False),
-        'ExpandContractions': (str, False),
-        'Exponent': (str, False),
-        'FalseString': (str, False),
-        'GroupByAggFunctionOptions': (str, False),
-        'GroupByColumns': (str, False),
-        'HiddenColumns': (str, False),
-        'IgnoreCase': (str, False),
-        'IncludeInSplit': (str, False),
-        'Input': (dict, False),
-        'Interval': (str, False),
-        'IsText': (str, False),
-        'JoinKeys': (str, False),
-        'JoinType': (str, False),
-        'LeftColumns': (str, False),
-        'Limit': (str, False),
-        'LowerBound': (str, False),
-        'MapType': (str, False),
-        'ModeType': (str, False),
-        'MultiLine': (boolean, False),
-        'NumRows': (str, False),
-        'NumRowsAfter': (str, False),
-        'NumRowsBefore': (str, False),
-        'OrderByColumn': (str, False),
-        'OrderByColumns': (str, False),
-        'Other': (str, False),
-        'Pattern': (str, False),
-        'PatternOption1': (str, False),
-        'PatternOption2': (str, False),
-        'PatternOptions': (str, False),
-        'Period': (str, False),
-        'Position': (str, False),
-        'RemoveAllPunctuation': (str, False),
-        'RemoveAllQuotes': (str, False),
-        'RemoveAllWhitespace': (str, False),
-        'RemoveCustomCharacters': (str, False),
-        'RemoveCustomValue': (str, False),
-        'RemoveLeadingAndTrailingPunctuation': (str, False),
-        'RemoveLeadingAndTrailingQuotes': (str, False),
-        'RemoveLeadingAndTrailingWhitespace': (str, False),
-        'RemoveLetters': (str, False),
-        'RemoveNumbers': (str, False),
-        'RemoveSourceColumn': (str, False),
-        'RemoveSpecialCharacters': (str, False),
-        'RightColumns': (str, False),
-        'SampleSize': (str, False),
-        'SampleType': (str, False),
-        'SecondInput': (str, False),
-        'SecondaryInputs': ([SecondaryInput], False),
-        'SheetIndexes': ([integer], False),
-        'SheetNames': ([str], False),
-        'SourceColumn': (str, False),
-        'SourceColumn1': (str, False),
-        'SourceColumn2': (str, False),
-        'SourceColumns': (str, False),
-        'StartColumnIndex': (str, False),
-        'StartPattern': (str, False),
-        'StartPosition': (str, False),
-        'StartValue': (str, False),
-        'StemmingMode': (str, False),
-        'StepCount': (str, False),
-        'StepIndex': (str, False),
-        'StopWordsMode': (str, False),
-        'Strategy': (str, False),
-        'TargetColumn': (str, False),
-        'TargetColumnNames': (str, False),
-        'TargetDateFormat': (str, False),
-        'TargetIndex': (str, False),
-        'TimeZone': (str, False),
-        'TokenizerPattern': (str, False),
-        'TrueString': (str, False),
-        'UdfLang': (str, False),
-        'Units': (str, False),
-        'UnpivotColumn': (str, False),
-        'UpperBound': (str, False),
-        'UseNewDataFrame': (str, False),
-        'Value': (str, False),
-        'Value1': (str, False),
-        'Value2': (str, False),
-        'ValueColumn': (str, False),
-        'ViewFrame': (str, False),
+        "AggregateFunction": (str, False),
+        "Base": (str, False),
+        "CaseStatement": (str, False),
+        "CategoryMap": (str, False),
+        "CharsToRemove": (str, False),
+        "CollapseConsecutiveWhitespace": (str, False),
+        "ColumnDataType": (str, False),
+        "ColumnRange": (str, False),
+        "Count": (str, False),
+        "CustomCharacters": (str, False),
+        "CustomStopWords": (str, False),
+        "CustomValue": (str, False),
+        "DatasetsColumns": (str, False),
+        "DateAddValue": (str, False),
+        "DateTimeFormat": (str, False),
+        "DateTimeParameters": (str, False),
+        "DeleteOtherRows": (str, False),
+        "Delimiter": (str, False),
+        "EndPattern": (str, False),
+        "EndPosition": (str, False),
+        "EndValue": (str, False),
+        "ExpandContractions": (str, False),
+        "Exponent": (str, False),
+        "FalseString": (str, False),
+        "GroupByAggFunctionOptions": (str, False),
+        "GroupByColumns": (str, False),
+        "HiddenColumns": (str, False),
+        "IgnoreCase": (str, False),
+        "IncludeInSplit": (str, False),
+        "Input": (dict, False),
+        "Interval": (str, False),
+        "IsText": (str, False),
+        "JoinKeys": (str, False),
+        "JoinType": (str, False),
+        "LeftColumns": (str, False),
+        "Limit": (str, False),
+        "LowerBound": (str, False),
+        "MapType": (str, False),
+        "ModeType": (str, False),
+        "MultiLine": (boolean, False),
+        "NumRows": (str, False),
+        "NumRowsAfter": (str, False),
+        "NumRowsBefore": (str, False),
+        "OrderByColumn": (str, False),
+        "OrderByColumns": (str, False),
+        "Other": (str, False),
+        "Pattern": (str, False),
+        "PatternOption1": (str, False),
+        "PatternOption2": (str, False),
+        "PatternOptions": (str, False),
+        "Period": (str, False),
+        "Position": (str, False),
+        "RemoveAllPunctuation": (str, False),
+        "RemoveAllQuotes": (str, False),
+        "RemoveAllWhitespace": (str, False),
+        "RemoveCustomCharacters": (str, False),
+        "RemoveCustomValue": (str, False),
+        "RemoveLeadingAndTrailingPunctuation": (str, False),
+        "RemoveLeadingAndTrailingQuotes": (str, False),
+        "RemoveLeadingAndTrailingWhitespace": (str, False),
+        "RemoveLetters": (str, False),
+        "RemoveNumbers": (str, False),
+        "RemoveSourceColumn": (str, False),
+        "RemoveSpecialCharacters": (str, False),
+        "RightColumns": (str, False),
+        "SampleSize": (str, False),
+        "SampleType": (str, False),
+        "SecondInput": (str, False),
+        "SecondaryInputs": ([SecondaryInput], False),
+        "SheetIndexes": ([integer], False),
+        "SheetNames": ([str], False),
+        "SourceColumn": (str, False),
+        "SourceColumn1": (str, False),
+        "SourceColumn2": (str, False),
+        "SourceColumns": (str, False),
+        "StartColumnIndex": (str, False),
+        "StartPattern": (str, False),
+        "StartPosition": (str, False),
+        "StartValue": (str, False),
+        "StemmingMode": (str, False),
+        "StepCount": (str, False),
+        "StepIndex": (str, False),
+        "StopWordsMode": (str, False),
+        "Strategy": (str, False),
+        "TargetColumn": (str, False),
+        "TargetColumnNames": (str, False),
+        "TargetDateFormat": (str, False),
+        "TargetIndex": (str, False),
+        "TimeZone": (str, False),
+        "TokenizerPattern": (str, False),
+        "TrueString": (str, False),
+        "UdfLang": (str, False),
+        "Units": (str, False),
+        "UnpivotColumn": (str, False),
+        "UpperBound": (str, False),
+        "UseNewDataFrame": (str, False),
+        "Value": (str, False),
+        "Value1": (str, False),
+        "Value2": (str, False),
+        "ValueColumn": (str, False),
+        "ViewFrame": (str, False),
     }
 
 
 class Action(AWSProperty):
     props = {
-        'Operation': (str, True),
-        'Parameters': (RecipeParameters, False),
+        "Operation": (str, True),
+        "Parameters": (RecipeParameters, False),
     }
 
 
 class ConditionExpression(AWSProperty):
     props = {
-        'Condition': (str, True),
-        'TargetColumn': (str, True),
-        'Value': (str, False),
+        "Condition": (str, True),
+        "TargetColumn": (str, True),
+        "Value": (str, False),
     }
 
 
 class RecipeStep(AWSProperty):
     props = {
-        'Action': (Action, True),
-        'ConditionExpressions': ([ConditionExpression], False),
+        "Action": (Action, True),
+        "ConditionExpressions": ([ConditionExpression], False),
     }
 
 
@@ -240,10 +239,10 @@ class Recipe(AWSObject):
     resource_type = "AWS::DataBrew::Recipe"
 
     props = {
-        'Description': (str, False),
-        'Name': (str, True),
-        'Steps': ([RecipeStep], True),
-        'Tags': (Tags, False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Steps": ([RecipeStep], True),
+        "Tags": (Tags, False),
     }
 
 
@@ -251,8 +250,8 @@ class Schedule(AWSObject):
     resource_type = "AWS::DataBrew::Schedule"
 
     props = {
-        'CronExpression': (str, True),
-        'JobNames': ([str], False),
-        'Name': (str, True),
-        'Tags': (Tags, False),
+        "CronExpression": (str, True),
+        "JobNames": ([str], False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }

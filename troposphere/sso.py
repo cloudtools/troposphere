@@ -7,40 +7,40 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 
 
 class Assignment(AWSObject):
     resource_type = "AWS::SSO::Assignment"
 
     props = {
-        'InstanceArn': (str, True),
-        'PermissionSetArn': (str, True),
-        'PrincipalId': (str, True),
-        'PrincipalType': (str, True),
-        'TargetId': (str, True),
-        'TargetType': (str, True),
+        "InstanceArn": (str, True),
+        "PermissionSetArn": (str, True),
+        "PrincipalId": (str, True),
+        "PrincipalType": (str, True),
+        "TargetId": (str, True),
+        "TargetType": (str, True),
     }
 
 
 class AccessControlAttributeValueSourceList(AWSProperty):
     props = {
-        'AccessControlAttributeValueSourceList': ([str], False),
+        "AccessControlAttributeValueSourceList": ([str], False),
     }
 
 
 class AccessControlAttributeValue(AWSProperty):
     props = {
-        'Source': (AccessControlAttributeValueSourceList, True),
+        "Source": (AccessControlAttributeValueSourceList, True),
     }
 
 
 class AccessControlAttribute(AWSProperty):
     props = {
-        'Key': (str, True),
-        'Value': (AccessControlAttributeValue, True),
+        "Key": (str, True),
+        "Value": (AccessControlAttributeValue, True),
     }
 
 
@@ -48,8 +48,8 @@ class InstanceAccessControlAttributeConfiguration(AWSObject):
     resource_type = "AWS::SSO::InstanceAccessControlAttributeConfiguration"
 
     props = {
-        'AccessControlAttributes': ([AccessControlAttribute], False),
-        'InstanceArn': (str, True),
+        "AccessControlAttributes": ([AccessControlAttribute], False),
+        "InstanceArn": (str, True),
     }
 
 
@@ -57,12 +57,12 @@ class PermissionSet(AWSObject):
     resource_type = "AWS::SSO::PermissionSet"
 
     props = {
-        'Description': (str, False),
-        'InlinePolicy': (dict, False),
-        'InstanceArn': (str, True),
-        'ManagedPolicies': ([str], False),
-        'Name': (str, True),
-        'RelayStateType': (str, False),
-        'SessionDuration': (str, False),
-        'Tags': (Tags, False),
+        "Description": (str, False),
+        "InlinePolicy": (dict, False),
+        "InstanceArn": (str, True),
+        "ManagedPolicies": ([str], False),
+        "Name": (str, True),
+        "RelayStateType": (str, False),
+        "SessionDuration": (str, False),
+        "Tags": (Tags, False),
     }

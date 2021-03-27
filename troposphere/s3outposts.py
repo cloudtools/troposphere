@@ -7,15 +7,15 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 from .validators import integer
 
 
 class VpcConfiguration(AWSProperty):
     props = {
-        'VpcId': (str, False),
+        "VpcId": (str, False),
     }
 
 
@@ -23,34 +23,33 @@ class AccessPoint(AWSObject):
     resource_type = "AWS::S3Outposts::AccessPoint"
 
     props = {
-        'Bucket': (str, True),
-        'Name': (str, True),
-        'Policy': (dict, False),
-        'VpcConfiguration': (VpcConfiguration, True),
+        "Bucket": (str, True),
+        "Name": (str, True),
+        "Policy": (dict, False),
+        "VpcConfiguration": (VpcConfiguration, True),
     }
 
 
 class AbortIncompleteMultipartUpload(AWSProperty):
     props = {
-        'DaysAfterInitiation': (integer, True),
+        "DaysAfterInitiation": (integer, True),
     }
 
 
 class Rule(AWSProperty):
     props = {
-        'AbortIncompleteMultipartUpload':
-            (AbortIncompleteMultipartUpload, False),
-        'ExpirationDate': (str, False),
-        'ExpirationInDays': (integer, False),
-        'Filter': (dict, False),
-        'Id': (str, False),
-        'Status': (str, False),
+        "AbortIncompleteMultipartUpload": (AbortIncompleteMultipartUpload, False),
+        "ExpirationDate": (str, False),
+        "ExpirationInDays": (integer, False),
+        "Filter": (dict, False),
+        "Id": (str, False),
+        "Status": (str, False),
     }
 
 
 class LifecycleConfiguration(AWSProperty):
     props = {
-        'Rules': ([Rule], True),
+        "Rules": ([Rule], True),
     }
 
 
@@ -58,10 +57,10 @@ class Bucket(AWSObject):
     resource_type = "AWS::S3Outposts::Bucket"
 
     props = {
-        'BucketName': (str, True),
-        'LifecycleConfiguration': (LifecycleConfiguration, False),
-        'OutpostId': (str, True),
-        'Tags': (Tags, False),
+        "BucketName": (str, True),
+        "LifecycleConfiguration": (LifecycleConfiguration, False),
+        "OutpostId": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -69,8 +68,8 @@ class BucketPolicy(AWSObject):
     resource_type = "AWS::S3Outposts::BucketPolicy"
 
     props = {
-        'Bucket': (str, True),
-        'PolicyDocument': (dict, True),
+        "Bucket": (str, True),
+        "PolicyDocument": (dict, True),
     }
 
 
@@ -78,7 +77,7 @@ class Endpoint(AWSObject):
     resource_type = "AWS::S3Outposts::Endpoint"
 
     props = {
-        'OutpostId': (str, True),
-        'SecurityGroupId': (str, True),
-        'SubnetId': (str, True),
+        "OutpostId": (str, True),
+        "SecurityGroupId": (str, True),
+        "SubnetId": (str, True),
     }

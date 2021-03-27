@@ -7,17 +7,18 @@
 # Resource specification version: 31.2.0
 
 
-from . import AWSObject
 from troposphere import Tags
+
+from . import AWSObject
 
 
 class EventIntegration(AWSObject):
     resource_type = "AWS::AppIntegrations::EventIntegration"
 
     props = {
-        'Description': (str, False),
-        'EventBridgeBus': (str, True),
-        'EventFilter': (dict, True),
-        'Name': (str, True),
-        'Tags': (Tags, False),
+        "Description": (str, False),
+        "EventBridgeBus": (str, True),
+        "EventFilter": (dict, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }

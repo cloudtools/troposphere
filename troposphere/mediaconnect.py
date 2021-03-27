@@ -7,47 +7,46 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
+from . import AWSObject, AWSProperty
 from .validators import integer
 
 
 class FailoverConfig(AWSProperty):
     props = {
-        'RecoveryWindow': (integer, False),
-        'State': (str, False),
+        "RecoveryWindow": (integer, False),
+        "State": (str, False),
     }
 
 
 class Encryption(AWSProperty):
     props = {
-        'Algorithm': (str, True),
-        'ConstantInitializationVector': (str, False),
-        'DeviceId': (str, False),
-        'KeyType': (str, False),
-        'Region': (str, False),
-        'ResourceId': (str, False),
-        'RoleArn': (str, True),
-        'SecretArn': (str, False),
-        'Url': (str, False),
+        "Algorithm": (str, True),
+        "ConstantInitializationVector": (str, False),
+        "DeviceId": (str, False),
+        "KeyType": (str, False),
+        "Region": (str, False),
+        "ResourceId": (str, False),
+        "RoleArn": (str, True),
+        "SecretArn": (str, False),
+        "Url": (str, False),
     }
 
 
 class Source(AWSProperty):
     props = {
-        'Decryption': (Encryption, False),
-        'Description': (str, False),
-        'EntitlementArn': (str, False),
-        'IngestIp': (str, False),
-        'IngestPort': (integer, False),
-        'MaxBitrate': (integer, False),
-        'MaxLatency': (integer, False),
-        'Name': (str, False),
-        'Protocol': (str, False),
-        'SourceArn': (str, False),
-        'StreamId': (str, False),
-        'VpcInterfaceName': (str, False),
-        'WhitelistCidr': (str, False),
+        "Decryption": (Encryption, False),
+        "Description": (str, False),
+        "EntitlementArn": (str, False),
+        "IngestIp": (str, False),
+        "IngestPort": (integer, False),
+        "MaxBitrate": (integer, False),
+        "MaxLatency": (integer, False),
+        "Name": (str, False),
+        "Protocol": (str, False),
+        "SourceArn": (str, False),
+        "StreamId": (str, False),
+        "VpcInterfaceName": (str, False),
+        "WhitelistCidr": (str, False),
     }
 
 
@@ -55,10 +54,10 @@ class Flow(AWSObject):
     resource_type = "AWS::MediaConnect::Flow"
 
     props = {
-        'AvailabilityZone': (str, False),
-        'Name': (str, True),
-        'Source': (Source, True),
-        'SourceFailoverConfig': (FailoverConfig, False),
+        "AvailabilityZone": (str, False),
+        "Name": (str, True),
+        "Source": (Source, True),
+        "SourceFailoverConfig": (FailoverConfig, False),
     }
 
 
@@ -66,19 +65,19 @@ class FlowEntitlement(AWSObject):
     resource_type = "AWS::MediaConnect::FlowEntitlement"
 
     props = {
-        'DataTransferSubscriberFeePercent': (integer, False),
-        'Description': (str, True),
-        'Encryption': (Encryption, False),
-        'EntitlementStatus': (str, False),
-        'FlowArn': (str, True),
-        'Name': (str, True),
-        'Subscribers': ([str], True),
+        "DataTransferSubscriberFeePercent": (integer, False),
+        "Description": (str, True),
+        "Encryption": (Encryption, False),
+        "EntitlementStatus": (str, False),
+        "FlowArn": (str, True),
+        "Name": (str, True),
+        "Subscribers": ([str], True),
     }
 
 
 class VpcInterfaceAttachment(AWSProperty):
     props = {
-        'VpcInterfaceName': (str, False),
+        "VpcInterfaceName": (str, False),
     }
 
 
@@ -86,19 +85,19 @@ class FlowOutput(AWSObject):
     resource_type = "AWS::MediaConnect::FlowOutput"
 
     props = {
-        'CidrAllowList': ([str], False),
-        'Description': (str, False),
-        'Destination': (str, False),
-        'Encryption': (Encryption, False),
-        'FlowArn': (str, True),
-        'MaxLatency': (integer, False),
-        'Name': (str, False),
-        'Port': (integer, False),
-        'Protocol': (str, True),
-        'RemoteId': (str, False),
-        'SmoothingLatency': (integer, False),
-        'StreamId': (str, False),
-        'VpcInterfaceAttachment': (VpcInterfaceAttachment, False),
+        "CidrAllowList": ([str], False),
+        "Description": (str, False),
+        "Destination": (str, False),
+        "Encryption": (Encryption, False),
+        "FlowArn": (str, True),
+        "MaxLatency": (integer, False),
+        "Name": (str, False),
+        "Port": (integer, False),
+        "Protocol": (str, True),
+        "RemoteId": (str, False),
+        "SmoothingLatency": (integer, False),
+        "StreamId": (str, False),
+        "VpcInterfaceAttachment": (VpcInterfaceAttachment, False),
     }
 
 
@@ -106,18 +105,18 @@ class FlowSource(AWSObject):
     resource_type = "AWS::MediaConnect::FlowSource"
 
     props = {
-        'Decryption': (Encryption, False),
-        'Description': (str, True),
-        'EntitlementArn': (str, False),
-        'FlowArn': (str, False),
-        'IngestPort': (integer, False),
-        'MaxBitrate': (integer, False),
-        'MaxLatency': (integer, False),
-        'Name': (str, True),
-        'Protocol': (str, False),
-        'StreamId': (str, False),
-        'VpcInterfaceName': (str, False),
-        'WhitelistCidr': (str, False),
+        "Decryption": (Encryption, False),
+        "Description": (str, True),
+        "EntitlementArn": (str, False),
+        "FlowArn": (str, False),
+        "IngestPort": (integer, False),
+        "MaxBitrate": (integer, False),
+        "MaxLatency": (integer, False),
+        "Name": (str, True),
+        "Protocol": (str, False),
+        "StreamId": (str, False),
+        "VpcInterfaceName": (str, False),
+        "WhitelistCidr": (str, False),
     }
 
 
@@ -125,9 +124,9 @@ class FlowVpcInterface(AWSObject):
     resource_type = "AWS::MediaConnect::FlowVpcInterface"
 
     props = {
-        'FlowArn': (str, True),
-        'Name': (str, True),
-        'RoleArn': (str, True),
-        'SecurityGroupIds': ([str], True),
-        'SubnetId': (str, True),
+        "FlowArn": (str, True),
+        "Name": (str, True),
+        "RoleArn": (str, True),
+        "SecurityGroupIds": ([str], True),
+        "SubnetId": (str, True),
     }

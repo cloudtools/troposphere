@@ -7,152 +7,150 @@
 # Resource specification version: 31.2.0
 
 
-from . import AWSObject
-from . import AWSProperty
-from .validators import boolean
-from .validators import integer
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class Alert(AWSObject):
     resource_type = "AWS::LookoutMetrics::Alert"
 
     props = {
-        'Action': (dict, True),
-        'AlertDescription': (str, False),
-        'AlertName': (str, False),
-        'AlertSensitivityThreshold': (integer, True),
-        'AnomalyDetectorArn': (str, True),
+        "Action": (dict, True),
+        "AlertDescription": (str, False),
+        "AlertName": (str, False),
+        "AlertSensitivityThreshold": (integer, True),
+        "AnomalyDetectorArn": (str, True),
     }
 
 
 class Metric(AWSProperty):
     props = {
-        'AggregationFunction': (str, True),
-        'MetricName': (str, True),
-        'Namespace': (str, False),
+        "AggregationFunction": (str, True),
+        "MetricName": (str, True),
+        "Namespace": (str, False),
     }
 
 
 class AppFlowConfig(AWSProperty):
     props = {
-        'FlowName': (str, True),
-        'RoleArn': (str, True),
+        "FlowName": (str, True),
+        "RoleArn": (str, True),
     }
 
 
 class CloudwatchConfig(AWSProperty):
     props = {
-        'RoleArn': (str, True),
+        "RoleArn": (str, True),
     }
 
 
 class SecurityGroupIdList(AWSProperty):
     props = {
-        'SecurityGroupIdList': ([str], False),
+        "SecurityGroupIdList": ([str], False),
     }
 
 
 class SubnetIdList(AWSProperty):
     props = {
-        'SubnetIdList': ([str], False),
+        "SubnetIdList": ([str], False),
     }
 
 
 class VpcConfiguration(AWSProperty):
     props = {
-        'SecurityGroupIdList': (SecurityGroupIdList, True),
-        'SubnetIdList': (SubnetIdList, True),
+        "SecurityGroupIdList": (SecurityGroupIdList, True),
+        "SubnetIdList": (SubnetIdList, True),
     }
 
 
 class RDSSourceConfig(AWSProperty):
     props = {
-        'DBInstanceIdentifier': (str, True),
-        'DatabaseHost': (str, True),
-        'DatabaseName': (str, True),
-        'DatabasePort': (integer, True),
-        'RoleArn': (str, True),
-        'SecretManagerArn': (str, True),
-        'TableName': (str, True),
-        'VpcConfiguration': (VpcConfiguration, True),
+        "DBInstanceIdentifier": (str, True),
+        "DatabaseHost": (str, True),
+        "DatabaseName": (str, True),
+        "DatabasePort": (integer, True),
+        "RoleArn": (str, True),
+        "SecretManagerArn": (str, True),
+        "TableName": (str, True),
+        "VpcConfiguration": (VpcConfiguration, True),
     }
 
 
 class RedshiftSourceConfig(AWSProperty):
     props = {
-        'ClusterIdentifier': (str, True),
-        'DatabaseHost': (str, True),
-        'DatabaseName': (str, True),
-        'DatabasePort': (integer, True),
-        'RoleArn': (str, True),
-        'SecretManagerArn': (str, True),
-        'TableName': (str, True),
-        'VpcConfiguration': (VpcConfiguration, True),
+        "ClusterIdentifier": (str, True),
+        "DatabaseHost": (str, True),
+        "DatabaseName": (str, True),
+        "DatabasePort": (integer, True),
+        "RoleArn": (str, True),
+        "SecretManagerArn": (str, True),
+        "TableName": (str, True),
+        "VpcConfiguration": (VpcConfiguration, True),
     }
 
 
 class CsvFormatDescriptor(AWSProperty):
     props = {
-        'Charset': (str, False),
-        'ContainsHeader': (boolean, False),
-        'Delimiter': (str, False),
-        'FileCompression': (str, False),
-        'HeaderList': ([str], False),
-        'QuoteSymbol': (str, False),
+        "Charset": (str, False),
+        "ContainsHeader": (boolean, False),
+        "Delimiter": (str, False),
+        "FileCompression": (str, False),
+        "HeaderList": ([str], False),
+        "QuoteSymbol": (str, False),
     }
 
 
 class JsonFormatDescriptor(AWSProperty):
     props = {
-        'Charset': (str, False),
-        'FileCompression': (str, False),
+        "Charset": (str, False),
+        "FileCompression": (str, False),
     }
 
 
 class FileFormatDescriptor(AWSProperty):
     props = {
-        'CsvFormatDescriptor': (CsvFormatDescriptor, False),
-        'JsonFormatDescriptor': (JsonFormatDescriptor, False),
+        "CsvFormatDescriptor": (CsvFormatDescriptor, False),
+        "JsonFormatDescriptor": (JsonFormatDescriptor, False),
     }
 
 
 class S3SourceConfig(AWSProperty):
     props = {
-        'FileFormatDescriptor': (FileFormatDescriptor, True),
-        'HistoricalDataPathList': ([str], False),
-        'RoleArn': (str, True),
-        'TemplatedPathList': ([str], False),
+        "FileFormatDescriptor": (FileFormatDescriptor, True),
+        "HistoricalDataPathList": ([str], False),
+        "RoleArn": (str, True),
+        "TemplatedPathList": ([str], False),
     }
 
 
 class MetricSource(AWSProperty):
     props = {
-        'AppFlowConfig': (AppFlowConfig, False),
-        'CloudwatchConfig': (CloudwatchConfig, False),
-        'RDSSourceConfig': (RDSSourceConfig, False),
-        'RedshiftSourceConfig': (RedshiftSourceConfig, False),
-        'S3SourceConfig': (S3SourceConfig, False),
+        "AppFlowConfig": (AppFlowConfig, False),
+        "CloudwatchConfig": (CloudwatchConfig, False),
+        "RDSSourceConfig": (RDSSourceConfig, False),
+        "RedshiftSourceConfig": (RedshiftSourceConfig, False),
+        "S3SourceConfig": (S3SourceConfig, False),
     }
 
 
 class TimestampColumn(AWSProperty):
     props = {
-        'ColumnFormat': (str, False),
-        'ColumnName': (str, False),
+        "ColumnFormat": (str, False),
+        "ColumnName": (str, False),
     }
 
 
 class MetricSet(AWSProperty):
     props = {
-        'DimensionList': ([str], False),
-        'MetricList': ([Metric], True),
-        'MetricSetDescription': (str, False),
-        'MetricSetFrequency': (str, False),
-        'MetricSetName': (str, True),
-        'MetricSource': (MetricSource, True),
-        'Offset': (integer, False),
-        'TimestampColumn': (TimestampColumn, False),
-        'Timezone': (str, False),
+        "DimensionList": ([str], False),
+        "MetricList": ([Metric], True),
+        "MetricSetDescription": (str, False),
+        "MetricSetFrequency": (str, False),
+        "MetricSetName": (str, True),
+        "MetricSource": (MetricSource, True),
+        "Offset": (integer, False),
+        "TimestampColumn": (TimestampColumn, False),
+        "Timezone": (str, False),
     }
 
 
@@ -160,9 +158,9 @@ class AnomalyDetector(AWSObject):
     resource_type = "AWS::LookoutMetrics::AnomalyDetector"
 
     props = {
-        'AnomalyDetectorConfig': (dict, True),
-        'AnomalyDetectorDescription': (str, False),
-        'AnomalyDetectorName': (str, False),
-        'KmsKeyArn': (str, False),
-        'MetricSetList': ([MetricSet], True),
+        "AnomalyDetectorConfig": (dict, True),
+        "AnomalyDetectorDescription": (str, False),
+        "AnomalyDetectorName": (str, False),
+        "KmsKeyArn": (str, False),
+        "MetricSetList": ([MetricSet], True),
     }

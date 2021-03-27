@@ -7,33 +7,33 @@
 # Resource specification version: 3.3.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
 class DeliveryOptions(AWSProperty):
     props = {
-        'SendingPoolName': (str, False),
+        "SendingPoolName": (str, False),
     }
 
 
 class ReputationOptions(AWSProperty):
     props = {
-        'ReputationMetricsEnabled': (boolean, False),
+        "ReputationMetricsEnabled": (boolean, False),
     }
 
 
 class SendingOptions(AWSProperty):
     props = {
-        'SendingEnabled': (boolean, False),
+        "SendingEnabled": (boolean, False),
     }
 
 
 class TrackingOptions(AWSProperty):
     props = {
-        'CustomRedirectDomain': (str, False),
+        "CustomRedirectDomain": (str, False),
     }
 
 
@@ -41,56 +41,56 @@ class ConfigurationSet(AWSObject):
     resource_type = "AWS::PinpointEmail::ConfigurationSet"
 
     props = {
-        'DeliveryOptions': (DeliveryOptions, False),
-        'Name': (str, True),
-        'ReputationOptions': (ReputationOptions, False),
-        'SendingOptions': (SendingOptions, False),
-        'Tags': (Tags, False),
-        'TrackingOptions': (TrackingOptions, False),
+        "DeliveryOptions": (DeliveryOptions, False),
+        "Name": (str, True),
+        "ReputationOptions": (ReputationOptions, False),
+        "SendingOptions": (SendingOptions, False),
+        "Tags": (Tags, False),
+        "TrackingOptions": (TrackingOptions, False),
     }
 
 
 class DimensionConfiguration(AWSProperty):
     props = {
-        'DefaultDimensionValue': (str, True),
-        'DimensionName': (str, True),
-        'DimensionValueSource': (str, True),
+        "DefaultDimensionValue": (str, True),
+        "DimensionName": (str, True),
+        "DimensionValueSource": (str, True),
     }
 
 
 class CloudWatchDestination(AWSProperty):
     props = {
-        'DimensionConfigurations': ([DimensionConfiguration], False),
+        "DimensionConfigurations": ([DimensionConfiguration], False),
     }
 
 
 class KinesisFirehoseDestination(AWSProperty):
     props = {
-        'DeliveryStreamArn': (str, True),
-        'IamRoleArn': (str, True),
+        "DeliveryStreamArn": (str, True),
+        "IamRoleArn": (str, True),
     }
 
 
 class PinpointDestination(AWSProperty):
     props = {
-        'ApplicationArn': (str, False),
+        "ApplicationArn": (str, False),
     }
 
 
 class SnsDestination(AWSProperty):
     props = {
-        'TopicArn': (str, True),
+        "TopicArn": (str, True),
     }
 
 
 class EventDestination(AWSProperty):
     props = {
-        'CloudWatchDestination': (CloudWatchDestination, False),
-        'Enabled': (boolean, False),
-        'KinesisFirehoseDestination': (KinesisFirehoseDestination, False),
-        'MatchingEventTypes': ([str], True),
-        'PinpointDestination': (PinpointDestination, False),
-        'SnsDestination': (SnsDestination, False),
+        "CloudWatchDestination": (CloudWatchDestination, False),
+        "Enabled": (boolean, False),
+        "KinesisFirehoseDestination": (KinesisFirehoseDestination, False),
+        "MatchingEventTypes": ([str], True),
+        "PinpointDestination": (PinpointDestination, False),
+        "SnsDestination": (SnsDestination, False),
     }
 
 
@@ -98,9 +98,9 @@ class ConfigurationSetEventDestination(AWSObject):
     resource_type = "AWS::PinpointEmail::ConfigurationSetEventDestination"
 
     props = {
-        'ConfigurationSetName': (str, True),
-        'EventDestination': (EventDestination, False),
-        'EventDestinationName': (str, True),
+        "ConfigurationSetName": (str, True),
+        "EventDestination": (EventDestination, False),
+        "EventDestinationName": (str, True),
     }
 
 
@@ -108,15 +108,15 @@ class DedicatedIpPool(AWSObject):
     resource_type = "AWS::PinpointEmail::DedicatedIpPool"
 
     props = {
-        'PoolName': (str, False),
-        'Tags': (Tags, False),
+        "PoolName": (str, False),
+        "Tags": (Tags, False),
     }
 
 
 class MailFromAttributes(AWSProperty):
     props = {
-        'BehaviorOnMxFailure': (str, False),
-        'MailFromDomain': (str, False),
+        "BehaviorOnMxFailure": (str, False),
+        "MailFromDomain": (str, False),
     }
 
 
@@ -124,9 +124,9 @@ class Identity(AWSObject):
     resource_type = "AWS::PinpointEmail::Identity"
 
     props = {
-        'DkimSigningEnabled': (boolean, False),
-        'FeedbackForwardingEnabled': (boolean, False),
-        'MailFromAttributes': (MailFromAttributes, False),
-        'Name': (str, True),
-        'Tags': (Tags, False),
+        "DkimSigningEnabled": (boolean, False),
+        "FeedbackForwardingEnabled": (boolean, False),
+        "MailFromAttributes": (MailFromAttributes, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }

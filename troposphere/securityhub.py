@@ -15,5 +15,5 @@ class Hub(AWSObject):
     resource_type = "AWS::SecurityHub::Hub"
 
     props = {
-        'Tags': (json_checker, False),
+        "Tags": (json_checker, False),
     }

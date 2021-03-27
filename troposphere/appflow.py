@@ -7,251 +7,249 @@
 # Resource specification version: 18.6.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import double
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, double
 
 
 class AmplitudeConnectorProfileCredentials(AWSProperty):
     props = {
-        'ApiKey': (str, True),
-        'SecretKey': (str, True),
+        "ApiKey": (str, True),
+        "SecretKey": (str, True),
     }
 
 
 class DatadogConnectorProfileCredentials(AWSProperty):
     props = {
-        'ApiKey': (str, True),
-        'ApplicationKey': (str, True),
+        "ApiKey": (str, True),
+        "ApplicationKey": (str, True),
     }
 
 
 class DynatraceConnectorProfileCredentials(AWSProperty):
     props = {
-        'ApiToken': (str, True),
+        "ApiToken": (str, True),
     }
 
 
 class ConnectorOAuthRequest(AWSProperty):
     props = {
-        'AuthCode': (str, False),
-        'RedirectUri': (str, False),
+        "AuthCode": (str, False),
+        "RedirectUri": (str, False),
     }
 
 
 class GoogleAnalyticsConnectorProfileCredentials(AWSProperty):
     props = {
-        'AccessToken': (str, False),
-        'ClientId': (str, True),
-        'ClientSecret': (str, True),
-        'ConnectorOAuthRequest': (ConnectorOAuthRequest, False),
-        'RefreshToken': (str, False),
+        "AccessToken": (str, False),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
+        "RefreshToken": (str, False),
     }
 
 
 class InforNexusConnectorProfileCredentials(AWSProperty):
     props = {
-        'AccessKeyId': (str, True),
-        'Datakey': (str, True),
-        'SecretAccessKey': (str, True),
-        'UserId': (str, True),
+        "AccessKeyId": (str, True),
+        "Datakey": (str, True),
+        "SecretAccessKey": (str, True),
+        "UserId": (str, True),
     }
 
 
 class MarketoConnectorProfileCredentials(AWSProperty):
     props = {
-        'AccessToken': (str, False),
-        'ClientId': (str, True),
-        'ClientSecret': (str, True),
-        'ConnectorOAuthRequest': (ConnectorOAuthRequest, False),
+        "AccessToken": (str, False),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
     }
 
 
 class RedshiftConnectorProfileCredentials(AWSProperty):
     props = {
-        'Password': (str, True),
-        'Username': (str, True),
+        "Password": (str, True),
+        "Username": (str, True),
     }
 
 
 class SalesforceConnectorProfileCredentials(AWSProperty):
     props = {
-        'AccessToken': (str, False),
-        'ConnectorOAuthRequest': (ConnectorOAuthRequest, False),
-        'RefreshToken': (str, False),
+        "AccessToken": (str, False),
+        "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
+        "RefreshToken": (str, False),
     }
 
 
 class ServiceNowConnectorProfileCredentials(AWSProperty):
     props = {
-        'Password': (str, True),
-        'Username': (str, True),
+        "Password": (str, True),
+        "Username": (str, True),
     }
 
 
 class SingularConnectorProfileCredentials(AWSProperty):
     props = {
-        'ApiKey': (str, True),
+        "ApiKey": (str, True),
     }
 
 
 class SlackConnectorProfileCredentials(AWSProperty):
     props = {
-        'AccessToken': (str, False),
-        'ClientId': (str, True),
-        'ClientSecret': (str, True),
-        'ConnectorOAuthRequest': (ConnectorOAuthRequest, False),
+        "AccessToken": (str, False),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
     }
 
 
 class SnowflakeConnectorProfileCredentials(AWSProperty):
     props = {
-        'Password': (str, True),
-        'Username': (str, True),
+        "Password": (str, True),
+        "Username": (str, True),
     }
 
 
 class TrendmicroConnectorProfileCredentials(AWSProperty):
     props = {
-        'ApiSecretKey': (str, True),
+        "ApiSecretKey": (str, True),
     }
 
 
 class VeevaConnectorProfileCredentials(AWSProperty):
     props = {
-        'Password': (str, True),
-        'Username': (str, True),
+        "Password": (str, True),
+        "Username": (str, True),
     }
 
 
 class ZendeskConnectorProfileCredentials(AWSProperty):
     props = {
-        'AccessToken': (str, False),
-        'ClientId': (str, True),
-        'ClientSecret': (str, True),
-        'ConnectorOAuthRequest': (ConnectorOAuthRequest, False),
+        "AccessToken": (str, False),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
     }
 
 
 class ConnectorProfileCredentials(AWSProperty):
     props = {
-        'Amplitude': (AmplitudeConnectorProfileCredentials, False),
-        'Datadog': (DatadogConnectorProfileCredentials, False),
-        'Dynatrace': (DynatraceConnectorProfileCredentials, False),
-        'GoogleAnalytics':
-            (GoogleAnalyticsConnectorProfileCredentials, False),
-        'InforNexus': (InforNexusConnectorProfileCredentials, False),
-        'Marketo': (MarketoConnectorProfileCredentials, False),
-        'Redshift': (RedshiftConnectorProfileCredentials, False),
-        'Salesforce': (SalesforceConnectorProfileCredentials, False),
-        'ServiceNow': (ServiceNowConnectorProfileCredentials, False),
-        'Singular': (SingularConnectorProfileCredentials, False),
-        'Slack': (SlackConnectorProfileCredentials, False),
-        'Snowflake': (SnowflakeConnectorProfileCredentials, False),
-        'Trendmicro': (TrendmicroConnectorProfileCredentials, False),
-        'Veeva': (VeevaConnectorProfileCredentials, False),
-        'Zendesk': (ZendeskConnectorProfileCredentials, False),
+        "Amplitude": (AmplitudeConnectorProfileCredentials, False),
+        "Datadog": (DatadogConnectorProfileCredentials, False),
+        "Dynatrace": (DynatraceConnectorProfileCredentials, False),
+        "GoogleAnalytics": (GoogleAnalyticsConnectorProfileCredentials, False),
+        "InforNexus": (InforNexusConnectorProfileCredentials, False),
+        "Marketo": (MarketoConnectorProfileCredentials, False),
+        "Redshift": (RedshiftConnectorProfileCredentials, False),
+        "Salesforce": (SalesforceConnectorProfileCredentials, False),
+        "ServiceNow": (ServiceNowConnectorProfileCredentials, False),
+        "Singular": (SingularConnectorProfileCredentials, False),
+        "Slack": (SlackConnectorProfileCredentials, False),
+        "Snowflake": (SnowflakeConnectorProfileCredentials, False),
+        "Trendmicro": (TrendmicroConnectorProfileCredentials, False),
+        "Veeva": (VeevaConnectorProfileCredentials, False),
+        "Zendesk": (ZendeskConnectorProfileCredentials, False),
     }
 
 
 class DatadogConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class DynatraceConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class InforNexusConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class MarketoConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class RedshiftConnectorProfileProperties(AWSProperty):
     props = {
-        'BucketName': (str, True),
-        'BucketPrefix': (str, False),
-        'DatabaseUrl': (str, True),
-        'RoleArn': (str, True),
+        "BucketName": (str, True),
+        "BucketPrefix": (str, False),
+        "DatabaseUrl": (str, True),
+        "RoleArn": (str, True),
     }
 
 
 class SalesforceConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, False),
-        'isSandboxEnvironment': (boolean, False),
+        "InstanceUrl": (str, False),
+        "isSandboxEnvironment": (boolean, False),
     }
 
 
 class ServiceNowConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class SlackConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class SnowflakeConnectorProfileProperties(AWSProperty):
     props = {
-        'AccountName': (str, False),
-        'BucketName': (str, True),
-        'BucketPrefix': (str, False),
-        'PrivateLinkServiceName': (str, False),
-        'Region': (str, False),
-        'Stage': (str, True),
-        'Warehouse': (str, True),
+        "AccountName": (str, False),
+        "BucketName": (str, True),
+        "BucketPrefix": (str, False),
+        "PrivateLinkServiceName": (str, False),
+        "Region": (str, False),
+        "Stage": (str, True),
+        "Warehouse": (str, True),
     }
 
 
 class VeevaConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class ZendeskConnectorProfileProperties(AWSProperty):
     props = {
-        'InstanceUrl': (str, True),
+        "InstanceUrl": (str, True),
     }
 
 
 class ConnectorProfileProperties(AWSProperty):
     props = {
-        'Datadog': (DatadogConnectorProfileProperties, False),
-        'Dynatrace': (DynatraceConnectorProfileProperties, False),
-        'InforNexus': (InforNexusConnectorProfileProperties, False),
-        'Marketo': (MarketoConnectorProfileProperties, False),
-        'Redshift': (RedshiftConnectorProfileProperties, False),
-        'Salesforce': (SalesforceConnectorProfileProperties, False),
-        'ServiceNow': (ServiceNowConnectorProfileProperties, False),
-        'Slack': (SlackConnectorProfileProperties, False),
-        'Snowflake': (SnowflakeConnectorProfileProperties, False),
-        'Veeva': (VeevaConnectorProfileProperties, False),
-        'Zendesk': (ZendeskConnectorProfileProperties, False),
+        "Datadog": (DatadogConnectorProfileProperties, False),
+        "Dynatrace": (DynatraceConnectorProfileProperties, False),
+        "InforNexus": (InforNexusConnectorProfileProperties, False),
+        "Marketo": (MarketoConnectorProfileProperties, False),
+        "Redshift": (RedshiftConnectorProfileProperties, False),
+        "Salesforce": (SalesforceConnectorProfileProperties, False),
+        "ServiceNow": (ServiceNowConnectorProfileProperties, False),
+        "Slack": (SlackConnectorProfileProperties, False),
+        "Snowflake": (SnowflakeConnectorProfileProperties, False),
+        "Veeva": (VeevaConnectorProfileProperties, False),
+        "Zendesk": (ZendeskConnectorProfileProperties, False),
     }
 
 
 class ConnectorProfileConfig(AWSProperty):
     props = {
-        'ConnectorProfileCredentials': (ConnectorProfileCredentials, True),
-        'ConnectorProfileProperties': (ConnectorProfileProperties, False),
+        "ConnectorProfileCredentials": (ConnectorProfileCredentials, True),
+        "ConnectorProfileProperties": (ConnectorProfileProperties, False),
     }
 
 
@@ -259,266 +257,265 @@ class ConnectorProfile(AWSObject):
     resource_type = "AWS::AppFlow::ConnectorProfile"
 
     props = {
-        'ConnectionMode': (str, True),
-        'ConnectorProfileConfig': (ConnectorProfileConfig, False),
-        'ConnectorProfileName': (str, True),
-        'ConnectorType': (str, True),
-        'KMSArn': (str, False),
+        "ConnectionMode": (str, True),
+        "ConnectorProfileConfig": (ConnectorProfileConfig, False),
+        "ConnectorProfileName": (str, True),
+        "ConnectorType": (str, True),
+        "KMSArn": (str, False),
     }
 
 
 class ErrorHandlingConfig(AWSProperty):
     props = {
-        'BucketName': (str, False),
-        'BucketPrefix': (str, False),
-        'FailOnFirstError': (boolean, False),
+        "BucketName": (str, False),
+        "BucketPrefix": (str, False),
+        "FailOnFirstError": (boolean, False),
     }
 
 
 class EventBridgeDestinationProperties(AWSProperty):
     props = {
-        'ErrorHandlingConfig': (ErrorHandlingConfig, False),
-        'Object': (str, True),
+        "ErrorHandlingConfig": (ErrorHandlingConfig, False),
+        "Object": (str, True),
     }
 
 
 class RedshiftDestinationProperties(AWSProperty):
     props = {
-        'BucketPrefix': (str, False),
-        'ErrorHandlingConfig': (ErrorHandlingConfig, False),
-        'IntermediateBucketName': (str, True),
-        'Object': (str, True),
+        "BucketPrefix": (str, False),
+        "ErrorHandlingConfig": (ErrorHandlingConfig, False),
+        "IntermediateBucketName": (str, True),
+        "Object": (str, True),
     }
 
 
 class AggregationConfig(AWSProperty):
     props = {
-        'AggregationType': (str, False),
+        "AggregationType": (str, False),
     }
 
 
 class PrefixConfig(AWSProperty):
     props = {
-        'PrefixFormat': (str, False),
-        'PrefixType': (str, False),
+        "PrefixFormat": (str, False),
+        "PrefixType": (str, False),
     }
 
 
 class S3OutputFormatConfig(AWSProperty):
     props = {
-        'AggregationConfig': (AggregationConfig, False),
-        'FileType': (str, False),
-        'PrefixConfig': (PrefixConfig, False),
+        "AggregationConfig": (AggregationConfig, False),
+        "FileType": (str, False),
+        "PrefixConfig": (PrefixConfig, False),
     }
 
 
 class S3DestinationProperties(AWSProperty):
     props = {
-        'BucketName': (str, True),
-        'BucketPrefix': (str, False),
-        'S3OutputFormatConfig': (S3OutputFormatConfig, False),
+        "BucketName": (str, True),
+        "BucketPrefix": (str, False),
+        "S3OutputFormatConfig": (S3OutputFormatConfig, False),
     }
 
 
 class SalesforceDestinationProperties(AWSProperty):
     props = {
-        'ErrorHandlingConfig': (ErrorHandlingConfig, False),
-        'Object': (str, True),
+        "ErrorHandlingConfig": (ErrorHandlingConfig, False),
+        "Object": (str, True),
     }
 
 
 class SnowflakeDestinationProperties(AWSProperty):
     props = {
-        'BucketPrefix': (str, False),
-        'ErrorHandlingConfig': (ErrorHandlingConfig, False),
-        'IntermediateBucketName': (str, True),
-        'Object': (str, True),
+        "BucketPrefix": (str, False),
+        "ErrorHandlingConfig": (ErrorHandlingConfig, False),
+        "IntermediateBucketName": (str, True),
+        "Object": (str, True),
     }
 
 
 class DestinationConnectorProperties(AWSProperty):
     props = {
-        'EventBridge': (EventBridgeDestinationProperties, False),
-        'Redshift': (RedshiftDestinationProperties, False),
-        'S3': (S3DestinationProperties, False),
-        'Salesforce': (SalesforceDestinationProperties, False),
-        'Snowflake': (SnowflakeDestinationProperties, False),
+        "EventBridge": (EventBridgeDestinationProperties, False),
+        "Redshift": (RedshiftDestinationProperties, False),
+        "S3": (S3DestinationProperties, False),
+        "Salesforce": (SalesforceDestinationProperties, False),
+        "Snowflake": (SnowflakeDestinationProperties, False),
     }
 
 
 class DestinationFlowConfig(AWSProperty):
     props = {
-        'ConnectorProfileName': (str, False),
-        'ConnectorType': (str, True),
-        'DestinationConnectorProperties':
-            (DestinationConnectorProperties, True),
+        "ConnectorProfileName": (str, False),
+        "ConnectorType": (str, True),
+        "DestinationConnectorProperties": (DestinationConnectorProperties, True),
     }
 
 
 class AmplitudeSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class DatadogSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class DynatraceSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class GoogleAnalyticsSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class InforNexusSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class MarketoSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class S3SourceProperties(AWSProperty):
     props = {
-        'BucketName': (str, True),
-        'BucketPrefix': (str, True),
+        "BucketName": (str, True),
+        "BucketPrefix": (str, True),
     }
 
 
 class SalesforceSourceProperties(AWSProperty):
     props = {
-        'EnableDynamicFieldUpdate': (boolean, False),
-        'IncludeDeletedRecords': (boolean, False),
-        'Object': (str, True),
+        "EnableDynamicFieldUpdate": (boolean, False),
+        "IncludeDeletedRecords": (boolean, False),
+        "Object": (str, True),
     }
 
 
 class ServiceNowSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class SingularSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class SlackSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class TrendmicroSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class VeevaSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class ZendeskSourceProperties(AWSProperty):
     props = {
-        'Object': (str, True),
+        "Object": (str, True),
     }
 
 
 class SourceConnectorProperties(AWSProperty):
     props = {
-        'Amplitude': (AmplitudeSourceProperties, False),
-        'Datadog': (DatadogSourceProperties, False),
-        'Dynatrace': (DynatraceSourceProperties, False),
-        'GoogleAnalytics': (GoogleAnalyticsSourceProperties, False),
-        'InforNexus': (InforNexusSourceProperties, False),
-        'Marketo': (MarketoSourceProperties, False),
-        'S3': (S3SourceProperties, False),
-        'Salesforce': (SalesforceSourceProperties, False),
-        'ServiceNow': (ServiceNowSourceProperties, False),
-        'Singular': (SingularSourceProperties, False),
-        'Slack': (SlackSourceProperties, False),
-        'Trendmicro': (TrendmicroSourceProperties, False),
-        'Veeva': (VeevaSourceProperties, False),
-        'Zendesk': (ZendeskSourceProperties, False),
+        "Amplitude": (AmplitudeSourceProperties, False),
+        "Datadog": (DatadogSourceProperties, False),
+        "Dynatrace": (DynatraceSourceProperties, False),
+        "GoogleAnalytics": (GoogleAnalyticsSourceProperties, False),
+        "InforNexus": (InforNexusSourceProperties, False),
+        "Marketo": (MarketoSourceProperties, False),
+        "S3": (S3SourceProperties, False),
+        "Salesforce": (SalesforceSourceProperties, False),
+        "ServiceNow": (ServiceNowSourceProperties, False),
+        "Singular": (SingularSourceProperties, False),
+        "Slack": (SlackSourceProperties, False),
+        "Trendmicro": (TrendmicroSourceProperties, False),
+        "Veeva": (VeevaSourceProperties, False),
+        "Zendesk": (ZendeskSourceProperties, False),
     }
 
 
 class SourceFlowConfig(AWSProperty):
     props = {
-        'ConnectorProfileName': (str, False),
-        'ConnectorType': (str, True),
-        'SourceConnectorProperties': (SourceConnectorProperties, True),
+        "ConnectorProfileName": (str, False),
+        "ConnectorType": (str, True),
+        "SourceConnectorProperties": (SourceConnectorProperties, True),
     }
 
 
 class ConnectorOperator(AWSProperty):
     props = {
-        'Amplitude': (str, False),
-        'Datadog': (str, False),
-        'Dynatrace': (str, False),
-        'GoogleAnalytics': (str, False),
-        'InforNexus': (str, False),
-        'Marketo': (str, False),
-        'S3': (str, False),
-        'Salesforce': (str, False),
-        'ServiceNow': (str, False),
-        'Singular': (str, False),
-        'Slack': (str, False),
-        'Trendmicro': (str, False),
-        'Veeva': (str, False),
-        'Zendesk': (str, False),
+        "Amplitude": (str, False),
+        "Datadog": (str, False),
+        "Dynatrace": (str, False),
+        "GoogleAnalytics": (str, False),
+        "InforNexus": (str, False),
+        "Marketo": (str, False),
+        "S3": (str, False),
+        "Salesforce": (str, False),
+        "ServiceNow": (str, False),
+        "Singular": (str, False),
+        "Slack": (str, False),
+        "Trendmicro": (str, False),
+        "Veeva": (str, False),
+        "Zendesk": (str, False),
     }
 
 
 class TaskPropertiesObject(AWSProperty):
     props = {
-        'Key': (str, True),
-        'Value': (str, True),
+        "Key": (str, True),
+        "Value": (str, True),
     }
 
 
 class Task(AWSProperty):
     props = {
-        'ConnectorOperator': (ConnectorOperator, False),
-        'DestinationField': (str, False),
-        'SourceFields': ([str], True),
-        'TaskProperties': ([TaskPropertiesObject], False),
-        'TaskType': (str, True),
+        "ConnectorOperator": (ConnectorOperator, False),
+        "DestinationField": (str, False),
+        "SourceFields": ([str], True),
+        "TaskProperties": ([TaskPropertiesObject], False),
+        "TaskType": (str, True),
     }
 
 
 class ScheduledTriggerProperties(AWSProperty):
     props = {
-        'DataPullMode': (str, False),
-        'ScheduleEndTime': (double, False),
-        'ScheduleExpression': (str, True),
-        'ScheduleStartTime': (double, False),
-        'TimeZone': (str, False),
+        "DataPullMode": (str, False),
+        "ScheduleEndTime": (double, False),
+        "ScheduleExpression": (str, True),
+        "ScheduleStartTime": (double, False),
+        "TimeZone": (str, False),
     }
 
 
 class TriggerConfig(AWSProperty):
     props = {
-        'TriggerProperties': (ScheduledTriggerProperties, False),
-        'TriggerType': (str, True),
+        "TriggerProperties": (ScheduledTriggerProperties, False),
+        "TriggerType": (str, True),
     }
 
 
@@ -526,12 +523,12 @@ class Flow(AWSObject):
     resource_type = "AWS::AppFlow::Flow"
 
     props = {
-        'Description': (str, False),
-        'DestinationFlowConfigList': ([DestinationFlowConfig], True),
-        'FlowName': (str, True),
-        'KMSArn': (str, False),
-        'SourceFlowConfig': (SourceFlowConfig, True),
-        'Tags': (Tags, False),
-        'Tasks': ([Task], True),
-        'TriggerConfig': (TriggerConfig, True),
+        "Description": (str, False),
+        "DestinationFlowConfigList": ([DestinationFlowConfig], True),
+        "FlowName": (str, True),
+        "KMSArn": (str, False),
+        "SourceFlowConfig": (SourceFlowConfig, True),
+        "Tags": (Tags, False),
+        "Tasks": ([Task], True),
+        "TriggerConfig": (TriggerConfig, True),
     }

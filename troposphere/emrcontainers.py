@@ -7,28 +7,28 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 
 
 class EksInfo(AWSProperty):
     props = {
-        'Namespace': (str, True),
+        "Namespace": (str, True),
     }
 
 
 class ContainerInfo(AWSProperty):
     props = {
-        'EksInfo': (EksInfo, True),
+        "EksInfo": (EksInfo, True),
     }
 
 
 class ContainerProvider(AWSProperty):
     props = {
-        'Id': (str, True),
-        'Info': (ContainerInfo, True),
-        'Type': (str, True),
+        "Id": (str, True),
+        "Info": (ContainerInfo, True),
+        "Type": (str, True),
     }
 
 
@@ -36,7 +36,7 @@ class VirtualCluster(AWSObject):
     resource_type = "AWS::EMRContainers::VirtualCluster"
 
     props = {
-        'ContainerProvider': (ContainerProvider, True),
-        'Name': (str, True),
-        'Tags': (Tags, False),
+        "ContainerProvider": (ContainerProvider, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }

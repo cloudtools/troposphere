@@ -1,6 +1,7 @@
 import unittest
+
 from troposphere import Join
-from troposphere.apigatewayv2 import IntegrationResponse, Authorizer, Model
+from troposphere.apigatewayv2 import Authorizer, IntegrationResponse, Model
 
 
 class TestModel(unittest.TestCase):
@@ -34,30 +35,20 @@ class TestModel(unittest.TestCase):
 
         # Check accepting dict and converting to string in validate
         d = {"c": "d"}
-        model = Model(
-            "schema",
-            ApiId="apiid",
-            Name="model",
-            Schema=d
-        )
+        model = Model("schema", ApiId="apiid", Name="model", Schema=d)
         model.validate()
-        self.assertEqual(model.properties['Schema'], '{"c": "d"}')
+        self.assertEqual(model.properties["Schema"], '{"c": "d"}')
 
         # Check invalid Schema type
         with self.assertRaises(TypeError):
-            model = Model(
-                "schema",
-                ApiId="apiid",
-                Name="model",
-                Schema=1
-            )
+            model = Model("schema", ApiId="apiid", Name="model", Schema=1)
 
         # Check Schema being an AWSHelperFn
         model = Model(
             "schema",
             ApiId="apiid",
             Name="model",
-            Schema=Join(':', ['{"a', ': "b"}']),
+            Schema=Join(":", ['{"a', ': "b"}']),
         )
         model.validate()
 
@@ -68,7 +59,7 @@ class TestIntegrationResponse(unittest.TestCase):
             "IntegrationResponse",
             IntegrationId="integrationid",
             ApiId="apiid",
-            IntegrationResponseKey="/400/"
+            IntegrationResponseKey="/400/",
         )
 
         integration_response.validate()
@@ -79,18 +70,17 @@ class TestIntegrationResponse(unittest.TestCase):
                 IntegrationId="integrationid",
                 ApiId="apiid",
                 IntegrationResponseKey="/400/",
-                ContentHandlingStrategy="CONVERT_TO_SOMETHING"
+                ContentHandlingStrategy="CONVERT_TO_SOMETHING",
             )
 
 
 class TestAuthorizer(unittest.TestCase):
-
     def test_response_type(self):
         authorizer = Authorizer(
             "Authorizer",
             ApiId="apiid",
             AuthorizerType="REQUEST",
-            AuthorizerUri="arn:lambda:function"
+            AuthorizerUri="arn:lambda:function",
         )
 
         authorizer.validate()
@@ -100,9 +90,9 @@ class TestAuthorizer(unittest.TestCase):
                 "Authorizer",
                 ApiId="apiid",
                 AuthorizerType="RESPONSE",
-                AuthorizerUri="arn:lambda:function"
+                AuthorizerUri="arn:lambda:function",
             )
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

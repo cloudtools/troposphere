@@ -7,9 +7,9 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 from .validators import integer
 
 
@@ -17,19 +17,19 @@ class Agent(AWSObject):
     resource_type = "AWS::DataSync::Agent"
 
     props = {
-        'ActivationKey': (str, True),
-        'AgentName': (str, False),
-        'SecurityGroupArns': ([str], False),
-        'SubnetArns': ([str], False),
-        'Tags': (Tags, False),
-        'VpcEndpointId': (str, False),
+        "ActivationKey": (str, True),
+        "AgentName": (str, False),
+        "SecurityGroupArns": ([str], False),
+        "SubnetArns": ([str], False),
+        "Tags": (Tags, False),
+        "VpcEndpointId": (str, False),
     }
 
 
 class Ec2Config(AWSProperty):
     props = {
-        'SecurityGroupArns': ([str], True),
-        'SubnetArn': (str, True),
+        "SecurityGroupArns": ([str], True),
+        "SubnetArn": (str, True),
     }
 
 
@@ -37,10 +37,10 @@ class LocationEFS(AWSObject):
     resource_type = "AWS::DataSync::LocationEFS"
 
     props = {
-        'Ec2Config': (Ec2Config, True),
-        'EfsFilesystemArn': (str, True),
-        'Subdirectory': (str, False),
-        'Tags': (Tags, False),
+        "Ec2Config": (Ec2Config, True),
+        "EfsFilesystemArn": (str, True),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -48,25 +48,25 @@ class LocationFSxWindows(AWSObject):
     resource_type = "AWS::DataSync::LocationFSxWindows"
 
     props = {
-        'Domain': (str, False),
-        'FsxFilesystemArn': (str, True),
-        'Password': (str, True),
-        'SecurityGroupArns': ([str], True),
-        'Subdirectory': (str, False),
-        'Tags': (Tags, False),
-        'User': (str, True),
+        "Domain": (str, False),
+        "FsxFilesystemArn": (str, True),
+        "Password": (str, True),
+        "SecurityGroupArns": ([str], True),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
+        "User": (str, True),
     }
 
 
 class MountOptions(AWSProperty):
     props = {
-        'Version': (str, False),
+        "Version": (str, False),
     }
 
 
 class OnPremConfig(AWSProperty):
     props = {
-        'AgentArns': ([str], True),
+        "AgentArns": ([str], True),
     }
 
 
@@ -74,11 +74,11 @@ class LocationNFS(AWSObject):
     resource_type = "AWS::DataSync::LocationNFS"
 
     props = {
-        'MountOptions': (MountOptions, False),
-        'OnPremConfig': (OnPremConfig, True),
-        'ServerHostname': (str, True),
-        'Subdirectory': (str, True),
-        'Tags': (Tags, False),
+        "MountOptions": (MountOptions, False),
+        "OnPremConfig": (OnPremConfig, True),
+        "ServerHostname": (str, True),
+        "Subdirectory": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -86,21 +86,21 @@ class LocationObjectStorage(AWSObject):
     resource_type = "AWS::DataSync::LocationObjectStorage"
 
     props = {
-        'AccessKey': (str, False),
-        'AgentArns': ([str], True),
-        'BucketName': (str, True),
-        'SecretKey': (str, False),
-        'ServerHostname': (str, True),
-        'ServerPort': (integer, False),
-        'ServerProtocol': (str, False),
-        'Subdirectory': (str, False),
-        'Tags': (Tags, False),
+        "AccessKey": (str, False),
+        "AgentArns": ([str], True),
+        "BucketName": (str, True),
+        "SecretKey": (str, False),
+        "ServerHostname": (str, True),
+        "ServerPort": (integer, False),
+        "ServerProtocol": (str, False),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
     }
 
 
 class S3Config(AWSProperty):
     props = {
-        'BucketAccessRoleArn': (str, True),
+        "BucketAccessRoleArn": (str, True),
     }
 
 
@@ -108,11 +108,11 @@ class LocationS3(AWSObject):
     resource_type = "AWS::DataSync::LocationS3"
 
     props = {
-        'S3BucketArn': (str, True),
-        'S3Config': (S3Config, True),
-        'S3StorageClass': (str, False),
-        'Subdirectory': (str, False),
-        'Tags': (Tags, False),
+        "S3BucketArn": (str, True),
+        "S3Config": (S3Config, True),
+        "S3StorageClass": (str, False),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -120,45 +120,45 @@ class LocationSMB(AWSObject):
     resource_type = "AWS::DataSync::LocationSMB"
 
     props = {
-        'AgentArns': ([str], True),
-        'Domain': (str, False),
-        'MountOptions': (MountOptions, False),
-        'Password': (str, True),
-        'ServerHostname': (str, True),
-        'Subdirectory': (str, True),
-        'Tags': (Tags, False),
-        'User': (str, True),
+        "AgentArns": ([str], True),
+        "Domain": (str, False),
+        "MountOptions": (MountOptions, False),
+        "Password": (str, True),
+        "ServerHostname": (str, True),
+        "Subdirectory": (str, True),
+        "Tags": (Tags, False),
+        "User": (str, True),
     }
 
 
 class FilterRule(AWSProperty):
     props = {
-        'FilterType': (str, False),
-        'Value': (str, False),
+        "FilterType": (str, False),
+        "Value": (str, False),
     }
 
 
 class Options(AWSProperty):
     props = {
-        'Atime': (str, False),
-        'BytesPerSecond': (integer, False),
-        'Gid': (str, False),
-        'LogLevel': (str, False),
-        'Mtime': (str, False),
-        'OverwriteMode': (str, False),
-        'PosixPermissions': (str, False),
-        'PreserveDeletedFiles': (str, False),
-        'PreserveDevices': (str, False),
-        'TaskQueueing': (str, False),
-        'TransferMode': (str, False),
-        'Uid': (str, False),
-        'VerifyMode': (str, False),
+        "Atime": (str, False),
+        "BytesPerSecond": (integer, False),
+        "Gid": (str, False),
+        "LogLevel": (str, False),
+        "Mtime": (str, False),
+        "OverwriteMode": (str, False),
+        "PosixPermissions": (str, False),
+        "PreserveDeletedFiles": (str, False),
+        "PreserveDevices": (str, False),
+        "TaskQueueing": (str, False),
+        "TransferMode": (str, False),
+        "Uid": (str, False),
+        "VerifyMode": (str, False),
     }
 
 
 class TaskSchedule(AWSProperty):
     props = {
-        'ScheduleExpression': (str, True),
+        "ScheduleExpression": (str, True),
     }
 
 
@@ -166,12 +166,12 @@ class Task(AWSObject):
     resource_type = "AWS::DataSync::Task"
 
     props = {
-        'CloudWatchLogGroupArn': (str, False),
-        'DestinationLocationArn': (str, True),
-        'Excludes': ([FilterRule], False),
-        'Name': (str, False),
-        'Options': (Options, False),
-        'Schedule': (TaskSchedule, False),
-        'SourceLocationArn': (str, True),
-        'Tags': (Tags, False),
+        "CloudWatchLogGroupArn": (str, False),
+        "DestinationLocationArn": (str, True),
+        "Excludes": ([FilterRule], False),
+        "Name": (str, False),
+        "Options": (Options, False),
+        "Schedule": (TaskSchedule, False),
+        "SourceLocationArn": (str, True),
+        "Tags": (Tags, False),
     }

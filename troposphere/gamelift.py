@@ -7,19 +7,17 @@
 # Resource specification version: 25.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
-from .validators import double
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, double, integer
 
 
 class RoutingStrategy(AWSProperty):
     props = {
-        'FleetId': (str, False),
-        'Message': (str, False),
-        'Type': (str, False),
+        "FleetId": (str, False),
+        "Message": (str, False),
+        "Type": (str, False),
     }
 
 
@@ -27,18 +25,18 @@ class Alias(AWSObject):
     resource_type = "AWS::GameLift::Alias"
 
     props = {
-        'Description': (str, False),
-        'Name': (str, True),
-        'RoutingStrategy': (RoutingStrategy, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "RoutingStrategy": (RoutingStrategy, True),
     }
 
 
 class S3Location(AWSProperty):
     props = {
-        'Bucket': (str, True),
-        'Key': (str, True),
-        'ObjectVersion': (str, False),
-        'RoleArn': (str, True),
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "ObjectVersion": (str, False),
+        "RoleArn": (str, True),
     }
 
 
@@ -46,48 +44,48 @@ class Build(AWSObject):
     resource_type = "AWS::GameLift::Build"
 
     props = {
-        'Name': (str, False),
-        'OperatingSystem': (str, False),
-        'StorageLocation': (S3Location, False),
-        'Version': (str, False),
+        "Name": (str, False),
+        "OperatingSystem": (str, False),
+        "StorageLocation": (S3Location, False),
+        "Version": (str, False),
     }
 
 
 class CertificateConfiguration(AWSProperty):
     props = {
-        'CertificateType': (str, True),
+        "CertificateType": (str, True),
     }
 
 
 class IpPermission(AWSProperty):
     props = {
-        'FromPort': (integer, True),
-        'IpRange': (str, True),
-        'Protocol': (str, True),
-        'ToPort': (integer, True),
+        "FromPort": (integer, True),
+        "IpRange": (str, True),
+        "Protocol": (str, True),
+        "ToPort": (integer, True),
     }
 
 
 class ResourceCreationLimitPolicy(AWSProperty):
     props = {
-        'NewGameSessionsPerCreator': (integer, False),
-        'PolicyPeriodInMinutes': (integer, False),
+        "NewGameSessionsPerCreator": (integer, False),
+        "PolicyPeriodInMinutes": (integer, False),
     }
 
 
 class ServerProcess(AWSProperty):
     props = {
-        'ConcurrentExecutions': (integer, True),
-        'LaunchPath': (str, True),
-        'Parameters': (str, False),
+        "ConcurrentExecutions": (integer, True),
+        "LaunchPath": (str, True),
+        "Parameters": (str, False),
     }
 
 
 class RuntimeConfiguration(AWSProperty):
     props = {
-        'GameSessionActivationTimeoutSeconds': (integer, False),
-        'MaxConcurrentGameSessionActivations': (integer, False),
-        'ServerProcesses': ([ServerProcess], False),
+        "GameSessionActivationTimeoutSeconds": (integer, False),
+        "MaxConcurrentGameSessionActivations": (integer, False),
+        "ServerProcesses": ([ServerProcess], False),
     }
 
 
@@ -95,55 +93,55 @@ class Fleet(AWSObject):
     resource_type = "AWS::GameLift::Fleet"
 
     props = {
-        'BuildId': (str, False),
-        'CertificateConfiguration': (CertificateConfiguration, False),
-        'Description': (str, False),
-        'DesiredEC2Instances': (integer, False),
-        'EC2InboundPermissions': ([IpPermission], False),
-        'EC2InstanceType': (str, True),
-        'FleetType': (str, False),
-        'InstanceRoleARN': (str, False),
-        'LogPaths': ([str], False),
-        'MaxSize': (integer, False),
-        'MetricGroups': ([str], False),
-        'MinSize': (integer, False),
-        'Name': (str, True),
-        'NewGameSessionProtectionPolicy': (str, False),
-        'PeerVpcAwsAccountId': (str, False),
-        'PeerVpcId': (str, False),
-        'ResourceCreationLimitPolicy': (ResourceCreationLimitPolicy, False),
-        'RuntimeConfiguration': (RuntimeConfiguration, False),
-        'ScriptId': (str, False),
-        'ServerLaunchParameters': (str, False),
-        'ServerLaunchPath': (str, False),
+        "BuildId": (str, False),
+        "CertificateConfiguration": (CertificateConfiguration, False),
+        "Description": (str, False),
+        "DesiredEC2Instances": (integer, False),
+        "EC2InboundPermissions": ([IpPermission], False),
+        "EC2InstanceType": (str, True),
+        "FleetType": (str, False),
+        "InstanceRoleARN": (str, False),
+        "LogPaths": ([str], False),
+        "MaxSize": (integer, False),
+        "MetricGroups": ([str], False),
+        "MinSize": (integer, False),
+        "Name": (str, True),
+        "NewGameSessionProtectionPolicy": (str, False),
+        "PeerVpcAwsAccountId": (str, False),
+        "PeerVpcId": (str, False),
+        "ResourceCreationLimitPolicy": (ResourceCreationLimitPolicy, False),
+        "RuntimeConfiguration": (RuntimeConfiguration, False),
+        "ScriptId": (str, False),
+        "ServerLaunchParameters": (str, False),
+        "ServerLaunchPath": (str, False),
     }
 
 
 class TargetTrackingConfiguration(AWSProperty):
     props = {
-        'TargetValue': (double, True),
+        "TargetValue": (double, True),
     }
 
 
 class AutoScalingPolicy(AWSProperty):
     props = {
-        'EstimatedInstanceWarmup': (double, False),
-        'TargetTrackingConfiguration': (TargetTrackingConfiguration, True),
+        "EstimatedInstanceWarmup": (double, False),
+        "TargetTrackingConfiguration": (TargetTrackingConfiguration, True),
     }
 
 
 class InstanceDefinition(AWSProperty):
     props = {
-        'InstanceType': (str, True),
-        'WeightedCapacity': (str, False),
+        "InstanceType": (str, True),
+        "WeightedCapacity": (str, False),
     }
 
 
 class LaunchTemplate(AWSProperty):
     props = {
-        'LaunchTemplateId': (str, False),
-        'LaunchTemplateName': (str, False),
-        'Version': (str, False),
+        "LaunchTemplateId": (str, False),
+        "LaunchTemplateName": (str, False),
+        "Version": (str, False),
     }
 
 
@@ -151,31 +149,31 @@ class GameServerGroup(AWSObject):
     resource_type = "AWS::GameLift::GameServerGroup"
 
     props = {
-        'AutoScalingPolicy': (AutoScalingPolicy, False),
-        'BalancingStrategy': (str, False),
-        'DeleteOption': (str, False),
-        'GameServerGroupName': (str, True),
-        'GameServerProtectionPolicy': (str, False),
-        'InstanceDefinitions': ([InstanceDefinition], True),
-        'LaunchTemplate': (LaunchTemplate, True),
-        'MaxSize': (double, False),
-        'MinSize': (double, False),
-        'RoleArn': (str, True),
-        'Tags': (Tags, False),
-        'VpcSubnets': ([str], False),
+        "AutoScalingPolicy": (AutoScalingPolicy, False),
+        "BalancingStrategy": (str, False),
+        "DeleteOption": (str, False),
+        "GameServerGroupName": (str, True),
+        "GameServerProtectionPolicy": (str, False),
+        "InstanceDefinitions": ([InstanceDefinition], True),
+        "LaunchTemplate": (LaunchTemplate, True),
+        "MaxSize": (double, False),
+        "MinSize": (double, False),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+        "VpcSubnets": ([str], False),
     }
 
 
 class Destination(AWSProperty):
     props = {
-        'DestinationArn': (str, False),
+        "DestinationArn": (str, False),
     }
 
 
 class PlayerLatencyPolicy(AWSProperty):
     props = {
-        'MaximumIndividualPlayerLatencyMilliseconds': (integer, False),
-        'PolicyDurationSeconds': (integer, False),
+        "MaximumIndividualPlayerLatencyMilliseconds": (integer, False),
+        "PolicyDurationSeconds": (integer, False),
     }
 
 
@@ -183,17 +181,17 @@ class GameSessionQueue(AWSObject):
     resource_type = "AWS::GameLift::GameSessionQueue"
 
     props = {
-        'Destinations': ([Destination], False),
-        'Name': (str, True),
-        'PlayerLatencyPolicies': ([PlayerLatencyPolicy], False),
-        'TimeoutInSeconds': (integer, False),
+        "Destinations": ([Destination], False),
+        "Name": (str, True),
+        "PlayerLatencyPolicies": ([PlayerLatencyPolicy], False),
+        "TimeoutInSeconds": (integer, False),
     }
 
 
 class GameProperty(AWSProperty):
     props = {
-        'Key': (str, True),
-        'Value': (str, True),
+        "Key": (str, True),
+        "Value": (str, True),
     }
 
 
@@ -201,20 +199,20 @@ class MatchmakingConfiguration(AWSObject):
     resource_type = "AWS::GameLift::MatchmakingConfiguration"
 
     props = {
-        'AcceptanceRequired': (boolean, True),
-        'AcceptanceTimeoutSeconds': (integer, False),
-        'AdditionalPlayerCount': (integer, False),
-        'BackfillMode': (str, False),
-        'CustomEventData': (str, False),
-        'Description': (str, False),
-        'FlexMatchMode': (str, False),
-        'GameProperties': ([GameProperty], False),
-        'GameSessionData': (str, False),
-        'GameSessionQueueArns': ([str], False),
-        'Name': (str, True),
-        'NotificationTarget': (str, False),
-        'RequestTimeoutSeconds': (integer, True),
-        'RuleSetName': (str, True),
+        "AcceptanceRequired": (boolean, True),
+        "AcceptanceTimeoutSeconds": (integer, False),
+        "AdditionalPlayerCount": (integer, False),
+        "BackfillMode": (str, False),
+        "CustomEventData": (str, False),
+        "Description": (str, False),
+        "FlexMatchMode": (str, False),
+        "GameProperties": ([GameProperty], False),
+        "GameSessionData": (str, False),
+        "GameSessionQueueArns": ([str], False),
+        "Name": (str, True),
+        "NotificationTarget": (str, False),
+        "RequestTimeoutSeconds": (integer, True),
+        "RuleSetName": (str, True),
     }
 
 
@@ -222,8 +220,8 @@ class MatchmakingRuleSet(AWSObject):
     resource_type = "AWS::GameLift::MatchmakingRuleSet"
 
     props = {
-        'Name': (str, True),
-        'RuleSetBody': (str, True),
+        "Name": (str, True),
+        "RuleSetBody": (str, True),
     }
 
 
@@ -231,7 +229,7 @@ class Script(AWSObject):
     resource_type = "AWS::GameLift::Script"
 
     props = {
-        'Name': (str, False),
-        'StorageLocation': (S3Location, True),
-        'Version': (str, False),
+        "Name": (str, False),
+        "StorageLocation": (S3Location, True),
+        "Version": (str, False),
     }

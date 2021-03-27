@@ -15,10 +15,10 @@ class PublicRepository(AWSObject):
     resource_type = "AWS::ECR::PublicRepository"
 
     props = {
-        'RepositoryCatalogData': (dict, False),
-        'RepositoryName': (str, False),
-        'RepositoryPolicyText': (policytypes, False),
-        'Tags': (Tags, False),
+        "RepositoryCatalogData": (dict, False),
+        "RepositoryName": (str, False),
+        "RepositoryPolicyText": (policytypes, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -26,26 +26,26 @@ class RegistryPolicy(AWSObject):
     resource_type = "AWS::ECR::RegistryPolicy"
 
     props = {
-        'PolicyText': (policytypes, True),
+        "PolicyText": (policytypes, True),
     }
 
 
 class ReplicationDestination(AWSProperty):
     props = {
-        'Region': (str, True),
-        'RegistryId': (str, True),
+        "Region": (str, True),
+        "RegistryId": (str, True),
     }
 
 
 class ReplicationRule(AWSProperty):
     props = {
-        'Destinations': ([ReplicationDestination], True),
+        "Destinations": ([ReplicationDestination], True),
     }
 
 
 class ReplicationConfigurationProperty(AWSProperty):
     props = {
-        'Rules': ([ReplicationRule], True),
+        "Rules": ([ReplicationRule], True),
     }
 
 
@@ -53,15 +53,14 @@ class ReplicationConfiguration(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
     props = {
-        'ReplicationConfigurationProperty':
-            (ReplicationConfigurationProperty, True),
+        "ReplicationConfigurationProperty": (ReplicationConfigurationProperty, True),
     }
 
 
 class LifecyclePolicy(AWSProperty):
     props = {
-        'LifecyclePolicyText': (str, False),
-        'RegistryId': (str, False),
+        "LifecyclePolicyText": (str, False),
+        "RegistryId": (str, False),
     }
 
 
@@ -69,10 +68,10 @@ class Repository(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
     props = {
-        'ImageScanningConfiguration': (dict, False),
-        'ImageTagMutability': (str, False),
-        'LifecyclePolicy': (LifecyclePolicy, False),
-        'RepositoryName': (str, False),
-        'RepositoryPolicyText': (policytypes, False),
-        'Tags': (Tags, False),
+        "ImageScanningConfiguration": (dict, False),
+        "ImageTagMutability": (str, False),
+        "LifecyclePolicy": (LifecyclePolicy, False),
+        "RepositoryName": (str, False),
+        "RepositoryPolicyText": (policytypes, False),
+        "Tags": (Tags, False),
     }

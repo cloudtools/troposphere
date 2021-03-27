@@ -7,17 +7,16 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class EgressEndpoint(AWSProperty):
     props = {
-        'PackagingConfigurationId': (str, True),
-        'Url': (str, True),
+        "PackagingConfigurationId": (str, True),
+        "Url": (str, True),
     }
 
 
@@ -25,13 +24,13 @@ class Asset(AWSObject):
     resource_type = "AWS::MediaPackage::Asset"
 
     props = {
-        'EgressEndpoints': ([EgressEndpoint], False),
-        'Id': (str, True),
-        'PackagingGroupId': (str, True),
-        'ResourceId': (str, False),
-        'SourceArn': (str, True),
-        'SourceRoleArn': (str, True),
-        'Tags': (Tags, False),
+        "EgressEndpoints": ([EgressEndpoint], False),
+        "Id": (str, True),
+        "PackagingGroupId": (str, True),
+        "ResourceId": (str, False),
+        "SourceArn": (str, True),
+        "SourceRoleArn": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -39,121 +38,121 @@ class Channel(AWSObject):
     resource_type = "AWS::MediaPackage::Channel"
 
     props = {
-        'Description': (str, False),
-        'Id': (str, True),
-        'Tags': (Tags, False),
+        "Description": (str, False),
+        "Id": (str, True),
+        "Tags": (Tags, False),
     }
 
 
 class Authorization(AWSProperty):
     props = {
-        'CdnIdentifierSecret': (str, True),
-        'SecretsRoleArn': (str, True),
+        "CdnIdentifierSecret": (str, True),
+        "SecretsRoleArn": (str, True),
     }
 
 
 class SpekeKeyProvider(AWSProperty):
     props = {
-        'RoleArn': (str, True),
-        'SystemIds': ([str], True),
-        'Url': (str, True),
+        "RoleArn": (str, True),
+        "SystemIds": ([str], True),
+        "Url": (str, True),
     }
 
 
 class CmafEncryption(AWSProperty):
     props = {
-        'SpekeKeyProvider': (SpekeKeyProvider, True),
+        "SpekeKeyProvider": (SpekeKeyProvider, True),
     }
 
 
 class StreamSelection(AWSProperty):
     props = {
-        'MaxVideoBitsPerSecond': (integer, False),
-        'MinVideoBitsPerSecond': (integer, False),
-        'StreamOrder': (str, False),
+        "MaxVideoBitsPerSecond": (integer, False),
+        "MinVideoBitsPerSecond": (integer, False),
+        "StreamOrder": (str, False),
     }
 
 
 class HlsManifest(AWSProperty):
     props = {
-        'AdMarkers': (str, False),
-        'IncludeIframeOnlyStream': (boolean, False),
-        'ManifestName': (str, False),
-        'ProgramDateTimeIntervalSeconds': (integer, False),
-        'RepeatExtXKey': (boolean, False),
-        'StreamSelection': (StreamSelection, False),
+        "AdMarkers": (str, False),
+        "IncludeIframeOnlyStream": (boolean, False),
+        "ManifestName": (str, False),
+        "ProgramDateTimeIntervalSeconds": (integer, False),
+        "RepeatExtXKey": (boolean, False),
+        "StreamSelection": (StreamSelection, False),
     }
 
 
 class CmafPackage(AWSProperty):
     props = {
-        'Encryption': (CmafEncryption, False),
-        'HlsManifests': ([HlsManifest], True),
-        'SegmentDurationSeconds': (integer, False),
+        "Encryption": (CmafEncryption, False),
+        "HlsManifests": ([HlsManifest], True),
+        "SegmentDurationSeconds": (integer, False),
     }
 
 
 class DashEncryption(AWSProperty):
     props = {
-        'SpekeKeyProvider': (SpekeKeyProvider, True),
+        "SpekeKeyProvider": (SpekeKeyProvider, True),
     }
 
 
 class DashManifest(AWSProperty):
     props = {
-        'ManifestLayout': (str, False),
-        'ManifestName': (str, False),
-        'MinBufferTimeSeconds': (integer, False),
-        'Profile': (str, False),
-        'StreamSelection': (StreamSelection, False),
+        "ManifestLayout": (str, False),
+        "ManifestName": (str, False),
+        "MinBufferTimeSeconds": (integer, False),
+        "Profile": (str, False),
+        "StreamSelection": (StreamSelection, False),
     }
 
 
 class DashPackage(AWSProperty):
     props = {
-        'DashManifests': ([DashManifest], True),
-        'Encryption': (DashEncryption, False),
-        'PeriodTriggers': ([str], False),
-        'SegmentDurationSeconds': (integer, False),
-        'SegmentTemplateFormat': (str, False),
+        "DashManifests": ([DashManifest], True),
+        "Encryption": (DashEncryption, False),
+        "PeriodTriggers": ([str], False),
+        "SegmentDurationSeconds": (integer, False),
+        "SegmentTemplateFormat": (str, False),
     }
 
 
 class HlsEncryption(AWSProperty):
     props = {
-        'ConstantInitializationVector': (str, False),
-        'EncryptionMethod': (str, False),
-        'SpekeKeyProvider': (SpekeKeyProvider, True),
+        "ConstantInitializationVector": (str, False),
+        "EncryptionMethod": (str, False),
+        "SpekeKeyProvider": (SpekeKeyProvider, True),
     }
 
 
 class HlsPackage(AWSProperty):
     props = {
-        'Encryption': (HlsEncryption, False),
-        'HlsManifests': ([HlsManifest], True),
-        'SegmentDurationSeconds': (integer, False),
-        'UseAudioRenditionGroup': (boolean, False),
+        "Encryption": (HlsEncryption, False),
+        "HlsManifests": ([HlsManifest], True),
+        "SegmentDurationSeconds": (integer, False),
+        "UseAudioRenditionGroup": (boolean, False),
     }
 
 
 class MssEncryption(AWSProperty):
     props = {
-        'SpekeKeyProvider': (SpekeKeyProvider, True),
+        "SpekeKeyProvider": (SpekeKeyProvider, True),
     }
 
 
 class MssManifest(AWSProperty):
     props = {
-        'ManifestName': (str, False),
-        'StreamSelection': (StreamSelection, False),
+        "ManifestName": (str, False),
+        "StreamSelection": (StreamSelection, False),
     }
 
 
 class MssPackage(AWSProperty):
     props = {
-        'Encryption': (MssEncryption, False),
-        'MssManifests': ([MssManifest], True),
-        'SegmentDurationSeconds': (integer, False),
+        "Encryption": (MssEncryption, False),
+        "MssManifests": ([MssManifest], True),
+        "SegmentDurationSeconds": (integer, False),
     }
 
 
@@ -161,20 +160,20 @@ class OriginEndpoint(AWSObject):
     resource_type = "AWS::MediaPackage::OriginEndpoint"
 
     props = {
-        'Authorization': (Authorization, False),
-        'ChannelId': (str, True),
-        'CmafPackage': (CmafPackage, False),
-        'DashPackage': (DashPackage, False),
-        'Description': (str, False),
-        'HlsPackage': (HlsPackage, False),
-        'Id': (str, True),
-        'ManifestName': (str, False),
-        'MssPackage': (MssPackage, False),
-        'Origination': (str, False),
-        'StartoverWindowSeconds': (integer, False),
-        'Tags': (Tags, False),
-        'TimeDelaySeconds': (integer, False),
-        'Whitelist': ([str], False),
+        "Authorization": (Authorization, False),
+        "ChannelId": (str, True),
+        "CmafPackage": (CmafPackage, False),
+        "DashPackage": (DashPackage, False),
+        "Description": (str, False),
+        "HlsPackage": (HlsPackage, False),
+        "Id": (str, True),
+        "ManifestName": (str, False),
+        "MssPackage": (MssPackage, False),
+        "Origination": (str, False),
+        "StartoverWindowSeconds": (integer, False),
+        "Tags": (Tags, False),
+        "TimeDelaySeconds": (integer, False),
+        "Whitelist": ([str], False),
     }
 
 
@@ -182,13 +181,13 @@ class PackagingConfiguration(AWSObject):
     resource_type = "AWS::MediaPackage::PackagingConfiguration"
 
     props = {
-        'CmafPackage': (CmafPackage, False),
-        'DashPackage': (DashPackage, False),
-        'HlsPackage': (HlsPackage, False),
-        'Id': (str, True),
-        'MssPackage': (MssPackage, False),
-        'PackagingGroupId': (str, True),
-        'Tags': (Tags, False),
+        "CmafPackage": (CmafPackage, False),
+        "DashPackage": (DashPackage, False),
+        "HlsPackage": (HlsPackage, False),
+        "Id": (str, True),
+        "MssPackage": (MssPackage, False),
+        "PackagingGroupId": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -196,7 +195,7 @@ class PackagingGroup(AWSObject):
     resource_type = "AWS::MediaPackage::PackagingGroup"
 
     props = {
-        'Authorization': (Authorization, False),
-        'Id': (str, True),
-        'Tags': (Tags, False),
+        "Authorization": (Authorization, False),
+        "Id": (str, True),
+        "Tags": (Tags, False),
     }

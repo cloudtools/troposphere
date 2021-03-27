@@ -19,7 +19,7 @@ class ProcessingInstance(TrustyInstance):
     InstanceType = "m3.large"
 
 
-template.add_resource(FrontendInstance('jones1'))
-template.add_resource(ProcessingInstance('williams1', InstanceType="m2.large"))
+template.add_resource(FrontendInstance("jones1"))
+template.add_resource(ProcessingInstance("williams1", InstanceType="m2.large"))
 
 print(template.to_json())

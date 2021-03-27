@@ -7,29 +7,28 @@
 # Resource specification version: 18.6.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class ConnectionAlias(AWSObject):
     resource_type = "AWS::WorkSpaces::ConnectionAlias"
 
     props = {
-        'ConnectionString': (str, True),
-        'Tags': (Tags, False),
+        "ConnectionString": (str, True),
+        "Tags": (Tags, False),
     }
 
 
 class WorkspaceProperties(AWSProperty):
     props = {
-        'ComputeTypeName': (str, False),
-        'RootVolumeSizeGib': (integer, False),
-        'RunningMode': (str, False),
-        'RunningModeAutoStopTimeoutInMinutes': (integer, False),
-        'UserVolumeSizeGib': (integer, False),
+        "ComputeTypeName": (str, False),
+        "RootVolumeSizeGib": (integer, False),
+        "RunningMode": (str, False),
+        "RunningModeAutoStopTimeoutInMinutes": (integer, False),
+        "UserVolumeSizeGib": (integer, False),
     }
 
 
@@ -37,12 +36,12 @@ class Workspace(AWSObject):
     resource_type = "AWS::WorkSpaces::Workspace"
 
     props = {
-        'BundleId': (str, True),
-        'DirectoryId': (str, True),
-        'RootVolumeEncryptionEnabled': (boolean, False),
-        'Tags': (Tags, False),
-        'UserName': (str, True),
-        'UserVolumeEncryptionEnabled': (boolean, False),
-        'VolumeEncryptionKey': (str, False),
-        'WorkspaceProperties': (WorkspaceProperties, False),
+        "BundleId": (str, True),
+        "DirectoryId": (str, True),
+        "RootVolumeEncryptionEnabled": (boolean, False),
+        "Tags": (Tags, False),
+        "UserName": (str, True),
+        "UserVolumeEncryptionEnabled": (boolean, False),
+        "VolumeEncryptionKey": (str, False),
+        "WorkspaceProperties": (WorkspaceProperties, False),
     }

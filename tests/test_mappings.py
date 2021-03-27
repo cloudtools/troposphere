@@ -43,5 +43,5 @@ class TestMappings(unittest.TestCase):
         self.assertEqual(multiple_mappings, json)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

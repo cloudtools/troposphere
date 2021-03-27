@@ -1,8 +1,14 @@
 import unittest
 
-from troposphere import Template, Parameter, Output
-from troposphere import MAX_MAPPINGS, MAX_OUTPUTS
-from troposphere import MAX_PARAMETERS, MAX_RESOURCES
+from troposphere import (
+    MAX_MAPPINGS,
+    MAX_OUTPUTS,
+    MAX_PARAMETERS,
+    MAX_RESOURCES,
+    Output,
+    Parameter,
+    Template,
+)
 from troposphere.s3 import Bucket
 
 
@@ -12,7 +18,7 @@ class TestInitArguments(unittest.TestCase):
         self.assertIsNone(template.description)
 
     def test_description(self):
-        value = 'foo'
+        value = "foo"
         template = Template(Description=value)
         self.assertEqual(template.description, value)
 
@@ -21,12 +27,12 @@ class TestInitArguments(unittest.TestCase):
         self.assertEqual(template.metadata, {})
 
     def test_metadata(self):
-        value = 'foo'
+        value = "foo"
         template = Template(Metadata=value)
         self.assertEqual(template.metadata, value)
 
     def test_transform(self):
-        transform = 'AWS::Serverless-2016-10-31'
+        transform = "AWS::Serverless-2016-10-31"
         template = Template()
         template.add_transform(transform)
         self.assertEqual(template.transform, transform)
@@ -36,9 +42,9 @@ class TestValidate(unittest.TestCase):
     def test_max_parameters(self):
         template = Template()
         for i in range(0, MAX_PARAMETERS):
-            template.add_parameter(Parameter(str(i), Type='String'))
+            template.add_parameter(Parameter(str(i), Type="String"))
         with self.assertRaises(ValueError):
-            template.add_parameter(Parameter("parameter", Type='String'))
+            template.add_parameter(Parameter("parameter", Type="String"))
 
     def test_max_resources(self):
         template = Template()
@@ -64,10 +70,10 @@ class TestValidate(unittest.TestCase):
 
 class TestEquality(unittest.TestCase):
     def test_eq(self):
-        metadata = 'foo'
-        description = 'bar'
-        resource = Bucket('Baz')
-        output = Output('qux', Value='qux')
+        metadata = "foo"
+        description = "bar"
+        resource = Bucket("Baz")
+        output = Output("qux", Value="qux")
 
         t1 = Template(Description=description, Metadata=metadata)
         t1.add_resource(resource)
@@ -80,21 +86,21 @@ class TestEquality(unittest.TestCase):
         self.assertEqual(t1, t2)
 
     def test_ne(self):
-        t1 = Template(Description='foo1', Metadata='bar1')
-        t1.add_resource(Bucket('Baz1'))
-        t1.add_output(Output('qux1', Value='qux1'))
+        t1 = Template(Description="foo1", Metadata="bar1")
+        t1.add_resource(Bucket("Baz1"))
+        t1.add_output(Output("qux1", Value="qux1"))
 
-        t2 = Template(Description='foo2', Metadata='bar2')
-        t2.add_resource(Bucket('Baz2'))
-        t2.add_output(Output('qux2', Value='qux2'))
+        t2 = Template(Description="foo2", Metadata="bar2")
+        t2.add_resource(Bucket("Baz2"))
+        t2.add_output(Output("qux2", Value="qux2"))
 
         self.assertNotEqual(t1, t2)
 
     def test_hash(self):
-        metadata = 'foo'
-        description = 'bar'
-        resource = Bucket('Baz')
-        output = Output('qux', Value='qux')
+        metadata = "foo"
+        description = "bar"
+        resource = Bucket("Baz")
+        output = Output("qux", Value="qux")
 
         t1 = Template(Description=description, Metadata=metadata)
         t1.add_resource(resource)
@@ -116,14 +122,17 @@ class TestAwsInterface(unittest.TestCase):
 
         t.set_parameter_label("Bar", "Bar label")
 
-        self.assertEqual(t.metadata, {
-            "AWS::CloudFormation::Interface": {
-                "ParameterLabels": {
-                    "Foo": {"default": "Foo label"},
-                    "Bar": {"default": "Bar label"},
+        self.assertEqual(
+            t.metadata,
+            {
+                "AWS::CloudFormation::Interface": {
+                    "ParameterLabels": {
+                        "Foo": {"default": "Foo label"},
+                        "Bar": {"default": "Bar label"},
+                    },
                 },
             },
-        })
+        )
 
     def test_parameter_label_replace(self):
         t = Template()
@@ -132,13 +141,16 @@ class TestAwsInterface(unittest.TestCase):
         t.set_parameter_label(p1, "Foo label")
         t.set_parameter_label("Foo", "Bar label")
 
-        self.assertEqual(t.metadata, {
-            "AWS::CloudFormation::Interface": {
-                "ParameterLabels": {
-                    "Foo": {"default": "Bar label"},
+        self.assertEqual(
+            t.metadata,
+            {
+                "AWS::CloudFormation::Interface": {
+                    "ParameterLabels": {
+                        "Foo": {"default": "Bar label"},
+                    },
                 },
             },
-        })
+        )
 
     def test_parameter_group(self):
         t = Template()
@@ -147,16 +159,19 @@ class TestAwsInterface(unittest.TestCase):
         t.add_parameter_to_group(p1, "gr")
         t.add_parameter_to_group("Bar", "gr")
 
-        self.assertEqual(t.metadata, {
-            "AWS::CloudFormation::Interface": {
-                "ParameterGroups": [
-                    {
-                        "Label": {"default": "gr"},
-                        "Parameters": ["Foo", "Bar"],
-                    },
-                ],
+        self.assertEqual(
+            t.metadata,
+            {
+                "AWS::CloudFormation::Interface": {
+                    "ParameterGroups": [
+                        {
+                            "Label": {"default": "gr"},
+                            "Parameters": ["Foo", "Bar"],
+                        },
+                    ],
+                },
             },
-        })
+        )
 
 
 class TestRules(unittest.TestCase):
@@ -185,5 +200,5 @@ class TestRules(unittest.TestCase):
         self.assertEqual(rendered["Rules"]["ValidateEqual"], rule)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

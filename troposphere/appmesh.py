@@ -7,80 +7,79 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
 
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
-VALID_LISTENERTLS_MODE = ('STRICT', 'PERMISSIVE', 'DISABLED')
+VALID_LISTENERTLS_MODE = ("STRICT", "PERMISSIVE", "DISABLED")
 
 
 def validate_listenertls_mode(listenertls_mode):
     """Validate Mode for ListernerTls"""
 
     if listenertls_mode not in VALID_LISTENERTLS_MODE:
-        raise ValueError("ListernerTls Mode must be one of: %s" %
-                         ", ".join(VALID_LISTENERTLS_MODE))
+        raise ValueError(
+            "ListernerTls Mode must be one of: %s" % ", ".join(VALID_LISTENERTLS_MODE)
+        )
     return listenertls_mode
 
 
 class GatewayRouteVirtualService(AWSProperty):
     props = {
-        'VirtualServiceName': (str, True),
+        "VirtualServiceName": (str, True),
     }
 
 
 class GatewayRouteTarget(AWSProperty):
     props = {
-        'VirtualService': (GatewayRouteVirtualService, True),
+        "VirtualService": (GatewayRouteVirtualService, True),
     }
 
 
 class GrpcGatewayRouteAction(AWSProperty):
     props = {
-        'Target': (GatewayRouteTarget, True),
+        "Target": (GatewayRouteTarget, True),
     }
 
 
 class GrpcGatewayRouteMatch(AWSProperty):
     props = {
-        'ServiceName': (str, False),
+        "ServiceName": (str, False),
     }
 
 
 class GrpcGatewayRoute(AWSProperty):
     props = {
-        'Action': (GrpcGatewayRouteAction, True),
-        'Match': (GrpcGatewayRouteMatch, True),
+        "Action": (GrpcGatewayRouteAction, True),
+        "Match": (GrpcGatewayRouteMatch, True),
     }
 
 
 class HttpGatewayRouteAction(AWSProperty):
     props = {
-        'Target': (GatewayRouteTarget, True),
+        "Target": (GatewayRouteTarget, True),
     }
 
 
 class HttpGatewayRouteMatch(AWSProperty):
     props = {
-        'Prefix': (str, True),
+        "Prefix": (str, True),
     }
 
 
 class HttpGatewayRoute(AWSProperty):
     props = {
-        'Action': (HttpGatewayRouteAction, True),
-        'Match': (HttpGatewayRouteMatch, True),
+        "Action": (HttpGatewayRouteAction, True),
+        "Match": (HttpGatewayRouteMatch, True),
     }
 
 
 class GatewayRouteSpec(AWSProperty):
     props = {
-        'GrpcRoute': (GrpcGatewayRoute, False),
-        'Http2Route': (HttpGatewayRoute, False),
-        'HttpRoute': (HttpGatewayRoute, False),
+        "GrpcRoute": (GrpcGatewayRoute, False),
+        "Http2Route": (HttpGatewayRoute, False),
+        "HttpRoute": (HttpGatewayRoute, False),
     }
 
 
@@ -88,24 +87,24 @@ class GatewayRoute(AWSObject):
     resource_type = "AWS::AppMesh::GatewayRoute"
 
     props = {
-        'GatewayRouteName': (str, False),
-        'MeshName': (str, True),
-        'MeshOwner': (str, False),
-        'Spec': (GatewayRouteSpec, True),
-        'Tags': (Tags, False),
-        'VirtualGatewayName': (str, True),
+        "GatewayRouteName": (str, False),
+        "MeshName": (str, True),
+        "MeshOwner": (str, False),
+        "Spec": (GatewayRouteSpec, True),
+        "Tags": (Tags, False),
+        "VirtualGatewayName": (str, True),
     }
 
 
 class EgressFilter(AWSProperty):
     props = {
-        'Type': (str, True),
+        "Type": (str, True),
     }
 
 
 class MeshSpec(AWSProperty):
     props = {
-        'EgressFilter': (EgressFilter, False),
+        "EgressFilter": (EgressFilter, False),
     }
 
 
@@ -113,175 +112,175 @@ class Mesh(AWSObject):
     resource_type = "AWS::AppMesh::Mesh"
 
     props = {
-        'MeshName': (str, False),
-        'Spec': (MeshSpec, False),
-        'Tags': (Tags, False),
+        "MeshName": (str, False),
+        "Spec": (MeshSpec, False),
+        "Tags": (Tags, False),
     }
 
 
 class Duration(AWSProperty):
     props = {
-        'Unit': (str, True),
-        'Value': (integer, True),
+        "Unit": (str, True),
+        "Value": (integer, True),
     }
 
 
 class GrpcRetryPolicy(AWSProperty):
     props = {
-        'GrpcRetryEvents': ([str], False),
-        'HttpRetryEvents': ([str], False),
-        'MaxRetries': (integer, True),
-        'PerRetryTimeout': (Duration, True),
-        'TcpRetryEvents': ([str], False),
+        "GrpcRetryEvents": ([str], False),
+        "HttpRetryEvents": ([str], False),
+        "MaxRetries": (integer, True),
+        "PerRetryTimeout": (Duration, True),
+        "TcpRetryEvents": ([str], False),
     }
 
 
 class WeightedTarget(AWSProperty):
     props = {
-        'VirtualNode': (str, True),
-        'Weight': (integer, True),
+        "VirtualNode": (str, True),
+        "Weight": (integer, True),
     }
 
 
 class GrpcRouteAction(AWSProperty):
     props = {
-        'WeightedTargets': ([WeightedTarget], True),
+        "WeightedTargets": ([WeightedTarget], True),
     }
 
 
 class MatchRange(AWSProperty):
     props = {
-        'End': (integer, True),
-        'Start': (integer, True),
+        "End": (integer, True),
+        "Start": (integer, True),
     }
 
 
 class GrpcRouteMetadataMatchMethod(AWSProperty):
     props = {
-        'Exact': (str, False),
-        'Prefix': (str, False),
-        'Range': (MatchRange, False),
-        'Regex': (str, False),
-        'Suffix': (str, False),
+        "Exact": (str, False),
+        "Prefix": (str, False),
+        "Range": (MatchRange, False),
+        "Regex": (str, False),
+        "Suffix": (str, False),
     }
 
 
 class GrpcRouteMetadata(AWSProperty):
     props = {
-        'Invert': (boolean, False),
-        'Match': (GrpcRouteMetadataMatchMethod, False),
-        'Name': (str, True),
+        "Invert": (boolean, False),
+        "Match": (GrpcRouteMetadataMatchMethod, False),
+        "Name": (str, True),
     }
 
 
 class GrpcRouteMatch(AWSProperty):
     props = {
-        'Metadata': ([GrpcRouteMetadata], False),
-        'MethodName': (str, False),
-        'ServiceName': (str, False),
+        "Metadata": ([GrpcRouteMetadata], False),
+        "MethodName": (str, False),
+        "ServiceName": (str, False),
     }
 
 
 class GrpcTimeout(AWSProperty):
     props = {
-        'Idle': (Duration, False),
-        'PerRequest': (Duration, False),
+        "Idle": (Duration, False),
+        "PerRequest": (Duration, False),
     }
 
 
 class GrpcRoute(AWSProperty):
     props = {
-        'Action': (GrpcRouteAction, True),
-        'Match': (GrpcRouteMatch, True),
-        'RetryPolicy': (GrpcRetryPolicy, False),
-        'Timeout': (GrpcTimeout, False),
+        "Action": (GrpcRouteAction, True),
+        "Match": (GrpcRouteMatch, True),
+        "RetryPolicy": (GrpcRetryPolicy, False),
+        "Timeout": (GrpcTimeout, False),
     }
 
 
 class HttpRetryPolicy(AWSProperty):
     props = {
-        'HttpRetryEvents': ([str], False),
-        'MaxRetries': (integer, True),
-        'PerRetryTimeout': (Duration, True),
-        'TcpRetryEvents': ([str], False),
+        "HttpRetryEvents": ([str], False),
+        "MaxRetries": (integer, True),
+        "PerRetryTimeout": (Duration, True),
+        "TcpRetryEvents": ([str], False),
     }
 
 
 class HttpRouteAction(AWSProperty):
     props = {
-        'WeightedTargets': ([WeightedTarget], True),
+        "WeightedTargets": ([WeightedTarget], True),
     }
 
 
 class HeaderMatchMethod(AWSProperty):
     props = {
-        'Exact': (str, False),
-        'Prefix': (str, False),
-        'Range': (MatchRange, False),
-        'Regex': (str, False),
-        'Suffix': (str, False),
+        "Exact": (str, False),
+        "Prefix": (str, False),
+        "Range": (MatchRange, False),
+        "Regex": (str, False),
+        "Suffix": (str, False),
     }
 
 
 class HttpRouteHeader(AWSProperty):
     props = {
-        'Invert': (boolean, False),
-        'Match': (HeaderMatchMethod, False),
-        'Name': (str, True),
+        "Invert": (boolean, False),
+        "Match": (HeaderMatchMethod, False),
+        "Name": (str, True),
     }
 
 
 class HttpRouteMatch(AWSProperty):
     props = {
-        'Headers': ([HttpRouteHeader], False),
-        'Method': (str, False),
-        'Prefix': (str, True),
-        'Scheme': (str, False),
+        "Headers": ([HttpRouteHeader], False),
+        "Method": (str, False),
+        "Prefix": (str, True),
+        "Scheme": (str, False),
     }
 
 
 class HttpTimeout(AWSProperty):
     props = {
-        'Idle': (Duration, False),
-        'PerRequest': (Duration, False),
+        "Idle": (Duration, False),
+        "PerRequest": (Duration, False),
     }
 
 
 class HttpRoute(AWSProperty):
     props = {
-        'Action': (HttpRouteAction, True),
-        'Match': (HttpRouteMatch, True),
-        'RetryPolicy': (HttpRetryPolicy, False),
-        'Timeout': (HttpTimeout, False),
+        "Action": (HttpRouteAction, True),
+        "Match": (HttpRouteMatch, True),
+        "RetryPolicy": (HttpRetryPolicy, False),
+        "Timeout": (HttpTimeout, False),
     }
 
 
 class TcpRouteAction(AWSProperty):
     props = {
-        'WeightedTargets': ([WeightedTarget], True),
+        "WeightedTargets": ([WeightedTarget], True),
     }
 
 
 class TcpTimeout(AWSProperty):
     props = {
-        'Idle': (Duration, False),
+        "Idle": (Duration, False),
     }
 
 
 class TcpRoute(AWSProperty):
     props = {
-        'Action': (TcpRouteAction, True),
-        'Timeout': (TcpTimeout, False),
+        "Action": (TcpRouteAction, True),
+        "Timeout": (TcpTimeout, False),
     }
 
 
 class RouteSpec(AWSProperty):
     props = {
-        'GrpcRoute': (GrpcRoute, False),
-        'Http2Route': (HttpRoute, False),
-        'HttpRoute': (HttpRoute, False),
-        'Priority': (integer, False),
-        'TcpRoute': (TcpRoute, False),
+        "GrpcRoute": (GrpcRoute, False),
+        "Http2Route": (HttpRoute, False),
+        "HttpRoute": (HttpRoute, False),
+        "Priority": (integer, False),
+        "TcpRoute": (TcpRoute, False),
     }
 
 
@@ -289,215 +288,215 @@ class Route(AWSObject):
     resource_type = "AWS::AppMesh::Route"
 
     props = {
-        'MeshName': (str, True),
-        'MeshOwner': (str, False),
-        'RouteName': (str, False),
-        'Spec': (RouteSpec, True),
-        'Tags': (Tags, False),
-        'VirtualRouterName': (str, True),
+        "MeshName": (str, True),
+        "MeshOwner": (str, False),
+        "RouteName": (str, False),
+        "Spec": (RouteSpec, True),
+        "Tags": (Tags, False),
+        "VirtualRouterName": (str, True),
     }
 
 
 class VirtualGatewayListenerTlsFileCertificate(AWSProperty):
     props = {
-        'CertificateChain': (str, True),
-        'PrivateKey': (str, True),
+        "CertificateChain": (str, True),
+        "PrivateKey": (str, True),
     }
 
 
 class VirtualGatewayListenerTlsSdsCertificate(AWSProperty):
     props = {
-        'SecretName': (str, True),
+        "SecretName": (str, True),
     }
 
 
 class VirtualGatewayClientTlsCertificate(AWSProperty):
     props = {
-        'File': (VirtualGatewayListenerTlsFileCertificate, False),
-        'SDS': (VirtualGatewayListenerTlsSdsCertificate, False),
+        "File": (VirtualGatewayListenerTlsFileCertificate, False),
+        "SDS": (VirtualGatewayListenerTlsSdsCertificate, False),
     }
 
 
 class SubjectAlternativeNameMatchers(AWSProperty):
     props = {
-        'Exact': ([str], False),
+        "Exact": ([str], False),
     }
 
 
 class SubjectAlternativeNames(AWSProperty):
     props = {
-        'Match': (SubjectAlternativeNameMatchers, True),
+        "Match": (SubjectAlternativeNameMatchers, True),
     }
 
 
 class VirtualGatewayTlsValidationContextAcmTrust(AWSProperty):
     props = {
-        'CertificateAuthorityArns': ([str], True),
+        "CertificateAuthorityArns": ([str], True),
     }
 
 
 class VirtualGatewayTlsValidationContextFileTrust(AWSProperty):
     props = {
-        'CertificateChain': (str, True),
+        "CertificateChain": (str, True),
     }
 
 
 class VirtualGatewayTlsValidationContextSdsTrust(AWSProperty):
     props = {
-        'SecretName': (str, True),
+        "SecretName": (str, True),
     }
 
 
 class VirtualGatewayTlsValidationContextTrust(AWSProperty):
     props = {
-        'ACM': (VirtualGatewayTlsValidationContextAcmTrust, False),
-        'File': (VirtualGatewayTlsValidationContextFileTrust, False),
-        'SDS': (VirtualGatewayTlsValidationContextSdsTrust, False),
+        "ACM": (VirtualGatewayTlsValidationContextAcmTrust, False),
+        "File": (VirtualGatewayTlsValidationContextFileTrust, False),
+        "SDS": (VirtualGatewayTlsValidationContextSdsTrust, False),
     }
 
 
 class VirtualGatewayTlsValidationContext(AWSProperty):
     props = {
-        'SubjectAlternativeNames': (SubjectAlternativeNames, False),
-        'Trust': (VirtualGatewayTlsValidationContextTrust, True),
+        "SubjectAlternativeNames": (SubjectAlternativeNames, False),
+        "Trust": (VirtualGatewayTlsValidationContextTrust, True),
     }
 
 
 class VirtualGatewayClientPolicyTls(AWSProperty):
     props = {
-        'Certificate': (VirtualGatewayClientTlsCertificate, False),
-        'Enforce': (boolean, False),
-        'Ports': ([integer], False),
-        'Validation': (VirtualGatewayTlsValidationContext, True),
+        "Certificate": (VirtualGatewayClientTlsCertificate, False),
+        "Enforce": (boolean, False),
+        "Ports": ([integer], False),
+        "Validation": (VirtualGatewayTlsValidationContext, True),
     }
 
 
 class VirtualGatewayClientPolicy(AWSProperty):
     props = {
-        'TLS': (VirtualGatewayClientPolicyTls, False),
+        "TLS": (VirtualGatewayClientPolicyTls, False),
     }
 
 
 class VirtualGatewayBackendDefaults(AWSProperty):
     props = {
-        'ClientPolicy': (VirtualGatewayClientPolicy, False),
+        "ClientPolicy": (VirtualGatewayClientPolicy, False),
     }
 
 
 class VirtualGatewayGrpcConnectionPool(AWSProperty):
     props = {
-        'MaxRequests': (integer, True),
+        "MaxRequests": (integer, True),
     }
 
 
 class VirtualGatewayHttp2ConnectionPool(AWSProperty):
     props = {
-        'MaxRequests': (integer, True),
+        "MaxRequests": (integer, True),
     }
 
 
 class VirtualGatewayHttpConnectionPool(AWSProperty):
     props = {
-        'MaxConnections': (integer, True),
-        'MaxPendingRequests': (integer, False),
+        "MaxConnections": (integer, True),
+        "MaxPendingRequests": (integer, False),
     }
 
 
 class VirtualGatewayConnectionPool(AWSProperty):
     props = {
-        'GRPC': (VirtualGatewayGrpcConnectionPool, False),
-        'HTTP': (VirtualGatewayHttpConnectionPool, False),
-        'HTTP2': (VirtualGatewayHttp2ConnectionPool, False),
+        "GRPC": (VirtualGatewayGrpcConnectionPool, False),
+        "HTTP": (VirtualGatewayHttpConnectionPool, False),
+        "HTTP2": (VirtualGatewayHttp2ConnectionPool, False),
     }
 
 
 class VirtualGatewayHealthCheckPolicy(AWSProperty):
     props = {
-        'HealthyThreshold': (integer, True),
-        'IntervalMillis': (integer, True),
-        'Path': (str, False),
-        'Port': (integer, False),
-        'Protocol': (str, True),
-        'TimeoutMillis': (integer, True),
-        'UnhealthyThreshold': (integer, True),
+        "HealthyThreshold": (integer, True),
+        "IntervalMillis": (integer, True),
+        "Path": (str, False),
+        "Port": (integer, False),
+        "Protocol": (str, True),
+        "TimeoutMillis": (integer, True),
+        "UnhealthyThreshold": (integer, True),
     }
 
 
 class VirtualGatewayListenerTlsAcmCertificate(AWSProperty):
     props = {
-        'CertificateArn': (str, True),
+        "CertificateArn": (str, True),
     }
 
 
 class VirtualGatewayListenerTlsCertificate(AWSProperty):
     props = {
-        'ACM': (VirtualGatewayListenerTlsAcmCertificate, False),
-        'File': (VirtualGatewayListenerTlsFileCertificate, False),
-        'SDS': (VirtualGatewayListenerTlsSdsCertificate, False),
+        "ACM": (VirtualGatewayListenerTlsAcmCertificate, False),
+        "File": (VirtualGatewayListenerTlsFileCertificate, False),
+        "SDS": (VirtualGatewayListenerTlsSdsCertificate, False),
     }
 
 
 class VirtualGatewayListenerTlsValidationContextTrust(AWSProperty):
     props = {
-        'File': (VirtualGatewayTlsValidationContextFileTrust, False),
-        'SDS': (VirtualGatewayTlsValidationContextSdsTrust, False),
+        "File": (VirtualGatewayTlsValidationContextFileTrust, False),
+        "SDS": (VirtualGatewayTlsValidationContextSdsTrust, False),
     }
 
 
 class VirtualGatewayListenerTlsValidationContext(AWSProperty):
     props = {
-        'SubjectAlternativeNames': (SubjectAlternativeNames, False),
-        'Trust': (VirtualGatewayListenerTlsValidationContextTrust, True),
+        "SubjectAlternativeNames": (SubjectAlternativeNames, False),
+        "Trust": (VirtualGatewayListenerTlsValidationContextTrust, True),
     }
 
 
 class VirtualGatewayListenerTls(AWSProperty):
     props = {
-        'Certificate': (VirtualGatewayListenerTlsCertificate, True),
-        'Mode': (str, True),
-        'Validation': (VirtualGatewayListenerTlsValidationContext, False),
+        "Certificate": (VirtualGatewayListenerTlsCertificate, True),
+        "Mode": (str, True),
+        "Validation": (VirtualGatewayListenerTlsValidationContext, False),
     }
 
 
 class VirtualGatewayPortMapping(AWSProperty):
     props = {
-        'Port': (integer, True),
-        'Protocol': (str, True),
+        "Port": (integer, True),
+        "Protocol": (str, True),
     }
 
 
 class VirtualGatewayListener(AWSProperty):
     props = {
-        'ConnectionPool': (VirtualGatewayConnectionPool, False),
-        'HealthCheck': (VirtualGatewayHealthCheckPolicy, False),
-        'PortMapping': (VirtualGatewayPortMapping, True),
-        'TLS': (VirtualGatewayListenerTls, False),
+        "ConnectionPool": (VirtualGatewayConnectionPool, False),
+        "HealthCheck": (VirtualGatewayHealthCheckPolicy, False),
+        "PortMapping": (VirtualGatewayPortMapping, True),
+        "TLS": (VirtualGatewayListenerTls, False),
     }
 
 
 class VirtualGatewayFileAccessLog(AWSProperty):
     props = {
-        'Path': (str, True),
+        "Path": (str, True),
     }
 
 
 class VirtualGatewayAccessLog(AWSProperty):
     props = {
-        'File': (VirtualGatewayFileAccessLog, False),
+        "File": (VirtualGatewayFileAccessLog, False),
     }
 
 
 class VirtualGatewayLogging(AWSProperty):
     props = {
-        'AccessLog': (VirtualGatewayAccessLog, False),
+        "AccessLog": (VirtualGatewayAccessLog, False),
     }
 
 
 class VirtualGatewaySpec(AWSProperty):
     props = {
-        'BackendDefaults': (VirtualGatewayBackendDefaults, False),
-        'Listeners': ([VirtualGatewayListener], True),
-        'Logging': (VirtualGatewayLogging, False),
+        "BackendDefaults": (VirtualGatewayBackendDefaults, False),
+        "Listeners": ([VirtualGatewayListener], True),
+        "Logging": (VirtualGatewayLogging, False),
     }
 
 
@@ -505,272 +504,272 @@ class VirtualGateway(AWSObject):
     resource_type = "AWS::AppMesh::VirtualGateway"
 
     props = {
-        'MeshName': (str, True),
-        'MeshOwner': (str, False),
-        'Spec': (VirtualGatewaySpec, True),
-        'Tags': (Tags, False),
-        'VirtualGatewayName': (str, False),
+        "MeshName": (str, True),
+        "MeshOwner": (str, False),
+        "Spec": (VirtualGatewaySpec, True),
+        "Tags": (Tags, False),
+        "VirtualGatewayName": (str, False),
     }
 
 
 class ListenerTlsFileCertificate(AWSProperty):
     props = {
-        'CertificateChain': (str, True),
-        'PrivateKey': (str, True),
+        "CertificateChain": (str, True),
+        "PrivateKey": (str, True),
     }
 
 
 class ListenerTlsSdsCertificate(AWSProperty):
     props = {
-        'SecretName': (str, True),
+        "SecretName": (str, True),
     }
 
 
 class ClientTlsCertificate(AWSProperty):
     props = {
-        'File': (ListenerTlsFileCertificate, False),
-        'SDS': (ListenerTlsSdsCertificate, False),
+        "File": (ListenerTlsFileCertificate, False),
+        "SDS": (ListenerTlsSdsCertificate, False),
     }
 
 
 class TlsValidationContextAcmTrust(AWSProperty):
     props = {
-        'CertificateAuthorityArns': ([str], True),
+        "CertificateAuthorityArns": ([str], True),
     }
 
 
 class TlsValidationContextFileTrust(AWSProperty):
     props = {
-        'CertificateChain': (str, True),
+        "CertificateChain": (str, True),
     }
 
 
 class TlsValidationContextSdsTrust(AWSProperty):
     props = {
-        'SecretName': (str, True),
+        "SecretName": (str, True),
     }
 
 
 class TlsValidationContextTrust(AWSProperty):
     props = {
-        'ACM': (TlsValidationContextAcmTrust, False),
-        'File': (TlsValidationContextFileTrust, False),
-        'SDS': (TlsValidationContextSdsTrust, False),
+        "ACM": (TlsValidationContextAcmTrust, False),
+        "File": (TlsValidationContextFileTrust, False),
+        "SDS": (TlsValidationContextSdsTrust, False),
     }
 
 
 class TlsValidationContext(AWSProperty):
     props = {
-        'SubjectAlternativeNames': (SubjectAlternativeNames, False),
-        'Trust': (TlsValidationContextTrust, True),
+        "SubjectAlternativeNames": (SubjectAlternativeNames, False),
+        "Trust": (TlsValidationContextTrust, True),
     }
 
 
 class ClientPolicyTls(AWSProperty):
     props = {
-        'Certificate': (ClientTlsCertificate, False),
-        'Enforce': (boolean, False),
-        'Ports': ([integer], False),
-        'Validation': (TlsValidationContext, True),
+        "Certificate": (ClientTlsCertificate, False),
+        "Enforce": (boolean, False),
+        "Ports": ([integer], False),
+        "Validation": (TlsValidationContext, True),
     }
 
 
 class ClientPolicy(AWSProperty):
     props = {
-        'TLS': (ClientPolicyTls, False),
+        "TLS": (ClientPolicyTls, False),
     }
 
 
 class VirtualServiceBackend(AWSProperty):
     props = {
-        'ClientPolicy': (ClientPolicy, False),
-        'VirtualServiceName': (str, True),
+        "ClientPolicy": (ClientPolicy, False),
+        "VirtualServiceName": (str, True),
     }
 
 
 class Backend(AWSProperty):
     props = {
-        'VirtualService': (VirtualServiceBackend, False),
+        "VirtualService": (VirtualServiceBackend, False),
     }
 
 
 class BackendDefaults(AWSProperty):
     props = {
-        'ClientPolicy': (ClientPolicy, False),
+        "ClientPolicy": (ClientPolicy, False),
     }
 
 
 class HealthCheck(AWSProperty):
     props = {
-        'HealthyThreshold': (integer, True),
-        'IntervalMillis': (integer, True),
-        'Path': (str, False),
-        'Port': (integer, False),
-        'Protocol': (str, True),
-        'TimeoutMillis': (integer, True),
-        'UnhealthyThreshold': (integer, True),
+        "HealthyThreshold": (integer, True),
+        "IntervalMillis": (integer, True),
+        "Path": (str, False),
+        "Port": (integer, False),
+        "Protocol": (str, True),
+        "TimeoutMillis": (integer, True),
+        "UnhealthyThreshold": (integer, True),
     }
 
 
 class ListenerTimeout(AWSProperty):
     props = {
-        'GRPC': (GrpcTimeout, False),
-        'HTTP': (HttpTimeout, False),
-        'HTTP2': (HttpTimeout, False),
-        'TCP': (TcpTimeout, False),
+        "GRPC": (GrpcTimeout, False),
+        "HTTP": (HttpTimeout, False),
+        "HTTP2": (HttpTimeout, False),
+        "TCP": (TcpTimeout, False),
     }
 
 
 class ListenerTlsAcmCertificate(AWSProperty):
     props = {
-        'CertificateArn': (str, True),
+        "CertificateArn": (str, True),
     }
 
 
 class ListenerTlsCertificate(AWSProperty):
     props = {
-        'ACM': (ListenerTlsAcmCertificate, False),
-        'File': (ListenerTlsFileCertificate, False),
-        'SDS': (ListenerTlsSdsCertificate, False),
+        "ACM": (ListenerTlsAcmCertificate, False),
+        "File": (ListenerTlsFileCertificate, False),
+        "SDS": (ListenerTlsSdsCertificate, False),
     }
 
 
 class ListenerTlsValidationContextTrust(AWSProperty):
     props = {
-        'File': (TlsValidationContextFileTrust, False),
-        'SDS': (TlsValidationContextSdsTrust, False),
+        "File": (TlsValidationContextFileTrust, False),
+        "SDS": (TlsValidationContextSdsTrust, False),
     }
 
 
 class ListenerTlsValidationContext(AWSProperty):
     props = {
-        'SubjectAlternativeNames': (SubjectAlternativeNames, False),
-        'Trust': (ListenerTlsValidationContextTrust, True),
+        "SubjectAlternativeNames": (SubjectAlternativeNames, False),
+        "Trust": (ListenerTlsValidationContextTrust, True),
     }
 
 
 class ListenerTls(AWSProperty):
     props = {
-        'Certificate': (ListenerTlsCertificate, True),
-        'Mode': (validate_listenertls_mode, True),
-        'Validation': (ListenerTlsValidationContext, False),
+        "Certificate": (ListenerTlsCertificate, True),
+        "Mode": (validate_listenertls_mode, True),
+        "Validation": (ListenerTlsValidationContext, False),
     }
 
 
 class OutlierDetection(AWSProperty):
     props = {
-        'BaseEjectionDuration': (Duration, True),
-        'Interval': (Duration, True),
-        'MaxEjectionPercent': (integer, True),
-        'MaxServerErrors': (integer, True),
+        "BaseEjectionDuration": (Duration, True),
+        "Interval": (Duration, True),
+        "MaxEjectionPercent": (integer, True),
+        "MaxServerErrors": (integer, True),
     }
 
 
 class PortMapping(AWSProperty):
     props = {
-        'Port': (integer, True),
-        'Protocol': (str, True),
+        "Port": (integer, True),
+        "Protocol": (str, True),
     }
 
 
 class VirtualNodeGrpcConnectionPool(AWSProperty):
     props = {
-        'MaxRequests': (integer, True),
+        "MaxRequests": (integer, True),
     }
 
 
 class VirtualNodeHttp2ConnectionPool(AWSProperty):
     props = {
-        'MaxRequests': (integer, True),
+        "MaxRequests": (integer, True),
     }
 
 
 class VirtualNodeHttpConnectionPool(AWSProperty):
     props = {
-        'MaxConnections': (integer, True),
-        'MaxPendingRequests': (integer, False),
+        "MaxConnections": (integer, True),
+        "MaxPendingRequests": (integer, False),
     }
 
 
 class VirtualNodeTcpConnectionPool(AWSProperty):
     props = {
-        'MaxConnections': (integer, True),
+        "MaxConnections": (integer, True),
     }
 
 
 class VirtualNodeConnectionPool(AWSProperty):
     props = {
-        'GRPC': (VirtualNodeGrpcConnectionPool, False),
-        'HTTP': (VirtualNodeHttpConnectionPool, False),
-        'HTTP2': (VirtualNodeHttp2ConnectionPool, False),
-        'TCP': (VirtualNodeTcpConnectionPool, False),
+        "GRPC": (VirtualNodeGrpcConnectionPool, False),
+        "HTTP": (VirtualNodeHttpConnectionPool, False),
+        "HTTP2": (VirtualNodeHttp2ConnectionPool, False),
+        "TCP": (VirtualNodeTcpConnectionPool, False),
     }
 
 
 class Listener(AWSProperty):
     props = {
-        'ConnectionPool': (VirtualNodeConnectionPool, False),
-        'HealthCheck': (HealthCheck, False),
-        'OutlierDetection': (OutlierDetection, False),
-        'PortMapping': (PortMapping, True),
-        'TLS': (ListenerTls, False),
-        'Timeout': (ListenerTimeout, False),
+        "ConnectionPool": (VirtualNodeConnectionPool, False),
+        "HealthCheck": (HealthCheck, False),
+        "OutlierDetection": (OutlierDetection, False),
+        "PortMapping": (PortMapping, True),
+        "TLS": (ListenerTls, False),
+        "Timeout": (ListenerTimeout, False),
     }
 
 
 class FileAccessLog(AWSProperty):
     props = {
-        'Path': (str, True),
+        "Path": (str, True),
     }
 
 
 class AccessLog(AWSProperty):
     props = {
-        'File': (FileAccessLog, False),
+        "File": (FileAccessLog, False),
     }
 
 
 class Logging(AWSProperty):
     props = {
-        'AccessLog': (AccessLog, False),
+        "AccessLog": (AccessLog, False),
     }
 
 
 class AwsCloudMapInstanceAttribute(AWSProperty):
     props = {
-        'Key': (str, True),
-        'Value': (str, True),
+        "Key": (str, True),
+        "Value": (str, True),
     }
 
 
 class AwsCloudMapServiceDiscovery(AWSProperty):
     props = {
-        'Attributes': ([AwsCloudMapInstanceAttribute], False),
-        'NamespaceName': (str, True),
-        'ServiceName': (str, True),
+        "Attributes": ([AwsCloudMapInstanceAttribute], False),
+        "NamespaceName": (str, True),
+        "ServiceName": (str, True),
     }
 
 
 class DnsServiceDiscovery(AWSProperty):
     props = {
-        'Hostname': (str, True),
+        "Hostname": (str, True),
     }
 
 
 class ServiceDiscovery(AWSProperty):
     props = {
-        'AWSCloudMap': (AwsCloudMapServiceDiscovery, False),
-        'DNS': (DnsServiceDiscovery, False),
+        "AWSCloudMap": (AwsCloudMapServiceDiscovery, False),
+        "DNS": (DnsServiceDiscovery, False),
     }
 
 
 class VirtualNodeSpec(AWSProperty):
     props = {
-        'BackendDefaults': (BackendDefaults, False),
-        'Backends': ([Backend], False),
-        'Listeners': ([Listener], False),
-        'Logging': (Logging, False),
-        'ServiceDiscovery': (ServiceDiscovery, False),
+        "BackendDefaults": (BackendDefaults, False),
+        "Backends": ([Backend], False),
+        "Listeners": ([Listener], False),
+        "Logging": (Logging, False),
+        "ServiceDiscovery": (ServiceDiscovery, False),
     }
 
 
@@ -778,23 +777,23 @@ class VirtualNode(AWSObject):
     resource_type = "AWS::AppMesh::VirtualNode"
 
     props = {
-        'MeshName': (str, True),
-        'MeshOwner': (str, False),
-        'Spec': (VirtualNodeSpec, True),
-        'Tags': (Tags, False),
-        'VirtualNodeName': (str, False),
+        "MeshName": (str, True),
+        "MeshOwner": (str, False),
+        "Spec": (VirtualNodeSpec, True),
+        "Tags": (Tags, False),
+        "VirtualNodeName": (str, False),
     }
 
 
 class VirtualRouterListener(AWSProperty):
     props = {
-        'PortMapping': (PortMapping, True),
+        "PortMapping": (PortMapping, True),
     }
 
 
 class VirtualRouterSpec(AWSProperty):
     props = {
-        'Listeners': ([VirtualRouterListener], True),
+        "Listeners": ([VirtualRouterListener], True),
     }
 
 
@@ -802,36 +801,36 @@ class VirtualRouter(AWSObject):
     resource_type = "AWS::AppMesh::VirtualRouter"
 
     props = {
-        'MeshName': (str, True),
-        'MeshOwner': (str, False),
-        'Spec': (VirtualRouterSpec, True),
-        'Tags': (Tags, False),
-        'VirtualRouterName': (str, False),
+        "MeshName": (str, True),
+        "MeshOwner": (str, False),
+        "Spec": (VirtualRouterSpec, True),
+        "Tags": (Tags, False),
+        "VirtualRouterName": (str, False),
     }
 
 
 class VirtualNodeServiceProvider(AWSProperty):
     props = {
-        'VirtualNodeName': (str, True),
+        "VirtualNodeName": (str, True),
     }
 
 
 class VirtualRouterServiceProvider(AWSProperty):
     props = {
-        'VirtualRouterName': (str, True),
+        "VirtualRouterName": (str, True),
     }
 
 
 class VirtualServiceProvider(AWSProperty):
     props = {
-        'VirtualNode': (VirtualNodeServiceProvider, False),
-        'VirtualRouter': (VirtualRouterServiceProvider, False),
+        "VirtualNode": (VirtualNodeServiceProvider, False),
+        "VirtualRouter": (VirtualRouterServiceProvider, False),
     }
 
 
 class VirtualServiceSpec(AWSProperty):
     props = {
-        'Provider': (VirtualServiceProvider, False),
+        "Provider": (VirtualServiceProvider, False),
     }
 
 
@@ -839,9 +838,9 @@ class VirtualService(AWSObject):
     resource_type = "AWS::AppMesh::VirtualService"
 
     props = {
-        'MeshName': (str, True),
-        'MeshOwner': (str, False),
-        'Spec': (VirtualServiceSpec, True),
-        'Tags': (Tags, False),
-        'VirtualServiceName': (str, True),
+        "MeshName": (str, True),
+        "MeshOwner": (str, False),
+        "Spec": (VirtualServiceSpec, True),
+        "Tags": (Tags, False),
+        "VirtualServiceName": (str, True),
     }

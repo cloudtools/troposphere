@@ -3,7 +3,7 @@
 from troposphere import Base64, Join
 
 
-def from_file(filepath, delimiter='', blanklines=False):
+def from_file(filepath, delimiter="", blanklines=False):
     """Imports userdata from a file.
 
     :type filepath: string
@@ -24,13 +24,13 @@ def from_file(filepath, delimiter='', blanklines=False):
     data = []
 
     try:
-        with open(filepath, 'r') as f:
+        with open(filepath, "r") as f:
             for line in f:
-                if blanklines and line.strip('\n\r ') == '':
+                if blanklines and line.strip("\n\r ") == "":
                     continue
 
                 data.append(line)
     except IOError:
-        raise IOError('Error opening or reading file: {}'.format(filepath))
+        raise IOError("Error opening or reading file: {}".format(filepath))
 
     return Base64(Join(delimiter, data))

@@ -1,4 +1,5 @@
 import unittest
+
 from troposphere import Template
 from troposphere.opsworks import Stack
 
@@ -65,5 +66,5 @@ class TestOpsWorksStack(unittest.TestCase):
             stack.CustomJson = True
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

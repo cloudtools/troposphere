@@ -2,11 +2,11 @@ import collections
 import importlib
 import pkgutil
 import unittest
+
 from troposphere import AWSObject
 
 
 class TestIntTypeShouldNotBeUsed(unittest.TestCase):
-
     def test_there_should_not_be_any_awsobject_with_int_in_props(self):
         """
         Anything that requires an integer should use `validators.integer`
@@ -24,9 +24,9 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
             for name in dir(module):
                 obj = getattr(module, name)
                 if (
-                        isinstance(obj, type) and
-                        obj != AWSObject and
-                        issubclass(obj, AWSObject)
+                    isinstance(obj, type)
+                    and obj != AWSObject
+                    and issubclass(obj, AWSObject)
                 ):
                     result.append(obj)
         return result
@@ -35,7 +35,8 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
         for prop_name, (types, required) in obj.props.items():
             error_msg = (
                 "{}.props['{}'] should have `validators.integer` "
-                "rather than `int`".format(obj.__name__, prop_name))
+                "rather than `int`".format(obj.__name__, prop_name)
+            )
             if isinstance(types, collections.abc.Iterable):
                 assert int not in types, error_msg
             else:
@@ -45,9 +46,9 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
         return [
             pkg_name
             for importer, pkg_name, is_pkg in pkgutil.walk_packages([dirname])
-            if not is_pkg and pkg_name.startswith('troposphere')
+            if not is_pkg and pkg_name.startswith("troposphere")
         ]
 
     def _import_all_modules(self):
-        module_names = self._get_all_troposphere_modules('.')
+        module_names = self._get_all_troposphere_modules(".")
         return [importlib.import_module(m) for m in module_names]

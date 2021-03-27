@@ -7,144 +7,142 @@
 # Resource specification version: 10.2.0
 
 
-from . import AWSObject
-from . import AWSProperty
-from .validators import boolean
-from .validators import integer
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class EBSStorageInfo(AWSProperty):
     props = {
-        'VolumeSize': (integer, False),
+        "VolumeSize": (integer, False),
     }
 
 
 class StorageInfo(AWSProperty):
     props = {
-        'EBSStorageInfo': (EBSStorageInfo, False),
+        "EBSStorageInfo": (EBSStorageInfo, False),
     }
 
 
 class BrokerNodeGroupInfo(AWSProperty):
     props = {
-        'BrokerAZDistribution': (str, False),
-        'ClientSubnets': ([str], True),
-        'InstanceType': (str, True),
-        'SecurityGroups': ([str], False),
-        'StorageInfo': (StorageInfo, False),
+        "BrokerAZDistribution": (str, False),
+        "ClientSubnets": ([str], True),
+        "InstanceType": (str, True),
+        "SecurityGroups": ([str], False),
+        "StorageInfo": (StorageInfo, False),
     }
 
 
 class Scram(AWSProperty):
     props = {
-        'Enabled': (boolean, True),
+        "Enabled": (boolean, True),
     }
 
 
 class Sasl(AWSProperty):
     props = {
-        'Scram': (Scram, True),
+        "Scram": (Scram, True),
     }
 
 
 class Tls(AWSProperty):
     props = {
-        'CertificateAuthorityArnList': ([str], False),
+        "CertificateAuthorityArnList": ([str], False),
     }
 
 
 class ClientAuthentication(AWSProperty):
     props = {
-        'Sasl': (Sasl, False),
-        'Tls': (Tls, False),
+        "Sasl": (Sasl, False),
+        "Tls": (Tls, False),
     }
 
 
 class ConfigurationInfo(AWSProperty):
     props = {
-        'Arn': (str, True),
-        'Revision': (integer, True),
+        "Arn": (str, True),
+        "Revision": (integer, True),
     }
 
 
 class EncryptionAtRest(AWSProperty):
     props = {
-        'DataVolumeKMSKeyId': (str, True),
+        "DataVolumeKMSKeyId": (str, True),
     }
 
 
 class EncryptionInTransit(AWSProperty):
     props = {
-        'ClientBroker': (str, False),
-        'InCluster': (boolean, False),
+        "ClientBroker": (str, False),
+        "InCluster": (boolean, False),
     }
 
 
 class EncryptionInfo(AWSProperty):
     props = {
-        'EncryptionAtRest': (EncryptionAtRest, False),
-        'EncryptionInTransit': (EncryptionInTransit, False),
+        "EncryptionAtRest": (EncryptionAtRest, False),
+        "EncryptionInTransit": (EncryptionInTransit, False),
     }
 
 
 class JmxExporter(AWSProperty):
     props = {
-        'EnabledInBroker': (boolean, True),
+        "EnabledInBroker": (boolean, True),
     }
 
 
 class NodeExporter(AWSProperty):
     props = {
-        'EnabledInBroker': (boolean, True),
+        "EnabledInBroker": (boolean, True),
     }
 
 
 class Prometheus(AWSProperty):
     props = {
-        'JmxExporter': (JmxExporter, False),
-        'NodeExporter': (NodeExporter, False),
+        "JmxExporter": (JmxExporter, False),
+        "NodeExporter": (NodeExporter, False),
     }
 
 
 class OpenMonitoring(AWSProperty):
     props = {
-        'Prometheus': (Prometheus, True),
+        "Prometheus": (Prometheus, True),
     }
 
 
 class Firehose(AWSProperty):
     props = {
-        'DeliveryStream': (str, True),
-        'Enabled': (boolean, True),
+        "DeliveryStream": (str, True),
+        "Enabled": (boolean, True),
     }
 
 
 class CloudWatchLogs(AWSProperty):
     props = {
-        'Enabled': (boolean, True),
-        'LogGroup': (str, False),
+        "Enabled": (boolean, True),
+        "LogGroup": (str, False),
     }
 
 
 class S3(AWSProperty):
     props = {
-        'Bucket': (str, False),
-        'Enabled': (boolean, True),
-        'Prefix': (str, False),
+        "Bucket": (str, False),
+        "Enabled": (boolean, True),
+        "Prefix": (str, False),
     }
 
 
 class BrokerLogs(AWSProperty):
     props = {
-        'CloudWatchLogs': (CloudWatchLogs, False),
-        'Firehose': (Firehose, False),
-        'S3': (S3, False),
+        "CloudWatchLogs": (CloudWatchLogs, False),
+        "Firehose": (Firehose, False),
+        "S3": (S3, False),
     }
 
 
 class LoggingInfo(AWSProperty):
     props = {
-        'BrokerLogs': (BrokerLogs, True),
+        "BrokerLogs": (BrokerLogs, True),
     }
 
 
@@ -152,15 +150,15 @@ class Cluster(AWSObject):
     resource_type = "AWS::MSK::Cluster"
 
     props = {
-        'BrokerNodeGroupInfo': (BrokerNodeGroupInfo, True),
-        'ClientAuthentication': (ClientAuthentication, False),
-        'ClusterName': (str, True),
-        'ConfigurationInfo': (ConfigurationInfo, False),
-        'EncryptionInfo': (EncryptionInfo, False),
-        'EnhancedMonitoring': (str, False),
-        'KafkaVersion': (str, True),
-        'LoggingInfo': (LoggingInfo, False),
-        'NumberOfBrokerNodes': (integer, True),
-        'OpenMonitoring': (OpenMonitoring, False),
-        'Tags': (dict, False),
+        "BrokerNodeGroupInfo": (BrokerNodeGroupInfo, True),
+        "ClientAuthentication": (ClientAuthentication, False),
+        "ClusterName": (str, True),
+        "ConfigurationInfo": (ConfigurationInfo, False),
+        "EncryptionInfo": (EncryptionInfo, False),
+        "EnhancedMonitoring": (str, False),
+        "KafkaVersion": (str, True),
+        "LoggingInfo": (LoggingInfo, False),
+        "NumberOfBrokerNodes": (integer, True),
+        "OpenMonitoring": (OpenMonitoring, False),
+        "Tags": (dict, False),
     }

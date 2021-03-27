@@ -1,4 +1,5 @@
 import unittest
+
 import troposphere.rds as rds
 from troposphere import If, Parameter, Ref
 
@@ -6,63 +7,62 @@ AWS_NO_VALUE = "AWS::NoValue"
 
 
 class TestRDS(unittest.TestCase):
-
     def test_it_allows_an_rds_instance_created_from_a_snapshot(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=100,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            DBSnapshotIdentifier='SomeSnapshotIdentifier'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            DBSnapshotIdentifier="SomeSnapshotIdentifier",
         )
 
         rds_instance.to_dict()
 
     def test_it_allows_an_rds_instance_with_master_username_and_password(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            MasterUsername='SomeUsername',
-            MasterUserPassword='SomePassword'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            MasterUsername="SomeUsername",
+            MasterUserPassword="SomePassword",
         )
 
         rds_instance.to_dict()
 
     def test_it_rds_instances_require_either_a_snapshot_or_credentials(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
         )
 
         with self.assertRaisesRegex(
-                ValueError,
-                r'Either \(MasterUsername and MasterUserPassword\) or'
-                r' DBSnapshotIdentifier are required'
-                ):
+            ValueError,
+            r"Either \(MasterUsername and MasterUserPassword\) or"
+            r" DBSnapshotIdentifier are required",
+        ):
             rds_instance.to_dict()
 
     def test_it_allows_an_rds_replica(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            SourceDBInstanceIdentifier='SomeSourceDBInstanceIdentifier'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            SourceDBInstanceIdentifier="SomeSourceDBInstanceIdentifier",
         )
 
         rds_instance.to_dict()
 
     def test_replica_settings_are_inherited(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            SourceDBInstanceIdentifier='SomeSourceDBInstanceIdentifier',
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            SourceDBInstanceIdentifier="SomeSourceDBInstanceIdentifier",
             BackupRetentionPeriod="1",
             DBName="SomeName",
             MasterUsername="SomeUsername",
@@ -73,43 +73,42 @@ class TestRDS(unittest.TestCase):
         )
 
         with self.assertRaisesRegex(
-                ValueError,
-                'BackupRetentionPeriod, DBName, DBSnapshotIdentifier, '
-                'MasterUserPassword, MasterUsername, '
-                'MultiAZ, PreferredBackupWindow '
-                'properties can\'t be provided when '
-                'SourceDBInstanceIdentifier is present '
-                'AWS::RDS::DBInstance.'
-                ):
+            ValueError,
+            "BackupRetentionPeriod, DBName, DBSnapshotIdentifier, "
+            "MasterUserPassword, MasterUsername, "
+            "MultiAZ, PreferredBackupWindow "
+            "properties can't be provided when "
+            "SourceDBInstanceIdentifier is present "
+            "AWS::RDS::DBInstance.",
+        ):
             rds_instance.to_dict()
 
     def test_it_rds_instances_require_encryption_if_kms_key_provided(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            MasterUsername='SomeUsername',
-            MasterUserPassword='SomePassword',
-            KmsKeyId='arn:aws:kms:us-east-1:123456789012:key/'
-                     '12345678-1234-1234-1234-123456789012'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            MasterUsername="SomeUsername",
+            MasterUserPassword="SomePassword",
+            KmsKeyId="arn:aws:kms:us-east-1:123456789012:key/"
+            "12345678-1234-1234-1234-123456789012",
         )
 
         with self.assertRaisesRegex(
-                ValueError,
-                'If KmsKeyId is provided, StorageEncrypted is required'
-                ):
+            ValueError, "If KmsKeyId is provided, StorageEncrypted is required"
+        ):
             rds_instance.to_dict()
 
     def test_it_allows_an_rds_instance_with_iops(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=200,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            MasterUsername='SomeUsername',
-            MasterUserPassword='SomePassword',
-            StorageType='io1',
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            MasterUsername="SomeUsername",
+            MasterUserPassword="SomePassword",
+            StorageType="io1",
             Iops=2000,
         )
 
@@ -130,7 +129,7 @@ class TestRDS(unittest.TestCase):
                 rds.OptionConfiguration(
                     OptionName="APEX",
                 ),
-            ]
+            ],
         )
         rds_optiongroup.to_dict()
 
@@ -143,7 +142,8 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass="db.m1.small",
             Engine="postgres",
             AvailabilityZone="us-east-1",
-            MultiAZ=True)
+            MultiAZ=True,
+        )
         with self.assertRaisesRegex(ValueError, "if MultiAZ is set to "):
             i.to_dict()
         i.MultiAZ = "false"
@@ -178,7 +178,8 @@ class TestRDS(unittest.TestCase):
             AllocatedStorage=10,
             DBInstanceClass="db.m1.small",
             Engine="postgres",
-            StorageType='io1')
+            StorageType="io1",
+        )
         with self.assertRaisesRegex(ValueError, "Must specify Iops if "):
             i.to_dict()
 
@@ -189,15 +190,15 @@ class TestRDS(unittest.TestCase):
             MasterUserPassword="mypassword",
             DBInstanceClass="db.m1.small",
             Engine="postgres",
-            StorageType='io1',
+            StorageType="io1",
             Iops=6000,
-            AllocatedStorage=10)
+            AllocatedStorage=10,
+        )
         with self.assertRaisesRegex(ValueError, " must be at least 100 "):
             i.to_dict()
 
         i.AllocatedStorage = 100
-        with self.assertRaisesRegex(
-                ValueError, " must be no less than 1/50th "):
+        with self.assertRaisesRegex(ValueError, " must be no less than 1/50th "):
             i.to_dict()
 
         i.Iops = 5000
@@ -205,37 +206,36 @@ class TestRDS(unittest.TestCase):
 
     def test_snapshot(self):
         i = rds.DBInstance(
-            'MyDB',
-            DBName='test',
+            "MyDB",
+            DBName="test",
             AllocatedStorage=25,
-            DBInstanceClass='db.m4.large',
-            DBSubnetGroupName='default',
-            DBSnapshotIdentifier='id',
+            DBInstanceClass="db.m4.large",
+            DBSubnetGroupName="default",
+            DBSnapshotIdentifier="id",
         )
         i.to_dict()
 
     def test_snapshot_and_engine(self):
         i = rds.DBInstance(
-            'MyDB',
-            DBName='test',
+            "MyDB",
+            DBName="test",
             AllocatedStorage=25,
-            DBInstanceClass='db.m4.large',
-            DBSubnetGroupName='default',
-            DBSnapshotIdentifier='id',
+            DBInstanceClass="db.m4.large",
+            DBSubnetGroupName="default",
+            DBSnapshotIdentifier="id",
             Engine="postgres",
         )
         i.to_dict()
 
     def test_no_snapshot_or_engine(self):
         i = rds.DBInstance(
-            'MyDB',
-            DBName='test',
+            "MyDB",
+            DBName="test",
             AllocatedStorage=25,
-            DBInstanceClass='db.m4.large',
-            DBSubnetGroupName='default',
+            DBInstanceClass="db.m4.large",
+            DBSubnetGroupName="default",
         )
-        with self.assertRaisesRegex(
-                ValueError, "Resource Engine is required"):
+        with self.assertRaisesRegex(ValueError, "Resource Engine is required"):
             i.to_dict()
 
 
@@ -288,8 +288,11 @@ class TestRDSValidators(unittest.TestCase):
             rds.validate_backup_window("10:00-10:10")
 
     def test_validate_maintenance_window(self):
-        good_windows = ("Mon:10:00-Mon:16:30", "Mon:10:00-Wed:10:00",
-                        "Sun:16:00-Mon:11:00")
+        good_windows = (
+            "Mon:10:00-Mon:16:30",
+            "Mon:10:00-Wed:10:00",
+            "Sun:16:00-Mon:11:00",
+        )
 
         for w in good_windows:
             rds.validate_maintenance_window(w)
@@ -299,8 +302,7 @@ class TestRDSValidators(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, "must be in the format"):
                 rds.validate_maintenance_window(w)
 
-        bad_days = ("Boo:10:00-Woo:10:30", "Boo:10:00-Tue:10:30",
-                    "Mon:10:00-Boo:10:30")
+        bad_days = ("Boo:10:00-Woo:10:30", "Boo:10:00-Tue:10:30", "Mon:10:00-Boo:10:30")
         for w in bad_days:
             with self.assertRaisesRegex(ValueError, " day part of ranges "):
                 rds.validate_maintenance_window(w)

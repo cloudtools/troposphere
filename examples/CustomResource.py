@@ -5,10 +5,7 @@ from troposphere.cloudformation import AWSCustomObject
 class CustomPlacementGroup(AWSCustomObject):
     resource_type = "Custom::PlacementGroup"
 
-    props = {
-        'ServiceToken': (str, True),
-        'PlacementGroupName': (str, True)
-    }
+    props = {"ServiceToken": (str, True), "PlacementGroupName": (str, True)}
 
 
 t = Template()
@@ -20,12 +17,21 @@ t.set_description(
     "template-custom-resources-lambda.html"
 )
 
-placementgroup_a = t.add_resource(CustomPlacementGroup(
-    "ClusterGroup",
-    ServiceToken=Join("", ["arn:aws:lambda:", Ref("AWS::Region"), ":",
-                           Ref("AWS::AccountId"),
-                           ":function:cfnPlacementGroup"]),
-    PlacementGroupName="ExampleClusterGroup",
-))
+placementgroup_a = t.add_resource(
+    CustomPlacementGroup(
+        "ClusterGroup",
+        ServiceToken=Join(
+            "",
+            [
+                "arn:aws:lambda:",
+                Ref("AWS::Region"),
+                ":",
+                Ref("AWS::AccountId"),
+                ":function:cfnPlacementGroup",
+            ],
+        ),
+        PlacementGroupName="ExampleClusterGroup",
+    )
+)
 
 print(t.to_json())

@@ -1,71 +1,70 @@
 from troposphere import Template
 from troposphere.iot import (
+    Action,
     Certificate,
+    IotAnalyticsAction,
+    LambdaAction,
     Policy,
     PolicyPrincipalAttachment,
     Thing,
     ThingPrincipalAttachment,
     TopicRule,
     TopicRulePayload,
-    Action,
-    LambdaAction,
-    IotAnalyticsAction,
 )
-
 
 t = Template()
 
 certificate = Certificate(
-    'MyCertificate',
-    CertificateSigningRequest='CSRParameter',
-    Status='StatusParameter',
+    "MyCertificate",
+    CertificateSigningRequest="CSRParameter",
+    Status="StatusParameter",
 )
 
 policy = Policy(
-    'MyPolicy',
-    PolicyDocument={'Version': '2012-10-17'},
-    PolicyName='NameParameter',
+    "MyPolicy",
+    PolicyDocument={"Version": "2012-10-17"},
+    PolicyName="NameParameter",
 )
 
 policy_principal = PolicyPrincipalAttachment(
-    'MyPolicyPrincipalAttachment',
-    PolicyName='NameParameter',
-    Principal='arn:aws:iot:ap-southeast-2:123456789012',
+    "MyPolicyPrincipalAttachment",
+    PolicyName="NameParameter",
+    Principal="arn:aws:iot:ap-southeast-2:123456789012",
 )
 
 thing = Thing(
-    'MyThing',
+    "MyThing",
     AttributePayload={
-        'Attributes': {
-            'myAttributeA': 'MyAttributeValueA',
-            'myAttributeB': 'MyAttributeValueB',
+        "Attributes": {
+            "myAttributeA": "MyAttributeValueA",
+            "myAttributeB": "MyAttributeValueB",
         }
     },
-    ThingName='NameParameter',
+    ThingName="NameParameter",
 )
 
 thing_principal = ThingPrincipalAttachment(
-    'MyThingPrincipalAttachment',
-    ThingName='NameParameter',
-    Principal='arn:aws:iot:ap-southeast-2:123456789012',
+    "MyThingPrincipalAttachment",
+    ThingName="NameParameter",
+    Principal="arn:aws:iot:ap-southeast-2:123456789012",
 )
 
 topic_rule = TopicRule(
-    'MyTopicRule',
-    RuleName='NameParameter',
+    "MyTopicRule",
+    RuleName="NameParameter",
     TopicRulePayload=TopicRulePayload(
         RuleDisabled=True,
-        Sql='SELECT temp FROM SomeTopic WHERE temp > 60',
+        Sql="SELECT temp FROM SomeTopic WHERE temp > 60",
         Actions=[
             Action(
                 Lambda=LambdaAction(
-                    FunctionArn='arn',
+                    FunctionArn="arn",
                 ),
             ),
             Action(
                 IotAnalytics=IotAnalyticsAction(
-                    ChannelName='mychannel',
-                    RoleArn='arn',
+                    ChannelName="mychannel",
+                    RoleArn="arn",
                 ),
             ),
         ],

@@ -7,15 +7,15 @@
 # Resource specification version: 31.1.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 from .validators import integer
 
 
 class ExpiryEventsConfiguration(AWSProperty):
     props = {
-        'DaysBeforeExpiry': (integer, False),
+        "DaysBeforeExpiry": (integer, False),
     }
 
 
@@ -23,15 +23,15 @@ class Account(AWSObject):
     resource_type = "AWS::CertificateManager::Account"
 
     props = {
-        'ExpiryEventsConfiguration': (ExpiryEventsConfiguration, True),
+        "ExpiryEventsConfiguration": (ExpiryEventsConfiguration, True),
     }
 
 
 class DomainValidationOption(AWSProperty):
     props = {
-        'DomainName': (str, True),
-        'HostedZoneId': (str, False),
-        'ValidationDomain': (str, False),
+        "DomainName": (str, True),
+        "HostedZoneId": (str, False),
+        "ValidationDomain": (str, False),
     }
 
 
@@ -39,11 +39,11 @@ class Certificate(AWSObject):
     resource_type = "AWS::CertificateManager::Certificate"
 
     props = {
-        'CertificateAuthorityArn': (str, False),
-        'CertificateTransparencyLoggingPreference': (str, False),
-        'DomainName': (str, True),
-        'DomainValidationOptions': ([DomainValidationOption], False),
-        'SubjectAlternativeNames': ([str], False),
-        'Tags': ((Tags, list), False),
-        'ValidationMethod': (str, False),
+        "CertificateAuthorityArn": (str, False),
+        "CertificateTransparencyLoggingPreference": (str, False),
+        "DomainName": (str, True),
+        "DomainValidationOptions": ([DomainValidationOption], False),
+        "SubjectAlternativeNames": ([str], False),
+        "Tags": ((Tags, list), False),
+        "ValidationMethod": (str, False),
     }

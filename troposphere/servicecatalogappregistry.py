@@ -7,34 +7,33 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 
 
 class Application(AWSObject):
     resource_type = "AWS::ServiceCatalogAppRegistry::Application"
 
     props = {
-        'Description': (str, False),
-        'Name': (str, True),
-        'Tags': (Tags, False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 
 class Attributes(AWSProperty):
-    props = {
-    }
+    props = {}
 
 
 class AttributeGroup(AWSObject):
     resource_type = "AWS::ServiceCatalogAppRegistry::AttributeGroup"
 
     props = {
-        'Attributes': (Attributes, True),
-        'Description': (str, False),
-        'Name': (str, True),
-        'Tags': (Tags, False),
+        "Attributes": (Attributes, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -42,8 +41,8 @@ class AttributeGroupAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation"
 
     props = {
-        'Application': (str, True),
-        'AttributeGroup': (str, True),
+        "Application": (str, True),
+        "AttributeGroup": (str, True),
     }
 
 
@@ -51,7 +50,7 @@ class ResourceAssociation(AWSObject):
     resource_type = "AWS::ServiceCatalogAppRegistry::ResourceAssociation"
 
     props = {
-        'Application': (str, True),
-        'Resource': (str, True),
-        'ResourceType': (str, True),
+        "Application": (str, True),
+        "Resource": (str, True),
+        "ResourceType": (str, True),
     }

@@ -3,10 +3,9 @@
 
 import argparse
 import json
-import yaml
-
 import sys
 
+import yaml
 
 # Python code generator to create new troposphere classes from the
 # AWS resource specification.
@@ -61,7 +60,7 @@ class Override:
     """
 
     def __init__(self, filename):
-        self.base = 'troposphere/'
+        self.base = "troposphere/"
         self.filename = filename
         try:
             self.override = yaml.load(open(self.base + filename + ".yaml"))
@@ -69,12 +68,12 @@ class Override:
             self.override = {}
 
     def get_header(self):
-        return self.override.get('header', "")
+        return self.override.get("header", "")
 
     def get_required(self, class_name, prop):
         if self.override:
             try:
-                v = self.override['classes'][class_name][prop]['required']
+                v = self.override["classes"][class_name][prop]["required"]
                 return v
             except KeyError:
                 return None
@@ -82,38 +81,38 @@ class Override:
     def get_validator(self, class_name, prop):
         if self.override:
             try:
-                v = self.override['classes'][class_name][prop]['validator']
-                return v.lstrip('common/')
+                v = self.override["classes"][class_name][prop]["validator"]
+                return v.lstrip("common/")
             except KeyError:
                 return None
 
     def get_class_validator(self, class_name):
         if self.override:
             try:
-                v = self.override['classes'][class_name]['validator']
-                return v.lstrip('common/')
+                v = self.override["classes"][class_name]["validator"]
+                return v.lstrip("common/")
             except KeyError:
                 return None
 
     def get_validator_list(self):
         """Return a list of validators specified in the override file"""
         ignore = [
-            'dict',
+            "dict",
         ]
         vlist = []
         if not self.override:
             return vlist
 
-        for k, v in list(self.override['classes'].items()):
-            if 'validator' in v:
-                validator = v['validator']
+        for k, v in list(self.override["classes"].items()):
+            if "validator" in v:
+                validator = v["validator"]
                 if validator not in ignore and validator not in vlist:
                     vlist.append(validator)
 
-        for k, v in list(self.override['classes'].items()):
+        for k, v in list(self.override["classes"].items()):
             for kp, vp in list(v.items()):
-                if 'validator' in vp:
-                    validator = vp['validator']
+                if "validator" in vp:
+                    validator = vp["validator"]
                     if validator not in ignore and validator not in vlist:
                         vlist.append(validator)
         return sorted(vlist)
@@ -166,30 +165,30 @@ class File:
         for class_name, properties in sorted(self.resources.items()):
             for key, value in sorted(properties.items()):
                 validator = self.override.get_validator(class_name, key)
-                if key == 'Tags' and validator is None:
+                if key == "Tags" and validator is None:
                     print("from troposphere import Tags")
                     return
         for class_name, properties in sorted(self.properties.items()):
             for key, value in sorted(properties.items()):
                 validator = self.override.get_validator(class_name, key)
-                if key == 'Tags' and validator is None:
+                if key == "Tags" and validator is None:
                     print("from troposphere import Tags")
                     return
 
     def _check_type(self, check_type, properties):
         """Decode a properties type looking for a specific type."""
-        if 'PrimitiveType' in properties:
-            return properties['PrimitiveType'] == check_type
+        if "PrimitiveType" in properties:
+            return properties["PrimitiveType"] == check_type
 
         # If there's no Type defined, punt it for now...
-        if 'Type' not in properties:
+        if "Type" not in properties:
             return False
 
-        if properties['Type'] == 'List':
-            if 'ItemType' in properties:
-                return properties['ItemType'] == check_type
+        if properties["Type"] == "List":
+            if "ItemType" in properties:
+                return properties["ItemType"] == check_type
             else:
-                return properties['PrimitiveItemType'] == check_type
+                return properties["PrimitiveItemType"] == check_type
         return False
 
     def _walk_for_type(self, check_type):
@@ -207,20 +206,20 @@ class File:
 
     def _get_property_type(self, value):
         """Decode the values type and return a non-primitive property type."""
-        if 'PrimitiveType' in value:
+        if "PrimitiveType" in value:
             return None
-        if 'Type' not in value:
+        if "Type" not in value:
             return None
-        if value['Type'] == 'List':
-            if 'ItemType' in value:
-                return value['ItemType']
+        if value["Type"] == "List":
+            if "ItemType" in value:
+                return value["ItemType"]
             else:
                 return None
-        elif value['Type'] == 'Map':
+        elif value["Type"] == "Map":
             return None
         else:
             # Non-primitive (Property) name
-            return value['Type']
+            return value["Type"]
 
     def _get_type_list(self, props):
         """Return a list of non-primitive types used by this object."""
@@ -233,16 +232,16 @@ class File:
 
     def _output_validators(self):
         """Output common validator types based on usage."""
-        if self._walk_for_type('Boolean'):
+        if self._walk_for_type("Boolean"):
             print("from .validators import boolean")
-        if self._walk_for_type('Integer'):
+        if self._walk_for_type("Integer"):
             print("from .validators import integer")
-        if self._walk_for_type('Double'):
+        if self._walk_for_type("Double"):
             print("from .validators import double")
         vlist = self.override.get_validator_list()
         for override in vlist:
-            if override.startswith('common/'):
-                override = override.lstrip('common/')
+            if override.startswith("common/"):
+                override = override.lstrip("common/")
                 filename = "validators"
             else:
                 filename = "%s_validators" % self.filename
@@ -263,7 +262,7 @@ class File:
             return n
         prop_type_list = sorted(prop_type_list)
         for prop_name in prop_type_list:
-            if prop_name == 'Tag':
+            if prop_name == "Tag":
                 continue
 
             # prevent recursive properties
@@ -330,69 +329,71 @@ class Resources:
 
 
 def get_required(value):
-    return value['Required']
+    return value["Required"]
 
 
 map_type = {
-    'Boolean': 'boolean',
-    'Double': 'double',
-    'Integer': 'integer',
-    'Json': 'dict',
-    'Long': 'integer',
-    'String': 'str',
-    'Timestamp': 'str',
+    "Boolean": "boolean",
+    "Double": "double",
+    "Integer": "integer",
+    "Json": "dict",
+    "Long": "integer",
+    "String": "str",
+    "Timestamp": "str",
 }
 
 
 map_type3 = {
-    'Boolean': 'bool',
-    'Double': 'double',
-    'Integer': 'int',
-    'Json': 'dict',
-    'Long': 'int',
-    'String': 'str',
-    'Timestamp': 'str',
+    "Boolean": "bool",
+    "Double": "double",
+    "Integer": "int",
+    "Json": "dict",
+    "Long": "int",
+    "String": "str",
+    "Timestamp": "str",
 }
 
 
 def get_type(value):
-    if 'PrimitiveType' in value:
-        return map_type.get(value['PrimitiveType'], value['PrimitiveType'])
+    if "PrimitiveType" in value:
+        return map_type.get(value["PrimitiveType"], value["PrimitiveType"])
 
-    if 'Type' not in value:
-        return 'dict'
+    if "Type" not in value:
+        return "dict"
 
-    if value['Type'] == 'List':
-        if 'ItemType' in value:
-            return "[%s]" % value['ItemType']
+    if value["Type"] == "List":
+        if "ItemType" in value:
+            return "[%s]" % value["ItemType"]
         else:
-            return "[%s]" % map_type.get(value['PrimitiveItemType'])
-    elif value['Type'] == 'Map':
-        return 'dict'
+            return "[%s]" % map_type.get(value["PrimitiveItemType"])
+    elif value["Type"] == "Map":
+        return "dict"
     else:
         # Non-primitive (Property) name
-        return value['Type']
+        return value["Type"]
 
     import pprint
+
     pprint.pprint(value)
     raise ValueError("get_type")
 
 
 def get_type3(value):
-    if 'PrimitiveType' in value:
-        return map_type3.get(value['PrimitiveType'], value['PrimitiveType'])
-    if value['Type'] == 'List':
-        if 'ItemType' in value:
-            return "[%s]" % value['ItemType']
+    if "PrimitiveType" in value:
+        return map_type3.get(value["PrimitiveType"], value["PrimitiveType"])
+    if value["Type"] == "List":
+        if "ItemType" in value:
+            return "[%s]" % value["ItemType"]
         else:
-            return "[%s]" % map_type3.get(value['PrimitiveItemType'])
-    elif value['Type'] == 'Map':
-        return 'dict'
+            return "[%s]" % map_type3.get(value["PrimitiveItemType"])
+    elif value["Type"] == "Map":
+        return "dict"
     else:
         # Non-primitive (Property) name
-        return value['Type']
+        return value["Type"]
 
     import pprint
+
     pprint.pprint(value)
     raise ValueError("get_type")
 
@@ -406,20 +407,20 @@ def output_class(class_name, properties, override, resource_name=None):
         mixin = "%s, " % class_validator
     linebreak = ""
     if len(mixin) > 28:
-        linebreak = "\n%s" % (' '*8)
+        linebreak = "\n%s" % (" " * 8)
     if resource_name:
-        print('class %s(%s%sAWSObject):' % (class_name, linebreak, mixin))
+        print("class %s(%s%sAWSObject):" % (class_name, linebreak, mixin))
         print('    resource_type = "%s"' % resource_name)
         print()
     else:
-        print('class %s(%s%sAWSProperty):' % (class_name, linebreak, mixin))
+        print("class %s(%s%sAWSProperty):" % (class_name, linebreak, mixin))
 
     # Output the props dict
-    print('    props = {')
+    print("    props = {")
     for key, value in sorted(properties.items()):
-        if key == 'Tags':
+        if key == "Tags":
             value_type = "Tags"
-            if 'PrimitiveType' in value and value['PrimitiveType'] == 'Json':
+            if "PrimitiveType" in value and value["PrimitiveType"] == "Json":
                 value_type = "dict"
         else:
             value_type = get_type(value)
@@ -434,106 +435,104 @@ def output_class(class_name, properties, override, resource_name=None):
 
         # Wrap long names for pycodestyle
         if len(key) + len(value_type) < 55:
-            print("        '%s': (%s, %s)," % (
-                key, value_type, required))
+            print("        '%s': (%s, %s)," % (key, value_type, required))
         else:
-            print("        '%s':\n            (%s, %s)," % (
-                key, value_type, required))
-    print('    }')
+            print("        '%s':\n            (%s, %s)," % (key, value_type, required))
+    print("    }")
 
 
 def output_class_stub(class_name, properties, resource_name=None):
     print()
     print()
     if resource_name:
-        print('class %s(AWSObject):' % class_name)
-        print('    resource_type: str')
+        print("class %s(AWSObject):" % class_name)
+        print("    resource_type: str")
         print()
-        sys.stdout.write('    def __init__(self, title')
+        sys.stdout.write("    def __init__(self, title")
     else:
-        print('class %s(AWSProperty):' % class_name)
+        print("class %s(AWSProperty):" % class_name)
         print()
-        sys.stdout.write('    def __init__(self')
+        sys.stdout.write("    def __init__(self")
 
     for key, value in sorted(properties.items()):
-        if key == 'Tags':
+        if key == "Tags":
             value_type = "Tags"
         else:
             value_type = get_type3(value)
 
         if value_type.startswith("["):  # Means that args are a list
-            sys.stdout.write(', %s:List%s=...' % (key, value_type))
+            sys.stdout.write(", %s:List%s=..." % (key, value_type))
         else:
-            sys.stdout.write(', %s:%s=...' % (key, value_type))
+            sys.stdout.write(", %s:%s=..." % (key, value_type))
 
-    print(') -> None: ...')
+    print(") -> None: ...")
     print()
 
     for key, value in sorted(properties.items()):
-        if key == 'Tags':
+        if key == "Tags":
             value_type = "Tags"
         else:
             value_type = get_type3(value)
 
         if value_type.startswith("["):  # Means that args are a list
-            print('    %s: List%s' % (key, value_type))
+            print("    %s: List%s" % (key, value_type))
         else:
-            print('    %s: %s' % (key, value_type))
+            print("    %s: %s" % (key, value_type))
 
 
 def process_file(filename, stub=False):
     f = open(filename)
     j = json.load(f)
 
-    if 'PropertyTypes' in j:
-        for property_name, property_dict in list(j['PropertyTypes'].items()):
+    if "PropertyTypes" in j:
+        for property_name, property_dict in list(j["PropertyTypes"].items()):
             if property_name == "Tag":
                 print("from troposphere import Tags")
                 print()
                 continue
-            class_name = property_name.split('.')[1]
-            properties = property_dict['Properties']
+            class_name = property_name.split(".")[1]
+            properties = property_dict["Properties"]
             if stub:
                 output_class_stub(class_name, properties)
             else:
                 output_class(class_name, properties)
 
-    for resource_name, resource_dict in list(j['ResourceType'].items()):
-        class_name = resource_name.split(':')[4]
-        properties = resource_dict['Properties']
+    for resource_name, resource_dict in list(j["ResourceType"].items()):
+        class_name = resource_name.split(":")[4]
+        properties = resource_dict["Properties"]
         if stub:
             output_class_stub(class_name, properties, resource_name)
         else:
             output_class(class_name, properties, resource_name)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--stub', action='store_true', default=False)
-    parser.add_argument('--name', action="store")
-    parser.add_argument('filename', nargs='+')
+    parser.add_argument("--stub", action="store_true", default=False)
+    parser.add_argument("--name", action="store")
+    parser.add_argument("filename", nargs="+")
     args = parser.parse_args()
 
     f = open(args.filename[0])
     j = json.load(f)
 
-    spec_version = j['ResourceSpecificationVersion']
+    spec_version = j["ResourceSpecificationVersion"]
 
     r = Resources()
 
-    for resource_name, resource_dict in sorted(j['ResourceTypes'].items()):
+    for resource_name, resource_dict in sorted(j["ResourceTypes"].items()):
         f = r.get_file(resource_name)
-        class_name = resource_name.split(':')[4]
-        properties = resource_dict['Properties']
+        class_name = resource_name.split(":")[4]
+        properties = resource_dict["Properties"]
         f.add_resource(class_name, properties, resource_name)
 
-    for property_name, property_dict in sorted(j['PropertyTypes'].items()):
+    for property_name, property_dict in sorted(j["PropertyTypes"].items()):
         if property_name == "Tag":
             continue
         f = r.get_file(property_name)
-        class_name = property_name.split('.')[1]
-        if 'Properties' in property_dict:
-            properties = property_dict['Properties']
+        class_name = property_name.split(".")[1]
+        if "Properties" in property_dict:
+            properties = property_dict["Properties"]
         else:
             properties = {}
         f.add_property(class_name, properties)

@@ -14,5 +14,5 @@ class Project(AWSObject):
     resource_type = "AWS::LookoutVision::Project"
 
     props = {
-        'ProjectName': (str, True),
+        "ProjectName": (str, True),
     }

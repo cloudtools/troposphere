@@ -4,33 +4,31 @@
 # See LICENSE file for full license.
 
 
-from . import AWSObject, Tags
-from . import AWSProperty
-from .validators import boolean
-from .validators import integer, containerlevelmetrics_status
+from . import AWSObject, AWSProperty, Tags
+from .validators import boolean, containerlevelmetrics_status, integer
 
 
 class CorsRule(AWSProperty):
     props = {
-        'AllowedHeaders': ([str], False),
-        'AllowedMethods': ([str], False),
-        'AllowedOrigins': ([str], False),
-        'ExposeHeaders': ([str], False),
-        'MaxAgeSeconds': (integer, False),
+        "AllowedHeaders": ([str], False),
+        "AllowedMethods": ([str], False),
+        "AllowedOrigins": ([str], False),
+        "ExposeHeaders": ([str], False),
+        "MaxAgeSeconds": (integer, False),
     }
 
 
 class MetricPolicyRule(AWSProperty):
     props = {
-        'ObjectGroup': (str, True),
-        'ObjectGroupName': (str, True),
+        "ObjectGroup": (str, True),
+        "ObjectGroupName": (str, True),
     }
 
 
 class MetricPolicy(AWSProperty):
     props = {
-        'ContainerLevelMetrics': (containerlevelmetrics_status, True),
-        'MetricPolicyRules': ([MetricPolicyRule], False),
+        "ContainerLevelMetrics": (containerlevelmetrics_status, True),
+        "MetricPolicyRules": ([MetricPolicyRule], False),
     }
 
 
@@ -38,11 +36,11 @@ class Container(AWSObject):
     resource_type = "AWS::MediaStore::Container"
 
     props = {
-        'AccessLoggingEnabled': (boolean, False),
-        'ContainerName': (str, True),
-        'CorsPolicy': ([CorsRule], False),
-        'LifecyclePolicy': (str, False),
-        'MetricPolicy': (MetricPolicy, False),
-        'Policy': (str, False),
-        'Tags': (Tags, False),
+        "AccessLoggingEnabled": (boolean, False),
+        "ContainerName": (str, True),
+        "CorsPolicy": ([CorsRule], False),
+        "LifecyclePolicy": (str, False),
+        "MetricPolicy": (MetricPolicy, False),
+        "Policy": (str, False),
+        "Tags": (Tags, False),
     }

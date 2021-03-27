@@ -1,10 +1,22 @@
 import unittest
+
 from troposphere import ImportValue, Parameter, Ref, Sub, Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
-    Api, Auth, DeadLetterQueue, DeploymentPreference, Domain,
-    EndpointConfiguration, Function, FunctionForPackaging, LayerVersion,
-    ResourcePolicyStatement, Route53, S3Event, S3Location, SimpleTable,
+    Api,
+    Auth,
+    DeadLetterQueue,
+    DeploymentPreference,
+    Domain,
+    EndpointConfiguration,
+    Function,
+    FunctionForPackaging,
+    LayerVersion,
+    ResourcePolicyStatement,
+    Route53,
+    S3Event,
+    S3Location,
+    SimpleTable,
 )
 
 
@@ -33,7 +45,7 @@ class TestServerless(unittest.TestCase):
             CodeUri=S3Location(
                 Bucket="mybucket",
                 Key="mykey",
-            )
+            ),
         )
         t = Template()
         t.add_resource(serverless_func)
@@ -45,10 +57,7 @@ class TestServerless(unittest.TestCase):
             Handler="index.handler",
             Runtime="nodejs",
             CodeUri="s3://bucket/handler.zip",
-            Tags=Tags({
-                'Tag1': 'TagValue1',
-                'Tag2': 'TagValue2'
-            })
+            Tags=Tags({"Tag1": "TagValue1", "Tag2": "TagValue2"}),
         )
         t = Template()
         t.add_resource(serverless_func)
@@ -61,9 +70,8 @@ class TestServerless(unittest.TestCase):
             Runtime="nodejs",
             CodeUri="s3://bucket/handler.zip",
             DeadLetterQueue=DeadLetterQueue(
-                Type='SNS',
-                TargetArn='arn:aws:sns:us-east-1:000000000000:SampleTopic'
-            )
+                Type="SNS", TargetArn="arn:aws:sns:us-east-1:000000000000:SampleTopic"
+            ),
         )
         t = Template()
         t.add_resource(serverless_func)
@@ -74,7 +82,7 @@ class TestServerless(unittest.TestCase):
             "SomeHandler",
             Handler="index.handler",
             Runtime="nodejs",
-            CodeUri="s3://bucket/handler.zip"
+            CodeUri="s3://bucket/handler.zip",
         )
         t = Template()
         t.add_resource(serverless_func)
@@ -86,7 +94,7 @@ class TestServerless(unittest.TestCase):
             Handler="index.handler",
             Runtime="nodejs",
             CodeUri="s3://bucket/handler.zip",
-            AutoPublishAlias="alias"
+            AutoPublishAlias="alias",
         )
         t = Template()
         t.add_resource(serverless_func)
@@ -99,9 +107,7 @@ class TestServerless(unittest.TestCase):
             Runtime="nodejs",
             CodeUri="s3://bucket/handler.zip",
             AutoPublishAlias="alias",
-            DeploymentPreference=DeploymentPreference(
-                Type="AllAtOnce"
-            )
+            DeploymentPreference=DeploymentPreference(Type="AllAtOnce"),
         )
         t = Template()
         t.add_resource(serverless_func)
@@ -110,8 +116,8 @@ class TestServerless(unittest.TestCase):
     def test_required_api_definitionuri(self):
         serverless_api = Api(
             "SomeApi",
-            StageName='test',
-            DefinitionUri='s3://bucket/swagger.yml',
+            StageName="test",
+            DefinitionUri="s3://bucket/swagger.yml",
         )
         t = Template()
         t.add_resource(serverless_api)
@@ -124,8 +130,7 @@ class TestServerless(unittest.TestCase):
         },
         "paths": {
             "/test": {
-                "get": {
-                 },
+                "get": {},
             },
         },
     }
@@ -133,8 +138,8 @@ class TestServerless(unittest.TestCase):
     def test_required_api_both(self):
         serverless_api = Api(
             "SomeApi",
-            StageName='test',
-            DefinitionUri='s3://bucket/swagger.yml',
+            StageName="test",
+            DefinitionUri="s3://bucket/swagger.yml",
             DefinitionBody=self.swagger,
         )
         t = Template()
@@ -145,7 +150,7 @@ class TestServerless(unittest.TestCase):
     def test_required_api_definitionbody(self):
         serverless_api = Api(
             "SomeApi",
-            StageName='test',
+            StageName="test",
             DefinitionBody=self.swagger,
         )
         t = Template()
@@ -155,7 +160,7 @@ class TestServerless(unittest.TestCase):
     def test_api_no_definition(self):
         serverless_api = Api(
             "SomeApi",
-            StageName='test',
+            StageName="test",
         )
         t = Template()
         t.add_resource(serverless_api)
@@ -163,19 +168,19 @@ class TestServerless(unittest.TestCase):
 
     def test_api_auth_resource_policy(self):
         serverless_api = Api(
-            title='SomeApi',
+            title="SomeApi",
             Auth=Auth(
                 ResourcePolicy=ResourcePolicyStatement(
-                    AwsAccountBlacklist=['testAwsAccountBlacklist'],
-                    AwsAccountWhitelist=['testAwsAccountWhitelist'],
-                    CustomStatements=['testCustomStatements'],
-                    IpRangeBlacklist=['testIpRangeBlacklist'],
-                    IpRangeWhitelist=['testIpRangeWhitelist'],
-                    SourceVpcBlacklist=['testVpcBlacklist'],
-                    SourceVpcWhitelist=['testVpcWhitelist'],
+                    AwsAccountBlacklist=["testAwsAccountBlacklist"],
+                    AwsAccountWhitelist=["testAwsAccountWhitelist"],
+                    CustomStatements=["testCustomStatements"],
+                    IpRangeBlacklist=["testIpRangeBlacklist"],
+                    IpRangeWhitelist=["testIpRangeWhitelist"],
+                    SourceVpcBlacklist=["testVpcBlacklist"],
+                    SourceVpcWhitelist=["testVpcWhitelist"],
                 ),
             ),
-            StageName='testStageName',
+            StageName="testStageName",
         )
         t = Template()
         t.add_resource(serverless_api)
@@ -185,28 +190,24 @@ class TestServerless(unittest.TestCase):
         serverless_api = Api(
             title="SomeApi",
             StageName="testStageName",
-            EndpointConfiguration=EndpointConfiguration(
-                Type="PRIVATE"
-            ),
+            EndpointConfiguration=EndpointConfiguration(Type="PRIVATE"),
         )
         t = Template()
         t.add_resource(serverless_api)
         t.to_json()
 
     def test_api_with_domain(self):
-        certificate = Parameter('certificate', Type='String')
+        certificate = Parameter("certificate", Type="String")
         serverless_api = Api(
-            'SomeApi',
-            StageName='test',
+            "SomeApi",
+            StageName="test",
             Domain=Domain(
-                BasePath=['/'],
+                BasePath=["/"],
                 CertificateArn=Ref(certificate),
-                DomainName=Sub(
-                    'subdomain.${Zone}', Zone=ImportValue('MyZone')
-                ),
-                EndpointConfiguration='REGIONAL',
+                DomainName=Sub("subdomain.${Zone}", Zone=ImportValue("MyZone")),
+                EndpointConfiguration="REGIONAL",
                 Route53=Route53(
-                    HostedZoneId=ImportValue('MyZone'),
+                    HostedZoneId=ImportValue("MyZone"),
                     IpV6=True,
                 ),
             ),
@@ -217,9 +218,7 @@ class TestServerless(unittest.TestCase):
         t.to_json()
 
     def test_simple_table(self):
-        serverless_table = SimpleTable(
-            "SomeTable"
-        )
+        serverless_table = SimpleTable("SomeTable")
         t = Template()
         t.add_resource(serverless_table)
         t.to_json()
@@ -246,23 +245,25 @@ class TestServerless(unittest.TestCase):
         t.add_resource(
             Function(
                 "ProcessorFunction",
-                Handler='process_file.handler',
-                CodeUri='.',
-                Runtime='python3.6',
-                Policies='AmazonS3FullAccess',
+                Handler="process_file.handler",
+                CodeUri=".",
+                Runtime="python3.6",
+                Policies="AmazonS3FullAccess",
                 Events={
-                    'FileUpload': S3Event(
-                        'FileUpload',
+                    "FileUpload": S3Event(
+                        "FileUpload",
                         Bucket="bucket",
-                        Events=['s3:ObjectCreated:*'],
-                        Filter=Filter(S3Key=S3Key(
-                            Rules=[
-                                Rules(Name="prefix", Value="upload/"),
-                                Rules(Name="suffix", Value=".txt"),
-                            ],
-                        ))
+                        Events=["s3:ObjectCreated:*"],
+                        Filter=Filter(
+                            S3Key=S3Key(
+                                Rules=[
+                                    Rules(Name="prefix", Value="upload/"),
+                                    Rules(Name="suffix", Value=".txt"),
+                                ],
+                            )
+                        ),
                     )
-                }
+                },
             )
         )
         t.to_json()
@@ -272,10 +273,10 @@ class TestServerless(unittest.TestCase):
         t.add_resource(
             Function(
                 "ProcessorFunction",
-                Handler='process_file.handler',
-                CodeUri='.',
-                Runtime='python3.6',
-                Policies="AmazonS3ReadOnly"
+                Handler="process_file.handler",
+                CodeUri=".",
+                Runtime="python3.6",
+                Policies="AmazonS3ReadOnly",
             )
         )
         t.to_json()
@@ -284,10 +285,10 @@ class TestServerless(unittest.TestCase):
         t.add_resource(
             Function(
                 "ProcessorFunction",
-                Handler='process_file.handler',
-                CodeUri='.',
-                Runtime='python3.6',
-                Policies=["AmazonS3FullAccess", "AmazonDynamoDBFullAccess"]
+                Handler="process_file.handler",
+                CodeUri=".",
+                Runtime="python3.6",
+                Policies=["AmazonS3FullAccess", "AmazonDynamoDBFullAccess"],
             )
         )
         t.to_json()
@@ -296,15 +297,17 @@ class TestServerless(unittest.TestCase):
         t.add_resource(
             Function(
                 "ProcessorFunction",
-                Handler='process_file.handler',
-                CodeUri='.',
-                Runtime='python3.6',
+                Handler="process_file.handler",
+                CodeUri=".",
+                Runtime="python3.6",
                 Policies={
-                    "Statement": [{
-                        "Effect": "Allow",
-                        "Action": ["s3:GetObject", "s3:PutObject"],
-                        "Resource": ["arn:aws:s3:::bucket/*"],
-                    }]
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": ["s3:GetObject", "s3:PutObject"],
+                            "Resource": ["arn:aws:s3:::bucket/*"],
+                        }
+                    ]
                 },
             )
         )
@@ -316,19 +319,21 @@ class TestServerless(unittest.TestCase):
         t.add_resource(
             FunctionForPackaging(
                 "ProcessorFunction",
-                Handler='process_file.handler',
-                Runtime='python3.6',
+                Handler="process_file.handler",
+                Runtime="python3.6",
                 Policies={
-                    "Statement": [{
-                        "Effect": "Allow",
-                        "Action": ["s3:GetObject", "s3:PutObject"],
-                        "Resource": ["arn:aws:s3:::bucket/*"],
-                    }]
+                    "Statement": [
+                        {
+                            "Effect": "Allow",
+                            "Action": ["s3:GetObject", "s3:PutObject"],
+                            "Resource": ["arn:aws:s3:::bucket/*"],
+                        }
+                    ]
                 },
             )
         )
         t.to_json()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -7,141 +7,140 @@
 # Resource specification version: 4.3.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class ClearTimer(AWSProperty):
     props = {
-        'TimerName': (str, False),
+        "TimerName": (str, False),
     }
 
 
 class Firehose(AWSProperty):
     props = {
-        'DeliveryStreamName': (str, False),
-        'Separator': (str, False),
+        "DeliveryStreamName": (str, False),
+        "Separator": (str, False),
     }
 
 
 class IotEvents(AWSProperty):
     props = {
-        'InputName': (str, False),
+        "InputName": (str, False),
     }
 
 
 class IotTopicPublish(AWSProperty):
     props = {
-        'MqttTopic': (str, False),
+        "MqttTopic": (str, False),
     }
 
 
 class Lambda(AWSProperty):
     props = {
-        'FunctionArn': (str, False),
+        "FunctionArn": (str, False),
     }
 
 
 class ResetTimer(AWSProperty):
     props = {
-        'TimerName': (str, False),
+        "TimerName": (str, False),
     }
 
 
 class SetTimer(AWSProperty):
     props = {
-        'Seconds': (integer, False),
-        'TimerName': (str, False),
+        "Seconds": (integer, False),
+        "TimerName": (str, False),
     }
 
 
 class SetVariable(AWSProperty):
     props = {
-        'Value': (str, False),
-        'VariableName': (str, False),
+        "Value": (str, False),
+        "VariableName": (str, False),
     }
 
 
 class Sns(AWSProperty):
     props = {
-        'TargetArn': (str, False),
+        "TargetArn": (str, False),
     }
 
 
 class Sqs(AWSProperty):
     props = {
-        'QueueUrl': (str, False),
-        'UseBase64': (boolean, False),
+        "QueueUrl": (str, False),
+        "UseBase64": (boolean, False),
     }
 
 
 class Action(AWSProperty):
     props = {
-        'ClearTimer': (ClearTimer, False),
-        'Firehose': (Firehose, False),
-        'IotEvents': (IotEvents, False),
-        'IotTopicPublish': (IotTopicPublish, False),
-        'Lambda': (Lambda, False),
-        'ResetTimer': (ResetTimer, False),
-        'SetTimer': (SetTimer, False),
-        'SetVariable': (SetVariable, False),
-        'Sns': (Sns, False),
-        'Sqs': (Sqs, False),
+        "ClearTimer": (ClearTimer, False),
+        "Firehose": (Firehose, False),
+        "IotEvents": (IotEvents, False),
+        "IotTopicPublish": (IotTopicPublish, False),
+        "Lambda": (Lambda, False),
+        "ResetTimer": (ResetTimer, False),
+        "SetTimer": (SetTimer, False),
+        "SetVariable": (SetVariable, False),
+        "Sns": (Sns, False),
+        "Sqs": (Sqs, False),
     }
 
 
 class Event(AWSProperty):
     props = {
-        'Actions': ([Action], False),
-        'Condition': (str, False),
-        'EventName': (str, False),
+        "Actions": ([Action], False),
+        "Condition": (str, False),
+        "EventName": (str, False),
     }
 
 
 class OnEnter(AWSProperty):
     props = {
-        'Events': ([Event], False),
+        "Events": ([Event], False),
     }
 
 
 class OnExit(AWSProperty):
     props = {
-        'Events': ([Event], False),
+        "Events": ([Event], False),
     }
 
 
 class TransitionEvent(AWSProperty):
     props = {
-        'Actions': ([Action], False),
-        'Condition': (str, False),
-        'EventName': (str, False),
-        'NextState': (str, False),
+        "Actions": ([Action], False),
+        "Condition": (str, False),
+        "EventName": (str, False),
+        "NextState": (str, False),
     }
 
 
 class OnInput(AWSProperty):
     props = {
-        'Events': ([Event], False),
-        'TransitionEvents': ([TransitionEvent], False),
+        "Events": ([Event], False),
+        "TransitionEvents": ([TransitionEvent], False),
     }
 
 
 class State(AWSProperty):
     props = {
-        'OnEnter': (OnEnter, False),
-        'OnExit': (OnExit, False),
-        'OnInput': (OnInput, False),
-        'StateName': (str, False),
+        "OnEnter": (OnEnter, False),
+        "OnExit": (OnExit, False),
+        "OnInput": (OnInput, False),
+        "StateName": (str, False),
     }
 
 
 class DetectorModelDefinition(AWSProperty):
     props = {
-        'InitialStateName': (str, False),
-        'States': ([State], False),
+        "InitialStateName": (str, False),
+        "States": ([State], False),
     }
 
 
@@ -149,24 +148,24 @@ class DetectorModel(AWSObject):
     resource_type = "AWS::IoTEvents::DetectorModel"
 
     props = {
-        'DetectorModelDefinition': (DetectorModelDefinition, False),
-        'DetectorModelDescription': (str, False),
-        'DetectorModelName': (str, False),
-        'Key': (str, False),
-        'RoleArn': (str, False),
-        'Tags': (Tags, False),
+        "DetectorModelDefinition": (DetectorModelDefinition, False),
+        "DetectorModelDescription": (str, False),
+        "DetectorModelName": (str, False),
+        "Key": (str, False),
+        "RoleArn": (str, False),
+        "Tags": (Tags, False),
     }
 
 
 class Attribute(AWSProperty):
     props = {
-        'JsonPath': (str, False),
+        "JsonPath": (str, False),
     }
 
 
 class InputDefinition(AWSProperty):
     props = {
-        'Attributes': ([Attribute], False),
+        "Attributes": ([Attribute], False),
     }
 
 
@@ -174,8 +173,8 @@ class Input(AWSObject):
     resource_type = "AWS::IoTEvents::Input"
 
     props = {
-        'InputDefinition': (InputDefinition, False),
-        'InputDescription': (str, False),
-        'InputName': (str, False),
-        'Tags': (Tags, False),
+        "InputDefinition": (InputDefinition, False),
+        "InputDescription": (str, False),
+        "InputName": (str, False),
+        "Tags": (Tags, False),
     }

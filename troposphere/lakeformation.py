@@ -7,69 +7,67 @@
 # Resource specification version: 5.3.0
 
 
-from . import AWSObject
-from . import AWSProperty
+from . import AWSObject, AWSProperty
 
 
 class Admins(AWSProperty):
-    props = {
-    }
+    props = {}
 
 
 class DataLakeSettings(AWSObject):
     resource_type = "AWS::LakeFormation::DataLakeSettings"
 
     props = {
-        'Admins': (Admins, False),
+        "Admins": (Admins, False),
     }
 
 
 class DataLakePrincipal(AWSProperty):
     props = {
-        'DataLakePrincipalIdentifier': (str, False),
+        "DataLakePrincipalIdentifier": (str, False),
     }
 
 
 class DatabaseResource(AWSProperty):
     props = {
-        'Name': (str, False),
+        "Name": (str, False),
     }
 
 
 class TableResource(AWSProperty):
     props = {
-        'DatabaseName': (str, False),
-        'Name': (str, False),
+        "DatabaseName": (str, False),
+        "Name": (str, False),
     }
 
 
 class DataLocationResource(AWSProperty):
     props = {
-        'S3Resource': (str, False),
+        "S3Resource": (str, False),
     }
 
 
 class ColumnWildcard(AWSProperty):
     props = {
-        'ExcludedColumnNames': ([str], False),
+        "ExcludedColumnNames": ([str], False),
     }
 
 
 class TableWithColumnsResource(AWSProperty):
     props = {
-        'ColumnNames': ([str], False),
-        'ColumnWildcard': (ColumnWildcard, False),
-        'DatabaseName': (str, False),
-        'Name': (str, False),
+        "ColumnNames": ([str], False),
+        "ColumnWildcard": (ColumnWildcard, False),
+        "DatabaseName": (str, False),
+        "Name": (str, False),
     }
 
 
 class Resource(AWSProperty):
     props = {
-        'DatabaseResource': (DatabaseResource, False),
-        'DataLocationResource': (DataLocationResource, False),
-        'TableResource': (TableResource, False),
-        'TableWithColumnsResource': (TableWithColumnsResource, False),
+        "DatabaseResource": (DatabaseResource, False),
+        "DataLocationResource": (DataLocationResource, False),
+        "TableResource": (TableResource, False),
+        "TableWithColumnsResource": (TableWithColumnsResource, False),
     }
 
 
@@ -77,8 +75,8 @@ class Permissions(AWSObject):
     resource_type = "AWS::LakeFormation::Permissions"
 
     props = {
-        'DataLakePrincipal': (DataLakePrincipal, True),
-        'Permissions': ([str], False),
-        'PermissionsWithGrantOption': ([str], False),
-        'Resource': (Resource, True),
+        "DataLakePrincipal": (DataLakePrincipal, True),
+        "Permissions": ([str], False),
+        "PermissionsWithGrantOption": ([str], False),
+        "Resource": (Resource, True),
     }

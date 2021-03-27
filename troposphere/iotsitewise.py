@@ -7,53 +7,53 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 
 
 class IamRole(AWSProperty):
     props = {
-        'arn': (str, False),
+        "arn": (str, False),
     }
 
 
 class IamUser(AWSProperty):
     props = {
-        'arn': (str, False),
+        "arn": (str, False),
     }
 
 
 class User(AWSProperty):
     props = {
-        'id': (str, False),
+        "id": (str, False),
     }
 
 
 class AccessPolicyIdentity(AWSProperty):
     props = {
-        'IamRole': (IamRole, False),
-        'IamUser': (IamUser, False),
-        'User': (User, False),
+        "IamRole": (IamRole, False),
+        "IamUser": (IamUser, False),
+        "User": (User, False),
     }
 
 
 class PortalProperty(AWSProperty):
     props = {
-        'id': (str, False),
+        "id": (str, False),
     }
 
 
 class Project(AWSProperty):
     props = {
-        'id': (str, False),
+        "id": (str, False),
     }
 
 
 class AccessPolicyResource(AWSProperty):
     props = {
-        'Portal': (PortalProperty, False),
-        'Project': (Project, False),
+        "Portal": (PortalProperty, False),
+        "Project": (Project, False),
     }
 
 
@@ -61,24 +61,24 @@ class AccessPolicy(AWSObject):
     resource_type = "AWS::IoTSiteWise::AccessPolicy"
 
     props = {
-        'AccessPolicyIdentity': (AccessPolicyIdentity, True),
-        'AccessPolicyPermission': (str, True),
-        'AccessPolicyResource': (AccessPolicyResource, True),
+        "AccessPolicyIdentity": (AccessPolicyIdentity, True),
+        "AccessPolicyPermission": (str, True),
+        "AccessPolicyResource": (AccessPolicyResource, True),
     }
 
 
 class AssetHierarchy(AWSProperty):
     props = {
-        'ChildAssetId': (str, True),
-        'LogicalId': (str, True),
+        "ChildAssetId": (str, True),
+        "LogicalId": (str, True),
     }
 
 
 class AssetProperty(AWSProperty):
     props = {
-        'Alias': (str, False),
-        'LogicalId': (str, True),
-        'NotificationState': (str, False),
+        "Alias": (str, False),
+        "LogicalId": (str, True),
+        "NotificationState": (str, False),
     }
 
 
@@ -86,95 +86,95 @@ class Asset(AWSObject):
     resource_type = "AWS::IoTSiteWise::Asset"
 
     props = {
-        'AssetHierarchies': ([AssetHierarchy], False),
-        'AssetModelId': (str, True),
-        'AssetName': (str, True),
-        'AssetProperties': ([AssetProperty], False),
-        'Tags': (Tags, False),
+        "AssetHierarchies": ([AssetHierarchy], False),
+        "AssetModelId": (str, True),
+        "AssetName": (str, True),
+        "AssetProperties": ([AssetProperty], False),
+        "Tags": (Tags, False),
     }
 
 
 class Attribute(AWSProperty):
     props = {
-        'DefaultValue': (str, False),
+        "DefaultValue": (str, False),
     }
 
 
 class VariableValue(AWSProperty):
     props = {
-        'HierarchyLogicalId': (str, False),
-        'PropertyLogicalId': (str, True),
+        "HierarchyLogicalId": (str, False),
+        "PropertyLogicalId": (str, True),
     }
 
 
 class ExpressionVariable(AWSProperty):
     props = {
-        'Name': (str, True),
-        'Value': (VariableValue, True),
+        "Name": (str, True),
+        "Value": (VariableValue, True),
     }
 
 
 class TumblingWindow(AWSProperty):
     props = {
-        'Interval': (str, True),
+        "Interval": (str, True),
     }
 
 
 class MetricWindow(AWSProperty):
     props = {
-        'Tumbling': (TumblingWindow, False),
+        "Tumbling": (TumblingWindow, False),
     }
 
 
 class Metric(AWSProperty):
     props = {
-        'Expression': (str, True),
-        'Variables': ([ExpressionVariable], True),
-        'Window': (MetricWindow, True),
+        "Expression": (str, True),
+        "Variables": ([ExpressionVariable], True),
+        "Window": (MetricWindow, True),
     }
 
 
 class Transform(AWSProperty):
     props = {
-        'Expression': (str, True),
-        'Variables': ([ExpressionVariable], True),
+        "Expression": (str, True),
+        "Variables": ([ExpressionVariable], True),
     }
 
 
 class PropertyType(AWSProperty):
     props = {
-        'Attribute': (Attribute, False),
-        'Metric': (Metric, False),
-        'Transform': (Transform, False),
-        'TypeName': (str, True),
+        "Attribute": (Attribute, False),
+        "Metric": (Metric, False),
+        "Transform": (Transform, False),
+        "TypeName": (str, True),
     }
 
 
 class AssetModelProperty(AWSProperty):
     props = {
-        'DataType': (str, True),
-        'DataTypeSpec': (str, False),
-        'LogicalId': (str, True),
-        'Name': (str, True),
-        'Type': (PropertyType, True),
-        'Unit': (str, False),
+        "DataType": (str, True),
+        "DataTypeSpec": (str, False),
+        "LogicalId": (str, True),
+        "Name": (str, True),
+        "Type": (PropertyType, True),
+        "Unit": (str, False),
     }
 
 
 class AssetModelCompositeModel(AWSProperty):
     props = {
-        'CompositeModelProperties': ([AssetModelProperty], False),
-        'Description': (str, False),
-        'Name': (str, True),
-        'Type': (str, True),
+        "CompositeModelProperties": ([AssetModelProperty], False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Type": (str, True),
     }
 
 
 class AssetModelHierarchy(AWSProperty):
     props = {
-        'ChildAssetModelId': (str, True),
-        'LogicalId': (str, True),
-        'Name': (str, True),
+        "ChildAssetModelId": (str, True),
+        "LogicalId": (str, True),
+        "Name": (str, True),
     }
 
 
@@ -182,12 +182,12 @@ class AssetModel(AWSObject):
     resource_type = "AWS::IoTSiteWise::AssetModel"
 
     props = {
-        'AssetModelCompositeModels': ([AssetModelCompositeModel], False),
-        'AssetModelDescription': (str, False),
-        'AssetModelHierarchies': ([AssetModelHierarchy], False),
-        'AssetModelName': (str, True),
-        'AssetModelProperties': ([AssetModelProperty], False),
-        'Tags': (Tags, False),
+        "AssetModelCompositeModels": ([AssetModelCompositeModel], False),
+        "AssetModelDescription": (str, False),
+        "AssetModelHierarchies": ([AssetModelHierarchy], False),
+        "AssetModelName": (str, True),
+        "AssetModelProperties": ([AssetModelProperty], False),
+        "Tags": (Tags, False),
     }
 
 
@@ -195,30 +195,30 @@ class Dashboard(AWSObject):
     resource_type = "AWS::IoTSiteWise::Dashboard"
 
     props = {
-        'DashboardDefinition': (str, True),
-        'DashboardDescription': (str, True),
-        'DashboardName': (str, True),
-        'ProjectId': (str, False),
-        'Tags': (Tags, False),
+        "DashboardDefinition": (str, True),
+        "DashboardDescription": (str, True),
+        "DashboardName": (str, True),
+        "ProjectId": (str, False),
+        "Tags": (Tags, False),
     }
 
 
 class GatewayCapabilitySummary(AWSProperty):
     props = {
-        'CapabilityConfiguration': (str, False),
-        'CapabilityNamespace': (str, True),
+        "CapabilityConfiguration": (str, False),
+        "CapabilityNamespace": (str, True),
     }
 
 
 class Greengrass(AWSProperty):
     props = {
-        'GroupArn': (str, True),
+        "GroupArn": (str, True),
     }
 
 
 class GatewayPlatform(AWSProperty):
     props = {
-        'Greengrass': (Greengrass, True),
+        "Greengrass": (Greengrass, True),
     }
 
 
@@ -226,10 +226,10 @@ class Gateway(AWSObject):
     resource_type = "AWS::IoTSiteWise::Gateway"
 
     props = {
-        'GatewayCapabilitySummaries': ([GatewayCapabilitySummary], False),
-        'GatewayName': (str, True),
-        'GatewayPlatform': (GatewayPlatform, True),
-        'Tags': (Tags, False),
+        "GatewayCapabilitySummaries": ([GatewayCapabilitySummary], False),
+        "GatewayName": (str, True),
+        "GatewayPlatform": (GatewayPlatform, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -237,10 +237,10 @@ class Portal(AWSObject):
     resource_type = "AWS::IoTSiteWise::Portal"
 
     props = {
-        'PortalAuthMode': (str, False),
-        'PortalContactEmail': (str, True),
-        'PortalDescription': (str, False),
-        'PortalName': (str, True),
-        'RoleArn': (str, True),
-        'Tags': (Tags, False),
+        "PortalAuthMode": (str, False),
+        "PortalContactEmail": (str, True),
+        "PortalDescription": (str, False),
+        "PortalName": (str, True),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
     }

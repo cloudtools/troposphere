@@ -7,21 +7,18 @@
 # Resource specification version: 31.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
-from .validators import boolean
-from .validators import integer
-from .validators import double
+from . import AWSObject, AWSProperty
+from .validators import boolean, double, integer
 
 
 class ADMChannel(AWSObject):
     resource_type = "AWS::Pinpoint::ADMChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'ClientId': (str, True),
-        'ClientSecret': (str, True),
-        'Enabled': (boolean, False),
+        "ApplicationId": (str, True),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "Enabled": (boolean, False),
     }
 
 
@@ -29,15 +26,15 @@ class APNSChannel(AWSObject):
     resource_type = "AWS::Pinpoint::APNSChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'BundleId': (str, False),
-        'Certificate': (str, False),
-        'DefaultAuthenticationMethod': (str, False),
-        'Enabled': (boolean, False),
-        'PrivateKey': (str, False),
-        'TeamId': (str, False),
-        'TokenKey': (str, False),
-        'TokenKeyId': (str, False),
+        "ApplicationId": (str, True),
+        "BundleId": (str, False),
+        "Certificate": (str, False),
+        "DefaultAuthenticationMethod": (str, False),
+        "Enabled": (boolean, False),
+        "PrivateKey": (str, False),
+        "TeamId": (str, False),
+        "TokenKey": (str, False),
+        "TokenKeyId": (str, False),
     }
 
 
@@ -45,15 +42,15 @@ class APNSSandboxChannel(AWSObject):
     resource_type = "AWS::Pinpoint::APNSSandboxChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'BundleId': (str, False),
-        'Certificate': (str, False),
-        'DefaultAuthenticationMethod': (str, False),
-        'Enabled': (boolean, False),
-        'PrivateKey': (str, False),
-        'TeamId': (str, False),
-        'TokenKey': (str, False),
-        'TokenKeyId': (str, False),
+        "ApplicationId": (str, True),
+        "BundleId": (str, False),
+        "Certificate": (str, False),
+        "DefaultAuthenticationMethod": (str, False),
+        "Enabled": (boolean, False),
+        "PrivateKey": (str, False),
+        "TeamId": (str, False),
+        "TokenKey": (str, False),
+        "TokenKeyId": (str, False),
     }
 
 
@@ -61,15 +58,15 @@ class APNSVoipChannel(AWSObject):
     resource_type = "AWS::Pinpoint::APNSVoipChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'BundleId': (str, False),
-        'Certificate': (str, False),
-        'DefaultAuthenticationMethod': (str, False),
-        'Enabled': (boolean, False),
-        'PrivateKey': (str, False),
-        'TeamId': (str, False),
-        'TokenKey': (str, False),
-        'TokenKeyId': (str, False),
+        "ApplicationId": (str, True),
+        "BundleId": (str, False),
+        "Certificate": (str, False),
+        "DefaultAuthenticationMethod": (str, False),
+        "Enabled": (boolean, False),
+        "PrivateKey": (str, False),
+        "TeamId": (str, False),
+        "TokenKey": (str, False),
+        "TokenKeyId": (str, False),
     }
 
 
@@ -77,15 +74,15 @@ class APNSVoipSandboxChannel(AWSObject):
     resource_type = "AWS::Pinpoint::APNSVoipSandboxChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'BundleId': (str, False),
-        'Certificate': (str, False),
-        'DefaultAuthenticationMethod': (str, False),
-        'Enabled': (boolean, False),
-        'PrivateKey': (str, False),
-        'TeamId': (str, False),
-        'TokenKey': (str, False),
-        'TokenKeyId': (str, False),
+        "ApplicationId": (str, True),
+        "BundleId": (str, False),
+        "Certificate": (str, False),
+        "DefaultAuthenticationMethod": (str, False),
+        "Enabled": (boolean, False),
+        "PrivateKey": (str, False),
+        "TeamId": (str, False),
+        "TokenKey": (str, False),
+        "TokenKeyId": (str, False),
     }
 
 
@@ -93,32 +90,32 @@ class App(AWSObject):
     resource_type = "AWS::Pinpoint::App"
 
     props = {
-        'Name': (str, True),
-        'Tags': (dict, False),
+        "Name": (str, True),
+        "Tags": (dict, False),
     }
 
 
 class CampaignHook(AWSProperty):
     props = {
-        'LambdaFunctionName': (str, False),
-        'Mode': (str, False),
-        'WebUrl': (str, False),
+        "LambdaFunctionName": (str, False),
+        "Mode": (str, False),
+        "WebUrl": (str, False),
     }
 
 
 class Limits(AWSProperty):
     props = {
-        'Daily': (integer, False),
-        'MaximumDuration': (integer, False),
-        'MessagesPerSecond': (integer, False),
-        'Total': (integer, False),
+        "Daily": (integer, False),
+        "MaximumDuration": (integer, False),
+        "MessagesPerSecond": (integer, False),
+        "Total": (integer, False),
     }
 
 
 class QuietTime(AWSProperty):
     props = {
-        'End': (str, True),
-        'Start': (str, True),
+        "End": (str, True),
+        "Start": (str, True),
     }
 
 
@@ -126,11 +123,11 @@ class ApplicationSettings(AWSObject):
     resource_type = "AWS::Pinpoint::ApplicationSettings"
 
     props = {
-        'ApplicationId': (str, True),
-        'CampaignHook': (CampaignHook, False),
-        'CloudWatchMetricsEnabled': (boolean, False),
-        'Limits': (Limits, False),
-        'QuietTime': (QuietTime, False),
+        "ApplicationId": (str, True),
+        "CampaignHook": (CampaignHook, False),
+        "CloudWatchMetricsEnabled": (boolean, False),
+        "Limits": (Limits, False),
+        "QuietTime": (QuietTime, False),
     }
 
 
@@ -138,103 +135,103 @@ class BaiduChannel(AWSObject):
     resource_type = "AWS::Pinpoint::BaiduChannel"
 
     props = {
-        'ApiKey': (str, True),
-        'ApplicationId': (str, True),
-        'Enabled': (boolean, False),
-        'SecretKey': (str, True),
+        "ApiKey": (str, True),
+        "ApplicationId": (str, True),
+        "Enabled": (boolean, False),
+        "SecretKey": (str, True),
     }
 
 
 class CampaignEmailMessage(AWSProperty):
     props = {
-        'Body': (str, False),
-        'FromAddress': (str, False),
-        'HtmlBody': (str, False),
-        'Title': (str, False),
+        "Body": (str, False),
+        "FromAddress": (str, False),
+        "HtmlBody": (str, False),
+        "Title": (str, False),
     }
 
 
 class CampaignSmsMessage(AWSProperty):
     props = {
-        'Body': (str, False),
-        'EntityId': (str, False),
-        'MessageType': (str, False),
-        'OriginationNumber': (str, False),
-        'SenderId': (str, False),
-        'TemplateId': (str, False),
+        "Body": (str, False),
+        "EntityId": (str, False),
+        "MessageType": (str, False),
+        "OriginationNumber": (str, False),
+        "SenderId": (str, False),
+        "TemplateId": (str, False),
     }
 
 
 class Message(AWSProperty):
     props = {
-        'Action': (str, False),
-        'Body': (str, False),
-        'ImageIconUrl': (str, False),
-        'ImageSmallIconUrl': (str, False),
-        'ImageUrl': (str, False),
-        'JsonBody': (str, False),
-        'MediaUrl': (str, False),
-        'RawContent': (str, False),
-        'SilentPush': (boolean, False),
-        'TimeToLive': (integer, False),
-        'Title': (str, False),
-        'Url': (str, False),
+        "Action": (str, False),
+        "Body": (str, False),
+        "ImageIconUrl": (str, False),
+        "ImageSmallIconUrl": (str, False),
+        "ImageUrl": (str, False),
+        "JsonBody": (str, False),
+        "MediaUrl": (str, False),
+        "RawContent": (str, False),
+        "SilentPush": (boolean, False),
+        "TimeToLive": (integer, False),
+        "Title": (str, False),
+        "Url": (str, False),
     }
 
 
 class MessageConfiguration(AWSProperty):
     props = {
-        'ADMMessage': (Message, False),
-        'APNSMessage': (Message, False),
-        'BaiduMessage': (Message, False),
-        'DefaultMessage': (Message, False),
-        'EmailMessage': (CampaignEmailMessage, False),
-        'GCMMessage': (Message, False),
-        'SMSMessage': (CampaignSmsMessage, False),
+        "ADMMessage": (Message, False),
+        "APNSMessage": (Message, False),
+        "BaiduMessage": (Message, False),
+        "DefaultMessage": (Message, False),
+        "EmailMessage": (CampaignEmailMessage, False),
+        "GCMMessage": (Message, False),
+        "SMSMessage": (CampaignSmsMessage, False),
     }
 
 
 class SetDimension(AWSProperty):
     props = {
-        'DimensionType': (str, False),
-        'Values': ([str], False),
+        "DimensionType": (str, False),
+        "Values": ([str], False),
     }
 
 
 class EventDimensions(AWSProperty):
     props = {
-        'Attributes': (dict, False),
-        'EventType': (SetDimension, False),
-        'Metrics': (dict, False),
+        "Attributes": (dict, False),
+        "EventType": (SetDimension, False),
+        "Metrics": (dict, False),
     }
 
 
 class CampaignEventFilter(AWSProperty):
     props = {
-        'Dimensions': (EventDimensions, False),
-        'FilterType': (str, False),
+        "Dimensions": (EventDimensions, False),
+        "FilterType": (str, False),
     }
 
 
 class Schedule(AWSProperty):
     props = {
-        'EndTime': (str, False),
-        'EventFilter': (CampaignEventFilter, False),
-        'Frequency': (str, False),
-        'IsLocalTime': (boolean, False),
-        'QuietTime': (QuietTime, False),
-        'StartTime': (str, False),
-        'TimeZone': (str, False),
+        "EndTime": (str, False),
+        "EventFilter": (CampaignEventFilter, False),
+        "Frequency": (str, False),
+        "IsLocalTime": (boolean, False),
+        "QuietTime": (QuietTime, False),
+        "StartTime": (str, False),
+        "TimeZone": (str, False),
     }
 
 
 class WriteTreatmentResource(AWSProperty):
     props = {
-        'MessageConfiguration': (MessageConfiguration, False),
-        'Schedule': (Schedule, False),
-        'SizePercent': (integer, False),
-        'TreatmentDescription': (str, False),
-        'TreatmentName': (str, False),
+        "MessageConfiguration": (MessageConfiguration, False),
+        "Schedule": (Schedule, False),
+        "SizePercent": (integer, False),
+        "TreatmentDescription": (str, False),
+        "TreatmentName": (str, False),
     }
 
 
@@ -242,21 +239,21 @@ class Campaign(AWSObject):
     resource_type = "AWS::Pinpoint::Campaign"
 
     props = {
-        'AdditionalTreatments': ([WriteTreatmentResource], False),
-        'ApplicationId': (str, True),
-        'CampaignHook': (CampaignHook, False),
-        'Description': (str, False),
-        'HoldoutPercent': (integer, False),
-        'IsPaused': (boolean, False),
-        'Limits': (Limits, False),
-        'MessageConfiguration': (MessageConfiguration, True),
-        'Name': (str, True),
-        'Schedule': (Schedule, True),
-        'SegmentId': (str, True),
-        'SegmentVersion': (integer, False),
-        'Tags': (dict, False),
-        'TreatmentDescription': (str, False),
-        'TreatmentName': (str, False),
+        "AdditionalTreatments": ([WriteTreatmentResource], False),
+        "ApplicationId": (str, True),
+        "CampaignHook": (CampaignHook, False),
+        "Description": (str, False),
+        "HoldoutPercent": (integer, False),
+        "IsPaused": (boolean, False),
+        "Limits": (Limits, False),
+        "MessageConfiguration": (MessageConfiguration, True),
+        "Name": (str, True),
+        "Schedule": (Schedule, True),
+        "SegmentId": (str, True),
+        "SegmentVersion": (integer, False),
+        "Tags": (dict, False),
+        "TreatmentDescription": (str, False),
+        "TreatmentName": (str, False),
     }
 
 
@@ -264,12 +261,12 @@ class EmailChannel(AWSObject):
     resource_type = "AWS::Pinpoint::EmailChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'ConfigurationSet': (str, False),
-        'Enabled': (boolean, False),
-        'FromAddress': (str, True),
-        'Identity': (str, True),
-        'RoleArn': (str, False),
+        "ApplicationId": (str, True),
+        "ConfigurationSet": (str, False),
+        "Enabled": (boolean, False),
+        "FromAddress": (str, True),
+        "Identity": (str, True),
+        "RoleArn": (str, False),
     }
 
 
@@ -277,13 +274,13 @@ class EmailTemplate(AWSObject):
     resource_type = "AWS::Pinpoint::EmailTemplate"
 
     props = {
-        'DefaultSubstitutions': (str, False),
-        'HtmlPart': (str, False),
-        'Subject': (str, True),
-        'Tags': (dict, False),
-        'TemplateDescription': (str, False),
-        'TemplateName': (str, True),
-        'TextPart': (str, False),
+        "DefaultSubstitutions": (str, False),
+        "HtmlPart": (str, False),
+        "Subject": (str, True),
+        "Tags": (dict, False),
+        "TemplateDescription": (str, False),
+        "TemplateName": (str, True),
+        "TextPart": (str, False),
     }
 
 
@@ -291,9 +288,9 @@ class EventStream(AWSObject):
     resource_type = "AWS::Pinpoint::EventStream"
 
     props = {
-        'ApplicationId': (str, True),
-        'DestinationStreamArn': (str, True),
-        'RoleArn': (str, True),
+        "ApplicationId": (str, True),
+        "DestinationStreamArn": (str, True),
+        "RoleArn": (str, True),
     }
 
 
@@ -301,43 +298,43 @@ class GCMChannel(AWSObject):
     resource_type = "AWS::Pinpoint::GCMChannel"
 
     props = {
-        'ApiKey': (str, True),
-        'ApplicationId': (str, True),
-        'Enabled': (boolean, False),
+        "ApiKey": (str, True),
+        "ApplicationId": (str, True),
+        "Enabled": (boolean, False),
     }
 
 
 class APNSPushNotificationTemplate(AWSProperty):
     props = {
-        'Action': (str, False),
-        'Body': (str, False),
-        'MediaUrl': (str, False),
-        'Sound': (str, False),
-        'Title': (str, False),
-        'Url': (str, False),
+        "Action": (str, False),
+        "Body": (str, False),
+        "MediaUrl": (str, False),
+        "Sound": (str, False),
+        "Title": (str, False),
+        "Url": (str, False),
     }
 
 
 class AndroidPushNotificationTemplate(AWSProperty):
     props = {
-        'Action': (str, False),
-        'Body': (str, False),
-        'ImageIconUrl': (str, False),
-        'ImageUrl': (str, False),
-        'SmallImageIconUrl': (str, False),
-        'Sound': (str, False),
-        'Title': (str, False),
-        'Url': (str, False),
+        "Action": (str, False),
+        "Body": (str, False),
+        "ImageIconUrl": (str, False),
+        "ImageUrl": (str, False),
+        "SmallImageIconUrl": (str, False),
+        "Sound": (str, False),
+        "Title": (str, False),
+        "Url": (str, False),
     }
 
 
 class DefaultPushNotificationTemplate(AWSProperty):
     props = {
-        'Action': (str, False),
-        'Body': (str, False),
-        'Sound': (str, False),
-        'Title': (str, False),
-        'Url': (str, False),
+        "Action": (str, False),
+        "Body": (str, False),
+        "Sound": (str, False),
+        "Title": (str, False),
+        "Url": (str, False),
     }
 
 
@@ -345,15 +342,15 @@ class PushTemplate(AWSObject):
     resource_type = "AWS::Pinpoint::PushTemplate"
 
     props = {
-        'ADM': (AndroidPushNotificationTemplate, False),
-        'APNS': (APNSPushNotificationTemplate, False),
-        'Baidu': (AndroidPushNotificationTemplate, False),
-        'Default': (DefaultPushNotificationTemplate, False),
-        'DefaultSubstitutions': (str, False),
-        'GCM': (AndroidPushNotificationTemplate, False),
-        'Tags': (dict, False),
-        'TemplateDescription': (str, False),
-        'TemplateName': (str, True),
+        "ADM": (AndroidPushNotificationTemplate, False),
+        "APNS": (APNSPushNotificationTemplate, False),
+        "Baidu": (AndroidPushNotificationTemplate, False),
+        "Default": (DefaultPushNotificationTemplate, False),
+        "DefaultSubstitutions": (str, False),
+        "GCM": (AndroidPushNotificationTemplate, False),
+        "Tags": (dict, False),
+        "TemplateDescription": (str, False),
+        "TemplateName": (str, True),
     }
 
 
@@ -361,89 +358,89 @@ class SMSChannel(AWSObject):
     resource_type = "AWS::Pinpoint::SMSChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'Enabled': (boolean, False),
-        'SenderId': (str, False),
-        'ShortCode': (str, False),
+        "ApplicationId": (str, True),
+        "Enabled": (boolean, False),
+        "SenderId": (str, False),
+        "ShortCode": (str, False),
     }
 
 
 class Recency(AWSProperty):
     props = {
-        'Duration': (str, True),
-        'RecencyType': (str, True),
+        "Duration": (str, True),
+        "RecencyType": (str, True),
     }
 
 
 class Behavior(AWSProperty):
     props = {
-        'Recency': (Recency, False),
+        "Recency": (Recency, False),
     }
 
 
 class Demographic(AWSProperty):
     props = {
-        'AppVersion': (SetDimension, False),
-        'Channel': (SetDimension, False),
-        'DeviceType': (SetDimension, False),
-        'Make': (SetDimension, False),
-        'Model': (SetDimension, False),
-        'Platform': (SetDimension, False),
+        "AppVersion": (SetDimension, False),
+        "Channel": (SetDimension, False),
+        "DeviceType": (SetDimension, False),
+        "Make": (SetDimension, False),
+        "Model": (SetDimension, False),
+        "Platform": (SetDimension, False),
     }
 
 
 class Coordinates(AWSProperty):
     props = {
-        'Latitude': (double, True),
-        'Longitude': (double, True),
+        "Latitude": (double, True),
+        "Longitude": (double, True),
     }
 
 
 class GPSPoint(AWSProperty):
     props = {
-        'Coordinates': (Coordinates, True),
-        'RangeInKilometers': (double, True),
+        "Coordinates": (Coordinates, True),
+        "RangeInKilometers": (double, True),
     }
 
 
 class Location(AWSProperty):
     props = {
-        'Country': (SetDimension, False),
-        'GPSPoint': (GPSPoint, False),
+        "Country": (SetDimension, False),
+        "GPSPoint": (GPSPoint, False),
     }
 
 
 class SegmentDimensions(AWSProperty):
     props = {
-        'Attributes': (dict, False),
-        'Behavior': (Behavior, False),
-        'Demographic': (Demographic, False),
-        'Location': (Location, False),
-        'Metrics': (dict, False),
-        'UserAttributes': (dict, False),
+        "Attributes": (dict, False),
+        "Behavior": (Behavior, False),
+        "Demographic": (Demographic, False),
+        "Location": (Location, False),
+        "Metrics": (dict, False),
+        "UserAttributes": (dict, False),
     }
 
 
 class SourceSegments(AWSProperty):
     props = {
-        'Id': (str, True),
-        'Version': (integer, False),
+        "Id": (str, True),
+        "Version": (integer, False),
     }
 
 
 class Groups(AWSProperty):
     props = {
-        'Dimensions': ([SegmentDimensions], False),
-        'SourceSegments': ([SourceSegments], False),
-        'SourceType': (str, False),
-        'Type': (str, False),
+        "Dimensions": ([SegmentDimensions], False),
+        "SourceSegments": ([SourceSegments], False),
+        "SourceType": (str, False),
+        "Type": (str, False),
     }
 
 
 class SegmentGroups(AWSProperty):
     props = {
-        'Groups': ([Groups], False),
-        'Include': (str, False),
+        "Groups": ([Groups], False),
+        "Include": (str, False),
     }
 
 
@@ -451,11 +448,11 @@ class Segment(AWSObject):
     resource_type = "AWS::Pinpoint::Segment"
 
     props = {
-        'ApplicationId': (str, True),
-        'Dimensions': (SegmentDimensions, False),
-        'Name': (str, True),
-        'SegmentGroups': (SegmentGroups, False),
-        'Tags': (dict, False),
+        "ApplicationId": (str, True),
+        "Dimensions": (SegmentDimensions, False),
+        "Name": (str, True),
+        "SegmentGroups": (SegmentGroups, False),
+        "Tags": (dict, False),
     }
 
 
@@ -463,11 +460,11 @@ class SmsTemplate(AWSObject):
     resource_type = "AWS::Pinpoint::SmsTemplate"
 
     props = {
-        'Body': (str, True),
-        'DefaultSubstitutions': (str, False),
-        'Tags': (dict, False),
-        'TemplateDescription': (str, False),
-        'TemplateName': (str, True),
+        "Body": (str, True),
+        "DefaultSubstitutions": (str, False),
+        "Tags": (dict, False),
+        "TemplateDescription": (str, False),
+        "TemplateName": (str, True),
     }
 
 
@@ -475,6 +472,6 @@ class VoiceChannel(AWSObject):
     resource_type = "AWS::Pinpoint::VoiceChannel"
 
     props = {
-        'ApplicationId': (str, True),
-        'Enabled': (boolean, False),
+        "ApplicationId": (str, True),
+        "Enabled": (boolean, False),
     }
