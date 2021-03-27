@@ -396,14 +396,6 @@ def validate_pausetime(pausetime):
     return pausetime
 
 
-class UpdatePolicy(BaseAWSObject):
-    def __init__(self, title, **kwargs):
-        raise DeprecationWarning(
-            "This UpdatePolicy class is deprecated, please switch to using "
-            "the more general UpdatePolicy in troposphere.policies.\n"
-        )
-
-
 class AWSHelperFn:
     def getdata(self, data):
         if isinstance(data, BaseAWSObject):
