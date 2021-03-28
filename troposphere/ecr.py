@@ -50,7 +50,7 @@ class ReplicationConfigurationProperty(AWSProperty):
 
 
 class ReplicationConfiguration(AWSObject):
-    resource_type = "AWS::ECR::Repository"
+    resource_type = "AWS::ECR::ReplicationConfiguration"
 
     props = {
         "ReplicationConfigurationProperty": (ReplicationConfigurationProperty, True),
