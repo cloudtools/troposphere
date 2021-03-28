@@ -4,27 +4,15 @@
 # See LICENSE file for full license.
 
 import json
-import os
 from re import compile
 
-if os.getenv("TROPO_REAL_BOOL") in ["1", "true", "True"]:
 
-    def boolean(x):
-        if x in [True, 1, "1", "true", "True"]:
-            return True
-        if x in [False, 0, "0", "false", "False"]:
-            return False
-        raise ValueError
-
-
-else:
-
-    def boolean(x):
-        if x in [True, 1, "1", "true", "True"]:
-            return "true"
-        if x in [False, 0, "0", "false", "False"]:
-            return "false"
-        raise ValueError
+def boolean(x):
+    if x in [True, 1, "1", "true", "True"]:
+        return True
+    if x in [False, 0, "0", "false", "False"]:
+        return False
+    raise ValueError
 
 
 def integer(x):

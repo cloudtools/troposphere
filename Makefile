@@ -4,7 +4,7 @@ PYDIRS=setup.py examples scripts tests troposphere
 
 test:
 	flake8 ${PYDIRS}
-	TROPO_REAL_BOOL=true python setup.py test
+	python setup.py test
 	black --check ${PYDIRS}
 	isort --check ${PYDIRS}
 

@@ -5,9 +5,6 @@ python:
   - "3.7.3"
   - "3.8"
   - "3.9"
-env:
-  global:
-    - TROPO_REAL_BOOL=true
 
 before_install:
   - pip install --upgrade pip setuptools wheel

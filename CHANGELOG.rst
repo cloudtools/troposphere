@@ -8,6 +8,7 @@ Breaking changes:
     add_transform() => set_transform()
     add_version() => set_version()
 * Remove deprecated troposphere.UpdatePolicy()
+* Remove TROPO_REAL_BOOL. Booleans are output instead of string booleans for better interoperability with tools like cfn-lint.
 * Remove deprecated troposphere.dynamodb2. Use troposphere.dynamodb instead.
 * Remove StageName deprecation warning in apigateway StageDescription
 
