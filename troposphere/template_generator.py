@@ -288,6 +288,15 @@ class TemplateGenerator(Template):
                     kwargs[prop_name] = self._create_instance(
                         expected_type, kwargs[prop_name], prop_name
                     )
+                elif expected_type == bool:
+                    if kwargs[prop_name] in ("True", "true", "1"):
+                        kwargs[prop_name] = True
+                    elif kwargs[prop_name] in ("False", "false", "0"):
+                        kwargs[prop_name] = False
+                    else:
+                        kwargs[prop_name] = self._convert_definition(
+                            kwargs[prop_name], prop_name
+                        )
                 else:
                     kwargs[prop_name] = self._convert_definition(
                         kwargs[prop_name], prop_name
