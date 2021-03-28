@@ -12,7 +12,7 @@ import cfn_flip
 
 from . import validators
 
-__version__ = "2.7.0"
+__version__ = "3.0.0"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = "Delete"
