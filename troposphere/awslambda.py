@@ -5,11 +5,6 @@ from .validators import boolean, integer, positive_integer
 
 MINIMUM_MEMORY = 128
 MAXIMUM_MEMORY = 10240
-MEMORY_INCREMENT = 64
-MEMORY_VALUES = [
-    x
-    for x in range(MINIMUM_MEMORY, MAXIMUM_MEMORY + MEMORY_INCREMENT, MEMORY_INCREMENT)
-]
 
 PACKAGE_TYPES = ["Image", "Zip"]
 RESERVED_ENVIRONMENT_VARIABLES = [
@@ -40,10 +35,10 @@ def validate_memory_size(memory_value):
     :return: The provided memory size if it is valid
     """
     memory_value = int(positive_integer(memory_value))
-    if memory_value not in MEMORY_VALUES:
+    if not MINIMUM_MEMORY <= memory_value <= MAXIMUM_MEMORY:
         raise ValueError(
-            "Lambda Function memory size must be one of:\n %s"
-            % ", ".join(str(mb) for mb in MEMORY_VALUES)
+            "Lambda Function memory size must be between %d and %d"
+            % (MINIMUM_MEMORY, MAXIMUM_MEMORY)
         )
     return memory_value
 
