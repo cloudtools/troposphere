@@ -1,5 +1,5 @@
 from troposphere import FindInMap, GetAtt, Join, Output, Parameter, Ref, Template
-from troposphere.awslambda import MEMORY_VALUES, Code, Function
+from troposphere.awslambda import MINIMUM_MEMORY, MAXIMUM_MEMORY, Code, Function
 from troposphere.cloudformation import CustomResource
 from troposphere.constants import NUMBER
 from troposphere.ec2 import Instance, SecurityGroup
@@ -42,7 +42,8 @@ MemorySize = t.add_parameter(
         Type=NUMBER,
         Description="Amount of memory to allocate to the Lambda Function",
         Default="128",
-        AllowedValues=MEMORY_VALUES,
+        MinValue=MINIMUM_MEMORY,
+        MaxValue=MAXIMUM_MEMORY,
     )
 )
 
