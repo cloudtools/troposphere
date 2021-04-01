@@ -12,8 +12,8 @@ from . import AWSObject, AWSProperty
 
 class ExperimentTemplateStopCondition(AWSProperty):
     props = {
-        "source": (str, True),
-        "value": (str, False),
+        "Source": (str, True),
+        "Value": (str, False),
     }
 
 
@@ -21,10 +21,10 @@ class ExperimentTemplate(AWSObject):
     resource_type = "AWS::FIS::ExperimentTemplate"
 
     props = {
-        "actions": (dict, False),
-        "description": (str, True),
-        "roleArn": (str, True),
-        "stopConditions": ([ExperimentTemplateStopCondition], True),
-        "tags": (dict, True),
-        "targets": (dict, True),
+        "Actions": (dict, False),
+        "Description": (str, True),
+        "RoleArn": (str, True),
+        "StopConditions": ([ExperimentTemplateStopCondition], True),
+        "Tags": (dict, True),
+        "Targets": (dict, True),
     }
