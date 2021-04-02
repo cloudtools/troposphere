@@ -226,7 +226,7 @@ class TestImageConfig(unittest.TestCase):
             ImageConfig(WorkingDirectory="x" * 1001).validate()
 
     def test_validate_memory_size_boundaries(self):
-        for var in ["128", "10240"]:
+        for var in ["128", "129", "10240"]:
             validate_memory_size(var)
 
     def test_validate_memory_size_throws(self):
@@ -234,14 +234,10 @@ class TestImageConfig(unittest.TestCase):
             with self.assertRaises(ValueError) as context:
                 validate_memory_size(var)
 
-            self.assertTrue(
-                "Lambda Function memory size must be one of:"
-                in context.exception.args[0]
+            self.assertEqual(
+                context.exception.args[0],
+                "Lambda Function memory size must be between 128 and 10240"
             )
-
-            self.assertTrue("128," in context.exception.args[0])
-
-            self.assertTrue(", 10240" in context.exception.args[0])
 
 
 if __name__ == "__main__":
