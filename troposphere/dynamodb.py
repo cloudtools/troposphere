@@ -60,6 +60,12 @@ class Key(KeySchema):
     pass
 
 
+class KinesisStreamSpecification(AWSProperty):
+    props = {
+        "StreamArn": (str, True)
+    }
+
+
 class ProvisionedThroughput(AWSProperty):
     props = {
         "ReadCapacityUnits": (int, True),
@@ -127,6 +133,7 @@ class Table(AWSObject):
         "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
         "GlobalSecondaryIndexes": ([GlobalSecondaryIndex], False),
         "KeySchema": ([KeySchema], True),
+        "KinesisStreamSpecification": (KinesisStreamSpecification, False),
         "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
         "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
         "ProvisionedThroughput": (ProvisionedThroughput, False),
