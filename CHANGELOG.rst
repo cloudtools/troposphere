@@ -1,3 +1,7 @@
+2.7.1 (2021*04*16)
+------------------
+* Update fis.py (#1887)
+
 2.7.0 (2021*03*20)
 ------------------
 * Fix typo in ECS DeploymentCircuitBreaker RollBack => Rollback (Fixes #1877)
