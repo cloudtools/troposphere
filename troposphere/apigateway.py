@@ -338,6 +338,7 @@ class RestApi(AWSObject):
         "BodyS3Location": (S3Location, False),
         "CloneFrom": (str, False),
         "Description": (str, False),
+        "DisableExecuteApiEndpoint": (boolean, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (boolean, False),
         "MinimumCompressionSize": (positive_integer, False),
