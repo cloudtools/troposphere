@@ -236,7 +236,7 @@ class TestImageConfig(unittest.TestCase):
 
             self.assertEqual(
                 context.exception.args[0],
-                "Lambda Function memory size must be between 128 and 10240"
+                "Lambda Function memory size must be between 128 and 10240",
             )
 
 
