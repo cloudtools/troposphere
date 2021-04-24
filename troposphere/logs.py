@@ -48,6 +48,16 @@ class MetricFilter(AWSObject):
     }
 
 
+class QueryDefinition(AWSObject):
+    resource_type = "AWS::Logs::QueryDefinition"
+
+    props = {
+        "LogGroupNames": ([str], False),
+        "Name": (str, True),
+        "QueryString": (str, True),
+    }
+
+
 class SubscriptionFilter(AWSObject):
     resource_type = "AWS::Logs::SubscriptionFilter"
 
