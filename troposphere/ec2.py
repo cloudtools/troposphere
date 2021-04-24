@@ -134,6 +134,15 @@ class EIPAssociation(AWSObject):
     }
 
 
+class EnclaveCertificateIamRoleAssociation(AWSObject):
+    resource_type = "AWS::EC2::EnclaveCertificateIamRoleAssociation"
+
+    props = {
+        "CertificateArn": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
 class FlowLog(AWSObject):
     resource_type = "AWS::EC2::FlowLog"
 
