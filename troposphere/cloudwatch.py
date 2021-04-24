@@ -200,3 +200,23 @@ class CompositeAlarm(AWSObject):
         "InsufficientDataActions": ([str], False),
         "OKActions": ([str], False),
     }
+
+
+class MetricStreamFilter(AWSProperty):
+    props = {
+        "Namespace": (str, True),
+    }
+
+
+class MetricStream(AWSObject):
+    resource_type = "AWS::CloudWatch::MetricStream"
+
+    props = {
+        "ExcludeFilters": ([MetricStreamFilter], False),
+        "FirehoseArn": (str, True),
+        "IncludeFilters": ([MetricStreamFilter], False),
+        "Name": (str, False),
+        "OutputFormat": (str, False),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+    }
