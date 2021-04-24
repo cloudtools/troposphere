@@ -110,6 +110,7 @@ class ParameterGroup(AWSObject):
         "CacheParameterGroupFamily": (str, True),
         "Description": (str, True),
         "Properties": (dict, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -118,6 +119,7 @@ class SecurityGroup(AWSObject):
 
     props = {
         "Description": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -138,6 +140,7 @@ class SubnetGroup(AWSObject):
         "CacheSubnetGroupName": (str, False),
         "Description": (str, True),
         "SubnetIds": (list, True),
+        "Tags": (Tags, False),
     }
 
 
