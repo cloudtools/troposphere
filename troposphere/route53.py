@@ -173,6 +173,52 @@ class HostedZone(AWSObject):
     }
 
 
+class FirewallDomainList(AWSObject):
+    resource_type = "AWS::Route53Resolver::FirewallDomainList"
+
+    props = {
+        "DomainFileUrl": (str, False),
+        "Domains": ([str], False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class FirewallRule(AWSProperty):
+    props = {
+        "Action": (str, True),
+        "BlockOverrideDnsType": (str, False),
+        "BlockOverrideDomain": (str, False),
+        "BlockOverrideTtl": (integer, False),
+        "BlockResponse": (str, False),
+        "FirewallDomainListId": (str, True),
+        "Priority": (integer, True),
+    }
+
+
+class FirewallRuleGroup(AWSObject):
+    resource_type = "AWS::Route53Resolver::FirewallRuleGroup"
+
+    props = {
+        "FirewallRules": ([FirewallRule], False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class FirewallRuleGroupAssociation(AWSObject):
+    resource_type = "AWS::Route53Resolver::FirewallRuleGroupAssociation"
+
+    props = {
+        "FirewallRuleGroupId": (str, True),
+        "MutationProtection": (str, False),
+        "Name": (str, False),
+        "Priority": (integer, True),
+        "Tags": (Tags, False),
+        "VpcId": (str, True),
+    }
+
+
 class ResolverDNSSECConfig(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverDNSSECConfig"
 
