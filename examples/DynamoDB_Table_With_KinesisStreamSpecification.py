@@ -12,9 +12,7 @@ from troposphere.dynamodb import (
 
 t = Template()
 
-t.set_description(
-    "Create a DynamoDB Table with a Kinesis Stream Specification."
-)
+t.set_description("Create a DynamoDB Table with a Kinesis Stream Specification.")
 
 hashkeyname = t.add_parameter(
     Parameter(
@@ -86,9 +84,7 @@ DynamoDBTableWithKinesis = t.add_resource(
             ),
         ],
         KeySchema=[KeySchema(AttributeName=Ref(hashkeyname), KeyType="HASH")],
-        KinesisStreamSpecification=KinesisStreamSpecification(
-            StreamArn=Ref(streamarn)
-        ),
+        KinesisStreamSpecification=KinesisStreamSpecification(StreamArn=Ref(streamarn)),
         ProvisionedThroughput=ProvisionedThroughput(
             ReadCapacityUnits=Ref(readunits), WriteCapacityUnits=Ref(writeunits)
         ),

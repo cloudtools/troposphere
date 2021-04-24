@@ -61,9 +61,7 @@ class Key(KeySchema):
 
 
 class KinesisStreamSpecification(AWSProperty):
-    props = {
-        "StreamArn": (str, True)
-    }
+    props = {"StreamArn": (str, True)}
 
 
 class ProvisionedThroughput(AWSProperty):
