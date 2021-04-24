@@ -435,9 +435,9 @@ def output_class(class_name, properties, override, resource_name=None):
 
         # Wrap long names for pycodestyle
         if len(key) + len(value_type) < 55:
-            print("        '%s': (%s, %s)," % (key, value_type, required))
+            print('        "%s": (%s, %s),' % (key, value_type, required))
         else:
-            print("        '%s':\n            (%s, %s)," % (key, value_type, required))
+            print('        "%s":\n            (%s, %s),' % (key, value_type, required))
     print("    }")
 
 
