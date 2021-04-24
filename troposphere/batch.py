@@ -106,6 +106,23 @@ class MountPoints(AWSProperty):
     }
 
 
+class AuthorizationConfig(AWSProperty):
+    props = {
+        "AccessPointId": (str, False),
+        "Iam": (str, False),
+    }
+
+
+class EfsVolumeConfiguration(AWSProperty):
+    props = {
+        "AuthorizationConfig": (AuthorizationConfig, False),
+        "FileSystemId": (str, True),
+        "RootDirectory": (str, False),
+        "TransitEncryption": (str, False),
+        "TransitEncryptionPort": (integer, False),
+    }
+
+
 class VolumesHost(AWSProperty):
 
     props = {"SourcePath": (str, False)}
@@ -113,7 +130,11 @@ class VolumesHost(AWSProperty):
 
 class Volumes(AWSProperty):
 
-    props = {"Host": (VolumesHost, False), "Name": (str, False)}
+    props = {
+        "EfsVolumeConfiguration": (EfsVolumeConfiguration, False),
+        "Host": (VolumesHost, False),
+        "Name": (str, False),
+    }
 
 
 class Environment(AWSProperty):
@@ -233,12 +254,12 @@ class ComputeEnvironment(AWSObject):
     resource_type = "AWS::Batch::ComputeEnvironment"
 
     props = {
-        "Type": (str, True),
-        "ServiceRole": (str, True),
         "ComputeEnvironmentName": (str, False),
         "ComputeResources": (ComputeResources, True),
+        "ServiceRole": (str, True),
         "State": (validate_environment_state, False),
         "Tags": (dict, False),
+        "Type": (str, True),
     }
 
 
@@ -263,8 +284,8 @@ class JobQueue(AWSObject):
 
     props = {
         "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], True),
+        "JobQueueName": (str, False),
         "Priority": (positive_integer, True),
         "State": (validate_queue_state, False),
-        "JobQueueName": (str, False),
         "Tags": (dict, False),
     }
