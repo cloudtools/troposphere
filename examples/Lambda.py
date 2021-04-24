@@ -1,5 +1,5 @@
 from troposphere import FindInMap, GetAtt, Join, Output, Parameter, Ref, Template
-from troposphere.awslambda import MINIMUM_MEMORY, MAXIMUM_MEMORY, Code, Function
+from troposphere.awslambda import MAXIMUM_MEMORY, MINIMUM_MEMORY, Code, Function
 from troposphere.cloudformation import CustomResource
 from troposphere.constants import NUMBER
 from troposphere.ec2 import Instance, SecurityGroup

@@ -7,9 +7,9 @@
 # Resource specification version: 35.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 from .validators import double
 
 

@@ -7,10 +7,8 @@
 # Resource specification version: 35.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
-from .validators import boolean
-from .validators import integer
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class Alert(AWSObject):
