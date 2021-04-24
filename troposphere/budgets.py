@@ -84,3 +84,57 @@ class Budget(AWSObject):
         "Budget": (BudgetData, True),
         "NotificationsWithSubscribers": ([NotificationWithSubscribers], False),
     }
+
+
+class ActionThreshold(AWSProperty):
+    props = {
+        "Type": (str, True),
+        "Value": (double, True),
+    }
+
+
+class IamActionDefinition(AWSProperty):
+    props = {
+        "Groups": ([str], False),
+        "PolicyArn": (str, True),
+        "Roles": ([str], False),
+        "Users": ([str], False),
+    }
+
+
+class ScpActionDefinition(AWSProperty):
+    props = {
+        "PolicyId": (str, True),
+        "TargetIds": ([str], True),
+    }
+
+
+class SsmActionDefinition(AWSProperty):
+    props = {
+        "InstanceIds": ([str], True),
+        "Region": (str, True),
+        "Subtype": (str, True),
+    }
+
+
+class Definition(AWSProperty):
+    props = {
+        "IamActionDefinition": (IamActionDefinition, False),
+        "ScpActionDefinition": (ScpActionDefinition, False),
+        "SsmActionDefinition": (SsmActionDefinition, False),
+    }
+
+
+class BudgetsAction(AWSObject):
+    resource_type = "AWS::Budgets::BudgetsAction"
+
+    props = {
+        "ActionThreshold": (ActionThreshold, True),
+        "ActionType": (str, True),
+        "ApprovalModel": (str, False),
+        "BudgetName": (str, True),
+        "Definition": (Definition, True),
+        "ExecutionRoleArn": (str, True),
+        "NotificationType": (str, True),
+        "Subscribers": ([Subscriber], False),
+    }
