@@ -129,6 +129,7 @@ class Environment(AWSObject):
         "CNAMEPrefix": (str, False),
         "Description": (str, False),
         "EnvironmentName": (str, False),
+        "OperationsRole": (str, False),
         "OptionSettings": ([OptionSettings], False),
         "PlatformArn": (str, False),
         "SolutionStackName": (str, False),
