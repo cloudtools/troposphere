@@ -133,6 +133,7 @@ class DeliveryChannel(AWSObject):
         "Name": (str, False),
         "S3BucketName": (str, True),
         "S3KeyPrefix": (str, False),
+        "S3KmsKeyArn": (str, False),
         "SnsTopicARN": (str, False),
     }
 
