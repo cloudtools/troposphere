@@ -15,6 +15,34 @@ def validate_node_group_id(node_group_id):
     raise ValueError("Invalid NodeGroupId: %s" % node_group_id)
 
 
+class CloudWatchLogsDestinationDetails(AWSProperty):
+    props = {
+        "LogGroup": (str, False),
+    }
+
+
+class KinesisFirehoseDestinationDetails(AWSProperty):
+    props = {
+        "DeliveryStream": (str, False),
+    }
+
+
+class DestinationDetails(AWSProperty):
+    props = {
+        "CloudWatchLogsDetails": (CloudWatchLogsDestinationDetails, False),
+        "KinesisFirehoseDetails": (KinesisFirehoseDestinationDetails, False),
+    }
+
+
+class LogDeliveryConfigurationRequest(AWSProperty):
+    props = {
+        "DestinationDetails": (DestinationDetails, False),
+        "DestinationType": (str, False),
+        "LogFormat": (str, False),
+        "LogType": (str, False),
+    }
+
+
 class CacheCluster(AWSObject):
     resource_type = "AWS::ElastiCache::CacheCluster"
 
@@ -28,6 +56,7 @@ class CacheCluster(AWSObject):
         "ClusterName": (str, False),
         "Engine": (str, True),
         "EngineVersion": (str, False),
+        "LogDeliveryConfigurations": ([LogDeliveryConfigurationRequest], False),
         "NotificationTopicArn": (str, False),
         "NumCacheNodes": (integer, True),
         "Port": (integer, False),
@@ -169,6 +198,7 @@ class ReplicationGroup(AWSObject):
         "Engine": (str, False),
         "EngineVersion": (str, False),
         "KmsKeyId": (str, False),
+        "LogDeliveryConfigurations": ([LogDeliveryConfigurationRequest], False),
         "MultiAZEnabled": (boolean, False),
         "NodeGroupConfiguration": ([NodeGroupConfiguration], False),
         "NotificationTopicArn": (str, False),
