@@ -400,3 +400,14 @@ class BlockDeviceMapping(AWSProperty):
         "NoDevice": (boolean, False),
         "VirtualName": (str, False),
     }
+
+
+class WarmPool(AWSObject):
+    resource_type = "AWS::AutoScaling::WarmPool"
+
+    props = {
+        "AutoScalingGroupName": (str, True),
+        "MaxGroupPreparedCapacity": (integer, False),
+        "MinSize": (integer, False),
+        "PoolState": (str, False),
+    }
