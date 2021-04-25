@@ -89,6 +89,7 @@ class OperationPreferences(AWSProperty):
         "FailureTolerancePercentage": (integer, False),
         "MaxConcurrentCount": (integer, False),
         "MaxConcurrentPercentage": (integer, False),
+        "RegionConcurrencyType": (str, False),
         "RegionOrder": ([str], False),
     }
 
