@@ -737,6 +737,7 @@ class Volume(AWSObject):
         "Size": (positive_integer, False),
         "SnapshotId": (str, False),
         "Tags": ((Tags, list), False),
+        'Throughput': (positive_integer, False),
         "VolumeType": (str, False),
     }
 
