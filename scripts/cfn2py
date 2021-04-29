@@ -354,7 +354,7 @@ def do_outputs(d):
             if isinstance(pv, str):
                 print('    {}="{}",'.format(pk, pv))
             elif pk == 'Export':
-                print('    {}={}(name={})'.format(pk, pk, output_value(pv)))
+                print('    {}={}("{}")'.format(pk, pk, json.loads(output_value(pv))['Name']))
             else:
                 print('    {}={},'.format(pk, output_value(pv)))
         print("))")
