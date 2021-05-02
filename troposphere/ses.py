@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean
 
 
@@ -44,6 +44,26 @@ class ConfigurationSetEventDestination(AWSObject):
     props = {
         "ConfigurationSetName": (str, True),
         "EventDestination": (EventDestination, True),
+    }
+
+
+class Topic(AWSProperty):
+    props = {
+        "DefaultSubscriptionStatus": (str, True),
+        "Description": (str, False),
+        "DisplayName": (str, True),
+        "TopicName": (str, True),
+    }
+
+
+class ContactList(AWSObject):
+    resource_type = "AWS::SES::ContactList"
+
+    props = {
+        "ContactListName": (str, False),
+        "Description": (str, False),
+        "Tags": (Tags, False),
+        "Topics": ([Topic], False),
     }
 
 
