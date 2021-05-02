@@ -3,14 +3,16 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
+from . import AWSObject, Tags
 from .validators import boolean
 
 
 class Graph(AWSObject):
     resource_type = "AWS::Detective::Graph"
 
-    props = {}
+    props = {
+        "Tags": (Tags, False),
+    }
 
 
 class MemberInvitation(AWSObject):
