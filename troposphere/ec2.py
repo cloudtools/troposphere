@@ -1251,7 +1251,7 @@ class TransitGateway(AWSObject):
         "DefaultRouteTablePropagation": (str, False),
         "Description": (str, False),
         "DnsSupport": (str, False),
-        'MulticastSupport': (str, False),
+        "MulticastSupport": (str, False),
         "Tags": ((Tags, list), False),
         "VpnEcmpSupport": (str, False),
     }
