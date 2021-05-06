@@ -46,7 +46,7 @@ def from_file_sub(filepath):
     rtype: troposphere.Base64
     :return The base64 representation of the file.
     """
-    
+
     try:
         with open(filepath, "rt") as f:
             data = f.read()
