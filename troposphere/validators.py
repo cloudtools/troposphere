@@ -659,6 +659,7 @@ def ecs_efs_encryption_status(status):
         )
     return status
 
+
 def wafv2_custom_body_response_content(content):
     """validate wafv2 custom body response content. Any character between 1 to 10240
     """
@@ -669,6 +670,7 @@ def wafv2_custom_body_response_content(content):
         raise ValueError("Content maximum length must not exceed 10240")
 
     return content
+
 
 def wafv2_custom_body_response_content_type(content_type):
     """validate wafv2 custom response content type

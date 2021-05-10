@@ -67,6 +67,7 @@ def validate_positional_constraint(positional_constraint):
         )
     return positional_constraint
 
+
 def validate_custom_response_bodies(custom_response_bodies):
     """validate custom response bodies
     """
@@ -77,7 +78,7 @@ def validate_custom_response_bodies(custom_response_bodies):
         if not isinstance(v, CustomResponseBody):
             raise ValueError(
                 "value of %s must be type of CustomResponseBody"
-                % (key)
+                % (k)
             )
 
     return custom_response_bodies
@@ -437,6 +438,7 @@ class WebACLAssociation(AWSObject):
         "ResourceArn": (str, True),
         "WebACLArn": (str, True),
     }
+
 
 class CustomResponseBody(AWSObject):
     props = {
