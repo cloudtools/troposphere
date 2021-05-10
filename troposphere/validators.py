@@ -665,7 +665,6 @@ def wafv2_custom_body_response_content(content):
     """
     if not content:
         raise ValueError("Content must not be empty")
-    
     if len(content) > 10240:
         raise ValueError("Content maximum length must not exceed 10240")
 
