@@ -504,12 +504,19 @@ class ProxyConfiguration(AWSProperty):
     }
 
 
+class EphemeralStorage(AWSProperty):
+    props = {
+        "SizeInGiB": (integer_range(21, 200), False),
+    }
+
+
 class TaskDefinition(AWSObject):
     resource_type = "AWS::ECS::TaskDefinition"
 
     props = {
         "ContainerDefinitions": ([ContainerDefinition], False),
         "Cpu": (str, False),
+        "EphemeralStorage": (EphemeralStorage, False),
         "ExecutionRoleArn": (str, False),
         "Family": (str, False),
         "InferenceAccelerators": ([InferenceAccelerator], False),
