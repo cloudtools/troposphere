@@ -651,6 +651,14 @@ DB_R5_12XLARGE = "db.r5.12xlarge"
 DB_R5_16XLARGE = "db.r5.16xlarge"
 DB_R5_24XLARGE = "db.r5.24xlarge"
 
+DB_R6G_LARGE = "db.r6g.large"
+DB_R6G_XLARGE = "db.r6g.xlarge"
+DB_R6G_2XLARGE = "db.r6g.2xlarge"
+DB_R6G_4XLARGE = "db.r6g.4xlarge"
+DB_R6G_8XLARGE = "db.r6g.8xlarge"
+DB_R6G_12XLARGE = "db.r6g.12xlarge"
+DB_R6G_16XLARGE = "db.r6g.16xlarge"
+
 DB_X1_16XLARGE = "db.x1.16xlarge"
 DB_X1_32XLARGE = "db.x1.32xlarge"
 
