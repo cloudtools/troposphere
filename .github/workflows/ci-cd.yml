@@ -1,0 +1,44 @@
+name: CI/CD
+
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+
+defaults:
+  run:
+    shell: bash
+
+
+jobs:
+  test-python:
+    name: Python Linting & Tests
+    strategy:
+      matrix:
+        python-version: [3.6, 3.7, 3.8, 3.9]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Pip Cache (Linux)
+        uses: actions/cache@v1
+        if: runner.os == 'Linux'
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ matrix.python-version }}
+          restore-keys: |
+            ${{ runner.os }}-pip-${{ matrix.python-version }}
+      - name: Install Python Dependencies
+        run: |
+          pip install --upgrade pip setuptools wheel
+          pip install --upgrade flake8 cfn_flip>=1.0.2
+      - name: Run Lints
+        run: make lint
+      - name: Run Tests
+        run: make test
