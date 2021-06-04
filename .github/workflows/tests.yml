@@ -26,19 +26,23 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Pip Cache (Linux)
-        uses: actions/cache@v1
-        if: runner.os == 'Linux'
+      - uses: actions/cache@v1
+        id: cache
         with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ matrix.python-version }}
-          restore-keys: |
-            ${{ runner.os }}-pip-${{ matrix.python-version }}
-      - name: Install Python Dependencies
-        run: |
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install --upgrade flake8 cfn_flip>=1.0.2
-      - name: Run Lints
+          path: |
+            .venv
+            ~.cache/pip
+          key: venv-${{ runner.os }}-${{ steps.setup-python.python-version }}-${{ hashFiles('**/poetry.lock') }}
+      # TODO replace with https://github.com/Gr1N/setup-poetry when it support 1.2
+      # https://github.com/Gr1N/setup-poetry/issues/16
+      - run: |
+          python -m pip install --upgrade pip wheel
+          python -m pip install "poetry>=1.2.0a1" "poetry-core>=1.1.0a5" --pre
+      - name: Ensure Cache Is Healthy
+        if: runner.os != 'Windows' && steps.cache.outputs.cache-hit == 'true'
+        run: poetry run pip --version >/dev/null 2>&1 || rm -rf .venv
+      - run: poetry install -vv
+      - name: Run Linters
         run: make lint
       - name: Run Tests
         run: make test
