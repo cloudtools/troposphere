@@ -36,8 +36,8 @@ jobs:
             ${{ runner.os }}-pip-${{ matrix.python-version }}
       - name: Install Python Dependencies
         run: |
-          pip install --upgrade pip setuptools wheel
-          pip install --upgrade flake8 cfn_flip>=1.0.2
+          python -m pip install --upgrade pip setuptools wheel
+          python -m pip install --upgrade flake8 cfn_flip>=1.0.2
       - name: Run Lints
         run: make lint
       - name: Run Tests
