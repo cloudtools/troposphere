@@ -582,6 +582,7 @@ class DBCluster(AWSObject):
         "Engine": (validate_engine, True),
         "EngineMode": (validate_engine_mode, False),
         "EngineVersion": (str, False),
+        "GlobalClusterIdentifier": (str, False),
         "KmsKeyId": (str, False),
         "MasterUsername": (str, False),
         "MasterUserPassword": (str, False),
