@@ -4,7 +4,12 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer, wafv2_custom_body_response_content, wafv2_custom_body_response_content_type
+from .validators import (
+    boolean,
+    integer,
+    wafv2_custom_body_response_content,
+    wafv2_custom_body_response_content_type,
+)
 
 VALID_TRANSFORMATION_TYPES = (
     "CMD_LINE",
@@ -69,17 +74,13 @@ def validate_positional_constraint(positional_constraint):
 
 
 def validate_custom_response_bodies(custom_response_bodies):
-    """validate custom response bodies
-    """
+    """validate custom response bodies"""
     if not isinstance(custom_response_bodies, dict):
         raise ValueError("CustomResponseBodies must be dict")
 
     for k, v in custom_response_bodies.items():
         if not isinstance(v, CustomResponseBody):
-            raise ValueError(
-                "value of %s must be type of CustomResponseBody"
-                % (k)
-            )
+            raise ValueError("value of %s must be type of CustomResponseBody" % (k))
 
     return custom_response_bodies
 
@@ -443,5 +444,5 @@ class WebACLAssociation(AWSObject):
 class CustomResponseBody(AWSObject):
     props = {
         "Content": (wafv2_custom_body_response_content, True),
-        "ContentType": (wafv2_custom_body_response_content_type, True)
+        "ContentType": (wafv2_custom_body_response_content_type, True),
     }

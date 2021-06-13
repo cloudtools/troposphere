@@ -28,7 +28,7 @@ from troposphere.validators import (
     tg_healthcheck_port,
     waf_action_type,
     wafv2_custom_body_response_content,
-    wafv2_custom_body_response_content_type
+    wafv2_custom_body_response_content_type,
 )
 
 
@@ -276,9 +276,13 @@ class TestValidators(unittest.TestCase):
                 waf_action_type(s)
 
     def test_wafv2_custom_body_response_content(self):
-        for s in ["{'hello': 'world'}", "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Test</h1><p>Test.</p></body></html>", "Health"]:
+        for s in [
+            "{'hello': 'world'}",
+            "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Test</h1><p>Test.</p></body></html>",
+            "Health",
+        ]:
             wafv2_custom_body_response_content(s)
-        for s in ["", "a"*10241]:
+        for s in ["", "a" * 10241]:
             with self.assertRaises(ValueError):
                 wafv2_custom_body_response_content(s)
 

@@ -661,8 +661,7 @@ def ecs_efs_encryption_status(status):
 
 
 def wafv2_custom_body_response_content(content):
-    """validate wafv2 custom body response content. Any character between 1 to 10240
-    """
+    """validate wafv2 custom body response content. Any character between 1 to 10240"""
     if not content:
         raise ValueError("Content must not be empty")
     if len(content) > 10240:
@@ -672,8 +671,7 @@ def wafv2_custom_body_response_content(content):
 
 
 def wafv2_custom_body_response_content_type(content_type):
-    """validate wafv2 custom response content type
-    """
+    """validate wafv2 custom response content type"""
     valid_types = ["APPLICATION_JSON", "TEXT_HTML", "TEXT_PLAIN"]
     if content_type not in valid_types:
         raise ValueError('ContentType must be one of: "%s"' % (", ".join(valid_types)))
