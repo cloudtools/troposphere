@@ -156,6 +156,7 @@ class LifecycleRule(AWSProperty):
         "AbortIncompleteMultipartUpload": (AbortIncompleteMultipartUpload, False),
         "ExpirationDate": (str, False),
         "ExpirationInDays": (positive_integer, False),
+        "ExpiredObjectDeleteMarker": (boolean, False),
         "Id": (str, False),
         "NoncurrentVersionExpirationInDays": (positive_integer, False),
         "NoncurrentVersionTransition": (NoncurrentVersionTransition, False),
