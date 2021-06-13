@@ -1324,6 +1324,18 @@ class TransitGatewayMulticastGroupSource(AWSObject):
     }
 
 
+class TransitGatewayPeeringAttachment(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayPeeringAttachment"
+
+    props = {
+        "PeerAccountId": (str, True),
+        "PeerRegion": (str, True),
+        "PeerTransitGatewayId": (str, True),
+        "Tags": (Tags, False),
+        "TransitGatewayId": (str, True),
+    }
+
+
 class TransitGatewayRoute(AWSObject):
     resource_type = "AWS::EC2::TransitGatewayRoute"
     props = {
