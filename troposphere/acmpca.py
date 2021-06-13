@@ -218,6 +218,27 @@ class CertificateAuthorityActivation(AWSObject):
     }
 
 
+class AccessMethod(AWSProperty):
+    props = {
+        "AccessMethodType": (str, False),
+        "CustomObjectIdentifier": (str, False),
+    }
+
+
+class AccessDescription(AWSProperty):
+    props = {
+        "AccessLocation": (GeneralName, True),
+        "AccessMethod": (AccessMethod, True),
+    }
+
+
+class CsrExtensions(AWSProperty):
+    props = {
+        "KeyUsage": (KeyUsage, False),
+        "SubjectInformationAccess": ([AccessDescription], False),
+    }
+
+
 class CrlConfiguration(AWSProperty):
     props = {
         "CustomCname": (str, False),
@@ -254,7 +275,9 @@ class CertificateAuthority(AWSObject):
     resource_type = "AWS::ACMPCA::CertificateAuthority"
 
     props = {
+        "CsrExtensions": (CsrExtensions, False),
         "KeyAlgorithm": (validate_key_algorithm, True),
+        "KeyStorageSecurityStandard": (str, False),
         "RevocationConfiguration": (RevocationConfiguration, False),
         "SigningAlgorithm": (validate_signing_algorithm, True),
         "Subject": (Subject, True),
