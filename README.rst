@@ -281,6 +281,8 @@ Currently supported AWS resource types
 - `AWS::SNS`_
 - `AWS::SQS`_
 - `AWS::SSM`_
+- `AWS::SSMContacts`_
+- `AWS::SSMIncidents`_
 - `AWS::SSO`_
 - `AWS::SageMaker`_
 - `AWS::SecretsManager`_
@@ -289,7 +291,6 @@ Currently supported AWS resource types
 - `AWS::ServiceCatalog`_
 - `AWS::ServiceCatalogAppRegistry`_
 - `AWS::ServiceDiscovery`_
-- `AWS::SSMIncidents`_
 - `AWS::StepFunctions`_
 - `AWS::Synthetics`_
 - `AWS::Timestream`_
@@ -553,6 +554,8 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::SNS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SNS.html
 .. _`AWS::SQS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SQS.html
 .. _`AWS::SSM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSM.html
+.. _`AWS::SSMContacts`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSMContacts.html
+.. _`AWS::SSMIncidents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSMIncidents.html
 .. _`AWS::SSO`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSO.html
 .. _`AWS::SageMaker`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SageMaker.html
 .. _`AWS::SecretsManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SecretsManager.html
@@ -561,7 +564,6 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::ServiceCatalog`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalog.html
 .. _`AWS::ServiceCatalogAppRegistry`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.html
 .. _`AWS::ServiceDiscovery`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceDiscovery.html
-.. _`AWS::SSMIncidents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSMIncidents.html
 .. _`AWS::StepFunctions`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_StepFunctions.html
 .. _`AWS::Synthetics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Synthetics.html
 .. _`AWS::Timestream`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Timestream.html
