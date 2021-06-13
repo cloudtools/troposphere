@@ -155,6 +155,7 @@ Currently supported AWS resource types
 - `AWS::AppFlow`_
 - `AWS::AppIntegrations`_
 - `AWS::AppMesh`_
+- `AWS::AppRunner`_
 - `AWS::AppStream`_
 - `AWS::AppSync`_
 - `AWS::ApplicationAutoScaling`_
@@ -429,6 +430,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::AppFlow`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppFlow.html
 .. _`AWS::AppIntegrations`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppIntegrations.html
 .. _`AWS::AppMesh`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppMesh.html
+.. _`AWS::AppRunner`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppRunner.html
 .. _`AWS::AppStream`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppStream.html
 .. _`AWS::AppSync`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppSync.html
 .. _`AWS::ApplicationAutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationAutoScaling.html
