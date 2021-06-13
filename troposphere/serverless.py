@@ -274,6 +274,7 @@ class Api(AWSObject):
         "Domain": (Domain, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "MethodSettings": ([MethodSetting], False),
+        "MinimumCompressionSize": (integer_range(0, 10485760), False),
         "Name": (str, False),
         "OpenApiVersion": (str, False),
         "StageName": (str, True),
