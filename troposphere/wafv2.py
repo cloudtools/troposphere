@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import boolean, integer
+from .validators import boolean, integer, wafv2_custom_body_response_content, wafv2_custom_body_response_content_type
 
 VALID_TRANSFORMATION_TYPES = (
     "CMD_LINE",
@@ -66,6 +66,22 @@ def validate_positional_constraint(positional_constraint):
             % ", ".join(VALID_POSITIONAL_CONSTRAINTS)  # NOQA
         )
     return positional_constraint
+
+
+def validate_custom_response_bodies(custom_response_bodies):
+    """validate custom response bodies
+    """
+    if not isinstance(custom_response_bodies, dict):
+        raise ValueError("CustomResponseBodies must be dict")
+
+    for k, v in custom_response_bodies.items():
+        if not isinstance(v, CustomResponseBody):
+            raise ValueError(
+                "value of %s must be type of CustomResponseBody"
+                % (k)
+            )
+
+    return custom_response_bodies
 
 
 class ExcludedRule(AWSProperty):
@@ -354,6 +370,7 @@ class WebACL(AWSObject):
     resource_type = "AWS::WAFv2::WebACL"
 
     props = {
+        "CustomResponseBodies": (validate_custom_response_bodies, False),
         "DefaultAction": (DefaultAction, False),
         "Description": (str, False),
         "Name": (str, False),
@@ -404,6 +421,7 @@ class RuleGroup(AWSObject):
 
     props = {
         "Capacity": (integer, False),
+        "CustomResponseBodies": (validate_custom_response_bodies, False),
         "Description": (str, False),
         "Name": (str, False),
         "Rules": ([RuleGroupRule], False),
@@ -419,4 +437,11 @@ class WebACLAssociation(AWSObject):
     props = {
         "ResourceArn": (str, True),
         "WebACLArn": (str, True),
+    }
+
+
+class CustomResponseBody(AWSObject):
+    props = {
+        "Content": (wafv2_custom_body_response_content, True),
+        "ContentType": (wafv2_custom_body_response_content_type, True)
     }
