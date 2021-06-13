@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, If, Tags
-from .validators import boolean
+from .validators import boolean, double, integer
 
 
 def attribute_type_validator(x):
@@ -119,6 +119,96 @@ class TimeToLiveSpecification(AWSProperty):
     props = {
         "AttributeName": (str, True),
         "Enabled": (boolean, True),
+    }
+
+
+class TargetTrackingScalingPolicyConfiguration(AWSProperty):
+    props = {
+        "DisableScaleIn": (boolean, False),
+        "ScaleInCooldown": (integer, False),
+        "ScaleOutCooldown": (integer, False),
+        "TargetValue": (double, True),
+    }
+
+
+class CapacityAutoScalingSettings(AWSProperty):
+    props = {
+        "MaxCapacity": (integer, True),
+        "MinCapacity": (integer, True),
+        "SeedCapacity": (integer, False),
+        "TargetTrackingScalingPolicyConfiguration": (
+            TargetTrackingScalingPolicyConfiguration,
+            True,
+        ),
+    }
+
+
+class TargetTrackingScalingPolicyConfiguration(AWSProperty):
+    props = {
+        "DisableScaleIn": (boolean, False),
+        "ScaleInCooldown": (integer, False),
+        "ScaleOutCooldown": (integer, False),
+        "TargetValue": (double, True),
+    }
+
+
+class ReadProvisionedThroughputSettings(AWSProperty):
+    props = {
+        "ReadCapacityAutoScalingSettings": (CapacityAutoScalingSettings, False),
+        "ReadCapacityUnits": (integer, False),
+    }
+
+
+class ReplicaGlobalSecondaryIndexSpecification(AWSProperty):
+    props = {
+        "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
+        "IndexName": (str, True),
+        "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
+    }
+
+
+class ReplicaSSESpecification(AWSProperty):
+    props = {
+        "KMSMasterKeyId": (str, True),
+    }
+
+
+class ReplicaSpecification(AWSProperty):
+    props = {
+        "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
+        "GlobalSecondaryIndexes": ([ReplicaGlobalSecondaryIndexSpecification], False),
+        "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
+        "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
+        "Region": (str, True),
+        "SSESpecification": (ReplicaSSESpecification, False),
+        "Tags": (Tags, False),
+    }
+
+
+class WriteProvisionedThroughputSettings(AWSProperty):
+    props = {
+        "WriteCapacityAutoScalingSettings": (CapacityAutoScalingSettings, False),
+    }
+
+
+class GlobalTable(AWSObject):
+    resource_type = "AWS::DynamoDB::GlobalTable"
+
+    props = {
+        "AttributeDefinitions": ([AttributeDefinition], True),
+        "BillingMode": (str, False),
+        "GlobalSecondaryIndexes": ([GlobalSecondaryIndex], False),
+        "KeySchema": ([KeySchema], True),
+        "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
+        "Replicas": ([ReplicaSpecification], True),
+        "SSESpecification": (SSESpecification, False),
+        "StreamSpecification": (StreamSpecification, False),
+        "TableName": (str, False),
+        "TimeToLiveSpecification": (TimeToLiveSpecification, False),
+        "WriteProvisionedThroughputSettings": (
+            WriteProvisionedThroughputSettings,
+            False,
+        ),
     }
 
 
