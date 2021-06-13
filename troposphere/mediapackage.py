@@ -34,12 +34,20 @@ class Asset(AWSObject):
     }
 
 
+class LogConfiguration(AWSProperty):
+    props = {
+        "LogGroupName": (str, False),
+    }
+
+
 class Channel(AWSObject):
     resource_type = "AWS::MediaPackage::Channel"
 
     props = {
         "Description": (str, False),
+        "EgressAccessLogs": (LogConfiguration, False),
         "Id": (str, True),
+        "IngressAccessLogs": (LogConfiguration, False),
         "Tags": (Tags, False),
     }
 
@@ -88,6 +96,7 @@ class CmafPackage(AWSProperty):
     props = {
         "Encryption": (CmafEncryption, False),
         "HlsManifests": ([HlsManifest], True),
+        "IncludeEncoderConfigurationInSegments": (boolean, False),
         "SegmentDurationSeconds": (integer, False),
     }
 
@@ -196,6 +205,7 @@ class PackagingGroup(AWSObject):
 
     props = {
         "Authorization": (Authorization, False),
+        "EgressAccessLogs": (LogConfiguration, False),
         "Id": (str, True),
         "Tags": (Tags, False),
     }
