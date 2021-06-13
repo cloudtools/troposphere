@@ -169,7 +169,7 @@ class ContainerProperties(AWSProperty):
         "JobRoleArn": (str, False),
         "LinuxParameters": (LinuxParameters, False),
         "LogConfiguration": (LogConfiguration, False),
-        "Memory": (positive_integer, True),
+        "Memory": (positive_integer, False),
         "MountPoints": ([MountPoints], False),
         "Privileged": (boolean, False),
         "ReadonlyRootFilesystem": (boolean, False),
@@ -177,7 +177,7 @@ class ContainerProperties(AWSProperty):
         "Secrets": ([Secret], False),
         "Ulimits": ([Ulimit], False),
         "User": (str, False),
-        "Vcpus": (positive_integer, True),
+        "Vcpus": (positive_integer, False),
         "Volumes": ([Volumes], False),
     }
 
@@ -256,7 +256,7 @@ class ComputeEnvironment(AWSObject):
     props = {
         "ComputeEnvironmentName": (str, False),
         "ComputeResources": (ComputeResources, True),
-        "ServiceRole": (str, True),
+        "ServiceRole": (str, False),
         "State": (validate_environment_state, False),
         "Tags": (dict, False),
         "Type": (str, True),
