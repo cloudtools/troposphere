@@ -392,6 +392,31 @@ class OriginRequestPolicy(AWSObject):
     }
 
 
+class FunctionConfig(AWSProperty):
+    props = {
+        "Comment": (str, True),
+        "Runtime": (str, True),
+    }
+
+
+class FunctionMetadata(AWSProperty):
+    props = {
+        "FunctionARN": (str, False),
+    }
+
+
+class Function(AWSObject):
+    resource_type = "AWS::CloudFront::Function"
+
+    props = {
+        "AutoPublish": (boolean, False),
+        "FunctionCode": (str, False),
+        "FunctionConfig": (FunctionConfig, False),
+        "FunctionMetadata": (FunctionMetadata, False),
+        "Name": (str, True),
+    }
+
+
 class KeyGroupConfig(AWSProperty):
     props = {
         "Comment": (str, False),
