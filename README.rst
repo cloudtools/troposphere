@@ -212,6 +212,7 @@ Currently supported AWS resource types
 - `AWS::Elasticsearch`_
 - `AWS::Events`_
 - `AWS::EventSchemas`_
+- `AWS::FinSpace`_
 - `AWS::FIS`_
 - `AWS::FMS`_
 - `AWS::FSx`_
@@ -480,6 +481,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Elasticsearch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Elasticsearch.html
 .. _`AWS::Events`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Events.html
 .. _`AWS::EventSchemas`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.html
+.. _`AWS::FinSpace`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FinSpace.html
 .. _`AWS::FIS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FIS.html
 .. _`AWS::FMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FMS.html
 .. _`AWS::FSx`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FSx.html
