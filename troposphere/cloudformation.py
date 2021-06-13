@@ -122,6 +122,7 @@ class StackSet(AWSObject):
     props = {
         "AdministrationRoleARN": (str, False),
         "AutoDeployment": (AutoDeployment, False),
+        "CallAs": (str, False),
         "Capabilities": ([str], False),
         "Description": (str, False),
         "ExecutionRoleName": (str, False),
