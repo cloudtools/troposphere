@@ -37,7 +37,7 @@ lint-black: ## run black
 lint-flake8: ## run flake8
 	@echo "Running flake8..."
 	@flake8 --version
-	@flake8 --config=setup.cfg --show-source
+	@flake8 --config=setup.cfg --show-source ${PYDIRS}
 	@echo ""
 
 lint-isort: ## run isort
