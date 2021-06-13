@@ -230,6 +230,7 @@ Currently supported AWS resource types
 - `AWS::IoT`_
 - `AWS::IoT1Click`_
 - `AWS::IoTAnalytics`_
+- `AWS::IoTCoreDeviceAdvisor`_
 - `AWS::IoTEvents`_
 - `AWS::IoTFleetHub`_
 - `AWS::IoTSiteWise`_
@@ -503,6 +504,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::IoT`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT.html
 .. _`AWS::IoT1Click`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT1Click.html
 .. _`AWS::IoTAnalytics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTAnalytics.html
+.. _`AWS::IoTCoreDeviceAdvisor`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTCoreDeviceAdvisor.html
 .. _`AWS::IoTEvents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTEvents.html
 .. _`AWS::IoTFleetHub`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTFleetHub.html
 .. _`AWS::IoTSiteWise`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTSiteWise.html
