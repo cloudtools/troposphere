@@ -296,6 +296,7 @@ Currently supported AWS resource types
 - `AWS::WAFRegional`_
 - `AWS::WAFv2`_
 - `AWS::WorkSpaces`_
+- `AWS::XRay`_
 
 Currently supported OpenStack resource types
 ============================================
@@ -565,6 +566,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::WAFRegional`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFRegional.html
 .. _`AWS::WAFv2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFv2.html
 .. _`AWS::WorkSpaces`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WorkSpaces.html
+.. _`AWS::XRay`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_XRay.html
 
 .. _`OS::Neutron::Firewall`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::Firewall
 .. _`OS::Neutron::FirewallPolicy`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::FirewallPolicy
