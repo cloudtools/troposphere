@@ -57,6 +57,13 @@ class ReplicationConfiguration(AWSObject):
     }
 
 
+class EncryptionConfiguration(AWSProperty):
+    props = {
+        "EncryptionType": (str, True),
+        "KmsKey": (str, False),
+    }
+
+
 class LifecyclePolicy(AWSProperty):
     props = {
         "LifecyclePolicyText": (str, False),
@@ -68,6 +75,7 @@ class Repository(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
     props = {
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ImageScanningConfiguration": (dict, False),
         "ImageTagMutability": (str, False),
         "LifecyclePolicy": (LifecyclePolicy, False),
