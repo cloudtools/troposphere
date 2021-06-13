@@ -39,6 +39,13 @@ class ForwardedValues(AWSProperty):
     }
 
 
+class FunctionAssociation(AWSProperty):
+    props = {
+        "EventType": (str, False),
+        "FunctionARN": (str, False),
+    }
+
+
 class LambdaFunctionAssociation(AWSProperty):
     props = {
         "EventType": (cloudfront_event_type, False),
@@ -56,6 +63,7 @@ class CacheBehavior(AWSProperty):
         "DefaultTTL": (integer, False),
         "FieldLevelEncryptionId": (str, False),
         "ForwardedValues": (ForwardedValues, False),
+        "FunctionAssociations": ([FunctionAssociation], False),
         "LambdaFunctionAssociations": ([LambdaFunctionAssociation], False),
         "MaxTTL": (integer, False),
         "MinTTL": (integer, False),
@@ -79,6 +87,7 @@ class DefaultCacheBehavior(AWSProperty):
         "DefaultTTL": (integer, False),
         "FieldLevelEncryptionId": (str, False),
         "ForwardedValues": (ForwardedValues, False),
+        "FunctionAssociations": ([FunctionAssociation], False),
         "LambdaFunctionAssociations": ([LambdaFunctionAssociation], False),
         "MaxTTL": (integer, False),
         "MinTTL": (integer, False),
