@@ -168,6 +168,7 @@ Currently supported AWS resource types
 - `AWS::Budgets`_
 - `AWS::Cassandra`_
 - `AWS::CE`_
+- `AWS::CUR`_
 - `AWS::CertificateManager`_
 - `AWS::Chatbot`_
 - `AWS::Cloud9`_
@@ -443,6 +444,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Budgets`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Budgets.html
 .. _`AWS::Cassandra`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cassandra.html
 .. _`AWS::CE`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CE.html
+.. _`AWS::CUR`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CUR.html
 .. _`AWS::CertificateManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CertificateManager.html
 .. _`AWS::Chatbot`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Chatbot.html
 .. _`AWS::Cloud9`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cloud9.html
