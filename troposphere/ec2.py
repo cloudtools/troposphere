@@ -164,7 +164,8 @@ class NatGateway(AWSObject):
     resource_type = "AWS::EC2::NatGateway"
 
     props = {
-        "AllocationId": (str, True),
+        "AllocationId": (str, False),
+        "ConnectivityType": (str, False),
         "SubnetId": (str, True),
         "Tags": ((Tags, list), False),
     }
