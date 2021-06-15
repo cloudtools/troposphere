@@ -47,7 +47,7 @@ class AccessPoint(AWSObject):
         "CreationDate": (str, False),
         "Name": (str, False),
         "NetworkOrigin": (str, False),
-        "Policy": (dict, False),
+        "Policy": (policytypes, False),
         "PolicyStatus": (dict, False),
         "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
         "VpcConfiguration": (VpcConfiguration, False),
