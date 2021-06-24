@@ -328,7 +328,12 @@ class S3Event(AWSObject):
 class SNSEvent(AWSObject):
     resource_type = "SNS"
 
-    props = {"Topic": (str, True)}
+    props = {
+        "FilterPolicy": (dict, False),
+        "Region": (str, False),
+        "SqsSubscription": (bool, False),
+        "Topic": (str, True)
+    }
 
 
 def starting_position_validator(x):
