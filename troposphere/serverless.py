@@ -5,18 +5,21 @@
 
 import types
 
-from . import AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .awslambda import (
     DestinationConfig,
     Environment,
+    FileSystemConfig,
+    ImageConfig,
     ProvisionedConcurrencyConfiguration,
     VPCConfig,
     validate_memory_size,
+    validate_package_type,
 )
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
-from .validators import exactly_one, integer_range, mutually_exclusive, positive_integer
+from .validators import exactly_one, integer, integer_range, mutually_exclusive, positive_integer
 
 try:
     from awacs.aws import PolicyDocument
@@ -69,40 +72,108 @@ class DeploymentPreference(AWSProperty):
     }
 
 
+class EventInvokeDestination(AWSProperty):
+    props = {
+        "Destination": (str, False),
+        "Type": (str, False),
+    }
+
+    def validate(self):
+        dest = self.properties.get("Destination")
+        tp = self.properties.get("Type")
+
+        if not dest and tp in [ 'Lambda', 'EventBridge' ]:
+            raise ValueError(
+                "Destination is required when Type is "
+                "set to Lambda or EventBridge."
+            )
+
+        if tp not in [ 'SQS', 'SNS', 'Lambda', 'EventBridge' ]:
+            raise ValueError(
+                "Type must be one of the following: "
+                "SQS, SNS, Lambda, EventBridge"
+            )
+
+
+class OnFailure(EventInvokeDestination):
+    pass
+
+
+class OnSuccess(EventInvokeDestination):
+    pass
+
+
+class DestinationConfiguration(AWSProperty):
+    props = {
+        "OnFailure": (OnFailure, False),
+        "OnSuccess": (OnSuccess, False),
+    }
+
+
+class EventInvokeConfiguration(AWSProperty):
+    props = {
+        "DestinationConfig": (DestinationConfiguration, False),
+        "MaximumEventAgeInSeconds": (integer, False),
+        "MaximumRetryAttempts": (integer, False),
+    }
+
+
 class Function(AWSObject):
     resource_type = "AWS::Serverless::Function"
 
     props = {
-        "Handler": (str, True),
-        "Runtime": (str, True),
+        "AssumeRolePolicyDocument": (policytypes, False),
+        "AutoPublishAlias": (str, False),
+        "AutoPublishCodeSha256": (str, False),
+        "CodeSigningConfigArn": (str, False),
         "CodeUri": ((S3Location, str), False),
-        "InlineCode": (str, False),
-        "FunctionName": (str, False),
-        "Description": (str, False),
-        "MemorySize": (validate_memory_size, False),
-        "Timeout": (positive_integer, False),
-        "Role": (str, False),
-        "Policies": (policytypes, False),
-        "Environment": (Environment, False),
-        "VpcConfig": (VPCConfig, False),
-        "Events": (dict, False),
-        "Tags": (dict, False),
-        "Tracing": (str, False),
-        "KmsKeyArn": (str, False),
         "DeadLetterQueue": (DeadLetterQueue, False),
         "DeploymentPreference": (DeploymentPreference, False),
+        "Description": (str, False),
+        "Environment": (Environment, False),
+        "EventInvokeConfig": (EventInvokeConfiguration, False),
+        "Events": (dict, False),
+        "FileSystemConfigs": ([FileSystemConfig], False),
+        "FunctionName": (str, False),
+        'Handler': (str, False),
+        'ImageConfig': (ImageConfig, False),
+        'ImageUri': ((AWSHelperFn, str, dict), False),
+        "InlineCode": (str, False),
+        "KmsKeyArn": (str, False),
         "Layers": ([str], False),
-        "AutoPublishAlias": (str, False),
-        "ReservedConcurrentExecutions": (positive_integer, False),
+        "MemorySize": (validate_memory_size, False),
+        'PackageType': (validate_package_type, False),
+        "PermissionsBoundary": (str, False),
+        "Policies": (policytypes, False),
         "ProvisionedConcurrencyConfig": (ProvisionedConcurrencyConfiguration, False),
+        "ReservedConcurrentExecutions": (positive_integer, False),
+        "Role": (str, False),
+        'Runtime': (str, False),
+        "Tags": (dict, False),
+        "Timeout": (positive_integer, False),
+        "Tracing": (str, False),
+        "VersionDescription": (str, False),
+        "VpcConfig": (VPCConfig, False),
     }
 
     def validate(self):
-        conds = [
-            "CodeUri",
-            "InlineCode",
-        ]
-        exactly_one(self.__class__.__name__, self.properties, conds)
+        image_uri = self.properties.get("ImageUri")
+        code_uri = self.properties.get("CodeUri")
+        inline_code = self.properties.get("InlineCode")
+
+        if not (image_uri or code_uri or inline_code) and not self.properties.get("Metadata"):
+            raise ValueError(
+                "You must specify local container image information in "
+                "the Metadata of the Function if you are not specifying "
+                "ImageUri, CodeUri or InlineCode."
+            )
+        if (image_uri or code_uri or inline_code):
+            conds = [
+                'CodeUri',
+                'InlineCode',
+                'ImageUri',
+            ]
+            exactly_one(self.__class__.__name__, self.properties, conds)
 
 
 class FunctionForPackaging(Function):
