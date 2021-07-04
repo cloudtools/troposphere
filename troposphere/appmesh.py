@@ -37,14 +37,61 @@ class GatewayRouteTarget(AWSProperty):
     }
 
 
+class GatewayRouteHostnameRewrite(AWSProperty):
+    props = {
+        "DefaultTargetHostname": (str, False),
+    }
+
+
+class GrpcGatewayRouteRewrite(AWSProperty):
+    props = {
+        "Hostname": (GatewayRouteHostnameRewrite, False),
+    }
+
+
 class GrpcGatewayRouteAction(AWSProperty):
     props = {
+        "Rewrite": (GrpcGatewayRouteRewrite, False),
         "Target": (GatewayRouteTarget, True),
+    }
+
+
+class GatewayRouteHostnameMatch(AWSProperty):
+    props = {
+        "Exact": (str, False),
+        "Suffix": (str, False),
+    }
+
+
+class GatewayRouteRangeMatch(AWSProperty):
+    props = {
+        "End": (integer, True),
+        "Start": (integer, True),
+    }
+
+
+class GatewayRouteMetadataMatch(AWSProperty):
+    props = {
+        "Exact": (str, False),
+        "Prefix": (str, False),
+        "Range": (GatewayRouteRangeMatch, False),
+        "Regex": (str, False),
+        "Suffix": (str, False),
+    }
+
+
+class GrpcGatewayRouteMetadata(AWSProperty):
+    props = {
+        "Invert": (boolean, False),
+        "Match": (GatewayRouteMetadataMatch, False),
+        "Name": (str, True),
     }
 
 
 class GrpcGatewayRouteMatch(AWSProperty):
     props = {
+        "Hostname": (GatewayRouteHostnameMatch, False),
+        "Metadata": ([GrpcGatewayRouteMetadata], False),
         "ServiceName": (str, False),
     }
 
@@ -56,15 +103,80 @@ class GrpcGatewayRoute(AWSProperty):
     }
 
 
+class HttpGatewayRoutePathRewrite(AWSProperty):
+    props = {
+        "Exact": (str, False),
+    }
+
+
+class HttpGatewayRoutePrefixRewrite(AWSProperty):
+    props = {
+        "DefaultPrefix": (str, False),
+        "Value": (str, False),
+    }
+
+
+class HttpGatewayRouteRewrite(AWSProperty):
+    props = {
+        "Hostname": (GatewayRouteHostnameRewrite, False),
+        "Path": (HttpGatewayRoutePathRewrite, False),
+        "Prefix": (HttpGatewayRoutePrefixRewrite, False),
+    }
+
+
 class HttpGatewayRouteAction(AWSProperty):
     props = {
+        "Rewrite": (HttpGatewayRouteRewrite, False),
         "Target": (GatewayRouteTarget, True),
+    }
+
+
+class HttpGatewayRouteHeaderMatch(AWSProperty):
+    props = {
+        "Exact": (str, False),
+        "Prefix": (str, False),
+        "Range": (GatewayRouteRangeMatch, False),
+        "Regex": (str, False),
+        "Suffix": (str, False),
+    }
+
+
+class HttpGatewayRouteHeader(AWSProperty):
+    props = {
+        "Invert": (boolean, False),
+        "Match": (HttpGatewayRouteHeaderMatch, False),
+        "Name": (str, True),
+    }
+
+
+class HttpPathMatch(AWSProperty):
+    props = {
+        "Exact": (str, False),
+        "Regex": (str, False),
+    }
+
+
+class HttpQueryParameterMatch(AWSProperty):
+    props = {
+        "Exact": (str, False),
+    }
+
+
+class QueryParameter(AWSProperty):
+    props = {
+        "Match": (HttpQueryParameterMatch, False),
+        "Name": (str, True),
     }
 
 
 class HttpGatewayRouteMatch(AWSProperty):
     props = {
-        "Prefix": (str, True),
+        "Headers": ([HttpGatewayRouteHeader], False),
+        "Hostname": (GatewayRouteHostnameMatch, False),
+        "Method": (str, False),
+        "Path": (HttpPathMatch, False),
+        "Prefix": (str, False),
+        "QueryParameters": ([QueryParameter], False),
     }
 
 
