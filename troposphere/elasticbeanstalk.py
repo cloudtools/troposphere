@@ -56,12 +56,12 @@ class ApplicationResourceLifecycleConfig(AWSProperty):
     }
 
 
-class OptionSettings(AWSProperty):
+class OptionSetting(AWSProperty):
     props = {
         "Namespace": (str, True),
         "OptionName": (str, True),
         "ResourceName": (str, False),
-        "Value": (str, True),
+        "Value": (str, False),
     }
 
 
@@ -92,7 +92,7 @@ class ConfigurationTemplate(AWSObject):
         "ApplicationName": (str, True),
         "Description": (str, False),
         "EnvironmentId": (str, False),
-        "OptionSettings": ([OptionSettings], False),
+        "OptionSettings": ([OptionSetting], False),
         "PlatformArn": (str, False),
         "SolutionStackName": (str, False),
         "SourceConfiguration": (SourceConfiguration, False),
@@ -130,7 +130,7 @@ class Environment(AWSObject):
         "Description": (str, False),
         "EnvironmentName": (str, False),
         "OperationsRole": (str, False),
-        "OptionSettings": ([OptionSettings], False),
+        "OptionSettings": ([OptionSetting], False),
         "PlatformArn": (str, False),
         "SolutionStackName": (str, False),
         "Tags": (Tags, False),
