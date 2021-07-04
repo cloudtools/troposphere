@@ -42,16 +42,24 @@ class IdentityProviderDetails(AWSProperty):
     }
 
 
+class ProtocolDetails(AWSProperty):
+    props = {
+        "PassiveIp": (str, False),
+    }
+
+
 class Server(AWSObject):
     resource_type = "AWS::Transfer::Server"
 
     props = {
         "Certificate": (str, False),
+        "Domain": (str, False),
         "EndpointDetails": (EndpointDetails, False),
         "EndpointType": (str, False),
         "IdentityProviderDetails": (IdentityProviderDetails, False),
         "IdentityProviderType": (str, False),
         "LoggingRole": (str, False),
+        "ProtocolDetails": (ProtocolDetails, False),
         "Protocols": ([str], False),
         "SecurityPolicyName": (str, False),
         "Tags": (Tags, False),
