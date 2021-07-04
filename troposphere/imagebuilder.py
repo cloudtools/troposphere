@@ -125,6 +125,7 @@ class InfrastructureConfiguration(AWSObject):
         "KeyPair": (str, False),
         "Logging": (Logging, False),
         "Name": (str, True),
+        "ResourceTags": (dict, False),
         "SecurityGroupIds": ([str], False),
         "SnsTopicArn": (str, False),
         "SubnetId": (str, False),
