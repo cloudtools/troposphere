@@ -480,7 +480,7 @@ class TestSplit(unittest.TestCase):
         self.assertEqual(expected, actual)
 
         with self.assertRaises(ValueError):
-            Join(10, "foobar")
+            Split(10, "foobar")
 
 
 class TestJoin(unittest.TestCase):
