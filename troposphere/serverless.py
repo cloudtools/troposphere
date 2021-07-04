@@ -332,7 +332,7 @@ class SNSEvent(AWSObject):
         "FilterPolicy": (dict, False),
         "Region": (str, False),
         "SqsSubscription": (bool, False),
-        "Topic": (str, True)
+        "Topic": (str, True),
     }
 
 
