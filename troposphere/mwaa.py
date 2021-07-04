@@ -66,6 +66,7 @@ class Environment(AWSObject):
         "PluginsS3Path": (str, False),
         "RequirementsS3ObjectVersion": (str, False),
         "RequirementsS3Path": (str, False),
+        "Schedulers": (integer, False),
         "SourceBucketArn": (str, False),
         "Tags": (Tags, False),
         "WebserverAccessMode": (str, False),
