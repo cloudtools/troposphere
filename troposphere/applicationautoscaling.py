@@ -16,6 +16,7 @@ class ScheduledAction(AWSProperty):
         "Schedule": (str, True),
         "ScheduledActionName": (str, True),
         "StartTime": (str, False),
+        "Timezone": (str, False),
     }
 
 
