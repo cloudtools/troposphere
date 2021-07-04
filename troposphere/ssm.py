@@ -151,15 +151,34 @@ class Association(AWSObject):
     }
 
 
+class AttachmentsSource(AWSProperty):
+    props = {
+        "Key": (str, False),
+        "Name": (str, False),
+        "Values": ([str], False),
+    }
+
+
+class DocumentRequires(AWSProperty):
+    props = {
+        "Name": (str, False),
+        "Version": (str, False),
+    }
+
+
 class Document(AWSObject):
     resource_type = "AWS::SSM::Document"
 
     props = {
-        # Need a better implementation of the SSM Document
+        "Attachments": ([AttachmentsSource], False),
         "Content": (dict, True),
+        "DocumentFormat": (str, False),
         "DocumentType": (str, False),
         "Name": (str, False),
+        "Requires": ([DocumentRequires], False),
         "Tags": (Tags, False),
+        "TargetType": (str, False),
+        "VersionName": (str, False),
     }
 
 
