@@ -377,7 +377,7 @@ class ReplicationConfigurationRules(AWSProperty):
         "Destination": (ReplicationConfigurationRulesDestination, True),
         "Filter": (ReplicationRuleFilter, False),
         "Id": (str, False),
-        "Prefix": (str, True),
+        "Prefix": (str, False),
         "Priority": (integer, False),
         "SourceSelectionCriteria": (SourceSelectionCriteria, False),
         "Status": (str, True),
