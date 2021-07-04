@@ -245,6 +245,7 @@ class CrlConfiguration(AWSProperty):
         "Enabled": (boolean, False),
         "ExpirationInDays": (integer, False),
         "S3BucketName": (str, False),
+        "S3ObjectAcl": (str, False),
     }
 
 
