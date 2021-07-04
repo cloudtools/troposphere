@@ -342,6 +342,7 @@ class RestApi(AWSObject):
         "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (boolean, False),
         "MinimumCompressionSize": (positive_integer, False),
+        "Mode": (str, False),
         "Name": (str, False),
         "Parameters": (dict, False),
         "Policy": (dict, False),
