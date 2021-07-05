@@ -408,7 +408,7 @@ class AWSHelperFn:
 
 
 class GenericHelperFn(AWSHelperFn):
-    """ Used as a fallback for the template generator """
+    """Used as a fallback for the template generator"""
 
     def __init__(self, data):
         self.data = self.getdata(data)

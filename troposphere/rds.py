@@ -68,7 +68,7 @@ def validate_storage_type(storage_type):
 
 
 def validate_engine(engine):
-    """Validate database Engine for DBInstance """
+    """Validate database Engine for DBInstance"""
 
     if engine not in VALID_DB_ENGINES:
         raise ValueError(

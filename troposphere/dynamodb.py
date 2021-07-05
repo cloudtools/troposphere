@@ -55,7 +55,7 @@ class KeySchema(AWSProperty):
 
 
 class Key(KeySchema):
-    """ For backwards compatibility. """
+    """For backwards compatibility."""
 
     pass
 
