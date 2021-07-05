@@ -162,7 +162,7 @@ class LaunchTemplateSpecification(AWSProperty):
 class Taint(AWSProperty):
     props = {
         "Effect": (validate_taint_effect, False),
-        "Name": (validate_taint_key, False),
+        "Key": (validate_taint_key, False),
         "Value": (validate_taint_value, False),
     }
 
