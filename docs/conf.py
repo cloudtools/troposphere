@@ -13,6 +13,9 @@
 #
 import os
 import sys
+
+from pkg_resources import get_distribution
+
 sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('..'))
 
@@ -25,7 +28,9 @@ author = 'cloudtools'
 # The short X.Y version
 version = ''
 # The full version, including alpha/beta/rc tags
-release = '3.0.0'
+release = get_distribution(  # full version, including alpha/beta/rc tags
+    "troposphere"
+).version
 
 
 # -- General configuration ---------------------------------------------------

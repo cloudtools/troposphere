@@ -9,6 +9,18 @@ tl;dr
 #. Make the code pass tests
 #. Create a Pull Request
 
+How to Setup Your Development Environment
+-----------------------------------------
+
+This project uses `poetry <https://python-poetry.org/>`_ for dependency
+management and creating virtual environments.
+
+Currently, we require use the use of a pre-release version (``>=1.2.0a1``)
+to support including scripts with troposphere.
+
+#. Install poetry ``curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python - --preview``
+#. Run ``make setup``.
+
 How to Get Help
 ---------------
 
@@ -19,21 +31,11 @@ welcome!
 How to Test Your Code
 ---------------------
 
-The latest test scripts can be found at Travis-CI_.
-If you look at the details of a job, you can see what automated tests
-will be run against any commits to the project.
+#. Setup your development environment as outlined above.
+#. Run ``make like`` to lint your code.
+#. Run ``make test`` to test your code.
 
-1. Create a virtualenv (e.g. `virtualenv ~/virtualenv/troposphere`)
-#. Activate it: `source ~/virtualenv/troposphere/bin/activate`
-#. `pip install --upgrade pip setuptools wheel`
-#. `pip install -r requirements-dev.txt`
-#. Run tests
-    1. `pycodestyle .`
-    #. `pyflakes .`
-    #. `python setup.py test`
-#. Alternatively, make can be used to run the tests, i.e. `make test`.
-
-Tests are run against Python 2.7, 3.5, and 3.6.
+Tests are run against Python 3.6, 3.7, 3.8, and 3.9.
 
 Contributing Example Code
 -------------------------
@@ -44,4 +46,3 @@ When tests are run the output of the code in the examples directory will
 be compared with the expected results in the `example_output` directory.
 
 .. _cloudtools-dev: https://groups.google.com/forum/#!forum/cloudtools-dev
-.. _Travis-CI: https://travis-ci.org/cloudtools/troposphere

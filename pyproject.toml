@@ -1,0 +1,74 @@
+[tool.poetry]
+name = "troposphere"
+version = "3.0.0"
+description = "AWS CloudFormation creation library"
+authors = [
+  "Mark Peek <mark@peek.org>",
+]
+license = "BSD-2-Clause"
+readme = "README.rst"
+homepage = "https://github.com/cloudtools/troposphere"
+repository = "https://github.com/cloudtools/troposphere"
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+]
+packages = [
+  { include = "troposphere" },
+  { include = "scripts" }
+]
+include = [
+  ".gitignore",
+  "examples/*.py",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.2"
+
+awacs = {version = "^1.0", optional = true}  # policy
+cfn-flip = "^1.0.2"
+importlib-metadata = { version = "*", python = "<3.8" }
+sphinx = { version = "^4.0.2", optional = true }  # docs
+sphinx-rtd-theme = { version = "^0.5.2", optional = true }  # docs
+typing-extensions = { version = "^3.7.4", python = "<3.8" }
+
+[tool.poetry.dev-dependencies]
+awacs = "^1.0"
+flake8 = "^3.9.2"
+pycodestyle = "^2.7"  # flake8 extension
+pydocstyle = "^6.1.1"  # flake8 extension
+pylint = "^2.8.3"
+pytest = "^6.2.4"
+pytest-cov = "^2.12.1"  # pytest plugin
+
+[tool.poetry.extras]
+docs = [
+  "sphinx",
+  "sphinx-rtd-theme",
+]
+policy = [
+  "awacs",
+]
+
+[tool.poetry.scripts]
+cfn = { reference = "scripts/cfn", type = "file" }
+cfn2py = { reference = "scripts/cfn2py", type = "file" }
+
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/cloudtools/troposphere/issues"
+Changelog = "https://github.com/cloudtools/troposphere/blob/master/CHANGELOG.rst"
+Source = "https://github.com/cloudtools/troposphere"
+
+[build-system]
+requires = ["poetry-core>=1.1.0a5"]  # required for non-console scripts
+build-backend = "poetry.core.masonry.api"

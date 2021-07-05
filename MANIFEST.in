@@ -1,5 +1,0 @@
-include LICENSE
-include README.rst
-include .gitignore
-include requirements.txt
-recursive-include examples *.py

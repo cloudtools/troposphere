@@ -36,8 +36,8 @@ lint-black: ## run black
 
 lint-flake8: ## run flake8
 	@echo "Running flake8..."
-	@flake8 --version
-	@flake8 --config=setup.cfg --show-source ${PYDIRS}
+	@poetry run flake8 --version
+	@poetry run flake8 --config=setup.cfg --show-source ${PYDIRS}
 	@echo ""
 
 lint-isort: ## run isort
@@ -46,19 +46,24 @@ lint-isort: ## run isort
 	@echo ""
 
 release-test:
-	python setup.py sdist
+	@poetry build --format sdist
 	make release-test-39
 
 p39dir=p39
 release-test-39:
 	@echo "Python 3.9 test"
-	ver=`python -c 'import troposphere; print troposphere.__version__'` && \
+	ver=$$(poetry version --short) && \
 	rm -rf ${p39dir} && \
 	python3.9 -m venv ${p39dir} && \
 	. ${p39dir}/bin/activate && \
 	pip3.9 install dist/troposphere-$${ver}.tar.gz && \
 	deactivate && \
 	rm -rf ${p39dir}
+
+setup: setup-poetry ## setup development environment
+
+setup-poetry: ## setup python virtual environment using poetry
+	@poetry install --extras docs --remove-untracked
 
 spec:
 	curl -O https://d1uauaxba7bl26.cloudfront.net/latest/CloudFormationResourceSpecification.zip
@@ -72,4 +77,4 @@ spec2:
 	/bin/echo -n "Downloaded version: " && jq .ResourceSpecificationVersion CloudFormationResourceSpecification.json
 
 test: ## run tests
-	@python setup.py test
+	@poetry run python -m unittest discover tests

@@ -4,14 +4,12 @@ Releasing
 Steps to release a new version
 ------------------------------
 
-- Change version in troposphere/\_\_init\_\_.py
-- Change version in docs/conf.py
+- Update the version using ``poetry version [RULE|<version>]``
 - Update CHANGELOG.md with changes made since last release
-- Verify release installs on Python2 and Python 3: ``make release-test``
+- Verify release installs on Python 3: ``make release-test``
 - Create a signed tag: ``git tag --sign -m "Release 1.1.1" 1.1.1``
-- Build the distribution: python setup.py sdist
-- Use twine to check the release: twine check $(ls -t dist/troposphere*.gz | head -1)
-- Upload using twine: twine upload -s $(ls -t dist/troposphere*.gz | head -1)
+- Build the distribution: ``poetry build``
+- Publish the release: ``poetry publish``
 - Push commits: ``git push``
 - Push tag: ``git push --tags``
 - Update github release page: https://github.com/cloudtools/troposphere/releases
