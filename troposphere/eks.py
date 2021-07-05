@@ -6,6 +6,33 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, double
 
+VALID_TAINT_EFFECT = ["NO_EXECUTE", "NO_SCHEDULE", "PREFER_NO_SCHEDULE"]
+
+
+def validate_taint_effect(taint_effect):
+    """Taint Effect validation rule."""
+    if taint_effect not in VALID_TAINT_EFFECT:
+        raise ValueError(
+            "Taint Effect must be one of: %s" % ", ".join(VALID_TAINT_EFFECT)
+        )
+    return taint_effect
+
+
+def validate_taint_key(taint_key):
+    """Taint Key validation rule."""
+    if len(taint_key) < 1 or len(taint_key) > 63:
+        raise ValueError(
+            "Taint Key must be at least 1 character and maximum 63 characters"
+        )
+    return taint_key
+
+
+def validate_taint_value(taint_value):
+    """Taint Value validation rule."""
+    if len(taint_value) > 63:
+        raise ValueError("Taint Value maximum characters is 63")
+    return taint_value
+
 
 class Addon(AWSObject):
     resource_type = "AWS::EKS::Addon"
@@ -132,6 +159,14 @@ class LaunchTemplateSpecification(AWSProperty):
     }
 
 
+class Taint(AWSProperty):
+    props = {
+        "Effect": (validate_taint_effect, False),
+        "Name": (validate_taint_key, False),
+        "Value": (validate_taint_value, False),
+    }
+
+
 class Nodegroup(AWSObject):
     resource_type = "AWS::EKS::Nodegroup"
 
@@ -151,5 +186,6 @@ class Nodegroup(AWSObject):
         "ScalingConfig": (ScalingConfig, False),
         "Subnets": ([str], False),
         "Tags": (dict, False),
+        "Taints": ([Taint], False),
         "Version": (str, False),
     }
