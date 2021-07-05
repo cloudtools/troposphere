@@ -46,17 +46,17 @@ lint-isort: ## run isort
 	@echo ""
 
 release-test:
-	python setup.py sdist
+	python -m build --sdist --wheel .
 	make release-test-39
 
 p39dir=p39
 release-test-39:
 	@echo "Python 3.9 test"
-	ver=`python -c 'import troposphere; print troposphere.__version__'` && \
+	ver=`python -c 'import troposphere; print(troposphere.__version__)'` && \
 	rm -rf ${p39dir} && \
 	python3.9 -m venv ${p39dir} && \
 	. ${p39dir}/bin/activate && \
-	pip3.9 install dist/troposphere-$${ver}.tar.gz && \
+	pip3.9 install dist/troposphere-$${ver}-py3-none-any.whl && \
 	deactivate && \
 	rm -rf ${p39dir}
 
