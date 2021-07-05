@@ -1,4 +1,4 @@
-3.0.0 (2021*MM*DD) (Unreleased)
+3.0.0 (2021*07*05)
 This release now only supports Python 3.6+
 Special thanks to @michael-k for the Python 3 work and tooling improvements.
 
