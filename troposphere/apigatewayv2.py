@@ -28,7 +28,7 @@ def validate_integration_type(integration_type):
 
 def validate_authorizer_type(authorizer_type):
 
-    valid_authorizer_types = ["REQUEST"]
+    valid_authorizer_types = ["REQUEST", "JWT"]
     if authorizer_type not in valid_authorizer_types:
         raise ValueError("{} is not a valid AuthorizerType".format(authorizer_type))
     return authorizer_type
