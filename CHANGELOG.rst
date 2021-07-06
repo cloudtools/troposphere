@@ -1,4 +1,12 @@
+3.0.1 (2021*07*06)
+------------------
+* Fix CHANGELOG with correct 3.0.0 release date
+* Fix EKS::Nodegroup.Taints to use the correct key for taints (#1925)
+* Include cfn_flip in setup.cfg (#1927)
+* Catch install dependencies with "make release-test
+
 3.0.0 (2021*07*05)
+------------------
 This release now only supports Python 3.6+
 Special thanks to @michael-k for the Python 3 work and tooling improvements.
 
