@@ -106,6 +106,13 @@ class MountPoints(AWSProperty):
     }
 
 
+class NetworkConfiguration(AWSProperty):
+
+    props = {
+        "AssignPublicIp": (str, False),
+    }
+
+
 class AuthorizationConfig(AWSProperty):
     props = {
         "AccessPointId": (str, False),
@@ -171,6 +178,7 @@ class ContainerProperties(AWSProperty):
         "LogConfiguration": (LogConfiguration, False),
         "Memory": (positive_integer, False),
         "MountPoints": ([MountPoints], False),
+        "NetworkConfiguration": (NetworkConfiguration, False),
         "Privileged": (boolean, False),
         "ReadonlyRootFilesystem": (boolean, False),
         "ResourceRequirements": ([ResourceRequirement], False),
