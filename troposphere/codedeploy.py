@@ -3,8 +3,14 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
-from .validators import boolean, exactly_one, mutually_exclusive, positive_integer
+from . import AWSObject, AWSProperty, Tags
+from .validators import (
+    boolean,
+    exactly_one,
+    integer,
+    mutually_exclusive,
+    positive_integer,
+)
 
 KEY_ONLY = "KEY_ONLY"
 VALUE_ONLY = "VALUE_ONLY"
@@ -112,19 +118,42 @@ class OnPremisesInstanceTagFilters(AWSProperty):
     }
 
 
-class MinimumHealthyHosts(AWSProperty):
-    props = {
-        "Type": (str, False),
-        "Value": (positive_integer, False),
-    }
-
-
 class Application(AWSObject):
     resource_type = "AWS::CodeDeploy::Application"
 
     props = {
         "ApplicationName": (str, False),
         "ComputePlatform": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class MinimumHealthyHosts(AWSProperty):
+    props = {
+        "Type": (str, True),
+        "Value": (positive_integer, True),
+    }
+
+
+class TimeBasedCanary(AWSProperty):
+    props = {
+        "CanaryInterval": (integer, True),
+        "CanaryPercentage": (integer, True),
+    }
+
+
+class TimeBasedLinear(AWSProperty):
+    props = {
+        "LinearInterval": (integer, True),
+        "LinearPercentage": (integer, True),
+    }
+
+
+class TrafficRoutingConfig(AWSProperty):
+    props = {
+        "TimeBasedCanary": (TimeBasedCanary, False),
+        "TimeBasedLinear": (TimeBasedLinear, False),
+        "Type": (str, True),
     }
 
 
@@ -132,8 +161,10 @@ class DeploymentConfig(AWSObject):
     resource_type = "AWS::CodeDeploy::DeploymentConfig"
 
     props = {
+        "ComputePlatform": (str, False),
         "DeploymentConfigName": (str, False),
         "MinimumHealthyHosts": (MinimumHealthyHosts, False),
+        "TrafficRoutingConfig": (TrafficRoutingConfig, False),
     }
 
 
@@ -151,6 +182,37 @@ class AlarmConfiguration(AWSProperty):
     }
 
 
+class BlueInstanceTerminationOption(AWSProperty):
+    props = {
+        "Action": (str, False),
+        "TerminationWaitTimeInMinutes": (integer, False),
+    }
+
+
+class DeploymentReadyOption(AWSProperty):
+    props = {
+        "ActionOnTimeout": (str, False),
+        "WaitTimeInMinutes": (integer, False),
+    }
+
+
+class GreenFleetProvisioningOption(AWSProperty):
+    props = {
+        "Action": (str, False),
+    }
+
+
+class BlueGreenDeploymentConfiguration(AWSProperty):
+    props = {
+        "DeploymentReadyOption": (DeploymentReadyOption, False),
+        "GreenFleetProvisioningOption": (GreenFleetProvisioningOption, False),
+        "TerminateBlueInstancesOnDeploymentSuccess": (
+            BlueInstanceTerminationOption,
+            False,
+        ),
+    }
+
+
 class TriggerConfig(AWSProperty):
     props = {
         "TriggerEvents": ([str], False),
@@ -165,6 +227,13 @@ class Ec2TagSetListObject(AWSProperty):
 
 class Ec2TagSet(AWSProperty):
     props = {"Ec2TagSetList": ([Ec2TagSetListObject], False)}
+
+
+class ECSService(AWSProperty):
+    props = {
+        "ClusterName": (str, True),
+        "ServiceName": (str, True),
+    }
 
 
 class OnPremisesTagSetObject(AWSProperty):
@@ -187,10 +256,12 @@ class DeploymentGroup(AWSObject):
         "ApplicationName": (str, True),
         "AutoRollbackConfiguration": (AutoRollbackConfiguration, False),
         "AutoScalingGroups": ([str], False),
+        "BlueGreenDeploymentConfiguration": (BlueGreenDeploymentConfiguration, False),
         "Deployment": (Deployment, False),
         "DeploymentConfigName": (str, False),
         "DeploymentGroupName": (str, False),
         "DeploymentStyle": (DeploymentStyle, False),
+        "ECSServices": ([ECSService], False),
         "Ec2TagFilters": ([Ec2TagFilters], False),
         "Ec2TagSet": (Ec2TagSet, False),
         "LoadBalancerInfo": (LoadBalancerInfo, False),
