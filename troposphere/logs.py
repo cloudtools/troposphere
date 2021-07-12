@@ -18,6 +18,7 @@ class LogGroup(AWSObject):
     resource_type = "AWS::Logs::LogGroup"
 
     props = {
+        "KmsKeyId": (str, False),
         "LogGroupName": (str, False),
         "RetentionInDays": (integer_list_item(RETENTION_DAYS), False),
     }
