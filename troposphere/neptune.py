@@ -5,7 +5,7 @@
 
 from troposphere import Tags
 
-from . import AWSObject
+from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
 
