@@ -3,15 +3,14 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, AWSHelperFn, If, Tags
-from .validators import boolean
+from . import AWSHelperFn, AWSObject, AWSProperty, If, Tags
+from .validators import boolean, double, integer
 
 
 def attribute_type_validator(x):
     valid_types = ["S", "N", "B"]
     if x not in valid_types:
-        raise ValueError("AttributeType must be one of: %s" %
-                         ", ".join(valid_types))
+        raise ValueError("AttributeType must be one of: %s" % ", ".join(valid_types))
     return x
 
 
@@ -25,36 +24,44 @@ def key_type_validator(x):
 def projection_type_validator(x):
     valid_types = ["KEYS_ONLY", "INCLUDE", "ALL"]
     if x not in valid_types:
-        raise ValueError("ProjectionType must be one of: %s" %
-                         ", ".join(valid_types))
+        raise ValueError("ProjectionType must be one of: %s" % ", ".join(valid_types))
     return x
 
 
 def billing_mode_validator(x):
-    valid_modes = ['PROVISIONED', 'PAY_PER_REQUEST']
+    valid_modes = ["PROVISIONED", "PAY_PER_REQUEST"]
     if x not in valid_modes:
-        raise ValueError("Table billing mode must be one of: %s" %
-                         ", ".join(valid_modes))
+        raise ValueError(
+            "Table billing mode must be one of: %s" % ", ".join(valid_modes)
+        )
     return x
 
 
 class AttributeDefinition(AWSProperty):
     props = {
-        "AttributeName": (basestring, True),
+        "AttributeName": (str, True),
         "AttributeType": (attribute_type_validator, True),
     }
 
 
-class KeySchema(AWSProperty):
+class ContributorInsightsSpecification(AWSProperty):
     props = {
-        "AttributeName": (basestring, True),
-        "KeyType": (key_type_validator, True)
+        "Enabled": (boolean, True),
     }
 
 
+class KeySchema(AWSProperty):
+    props = {"AttributeName": (str, True), "KeyType": (key_type_validator, True)}
+
+
 class Key(KeySchema):
-    """ For backwards compatibility. """
+    """For backwards compatibility."""
+
     pass
+
+
+class KinesisStreamSpecification(AWSProperty):
+    props = {"StreamArn": (str, True)}
 
 
 class ProvisionedThroughput(AWSProperty):
@@ -66,31 +73,31 @@ class ProvisionedThroughput(AWSProperty):
 
 class Projection(AWSProperty):
     props = {
-        "NonKeyAttributes": ([basestring], False),
-        "ProjectionType": (projection_type_validator, False)
+        "NonKeyAttributes": ([str], False),
+        "ProjectionType": (projection_type_validator, False),
     }
 
 
 class SSESpecification(AWSProperty):
     props = {
-        'KMSMasterKeyId': (basestring, False),
-        'SSEEnabled': (boolean, True),
-        'SSEType': (basestring, False),
+        "KMSMasterKeyId": (str, False),
+        "SSEEnabled": (boolean, True),
+        "SSEType": (str, False),
     }
 
 
 class GlobalSecondaryIndex(AWSProperty):
     props = {
-        "IndexName": (basestring, True),
+        "IndexName": (str, True),
         "KeySchema": ([KeySchema], True),
         "Projection": (Projection, True),
-        "ProvisionedThroughput": (ProvisionedThroughput, False)
+        "ProvisionedThroughput": (ProvisionedThroughput, False),
     }
 
 
 class LocalSecondaryIndex(AWSProperty):
     props = {
-        "IndexName": (basestring, True),
+        "IndexName": (str, True),
         "KeySchema": ([KeySchema], True),
         "Projection": (Projection, True),
     }
@@ -98,20 +105,110 @@ class LocalSecondaryIndex(AWSProperty):
 
 class PointInTimeRecoverySpecification(AWSProperty):
     props = {
-        'PointInTimeRecoveryEnabled': (boolean, False),
+        "PointInTimeRecoveryEnabled": (boolean, False),
     }
 
 
 class StreamSpecification(AWSProperty):
     props = {
-        'StreamViewType': (basestring, True),
+        "StreamViewType": (str, True),
     }
 
 
 class TimeToLiveSpecification(AWSProperty):
     props = {
-        'AttributeName': (basestring, True),
-        'Enabled': (boolean, True),
+        "AttributeName": (str, True),
+        "Enabled": (boolean, True),
+    }
+
+
+class TargetTrackingScalingPolicyConfiguration(AWSProperty):
+    props = {
+        "DisableScaleIn": (boolean, False),
+        "ScaleInCooldown": (integer, False),
+        "ScaleOutCooldown": (integer, False),
+        "TargetValue": (double, True),
+    }
+
+
+class CapacityAutoScalingSettings(AWSProperty):
+    props = {
+        "MaxCapacity": (integer, True),
+        "MinCapacity": (integer, True),
+        "SeedCapacity": (integer, False),
+        "TargetTrackingScalingPolicyConfiguration": (
+            TargetTrackingScalingPolicyConfiguration,
+            True,
+        ),
+    }
+
+
+class TargetTrackingScalingPolicyConfiguration(AWSProperty):
+    props = {
+        "DisableScaleIn": (boolean, False),
+        "ScaleInCooldown": (integer, False),
+        "ScaleOutCooldown": (integer, False),
+        "TargetValue": (double, True),
+    }
+
+
+class ReadProvisionedThroughputSettings(AWSProperty):
+    props = {
+        "ReadCapacityAutoScalingSettings": (CapacityAutoScalingSettings, False),
+        "ReadCapacityUnits": (integer, False),
+    }
+
+
+class ReplicaGlobalSecondaryIndexSpecification(AWSProperty):
+    props = {
+        "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
+        "IndexName": (str, True),
+        "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
+    }
+
+
+class ReplicaSSESpecification(AWSProperty):
+    props = {
+        "KMSMasterKeyId": (str, True),
+    }
+
+
+class ReplicaSpecification(AWSProperty):
+    props = {
+        "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
+        "GlobalSecondaryIndexes": ([ReplicaGlobalSecondaryIndexSpecification], False),
+        "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
+        "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
+        "Region": (str, True),
+        "SSESpecification": (ReplicaSSESpecification, False),
+        "Tags": (Tags, False),
+    }
+
+
+class WriteProvisionedThroughputSettings(AWSProperty):
+    props = {
+        "WriteCapacityAutoScalingSettings": (CapacityAutoScalingSettings, False),
+    }
+
+
+class GlobalTable(AWSObject):
+    resource_type = "AWS::DynamoDB::GlobalTable"
+
+    props = {
+        "AttributeDefinitions": ([AttributeDefinition], True),
+        "BillingMode": (str, False),
+        "GlobalSecondaryIndexes": ([GlobalSecondaryIndex], False),
+        "KeySchema": ([KeySchema], True),
+        "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
+        "Replicas": ([ReplicaSpecification], True),
+        "SSESpecification": (SSESpecification, False),
+        "StreamSpecification": (StreamSpecification, False),
+        "TableName": (str, False),
+        "TimeToLiveSpecification": (TimeToLiveSpecification, False),
+        "WriteProvisionedThroughputSettings": (
+            WriteProvisionedThroughputSettings,
+            False,
+        ),
     }
 
 
@@ -119,28 +216,29 @@ class Table(AWSObject):
     resource_type = "AWS::DynamoDB::Table"
 
     props = {
-        'AttributeDefinitions': ([AttributeDefinition], True),
-        'BillingMode': (billing_mode_validator, False),
-        'GlobalSecondaryIndexes': ([GlobalSecondaryIndex], False),
-        'KeySchema': ([KeySchema], True),
-        'LocalSecondaryIndexes': ([LocalSecondaryIndex], False),
-        'PointInTimeRecoverySpecification':
-            (PointInTimeRecoverySpecification, False),
-        'ProvisionedThroughput': (ProvisionedThroughput, False),
-        'SSESpecification': (SSESpecification, False),
-        'StreamSpecification': (StreamSpecification, False),
-        'TableName': (basestring, False),
-        'Tags': (Tags, False),
-        'TimeToLiveSpecification': (TimeToLiveSpecification, False),
+        "AttributeDefinitions": ([AttributeDefinition], True),
+        "BillingMode": (billing_mode_validator, False),
+        "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
+        "GlobalSecondaryIndexes": ([GlobalSecondaryIndex], False),
+        "KeySchema": ([KeySchema], True),
+        "KinesisStreamSpecification": (KinesisStreamSpecification, False),
+        "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
+        "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
+        "ProvisionedThroughput": (ProvisionedThroughput, False),
+        "SSESpecification": (SSESpecification, False),
+        "StreamSpecification": (StreamSpecification, False),
+        "TableName": (str, False),
+        "Tags": (Tags, False),
+        "TimeToLiveSpecification": (TimeToLiveSpecification, False),
     }
 
     def validate(self):
-        billing_mode = self.properties.get('BillingMode', 'PROVISIONED')
-        indexes = self.properties.get('GlobalSecondaryIndexes', [])
+        billing_mode = self.properties.get("BillingMode", "PROVISIONED")
+        indexes = self.properties.get("GlobalSecondaryIndexes", [])
         tput_props = [self.properties]
-        tput_props.extend([
-            x.properties for x in indexes if not isinstance(x, AWSHelperFn)
-        ])
+        tput_props.extend(
+            [x.properties for x in indexes if not isinstance(x, AWSHelperFn)]
+        )
 
         def check_if_all(name, props):
             validated = []
@@ -157,19 +255,22 @@ class Table(AWSObject):
             return any(validated)
 
         if isinstance(billing_mode, If):
-            if check_any('ProvisionedThroughput', tput_props):
+            if check_any("ProvisionedThroughput", tput_props):
                 raise ValueError(
-                    'Table billing mode is per-request. '
-                    'ProvisionedThroughput property is mutually exclusive')
+                    "Table billing mode is per-request. "
+                    "ProvisionedThroughput property is mutually exclusive"
+                )
             return
 
-        if billing_mode == 'PROVISIONED':
-            if not check_if_all('ProvisionedThroughput', tput_props):
+        if billing_mode == "PROVISIONED":
+            if not check_if_all("ProvisionedThroughput", tput_props):
                 raise ValueError(
-                    'Table billing mode is provisioned. '
-                    'ProvisionedThroughput required if available')
-        elif billing_mode == 'PAY_PER_REQUEST':
-            if check_any('ProvisionedThroughput', tput_props):
+                    "Table billing mode is provisioned. "
+                    "ProvisionedThroughput required if available"
+                )
+        elif billing_mode == "PAY_PER_REQUEST":
+            if check_any("ProvisionedThroughput", tput_props):
                 raise ValueError(
-                    'Table billing mode is per-request. '
-                    'ProvisionedThroughput property is mutually exclusive')
+                    "Table billing mode is per-request. "
+                    "ProvisionedThroughput property is mutually exclusive"
+                )

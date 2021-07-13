@@ -4,45 +4,45 @@ from .validators import boolean
 
 class ParameterObjectAttribute(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'StringValue': (basestring, False),
+        "Key": (str, True),
+        "StringValue": (str, False),
     }
 
 
 class ParameterObject(AWSProperty):
     props = {
-        'Attributes': ([ParameterObjectAttribute], True),
-        'Id': (basestring, True),
+        "Attributes": ([ParameterObjectAttribute], True),
+        "Id": (str, True),
     }
 
 
 class ParameterValue(AWSProperty):
     props = {
-        'Id': (basestring, True),
-        'StringValue': (basestring, True),
+        "Id": (str, True),
+        "StringValue": (str, True),
     }
 
 
 class ObjectField(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'RefValue': (basestring, False),
-        'StringValue': (basestring, False),
+        "Key": (str, True),
+        "RefValue": (str, False),
+        "StringValue": (str, False),
     }
 
 
 class PipelineObject(AWSProperty):
     props = {
-        'Fields': ([ObjectField], True),
-        'Id': (basestring, True),
-        'Name': (basestring, True),
+        "Fields": ([ObjectField], True),
+        "Id": (str, True),
+        "Name": (str, True),
     }
 
 
 class PipelineTag(AWSProperty):
     props = {
-        'Key': (basestring, True),
-        'Value': (basestring, True),
+        "Key": (str, True),
+        "Value": (str, True),
     }
 
 
@@ -50,11 +50,11 @@ class Pipeline(AWSObject):
     resource_type = "AWS::DataPipeline::Pipeline"
 
     props = {
-        'Activate': (boolean, False),
-        'Description': (basestring, False),
-        'Name': (basestring, True),
-        'ParameterObjects': ([ParameterObject], False),
-        'ParameterValues': ([ParameterValue], False),
-        'PipelineObjects': ([PipelineObject], True),
-        'PipelineTags': ([PipelineTag], False),
+        "Activate": (boolean, False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "ParameterObjects": ([ParameterObject], False),
+        "ParameterValues": ([ParameterValue], False),
+        "PipelineObjects": ([PipelineObject], True),
+        "PipelineTags": ([PipelineTag], False),
     }

@@ -17,6 +17,12 @@ backup_vault = template.add_resource(
     )
 )
 
+vault_arn = "arn:aws:backup:ca-central-1:111112222212:backup-vault:TestVault"
+copy_action = backup.CopyActionResourceType(
+    DestinationBackupVaultArn=vault_arn,
+    Lifecycle=backup.LifecycleResourceType(DeleteAfterDays=31),
+)
+
 backup_plan = template.add_resource(
     backup.BackupPlan(
         "Backup",
@@ -33,6 +39,7 @@ backup_plan = template.add_resource(
                     ),
                     RuleName="Rule 1",
                     ScheduleExpression="cron(0 0/12 * * ? *)",
+                    CopyActions=[copy_action],
                 )
             ],
         ),

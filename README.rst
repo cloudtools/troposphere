@@ -135,12 +135,12 @@ Missing required property for the AWS resource:
     >>> from troposphere import Template
     >>> import troposphere.ec2 as ec2
     >>> t = Template()
-    >>> t.add_resource(ec2.Instance("ec2instance", InstanceType="m3.medium"))
-    <troposphere.ec2.Instance object at 0x109ee2e50>
+    >>> t.add_resource(ec2.Subnet("ec2subnet", VpcId="vpcid"))
+    <troposphere.ec2.Subnet object at 0x100830ed0>
     >>> print(t.to_json())
     Traceback (most recent call last):
     ...
-    ValueError: Resource ImageId required in type AWS::EC2::Instance
+    ValueError: Resource CidrBlock required in type AWS::EC2::Subnet (title: ec2subnet)
 
 Currently supported AWS resource types
 ======================================
@@ -153,18 +153,22 @@ Currently supported AWS resource types
 - `AWS::ApiGatewayV2`_
 - `AWS::AppConfig`_
 - `AWS::AppFlow`_
+- `AWS::AppIntegrations`_
 - `AWS::AppMesh`_
+- `AWS::AppRunner`_
 - `AWS::AppStream`_
 - `AWS::AppSync`_
 - `AWS::ApplicationAutoScaling`_
 - `AWS::ApplicationInsights`_
 - `AWS::Athena`_
+- `AWS::AuditManager`_
 - `AWS::AutoScaling`_
 - `AWS::AutoScalingPlans`_
 - `AWS::Batch`_
 - `AWS::Budgets`_
 - `AWS::Cassandra`_
 - `AWS::CE`_
+- `AWS::CUR`_
 - `AWS::CertificateManager`_
 - `AWS::Chatbot`_
 - `AWS::Cloud9`_
@@ -184,13 +188,18 @@ Currently supported AWS resource types
 - `AWS::CodeStarNotifications`_
 - `AWS::Cognito`_
 - `AWS::Config`_
+- `AWS::Connect`_
+- `AWS::CustomerProfiles`_
+- `AWS::DataBrew`_
 - `AWS::DAX`_
 - `AWS::Detective`_
 - `AWS::DLM`_
 - `AWS::DMS`_
 - `AWS::DataPipeline`_
+- `AWS::DataSync`_
 - `AWS::DirectoryService`_
 - `AWS::DocDB`_
+- `AWS::DevOpsGuru`_
 - `AWS::DynamoDB`_
 - `AWS::EC2`_
 - `AWS::ECR`_
@@ -198,6 +207,7 @@ Currently supported AWS resource types
 - `AWS::EFS`_
 - `AWS::EKS`_
 - `AWS::EMR`_
+- `AWS::EMRContainers`_
 - `AWS::ElastiCache`_
 - `AWS::ElasticBeanstalk`_
 - `AWS::ElasticLoadBalancing`_
@@ -205,12 +215,16 @@ Currently supported AWS resource types
 - `AWS::Elasticsearch`_
 - `AWS::Events`_
 - `AWS::EventSchemas`_
+- `AWS::FinSpace`_
+- `AWS::FraudDetector`_
+- `AWS::FIS`_
 - `AWS::FMS`_
 - `AWS::FSx`_
 - `AWS::GameLift`_
 - `AWS::GlobalAccelerator`_
 - `AWS::Glue`_
 - `AWS::Greengrass`_
+- `AWS::GreengrassV2`_
 - `AWS::GroundStation`_
 - `AWS::GuardDuty`_
 - `AWS::IAM`_
@@ -219,7 +233,12 @@ Currently supported AWS resource types
 - `AWS::IoT`_
 - `AWS::IoT1Click`_
 - `AWS::IoTAnalytics`_
+- `AWS::IoTCoreDeviceAdvisor`_
 - `AWS::IoTEvents`_
+- `AWS::IoTFleetHub`_
+- `AWS::IoTSiteWise`_
+- `AWS::IoTWireless`_
+- `AWS::IVS`_
 - `AWS::KMS`_
 - `AWS::Kendra`_
 - `AWS::Kinesis`_
@@ -228,20 +247,30 @@ Currently supported AWS resource types
 - `AWS::KinesisFirehose`_
 - `AWS::LakeFormation`_
 - `AWS::Lambda`_
+- `AWS::LicenseManager`_
+- `AWS::Location`_
 - `AWS::Logs`_
+- `AWS::LookoutMetrics`_
+- `AWS::LookoutVision`_
 - `AWS::Macie`_
 - `AWS::ManagedBlockchain`_
+- `AWS::MediaConnect`_
 - `AWS::MediaConvert`_
 - `AWS::MediaLive`_
+- `AWS::MediaPackage`_
 - `AWS::MediaStore`_
 - `AWS::MSK`_
+- `AWS::MWAA`_
 - `AWS::Neptune`_
+- `AWS::NetworkFirewall`_
 - `AWS::NetworkManager`_
+- `AWS::NimbleStudio`_
 - `AWS::OpsWorks`_
 - `AWS::OpsWorksCM`_
 - `AWS::Pinpoint`_
 - `AWS::PinpointEmail`_
 - `AWS::QLDB`_
+- `AWS::QuickSight`_
 - `AWS::RAM`_
 - `AWS::RDS`_
 - `AWS::Redshift`_
@@ -250,17 +279,22 @@ Currently supported AWS resource types
 - `AWS::Route53`_
 - `AWS::Route53Resolver`_
 - `AWS::S3`_
+- `AWS::S3ObjectLambda`_
+- `AWS::S3Outposts`_
 - `AWS::SDB`_
 - `AWS::SES`_
 - `AWS::SNS`_
 - `AWS::SQS`_
 - `AWS::SSM`_
+- `AWS::SSMContacts`_
+- `AWS::SSMIncidents`_
 - `AWS::SSO`_
 - `AWS::SageMaker`_
 - `AWS::SecretsManager`_
 - `AWS::SecurityHub`_
 - `AWS::Serverless`_
 - `AWS::ServiceCatalog`_
+- `AWS::ServiceCatalogAppRegistry`_
 - `AWS::ServiceDiscovery`_
 - `AWS::StepFunctions`_
 - `AWS::Synthetics`_
@@ -270,6 +304,7 @@ Currently supported AWS resource types
 - `AWS::WAFRegional`_
 - `AWS::WAFv2`_
 - `AWS::WorkSpaces`_
+- `AWS::XRay`_
 
 Currently supported OpenStack resource types
 ============================================
@@ -396,18 +431,22 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::ApiGatewayV2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApiGatewayV2.html
 .. _`AWS::AppConfig`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppConfig.html
 .. _`AWS::AppFlow`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppFlow.html
+.. _`AWS::AppIntegrations`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppIntegrations.html
 .. _`AWS::AppMesh`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppMesh.html
+.. _`AWS::AppRunner`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppRunner.html
 .. _`AWS::AppStream`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppStream.html
 .. _`AWS::AppSync`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppSync.html
 .. _`AWS::ApplicationAutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationAutoScaling.html
 .. _`AWS::ApplicationInsights`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationInsights.html
 .. _`AWS::Athena`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Athena.html
+.. _`AWS::AuditManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AuditManager.html
 .. _`AWS::AutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScaling.html
 .. _`AWS::AutoScalingPlans`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScalingPlans.html
 .. _`AWS::Batch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Batch.html
 .. _`AWS::Budgets`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Budgets.html
 .. _`AWS::Cassandra`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cassandra.html
 .. _`AWS::CE`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CE.html
+.. _`AWS::CUR`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CUR.html
 .. _`AWS::CertificateManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CertificateManager.html
 .. _`AWS::Chatbot`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Chatbot.html
 .. _`AWS::Cloud9`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cloud9.html
@@ -427,13 +466,18 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::CodeStar`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStar.html
 .. _`AWS::Cognito`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cognito.html
 .. _`AWS::Config`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Config.html
+.. _`AWS::Connect`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Connect.html
+.. _`AWS::CustomerProfiles`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CustomerProfiles.html
+.. _`AWS::DataBrew`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataBrew.html
 .. _`AWS::DAX`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DAX.html
 .. _`AWS::Detective`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Detective.html
 .. _`AWS::DLM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DLM.html
 .. _`AWS::DMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DMS.html
+.. _`AWS::DataSync`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataSync.html
 .. _`AWS::DataPipeline`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataPipeline.html
 .. _`AWS::DirectoryService`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DirectoryService.html
 .. _`AWS::DocDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DocDB.html
+.. _`AWS::DevOpsGuru`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DevOpsGuru.html
 .. _`AWS::DynamoDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DynamoDB.html
 .. _`AWS::EC2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EC2.html
 .. _`AWS::ECR`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ECR.html
@@ -441,6 +485,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::EFS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EFS.html
 .. _`AWS::EKS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EKS.html
 .. _`AWS::EMR`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EMR.html
+.. _`AWS::EMRContainers`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EMRContainers.html
 .. _`AWS::ElastiCache`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElastiCache.html
 .. _`AWS::ElasticBeanstalk`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElasticBeanstalk.html
 .. _`AWS::ElasticLoadBalancing`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ElasticLoadBalancing.html
@@ -448,12 +493,16 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Elasticsearch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Elasticsearch.html
 .. _`AWS::Events`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Events.html
 .. _`AWS::EventSchemas`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.html
+.. _`AWS::FinSpace`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FinSpace.html
+.. _`AWS::FraudDetector`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FraudDetector.html
+.. _`AWS::FIS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FIS.html
 .. _`AWS::FMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FMS.html
 .. _`AWS::FSx`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FSx.html
 .. _`AWS::GameLift`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GameLift.html
 .. _`AWS::GlobalAccelerator`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GlobalAccelerator.html
 .. _`AWS::Glue`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Glue.html
 .. _`AWS::Greengrass`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Greengrass.html
+.. _`AWS::GreengrassV2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GreengrassV2.html
 .. _`AWS::GroundStation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GroundStation.html
 .. _`AWS::GuardDuty`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GuardDuty.html
 .. _`AWS::IAM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IAM.html
@@ -462,7 +511,12 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::IoT`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT.html
 .. _`AWS::IoT1Click`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT1Click.html
 .. _`AWS::IoTAnalytics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTAnalytics.html
+.. _`AWS::IoTCoreDeviceAdvisor`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTCoreDeviceAdvisor.html
 .. _`AWS::IoTEvents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTEvents.html
+.. _`AWS::IoTFleetHub`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTFleetHub.html
+.. _`AWS::IoTSiteWise`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTSiteWise.html
+.. _`AWS::IoTWireless`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTWireless.html
+.. _`AWS::IVS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IVS.html
 .. _`AWS::KMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KMS.html
 .. _`AWS::Kendra`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Kendra.html
 .. _`AWS::Kinesis`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Kinesis.html
@@ -471,20 +525,30 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::KinesisFirehose`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KinesisFirehose.html
 .. _`AWS::LakeFormation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LakeFormation.html
 .. _`AWS::Lambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lambda.html
+.. _`AWS::LicenseManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LicenseManager.html
+.. _`AWS::Location`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Location.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
+.. _`AWS::LookoutMetrics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutMetrics.html
+.. _`AWS::LookoutVision`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutVision.html
 .. _`AWS::Macie`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Macie.html
 .. _`AWS::ManagedBlockchain`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ManagedBlockchain.html
+.. _`AWS::MediaConnect`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaConnect.html
 .. _`AWS::MediaConvert`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaConvert.html
 .. _`AWS::MediaLive`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaLive.html
+.. _`AWS::MediaPackage`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaPackage.html
 .. _`AWS::MediaStore`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MediaStore.html
 .. _`AWS::MSK`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MSK.html
+.. _`AWS::MWAA`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_MWAA.html
 .. _`AWS::Neptune`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Neptune.html
+.. _`AWS::NetworkFirewall`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkFirewall.html
 .. _`AWS::NetworkManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkManager.html
+.. _`AWS::NimbleStudio`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NimbleStudio.html
 .. _`AWS::OpsWorks`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorks.html
 .. _`AWS::OpsWorksCM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorksCM.html
 .. _`AWS::Pinpoint`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Pinpoint.html
 .. _`AWS::PinpointEmail`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_PinpointEmail.html
 .. _`AWS::QLDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_QLDB.html
+.. _`AWS::QuickSight`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_QuickSight.html
 .. _`AWS::RAM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RAM.html
 .. _`AWS::RDS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RDS.html
 .. _`AWS::Redshift`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Redshift.html
@@ -493,17 +557,22 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Route53`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53.html
 .. _`AWS::Route53Resolver`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.html
 .. _`AWS::S3`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3.html
+.. _`AWS::S3ObjectLambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3ObjectLambda.html
+.. _`AWS::S3Outposts`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3Outposts.html
 .. _`AWS::SDB`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SDB.html
 .. _`AWS::SES`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SES.html
 .. _`AWS::SNS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SNS.html
 .. _`AWS::SQS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SQS.html
 .. _`AWS::SSM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSM.html
+.. _`AWS::SSMContacts`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSMContacts.html
+.. _`AWS::SSMIncidents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSMIncidents.html
 .. _`AWS::SSO`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSO.html
 .. _`AWS::SageMaker`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SageMaker.html
 .. _`AWS::SecretsManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SecretsManager.html
 .. _`AWS::SecurityHub`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SecurityHub.html
 .. _`AWS::Serverless`: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html
 .. _`AWS::ServiceCatalog`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalog.html
+.. _`AWS::ServiceCatalogAppRegistry`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.html
 .. _`AWS::ServiceDiscovery`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceDiscovery.html
 .. _`AWS::StepFunctions`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_StepFunctions.html
 .. _`AWS::Synthetics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Synthetics.html
@@ -513,6 +582,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::WAFRegional`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFRegional.html
 .. _`AWS::WAFv2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFv2.html
 .. _`AWS::WorkSpaces`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WorkSpaces.html
+.. _`AWS::XRay`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_XRay.html
 
 .. _`OS::Neutron::Firewall`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::Firewall
 .. _`OS::Neutron::FirewallPolicy`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::FirewallPolicy

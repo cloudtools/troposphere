@@ -1,6 +1,5 @@
-from troposphere import Template
 import troposphere.msk as msk
-
+from troposphere import Template
 
 t = Template()
 
@@ -14,19 +13,15 @@ t.add_resource(
         BrokerNodeGroupInfo=msk.BrokerNodeGroupInfo(
             BrokerAZDistribution="DEFAULT",
             InstanceType="kafka.m5.large",
-            SecurityGroups=[
-                "sg-c73ebda3"
-            ],
+            SecurityGroups=["sg-c73ebda3"],
             StorageInfo=msk.StorageInfo(
-                EBSStorageInfo=msk.EBSStorageInfo(
-                    VolumeSize=100
-                )
+                EBSStorageInfo=msk.EBSStorageInfo(VolumeSize=100)
             ),
             ClientSubnets=[
                 "subnet-ce49ff7bcd",
                 "subnet-2541a68474",
                 "subnet-1d6b6f39da",
-            ]
+            ],
         ),
         EncryptionInfo=msk.EncryptionInfo(
             EncryptionAtRest=msk.EncryptionAtRest(
@@ -38,11 +33,7 @@ t.add_resource(
             ),
         ),
         ClientAuthentication=msk.ClientAuthentication(
-            Tls=msk.Tls(
-                CertificateAuthorityArnList=[
-                    "ReplaceWithCAArn"
-                ]
-            )
+            Tls=msk.Tls(CertificateAuthorityArnList=["ReplaceWithCAArn"])
         ),
         ConfigurationInfo=msk.ConfigurationInfo(
             Arn=(
@@ -52,9 +43,7 @@ t.add_resource(
             ),
             Revision=1,
         ),
-        Tags=dict(
-            MyTagName="MyTagValue"
-        )
+        Tags=dict(MyTagName="MyTagValue"),
     )
 )
 

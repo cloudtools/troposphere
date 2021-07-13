@@ -9,108 +9,89 @@ from .validators import boolean, integer
 
 class ActionTypeId(AWSProperty):
     props = {
-        'Category': (basestring, True),
-        'Owner': (basestring, True),
-        'Provider': (basestring, True),
-        'Version': (basestring, True)
+        "Category": (str, True),
+        "Owner": (str, True),
+        "Provider": (str, True),
+        "Version": (str, True),
     }
 
 
 class ArtifactDetails(AWSProperty):
-    props = {
-        'MaximumCount': (integer, True),
-        'MinimumCount': (integer, True)
-    }
+    props = {"MaximumCount": (integer, True), "MinimumCount": (integer, True)}
 
 
 class Blockers(AWSProperty):
-    props = {
-        'Name': (basestring, True),
-        'Type': (basestring, True)
-    }
+    props = {"Name": (str, True), "Type": (str, True)}
 
 
 class ConfigurationProperties(AWSProperty):
     props = {
-        'Description': (basestring, False),
-        'Key': (boolean, True),
-        'Name': (basestring, True),
-        'Queryable': (boolean, False),
-        'Required': (boolean, True),
-        'Secret': (boolean, True),
-        'Type': (basestring, False)
+        "Description": (str, False),
+        "Key": (boolean, True),
+        "Name": (str, True),
+        "Queryable": (boolean, False),
+        "Required": (boolean, True),
+        "Secret": (boolean, True),
+        "Type": (str, False),
     }
 
 
 class EncryptionKey(AWSProperty):
-    props = {
-        'Id': (basestring, True),
-        'Type': (basestring, True)
-    }
+    props = {"Id": (str, True), "Type": (str, True)}
 
 
 class DisableInboundStageTransitions(AWSProperty):
-    props = {
-        'Reason': (basestring, True),
-        'StageName': (basestring, True)
-    }
+    props = {"Reason": (str, True), "StageName": (str, True)}
 
 
 class InputArtifacts(AWSProperty):
-    props = {
-        'Name': (basestring, True)
-    }
+    props = {"Name": (str, True)}
 
 
 class OutputArtifacts(AWSProperty):
-    props = {
-        'Name': (basestring, True)
-    }
+    props = {"Name": (str, True)}
 
 
 class Settings(AWSProperty):
     props = {
-        'EntityUrlTemplate': (basestring, False),
-        'ExecutionUrlTemplate': (basestring, False),
-        'RevisionUrlTemplate': (basestring, False),
-        'ThirdPartyConfigurationUrl': (basestring, False)
+        "EntityUrlTemplate": (str, False),
+        "ExecutionUrlTemplate": (str, False),
+        "RevisionUrlTemplate": (str, False),
+        "ThirdPartyConfigurationUrl": (str, False),
     }
 
 
 class ArtifactStore(AWSProperty):
     props = {
-        'EncryptionKey': (EncryptionKey, False),
-        'Location': (basestring, True),
-        'Type': (basestring, True)
+        "EncryptionKey": (EncryptionKey, False),
+        "Location": (str, True),
+        "Type": (str, True),
     }
 
 
 class ArtifactStoreMap(AWSProperty):
-    props = {
-        'ArtifactStore': (ArtifactStore, True),
-        'Region': (basestring, True)
-    }
+    props = {"ArtifactStore": (ArtifactStore, True), "Region": (str, True)}
 
 
 class Actions(AWSProperty):
     props = {
-        'ActionTypeId': (ActionTypeId, True),
-        'Configuration': (dict, False),
-        'InputArtifacts': ([InputArtifacts], False),
-        'Name': (basestring, True),
-        'Namespace': (basestring, False),
-        'OutputArtifacts': ([OutputArtifacts], False),
-        'Region': (basestring, False),
-        'RoleArn': (basestring, False),
-        'RunOrder': (integer, False)
+        "ActionTypeId": (ActionTypeId, True),
+        "Configuration": (dict, False),
+        "InputArtifacts": ([InputArtifacts], False),
+        "Name": (str, True),
+        "Namespace": (str, False),
+        "OutputArtifacts": ([OutputArtifacts], False),
+        "Region": (str, False),
+        "RoleArn": (str, False),
+        "RunOrder": (integer, False),
     }
 
 
 class Stages(AWSProperty):
     props = {
-        'Actions': ([Actions], True),
-        'Blockers': ([Blockers], False),
-        'Name': (basestring, True)
+        "Actions": ([Actions], True),
+        "Blockers": ([Blockers], False),
+        "Name": (str, True),
     }
 
 
@@ -118,14 +99,14 @@ class CustomActionType(AWSObject):
     resource_type = "AWS::CodePipeline::CustomActionType"
 
     props = {
-        'Category': (basestring, True),
-        'ConfigurationProperties': ([ConfigurationProperties], False),
-        'InputArtifactDetails': (ArtifactDetails, True),
-        'OutputArtifactDetails': (ArtifactDetails, True),
-        'Provider': (basestring, True),
-        'Settings': (Settings, False),
-        'Tags': (Tags, False),
-        'Version': (basestring, False),
+        "Category": (str, True),
+        "ConfigurationProperties": ([ConfigurationProperties], False),
+        "InputArtifactDetails": (ArtifactDetails, True),
+        "OutputArtifactDetails": (ArtifactDetails, True),
+        "Provider": (str, True),
+        "Settings": (Settings, False),
+        "Tags": (Tags, False),
+        "Version": (str, False),
     }
 
 
@@ -133,29 +114,28 @@ class Pipeline(AWSObject):
     resource_type = "AWS::CodePipeline::Pipeline"
 
     props = {
-        'ArtifactStore': (ArtifactStore, False),
-        'ArtifactStores': ([ArtifactStoreMap], False),
-        'DisableInboundStageTransitions':
-            ([DisableInboundStageTransitions], False),
-        'Name': (basestring, False),
-        'RestartExecutionOnUpdate': (boolean, False),
-        'RoleArn': (basestring, True),
-        'Stages': ([Stages], True),
-        'Tags': (Tags, False),
+        "ArtifactStore": (ArtifactStore, False),
+        "ArtifactStores": ([ArtifactStoreMap], False),
+        "DisableInboundStageTransitions": ([DisableInboundStageTransitions], False),
+        "Name": (str, False),
+        "RestartExecutionOnUpdate": (boolean, False),
+        "RoleArn": (str, True),
+        "Stages": ([Stages], True),
+        "Tags": (Tags, False),
     }
 
 
 class WebhookAuthConfiguration(AWSProperty):
     props = {
-        'AllowedIPRange': (basestring, False),
-        'SecretToken': (basestring, False),
+        "AllowedIPRange": (str, False),
+        "SecretToken": (str, False),
     }
 
 
 class WebhookFilterRule(AWSProperty):
     props = {
-        'JsonPath': (basestring, True),
-        'MatchEquals': (basestring, False),
+        "JsonPath": (str, True),
+        "MatchEquals": (str, False),
     }
 
 
@@ -163,12 +143,12 @@ class Webhook(AWSObject):
     resource_type = "AWS::CodePipeline::Webhook"
 
     props = {
-        'Authentication': (basestring, True),
-        'AuthenticationConfiguration': (WebhookAuthConfiguration, True),
-        'Filters': ([WebhookFilterRule], True),
-        'Name': (basestring, False),
-        'RegisterWithThirdParty': (boolean, False),
-        'TargetAction': (basestring, True),
-        'TargetPipeline': (basestring, True),
-        'TargetPipelineVersion': (integer, True),
+        "Authentication": (str, True),
+        "AuthenticationConfiguration": (WebhookAuthConfiguration, True),
+        "Filters": ([WebhookFilterRule], True),
+        "Name": (str, False),
+        "RegisterWithThirdParty": (boolean, False),
+        "TargetAction": (str, True),
+        "TargetPipeline": (str, True),
+        "TargetPipelineVersion": (integer, True),
     }

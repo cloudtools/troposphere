@@ -1,14 +1,9 @@
+import json
 import os
 import re
 import unittest
-import json
 
 from troposphere.template_generator import TemplateGenerator
-
-try:
-    u = unicode
-except NameError:
-    u = str
 
 
 class TestTemplateGenerator(unittest.TestCase):
@@ -40,10 +35,10 @@ def create_test_class(testname, **kwargs):
 
 
 def load_tests(loader, tests, pattern):
-    EXCLUDE_EXAMPLES = ['OpenStack_AutoScaling.py', 'OpenStack_Server.py']
+    EXCLUDE_EXAMPLES = ["OpenStack_AutoScaling.py", "OpenStack_Server.py"]
     # Filter out all *.py files from the examples directory
-    examples = 'examples'
-    regex = re.compile(r'.py$', re.I)
+    examples = "examples"
+    regex = re.compile(r".py$", re.I)
     example_filesnames = filter(regex.search, os.listdir(examples))
 
     suite = unittest.TestSuite()
@@ -51,16 +46,16 @@ def load_tests(loader, tests, pattern):
     for f in example_filesnames:
         if f in EXCLUDE_EXAMPLES:
             continue
-        testname = 'test_' + f[:-3]
-        expected_output = open('tests/examples_output/%s.template' %
-                               f[:-3]).read()
-        test_class = create_test_class(testname, filename=examples + '/' + f,
-                                       expected_output=expected_output)
+        testname = "test_" + f[:-3]
+        expected_output = open("tests/examples_output/%s.template" % f[:-3]).read()
+        test_class = create_test_class(
+            testname, filename=examples + "/" + f, expected_output=expected_output
+        )
         tests = loader.loadTestsFromTestCase(test_class)
         suite.addTests(tests)
 
     return suite
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

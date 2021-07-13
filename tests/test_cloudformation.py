@@ -1,4 +1,5 @@
 import unittest
+
 from troposphere import Ref
 from troposphere.cloudformation import WaitCondition, WaitConditionHandle
 from troposphere.policies import CreationPolicy, ResourceSignal
@@ -9,8 +10,8 @@ class TestWaitCondition(unittest.TestCase):
         w = WaitCondition(
             "mycondition",
             CreationPolicy=CreationPolicy(
-                ResourceSignal=ResourceSignal(
-                    Timeout='PT15M')),
+                ResourceSignal=ResourceSignal(Timeout="PT15M")
+            ),
         )
         w.validate()
 
@@ -19,8 +20,8 @@ class TestWaitCondition(unittest.TestCase):
             "mycondition",
             Count=10,
             CreationPolicy=CreationPolicy(
-                ResourceSignal=ResourceSignal(
-                    Timeout='PT15M')),
+                ResourceSignal=ResourceSignal(Timeout="PT15M")
+            ),
         )
         with self.assertRaises(ValueError):
             w.validate()
@@ -35,5 +36,5 @@ class TestWaitCondition(unittest.TestCase):
         w.validate()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

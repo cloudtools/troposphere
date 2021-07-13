@@ -1,5 +1,5 @@
-from troposphere import Parameter, Template
 import troposphere.elasticloadbalancingv2 as elb
+from troposphere import Parameter, Template
 
 
 def main():
@@ -28,8 +28,7 @@ def main():
                     FixedResponseConfig=elb.FixedResponseConfig(
                         StatusCode="200",
                         MessageBody=(
-                            "This is a fixed response for the default "
-                            "ALB action"
+                            "This is a fixed response for the default " "ALB action"
                         ),
                         ContentType="text/plain",
                     ),
@@ -44,9 +43,7 @@ def main():
                 "ListenerRuleApi",
                 ListenerArn=listener.ref(),
                 Conditions=[
-                    elb.Condition(
-                        Field="host-header", Values=["api.example.com"]
-                    ),
+                    elb.Condition(Field="host-header", Values=["api.example.com"]),
                     elb.Condition(
                         Field="http-header",
                         HttpHeaderConfig=elb.HttpHeaderConfig(
@@ -55,9 +52,7 @@ def main():
                     ),
                     elb.Condition(
                         Field="path-pattern",
-                        PathPatternConfig=elb.PathPatternConfig(
-                            Values=["/api/*"]
-                        ),
+                        PathPatternConfig=elb.PathPatternConfig(Values=["/api/*"]),
                     ),
                     elb.Condition(
                         Field="http-request-method",
@@ -93,9 +88,7 @@ def main():
                     ),
                     elb.Condition(
                         Field="path-pattern",
-                        PathPatternConfig=elb.PathPatternConfig(
-                            Values=["/web/*"]
-                        ),
+                        PathPatternConfig=elb.PathPatternConfig(Values=["/web/*"]),
                     ),
                 ],
                 Actions=[
@@ -104,8 +97,7 @@ def main():
                         FixedResponseConfig=elb.FixedResponseConfig(
                             StatusCode="200",
                             MessageBody=(
-                                "This is a fixed response for any WEB "
-                                "request"
+                                "This is a fixed response for any WEB " "request"
                             ),
                             ContentType="text/plain",
                         ),
@@ -116,9 +108,7 @@ def main():
             elb.ListenerRule(
                 "ListenerRuleMetrics",
                 ListenerArn=listener.ref(),
-                Conditions=[
-                    elb.Condition(Field="path-pattern", Values=["/metrics/*"])
-                ],
+                Conditions=[elb.Condition(Field="path-pattern", Values=["/metrics/*"])],
                 Actions=[
                     elb.Action(
                         Type="redirect",
@@ -135,9 +125,7 @@ def main():
                 Conditions=[
                     elb.Condition(
                         Field="source-ip",
-                        SourceIpConfig=elb.SourceIpConfig(
-                            Values=["52.30.12.16/28"]
-                        ),
+                        SourceIpConfig=elb.SourceIpConfig(Values=["52.30.12.16/28"]),
                     )
                 ],
                 Actions=[
@@ -146,8 +134,7 @@ def main():
                         FixedResponseConfig=elb.FixedResponseConfig(
                             StatusCode="200",
                             MessageBody=(
-                                "The request came from IP range "
-                                "52.30.12.16/28"
+                                "The request came from IP range " "52.30.12.16/28"
                             ),
                             ContentType="text/plain",
                         ),
@@ -161,5 +148,5 @@ def main():
     print(template.to_json())
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

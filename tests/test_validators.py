@@ -1,21 +1,38 @@
 import unittest
-from troposphere import Parameter, Ref, NoValue
-from troposphere.validators import boolean, integer, integer_range
-from troposphere.validators import positive_integer, network_port
-from troposphere.validators import tg_healthcheck_port
-from troposphere.validators import s3_bucket_name, encoding, status
-from troposphere.validators import iam_path, iam_names, iam_role_name
-from troposphere.validators import iam_group_name, iam_user_name, elb_name
-from troposphere.validators import backup_vault_name, check_required
-from troposphere.validators import mutually_exclusive, notification_type
-from troposphere.validators import notification_event, task_type
-from troposphere.validators import compliance_level, operating_system
-from troposphere.validators import one_of
-from troposphere.validators import waf_action_type
+
+from troposphere import NoValue, Parameter, Ref
+from troposphere.validators import (
+    backup_vault_name,
+    boolean,
+    check_required,
+    compliance_level,
+    elb_name,
+    encoding,
+    iam_group_name,
+    iam_names,
+    iam_path,
+    iam_role_name,
+    iam_user_name,
+    integer,
+    integer_range,
+    mutually_exclusive,
+    network_port,
+    notification_event,
+    notification_type,
+    one_of,
+    operating_system,
+    positive_integer,
+    s3_bucket_name,
+    status,
+    task_type,
+    tg_healthcheck_port,
+    waf_action_type,
+    wafv2_custom_body_response_content,
+    wafv2_custom_body_response_content_type,
+)
 
 
 class TestValidators(unittest.TestCase):
-
     def test_boolean(self):
         for x in [True, "True", "true", 1, "1"]:
             self.assertEqual(boolean(x), True, repr(x))
@@ -64,7 +81,7 @@ class TestValidators(unittest.TestCase):
                 network_port(x)
 
     def test_network_port_ref(self):
-        p = Parameter('myport')
+        p = Parameter("myport")
         network_port(Ref(p))
 
     def test_tg_healthcheck_port(self):
@@ -77,181 +94,205 @@ class TestValidators(unittest.TestCase):
                 tg_healthcheck_port(x)
 
     def test_tg_healthcheck_port_ref(self):
-        p = Parameter('myport')
+        p = Parameter("myport")
         tg_healthcheck_port(Ref(p))
 
     def test_s3_bucket_name(self):
-        for b in ['a'*3, 'a'*63, 'wick3d-sweet.bucket']:
+        for b in ["a" * 3, "a" * 63, "wick3d-sweet.bucket"]:
             s3_bucket_name(b)
-        for b in ['a'*2, 'a'*64, 'invalid_bucket', 'InvalidBucket']:
+        for b in ["a" * 2, "a" * 64, "invalid_bucket", "InvalidBucket"]:
             with self.assertRaises(ValueError):
                 s3_bucket_name(b)
-        for b in ['.invalid', 'invalid.', 'invalid..bucket']:
+        for b in [".invalid", "invalid.", "invalid..bucket"]:
             with self.assertRaises(ValueError):
                 s3_bucket_name(b)
-        for b in ['1.2.3.4', '11.22.33.44', '111.222.333.444']:
+        for b in ["1.2.3.4", "11.22.33.44", "111.222.333.444"]:
             with self.assertRaises(ValueError):
                 s3_bucket_name(b)
 
     def test_elb_name(self):
-        for b in ['a', 'a-a', 'aaa', 'a'*32,
-                  'wick3d-elb-name', 'Wick3d-ELB-Name']:
+        for b in ["a", "a-a", "aaa", "a" * 32, "wick3d-elb-name", "Wick3d-ELB-Name"]:
             elb_name(b)
-        for b in ['a'*33, 'invalid_elb', '-invalid-elb',
-                  'invalid-elb-', '-elb-', '-a', 'a-']:
+        for b in [
+            "a" * 33,
+            "invalid_elb",
+            "-invalid-elb",
+            "invalid-elb-",
+            "-elb-",
+            "-a",
+            "a-",
+        ]:
             with self.assertRaises(ValueError):
                 elb_name(b)
 
     def test_encoding(self):
-        for e in ['plain', 'base64']:
+        for e in ["plain", "base64"]:
             encoding(e)
-        for e in ['wrong_encdoing', 'base62']:
+        for e in ["wrong_encdoing", "base62"]:
             with self.assertRaises(ValueError):
                 encoding(e)
 
     def test_status(self):
-        for s in ['Active', 'Inactive']:
+        for s in ["Active", "Inactive"]:
             status(s)
-        for s in ['active', 'idle']:
+        for s in ["active", "idle"]:
             with self.assertRaises(ValueError):
                 status(s)
 
     def test_iam_names(self):
-        for s in ['foobar.+=@-,', 'BARfoo789.+=@-,']:
+        for s in ["foobar.+=@-,", "BARfoo789.+=@-,"]:
             iam_names(s)
-        for s in ['foo%', 'bar$']:
+        for s in ["foo%", "bar$"]:
             with self.assertRaises(ValueError):
                 iam_names(s)
 
     def test_iam_path(self):
-        for s in ['/%s/' % ('a'*30), '/%s/' % ('a'*510)]:
+        for s in ["/%s/" % ("a" * 30), "/%s/" % ("a" * 510)]:
             iam_path(s)
-        for s in ['/%s/' % ('a'*511), '/%s/' % ('a'*1025)]:
+        for s in ["/%s/" % ("a" * 511), "/%s/" % ("a" * 1025)]:
             with self.assertRaises(ValueError):
                 iam_path(s)
 
     def test_iam_role_name(self):
-        for s in ['a'*30, 'a'*64]:
+        for s in ["a" * 30, "a" * 64]:
             iam_role_name(s)
-        for s in ['a'*65, 'a'*128]:
+        for s in ["a" * 65, "a" * 128]:
             with self.assertRaises(ValueError):
                 iam_role_name(s)
 
     def test_iam_group_name(self):
-        for s in ['a'*64, 'a'*128]:
+        for s in ["a" * 64, "a" * 128]:
             iam_group_name(s)
-        for s in ['a'*129, 'a'*256]:
+        for s in ["a" * 129, "a" * 256]:
             with self.assertRaises(ValueError):
                 iam_group_name(s)
 
     def test_iam_user_name(self):
-        for s in ['a', 'a'*64, 'A', 'Aa', 'A=,.@-']:
+        for s in ["a", "a" * 64, "A", "Aa", "A=,.@-"]:
             iam_user_name(s)
-        for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
+        for s in ["", "a" * 65, "a%", "a#", "A a"]:
             with self.assertRaises(ValueError):
                 iam_user_name(s)
 
     def test_backup_vault_name(self):
-        for s in ['a', 'a'*50, 'A', 'Aa', 'A1', 'A-a', 'A_a', 'A.a']:
+        for s in ["a", "a" * 50, "A", "Aa", "A1", "A-a", "A_a", "A.a"]:
             backup_vault_name(s)
-        for s in ['', 'a'*65, 'a%', 'a#', 'A a']:
+        for s in ["", "a" * 65, "a%", "a#", "A a"]:
             with self.assertRaises(ValueError):
                 backup_vault_name(s)
 
     def test_check_required(self):
         class_name = "test_class"
         props = {
-            'foo': 1,
-            'bar': 2,
+            "foo": 1,
+            "bar": 2,
         }
         conditionals = {
-            'foo',
-            'bar',
+            "foo",
+            "bar",
         }
         check_required(class_name, props, conditionals)
         conditionals = {
-            'foo',
-            'bar',
-            'baz',
+            "foo",
+            "bar",
+            "baz",
         }
         with self.assertRaises(ValueError):
             check_required(class_name, props, conditionals)
 
     def test_one_of(self):
-        conds = ['Bilbo', 'Frodo']
-        one_of('hobbits', {"first": "Bilbo"}, "first", conds)
-        one_of('hobbits', {"first": "Frodo"}, "first", conds)
+        conds = ["Bilbo", "Frodo"]
+        one_of("hobbits", {"first": "Bilbo"}, "first", conds)
+        one_of("hobbits", {"first": "Frodo"}, "first", conds)
         with self.assertRaises(ValueError):
-            one_of('hobbits', {"first": "Gandalf"}, "first", conds)
-            one_of('hobbits', {"first": "Gandalf"}, "second", conds)
+            one_of("hobbits", {"first": "Gandalf"}, "first", conds)
+            one_of("hobbits", {"first": "Gandalf"}, "second", conds)
 
     def test_mutually_exclusive(self):
-        conds = ['a', 'b', 'c']
-        mutually_exclusive('a', {"a": "apple"}, conds)
-        mutually_exclusive('b', {"b": "banana"}, conds)
-        mutually_exclusive('c', {"c": "carrot"}, conds)
+        conds = ["a", "b", "c"]
+        mutually_exclusive("a", {"a": "apple"}, conds)
+        mutually_exclusive("b", {"b": "banana"}, conds)
+        mutually_exclusive("c", {"c": "carrot"}, conds)
         with self.assertRaises(ValueError):
-            mutually_exclusive('ac', {"a": "apple", "c": "carrot"}, conds)
+            mutually_exclusive("ac", {"a": "apple", "c": "carrot"}, conds)
         with self.assertRaises(ValueError):
             mutually_exclusive(
-                'abc', {"a": "apple", "b": "banana", "c": "carrot"}, conds
+                "abc", {"a": "apple", "b": "banana", "c": "carrot"}, conds
             )
 
     def test_mutually_exclusive_novalue(self):
-        conds = ['a', 'b', 'c']
+        conds = ["a", "b", "c"]
         properties = {
-            'a': Ref("AWS::NoValue"),
-            'b': NoValue,
-            'c': "AWS::Region",
+            "a": Ref("AWS::NoValue"),
+            "b": NoValue,
+            "c": "AWS::Region",
         }
 
         mutually_exclusive("a", properties, conds)
 
     def test_compliance_level(self):
-        for s in ['CRITICAL', 'HIGH', 'MEDIUM', 'LOW', 'INFORMATIONAL',
-                  'UNSPECIFIED']:
+        for s in ["CRITICAL", "HIGH", "MEDIUM", "LOW", "INFORMATIONAL", "UNSPECIFIED"]:
             compliance_level(s)
-        for s in ['crit', '', '%%', 'FORMATIONAL']:
+        for s in ["crit", "", "%%", "FORMATIONAL"]:
             with self.assertRaises(ValueError):
                 compliance_level(s)
 
     def test_notification_event(self):
-        for item in [['All', 'InProgress', 'Success', 'TimedOut', 'Cancelled',
-                      'Failed'], ['InProgress', 'TimedOut']]:
+        for item in [
+            ["All", "InProgress", "Success", "TimedOut", "Cancelled", "Failed"],
+            ["InProgress", "TimedOut"],
+        ]:
             notification_event(item)
-        for item in [['', 'timeout', '%'], ['Inprogress', '@ll']]:
+        for item in [["", "timeout", "%"], ["Inprogress", "@ll"]]:
             with self.assertRaises(ValueError):
                 notification_event(item)
 
     def test_notification_type(self):
-        for s in ['Command', 'Invocation']:
+        for s in ["Command", "Invocation"]:
             notification_type(s)
-        for s in ['foo', '', 'command', 'Iinvocation']:
+        for s in ["foo", "", "command", "Iinvocation"]:
             with self.assertRaises(ValueError):
                 notification_type(s)
 
     def test_operating_system(self):
-        for s in ['WINDOWS', 'AMAZON_LINUX', 'UBUNTU',
-                  'REDHAT_ENTERPRISE_LINUX']:
+        for s in ["WINDOWS", "AMAZON_LINUX", "UBUNTU", "REDHAT_ENTERPRISE_LINUX"]:
             operating_system(s)
-        for s in ['', 'bar', 'AMAZONLINUX', 'LINUX']:
+        for s in ["", "bar", "AMAZONLINUX", "LINUX"]:
             with self.assertRaises(ValueError):
                 operating_system(s)
 
     def test_task_type(self):
-        for s in ['RUN_COMMAND', 'AUTOMATION', 'LAMBDA', 'STEP_FUNCTION']:
+        for s in ["RUN_COMMAND", "AUTOMATION", "LAMBDA", "STEP_FUNCTION"]:
             task_type(s)
-        for s in ['', 'foo', 'a', 'l@mbda', 'STEPFUNCTION']:
+        for s in ["", "foo", "a", "l@mbda", "STEPFUNCTION"]:
             with self.assertRaises(ValueError):
                 task_type(s)
 
     def test_waf_action_type(self):
-        for s in ['ALLOW', 'BLOCK', 'COUNT']:
+        for s in ["ALLOW", "BLOCK", "COUNT"]:
             waf_action_type(s)
-        for s in ['', 'deny', 'UNBLOCK', 'COUNTER']:
+        for s in ["", "deny", "UNBLOCK", "COUNTER"]:
             with self.assertRaises(ValueError):
                 waf_action_type(s)
 
+    def test_wafv2_custom_body_response_content(self):
+        for s in [
+            "{'hello': 'world'}",
+            "<!DOCTYPE html><html><head><title>Test</title></head><body><h1>Test</h1><p>Test.</p></body></html>",
+            "Health",
+        ]:
+            wafv2_custom_body_response_content(s)
+        for s in ["", "a" * 10241]:
+            with self.assertRaises(ValueError):
+                wafv2_custom_body_response_content(s)
 
-if __name__ == '__main__':
+    def test_wafv2_custom_body_response_content_type(self):
+        for s in ["APPLICATION_JSON", "TEXT_HTML", "TEXT_PLAIN"]:
+            wafv2_custom_body_response_content_type(s)
+        for s in ["", "APPLICATION", "HTML", "TEXT"]:
+            with self.assertRaises(ValueError):
+                wafv2_custom_body_response_content_type(s)
+
+
+if __name__ == "__main__":
     unittest.main()

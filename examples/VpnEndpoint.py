@@ -1,6 +1,5 @@
-from troposphere import Template, Tags
 import troposphere.ec2 as ec2
-
+from troposphere import Tags, Template
 
 t = Template()
 

@@ -3,7 +3,7 @@
 
 # ---- Need libraries installed by setup.py
 cfn_flip>=1.0.2
-awacs>=0.8
+awacs>=2.0.0
 
 # ---- Documentation Libraries
 Sphinx>=1.8
@@ -20,3 +20,10 @@ pylint>=1.9
 # ---- ---- Testing
 pytest>=4.1
 pytest-cov>=2.6
+
+black==21.6b0
+build==0.5.1
+isort==5.9.1
+pycodestyle==2.7.0
+pyflakes==2.3.1
+tox==3.23.1

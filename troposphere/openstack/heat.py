@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 """
 Openstack Heat
 --------------
@@ -21,7 +20,6 @@ and change these types.
 from troposphere import AWSObject
 from troposphere.validators import integer
 
-
 # ----------------------------------------------------------------------------
 # Class:  AWSAutoScalingGroup
 # ----------------------------------------------------------------------------
@@ -39,15 +37,15 @@ class AWSAutoScalingGroup(AWSObject):
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
 
     props = {
-        'AvailabilityZones': (list, True),
-        'Cooldown': (integer, False),
-        'DesiredCapacity': (basestring, False),
-        'HealthCheckGracePeriod': (integer, False),
-        'HealthCheckType': (basestring, False),
-        'LaunchConfigurationName': (basestring, True),
-        'LoadBalancerNames': (list, False),
-        'MaxSize': (basestring, True),
-        'MinSize': (basestring, True),
-        'Tags': (list, False),
-        'VPCZoneIdentifier': (list, False),
+        "AvailabilityZones": (list, True),
+        "Cooldown": (integer, False),
+        "DesiredCapacity": (str, False),
+        "HealthCheckGracePeriod": (integer, False),
+        "HealthCheckType": (str, False),
+        "LaunchConfigurationName": (str, True),
+        "LoadBalancerNames": (list, False),
+        "MaxSize": (str, True),
+        "MinSize": (str, True),
+        "Tags": (list, False),
+        "VPCZoneIdentifier": (list, False),
     }

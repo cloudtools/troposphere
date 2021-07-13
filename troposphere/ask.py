@@ -8,25 +8,25 @@ from . import AWSObject, AWSProperty
 
 class Overrides(AWSProperty):
     props = {
-        'Manifest': (dict, False),
+        "Manifest": (dict, False),
     }
 
 
 class AuthenticationConfiguration(AWSProperty):
     props = {
-        'ClientId': (basestring, True),
-        'ClientSecret': (basestring, True),
-        'RefreshToken': (basestring, True),
+        "ClientId": (str, True),
+        "ClientSecret": (str, True),
+        "RefreshToken": (str, True),
     }
 
 
 class SkillPackage(AWSProperty):
     props = {
-        'Overrides': (Overrides, False),
-        'S3Bucket': (basestring, True),
-        'S3BucketRole': (basestring, False),
-        'S3Key': (basestring, True),
-        'S3ObjectVersion': (basestring, False),
+        "Overrides": (Overrides, False),
+        "S3Bucket": (str, True),
+        "S3BucketRole": (str, False),
+        "S3Key": (str, True),
+        "S3ObjectVersion": (str, False),
     }
 
 
@@ -34,7 +34,7 @@ class Skill(AWSObject):
     resource_type = "Alexa::ASK::Skill"
 
     props = {
-        'AuthenticationConfiguration': (AuthenticationConfiguration, True),
-        'SkillPackage': (SkillPackage, True),
-        'VendorId': (basestring, True),
+        "AuthenticationConfiguration": (AuthenticationConfiguration, True),
+        "SkillPackage": (SkillPackage, True),
+        "VendorId": (str, True),
     }

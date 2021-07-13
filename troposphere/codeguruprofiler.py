@@ -7,15 +7,15 @@
 # Resource specification version: 18.6.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
+
+from . import AWSObject, AWSProperty
 
 
 class Channel(AWSProperty):
     props = {
-        'channelId': (basestring, False),
-        'channelUri': (basestring, True),
+        "channelId": (str, False),
+        "channelUri": (str, True),
     }
 
 
@@ -23,9 +23,9 @@ class ProfilingGroup(AWSObject):
     resource_type = "AWS::CodeGuruProfiler::ProfilingGroup"
 
     props = {
-        'AgentPermissions': (dict, False),
-        'AnomalyDetectionNotificationConfiguration': ([Channel], False),
-        'ComputePlatform': (basestring, False),
-        'ProfilingGroupName': (basestring, True),
-        'Tags': (Tags, False),
+        "AgentPermissions": (dict, False),
+        "AnomalyDetectionNotificationConfiguration": ([Channel], False),
+        "ComputePlatform": (str, False),
+        "ProfilingGroupName": (str, True),
+        "Tags": (Tags, False),
     }

@@ -4,194 +4,243 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty
-from .validators import integer, boolean, json_checker
+from .validators import boolean, integer
 
-
-VALID_RUNTIME_ENVIRONMENTS = ('SQL-1_0', 'FLINK-1_6', 'FLINK-1_8')
+VALID_RUNTIME_ENVIRONMENTS = ("SQL-1_0", "FLINK-1_6", "FLINK-1_8", "FLINK-1_11")
 
 
 def validate_runtime_environment(runtime_environment):
     """Validate RuntimeEnvironment for Application"""
 
     if runtime_environment not in VALID_RUNTIME_ENVIRONMENTS:
-        raise ValueError("Application RuntimeEnvironment must be one of: %s" %
-                         ", ".join(VALID_RUNTIME_ENVIRONMENTS))
+        raise ValueError(
+            "Application RuntimeEnvironment must be one of: %s"
+            % ", ".join(VALID_RUNTIME_ENVIRONMENTS)
+        )
     return runtime_environment
 
 
 class S3ContentLocation(AWSProperty):
     props = {
-        'BucketARN': (basestring, False),
-        'FileKey': (basestring, False),
-        'ObjectVersion': (basestring, False)
+        "BucketARN": (str, False),
+        "FileKey": (str, False),
+        "ObjectVersion": (str, False),
     }
 
 
 class CodeContent(AWSProperty):
     props = {
-        'S3ContentLocation': (S3ContentLocation, False),
-        'TextContent': (basestring, False),
-        'ZipFileContent': (basestring, False),
+        "S3ContentLocation": (S3ContentLocation, False),
+        "TextContent": (str, False),
+        "ZipFileContent": (str, False),
     }
 
 
 class ApplicationCodeConfiguration(AWSProperty):
     props = {
-        'CodeContent': (CodeContent, True),
-        'CodeContentType': (basestring, True),
+        "CodeContent": (CodeContent, True),
+        "CodeContentType": (str, True),
     }
 
 
 class PropertyGroup(AWSProperty):
     props = {
-        'PropertyGroupId': (basestring, False),
-        'PropertyMap': (json_checker, False),
+        "PropertyGroupId": (str, False),
+        "PropertyMap": (dict, False),
     }
 
 
 class EnvironmentProperties(AWSProperty):
     props = {
-        'PropertyGroups': ([PropertyGroup], False),
+        "PropertyGroups": ([PropertyGroup], False),
     }
 
 
 class CheckpointConfiguration(AWSProperty):
     props = {
-        'ConfigurationType': (basestring, True),
-        'CheckpointInterval': (integer, False),
-        'CheckpointingEnabled': (boolean, False),
-        'MinPauseBetweenCheckpoints': (integer, False),
+        "ConfigurationType": (str, True),
+        "CheckpointInterval": (integer, False),
+        "CheckpointingEnabled": (boolean, False),
+        "MinPauseBetweenCheckpoints": (integer, False),
     }
 
 
 class MonitoringConfiguration(AWSProperty):
     props = {
-        'ConfigurationType': (basestring, True),
-        'LogLevel': (basestring, False),
-        'MetricsLevel': (basestring, False),
+        "ConfigurationType": (str, True),
+        "LogLevel": (str, False),
+        "MetricsLevel": (str, False),
     }
 
 
 class ParallelismConfiguration(AWSProperty):
     props = {
-        'AutoScalingEnabled': (boolean, False),
-        'ConfigurationType': (basestring, True),
-        'Parallelism': (integer, False),
-        'ParallelismPerKPU': (integer, False),
+        "AutoScalingEnabled": (boolean, False),
+        "ConfigurationType": (str, True),
+        "Parallelism": (integer, False),
+        "ParallelismPerKPU": (integer, False),
     }
 
 
 class FlinkApplicationConfiguration(AWSProperty):
     props = {
-        'CheckpointConfiguration': (CheckpointConfiguration, False),
-        'MonitoringConfiguration': (MonitoringConfiguration, False),
-        'ParallelismConfiguration': (ParallelismConfiguration, False),
+        "CheckpointConfiguration": (CheckpointConfiguration, False),
+        "MonitoringConfiguration": (MonitoringConfiguration, False),
+        "ParallelismConfiguration": (ParallelismConfiguration, False),
     }
 
 
 class InputParallelism(AWSProperty):
     props = {
-        'Count': (integer, False),
+        "Count": (integer, False),
     }
 
 
 class InputLambdaProcessor(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
+        "ResourceARN": (str, True),
     }
 
 
 class InputProcessingConfiguration(AWSProperty):
     props = {
-        'InputLambdaProcessor': (InputLambdaProcessor, False),
+        "InputLambdaProcessor": (InputLambdaProcessor, False),
     }
 
 
 class RecordColumn(AWSProperty):
     props = {
-        'Mapping': (basestring, False),
-        'Name': (basestring, True),
-        'SqlType': (basestring, True),
+        "Mapping": (str, False),
+        "Name": (str, True),
+        "SqlType": (str, True),
     }
 
 
 class JSONMappingParameters(AWSProperty):
     props = {
-        'RecordRowPath': (basestring, True),
+        "RecordRowPath": (str, True),
     }
 
 
 class CSVMappingParameters(AWSProperty):
     props = {
-        'RecordColumnDelimiter': (basestring, True),
-        'RecordRowDelimiter': (basestring, True),
+        "RecordColumnDelimiter": (str, True),
+        "RecordRowDelimiter": (str, True),
     }
 
 
 class MappingParameters(AWSProperty):
     props = {
-        'CSVMappingParameters': (CSVMappingParameters, False),
-        'JSONMappingParameters': (JSONMappingParameters, False),
+        "CSVMappingParameters": (CSVMappingParameters, False),
+        "JSONMappingParameters": (JSONMappingParameters, False),
     }
 
 
 class RecordFormat(AWSProperty):
     props = {
-        'MappingParameters': (MappingParameters, False),
-        'RecordFormatType': (basestring, True),
+        "MappingParameters": (MappingParameters, False),
+        "RecordFormatType": (str, True),
     }
 
 
 class InputSchema(AWSProperty):
     props = {
-        'RecordColumns': ([RecordColumn], True),
-        'RecordEncoding': (basestring, False),
-        'RecordFormat': (RecordFormat, True),
+        "RecordColumns": ([RecordColumn], True),
+        "RecordEncoding": (str, False),
+        "RecordFormat": (RecordFormat, True),
     }
 
 
 class KinesisStreamsInput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
+        "ResourceARN": (str, True),
     }
 
 
 class KinesisFirehoseInput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
+        "ResourceARN": (str, True),
     }
 
 
 class Input(AWSProperty):
     props = {
-        'InputParallelism': (InputParallelism, False),
-        'InputProcessingConfiguration': (InputProcessingConfiguration, False),
-        'InputSchema': (InputSchema, True),
-        'KinesisFirehoseInput': (KinesisFirehoseInput, False),
-        'KinesisStreamsInput': (KinesisStreamsInput, False),
-        'NamePrefix': (basestring, False),
+        "InputParallelism": (InputParallelism, False),
+        "InputProcessingConfiguration": (InputProcessingConfiguration, False),
+        "InputSchema": (InputSchema, True),
+        "KinesisFirehoseInput": (KinesisFirehoseInput, False),
+        "KinesisStreamsInput": (KinesisStreamsInput, False),
+        "NamePrefix": (str, False),
     }
 
 
 class SqlApplicationConfiguration(AWSProperty):
     props = {
-        'Inputs': ([Input], False),
+        "Inputs": ([Input], False),
     }
 
 
 class ApplicationSnapshotConfiguration(AWSProperty):
     props = {
-        'SnapshotsEnabled': (boolean, True),
+        "SnapshotsEnabled": (boolean, True),
+    }
+
+
+class GlueDataCatalogConfiguration(AWSProperty):
+    props = {
+        "DatabaseARN": (str, False),
+    }
+
+
+class CatalogConfiguration(AWSProperty):
+    props = {
+        "GlueDataCatalogConfiguration": (GlueDataCatalogConfiguration, False),
+    }
+
+
+class CustomArtifactsConfiguration(AWSProperty):
+    props = {}
+
+
+class S3ContentBaseLocation(AWSProperty):
+    props = {
+        "BasePath": (str, True),
+        "BucketARN": (str, True),
+    }
+
+
+class DeployAsApplicationConfiguration(AWSProperty):
+    props = {
+        "S3ContentLocation": (S3ContentBaseLocation, True),
+    }
+
+
+class ZeppelinMonitoringConfiguration(AWSProperty):
+    props = {
+        "LogLevel": (str, False),
+    }
+
+
+class ZeppelinApplicationConfiguration(AWSProperty):
+    props = {
+        "CatalogConfiguration": (CatalogConfiguration, False),
+        "CustomArtifactsConfiguration": (CustomArtifactsConfiguration, False),
+        "DeployAsApplicationConfiguration": (DeployAsApplicationConfiguration, False),
+        "MonitoringConfiguration": (ZeppelinMonitoringConfiguration, False),
     }
 
 
 class ApplicationConfiguration(AWSProperty):
     props = {
-        'ApplicationCodeConfiguration': (ApplicationCodeConfiguration, False),
-        'ApplicationSnapshotConfiguration': (ApplicationSnapshotConfiguration, False),  # NOQA
-        'EnvironmentProperties': (EnvironmentProperties, False),
-        'FlinkApplicationConfiguration': (FlinkApplicationConfiguration, False),  # NOQA
-        'SqlApplicationConfiguration': (SqlApplicationConfiguration, False),
+        "ApplicationCodeConfiguration": (ApplicationCodeConfiguration, False),
+        "ApplicationSnapshotConfiguration": (
+            ApplicationSnapshotConfiguration,
+            False,
+        ),  # NOQA
+        "EnvironmentProperties": (EnvironmentProperties, False),
+        "FlinkApplicationConfiguration": (FlinkApplicationConfiguration, False),  # NOQA
+        "SqlApplicationConfiguration": (SqlApplicationConfiguration, False),
+        "ZeppelinApplicationConfiguration": (ZeppelinApplicationConfiguration, False),
     }
 
 
@@ -199,50 +248,49 @@ class Application(AWSObject):
     resource_type = "AWS::KinesisAnalyticsV2::Application"
 
     props = {
-        'ApplicationConfiguration': (ApplicationConfiguration, False),
-        'ApplicationDescription': (basestring, False),
-        'ApplicationName': (basestring, False),
-        'RuntimeEnvironment': (validate_runtime_environment, True),
-        'ServiceExecutionRole': (basestring, True),
+        "ApplicationConfiguration": (ApplicationConfiguration, False),
+        "ApplicationDescription": (str, False),
+        "ApplicationName": (str, False),
+        "RuntimeEnvironment": (validate_runtime_environment, True),
+        "ServiceExecutionRole": (str, True),
     }
 
 
 class CloudWatchLoggingOption(AWSProperty):
     props = {
-        'LogStreamARN': (basestring, True),
+        "LogStreamARN": (str, True),
     }
 
 
 class ApplicationCloudWatchLoggingOption(AWSObject):
-    resource_type = \
-        "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
+    resource_type = "AWS::KinesisAnalyticsV2::ApplicationCloudWatchLoggingOption"
 
     props = {
-        'ApplicationName': (basestring, True),
-        'CloudWatchLoggingOption': (CloudWatchLoggingOption, True),
+        "ApplicationName": (str, True),
+        "CloudWatchLoggingOption": (CloudWatchLoggingOption, True),
     }
 
 
 class S3ReferenceDataSource(AWSProperty):
     props = {
-        'BucketARN': (basestring, False),
-        'FileKey': (basestring, False),
+        "BucketARN": (str, False),
+        "FileKey": (str, False),
     }
 
 
 class ReferenceSchema(AWSProperty):
     props = {
-        'RecordEncoding': (basestring, False),
-        'RecordColumns': ([RecordColumn], True),
-        'RecordFormat': (RecordFormat, True),
+        "RecordEncoding": (str, False),
+        "RecordColumns": ([RecordColumn], True),
+        "RecordFormat": (RecordFormat, True),
     }
 
 
 class ReferenceDataSource(AWSProperty):
     props = {
-        'ReferenceSchema': (ReferenceSchema, True),
-        'TableName': (basestring, False),
-        'S3ReferenceDataSource': (S3ReferenceDataSource, False),
+        "ReferenceSchema": (ReferenceSchema, True),
+        "TableName": (str, False),
+        "S3ReferenceDataSource": (S3ReferenceDataSource, False),
     }
 
 
@@ -250,32 +298,32 @@ class ApplicationReferenceDataSource(AWSObject):
     resource_type = "AWS::KinesisAnalyticsV2::ApplicationReferenceDataSource"
 
     props = {
-        'ApplicationName': (basestring, True),
-        'ReferenceDataSource': (ReferenceDataSource, True),
+        "ApplicationName": (str, True),
+        "ReferenceDataSource": (ReferenceDataSource, True),
     }
 
 
 class LambdaOutput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
+        "ResourceARN": (str, True),
     }
 
 
 class KinesisFirehoseOutput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
+        "ResourceARN": (str, True),
     }
 
 
 class KinesisStreamsOutput(AWSProperty):
     props = {
-        'ResourceARN': (basestring, True),
+        "ResourceARN": (str, True),
     }
 
 
 class DestinationSchema(AWSProperty):
     props = {
-        'RecordFormatType': (basestring, False),
+        "RecordFormatType": (str, False),
     }
 
 
@@ -285,7 +333,7 @@ class Output(AWSProperty):
         "LambdaOutput": (LambdaOutput, False),
         "KinesisFirehoseOutput": (KinesisFirehoseOutput, False),
         "KinesisStreamsOutput": (KinesisStreamsOutput, False),
-        "Name": (basestring, False),
+        "Name": (str, False),
     }
 
 
@@ -293,6 +341,6 @@ class ApplicationOutput(AWSObject):
     resource_type = "AWS::KinesisAnalyticsV2::ApplicationOutput"
 
     props = {
-        'ApplicationName': (basestring, True),
-        'Output': (Output, True),
+        "ApplicationName": (str, True),
+        "Output": (Output, True),
     }

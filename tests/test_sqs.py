@@ -1,4 +1,5 @@
 import unittest
+
 from troposphere import Join
 from troposphere.sqs import Queue
 
@@ -35,5 +36,5 @@ class TestQueue(unittest.TestCase):
             ).validate()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

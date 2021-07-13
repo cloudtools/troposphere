@@ -1,5 +1,6 @@
 import unittest
-from troposphere.config import SourceDetails, ONE_HOUR
+
+from troposphere.config import ONE_HOUR, SourceDetails
 
 
 class TestConfig(unittest.TestCase):
@@ -19,5 +20,5 @@ class TestConfig(unittest.TestCase):
             ).to_dict()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

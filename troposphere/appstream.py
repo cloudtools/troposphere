@@ -7,17 +7,16 @@
 # Resource specification version: 8.1.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class ServiceAccountCredentials(AWSProperty):
     props = {
-        'AccountName': (basestring, True),
-        'AccountPassword': (basestring, True),
+        "AccountName": (str, True),
+        "AccountPassword": (str, True),
     }
 
 
@@ -25,29 +24,29 @@ class DirectoryConfig(AWSObject):
     resource_type = "AWS::AppStream::DirectoryConfig"
 
     props = {
-        'DirectoryName': (basestring, True),
-        'OrganizationalUnitDistinguishedNames': ([basestring], True),
-        'ServiceAccountCredentials': (ServiceAccountCredentials, True),
+        "DirectoryName": (str, True),
+        "OrganizationalUnitDistinguishedNames": ([str], True),
+        "ServiceAccountCredentials": (ServiceAccountCredentials, True),
     }
 
 
 class ComputeCapacity(AWSProperty):
     props = {
-        'DesiredInstances': (integer, True),
+        "DesiredInstances": (integer, True),
     }
 
 
 class DomainJoinInfo(AWSProperty):
     props = {
-        'DirectoryName': (basestring, False),
-        'OrganizationalUnitDistinguishedName': (basestring, False),
+        "DirectoryName": (str, False),
+        "OrganizationalUnitDistinguishedName": (str, False),
     }
 
 
 class VpcConfig(AWSProperty):
     props = {
-        'SecurityGroupIds': ([basestring], False),
-        'SubnetIds': ([basestring], False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
     }
 
 
@@ -55,28 +54,30 @@ class Fleet(AWSObject):
     resource_type = "AWS::AppStream::Fleet"
 
     props = {
-        'ComputeCapacity': (ComputeCapacity, True),
-        'Description': (basestring, False),
-        'DisconnectTimeoutInSeconds': (integer, False),
-        'DisplayName': (basestring, False),
-        'DomainJoinInfo': (DomainJoinInfo, False),
-        'EnableDefaultInternetAccess': (boolean, False),
-        'FleetType': (basestring, False),
-        'IdleDisconnectTimeoutInSeconds': (integer, False),
-        'ImageArn': (basestring, False),
-        'ImageName': (basestring, False),
-        'InstanceType': (basestring, True),
-        'MaxUserDurationInSeconds': (integer, False),
-        'Name': (basestring, False),
-        'Tags': ((Tags, list), False),
-        'VpcConfig': (VpcConfig, False),
+        "ComputeCapacity": (ComputeCapacity, True),
+        "Description": (str, False),
+        "DisconnectTimeoutInSeconds": (integer, False),
+        "DisplayName": (str, False),
+        "DomainJoinInfo": (DomainJoinInfo, False),
+        "EnableDefaultInternetAccess": (boolean, False),
+        "FleetType": (str, False),
+        "IamRoleArn": (str, False),
+        "IdleDisconnectTimeoutInSeconds": (integer, False),
+        "ImageArn": (str, False),
+        "ImageName": (str, False),
+        "InstanceType": (str, True),
+        "MaxUserDurationInSeconds": (integer, False),
+        "Name": (str, False),
+        "StreamView": (str, False),
+        "Tags": ((Tags, list), False),
+        "VpcConfig": (VpcConfig, False),
     }
 
 
 class AccessEndpoint(AWSProperty):
     props = {
-        'EndpointType': (basestring, True),
-        'VpceId': (basestring, True),
+        "EndpointType": (str, True),
+        "VpceId": (str, True),
     }
 
 
@@ -84,40 +85,41 @@ class ImageBuilder(AWSObject):
     resource_type = "AWS::AppStream::ImageBuilder"
 
     props = {
-        'AccessEndpoints': ([AccessEndpoint], False),
-        'AppstreamAgentVersion': (basestring, False),
-        'Description': (basestring, False),
-        'DisplayName': (basestring, False),
-        'DomainJoinInfo': (DomainJoinInfo, False),
-        'EnableDefaultInternetAccess': (boolean, False),
-        'ImageArn': (basestring, False),
-        'ImageName': (basestring, False),
-        'InstanceType': (basestring, True),
-        'Name': (basestring, False),
-        'Tags': ((Tags, list), False),
-        'VpcConfig': (VpcConfig, False),
+        "AccessEndpoints": ([AccessEndpoint], False),
+        "AppstreamAgentVersion": (str, False),
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "DomainJoinInfo": (DomainJoinInfo, False),
+        "EnableDefaultInternetAccess": (boolean, False),
+        "IamRoleArn": (str, False),
+        "ImageArn": (str, False),
+        "ImageName": (str, False),
+        "InstanceType": (str, True),
+        "Name": (str, False),
+        "Tags": ((Tags, list), False),
+        "VpcConfig": (VpcConfig, False),
     }
 
 
 class ApplicationSettings(AWSProperty):
     props = {
-        'Enabled': (boolean, True),
-        'SettingsGroup': (basestring, False),
+        "Enabled": (boolean, True),
+        "SettingsGroup": (str, False),
     }
 
 
 class StorageConnector(AWSProperty):
     props = {
-        'ConnectorType': (basestring, True),
-        'Domains': ([basestring], False),
-        'ResourceIdentifier': (basestring, False),
+        "ConnectorType": (str, True),
+        "Domains": ([str], False),
+        "ResourceIdentifier": (str, False),
     }
 
 
 class UserSetting(AWSProperty):
     props = {
-        'Action': (basestring, True),
-        'Permission': (basestring, True),
+        "Action": (str, True),
+        "Permission": (str, True),
     }
 
 
@@ -125,19 +127,19 @@ class Stack(AWSObject):
     resource_type = "AWS::AppStream::Stack"
 
     props = {
-        'AccessEndpoints': ([AccessEndpoint], False),
-        'ApplicationSettings': (ApplicationSettings, False),
-        'AttributesToDelete': ([basestring], False),
-        'DeleteStorageConnectors': (boolean, False),
-        'Description': (basestring, False),
-        'DisplayName': (basestring, False),
-        'EmbedHostDomains': ([basestring], False),
-        'FeedbackURL': (basestring, False),
-        'Name': (basestring, False),
-        'RedirectURL': (basestring, False),
-        'StorageConnectors': ([StorageConnector], False),
-        'Tags': ((Tags, list), False),
-        'UserSettings': ([UserSetting], False),
+        "AccessEndpoints": ([AccessEndpoint], False),
+        "ApplicationSettings": (ApplicationSettings, False),
+        "AttributesToDelete": ([str], False),
+        "DeleteStorageConnectors": (boolean, False),
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "EmbedHostDomains": ([str], False),
+        "FeedbackURL": (str, False),
+        "Name": (str, False),
+        "RedirectURL": (str, False),
+        "StorageConnectors": ([StorageConnector], False),
+        "Tags": ((Tags, list), False),
+        "UserSettings": ([UserSetting], False),
     }
 
 
@@ -145,8 +147,8 @@ class StackFleetAssociation(AWSObject):
     resource_type = "AWS::AppStream::StackFleetAssociation"
 
     props = {
-        'FleetName': (basestring, True),
-        'StackName': (basestring, True),
+        "FleetName": (str, True),
+        "StackName": (str, True),
     }
 
 
@@ -154,10 +156,10 @@ class StackUserAssociation(AWSObject):
     resource_type = "AWS::AppStream::StackUserAssociation"
 
     props = {
-        'AuthenticationType': (basestring, True),
-        'SendEmailNotification': (boolean, False),
-        'StackName': (basestring, True),
-        'UserName': (basestring, True),
+        "AuthenticationType": (str, True),
+        "SendEmailNotification": (boolean, False),
+        "StackName": (str, True),
+        "UserName": (str, True),
     }
 
 
@@ -165,9 +167,9 @@ class User(AWSObject):
     resource_type = "AWS::AppStream::User"
 
     props = {
-        'AuthenticationType': (basestring, True),
-        'FirstName': (basestring, False),
-        'LastName': (basestring, False),
-        'MessageAction': (basestring, False),
-        'UserName': (basestring, True),
+        "AuthenticationType": (str, True),
+        "FirstName": (str, False),
+        "LastName": (str, False),
+        "MessageAction": (str, False),
+        "UserName": (str, True),
     }

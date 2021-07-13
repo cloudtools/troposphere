@@ -7,14 +7,13 @@
 # Resource specification version: 8.1.0
 
 
-from . import AWSObject
-from . import AWSProperty
+from . import AWSObject, AWSProperty
 from .validators import integer
 
 
 class AccelerationSettings(AWSProperty):
     props = {
-        'Mode': (basestring, True),
+        "Mode": (str, True),
     }
 
 
@@ -22,15 +21,15 @@ class JobTemplate(AWSObject):
     resource_type = "AWS::MediaConvert::JobTemplate"
 
     props = {
-        'AccelerationSettings': (AccelerationSettings, False),
-        'Category': (basestring, False),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'Priority': (integer, False),
-        'Queue': (basestring, False),
-        'SettingsJson': (dict, True),
-        'StatusUpdateInterval': (basestring, False),
-        'Tags': (dict, False),
+        "AccelerationSettings": (AccelerationSettings, False),
+        "Category": (str, False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "Priority": (integer, False),
+        "Queue": (str, False),
+        "SettingsJson": (dict, True),
+        "StatusUpdateInterval": (str, False),
+        "Tags": (dict, False),
     }
 
 
@@ -38,11 +37,11 @@ class Preset(AWSObject):
     resource_type = "AWS::MediaConvert::Preset"
 
     props = {
-        'Category': (basestring, False),
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'SettingsJson': (dict, True),
-        'Tags': (dict, False),
+        "Category": (str, False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "SettingsJson": (dict, True),
+        "Tags": (dict, False),
     }
 
 
@@ -50,9 +49,9 @@ class Queue(AWSObject):
     resource_type = "AWS::MediaConvert::Queue"
 
     props = {
-        'Description': (basestring, False),
-        'Name': (basestring, False),
-        'PricingPlan': (basestring, False),
-        'Status': (basestring, False),
-        'Tags': (dict, False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "PricingPlan": (str, False),
+        "Status": (str, False),
+        "Tags": (dict, False),
     }

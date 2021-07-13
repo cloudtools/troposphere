@@ -7,22 +7,21 @@
 # Resource specification version: 5.3.0
 
 
-from . import AWSObject
-from . import AWSProperty
+from . import AWSObject, AWSProperty
 from .validators import boolean
 
 
 class S3(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'Key': (basestring, True),
-        'ObjectVersion': (basestring, False),
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "ObjectVersion": (str, False),
     }
 
 
 class Code(AWSProperty):
     props = {
-        'S3': (S3, True),
+        "S3": (S3, True),
     }
 
 
@@ -30,11 +29,11 @@ class GitHubRepository(AWSObject):
     resource_type = "AWS::CodeStar::GitHubRepository"
 
     props = {
-        'Code': (Code, False),
-        'EnableIssues': (boolean, False),
-        'IsPrivate': (boolean, False),
-        'RepositoryAccessToken': (basestring, True),
-        'RepositoryDescription': (basestring, False),
-        'RepositoryName': (basestring, True),
-        'RepositoryOwner': (basestring, True),
+        "Code": (Code, False),
+        "EnableIssues": (boolean, False),
+        "IsPrivate": (boolean, False),
+        "RepositoryAccessToken": (str, True),
+        "RepositoryDescription": (str, False),
+        "RepositoryName": (str, True),
+        "RepositoryOwner": (str, True),
     }

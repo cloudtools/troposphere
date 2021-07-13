@@ -7,75 +7,73 @@
 # Resource specification version: 8.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
-from .validators import boolean
-from .validators import double
+from . import AWSObject, AWSProperty
+from .validators import boolean, double
 
 
 class CostTypes(AWSProperty):
     props = {
-        'IncludeCredit': (boolean, False),
-        'IncludeDiscount': (boolean, False),
-        'IncludeOtherSubscription': (boolean, False),
-        'IncludeRecurring': (boolean, False),
-        'IncludeRefund': (boolean, False),
-        'IncludeSubscription': (boolean, False),
-        'IncludeSupport': (boolean, False),
-        'IncludeTax': (boolean, False),
-        'IncludeUpfront': (boolean, False),
-        'UseAmortized': (boolean, False),
-        'UseBlended': (boolean, False),
+        "IncludeCredit": (boolean, False),
+        "IncludeDiscount": (boolean, False),
+        "IncludeOtherSubscription": (boolean, False),
+        "IncludeRecurring": (boolean, False),
+        "IncludeRefund": (boolean, False),
+        "IncludeSubscription": (boolean, False),
+        "IncludeSupport": (boolean, False),
+        "IncludeTax": (boolean, False),
+        "IncludeUpfront": (boolean, False),
+        "UseAmortized": (boolean, False),
+        "UseBlended": (boolean, False),
     }
 
 
 class Spend(AWSProperty):
     props = {
-        'Amount': (double, True),
-        'Unit': (basestring, True),
+        "Amount": (double, True),
+        "Unit": (str, True),
     }
 
 
 class TimePeriod(AWSProperty):
     props = {
-        'End': (basestring, False),
-        'Start': (basestring, False),
+        "End": (str, False),
+        "Start": (str, False),
     }
 
 
 class BudgetData(AWSProperty):
     props = {
-        'BudgetLimit': (Spend, False),
-        'BudgetName': (basestring, False),
-        'BudgetType': (basestring, True),
-        'CostFilters': (dict, False),
-        'CostTypes': (CostTypes, False),
-        'PlannedBudgetLimits': (dict, False),
-        'TimePeriod': (TimePeriod, False),
-        'TimeUnit': (basestring, True),
+        "BudgetLimit": (Spend, False),
+        "BudgetName": (str, False),
+        "BudgetType": (str, True),
+        "CostFilters": (dict, False),
+        "CostTypes": (CostTypes, False),
+        "PlannedBudgetLimits": (dict, False),
+        "TimePeriod": (TimePeriod, False),
+        "TimeUnit": (str, True),
     }
 
 
 class Notification(AWSProperty):
     props = {
-        'ComparisonOperator': (basestring, True),
-        'NotificationType': (basestring, True),
-        'Threshold': (double, True),
-        'ThresholdType': (basestring, False),
+        "ComparisonOperator": (str, True),
+        "NotificationType": (str, True),
+        "Threshold": (double, True),
+        "ThresholdType": (str, False),
     }
 
 
 class Subscriber(AWSProperty):
     props = {
-        'Address': (basestring, True),
-        'SubscriptionType': (basestring, True),
+        "Address": (str, True),
+        "SubscriptionType": (str, True),
     }
 
 
 class NotificationWithSubscribers(AWSProperty):
     props = {
-        'Notification': (Notification, True),
-        'Subscribers': ([Subscriber], True),
+        "Notification": (Notification, True),
+        "Subscribers": ([Subscriber], True),
     }
 
 
@@ -83,7 +81,60 @@ class Budget(AWSObject):
     resource_type = "AWS::Budgets::Budget"
 
     props = {
-        'Budget': (BudgetData, True),
-        'NotificationsWithSubscribers':
-            ([NotificationWithSubscribers], False),
+        "Budget": (BudgetData, True),
+        "NotificationsWithSubscribers": ([NotificationWithSubscribers], False),
+    }
+
+
+class ActionThreshold(AWSProperty):
+    props = {
+        "Type": (str, True),
+        "Value": (double, True),
+    }
+
+
+class IamActionDefinition(AWSProperty):
+    props = {
+        "Groups": ([str], False),
+        "PolicyArn": (str, True),
+        "Roles": ([str], False),
+        "Users": ([str], False),
+    }
+
+
+class ScpActionDefinition(AWSProperty):
+    props = {
+        "PolicyId": (str, True),
+        "TargetIds": ([str], True),
+    }
+
+
+class SsmActionDefinition(AWSProperty):
+    props = {
+        "InstanceIds": ([str], True),
+        "Region": (str, True),
+        "Subtype": (str, True),
+    }
+
+
+class Definition(AWSProperty):
+    props = {
+        "IamActionDefinition": (IamActionDefinition, False),
+        "ScpActionDefinition": (ScpActionDefinition, False),
+        "SsmActionDefinition": (SsmActionDefinition, False),
+    }
+
+
+class BudgetsAction(AWSObject):
+    resource_type = "AWS::Budgets::BudgetsAction"
+
+    props = {
+        "ActionThreshold": (ActionThreshold, True),
+        "ActionType": (str, True),
+        "ApprovalModel": (str, False),
+        "BudgetName": (str, True),
+        "Definition": (Definition, True),
+        "ExecutionRoleArn": (str, True),
+        "NotificationType": (str, True),
+        "Subscribers": ([Subscriber], False),
     }

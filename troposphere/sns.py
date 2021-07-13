@@ -10,8 +10,8 @@ from .validators import boolean
 
 class Subscription(AWSProperty):
     props = {
-        'Endpoint': (basestring, True),
-        'Protocol': (basestring, True),
+        "Endpoint": (str, True),
+        "Protocol": (str, True),
     }
 
 
@@ -19,14 +19,14 @@ class SubscriptionResource(AWSObject):
     resource_type = "AWS::SNS::Subscription"
 
     props = {
-        'DeliveryPolicy': (dict, False),
-        'Endpoint': (basestring, False),
-        'FilterPolicy': (dict, False),
-        'Protocol': (basestring, True),
-        'RawMessageDelivery': (boolean, False),
-        'RedrivePolicy': (dict, False),
-        'Region': (basestring, False),
-        'TopicArn': (basestring, True),
+        "DeliveryPolicy": (dict, False),
+        "Endpoint": (str, False),
+        "FilterPolicy": (dict, False),
+        "Protocol": (str, True),
+        "RawMessageDelivery": (boolean, False),
+        "RedrivePolicy": (dict, False),
+        "Region": (str, False),
+        "TopicArn": (str, True),
     }
 
 
@@ -34,8 +34,8 @@ class TopicPolicy(AWSObject):
     resource_type = "AWS::SNS::TopicPolicy"
 
     props = {
-        'PolicyDocument': (policytypes, True),
-        'Topics': (list, True),
+        "PolicyDocument": (policytypes, True),
+        "Topics": (list, True),
     }
 
 
@@ -43,9 +43,11 @@ class Topic(AWSObject):
     resource_type = "AWS::SNS::Topic"
 
     props = {
-        'DisplayName': (basestring, False),
-        'KmsMasterKeyId': (basestring, False),
-        'Subscription': ([Subscription], False),
-        'Tags': (Tags, False),
-        'TopicName': (basestring, False),
+        "ContentBasedDeduplication": (boolean, False),
+        "DisplayName": (str, False),
+        "FifoTopic": (boolean, False),
+        "KmsMasterKeyId": (str, False),
+        "Subscription": ([Subscription], False),
+        "Tags": (Tags, False),
+        "TopicName": (str, False),
     }

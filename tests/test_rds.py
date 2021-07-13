@@ -1,4 +1,5 @@
 import unittest
+
 import troposphere.rds as rds
 from troposphere import If, Parameter, Ref
 
@@ -6,63 +7,62 @@ AWS_NO_VALUE = "AWS::NoValue"
 
 
 class TestRDS(unittest.TestCase):
-
     def test_it_allows_an_rds_instance_created_from_a_snapshot(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=100,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            DBSnapshotIdentifier='SomeSnapshotIdentifier'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            DBSnapshotIdentifier="SomeSnapshotIdentifier",
         )
 
         rds_instance.to_dict()
 
     def test_it_allows_an_rds_instance_with_master_username_and_password(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            MasterUsername='SomeUsername',
-            MasterUserPassword='SomePassword'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            MasterUsername="SomeUsername",
+            MasterUserPassword="SomePassword",
         )
 
         rds_instance.to_dict()
 
     def test_it_rds_instances_require_either_a_snapshot_or_credentials(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
         )
 
-        with self.assertRaisesRegexp(
-                ValueError,
-                r'Either \(MasterUsername and MasterUserPassword\) or'
-                r' DBSnapshotIdentifier are required'
-                ):
+        with self.assertRaisesRegex(
+            ValueError,
+            r"Either \(MasterUsername and MasterUserPassword\) or"
+            r" DBSnapshotIdentifier are required",
+        ):
             rds_instance.to_dict()
 
     def test_it_allows_an_rds_replica(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            SourceDBInstanceIdentifier='SomeSourceDBInstanceIdentifier'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            SourceDBInstanceIdentifier="SomeSourceDBInstanceIdentifier",
         )
 
         rds_instance.to_dict()
 
     def test_replica_settings_are_inherited(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            SourceDBInstanceIdentifier='SomeSourceDBInstanceIdentifier',
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            SourceDBInstanceIdentifier="SomeSourceDBInstanceIdentifier",
             BackupRetentionPeriod="1",
             DBName="SomeName",
             MasterUsername="SomeUsername",
@@ -72,51 +72,44 @@ class TestRDS(unittest.TestCase):
             DBSnapshotIdentifier="SomeDBSnapshotIdentifier",
         )
 
-        with self.assertRaisesRegexp(
-                ValueError,
-                'BackupRetentionPeriod, DBName, DBSnapshotIdentifier, '
-                'MasterUserPassword, MasterUsername, '
-                'MultiAZ, PreferredBackupWindow '
-                'properties can\'t be provided when '
-                'SourceDBInstanceIdentifier is present '
-                'AWS::RDS::DBInstance.'
-                ):
+        with self.assertRaisesRegex(
+            ValueError,
+            "BackupRetentionPeriod, DBName, DBSnapshotIdentifier, "
+            "MasterUserPassword, MasterUsername, "
+            "MultiAZ, PreferredBackupWindow "
+            "properties can't be provided when "
+            "SourceDBInstanceIdentifier is present "
+            "AWS::RDS::DBInstance.",
+        ):
             rds_instance.to_dict()
 
     def test_it_rds_instances_require_encryption_if_kms_key_provided(self):
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=1,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            MasterUsername='SomeUsername',
-            MasterUserPassword='SomePassword',
-            KmsKeyId='arn:aws:kms:us-east-1:123456789012:key/'
-                     '12345678-1234-1234-1234-123456789012'
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            MasterUsername="SomeUsername",
+            MasterUserPassword="SomePassword",
+            KmsKeyId="arn:aws:kms:us-east-1:123456789012:key/"
+            "12345678-1234-1234-1234-123456789012",
         )
 
-        with self.assertRaisesRegexp(
-                ValueError,
-                'If KmsKeyId is provided, StorageEncrypted is required'
-                ):
+        with self.assertRaisesRegex(
+            ValueError, "If KmsKeyId is provided, StorageEncrypted is required"
+        ):
             rds_instance.to_dict()
 
     def test_it_allows_an_rds_instance_with_iops(self):
-        # ensure troposphere works with longs and ints
-        try:
-            long_number = long(2000)
-        except NameError:
-            # Python 3 doesn't have 'long' anymore
-            long_number = 2000
         rds_instance = rds.DBInstance(
-            'SomeTitle',
+            "SomeTitle",
             AllocatedStorage=200,
-            DBInstanceClass='db.m1.small',
-            Engine='MySQL',
-            MasterUsername='SomeUsername',
-            MasterUserPassword='SomePassword',
-            StorageType='io1',
-            Iops=long_number,
+            DBInstanceClass="db.m1.small",
+            Engine="MySQL",
+            MasterUsername="SomeUsername",
+            MasterUserPassword="SomePassword",
+            StorageType="io1",
+            Iops=2000,
         )
 
         rds_instance.to_dict()
@@ -136,7 +129,7 @@ class TestRDS(unittest.TestCase):
                 rds.OptionConfiguration(
                     OptionName="APEX",
                 ),
-            ]
+            ],
         )
         rds_optiongroup.to_dict()
 
@@ -149,13 +142,14 @@ class TestRDS(unittest.TestCase):
             DBInstanceClass="db.m1.small",
             Engine="postgres",
             AvailabilityZone="us-east-1",
-            MultiAZ=True)
-        with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
+            MultiAZ=True,
+        )
+        with self.assertRaisesRegex(ValueError, "if MultiAZ is set to "):
             i.to_dict()
         i.MultiAZ = "false"
         i.to_dict()
         i.MultiAZ = "true"
-        with self.assertRaisesRegexp(ValueError, "if MultiAZ is set to "):
+        with self.assertRaisesRegex(ValueError, "if MultiAZ is set to "):
             i.to_dict()
 
         i.MultiAZ = Ref(AWS_NO_VALUE)
@@ -184,8 +178,9 @@ class TestRDS(unittest.TestCase):
             AllocatedStorage=10,
             DBInstanceClass="db.m1.small",
             Engine="postgres",
-            StorageType='io1')
-        with self.assertRaisesRegexp(ValueError, "Must specify Iops if "):
+            StorageType="io1",
+        )
+        with self.assertRaisesRegex(ValueError, "Must specify Iops if "):
             i.to_dict()
 
     def test_storage_to_iops_ratio(self):
@@ -195,15 +190,15 @@ class TestRDS(unittest.TestCase):
             MasterUserPassword="mypassword",
             DBInstanceClass="db.m1.small",
             Engine="postgres",
-            StorageType='io1',
+            StorageType="io1",
             Iops=6000,
-            AllocatedStorage=10)
-        with self.assertRaisesRegexp(ValueError, " must be at least 100 "):
+            AllocatedStorage=10,
+        )
+        with self.assertRaisesRegex(ValueError, " must be at least 100 "):
             i.to_dict()
 
         i.AllocatedStorage = 100
-        with self.assertRaisesRegexp(
-                ValueError, " must be no less than 1/50th "):
+        with self.assertRaisesRegex(ValueError, " must be no less than 1/50th "):
             i.to_dict()
 
         i.Iops = 5000
@@ -211,37 +206,36 @@ class TestRDS(unittest.TestCase):
 
     def test_snapshot(self):
         i = rds.DBInstance(
-            'MyDB',
-            DBName='test',
+            "MyDB",
+            DBName="test",
             AllocatedStorage=25,
-            DBInstanceClass='db.m4.large',
-            DBSubnetGroupName='default',
-            DBSnapshotIdentifier='id',
+            DBInstanceClass="db.m4.large",
+            DBSubnetGroupName="default",
+            DBSnapshotIdentifier="id",
         )
         i.to_dict()
 
     def test_snapshot_and_engine(self):
         i = rds.DBInstance(
-            'MyDB',
-            DBName='test',
+            "MyDB",
+            DBName="test",
             AllocatedStorage=25,
-            DBInstanceClass='db.m4.large',
-            DBSubnetGroupName='default',
-            DBSnapshotIdentifier='id',
+            DBInstanceClass="db.m4.large",
+            DBSubnetGroupName="default",
+            DBSnapshotIdentifier="id",
             Engine="postgres",
         )
         i.to_dict()
 
     def test_no_snapshot_or_engine(self):
         i = rds.DBInstance(
-            'MyDB',
-            DBName='test',
+            "MyDB",
+            DBName="test",
             AllocatedStorage=25,
-            DBInstanceClass='db.m4.large',
-            DBSubnetGroupName='default',
+            DBInstanceClass="db.m4.large",
+            DBSubnetGroupName="default",
         )
-        with self.assertRaisesRegexp(
-                ValueError, "Resource Engine is required"):
+        with self.assertRaisesRegex(ValueError, "Resource Engine is required"):
             i.to_dict()
 
 
@@ -287,38 +281,40 @@ class TestRDSValidators(unittest.TestCase):
 
         bad_format = ("bad_backup_window", "28:11-10:00", "10:00-28:11")
         for w in bad_format:
-            with self.assertRaisesRegexp(ValueError, "must be in the format"):
+            with self.assertRaisesRegex(ValueError, "must be in the format"):
                 rds.validate_backup_window(w)
 
-        with self.assertRaisesRegexp(ValueError, "must be at least 30 "):
+        with self.assertRaisesRegex(ValueError, "must be at least 30 "):
             rds.validate_backup_window("10:00-10:10")
 
     def test_validate_maintenance_window(self):
-        good_windows = ("Mon:10:00-Mon:16:30", "Mon:10:00-Wed:10:00",
-                        "Sun:16:00-Mon:11:00")
+        good_windows = (
+            "Mon:10:00-Mon:16:30",
+            "Mon:10:00-Wed:10:00",
+            "Sun:16:00-Mon:11:00",
+        )
 
         for w in good_windows:
             rds.validate_maintenance_window(w)
 
         bad_format = ("bad_mainteance", "Mon:10:00-Tue:28:00", "10:00-22:00")
         for w in bad_format:
-            with self.assertRaisesRegexp(ValueError, "must be in the format"):
+            with self.assertRaisesRegex(ValueError, "must be in the format"):
                 rds.validate_maintenance_window(w)
 
-        bad_days = ("Boo:10:00-Woo:10:30", "Boo:10:00-Tue:10:30",
-                    "Mon:10:00-Boo:10:30")
+        bad_days = ("Boo:10:00-Woo:10:30", "Boo:10:00-Tue:10:30", "Mon:10:00-Boo:10:30")
         for w in bad_days:
-            with self.assertRaisesRegexp(ValueError, " day part of ranges "):
+            with self.assertRaisesRegex(ValueError, " day part of ranges "):
                 rds.validate_maintenance_window(w)
 
-        with self.assertRaisesRegexp(ValueError, "must be at least 30 "):
+        with self.assertRaisesRegex(ValueError, "must be at least 30 "):
             rds.validate_maintenance_window("Mon:10:00-Mon:10:10")
 
     def test_validate_backup_retention_period(self):
         for d in (1, 10, 15, 35):
             rds.validate_backup_retention_period(d)
 
-        with self.assertRaisesRegexp(ValueError, " cannot be larger than 35 "):
+        with self.assertRaisesRegex(ValueError, " cannot be larger than 35 "):
             rds.validate_backup_retention_period(40)
 
         rds.validate_backup_retention_period(10)

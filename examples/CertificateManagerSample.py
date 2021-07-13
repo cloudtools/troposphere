@@ -5,19 +5,16 @@ t = Template()
 
 t.add_resource(
     Certificate(
-        'mycert',
-        DomainName='example.com',
+        "mycert",
+        DomainName="example.com",
         DomainValidationOptions=[
             DomainValidationOption(
-                DomainName='example.com',
-                ValidationDomain='example.com',
+                DomainName="example.com",
+                ValidationDomain="example.com",
             ),
         ],
         Tags=[
-            {
-                'Key': 'tag-key',
-                'Value': 'tag-value'
-            },
+            {"Key": "tag-key", "Value": "tag-value"},
         ],
     )
 )

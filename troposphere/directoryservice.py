@@ -9,8 +9,8 @@ from .validators import boolean
 
 class VpcSettings(AWSProperty):
     props = {
-        'SubnetIds': ([basestring], True),
-        'VpcId': (basestring, True),
+        "SubnetIds": ([str], True),
+        "VpcId": (str, True),
     }
 
 
@@ -18,13 +18,13 @@ class MicrosoftAD(AWSObject):
     resource_type = "AWS::DirectoryService::MicrosoftAD"
 
     props = {
-        'CreateAlias': (boolean, False),
-        'Edition': (basestring, False),
-        'EnableSso': (boolean, False),
-        'Name': (basestring, True),
-        'Password': (basestring, True),
-        'ShortName': (basestring, False),
-        'VpcSettings': (VpcSettings, True)
+        "CreateAlias": (boolean, False),
+        "Edition": (str, False),
+        "EnableSso": (boolean, False),
+        "Name": (str, True),
+        "Password": (str, True),
+        "ShortName": (str, False),
+        "VpcSettings": (VpcSettings, True),
     }
 
 
@@ -32,12 +32,12 @@ class SimpleAD(AWSObject):
     resource_type = "AWS::DirectoryService::SimpleAD"
 
     props = {
-        'CreateAlias': (boolean, False),
-        'Description': (basestring, False),
-        'EnableSso': (boolean, False),
-        'Name': (basestring, True),
-        'Password': (basestring, True),
-        'ShortName': (basestring, False),
-        'Size': (basestring, True),
-        'VpcSettings': (VpcSettings, True),
+        "CreateAlias": (boolean, False),
+        "Description": (str, False),
+        "EnableSso": (boolean, False),
+        "Name": (str, True),
+        "Password": (str, True),
+        "ShortName": (str, False),
+        "Size": (str, True),
+        "VpcSettings": (VpcSettings, True),
     }

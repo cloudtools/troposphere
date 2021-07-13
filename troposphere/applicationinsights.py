@@ -7,109 +7,105 @@
 # Resource specification version: 18.6.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, integer
 
 
 class Alarm(AWSProperty):
     props = {
-        'AlarmName': (basestring, True),
-        'Severity': (basestring, False),
+        "AlarmName": (str, True),
+        "Severity": (str, False),
     }
 
 
 class AlarmMetric(AWSProperty):
     props = {
-        'AlarmMetricName': (basestring, True),
+        "AlarmMetricName": (str, True),
     }
 
 
 class Log(AWSProperty):
     props = {
-        'Encoding': (basestring, False),
-        'LogGroupName': (basestring, False),
-        'LogPath': (basestring, False),
-        'LogType': (basestring, True),
-        'PatternSet': (basestring, False),
+        "Encoding": (str, False),
+        "LogGroupName": (str, False),
+        "LogPath": (str, False),
+        "LogType": (str, True),
+        "PatternSet": (str, False),
     }
 
 
 class WindowsEvent(AWSProperty):
     props = {
-        'EventLevels': ([basestring], True),
-        'EventName': (basestring, True),
-        'LogGroupName': (basestring, True),
-        'PatternSet': (basestring, False),
+        "EventLevels": ([str], True),
+        "EventName": (str, True),
+        "LogGroupName": (str, True),
+        "PatternSet": (str, False),
     }
 
 
 class ConfigurationDetails(AWSProperty):
     props = {
-        'AlarmMetrics': ([AlarmMetric], False),
-        'Alarms': ([Alarm], False),
-        'Logs': ([Log], False),
-        'WindowsEvents': ([WindowsEvent], False),
+        "AlarmMetrics": ([AlarmMetric], False),
+        "Alarms": ([Alarm], False),
+        "Logs": ([Log], False),
+        "WindowsEvents": ([WindowsEvent], False),
     }
 
 
 class SubComponentConfigurationDetails(AWSProperty):
     props = {
-        'AlarmMetrics': ([AlarmMetric], False),
-        'Logs': ([Log], False),
-        'WindowsEvents': ([WindowsEvent], False),
+        "AlarmMetrics": ([AlarmMetric], False),
+        "Logs": ([Log], False),
+        "WindowsEvents": ([WindowsEvent], False),
     }
 
 
 class SubComponentTypeConfiguration(AWSProperty):
     props = {
-        'SubComponentConfigurationDetails':
-            (SubComponentConfigurationDetails, True),
-        'SubComponentType': (basestring, True),
+        "SubComponentConfigurationDetails": (SubComponentConfigurationDetails, True),
+        "SubComponentType": (str, True),
     }
 
 
 class ComponentConfiguration(AWSProperty):
     props = {
-        'ConfigurationDetails': (ConfigurationDetails, False),
-        'SubComponentTypeConfigurations':
-            ([SubComponentTypeConfiguration], False),
+        "ConfigurationDetails": (ConfigurationDetails, False),
+        "SubComponentTypeConfigurations": ([SubComponentTypeConfiguration], False),
     }
 
 
 class ComponentMonitoringSetting(AWSProperty):
     props = {
-        'ComponentARN': (basestring, False),
-        'ComponentConfigurationMode': (basestring, False),
-        'ComponentName': (basestring, False),
-        'CustomComponentConfiguration': (ComponentConfiguration, False),
-        'DefaultOverwriteComponentConfiguration':
-            (ComponentConfiguration, False),
-        'Tier': (basestring, False),
+        "ComponentARN": (str, False),
+        "ComponentConfigurationMode": (str, False),
+        "ComponentName": (str, False),
+        "CustomComponentConfiguration": (ComponentConfiguration, False),
+        "DefaultOverwriteComponentConfiguration": (ComponentConfiguration, False),
+        "Tier": (str, False),
     }
 
 
 class CustomComponent(AWSProperty):
     props = {
-        'ComponentName': (basestring, True),
-        'ResourceList': ([basestring], True),
+        "ComponentName": (str, True),
+        "ResourceList": ([str], True),
     }
 
 
 class LogPattern(AWSProperty):
     props = {
-        'Pattern': (basestring, True),
-        'PatternName': (basestring, True),
-        'Rank': (integer, True),
+        "Pattern": (str, True),
+        "PatternName": (str, True),
+        "Rank": (integer, True),
     }
 
 
 class LogPatternSet(AWSProperty):
     props = {
-        'LogPatterns': ([LogPattern], True),
-        'PatternSetName': (basestring, True),
+        "LogPatterns": ([LogPattern], True),
+        "PatternSetName": (str, True),
     }
 
 
@@ -117,14 +113,13 @@ class Application(AWSObject):
     resource_type = "AWS::ApplicationInsights::Application"
 
     props = {
-        'AutoConfigurationEnabled': (boolean, False),
-        'CWEMonitorEnabled': (boolean, False),
-        'ComponentMonitoringSettings':
-            ([ComponentMonitoringSetting], False),
-        'CustomComponents': ([CustomComponent], False),
-        'LogPatternSets': ([LogPatternSet], False),
-        'OpsCenterEnabled': (boolean, False),
-        'OpsItemSNSTopicArn': (basestring, False),
-        'ResourceGroupName': (basestring, True),
-        'Tags': (Tags, False),
+        "AutoConfigurationEnabled": (boolean, False),
+        "CWEMonitorEnabled": (boolean, False),
+        "ComponentMonitoringSettings": ([ComponentMonitoringSetting], False),
+        "CustomComponents": ([CustomComponent], False),
+        "LogPatternSets": ([LogPatternSet], False),
+        "OpsCenterEnabled": (boolean, False),
+        "OpsItemSNSTopicArn": (str, False),
+        "ResourceGroupName": (str, True),
+        "Tags": (Tags, False),
     }

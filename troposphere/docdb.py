@@ -11,24 +11,24 @@ class DBCluster(AWSObject):
     resource_type = "AWS::DocDB::DBCluster"
 
     props = {
-        'AvailabilityZones': ([basestring], False),
-        'BackupRetentionPeriod': (integer, False),
-        'DBClusterIdentifier': (basestring, False),
-        'DBClusterParameterGroupName': (basestring, False),
-        'DBSubnetGroupName': (basestring, False),
-        'DeletionProtection': (boolean, False),
-        'EnableCloudwatchLogsExports': ([basestring], False),
-        'EngineVersion': (basestring, False),
-        'KmsKeyId': (basestring, False),
-        'MasterUserPassword': (basestring, False),
-        'MasterUsername': (basestring, False),
-        'Port': (integer, False),
-        'PreferredBackupWindow': (basestring, False),
-        'PreferredMaintenanceWindow': (basestring, False),
-        'SnapshotIdentifier': (basestring, False),
-        'StorageEncrypted': (boolean, False),
-        'Tags': (Tags, False),
-        'VpcSecurityGroupIds': ([basestring], False),
+        "AvailabilityZones": ([str], False),
+        "BackupRetentionPeriod": (integer, False),
+        "DBClusterIdentifier": (str, False),
+        "DBClusterParameterGroupName": (str, False),
+        "DBSubnetGroupName": (str, False),
+        "DeletionProtection": (boolean, False),
+        "EnableCloudwatchLogsExports": ([str], False),
+        "EngineVersion": (str, False),
+        "KmsKeyId": (str, False),
+        "MasterUserPassword": (str, False),
+        "MasterUsername": (str, False),
+        "Port": (integer, False),
+        "PreferredBackupWindow": (str, False),
+        "PreferredMaintenanceWindow": (str, False),
+        "SnapshotIdentifier": (str, False),
+        "StorageEncrypted": (boolean, False),
+        "Tags": (Tags, False),
+        "VpcSecurityGroupIds": ([str], False),
     }
 
 
@@ -36,11 +36,11 @@ class DBClusterParameterGroup(AWSObject):
     resource_type = "AWS::DocDB::DBClusterParameterGroup"
 
     props = {
-        'Description': (basestring, True),
-        'Family': (basestring, True),
-        'Name': (basestring, False),
-        'Parameters': (dict, True),
-        'Tags': (Tags, False),
+        "Description": (str, True),
+        "Family": (str, True),
+        "Name": (str, False),
+        "Parameters": (dict, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -48,13 +48,13 @@ class DBInstance(AWSObject):
     resource_type = "AWS::DocDB::DBInstance"
 
     props = {
-        'AutoMinorVersionUpgrade': (boolean, False),
-        'AvailabilityZone': (basestring, False),
-        'DBClusterIdentifier': (basestring, True),
-        'DBInstanceClass': (basestring, True),
-        'DBInstanceIdentifier': (basestring, False),
-        'PreferredMaintenanceWindow': (basestring, False),
-        'Tags': (Tags, False),
+        "AutoMinorVersionUpgrade": (boolean, False),
+        "AvailabilityZone": (str, False),
+        "DBClusterIdentifier": (str, True),
+        "DBInstanceClass": (str, True),
+        "DBInstanceIdentifier": (str, False),
+        "PreferredMaintenanceWindow": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -62,8 +62,8 @@ class DBSubnetGroup(AWSObject):
     resource_type = "AWS::DocDB::DBSubnetGroup"
 
     props = {
-        'DBSubnetGroupDescription': (basestring, True),
-        'DBSubnetGroupName': (basestring, False),
-        'SubnetIds': ([basestring], True),
-        'Tags': (Tags, False),
+        "DBSubnetGroupDescription": (str, True),
+        "DBSubnetGroupName": (str, False),
+        "SubnetIds": ([str], True),
+        "Tags": (Tags, False),
     }

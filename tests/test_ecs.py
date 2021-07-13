@@ -1,11 +1,10 @@
 import unittest
-from troposphere import Ref
+
 import troposphere.ecs as ecs
-from troposphere import iam
+from troposphere import Ref, iam
 
 
 class TestECS(unittest.TestCase):
-
     def test_allow_placement_strategy_constraint(self):
         task_definition = ecs.TaskDefinition(
             "mytaskdef",
@@ -21,8 +20,8 @@ class TestECS(unittest.TestCase):
             ],
         )
         ecs_service = ecs.Service(
-            'Service',
-            Cluster='cluster',
+            "Service",
+            Cluster="cluster",
             DesiredCount=2,
             PlacementStrategies=[
                 ecs.PlacementStrategy(
@@ -54,11 +53,11 @@ class TestECS(unittest.TestCase):
             ],
         )
         ecs_service = ecs.Service(
-            'Service',
-            Cluster='cluster',
+            "Service",
+            Cluster="cluster",
             DesiredCount=2,
             TaskDefinition=Ref(task_definition),
-            SchedulingStrategy=ecs.SCHEDULING_STRATEGY_DAEMON
+            SchedulingStrategy=ecs.SCHEDULING_STRATEGY_DAEMON,
         )
 
         ecs_service.to_dict()
@@ -78,20 +77,20 @@ class TestECS(unittest.TestCase):
             ],
         )
         ecs_service = ecs.Service(
-            'Service',
-            Cluster='cluster',
+            "Service",
+            Cluster="cluster",
             DesiredCount=2,
             PlacementStrategies=[
                 ecs.PlacementStrategy(
                     Type="random",
                 )
             ],
-            LaunchType='FARGATE',
+            LaunchType="FARGATE",
             NetworkConfiguration=ecs.NetworkConfiguration(
                 AwsvpcConfiguration=ecs.AwsvpcConfiguration(
-                    AssignPublicIp='DISABLED',
-                    SecurityGroups=['sg-1234'],
-                    Subnets=['subnet-1234']
+                    AssignPublicIp="DISABLED",
+                    SecurityGroups=["sg-1234"],
+                    Subnets=["subnet-1234"],
                 )
             ),
             PlacementConstraints=[
@@ -119,8 +118,8 @@ class TestECS(unittest.TestCase):
             ],
         )
         ecs_service = ecs.Service(
-            'Service',
-            Cluster='cluster',
+            "Service",
+            Cluster="cluster",
             DesiredCount=2,
             TaskDefinition=Ref(task_definition),
         )
@@ -143,7 +142,7 @@ class TestECS(unittest.TestCase):
         )
         cluster = ecs.Cluster("mycluster")
         ecs_service = ecs.Service(
-            'Service',
+            "Service",
             Cluster=Ref(cluster),
             DesiredCount=2,
             TaskDefinition=Ref(task_definition),
@@ -175,7 +174,7 @@ class TestECS(unittest.TestCase):
                     Name="mycontainer",
                 )
             ],
-            TaskRoleArn="myiamrole"
+            TaskRoleArn="myiamrole",
         )
 
         task_definition.to_dict()
@@ -190,7 +189,7 @@ class TestECS(unittest.TestCase):
                     Name="mycontainer",
                 )
             ],
-            TaskRoleArn=Ref(iam.Role("myRole"))
+            TaskRoleArn=Ref(iam.Role("myRole")),
         )
 
         task_definition.to_dict()
@@ -201,10 +200,8 @@ class TestECS(unittest.TestCase):
             Memory="300",
             Name="mycontainer",
             PortMappings=[
-                ecs.PortMapping(
-                    ContainerPort=8125, HostPort=8125, Protocol="udp"
-                )
-            ]
+                ecs.PortMapping(ContainerPort=8125, HostPort=8125, Protocol="udp")
+            ],
         )
 
         container_definition.to_dict()
@@ -216,19 +213,17 @@ class TestECS(unittest.TestCase):
             Name="mycontainer",
             PortMappings=[
                 ecs.PortMapping(
-                    ContainerPort=8125, HostPort=8125,
+                    ContainerPort=8125,
+                    HostPort=8125,
                 )
-            ]
+            ],
         )
 
         container_definition.to_dict()
 
     def test_allow_container_healthcheck(self):
         health_check_def = ecs.HealthCheck(
-            Command=[
-                "CMD-SHELL",
-                "curl -f http://localhost/ || exit 1"
-            ],
+            Command=["CMD-SHELL", "curl -f http://localhost/ || exit 1"],
             Interval=5,
             Timeout=30,
             Retries=5,
@@ -247,7 +242,7 @@ class TestECS(unittest.TestCase):
             Autoprovision=True,
             Scope="task",
             Labels=dict(label="ok"),
-            DriverOpts=dict(option="ok")
+            DriverOpts=dict(option="ok"),
         )
         task_definition = ecs.TaskDefinition(
             "mytaskdef",
@@ -260,8 +255,7 @@ class TestECS(unittest.TestCase):
             ],
             Volumes=[
                 ecs.Volume(
-                    Name="my-vol",
-                    DockerVolumeConfiguration=docker_volume_configuration
+                    Name="my-vol", DockerVolumeConfiguration=docker_volume_configuration
                 ),
             ],
         )
@@ -269,9 +263,8 @@ class TestECS(unittest.TestCase):
 
 
 class TestECSValidators(unittest.TestCase):
-
     def test_scope_validator(self):
-        valid_values = ['shared', 'task']
+        valid_values = ["shared", "task"]
         for x in valid_values:
             ecs.scope_validator(x)
 

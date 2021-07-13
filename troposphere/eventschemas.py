@@ -7,17 +7,18 @@
 # Resource specification version: 14.1.0
 
 
-from . import AWSObject
 from troposphere import Tags
+
+from . import AWSObject
 
 
 class Discoverer(AWSObject):
     resource_type = "AWS::EventSchemas::Discoverer"
 
     props = {
-        'Description': (basestring, False),
-        'SourceArn': (basestring, True),
-        'Tags': (Tags, False),
+        "Description": (str, False),
+        "SourceArn": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -25,9 +26,9 @@ class Registry(AWSObject):
     resource_type = "AWS::EventSchemas::Registry"
 
     props = {
-        'Description': (basestring, False),
-        'RegistryName': (basestring, False),
-        'Tags': (Tags, False),
+        "Description": (str, False),
+        "RegistryName": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -35,9 +36,9 @@ class RegistryPolicy(AWSObject):
     resource_type = "AWS::EventSchemas::RegistryPolicy"
 
     props = {
-        'Policy': (dict, True),
-        'RegistryName': (basestring, True),
-        'RevisionId': (basestring, False),
+        "Policy": (dict, True),
+        "RegistryName": (str, True),
+        "RevisionId": (str, False),
     }
 
 
@@ -45,10 +46,10 @@ class Schema(AWSObject):
     resource_type = "AWS::EventSchemas::Schema"
 
     props = {
-        'Content': (basestring, True),
-        'Description': (basestring, False),
-        'RegistryName': (basestring, True),
-        'SchemaName': (basestring, False),
-        'Tags': (Tags, False),
-        'Type': (basestring, True),
+        "Content": (str, True),
+        "Description": (str, False),
+        "RegistryName": (str, True),
+        "SchemaName": (str, False),
+        "Tags": (Tags, False),
+        "Type": (str, True),
     }

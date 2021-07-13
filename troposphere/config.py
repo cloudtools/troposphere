@@ -3,9 +3,8 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean, integer
-
 
 ONE_HOUR = "One_Hour"
 THREE_HOURS = "Three_Hours"
@@ -16,18 +15,18 @@ TWENTYFOUR_HOURS = "TwentyFour_Hours"
 
 class Scope(AWSProperty):
     props = {
-        'ComplianceResourceId': (basestring, False),
-        'ComplianceResourceTypes': ([basestring], False),
-        'TagKey': (basestring, False),
-        'TagValue': (basestring, False),
+        "ComplianceResourceId": (str, False),
+        "ComplianceResourceTypes": ([str], False),
+        "TagKey": (str, False),
+        "TagValue": (str, False),
     }
 
 
 class SourceDetails(AWSProperty):
     props = {
-        'EventSource': (basestring, True),
-        'MaximumExecutionFrequency': (basestring, False),
-        'MessageType': (basestring, True),
+        "EventSource": (str, True),
+        "MaximumExecutionFrequency": (str, False),
+        "MessageType": (str, True),
     }
 
     def validate(self):
@@ -38,18 +37,19 @@ class SourceDetails(AWSProperty):
             TWELVE_HOURS,
             TWENTYFOUR_HOURS,
         ]
-        freq = self.properties.get('MaximumExecutionFrequency')
+        freq = self.properties.get("MaximumExecutionFrequency")
         if freq and freq not in valid_freqs:
             raise ValueError(
-                "MaximumExecutionFrequency (given: %s) must be one of: %s" % (
-                    freq, ', '.join(valid_freqs)))
+                "MaximumExecutionFrequency (given: %s) must be one of: %s"
+                % (freq, ", ".join(valid_freqs))
+            )
 
 
 class Source(AWSProperty):
     props = {
-        'Owner': (basestring, True),
-        'SourceDetails': ([SourceDetails], False),
-        'SourceIdentifier': (basestring, True),
+        "Owner": (str, True),
+        "SourceDetails": ([SourceDetails], False),
+        "SourceIdentifier": (str, True),
     }
 
 
@@ -57,12 +57,12 @@ class ConfigRule(AWSObject):
     resource_type = "AWS::Config::ConfigRule"
 
     props = {
-        'ConfigRuleName': (basestring, False),
-        'Description': (basestring, False),
-        'InputParameters': (dict, False),
-        'MaximumExecutionFrequency': (basestring, False),
-        'Scope': (Scope, False),
-        'Source': (Source, True),
+        "ConfigRuleName": (str, False),
+        "Description": (str, False),
+        "InputParameters": (dict, False),
+        "MaximumExecutionFrequency": (str, False),
+        "Scope": (Scope, False),
+        "Source": (Source, True),
     }
 
 
@@ -70,24 +70,24 @@ class AggregationAuthorization(AWSObject):
     resource_type = "AWS::Config::AggregationAuthorization"
 
     props = {
-        'AuthorizedAccountId': (basestring, True),
-        'AuthorizedAwsRegion': (basestring, True),
+        "AuthorizedAccountId": (str, True),
+        "AuthorizedAwsRegion": (str, True),
     }
 
 
 class OrganizationAggregationSource(AWSProperty):
     props = {
-        'AllAwsRegions': (boolean, False),
-        'AwsRegions': ([basestring], False),
-        'RoleArn': (basestring, True),
+        "AllAwsRegions": (boolean, False),
+        "AwsRegions": ([str], False),
+        "RoleArn": (str, True),
     }
 
 
 class AccountAggregationSources(AWSProperty):
     props = {
-        'AccountIds': ([basestring], True),
-        'AllAwsRegions': (boolean, False),
-        'AwsRegions': ([basestring], False),
+        "AccountIds": ([str], True),
+        "AllAwsRegions": (boolean, False),
+        "AwsRegions": ([str], False),
     }
 
 
@@ -95,18 +95,17 @@ class ConfigurationAggregator(AWSObject):
     resource_type = "AWS::Config::ConfigurationAggregator"
 
     props = {
-        'AccountAggregationSources': ([AccountAggregationSources], False),
-        'ConfigurationAggregatorName': (basestring, True),
-        'OrganizationAggregationSource':
-            (OrganizationAggregationSource, False),
+        "AccountAggregationSources": ([AccountAggregationSources], False),
+        "ConfigurationAggregatorName": (str, True),
+        "OrganizationAggregationSource": (OrganizationAggregationSource, False),
     }
 
 
 class RecordingGroup(AWSProperty):
     props = {
-        'AllSupported': (boolean, False),
-        'IncludeGlobalResourceTypes': (boolean, False),
-        'ResourceTypes': ([basestring], False),
+        "AllSupported": (boolean, False),
+        "IncludeGlobalResourceTypes": (boolean, False),
+        "ResourceTypes": ([str], False),
     }
 
 
@@ -114,15 +113,15 @@ class ConfigurationRecorder(AWSObject):
     resource_type = "AWS::Config::ConfigurationRecorder"
 
     props = {
-        'Name': (basestring, False),
-        'RecordingGroup': (RecordingGroup, False),
-        'RoleARN': (basestring, True),
+        "Name": (str, False),
+        "RecordingGroup": (RecordingGroup, False),
+        "RoleARN": (str, True),
     }
 
 
 class ConfigSnapshotDeliveryProperties(AWSProperty):
     props = {
-        'DeliveryFrequency': (basestring, False),
+        "DeliveryFrequency": (str, False),
     }
 
 
@@ -130,39 +129,39 @@ class DeliveryChannel(AWSObject):
     resource_type = "AWS::Config::DeliveryChannel"
 
     props = {
-        'ConfigSnapshotDeliveryProperties':
-            (ConfigSnapshotDeliveryProperties, False),
-        'Name': (basestring, False),
-        'S3BucketName': (basestring, True),
-        'S3KeyPrefix': (basestring, False),
-        'SnsTopicARN': (basestring, False),
+        "ConfigSnapshotDeliveryProperties": (ConfigSnapshotDeliveryProperties, False),
+        "Name": (str, False),
+        "S3BucketName": (str, True),
+        "S3KeyPrefix": (str, False),
+        "S3KmsKeyArn": (str, False),
+        "SnsTopicARN": (str, False),
     }
 
 
 class OrganizationCustomRuleMetadata(AWSProperty):
     props = {
-        'Description': (basestring, False),
-        'InputParameters': (basestring, False),
-        'LambdaFunctionArn': (basestring, True),
-        'MaximumExecutionFrequency': (basestring, False),
-        'OrganizationConfigRuleTriggerTypes': ([basestring], True),
-        'ResourceIdScope': (basestring, False),
-        'ResourceTypesScope': ([basestring], False),
-        'TagKeyScope': (basestring, False),
-        'TagValueScope': (basestring, False),
+        "Description": (str, False),
+        "InputParameters": (str, False),
+        "LambdaFunctionArn": (str, True),
+        "MaximumExecutionFrequency": (str, False),
+        "OrganizationConfigRuleTriggerTypes": ([str], True),
+        "ResourceIdScope": (str, False),
+        "ResourceTypesScope": ([str], False),
+        "TagKeyScope": (str, False),
+        "TagValueScope": (str, False),
     }
 
 
 class OrganizationManagedRuleMetadata(AWSProperty):
     props = {
-        'Description': (basestring, False),
-        'InputParameters': (basestring, False),
-        'MaximumExecutionFrequency': (basestring, False),
-        'ResourceIdScope': (basestring, False),
-        'ResourceTypesScope': ([basestring], False),
-        'RuleIdentifier': (basestring, True),
-        'TagKeyScope': (basestring, False),
-        'TagValueScope': (basestring, False),
+        "Description": (str, False),
+        "InputParameters": (str, False),
+        "MaximumExecutionFrequency": (str, False),
+        "ResourceIdScope": (str, False),
+        "ResourceTypesScope": ([str], False),
+        "RuleIdentifier": (str, True),
+        "TagKeyScope": (str, False),
+        "TagValueScope": (str, False),
     }
 
 
@@ -170,25 +169,23 @@ class OrganizationConfigRule(AWSObject):
     resource_type = "AWS::Config::OrganizationConfigRule"
 
     props = {
-        'ExcludedAccounts': ([basestring], False),
-        'OrganizationConfigRuleName': (basestring, True),
-        'OrganizationCustomRuleMetadata':
-            (OrganizationCustomRuleMetadata, False),
-        'OrganizationManagedRuleMetadata':
-            (OrganizationManagedRuleMetadata, False),
+        "ExcludedAccounts": ([str], False),
+        "OrganizationConfigRuleName": (str, True),
+        "OrganizationCustomRuleMetadata": (OrganizationCustomRuleMetadata, False),
+        "OrganizationManagedRuleMetadata": (OrganizationManagedRuleMetadata, False),
     }
 
 
 class SsmControls(AWSProperty):
     props = {
-        'ConcurrentExecutionRatePercentage': (integer, False),
-        'ErrorPercentage': (integer, False),
+        "ConcurrentExecutionRatePercentage": (integer, False),
+        "ErrorPercentage": (integer, False),
     }
 
 
 class ExecutionControls(AWSProperty):
     props = {
-        'SsmControls': (SsmControls, False),
+        "SsmControls": (SsmControls, False),
     }
 
 
@@ -196,23 +193,23 @@ class RemediationConfiguration(AWSObject):
     resource_type = "AWS::Config::RemediationConfiguration"
 
     props = {
-        'Automatic': (boolean, False),
-        'ConfigRuleName': (basestring, True),
-        'ExecutionControls': (ExecutionControls, False),
-        'MaximumAutomaticAttempts': (integer, False),
-        'Parameters': (dict, False),
-        'ResourceType': (basestring, False),
-        'RetryAttemptSeconds': (integer, False),
-        'TargetId': (basestring, True),
-        'TargetType': (basestring, True),
-        'TargetVersion': (basestring, False),
+        "Automatic": (boolean, False),
+        "ConfigRuleName": (str, True),
+        "ExecutionControls": (ExecutionControls, False),
+        "MaximumAutomaticAttempts": (integer, False),
+        "Parameters": (dict, False),
+        "ResourceType": (str, False),
+        "RetryAttemptSeconds": (integer, False),
+        "TargetId": (str, True),
+        "TargetType": (str, True),
+        "TargetVersion": (str, False),
     }
 
 
 class ConformancePackInputParameter(AWSProperty):
     props = {
-        'ParameterName': (basestring, True),
-        'ParameterValue': (basestring, True),
+        "ParameterName": (str, True),
+        "ParameterValue": (str, True),
     }
 
 
@@ -220,12 +217,15 @@ class ConformancePack(AWSObject):
     resource_type = "AWS::Config::ConformancePack"
 
     props = {
-        'ConformancePackInputParameters': ([ConformancePackInputParameter], False),  # NOQA
-        'ConformancePackName': (basestring, True),
-        'DeliveryS3Bucket': (basestring, True),
-        'DeliveryS3KeyPrefix': (basestring, False),
-        'TemplateBody': (basestring, False),
-        'TemplateS3Uri': (basestring, False),
+        "ConformancePackInputParameters": (
+            [ConformancePackInputParameter],
+            False,
+        ),  # NOQA
+        "ConformancePackName": (str, True),
+        "DeliveryS3Bucket": (str, True),
+        "DeliveryS3KeyPrefix": (str, False),
+        "TemplateBody": (str, False),
+        "TemplateS3Uri": (str, False),
     }
 
 
@@ -233,11 +233,25 @@ class OrganizationConformancePack(AWSObject):
     resource_type = "AWS::Config::OrganizationConformancePack"
 
     props = {
-        'ConformancePackInputParameters': ([ConformancePackInputParameter], False),  # NOQA
-        'DeliveryS3Bucket': (basestring, True),
-        'DeliveryS3KeyPrefix': (basestring, False),
-        'ExcludedAccounts': ([basestring], False),
-        'OrganizationConformancePackName': (basestring, True),
-        'TemplateBody': (basestring, False),
-        'TemplateS3Uri': (basestring, False),
+        "ConformancePackInputParameters": (
+            [ConformancePackInputParameter],
+            False,
+        ),  # NOQA
+        "DeliveryS3Bucket": (str, True),
+        "DeliveryS3KeyPrefix": (str, False),
+        "ExcludedAccounts": ([str], False),
+        "OrganizationConformancePackName": (str, True),
+        "TemplateBody": (str, False),
+        "TemplateS3Uri": (str, False),
+    }
+
+
+class StoredQuery(AWSObject):
+    resource_type = "AWS::Config::StoredQuery"
+
+    props = {
+        "QueryDescription": (str, False),
+        "QueryExpression": (str, True),
+        "QueryName": (str, True),
+        "Tags": (Tags, False),
     }

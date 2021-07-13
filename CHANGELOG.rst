@@ -1,3 +1,322 @@
+3.0.1 (2021*07*06)
+------------------
+* Fix CHANGELOG with correct 3.0.0 release date
+* Fix EKS::Nodegroup.Taints to use the correct key for taints (#1925)
+* Include cfn_flip in setup.cfg (#1927)
+* Catch install dependencies with "make release-test
+
+3.0.0 (2021*07*05)
+------------------
+This release now only supports Python 3.6+
+Special thanks to @michael-k for the Python 3 work and tooling improvements.
+
+Breaking changes:
+* Python 3.6+ (Python 2.x and earlier Python 3.x support is now deprecated due to Python EOL)
+* Remove previously deprecated Template methods.
+  To update to currently supported methods, substitute:
+    add_description() => set_description()
+    add_metadata() => set_metadata()
+    add_transform() => set_transform()
+    add_version() => set_version()
+* Remove deprecated troposphere.UpdatePolicy()
+* Remove TROPO_REAL_BOOL. Booleans are output instead of string booleans for better interoperability with tools like cfn-lint.
+* Remove deprecated troposphere.dynamodb2. Use troposphere.dynamodb instead.
+* Remove StageName deprecation warning in apigateway StageDescription
+* Rename ElasticBeanstalk OptionSettings property to OpionSetting per AWS spec files
+
+Changes:
+* Run '2to3 -n -w --no-diffs .'
+* Require Python >= 3.6
+* [utils,examples] Revert changes to print functions made by 2to3
+* Remove unnecessary conversions of iterables to lists
+* Cleanup scripts
+* Restore TypeError's message
+* Cleanup ImportErrors and NameErrors
+* [tests] Make necessary adjustments
+* [examples] Fix indentation
+* Make BaseAWSObject.propnames pickleable
+* Remove '# -*- coding: utf-8 -*-'
+* Stop inheriting from object explicitly
+* Modernize super() calls
+* AWS::MWAA Adding for managed airflow (#1858)
+* Add constants for EC2 instance types: T4g. (#1885)
+* Add AppIntegrations per 2021-03-25 changes
+* Add LookoutMetrics per 2021-03-25 changes
+* Add CustomerProfiles per 2021-03-25 changes
+* Fix Python3 deprecation: import from collections.abc
+* Run black and isort over main directories (examples scripts tests troposphere)
+* Switch to using setup.cfg and add test checks for black/isort
+* Remove previously deprecated Template methods
+* Remove deprecated troposphere.UpdatePolicy()
+* Remove troposphere.dynamodb2. Use troposphere.dynamodb instead.
+* Remove StageName deprecation warning in apigateway StageDescription
+* Start adding CHANGELOG entries for pending 3.0.0 release
+* Quick fix for travis needing cfn_flip imported
+* Set the pending release as 3.0.0
+* Remove Python 2.7 artifacts from Makefile
+* Fix intermittent failure due to an incorrect resource_name in ECR
+* Remove TROPO_REAL_BOOL and output real boolean values
+* Fix template generator boolean interoperability (Fixes #1044)
+* Update fis.py (#1887)
+* lambda memory can be configured in 1 MB increments now (#1886)
+* Make generation script more black format compliant
+* Fix black format in tests/test_awslambda.py
+* Fix properties in LookoutMetrics VpcConfiguration
+* Update ServiceDiscovery per 2021-03-18 changes and re-gen file
+* Adding support for using KinesisStreamSpecification with DynamoDB
+* Run black over last change to correct formatting (#1889)
+* Update Batch per 2021-03-31 changes
+* Update imports in some recent changes with isort
+* Update Logs per 2021-04-01 changes
+* Update CloudWatch per 2021-04-01 changes
+* Update Route53Resolver per 2021-04-01 changes
+* Update GameLift per 2021-04-01 changes
+* Update ElasticBeanstalk per 2021-04-01 update
+* Update Cloud9 per 2021-04-01 changes
+* Update Budgets per 2021-04-01 changes
+* Update ApiGateway per 2021-04-01 changes
+* Update Config per 2021-04-01 changes
+* Update DataBrew per 2021-04-01 changes
+* Update ElastiCache per 2021-04-08 changes
+* Update IVS per 2021-04-15 changes
+* Update EC2 per 2021-04-15 changes
+* Update MWAA per 2021-04-15 changes
+* Update CloudFormation per 2021-04-15 changes
+* Update AutoScaling per 2021-04-23 changes
+* Update ElastiCache per 2021-04-23 changes
+* Update IoTWireless per 2021-04-26 changes
+* Add NimbleStudio per 2021-04-26 updates
+* Add IoTFleetHub per 2021-04-29 updat4es
+* Update SES per 2021-04-29 changes
+* Update Detective per 2021-04-29 changes
+* rearrange make file, add some new targets, remove linting from test
+* add github action to replace travis
+* remove .travis.yml as a GitHub Action was added as a replacement
+* implement suggestion to use `python -m pip ...`
+* rename workflow to tests
+* Create Export instances for Output.Export in cfn2py (#1895)
+* ec2 volume throughput (#1896)
+* Transit-Gateway MulticastSupport (#1897)
+* Add helpers.userdata.from_file_sub() (#1898)
+* AWS::WAFv2::WebACL.CustomResponseBodies and AWS::WAFv2::RuleGroup.CustomResponseBodies (#1899)
+* Fixup black formatting
+* Add M6G, C6G, R6G and R6GD constants for Elasticsearch data and master nodes. (#1900)
+* Add fargate ephemeral storage property (#1906)
+* AWS::ApiGatewayV2::Integration.IntegrationSubtype (#1907)
+* AWS::RDS::DBCluster: add missing GlobalClusterIdentifier parameter (#1908)
+* Add constants for RDS instance types: R6G (#1905)
+* [batch] Update AWS::Batch required properties (#1913)
+* Add compression property to Serverless::Api (#1914)
+* Limit flake8 to core troposphere directories
+* Add AWS::FinSpace per 2021-05-06 changes
+* Update CloudFront::Function per 2021-05-06 changes
+* Add AWS::XRay per 2021-05-06 changes
+* Add AWS::FraudDetector per 2021-05-06 changes
+* Update IoT per 2021-05-06 changes
+* Update GameLift per 2021-05-06 changes
+* Update CloudFront per 2021-05-06 changes
+* Update ACMPCA per 2021-05-06 changes
+* Update S3 per 2021-05-13 changes
+* Update ECR per 2021-05-13 changes
+* Add AWS::SSMIncidents per 2021-05-14 changes
+* Update DynamoDB per 2021-05-14 changes
+* Add AWS::SSMContacts per 2021-05-14 changes
+* Update CloudFormation per 2021-05-14 changes
+* Add AWS::IoTCoreDeviceAdvisor per 2021-05-20 changes
+* Add AWS::AppRunner per 2021-05-20 changes
+* Update EC2 per 2021-05-20 changes
+* Add AWS::CUR per 2021-05-27 changes
+* Update FSx per 2021-05-27 changes
+* Update MediaPackage per 2021-05-27 changes
+* Add ConnectivityType property for NatGateway
+* AWS::ECR::Repository.ImageScanningConfiguration
+* Allow all policy types in s3.AccessPoint.Policy, not just dicts
+* Add new sns event parameters
+* Fix black formatting for serverless.py
+* Update ACMPCA per 20201-05-27 update
+* Add AWS::Location per 2021-06-07 changes
+* Update SSM per 2021-06-10 changes
+* Update SQS per 2021-06-10 changes
+* Update KinesisAnalyticsV2 per 2021-06-10 changes
+* Update RAM per 2021-06-10 changes
+* Update KMS per 2021-06-17 changes
+* Update MWAA per 2021-06-21 changes
+* Add AWS::Connect per 2021-06-24 changes
+* Update CloudFormation per 2021-06-24 changes
+* Update DAX per 2021-06-24 changes
+* Update Transfer per 2021-06-24 changes
+* Update ApplicationAutoScaling per 2021-07-01 changes
+* Update AppMesh per 2021-06-17 changes
+* Fix TestSplit negtive test (Fixes #1919)
+* Add EngineVersion to Athena::WorkGroup (Fixes #1915)
+* Add ResourceTags to ImageBuilder::InfrastructureConfiguration (Fixes #1909)
+* S3 ReplicationConfigurationRules Prefix is no longer required (Fixes #1910)
+* Update ApiGateway per 2021-04-15 changes (Fixes #1893)
+* Rename ElasticBeanstalk OptionSettings property to OpionSetting per AWS spec files
+* Add ProtocolVersion to ElasticLoadBalancingV2::TargetGroup (Fixes #1888)
+* Update example for ElasticBeanstalk OptionSettings property rename
+* Switched VALID_CONNECTION_PROVIDERTYPE to list and added GitHub and GitHubEnterprise
+* Add AWS::EKS::Nodegroup.Taints
+* Add support for Container based Serverless::Functions and added missing props
+* Update requirements-dev.txt for dependencies
+* Update black formatting
+* Update setup.cfg awacs dependency
+* Update RELEASE.rst with new release commands
+
+2.7.0 (2021*03*20)
+------------------
+* Fix typo in ECS DeploymentCircuitBreaker RollBack => Rollback (Fixes #1877)
+* added sort flag to yaml method arguments (#1090)
+* Fix line length issue from previous commit (#1090)
+* docs: use Template.set_metadata instead of add_metadata (#1864)
+* change PropertyMap in kinesisanalyticsv2 PropertyGroup to dict (#1863)
+* Fix tests by removing import of json_checker in kinesisanalyticsv2 (#1863)
+* Adding optional Elasticsearch::Domain options for custom endpoints (#1866)
+* Add support for AppConfig::HostedConfigurationVersion (#1870)
+* Add constants for RDS instance types: M5d, M6g. (#1875)
+* Support Throughput for gp3 ebs volumes (#1873)
+* Add GreengrassV2 per 2020-12-18 changes
+* Add AuditManager per 2020-12-18 changes
+* Update SageMaker per 2020-12-18, 2021-01-21, 2021-02-11, and 2021-02-25 changes
+* Add LicenseManager per 2020-12-18 changes
+* Update ECR per 2020-12-18 and 2021-02-04 changes
+* Update EC2 per 2020-12-18, 2021-02-12, 2021-02-25, and 2021-03-11 changes
+* Add DevOpsGuru per 2020-12-18 changes
+* Update CloudFormation per 2020-12-18 changes
+* Update S3 with some missing properties
+* Update FSx per 2020-12-18 changes
+* Update ElastiCache per 2020-12-18 changes
+* Add DataSync per 2021-01-07 changes
+* Update Route53 and Route53Resolver per 2021-01-07 changes
+* Update Config per 2021-01-07 changes
+* Add MediaConnect per 2021-01-07 changes
+* Update ApiGatewayV2 per 2021-01-07 changes
+* Add IoTWireless per 2021-01-07 changes
+* Update SSO per 2021-01-07 changes
+* Add ServiceCatalogAppRegistry per 2021-01-14 changes
+* Add QuickSight per 2021-01-14 changes
+* Add EMRContainers per 2021-01-14 changes
+* Update ACMPCA per 2021-01-21 changes
+* Add LookoutVision per 2021-01-28 changes
+* Update ImageBuilder per 2021-02-04 changes and reorder classes a bit
+* Update ElastiCache per 2021-02-04 changes
+* Update Casandra per 2021-02-04 changes
+* Update IoTAnalytics per 2021-02-05 changes
+* Update ServiceCatalog per 2021-02-11 changes
+* Update CloudFormation per 2021-02-11 changes
+* Update DMS per 2021-02-11 changes
+* Update IoTAnalytics per 2021-02-18 changes
+* Update FSx per 2021-02-18 changes
+* Update Kendra per 2021-02-18 changes
+* Update AppMesh per 2021-02-21 changes
+* Update DynamoDB per 2021-02-22 changes
+* Update Pinpoint per 2021-02-24 changes
+* Update IAM per 2021-02-25 changes
+* Update EKS per 2021-02-25 changes
+* Update IoTSiteWise per 2021-03-01 changes
+* Add S3Outposts per 2021-03-04 changes
+* Update IoT per 2021-03-04 changes
+* Update Events per 2021-03-04 changes
+* Update SecretsManager per 2021-03-04 changes
+* Update StepFunctions per 2021-03-10 changes
+* Update RDS per 2021-03-11 changes
+* Update ECS per 2021-03-11 changes
+* Update CE per 2021-03-11 changes
+* Update EFS per 2021-03-11 changes
+* Update required fields for Batch::ComputeResources (Fixes #1880)
+* Fix autoscaling.Tags to use boolean instead of str (#1874)
+* Add OutpostArn to EC2::Subnet (Fixes #1849)
+* Update Transfer per 2020-10-22 changes (Fixes #1817)
+* Add MediaPackage per 2020-10-22 changes (Fixes #1815)
+* Update README with functioning example of missing required property (Fixes #1763)
+* Update EMR per 2020-10-22 and 2021-02-25 changes (Fixes #1816)
+* Add DataBrew (Fixes #1862)
+* Update version in docs (#1882)
+* Fix some corner cases in the autogenerator
+* Update CertificateManager per 2021-03-11 changes
+* Update Detective per 2021-03-15 changes
+* Update ECS per 2021-03-16 changes
+* Add S3ObjectLambda per 2021-03-18 changes
+* Add FIS per 2021-03-18 changes
+
+2.6.4 (2021*03*08)
+------------------
+* Remove extraneous import
+* Fix required value for ecs.EFSVolumeConfiguation AuthorizationConfig (Fixes #1806)
+* Added Period attribute to CloudWath::Alarm MetricDataQuery (#1805)
+* Fix issues with ecs.EFSVolumeConfiguration usage (#1808)
+* Updating region and availability zone constants (#1810)
+* fixing typo in updated region and availability zone constants
+* Add mising constants for Elasticsearch data and master node instance sizes. (#1809)
+* AWS::Elasticsearch::Domain.DomainEndpointOptions (#1811)
+* increased CloudFormation template limits (#1814)
+* Fix tests with new template limits (Related to #1814)
+* Add CapacityReservationSpecification to EC2::LaunchTemplateData (Fixes #1813)
+* Update Appstream per 2020-10-22 changes
+* Update SecretsManager::ResourcePolicy per 2020-10-22 changes
+* Add Tags to resources in Batch per 2020-10-22 changes
+* Update SNS::Topic per 2020-10-22 changes
+* Update Events per 2020-10-22 changes
+* Update KinesisFirehose::DeliveryStream per 2020-10-22 changes
+* Update AppSync::ApiKey per 2020-10-22 changes
+* Update Elasticsearch per 2020-10-22 changes
+* AWS::CloudFront::Distribution.LambdaFunctionAssociation.IncludeBody (#1819)
+* AWS::SSM::PatchBaseline.OperatingSystem AllowedValues expansion (#1823)
+* AWS::ImageBuilder::ImageRecipe.EbsInstanceBlockDeviceSpecification.VolumeType AllowedValues expansion (io2) (#1824)
+* AWS::CodeBuild::Project.Environment.Type AllowedValues expansion (WINDOWS_SERVER_2019_CONTAINER) (#1825)
+* AWS::Glue::Connection.ConnectionInput.ConnectionType AllowedValues expansion (NETWORK) (#1826)
+* Update AWS::Cognito::UserPoolClient (#1818)
+* Update firehose.py (#1830)
+* Update AWS::CodeArtifact::Repository (#1829)
+* AWS::EC2::VPCEndpoint.VpcEndpointType AllowedValues expansion (GatewayLoadBalancer) (#1833)
+* AWS::KinesisAnalyticsV2::Application.RuntimeEnvironment AllowedValues expansion (FLINK-1_11)
+* AWS::Kinesis::Stream.ShardCount required (#1841)
+* flake8 fixes (#1845)
+* Add ReplicaModifications of s3 (#1850)
+* Update serverless apievent (#1836)
+* Add AllocationStrategy to EMR instance fleet configuration (#1837)
+* Add CopyActions prop to BackupRuleResourceType (#1838)
+* Fix formatting in recent EMR PR
+* AWS::AutoScaling::LaunchConfiguration.MetadataOptions (#1840)
+* AWS::AutoScaling::AutoScalingGroup.CapacityRebalance (#1842)
+* AWS Lambda Has Increased Memory Limits (#1844)
+* AWS::Lambda::Function support for container image deployment package (#1846)
+* Fix tests from previous merge
+* AWS::CloudFront::Distribution.CacheBehavior.TrustedKeyGroups (#1847)
+* AWS::CloudFront::Distribution.Origin.OriginShield (#1848)
+* docs: fix simple typo, shoud -> should (#1851)
+* AWS::Glue::Connection.ConnectionInput.ConnectionType AllowedValues expansion (#1852)
+* Adding DeploymentCircuitBreaker property for ECS Service (#1853)
+* ec2: add ClientVpnEndpoint.ClientConnectOptions & SelfServicePortal (#1854)
+* s3: add property BucketKeyEnabled (#1857)
+* Add g4ad, c6gn, d3, and d3en instance types to constants (#1859)
+* Add IoTSiteWise
+* Add IVS
+* Update copyright year
+* Add RDS::GlobalCluster per 2020-11-05 update
+* Add IoT::DomainConfiguration per 2020-11-05 update
+* Add Events::Archive per 2020-11-05 update
+* Updates to AWS::Lambda EventSourceMapping
+* Updates for EC2::Route
+* Updates to Batch::JobDefinition per 2020-11-05 updates
+* Update CodeArtifact per 2020-11-05 changes
+* Update AppMesh per 2020-11-12 changes
+* Update EC2::VPCEndpointService per 2020-11-12 changes
+* Add S3::StorageLens per 2020-11-19 changes
+* Add NetworkFirewall per 2020-11-19 changes
+* Update Glue per 2020-11-19 changes
+* Update CloudFront per 2020-11-19 changes
+* Update KMS per 2020-11-19 changes
+* Update Events per 2020-11-19 changes
+* Update EC2 per 2020-11-19 changes
+* Update Amplify per 2020-11-19 changes
+* Update Lambda per 2020-11-23 changes
+* Update GameList per 2020-11-24 changes
+* Update EKS per 2020-12-17 changes
+* Update SSO per 2020-12-18 changes
+* Add IoT::TopicRuleDestination per 2020-12-18 changes
+* Move "make release-test" to use python-3.9
+
 2.6.3 (2020*10*11)
 ------------------
 * SageMaker: Mark tags props as optional, per AWS documentation.

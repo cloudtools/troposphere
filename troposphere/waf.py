@@ -8,83 +8,62 @@ from .validators import boolean, integer, waf_action_type
 
 
 class Action(AWSProperty):
-    props = {
-        'Type': (waf_action_type, True)
-    }
+    props = {"Type": (waf_action_type, True)}
 
 
 class FieldToMatch(AWSProperty):
-    props = {
-        'Data': (basestring, False),  # Conditional
-        'Type': (basestring, True)
-    }
+    props = {"Data": (str, False), "Type": (str, True)}  # Conditional
 
 
 class ByteMatchTuples(AWSProperty):
     props = {
-        'FieldToMatch': (FieldToMatch, True),
-        'PositionalConstraint': (basestring, True),
-        'TargetString': (basestring, False),  # Conditional
-        'TargetStringBase64': (basestring, False),  # Conditional
-        'TextTransformation': (basestring, True)
+        "FieldToMatch": (FieldToMatch, True),
+        "PositionalConstraint": (str, True),
+        "TargetString": (str, False),  # Conditional
+        "TargetStringBase64": (str, False),  # Conditional
+        "TextTransformation": (str, True),
     }
 
 
 class IPSetDescriptors(AWSProperty):
-    props = {
-        'Type': (basestring, True),
-        'Value': (basestring, True)
-    }
+    props = {"Type": (str, True), "Value": (str, True)}
 
 
 class Predicates(AWSProperty):
-    props = {
-        'DataId': (basestring, True),
-        'Negated': (boolean, True),
-        'Type': (basestring, True)
-    }
+    props = {"DataId": (str, True), "Negated": (boolean, True), "Type": (str, True)}
 
 
 class Rules(AWSProperty):
     props = {
-        'Action': (Action, True),
-        'Priority': (integer, True),
-        'RuleId': (basestring, True)
+        "Action": (Action, True),
+        "Priority": (integer, True),
+        "RuleId": (str, True),
     }
 
 
 class SqlInjectionMatchTuples(AWSProperty):
-    props = {
-        'FieldToMatch': (FieldToMatch, True),
-        'TextTransformation': (basestring, True)
-    }
+    props = {"FieldToMatch": (FieldToMatch, True), "TextTransformation": (str, True)}
 
 
 class ByteMatchSet(AWSObject):
     resource_type = "AWS::WAF::ByteMatchSet"
 
-    props = {
-        'ByteMatchTuples': ([ByteMatchTuples], False),
-        'Name': (basestring, True)
-    }
+    props = {"ByteMatchTuples": ([ByteMatchTuples], False), "Name": (str, True)}
 
 
 class IPSet(AWSObject):
     resource_type = "AWS::WAF::IPSet"
 
-    props = {
-        'IPSetDescriptors': ([IPSetDescriptors], False),
-        'Name': (basestring, True)
-    }
+    props = {"IPSetDescriptors": ([IPSetDescriptors], False), "Name": (str, True)}
 
 
 class Rule(AWSObject):
     resource_type = "AWS::WAF::Rule"
 
     props = {
-        'MetricName': (basestring, True),
-        'Name': (basestring, True),
-        'Predicates': ([Predicates], False)
+        "MetricName": (str, True),
+        "Name": (str, True),
+        "Predicates": ([Predicates], False),
     }
 
 
@@ -92,8 +71,8 @@ class SqlInjectionMatchSet(AWSObject):
     resource_type = "AWS::WAF::SqlInjectionMatchSet"
 
     props = {
-        'Name': (basestring, True),
-        'SqlInjectionMatchTuples': ([SqlInjectionMatchTuples], False)
+        "Name": (str, True),
+        "SqlInjectionMatchTuples": ([SqlInjectionMatchTuples], False),
     }
 
 
@@ -101,19 +80,19 @@ class WebACL(AWSObject):
     resource_type = "AWS::WAF::WebACL"
 
     props = {
-        'DefaultAction': (Action, True),
-        'MetricName': (basestring, True),
-        'Name': (basestring, True),
-        'Rules': ([Rules], False)
+        "DefaultAction": (Action, True),
+        "MetricName": (str, True),
+        "Name": (str, True),
+        "Rules": ([Rules], False),
     }
 
 
 class SizeConstraint(AWSProperty):
     props = {
-        'ComparisonOperator': (basestring, True),
-        'FieldToMatch': (FieldToMatch, True),
-        'Size': (integer, True),
-        'TextTransformation': (basestring, True),
+        "ComparisonOperator": (str, True),
+        "FieldToMatch": (FieldToMatch, True),
+        "Size": (integer, True),
+        "TextTransformation": (str, True),
     }
 
 
@@ -121,15 +100,15 @@ class SizeConstraintSet(AWSObject):
     resource_type = "AWS::WAF::SizeConstraintSet"
 
     props = {
-        'Name': (basestring, True),
-        'SizeConstraints': ([SizeConstraint], False),
+        "Name": (str, True),
+        "SizeConstraints": ([SizeConstraint], False),
     }
 
 
 class XssMatchTuple(AWSProperty):
     props = {
-        'FieldToMatch': (FieldToMatch, True),
-        'TextTransformation': (basestring, True),
+        "FieldToMatch": (FieldToMatch, True),
+        "TextTransformation": (str, True),
     }
 
 
@@ -137,6 +116,6 @@ class XssMatchSet(AWSObject):
     resource_type = "AWS::WAF::XssMatchSet"
 
     props = {
-        'Name': (basestring, True),
-        'XssMatchTuples': ([XssMatchTuple], False),
+        "Name": (str, True),
+        "XssMatchTuples": ([XssMatchTuple], False),
     }

@@ -4,68 +4,83 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import integer, positive_integer, network_port, boolean
+from .validators import boolean, integer, network_port, positive_integer
 
-
-VALID_RULETYPES = ('SYSTEM', 'FORWARD')
+VALID_RULETYPES = ("SYSTEM", "FORWARD")
 
 
 def validate_ruletype(ruletype):
     """Validate RuleType for ResolverRule."""
 
     if ruletype not in VALID_RULETYPES:
-        raise ValueError("Rule type must be one of: %s" %
-                         ", ".join(VALID_RULETYPES))
+        raise ValueError("Rule type must be one of: %s" % ", ".join(VALID_RULETYPES))
     return ruletype
+
+
+class DNSSEC(AWSObject):
+    resource_type = "AWS::Route53::DNSSEC"
+
+    props = {
+        "HostedZoneId": (str, True),
+    }
+
+
+class KeySigningKey(AWSObject):
+    resource_type = "AWS::Route53::KeySigningKey"
+
+    props = {
+        "HostedZoneId": (str, True),
+        "KeyManagementServiceArn": (str, True),
+        "Name": (str, True),
+        "Status": (str, True),
+    }
 
 
 class AliasTarget(AWSProperty):
     props = {
-        'HostedZoneId': (basestring, True),
-        'DNSName': (basestring, True),
-        'EvaluateTargetHealth': (boolean, False)
+        "HostedZoneId": (str, True),
+        "DNSName": (str, True),
+        "EvaluateTargetHealth": (boolean, False),
     }
 
-    def __init__(self,
-                 hostedzoneid=None,
-                 dnsname=None,
-                 evaluatetargethealth=None,
-                 **kwargs):
+    def __init__(
+        self, hostedzoneid=None, dnsname=None, evaluatetargethealth=None, **kwargs
+    ):
         # provided for backward compatibility
         if hostedzoneid is not None:
-            kwargs['HostedZoneId'] = hostedzoneid
+            kwargs["HostedZoneId"] = hostedzoneid
         if dnsname is not None:
-            kwargs['DNSName'] = dnsname
+            kwargs["DNSName"] = dnsname
         if evaluatetargethealth is not None:
-            kwargs['EvaluateTargetHealth'] = evaluatetargethealth
-        super(AliasTarget, self).__init__(**kwargs)
+            kwargs["EvaluateTargetHealth"] = evaluatetargethealth
+        super().__init__(**kwargs)
 
 
 class GeoLocation(AWSProperty):
     props = {
-        'ContinentCode': (basestring, False),
-        'CountryCode': (basestring, False),
-        'SubdivisionCode': (basestring, False),
+        "ContinentCode": (str, False),
+        "CountryCode": (str, False),
+        "SubdivisionCode": (str, False),
     }
 
 
-class BaseRecordSet(object):
+class BaseRecordSet:
     props = {
-        'AliasTarget': (AliasTarget, False),
-        'Comment': (basestring, False),
-        'Failover': (basestring, False),
-        'GeoLocation': (GeoLocation, False),
-        'HealthCheckId': (basestring, False),
-        'HostedZoneId': (basestring, False),
-        'HostedZoneName': (basestring, False),
-        'MultiValueAnswer': (boolean, False),
-        'Name': (basestring, True),
-        'Region': (basestring, False),
-        'ResourceRecords': (list, False),
-        'SetIdentifier': (basestring, False),
-        'TTL': (integer, False),
-        'Type': (basestring, True),
-        'Weight': (integer, False),
+        "AliasTarget": (AliasTarget, False),
+        "Comment": (str, False),
+        "Failover": (str, False),
+        "GeoLocation": (GeoLocation, False),
+        "HealthCheckId": (str, False),
+        "HostedZoneId": (str, False),
+        "HostedZoneName": (str, False),
+        "MultiValueAnswer": (boolean, False),
+        "Name": (str, True),
+        "Region": (str, False),
+        "ResourceRecords": (list, False),
+        "SetIdentifier": (str, False),
+        "TTL": (integer, False),
+        "Type": (str, True),
+        "Weight": (integer, False),
     }
 
 
@@ -83,38 +98,38 @@ class RecordSetGroup(AWSObject):
     resource_type = "AWS::Route53::RecordSetGroup"
 
     props = {
-        'HostedZoneId': (basestring, False),
-        'HostedZoneName': (basestring, False),
-        'RecordSets': (list, False),
-        'Comment': (basestring, False),
+        "HostedZoneId": (str, False),
+        "HostedZoneName": (str, False),
+        "RecordSets": (list, False),
+        "Comment": (str, False),
     }
 
 
 class AlarmIdentifier(AWSProperty):
     props = {
-        'Name': (basestring, True),
-        'Region': (basestring, True),
+        "Name": (str, True),
+        "Region": (str, True),
     }
 
 
 class HealthCheckConfiguration(AWSProperty):
     props = {
-        'AlarmIdentifier': (AlarmIdentifier, False),
-        'ChildHealthChecks': ([basestring], False),
-        'EnableSNI': (boolean, False),
-        'FailureThreshold': (positive_integer, False),
-        'FullyQualifiedDomainName': (basestring, False),
-        'HealthThreshold': (positive_integer, False),
-        'InsufficientDataHealthStatus': (basestring, False),
-        'Inverted': (boolean, False),
-        'IPAddress': (basestring, False),
-        'MeasureLatency': (boolean, False),
-        'Port': (network_port, False),
-        'Regions': ([basestring], False),
-        'RequestInterval': (positive_integer, False),
-        'ResourcePath': (basestring, False),
-        'SearchString': (basestring, False),
-        'Type': (basestring, True),
+        "AlarmIdentifier": (AlarmIdentifier, False),
+        "ChildHealthChecks": ([str], False),
+        "EnableSNI": (boolean, False),
+        "FailureThreshold": (positive_integer, False),
+        "FullyQualifiedDomainName": (str, False),
+        "HealthThreshold": (positive_integer, False),
+        "InsufficientDataHealthStatus": (str, False),
+        "Inverted": (boolean, False),
+        "IPAddress": (str, False),
+        "MeasureLatency": (boolean, False),
+        "Port": (network_port, False),
+        "Regions": ([str], False),
+        "RequestInterval": (positive_integer, False),
+        "ResourcePath": (str, False),
+        "SearchString": (str, False),
+        "Type": (str, True),
     }
 
 
@@ -122,27 +137,27 @@ class HealthCheck(AWSObject):
     resource_type = "AWS::Route53::HealthCheck"
 
     props = {
-        'HealthCheckConfig': (HealthCheckConfiguration, True),
-        'HealthCheckTags': (Tags, False),
+        "HealthCheckConfig": (HealthCheckConfiguration, True),
+        "HealthCheckTags": (Tags, False),
     }
 
 
 class HostedZoneConfiguration(AWSProperty):
     props = {
-        'Comment': (basestring, False),
+        "Comment": (str, False),
     }
 
 
 class HostedZoneVPCs(AWSProperty):
     props = {
-        'VPCId': (basestring, True),
-        'VPCRegion': (basestring, True),
+        "VPCId": (str, True),
+        "VPCRegion": (str, True),
     }
 
 
 class QueryLoggingConfig(AWSProperty):
     props = {
-        'CloudWatchLogsLogGroupArn': (basestring, True),
+        "CloudWatchLogsLogGroupArn": (str, True),
     }
 
 
@@ -150,18 +165,72 @@ class HostedZone(AWSObject):
     resource_type = "AWS::Route53::HostedZone"
 
     props = {
-        'HostedZoneConfig': (HostedZoneConfiguration, False),
-        'HostedZoneTags': (Tags, False),
-        'Name': (basestring, True),
-        'QueryLoggingConfig': (QueryLoggingConfig, False),
-        'VPCs': ([HostedZoneVPCs], False),
+        "HostedZoneConfig": (HostedZoneConfiguration, False),
+        "HostedZoneTags": (Tags, False),
+        "Name": (str, True),
+        "QueryLoggingConfig": (QueryLoggingConfig, False),
+        "VPCs": ([HostedZoneVPCs], False),
+    }
+
+
+class FirewallDomainList(AWSObject):
+    resource_type = "AWS::Route53Resolver::FirewallDomainList"
+
+    props = {
+        "DomainFileUrl": (str, False),
+        "Domains": ([str], False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class FirewallRule(AWSProperty):
+    props = {
+        "Action": (str, True),
+        "BlockOverrideDnsType": (str, False),
+        "BlockOverrideDomain": (str, False),
+        "BlockOverrideTtl": (integer, False),
+        "BlockResponse": (str, False),
+        "FirewallDomainListId": (str, True),
+        "Priority": (integer, True),
+    }
+
+
+class FirewallRuleGroup(AWSObject):
+    resource_type = "AWS::Route53Resolver::FirewallRuleGroup"
+
+    props = {
+        "FirewallRules": ([FirewallRule], False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class FirewallRuleGroupAssociation(AWSObject):
+    resource_type = "AWS::Route53Resolver::FirewallRuleGroupAssociation"
+
+    props = {
+        "FirewallRuleGroupId": (str, True),
+        "MutationProtection": (str, False),
+        "Name": (str, False),
+        "Priority": (integer, True),
+        "Tags": (Tags, False),
+        "VpcId": (str, True),
+    }
+
+
+class ResolverDNSSECConfig(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverDNSSECConfig"
+
+    props = {
+        "ResourceId": (str, False),
     }
 
 
 class IpAddressRequest(AWSProperty):
     props = {
-        'Ip': (basestring, False),
-        'SubnetId': (basestring, True),
+        "Ip": (str, False),
+        "SubnetId": (str, True),
     }
 
 
@@ -169,11 +238,11 @@ class ResolverEndpoint(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverEndpoint"
 
     props = {
-        'Direction': (basestring, True),
-        'IpAddresses': ([IpAddressRequest], True),
-        'Name': (basestring, False),
-        'SecurityGroupIds': ([basestring], True),
-        'Tags': (Tags, False),
+        "Direction": (str, True),
+        "IpAddresses": ([IpAddressRequest], True),
+        "Name": (str, False),
+        "SecurityGroupIds": ([str], True),
+        "Tags": (Tags, False),
     }
 
 
@@ -181,25 +250,24 @@ class ResolverQueryLoggingConfig(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverQueryLoggingConfig"
 
     props = {
-        'DestinationArn': (basestring, False),
-        'Name': (basestring, False),
+        "DestinationArn": (str, False),
+        "Name": (str, False),
     }
 
 
 class ResolverQueryLoggingConfigAssociation(AWSObject):
-    resource_type = \
-        "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
+    resource_type = "AWS::Route53Resolver::ResolverQueryLoggingConfigAssociation"
 
     props = {
-        'ResolverQueryLogConfigId': (basestring, False),
-        'ResourceId': (basestring, False),
+        "ResolverQueryLogConfigId": (str, False),
+        "ResourceId": (str, False),
     }
 
 
 class TargetAddress(AWSProperty):
     props = {
-        'Ip': (basestring, True),
-        'Port': (basestring, True),
+        "Ip": (str, True),
+        "Port": (str, True),
     }
 
 
@@ -207,12 +275,12 @@ class ResolverRule(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverRule"
 
     props = {
-        'DomainName': (basestring, True),
-        'Name': (basestring, False),
-        'ResolverEndpointId': (basestring, False),
-        'RuleType': (validate_ruletype, True),
-        'Tags': (Tags, False),
-        'TargetIps': ([TargetAddress], False),
+        "DomainName": (str, True),
+        "Name": (str, False),
+        "ResolverEndpointId": (str, False),
+        "RuleType": (validate_ruletype, True),
+        "Tags": (Tags, False),
+        "TargetIps": ([TargetAddress], False),
     }
 
 
@@ -220,7 +288,7 @@ class ResolverRuleAssociation(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverRuleAssociation"
 
     props = {
-        'Name': (basestring, False),
-        'ResolverRuleId': (basestring, True),
-        'VPCId': (basestring, True),
+        "Name": (str, False),
+        "ResolverRuleId": (str, True),
+        "VPCId": (str, True),
     }

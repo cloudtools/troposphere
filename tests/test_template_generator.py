@@ -1,36 +1,34 @@
-import unittest
 import json
+import unittest
 
-from troposphere import Template, AWSObject
-
-from troposphere.template_generator import\
-    TemplateGenerator, ResourceTypeNotDefined, ResourceTypeNotFound
-
-try:
-    u = unicode
-except NameError:
-    u = str
+from troposphere import AWSObject, Template
+from troposphere.template_generator import (
+    ResourceTypeNotDefined,
+    ResourceTypeNotFound,
+    TemplateGenerator,
+)
 
 
 class TestTemplateGenerator(unittest.TestCase):
     def test_resource_type_not_defined(self):
-        template_json = json.loads("""
+        template_json = json.loads(
+            """
         {
           "Resources": {
             "Foo": {
             }
           }
         }
-        """)
+        """
+        )
         with self.assertRaises(ResourceTypeNotDefined) as context:
             TemplateGenerator(template_json)
-        self.assertEqual(
-            "ResourceType not defined for Foo",
-            str(context.exception))
+        self.assertEqual("ResourceType not defined for Foo", str(context.exception))
         self.assertEqual("Foo", context.exception.resource)
 
     def test_unknown_resource_type(self):
-        template_json = json.loads("""
+        template_json = json.loads(
+            """
         {
           "Resources": {
             "Foo": {
@@ -38,26 +36,26 @@ class TestTemplateGenerator(unittest.TestCase):
             }
           }
         }
-        """)
+        """
+        )
         with self.assertRaises(ResourceTypeNotFound) as context:
             TemplateGenerator(template_json)
         self.assertEqual(
             "ResourceType not found for Some::Unknown::Type - Foo",
-            str(context.exception))
+            str(context.exception),
+        )
         self.assertEqual("Foo", context.exception.resource)
-        self.assertEqual("Some::Unknown::Type",
-                         context.exception.resource_type)
+        self.assertEqual("Some::Unknown::Type", context.exception.resource_type)
 
     def test_custom_resource_override(self):
         """
         Ensures that a custom member can be defined.
         """
         template = Template()
-        template.add_resource(MyCustomResource("foo",
-                                               Foo="bar",
-                                               ServiceToken="baz"))
-        generated = TemplateGenerator(json.loads(template.to_json()),
-                                      CustomMembers=[MyCustomResource])
+        template.add_resource(MyCustomResource("foo", Foo="bar", ServiceToken="baz"))
+        generated = TemplateGenerator(
+            json.loads(template.to_json()), CustomMembers=[MyCustomResource]
+        )
 
         # validated that the templates are equal to each other
         self.assertDictEqual(template.to_dict(), generated.to_dict())
@@ -69,9 +67,7 @@ class TestTemplateGenerator(unittest.TestCase):
         Ensures that a custom resource type is implicitly defined.
         """
         template = Template()
-        template.add_resource(MyCustomResource("foo",
-                                               Foo="bar",
-                                               ServiceToken="baz"))
+        template.add_resource(MyCustomResource("foo", Foo="bar", ServiceToken="baz"))
         generated = TemplateGenerator(json.loads(template.to_json()))
 
         # validated that the templates are equal to each other
@@ -85,20 +81,22 @@ class TestTemplateGenerator(unittest.TestCase):
         """
         template = Template()
         template.add_resource(MyMacroResource("foo", Foo="bar"))
-        generated = TemplateGenerator(json.loads(template.to_json()),
-                                      CustomMembers=[MyMacroResource])
+        generated = TemplateGenerator(
+            json.loads(template.to_json()), CustomMembers=[MyMacroResource]
+        )
 
         # validated that the templates are equal to each other
         self.assertDictEqual(template.to_dict(), generated.to_dict())
         foo = generated.resources["foo"]
         self.assertTrue(isinstance(foo, MyMacroResource))
-        self.assertEquals("bar", foo.Foo)
+        self.assertEqual("bar", foo.Foo)
 
     def test_no_nested_name(self):
         """
         Prevent regression for  ensuring no nested Name (Issue #977)
         """
-        template_json = json.loads("""
+        template_json = json.loads(
+            """
         {
           "AWSTemplateFormatVersion": "2010-09-09",
           "Description": "Description",
@@ -112,19 +110,20 @@ class TestTemplateGenerator(unittest.TestCase):
             }
           }
         }
-        """)
+        """
+        )
 
         d = TemplateGenerator(template_json).to_dict()
-        name = d['Outputs']['TestOutput']['Export']['Name']
-        self.assertIn('Fn::Sub', name)
+        name = d["Outputs"]["TestOutput"]["Export"]["Name"]
+        self.assertIn("Fn::Sub", name)
 
 
 class MyCustomResource(AWSObject):
     resource_type = "Custom::Resource"
 
     props = {
-        'Foo': (basestring, True),
-        'ServiceToken': (basestring, True),
+        "Foo": (str, True),
+        "ServiceToken": (str, True),
     }
 
 
@@ -132,9 +131,9 @@ class MyMacroResource(AWSObject):
     resource_type = "Some::Special::Resource"
 
     props = {
-        'Foo': (basestring, True),
+        "Foo": (str, True),
     }
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

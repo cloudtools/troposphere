@@ -9,8 +9,8 @@ from .validators import integer
 
 class StreamEncryption(AWSProperty):
     props = {
-        'EncryptionType': (basestring, True),
-        'KeyId': (basestring, True),
+        "EncryptionType": (str, True),
+        "KeyId": (str, True),
     }
 
 
@@ -18,11 +18,11 @@ class Stream(AWSObject):
     resource_type = "AWS::Kinesis::Stream"
 
     props = {
-        'Name': (basestring, False),
-        'RetentionPeriodHours': (integer, False),
-        'ShardCount': (integer, False),
-        'StreamEncryption': (StreamEncryption, False),
-        'Tags': ((Tags, list), False),
+        "Name": (str, False),
+        "RetentionPeriodHours": (integer, False),
+        "ShardCount": (integer, True),
+        "StreamEncryption": (StreamEncryption, False),
+        "Tags": ((Tags, list), False),
     }
 
 
@@ -30,6 +30,6 @@ class StreamConsumer(AWSObject):
     resource_type = "AWS::Kinesis::StreamConsumer"
 
     props = {
-        'ConsumerName': (basestring, True),
-        'StreamARN': (basestring, True),
+        "ConsumerName": (str, True),
+        "StreamARN": (str, True),
     }

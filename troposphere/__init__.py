@@ -2,42 +2,41 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
-import warnings
-
-import cfn_flip
 import collections
 import json
 import re
 import sys
 import types
 
+import cfn_flip
+
 from . import validators
 
-__version__ = "2.6.3"
+__version__ = "3.0.1"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
-Delete = 'Delete'
-Retain = 'Retain'
-Snapshot = 'Snapshot'
+Delete = "Delete"
+Retain = "Retain"
+Snapshot = "Snapshot"
 
 # Pseudo Parameters
-AWS_ACCOUNT_ID = 'AWS::AccountId'
-AWS_NOTIFICATION_ARNS = 'AWS::NotificationARNs'
-AWS_NO_VALUE = 'AWS::NoValue'
-AWS_PARTITION = 'AWS::Partition'
-AWS_REGION = 'AWS::Region'
-AWS_STACK_ID = 'AWS::StackId'
-AWS_STACK_NAME = 'AWS::StackName'
-AWS_URL_SUFFIX = 'AWS::URLSuffix'
+AWS_ACCOUNT_ID = "AWS::AccountId"
+AWS_NOTIFICATION_ARNS = "AWS::NotificationARNs"
+AWS_NO_VALUE = "AWS::NoValue"
+AWS_PARTITION = "AWS::Partition"
+AWS_REGION = "AWS::Region"
+AWS_STACK_ID = "AWS::StackId"
+AWS_STACK_NAME = "AWS::StackName"
+AWS_URL_SUFFIX = "AWS::URLSuffix"
 
 # Template Limits
-MAX_MAPPINGS = 100
-MAX_OUTPUTS = 60
-MAX_PARAMETERS = 60
-MAX_RESOURCES = 200
+MAX_MAPPINGS = 200
+MAX_OUTPUTS = 200
+MAX_PARAMETERS = 200
+MAX_RESOURCES = 500
 PARAMETER_TITLE_MAX = 255
 
-valid_names = re.compile(r'^[a-zA-Z0-9]+$')
+valid_names = re.compile(r"^[a-zA-Z0-9]+$")
 
 
 def is_aws_object_subclass(cls):
@@ -51,13 +50,13 @@ def is_aws_object_subclass(cls):
 
 
 def encode_to_dict(obj):
-    if hasattr(obj, 'to_dict'):
+    if hasattr(obj, "to_dict"):
         # Calling encode_to_dict to ensure object is
         # nomalized to a base dictionary all the way down.
         return encode_to_dict(obj.to_dict())
     elif isinstance(obj, (list, tuple)):
         new_lst = []
-        for o in list(obj):
+        for o in obj:
             new_lst.append(encode_to_dict(o))
         return new_lst
     elif isinstance(obj, dict):
@@ -68,13 +67,13 @@ def encode_to_dict(obj):
         return props
     # This is useful when dealing with external libs using
     # this format. Specifically awacs.
-    elif hasattr(obj, 'JSONrepr'):
+    elif hasattr(obj, "JSONrepr"):
         return encode_to_dict(obj.JSONrepr())
     return obj
 
 
 def depends_on_helper(obj):
-    """ Handles using .title if the given object is a troposphere resource.
+    """Handles using .title if the given object is a troposphere resource.
 
     If the given object is a troposphere resource, use the `.title` attribute
     of that resource. If it's a string, just use the string. This should allow
@@ -87,16 +86,21 @@ def depends_on_helper(obj):
     return obj
 
 
-class BaseAWSObject(object):
+class BaseAWSObject:
     def __init__(self, title, template=None, validation=True, **kwargs):
         self.title = title
         self.template = template
         self.do_validation = validation
         # Cache the keys for validity checks
-        self.propnames = self.props.keys()
+        self.propnames = set(self.props.keys())
         self.attributes = [
-            'Condition', 'CreationPolicy', 'DeletionPolicy', 'DependsOn',
-            'Metadata', 'UpdatePolicy', 'UpdateReplacePolicy',
+            "Condition",
+            "CreationPolicy",
+            "DeletionPolicy",
+            "DependsOn",
+            "Metadata",
+            "UpdatePolicy",
+            "UpdateReplacePolicy",
         ]
 
         # try to validate the title if its there
@@ -105,15 +109,15 @@ class BaseAWSObject(object):
 
         # Create the list of properties set on this object by the user
         self.properties = {}
-        dictname = getattr(self, 'dictname', None)
+        dictname = getattr(self, "dictname", None)
         if dictname:
             self.resource = {
                 dictname: self.properties,
             }
         else:
             self.resource = self.properties
-        if hasattr(self, 'resource_type') and self.resource_type is not None:
-            self.resource['Type'] = self.resource_type
+        if hasattr(self, "resource_type") and self.resource_type is not None:
+            self.resource["Type"] = self.resource_type
         self.__initialized = True
 
         # Check for properties defined in the class
@@ -150,13 +154,15 @@ class BaseAWSObject(object):
             # Fall back to the name attribute in the object rather than
             # in the properties dict. This is for non-OpenStack backwards
             # compatibility since OpenStack objects use a "name" property.
-            if name == 'name':
-                return self.__getattribute__('title')
+            if name == "name":
+                return self.__getattribute__("title")
             raise AttributeError(name)
 
     def __setattr__(self, name, value):
-        if name in self.__dict__.keys() \
-                or '_BaseAWSObject__initialized' not in self.__dict__:
+        if (
+            name in self.__dict__.keys()
+            or "_BaseAWSObject__initialized" not in self.__dict__
+        ):
             return dict.__setattr__(self, name, value)
         elif name in self.attributes:
             if name == "DependsOn":
@@ -182,10 +188,9 @@ class BaseAWSObject(object):
                 except Exception:
                     sys.stderr.write(
                         "%s: %s.%s function validator '%s' threw "
-                        "exception:\n" % (self.__class__,
-                                          self.title,
-                                          name,
-                                          expected_type.__name__))
+                        "exception:\n"
+                        % (self.__class__, self.title, name, expected_type.__name__)
+                    )
                     raise
                 return self.properties.__setitem__(name, value)
 
@@ -196,17 +201,19 @@ class BaseAWSObject(object):
                     self._raise_type(name, value, expected_type)
 
                 # Special case a list of a single validation function
-                if (len(expected_type) == 1 and
-                   isinstance(expected_type[0], types.FunctionType)):
-                    new_value = map(expected_type[0], value)
+                if len(expected_type) == 1 and isinstance(
+                    expected_type[0], types.FunctionType
+                ):
+                    new_value = list(map(expected_type[0], value))
                     return self.properties.__setitem__(name, new_value)
 
                 # Iterate over the list and make sure it matches our
                 # type checks (as above accept AWSHelperFn because
                 # we can't do the validation ourselves)
                 for v in value:
-                    if not isinstance(v, tuple(expected_type)) \
-                       and not isinstance(v, AWSHelperFn):
+                    if not isinstance(v, tuple(expected_type)) and not isinstance(
+                        v, AWSHelperFn
+                    ):
                         self._raise_type(name, v, expected_type)
                 # Validated so assign it
                 return self.properties.__setitem__(name, value)
@@ -219,23 +226,24 @@ class BaseAWSObject(object):
             else:
                 self._raise_type(name, value, expected_type)
 
-        type_name = getattr(self, 'resource_type', self.__class__.__name__)
+        type_name = getattr(self, "resource_type", self.__class__.__name__)
 
-        if type_name == 'AWS::CloudFormation::CustomResource' or \
-                type_name.startswith('Custom::'):
+        if type_name == "AWS::CloudFormation::CustomResource" or type_name.startswith(
+            "Custom::"
+        ):
             # Add custom resource arguments to the dict without any further
             # validation. The properties of a CustomResource is not known.
             return self.properties.__setitem__(name, value)
 
-        raise AttributeError("%s object does not support attribute %s" %
-                             (type_name, name))
+        raise AttributeError(
+            "%s object does not support attribute %s" % (type_name, name)
+        )
 
     def _raise_type(self, name, value, expected_type):
-        raise TypeError('%s: %s.%s is %s, expected %s' % (self.__class__,
-                                                          self.title,
-                                                          name,
-                                                          type(value),
-                                                          expected_type))
+        raise TypeError(
+            "%s: %s.%s is %s, expected %s"
+            % (self.__class__, self.title, name, type(value), expected_type)
+        )
 
     def validate_title(self):
         if not valid_names.match(self.title):
@@ -255,10 +263,10 @@ class BaseAWSObject(object):
 
         if self.properties:
             return encode_to_dict(self.resource)
-        elif hasattr(self, 'resource_type'):
+        elif hasattr(self, "resource_type"):
             d = {}
             for k, v in self.resource.items():
-                if k != 'Properties':
+                if k != "Properties":
                     d[k] = v
             return d
         else:
@@ -271,22 +279,24 @@ class BaseAWSObject(object):
             try:
                 prop_attrs = cls.props[prop_name]
             except KeyError:
-                raise AttributeError("Object type %s does not have a "
-                                     "%s property." % (cls.__name__,
-                                                       prop_name))
+                raise AttributeError(
+                    "Object type %s does not have a "
+                    "%s property." % (cls.__name__, prop_name)
+                )
             prop_type = prop_attrs[0]
             value = kwargs[prop_name]
             is_aws_object = is_aws_object_subclass(prop_type)
             if is_aws_object:
                 if not isinstance(value, collections.Mapping):
-                    raise ValueError("Property definition for %s must be "
-                                     "a Mapping type" % prop_name)
+                    raise ValueError(
+                        "Property definition for %s must be "
+                        "a Mapping type" % prop_name
+                    )
                 value = prop_type._from_dict(**value)
 
             if isinstance(prop_type, list):
                 if not isinstance(value, list):
-                    raise TypeError("Attribute %s must be a "
-                                    "list." % prop_name)
+                    raise TypeError("Attribute %s must be a " "list." % prop_name)
                 new_value = []
                 for v in value:
                     new_v = v
@@ -294,7 +304,8 @@ class BaseAWSObject(object):
                         if not isinstance(v, collections.Mapping):
                             raise ValueError(
                                 "Property definition for %s must be "
-                                "a list of Mapping types" % prop_name)
+                                "a list of Mapping types" % prop_name
+                            )
                         new_v = prop_type[0]._from_dict(**v)
                     new_value.append(new_v)
                 value = new_value
@@ -310,8 +321,8 @@ class BaseAWSObject(object):
     def _validate_props(self):
         for k, (_, required) in self.props.items():
             if required and k not in self.properties:
-                rtype = getattr(self, 'resource_type', "<unknown type>")
-                title = getattr(self, 'title')
+                rtype = getattr(self, "resource_type", "<unknown type>")
+                title = getattr(self, "title")
                 msg = "Resource %s required in type %s" % (k, rtype)
                 if title:
                     msg += " (title: %s)" % title
@@ -319,7 +330,7 @@ class BaseAWSObject(object):
 
 
 class AWSObject(BaseAWSObject):
-    dictname = 'Properties'
+    dictname = "Properties"
 
     def ref(self):
         return Ref(self)
@@ -340,7 +351,7 @@ class AWSDeclaration(BaseAWSObject):
     """
 
     def __init__(self, title, **kwargs):
-        super(AWSDeclaration, self).__init__(title, **kwargs)
+        super().__init__(title, **kwargs)
 
     def ref(self):
         return Ref(self)
@@ -354,10 +365,11 @@ class AWSProperty(BaseAWSObject):
     http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/
     aws-product-property-reference.html
     """
+
     dictname = None
 
     def __init__(self, title=None, **kwargs):
-        super(AWSProperty, self).__init__(title, **kwargs)
+        super().__init__(title, **kwargs)
 
 
 class AWSAttribute(BaseAWSObject):
@@ -370,31 +382,21 @@ class AWSAttribute(BaseAWSObject):
     """
 
     def __init__(self, title=None, **kwargs):
-        super(AWSAttribute, self).__init__(title, **kwargs)
+        super().__init__(title, **kwargs)
 
 
 def validate_delimiter(delimiter):
-    if not isinstance(delimiter, basestring):
-        raise ValueError(
-            "Delimiter must be a String, %s provided" % type(delimiter)
-        )
+    if not isinstance(delimiter, str):
+        raise ValueError("Delimiter must be a String, %s provided" % type(delimiter))
 
 
 def validate_pausetime(pausetime):
-    if not pausetime.startswith('PT'):
-        raise ValueError('PauseTime should look like PT#H#M#S')
+    if not pausetime.startswith("PT"):
+        raise ValueError("PauseTime should look like PT#H#M#S")
     return pausetime
 
 
-class UpdatePolicy(BaseAWSObject):
-    def __init__(self, title, **kwargs):
-        raise DeprecationWarning(
-            "This UpdatePolicy class is deprecated, please switch to using "
-            "the more general UpdatePolicy in troposphere.policies.\n"
-        )
-
-
-class AWSHelperFn(object):
+class AWSHelperFn:
     def getdata(self, data):
         if isinstance(data, BaseAWSObject):
             return data.title
@@ -406,7 +408,8 @@ class AWSHelperFn(object):
 
 
 class GenericHelperFn(AWSHelperFn):
-    """ Used as a fallback for the template generator """
+    """Used as a fallback for the template generator"""
+
     def __init__(self, data):
         self.data = self.getdata(data)
 
@@ -416,71 +419,69 @@ class GenericHelperFn(AWSHelperFn):
 
 class Base64(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Fn::Base64': data}
+        self.data = {"Fn::Base64": data}
 
 
 class FindInMap(AWSHelperFn):
     def __init__(self, mapname, toplevelkey, secondlevelkey):
-        self.data = {'Fn::FindInMap': [
-            self.getdata(mapname),
-            toplevelkey,
-            secondlevelkey
-        ]}
+        self.data = {
+            "Fn::FindInMap": [self.getdata(mapname), toplevelkey, secondlevelkey]
+        }
 
 
 class GetAtt(AWSHelperFn):
     def __init__(self, logicalName, attrName):  # noqa: N803
-        self.data = {'Fn::GetAtt': [self.getdata(logicalName), attrName]}
+        self.data = {"Fn::GetAtt": [self.getdata(logicalName), attrName]}
 
 
 class Cidr(AWSHelperFn):
     def __init__(self, ipblock, count, sizemask=None):
         if sizemask:
-            self.data = {'Fn::Cidr': [ipblock, count, sizemask]}
+            self.data = {"Fn::Cidr": [ipblock, count, sizemask]}
         else:
-            self.data = {'Fn::Cidr': [ipblock, count]}
+            self.data = {"Fn::Cidr": [ipblock, count]}
 
 
 class GetAZs(AWSHelperFn):
     def __init__(self, region=""):
-        self.data = {'Fn::GetAZs': region}
+        self.data = {"Fn::GetAZs": region}
 
 
 class If(AWSHelperFn):
     def __init__(self, cond, true, false):
-        self.data = {'Fn::If': [self.getdata(cond), true, false]}
+        self.data = {"Fn::If": [self.getdata(cond), true, false]}
 
 
 class Equals(AWSHelperFn):
     def __init__(self, value_one, value_two):
-        self.data = {'Fn::Equals': [value_one, value_two]}
+        self.data = {"Fn::Equals": [value_one, value_two]}
 
 
 class And(AWSHelperFn):
     def __init__(self, cond_one, cond_two, *conds):
-        self.data = {'Fn::And': [cond_one, cond_two] + list(conds)}
+        self.data = {"Fn::And": [cond_one, cond_two] + list(conds)}
 
 
 class Or(AWSHelperFn):
     def __init__(self, cond_one, cond_two, *conds):
-        self.data = {'Fn::Or': [cond_one, cond_two] + list(conds)}
+        self.data = {"Fn::Or": [cond_one, cond_two] + list(conds)}
 
 
 class Not(AWSHelperFn):
     def __init__(self, cond):
-        self.data = {'Fn::Not': [self.getdata(cond)]}
+        self.data = {"Fn::Not": [self.getdata(cond)]}
 
 
 class Join(AWSHelperFn):
     def __init__(self, delimiter, values):
         validate_delimiter(delimiter)
-        self.data = {'Fn::Join': [delimiter, values]}
+        self.data = {"Fn::Join": [delimiter, values]}
 
 
 class Split(AWSHelperFn):
     def __init__(self, delimiter, values):
         validate_delimiter(delimiter)
-        self.data = {'Fn::Split': [delimiter, values]}
+        self.data = {"Fn::Split": [delimiter, values]}
 
 
 class Sub(AWSHelperFn):
@@ -488,7 +489,7 @@ class Sub(AWSHelperFn):
         # merge dict
         if dict_values:
             values.update(dict_values)
-        self.data = {'Fn::Sub': [input_str, values] if values else input_str}
+        self.data = {"Fn::Sub": [input_str, values] if values else input_str}
 
 
 class Name(AWSHelperFn):
@@ -498,20 +499,20 @@ class Name(AWSHelperFn):
 
 class Select(AWSHelperFn):
     def __init__(self, indx, objects):
-        self.data = {'Fn::Select': [indx, objects]}
+        self.data = {"Fn::Select": [indx, objects]}
 
 
 class Ref(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Ref': self.getdata(data)}
+        self.data = {"Ref": self.getdata(data)}
 
     def __eq__(self, other):
         if isinstance(other, self.__class__):
             return self.data == other.data
-        return self.data.values()[0] == other
+        return list(self.data.values())[0] == other
 
     def __hash__(self):
-        return hash(self.data.values()[0])
+        return hash(list(self.data.values())[0])
 
 
 # Pseudo Parameter Ref's
@@ -527,17 +528,20 @@ URLSuffix = Ref(AWS_URL_SUFFIX)
 
 class Condition(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Condition': self.getdata(data)}
+        self.data = {"Condition": self.getdata(data)}
 
 
 class ImportValue(AWSHelperFn):
     def __init__(self, data):
-        self.data = {'Fn::ImportValue': data}
+        self.data = {"Fn::ImportValue": data}
 
 
 class Tag(AWSHelperFn):
     def __init__(self, k, v):
-        self.data = {'Key': k, 'Value': v, }
+        self.data = {
+            "Key": k,
+            "Value": v,
+        }
 
 
 class Tags(AWSHelperFn):
@@ -556,14 +560,20 @@ class Tags(AWSHelperFn):
                 elif isinstance(arg, dict):
                     tag_dict.update(arg)
                 else:
-                    raise(TypeError, "Tags needs to be either kwargs, "
-                                     "dict, or AWSHelperFn")
+                    raise TypeError(
+                        "Tags needs to be either kwargs, dict, or AWSHelperFn"
+                    )
 
         def add_tag(tag_list, k, v):
-            tag_list.append({'Key': k, 'Value': v, })
+            tag_list.append(
+                {
+                    "Key": k,
+                    "Value": v,
+                }
+            )
 
         # Detect and handle non-string Tag items which do not sort in Python3
-        if all(isinstance(k, basestring) for k in tag_dict):
+        if all(isinstance(k, str) for k in tag_dict):
             for k, v in sorted(tag_dict.items()):
                 add_tag(self.tags, k, v)
         else:
@@ -583,16 +593,16 @@ class Tags(AWSHelperFn):
         return cls(**kwargs)
 
 
-class Template(object):
+class Template:
     props = {
-        'AWSTemplateFormatVersion': (basestring, False),
-        'Transform': (basestring, False),
-        'Description': (basestring, False),
-        'Parameters': (dict, False),
-        'Mappings': (dict, False),
-        'Resources': (dict, False),
-        'Outputs': (dict, False),
-        'Rules': (dict, False),
+        "AWSTemplateFormatVersion": (str, False),
+        "Transform": (str, False),
+        "Description": (str, False),
+        "Parameters": (dict, False),
+        "Mappings": (dict, False),
+        "Resources": (dict, False),
+        "Outputs": (dict, False),
+        "Rules": (dict, False),
     }
 
     def __init__(self, Description=None, Metadata=None):  # noqa: N803
@@ -610,26 +620,8 @@ class Template(object):
     def set_description(self, description):
         self.description = description
 
-    def add_description(self, description):
-        warnings.warn(
-            "The add_description() method is deprecated, please switch to "
-            "using set_description() instead.\n",
-            DeprecationWarning,
-            stacklevel=2
-        )
-        return self.set_description(description)
-
     def set_metadata(self, metadata):
         self.metadata = metadata
-
-    def add_metadata(self, metadata):
-        warnings.warn(
-            "The add_metadata() method is deprecated, please switch to using "
-            "set_metadata() instead.\n",
-            DeprecationWarning,
-            stacklevel=2
-        )
-        return self.set_metadata(metadata)
 
     def add_condition(self, name, condition):
         self.conditions[name] = condition
@@ -652,19 +644,19 @@ class Template(object):
 
     def add_output(self, output):
         if len(self.outputs) >= MAX_OUTPUTS:
-            raise ValueError('Maximum outputs %d reached' % MAX_OUTPUTS)
+            raise ValueError("Maximum outputs %d reached" % MAX_OUTPUTS)
         return self._update(self.outputs, output)
 
     def add_mapping(self, name, mapping):
         if len(self.mappings) >= MAX_MAPPINGS:
-            raise ValueError('Maximum mappings %d reached' % MAX_MAPPINGS)
+            raise ValueError("Maximum mappings %d reached" % MAX_MAPPINGS)
         if name not in self.mappings:
             self.mappings[name] = {}
         self.mappings[name].update(mapping)
 
     def add_parameter(self, parameter):
         if len(self.parameters) >= MAX_PARAMETERS:
-            raise ValueError('Maximum parameters %d reached' % MAX_PARAMETERS)
+            raise ValueError("Maximum parameters %d reached" % MAX_PARAMETERS)
         return self._update(self.parameters, parameter)
 
     def get_or_add_parameter(self, parameter):
@@ -676,8 +668,7 @@ class Template(object):
 
     def add_resource(self, resource):
         if len(self.resources) >= MAX_RESOURCES:
-            raise ValueError('Maximum number of resources %d reached'
-                             % MAX_RESOURCES)
+            raise ValueError("Maximum number of resources %d reached" % MAX_RESOURCES)
         return self._update(self.resources, resource)
 
     def add_rule(self, name, rule):
@@ -701,48 +692,30 @@ class Template(object):
         else:
             self.version = "2010-09-09"
 
-    def add_version(self, version=None):
-        warnings.warn(
-            "The add_version() method is deprecated, please switch to using "
-            "set_version() instead.\n",
-            DeprecationWarning,
-            stacklevel=2
-        )
-        return self.set_version(version)
-
     def set_transform(self, transform):
         self.transform = transform
-
-    def add_transform(self, transform):
-        warnings.warn(
-            "The add_transform() method is deprecated, please switch to using "
-            "set_transform() instead.\n",
-            DeprecationWarning,
-            stacklevel=2
-        )
-        return self.set_transform(transform)
 
     def to_dict(self):
         t = {}
         if self.description:
-            t['Description'] = self.description
+            t["Description"] = self.description
         if self.metadata:
-            t['Metadata'] = self.metadata
+            t["Metadata"] = self.metadata
         if self.conditions:
-            t['Conditions'] = self.conditions
+            t["Conditions"] = self.conditions
         if self.mappings:
-            t['Mappings'] = self.mappings
+            t["Mappings"] = self.mappings
         if self.outputs:
-            t['Outputs'] = self.outputs
+            t["Outputs"] = self.outputs
         if self.parameters:
-            t['Parameters'] = self.parameters
+            t["Parameters"] = self.parameters
         if self.version:
-            t['AWSTemplateFormatVersion'] = self.version
+            t["AWSTemplateFormatVersion"] = self.version
         if self.transform:
-            t['Transform'] = self.transform
+            t["Transform"] = self.transform
         if self.rules:
-            t['Rules'] = self.rules
-        t['Resources'] = self.resources
+            t["Rules"] = self.rules
+        t["Resources"] = self.resources
 
         return encode_to_dict(t)
 
@@ -752,9 +725,9 @@ class Template(object):
         :type parameter: str or Parameter
         :type label: str
         """
-        labels = self.metadata\
-            .setdefault("AWS::CloudFormation::Interface", {})\
-            .setdefault("ParameterLabels", {})
+        labels = self.metadata.setdefault(
+            "AWS::CloudFormation::Interface", {}
+        ).setdefault("ParameterLabels", {})
 
         if isinstance(parameter, BaseAWSObject):
             parameter = parameter.title
@@ -767,9 +740,9 @@ class Template(object):
         :type parameter: str or Parameter
         :type group_name: str
         """
-        groups = self.metadata \
-            .setdefault("AWS::CloudFormation::Interface", {}) \
-            .setdefault("ParameterGroups", [])
+        groups = self.metadata.setdefault(
+            "AWS::CloudFormation::Interface", {}
+        ).setdefault("ParameterGroups", [])
 
         if isinstance(parameter, BaseAWSObject):
             parameter = parameter.title
@@ -792,22 +765,24 @@ class Template(object):
 
         return group_name
 
-    def to_json(self, indent=4, sort_keys=True, separators=(',', ': ')):
-        return json.dumps(self.to_dict(), indent=indent,
-                          sort_keys=sort_keys, separators=separators)
+    def to_json(self, indent=4, sort_keys=True, separators=(",", ": ")):
+        return json.dumps(
+            self.to_dict(), indent=indent, sort_keys=sort_keys, separators=separators
+        )
 
-    def to_yaml(self, clean_up=False, long_form=False):
-        return cfn_flip.to_yaml(self.to_json(), clean_up=clean_up,
-                                long_form=long_form)
+    def to_yaml(self, clean_up=False, long_form=False, sort_keys=True):
+        return cfn_flip.to_yaml(
+            self.to_json(sort_keys=sort_keys), clean_up=clean_up, long_form=long_form
+        )
 
     def __eq__(self, other):
         if isinstance(other, Template):
-            return (self.to_json() == other.to_json())
+            return self.to_json() == other.to_json()
         else:
             return False
 
     def __ne__(self, other):
-        return (not self.__eq__(other))
+        return not self.__eq__(other)
 
     def __hash__(self):
         return hash(self.to_json())
@@ -816,15 +791,15 @@ class Template(object):
 class Export(AWSHelperFn):
     def __init__(self, name):
         self.data = {
-            'Name': name,
+            "Name": name,
         }
 
 
 class Output(AWSDeclaration):
     props = {
-        'Description': (basestring, False),
-        'Export': (Export, False),
-        'Value': (basestring, True),
+        "Description": (str, False),
+        "Export": (Export, False),
+        "Value": (str, True),
     }
 
     def add_to_template(self):
@@ -834,20 +809,20 @@ class Output(AWSDeclaration):
 
 
 class Parameter(AWSDeclaration):
-    STRING_PROPERTIES = ['AllowedPattern', 'MaxLength', 'MinLength']
-    NUMBER_PROPERTIES = ['MaxValue', 'MinValue']
+    STRING_PROPERTIES = ["AllowedPattern", "MaxLength", "MinLength"]
+    NUMBER_PROPERTIES = ["MaxValue", "MinValue"]
     props = {
-        'Type': (basestring, True),
-        'Default': ((basestring, int, float), False),
-        'NoEcho': (bool, False),
-        'AllowedValues': (list, False),
-        'AllowedPattern': (basestring, False),
-        'MaxLength': (validators.positive_integer, False),
-        'MinLength': (validators.positive_integer, False),
-        'MaxValue': (validators.integer, False),
-        'MinValue': (validators.integer, False),
-        'Description': (basestring, False),
-        'ConstraintDescription': (basestring, False),
+        "Type": (str, True),
+        "Default": ((str, int, float), False),
+        "NoEcho": (bool, False),
+        "AllowedValues": (list, False),
+        "AllowedPattern": (str, False),
+        "MaxLength": (validators.positive_integer, False),
+        "MinLength": (validators.positive_integer, False),
+        "MaxValue": (validators.integer, False),
+        "MinValue": (validators.integer, False),
+        "Description": (str, False),
+        "ConstraintDescription": (str, False),
     }
 
     def add_to_template(self):
@@ -857,9 +832,11 @@ class Parameter(AWSDeclaration):
 
     def validate_title(self):
         if len(self.title) > PARAMETER_TITLE_MAX:
-            raise ValueError("Parameter title can be no longer than "
-                             "%d characters" % PARAMETER_TITLE_MAX)
-        super(Parameter, self).validate_title()
+            raise ValueError(
+                "Parameter title can be no longer than "
+                "%d characters" % PARAMETER_TITLE_MAX
+            )
+        super().validate_title()
 
     def validate(self):
         def check_type(t, v):
@@ -870,43 +847,43 @@ class Parameter(AWSDeclaration):
                 return False
 
         # Validate the Default parameter value
-        default = self.properties.get('Default')
+        default = self.properties.get("Default")
         if default:
-            error_str = ("Parameter default type mismatch: expecting "
-                         "type %s got %s with value %r")
+            error_str = (
+                "Parameter default type mismatch: expecting "
+                "type %s got %s with value %r"
+            )
             # Get the Type specified and see whether the default type
             # matches (in the case of a String Type) or can be coerced
             # into one of the number formats.
-            param_type = self.properties.get('Type')
-            if param_type == 'String' and not isinstance(default, basestring):
-                raise ValueError(error_str %
-                                 ('String', type(default), default))
-            elif param_type == 'Number':
+            param_type = self.properties.get("Type")
+            if param_type == "String" and not isinstance(default, str):
+                raise ValueError(error_str % ("String", type(default), default))
+            elif param_type == "Number":
                 allowed = [float, int]
                 # See if the default value can be coerced into one
                 # of the correct types
-                if not any(map(lambda x: check_type(x, default), allowed)):
-                    raise ValueError(error_str %
-                                     (param_type, type(default), default))
-            elif param_type == 'List<Number>':
-                if not isinstance(default, basestring):
-                    raise ValueError(error_str %
-                                     (param_type, type(default), default))
+                if not any(check_type(x, default) for x in allowed):
+                    raise ValueError(error_str % (param_type, type(default), default))
+            elif param_type == "List<Number>":
+                if not isinstance(default, str):
+                    raise ValueError(error_str % (param_type, type(default), default))
                 allowed = [float, int]
                 dlist = default.split(",")
                 for d in dlist:
                     # Verify the split array are all numbers
-                    if not any(map(lambda x: check_type(x, d), allowed)):
-                        raise ValueError(error_str %
-                                         (param_type, type(d), dlist))
+                    if not any(check_type(x, d) for x in allowed):
+                        raise ValueError(error_str % (param_type, type(d), dlist))
 
-        if self.properties['Type'] != 'String':
+        if self.properties["Type"] != "String":
             for p in self.STRING_PROPERTIES:
                 if p in self.properties:
-                    raise ValueError("%s can only be used with parameters of "
-                                     "the String type." % p)
-        if self.properties['Type'] != 'Number':
+                    raise ValueError(
+                        "%s can only be used with parameters of " "the String type." % p
+                    )
+        if self.properties["Type"] != "Number":
             for p in self.NUMBER_PROPERTIES:
                 if p in self.properties:
-                    raise ValueError("%s can only be used with parameters of "
-                                     "the Number type." % p)
+                    raise ValueError(
+                        "%s can only be used with parameters of " "the Number type." % p
+                    )

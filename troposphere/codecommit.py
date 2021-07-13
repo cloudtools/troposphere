@@ -8,52 +8,49 @@ from . import AWSHelperFn, AWSObject, AWSProperty, Tags
 
 class S3(AWSProperty):
     props = {
-        'Bucket': (basestring, True),
-        'Key': (basestring, True),
-        'ObjectVersion': (basestring, False),
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "ObjectVersion": (str, False),
     }
 
 
 class Code(AWSProperty):
-    props = {
-        'BranchName': (basestring, False),
-        'S3': (S3, True)
-    }
+    props = {"BranchName": (str, False), "S3": (S3, True)}
 
 
 class Trigger(AWSProperty):
     props = {
-        'Branches': ([basestring], False),
-        'CustomData': (basestring, False),
-        'DestinationArn': (basestring, False),
-        'Events': ([basestring], False),
-        'Name': (basestring, False),
+        "Branches": ([str], False),
+        "CustomData": (str, False),
+        "DestinationArn": (str, False),
+        "Events": ([str], False),
+        "Name": (str, False),
     }
 
     def validate(self):
         valid = [
-            'all',
-            'createReference',
-            'deleteReference',
-            'updateReference',
+            "all",
+            "createReference",
+            "deleteReference",
+            "updateReference",
         ]
-        events = self.properties.get('Events')
+        events = self.properties.get("Events")
         if events and not isinstance(events, AWSHelperFn):
-            if 'all' in events and len(events) != 1:
-                raise ValueError('Trigger events: all must be used alone')
+            if "all" in events and len(events) != 1:
+                raise ValueError("Trigger events: all must be used alone")
             else:
                 for e in events:
                     if e not in valid and not isinstance(e, AWSHelperFn):
-                        raise ValueError('Trigger: invalid event %s' % e)
+                        raise ValueError("Trigger: invalid event %s" % e)
 
 
 class Repository(AWSObject):
     resource_type = "AWS::CodeCommit::Repository"
 
     props = {
-        'Code': (Code, False),
-        'RepositoryDescription': (basestring, False),
-        'RepositoryName': (basestring, True),
-        'Tags': (Tags, False),
-        'Triggers': ([Trigger], False),
+        "Code": (Code, False),
+        "RepositoryDescription": (str, False),
+        "RepositoryName": (str, True),
+        "Tags": (Tags, False),
+        "Triggers": ([Trigger], False),
     }

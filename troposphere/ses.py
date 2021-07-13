@@ -3,38 +3,38 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .validators import boolean
 
 
 class DimensionConfiguration(AWSProperty):
     props = {
-        'DefaultDimensionValue': (basestring, True),
-        'DimensionName': (basestring, True),
-        'DimensionValueSource': (basestring, True),
+        "DefaultDimensionValue": (str, True),
+        "DimensionName": (str, True),
+        "DimensionValueSource": (str, True),
     }
 
 
 class CloudWatchDestination(AWSProperty):
     props = {
-        'DimensionConfigurations': ([DimensionConfiguration], False),
+        "DimensionConfigurations": ([DimensionConfiguration], False),
     }
 
 
 class KinesisFirehoseDestination(AWSProperty):
     props = {
-        'DeliveryStreamARN': (basestring, True),
-        'IAMRoleARN': (basestring, True),
+        "DeliveryStreamARN": (str, True),
+        "IAMRoleARN": (str, True),
     }
 
 
 class EventDestination(AWSProperty):
     props = {
-        'CloudWatchDestination': (CloudWatchDestination, False),
-        'Enabled': (boolean, False),
-        'KinesisFirehoseDestination': (KinesisFirehoseDestination, False),
-        'MatchingEventTypes': ([basestring], True),
-        'Name': (basestring, False),
+        "CloudWatchDestination": (CloudWatchDestination, False),
+        "Enabled": (boolean, False),
+        "KinesisFirehoseDestination": (KinesisFirehoseDestination, False),
+        "MatchingEventTypes": ([str], True),
+        "Name": (str, False),
     }
 
 
@@ -42,8 +42,28 @@ class ConfigurationSetEventDestination(AWSObject):
     resource_type = "AWS::SES::ConfigurationSetEventDestination"
 
     props = {
-        'ConfigurationSetName': (basestring, True),
-        'EventDestination': (EventDestination, True),
+        "ConfigurationSetName": (str, True),
+        "EventDestination": (EventDestination, True),
+    }
+
+
+class Topic(AWSProperty):
+    props = {
+        "DefaultSubscriptionStatus": (str, True),
+        "Description": (str, False),
+        "DisplayName": (str, True),
+        "TopicName": (str, True),
+    }
+
+
+class ContactList(AWSObject):
+    resource_type = "AWS::SES::ContactList"
+
+    props = {
+        "ContactListName": (str, False),
+        "Description": (str, False),
+        "Tags": (Tags, False),
+        "Topics": ([Topic], False),
     }
 
 
@@ -51,21 +71,21 @@ class ConfigurationSet(AWSObject):
     resource_type = "AWS::SES::ConfigurationSet"
 
     props = {
-        'Name': (basestring, False),
+        "Name": (str, False),
     }
 
 
 class IpFilter(AWSProperty):
     props = {
-        'Cidr': (basestring, True),
-        'Policy': (basestring, True),
+        "Cidr": (str, True),
+        "Policy": (str, True),
     }
 
 
 class Filter(AWSProperty):
     props = {
-        'IpFilter': (IpFilter, True),
-        'Name': (basestring, False),
+        "IpFilter": (IpFilter, True),
+        "Name": (str, False),
     }
 
 
@@ -73,7 +93,7 @@ class ReceiptFilter(AWSObject):
     resource_type = "AWS::SES::ReceiptFilter"
 
     props = {
-        'Filter': (Filter, True),
+        "Filter": (Filter, True),
     }
 
 
@@ -81,85 +101,85 @@ class ReceiptRuleSet(AWSObject):
     resource_type = "AWS::SES::ReceiptRuleSet"
 
     props = {
-        'RuleSetName': (basestring, False),
+        "RuleSetName": (str, False),
     }
 
 
 class AddHeaderAction(AWSProperty):
     props = {
-        'HeaderName': (basestring, True),
-        'HeaderValue': (basestring, True),
+        "HeaderName": (str, True),
+        "HeaderValue": (str, True),
     }
 
 
 class BounceAction(AWSProperty):
     props = {
-        'Message': (basestring, True),
-        'Sender': (basestring, True),
-        'SmtpReplyCode': (basestring, True),
-        'StatusCode': (basestring, False),
-        'TopicArn': (basestring, False),
+        "Message": (str, True),
+        "Sender": (str, True),
+        "SmtpReplyCode": (str, True),
+        "StatusCode": (str, False),
+        "TopicArn": (str, False),
     }
 
 
 class LambdaAction(AWSProperty):
     props = {
-        'FunctionArn': (basestring, True),
-        'InvocationType': (basestring, False),
-        'TopicArn': (basestring, False),
+        "FunctionArn": (str, True),
+        "InvocationType": (str, False),
+        "TopicArn": (str, False),
     }
 
 
 class S3Action(AWSProperty):
     props = {
-        'BucketName': (basestring, True),
-        'KmsKeyArn': (basestring, False),
-        'ObjectKeyPrefix': (basestring, False),
-        'TopicArn': (basestring, False),
+        "BucketName": (str, True),
+        "KmsKeyArn": (str, False),
+        "ObjectKeyPrefix": (str, False),
+        "TopicArn": (str, False),
     }
 
 
 class SNSAction(AWSProperty):
     props = {
-        'Encoding': (basestring, False),
-        'TopicArn': (basestring, False),
+        "Encoding": (str, False),
+        "TopicArn": (str, False),
     }
 
 
 class StopAction(AWSProperty):
     props = {
-        'Scope': (basestring, True),
-        'TopicArn': (basestring, False),
+        "Scope": (str, True),
+        "TopicArn": (str, False),
     }
 
 
 class WorkmailAction(AWSProperty):
     props = {
-        'OrganizationArn': (basestring, True),
-        'TopicArn': (basestring, False),
+        "OrganizationArn": (str, True),
+        "TopicArn": (str, False),
     }
 
 
 class Action(AWSProperty):
     props = {
-        'AddHeaderAction': (AddHeaderAction, False),
-        'BounceAction': (BounceAction, False),
-        'LambdaAction': (LambdaAction, False),
-        'S3Action': (S3Action, False),
-        'SNSAction': (SNSAction, False),
-        'StopAction': (StopAction, False),
-        'WorkmailAction': (WorkmailAction, False),
+        "AddHeaderAction": (AddHeaderAction, False),
+        "BounceAction": (BounceAction, False),
+        "LambdaAction": (LambdaAction, False),
+        "S3Action": (S3Action, False),
+        "SNSAction": (SNSAction, False),
+        "StopAction": (StopAction, False),
+        "WorkmailAction": (WorkmailAction, False),
     }
 
 
 class Rule(AWSProperty):
     props = {
-        'Actions': ([Action], False),
-        'Enabled': (boolean, False),
-        'Name': (basestring, False),
-        'Recipients': ([basestring], False),
-        'ScanEnabled': (boolean, False),
-        'TlsPolicy': (basestring, False),
+        "Actions": ([Action], False),
+        "Enabled": (boolean, False),
+        "Name": (str, False),
+        "Recipients": ([str], False),
+        "ScanEnabled": (boolean, False),
+        "TlsPolicy": (str, False),
     }
 
 
@@ -167,18 +187,18 @@ class ReceiptRule(AWSObject):
     resource_type = "AWS::SES::ReceiptRule"
 
     props = {
-        'After': (basestring, False),
-        'Rule': (Rule, True),
-        'RuleSetName': (basestring, True),
+        "After": (str, False),
+        "Rule": (Rule, True),
+        "RuleSetName": (str, True),
     }
 
 
 class EmailTemplate(AWSProperty):
     props = {
-        'HtmlPart': (basestring, False),
-        'SubjectPart': (basestring, False),
-        'TemplateName': (basestring, False),
-        'TextPart': (basestring, False),
+        "HtmlPart": (str, False),
+        "SubjectPart": (str, False),
+        "TemplateName": (str, False),
+        "TextPart": (str, False),
     }
 
 
@@ -186,5 +206,5 @@ class Template(AWSObject):
     resource_type = "AWS::SES::Template"
 
     props = {
-        'Template': (EmailTemplate, False),
+        "Template": (EmailTemplate, False),
     }

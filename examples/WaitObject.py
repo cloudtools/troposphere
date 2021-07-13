@@ -4,7 +4,6 @@
 from troposphere import GetAtt, Output, Ref, Template
 from troposphere.cloudformation import WaitCondition, WaitConditionHandle
 
-
 t = Template()
 
 t.set_description(
@@ -30,13 +29,15 @@ mywaitcondition = t.add_resource(
     )
 )
 
-t.add_output([
-    Output(
-        "ApplicationData",
-        Value=GetAtt(mywaitcondition, "Data"),
-        Description="The data passed back as part of signalling the "
-                    "WaitCondition"
-    )
-])
+t.add_output(
+    [
+        Output(
+            "ApplicationData",
+            Value=GetAtt(mywaitcondition, "Data"),
+            Description="The data passed back as part of signalling the "
+            "WaitCondition",
+        )
+    ]
+)
 
 print(t.to_json())

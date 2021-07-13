@@ -1,30 +1,31 @@
 import unittest
+
 from troposphere.stepfunctions import Activity, StateMachine
 
 
 class TestStepFunctions(unittest.TestCase):
     def test_activity(self):
         activity = Activity(
-            'myactivity',
+            "myactivity",
             Name="testactivity",
         )
-        self.assertEqual(activity.Name, 'testactivity')
+        self.assertEqual(activity.Name, "testactivity")
 
     def test_statemachine(self):
         statemachine = StateMachine(
-            'mystatemachine',
+            "mystatemachine",
             DefinitionString="testdefinitionstring",
-            RoleArn="testinrolearn"
+            RoleArn="testinrolearn",
         )
-        self.assertEqual(statemachine.RoleArn, 'testinrolearn')
+        self.assertEqual(statemachine.RoleArn, "testinrolearn")
 
     def test_statemachine_missing_parameter(self):
         StateMachine(
-            'mystatemachine',
+            "mystatemachine",
             DefinitionString="testdefinitionstring",
         )
         self.assertTrue(AttributeError)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

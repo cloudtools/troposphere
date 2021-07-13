@@ -1,52 +1,47 @@
+import unittest
+
+import troposphere.emr as emr
 from troposphere import If, Ref, Tags
 from troposphere.constants import M4_LARGE
 
-import unittest
-import troposphere.emr as emr
-
-
 scaling_policy = emr.SimpleScalingPolicyConfiguration(
-                    AdjustmentType=emr.EXACT_CAPACITY,
-                    ScalingAdjustment="1",
-                    CoolDown="300"
-                )
+    AdjustmentType=emr.EXACT_CAPACITY, ScalingAdjustment="1", CoolDown="300"
+)
 
-kms_key = 'arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234'
+kms_key = "arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234"
 
 security_configuration = {
-    'EncryptionConfiguration': {
-        'EnableInTransitEncryption': True,
-        'InTransitEncryptionConfiguration': {
-            'TLSCertificateConfiguration': {
-                'CertificateProviderType': 'PEM',
-                'S3Object': 's3://MyConfigStore/artifacts/MyCerts.zip'
+    "EncryptionConfiguration": {
+        "EnableInTransitEncryption": True,
+        "InTransitEncryptionConfiguration": {
+            "TLSCertificateConfiguration": {
+                "CertificateProviderType": "PEM",
+                "S3Object": "s3://MyConfigStore/artifacts/MyCerts.zip",
             }
         },
-        'EnableAtRestEncryption': True,
-        'AtRestEncryptionConfiguration': {
-            'S3EncryptionConfiguration': {
-                'EncryptionMode': 'SSE-KMS',
-                'AwsKmsKey': kms_key
+        "EnableAtRestEncryption": True,
+        "AtRestEncryptionConfiguration": {
+            "S3EncryptionConfiguration": {
+                "EncryptionMode": "SSE-KMS",
+                "AwsKmsKey": kms_key,
             },
-            'LocalDiskEncryptionConfiguration': {
-                'EncryptionKeyProviderType': 'AwsKms',
-                'AwsKmsKey': kms_key
-            }
-        }
+            "LocalDiskEncryptionConfiguration": {
+                "EncryptionKeyProviderType": "AwsKms",
+                "AwsKmsKey": kms_key,
+            },
+        },
     }
 }
 
 
 class TestEMR(unittest.TestCase):
-
     def generate_rules(self, rules_name):
         rules = [
             emr.ScalingRule(
                 Name=rules_name,
                 Description="%s rules" % rules_name,
                 Action=emr.ScalingAction(
-                    Market="ON_DEMAND",
-                    SimpleScalingPolicyConfiguration=scaling_policy
+                    Market="ON_DEMAND", SimpleScalingPolicyConfiguration=scaling_policy
                 ),
                 Trigger=emr.ScalingTrigger(
                     CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
@@ -60,50 +55,49 @@ class TestEMR(unittest.TestCase):
                         Unit="PERCENT",
                         Dimensions=[
                             emr.MetricDimension(
-                                'my.custom.master.property',
-                                'my.custom.master.value'
+                                "my.custom.master.property", "my.custom.master.value"
                             ),
                         ],
                     )
-                )
+                ),
             )
         ]
         return rules
 
     def test_allow_string_cluster(self):
         cluster_security_configuration = emr.SecurityConfiguration(
-                'emrsecurityconfiguration',
-                Name="EMRSecurityConfiguration",
-                SecurityConfiguration=security_configuration
-            )
+            "emrsecurityconfiguration",
+            Name="EMRSecurityConfiguration",
+            SecurityConfiguration=security_configuration,
+        )
 
         spot = "2"
         withSpotPrice = "WithSpotPrice"
         cluster = emr.Cluster(
-            'Cluster',
+            "Cluster",
             # AdditionalInfo="Additional Info",
             Applications=[
                 emr.Application(Name="Hadoop"),
                 emr.Application(Name="Hive"),
                 emr.Application(Name="Mahout"),
                 emr.Application(Name="Pig"),
-                emr.Application(Name="Spark")
+                emr.Application(Name="Spark"),
             ],
             BootstrapActions=[
                 emr.BootstrapActionConfig(
-                    Name='Dummy bootstrap action',
+                    Name="Dummy bootstrap action",
                     ScriptBootstrapAction=emr.ScriptBootstrapActionConfig(
-                        Path='file:/usr/share/aws/emr/scripts/install-hue',
-                        Args=["dummy", "parameter"]
-                    )
+                        Path="file:/usr/share/aws/emr/scripts/install-hue",
+                        Args=["dummy", "parameter"],
+                    ),
                 )
             ],
             Configurations=[
                 emr.Configuration(
                     Classification="core-site",
                     ConfigurationProperties={
-                        'hadoop.security.groups.cache.secs': '250'
-                    }
+                        "hadoop.security.groups.cache.secs": "250"
+                    },
                 )
             ],
             Instances=emr.JobFlowInstancesConfig(
@@ -113,11 +107,10 @@ class TestEMR(unittest.TestCase):
                     InstanceCount="1",
                     InstanceType=M4_LARGE,
                     AutoScalingPolicy=emr.AutoScalingPolicy(
-                      Constraints=emr.ScalingConstraints(
-                        MinCapacity="1",
-                        MaxCapacity="3"
-                      ),
-                      Rules=self.generate_rules("MasterAutoScalingPolicy")
+                        Constraints=emr.ScalingConstraints(
+                            MinCapacity="1", MaxCapacity="3"
+                        ),
+                        Rules=self.generate_rules("MasterAutoScalingPolicy"),
                     ),
                 ),
                 CoreInstanceGroup=emr.InstanceGroupConfigProperty(
@@ -128,11 +121,10 @@ class TestEMR(unittest.TestCase):
                     InstanceType=M4_LARGE,
                     AutoScalingPolicy=emr.AutoScalingPolicy(
                         Constraints=emr.ScalingConstraints(
-                            MinCapacity="1",
-                            MaxCapacity="3"
+                            MinCapacity="1", MaxCapacity="3"
                         ),
                         Rules=self.generate_rules("CoreAutoScalingPolicy"),
-                    )
+                    ),
                 ),
             ),
             JobFlowRole="EMRJobFlowRole",
@@ -143,112 +135,104 @@ class TestEMR(unittest.TestCase):
             ServiceRole="EMRServiceRole",
             AutoScalingRole="EMR_AutoScaling_DefaultRole",
             VisibleToAllUsers="true",
-            Tags=Tags(
-                Name="EMR Sample Cluster"
-            )
+            Tags=Tags(Name="EMR Sample Cluster"),
         )
 
         cluster.to_dict()
 
         autoscale_policy = emr.AutoScalingPolicy(
-            Constraints=emr.ScalingConstraints(
-                MinCapacity=0,
-                MaxCapacity=5
-            ),
+            Constraints=emr.ScalingConstraints(MinCapacity=0, MaxCapacity=5),
             Rules=[
                 emr.ScalingRule(
-                    Name='ScaleUpContainerPending',
-                    Description='Scale up on over-provisioned '
-                                'containers',
+                    Name="ScaleUpContainerPending",
+                    Description="Scale up on over-provisioned " "containers",
                     Action=emr.ScalingAction(
-                        SimpleScalingPolicyConfiguration=emr.
-                        SimpleScalingPolicyConfiguration(
+                        SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
                             AdjustmentType=emr.CHANGE_IN_CAPACITY,
                             CoolDown=300,
-                            ScalingAdjustment=1
-                        )),
+                            ScalingAdjustment=1,
+                        )
+                    ),
                     Trigger=emr.ScalingTrigger(
-                        CloudWatchAlarmDefinition=emr.
-                        CloudWatchAlarmDefinition(
-                            ComparisonOperator='GREATER_THAN',
-                            MetricName='ContainerPendingRatio',
+                        CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                            ComparisonOperator="GREATER_THAN",
+                            MetricName="ContainerPendingRatio",
                             Period=300,
                             Threshold=0.75,
                             Dimensions=[
                                 emr.MetricDimension(
-                                    Key='JobFlowId',
-                                    Value='${emr.clusterId}'
+                                    Key="JobFlowId", Value="${emr.clusterId}"
                                 )
-                            ]
+                            ],
                         )
-                    )
+                    ),
                 ),
                 emr.ScalingRule(
-                    Name='ScaleUpMemory',
-                    Description='Scale up on low memory',
+                    Name="ScaleUpMemory",
+                    Description="Scale up on low memory",
                     Action=emr.ScalingAction(
-                        SimpleScalingPolicyConfiguration=emr.
-                        SimpleScalingPolicyConfiguration(
-                            AdjustmentType='CHANGE_IN_CAPACITY',
+                        SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
+                            AdjustmentType="CHANGE_IN_CAPACITY",
                             CoolDown=300,
-                            ScalingAdjustment=1
-                        )),
+                            ScalingAdjustment=1,
+                        )
+                    ),
                     Trigger=emr.ScalingTrigger(
-                        CloudWatchAlarmDefinition=emr.
-                        CloudWatchAlarmDefinition(
-                            ComparisonOperator='LESS_THAN',
-                            MetricName='YARNMemoryAvailablePercentage',
+                        CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                            ComparisonOperator="LESS_THAN",
+                            MetricName="YARNMemoryAvailablePercentage",
                             Period=300,
                             Threshold=15,
-                            Dimensions=[emr.MetricDimension(
-                                Key='JobFlowId',
-                                Value='${emr.clusterId}'
-                            )]
+                            Dimensions=[
+                                emr.MetricDimension(
+                                    Key="JobFlowId", Value="${emr.clusterId}"
+                                )
+                            ],
                         )
-                    )
+                    ),
                 ),
                 emr.ScalingRule(
-                    Name='ScaleDownMemory',
-                    Description='Scale down on high memory',
+                    Name="ScaleDownMemory",
+                    Description="Scale down on high memory",
                     Action=emr.ScalingAction(
-                        SimpleScalingPolicyConfiguration=emr.
-                        SimpleScalingPolicyConfiguration(
+                        SimpleScalingPolicyConfiguration=emr.SimpleScalingPolicyConfiguration(
                             AdjustmentType=emr.CHANGE_IN_CAPACITY,
                             CoolDown=300,
-                            ScalingAdjustment=-1
-                        )),
+                            ScalingAdjustment=-1,
+                        )
+                    ),
                     Trigger=emr.ScalingTrigger(
-                        CloudWatchAlarmDefinition=emr.
-                        CloudWatchAlarmDefinition(
-                            ComparisonOperator='GREATER_THAN',
-                            MetricName='YARNMemoryAvailablePercentage',
+                        CloudWatchAlarmDefinition=emr.CloudWatchAlarmDefinition(
+                            ComparisonOperator="GREATER_THAN",
+                            MetricName="YARNMemoryAvailablePercentage",
                             Period=300,
                             Threshold=75,
-                            Dimensions=[emr.MetricDimension(
-                                Key='JobFlowId',
-                                Value='${emr.clusterId}'
-                            )]
+                            Dimensions=[
+                                emr.MetricDimension(
+                                    Key="JobFlowId", Value="${emr.clusterId}"
+                                )
+                            ],
                         )
-                    )
-                )
-            ]
+                    ),
+                ),
+            ],
         )
 
         emr.InstanceGroupConfig(
-            'TaskInstanceGroup',
+            "TaskInstanceGroup",
             AutoScalingPolicy=autoscale_policy,
             InstanceCount=0,
             InstanceType=M4_LARGE,
-            InstanceRole='TASK',
-            Market='ON_DEMAND',
-            Name='Task Instance',
-            JobFlowId=Ref(cluster)
+            InstanceRole="TASK",
+            Market="ON_DEMAND",
+            Name="Task Instance",
+            JobFlowId=Ref(cluster),
         )
 
     def simple_helper(self, adjustment, scaling):
         sc = emr.SimpleScalingPolicyConfiguration(
-                 AdjustmentType=adjustment,
-                 ScalingAdjustment=scaling,
+            AdjustmentType=adjustment,
+            ScalingAdjustment=scaling,
         )
         sc.validate()
 

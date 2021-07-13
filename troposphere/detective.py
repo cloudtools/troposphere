@@ -3,13 +3,15 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject
+from . import AWSObject, Tags
+from .validators import boolean
 
 
 class Graph(AWSObject):
     resource_type = "AWS::Detective::Graph"
 
     props = {
+        "Tags": (Tags, False),
     }
 
 
@@ -17,8 +19,9 @@ class MemberInvitation(AWSObject):
     resource_type = "AWS::Detective::MemberInvitation"
 
     props = {
-        'GraphArn': (basestring, True),
-        'MemberEmailAddress': (basestring, True),
-        'MemberId': (basestring, True),
-        'Message': (basestring, False),
+        "DisableEmailNotification": (boolean, False),
+        "GraphArn": (str, True),
+        "MemberEmailAddress": (str, True),
+        "MemberId": (str, True),
+        "Message": (str, False),
     }
