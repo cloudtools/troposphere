@@ -74,12 +74,19 @@ class StatelessRuleGroupReference(AWSProperty):
 
 
 class FirewallPolicy(AWSProperty):
+    class FirewallPolicy(AWSProperty):
+        props={
+            "StatefulRuleGroupReferences": ([StatefulRuleGroupReference], False),
+            "StatelessCustomActions": ([CustomAction], False),
+            "StatelessDefaultActions": ([str], True),
+            "StatelessFragmentDefaultActions": ([str], True),
+            "StatelessRuleGroupReferences": ([StatelessRuleGroupReference], False),
+        }
     props = {
-        "StatefulRuleGroupReferences": ([StatefulRuleGroupReference], False),
-        "StatelessCustomActions": ([CustomAction], False),
-        "StatelessDefaultActions": ([str], True),
-        "StatelessFragmentDefaultActions": ([str], True),
-        "StatelessRuleGroupReferences": ([StatelessRuleGroupReference], False),
+        "Description": (str, False),
+        "FirewallPolicyName": (str, True),
+        "Tags": (Tags, False),
+        "FirewallPolicy": (FirewallPolicy, True),
     }
 
 
