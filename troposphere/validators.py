@@ -754,7 +754,6 @@ def ecs_efs_encryption_status(status):
     valid_status = ['ENABLED', 'DISABLED']
     if status not in valid_status:
         raise ValueError(
-            'ECS EFS Encryption in transit can only be one of: "%s"' % (
+            'ECS EFS Encryption in transit can only be one of' % (
                 ', '.join(valid_status))
         )
-    return status
