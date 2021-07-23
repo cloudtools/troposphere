@@ -97,6 +97,8 @@ class FirewallPolicyProperty(AWSProperty):
         "StatelessFragmentDefaultActions": ([str], True),
         "StatelessRuleGroupReferences": ([StatelessRuleGroupReference], False),
     }
+
+
 class FirewallPolicy(AWSObject):
     resource_type = "AWS::NetworkFirewall::FirewallPolicy"
 
