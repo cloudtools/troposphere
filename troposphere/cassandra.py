@@ -65,12 +65,20 @@ class BillingMode(AWSProperty):
     }
 
 
+class EncryptionSpecification(AWSProperty):
+    props = {
+        "EncryptionType": (str, True),
+        "KmsKeyIdentifier": (str, False),
+    }
+
+
 class Table(AWSObject):
     resource_type = "AWS::Cassandra::Table"
 
     props = {
         "BillingMode": (BillingMode, False),
         "ClusteringKeyColumns": ([ClusteringKeyColumn], False),
+        "EncryptionSpecification": (EncryptionSpecification, False),
         "KeyspaceName": (str, True),
         "PartitionKeyColumns": ([Column], True),
         "PointInTimeRecoveryEnabled": (boolean, False),
