@@ -3,8 +3,10 @@
 
 import argparse
 import json
+import os
 import sys
 
+import jsonpatch
 import yaml
 
 # Python code generator to create new troposphere classes from the
@@ -515,6 +517,13 @@ if __name__ == "__main__":
 
     f = open(args.filename[0])
     j = json.load(f)
+
+    # Apply json patches
+    patch_dir = "scripts/patches"
+    for patch_file in os.listdir(patch_dir):
+        if patch_file.endswith(".json"):
+            patch = json.loads(open(os.path.join(patch_dir, patch_file)).read())
+            j = jsonpatch.apply_patch(j, patch)
 
     spec_version = j["ResourceSpecificationVersion"]
 

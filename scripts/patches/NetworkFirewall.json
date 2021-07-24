@@ -1,0 +1,6 @@
+[
+{"op": "move", "from": "/PropertyTypes/AWS::NetworkFirewall::RuleGroup.RuleGroup", "path": "/PropertyTypes/AWS::NetworkFirewall::RuleGroup.RuleGroupProperty"},
+{"op": "replace", "path": "/ResourceTypes/AWS::NetworkFirewall::RuleGroup/Properties/RuleGroup/Type", "value": "RuleGroupProperty"},
+{"op": "move", "from": "/PropertyTypes/AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy", "path": "/PropertyTypes/AWS::NetworkFirewall::FirewallPolicy.FirewallPolicyProperty"},
+{"op": "replace", "path": "/ResourceTypes/AWS::NetworkFirewall::FirewallPolicy/Properties/FirewallPolicy/Type", "value": "FirewallPolicyProperty"}
+]
