@@ -59,6 +59,15 @@ class QueryDefinition(AWSObject):
     }
 
 
+class ResourcePolicy(AWSObject):
+    resource_type = "AWS::Logs::ResourcePolicy"
+
+    props = {
+        "PolicyDocument": (str, True),
+        "PolicyName": (str, True),
+    }
+
+
 class SubscriptionFilter(AWSObject):
     resource_type = "AWS::Logs::SubscriptionFilter"
 
