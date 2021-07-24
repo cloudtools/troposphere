@@ -1,3 +1,26 @@
+3.0.2 (2021*07*24)
+------------------
+* Add JWT to apigatewayv2 valid_authorizer_types (#1929)
+* [batch] Update ContainerProperties properties (#1930)
+* Remove p3s directory
+* Update ImageBuilder per 2021-07-01 changes
+* Update ServiceDiscovery per 2021-07-08 changes
+* Update CodeDeploy per 2021-07-08 changes
+* Add KmsKeyId Attribute to LogGroup (#1931)
+* Added missing AWS::Neptune::DBCluster properties (#1932)
+* Added Sign and Verify key usage (#1935)
+* Fix CanarySettings PercentTraffic definition
+* Fix NetworkFirewall properties
+* Fixup formatting in NetworkFirewall
+* Use jsonpatch to fixup spec files before generating code
+* Update DataBrew per 2021-07-09 changes
+* Update Logs per 2021-07-15 changes
+* Update EC2 per 2021-07-21 changes
+* Update Cassandra per 2021-07-21 changes
+* Add AWS::LookoutEquipment per 2021-07-22 changes
+* Update QLDB per 2021-07-22 changes
+* Update CloudWatch per 2021-07-22 changes
+
 3.0.1 (2021*07*06)
 ------------------
 * Fix CHANGELOG with correct 3.0.0 release date
