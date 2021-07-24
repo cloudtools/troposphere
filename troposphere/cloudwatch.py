@@ -91,6 +91,7 @@ class MetricStat(AWSProperty):
 
 class MetricDataQuery(AWSProperty):
     props = {
+        "AccountId": (str, False),
         "Expression": (str, False),
         "Id": (str, True),
         "Label": (str, False),
