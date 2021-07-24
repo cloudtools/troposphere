@@ -1084,6 +1084,8 @@ class VPCCidrBlock(AWSObject):
     props = {
         "AmazonProvidedIpv6CidrBlock": (boolean, False),
         "CidrBlock": (str, False),
+        "Ipv6CidrBlock": (str, False),
+        "Ipv6Pool": (str, False),
         "VpcId": (str, True),
     }
 
