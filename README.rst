@@ -250,6 +250,7 @@ Currently supported AWS resource types
 - `AWS::LicenseManager`_
 - `AWS::Location`_
 - `AWS::Logs`_
+- `AWS::LookoutEquipment`_
 - `AWS::LookoutMetrics`_
 - `AWS::LookoutVision`_
 - `AWS::Macie`_
@@ -528,6 +529,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::LicenseManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LicenseManager.html
 .. _`AWS::Location`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Location.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
+.. _`AWS::LookoutEquipment`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutEquipment.html
 .. _`AWS::LookoutMetrics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutMetrics.html
 .. _`AWS::LookoutVision`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutVision.html
 .. _`AWS::Macie`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Macie.html
