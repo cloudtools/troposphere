@@ -12,19 +12,14 @@ from troposphere import Tags
 from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
-
-VALID_RULE_GROUP_TYPES = (
-    "STATEFUL",
-    "STATELESS"
-)
+VALID_RULE_GROUP_TYPES = ("STATEFUL", "STATELESS")
 
 
 def validate_rule_group_type(rule_group_type):
     """Validate Type for RuleGroup"""
     if rule_group_type not in VALID_RULE_GROUP_TYPES:
         raise ValueError(
-            "RuleGroup Type must be one of %s"
-            % ", ".join(VALID_RULE_GROUP_TYPES)
+            "RuleGroup Type must be one of %s" % ", ".join(VALID_RULE_GROUP_TYPES)
         )
     return rule_group_type
 
@@ -104,9 +99,9 @@ class FirewallPolicy(AWSObject):
 
     props = {
         "Description": (str, False),
+        "FirewallPolicy": (FirewallPolicyProperty, True),
         "FirewallPolicyName": (str, True),
         "Tags": (Tags, False),
-        "FirewallPolicy": (FirewallPolicyProperty, True),
     }
 
 
@@ -242,5 +237,5 @@ class RuleGroup(AWSObject):
         "RuleGroup": (RuleGroupProperty, False),
         "RuleGroupName": (str, True),
         "Tags": (Tags, False),
-        "Type": (validate_rule_group_type, True)
+        "Type": (validate_rule_group_type, True),
     }
