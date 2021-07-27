@@ -33,6 +33,10 @@ class BrokerNodeGroupInfo(AWSProperty):
     }
 
 
+class Iam(AWSProperty):
+    props = {"Enabled": (boolean, True)}
+
+
 class Scram(AWSProperty):
     props = {
         "Enabled": (boolean, True),
@@ -41,7 +45,8 @@ class Scram(AWSProperty):
 
 class Sasl(AWSProperty):
     props = {
-        "Scram": (Scram, True),
+        "Iam": (Iam, False),
+        "Scram": (Scram, False),
     }
 
 
