@@ -39,9 +39,16 @@ class Scram(AWSProperty):
     }
 
 
+class Iam(AWSProperty):
+    props = {
+        "Enabled": (boolean, True)
+    }
+
+
 class Sasl(AWSProperty):
     props = {
-        "Scram": (Scram, True),
+        "Scram": (Scram, False),
+        "Iam": (Iam, False)
     }
 
 
