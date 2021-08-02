@@ -447,6 +447,13 @@ class HttpApi(AWSObject):
         "Tags": (dict, False),
     }
 
+    def validate(self):
+        conds = [
+            "DefinitionBody",
+            "DefinitionUri",
+        ]
+        mutually_exclusive(self.__class__.__name__, self.properties, conds)
+
 
 class PrimaryKey(AWSProperty):
     props = {"Name": (str, False), "Type": (primary_key_type_validator, False)}
