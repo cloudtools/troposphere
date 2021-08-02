@@ -435,7 +435,7 @@ class HttpApi(AWSObject):
         "Auth": (HttpApiAuth, False),
         "CorsConfiguration": ((str, HttpApiCorsConfiguration), False),
         "DefaultRouteSettings": (RouteSettings, False),
-        "DefinitionBody": (str, False),
+        "DefinitionBody": (dict, False),
         "DefinitionUri": ((str, HttpApiDefinition), False),
         "Description": (str, False),
         "DisableExecuteApiEndpoint": (boolean, False),
