@@ -186,7 +186,7 @@ class TestServerless(unittest.TestCase):
         t.add_resource(serverless_api)
         t.to_json()
 
-    def test_api_with_endpoint_configuation(self):
+    def test_api_with_endpoint_configuration(self):
         serverless_api = Api(
             title="SomeApi",
             StageName="testStageName",
