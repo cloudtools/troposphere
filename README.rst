@@ -297,6 +297,7 @@ Currently supported AWS resource types
 - `AWS::ServiceCatalog`_
 - `AWS::ServiceCatalogAppRegistry`_
 - `AWS::ServiceDiscovery`_
+- `AWS::Signer`_
 - `AWS::StepFunctions`_
 - `AWS::Synthetics`_
 - `AWS::Timestream`_
@@ -576,6 +577,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::ServiceCatalog`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalog.html
 .. _`AWS::ServiceCatalogAppRegistry`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.html
 .. _`AWS::ServiceDiscovery`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceDiscovery.html
+.. _`AWS::Signer`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Signer.html
 .. _`AWS::StepFunctions`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_StepFunctions.html
 .. _`AWS::Synthetics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Synthetics.html
 .. _`AWS::Timestream`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Timestream.html
