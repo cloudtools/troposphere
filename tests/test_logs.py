@@ -36,10 +36,10 @@ class TestLogs(unittest.TestCase):
         self.assertIn("Properties", log_destination_json)
 
     def test_validate_resource_policy(self):
-        for s in ["{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] }"]:
+        for s in ["{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] }", {'Version': '2012-10-17', 'Statement': [{'Sid': 'Route53LogsToCloudWatchLogs', 'Effect': 'Allow', 'Principal': {'Service': ['route53.amazonaws.com']}, 'Action': 'logs:PutLogEvents', 'Resource': 'logArn'}]}]:
             validate_resource_policy(s)
 
-        for s in ["", {'test': 'test'}, "H"*5121, "TEXT"]:
+        for s in ["", "H"*5121, "TEXT", {}]:
             with self.assertRaises(ValueError):
                 validate_resource_policy(s)
 
