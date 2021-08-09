@@ -99,7 +99,7 @@ class SubscriptionFilter(AWSObject):
     }
 
 
-class ResourcePolicy(AWSObject):
+class LogResourcePolicy(AWSObject):
     resource_type = "AWS::Logs::ResourcePolicy"
 
     props = {
