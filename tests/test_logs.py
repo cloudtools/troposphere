@@ -1,7 +1,7 @@
 import unittest
 
 from troposphere import Retain
-from troposphere.logs import Destination, LogGroup, validate_resource_policy
+from troposphere.logs import Destination, LogGroup, validate_resource_policy, ResourcePolicy
 
 
 class TestLogs(unittest.TestCase):
@@ -38,6 +38,14 @@ class TestLogs(unittest.TestCase):
     def test_validate_resource_policy(self):
         for s in ["{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Sid\": \"Route53LogsToCloudWatchLogs\", \"Effect\": \"Allow\", \"Principal\": { \"Service\": [ \"route53.amazonaws.com\" ] }, \"Action\":\"logs:PutLogEvents\", \"Resource\": \"logArn\" } ] }", {'Version': '2012-10-17', 'Statement': [{'Sid': 'Route53LogsToCloudWatchLogs', 'Effect': 'Allow', 'Principal': {'Service': ['route53.amazonaws.com']}, 'Action': 'logs:PutLogEvents', 'Resource': 'logArn'}]}]:
             validate_resource_policy(s)
+            log_policy = ResourcePolicy(
+                "TestLogPolicy",
+                PolicyName='TestLogPolicy',
+                PolicyDocument=s
+            )
+            expected = log_policy.to_dict()
+            properties = expected['Properties']
+            self.assertEqual(properties.get('PolicyDocument'), s)
 
         for s in ["", "H"*5121, "TEXT", {}]:
             with self.assertRaises(ValueError):
