@@ -63,6 +63,14 @@ class LustreConfiguration(AWSProperty):
     }
 
 
+class AuditLogConfiguration(AWSProperty):
+    props = {
+        "AuditLogDestination": (str, False),
+        "FileAccessAuditLogLevel": (str, True),
+        "FileShareAccessAuditLogLevel": (str, True),
+    }
+
+
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     props = {
         "DnsIps": ([str], False),
@@ -78,6 +86,7 @@ class WindowsConfiguration(AWSProperty):
     props = {
         "ActiveDirectoryId": (str, False),
         "Aliases": ([str], False),
+        "AuditLogConfiguration": (AuditLogConfiguration, False),
         "AutomaticBackupRetentionDays": (integer, False),
         "CopyTagsToBackups": (boolean, False),
         "DailyAutomaticBackupStartTime": (str, False),
