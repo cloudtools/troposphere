@@ -170,6 +170,8 @@ class DomainNameConfiguration(AWSProperty):
         "CertificateArn": (str, False),
         "CertificateName": (str, False),
         "EndpointType": (str, False),
+        "OwnershipVerificationCertificateArn": (str, False),
+        "SecurityPolicy": (str, False),
     }
 
 
