@@ -59,6 +59,17 @@ class NamedQuery(AWSObject):
     }
 
 
+class PreparedStatement(AWSObject):
+    resource_type = "AWS::Athena::PreparedStatement"
+
+    props = {
+        "Description": (str, False),
+        "QueryStatement": (str, True),
+        "StatementName": (str, True),
+        "WorkGroup": (str, True),
+    }
+
+
 class EngineVersion(AWSProperty):
     props = {
         "EffectiveEngineVersion": (str, False),
