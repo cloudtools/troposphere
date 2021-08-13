@@ -217,6 +217,7 @@ class DomainName(AWSObject):
         "DomainName": (str, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "MutualTlsAuthentication": (MutualTlsAuthentication, False),
+        "OwnershipVerificationCertificateArn": (str, False),
         "RegionalCertificateArn": (str, False),
         "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
