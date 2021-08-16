@@ -344,6 +344,7 @@ class ScheduledAction(AWSObject):
         "MinSize": (integer, False),
         "Recurrence": (str, False),
         "StartTime": (str, False),
+        "TimeZone": (str, False)
     }
 
 
