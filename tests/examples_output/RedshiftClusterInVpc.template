@@ -122,9 +122,11 @@
                         }
                     ]
                 },
-                "VpcSecurityGroupIds": {
-                    "Ref": "SecurityGroup"
-                }
+                "VpcSecurityGroupIds": [
+                    {
+                        "Ref": "SecurityGroup"
+                    }
+                ]
             },
             "Type": "AWS::Redshift::Cluster"
         },
@@ -144,9 +146,11 @@
         "RedshiftClusterSubnetGroup": {
             "Properties": {
                 "Description": "Cluster subnet group",
-                "SubnetIds": {
-                    "Ref": "Subnet"
-                }
+                "SubnetIds": [
+                    {
+                        "Ref": "Subnet"
+                    }
+                ]
             },
             "Type": "AWS::Redshift::ClusterSubnetGroup"
         },
