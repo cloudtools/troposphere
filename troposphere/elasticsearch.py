@@ -68,6 +68,12 @@ class EBSOptions(AWSProperty):
             raise ValueError("Must specify Iops if VolumeType is 'io1'.")
 
 
+class ColdStorageOptions(AWSProperty):
+    props = {
+        "Enabled": (boolean, False),
+    }
+
+
 class ZoneAwarenessConfig(AWSProperty):
     props = {
         "AvailabilityZoneCount": (integer, False),
@@ -76,6 +82,7 @@ class ZoneAwarenessConfig(AWSProperty):
 
 class ElasticsearchClusterConfig(AWSProperty):
     props = {
+        "ColdStorageOptions": (ColdStorageOptions, False),
         "DedicatedMasterCount": (integer, False),
         "DedicatedMasterEnabled": (boolean, False),
         "DedicatedMasterType": (str, False),
