@@ -7,6 +7,7 @@ from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean,
     integer,
+    json_checker,
     wafv2_custom_body_response_content,
     wafv2_custom_body_response_content_type,
 )
@@ -215,6 +216,7 @@ class ManagedRuleGroupStatement(AWSProperty):
         "ExcludedRules": ([ExcludedRule], False),
         "Name": (str, False),
         "VendorName": (str, False),
+        "Version": (str, False),
     }
 
 
@@ -392,6 +394,17 @@ class IPSet(AWSObject):
         "Name": (str, False),
         "Scope": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class LoggingConfiguration(AWSObject):
+    resource_type = "AWS::WAFv2::LoggingConfiguration"
+
+    props = {
+        "LogDestinationConfigs": ([str], True),
+        "LoggingFilter": (json_checker, False),
+        "RedactedFields": ([FieldToMatch], False),
+        "ResourceArn": (str, True),
     }
 
 
