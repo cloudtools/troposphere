@@ -7,6 +7,7 @@ import types
 
 from . import AWSHelperFn, AWSObject, AWSProperty
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
+from .apigatewayv2 import AccessLogSettings, RouteSettings
 from .awslambda import (
     DestinationConfig,
     Environment,
@@ -25,6 +26,7 @@ from .validators import (
     integer_range,
     mutually_exclusive,
     positive_integer,
+    boolean,
 )
 
 try:
@@ -335,6 +337,10 @@ class EndpointConfiguration(AWSProperty):
             )
 
 
+class ApiDefinition(AWSProperty):
+    props = {"Bucket": (str, True), "Key": (str, True), "Version": (str, False)}
+
+
 class Api(AWSObject):
     resource_type = "AWS::Serverless::Api"
 
@@ -347,7 +353,7 @@ class Api(AWSObject):
         "CanarySetting": (CanarySetting, False),
         "Cors": ((str, Cors), False),
         "DefinitionBody": (dict, False),
-        "DefinitionUri": (str, False),
+        "DefinitionUri": ((str, ApiDefinition), False),
         "Domain": (Domain, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "MethodSettings": ([MethodSetting], False),
@@ -357,6 +363,88 @@ class Api(AWSObject):
         "StageName": (str, True),
         "TracingEnabled": (bool, False),
         "Variables": (dict, False),
+    }
+
+    def validate(self):
+        conds = [
+            "DefinitionBody",
+            "DefinitionUri",
+        ]
+        mutually_exclusive(self.__class__.__name__, self.properties, conds)
+
+
+class OAuth2Authorizer(AWSProperty):
+    props = {
+        "AuthorizationScopes": (list, False),
+        "IdentitySource": (str, False),
+        "JwtConfiguration": (dict, False),
+    }
+
+
+class LambdaAuthorizationIdentity(AWSProperty):
+    props = {
+        "Context": (list, False),
+        "Headers": (list, False),
+        "QueryStrings": (list, False),
+        "ReauthorizeEvery": (integer, False),
+        "StageVariables": (list, False),
+    }
+
+
+class LambdaAuthorizer(AWSProperty):
+    props = {
+        "AuthorizerPayloadFormatVersion": (str, True),
+        "EnableSimpleResponses": (boolean, False),
+        "FunctionArn": (str, True),
+        "FunctionInvokeRole": (str, False),
+        "Identity": (LambdaAuthorizationIdentity, False),
+    }
+
+
+class HttpApiAuth(AWSProperty):
+    props = {
+        "Authorizers": ((OAuth2Authorizer, LambdaAuthorizer), False),
+        "DefaultAuthorizer": (str, False),
+    }
+
+
+class HttpApiCorsConfiguration(AWSProperty):
+    props = {
+        "AllowCredentials": (boolean, False),
+        "AllowHeaders": (list, False),
+        "AllowMethods": (list, False),
+        "AllowOrigins": (list, False),
+        "ExposeHeaders": (list, False),
+        "MaxAge": (integer, False),
+    }
+
+
+class HttpApiDefinition(ApiDefinition):
+    pass
+
+
+class HttpApiDomainConfiguration(Domain):
+    pass
+
+
+class HttpApi(AWSObject):
+    resource_type = "AWS::Serverless::HttpApi"
+
+    props = {
+        "AccessLogSettings": (AccessLogSettings, False),
+        "Auth": (HttpApiAuth, False),
+        "CorsConfiguration": ((str, HttpApiCorsConfiguration), False),
+        "DefaultRouteSettings": (RouteSettings, False),
+        "DefinitionBody": (dict, False),
+        "DefinitionUri": ((str, HttpApiDefinition), False),
+        "Description": (str, False),
+        "DisableExecuteApiEndpoint": (boolean, False),
+        "Domain": (HttpApiDomainConfiguration, False),
+        "FailOnWarnings": (boolean, False),
+        "RouteSettings": (dict, False),
+        "StageName": (str, False),
+        "StageVariables": (dict, False),
+        "Tags": (dict, False),
     }
 
     def validate(self):
