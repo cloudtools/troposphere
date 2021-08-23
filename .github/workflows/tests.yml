@@ -1,17 +1,14 @@
 name: Tests
 
-
 on:
   pull_request:
   push:
     branches:
-      - master
-
+      - main
 
 defaults:
   run:
     shell: bash
-
 
 jobs:
   test-python:
