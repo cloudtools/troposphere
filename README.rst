@@ -6,8 +6,8 @@ troposphere
     :target: https://pypi.python.org/pypi/troposphere
     :alt: PyPI Version
 
-.. image:: https://travis-ci.org/cloudtools/troposphere.svg?branch=master
-    :target: https://travis-ci.org/cloudtools/troposphere
+.. image:: https://github.com/cloudtools/troposphere/actions/workflows/tests.yml/badge.svg
+    :target: https://github.com/cloudtools/troposphere/actions?query=branch%3Amain
     :alt: Build Status
 
 .. image:: https://img.shields.io/pypi/l/troposphere.svg
