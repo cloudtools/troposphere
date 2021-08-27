@@ -143,15 +143,6 @@ class CapacityAutoScalingSettings(AWSProperty):
     }
 
 
-class TargetTrackingScalingPolicyConfiguration(AWSProperty):
-    props = {
-        "DisableScaleIn": (boolean, False),
-        "ScaleInCooldown": (integer, False),
-        "ScaleOutCooldown": (integer, False),
-        "TargetValue": (double, True),
-    }
-
-
 class ReadProvisionedThroughputSettings(AWSProperty):
     props = {
         "ReadCapacityAutoScalingSettings": (CapacityAutoScalingSettings, False),
