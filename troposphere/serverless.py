@@ -21,12 +21,12 @@ from .awslambda import (
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
 from .validators import (
+    boolean,
     exactly_one,
     integer,
     integer_range,
     mutually_exclusive,
     positive_integer,
-    boolean,
 )
 
 try:

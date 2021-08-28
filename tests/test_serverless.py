@@ -11,16 +11,16 @@ from troposphere.serverless import (
     EndpointConfiguration,
     Function,
     FunctionForPackaging,
+    HttpApi,
+    HttpApiAuth,
+    HttpApiDomainConfiguration,
     LayerVersion,
+    OAuth2Authorizer,
     ResourcePolicyStatement,
     Route53,
     S3Event,
     S3Location,
     SimpleTable,
-    HttpApi,
-    HttpApiAuth,
-    OAuth2Authorizer,
-    HttpApiDomainConfiguration,
 )
 
 
