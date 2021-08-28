@@ -1,8 +1,9 @@
+import json
+
 from . import AWSObject, AWSProperty
 from .compat import policytypes
 from .constants import LOGS_ALLOWED_RETENTION_DAYS as RETENTION_DAYS
 from .validators import integer_list_item, json_checker
-import json
 
 policytypes = policytypes + (str,)
 
@@ -93,7 +94,7 @@ class ResourcePolicy(AWSObject):
     resource_type = "AWS::Logs::ResourcePolicy"
 
     props = {
-        "PolicyDocument": (str, True),
+        "PolicyDocument": (validate_resource_policy, True),
         "PolicyName": (str, True),
     }
 
@@ -106,13 +107,4 @@ class SubscriptionFilter(AWSObject):
         "FilterPattern": (str, True),
         "LogGroupName": (str, True),
         "RoleArn": (str, False),
-    }
-
-
-class LogResourcePolicy(AWSObject):
-    resource_type = "AWS::Logs::ResourcePolicy"
-
-    props = {
-        "PolicyDocument": (validate_resource_policy, True),
-        "PolicyName": (str, True),
     }
