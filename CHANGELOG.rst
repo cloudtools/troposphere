@@ -1,3 +1,31 @@
+3.0.3 (2021*08*28)
+------------------
+* Enable MSK IAM Role based authentication
+* Add AWS::Signer
+* Allow LaunchTemplateSpecification in LaunchTemplateOverrides
+* Add AWS::Route53RecoveryControl and AWS::Route53RecoveryReadiness per 2021-07-29 changes
+* Update S3Outposts per 2021-07-29 changes
+* Update DataBrew per 2021-07-29 changes
+* Update FSx per 2021-08-05 changes
+* Update ApiGatewayV2 per 2021-08-12 changes
+* Update AppSync per 2021-08-05 changes
+* Add Athena::PreparedStatement per 2021-08-05 changes
+* Update ApiGateway per 2021-08-12 changes
+* Add TimeZone property to AWS::AutoScaling::ScheduledAction
+* Fix black formatting in autoscaling.py
+* Update WAFv2 per 2021-08-12 changes
+* Update Elasticsearch per 2021-08-17 changes
+* Update SageMaker per 2021-08-19 changes
+* Update Redshift per 2021-08-19 changes
+* Update AutoScaling per 2021-08-19 changes
+* Update CodeBuild per 2021-08-19 changes
+* Add AWS::Logs::ResourcePolicy (#1936)
+* Add AWS::Serverless::HttpApi (#1941)
+* Update to main branch for tests workflow
+* Switch build status badge from travis-ci to github
+* Fix duplicate AWS::Logs::ResourcePolicy
+* Remove duplicate TargetTrackingScalingPolicyConfiguration from dynamodb.py
+
 3.0.2 (2021*07*24)
 ------------------
 * Add JWT to apigatewayv2 valid_authorizer_types (#1929)
