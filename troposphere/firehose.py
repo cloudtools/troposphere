@@ -283,6 +283,48 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
     }
 
 
+class HttpEndpointConfiguration(AWSProperty):
+    props = {
+        "AccessKey": (str, False),
+        "Name": (str, False),
+        "Url": (str, True),
+    }
+
+
+class HttpEndpointCommonAttribute(AWSProperty):
+    props = {
+        "AttributeName": (str, True),
+        "AttributeValue": (str, True),
+    }
+
+
+class HttpEndpointRequestConfiguration(AWSProperty):
+    props = {
+        "CommonAttributes": ([HttpEndpointCommonAttribute], False),
+        "ContentEncoding": (str, False),
+    }
+
+
+class RetryOptions(AWSProperty):
+    props = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
+class HttpEndpointDestinationConfiguration(AWSProperty):
+    props = {
+        "BufferingHints": (BufferingHints, False),
+        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
+        "EndpointConfiguration": (HttpEndpointConfiguration, True),
+        "ProcessingConfiguration": (ProcessingConfiguration, False),
+        "RequestConfiguration": (HttpEndpointRequestConfiguration, False),
+        "RetryOptions": (RetryOptions, False),
+        "RoleARN": (str, False),
+        "S3BackupMode": (str, False),
+        "S3Configuration": (S3DestinationConfiguration, True),
+    }
+
+
 class KinesisStreamSourceConfiguration(AWSProperty):
     props = {"KinesisStreamARN": (str, True), "RoleARN": (str, True)}
 
@@ -325,6 +367,10 @@ class DeliveryStream(AWSObject):
             ExtendedS3DestinationConfiguration,
             False,
         ),  # noqa
+        "HttpEndpointDestinationConfiguration": (
+            HttpEndpointDestinationConfiguration,
+            False,
+        ),
         "KinesisStreamSourceConfiguration": (
             KinesisStreamSourceConfiguration,
             False,
