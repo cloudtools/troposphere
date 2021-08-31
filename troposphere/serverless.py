@@ -39,6 +39,9 @@ except ImportError:
 assert types  # silence pyflakes
 
 
+SERVERLESS_TRANSFORM = "AWS::Serverless-2016-10-31"
+
+
 def primary_key_type_validator(x):
     valid_types = ["String", "Number", "Binary"]
     if x not in valid_types:
@@ -615,3 +618,103 @@ class Application(AWSObject):
             "DefinitionUri",
         ]
         mutually_exclusive(self.__class__.__name__, self.properties, conds)
+
+
+class GlobalsHelperFn(AWSHelperFn):
+    def __init__(self, **kwargs):
+        remaining_kwargs = kwargs.copy()
+        for k, (key_type, required) in self.props.items():
+            if k in kwargs:
+                kwarg_value = remaining_kwargs.pop(k)
+                if not isinstance(kwarg_value, key_type):
+                    raise ValueError(
+                        f"Provided {self.__class__.__name__} property '{k}' is of type {type(kwarg_value)} instead of expected {key_type}"
+                    )
+            elif required:
+                raise ValueError(
+                    f"Required {self.__class__.__name__} property '{k}' not provided"
+                )
+
+        if remaining_kwargs:
+            unexpected_properties = [f"'{k}'" for k in remaining_kwargs.keys()]
+            raise ValueError(
+                f"Unexpected {self.__class__.__name__} properties provided: {unexpected_properties}"
+            )
+
+        self.data = kwargs
+
+
+class FunctionGlobals(GlobalsHelperFn):
+    props = {
+        "AssumeRolePolicyDocument": (policytypes, False),
+        "AutoPublishAlias": (str, False),
+        "CodeUri": ((S3Location, str), False),
+        "DeadLetterQueue": (DeadLetterQueue, False),
+        "DeploymentPreference": (DeploymentPreference, False),
+        "Description": (str, False),
+        "Environment": (Environment, False),
+        "EventInvokeConfig": (EventInvokeConfiguration, False),
+        "FileSystemConfigs": ([FileSystemConfig], False),
+        "Handler": (str, False),
+        "KmsKeyArn": (str, False),
+        "Layers": ([str], False),
+        "MemorySize": (validate_memory_size, False),
+        "PermissionsBoundary": (str, False),
+        "ProvisionedConcurrencyConfig": (ProvisionedConcurrencyConfiguration, False),
+        "ReservedConcurrentExecutions": (positive_integer, False),
+        "Runtime": (str, False),
+        "Tags": (dict, False),
+        "Timeout": (positive_integer, False),
+        "Tracing": (str, False),
+        "VpcConfig": (VPCConfig, False),
+    }
+
+
+class ApiGlobals(GlobalsHelperFn):
+    props = {
+        "AccessLogSetting": (AccessLogSetting, False),
+        "Auth": (Auth, False),
+        "BinaryMediaTypes": ([str], False),
+        "CacheClusterEnabled": (bool, False),
+        "CacheClusterSize": (str, False),
+        "CanarySetting": (CanarySetting, False),
+        "Cors": ((str, Cors), False),
+        "DefinitionUri": ((str, ApiDefinition), False),
+        "Domain": (Domain, False),
+        "EndpointConfiguration": (EndpointConfiguration, False),
+        "MethodSettings": ([MethodSetting], False),
+        "MinimumCompressionSize": (integer_range(0, 10485760), False),
+        "Name": (str, False),
+        "OpenApiVersion": (str, False),
+        "TracingEnabled": (bool, False),
+        "Variables": (dict, False),
+    }
+
+
+class HttpApiGlobals(GlobalsHelperFn):
+    props = {
+        "AccessLogSettings": (AccessLogSettings, False),
+        "Auth": (HttpApiAuth, False),
+        "StageVariables": (dict, False),
+        "Tags": (dict, False),
+    }
+
+
+class SimpleTableGlobals(GlobalsHelperFn):
+    props = {
+        "SSESpecification": (SSESpecification, False),
+    }
+
+
+class Globals(GlobalsHelperFn):
+    """Supported Globals properties.
+
+    See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html
+    """
+
+    props = {
+        "Api": (ApiGlobals, False),
+        "Function": (FunctionGlobals, False),
+        "HttpApi": (HttpApiGlobals, False),
+        "SimpleTable": (SimpleTableGlobals, False),
+    }

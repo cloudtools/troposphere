@@ -3,7 +3,9 @@ import unittest
 from troposphere import ImportValue, Parameter, Ref, Sub, Tags, Template
 from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
+    SERVERLESS_TRANSFORM,
     Api,
+    ApiGlobals,
     Auth,
     DeadLetterQueue,
     DeploymentPreference,
@@ -11,9 +13,12 @@ from troposphere.serverless import (
     EndpointConfiguration,
     Function,
     FunctionForPackaging,
+    FunctionGlobals,
+    Globals,
     HttpApi,
     HttpApiAuth,
     HttpApiDomainConfiguration,
+    HttpApiGlobals,
     LayerVersion,
     OAuth2Authorizer,
     ResourcePolicyStatement,
@@ -21,6 +26,7 @@ from troposphere.serverless import (
     S3Event,
     S3Location,
     SimpleTable,
+    SimpleTableGlobals,
 )
 
 
@@ -411,6 +417,24 @@ class TestServerless(unittest.TestCase):
             )
         )
         t.to_json()
+
+    def test_globals(self):
+        t = Template()
+        t.set_transform(SERVERLESS_TRANSFORM)
+        t.set_globals(
+            Globals(
+                Function=FunctionGlobals(),
+                Api=ApiGlobals(),
+                HttpApi=HttpApiGlobals(),
+                SimpleTable=SimpleTableGlobals(),
+            )
+        )
+        t.to_json()
+
+        with self.assertRaises(ValueError):
+            _ = Globals(Unexpected="blah")
+        with self.assertRaises(ValueError):
+            _ = Globals(Function="not FunctionGlobals")
 
 
 if __name__ == "__main__":

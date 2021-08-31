@@ -36,6 +36,7 @@ MAX_PARAMETERS = 200
 MAX_RESOURCES = 500
 PARAMETER_TITLE_MAX = 255
 
+
 valid_names = re.compile(r"^[a-zA-Z0-9]+$")
 
 
@@ -594,6 +595,8 @@ class Tags(AWSHelperFn):
 
 
 class Template:
+    from troposphere.serverless import Globals
+
     props = {
         "AWSTemplateFormatVersion": (str, False),
         "Transform": (str, False),
@@ -601,6 +604,7 @@ class Template:
         "Parameters": (dict, False),
         "Mappings": (dict, False),
         "Resources": (dict, False),
+        "Globals": (Globals, False),
         "Outputs": (dict, False),
         "Rules": (dict, False),
     }
@@ -614,6 +618,7 @@ class Template:
         self.parameters = {}
         self.resources = {}
         self.rules = {}
+        self.globals = None
         self.version = None
         self.transform = None
 
@@ -693,7 +698,22 @@ class Template:
             self.version = "2010-09-09"
 
     def set_transform(self, transform):
+        from troposphere.serverless import SERVERLESS_TRANSFORM
+
+        if self.globals and transform != SERVERLESS_TRANSFORM:
+            raise ValueError(
+                "Cannot set transform to non-Serverless while using Globals"
+            )
         self.transform = transform
+
+    def set_globals(self, globals: Globals):
+        from troposphere.serverless import SERVERLESS_TRANSFORM
+
+        if self.transform != SERVERLESS_TRANSFORM:
+            raise ValueError(
+                f"Cannot set Globals for non-Serverless template (set transform to '{SERVERLESS_TRANSFORM}' first)"
+            )
+        self.globals = globals
 
     def to_dict(self):
         t = {}
@@ -715,6 +735,8 @@ class Template:
             t["Transform"] = self.transform
         if self.rules:
             t["Rules"] = self.rules
+        if self.globals:
+            t["Globals"] = self.globals
         t["Resources"] = self.resources
 
         return encode_to_dict(t)
