@@ -1,3 +1,4 @@
+from troposphere.serverless import Globals
 import unittest
 
 from troposphere import (
@@ -36,6 +37,18 @@ class TestInitArguments(unittest.TestCase):
         template = Template()
         template.set_transform(transform)
         self.assertEqual(template.transform, transform)
+
+    def test_globals(self):
+        template = Template()
+        globals = Globals()
+        with self.assertRaises(ValueError):
+            template.set_globals(globals)
+        transform = "AWS::Serverless-2016-10-31"
+        template.set_transform(transform)
+        template.set_globals(globals)
+        self.assertEqual(template.globals, globals)
+        with self.assertRaises(ValueError):
+            template.set_transform("other_transform")
 
 
 class TestValidate(unittest.TestCase):
