@@ -249,8 +249,18 @@ class CrlConfiguration(AWSProperty):
     }
 
 
+class OcspConfiguration(AWSProperty):
+    props = {
+        "Enabled": (boolean, False),
+        "OcspCustomCname": (str, False),
+    }
+
+
 class RevocationConfiguration(AWSProperty):
-    props = {"CrlConfiguration": (CrlConfiguration, False)}
+    props = {
+        "CrlConfiguration": (CrlConfiguration, False),
+        "OcspConfiguration": (OcspConfiguration, False),
+    }
 
 
 class Subject(AWSProperty):
