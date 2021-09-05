@@ -266,6 +266,19 @@ class DataFormatConversionConfiguration(AWSProperty):
     }
 
 
+class RetryOptions(AWSProperty):
+    props = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
+class DynamicPartitioningConfiguration(AWSProperty):
+    props = {
+        "Enabled": (boolean, False),
+        "RetryOptions": (RetryOptions, False),
+    }
+
+
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
         "BucketARN": (str, True),
@@ -273,6 +286,7 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
         "CompressionFormat": (str, False),
         "DataFormatConversionConfiguration": (DataFormatConversionConfiguration, False),
+        "DynamicPartitioningConfiguration": (DynamicPartitioningConfiguration, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ErrorOutputPrefix": (str, False),
         "Prefix": (str, False),
