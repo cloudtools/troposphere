@@ -135,6 +135,30 @@ class DomainConfiguration(AWSObject):
     }
 
 
+class AggregationType(AWSProperty):
+    props = {
+        "Name": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class FleetMetric(AWSObject):
+    resource_type = "AWS::IoT::FleetMetric"
+
+    props = {
+        "AggregationField": (str, False),
+        "AggregationType": (AggregationType, False),
+        "Description": (str, False),
+        "IndexName": (str, False),
+        "MetricName": (str, True),
+        "Period": (integer, False),
+        "QueryString": (str, False),
+        "QueryVersion": (str, False),
+        "Tags": (Tags, False),
+        "Unit": (str, False),
+    }
+
+
 class AddThingsToThingGroupParams(AWSProperty):
     props = {
         "OverrideDynamicGroups": (boolean, False),
