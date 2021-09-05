@@ -526,6 +526,31 @@ class BucketPolicy(AWSObject):
     }
 
 
+class Region(AWSProperty):
+    props = {
+        "Bucket": (str, True),
+    }
+
+
+class MultiRegionAccessPoint(AWSObject):
+    resource_type = "AWS::S3::MultiRegionAccessPoint"
+
+    props = {
+        "Name": (str, False),
+        "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
+        "Regions": ([Region], True),
+    }
+
+
+class MultiRegionAccessPointPolicy(AWSObject):
+    resource_type = "AWS::S3::MultiRegionAccessPointPolicy"
+
+    props = {
+        "MrapName": (str, True),
+        "Policy": (policytypes, True),
+    }
+
+
 class ActivityMetrics(AWSProperty):
     props = {
         "IsEnabled": (boolean, False),
