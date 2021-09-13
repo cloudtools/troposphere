@@ -8,11 +8,8 @@ from .validators import boolean, integer, positive_integer
 
 
 def processor_type_validator(x):
-    valid_types = [ "Lambda",
-                    "MetadataExtraction",
-                    "RecordDeAggregation",
-                    "AppendDelimiterToRecord"
-                  ]
+    valid_types = ["Lambda","MetadataExtraction","RecordDeAggregation","AppendDelimiterToRecord"]
+    
     if x not in valid_types:
         raise ValueError("Type must be one of: %s" %
                          ", ".join(valid_types))
