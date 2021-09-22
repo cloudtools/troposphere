@@ -439,6 +439,7 @@ class EBSBlockDevice(AWSProperty):
         "Encrypted": (boolean, False),
         "Iops": (integer, False),
         "SnapshotId": (str, False),
+        "Throughput": (integer, False),
         "VolumeSize": (integer, False),
         "VolumeType": (str, False),
     }

@@ -1,7 +1,7 @@
 import unittest
 
 from troposphere import If, Ref
-from troposphere.autoscaling import AutoScalingGroup
+from troposphere.autoscaling import AutoScalingGroup, EBSBlockDevice
 from troposphere.policies import AutoScalingRollingUpdate, UpdatePolicy
 
 
@@ -136,6 +136,20 @@ class TestAutoScalingGroup(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             self.assertTrue(group.validate())
+
+    def test_can_define_gp3_ebsblockdevice(self):
+        ebs = EBSBlockDevice(
+            DeleteOnTermination=True,
+            Encrypted=True,
+            Iops=3000,
+            Throughput=500,
+            VolumeSize=100,
+            VolumeType="gp3"
+        )
+
+        self.assertEquals(ebs.properties["VolumeType"], "gp3")
+        self.assertIn("Throughput", ebs.properties,
+                      "gp3 volumes require an additional Throughput param")
 
 
 if __name__ == "__main__":
