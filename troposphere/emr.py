@@ -475,7 +475,7 @@ class Studio(AWSObject):
         "ServiceRole": (str, True),
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
-        "UserRole": (str, True),
+        "UserRole": (str, False),
         "VpcId": (str, True),
         "WorkspaceSecurityGroupId": (str, True),
     }
