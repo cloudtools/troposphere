@@ -73,6 +73,14 @@ class CmafEncryption(AWSProperty):
     }
 
 
+class OriginEndpointCmafEncryption(AWSProperty):
+    props = {
+        "ConstantInitializationVector" : (str, False),
+        "KeyRotationIntervalSeconds" : (integer, False),
+        "SpekeKeyProvider": (SpekeKeyProvider, True),
+    }
+
+
 class StreamSelection(AWSProperty):
     props = {
         "MaxVideoBitsPerSecond": (integer, False),
@@ -92,6 +100,21 @@ class HlsManifest(AWSProperty):
     }
 
 
+class OriginEndpointHlsManifest(AWSProperty):
+    props = {
+        "AdMarkers" : (str, False),
+        "AdsOnDeliveryRestrictions" : (str, False),
+        "AdTriggers" : ([str], False),
+        "Id" : (str, True),
+        "IncludeIframeOnlyStream" : (boolean, False),
+        "ManifestName" : (str, False),
+        "PlaylistType" : (str, False),
+        "PlaylistWindowSeconds" : (integer, False),
+        "ProgramDateTimeIntervalSeconds" : (integer, False),
+        "Url" : (str, False)
+    }
+
+
 class CmafPackage(AWSProperty):
     props = {
         "Encryption": (CmafEncryption, False),
@@ -103,6 +126,13 @@ class CmafPackage(AWSProperty):
 
 class DashEncryption(AWSProperty):
     props = {
+        "SpekeKeyProvider": (SpekeKeyProvider, True),
+    }
+
+
+class OriginEndpointDashEncryption(AWSProperty):
+    props = {
+        "KeyRotationIntervalSeconds": (integer, False),
         "SpekeKeyProvider": (SpekeKeyProvider, True),
     }
 
@@ -131,6 +161,16 @@ class HlsEncryption(AWSProperty):
     props = {
         "ConstantInitializationVector": (str, False),
         "EncryptionMethod": (str, False),
+        "SpekeKeyProvider": (SpekeKeyProvider, True),
+    }
+
+
+class OriginEndpointHlsEncryption(AWSProperty):
+    props = {
+        "ConstantInitializationVector": (str, False),
+        "EncryptionMethod": (str, False),
+        "KeyRotationIntervalSeconds": (integer, False),
+        "RepeatExtXKey": (boolean, False),
         "SpekeKeyProvider": (SpekeKeyProvider, True),
     }
 
@@ -165,19 +205,74 @@ class MssPackage(AWSProperty):
     }
 
 
+class OriginEndpointMssPackage(AWSProperty):
+    props = {
+        "Encryption": (MssEncryption, False),
+        "ManifestWindowSeconds" : (integer, False),
+        "SegmentDurationSeconds" : (integer, False),
+        "StreamSelection" : (StreamSelection, False),
+    }
+
+
+class OriginEndpointHlsPackage(AWSProperty):
+    props = {
+        "AdMarkers": (str, False),
+        "AdsOnDeliveryRestrictions": (str, False),
+        "AdTriggers": ([str], False),
+        "Encryption": (OriginEndpointHlsEncryption, False),
+        "IncludeIframeOnlyStream": (boolean, False),
+        "PlaylistType": (str, False),
+        "PlaylistWindowSeconds": (integer, False),
+        "ProgramDateTimeIntervalSeconds": (integer, False),
+        "SegmentDurationSeconds": (integer, False),
+        "StreamSelection": (StreamSelection, False),
+        "UseAudioRenditionGroup": (boolean, False),
+    }
+
+
+class OriginEndpointDashPackage(AWSProperty):
+    props = {
+        "AdsOnDeliveryRestrictions" : (str, False),
+        "AdTriggers" : ([str], False),
+        "Encryption" : (OriginEndpointDashEncryption, False),
+        "ManifestLayout" : (str, False),
+        "ManifestWindowSeconds" : (integer, False),
+        "MinBufferTimeSeconds" : (integer, False),
+        "MinUpdatePeriodSeconds" : (integer, False),
+        "PeriodTriggers" : ([str], False),
+        "Profile" : (integer, False),
+        "SegmentDurationSeconds" : (integer, False),
+        "SegmentTemplateFormat" : (str, False),
+        "StreamSelection" : (StreamSelection, False),
+        "SuggestedPresentationDelaySeconds" : (integer, False),
+        "UtcTiming" : (str, False),
+        "UtcTimingUri" : (str, False)
+    }
+
+
+class OriginEndpointCmafPackage(AWSProperty):
+    props = {
+        "Encryption" : (OriginEndpointCmafEncryption, False),
+        "HlsManifests" : ([OriginEndpointHlsManifest], False),
+        "SegmentDurationSeconds" : (integer, False),
+        "SegmentPrefix" : (str, False),
+        "StreamSelection" : (StreamSelection, False),
+    }
+
+
 class OriginEndpoint(AWSObject):
     resource_type = "AWS::MediaPackage::OriginEndpoint"
 
     props = {
         "Authorization": (Authorization, False),
         "ChannelId": (str, True),
-        "CmafPackage": (CmafPackage, False),
-        "DashPackage": (DashPackage, False),
+        "CmafPackage": (OriginEndpointCmafPackage, False),
+        "DashPackage": (OriginEndpointDashPackage, False),
         "Description": (str, False),
-        "HlsPackage": (HlsPackage, False),
+        "HlsPackage": (OriginEndpointHlsPackage, False),
         "Id": (str, True),
         "ManifestName": (str, False),
-        "MssPackage": (MssPackage, False),
+        "MssPackage": (OriginEndpointMssPackage, False),
         "Origination": (str, False),
         "StartoverWindowSeconds": (integer, False),
         "Tags": (Tags, False),
