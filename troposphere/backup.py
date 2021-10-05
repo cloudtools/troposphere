@@ -32,6 +32,7 @@ class BackupRuleResourceType(AWSProperty):
     props = {
         "CompletionWindowMinutes": (double, False),
         "CopyActions": ([CopyActionResourceType], False),
+        "EnableContinuousBackup": (bool, False),
         "Lifecycle": (LifecycleResourceType, False),
         "RecoveryPointTags": (dict, False),
         "RuleName": (str, True),
