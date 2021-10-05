@@ -341,6 +341,34 @@ class Endpoint(AWSObject):
     }
 
 
+class AsyncInferenceClientConfig(AWSProperty):
+    props = {
+        "MaxConcurrentInvocationsPerInstance": (integer, False),
+    }
+
+
+class AsyncInferenceNotificationConfig(AWSProperty):
+    props = {
+        "ErrorTopic": (str, False),
+        "SuccessTopic": (str, False),
+    }
+
+
+class AsyncInferenceOutputConfig(AWSProperty):
+    props = {
+        "KmsKeyId": (str, False),
+        "NotificationConfig": (AsyncInferenceNotificationConfig, False),
+        "S3OutputPath": (str, True),
+    }
+
+
+class AsyncInferenceConfig(AWSProperty):
+    props = {
+        "ClientConfig": (AsyncInferenceClientConfig, False),
+        "OutputConfig": (AsyncInferenceOutputConfig, True),
+    }
+
+
 class CaptureContentTypeHeader(AWSProperty):
     props = {
         "CsvContentTypes": ([str], False),
@@ -379,6 +407,7 @@ class EndpointConfig(AWSObject):
     resource_type = "AWS::SageMaker::EndpointConfig"
 
     props = {
+        "AsyncInferenceConfig": (AsyncInferenceConfig, False),
         "DataCaptureConfig": (DataCaptureConfig, False),
         "EndpointConfigName": (str, False),
         "KmsKeyId": (str, False),

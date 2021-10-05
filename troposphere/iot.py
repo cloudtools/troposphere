@@ -135,6 +135,30 @@ class DomainConfiguration(AWSObject):
     }
 
 
+class AggregationType(AWSProperty):
+    props = {
+        "Name": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class FleetMetric(AWSObject):
+    resource_type = "AWS::IoT::FleetMetric"
+
+    props = {
+        "AggregationField": (str, False),
+        "AggregationType": (AggregationType, False),
+        "Description": (str, False),
+        "IndexName": (str, False),
+        "MetricName": (str, True),
+        "Period": (integer, False),
+        "QueryString": (str, False),
+        "QueryVersion": (str, False),
+        "Tags": (Tags, False),
+        "Unit": (str, False),
+    }
+
+
 class AddThingsToThingGroupParams(AWSProperty):
     props = {
         "OverrideDynamicGroups": (boolean, False),
@@ -204,6 +228,13 @@ class CloudwatchAlarmAction(AWSProperty):
     }
 
 
+class CloudwatchLogsAction(AWSProperty):
+    props = {
+        "LogGroupName": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
 class CloudwatchMetricAction(AWSProperty):
     props = {
         "MetricName": (str, True),
@@ -267,6 +298,16 @@ class IotAnalyticsAction(AWSProperty):
     }
 
 
+class KafkaAction(AWSProperty):
+    props = {
+        "ClientProperties": (dict, True),
+        "DestinationArn": (str, True),
+        "Key": (str, False),
+        "Partition": (str, False),
+        "Topic": (str, True),
+    }
+
+
 class KinesisAction(AWSProperty):
     props = {
         "PartitionKey": (str, False),
@@ -292,6 +333,7 @@ class RepublishAction(AWSProperty):
 class S3Action(AWSProperty):
     props = {
         "BucketName": (str, True),
+        "CannedAcl": (str, False),
         "Key": (str, True),
         "RoleArn": (str, True),
     }
@@ -400,9 +442,34 @@ class StepFunctionsAction(AWSProperty):
     }
 
 
+class TimestreamDimension(AWSProperty):
+    props = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
+class TimestreamTimestamp(AWSProperty):
+    props = {
+        "Unit": (str, True),
+        "Value": (str, True),
+    }
+
+
+class TimestreamAction(AWSProperty):
+    props = {
+        "DatabaseName": (str, True),
+        "Dimensions": ([TimestreamDimension], True),
+        "RoleArn": (str, True),
+        "TableName": (str, True),
+        "Timestamp": (TimestreamTimestamp, False),
+    }
+
+
 class Action(AWSProperty):
     props = {
         "CloudwatchAlarm": (CloudwatchAlarmAction, False),
+        "CloudwatchLogs": (CloudwatchLogsAction, False),
         "CloudwatchMetric": (CloudwatchMetricAction, False),
         "DynamoDB": (DynamoDBAction, False),
         "DynamoDBv2": (DynamoDBv2Action, False),
@@ -412,6 +479,7 @@ class Action(AWSProperty):
         "IotAnalytics": (IotAnalyticsAction, False),
         "IotEvents": (IotEventsAction, False),
         "IotSiteWise": (IotSiteWiseAction, False),
+        "Kafka": (KafkaAction, False),
         "Kinesis": (KinesisAction, False),
         "Lambda": (LambdaAction, False),
         "Republish": (RepublishAction, False),
@@ -419,6 +487,7 @@ class Action(AWSProperty):
         "Sns": (SnsAction, False),
         "Sqs": (SqsAction, False),
         "StepFunctions": (StepFunctionsAction, False),
+        "Timestream": (TimestreamAction, False),
     }
 
 
@@ -427,6 +496,7 @@ class TopicRulePayload(AWSProperty):
         "Actions": ([Action], True),
         "AwsIotSqlVersion": (str, False),
         "Description": (str, False),
+        "ErrorAction": (Action, False),
         "RuleDisabled": (boolean, True),
         "Sql": (str, True),
     }

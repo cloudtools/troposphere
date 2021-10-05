@@ -10,6 +10,7 @@
 from troposphere import Tags
 
 from . import AWSObject, AWSProperty
+from .validators import double
 
 VALID_HOMEDIRECTORY_TYPE = ("LOGICAL", "PATH")
 
@@ -42,19 +43,41 @@ class IdentityProviderDetails(AWSProperty):
     }
 
 
+class ProtocolDetails(AWSProperty):
+    props = {
+        "PassiveIp": (str, False),
+    }
+
+
+class WorkflowDetail(AWSProperty):
+    props = {
+        "ExecutionRole": (str, True),
+        "WorkflowId": (str, True),
+    }
+
+
+class WorkflowDetails(AWSProperty):
+    props = {
+        "OnUpload": ([WorkflowDetail], True),
+    }
+
+
 class Server(AWSObject):
     resource_type = "AWS::Transfer::Server"
 
     props = {
         "Certificate": (str, False),
+        "Domain": (str, False),
         "EndpointDetails": (EndpointDetails, False),
         "EndpointType": (str, False),
         "IdentityProviderDetails": (IdentityProviderDetails, False),
         "IdentityProviderType": (str, False),
         "LoggingRole": (str, False),
+        "ProtocolDetails": (ProtocolDetails, False),
         "Protocols": ([str], False),
         "SecurityPolicyName": (str, False),
         "Tags": (Tags, False),
+        "WorkflowDetails": (WorkflowDetails, False),
     }
 
 
@@ -62,6 +85,14 @@ class HomeDirectoryMapEntry(AWSProperty):
     props = {
         "Entry": (str, True),
         "Target": (str, True),
+    }
+
+
+class PosixProfile(AWSProperty):
+    props = {
+        "Gid": (double, True),
+        "SecondaryGids": ([double], False),
+        "Uid": (double, True),
     }
 
 
@@ -73,6 +104,7 @@ class User(AWSObject):
         "HomeDirectoryMappings": ([HomeDirectoryMapEntry], False),
         "HomeDirectoryType": (validate_homedirectory_type, False),
         "Policy": (str, False),
+        "PosixProfile": (PosixProfile, False),
         "Role": (str, True),
         "ServerId": (str, True),
         "SshPublicKeys": ([str], False),

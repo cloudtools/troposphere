@@ -315,6 +315,7 @@ class TargetGroup(AWSObject):
         "Name": (str, False),
         "Port": (network_port, False),
         "Protocol": (str, False),
+        "ProtocolVersion": (str, False),
         "Tags": ((Tags, list), False),
         "TargetGroupAttributes": ([TargetGroupAttribute], False),
         "Targets": ([TargetDescription], False),

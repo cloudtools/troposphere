@@ -6,8 +6,8 @@ troposphere
     :target: https://pypi.python.org/pypi/troposphere
     :alt: PyPI Version
 
-.. image:: https://travis-ci.org/cloudtools/troposphere.svg?branch=master
-    :target: https://travis-ci.org/cloudtools/troposphere
+.. image:: https://github.com/cloudtools/troposphere/actions/workflows/tests.yml/badge.svg
+    :target: https://github.com/cloudtools/troposphere/actions?query=branch%3Amain
     :alt: Build Status
 
 .. image:: https://img.shields.io/pypi/l/troposphere.svg
@@ -155,6 +155,7 @@ Currently supported AWS resource types
 - `AWS::AppFlow`_
 - `AWS::AppIntegrations`_
 - `AWS::AppMesh`_
+- `AWS::AppRunner`_
 - `AWS::AppStream`_
 - `AWS::AppSync`_
 - `AWS::ApplicationAutoScaling`_
@@ -167,6 +168,7 @@ Currently supported AWS resource types
 - `AWS::Budgets`_
 - `AWS::Cassandra`_
 - `AWS::CE`_
+- `AWS::CUR`_
 - `AWS::CertificateManager`_
 - `AWS::Chatbot`_
 - `AWS::Cloud9`_
@@ -186,6 +188,7 @@ Currently supported AWS resource types
 - `AWS::CodeStarNotifications`_
 - `AWS::Cognito`_
 - `AWS::Config`_
+- `AWS::Connect`_
 - `AWS::CustomerProfiles`_
 - `AWS::DataBrew`_
 - `AWS::DAX`_
@@ -212,6 +215,8 @@ Currently supported AWS resource types
 - `AWS::Elasticsearch`_
 - `AWS::Events`_
 - `AWS::EventSchemas`_
+- `AWS::FinSpace`_
+- `AWS::FraudDetector`_
 - `AWS::FIS`_
 - `AWS::FMS`_
 - `AWS::FSx`_
@@ -228,6 +233,7 @@ Currently supported AWS resource types
 - `AWS::IoT`_
 - `AWS::IoT1Click`_
 - `AWS::IoTAnalytics`_
+- `AWS::IoTCoreDeviceAdvisor`_
 - `AWS::IoTEvents`_
 - `AWS::IoTFleetHub`_
 - `AWS::IoTSiteWise`_
@@ -242,7 +248,9 @@ Currently supported AWS resource types
 - `AWS::LakeFormation`_
 - `AWS::Lambda`_
 - `AWS::LicenseManager`_
+- `AWS::Location`_
 - `AWS::Logs`_
+- `AWS::LookoutEquipment`_
 - `AWS::LookoutMetrics`_
 - `AWS::LookoutVision`_
 - `AWS::Macie`_
@@ -271,6 +279,8 @@ Currently supported AWS resource types
 - `AWS::RoboMaker`_
 - `AWS::Route53`_
 - `AWS::Route53Resolver`_
+- `AWS::Route53RecoveryControl`_
+- `AWS::Route53RecoveryReadiness`_
 - `AWS::S3`_
 - `AWS::S3ObjectLambda`_
 - `AWS::S3Outposts`_
@@ -279,6 +289,8 @@ Currently supported AWS resource types
 - `AWS::SNS`_
 - `AWS::SQS`_
 - `AWS::SSM`_
+- `AWS::SSMContacts`_
+- `AWS::SSMIncidents`_
 - `AWS::SSO`_
 - `AWS::SageMaker`_
 - `AWS::SecretsManager`_
@@ -287,6 +299,7 @@ Currently supported AWS resource types
 - `AWS::ServiceCatalog`_
 - `AWS::ServiceCatalogAppRegistry`_
 - `AWS::ServiceDiscovery`_
+- `AWS::Signer`_
 - `AWS::StepFunctions`_
 - `AWS::Synthetics`_
 - `AWS::Timestream`_
@@ -295,6 +308,7 @@ Currently supported AWS resource types
 - `AWS::WAFRegional`_
 - `AWS::WAFv2`_
 - `AWS::WorkSpaces`_
+- `AWS::XRay`_
 
 Currently supported OpenStack resource types
 ============================================
@@ -423,6 +437,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::AppFlow`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppFlow.html
 .. _`AWS::AppIntegrations`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppIntegrations.html
 .. _`AWS::AppMesh`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppMesh.html
+.. _`AWS::AppRunner`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppRunner.html
 .. _`AWS::AppStream`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppStream.html
 .. _`AWS::AppSync`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppSync.html
 .. _`AWS::ApplicationAutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationAutoScaling.html
@@ -435,6 +450,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Budgets`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Budgets.html
 .. _`AWS::Cassandra`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cassandra.html
 .. _`AWS::CE`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CE.html
+.. _`AWS::CUR`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CUR.html
 .. _`AWS::CertificateManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CertificateManager.html
 .. _`AWS::Chatbot`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Chatbot.html
 .. _`AWS::Cloud9`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cloud9.html
@@ -454,6 +470,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::CodeStar`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStar.html
 .. _`AWS::Cognito`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cognito.html
 .. _`AWS::Config`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Config.html
+.. _`AWS::Connect`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Connect.html
 .. _`AWS::CustomerProfiles`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CustomerProfiles.html
 .. _`AWS::DataBrew`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DataBrew.html
 .. _`AWS::DAX`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_DAX.html
@@ -480,6 +497,8 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::Elasticsearch`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Elasticsearch.html
 .. _`AWS::Events`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Events.html
 .. _`AWS::EventSchemas`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.html
+.. _`AWS::FinSpace`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FinSpace.html
+.. _`AWS::FraudDetector`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FraudDetector.html
 .. _`AWS::FIS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FIS.html
 .. _`AWS::FMS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FMS.html
 .. _`AWS::FSx`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FSx.html
@@ -496,6 +515,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::IoT`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT.html
 .. _`AWS::IoT1Click`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT1Click.html
 .. _`AWS::IoTAnalytics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTAnalytics.html
+.. _`AWS::IoTCoreDeviceAdvisor`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTCoreDeviceAdvisor.html
 .. _`AWS::IoTEvents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTEvents.html
 .. _`AWS::IoTFleetHub`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTFleetHub.html
 .. _`AWS::IoTSiteWise`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTSiteWise.html
@@ -510,7 +530,9 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::LakeFormation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LakeFormation.html
 .. _`AWS::Lambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lambda.html
 .. _`AWS::LicenseManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LicenseManager.html
+.. _`AWS::Location`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Location.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
+.. _`AWS::LookoutEquipment`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutEquipment.html
 .. _`AWS::LookoutMetrics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutMetrics.html
 .. _`AWS::LookoutVision`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutVision.html
 .. _`AWS::Macie`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Macie.html
@@ -539,6 +561,8 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::RoboMaker`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RoboMaker.html
 .. _`AWS::Route53`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53.html
 .. _`AWS::Route53Resolver`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.html
+.. _`AWS::Route53RecoveryControl`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53RecoveryControl.html
+.. _`AWS::Route53RecoveryReadiness`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53RecoveryReadiness.html
 .. _`AWS::S3`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3.html
 .. _`AWS::S3ObjectLambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3ObjectLambda.html
 .. _`AWS::S3Outposts`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3Outposts.html
@@ -547,6 +571,8 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::SNS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SNS.html
 .. _`AWS::SQS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SQS.html
 .. _`AWS::SSM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSM.html
+.. _`AWS::SSMContacts`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSMContacts.html
+.. _`AWS::SSMIncidents`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSMIncidents.html
 .. _`AWS::SSO`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SSO.html
 .. _`AWS::SageMaker`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SageMaker.html
 .. _`AWS::SecretsManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SecretsManager.html
@@ -555,6 +581,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::ServiceCatalog`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalog.html
 .. _`AWS::ServiceCatalogAppRegistry`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.html
 .. _`AWS::ServiceDiscovery`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceDiscovery.html
+.. _`AWS::Signer`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Signer.html
 .. _`AWS::StepFunctions`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_StepFunctions.html
 .. _`AWS::Synthetics`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Synthetics.html
 .. _`AWS::Timestream`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Timestream.html
@@ -563,6 +590,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::WAFRegional`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFRegional.html
 .. _`AWS::WAFv2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFv2.html
 .. _`AWS::WorkSpaces`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WorkSpaces.html
+.. _`AWS::XRay`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_XRay.html
 
 .. _`OS::Neutron::Firewall`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::Firewall
 .. _`OS::Neutron::FirewallPolicy`: https://docs.openstack.org/heat/latest/template_guide/openstack.html#OS::Neutron::FirewallPolicy

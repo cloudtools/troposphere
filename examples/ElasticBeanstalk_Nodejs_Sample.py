@@ -10,7 +10,7 @@ from troposphere.elasticbeanstalk import (
     ApplicationVersion,
     ConfigurationTemplate,
     Environment,
-    OptionSettings,
+    OptionSetting,
     SourceBundle,
 )
 from troposphere.iam import InstanceProfile
@@ -151,12 +151,12 @@ t.add_resource(
         Description="SSH access to Node.JS Application",
         SolutionStackName="64bit Amazon Linux 2014.03 v1.0.9 running Node.js",
         OptionSettings=[
-            OptionSettings(
+            OptionSetting(
                 Namespace="aws:autoscaling:launchconfiguration",
                 OptionName="EC2KeyName",
                 Value=Ref("KeyName"),
             ),
-            OptionSettings(
+            OptionSetting(
                 Namespace="aws:autoscaling:launchconfiguration",
                 OptionName="IamInstanceProfile",
                 Value=Ref("WebServerInstanceProfile"),

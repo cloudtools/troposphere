@@ -106,7 +106,7 @@ redshiftcluster = t.add_resource(
         MasterUsername=Ref("MasterUsername"),
         MasterUserPassword=Ref("MasterUserPassword"),
         ClusterParameterGroupName=Ref("RedshiftClusterParameterGroup"),
-        VpcSecurityGroupIds=Ref("SecurityGroup"),
+        VpcSecurityGroupIds=[Ref("SecurityGroup")],
         ClusterSubnetGroupName=Ref("RedshiftClusterSubnetGroup"),
     )
 )
@@ -130,7 +130,7 @@ redshiftclustersubnetgroup = t.add_resource(
     ClusterSubnetGroup(
         "RedshiftClusterSubnetGroup",
         Description="Cluster subnet group",
-        SubnetIds=Ref("Subnet"),
+        SubnetIds=[Ref("Subnet")],
     )
 )
 

@@ -91,7 +91,7 @@ class TemplateGenerator(Template):
 
     @property
     def inspect_resources(self):
-        """ Returns a map of `ResourceType: ResourceClass` """
+        """Returns a map of `ResourceType: ResourceClass`"""
         if not self._inspect_resources:
             d = {}
             for m in self.inspect_members:
@@ -106,7 +106,7 @@ class TemplateGenerator(Template):
 
     @property
     def inspect_functions(self):
-        """ Returns a map of `FunctionName: FunctionClass` """
+        """Returns a map of `FunctionName: FunctionClass`"""
         if not self._inspect_functions:
             d = {}
             for m in self.inspect_members:
@@ -376,7 +376,7 @@ class TemplateGenerator(Template):
         return custom_type
 
     def _generate_autoscaling_metadata(self, cls, args):
-        """ Provides special handling for the autoscaling.Metadata object """
+        """Provides special handling for the autoscaling.Metadata object"""
         assert isinstance(args, Mapping)
         init_config = self._create_instance(
             cloudformation.InitConfig, args["AWS::CloudFormation::Init"]["config"]
@@ -409,7 +409,7 @@ class TemplateGenerator(Template):
         return self.inspect_functions["Ref"] if function_name == "Ref" else None
 
     def _import_all_troposphere_modules(self):
-        """ Imports all troposphere modules and returns them """
+        """Imports all troposphere modules and returns them"""
         dirname = os.path.join(os.path.dirname(__file__))
         module_names = [
             pkg_name

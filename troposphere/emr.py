@@ -18,7 +18,7 @@ ACTIONS_ON_FAILURE = (
 
 
 def validate_action_on_failure(action_on_failure):
-    """Validate action on failure for EMR StepConfig """
+    """Validate action on failure for EMR StepConfig"""
 
     if action_on_failure not in ACTIONS_ON_FAILURE:
         raise ValueError(

@@ -12,7 +12,7 @@ import cfn_flip
 
 from . import validators
 
-__version__ = "3.0.0"
+__version__ = "3.0.3"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = "Delete"
@@ -408,7 +408,7 @@ class AWSHelperFn:
 
 
 class GenericHelperFn(AWSHelperFn):
-    """ Used as a fallback for the template generator """
+    """Used as a fallback for the template generator"""
 
     def __init__(self, data):
         self.data = self.getdata(data)

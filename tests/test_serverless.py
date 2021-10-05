@@ -11,7 +11,11 @@ from troposphere.serverless import (
     EndpointConfiguration,
     Function,
     FunctionForPackaging,
+    HttpApi,
+    HttpApiAuth,
+    HttpApiDomainConfiguration,
     LayerVersion,
+    OAuth2Authorizer,
     ResourcePolicyStatement,
     Route53,
     S3Event,
@@ -186,7 +190,7 @@ class TestServerless(unittest.TestCase):
         t.add_resource(serverless_api)
         t.to_json()
 
-    def test_api_with_endpoint_configuation(self):
+    def test_api_with_endpoint_configuration(self):
         serverless_api = Api(
             title="SomeApi",
             StageName="testStageName",
@@ -215,6 +219,80 @@ class TestServerless(unittest.TestCase):
         t = Template()
         t.add_parameter(certificate)
         t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_http_api_definition_uri_defined(self):
+        serverless_http_api = HttpApi(
+            "SomeHttpApi",
+            StageName="testHttp",
+            DefinitionUri="s3://bucket/swagger.yml",
+        )
+        t = Template()
+        t.add_resource(serverless_http_api)
+        t.to_json()
+
+    def test_http_api_both_definition_uri_and_body_defined(self):
+        serverless_http_api = HttpApi(
+            "SomeHttpApi",
+            StageName="testHttp",
+            DefinitionUri="s3://bucket/swagger.yml",
+            DefinitionBody=self.swagger,
+        )
+        t = Template()
+        t.add_resource(serverless_http_api)
+        with self.assertRaises(ValueError):
+            t.to_json()
+
+    def test_http_api_definition_body(self):
+        serverless_http_api = HttpApi(
+            "SomeHttpApi",
+            StageName="testHttp",
+            DefinitionBody=self.swagger,
+        )
+        t = Template()
+        t.add_resource(serverless_http_api)
+        t.to_json()
+
+    def test_http_api_no_definition(self):
+        serverless_api = HttpApi(
+            "SomeHttpApi",
+            StageName="testHttp",
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_http_api_authorization_scopes(self):
+        serverless_api = HttpApi(
+            title="SomeHttpApi",
+            Auth=HttpApiAuth(
+                Authorizers=OAuth2Authorizer(AuthorizationScopes=["scope1", "scope2"])
+            ),
+            StageName="testHttpStageName",
+        )
+        t = Template()
+        t.add_resource(serverless_api)
+        t.to_json()
+
+    def test_http_api_with_domain(self):
+        certificate = Parameter("certificate", Type="String")
+        serverless_http_api = HttpApi(
+            "SomeHttpApi",
+            StageName="testHttp",
+            Domain=HttpApiDomainConfiguration(
+                BasePath=["/"],
+                CertificateArn=Ref(certificate),
+                DomainName=Sub("subdomain.${Zone}", Zone=ImportValue("MyZone")),
+                EndpointConfiguration="REGIONAL",
+                Route53=Route53(
+                    HostedZoneId=ImportValue("MyZone"),
+                    IpV6=True,
+                ),
+            ),
+        )
+        t = Template()
+        t.add_parameter(certificate)
+        t.add_resource(serverless_http_api)
         t.to_json()
 
     def test_simple_table(self):

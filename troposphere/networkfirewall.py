@@ -12,6 +12,17 @@ from troposphere import Tags
 from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
+VALID_RULE_GROUP_TYPES = ("STATEFUL", "STATELESS")
+
+
+def validate_rule_group_type(rule_group_type):
+    """Validate Type for RuleGroup"""
+    if rule_group_type not in VALID_RULE_GROUP_TYPES:
+        raise ValueError(
+            "RuleGroup Type must be one of %s" % ", ".join(VALID_RULE_GROUP_TYPES)
+        )
+    return rule_group_type
+
 
 class SubnetMapping(AWSProperty):
     props = {
@@ -73,13 +84,24 @@ class StatelessRuleGroupReference(AWSProperty):
     }
 
 
-class FirewallPolicy(AWSProperty):
+class FirewallPolicyProperty(AWSProperty):
     props = {
         "StatefulRuleGroupReferences": ([StatefulRuleGroupReference], False),
         "StatelessCustomActions": ([CustomAction], False),
         "StatelessDefaultActions": ([str], True),
         "StatelessFragmentDefaultActions": ([str], True),
         "StatelessRuleGroupReferences": ([StatelessRuleGroupReference], False),
+    }
+
+
+class FirewallPolicy(AWSObject):
+    resource_type = "AWS::NetworkFirewall::FirewallPolicy"
+
+    props = {
+        "Description": (str, False),
+        "FirewallPolicy": (FirewallPolicyProperty, True),
+        "FirewallPolicyName": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -199,8 +221,21 @@ class RulesSource(AWSProperty):
     }
 
 
-class RuleGroup(AWSProperty):
+class RuleGroupProperty(AWSProperty):
     props = {
         "RuleVariables": (RuleVariables, False),
         "RulesSource": (RulesSource, True),
+    }
+
+
+class RuleGroup(AWSObject):
+    resource_type = "AWS::NetworkFirewall::RuleGroup"
+
+    props = {
+        "Capacity": (integer, True),
+        "Description": (str, False),
+        "RuleGroup": (RuleGroupProperty, False),
+        "RuleGroupName": (str, True),
+        "Tags": (Tags, False),
+        "Type": (validate_rule_group_type, True),
     }

@@ -266,6 +266,19 @@ class DataFormatConversionConfiguration(AWSProperty):
     }
 
 
+class RetryOptions(AWSProperty):
+    props = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
+class DynamicPartitioningConfiguration(AWSProperty):
+    props = {
+        "Enabled": (boolean, False),
+        "RetryOptions": (RetryOptions, False),
+    }
+
+
 class ExtendedS3DestinationConfiguration(AWSProperty):
     props = {
         "BucketARN": (str, True),
@@ -273,6 +286,7 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
         "CompressionFormat": (str, False),
         "DataFormatConversionConfiguration": (DataFormatConversionConfiguration, False),
+        "DynamicPartitioningConfiguration": (DynamicPartitioningConfiguration, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ErrorOutputPrefix": (str, False),
         "Prefix": (str, False),
@@ -280,6 +294,48 @@ class ExtendedS3DestinationConfiguration(AWSProperty):
         "RoleARN": (str, True),
         "S3BackupConfiguration": (S3DestinationConfiguration, False),
         "S3BackupMode": (s3_backup_mode_extended_s3_validator, False),
+    }
+
+
+class HttpEndpointConfiguration(AWSProperty):
+    props = {
+        "AccessKey": (str, False),
+        "Name": (str, False),
+        "Url": (str, True),
+    }
+
+
+class HttpEndpointCommonAttribute(AWSProperty):
+    props = {
+        "AttributeName": (str, True),
+        "AttributeValue": (str, True),
+    }
+
+
+class HttpEndpointRequestConfiguration(AWSProperty):
+    props = {
+        "CommonAttributes": ([HttpEndpointCommonAttribute], False),
+        "ContentEncoding": (str, False),
+    }
+
+
+class RetryOptions(AWSProperty):
+    props = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
+class HttpEndpointDestinationConfiguration(AWSProperty):
+    props = {
+        "BufferingHints": (BufferingHints, False),
+        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
+        "EndpointConfiguration": (HttpEndpointConfiguration, True),
+        "ProcessingConfiguration": (ProcessingConfiguration, False),
+        "RequestConfiguration": (HttpEndpointRequestConfiguration, False),
+        "RetryOptions": (RetryOptions, False),
+        "RoleARN": (str, False),
+        "S3BackupMode": (str, False),
+        "S3Configuration": (S3DestinationConfiguration, True),
     }
 
 
@@ -325,6 +381,10 @@ class DeliveryStream(AWSObject):
             ExtendedS3DestinationConfiguration,
             False,
         ),  # noqa
+        "HttpEndpointDestinationConfiguration": (
+            HttpEndpointDestinationConfiguration,
+            False,
+        ),
         "KinesisStreamSourceConfiguration": (
             KinesisStreamSourceConfiguration,
             False,

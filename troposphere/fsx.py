@@ -49,6 +49,7 @@ class LustreConfiguration(AWSProperty):
         "AutomaticBackupRetentionDays": (integer, False),
         "CopyTagsToBackups": (boolean, False),
         "DailyAutomaticBackupStartTime": (str, False),
+        "DataCompressionType": (str, False),
         "DeploymentType": (validate_lustreconfiguration_deploymenttype, False),
         "DriveCacheType": (str, False),
         "ExportPath": (str, False),
@@ -59,6 +60,14 @@ class LustreConfiguration(AWSProperty):
             False,
         ),  # NOQA
         "WeeklyMaintenanceStartTime": (str, False),
+    }
+
+
+class AuditLogConfiguration(AWSProperty):
+    props = {
+        "AuditLogDestination": (str, False),
+        "FileAccessAuditLogLevel": (str, True),
+        "FileShareAccessAuditLogLevel": (str, True),
     }
 
 
@@ -77,6 +86,7 @@ class WindowsConfiguration(AWSProperty):
     props = {
         "ActiveDirectoryId": (str, False),
         "Aliases": ([str], False),
+        "AuditLogConfiguration": (AuditLogConfiguration, False),
         "AutomaticBackupRetentionDays": (integer, False),
         "CopyTagsToBackups": (boolean, False),
         "DailyAutomaticBackupStartTime": (str, False),

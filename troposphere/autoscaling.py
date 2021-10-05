@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSHelperFn, AWSObject, AWSProperty, FindInMap, If, Ref, cloudformation
-from .validators import boolean, exactly_one, integer, mutually_exclusive
+from .validators import boolean, double, exactly_one, integer, mutually_exclusive
 
 EC2_INSTANCE_LAUNCH = "autoscaling:EC2_INSTANCE_LAUNCH"
 EC2_INSTANCE_LAUNCH_ERROR = "autoscaling:EC2_INSTANCE_LAUNCH_ERROR"
@@ -148,6 +148,7 @@ class InstancesDistribution(AWSProperty):
 class LaunchTemplateOverrides(AWSProperty):
     props = {
         "InstanceType": (str, False),
+        "LaunchTemplateSpecification": (LaunchTemplateSpecification, False),
         "WeightedCapacity": (str, False),
     }
 
@@ -274,6 +275,55 @@ class LaunchConfiguration(AWSObject):
     }
 
 
+class PredictiveScalingPredefinedLoadMetric(AWSProperty):
+    props = {
+        "PredefinedMetricType": (str, True),
+        "ResourceLabel": (str, False),
+    }
+
+
+class PredictiveScalingPredefinedMetricPair(AWSProperty):
+    props = {
+        "PredefinedMetricType": (str, True),
+        "ResourceLabel": (str, False),
+    }
+
+
+class PredictiveScalingPredefinedScalingMetric(AWSProperty):
+    props = {
+        "PredefinedMetricType": (str, True),
+        "ResourceLabel": (str, False),
+    }
+
+
+class PredictiveScalingMetricSpecification(AWSProperty):
+    props = {
+        "PredefinedLoadMetricSpecification": (
+            PredictiveScalingPredefinedLoadMetric,
+            False,
+        ),
+        "PredefinedMetricPairSpecification": (
+            PredictiveScalingPredefinedMetricPair,
+            False,
+        ),
+        "PredefinedScalingMetricSpecification": (
+            PredictiveScalingPredefinedScalingMetric,
+            False,
+        ),
+        "TargetValue": (double, True),
+    }
+
+
+class PredictiveScalingConfiguration(AWSProperty):
+    props = {
+        "MaxCapacityBreachBehavior": (str, False),
+        "MaxCapacityBuffer": (integer, False),
+        "MetricSpecifications": ([PredictiveScalingMetricSpecification], True),
+        "Mode": (str, False),
+        "SchedulingBufferTime": (integer, False),
+    }
+
+
 class StepAdjustments(AWSProperty):
     props = {
         "MetricIntervalLowerBound": (integer, False),
@@ -326,6 +376,7 @@ class ScalingPolicy(AWSObject):
         "MetricAggregationType": (str, False),
         "MinAdjustmentMagnitude": (integer, False),
         "PolicyType": (str, False),
+        "PredictiveScalingConfiguration": (PredictiveScalingConfiguration, False),
         "ScalingAdjustment": (integer, False),
         "StepAdjustments": ([StepAdjustments], False),
         "TargetTrackingConfiguration": (TargetTrackingConfiguration, False),
@@ -343,6 +394,7 @@ class ScheduledAction(AWSObject):
         "MinSize": (integer, False),
         "Recurrence": (str, False),
         "StartTime": (str, False),
+        "TimeZone": (str, False),
     }
 
 

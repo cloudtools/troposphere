@@ -20,8 +20,10 @@ class Queue(AWSObject):
 
     props = {
         "ContentBasedDeduplication": (bool, False),
+        "DeduplicationScope": (str, False),
         "DelaySeconds": (integer, False),
         "FifoQueue": (bool, False),
+        "FifoThroughputLimit": (str, False),
         "KmsMasterKeyId": (str, False),
         "KmsDataKeyReusePeriodSeconds": (integer, False),
         "MaximumMessageSize": (integer, False),

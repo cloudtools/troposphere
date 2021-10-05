@@ -39,6 +39,13 @@ class ForwardedValues(AWSProperty):
     }
 
 
+class FunctionAssociation(AWSProperty):
+    props = {
+        "EventType": (str, False),
+        "FunctionARN": (str, False),
+    }
+
+
 class LambdaFunctionAssociation(AWSProperty):
     props = {
         "EventType": (cloudfront_event_type, False),
@@ -56,6 +63,7 @@ class CacheBehavior(AWSProperty):
         "DefaultTTL": (integer, False),
         "FieldLevelEncryptionId": (str, False),
         "ForwardedValues": (ForwardedValues, False),
+        "FunctionAssociations": ([FunctionAssociation], False),
         "LambdaFunctionAssociations": ([LambdaFunctionAssociation], False),
         "MaxTTL": (integer, False),
         "MinTTL": (integer, False),
@@ -79,6 +87,7 @@ class DefaultCacheBehavior(AWSProperty):
         "DefaultTTL": (integer, False),
         "FieldLevelEncryptionId": (str, False),
         "ForwardedValues": (ForwardedValues, False),
+        "FunctionAssociations": ([FunctionAssociation], False),
         "LambdaFunctionAssociations": ([LambdaFunctionAssociation], False),
         "MaxTTL": (integer, False),
         "MinTTL": (integer, False),
@@ -389,6 +398,31 @@ class OriginRequestPolicy(AWSObject):
 
     props = {
         "OriginRequestPolicyConfig": (OriginRequestPolicyConfig, True),
+    }
+
+
+class FunctionConfig(AWSProperty):
+    props = {
+        "Comment": (str, True),
+        "Runtime": (str, True),
+    }
+
+
+class FunctionMetadata(AWSProperty):
+    props = {
+        "FunctionARN": (str, False),
+    }
+
+
+class Function(AWSObject):
+    resource_type = "AWS::CloudFront::Function"
+
+    props = {
+        "AutoPublish": (boolean, False),
+        "FunctionCode": (str, False),
+        "FunctionConfig": (FunctionConfig, False),
+        "FunctionMetadata": (FunctionMetadata, False),
+        "Name": (str, True),
     }
 
 

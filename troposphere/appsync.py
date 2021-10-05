@@ -168,6 +168,14 @@ class AdditionalAuthenticationProvider(AWSProperty):
     }
 
 
+class LambdaAuthorizerConfig(AWSProperty):
+    props = {
+        "AuthorizerResultTtlInSeconds": (double, False),
+        "AuthorizerUri": (str, False),
+        "IdentityValidationExpression": (str, False),
+    }
+
+
 class LogConfig(AWSProperty):
     props = {
         "CloudWatchLogsRoleArn": (str, False),
@@ -194,6 +202,7 @@ class GraphQLApi(AWSObject):
             False,
         ),
         "AuthenticationType": (str, True),
+        "LambdaAuthorizerConfig": (LambdaAuthorizerConfig, False),
         "LogConfig": (LogConfig, False),
         "Name": (str, True),
         "OpenIDConnectConfig": (OpenIDConnectConfig, False),

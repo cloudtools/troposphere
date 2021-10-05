@@ -59,6 +59,24 @@ class NamedQuery(AWSObject):
     }
 
 
+class PreparedStatement(AWSObject):
+    resource_type = "AWS::Athena::PreparedStatement"
+
+    props = {
+        "Description": (str, False),
+        "QueryStatement": (str, True),
+        "StatementName": (str, True),
+        "WorkGroup": (str, True),
+    }
+
+
+class EngineVersion(AWSProperty):
+    props = {
+        "EffectiveEngineVersion": (str, False),
+        "SelectedEngineVersion": (str, False),
+    }
+
+
 class EncryptionConfiguration(AWSProperty):
     props = {
         "EncryptionOption": (validate_encryptionconfiguration_encryptionoption, False),
@@ -77,6 +95,7 @@ class WorkGroupConfiguration(AWSProperty):
     props = {
         "BytesScannedCutoffPerQuery": (integer, False),
         "EnforceWorkGroupConfiguration": (boolean, False),
+        "EngineVersion": (EngineVersion, False),
         "PublishCloudWatchMetricsEnabled": (boolean, False),
         "RequesterPaysEnabled": (boolean, False),
         "ResultConfiguration": (ResultConfiguration, False),
@@ -96,6 +115,7 @@ class WorkGroupConfigurationUpdates(AWSProperty):
     props = {
         "BytesScannedCutoffPerQuery": (integer, False),
         "EnforceWorkGroupConfiguration": (boolean, False),
+        "EngineVersion": (EngineVersion, False),
         "PublishCloudWatchMetricsEnabled": (boolean, False),
         "RemoveBytesScannedCutoffPerQuery": (boolean, False),
         "RequesterPaysEnabled": (boolean, False),

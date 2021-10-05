@@ -5,8 +5,15 @@
 
 from troposphere import Tags
 
-from . import AWSObject
+from . import AWSObject, AWSProperty
 from .validators import boolean, integer
+
+
+class DBClusterRole(AWSProperty):
+    props = {
+        "FeatureName": (str, False),
+        "RoleArn": (str, True),
+    }
 
 
 class DBClusterParameterGroup(AWSObject):
@@ -25,6 +32,7 @@ class DBCluster(AWSObject):
     resource_type = "AWS::Neptune::DBCluster"
 
     props = {
+        "AssociatedRoles": ([DBClusterRole], False),
         "AvailabilityZones": ([str], False),
         "BackupRetentionPeriod": (integer, False),
         "DBClusterIdentifier": (str, False),
@@ -38,9 +46,13 @@ class DBCluster(AWSObject):
         "Port": (integer, False),
         "PreferredBackupWindow": (str, False),
         "PreferredMaintenanceWindow": (str, False),
+        "RestoreToTime": (str, False),
+        "RestoreType": (str, False),
         "SnapshotIdentifier": (str, False),
+        "SourceDBClusterIdentifier": (str, False),
         "StorageEncrypted": (boolean, False),
         "Tags": (Tags, False),
+        "UseLatestRestorableTime": (boolean, False),
         "VpcSecurityGroupIds": ([str], False),
     }
 

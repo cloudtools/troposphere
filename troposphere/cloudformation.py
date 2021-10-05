@@ -26,6 +26,27 @@ class ModuleVersion(AWSObject):
     }
 
 
+class PublicTypeVersion(AWSObject):
+    resource_type = "AWS::CloudFormation::PublicTypeVersion"
+
+    props = {
+        "Arn": (str, False),
+        "LogDeliveryBucket": (str, False),
+        "PublicVersionNumber": (str, False),
+        "Type": (str, False),
+        "TypeName": (str, False),
+    }
+
+
+class Publisher(AWSObject):
+    resource_type = "AWS::CloudFormation::Publisher"
+
+    props = {
+        "AcceptTermsAndConditions": (boolean, True),
+        "ConnectionArn": (str, False),
+    }
+
+
 class ResourceDefaultVersion(AWSObject):
     resource_type = "AWS::CloudFormation::ResourceDefaultVersion"
 
@@ -122,6 +143,7 @@ class StackSet(AWSObject):
     props = {
         "AdministrationRoleARN": (str, False),
         "AutoDeployment": (AutoDeployment, False),
+        "CallAs": (str, False),
         "Capabilities": ([str], False),
         "Description": (str, False),
         "ExecutionRoleName": (str, False),
@@ -318,4 +340,21 @@ class Macro(AWSCustomObject):
         "LogGroupName": (str, False),
         "LogRoleARN": (str, False),
         "Name": (str, True),
+    }
+
+
+class TypeActivation(AWSObject):
+    resource_type = "AWS::CloudFormation::TypeActivation"
+
+    props = {
+        "AutoUpdate": (boolean, False),
+        "ExecutionRoleArn": (str, False),
+        "LoggingConfig": (LoggingConfig, False),
+        "MajorVersion": (str, False),
+        "PublicTypeArn": (str, False),
+        "PublisherId": (str, False),
+        "Type": (str, False),
+        "TypeName": (str, False),
+        "TypeNameAlias": (str, False),
+        "VersionBump": (str, False),
     }

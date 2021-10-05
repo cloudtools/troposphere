@@ -36,6 +36,34 @@ class ComponentConfiguration(AWSProperty):
     }
 
 
+class EbsInstanceBlockDeviceSpecification(AWSProperty):
+    props = {
+        "DeleteOnTermination": (boolean, False),
+        "Encrypted": (boolean, False),
+        "Iops": (integer, False),
+        "KmsKeyId": (str, False),
+        "SnapshotId": (str, False),
+        "VolumeSize": (integer, False),
+        "VolumeType": (ebsinstanceblockdevicespecification_volume_type, False),
+    }
+
+
+class InstanceBlockDeviceMapping(AWSProperty):
+    props = {
+        "DeviceName": (str, False),
+        "Ebs": (EbsInstanceBlockDeviceSpecification, False),
+        "NoDevice": (str, False),
+        "VirtualName": (str, False),
+    }
+
+
+class InstanceConfiguration(AWSProperty):
+    props = {
+        "BlockDeviceMappings": ([InstanceBlockDeviceMapping], False),
+        "Image": (str, False),
+    }
+
+
 class TargetContainerRepository(AWSProperty):
     props = {
         "RepositoryName": (str, False),
@@ -53,6 +81,7 @@ class ContainerRecipe(AWSObject):
         "DockerfileTemplateData": (str, False),
         "DockerfileTemplateUri": (str, False),
         "ImageOsVersionOverride": (str, False),
+        "InstanceConfiguration": (InstanceConfiguration, False),
         "KmsKeyId": (str, False),
         "Name": (str, True),
         "ParentImage": (str, True),
@@ -64,9 +93,19 @@ class ContainerRecipe(AWSObject):
     }
 
 
+class LaunchTemplateConfiguration(AWSProperty):
+    props = {
+        "AccountId": (str, False),
+        "LaunchTemplateId": (str, False),
+        "SetDefaultVersion": (boolean, False),
+    }
+
+
 class Distribution(AWSProperty):
     props = {
         "AmiDistributionConfiguration": (dict, False),
+        "ContainerDistributionConfiguration": (dict, False),
+        "LaunchTemplateConfigurations": ([LaunchTemplateConfiguration], False),
         "LicenseConfigurationArns": ([str], False),
         "Region": (str, False),
     }
@@ -125,32 +164,12 @@ class InfrastructureConfiguration(AWSObject):
         "KeyPair": (str, False),
         "Logging": (Logging, False),
         "Name": (str, True),
+        "ResourceTags": (dict, False),
         "SecurityGroupIds": ([str], False),
         "SnsTopicArn": (str, False),
         "SubnetId": (str, False),
         "Tags": (dict, False),
         "TerminateInstanceOnFailure": (boolean, False),
-    }
-
-
-class EbsInstanceBlockDeviceSpecification(AWSProperty):
-    props = {
-        "DeleteOnTermination": (boolean, False),
-        "Encrypted": (boolean, False),
-        "Iops": (integer, False),
-        "KmsKeyId": (str, False),
-        "SnapshotId": (str, False),
-        "VolumeSize": (integer, False),
-        "VolumeType": (ebsinstanceblockdevicespecification_volume_type, False),
-    }
-
-
-class InstanceBlockDeviceMapping(AWSProperty):
-    props = {
-        "DeviceName": (str, False),
-        "Ebs": (EbsInstanceBlockDeviceSpecification, False),
-        "NoDevice": (str, False),
-        "VirtualName": (str, False),
     }
 
 

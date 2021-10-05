@@ -18,6 +18,7 @@ class Cluster(AWSObject):
 
     props = {
         "AvailabilityZones": (str, False),
+        "ClusterEndpointEncryptionType": (str, False),
         "ClusterName": (str, False),
         "Description": (str, False),
         "IAMRoleARN": (str, True),

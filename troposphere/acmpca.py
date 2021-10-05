@@ -218,17 +218,49 @@ class CertificateAuthorityActivation(AWSObject):
     }
 
 
+class AccessMethod(AWSProperty):
+    props = {
+        "AccessMethodType": (str, False),
+        "CustomObjectIdentifier": (str, False),
+    }
+
+
+class AccessDescription(AWSProperty):
+    props = {
+        "AccessLocation": (GeneralName, True),
+        "AccessMethod": (AccessMethod, True),
+    }
+
+
+class CsrExtensions(AWSProperty):
+    props = {
+        "KeyUsage": (KeyUsage, False),
+        "SubjectInformationAccess": ([AccessDescription], False),
+    }
+
+
 class CrlConfiguration(AWSProperty):
     props = {
         "CustomCname": (str, False),
         "Enabled": (boolean, False),
         "ExpirationInDays": (integer, False),
         "S3BucketName": (str, False),
+        "S3ObjectAcl": (str, False),
+    }
+
+
+class OcspConfiguration(AWSProperty):
+    props = {
+        "Enabled": (boolean, False),
+        "OcspCustomCname": (str, False),
     }
 
 
 class RevocationConfiguration(AWSProperty):
-    props = {"CrlConfiguration": (CrlConfiguration, False)}
+    props = {
+        "CrlConfiguration": (CrlConfiguration, False),
+        "OcspConfiguration": (OcspConfiguration, False),
+    }
 
 
 class Subject(AWSProperty):
@@ -254,7 +286,9 @@ class CertificateAuthority(AWSObject):
     resource_type = "AWS::ACMPCA::CertificateAuthority"
 
     props = {
+        "CsrExtensions": (CsrExtensions, False),
         "KeyAlgorithm": (validate_key_algorithm, True),
+        "KeyStorageSecurityStandard": (str, False),
         "RevocationConfiguration": (RevocationConfiguration, False),
         "SigningAlgorithm": (validate_signing_algorithm, True),
         "Subject": (Subject, True),

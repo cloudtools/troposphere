@@ -47,7 +47,7 @@ class AccessPoint(AWSObject):
         "CreationDate": (str, False),
         "Name": (str, False),
         "NetworkOrigin": (str, False),
-        "Policy": (dict, False),
+        "Policy": (policytypes, False),
         "PolicyStatus": (dict, False),
         "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
         "VpcConfiguration": (VpcConfiguration, False),
@@ -156,6 +156,7 @@ class LifecycleRule(AWSProperty):
         "AbortIncompleteMultipartUpload": (AbortIncompleteMultipartUpload, False),
         "ExpirationDate": (str, False),
         "ExpirationInDays": (positive_integer, False),
+        "ExpiredObjectDeleteMarker": (boolean, False),
         "Id": (str, False),
         "NoncurrentVersionExpirationInDays": (positive_integer, False),
         "NoncurrentVersionTransition": (NoncurrentVersionTransition, False),
@@ -376,7 +377,7 @@ class ReplicationConfigurationRules(AWSProperty):
         "Destination": (ReplicationConfigurationRulesDestination, True),
         "Filter": (ReplicationRuleFilter, False),
         "Id": (str, False),
-        "Prefix": (str, True),
+        "Prefix": (str, False),
         "Priority": (integer, False),
         "SourceSelectionCriteria": (SourceSelectionCriteria, False),
         "Status": (str, True),
@@ -522,6 +523,31 @@ class BucketPolicy(AWSObject):
     props = {
         "Bucket": (str, True),
         "PolicyDocument": (policytypes, True),
+    }
+
+
+class Region(AWSProperty):
+    props = {
+        "Bucket": (str, True),
+    }
+
+
+class MultiRegionAccessPoint(AWSObject):
+    resource_type = "AWS::S3::MultiRegionAccessPoint"
+
+    props = {
+        "Name": (str, False),
+        "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
+        "Regions": ([Region], True),
+    }
+
+
+class MultiRegionAccessPointPolicy(AWSObject):
+    resource_type = "AWS::S3::MultiRegionAccessPointPolicy"
+
+    props = {
+        "MrapName": (str, True),
+        "Policy": (policytypes, True),
     }
 
 

@@ -366,6 +366,7 @@ class Project(AWSObject):
         "BadgeEnabled": (boolean, False),
         "BuildBatchConfig": (ProjectBuildBatchConfig, False),
         "Cache": (ProjectCache, False),
+        "ConcurrentBuildLimit": (integer, False),
         "Description": (str, False),
         "EncryptionKey": (str, False),
         "Environment": (Environment, True),
@@ -373,6 +374,7 @@ class Project(AWSObject):
         "LogsConfig": (LogsConfig, False),
         "Name": (str, False),
         "QueuedTimeoutInMinutes": (integer, False),
+        "ResourceAccessRole": (str, False),
         "SecondaryArtifacts": ([Artifacts], False),
         "SecondarySourceVersions": ([ProjectSourceVersion], False),
         "SecondarySources": ([Source], False),
@@ -382,6 +384,7 @@ class Project(AWSObject):
         "Tags": (Tags, False),
         "TimeoutInMinutes": (integer, False),
         "Triggers": (ProjectTriggers, False),
+        "Visibility": (str, False),
         "VpcConfig": (VpcConfig, False),
     }
 

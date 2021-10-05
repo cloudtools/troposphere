@@ -68,7 +68,7 @@ def validate_storage_type(storage_type):
 
 
 def validate_engine(engine):
-    """Validate database Engine for DBInstance """
+    """Validate database Engine for DBInstance"""
 
     if engine not in VALID_DB_ENGINES:
         raise ValueError(
@@ -582,6 +582,7 @@ class DBCluster(AWSObject):
         "Engine": (validate_engine, True),
         "EngineMode": (validate_engine_mode, False),
         "EngineVersion": (str, False),
+        "GlobalClusterIdentifier": (str, False),
         "KmsKeyId": (str, False),
         "MasterUsername": (str, False),
         "MasterUserPassword": (str, False),

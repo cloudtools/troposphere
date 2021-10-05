@@ -56,7 +56,7 @@ def do_header(d):
     print('from troposphere import Base64, Select, FindInMap, GetAtt')
     print('from troposphere import GetAZs, Join, Output, If, And, Not')
     print('from troposphere import Or, Equals, Condition')
-    print('from troposphere import Parameter, Ref, Tags, Template')
+    print('from troposphere import Parameter, Ref, Tags, Template, Export')
     print('from troposphere.cloudformation import Init')
     print('from troposphere.cloudfront import Distribution')
     print('from troposphere.cloudfront import DistributionConfig')
@@ -353,6 +353,11 @@ def do_outputs(d):
         for pk, pv in v.items():
             if isinstance(pv, str):
                 print('    {}="{}",'.format(pk, pv))
+            elif pk == 'Export':
+                ov = output_value(pv)
+                if ov[0] == '{': # Is a dictionary
+                    ov = json.loads(ov)['Name']
+                print('    {}={}("{}")'.format(pk, pk, ov))
             else:
                 print('    {}={},'.format(pk, output_value(pv)))
         print("))")

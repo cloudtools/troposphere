@@ -78,7 +78,7 @@ class CanarySetting(AWSProperty):
 
     props = {
         "DeploymentId": (str, False),
-        "PercentTraffic": ([double], False),
+        "PercentTraffic": (double, False),
         "StageVariableOverrides": (dict, False),
         "UseStageCache": (boolean, False),
     }
@@ -103,7 +103,7 @@ class ClientCertificate(AWSObject):
 class DeploymentCanarySettings(AWSProperty):
 
     props = {
-        "PercentTraffic": ([double], False),
+        "PercentTraffic": (double, False),
         "StageVariableOverrides": (dict, False),
         "UseStageCache": (boolean, False),
     }
@@ -217,6 +217,7 @@ class DomainName(AWSObject):
         "DomainName": (str, True),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "MutualTlsAuthentication": (MutualTlsAuthentication, False),
+        "OwnershipVerificationCertificateArn": (str, False),
         "RegionalCertificateArn": (str, False),
         "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
@@ -342,6 +343,7 @@ class RestApi(AWSObject):
         "EndpointConfiguration": (EndpointConfiguration, False),
         "FailOnWarnings": (boolean, False),
         "MinimumCompressionSize": (positive_integer, False),
+        "Mode": (str, False),
         "Name": (str, False),
         "Parameters": (dict, False),
         "Policy": (dict, False),

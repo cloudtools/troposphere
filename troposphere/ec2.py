@@ -164,7 +164,8 @@ class NatGateway(AWSObject):
     resource_type = "AWS::EC2::NatGateway"
 
     props = {
-        "AllocationId": (str, True),
+        "AllocationId": (str, False),
+        "ConnectivityType": (str, False),
         "SubnetId": (str, True),
         "Tags": ((Tags, list), False),
     }
@@ -737,6 +738,7 @@ class Volume(AWSObject):
         "Size": (positive_integer, False),
         "SnapshotId": (str, False),
         "Tags": ((Tags, list), False),
+        "Throughput": (positive_integer, False),
         "VolumeType": (str, False),
     }
 
@@ -1082,6 +1084,8 @@ class VPCCidrBlock(AWSObject):
     props = {
         "AmazonProvidedIpv6CidrBlock": (boolean, False),
         "CidrBlock": (str, False),
+        "Ipv6CidrBlock": (str, False),
+        "Ipv6Pool": (str, False),
         "VpcId": (str, True),
     }
 
@@ -1320,6 +1324,18 @@ class TransitGatewayMulticastGroupSource(AWSObject):
         "GroupIpAddress": (str, True),
         "NetworkInterfaceId": (str, True),
         "TransitGatewayMulticastDomainId": (str, True),
+    }
+
+
+class TransitGatewayPeeringAttachment(AWSObject):
+    resource_type = "AWS::EC2::TransitGatewayPeeringAttachment"
+
+    props = {
+        "PeerAccountId": (str, True),
+        "PeerRegion": (str, True),
+        "PeerTransitGatewayId": (str, True),
+        "Tags": (Tags, False),
+        "TransitGatewayId": (str, True),
     }
 
 

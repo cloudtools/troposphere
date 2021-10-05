@@ -6,7 +6,7 @@
 
 from . import AWSObject, Tags
 
-VALID_CONNECTION_PROVIDERTYPE = "Bitbucket"
+VALID_CONNECTION_PROVIDERTYPE = ["Bitbucket", "GitHub", "GitHubEnterpriseServer"]
 
 
 def validate_connection_providertype(connection_providertype):

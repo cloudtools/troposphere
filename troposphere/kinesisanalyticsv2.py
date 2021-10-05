@@ -186,6 +186,50 @@ class ApplicationSnapshotConfiguration(AWSProperty):
     }
 
 
+class GlueDataCatalogConfiguration(AWSProperty):
+    props = {
+        "DatabaseARN": (str, False),
+    }
+
+
+class CatalogConfiguration(AWSProperty):
+    props = {
+        "GlueDataCatalogConfiguration": (GlueDataCatalogConfiguration, False),
+    }
+
+
+class CustomArtifactsConfiguration(AWSProperty):
+    props = {}
+
+
+class S3ContentBaseLocation(AWSProperty):
+    props = {
+        "BasePath": (str, True),
+        "BucketARN": (str, True),
+    }
+
+
+class DeployAsApplicationConfiguration(AWSProperty):
+    props = {
+        "S3ContentLocation": (S3ContentBaseLocation, True),
+    }
+
+
+class ZeppelinMonitoringConfiguration(AWSProperty):
+    props = {
+        "LogLevel": (str, False),
+    }
+
+
+class ZeppelinApplicationConfiguration(AWSProperty):
+    props = {
+        "CatalogConfiguration": (CatalogConfiguration, False),
+        "CustomArtifactsConfiguration": (CustomArtifactsConfiguration, False),
+        "DeployAsApplicationConfiguration": (DeployAsApplicationConfiguration, False),
+        "MonitoringConfiguration": (ZeppelinMonitoringConfiguration, False),
+    }
+
+
 class ApplicationConfiguration(AWSProperty):
     props = {
         "ApplicationCodeConfiguration": (ApplicationCodeConfiguration, False),
@@ -196,6 +240,7 @@ class ApplicationConfiguration(AWSProperty):
         "EnvironmentProperties": (EnvironmentProperties, False),
         "FlinkApplicationConfiguration": (FlinkApplicationConfiguration, False),  # NOQA
         "SqlApplicationConfiguration": (SqlApplicationConfiguration, False),
+        "ZeppelinApplicationConfiguration": (ZeppelinApplicationConfiguration, False),
     }
 
 
