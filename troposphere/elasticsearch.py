@@ -169,6 +169,7 @@ class Domain(AWSObject):
 # Backward compatibility
 ElasticsearchDomain = Domain
 
+
 class OpenSearchServiceDomain(AWSObject):
     resource_type = "AWS::Elasticsearch::Domain"
 
