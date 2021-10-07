@@ -171,7 +171,7 @@ ElasticsearchDomain = Domain
 
 
 class OpenSearchServiceDomain(AWSObject):
-    resource_type = "AWS::Elasticsearch::Domain"
+    resource_type = "AWS::OpenSearchService::Domain"
 
     props = {
         "AccessPolicies": (policytypes, False),
