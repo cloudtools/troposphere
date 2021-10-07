@@ -6,6 +6,7 @@
 from . import AWSObject, AWSProperty, Tags
 from .compat import policytypes
 from .validators import boolean, integer, integer_range, positive_integer
+import re
 
 VALID_VOLUME_TYPES = ("standard", "gp2", "io1")
 VALID_TLS_SECURITY_POLICIES = (
@@ -32,6 +33,16 @@ def validate_tls_security_policy(tls_security_policy):
             % ", ".join(VALID_TLS_SECURITY_POLICIES)
         )
     return tls_security_policy
+
+
+def validate_search_service_engine_version(engine_version):
+    """Validate Engine Version for OpenSearchServiceDomain. The value must be in the format OpenSearch_X.Y or Elasticsearch_X.Y"""
+    engine_version_check = re.compile(r"^(OpenSearch_|Elasticsearch_)\d{1,5}.\d{1,5}")
+    if engine_version_check.match(engine_version) is None:
+        raise ValueError(
+            "OpenSearch EngineVersion must be in the format OpenSearch_X.Y or Elasticsearch_X.Y"
+        )
+    return engine_version
 
 
 class CognitoOptions(AWSProperty):
@@ -157,3 +168,24 @@ class Domain(AWSObject):
 
 # Backward compatibility
 ElasticsearchDomain = Domain
+
+class OpenSearchServiceDomain(AWSObject):
+    resource_type = "AWS::Elasticsearch::Domain"
+
+    props = {
+        "AccessPolicies": (policytypes, False),
+        "AdvancedOptions": (dict, False),
+        "AdvancedSecurityOptions": (AdvancedSecurityOptionsInput, False),
+        "ClusterConfig": (ElasticsearchClusterConfig, False),
+        "CognitoOptions": (CognitoOptions, False),
+        "DomainEndpointOptions": (DomainEndpointOptions, False),
+        "DomainName": (str, False),
+        "EBSOptions": (EBSOptions, False),
+        "EncryptionAtRestOptions": (EncryptionAtRestOptions, False),
+        "EngineVersion": (validate_search_service_engine_version, False),
+        "LogPublishingOptions": (dict, False),
+        "NodeToNodeEncryptionOptions": (NodeToNodeEncryptionOptions, False),
+        "SnapshotOptions": (SnapshotOptions, False),
+        "Tags": ((Tags, list), False),
+        "VPCOptions": (VPCOptions, False),
+    }
