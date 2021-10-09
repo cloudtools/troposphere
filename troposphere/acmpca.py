@@ -295,3 +295,14 @@ class CertificateAuthority(AWSObject):
         "Tags": (Tags, False),
         "Type": (validate_certificateauthority_type, True),
     }
+
+
+class Permission(AWSObject):
+    resource_type = "AWS::ACMPCA::Permission"
+
+    props = {
+        "Actions": ([str], True),
+        "CertificateAuthorityArn": (str, True),
+        "Principal": (str, True),
+        "SourceAccount": (str, False),
+    }
