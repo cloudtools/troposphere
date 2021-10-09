@@ -160,6 +160,7 @@ Currently supported AWS resource types
 - `AWS::AppSync`_
 - `AWS::ApplicationAutoScaling`_
 - `AWS::ApplicationInsights`_
+- `AWS::APS`_
 - `AWS::Athena`_
 - `AWS::AuditManager`_
 - `AWS::AutoScaling`_
@@ -442,6 +443,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::AppSync`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AppSync.html
 .. _`AWS::ApplicationAutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationAutoScaling.html
 .. _`AWS::ApplicationInsights`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ApplicationInsights.html
+.. _`AWS::APS`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_APS.html
 .. _`AWS::Athena`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Athena.html
 .. _`AWS::AuditManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AuditManager.html
 .. _`AWS::AutoScaling`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScaling.html
