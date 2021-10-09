@@ -51,6 +51,19 @@ def s3_backup_mode_extended_s3_validator(x):
     return x
 
 
+class AmazonopensearchserviceBufferingHints(AWSProperty):
+    props = {
+        "IntervalInSeconds": (integer, False),
+        "SizeInMBs": (integer, False),
+    }
+
+
+class AmazonopensearchserviceRetryOptions(AWSProperty):
+    props = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
 class BufferingHints(AWSProperty):
     props = {
         "IntervalInSeconds": (positive_integer, True),
@@ -133,11 +146,42 @@ class ProcessingConfiguration(AWSProperty):
     }
 
 
+class S3DestinationConfiguration(AWSProperty):
+    props = {
+        "BucketARN": (str, True),
+        "BufferingHints": (BufferingHints, False),
+        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
+        "CompressionFormat": (str, False),
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
+        "ErrorOutputPrefix": (str, False),
+        "Prefix": (str, False),
+        "RoleARN": (str, True),
+    }
+
+
 class VpcConfiguration(AWSProperty):
     props = {
         "RoleARN": (str, True),
         "SecurityGroupIds": ([str], True),
         "SubnetIds": ([str], True),
+    }
+
+
+class AmazonopensearchserviceDestinationConfiguration(AWSProperty):
+    props = {
+        "BufferingHints": (AmazonopensearchserviceBufferingHints, False),
+        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
+        "ClusterEndpoint": (str, False),
+        "DomainARN": (str, False),
+        "IndexName": (str, True),
+        "IndexRotationPeriod": (str, False),
+        "ProcessingConfiguration": (ProcessingConfiguration, False),
+        "RetryOptions": (AmazonopensearchserviceRetryOptions, False),
+        "RoleARN": (str, True),
+        "S3BackupMode": (str, False),
+        "S3Configuration": (S3DestinationConfiguration, True),
+        "TypeName": (str, False),
+        "VpcConfiguration": (VpcConfiguration, False),
     }
 
 
@@ -372,6 +416,10 @@ class DeliveryStream(AWSObject):
     resource_type = "AWS::KinesisFirehose::DeliveryStream"
 
     props = {
+        "AmazonopensearchserviceDestinationConfiguration": (
+            AmazonopensearchserviceDestinationConfiguration,
+            False,
+        ),
         "DeliveryStreamEncryptionConfigurationInput": (
             DeliveryStreamEncryptionConfigurationInput,
             False,
