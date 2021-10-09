@@ -471,6 +471,8 @@ class Studio(AWSObject):
         "DefaultS3Location": (str, True),
         "Description": (str, False),
         "EngineSecurityGroupId": (str, True),
+        "IdpAuthUrl": (str, False),
+        "IdpRelayStateParameterName": (str, False),
         "Name": (str, True),
         "ServiceRole": (str, True),
         "SubnetIds": ([str], True),
