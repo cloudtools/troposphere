@@ -4,12 +4,7 @@ from troposphere.mediapackage import Channel, OriginEndpoint, OriginEndpointHlsP
 t = Template()
 t.set_version()
 
-t.add_resource(
-    Channel(
-        "MediaPackage",
-        Id="MediaPackageChannel"
-    )
-)
+t.add_resource(Channel("MediaPackage", Id="MediaPackageChannel"))
 
 t.add_resource(
     OriginEndpoint(
@@ -19,14 +14,14 @@ t.add_resource(
         HlsPackage=OriginEndpointHlsPackage(
             ProgramDateTimeIntervalSeconds=0,
             PlaylistWindowSeconds=60,
-            PlaylistType='NONE',
+            PlaylistType="NONE",
             IncludeIframeOnlyStream=False,
             SegmentDurationSeconds=6,
             UseAudioRenditionGroup=False,
         ),
         Id="MediaPackageOriginEndpoint",
         ManifestName="MediaPackageOriginEndpoint",
-        Origination='ALLOW',
+        Origination="ALLOW",
     )
 )
 

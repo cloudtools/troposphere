@@ -75,8 +75,8 @@ class CmafEncryption(AWSProperty):
 
 class OriginEndpointCmafEncryption(AWSProperty):
     props = {
-        "ConstantInitializationVector" : (str, False),
-        "KeyRotationIntervalSeconds" : (integer, False),
+        "ConstantInitializationVector": (str, False),
+        "KeyRotationIntervalSeconds": (integer, False),
         "SpekeKeyProvider": (SpekeKeyProvider, True),
     }
 
@@ -102,16 +102,16 @@ class HlsManifest(AWSProperty):
 
 class OriginEndpointHlsManifest(AWSProperty):
     props = {
-        "AdMarkers" : (str, False),
-        "AdsOnDeliveryRestrictions" : (str, False),
-        "AdTriggers" : ([str], False),
-        "Id" : (str, True),
-        "IncludeIframeOnlyStream" : (boolean, False),
-        "ManifestName" : (str, False),
-        "PlaylistType" : (str, False),
-        "PlaylistWindowSeconds" : (integer, False),
-        "ProgramDateTimeIntervalSeconds" : (integer, False),
-        "Url" : (str, False)
+        "AdMarkers": (str, False),
+        "AdsOnDeliveryRestrictions": (str, False),
+        "AdTriggers": ([str], False),
+        "Id": (str, True),
+        "IncludeIframeOnlyStream": (boolean, False),
+        "ManifestName": (str, False),
+        "PlaylistType": (str, False),
+        "PlaylistWindowSeconds": (integer, False),
+        "ProgramDateTimeIntervalSeconds": (integer, False),
+        "Url": (str, False),
     }
 
 
@@ -208,9 +208,9 @@ class MssPackage(AWSProperty):
 class OriginEndpointMssPackage(AWSProperty):
     props = {
         "Encryption": (MssEncryption, False),
-        "ManifestWindowSeconds" : (integer, False),
-        "SegmentDurationSeconds" : (integer, False),
-        "StreamSelection" : (StreamSelection, False),
+        "ManifestWindowSeconds": (integer, False),
+        "SegmentDurationSeconds": (integer, False),
+        "StreamSelection": (StreamSelection, False),
     }
 
 
@@ -232,31 +232,31 @@ class OriginEndpointHlsPackage(AWSProperty):
 
 class OriginEndpointDashPackage(AWSProperty):
     props = {
-        "AdsOnDeliveryRestrictions" : (str, False),
-        "AdTriggers" : ([str], False),
-        "Encryption" : (OriginEndpointDashEncryption, False),
-        "ManifestLayout" : (str, False),
-        "ManifestWindowSeconds" : (integer, False),
-        "MinBufferTimeSeconds" : (integer, False),
-        "MinUpdatePeriodSeconds" : (integer, False),
-        "PeriodTriggers" : ([str], False),
-        "Profile" : (integer, False),
-        "SegmentDurationSeconds" : (integer, False),
-        "SegmentTemplateFormat" : (str, False),
-        "StreamSelection" : (StreamSelection, False),
-        "SuggestedPresentationDelaySeconds" : (integer, False),
-        "UtcTiming" : (str, False),
-        "UtcTimingUri" : (str, False)
+        "AdsOnDeliveryRestrictions": (str, False),
+        "AdTriggers": ([str], False),
+        "Encryption": (OriginEndpointDashEncryption, False),
+        "ManifestLayout": (str, False),
+        "ManifestWindowSeconds": (integer, False),
+        "MinBufferTimeSeconds": (integer, False),
+        "MinUpdatePeriodSeconds": (integer, False),
+        "PeriodTriggers": ([str], False),
+        "Profile": (integer, False),
+        "SegmentDurationSeconds": (integer, False),
+        "SegmentTemplateFormat": (str, False),
+        "StreamSelection": (StreamSelection, False),
+        "SuggestedPresentationDelaySeconds": (integer, False),
+        "UtcTiming": (str, False),
+        "UtcTimingUri": (str, False),
     }
 
 
 class OriginEndpointCmafPackage(AWSProperty):
     props = {
-        "Encryption" : (OriginEndpointCmafEncryption, False),
-        "HlsManifests" : ([OriginEndpointHlsManifest], False),
-        "SegmentDurationSeconds" : (integer, False),
-        "SegmentPrefix" : (str, False),
-        "StreamSelection" : (StreamSelection, False),
+        "Encryption": (OriginEndpointCmafEncryption, False),
+        "HlsManifests": ([OriginEndpointHlsManifest], False),
+        "SegmentDurationSeconds": (integer, False),
+        "SegmentPrefix": (str, False),
+        "StreamSelection": (StreamSelection, False),
     }
 
 
