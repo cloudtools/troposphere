@@ -228,6 +228,7 @@ Currently supported AWS resource types
 - `AWS::GreengrassV2`_
 - `AWS::GroundStation`_
 - `AWS::GuardDuty`_
+- `AWS::HealthLake`_
 - `AWS::IAM`_
 - `AWS::ImageBuilder`_
 - `AWS::Inspector`_
@@ -511,6 +512,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::GreengrassV2`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GreengrassV2.html
 .. _`AWS::GroundStation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GroundStation.html
 .. _`AWS::GuardDuty`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GuardDuty.html
+.. _`AWS::HealthLake`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_HealthLake.html
 .. _`AWS::IAM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IAM.html
 .. _`AWS::ImageBuilder`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ImageBuilder.html
 .. _`AWS::Inspector`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Inspector.html
