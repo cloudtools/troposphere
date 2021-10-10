@@ -102,6 +102,14 @@ class BackupSelection(AWSObject):
     }
 
 
+class LockConfigurationType(AWSProperty):
+    props = {
+        "ChangeableForDays": (double, False),
+        "MaxRetentionDays": (double, False),
+        "MinRetentionDays": (double, True),
+    }
+
+
 class NotificationObjectType(AWSProperty):
     props = {"BackupVaultEvents": ([str], True), "SNSTopicArn": (str, True)}
 
@@ -114,5 +122,6 @@ class BackupVault(AWSObject):
         "BackupVaultName": (backup_vault_name, True),
         "BackupVaultTags": (dict, False),
         "EncryptionKeyArn": (str, False),
+        "LockConfiguration": (LockConfigurationType, False),
         "Notifications": (NotificationObjectType, False),
     }
