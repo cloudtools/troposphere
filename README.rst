@@ -270,6 +270,7 @@ Currently supported AWS resource types
 - `AWS::NetworkFirewall`_
 - `AWS::NetworkManager`_
 - `AWS::NimbleStudio`_
+- `AWS::OpenSearchService`_
 - `AWS::OpsWorks`_
 - `AWS::OpsWorksCM`_
 - `AWS::Pinpoint`_
@@ -556,6 +557,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::NetworkFirewall`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkFirewall.html
 .. _`AWS::NetworkManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkManager.html
 .. _`AWS::NimbleStudio`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NimbleStudio.html
+.. _`AWS::OpenSearchService`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchService.html
 .. _`AWS::OpsWorks`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorks.html
 .. _`AWS::OpsWorksCM`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorksCM.html
 .. _`AWS::Pinpoint`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Pinpoint.html
