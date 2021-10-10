@@ -250,6 +250,7 @@ Currently supported AWS resource types
 - `AWS::LakeFormation`_
 - `AWS::Lambda`_
 - `AWS::LicenseManager`_
+- `AWS::Lightsail`_
 - `AWS::Location`_
 - `AWS::Logs`_
 - `AWS::LookoutEquipment`_
@@ -535,6 +536,7 @@ See `LICENSE`_ for the troposphere full license text.
 .. _`AWS::LakeFormation`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LakeFormation.html
 .. _`AWS::Lambda`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lambda.html
 .. _`AWS::LicenseManager`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LicenseManager.html
+.. _`AWS::Lightsail`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Lightsail.html
 .. _`AWS::Location`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Location.html
 .. _`AWS::Logs`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Logs.html
 .. _`AWS::LookoutEquipment`: https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_LookoutEquipment.html
