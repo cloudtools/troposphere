@@ -1,6 +1,6 @@
 from . import AWSObject, AWSProperty, Tags
 from .compat import policytypes
-from .validators import boolean, double, integer
+from .validators import boolean, double, integer, json_checker
 
 
 class AuditCheckConfiguration(AWSProperty):
@@ -156,6 +156,23 @@ class FleetMetric(AWSObject):
         "QueryVersion": (str, False),
         "Tags": (Tags, False),
         "Unit": (str, False),
+    }
+
+
+class JobTemplate(AWSObject):
+    resource_type = "AWS::IoT::JobTemplate"
+
+    props = {
+        "AbortConfig": (json_checker, False),
+        "Description": (str, True),
+        "Document": (str, False),
+        "DocumentSource": (str, False),
+        "JobArn": (str, False),
+        "JobExecutionsRolloutConfig": (json_checker, False),
+        "JobTemplateId": (str, True),
+        "PresignedUrlConfig": (dict, False),
+        "Tags": (Tags, False),
+        "TimeoutConfig": (json_checker, False),
     }
 
 
