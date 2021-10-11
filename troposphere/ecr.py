@@ -37,9 +37,17 @@ class ReplicationDestination(AWSProperty):
     }
 
 
+class RepositoryFilter(AWSProperty):
+    props = {
+        "Filter": (str, True),
+        "FilterType": (str, True),
+    }
+
+
 class ReplicationRule(AWSProperty):
     props = {
         "Destinations": ([ReplicationDestination], True),
+        "RepositoryFilters": ([RepositoryFilter], True),
     }
 
 

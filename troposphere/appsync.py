@@ -93,6 +93,13 @@ class LambdaConfig(AWSProperty):
     }
 
 
+class OpenSearchServiceConfig(AWSProperty):
+    props = {
+        "AwsRegion": (str, True),
+        "Endpoint": (str, True),
+    }
+
+
 class RdsHttpEndpointConfig(AWSProperty):
     props = {
         "AwsRegion": (str, True),
@@ -121,6 +128,7 @@ class DataSource(AWSObject):
         "HttpConfig": (HttpConfig, False),
         "LambdaConfig": (LambdaConfig, False),
         "Name": (str, True),
+        "OpenSearchServiceConfig": (OpenSearchServiceConfig, False),
         "RelationalDatabaseConfig": (RelationalDatabaseConfig, False),
         "ServiceRoleArn": (str, False),
         "Type": (str, True),

@@ -12,8 +12,15 @@ class DataResource(AWSProperty):
 class EventSelector(AWSProperty):
     props = {
         "DataResources": ([DataResource], False),
+        "ExcludeManagementEventSources": ([str], False),
         "IncludeManagementEvents": (boolean, False),
         "ReadWriteType": (str, False),
+    }
+
+
+class InsightSelector(AWSProperty):
+    props = {
+        "InsightType": (str, False),
     }
 
 
@@ -26,8 +33,10 @@ class Trail(AWSObject):
         "EnableLogFileValidation": (boolean, False),
         "EventSelectors": ([EventSelector], False),
         "IncludeGlobalServiceEvents": (boolean, False),
+        "InsightSelectors": ([InsightSelector], False),
         "IsLogging": (boolean, True),
         "IsMultiRegionTrail": (boolean, False),
+        "IsOrganizationTrail": (boolean, False),
         "KMSKeyId": (str, False),
         "S3BucketName": (str, True),
         "S3KeyPrefix": (str, False),

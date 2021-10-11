@@ -283,17 +283,19 @@ class Function(AWSObject):
     resource_type = "AWS::Lambda::Function"
 
     props = {
+        "Architectures": ([str], False),
         "Code": (Code, True),
-        "Description": (str, False),
+        "CodeSigningConfigArn": (str, False),
         "DeadLetterConfig": (DeadLetterConfig, False),
+        "Description": (str, False),
         "Environment": (Environment, False),
         "FileSystemConfigs": ([FileSystemConfig], False),
         "FunctionName": (str, False),
         "Handler": (str, False),
         "ImageConfig": (ImageConfig, False),
         "KmsKeyArn": (str, False),
-        "MemorySize": (validate_memory_size, False),
         "Layers": ([str], False),
+        "MemorySize": (validate_memory_size, False),
         "PackageType": (validate_package_type, False),
         "ReservedConcurrentExecutions": (positive_integer, False),
         "Role": (str, True),

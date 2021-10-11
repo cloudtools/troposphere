@@ -158,6 +158,10 @@ class Environment(AWSProperty):
             "WINDOWS_SERVER_2019_CONTAINER",
         ]
         env_type = self.properties.get("Type")
+
+        if isinstance(env_type, AWSHelperFn):
+            return
+
         if env_type not in valid_types:
             raise ValueError(
                 "Environment Type: must be one of %s" % ",".join(valid_types)
