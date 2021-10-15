@@ -17,7 +17,7 @@ import importlib
 import inspect
 import os
 import pkgutil
-from collections import Mapping, Sequence
+from collections.abc import Mapping, Sequence
 
 from troposphere import AWSObject  # covers resources
 from troposphere import GenericHelperFn  # covers ref, fn::, etc
