@@ -177,6 +177,7 @@ class BatchRestrictions(AWSProperty):
 
 class ProjectBuildBatchConfig(AWSProperty):
     props = {
+        "BatchReportMode": (str, False),
         "CombineArtifacts": (boolean, False),
         "Restrictions": (BatchRestrictions, False),
         "ServiceRole": (str, False),
