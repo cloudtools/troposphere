@@ -7,11 +7,12 @@
 # Resource specification version: 43.1.0
 
 
+import re
+
 from troposphere import Tags
 
 from . import AWSObject, AWSProperty
 from .validators import boolean, integer
-import re
 
 
 def validate_search_service_engine_version(engine_version):
