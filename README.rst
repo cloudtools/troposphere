@@ -145,8 +145,8 @@ Missing required property for the AWS resource:
 Currently supported resource types
 ======================================
 
-- `AWS Resource Types`
-- `OpenStack Resource Types`
+- `AWS Resource Types`_
+- `OpenStack Resource Types`_
 
 Duplicating a single instance sample would look like this
 =========================================================
