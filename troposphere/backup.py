@@ -3,7 +3,7 @@
 #
 # See LICENSE file for full license.
 
-from . import AWSObject, AWSProperty, If
+from . import AWSObject, AWSProperty, If, Tags
 from .validators import backup_vault_name, double, exactly_one, json_checker
 
 
@@ -124,4 +124,42 @@ class BackupVault(AWSObject):
         "EncryptionKeyArn": (str, False),
         "LockConfiguration": (LockConfigurationType, False),
         "Notifications": (NotificationObjectType, False),
+    }
+
+
+class ControlInputParameter(AWSProperty):
+    props = {
+        "ParameterName": (str, True),
+        "ParameterValue": (str, True),
+    }
+
+
+class FrameworkControl(AWSProperty):
+    props = {
+        "ControlInputParameters": ([ControlInputParameter], False),
+        "ControlName": (str, True),
+        "ControlScope": (dict, False),
+    }
+
+
+class Framework(AWSObject):
+    resource_type = "AWS::Backup::Framework"
+
+    props = {
+        "FrameworkControls": ([FrameworkControl], True),
+        "FrameworkDescription": (str, False),
+        "FrameworkName": (str, False),
+        "FrameworkTags": (Tags, False),
+    }
+
+
+class ReportPlan(AWSObject):
+    resource_type = "AWS::Backup::ReportPlan"
+
+    props = {
+        "ReportDeliveryChannel": (dict, True),
+        "ReportPlanDescription": (str, False),
+        "ReportPlanName": (str, False),
+        "ReportPlanTags": (Tags, False),
+        "ReportSetting": (dict, True),
     }
