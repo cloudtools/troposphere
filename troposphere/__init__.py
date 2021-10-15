@@ -2,7 +2,7 @@
 # All rights reserved.
 #
 # See LICENSE file for full license.
-import collections
+import collections.abc
 import json
 import re
 import sys
@@ -287,7 +287,7 @@ class BaseAWSObject:
             value = kwargs[prop_name]
             is_aws_object = is_aws_object_subclass(prop_type)
             if is_aws_object:
-                if not isinstance(value, collections.Mapping):
+                if not isinstance(value, collections.abc.Mapping):
                     raise ValueError(
                         "Property definition for %s must be "
                         "a Mapping type" % prop_name
@@ -301,7 +301,7 @@ class BaseAWSObject:
                 for v in value:
                     new_v = v
                     if is_aws_object_subclass(prop_type[0]):
-                        if not isinstance(v, collections.Mapping):
+                        if not isinstance(v, collections.abc.Mapping):
                             raise ValueError(
                                 "Property definition for %s must be "
                                 "a list of Mapping types" % prop_name
