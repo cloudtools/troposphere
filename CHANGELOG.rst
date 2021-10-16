@@ -1,3 +1,43 @@
+3.1.0 (2021*10*16)
+------------------
+* Add KinesisFirehose::DeliveryStream.HttpEndpointDestinationConfiguration
+* Update S3 per 2021-09-02 changes
+* Update IoT per 2021-09-02 changes
+* Update KinesisFirehose per 2021-09-02 changes
+* Update EventSchemas per 2021-09-02 changes
+* Update DataSync per 2021-09-02 changes
+* Update ACMPCA per 2021-09-02 changes
+* Update Transfer per 2021-09-02 changes
+* Update firehose.py parameter type validation (#1953)
+* AWS Backup: Add EnableContinuousBackup boolean to BackupRuleResourceType (#1958)
+* fix: creating specific AWS::MediaPackage::OriginEndpoint  AWSProperty sets, as they are different from AWS::MediaPackage::PackagingConfiguration's AWSProperty sets
+* making user role optional for emr studio
+* Add missing properties to EMR::Studio
+* Fix black formatting
+* allow helper functions for codebuild project type
+* Update Cloudtrail per 2021-09-10 changes
+* Add AWS::APS per 2021-09-16 changes
+* Add AWS::HealthLake per 2021-09-17 changes
+* Updaate ACMPCA per 2021-09-17 changes
+* Add AWS::MemoryDB per 2021-09-23 changes
+* Update AppSync per 2021-09-23 changes
+* Update Lambda per 2021-09-30 changes
+* Update KinesisFirehose per 2021-09-30 changes
+* Updat ECR per 2021-09-30 changes
+* Update IoT per 2021-10-07 changes
+* Add AWS::Lightsail per 2021-10-07 changes
+* Update Backup per 2021-10-07 changes
+* Add AWS::OpenSearchService per 2021-10-16 changes
+* Import ABC from collections.abc for Python 3.10 compatibility.
+* Add validation and tests to AWS::OpenSearchService::Domain.EngineVersion (#1960)
+* Fix isort and black formatting issues
+* Update Backup with missing resources from 2021-10-07 changes
+* Update CodeBuild per 2021-10-13 changes
+* Move resource type lists from README to individual files
+* Fix missing underscore in README links
+* Add AWS::Wisdom per 2021-10-14 changes
+* Support Globals section for serverless
+
 3.0.3 (2021*08*28)
 ------------------
 * Enable MSK IAM Role based authentication
