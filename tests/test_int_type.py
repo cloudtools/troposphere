@@ -1,4 +1,7 @@
-import collections
+try:
+    from collections.abc import Iterable
+except ImportError:
+    from collections import Iterable
 import importlib
 import pkgutil
 import unittest
@@ -36,7 +39,7 @@ class TestIntTypeShouldNotBeUsed(unittest.TestCase):
             error_msg = (
                 "{}.props['{}'] should have `validators.integer` "
                 "rather than `int`".format(obj.__name__, prop_name))
-            if isinstance(types, collections.Iterable):
+            if isinstance(types, Iterable):
                 assert int not in types, error_msg
             else:
                 assert types != int, error_msg

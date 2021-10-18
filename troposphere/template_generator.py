@@ -18,7 +18,10 @@ import pkgutil
 import importlib
 import os
 
-from collections import Sequence, Mapping
+try:
+    from collections.abc import Sequence, Mapping
+except ImportError:
+    from collections import Sequence, Mapping
 
 from troposphere import (
     Template, Ref,

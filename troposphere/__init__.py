@@ -5,7 +5,10 @@
 import warnings
 
 import cfn_flip
-import collections
+try:
+    from collections.abc import Mapping
+except ImportError:
+    from collections import Mapping
 import json
 import re
 import sys
@@ -278,7 +281,7 @@ class BaseAWSObject(object):
             value = kwargs[prop_name]
             is_aws_object = is_aws_object_subclass(prop_type)
             if is_aws_object:
-                if not isinstance(value, collections.Mapping):
+                if not isinstance(value, Mapping):
                     raise ValueError("Property definition for %s must be "
                                      "a Mapping type" % prop_name)
                 value = prop_type._from_dict(**value)
@@ -291,7 +294,7 @@ class BaseAWSObject(object):
                 for v in value:
                     new_v = v
                     if is_aws_object_subclass(prop_type[0]):
-                        if not isinstance(v, collections.Mapping):
+                        if not isinstance(v, Mapping):
                             raise ValueError(
                                 "Property definition for %s must be "
                                 "a list of Mapping types" % prop_name)
