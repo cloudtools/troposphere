@@ -400,6 +400,7 @@ class LayerVersion(AWSObject):
     resource_type = "AWS::Lambda::LayerVersion"
 
     props = {
+        "CompatibleArchitectures": ([str], False),
         "CompatibleRuntimes": ([str], False),
         "Content": (Content, True),
         "Description": (str, False),
