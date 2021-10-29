@@ -131,7 +131,7 @@ class TestTargetGroup(unittest.TestCase):
                 VpcId="unknown",
             ).to_dict()
         self.assertEqual(
-            'TargetGroup.TargetType must be one of: "instance, ip, lambda, alb"',
+            'TargetGroup.TargetType must be one of: "alb, instance, ip, lambda"',
             str(valueError.exception),
         )
 
