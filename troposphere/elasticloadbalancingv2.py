@@ -286,13 +286,19 @@ class ListenerRule(AWSObject):
     }
 
 
+TARGET_TYPE_ALB = "alb"
 TARGET_TYPE_INSTANCE = "instance"
 TARGET_TYPE_IP = "ip"
 TARGET_TYPE_LAMBDA = "lambda"
 
 
 def validate_target_type(target_type):
-    valid_types = [TARGET_TYPE_INSTANCE, TARGET_TYPE_IP, TARGET_TYPE_LAMBDA]
+    valid_types = [
+        TARGET_TYPE_ALB,
+        TARGET_TYPE_INSTANCE,
+        TARGET_TYPE_IP,
+        TARGET_TYPE_LAMBDA,
+    ]
     if target_type not in valid_types:
         raise ValueError(
             'TargetGroup.TargetType must be one of: "%s"' % ", ".join(valid_types)
