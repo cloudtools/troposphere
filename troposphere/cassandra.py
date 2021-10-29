@@ -78,6 +78,7 @@ class Table(AWSObject):
     props = {
         "BillingMode": (BillingMode, False),
         "ClusteringKeyColumns": ([ClusteringKeyColumn], False),
+        "DefaultTimeToLive": (integer, False),
         "EncryptionSpecification": (EncryptionSpecification, False),
         "KeyspaceName": (str, True),
         "PartitionKeyColumns": ([Column], True),
@@ -85,4 +86,5 @@ class Table(AWSObject):
         "RegularColumns": ([Column], False),
         "TableName": (str, False),
         "Tags": (Tags, False),
+        "TimeToLiveEnabled" : (boolean, False),
     }
