@@ -744,6 +744,7 @@ class NotebookInstance(AWSObject):
         "KmsKeyId": (str, False),
         "LifecycleConfigName": (str, False),
         "NotebookInstanceName": (str, False),
+        "PlatformIdentifier": (str, False),
         "RoleArn": (str, True),
         "RootAccess": (str, False),
         "SecurityGroupIds": ([str], False),
