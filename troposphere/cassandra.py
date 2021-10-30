@@ -86,5 +86,5 @@ class Table(AWSObject):
         "RegularColumns": ([Column], False),
         "TableName": (str, False),
         "Tags": (Tags, False),
-        "TimeToLiveEnabled" : (boolean, False),
+        "TimeToLiveEnabled": (boolean, False),
     }
