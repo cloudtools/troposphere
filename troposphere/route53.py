@@ -219,6 +219,15 @@ class FirewallRuleGroupAssociation(AWSObject):
     }
 
 
+class ResolverConfig(AWSObject):
+    resource_type = "AWS::Route53Resolver::ResolverConfig"
+
+    props = {
+        "AutodefinedReverseFlag": (str, True),
+        "ResourceId": (str, True),
+    }
+
+
 class ResolverDNSSECConfig(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverDNSSECConfig"
 
