@@ -212,6 +212,88 @@ class MountPoint(AWSProperty):
     }
 
 
+class AcceleratorCountRequest(AWSProperty):
+    props = {
+        "Max": (integer, False),
+        "Min": (integer, False),
+    }
+
+
+class AcceleratorTotalMemoryMiBRequest(AWSProperty):
+    props = {
+        "Max": (integer, False),
+        "Min": (integer, False),
+    }
+
+
+class BaselineEbsBandwidthMbpsRequest(AWSProperty):
+    props = {
+        "Max": (integer, False),
+        "Min": (integer, False),
+    }
+
+
+class MemoryGiBPerVCpuRequest(AWSProperty):
+    props = {
+        "Max": (double, False),
+        "Min": (double, False),
+    }
+
+
+class MemoryMiBRequest(AWSProperty):
+    props = {
+        "Max": (integer, False),
+        "Min": (integer, False),
+    }
+
+
+class NetworkInterfaceCountRequest(AWSProperty):
+    props = {
+        "Max": (integer, False),
+        "Min": (integer, False),
+    }
+
+
+class TotalLocalStorageGBRequest(AWSProperty):
+    props = {
+        "Max": (double, False),
+        "Min": (double, False),
+    }
+
+
+class VCpuCountRangeRequest(AWSProperty):
+    props = {
+        "Max": (integer, False),
+        "Min": (integer, False),
+    }
+
+
+class InstanceRequirementsRequest(AWSProperty):
+    props = {
+        "AcceleratorCount": (AcceleratorCountRequest, False),
+        "AcceleratorManufacturers": ([str], False),
+        "AcceleratorNames": ([str], False),
+        "AcceleratorTotalMemoryMiB": (AcceleratorTotalMemoryMiBRequest, False),
+        "AcceleratorTypes": ([str], False),
+        "BareMetal": (str, False),
+        "BaselineEbsBandwidthMbps": (BaselineEbsBandwidthMbpsRequest, False),
+        "BurstablePerformance": (str, False),
+        "CpuManufacturers": ([str], False),
+        "ExcludedInstanceTypes": ([str], False),
+        "InstanceGenerations": ([str], False),
+        "LocalStorage": (str, False),
+        "LocalStorageTypes": ([str], False),
+        "MemoryGiBPerVCpu": (MemoryGiBPerVCpuRequest, False),
+        "MemoryMiB": (MemoryMiBRequest, False),
+        "NetworkInterfaceCount": (NetworkInterfaceCountRequest, False),
+        "OnDemandMaxPricePercentageOverLowestPrice": (integer, False),
+        "RequireHibernateSupport": (boolean, False),
+        "SpotMaxPricePercentageOverLowestPrice": (integer, False),
+        "TotalLocalStorageGB": (TotalLocalStorageGBRequest, False),
+        "VCpuCount": (VCpuCountRangeRequest, False),
+    }
+
+
 class Placement(AWSProperty):
     props = {
         "Affinity": (str, False),
@@ -953,6 +1035,7 @@ class LaunchSpecifications(AWSProperty):
         "EbsOptimized": (boolean, False),
         "IamInstanceProfile": (IamInstanceProfile, False),
         "ImageId": (str, True),
+        "InstanceRequirements": (InstanceRequirementsRequest, False),
         "InstanceType": (str, True),
         "KernelId": (str, False),
         "KeyName": (str, False),
@@ -972,6 +1055,7 @@ class LaunchSpecifications(AWSProperty):
 class LaunchTemplateOverrides(AWSProperty):
     props = {
         "AvailabilityZone": (str, False),
+        "InstanceRequirements": (InstanceRequirementsRequest, False),
         "InstanceType": (str, False),
         "SpotPrice": (str, False),
         "SubnetId": (str, False),
@@ -1384,8 +1468,10 @@ class FleetLaunchTemplateSpecificationRequest(AWSProperty):
 class FleetLaunchTemplateOverridesRequest(AWSProperty):
     props = {
         "AvailabilityZone": (str, False),
+        "InstanceRequirements": (InstanceRequirementsRequest, False),
         "InstanceType": (str, False),
         "MaxPrice": (str, False),
+        "Placement": (Placement, False),
         "Priority": (double, False),
         "SubnetId": (str, False),
         "WeightedCapacity": (double, False),
