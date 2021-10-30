@@ -24,6 +24,7 @@ class Key(AWSObject):
         "KeyPolicy": (policytypes, True),
         "KeySpec": (str, False),
         "KeyUsage": (key_usage_type, False),
+        "MultiRegion": (boolean, False),
         "PendingWindowInDays": (integer_range(7, 30), False),
         "Tags": ((Tags, list), False),
     }
