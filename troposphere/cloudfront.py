@@ -405,61 +405,41 @@ class OriginRequestPolicy(AWSObject):
 
 
 class AccessControlAllowHeaders(AWSProperty):
-    props = {
-        "Items": ([str], True)
-    }
+    props = {"Items": ([str], True)}
 
 
 class AccessControlAllowMethods(AWSProperty):
-    props = {
-        "Items": ([cloudfront_access_control_allow_methods], True)
-    }
+    props = {"Items": ([cloudfront_access_control_allow_methods], True)}
 
 
 class AccessControlAllowOrigins(AWSProperty):
-    props = {
-        "Items": ([str], True)
-    }
+    props = {"Items": ([str], True)}
 
 
 class AccessControlExposeHeaders(AWSProperty):
-    props = {
-        "Items": ([str], True)
-    }
+    props = {"Items": ([str], True)}
 
 
 class CustomHeader(AWSProperty):
-    props = {
-        "Header": (str, True),
-        "Override": (boolean, True),
-        "Value": (str, True)
-    }
+    props = {"Header": (str, True), "Override": (boolean, True), "Value": (str, True)}
 
 
 class ContentSecurityPolicy(AWSProperty):
-    props = {
-        "ContentSecurityPolicy": (str, True),
-        "Override": (boolean, True)
-    }
+    props = {"ContentSecurityPolicy": (str, True), "Override": (boolean, True)}
 
 
 class ContentTypeOptions(AWSProperty):
-    props = {
-        "Override": (boolean, True)
-    }
+    props = {"Override": (boolean, True)}
 
 
 class FrameOptions(AWSProperty):
-    props = {
-        "FrameOption": (cloudfront_frame_option, True),
-        "Override": (str, True)
-    }
+    props = {"FrameOption": (cloudfront_frame_option, True), "Override": (str, True)}
 
 
 class ReferrerPolicy(AWSProperty):
     props = {
         "Override": (boolean, True),
-        "ReferrerPolicy": (cloudfront_referrer_policy)
+        "ReferrerPolicy": (cloudfront_referrer_policy),
     }
 
 
@@ -468,7 +448,7 @@ class StrictTransportSecurity(AWSProperty):
         "AccessControlMaxAgeSec": (integer, True),
         "IncludeSubdomains": (boolean, False),
         "Override": (boolean, True),
-        "Preload": (boolean, False)
+        "Preload": (boolean, False),
     }
 
 
@@ -477,25 +457,23 @@ class XSSProtection(AWSProperty):
         "ModeBlock": (boolean, False),
         "Override": (boolean, True),
         "Protection": (boolean, True),
-        "ReportUri": (str, False)
+        "ReportUri": (str, False),
     }
 
 
 class SecurityHeadersConfig(AWSProperty):
     props = {
         "ContentSecurityPolicy": (ContentSecurityPolicy, False),
-        "ContentTypeOptions" : (ContentTypeOptions, False),
+        "ContentTypeOptions": (ContentTypeOptions, False),
         "FrameOptions": (FrameOptions, False),
         "ReferrerPolicy": (ReferrerPolicy, False),
         "StrictTransportSecurity": (StrictTransportSecurity, False),
-        "XSSProtection": (XSSProtection, False)
+        "XSSProtection": (XSSProtection, False),
     }
 
 
 class CustomHeadersConfig(AWSProperty):
-    props = {
-        "Items": ([CustomHeader], True)
-    }
+    props = {"Items": ([CustomHeader], True)}
 
 
 class CorsConfig(AWSProperty):
@@ -506,7 +484,7 @@ class CorsConfig(AWSProperty):
         "AccessControlAllowOrigins": (AccessControlAllowOrigins, True),
         "AccessControlExposeHeaders": (AccessControlExposeHeaders, False),
         "AccessControlMaxAgeSec": (integer, False),
-        "OriginOverride": (boolean, True)
+        "OriginOverride": (boolean, True),
     }
 
 
@@ -516,7 +494,7 @@ class ResponseHeadersPolicyConfig(AWSProperty):
         "CorsConfig": (CorsConfig, False),
         "CustomHeadersConfig": (CustomHeadersConfig, False),
         "Name": (str, True),
-        "SecurityHeadersConfig": (SecurityHeadersConfig, False)
+        "SecurityHeadersConfig": (SecurityHeadersConfig, False),
     }
 
 

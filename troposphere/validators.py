@@ -503,7 +503,9 @@ def priceclass_type(price_class):
 def cloudfront_access_control_allow_methods(access_control_allow_methods):
     valid_values = ["GET", "DELETE", "HEAD", "OPTIONS", "PATCH", "POST", "PUT", "ALL"]
     if access_control_allow_methods not in valid_values:
-        raise ValueError('AccessControlAllowMethods must be of: "%s"' % (", ".join(valid_values)))
+        raise ValueError(
+            'AccessControlAllowMethods must be of: "%s"' % (", ".join(valid_values))
+        )
     return access_control_allow_methods
 
 
@@ -523,7 +525,7 @@ def cloudfront_referrer_policy(referrer_policy):
         "same-origin",
         "strict-origin",
         "strict-origin-when-cross-origin",
-        "unsafe-url"
+        "unsafe-url",
     ]
     if referrer_policy not in valid_values:
         raise ValueError('ReferrerPolicy must be of: "%s"' % (", ".join(valid_values)))
