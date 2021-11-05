@@ -500,6 +500,36 @@ def priceclass_type(price_class):
     return price_class
 
 
+def cloudfront_access_control_allow_methods(access_control_allow_methods):
+    valid_values = ["GET", "DELETE", "HEAD", "OPTIONS", "PATCH", "POST", "PUT", "ALL"]
+    if access_control_allow_methods not in valid_values:
+        raise ValueError('AccessControlAllowMethods must be of: "%s"' % (", ".join(valid_values)))
+    return access_control_allow_methods
+
+
+def cloudfront_frame_option(frame_option):
+    valid_values = ["DENY", "SAMEORIGIN"]
+    if frame_option not in valid_values:
+        raise ValueError('FrameOption must be of: "%s"' % (", ".join(valid_values)))
+    return frame_option
+
+
+def cloudfront_referrer_policy(referrer_policy):
+    valid_values = [
+        "no-referrer",
+        "no-referrer-when-downgrade",
+        "origin",
+        "origin-when-cross-origin",
+        "same-origin",
+        "strict-origin",
+        "strict-origin-when-cross-origin",
+        "unsafe-url"
+    ]
+    if referrer_policy not in valid_values:
+        raise ValueError('ReferrerPolicy must be of: "%s"' % (", ".join(valid_values)))
+    return referrer_policy
+
+
 def ecs_proxy_type(proxy_type):
     valid_types = ["APPMESH"]
     if proxy_type not in valid_types:
