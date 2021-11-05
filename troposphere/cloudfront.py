@@ -6,14 +6,17 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean,
+    cloudfront_access_control_allow_methods,
     cloudfront_cache_cookie_behavior,
     cloudfront_cache_header_behavior,
     cloudfront_cache_query_string_behavior,
     cloudfront_event_type,
     cloudfront_forward_type,
+    cloudfront_frame_option,
     cloudfront_origin_request_cookie_behavior,
     cloudfront_origin_request_header_behavior,
     cloudfront_origin_request_query_string_behavior,
+    cloudfront_referrer_policy,
     cloudfront_restriction_type,
     cloudfront_viewer_protocol_policy,
     integer,
@@ -398,6 +401,130 @@ class OriginRequestPolicy(AWSObject):
 
     props = {
         "OriginRequestPolicyConfig": (OriginRequestPolicyConfig, True),
+    }
+
+
+class AccessControlAllowHeaders(AWSProperty):
+    props = {
+        "Items": ([str], True)
+    }
+
+
+class AccessControlAllowMethods(AWSProperty):
+    props = {
+        "Items": ([cloudfront_access_control_allow_methods], True)
+    }
+
+
+class AccessControlAllowOrigins(AWSProperty):
+    props = {
+        "Items": ([str], True)
+    }
+
+
+class AccessControlExposeHeaders(AWSProperty):
+    props = {
+        "Items": ([str], True)
+    }
+
+
+class CustomHeader(AWSProperty):
+    props = {
+        "Header": (str, True),
+        "Override": (boolean, True),
+        "Value": (str, True)
+    }
+
+
+class ContentSecurityPolicy(AWSProperty):
+    props = {
+        "ContentSecurityPolicy": (str, True),
+        "Override": (boolean, True)
+    }
+
+
+class ContentTypeOptions(AWSProperty):
+    props = {
+        "Override": (boolean, True)
+    }
+
+
+class FrameOptions(AWSProperty):
+    props = {
+        "FrameOption": (cloudfront_frame_option, True),
+        "Override": (str, True)
+    }
+
+
+class ReferrerPolicy(AWSProperty):
+    props = {
+        "Override": (boolean, True),
+        "ReferrerPolicy": (cloudfront_referrer_policy)
+    }
+
+
+class StrictTransportSecurity(AWSProperty):
+    props = {
+        "AccessControlMaxAgeSec": (integer, True),
+        "IncludeSubdomains": (boolean, False),
+        "Override": (boolean, True),
+        "Preload": (boolean, False)
+    }
+
+
+class XSSProtection(AWSProperty):
+    props = {
+        "ModeBlock": (boolean, False),
+        "Override": (boolean, True),
+        "Protection": (boolean, True),
+        "ReportUri": (str, False)
+    }
+
+
+class SecurityHeadersConfig(AWSProperty):
+    props = {
+        "ContentSecurityPolicy": (ContentSecurityPolicy, False),
+        "ContentTypeOptions" : (ContentTypeOptions, False),
+        "FrameOptions": (FrameOptions, False),
+        "ReferrerPolicy": (ReferrerPolicy, False),
+        "StrictTransportSecurity": (StrictTransportSecurity, False),
+        "XSSProtection": (XSSProtection, False)
+    }
+
+
+class CustomHeadersConfig(AWSProperty):
+    props = {
+        "Items": ([CustomHeader], True)
+    }
+
+
+class CorsConfig(AWSProperty):
+    props = {
+        "AccessControlAllowCredentials": (boolean, True),
+        "AccessControlAllowHeaders": (AccessControlAllowHeaders, True),
+        "AccessControlAllowMethods": (AccessControlAllowMethods, True),
+        "AccessControlAllowOrigins": (AccessControlAllowOrigins, True),
+        "AccessControlExposeHeaders": (AccessControlExposeHeaders, False),
+        "AccessControlMaxAgeSec": (integer, False),
+        "OriginOverride": (boolean, True)
+    }
+
+
+class ResponseHeadersPolicyConfig(AWSProperty):
+    props = {
+        "Comment": (str, False),
+        "CorsConfig": (CorsConfig, False),
+        "CustomHeadersConfig": (CustomHeadersConfig, False),
+        "Name": (str, True),
+        "SecurityHeadersConfig": (SecurityHeadersConfig, False)
+    }
+
+
+class ResponseHeadersPolicy(AWSObject):
+    resource_type = "AWS::CloudFront::ResponseHeadersPolicy"
+
+    props = {
+        "ResponseHeadersPolicyConfig": (ResponseHeadersPolicyConfig, True),
     }
 
 
