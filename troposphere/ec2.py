@@ -1098,6 +1098,7 @@ class LoadBalancersConfig(AWSProperty):
 class SpotCapacityRebalance(AWSProperty):
     props = {
         "ReplacementStrategy": (str, False),
+        "TerminationDelay": (integer, False),
     }
 
 
@@ -1491,11 +1492,29 @@ class OnDemandOptionsRequest(AWSProperty):
     }
 
 
+class CapacityRebalance(AWSProperty):
+    props = {
+        "ReplacementStrategy": (str, False),
+        "TerminationDelay": (integer, False),
+    }
+
+
+class MaintenanceStrategies(AWSProperty):
+    props = {
+        "CapacityRebalance": (CapacityRebalance, False),
+    }
+
+
 class SpotOptionsRequest(AWSProperty):
     props = {
         "AllocationStrategy": (str, False),
         "InstanceInterruptionBehavior": (str, False),
         "InstancePoolsToUseCount": (integer, False),
+        "MaintenanceStrategies": (MaintenanceStrategies, False),
+        "MaxTotalPrice": (str, False),
+        "MinTargetCapacity": (integer, False),
+        "SingleAvailabilityZone": (boolean, False),
+        "SingleInstanceType": (boolean, False),
     }
 
 
