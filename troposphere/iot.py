@@ -176,6 +176,16 @@ class JobTemplate(AWSObject):
     }
 
 
+class Logging(AWSObject):
+    resource_type = "AWS::IoT::Logging"
+
+    props = {
+        "AccountId": (str, True),
+        "DefaultLogLevel": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
 class AddThingsToThingGroupParams(AWSProperty):
     props = {
         "OverrideDynamicGroups": (boolean, False),
@@ -582,6 +592,16 @@ class ProvisioningTemplate(AWSObject):
         "Tags": (dict, False),
         "TemplateBody": (str, True),
         "TemplateName": (str, False),
+    }
+
+
+class ResourceSpecificLogging(AWSObject):
+    resource_type = "AWS::IoT::ResourceSpecificLogging"
+
+    props = {
+        "LogLevel": (str, True),
+        "TargetName": (str, True),
+        "TargetType": (str, True),
     }
 
 
