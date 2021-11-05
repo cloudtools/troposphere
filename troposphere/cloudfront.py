@@ -3,7 +3,6 @@
 #
 # See LICENSE file for full license.
 
-from re import M
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean,
@@ -12,7 +11,6 @@ from .validators import (
     cloudfront_cache_query_string_behavior,
     cloudfront_event_type,
     cloudfront_forward_type,
-    cloudfront_frame_option,
     cloudfront_origin_request_cookie_behavior,
     cloudfront_origin_request_header_behavior,
     cloudfront_origin_request_query_string_behavior,
