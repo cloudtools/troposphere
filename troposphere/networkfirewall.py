@@ -71,8 +71,15 @@ class CustomAction(AWSProperty):
     }
 
 
+class StatefulEngineOptions(AWSProperty):
+    props = {
+        "RuleOrder": (str, False),
+    }
+
+
 class StatefulRuleGroupReference(AWSProperty):
     props = {
+        "Priority": (integer, False),
         "ResourceArn": (str, True),
     }
 
@@ -86,6 +93,8 @@ class StatelessRuleGroupReference(AWSProperty):
 
 class FirewallPolicyProperty(AWSProperty):
     props = {
+        "StatefulDefaultActions": ([str], False),
+        "StatefulEngineOptions": (StatefulEngineOptions, False),
         "StatefulRuleGroupReferences": ([StatefulRuleGroupReference], False),
         "StatelessCustomActions": ([CustomAction], False),
         "StatelessDefaultActions": ([str], True),
@@ -221,10 +230,17 @@ class RulesSource(AWSProperty):
     }
 
 
+class StatefulRuleOptions(AWSProperty):
+    props = {
+        "RuleOrder": (str, False),
+    }
+
+
 class RuleGroupProperty(AWSProperty):
     props = {
         "RuleVariables": (RuleVariables, False),
         "RulesSource": (RulesSource, True),
+        "StatefulRuleOptions": (StatefulRuleOptions, False),
     }
 
 
