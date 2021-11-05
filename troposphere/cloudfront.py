@@ -465,7 +465,7 @@ class ReferrerPolicy(AWSObject):
 
 class StrictTransportSecurity(AWSObject):
     props = {
-        "AccessControlMaxAgeSec": (int, True),
+        "AccessControlMaxAgeSec": (integer, True),
         "IncludeSubdomains": (boolean, False),
         "Override": (boolean, True),
         "Preload": (boolean, False)
@@ -505,7 +505,7 @@ class CorsConfig(AWSObject):
         "AccessControlAllowMethods": (AccessControlAllowMethods, True),
         "AccessControlAllowOrigins": (AccessControlAllowOrigins, True),
         "AccessControlExposeHeaders": (AccessControlExposeHeaders, False),
-        "AccessControlMaxAgeSec": (int, False),
+        "AccessControlMaxAgeSec": (integer, False),
         "OriginOverride": (boolean, True)
     }
 
