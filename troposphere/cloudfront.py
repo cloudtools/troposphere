@@ -6,19 +6,19 @@
 from . import AWSObject, AWSProperty, Tags
 from .validators import (
     boolean,
+    cloudfront_access_control_allow_methods,
     cloudfront_cache_cookie_behavior,
     cloudfront_cache_header_behavior,
     cloudfront_cache_query_string_behavior,
     cloudfront_event_type,
     cloudfront_forward_type,
+    cloudfront_frame_option,
     cloudfront_origin_request_cookie_behavior,
     cloudfront_origin_request_header_behavior,
     cloudfront_origin_request_query_string_behavior,
+    cloudfront_referrer_policy,
     cloudfront_restriction_type,
     cloudfront_viewer_protocol_policy,
-    cloudfront_access_control_allow_methods,
-    cloudfront_frame_option,
-    cloudfront_referrer_policy,
     integer,
     network_port,
     positive_integer,
@@ -406,25 +406,25 @@ class OriginRequestPolicy(AWSObject):
 
 class AccessControlAllowHeaders(AWSProperty):
     props = {
-        "Items": [(str, True)]
+        "Items": ([str], True)
     }
 
 
 class AccessControlAllowMethods(AWSProperty):
     props = {
-        "Items": [(cloudfront_access_control_allow_methods, True)]
+        "Items": ([cloudfront_access_control_allow_methods], True)
     }
 
 
 class AccessControlAllowOrigins(AWSProperty):
     props = {
-        "Items": [(str, True)]
+        "Items": ([str], True)
     }
 
 
 class AccessControlExposeHeaders(AWSProperty):
     props = {
-        "Items": [(str, True)]
+        "Items": ([str], True)
     }
 
 
@@ -494,7 +494,7 @@ class SecurityHeadersConfig(AWSProperty):
 
 class CustomHeadersConfig(AWSProperty):
     props = {
-        "Items": [(CustomHeader, True)]
+        "Items": ([CustomHeader], True)
     }
 
 
