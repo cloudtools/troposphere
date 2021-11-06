@@ -1,3 +1,31 @@
+3.1.1 (2021*11*06)
+------------------
+* Added "CompatibleArchitectures" to LayerVersion (#1963)
+* Update AWS::Events::Rule EcsParameters (#1966)
+* AWS::Cassandra::Table.DefaultTimeToLive and AWS::Cassandra::Table.TimeToLiveEnabled (#1967)
+* AWS::ElasticLoadBalancingV2::TargetGroup.TargetType (#1968)
+* Add multi-region param to KMS (#1969)
+* Fix black formatting
+* Add AWS::Rekognition per 2021-10-21 changes
+* Add AWS::Panorama per 2021-10-21 changes
+* Update SageMaker per 2021-10-21 changes
+* Update FMS per 2021-10-21 changes
+* Update MediaConnect per 2021-10-27 changes
+* Update Route53Resolver per 2021-10-28 changes
+* Update Lightsail per 2021-10-28 changes
+* Update EC2 per 2021-10-28 changes
+* Update api docs
+* Add explicit readthedocs config and requirements.txt
+* Add sphinx requirement versions
+* Added Cloudfront Response Header changes per Nov 4 updates. (#1970)
+* Fix black formatting
+* Update IoT per 2021-11-04 changes
+* Update DataSync per 2021-11-04 changes
+* Update Pinpoint per 2021-11-04 changes
+* Update Redshift per 2021-11-04 changes
+* Update NetworkFirewall per 2021-11-04 changes
+* Update EC2 per 2021-11-04 changes
+
 3.1.0 (2021*10*16)
 ------------------
 * Add KinesisFirehose::DeliveryStream.HttpEndpointDestinationConfiguration
