@@ -131,6 +131,7 @@ class Function(AWSObject):
     resource_type = "AWS::Serverless::Function"
 
     props = {
+        "Architectures": ([str], False),
         "AssumeRolePolicyDocument": (policytypes, False),
         "AutoPublishAlias": (str, False),
         "AutoPublishCodeSha256": (str, False),
