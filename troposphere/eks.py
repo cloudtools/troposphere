@@ -90,6 +90,9 @@ class KubernetesNetworkConfig(AWSProperty):
 
 class ResourcesVpcConfig(AWSProperty):
     props = {
+        "EndpointPrivateAccess": (boolean, False),
+        "EndpointPublicAccess": (boolean, False),
+        "PublicAccessCidrs": ([str], False),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
     }
@@ -101,10 +104,11 @@ class Cluster(AWSObject):
     props = {
         "EncryptionConfig": ([EncryptionConfig], False),
         "KubernetesNetworkConfig": (KubernetesNetworkConfig, False),
-        "Name": (str, False),
         "Logging": (Logging, False),
+        "Name": (str, False),
         "ResourcesVpcConfig": (ResourcesVpcConfig, True),
         "RoleArn": (str, True),
+        "Tags": (Tags, False),
         "Version": (str, False),
     }
 
