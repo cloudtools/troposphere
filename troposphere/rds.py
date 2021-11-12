@@ -571,6 +571,7 @@ class DBCluster(AWSObject):
         "AvailabilityZones": ([str], False),
         "BacktrackWindow": (integer_range(0, 259200), False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),
+        "CopyTagsToSnapshot": (boolean, False),
         "DatabaseName": (str, False),
         "DBClusterIdentifier": (str, False),
         "DBClusterParameterGroupName": (str, False),
