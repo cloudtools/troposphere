@@ -1,5 +1,5 @@
-from . import AWSObject, AWSProperty
-from .validators import boolean, exactly_one, integer, positive_integer
+from . import AWSObject, AWSProperty, Tags
+from .validators import boolean, double, exactly_one, integer, positive_integer
 
 
 class Ec2ConfigurationObject(AWSProperty):
@@ -239,6 +239,7 @@ class JobDefinition(AWSObject):
         "PlatformCapabilities": ([str], False),
         "PropagateTags": (boolean, False),
         "RetryStrategy": (RetryStrategy, False),
+        "SchedulingPriority": (integer, False),
         "Tags": (dict, False),
         "Timeout": (Timeout, False),
         "Type": (str, True),
@@ -268,6 +269,7 @@ class ComputeEnvironment(AWSObject):
         "State": (validate_environment_state, False),
         "Tags": (dict, False),
         "Type": (str, True),
+        "UnmanagedvCpus": (integer, False),
     }
 
 
@@ -294,6 +296,32 @@ class JobQueue(AWSObject):
         "ComputeEnvironmentOrder": ([ComputeEnvironmentOrder], True),
         "JobQueueName": (str, False),
         "Priority": (positive_integer, True),
+        "SchedulingPolicyArn": (str, False),
         "State": (validate_queue_state, False),
         "Tags": (dict, False),
+    }
+
+
+class ShareAttributes(AWSProperty):
+    props = {
+        "ShareIdentifier": (str, False),
+        "WeightFactor": (double, False),
+    }
+
+
+class FairsharePolicy(AWSProperty):
+    props = {
+        "ComputeReservation": (double, False),
+        "ShareDecaySeconds": (double, False),
+        "ShareDistribution": ([ShareAttributes], False),
+    }
+
+
+class SchedulingPolicy(AWSObject):
+    resource_type = "AWS::Batch::SchedulingPolicy"
+
+    props = {
+        "FairsharePolicy": (FairsharePolicy, False),
+        "Name": (str, False),
+        "Tags": (Tags, False),
     }
