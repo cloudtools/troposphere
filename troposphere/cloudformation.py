@@ -147,6 +147,7 @@ class StackSet(AWSObject):
         "Capabilities": ([str], False),
         "Description": (str, False),
         "ExecutionRoleName": (str, False),
+        "ManagedExecution": (dict, False),
         "OperationPreferences": (OperationPreferences, False),
         "Parameters": ([Parameter], False),
         "PermissionModel": (str, False),
