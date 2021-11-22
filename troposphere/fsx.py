@@ -82,6 +82,28 @@ class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     }
 
 
+class DiskIopsConfiguration(AWSProperty):
+    props = {
+        "Iops": (integer, False),
+        "Mode": (str, False),
+    }
+
+
+class OntapConfiguration(AWSProperty):
+    props = {
+        "AutomaticBackupRetentionDays": (integer, False),
+        "DailyAutomaticBackupStartTime": (str, False),
+        "DeploymentType": (str, True),
+        "DiskIopsConfiguration": (DiskIopsConfiguration, False),
+        "EndpointIpAddressRange": (str, False),
+        "FsxAdminPassword": (str, False),
+        "PreferredSubnetId": (str, False),
+        "RouteTableIds": ([str], False),
+        "ThroughputCapacity": (integer, False),
+        "WeeklyMaintenanceStartTime": (str, False),
+    }
+
+
 class WindowsConfiguration(AWSProperty):
     props = {
         "ActiveDirectoryId": (str, False),
@@ -106,13 +128,15 @@ class FileSystem(AWSObject):
 
     props = {
         "BackupId": (str, False),
-        "FileSystemType": (str, False),
+        "FileSystemType": (str, True),
+        "FileSystemTypeVersion": (str, False),
         "KmsKeyId": (str, False),
         "LustreConfiguration": (LustreConfiguration, False),
+        "OntapConfiguration": (OntapConfiguration, False),
         "SecurityGroupIds": ([str], False),
         "StorageCapacity": (integer, False),
         "StorageType": (storage_type, False),
-        "SubnetIds": ([str], False),
+        "SubnetIds": ([str], True),
         "Tags": (Tags, False),
         "WindowsConfiguration": (WindowsConfiguration, False),
     }
