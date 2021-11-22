@@ -11,6 +11,18 @@ from . import AWSObject, AWSProperty
 from .validators import boolean, integer
 
 
+class PublicAccess(AWSProperty):
+    props = {
+        "Type": (str, False),
+    }
+
+
+class ConnectivityInfo(AWSProperty):
+    props = {
+        "PublicAccess": (PublicAccess, False),
+    }
+
+
 class EBSStorageInfo(AWSProperty):
     props = {
         "VolumeSize": (integer, False),
@@ -27,6 +39,7 @@ class BrokerNodeGroupInfo(AWSProperty):
     props = {
         "BrokerAZDistribution": (str, False),
         "ClientSubnets": ([str], True),
+        "ConnectivityInfo": (ConnectivityInfo, False),
         "InstanceType": (str, True),
         "SecurityGroups": ([str], False),
         "StorageInfo": (StorageInfo, False),
