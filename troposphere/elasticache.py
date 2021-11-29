@@ -56,8 +56,7 @@ class CacheCluster(AWSObject):
         "ClusterName": (str, False),
         "Engine": (str, True),
         "EngineVersion": (str, False),
-        "LogDeliveryConfigurations": (
-        [LogDeliveryConfigurationRequest], False),
+        "LogDeliveryConfigurations": ([LogDeliveryConfigurationRequest], False),
         "NotificationTopicArn": (str, False),
         "NumCacheNodes": (integer, True),
         "Port": (integer, False),
@@ -199,8 +198,7 @@ class ReplicationGroup(AWSObject):
         "Engine": (str, False),
         "EngineVersion": (str, False),
         "KmsKeyId": (str, False),
-        "LogDeliveryConfigurations": (
-        [LogDeliveryConfigurationRequest], False),
+        "LogDeliveryConfigurations": ([LogDeliveryConfigurationRequest], False),
         "MultiAZEnabled": (boolean, False),
         "NodeGroupConfiguration": ([NodeGroupConfiguration], False),
         "NotificationTopicArn": (str, False),
