@@ -1,6 +1,6 @@
 import json
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, Tags
 from .compat import policytypes
 from .constants import LOGS_ALLOWED_RETENTION_DAYS as RETENTION_DAYS
 from .validators import integer_list_item, json_checker
@@ -52,6 +52,7 @@ class LogGroup(AWSObject):
         "KmsKeyId": (str, False),
         "LogGroupName": (str, False),
         "RetentionInDays": (integer_list_item(RETENTION_DAYS), False),
+        "Tags": (Tags, False),
     }
 
 
