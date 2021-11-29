@@ -56,7 +56,8 @@ class CacheCluster(AWSObject):
         "ClusterName": (str, False),
         "Engine": (str, True),
         "EngineVersion": (str, False),
-        "LogDeliveryConfigurations": ([LogDeliveryConfigurationRequest], False),
+        "LogDeliveryConfigurations": (
+        [LogDeliveryConfigurationRequest], False),
         "NotificationTopicArn": (str, False),
         "NumCacheNodes": (integer, True),
         "Port": (integer, False),
@@ -198,7 +199,8 @@ class ReplicationGroup(AWSObject):
         "Engine": (str, False),
         "EngineVersion": (str, False),
         "KmsKeyId": (str, False),
-        "LogDeliveryConfigurations": ([LogDeliveryConfigurationRequest], False),
+        "LogDeliveryConfigurations": (
+        [LogDeliveryConfigurationRequest], False),
         "MultiAZEnabled": (boolean, False),
         "NodeGroupConfiguration": ([NodeGroupConfiguration], False),
         "NotificationTopicArn": (str, False),
@@ -236,3 +238,26 @@ class ReplicationGroup(AWSObject):
             )
 
         return True
+
+
+class User(AWSObject):
+    resource_type = "AWS::ElastiCache::User"
+
+    props = {
+        "AccessString": (str, False),
+        "Engine": (str, True),
+        "NoPasswordRequired": (boolean, False),
+        "Passwords": ([str], False),
+        "UserId": (str, True),
+        "UserName": (str, True),
+    }
+
+
+class UserGroup(AWSObject):
+    resource_type = "AWS::ElastiCache::UserGroup"
+
+    props = {
+        "Engine": (str, True),
+        "UserGroupId": (str, True),
+        "UserIds": ([str], False),
+    }

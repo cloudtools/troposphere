@@ -1109,7 +1109,6 @@ class SpotMaintenanceStrategies(AWSProperty):
 
 
 class SpotFleetRequestConfigData(AWSProperty):
-
     props = {
         "AllocationStrategy": (str, False),
         "ExcessCapacityTerminationPolicy": (str, False),
@@ -1666,4 +1665,32 @@ class LocalGatewayRouteTableVPCAssociation(AWSObject):
         "LocalGatewayRouteTableId": (str, True),
         "Tags": ((Tags, list), False),
         "VpcId": (str, True),
+    }
+
+
+class Ingress(AWSProperty):
+    props = {
+        "CidrIp": (str, False),
+        "CidrIpv6": (str, False),
+        "Description": (str, False),
+        "FromPort": (network_port, False),
+        "IpProtocol": (str, True),
+        "SourcePrefixListId": (str, False),
+        "SourceSecurityGroupName": (str, False),
+        "SourceSecurityGroupId": (str, False),
+        "SourceSecurityGroupOwnerId": (str, False),
+        "ToPort": (network_port, False),
+    }
+
+
+class Egress(AWSProperty):
+    props = {
+        "CidrIp": (str, False),
+        "CidrIpv6": (str, False),
+        "Description": (str, False),
+        "DestinationPrefixListId": (str, False),
+        "DestinationSecurityGroupId": (str, False),
+        "FromPort": (network_port, False),
+        "IpProtocol": (str, True),
+        "ToPort": (network_port, False),
     }
