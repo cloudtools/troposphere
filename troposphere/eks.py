@@ -154,6 +154,11 @@ class ScalingConfig(AWSProperty):
         "MinSize": (double, False),
     }
 
+class UpdateConfig(AWSProperty):
+props = {
+    "MaxUnavailable": (double, False),
+    "MaxUnavailablePercentage": (double, False),
+}
 
 class LaunchTemplateSpecification(AWSProperty):
     props = {
@@ -188,6 +193,7 @@ class Nodegroup(AWSObject):
         "ReleaseVersion": (str, False),
         "RemoteAccess": (RemoteAccess, False),
         "ScalingConfig": (ScalingConfig, False),
+        "UpdateConfig": (UpdateConfig, False),
         "Subnets": ([str], False),
         "Tags": (dict, False),
         "Taints": ([Taint], False),
