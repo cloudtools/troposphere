@@ -8,6 +8,7 @@ from .validators import (
     integer_range,
     network_port,
     positive_integer,
+    one_of,
 )
 
 LAUNCH_TYPE_EC2 = "EC2"
@@ -15,6 +16,19 @@ LAUNCH_TYPE_FARGATE = "FARGATE"
 
 SCHEDULING_STRATEGY_REPLICA = "REPLICA"
 SCHEDULING_STRATEGY_DAEMON = "DAEMON"
+
+
+RUNTIME_PLATFORM_CPU_CONFIGURATIONS = ["ARM64", "X86_64"]
+RUNTIME_PLATFORM_OS_FAMILY = [
+    "LINUX",
+    "WINDOWS_SERVER_2004_CORE",
+    "WINDOWS_SERVER_2016_FULL",
+    "WINDOWS_SERVER_2019_CORE",
+    "WINDOWS_SERVER_2019_FULL",
+    "WINDOWS_SERVER_2022_CORE",
+    "WINDOWS_SERVER_2022_FULL",
+    "WINDOWS_SERVER_20H2_CORE",
+]
 
 
 class ManagedScaling(AWSProperty):
@@ -510,6 +524,28 @@ class EphemeralStorage(AWSProperty):
     }
 
 
+class RuntimePlatform(AWSProperty):
+    """
+    `RuntimePlatform <https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-runtimeplatform.html>`_
+    """
+
+    props = {"CpuArchitecture": (str, False), "OperatingSystemFamily": (str, False)}
+
+    def validate(self):
+        one_of(
+            self.__class__.__name__,
+            self.properties,
+            "CpuArchitecture",
+            RUNTIME_PLATFORM_CPU_CONFIGURATIONS,
+        )
+        one_of(
+            self.__class__.__name__,
+            self.properties,
+            "OperatingSystemFamily",
+            RUNTIME_PLATFORM_OS_FAMILY,
+        )
+
+
 class TaskDefinition(AWSObject):
     resource_type = "AWS::ECS::TaskDefinition"
 
@@ -527,6 +563,7 @@ class TaskDefinition(AWSObject):
         "PlacementConstraints": ([PlacementConstraint], False),
         "ProxyConfiguration": (ProxyConfiguration, False),
         "RequiresCompatibilities": ([str], False),
+        "RuntimePlatform": (RuntimePlatform, False),
         "Tags": (Tags, False),
         "TaskRoleArn": (str, False),
         "Volumes": ([Volume], False),
