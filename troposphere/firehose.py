@@ -214,7 +214,7 @@ class RedshiftDestinationConfiguration(AWSProperty):
         "CopyCommand": (CopyCommand, True),
         "Password": (str, True),
         "ProcessingConfiguration": (ProcessingConfiguration, False),
-        "RedshiftRetryOptions": (RedshiftRetryOptions, False),
+        "RetryOptions": (RedshiftRetryOptions, False),
         "RoleARN": (str, True),
         "S3Configuration": (S3Configuration, True),
         "Username": (str, True),
