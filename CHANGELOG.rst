@@ -129,21 +129,26 @@
 This release now only supports Python 3.6+
 Special thanks to @michael-k for the Python 3 work and tooling improvements.
 
-Breaking changes:
+Breaking Changes
+^^^^^^^^^^^^^^^^
 * Python 3.6+ (Python 2.x and earlier Python 3.x support is now deprecated due to Python EOL)
 * Remove previously deprecated Template methods.
   To update to currently supported methods, substitute:
-    add_description() => set_description()
-    add_metadata() => set_metadata()
-    add_transform() => set_transform()
-    add_version() => set_version()
+  ::
+
+      add_description() => set_description()
+      add_metadata() => set_metadata()
+      add_transform() => set_transform()
+      add_version() => set_version()
+
 * Remove deprecated troposphere.UpdatePolicy()
 * Remove TROPO_REAL_BOOL. Booleans are output instead of string booleans for better interoperability with tools like cfn-lint.
 * Remove deprecated troposphere.dynamodb2. Use troposphere.dynamodb instead.
 * Remove StageName deprecation warning in apigateway StageDescription
 * Rename ElasticBeanstalk OptionSettings property to OpionSetting per AWS spec files
 
-Changes:
+Changes
+^^^^^^^
 * Run '2to3 -n -w --no-diffs .'
 * Require Python >= 3.6
 * [utils,examples] Revert changes to print functions made by 2to3
@@ -904,7 +909,7 @@ Changes:
 * Add ObjectLock* properties to S3::Bucket
 * Add Ec2SubnetIds property to EMR JobFlowInstancesConfig
 * Add AWS::Amplify
-* Adds 'ErrorOutputPrefix' to *S3DestinationConfiguration (#1439)
+* Adds 'ErrorOutputPrefix' to *S3DestinationConfiguration* (#1439)
 * Add ServiceCatalog::StackSetConstraint and update CFProvisionedProduct
 * Add IdleDisconnectTimeoutInSeconds to AppStream::Fleet
 * Add Config::RemediationConfiguration resource
