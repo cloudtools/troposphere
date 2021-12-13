@@ -114,7 +114,7 @@ class FirewallPolicy(AWSObject):
     }
 
 
-class LogDestinationConfigs(AWSProperty):
+class LogDestinationConfig(AWSProperty):
     props = {
         "LogDestination": (dict, True),
         "LogDestinationType": (str, True),
@@ -125,7 +125,7 @@ class LogDestinationConfigs(AWSProperty):
 class LoggingConfigurationProperty(AWSProperty):
 
     props = {
-        "LogDestinationConfigs": ([LogDestinationConfigs], True)
+        "LogDestinationConfigs": ([LogDestinationConfig], True)
     }
 
 
