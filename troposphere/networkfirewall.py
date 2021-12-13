@@ -122,9 +122,20 @@ class LogDestinationConfig(AWSProperty):
     }
 
 
-class LoggingConfiguration(AWSProperty):
+class LoggingConfigurationProperty(AWSProperty):
+
     props = {
-        "LogDestinationConfigs": ([LogDestinationConfig], True),
+        "LogDestinationConfigs": ([LogDestinationConfig], True)
+    }
+
+
+class LoggingConfiguration(AWSObject):
+    resource_type = "AWS::NetworkFirewall::LoggingConfiguration"
+
+    props = {
+        "FirewallArn": (str, True),
+        "FirewallName": (str, False),
+        "LoggingConfiguration": (LoggingConfigurationProperty, True),
     }
 
 
