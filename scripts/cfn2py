@@ -87,7 +87,7 @@ def do_awstemplateformatversion(d):
 
 def do_description(d):
     """Output the template Description"""
-    print('t.add_description("""\\\n{}""")'.format(d['Description']))
+    print('t.set_description("""\\\n{}""")'.format(d['Description']))
 
 
 def do_parameters(d):
