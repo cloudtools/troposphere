@@ -479,6 +479,7 @@ class LayerVersion(AWSObject):
     resource_type = "AWS::Serverless::LayerVersion"
 
     props = {
+        "CompatibleArchitectures": ([str], False),
         "CompatibleRuntimes": ([str], False),
         "ContentUri": ((S3Location, str), True),
         "Description": (str, False),
