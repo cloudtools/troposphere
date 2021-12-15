@@ -145,10 +145,12 @@ class ProcessingConfiguration(AWSProperty):
         "Processors": ([Processor], True),
     }
 
+
 class RedshiftRetryOptions(AWSProperty):
     props = {
         "DurationInSeconds": (integer, False),
     }
+
 
 class S3DestinationConfiguration(AWSProperty):
     props = {
@@ -216,7 +218,8 @@ class RedshiftDestinationConfiguration(AWSProperty):
         "ProcessingConfiguration": (ProcessingConfiguration, False),
         "RetryOptions": (RedshiftRetryOptions, False),
         "RoleARN": (str, True),
-        "S3Configuration": (S3Configuration, True),
+        "S3Configuration": (S3Configurclass S3DestinationConfiguration(AWSProperty):
+    ation, True),
         "Username": (str, True),
     }
 
