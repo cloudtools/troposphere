@@ -155,10 +155,10 @@ class ScalingConfig(AWSProperty):
     }
 
 class UpdateConfig(AWSProperty):
-props = {
+    props = {
     "MaxUnavailable": (double, False),
     "MaxUnavailablePercentage": (double, False),
-}
+    }
 
 class LaunchTemplateSpecification(AWSProperty):
     props = {
