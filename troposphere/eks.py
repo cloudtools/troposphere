@@ -193,9 +193,9 @@ class Nodegroup(AWSObject):
         "ReleaseVersion": (str, False),
         "RemoteAccess": (RemoteAccess, False),
         "ScalingConfig": (ScalingConfig, False),
-        "UpdateConfig": (UpdateConfig, False),
         "Subnets": ([str], False),
         "Tags": (dict, False),
         "Taints": ([Taint], False),
+        "UpdateConfig": (UpdateConfig, False),
         "Version": (str, False),
     }
