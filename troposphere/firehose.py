@@ -146,6 +146,12 @@ class ProcessingConfiguration(AWSProperty):
     }
 
 
+class RedshiftRetryOptions(AWSProperty):
+    props = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
 class S3DestinationConfiguration(AWSProperty):
     props = {
         "BucketARN": (str, True),
@@ -210,6 +216,7 @@ class RedshiftDestinationConfiguration(AWSProperty):
         "CopyCommand": (CopyCommand, True),
         "Password": (str, True),
         "ProcessingConfiguration": (ProcessingConfiguration, False),
+        "RetryOptions": (RedshiftRetryOptions, False),
         "RoleARN": (str, True),
         "S3Configuration": (S3Configuration, True),
         "Username": (str, True),
