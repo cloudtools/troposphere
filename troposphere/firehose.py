@@ -218,8 +218,7 @@ class RedshiftDestinationConfiguration(AWSProperty):
         "ProcessingConfiguration": (ProcessingConfiguration, False),
         "RetryOptions": (RedshiftRetryOptions, False),
         "RoleARN": (str, True),
-        "S3Configuration": (S3Configurclass S3DestinationConfiguration(AWSProperty):
-    ation, True),
+        "S3Configuration": (S3Configuration, True),
         "Username": (str, True),
     }
 
