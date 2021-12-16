@@ -709,6 +709,7 @@ def wafv2_custom_body_response_content_type(content_type):
         raise ValueError('ContentType must be one of: "%s"' % (", ".join(valid_types)))
     return content_type
 
+
 def kinesis_stream_mode(mode):
     valid_modes = ["ON_DEMAND", "PROVISIONED"]
     if mode not in valid_modes:

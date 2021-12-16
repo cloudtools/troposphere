@@ -16,10 +16,12 @@ class StreamEncryption(AWSProperty):
         "KeyId": (str, True),
     }
 
+
 class StreamModeDetails(AWSProperty):
     props = {
         "StreamMode": (kinesis_stream_mode, True)
     }
+
 
 class Stream(AWSObject):
     resource_type = "AWS::Kinesis::Stream"
