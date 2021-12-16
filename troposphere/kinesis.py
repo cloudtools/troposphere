@@ -29,7 +29,7 @@ class Stream(AWSObject):
         "RetentionPeriodHours": (integer, False),
         "ShardCount": (integer, True),
         "StreamEncryption": (StreamEncryption, False),
-        "StreamModeDetails": (StreamModeDetails, False)
+        "StreamModeDetails": (StreamModeDetails, False),
         "Tags": ((Tags, list), False),
     }
 
