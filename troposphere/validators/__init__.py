@@ -76,7 +76,7 @@ def defer(x):
 
 
 def network_port(x):
-    from . import AWSHelperFn
+    from .. import AWSHelperFn
 
     # Network ports can be Ref items
     if isinstance(x, AWSHelperFn):
@@ -211,7 +211,7 @@ def one_of(class_name, properties, property, conditionals):
 
 
 def mutually_exclusive(class_name, properties, conditionals):
-    from . import NoValue
+    from .. import NoValue
 
     found_list = []
     for c in conditionals:
@@ -244,7 +244,7 @@ def check_required(class_name, properties, conditionals):
 
 
 def json_checker(prop):
-    from . import AWSHelperFn
+    from .. import AWSHelperFn
 
     if isinstance(prop, str):
         # Verify it is a valid json string
