@@ -4,10 +4,7 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import (
-    integer,
-    kinesis_stream_mode
-)
+from .validators import integer, kinesis_stream_mode
 
 
 class StreamEncryption(AWSProperty):
@@ -19,7 +16,7 @@ class StreamEncryption(AWSProperty):
 
 class StreamModeDetails(AWSProperty):
     props = {
-        "StreamMode": (kinesis_stream_mode, True)
+        "StreamMode": (kinesis_stream_mode, True),
     }
 
 
