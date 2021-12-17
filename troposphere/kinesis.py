@@ -4,13 +4,22 @@
 # See LICENSE file for full license.
 
 from . import AWSObject, AWSProperty, Tags
-from .validators import integer
+from .validators import (
+    integer,
+    kinesis_stream_mode
+)
 
 
 class StreamEncryption(AWSProperty):
     props = {
         "EncryptionType": (str, True),
         "KeyId": (str, True),
+    }
+
+
+class StreamModeDetails(AWSProperty):
+    props = {
+        "StreamMode": (kinesis_stream_mode, True)
     }
 
 
@@ -22,6 +31,7 @@ class Stream(AWSObject):
         "RetentionPeriodHours": (integer, False),
         "ShardCount": (integer, True),
         "StreamEncryption": (StreamEncryption, False),
+        "StreamModeDetails": (StreamModeDetails, False),
         "Tags": ((Tags, list), False),
     }
 
