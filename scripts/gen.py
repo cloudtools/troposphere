@@ -2,8 +2,10 @@
 
 
 import argparse
+import ast
 import json
 import os
+import re
 import sys
 
 import jsonpatch
@@ -18,14 +20,23 @@ import yaml
 # put into the batch.py file.
 #
 # Since there are usually discrepencies in the docs or spec files plus the
-# need for validation routines to be included, there is now a YAML file to
-# provide these overrides. The validators can override both at a class level
-# to validate multiple properties or object consistency using a class Mixin,
-# and a property level to validate the contents of that property using a
-# simple function. The property required field can also be overriden.
+# need for validation routines to be included there is additional processing
+# done to the Resource Specification file and validators substituted into
+# the code.
 #
-# The validators for a given file are now put into a separate file,
-# ending in _validators.py (such as batch_validators.py).
+# For changes to the Resource Specification, there are jsonpatch files
+# (located in scripts/patches) to fixup the json prior to emitting the code.
+# A typical usage of this patch is when there is both a Resource and Property
+# with the same name which cannot be emitted with the same class name. The
+# jsonpatch file will usually rename the Property and then fixup any Resources
+# using that Property.
+#
+# The validators are located in troposphere/validators with the common
+# validators in __init__.py. This code generator will look for a corresponding
+# file in this directory to locate validation functions. By parsing and walking
+# the Python AST for this file it will extract function names and, based on a
+# function docstring, will apply it as either a Property or Class validation
+# function.
 #
 # Care is given to the output file to ensure pycodestyle and pyflakes tests
 # will still pass. This incudes import declarations, class output ordering,
@@ -39,6 +50,8 @@ import yaml
 # - Needs better error checking
 # - Need to figure out the correct Timestamp type
 
+stub = False
+
 copyright_header = """\
 # Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
 # All rights reserved.
@@ -50,74 +63,6 @@ copyright_header = """\
 
 """
 spec_version = ""
-
-
-class Override:
-    """Handle overrides to the base resource specification.
-
-    While the resource specification is the main source of truth for
-    CloudFormation resources and properties, there are sometimes bugs
-    or issues which require manual overrides. In addition, this handles
-    specifying more specific property and object validation functions.
-    """
-
-    def __init__(self, filename):
-        self.base = "troposphere/"
-        self.filename = filename
-        try:
-            self.override = yaml.load(open(self.base + filename + ".yaml"))
-        except (OSError, IOError):
-            self.override = {}
-
-    def get_header(self):
-        return self.override.get("header", "")
-
-    def get_required(self, class_name, prop):
-        if self.override:
-            try:
-                v = self.override["classes"][class_name][prop]["required"]
-                return v
-            except KeyError:
-                return None
-
-    def get_validator(self, class_name, prop):
-        if self.override:
-            try:
-                v = self.override["classes"][class_name][prop]["validator"]
-                return v.lstrip("common/")
-            except KeyError:
-                return None
-
-    def get_class_validator(self, class_name):
-        if self.override:
-            try:
-                v = self.override["classes"][class_name]["validator"]
-                return v.lstrip("common/")
-            except KeyError:
-                return None
-
-    def get_validator_list(self):
-        """Return a list of validators specified in the override file"""
-        ignore = [
-            "dict",
-        ]
-        vlist = []
-        if not self.override:
-            return vlist
-
-        for k, v in list(self.override["classes"].items()):
-            if "validator" in v:
-                validator = v["validator"]
-                if validator not in ignore and validator not in vlist:
-                    vlist.append(validator)
-
-        for k, v in list(self.override["classes"].items()):
-            for kp, vp in list(v.items()):
-                if "validator" in vp:
-                    validator = vp["validator"]
-                    if validator not in ignore and validator not in vlist:
-                        vlist.append(validator)
-        return sorted(vlist)
 
 
 class Node:
@@ -153,7 +98,8 @@ class File:
         self.properties = {}
         self.resources = {}
         self.resource_names = {}
-        self.override = Override(filename)
+        self.property_validators = []
+        self.class_validators = {}
 
     def add_property(self, class_name, property_spec):
         self.properties[class_name] = property_spec
@@ -161,21 +107,6 @@ class File:
     def add_resource(self, class_name, resource_spec, resource_name):
         self.resources[class_name] = resource_spec
         self.resource_names[class_name] = resource_name
-
-    def _output_tags(self):
-        """Look for a Tags object to output a Tags import"""
-        for class_name, properties in sorted(self.resources.items()):
-            for key, value in sorted(properties.items()):
-                validator = self.override.get_validator(class_name, key)
-                if key == "Tags" and validator is None:
-                    print("from troposphere import Tags")
-                    return
-        for class_name, properties in sorted(self.properties.items()):
-            for key, value in sorted(properties.items()):
-                validator = self.override.get_validator(class_name, key)
-                if key == "Tags" and validator is None:
-                    print("from troposphere import Tags")
-                    return
 
     def _check_type(self, check_type, properties):
         """Decode a properties type looking for a specific type."""
@@ -206,6 +137,18 @@ class File:
 
         return False
 
+    def _walk_for_key(self, check_key):
+        """Walk the resources/properties looking for a specific key."""
+        for class_name, properties in sorted(self.resources.items()):
+            for key, value in sorted(properties.items()):
+                if key == "Tags":
+                    return True
+        for class_name, properties in sorted(self.properties.items()):
+            for key, value in sorted(properties.items()):
+                if key == "Tags":
+                    return True
+        return False
+
     def _get_property_type(self, value):
         """Decode the values type and return a non-primitive property type."""
         if "PrimitiveType" in value:
@@ -232,29 +175,27 @@ class File:
                 type_list.append(t)
         return sorted(type_list)
 
-    def _output_validators(self):
+    def _output_imports(self):
         """Output common validator types based on usage."""
+        if self.resources:
+            print("from . import AWSObject")
+        if self.properties:
+            print("from . import AWSProperty")
+
+        if self._walk_for_key("Tags"):
+            print("from . import Tags")
+
         if self._walk_for_type("Boolean"):
             print("from .validators import boolean")
         if self._walk_for_type("Integer"):
             print("from .validators import integer")
         if self._walk_for_type("Double"):
             print("from .validators import double")
-        vlist = self.override.get_validator_list()
-        for override in vlist:
-            if override.startswith("common/"):
-                override = override.lstrip("common/")
-                filename = "validators"
-            else:
-                filename = "%s_validators" % self.filename
-            print("from .%s import %s" % (filename, override))
 
-    def _output_imports(self):
-        """Output imports for base troposphere class types."""
-        if self.resources:
-            print("from . import AWSObject")
-        if self.properties:
-            print("from . import AWSProperty")
+        for v in self.property_validators:
+            print(f"from .validators.{self.filename} import {v}")
+        for k, v in self.class_validators.items():
+            print(f"from .validators.{self.filename} import {v}")
 
     def build_tree(self, name, props, resource_name=None):
         """Build a tree of non-primitive typed dependency order."""
@@ -285,22 +226,55 @@ class File:
         if t.name in seen:
             return
         seen[t.name] = True
+        class_validator = self.class_validators.get(t.name, None)
+        if stub:
+            output_class_stub(t.name, t.props, class_validator)
+            return
         if t.resource_name:
-            output_class(t.name, t.props, self.override, t.resource_name)
+            output_class(t.name, t.props, class_validator, t.resource_name)
         else:
-            output_class(t.name, t.props, self.override)
+            output_class(t.name, t.props, class_validator)
+
+    def _get_file_validators(self):
+        try:
+            validator_filename = f"troposphere/validators/{self.filename}.py"
+            file_contents = open(validator_filename).read()
+        except FileNotFoundError:
+            return
+
+        # Look for these patterns to match where to apply validation functions
+        class_re = re.compile(r"^Class: ([\w]*)", re.MULTILINE)
+        property_re = re.compile(r"^Property: ([\w]*)\.([\w]*)", re.MULTILINE)
+
+        # Parse and walk the AST of the validation code file
+        tree = ast.parse(file_contents)
+        for node in ast.walk(tree):
+            if isinstance(node, ast.FunctionDef):
+                docstring = ast.get_docstring(node, clean=True)
+                if docstring:
+                    # Look for class level validation routines
+                    r = class_re.search(docstring)
+                    if r:
+                        self.class_validators[r.group(1)] = node.name
+
+                    # Look for property level validation routines
+                    r = property_re.search(docstring)
+                    if r:
+                        # XXX - PrimitiveType, Type, or ItemType?
+                        name = r.group(1)
+                        property = r.group(2)
+                        if name in self.resources:
+                            self.resources[name][property]["PrimitiveType"] = node.name
+                        elif name in self.properties:
+                            self.properties[name][property]["PrimitiveType"] = node.name
+                        self.property_validators.append(node.name)
 
     def output(self):
         """Output the generated source file."""
+        self._get_file_validators()
+
         print(copyright_header % spec_version)
         self._output_imports()
-        self._output_tags()
-        self._output_validators()
-        header = self.override.get_header()
-        if header:
-            print()
-            print()
-            print(header.rstrip())
 
         seen = {}
         for class_name, properties in sorted(self.resources.items()):
@@ -310,13 +284,34 @@ class File:
 
 
 class Resources:
-    def __init__(self):
+    def __init__(self, resource_spec):
         self.files = {}
+
+        for resource_name, resource_dict in sorted(
+            resource_spec["ResourceTypes"].items()
+        ):
+            f = self._get_file(resource_name)
+            class_name = resource_name.split(":")[4]
+            properties = resource_dict["Properties"]
+            f.add_resource(class_name, properties, resource_name)
+
+        for property_name, property_dict in sorted(
+            resource_spec["PropertyTypes"].items()
+        ):
+            if property_name == "Tag":
+                continue
+            f = self._get_file(property_name)
+            class_name = property_name.split(".")[1]
+            if "Properties" in property_dict:
+                properties = property_dict["Properties"]
+            else:
+                properties = {}
+            f.add_property(class_name, properties)
 
     def _filename_map(self, name):
         return name.split(":")[2].lower()
 
-    def get_file(self, aws_name):
+    def _get_file(self, aws_name):
         filename = self._filename_map(aws_name)
         if filename not in self.files:
             self.files[filename] = File(filename)
@@ -400,22 +395,15 @@ def get_type3(value):
     raise ValueError("get_type")
 
 
-def output_class(class_name, properties, override, resource_name=None):
+def output_class(class_name, properties, class_validator, resource_name=None):
     print()
     print()
-    class_validator = override.get_class_validator(class_name)
-    mixin = ""
-    if class_validator:
-        mixin = "%s, " % class_validator
-    linebreak = ""
-    if len(mixin) > 28:
-        linebreak = "\n%s" % (" " * 8)
     if resource_name:
-        print("class %s(%s%sAWSObject):" % (class_name, linebreak, mixin))
-        print('    resource_type = "%s"' % resource_name)
+        print(f"class {class_name}(AWSObject):")
+        print(f"    resource_type = '{resource_name}'")
         print()
     else:
-        print("class %s(%s%sAWSProperty):" % (class_name, linebreak, mixin))
+        print(f"class {class_name}(AWSProperty):")
 
     # Output the props dict
     print("    props = {")
@@ -427,32 +415,26 @@ def output_class(class_name, properties, override, resource_name=None):
         else:
             value_type = get_type(value)
 
-        custom_validator = override.get_validator(class_name, key)
-        if custom_validator is not None:
-            value_type = custom_validator
+        required = get_required(value)
 
-        required = override.get_required(class_name, key)
-        if required is None:
-            required = get_required(value)
-
-        # Wrap long names for pycodestyle
-        if len(key) + len(value_type) < 55:
-            print('        "%s": (%s, %s),' % (key, value_type, required))
-        else:
-            print('        "%s":\n            (%s, %s),' % (key, value_type, required))
+        print(f'        "{key}": ({value_type}, {required}),')
     print("    }")
+    if class_validator:
+        print()
+        print("    def validate(self):")
+        print(f"       {class_validator}(self)")
 
 
 def output_class_stub(class_name, properties, resource_name=None):
     print()
     print()
     if resource_name:
-        print("class %s(AWSObject):" % class_name)
+        print(f"class {class_name}(AWSObject):")
         print("    resource_type: str")
         print()
         sys.stdout.write("    def __init__(self, title")
     else:
-        print("class %s(AWSProperty):" % class_name)
+        print(f"class {class_name}(AWSProperty):")
         print()
         sys.stdout.write("    def __init__(self")
 
@@ -463,9 +445,9 @@ def output_class_stub(class_name, properties, resource_name=None):
             value_type = get_type3(value)
 
         if value_type.startswith("["):  # Means that args are a list
-            sys.stdout.write(", %s:List%s=..." % (key, value_type))
+            sys.stdout.write(f", {key}:List{value_type}=...")
         else:
-            sys.stdout.write(", %s:%s=..." % (key, value_type))
+            sys.stdout.write(f", {key}:{value_type}=...")
 
     print(") -> None: ...")
     print()
@@ -477,9 +459,9 @@ def output_class_stub(class_name, properties, resource_name=None):
             value_type = get_type3(value)
 
         if value_type.startswith("["):  # Means that args are a list
-            print("    %s: List%s" % (key, value_type))
+            print(f"    {key}: List{value_type}")
         else:
-            print("    %s: %s" % (key, value_type))
+            print(f"    {key}: {value_type}")
 
 
 def process_file(filename, stub=False):
@@ -489,7 +471,7 @@ def process_file(filename, stub=False):
     if "PropertyTypes" in j:
         for property_name, property_dict in list(j["PropertyTypes"].items()):
             if property_name == "Tag":
-                print("from troposphere import Tags")
+                print("from . import Tags")
                 print()
                 continue
             class_name = property_name.split(".")[1]
@@ -515,36 +497,21 @@ if __name__ == "__main__":
     parser.add_argument("filename", nargs="+")
     args = parser.parse_args()
 
+    stub = args.stub
+
     f = open(args.filename[0])
-    j = json.load(f)
+    resource_spec = json.load(f)
 
     # Apply json patches
     patch_dir = "scripts/patches"
     for patch_file in os.listdir(patch_dir):
         if patch_file.endswith(".json"):
             patch = json.loads(open(os.path.join(patch_dir, patch_file)).read())
-            j = jsonpatch.apply_patch(j, patch)
+            resource_spec = jsonpatch.apply_patch(resource_spec, patch)
 
-    spec_version = j["ResourceSpecificationVersion"]
+    spec_version = resource_spec["ResourceSpecificationVersion"]
 
-    r = Resources()
-
-    for resource_name, resource_dict in sorted(j["ResourceTypes"].items()):
-        f = r.get_file(resource_name)
-        class_name = resource_name.split(":")[4]
-        properties = resource_dict["Properties"]
-        f.add_resource(class_name, properties, resource_name)
-
-    for property_name, property_dict in sorted(j["PropertyTypes"].items()):
-        if property_name == "Tag":
-            continue
-        f = r.get_file(property_name)
-        class_name = property_name.split(".")[1]
-        if "Properties" in property_dict:
-            properties = property_dict["Properties"]
-        else:
-            properties = {}
-        f.add_property(class_name, properties)
+    r = Resources(resource_spec)
 
     if args.name:
         r.output_file(args.name.lower())
