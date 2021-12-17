@@ -27,6 +27,7 @@ will be run against any commits to the project.
 #. Activate it: `source ~/virtualenv/troposphere/bin/activate`
 #. `pip install --upgrade pip setuptools wheel`
 #. `pip install -r requirements-dev.txt`
+#. `pre-commit install`
 #. Run tests
     1. `pycodestyle .`
     #. `pyflakes .`

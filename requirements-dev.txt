@@ -19,6 +19,7 @@ pycodestyle>=2.4
 pydocstyle>=3.0
 pyflakes>=2.1
 pylint>=1.9
+pre-commit>=2.16
 
 # ---- ---- Testing
 pytest>=4.1
