@@ -124,9 +124,7 @@ class LogDestinationConfig(AWSProperty):
 
 class LoggingConfigurationProperty(AWSProperty):
 
-    props = {
-        "LogDestinationConfigs": ([LogDestinationConfig], True)
-    }
+    props = {"LogDestinationConfigs": ([LogDestinationConfig], True)}
 
 
 class LoggingConfiguration(AWSObject):

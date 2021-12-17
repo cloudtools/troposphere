@@ -7,8 +7,8 @@ from .validators import (
     integer,
     integer_range,
     network_port,
-    positive_integer,
     one_of,
+    positive_integer,
 )
 
 LAUNCH_TYPE_EC2 = "EC2"

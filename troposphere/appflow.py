@@ -7,12 +7,10 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject
-from . import AWSProperty
 from troposphere import Tags
-from .validators import boolean
-from .validators import double
-from .validators import integer
+
+from . import AWSObject, AWSProperty
+from .validators import boolean, double, integer
 
 
 class AmplitudeConnectorProfileCredentials(AWSProperty):
@@ -149,8 +147,7 @@ class ConnectorProfileCredentials(AWSProperty):
         "Amplitude": (AmplitudeConnectorProfileCredentials, False),
         "Datadog": (DatadogConnectorProfileCredentials, False),
         "Dynatrace": (DynatraceConnectorProfileCredentials, False),
-        "GoogleAnalytics":
-            (GoogleAnalyticsConnectorProfileCredentials, False),
+        "GoogleAnalytics": (GoogleAnalyticsConnectorProfileCredentials, False),
         "InforNexus": (InforNexusConnectorProfileCredentials, False),
         "Marketo": (MarketoConnectorProfileCredentials, False),
         "Redshift": (RedshiftConnectorProfileCredentials, False),
@@ -417,8 +414,7 @@ class DestinationFlowConfig(AWSProperty):
     props = {
         "ConnectorProfileName": (str, False),
         "ConnectorType": (str, True),
-        "DestinationConnectorProperties":
-            (DestinationConnectorProperties, True),
+        "DestinationConnectorProperties": (DestinationConnectorProperties, True),
     }
 
 
