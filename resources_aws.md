@@ -72,6 +72,7 @@
 - [AWS::Elasticsearch](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Elasticsearch.html)
 - [AWS::EventSchemas](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_EventSchemas.html)
 - [AWS::Events](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Events.html)
+- [AWS::Evidently](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Evidently.html)
 - [AWS::FIS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FIS.html)
 - [AWS::FMS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FMS.html)
 - [AWS::FSx](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FSx.html)
