@@ -9,7 +9,6 @@ import re
 import sys
 
 import jsonpatch
-import yaml
 
 # Python code generator to create new troposphere classes from the
 # AWS resource specification.
