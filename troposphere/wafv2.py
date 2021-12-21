@@ -344,6 +344,18 @@ class RuleAction(AWSProperty):
     }
 
 
+class ImmunityTimeProperty(AWSProperty):
+    props = {
+        "ImmunityTime": (integer, True)
+    }
+
+
+class CaptchaConfig(AWSObject):
+    props = {
+        "ImmunityTimeProperty": (ImmunityTimeProperty, False),
+    }
+
+
 class OverrideAction(AWSProperty):
     props = {
         "Count": (CountAction, False),
@@ -373,6 +385,7 @@ class WebACL(AWSObject):
     resource_type = "AWS::WAFv2::WebACL"
 
     props = {
+        "CaptchaConfig": (CaptchaConfig, False),
         "CustomResponseBodies": (validate_custom_response_bodies, False),
         "DefaultAction": (DefaultAction, False),
         "Description": (str, False),
