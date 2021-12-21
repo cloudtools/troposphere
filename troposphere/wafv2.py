@@ -397,13 +397,23 @@ class IPSet(AWSObject):
     }
 
 
+class LoggingConfigurationFieldToMatch(AWSProperty):
+    props = {
+        "JsonBody": (json_checker, False),
+        "Method": (Method, False),
+        "QueryString": (QueryString, False),
+        "SingleHeader": (SingleHeader, False),
+        "UriPath": (UriPath, False),
+    }
+
+
 class LoggingConfiguration(AWSObject):
     resource_type = "AWS::WAFv2::LoggingConfiguration"
 
     props = {
         "LogDestinationConfigs": ([str], True),
         "LoggingFilter": (json_checker, False),
-        "RedactedFields": ([FieldToMatch], False),
+        "RedactedFields": ([LoggingConfigurationFieldToMatch], False),
         "ResourceArn": (str, True),
     }
 
