@@ -356,6 +356,12 @@ class CaptchaConfig(AWSObject):
     }
 
 
+class RuleGroupLabel(AWSProperty):
+    props = {
+        "Name": (str, True),
+    }
+
+
 class OverrideAction(AWSProperty):
     props = {
         "Count": (CountAction, False),
@@ -446,8 +452,10 @@ class RegexPatternSet(AWSObject):
 class RuleGroupRule(AWSProperty):
     props = {
         "Action": (RuleAction, False),
+        "CaptchaConfig": (CaptchaConfig, False),
         "Name": (str, False),
         "Priority": (integer, False),
+        "RuleLabels": ([RuleGroupLabel], False),
         "Statement": (StatementOne, False),
         "VisibilityConfig": (VisibilityConfig, False),
     }
