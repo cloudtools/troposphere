@@ -77,7 +77,7 @@ CA_CENTRAL_1D = "ca-central-1d"
 
 CN_NORTH_1A = "cn-north-1a"
 CN_NORTH_1B = "cn-north-1b"
-CN_NORTH_1B = "cn-north-1c"
+CN_NORTH_1C = "cn-north-1c"
 
 CN_NORTHWEST_1A = "cn-northwest-1a"
 CN_NORTHWEST_1B = "cn-northwest-1b"
