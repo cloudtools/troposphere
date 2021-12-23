@@ -17,6 +17,10 @@ from .validators.fsx import (
 
 
 class LustreConfiguration(AWSProperty):
+    """
+    `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html>`_
+    """
+
     props = {
         "AutoImportPolicy": (str, False),
         "AutomaticBackupRetentionDays": (integer, False),
@@ -37,6 +41,10 @@ class LustreConfiguration(AWSProperty):
 
 
 class DiskIopsConfiguration(AWSProperty):
+    """
+    `DiskIopsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html>`_
+    """
+
     props = {
         "Iops": (integer, False),
         "Mode": (str, False),
@@ -44,6 +52,10 @@ class DiskIopsConfiguration(AWSProperty):
 
 
 class OntapConfiguration(AWSProperty):
+    """
+    `OntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html>`_
+    """
+
     props = {
         "AutomaticBackupRetentionDays": (integer, False),
         "DailyAutomaticBackupStartTime": (str, False),
@@ -59,6 +71,10 @@ class OntapConfiguration(AWSProperty):
 
 
 class ClientConfigurations(AWSProperty):
+    """
+    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations.html>`_
+    """
+
     props = {
         "Clients": (str, False),
         "Options": ([str], False),
@@ -66,12 +82,20 @@ class ClientConfigurations(AWSProperty):
 
 
 class NfsExports(AWSProperty):
+    """
+    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html>`_
+    """
+
     props = {
         "ClientConfigurations": ([ClientConfigurations], False),
     }
 
 
 class UserAndGroupQuotas(AWSProperty):
+    """
+    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html>`_
+    """
+
     props = {
         "Id": (integer, False),
         "StorageCapacityQuotaGiB": (integer, False),
@@ -80,6 +104,10 @@ class UserAndGroupQuotas(AWSProperty):
 
 
 class RootVolumeConfiguration(AWSProperty):
+    """
+    `RootVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html>`_
+    """
+
     props = {
         "CopyTagsToSnapshots": (boolean, False),
         "DataCompressionType": (str, False),
@@ -90,6 +118,10 @@ class RootVolumeConfiguration(AWSProperty):
 
 
 class OpenZFSConfiguration(AWSProperty):
+    """
+    `OpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html>`_
+    """
+
     props = {
         "AutomaticBackupRetentionDays": (integer, False),
         "CopyTagsToBackups": (boolean, False),
@@ -104,6 +136,10 @@ class OpenZFSConfiguration(AWSProperty):
 
 
 class AuditLogConfiguration(AWSProperty):
+    """
+    `AuditLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html>`_
+    """
+
     props = {
         "AuditLogDestination": (str, False),
         "FileAccessAuditLogLevel": (str, True),
@@ -112,6 +148,10 @@ class AuditLogConfiguration(AWSProperty):
 
 
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
+    """
+    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html>`_
+    """
+
     props = {
         "DnsIps": ([str], False),
         "DomainName": (str, False),
@@ -123,6 +163,10 @@ class SelfManagedActiveDirectoryConfiguration(AWSProperty):
 
 
 class WindowsConfiguration(AWSProperty):
+    """
+    `WindowsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html>`_
+    """
+
     props = {
         "ActiveDirectoryId": (str, False),
         "Aliases": ([str], False),
@@ -142,6 +186,10 @@ class WindowsConfiguration(AWSProperty):
 
 
 class FileSystem(AWSObject):
+    """
+    `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html>`_
+    """
+
     resource_type = "AWS::FSx::FileSystem"
 
     props = {

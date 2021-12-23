@@ -1,4 +1,0 @@
-[
-{"op": "move", "from": "/PropertyTypes/AWS::IoTSiteWise::AccessPolicy.Portal", "path": "/PropertyTypes/AWS::IoTSiteWise::AccessPolicy.PortalProperty"},
-{"op": "replace", "path": "/PropertyTypes/AWS::IoTSiteWise::AccessPolicy.AccessPolicyResource/Properties/Portal/Type", "value": "PortalProperty"}
-]

@@ -7,13 +7,17 @@ import json
 import os
 import re
 import sys
+import warnings
+from collections import defaultdict
+from dataclasses import dataclass, field, fields
+from typing import Dict, List, Union
 
-import jsonpatch
+import jsonpatch  # type: ignore
 
 # Python code generator to create new troposphere classes from the
 # AWS resource specification.
 #
-# This gnerator works by reading in an AWS resource specification json file.
+# This generator works by reading in an AWS resource specification json file.
 # The resources and properties are split apart to align with a given output
 # file. In other words, a type such as AWS::Batch::JobDefinition will be
 # put into the batch.py file.
@@ -64,179 +68,175 @@ copyright_header = """\
 spec_version = ""
 
 
-class Node:
-    """Node object for building a per-file/service dependecy tree.
-
-    Simple node object for creating and traversing the resource and
-    property dependencies to emit code resources in a well-defined order.
-    """
-
-    def __init__(self, name, props, resource_name):
-        self.name = name
-        self.props = props
-        self.resource_name = resource_name
-        self.children = []
-
-    def add_child(self, node):
-        self.children.append(node)
+class ResourceSpecDuplicateError(Exception):
+    def __init__(self, message, names):
+        self.message = message
+        self.names = names
 
 
-class File:
-    """Decribes a file object which contains resources for a given AWS service.
+def to_dataclass(cls, d):
+    flds = fields(cls)
+    m = {f.metadata.get("mapname", f.name): f for f in flds}
+    return cls(**{m[f].name: d[f] for f in d})
 
-    The main output of this generator is a file containing all the property
-    and resource classes for a given AWS service. This handles various needs
-    such as imported objects, predictive ordering objects, and handling the
-    type and validation overrides. The objects are mapped into the file
-    based on the resource type.
-    """
 
-    def __init__(self, filename):
-        self.filename = filename
-        self.imports = {}
-        self.properties = {}
-        self.resources = {}
-        self.resource_names = {}
-        self.property_validators = []
+@dataclass
+class Property:
+    documentation: str = field(default="", metadata={"mapname": "Documentation"})
+    duplicates_allowed: bool = field(
+        default=False, metadata={"mapname": "DuplicatesAllowed"}
+    )
+    item_type: str = field(default="", metadata={"mapname": "ItemType"})
+    primitive_item_type: str = field(
+        default="", metadata={"mapname": "PrimitiveItemType"}
+    )
+    primitive_type: str = field(default="", metadata={"mapname": "PrimitiveType"})
+    required: bool = field(default=False, metadata={"mapname": "Required"})
+    type: str = field(default="", metadata={"mapname": "Type"})
+    update_type: str = field(default="", metadata={"mapname": "UpdateType"})
+
+
+@dataclass
+class ResourceType:
+    documentation: str
+    name: str
+    properties: Dict[str, Property]
+    resource_name: str
+
+
+@dataclass
+class PropertyType:
+    documentation: str
+    properties: Dict[str, Property]
+    resource_name: str
+
+
+PropertyTypeDict = Dict[str, PropertyType]
+
+
+class Service:
+    def __init__(self):
+        self.documentation: str = None
+        self.resources: Dict[str, ResourceType] = {}
+        self.properties: Dict[str, PropertyType] = {}
         self.class_validators = {}
+        self.property_validators = defaultdict(dict)
+        self.constants = []
 
-    def add_property(self, class_name, property_spec):
-        self.properties[class_name] = property_spec
 
-    def add_resource(self, class_name, resource_spec, resource_name):
-        self.resources[class_name] = resource_spec
-        self.resource_names[class_name] = resource_name
+class ResourceSpec:
+    def __init__(self, filename: str):
+        f = open(filename)
+        self.spec = json.load(f)
+        self.services: Dict[str, Service] = defaultdict(Service)
 
-    def _check_type(self, check_type, properties):
-        """Decode a properties type looking for a specific type."""
-        if "PrimitiveType" in properties:
-            return properties["PrimitiveType"] == check_type
+    def _patch(self):
+        """
+        Patch the json Resource Specification file to correct any issues that
+        would prevent code generation. This uses jsonpatch with the patches
+        coming in via python files (which allows for comments).
+        """
 
-        # If there's no Type defined, punt it for now...
-        if "Type" not in properties:
-            return False
+        import importlib.util
 
-        if properties["Type"] == "List":
-            if "ItemType" in properties:
-                return properties["ItemType"] == check_type
-            else:
-                return properties["PrimitiveItemType"] == check_type
-        return False
+        import jsonpointer
 
-    def _walk_for_type(self, check_type):
-        """Walk the resources/properties looking for a specific type."""
-        for class_name, properties in sorted(self.resources.items()):
-            for key, value in sorted(properties.items()):
-                if self._check_type(check_type, value):
-                    return True
-        for class_name, properties in sorted(self.properties.items()):
-            for key, value in sorted(properties.items()):
-                if self._check_type(check_type, value):
-                    return True
+        patch_dir = "scripts/patches"
+        for patch_file in os.listdir(patch_dir):
+            if patch_file.endswith(".py"):
+                if patch_file == "__init__.py":
+                    continue
+                path = os.path.join(patch_dir, patch_file)
+                import_spec = importlib.util.spec_from_file_location(
+                    patch_file[:-3], path
+                )
+                patch = importlib.util.module_from_spec(import_spec)
+                import_spec.loader.exec_module(patch)
+                for p in patch.patches:
+                    try:
+                        self.spec = jsonpatch.apply_patch(self.spec, [p], in_place=True)
+                    except jsonpointer.JsonPointerException:
+                        print(f"jsonpatch error: {p}", file=sys.stderr)
+                        raise
 
-        return False
+    def parse(self, limit_warnings=None):
+        """
+        Parse the json Resource Specification file into Python data structures.
+        """
 
-    def _walk_for_key(self, check_key):
-        """Walk the resources/properties looking for a specific key."""
-        for class_name, properties in sorted(self.resources.items()):
-            for key, value in sorted(properties.items()):
-                if key == "Tags":
-                    return True
-        for class_name, properties in sorted(self.properties.items()):
-            for key, value in sorted(properties.items()):
-                if key == "Tags":
-                    return True
-        return False
+        global spec_version
 
-    def _get_property_type(self, value):
-        """Decode the values type and return a non-primitive property type."""
-        if "PrimitiveType" in value:
-            return None
-        if "Type" not in value:
-            return None
-        if value["Type"] == "List":
-            if "ItemType" in value:
-                return value["ItemType"]
-            else:
-                return None
-        elif value["Type"] == "Map":
-            return None
-        else:
-            # Non-primitive (Property) name
-            return value["Type"]
+        def get_class_name(name: str):
+            return name.split(":")[4]
 
-    def _get_type_list(self, props):
-        """Return a list of non-primitive types used by this object."""
-        type_list = []
-        for k, v in list(props.items()):
-            t = self._get_property_type(v)
-            if t is not None:
-                type_list.append(t)
-        return sorted(type_list)
+        def get_service_name(name: str):
+            return name.split(":")[2].lower()
 
-    def _output_imports(self):
-        """Output common validator types based on usage."""
-        if self.resources:
-            print("from . import AWSObject")
-        if self.properties:
-            print("from . import AWSProperty")
+        self._patch()
 
-        if self._walk_for_key("Tags"):
-            print("from . import Tags")
+        spec_version = self.spec["ResourceSpecificationVersion"]
 
-        if self._walk_for_type("Boolean"):
-            print("from .validators import boolean")
-        if self._walk_for_type("Integer"):
-            print("from .validators import integer")
-        if self._walk_for_type("Double"):
-            print("from .validators import double")
+        for resource_name, resource_dict in sorted(self.spec["ResourceTypes"].items()):
+            service_name = get_service_name(resource_name)
+            class_name = get_class_name(resource_name)
+            service = self.services[service_name]
+            documentation = resource_dict["Documentation"]
 
-        for v in self.property_validators:
-            print(f"from .validators.{self.filename} import {v}")
-        for k, v in self.class_validators.items():
-            print(f"from .validators.{self.filename} import {v}")
+            properties = {}
+            for k, v in sorted(resource_dict["Properties"].items()):
+                properties[k] = to_dataclass(Property, v)
+            service.resources[class_name] = ResourceType(
+                documentation, class_name, properties, resource_name
+            )
 
-    def build_tree(self, name, props, resource_name=None):
-        """Build a tree of non-primitive typed dependency order."""
-        n = Node(name, props, resource_name)
-        prop_type_list = self._get_type_list(props)
-        if not prop_type_list:
-            return n
-        prop_type_list = sorted(prop_type_list)
-        for prop_name in prop_type_list:
-            if prop_name == "Tag":
+        for property_name, property_dict in sorted(self.spec["PropertyTypes"].items()):
+            if property_name == "Tag":
                 continue
 
-            # prevent recursive properties
-            if prop_name == name:
-                continue
+            service_name = get_service_name(property_name)
+            service = self.services[service_name]
+            class_name = property_name.split(".")[1]
 
-            child = self.build_tree(prop_name, self.properties[prop_name])
-            if child is not None:
-                n.add_child(child)
-        return n
+            documentation = None
+            if "Documentation" in property_dict:
+                documentation = property_dict["Documentation"]
 
-    def output_tree(self, t, seen):
-        """Given a dependency tree of objects, output it in DFS order."""
-        if not t:
-            return
-        for c in t.children:
-            self.output_tree(c, seen)
-        if t.name in seen:
-            return
-        seen[t.name] = True
-        class_validator = self.class_validators.get(t.name, None)
-        if stub:
-            output_class_stub(t.name, t.props, class_validator)
-            return
-        if t.resource_name:
-            output_class(t.name, t.props, class_validator, t.resource_name)
-        else:
-            output_class(t.name, t.props, class_validator)
+            if "Properties" in property_dict:
+                properties = {}
+                for k, v in property_dict["Properties"].items():
+                    properties[k] = to_dataclass(Property, v)
 
-    def _get_file_validators(self):
+                if class_name in service.properties:
+                    existing = service.properties[class_name]
+
+                    existing_keys = list(sorted(existing.properties.keys()))
+                    new_keys = list(sorted(properties.keys()))
+                    if existing_keys != new_keys and (
+                        limit_warnings is None or service_name in limit_warnings
+                    ):
+                        print(
+                            f"Potential property conflict: {service_name} {class_name}",
+                            file=sys.stderr,
+                        )
+                        print(
+                            f"    {existing.resource_name}: {existing_keys}",
+                            file=sys.stderr,
+                        )
+                        print(f"    {property_name}: {new_keys}", file=sys.stderr)
+                        print("", file=sys.stderr)
+
+                service.properties[class_name] = PropertyType(
+                    documentation, properties, property_name
+                )
+
+        for service_name, service in self.services.items():
+            self._get_validators(service_name, service)
+
+        return self
+
+    def _get_validators(self, service_name, service):
         try:
-            validator_filename = f"troposphere/validators/{self.filename}.py"
+            validator_filename = f"troposphere/validators/{service_name}.py"
             file_contents = open(validator_filename).read()
         except FileNotFoundError:
             return
@@ -245,248 +245,383 @@ class File:
         class_re = re.compile(r"^Class: ([\w]*)", re.MULTILINE)
         property_re = re.compile(r"^Property: ([\w]*)\.([\w]*)", re.MULTILINE)
 
-        # Parse and walk the AST of the validation code file
+        # Parse and walk the top-level AST of the validation code file
         tree = ast.parse(file_contents)
-        for node in ast.walk(tree):
+        for node in tree.body:
+            if isinstance(node, ast.Assign):
+                for t in node.targets:
+                    service.constants.append(t.id)
             if isinstance(node, ast.FunctionDef):
                 docstring = ast.get_docstring(node, clean=True)
                 if docstring:
                     # Look for class level validation routines
                     r = class_re.search(docstring)
                     if r:
-                        self.class_validators[r.group(1)] = node.name
+                        service.class_validators[r.group(1)] = node.name
 
                     # Look for property level validation routines
-                    r = property_re.search(docstring)
-                    if r:
-                        # XXX - PrimitiveType, Type, or ItemType?
-                        name = r.group(1)
-                        property = r.group(2)
-                        if name in self.resources:
-                            self.resources[name][property]["PrimitiveType"] = node.name
-                        elif name in self.properties:
-                            self.properties[name][property]["PrimitiveType"] = node.name
-                        self.property_validators.append(node.name)
-
-    def output(self):
-        """Output the generated source file."""
-        self._get_file_validators()
-
-        print(copyright_header % spec_version)
-        self._output_imports()
-
-        seen = {}
-        for class_name, properties in sorted(self.resources.items()):
-            resource_name = self.resource_names[class_name]
-            t = self.build_tree(class_name, properties, resource_name)
-            self.output_tree(t, seen)
+                    # r = property_re.search(docstring)
+                    for m in property_re.finditer(docstring):
+                        name = m.group(1)
+                        property = m.group(2)
+                        service.property_validators[name][property] = node.name
 
 
-class Resources:
-    def __init__(self, resource_spec):
-        self.files = {}
+class Node:
+    """Node object for building a per-file/service dependecy tree.
 
-        for resource_name, resource_dict in sorted(
-            resource_spec["ResourceTypes"].items()
-        ):
-            f = self._get_file(resource_name)
-            class_name = resource_name.split(":")[4]
-            properties = resource_dict["Properties"]
-            f.add_resource(class_name, properties, resource_name)
+    Simple node object for creating and traversing the resource and
+    property dependencies to emit code resources in a well-defined order.
+    """
 
-        for property_name, property_dict in sorted(
-            resource_spec["PropertyTypes"].items()
-        ):
+    def __init__(
+        self,
+        name: str,
+        property_type: Union[PropertyType, ResourceType],
+        documentation: str,
+        resource_name: str,
+    ):
+        self.name = name
+        self.property_type = property_type
+        self.documentation = documentation
+        self.resource_name = resource_name
+        self.children: List[Node] = []
+
+    def add_child(self, node):
+        self.children.append(node)
+
+
+class CodeGenerator:
+    def __init__(self, service_name: str, service: Service):
+        self.service_name = service_name
+        self.service = service
+        self.resources: Dict[str, ResourceType] = service.resources
+        self.properties: Dict[str, PropertyType] = service.properties
+
+    def generate(self, file=None) -> str:
+        """Generated the troposphere source code."""
+
+        self._check_for_consistency()
+
+        code = []
+
+        # Output the copyright header along with the version of the Resource Specification
+        code.append(copyright_header % spec_version)
+
+        # Output imports for commonly used classes
+        if self.resources:
+            code.append("from . import AWSObject")
+        if self.properties:
+            code.append("from . import AWSProperty")
+        if self._walk_for_key("Tags"):
+            code.append("from . import Tags")
+
+        # Output imports for commonly used validators
+        if self._walk_for_type("Boolean"):
+            code.append("from .validators import boolean")
+        if self._walk_for_type("Integer"):
+            code.append("from .validators import integer")
+        if self._walk_for_type("Double"):
+            code.append("from .validators import double")
+
+        # Output any constants defined in the validation code
+        for v in self.service.constants:
+            code.append(
+                f"from .validators.{self.service_name} import {v}  # noqa: F401"
+            )
+
+        # Output imports for any property validators found.
+        property_imports = set()
+        for k, d in self.service.property_validators.items():
+            for validator in d.values():
+                property_imports.add(validator)
+        for v in sorted(property_imports):
+            code.append(f"from .validators.{self.service_name} import {v}")
+
+        # Output imports for any class validators found
+        for k, v in self.service.class_validators.items():
+            code.append(f"from .validators.{self.service_name} import {v}")
+
+        # Now start outputting the classes
+        seen: Dict[str, bool] = {}
+        for class_name, resource_type in sorted(self.resources.items()):
+            t = self._build_tree(
+                class_name,
+                resource_type,
+                resource_type.documentation,
+                resource_type.resource_name,
+            )
+            code += self._generate_tree(t, seen)
+
+        return "\n".join(code)
+
+    def _build_tree(
+        self,
+        name: str,
+        property_type: Union[PropertyType, ResourceType],
+        documentation: str,
+        resource_name=None,
+    ) -> Node:
+        """Build a tree of non-primitive typed dependency order."""
+        n = Node(name, property_type, documentation, resource_name)
+        property_type_list = self._get_type_list(property_type)
+        if not property_type_list:
+            return n
+        for property_name in sorted(property_type_list):
             if property_name == "Tag":
                 continue
-            f = self._get_file(property_name)
-            class_name = property_name.split(".")[1]
-            if "Properties" in property_dict:
-                properties = property_dict["Properties"]
-            else:
-                properties = {}
-            f.add_property(class_name, properties)
 
-    def _filename_map(self, name):
-        return name.split(":")[2].lower()
-
-    def _get_file(self, aws_name):
-        filename = self._filename_map(aws_name)
-        if filename not in self.files:
-            self.files[filename] = File(filename)
-        return self.files[filename]
-
-    def output_file(self, name):
-        self.files[name].output()
-
-    def output_files(self):
-        for name, file in sorted(self.files.items()):
-            file.output()
-
-
-def get_required(value):
-    return value["Required"]
-
-
-map_type = {
-    "Boolean": "boolean",
-    "Double": "double",
-    "Integer": "integer",
-    "Json": "dict",
-    "Long": "integer",
-    "String": "str",
-    "Timestamp": "str",
-}
-
-
-map_type3 = {
-    "Boolean": "bool",
-    "Double": "double",
-    "Integer": "int",
-    "Json": "dict",
-    "Long": "int",
-    "String": "str",
-    "Timestamp": "str",
-}
-
-
-def get_type(value):
-    if "PrimitiveType" in value:
-        return map_type.get(value["PrimitiveType"], value["PrimitiveType"])
-
-    if "Type" not in value:
-        return "dict"
-
-    if value["Type"] == "List":
-        if "ItemType" in value:
-            return "[%s]" % value["ItemType"]
-        else:
-            return "[%s]" % map_type.get(value["PrimitiveItemType"])
-    elif value["Type"] == "Map":
-        return "dict"
-    else:
-        # Non-primitive (Property) name
-        return value["Type"]
-
-    import pprint
-
-    pprint.pprint(value)
-    raise ValueError("get_type")
-
-
-def get_type3(value):
-    if "PrimitiveType" in value:
-        return map_type3.get(value["PrimitiveType"], value["PrimitiveType"])
-    if value["Type"] == "List":
-        if "ItemType" in value:
-            return "[%s]" % value["ItemType"]
-        else:
-            return "[%s]" % map_type3.get(value["PrimitiveItemType"])
-    elif value["Type"] == "Map":
-        return "dict"
-    else:
-        # Non-primitive (Property) name
-        return value["Type"]
-
-    import pprint
-
-    pprint.pprint(value)
-    raise ValueError("get_type")
-
-
-def output_class(class_name, properties, class_validator, resource_name=None):
-    print()
-    print()
-    if resource_name:
-        print(f"class {class_name}(AWSObject):")
-        print(f"    resource_type = '{resource_name}'")
-        print()
-    else:
-        print(f"class {class_name}(AWSProperty):")
-
-    # Output the props dict
-    print("    props = {")
-    for key, value in sorted(properties.items()):
-        if key == "Tags":
-            value_type = "Tags"
-            if "PrimitiveType" in value and value["PrimitiveType"] == "Json":
-                value_type = "dict"
-        else:
-            value_type = get_type(value)
-
-        required = get_required(value)
-
-        print(f'        "{key}": ({value_type}, {required}),')
-    print("    }")
-    if class_validator:
-        print()
-        print("    def validate(self):")
-        print(f"       {class_validator}(self)")
-
-
-def output_class_stub(class_name, properties, resource_name=None):
-    print()
-    print()
-    if resource_name:
-        print(f"class {class_name}(AWSObject):")
-        print("    resource_type: str")
-        print()
-        sys.stdout.write("    def __init__(self, title")
-    else:
-        print(f"class {class_name}(AWSProperty):")
-        print()
-        sys.stdout.write("    def __init__(self")
-
-    for key, value in sorted(properties.items()):
-        if key == "Tags":
-            value_type = "Tags"
-        else:
-            value_type = get_type3(value)
-
-        if value_type.startswith("["):  # Means that args are a list
-            sys.stdout.write(f", {key}:List{value_type}=...")
-        else:
-            sys.stdout.write(f", {key}:{value_type}=...")
-
-    print(") -> None: ...")
-    print()
-
-    for key, value in sorted(properties.items()):
-        if key == "Tags":
-            value_type = "Tags"
-        else:
-            value_type = get_type3(value)
-
-        if value_type.startswith("["):  # Means that args are a list
-            print(f"    {key}: List{value_type}")
-        else:
-            print(f"    {key}: {value_type}")
-
-
-def process_file(filename, stub=False):
-    f = open(filename)
-    j = json.load(f)
-
-    if "PropertyTypes" in j:
-        for property_name, property_dict in list(j["PropertyTypes"].items()):
-            if property_name == "Tag":
-                print("from . import Tags")
-                print()
+            # prevent recursive properties
+            if property_name == name:
                 continue
-            class_name = property_name.split(".")[1]
-            properties = property_dict["Properties"]
-            if stub:
-                output_class_stub(class_name, properties)
-            else:
-                output_class(class_name, properties)
 
-    for resource_name, resource_dict in list(j["ResourceType"].items()):
-        class_name = resource_name.split(":")[4]
-        properties = resource_dict["Properties"]
+            child = self._build_tree(
+                property_name, self.properties[property_name], "", None
+            )
+            if child is not None:
+                n.add_child(child)
+        return n
+
+    def _check_type(self, check_type: str, property: Property) -> bool:
+        """Decode a properties type looking for a specific type."""
+
+        if property.primitive_type:
+            return property.primitive_type == check_type
+
+        # If there's no Type defined, punt it for now...
+        if not property.type:
+            return False
+
+        if property.type == "List":
+            if property.item_type:
+                return property.item_type == check_type
+            else:
+                return property.primitive_item_type == check_type
+        return False
+
+    def _walk_for_type(self, check_type: str) -> bool:
+        """Walk the resources/properties looking for a specific type."""
+        for class_name, resource_type in sorted(self.resources.items()):
+            for key, resource_value in sorted(resource_type.properties.items()):
+                if self._check_type(check_type, resource_value):
+                    return True
+        for class_name, property_type in sorted(self.properties.items()):
+            for key, property_value in sorted(property_type.properties.items()):
+                if self._check_type(check_type, property_value):
+                    return True
+
+        return False
+
+    def _walk_for_key(self, check_key: str) -> bool:
+        """Walk the resources/properties looking for a specific key."""
+        for class_name, resource_type in sorted(self.resources.items()):
+            for key, value in sorted(resource_type.properties.items()):
+                if key == "Tags":
+                    return True
+        for class_name, property_type in sorted(self.properties.items()):
+            for key, value in sorted(property_type.properties.items()):
+                if key == "Tags":
+                    return True
+        return False
+
+    def _get_type_list(
+        self, property_type: Union[PropertyType, ResourceType]
+    ) -> List[str]:
+        """Return a list of non-primitive types used by this object."""
+        type_list = []
+        for key, value in property_type.properties.items():
+            # Ignore primitive types or if there isn't a type field
+            if value.primitive_type or not value.type:
+                continue
+
+            # Use the element (item type) for List or Maps
+            if value.type == "List" or value.type == "Map":
+                if value.item_type:
+                    type_list.append(value.item_type)
+            else:
+                # Non-primitive (Property) name
+                type_list.append(value.type)
+
+        return sorted(type_list)
+
+    def _generate_tree(self, t: Node, seen: Dict[str, bool]) -> List[str]:
+        """Given a dependency tree of objects, generate it in DFS order."""
+        if not t:
+            return []
+        code = []
+        for c in t.children:
+            code += self._generate_tree(c, seen)
+        if t.name in seen:
+            return []
+        seen[t.name] = True
+
         if stub:
-            output_class_stub(class_name, properties, resource_name)
+            code += self._generate_class_stub(t)
         else:
-            output_class(class_name, properties, resource_name)
+            class_validator = self.service.class_validators.get(t.name, None)
+            property_validator = self.service.property_validators.get(t.name, None)
+            code += self._generate_class(t, class_validator, property_validator)
+
+        return code
+
+    def _check_for_consistency(self):
+        """Double check for issues in the resource spec."""
+
+        dups = []
+        p = self.properties.keys()
+        for class_name in sorted(self.resources.keys()):
+            if class_name in p:
+                dups.append(class_name)
+        if dups:
+            warnings.warn(f"Names used as both a resource and property: {dups}")
+
+    def _get_type(self, value: Property, stub=False):
+        """Map AWS CloudFoundation types into Python types"""
+
+        # For troposphere python code, use validation functions when appropriate
+        map_type = {
+            "Boolean": "boolean",
+            "Double": "double",
+            "Integer": "integer",
+            "Json": "dict",
+            "Long": "integer",
+            "String": "str",
+            "Timestamp": "str",
+        }
+
+        # For stub types, use the real Python3 types
+        map_stub_type = {
+            "Boolean": "bool",
+            "Double": "float",
+            "Integer": "int",
+            "Json": "dict",
+            "Long": "int",
+            "String": "str",
+            "Timestamp": "str",
+        }
+
+        if value.primitive_type:
+            return map_type.get(value.primitive_type, value.primitive_type)
+
+        if value.type is None:
+            return "dict"
+
+        if value.type == "List":
+            if value.item_type:
+                return "[%s]" % value.item_type
+            else:
+                if stub:
+                    return "[%s]" % map_stub_type.get(value.primitive_item_type)
+                else:
+                    return "[%s]" % map_type.get(value.primitive_item_type)
+        elif value.type == "Map":
+            return "dict"
+        else:
+            # Non-primitive (Property) name
+            return value.type
+
+        import pprint
+
+        pprint.pprint(value)
+        raise ValueError("_get_type")
+
+    def _generate_class(
+        self, node: Node, class_validator, property_validator
+    ) -> List[str]:
+        class_name = node.name
+        property_type = node.property_type
+        resource_name = node.resource_name
+
+        code = ["\n"]
+        if resource_name:
+            code.append(f"class {class_name}(AWSObject):")
+            if property_type.documentation:
+                code.append('    """')
+                code.append(f"    `{class_name} <{property_type.documentation}>`_")
+                code.append('    """')
+                code.append("")
+            code.append(f"    resource_type = '{resource_name}'")
+            code.append("")
+        else:
+            code.append(f"class {class_name}(AWSProperty):")
+            if property_type.documentation:
+                code.append('    """')
+                code.append(f"    `{class_name} <{property_type.documentation}>`_")
+                code.append('    """')
+                code.append("")
+
+        # Output the props dict
+        code.append("    props = {")
+        for key, value in sorted(property_type.properties.items()):
+            if property_validator and key in property_validator:
+                value_type = property_validator[key]
+            elif key == "Tags":
+                value_type = "Tags"
+                if value.primitive_type == "Json":
+                    value_type = "dict"
+            else:
+                value_type = self._get_type(value)
+
+            required = value.required
+
+            code.append(f'        "{key}": ({value_type}, {required}),')
+        code.append("    }")
+        if class_validator:
+            code.append("")
+            code.append("    def validate(self):")
+            code.append(f"        {class_validator}(self)")
+
+        return code
+
+    def _generate_class_stub(self, node: Node) -> List[str]:
+        class_name = node.name
+        property_type = node.property_type
+        resource_name = node.resource_name
+
+        code = ["\n"]
+        if resource_name:
+            code.append(
+                f"class {class_name}(AWSObject):",
+            )
+            code.append("    resource_type: str")
+            code.append("")
+            code.append("    def __init__(")
+            code.append("        self,")
+            code.append("        title,")
+        else:
+            code.append(
+                f"class {class_name}(AWSProperty):",
+            )
+            code.append("")
+            code.append("    def __init__(")
+            code.append("        self,")
+
+        for key, value in sorted(property_type.properties.items()):
+            if key == "Tags":
+                value_type = "Tags"
+            else:
+                value_type = self._get_type(value, stub=True)
+
+            if value_type.startswith("["):  # Means that args are a list
+                code.append(f"        {key}:List{value_type}=...,")
+            else:
+                code.append(f"        {key}:{value_type}=...,")
+
+        code.append("    ) -> None: ...")
+        code.append("")
+
+        for key, value in sorted(property_type.properties.items()):
+            if key == "Tags":
+                value_type = "Tags"
+            else:
+                value_type = self._get_type(value, stub=True)
+
+            if value_type.startswith("["):  # Means that args are a list
+                code.append(f"    {key}: List{value_type}")
+            else:
+                code.append(f"    {key}: {value_type}")
+
+        return code
 
 
 if __name__ == "__main__":
@@ -498,21 +633,8 @@ if __name__ == "__main__":
 
     stub = args.stub
 
-    f = open(args.filename[0])
-    resource_spec = json.load(f)
+    service_name = args.name.lower()
+    r = ResourceSpec(args.filename[0]).parse(limit_warnings=[service_name])
 
-    # Apply json patches
-    patch_dir = "scripts/patches"
-    for patch_file in os.listdir(patch_dir):
-        if patch_file.endswith(".json"):
-            patch = json.loads(open(os.path.join(patch_dir, patch_file)).read())
-            resource_spec = jsonpatch.apply_patch(resource_spec, patch)
-
-    spec_version = resource_spec["ResourceSpecificationVersion"]
-
-    r = Resources(resource_spec)
-
-    if args.name:
-        r.output_file(args.name.lower())
-    else:
-        r.output_files()
+    code = CodeGenerator(service_name, r.services[service_name]).generate()
+    print(code)

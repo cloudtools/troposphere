@@ -1,8 +1,0 @@
-[
-{"op": "move", "from": "/PropertyTypes/AWS::NetworkFirewall::RuleGroup.RuleGroup", "path": "/PropertyTypes/AWS::NetworkFirewall::RuleGroup.RuleGroupProperty"},
-{"op": "replace", "path": "/ResourceTypes/AWS::NetworkFirewall::RuleGroup/Properties/RuleGroup/Type", "value": "RuleGroupProperty"},
-{"op": "move", "from": "/PropertyTypes/AWS::NetworkFirewall::FirewallPolicy.FirewallPolicy", "path": "/PropertyTypes/AWS::NetworkFirewall::FirewallPolicy.FirewallPolicyProperty"},
-{"op": "replace", "path": "/ResourceTypes/AWS::NetworkFirewall::FirewallPolicy/Properties/FirewallPolicy/Type", "value": "FirewallPolicyProperty"},
-{"op": "move", "from": "/PropertyTypes/AWS::NetworkFirewall::LoggingConfiguration.LoggingConfiguration", "path": "/PropertyTypes/AWS::NetworkFirewall::LoggingConfiguration.LoggingConfigurationProperty"},
-{"op": "replace", "path": "/ResourceTypes/AWS::NetworkFirewall::LoggingConfiguration/Properties/LoggingConfiguration/Type", "value": "LoggingConfigurationProperty"}
-]
