@@ -1,5 +1,9 @@
 *.py[cod]
 
+# troposphere stuff
+CloudFormationResourceSpecification*
+spec
+
 # C extensions
 *.so
 
@@ -52,3 +56,9 @@ docs/_build/
 
 # VSCode
 .vscode
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+*.ipynb
+
+.DS_Store
