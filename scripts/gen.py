@@ -297,6 +297,7 @@ class CodeGenerator:
         self.service = service
         self.resources: Dict[str, ResourceType] = service.resources
         self.properties: Dict[str, PropertyType] = service.properties
+        self.property_validators = service.property_validators
 
     def generate(self, file=None) -> str:
         """Generated the troposphere source code."""
@@ -416,10 +417,22 @@ class CodeGenerator:
         """Walk the resources/properties looking for a specific key."""
         for class_name, resource_type in sorted(self.resources.items()):
             for key, value in sorted(resource_type.properties.items()):
+                if (
+                    self.property_validators
+                    and class_name in self.property_validators
+                    and key in self.property_validators[class_name]
+                ):
+                    continue
                 if key == "Tags":
                     return True
         for class_name, property_type in sorted(self.properties.items()):
             for key, value in sorted(property_type.properties.items()):
+                if (
+                    self.property_validators
+                    and class_name in self.property_validators
+                    and key in self.property_validators[class_name]
+                ):
+                    continue
                 if key == "Tags":
                     return True
         return False

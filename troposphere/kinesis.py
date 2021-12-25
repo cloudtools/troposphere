@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty
 from .validators import integer
 from .validators.kinesis import kinesis_stream_mode, validate_tags_or_list
 

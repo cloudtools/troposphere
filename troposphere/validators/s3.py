@@ -6,8 +6,6 @@
 
 import warnings
 
-import regex
-
 from ..compat import validate_policytype
 from . import s3_bucket_name
 
