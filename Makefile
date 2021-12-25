@@ -18,6 +18,8 @@ help: ## show this message
 		printf "%s\n" $$help_info; \
 	done
 
+fix: fix-black fix-isort
+
 fix-black: ## automatically fix all black errors
 	@black ${PYDIRS}
 
@@ -67,8 +69,6 @@ spec:
 	mkdir spec
 	unzip -d spec CloudFormationResourceSpecification.zip
 	rm CloudFormationResourceSpecification.zip
-
-spec2:
 	curl -O --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
 	/bin/echo -n "Downloaded version: " && jq .ResourceSpecificationVersion CloudFormationResourceSpecification.json
 
