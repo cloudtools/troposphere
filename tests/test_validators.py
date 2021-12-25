@@ -1,6 +1,6 @@
 import unittest
 
-from troposphere import NoValue, Parameter, Ref
+from troposphere import NoValue, Parameter, Ref, Tags
 from troposphere.validators import (
     backup_vault_name,
     boolean,
@@ -24,6 +24,7 @@ from troposphere.validators import (
     positive_integer,
     s3_bucket_name,
     status,
+    tags_or_list,
     task_type,
     tg_healthcheck_port,
     waf_action_type,
@@ -260,6 +261,13 @@ class TestValidators(unittest.TestCase):
         for s in ["", "bar", "AMAZONLINUX", "LINUX"]:
             with self.assertRaises(ValueError):
                 operating_system(s)
+
+    def test_tags_or_list(self):
+        for s in [Tags(), [], Ref("AWS::NoValue")]:
+            tags_or_list(s)
+        for s in ["", "foo", "a", "l@mbda", "STEPFUNCTION"]:
+            with self.assertRaises(ValueError):
+                tags_or_list(s)
 
     def test_task_type(self):
         for s in ["RUN_COMMAND", "AUTOMATION", "LAMBDA", "STEP_FUNCTION"]:

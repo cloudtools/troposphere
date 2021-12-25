@@ -65,6 +65,16 @@ def double(x):
         return x
 
 
+def tags_or_list(x):
+    """backward compatibility"""
+    from .. import AWSHelperFn, Tags
+
+    if isinstance(x, (AWSHelperFn, Tags, list)):
+        return x
+
+    raise ValueError(f"Value {x} of type {type(x)} must be either Tags or list")
+
+
 def ignore(x):
     """Method to indicate bypassing property validation"""
     return x
@@ -690,10 +700,3 @@ def wafv2_custom_body_response_content_type(content_type):
     if content_type not in valid_types:
         raise ValueError('ContentType must be one of: "%s"' % (", ".join(valid_types)))
     return content_type
-
-
-def kinesis_stream_mode(mode):
-    valid_modes = ["ON_DEMAND", "PROVISIONED"]
-    if mode not in valid_modes:
-        raise ValueError('ContentType must be one of: "%s"' % (", ".join(valid_modes)))
-    return mode
