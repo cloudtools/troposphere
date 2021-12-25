@@ -54,6 +54,70 @@ class AccessPoint(AWSObject):
     }
 
 
+class AccelerateConfiguration(AWSProperty):
+    props = {
+        "AccelerationStatus": (s3_transfer_acceleration_status, True),
+    }
+
+
+class Destination(AWSProperty):
+    props = {
+        "BucketAccountId": (str, False),
+        "BucketArn": (str, True),
+        "Format": (str, True),
+        "Prefix": (str, False),
+    }
+
+
+class DataExport(AWSProperty):
+    props = {
+        "Destination": (Destination, True),
+        "OutputSchemaVersion": (str, True),
+    }
+
+
+class StorageClassAnalysis(AWSProperty):
+    props = {
+        "DataExport": (DataExport, False),
+    }
+
+
+class TagFilter(AWSProperty):
+    props = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class AnalyticsConfiguration(AWSProperty):
+    props = {
+        "Id": (str, True),
+        "Prefix": (str, False),
+        "StorageClassAnalysis": (StorageClassAnalysis, True),
+        "TagFilters": ([TagFilter], False),
+    }
+
+
+class ServerSideEncryptionByDefault(AWSProperty):
+    props = {
+        "KMSMasterKeyID": (str, False),
+        "SSEAlgorithm": (str, True),
+    }
+
+
+class ServerSideEncryptionRule(AWSProperty):
+    props = {
+        "BucketKeyEnabled": (boolean, False),
+        "ServerSideEncryptionByDefault": (ServerSideEncryptionByDefault, False),
+    }
+
+
+class BucketEncryption(AWSProperty):
+    props = {
+        "ServerSideEncryptionConfiguration": ([ServerSideEncryptionRule], True),
+    }
+
+
 class CorsRules(AWSProperty):
     props = {
         "AllowedHeaders": ([str], False),
@@ -71,55 +135,21 @@ class CorsConfiguration(AWSProperty):
     }
 
 
-class VersioningConfiguration(AWSProperty):
+class InventoryConfiguration(AWSProperty):
     props = {
-        "Status": (str, False),
+        "Destination": (Destination, True),
+        "Enabled": (boolean, True),
+        "Id": (str, True),
+        "IncludedObjectVersions": (str, True),
+        "OptionalFields": ([str], True),
+        "Prefix": (str, False),
+        "ScheduleFrequency": (str, True),
     }
 
 
-class AccelerateConfiguration(AWSProperty):
+class AbortIncompleteMultipartUpload(AWSProperty):
     props = {
-        "AccelerationStatus": (s3_transfer_acceleration_status, True),
-    }
-
-
-class RedirectAllRequestsTo(AWSProperty):
-    props = {
-        "HostName": (str, True),
-        "Protocol": (str, False),
-    }
-
-
-class RedirectRule(AWSProperty):
-    props = {
-        "HostName": (str, False),
-        "HttpRedirectCode": (str, False),
-        "Protocol": (str, False),
-        "ReplaceKeyPrefixWith": (str, False),
-        "ReplaceKeyWith": (str, False),
-    }
-
-
-class RoutingRuleCondition(AWSProperty):
-    props = {
-        "HttpErrorCodeReturnedEquals": (str, False),
-        "KeyPrefixEquals": (str, False),
-    }
-
-
-class RoutingRule(AWSProperty):
-    props = {
-        "RedirectRule": (RedirectRule, True),
-        "RoutingRuleCondition": (RoutingRuleCondition, False),
-    }
-
-
-class WebsiteConfiguration(AWSProperty):
-    props = {
-        "IndexDocument": (str, False),
-        "ErrorDocument": (str, False),
-        "RedirectAllRequestsTo": (RedirectAllRequestsTo, False),
-        "RoutingRules": ([RoutingRule], False),
+        "DaysAfterInitiation": (positive_integer, True),
     }
 
 
@@ -131,23 +161,10 @@ class LifecycleRuleTransition(AWSProperty):
     }
 
 
-class AbortIncompleteMultipartUpload(AWSProperty):
-    props = {
-        "DaysAfterInitiation": (positive_integer, True),
-    }
-
-
 class NoncurrentVersionTransition(AWSProperty):
     props = {
         "StorageClass": (str, True),
         "TransitionInDays": (positive_integer, True),
-    }
-
-
-class TagFilter(AWSProperty):
-    props = {
-        "Key": (str, True),
-        "Value": (str, True),
     }
 
 
@@ -223,16 +240,31 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
+class MetricsConfiguration(AWSProperty):
+    props = {
+        "Id": (str, True),
+        "Prefix": (str, False),
+        "TagFilters": ([TagFilter], False),
+    }
+
+
 class Rules(AWSProperty):
-    props = {"Name": (str, True), "Value": (str, True)}
+    props = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
 
 
 class S3Key(AWSProperty):
-    props = {"Rules": ([Rules], True)}
+    props = {
+        "Rules": ([Rules], True),
+    }
 
 
 class Filter(AWSProperty):
-    props = {"S3Key": (S3Key, True)}
+    props = {
+        "S3Key": (S3Key, True),
+    }
 
 
 class LambdaConfigurations(AWSProperty):
@@ -259,19 +291,32 @@ class TopicConfigurations(AWSProperty):
     }
 
 
-class MetricsConfiguration(AWSProperty):
-    props = {
-        "Id": (str, True),
-        "Prefix": (str, False),
-        "TagFilters": ([TagFilter], False),
-    }
-
-
 class NotificationConfiguration(AWSProperty):
     props = {
         "LambdaConfigurations": ([LambdaConfigurations], False),
         "QueueConfigurations": ([QueueConfigurations], False),
         "TopicConfigurations": ([TopicConfigurations], False),
+    }
+
+
+class DefaultRetention(AWSProperty):
+    props = {
+        "Days": (integer, False),
+        "Mode": (str, False),
+        "Years": (integer, False),
+    }
+
+
+class ObjectLockRule(AWSProperty):
+    props = {
+        "DefaultRetention": (DefaultRetention, False),
+    }
+
+
+class ObjectLockConfiguration(AWSProperty):
+    props = {
+        "ObjectLockEnabled": (str, False),
+        "Rule": (ObjectLockRule, False),
     }
 
 
@@ -385,90 +430,55 @@ class ReplicationConfigurationRules(AWSProperty):
 
 
 class ReplicationConfiguration(AWSProperty):
-    props = {"Role": (str, True), "Rules": ([ReplicationConfigurationRules], True)}
-
-
-class Destination(AWSProperty):
     props = {
-        "BucketAccountId": (str, False),
-        "BucketArn": (str, True),
-        "Format": (str, True),
-        "Prefix": (str, False),
+        "Role": (str, True),
+        "Rules": ([ReplicationConfigurationRules], True),
     }
 
 
-class DataExport(AWSProperty):
+class VersioningConfiguration(AWSProperty):
     props = {
-        "Destination": (Destination, True),
-        "OutputSchemaVersion": (str, True),
+        "Status": (str, False),
     }
 
 
-class StorageClassAnalysis(AWSProperty):
+class RedirectAllRequestsTo(AWSProperty):
     props = {
-        "DataExport": (DataExport, False),
+        "HostName": (str, True),
+        "Protocol": (str, False),
     }
 
 
-class AnalyticsConfiguration(AWSProperty):
+class RedirectRule(AWSProperty):
     props = {
-        "Id": (str, True),
-        "Prefix": (str, False),
-        "StorageClassAnalysis": (StorageClassAnalysis, True),
-        "TagFilters": ([TagFilter], False),
+        "HostName": (str, False),
+        "HttpRedirectCode": (str, False),
+        "Protocol": (str, False),
+        "ReplaceKeyPrefixWith": (str, False),
+        "ReplaceKeyWith": (str, False),
     }
 
 
-class ServerSideEncryptionByDefault(AWSProperty):
+class RoutingRuleCondition(AWSProperty):
     props = {
-        "KMSMasterKeyID": (str, False),
-        "SSEAlgorithm": (str, True),
+        "HttpErrorCodeReturnedEquals": (str, False),
+        "KeyPrefixEquals": (str, False),
     }
 
 
-class ServerSideEncryptionRule(AWSProperty):
+class RoutingRule(AWSProperty):
     props = {
-        "BucketKeyEnabled": (boolean, False),
-        "ServerSideEncryptionByDefault": (ServerSideEncryptionByDefault, False),
+        "RedirectRule": (RedirectRule, True),
+        "RoutingRuleCondition": (RoutingRuleCondition, False),
     }
 
 
-class BucketEncryption(AWSProperty):
+class WebsiteConfiguration(AWSProperty):
     props = {
-        "ServerSideEncryptionConfiguration": ([ServerSideEncryptionRule], True),
-    }
-
-
-class InventoryConfiguration(AWSProperty):
-    props = {
-        "Destination": (Destination, True),
-        "Enabled": (boolean, True),
-        "Id": (str, True),
-        "IncludedObjectVersions": (str, True),
-        "OptionalFields": ([str], True),
-        "Prefix": (str, False),
-        "ScheduleFrequency": (str, True),
-    }
-
-
-class DefaultRetention(AWSProperty):
-    props = {
-        "Days": (integer, False),
-        "Mode": (str, False),
-        "Years": (integer, False),
-    }
-
-
-class ObjectLockRule(AWSProperty):
-    props = {
-        "DefaultRetention": (DefaultRetention, False),
-    }
-
-
-class ObjectLockConfiguration(AWSProperty):
-    props = {
-        "ObjectLockEnabled": (str, False),
-        "Rule": (ObjectLockRule, False),
+        "IndexDocument": (str, False),
+        "ErrorDocument": (str, False),
+        "RedirectAllRequestsTo": (RedirectAllRequestsTo, False),
+        "RoutingRules": ([RoutingRule], False),
     }
 
 
