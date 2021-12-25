@@ -15,4 +15,12 @@ except ImportError:
         policytypes = (dict,)
 
 
-__all__ = ["policytypes"]
+def validate_policytype(policy):
+    if not isinstance(policy, policytypes):
+        raise TypeError(
+            "Invalid policy type: is %s, expected %s" % type(policy), policytypes
+        )
+    return policy
+
+
+__all__ = ["policytypes", "validate_policytype"]
