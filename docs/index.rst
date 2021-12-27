@@ -15,7 +15,7 @@
     apis/tests_toc
 
     changelog
-    contribute
+    contributing
     code_of_conduct
     license
 
