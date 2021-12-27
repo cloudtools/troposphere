@@ -13,7 +13,7 @@ from .validators import boolean, double, integer
 
 class ResourceSpec(AWSProperty):
     """
-    `ResourceSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html>`_
+    `ResourceSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-resourcespec.html>`__
     """
 
     props = {
@@ -25,7 +25,7 @@ class ResourceSpec(AWSProperty):
 
 class App(AWSObject):
     """
-    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html>`_
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-app.html>`__
     """
 
     resource_type = "AWS::SageMaker::App"
@@ -42,7 +42,7 @@ class App(AWSObject):
 
 class FileSystemConfig(AWSProperty):
     """
-    `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html>`_
+    `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html>`__
     """
 
     props = {
@@ -54,7 +54,7 @@ class FileSystemConfig(AWSProperty):
 
 class KernelSpec(AWSProperty):
     """
-    `KernelSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html>`_
+    `KernelSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelspec.html>`__
     """
 
     props = {
@@ -65,7 +65,7 @@ class KernelSpec(AWSProperty):
 
 class KernelGatewayImageConfig(AWSProperty):
     """
-    `KernelGatewayImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html>`_
+    `KernelGatewayImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-kernelgatewayimageconfig.html>`__
     """
 
     props = {
@@ -76,7 +76,7 @@ class KernelGatewayImageConfig(AWSProperty):
 
 class AppImageConfig(AWSObject):
     """
-    `AppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html>`_
+    `AppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-appimageconfig.html>`__
     """
 
     resource_type = "AWS::SageMaker::AppImageConfig"
@@ -90,7 +90,7 @@ class AppImageConfig(AWSObject):
 
 class GitConfig(AWSProperty):
     """
-    `GitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html>`_
+    `GitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html>`__
     """
 
     props = {
@@ -102,7 +102,7 @@ class GitConfig(AWSProperty):
 
 class CodeRepository(AWSObject):
     """
-    `CodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html>`_
+    `CodeRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-coderepository.html>`__
     """
 
     resource_type = "AWS::SageMaker::CodeRepository"
@@ -116,7 +116,7 @@ class CodeRepository(AWSObject):
 
 class DataQualityAppSpecification(AWSProperty):
     """
-    `DataQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html>`_
+    `DataQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityappspecification.html>`__
     """
 
     props = {
@@ -131,7 +131,7 @@ class DataQualityAppSpecification(AWSProperty):
 
 class ConstraintsResource(AWSProperty):
     """
-    `ConstraintsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html>`_
+    `ConstraintsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-constraintsresource.html>`__
     """
 
     props = {
@@ -141,7 +141,7 @@ class ConstraintsResource(AWSProperty):
 
 class StatisticsResource(AWSProperty):
     """
-    `StatisticsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html>`_
+    `StatisticsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-statisticsresource.html>`__
     """
 
     props = {
@@ -151,7 +151,7 @@ class StatisticsResource(AWSProperty):
 
 class DataQualityBaselineConfig(AWSProperty):
     """
-    `DataQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html>`_
+    `DataQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualitybaselineconfig.html>`__
     """
 
     props = {
@@ -163,7 +163,7 @@ class DataQualityBaselineConfig(AWSProperty):
 
 class EndpointInput(AWSProperty):
     """
-    `EndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html>`_
+    `EndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html>`__
     """
 
     props = {
@@ -176,7 +176,7 @@ class EndpointInput(AWSProperty):
 
 class DataQualityJobInput(AWSProperty):
     """
-    `DataQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html>`_
+    `DataQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-dataqualityjobdefinition-dataqualityjobinput.html>`__
     """
 
     props = {
@@ -186,7 +186,7 @@ class DataQualityJobInput(AWSProperty):
 
 class S3Output(AWSProperty):
     """
-    `S3Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html>`_
+    `S3Output <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-s3output.html>`__
     """
 
     props = {
@@ -198,7 +198,7 @@ class S3Output(AWSProperty):
 
 class MonitoringOutput(AWSProperty):
     """
-    `MonitoringOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html>`_
+    `MonitoringOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutput.html>`__
     """
 
     props = {
@@ -208,7 +208,7 @@ class MonitoringOutput(AWSProperty):
 
 class MonitoringOutputConfig(AWSProperty):
     """
-    `MonitoringOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html>`_
+    `MonitoringOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringoutputconfig.html>`__
     """
 
     props = {
@@ -219,7 +219,7 @@ class MonitoringOutputConfig(AWSProperty):
 
 class ClusterConfig(AWSProperty):
     """
-    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html>`_
+    `ClusterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-clusterconfig.html>`__
     """
 
     props = {
@@ -232,7 +232,7 @@ class ClusterConfig(AWSProperty):
 
 class MonitoringResources(AWSProperty):
     """
-    `MonitoringResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html>`_
+    `MonitoringResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringresources.html>`__
     """
 
     props = {
@@ -242,7 +242,7 @@ class MonitoringResources(AWSProperty):
 
 class VpcConfig(AWSProperty):
     """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`_
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
     """
 
     props = {
@@ -253,7 +253,7 @@ class VpcConfig(AWSProperty):
 
 class NetworkConfig(AWSProperty):
     """
-    `NetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html>`_
+    `NetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html>`__
     """
 
     props = {
@@ -265,7 +265,7 @@ class NetworkConfig(AWSProperty):
 
 class StoppingCondition(AWSProperty):
     """
-    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html>`_
+    `StoppingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-stoppingcondition.html>`__
     """
 
     props = {
@@ -275,7 +275,7 @@ class StoppingCondition(AWSProperty):
 
 class DataQualityJobDefinition(AWSObject):
     """
-    `DataQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html>`_
+    `DataQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-dataqualityjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::DataQualityJobDefinition"
@@ -296,7 +296,7 @@ class DataQualityJobDefinition(AWSObject):
 
 class DeviceProperty(AWSProperty):
     """
-    `DeviceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html>`_
+    `DeviceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-device-device.html>`__
     """
 
     props = {
@@ -308,7 +308,7 @@ class DeviceProperty(AWSProperty):
 
 class Device(AWSObject):
     """
-    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html>`_
+    `Device <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-device.html>`__
     """
 
     resource_type = "AWS::SageMaker::Device"
@@ -322,7 +322,7 @@ class Device(AWSObject):
 
 class EdgeOutputConfig(AWSProperty):
     """
-    `EdgeOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html>`_
+    `EdgeOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-devicefleet-edgeoutputconfig.html>`__
     """
 
     props = {
@@ -333,7 +333,7 @@ class EdgeOutputConfig(AWSProperty):
 
 class DeviceFleet(AWSObject):
     """
-    `DeviceFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html>`_
+    `DeviceFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-devicefleet.html>`__
     """
 
     resource_type = "AWS::SageMaker::DeviceFleet"
@@ -349,7 +349,7 @@ class DeviceFleet(AWSObject):
 
 class JupyterServerAppSettings(AWSProperty):
     """
-    `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`_
+    `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`__
     """
 
     props = {
@@ -359,7 +359,7 @@ class JupyterServerAppSettings(AWSProperty):
 
 class CustomImage(AWSProperty):
     """
-    `CustomImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html>`_
+    `CustomImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html>`__
     """
 
     props = {
@@ -371,7 +371,7 @@ class CustomImage(AWSProperty):
 
 class KernelGatewayAppSettings(AWSProperty):
     """
-    `KernelGatewayAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html>`_
+    `KernelGatewayAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html>`__
     """
 
     props = {
@@ -382,7 +382,7 @@ class KernelGatewayAppSettings(AWSProperty):
 
 class SharingSettings(AWSProperty):
     """
-    `SharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html>`_
+    `SharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html>`__
     """
 
     props = {
@@ -394,7 +394,7 @@ class SharingSettings(AWSProperty):
 
 class UserSettings(AWSProperty):
     """
-    `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html>`_
+    `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html>`__
     """
 
     props = {
@@ -408,7 +408,7 @@ class UserSettings(AWSProperty):
 
 class Domain(AWSObject):
     """
-    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html>`_
+    `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-domain.html>`__
     """
 
     resource_type = "AWS::SageMaker::Domain"
@@ -427,7 +427,7 @@ class Domain(AWSObject):
 
 class Alarm(AWSProperty):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html>`_
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html>`__
     """
 
     props = {
@@ -437,7 +437,7 @@ class Alarm(AWSProperty):
 
 class AutoRollbackConfig(AWSProperty):
     """
-    `AutoRollbackConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html>`_
+    `AutoRollbackConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-autorollbackconfig.html>`__
     """
 
     props = {
@@ -447,7 +447,7 @@ class AutoRollbackConfig(AWSProperty):
 
 class CapacitySize(AWSProperty):
     """
-    `CapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html>`_
+    `CapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-capacitysize.html>`__
     """
 
     props = {
@@ -458,7 +458,7 @@ class CapacitySize(AWSProperty):
 
 class TrafficRoutingConfig(AWSProperty):
     """
-    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html>`_
+    `TrafficRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-trafficroutingconfig.html>`__
     """
 
     props = {
@@ -471,7 +471,7 @@ class TrafficRoutingConfig(AWSProperty):
 
 class BlueGreenUpdatePolicy(AWSProperty):
     """
-    `BlueGreenUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html>`_
+    `BlueGreenUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-bluegreenupdatepolicy.html>`__
     """
 
     props = {
@@ -483,7 +483,7 @@ class BlueGreenUpdatePolicy(AWSProperty):
 
 class DeploymentConfig(AWSProperty):
     """
-    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html>`_
+    `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html>`__
     """
 
     props = {
@@ -494,7 +494,7 @@ class DeploymentConfig(AWSProperty):
 
 class VariantProperty(AWSProperty):
     """
-    `VariantProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html>`_
+    `VariantProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-variantproperty.html>`__
     """
 
     props = {
@@ -504,7 +504,7 @@ class VariantProperty(AWSProperty):
 
 class Endpoint(AWSObject):
     """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html>`_
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpoint.html>`__
     """
 
     resource_type = "AWS::SageMaker::Endpoint"
@@ -522,7 +522,7 @@ class Endpoint(AWSObject):
 
 class AsyncInferenceClientConfig(AWSProperty):
     """
-    `AsyncInferenceClientConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html>`_
+    `AsyncInferenceClientConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceclientconfig.html>`__
     """
 
     props = {
@@ -532,7 +532,7 @@ class AsyncInferenceClientConfig(AWSProperty):
 
 class AsyncInferenceNotificationConfig(AWSProperty):
     """
-    `AsyncInferenceNotificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html>`_
+    `AsyncInferenceNotificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferencenotificationconfig.html>`__
     """
 
     props = {
@@ -543,7 +543,7 @@ class AsyncInferenceNotificationConfig(AWSProperty):
 
 class AsyncInferenceOutputConfig(AWSProperty):
     """
-    `AsyncInferenceOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html>`_
+    `AsyncInferenceOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceoutputconfig.html>`__
     """
 
     props = {
@@ -555,7 +555,7 @@ class AsyncInferenceOutputConfig(AWSProperty):
 
 class AsyncInferenceConfig(AWSProperty):
     """
-    `AsyncInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html>`_
+    `AsyncInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-asyncinferenceconfig.html>`__
     """
 
     props = {
@@ -566,7 +566,7 @@ class AsyncInferenceConfig(AWSProperty):
 
 class CaptureContentTypeHeader(AWSProperty):
     """
-    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html>`_
+    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html>`__
     """
 
     props = {
@@ -577,7 +577,7 @@ class CaptureContentTypeHeader(AWSProperty):
 
 class CaptureOption(AWSProperty):
     """
-    `CaptureOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html>`_
+    `CaptureOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-captureoption.html>`__
     """
 
     props = {
@@ -587,7 +587,7 @@ class CaptureOption(AWSProperty):
 
 class DataCaptureConfig(AWSProperty):
     """
-    `DataCaptureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html>`_
+    `DataCaptureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig.html>`__
     """
 
     props = {
@@ -602,7 +602,7 @@ class DataCaptureConfig(AWSProperty):
 
 class ServerlessConfig(AWSProperty):
     """
-    `ServerlessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html>`_
+    `ServerlessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html>`__
     """
 
     props = {
@@ -613,7 +613,7 @@ class ServerlessConfig(AWSProperty):
 
 class ProductionVariant(AWSProperty):
     """
-    `ProductionVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html>`_
+    `ProductionVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant.html>`__
     """
 
     props = {
@@ -629,7 +629,7 @@ class ProductionVariant(AWSProperty):
 
 class EndpointConfig(AWSObject):
     """
-    `EndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html>`_
+    `EndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-endpointconfig.html>`__
     """
 
     resource_type = "AWS::SageMaker::EndpointConfig"
@@ -646,7 +646,7 @@ class EndpointConfig(AWSObject):
 
 class FeatureDefinition(AWSProperty):
     """
-    `FeatureDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html>`_
+    `FeatureDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-featuredefinition.html>`__
     """
 
     props = {
@@ -657,7 +657,7 @@ class FeatureDefinition(AWSProperty):
 
 class FeatureGroup(AWSObject):
     """
-    `FeatureGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html>`_
+    `FeatureGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html>`__
     """
 
     resource_type = "AWS::SageMaker::FeatureGroup"
@@ -677,7 +677,7 @@ class FeatureGroup(AWSObject):
 
 class Image(AWSObject):
     """
-    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html>`_
+    `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-image.html>`__
     """
 
     resource_type = "AWS::SageMaker::Image"
@@ -693,7 +693,7 @@ class Image(AWSObject):
 
 class ImageVersion(AWSObject):
     """
-    `ImageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html>`_
+    `ImageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-imageversion.html>`__
     """
 
     resource_type = "AWS::SageMaker::ImageVersion"
@@ -706,7 +706,7 @@ class ImageVersion(AWSObject):
 
 class RepositoryAuthConfig(AWSProperty):
     """
-    `RepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html>`_
+    `RepositoryAuthConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig-repositoryauthconfig.html>`__
     """
 
     props = {
@@ -716,7 +716,7 @@ class RepositoryAuthConfig(AWSProperty):
 
 class ImageConfig(AWSProperty):
     """
-    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html>`_
+    `ImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-imageconfig.html>`__
     """
 
     props = {
@@ -727,7 +727,7 @@ class ImageConfig(AWSProperty):
 
 class MultiModelConfig(AWSProperty):
     """
-    `MultiModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html>`_
+    `MultiModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html>`__
     """
 
     props = {
@@ -737,7 +737,7 @@ class MultiModelConfig(AWSProperty):
 
 class ContainerDefinition(AWSProperty):
     """
-    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html>`_
+    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition.html>`__
     """
 
     props = {
@@ -755,7 +755,7 @@ class ContainerDefinition(AWSProperty):
 
 class InferenceExecutionConfig(AWSProperty):
     """
-    `InferenceExecutionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html>`_
+    `InferenceExecutionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-inferenceexecutionconfig.html>`__
     """
 
     props = {
@@ -765,7 +765,7 @@ class InferenceExecutionConfig(AWSProperty):
 
 class Model(AWSObject):
     """
-    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html>`_
+    `Model <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-model.html>`__
     """
 
     resource_type = "AWS::SageMaker::Model"
@@ -784,7 +784,7 @@ class Model(AWSObject):
 
 class ModelBiasAppSpecification(AWSProperty):
     """
-    `ModelBiasAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html>`_
+    `ModelBiasAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasappspecification.html>`__
     """
 
     props = {
@@ -796,7 +796,7 @@ class ModelBiasAppSpecification(AWSProperty):
 
 class ModelBiasBaselineConfig(AWSProperty):
     """
-    `ModelBiasBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html>`_
+    `ModelBiasBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasbaselineconfig.html>`__
     """
 
     props = {
@@ -807,7 +807,7 @@ class ModelBiasBaselineConfig(AWSProperty):
 
 class MonitoringGroundTruthS3Input(AWSProperty):
     """
-    `MonitoringGroundTruthS3Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html>`_
+    `MonitoringGroundTruthS3Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html>`__
     """
 
     props = {
@@ -817,7 +817,7 @@ class MonitoringGroundTruthS3Input(AWSProperty):
 
 class ModelBiasJobInput(AWSProperty):
     """
-    `ModelBiasJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html>`_
+    `ModelBiasJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-modelbiasjobinput.html>`__
     """
 
     props = {
@@ -828,7 +828,7 @@ class ModelBiasJobInput(AWSProperty):
 
 class ModelBiasJobDefinition(AWSObject):
     """
-    `ModelBiasJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html>`_
+    `ModelBiasJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelbiasjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelBiasJobDefinition"
@@ -849,7 +849,7 @@ class ModelBiasJobDefinition(AWSObject):
 
 class ModelExplainabilityAppSpecification(AWSProperty):
     """
-    `ModelExplainabilityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html>`_
+    `ModelExplainabilityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html>`__
     """
 
     props = {
@@ -861,7 +861,7 @@ class ModelExplainabilityAppSpecification(AWSProperty):
 
 class ModelExplainabilityBaselineConfig(AWSProperty):
     """
-    `ModelExplainabilityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html>`_
+    `ModelExplainabilityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilitybaselineconfig.html>`__
     """
 
     props = {
@@ -872,7 +872,7 @@ class ModelExplainabilityBaselineConfig(AWSProperty):
 
 class ModelExplainabilityJobInput(AWSProperty):
     """
-    `ModelExplainabilityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html>`_
+    `ModelExplainabilityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html>`__
     """
 
     props = {
@@ -882,7 +882,7 @@ class ModelExplainabilityJobInput(AWSProperty):
 
 class ModelExplainabilityJobDefinition(AWSObject):
     """
-    `ModelExplainabilityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html>`_
+    `ModelExplainabilityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelexplainabilityjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelExplainabilityJobDefinition"
@@ -906,7 +906,7 @@ class ModelExplainabilityJobDefinition(AWSObject):
 
 class ModelPackageGroup(AWSObject):
     """
-    `ModelPackageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html>`_
+    `ModelPackageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelPackageGroup"
@@ -921,7 +921,7 @@ class ModelPackageGroup(AWSObject):
 
 class ModelQualityAppSpecification(AWSProperty):
     """
-    `ModelQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html>`_
+    `ModelQualityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityappspecification.html>`__
     """
 
     props = {
@@ -937,7 +937,7 @@ class ModelQualityAppSpecification(AWSProperty):
 
 class ModelQualityBaselineConfig(AWSProperty):
     """
-    `ModelQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html>`_
+    `ModelQualityBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualitybaselineconfig.html>`__
     """
 
     props = {
@@ -948,7 +948,7 @@ class ModelQualityBaselineConfig(AWSProperty):
 
 class ModelQualityJobInput(AWSProperty):
     """
-    `ModelQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html>`_
+    `ModelQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html>`__
     """
 
     props = {
@@ -959,7 +959,7 @@ class ModelQualityJobInput(AWSProperty):
 
 class ModelQualityJobDefinition(AWSObject):
     """
-    `ModelQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html>`_
+    `ModelQualityJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelqualityjobdefinition.html>`__
     """
 
     resource_type = "AWS::SageMaker::ModelQualityJobDefinition"
@@ -980,7 +980,7 @@ class ModelQualityJobDefinition(AWSObject):
 
 class MonitoringExecutionSummary(AWSProperty):
     """
-    `MonitoringExecutionSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html>`_
+    `MonitoringExecutionSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringexecutionsummary.html>`__
     """
 
     props = {
@@ -997,7 +997,7 @@ class MonitoringExecutionSummary(AWSProperty):
 
 class BaselineConfig(AWSProperty):
     """
-    `BaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html>`_
+    `BaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-baselineconfig.html>`__
     """
 
     props = {
@@ -1008,7 +1008,7 @@ class BaselineConfig(AWSProperty):
 
 class MonitoringAppSpecification(AWSProperty):
     """
-    `MonitoringAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html>`_
+    `MonitoringAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringappspecification.html>`__
     """
 
     props = {
@@ -1022,7 +1022,7 @@ class MonitoringAppSpecification(AWSProperty):
 
 class MonitoringInput(AWSProperty):
     """
-    `MonitoringInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html>`_
+    `MonitoringInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringinput.html>`__
     """
 
     props = {
@@ -1032,7 +1032,7 @@ class MonitoringInput(AWSProperty):
 
 class MonitoringJobDefinition(AWSProperty):
     """
-    `MonitoringJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html>`_
+    `MonitoringJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringjobdefinition.html>`__
     """
 
     props = {
@@ -1050,7 +1050,7 @@ class MonitoringJobDefinition(AWSProperty):
 
 class ScheduleConfig(AWSProperty):
     """
-    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html>`_
+    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-scheduleconfig.html>`__
     """
 
     props = {
@@ -1060,7 +1060,7 @@ class ScheduleConfig(AWSProperty):
 
 class MonitoringScheduleConfig(AWSProperty):
     """
-    `MonitoringScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html>`_
+    `MonitoringScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-monitoringscheduleconfig.html>`__
     """
 
     props = {
@@ -1073,7 +1073,7 @@ class MonitoringScheduleConfig(AWSProperty):
 
 class MonitoringSchedule(AWSObject):
     """
-    `MonitoringSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html>`_
+    `MonitoringSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-monitoringschedule.html>`__
     """
 
     resource_type = "AWS::SageMaker::MonitoringSchedule"
@@ -1091,7 +1091,7 @@ class MonitoringSchedule(AWSObject):
 
 class NotebookInstance(AWSObject):
     """
-    `NotebookInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html>`_
+    `NotebookInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html>`__
     """
 
     resource_type = "AWS::SageMaker::NotebookInstance"
@@ -1117,7 +1117,7 @@ class NotebookInstance(AWSObject):
 
 class NotebookInstanceLifecycleHook(AWSProperty):
     """
-    `NotebookInstanceLifecycleHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html>`_
+    `NotebookInstanceLifecycleHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstancelifecycleconfig-notebookinstancelifecyclehook.html>`__
     """
 
     props = {
@@ -1127,7 +1127,7 @@ class NotebookInstanceLifecycleHook(AWSProperty):
 
 class NotebookInstanceLifecycleConfig(AWSObject):
     """
-    `NotebookInstanceLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html>`_
+    `NotebookInstanceLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstancelifecycleconfig.html>`__
     """
 
     resource_type = "AWS::SageMaker::NotebookInstanceLifecycleConfig"
@@ -1141,7 +1141,7 @@ class NotebookInstanceLifecycleConfig(AWSObject):
 
 class Pipeline(AWSObject):
     """
-    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html>`_
+    `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html>`__
     """
 
     resource_type = "AWS::SageMaker::Pipeline"
@@ -1158,7 +1158,7 @@ class Pipeline(AWSObject):
 
 class Project(AWSObject):
     """
-    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html>`_
+    `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-project.html>`__
     """
 
     resource_type = "AWS::SageMaker::Project"
@@ -1173,7 +1173,7 @@ class Project(AWSObject):
 
 class UserProfile(AWSObject):
     """
-    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html>`_
+    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html>`__
     """
 
     resource_type = "AWS::SageMaker::UserProfile"
@@ -1190,7 +1190,7 @@ class UserProfile(AWSObject):
 
 class CognitoMemberDefinition(AWSProperty):
     """
-    `CognitoMemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html>`_
+    `CognitoMemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-cognitomemberdefinition.html>`__
     """
 
     props = {
@@ -1202,7 +1202,7 @@ class CognitoMemberDefinition(AWSProperty):
 
 class MemberDefinition(AWSProperty):
     """
-    `MemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html>`_
+    `MemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html>`__
     """
 
     props = {
@@ -1212,7 +1212,7 @@ class MemberDefinition(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     """
-    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html>`_
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-notificationconfiguration.html>`__
     """
 
     props = {
@@ -1222,7 +1222,7 @@ class NotificationConfiguration(AWSProperty):
 
 class Workteam(AWSObject):
     """
-    `Workteam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html>`_
+    `Workteam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-workteam.html>`__
     """
 
     resource_type = "AWS::SageMaker::Workteam"

@@ -19,7 +19,7 @@ from .validators.acmpca import (
 
 class ExtendedKeyUsage(AWSProperty):
     """
-    `ExtendedKeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html>`_
+    `ExtendedKeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html>`__
     """
 
     props = {
@@ -30,7 +30,7 @@ class ExtendedKeyUsage(AWSProperty):
 
 class EdiPartyName(AWSProperty):
     """
-    `EdiPartyName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html>`_
+    `EdiPartyName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html>`__
     """
 
     props = {
@@ -41,7 +41,7 @@ class EdiPartyName(AWSProperty):
 
 class OtherName(AWSProperty):
     """
-    `OtherName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html>`_
+    `OtherName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html>`__
     """
 
     props = {
@@ -52,7 +52,7 @@ class OtherName(AWSProperty):
 
 class Subject(AWSProperty):
     """
-    `Subject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html>`_
+    `Subject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html>`__
     """
 
     props = {
@@ -75,7 +75,7 @@ class Subject(AWSProperty):
 
 class GeneralName(AWSProperty):
     """
-    `GeneralName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html>`_
+    `GeneralName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html>`__
     """
 
     props = {
@@ -92,7 +92,7 @@ class GeneralName(AWSProperty):
 
 class KeyUsage(AWSProperty):
     """
-    `KeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html>`_
+    `KeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html>`__
     """
 
     props = {
@@ -110,7 +110,7 @@ class KeyUsage(AWSProperty):
 
 class Qualifier(AWSProperty):
     """
-    `Qualifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html>`_
+    `Qualifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html>`__
     """
 
     props = {
@@ -120,7 +120,7 @@ class Qualifier(AWSProperty):
 
 class PolicyQualifierInfo(AWSProperty):
     """
-    `PolicyQualifierInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html>`_
+    `PolicyQualifierInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html>`__
     """
 
     props = {
@@ -131,7 +131,7 @@ class PolicyQualifierInfo(AWSProperty):
 
 class PolicyInformation(AWSProperty):
     """
-    `PolicyInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html>`_
+    `PolicyInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html>`__
     """
 
     props = {
@@ -142,7 +142,7 @@ class PolicyInformation(AWSProperty):
 
 class Extensions(AWSProperty):
     """
-    `Extensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html>`_
+    `Extensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html>`__
     """
 
     props = {
@@ -155,7 +155,7 @@ class Extensions(AWSProperty):
 
 class ApiPassthrough(AWSProperty):
     """
-    `ApiPassthrough <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html>`_
+    `ApiPassthrough <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html>`__
     """
 
     props = {
@@ -166,7 +166,7 @@ class ApiPassthrough(AWSProperty):
 
 class Validity(AWSProperty):
     """
-    `Validity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html>`_
+    `Validity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html>`__
     """
 
     props = {
@@ -177,7 +177,7 @@ class Validity(AWSProperty):
 
 class Certificate(AWSObject):
     """
-    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html>`_
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificate.html>`__
     """
 
     resource_type = "AWS::ACMPCA::Certificate"
@@ -195,7 +195,7 @@ class Certificate(AWSObject):
 
 class AccessMethod(AWSProperty):
     """
-    `AccessMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html>`_
+    `AccessMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html>`__
     """
 
     props = {
@@ -206,7 +206,7 @@ class AccessMethod(AWSProperty):
 
 class AccessDescription(AWSProperty):
     """
-    `AccessDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html>`_
+    `AccessDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html>`__
     """
 
     props = {
@@ -217,7 +217,7 @@ class AccessDescription(AWSProperty):
 
 class CsrExtensions(AWSProperty):
     """
-    `CsrExtensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html>`_
+    `CsrExtensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html>`__
     """
 
     props = {
@@ -228,7 +228,7 @@ class CsrExtensions(AWSProperty):
 
 class CrlConfiguration(AWSProperty):
     """
-    `CrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html>`_
+    `CrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html>`__
     """
 
     props = {
@@ -242,7 +242,7 @@ class CrlConfiguration(AWSProperty):
 
 class OcspConfiguration(AWSProperty):
     """
-    `OcspConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html>`_
+    `OcspConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html>`__
     """
 
     props = {
@@ -253,7 +253,7 @@ class OcspConfiguration(AWSProperty):
 
 class RevocationConfiguration(AWSProperty):
     """
-    `RevocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html>`_
+    `RevocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html>`__
     """
 
     props = {
@@ -264,7 +264,7 @@ class RevocationConfiguration(AWSProperty):
 
 class CertificateAuthority(AWSObject):
     """
-    `CertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html>`_
+    `CertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthority.html>`__
     """
 
     resource_type = "AWS::ACMPCA::CertificateAuthority"
@@ -283,7 +283,7 @@ class CertificateAuthority(AWSObject):
 
 class CertificateAuthorityActivation(AWSObject):
     """
-    `CertificateAuthorityActivation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html>`_
+    `CertificateAuthorityActivation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-certificateauthorityactivation.html>`__
     """
 
     resource_type = "AWS::ACMPCA::CertificateAuthorityActivation"
@@ -298,7 +298,7 @@ class CertificateAuthorityActivation(AWSObject):
 
 class Permission(AWSObject):
     """
-    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html>`_
+    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-acmpca-permission.html>`__
     """
 
     resource_type = "AWS::ACMPCA::Permission"

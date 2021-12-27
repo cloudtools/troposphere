@@ -13,7 +13,7 @@ from .validators import boolean
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html>`_
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html>`__
     """
 
     props = {
@@ -27,7 +27,7 @@ class Filter(AWSProperty):
 
 class ArchiveRule(AWSProperty):
     """
-    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html>`_
+    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html>`__
     """
 
     props = {
@@ -38,7 +38,7 @@ class ArchiveRule(AWSProperty):
 
 class Analyzer(AWSObject):
     """
-    `Analyzer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html>`_
+    `Analyzer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-accessanalyzer-analyzer.html>`__
     """
 
     resource_type = "AWS::AccessAnalyzer::Analyzer"

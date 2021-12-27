@@ -13,7 +13,7 @@ from .validators import boolean, integer
 
 class ContactFlow(AWSObject):
     """
-    `ContactFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html>`_
+    `ContactFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html>`__
     """
 
     resource_type = "AWS::Connect::ContactFlow"
@@ -31,7 +31,7 @@ class ContactFlow(AWSObject):
 
 class ContactFlowModule(AWSObject):
     """
-    `ContactFlowModule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html>`_
+    `ContactFlowModule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowmodule.html>`__
     """
 
     resource_type = "AWS::Connect::ContactFlowModule"
@@ -48,7 +48,7 @@ class ContactFlowModule(AWSObject):
 
 class HoursOfOperationTimeSlice(AWSProperty):
     """
-    `HoursOfOperationTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>`_
+    `HoursOfOperationTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>`__
     """
 
     props = {
@@ -59,7 +59,7 @@ class HoursOfOperationTimeSlice(AWSProperty):
 
 class HoursOfOperationConfig(AWSProperty):
     """
-    `HoursOfOperationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html>`_
+    `HoursOfOperationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html>`__
     """
 
     props = {
@@ -71,7 +71,7 @@ class HoursOfOperationConfig(AWSProperty):
 
 class HoursOfOperation(AWSObject):
     """
-    `HoursOfOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html>`_
+    `HoursOfOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html>`__
     """
 
     resource_type = "AWS::Connect::HoursOfOperation"
@@ -88,7 +88,7 @@ class HoursOfOperation(AWSObject):
 
 class PhoneNumberQuickConnectConfig(AWSProperty):
     """
-    `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`_
+    `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__
     """
 
     props = {
@@ -98,7 +98,7 @@ class PhoneNumberQuickConnectConfig(AWSProperty):
 
 class QueueQuickConnectConfig(AWSProperty):
     """
-    `QueueQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html>`_
+    `QueueQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html>`__
     """
 
     props = {
@@ -109,7 +109,7 @@ class QueueQuickConnectConfig(AWSProperty):
 
 class UserQuickConnectConfig(AWSProperty):
     """
-    `UserQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html>`_
+    `UserQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html>`__
     """
 
     props = {
@@ -120,7 +120,7 @@ class UserQuickConnectConfig(AWSProperty):
 
 class QuickConnectConfig(AWSProperty):
     """
-    `QuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html>`_
+    `QuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html>`__
     """
 
     props = {
@@ -133,7 +133,7 @@ class QuickConnectConfig(AWSProperty):
 
 class QuickConnect(AWSObject):
     """
-    `QuickConnect <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html>`_
+    `QuickConnect <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-quickconnect.html>`__
     """
 
     resource_type = "AWS::Connect::QuickConnect"
@@ -149,7 +149,7 @@ class QuickConnect(AWSObject):
 
 class UserIdentityInfo(AWSProperty):
     """
-    `UserIdentityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html>`_
+    `UserIdentityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html>`__
     """
 
     props = {
@@ -161,7 +161,7 @@ class UserIdentityInfo(AWSProperty):
 
 class UserPhoneConfig(AWSProperty):
     """
-    `UserPhoneConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html>`_
+    `UserPhoneConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html>`__
     """
 
     props = {
@@ -174,7 +174,7 @@ class UserPhoneConfig(AWSProperty):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html>`_
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html>`__
     """
 
     resource_type = "AWS::Connect::User"
@@ -195,7 +195,7 @@ class User(AWSObject):
 
 class UserHierarchyGroup(AWSObject):
     """
-    `UserHierarchyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html>`_
+    `UserHierarchyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchygroup.html>`__
     """
 
     resource_type = "AWS::Connect::UserHierarchyGroup"

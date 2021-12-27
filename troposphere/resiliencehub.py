@@ -17,7 +17,7 @@ from .validators.resiliencehub import (
 
 class PhysicalResourceId(AWSProperty):
     """
-    `PhysicalResourceId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html>`_
+    `PhysicalResourceId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html>`__
     """
 
     props = {
@@ -30,7 +30,7 @@ class PhysicalResourceId(AWSProperty):
 
 class ResourceMapping(AWSProperty):
     """
-    `ResourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html>`_
+    `ResourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html>`__
     """
 
     props = {
@@ -43,7 +43,7 @@ class ResourceMapping(AWSProperty):
 
 class App(AWSObject):
     """
-    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html>`_
+    `App <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-app.html>`__
     """
 
     resource_type = "AWS::ResilienceHub::App"
@@ -60,7 +60,7 @@ class App(AWSObject):
 
 class FailurePolicy(AWSProperty):
     """
-    `FailurePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html>`_
+    `FailurePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html>`__
     """
 
     props = {
@@ -71,7 +71,7 @@ class FailurePolicy(AWSProperty):
 
 class ResiliencyPolicy(AWSObject):
     """
-    `ResiliencyPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html>`_
+    `ResiliencyPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html>`__
     """
 
     resource_type = "AWS::ResilienceHub::ResiliencyPolicy"

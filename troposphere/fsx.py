@@ -18,7 +18,7 @@ from .validators.fsx import (
 
 class LustreConfiguration(AWSProperty):
     """
-    `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html>`_
+    `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html>`__
     """
 
     props = {
@@ -42,7 +42,7 @@ class LustreConfiguration(AWSProperty):
 
 class DiskIopsConfiguration(AWSProperty):
     """
-    `DiskIopsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html>`_
+    `DiskIopsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-diskiopsconfiguration.html>`__
     """
 
     props = {
@@ -53,7 +53,7 @@ class DiskIopsConfiguration(AWSProperty):
 
 class OntapConfiguration(AWSProperty):
     """
-    `OntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html>`_
+    `OntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-ontapconfiguration.html>`__
     """
 
     props = {
@@ -72,7 +72,7 @@ class OntapConfiguration(AWSProperty):
 
 class ClientConfigurations(AWSProperty):
     """
-    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations.html>`_
+    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations.html>`__
     """
 
     props = {
@@ -83,7 +83,7 @@ class ClientConfigurations(AWSProperty):
 
 class NfsExports(AWSProperty):
     """
-    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html>`_
+    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html>`__
     """
 
     props = {
@@ -93,7 +93,7 @@ class NfsExports(AWSProperty):
 
 class UserAndGroupQuotas(AWSProperty):
     """
-    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html>`_
+    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html>`__
     """
 
     props = {
@@ -105,7 +105,7 @@ class UserAndGroupQuotas(AWSProperty):
 
 class RootVolumeConfiguration(AWSProperty):
     """
-    `RootVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html>`_
+    `RootVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration.html>`__
     """
 
     props = {
@@ -119,7 +119,7 @@ class RootVolumeConfiguration(AWSProperty):
 
 class OpenZFSConfiguration(AWSProperty):
     """
-    `OpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html>`_
+    `OpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration.html>`__
     """
 
     props = {
@@ -137,7 +137,7 @@ class OpenZFSConfiguration(AWSProperty):
 
 class AuditLogConfiguration(AWSProperty):
     """
-    `AuditLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html>`_
+    `AuditLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-auditlogconfiguration.html>`__
     """
 
     props = {
@@ -149,7 +149,7 @@ class AuditLogConfiguration(AWSProperty):
 
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     """
-    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html>`_
+    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html>`__
     """
 
     props = {
@@ -164,7 +164,7 @@ class SelfManagedActiveDirectoryConfiguration(AWSProperty):
 
 class WindowsConfiguration(AWSProperty):
     """
-    `WindowsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html>`_
+    `WindowsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration.html>`__
     """
 
     props = {
@@ -187,7 +187,7 @@ class WindowsConfiguration(AWSProperty):
 
 class FileSystem(AWSObject):
     """
-    `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html>`_
+    `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-filesystem.html>`__
     """
 
     resource_type = "AWS::FSx::FileSystem"

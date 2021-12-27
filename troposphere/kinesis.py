@@ -14,7 +14,7 @@ from .validators.kinesis import kinesis_stream_mode, validate_tags_or_list
 
 class StreamEncryption(AWSProperty):
     """
-    `StreamEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html>`_
+    `StreamEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html>`__
     """
 
     props = {
@@ -25,7 +25,7 @@ class StreamEncryption(AWSProperty):
 
 class StreamModeDetails(AWSProperty):
     """
-    `StreamModeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streammodedetails.html>`_
+    `StreamModeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streammodedetails.html>`__
     """
 
     props = {
@@ -35,7 +35,7 @@ class StreamModeDetails(AWSProperty):
 
 class Stream(AWSObject):
     """
-    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html>`_
+    `Stream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html>`__
     """
 
     resource_type = "AWS::Kinesis::Stream"
@@ -52,7 +52,7 @@ class Stream(AWSObject):
 
 class StreamConsumer(AWSObject):
     """
-    `StreamConsumer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html>`_
+    `StreamConsumer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-streamconsumer.html>`__
     """
 
     resource_type = "AWS::Kinesis::StreamConsumer"

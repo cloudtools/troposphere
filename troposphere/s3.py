@@ -27,7 +27,7 @@ from .validators.s3 import (
 
 class PublicAccessBlockConfiguration(AWSProperty):
     """
-    `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html>`_
+    `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html>`__
     """
 
     props = {
@@ -40,7 +40,7 @@ class PublicAccessBlockConfiguration(AWSProperty):
 
 class VpcConfiguration(AWSProperty):
     """
-    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html>`_
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accesspoint-vpcconfiguration.html>`__
     """
 
     props = {
@@ -50,7 +50,7 @@ class VpcConfiguration(AWSProperty):
 
 class AccessPoint(AWSObject):
     """
-    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html>`_
+    `AccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accesspoint.html>`__
     """
 
     resource_type = "AWS::S3::AccessPoint"
@@ -67,7 +67,7 @@ class AccessPoint(AWSObject):
 
 class AccelerateConfiguration(AWSProperty):
     """
-    `AccelerateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html>`_
+    `AccelerateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accelerateconfiguration.html>`__
     """
 
     props = {
@@ -77,7 +77,7 @@ class AccelerateConfiguration(AWSProperty):
 
 class Destination(AWSProperty):
     """
-    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html>`_
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-destination.html>`__
     """
 
     props = {
@@ -90,7 +90,7 @@ class Destination(AWSProperty):
 
 class DataExport(AWSProperty):
     """
-    `DataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html>`_
+    `DataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-dataexport.html>`__
     """
 
     props = {
@@ -101,7 +101,7 @@ class DataExport(AWSProperty):
 
 class StorageClassAnalysis(AWSProperty):
     """
-    `StorageClassAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html>`_
+    `StorageClassAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-storageclassanalysis.html>`__
     """
 
     props = {
@@ -111,7 +111,7 @@ class StorageClassAnalysis(AWSProperty):
 
 class TagFilter(AWSProperty):
     """
-    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html>`_
+    `TagFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tagfilter.html>`__
     """
 
     props = {
@@ -122,7 +122,7 @@ class TagFilter(AWSProperty):
 
 class AnalyticsConfiguration(AWSProperty):
     """
-    `AnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html>`_
+    `AnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-analyticsconfiguration.html>`__
     """
 
     props = {
@@ -135,7 +135,7 @@ class AnalyticsConfiguration(AWSProperty):
 
 class ServerSideEncryptionByDefault(AWSProperty):
     """
-    `ServerSideEncryptionByDefault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html>`_
+    `ServerSideEncryptionByDefault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionbydefault.html>`__
     """
 
     props = {
@@ -146,7 +146,7 @@ class ServerSideEncryptionByDefault(AWSProperty):
 
 class ServerSideEncryptionRule(AWSProperty):
     """
-    `ServerSideEncryptionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html>`_
+    `ServerSideEncryptionRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-serversideencryptionrule.html>`__
     """
 
     props = {
@@ -157,7 +157,7 @@ class ServerSideEncryptionRule(AWSProperty):
 
 class BucketEncryption(AWSProperty):
     """
-    `BucketEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html>`_
+    `BucketEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-bucketencryption.html>`__
     """
 
     props = {
@@ -167,7 +167,7 @@ class BucketEncryption(AWSProperty):
 
 class CorsRules(AWSProperty):
     """
-    `CorsRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html>`_
+    `CorsRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html>`__
     """
 
     props = {
@@ -182,7 +182,7 @@ class CorsRules(AWSProperty):
 
 class CorsConfiguration(AWSProperty):
     """
-    `CorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html>`_
+    `CorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html>`__
     """
 
     props = {
@@ -192,7 +192,7 @@ class CorsConfiguration(AWSProperty):
 
 class Tiering(AWSProperty):
     """
-    `Tiering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html>`_
+    `Tiering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-tiering.html>`__
     """
 
     props = {
@@ -203,7 +203,7 @@ class Tiering(AWSProperty):
 
 class IntelligentTieringConfiguration(AWSProperty):
     """
-    `IntelligentTieringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html>`_
+    `IntelligentTieringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-intelligenttieringconfiguration.html>`__
     """
 
     props = {
@@ -217,7 +217,7 @@ class IntelligentTieringConfiguration(AWSProperty):
 
 class InventoryConfiguration(AWSProperty):
     """
-    `InventoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html>`_
+    `InventoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-inventoryconfiguration.html>`__
     """
 
     props = {
@@ -233,7 +233,7 @@ class InventoryConfiguration(AWSProperty):
 
 class AbortIncompleteMultipartUpload(AWSProperty):
     """
-    `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html>`_
+    `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-abortincompletemultipartupload.html>`__
     """
 
     props = {
@@ -243,7 +243,7 @@ class AbortIncompleteMultipartUpload(AWSProperty):
 
 class LifecycleRuleTransition(AWSProperty):
     """
-    `LifecycleRuleTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html>`_
+    `LifecycleRuleTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html>`__
     """
 
     props = {
@@ -255,7 +255,7 @@ class LifecycleRuleTransition(AWSProperty):
 
 class NoncurrentVersionExpiration(AWSProperty):
     """
-    `NoncurrentVersionExpiration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversionexpiration.html>`_
+    `NoncurrentVersionExpiration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversionexpiration.html>`__
     """
 
     props = {
@@ -266,7 +266,7 @@ class NoncurrentVersionExpiration(AWSProperty):
 
 class NoncurrentVersionTransition(AWSProperty):
     """
-    `NoncurrentVersionTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html>`_
+    `NoncurrentVersionTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html>`__
     """
 
     props = {
@@ -278,7 +278,7 @@ class NoncurrentVersionTransition(AWSProperty):
 
 class LifecycleRule(AWSProperty):
     """
-    `LifecycleRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html>`_
+    `LifecycleRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html>`__
     """
 
     props = {
@@ -306,7 +306,7 @@ class LifecycleRule(AWSProperty):
 
 class LifecycleConfiguration(AWSProperty):
     """
-    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html>`_
+    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html>`__
     """
 
     props = {
@@ -316,7 +316,7 @@ class LifecycleConfiguration(AWSProperty):
 
 class LoggingConfiguration(AWSProperty):
     """
-    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html>`_
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html>`__
     """
 
     props = {
@@ -327,7 +327,7 @@ class LoggingConfiguration(AWSProperty):
 
 class MetricsConfiguration(AWSProperty):
     """
-    `MetricsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html>`_
+    `MetricsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html>`__
     """
 
     props = {
@@ -340,7 +340,7 @@ class MetricsConfiguration(AWSProperty):
 
 class EventBridgeConfiguration(AWSProperty):
     """
-    `EventBridgeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-eventbridgeconfig.html>`_
+    `EventBridgeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-eventbridgeconfig.html>`__
     """
 
     props = {
@@ -350,7 +350,7 @@ class EventBridgeConfiguration(AWSProperty):
 
 class Rules(AWSProperty):
     """
-    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html>`_
+    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html>`__
     """
 
     props = {
@@ -361,7 +361,7 @@ class Rules(AWSProperty):
 
 class S3Key(AWSProperty):
     """
-    `S3Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html>`_
+    `S3Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html>`__
     """
 
     props = {
@@ -371,7 +371,7 @@ class S3Key(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html>`_
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html>`__
     """
 
     props = {
@@ -381,7 +381,7 @@ class Filter(AWSProperty):
 
 class LambdaConfigurations(AWSProperty):
     """
-    `LambdaConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html>`_
+    `LambdaConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html>`__
     """
 
     props = {
@@ -393,7 +393,7 @@ class LambdaConfigurations(AWSProperty):
 
 class QueueConfigurations(AWSProperty):
     """
-    `QueueConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html>`_
+    `QueueConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html>`__
     """
 
     props = {
@@ -405,7 +405,7 @@ class QueueConfigurations(AWSProperty):
 
 class TopicConfigurations(AWSProperty):
     """
-    `TopicConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html>`_
+    `TopicConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html>`__
     """
 
     props = {
@@ -417,7 +417,7 @@ class TopicConfigurations(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     """
-    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html>`_
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html>`__
     """
 
     props = {
@@ -430,7 +430,7 @@ class NotificationConfiguration(AWSProperty):
 
 class DefaultRetention(AWSProperty):
     """
-    `DefaultRetention <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html>`_
+    `DefaultRetention <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-defaultretention.html>`__
     """
 
     props = {
@@ -442,7 +442,7 @@ class DefaultRetention(AWSProperty):
 
 class ObjectLockRule(AWSProperty):
     """
-    `ObjectLockRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html>`_
+    `ObjectLockRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockrule.html>`__
     """
 
     props = {
@@ -452,7 +452,7 @@ class ObjectLockRule(AWSProperty):
 
 class ObjectLockConfiguration(AWSProperty):
     """
-    `ObjectLockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html>`_
+    `ObjectLockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-objectlockconfiguration.html>`__
     """
 
     props = {
@@ -463,7 +463,7 @@ class ObjectLockConfiguration(AWSProperty):
 
 class OwnershipControlsRule(AWSProperty):
     """
-    `OwnershipControlsRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html>`_
+    `OwnershipControlsRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrolsrule.html>`__
     """
 
     props = {
@@ -473,7 +473,7 @@ class OwnershipControlsRule(AWSProperty):
 
 class OwnershipControls(AWSProperty):
     """
-    `OwnershipControls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html>`_
+    `OwnershipControls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ownershipcontrols.html>`__
     """
 
     props = {
@@ -483,7 +483,7 @@ class OwnershipControls(AWSProperty):
 
 class DeleteMarkerReplication(AWSProperty):
     """
-    `DeleteMarkerReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html>`_
+    `DeleteMarkerReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-deletemarkerreplication.html>`__
     """
 
     props = {
@@ -493,7 +493,7 @@ class DeleteMarkerReplication(AWSProperty):
 
 class AccessControlTranslation(AWSProperty):
     """
-    `AccessControlTranslation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html>`_
+    `AccessControlTranslation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-accesscontroltranslation.html>`__
     """
 
     props = {
@@ -503,7 +503,7 @@ class AccessControlTranslation(AWSProperty):
 
 class EncryptionConfiguration(AWSProperty):
     """
-    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html>`_
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-encryptionconfiguration.html>`__
     """
 
     props = {
@@ -513,7 +513,7 @@ class EncryptionConfiguration(AWSProperty):
 
 class ReplicationTimeValue(AWSProperty):
     """
-    `ReplicationTimeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html>`_
+    `ReplicationTimeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtimevalue.html>`__
     """
 
     props = {
@@ -523,7 +523,7 @@ class ReplicationTimeValue(AWSProperty):
 
 class Metrics(AWSProperty):
     """
-    `Metrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html>`_
+    `Metrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metrics.html>`__
     """
 
     props = {
@@ -534,7 +534,7 @@ class Metrics(AWSProperty):
 
 class ReplicationTime(AWSProperty):
     """
-    `ReplicationTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html>`_
+    `ReplicationTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationtime.html>`__
     """
 
     props = {
@@ -545,7 +545,7 @@ class ReplicationTime(AWSProperty):
 
 class ReplicationConfigurationRulesDestination(AWSProperty):
     """
-    `ReplicationConfigurationRulesDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html>`_
+    `ReplicationConfigurationRulesDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html>`__
     """
 
     props = {
@@ -561,7 +561,7 @@ class ReplicationConfigurationRulesDestination(AWSProperty):
 
 class ReplicationRuleAndOperator(AWSProperty):
     """
-    `ReplicationRuleAndOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html>`_
+    `ReplicationRuleAndOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationruleandoperator.html>`__
     """
 
     props = {
@@ -572,7 +572,7 @@ class ReplicationRuleAndOperator(AWSProperty):
 
 class ReplicationRuleFilter(AWSProperty):
     """
-    `ReplicationRuleFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html>`_
+    `ReplicationRuleFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrulefilter.html>`__
     """
 
     props = {
@@ -584,7 +584,7 @@ class ReplicationRuleFilter(AWSProperty):
 
 class ReplicaModifications(AWSProperty):
     """
-    `ReplicaModifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html>`_
+    `ReplicaModifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicamodifications.html>`__
     """
 
     props = {
@@ -594,7 +594,7 @@ class ReplicaModifications(AWSProperty):
 
 class SseKmsEncryptedObjects(AWSProperty):
     """
-    `SseKmsEncryptedObjects <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html>`_
+    `SseKmsEncryptedObjects <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-ssekmsencryptedobjects.html>`__
     """
 
     props = {
@@ -604,7 +604,7 @@ class SseKmsEncryptedObjects(AWSProperty):
 
 class SourceSelectionCriteria(AWSProperty):
     """
-    `SourceSelectionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html>`_
+    `SourceSelectionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-sourceselectioncriteria.html>`__
     """
 
     props = {
@@ -615,7 +615,7 @@ class SourceSelectionCriteria(AWSProperty):
 
 class ReplicationConfigurationRules(AWSProperty):
     """
-    `ReplicationConfigurationRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html>`_
+    `ReplicationConfigurationRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html>`__
     """
 
     props = {
@@ -632,7 +632,7 @@ class ReplicationConfigurationRules(AWSProperty):
 
 class ReplicationConfiguration(AWSProperty):
     """
-    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html>`_
+    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration.html>`__
     """
 
     props = {
@@ -643,7 +643,7 @@ class ReplicationConfiguration(AWSProperty):
 
 class VersioningConfiguration(AWSProperty):
     """
-    `VersioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html>`_
+    `VersioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html>`__
     """
 
     props = {
@@ -653,7 +653,7 @@ class VersioningConfiguration(AWSProperty):
 
 class RedirectAllRequestsTo(AWSProperty):
     """
-    `RedirectAllRequestsTo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html>`_
+    `RedirectAllRequestsTo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html>`__
     """
 
     props = {
@@ -664,7 +664,7 @@ class RedirectAllRequestsTo(AWSProperty):
 
 class RedirectRule(AWSProperty):
     """
-    `RedirectRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html>`_
+    `RedirectRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html>`__
     """
 
     props = {
@@ -678,7 +678,7 @@ class RedirectRule(AWSProperty):
 
 class RoutingRuleCondition(AWSProperty):
     """
-    `RoutingRuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html>`_
+    `RoutingRuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html>`__
     """
 
     props = {
@@ -689,7 +689,7 @@ class RoutingRuleCondition(AWSProperty):
 
 class RoutingRule(AWSProperty):
     """
-    `RoutingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html>`_
+    `RoutingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html>`__
     """
 
     props = {
@@ -700,7 +700,7 @@ class RoutingRule(AWSProperty):
 
 class WebsiteConfiguration(AWSProperty):
     """
-    `WebsiteConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html>`_
+    `WebsiteConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html>`__
     """
 
     props = {
@@ -713,7 +713,7 @@ class WebsiteConfiguration(AWSProperty):
 
 class Bucket(AWSObject):
     """
-    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html>`_
+    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html>`__
     """
 
     resource_type = "AWS::S3::Bucket"
@@ -747,7 +747,7 @@ class Bucket(AWSObject):
 
 class BucketPolicy(AWSObject):
     """
-    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`_
+    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__
     """
 
     resource_type = "AWS::S3::BucketPolicy"
@@ -760,7 +760,7 @@ class BucketPolicy(AWSObject):
 
 class Region(AWSProperty):
     """
-    `Region <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html>`_
+    `Region <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-region.html>`__
     """
 
     props = {
@@ -770,7 +770,7 @@ class Region(AWSProperty):
 
 class MultiRegionAccessPoint(AWSObject):
     """
-    `MultiRegionAccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html>`_
+    `MultiRegionAccessPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspoint.html>`__
     """
 
     resource_type = "AWS::S3::MultiRegionAccessPoint"
@@ -784,7 +784,7 @@ class MultiRegionAccessPoint(AWSObject):
 
 class MultiRegionAccessPointPolicy(AWSObject):
     """
-    `MultiRegionAccessPointPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html>`_
+    `MultiRegionAccessPointPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-multiregionaccesspointpolicy.html>`__
     """
 
     resource_type = "AWS::S3::MultiRegionAccessPointPolicy"
@@ -797,7 +797,7 @@ class MultiRegionAccessPointPolicy(AWSObject):
 
 class ActivityMetrics(AWSProperty):
     """
-    `ActivityMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html>`_
+    `ActivityMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-activitymetrics.html>`__
     """
 
     props = {
@@ -807,7 +807,7 @@ class ActivityMetrics(AWSProperty):
 
 class SelectionCriteria(AWSProperty):
     """
-    `SelectionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html>`_
+    `SelectionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html>`__
     """
 
     props = {
@@ -819,7 +819,7 @@ class SelectionCriteria(AWSProperty):
 
 class PrefixLevelStorageMetrics(AWSProperty):
     """
-    `PrefixLevelStorageMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html>`_
+    `PrefixLevelStorageMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevelstoragemetrics.html>`__
     """
 
     props = {
@@ -830,7 +830,7 @@ class PrefixLevelStorageMetrics(AWSProperty):
 
 class PrefixLevel(AWSProperty):
     """
-    `PrefixLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html>`_
+    `PrefixLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-prefixlevel.html>`__
     """
 
     props = {
@@ -840,7 +840,7 @@ class PrefixLevel(AWSProperty):
 
 class BucketLevel(AWSProperty):
     """
-    `BucketLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html>`_
+    `BucketLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketlevel.html>`__
     """
 
     props = {
@@ -851,7 +851,7 @@ class BucketLevel(AWSProperty):
 
 class AccountLevel(AWSProperty):
     """
-    `AccountLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html>`_
+    `AccountLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html>`__
     """
 
     props = {
@@ -862,7 +862,7 @@ class AccountLevel(AWSProperty):
 
 class AwsOrg(AWSProperty):
     """
-    `AwsOrg <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html>`_
+    `AwsOrg <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-awsorg.html>`__
     """
 
     props = {
@@ -872,7 +872,7 @@ class AwsOrg(AWSProperty):
 
 class BucketsAndRegions(AWSProperty):
     """
-    `BucketsAndRegions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html>`_
+    `BucketsAndRegions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-bucketsandregions.html>`__
     """
 
     props = {
@@ -883,7 +883,7 @@ class BucketsAndRegions(AWSProperty):
 
 class CloudWatchMetrics(AWSProperty):
     """
-    `CloudWatchMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html>`_
+    `CloudWatchMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-cloudwatchmetrics.html>`__
     """
 
     props = {
@@ -893,7 +893,7 @@ class CloudWatchMetrics(AWSProperty):
 
 class S3BucketDestination(AWSProperty):
     """
-    `S3BucketDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html>`_
+    `S3BucketDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html>`__
     """
 
     props = {
@@ -908,7 +908,7 @@ class S3BucketDestination(AWSProperty):
 
 class StorageLensDataExport(AWSProperty):
     """
-    `StorageLensDataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html>`_
+    `StorageLensDataExport <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-dataexport.html>`__
     """
 
     props = {
@@ -919,7 +919,7 @@ class StorageLensDataExport(AWSProperty):
 
 class StorageLensConfiguration(AWSProperty):
     """
-    `StorageLensConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html>`_
+    `StorageLensConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensconfiguration.html>`__
     """
 
     props = {
@@ -936,7 +936,7 @@ class StorageLensConfiguration(AWSProperty):
 
 class StorageLens(AWSObject):
     """
-    `StorageLens <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html>`_
+    `StorageLens <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelens.html>`__
     """
 
     resource_type = "AWS::S3::StorageLens"
