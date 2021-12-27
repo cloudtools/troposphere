@@ -377,7 +377,10 @@ class CodeGenerator:
                 continue
 
             child = self._build_tree(
-                property_name, self.properties[property_name], "", None
+                property_name,
+                self.properties[property_name],
+                "",
+                None,
             )
             if child is not None:
                 n.add_child(child)
@@ -550,7 +553,7 @@ class CodeGenerator:
             code.append(f"class {class_name}(AWSObject):")
             if property_type.documentation:
                 code.append('    """')
-                code.append(f"    `{class_name} <{property_type.documentation}>`_")
+                code.append(f"    `{class_name} <{property_type.documentation}>`__")
                 code.append('    """')
                 code.append("")
             code.append(f"    resource_type = '{resource_name}'")
@@ -559,7 +562,7 @@ class CodeGenerator:
             code.append(f"class {class_name}(AWSProperty):")
             if property_type.documentation:
                 code.append('    """')
-                code.append(f"    `{class_name} <{property_type.documentation}>`_")
+                code.append(f"    `{class_name} <{property_type.documentation}>`__")
                 code.append('    """')
                 code.append("")
 
