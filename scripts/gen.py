@@ -317,13 +317,14 @@ class CodeGenerator:
         if self._walk_for_key("Tags"):
             code.append("from . import Tags")
 
-        # Output imports for commonly used validators
-        if self._walk_for_type("Boolean"):
-            code.append("from .validators import boolean")
-        if self._walk_for_type("Integer"):
-            code.append("from .validators import integer")
-        if self._walk_for_type("Double"):
-            code.append("from .validators import double")
+        if not stub:
+            # Output imports for commonly used validators
+            if self._walk_for_type("Boolean"):
+                code.append("from .validators import boolean")
+            if self._walk_for_type("Integer"):
+                code.append("from .validators import integer")
+            if self._walk_for_type("Double"):
+                code.append("from .validators import double")
 
         # Output any constants defined in the validation code
         for v in self.service.constants:
@@ -331,17 +332,21 @@ class CodeGenerator:
                 f"from .validators.{self.service_name} import {v}  # noqa: F401"
             )
 
-        # Output imports for any property validators found.
-        property_imports = set()
-        for k, d in self.service.property_validators.items():
-            for validator in d.values():
-                property_imports.add(validator)
-        for v in sorted(property_imports):
-            code.append(f"from .validators.{self.service_name} import {v}")
+        if not stub:
+            # Output imports for any property validators found.
+            property_imports = set()
+            for k, d in self.service.property_validators.items():
+                for validator in d.values():
+                    property_imports.add(validator)
+            for v in sorted(property_imports):
+                code.append(f"from .validators.{self.service_name} import {v}")
 
-        # Output imports for any class validators found
-        for k, v in self.service.class_validators.items():
-            code.append(f"from .validators.{self.service_name} import {v}")
+            # Output imports for any class validators found
+            for k, v in self.service.class_validators.items():
+                code.append(f"from .validators.{self.service_name} import {v}")
+
+        if stub and self._walk_for_stub_type("List"):
+            code.append("from typing import List")
 
         # Now start outputting the classes
         seen: Dict[str, bool] = {}
@@ -403,8 +408,25 @@ class CodeGenerator:
                 return property.primitive_item_type == check_type
         return False
 
+    def _walk_for_stub_type(self, check_type: str) -> bool:
+        """
+        Walk the resources/properties looking for a specific type.
+        """
+        for class_name, resource_type in sorted(self.resources.items()):
+            for key, resource_value in sorted(resource_type.properties.items()):
+                if resource_value.type == check_type:
+                    return True
+        for class_name, property_type in sorted(self.properties.items()):
+            for key, property_value in sorted(property_type.properties.items()):
+                if property_value.type == check_type:
+                    return True
+
+        return False
+
     def _walk_for_type(self, check_type: str) -> bool:
-        """Walk the resources/properties looking for a specific type."""
+        """
+        Walk the resources/properties looking for a specific type via _check_type()
+        """
         for class_name, resource_type in sorted(self.resources.items()):
             for key, resource_value in sorted(resource_type.properties.items()):
                 if self._check_type(check_type, resource_value):
@@ -417,7 +439,9 @@ class CodeGenerator:
         return False
 
     def _walk_for_key(self, check_key: str) -> bool:
-        """Walk the resources/properties looking for a specific key."""
+        """
+        Walk the resources/properties looking for a specific key.
+        """
         for class_name, resource_type in sorted(self.resources.items()):
             for key, value in sorted(resource_type.properties.items()):
                 if (
@@ -517,7 +541,10 @@ class CodeGenerator:
         }
 
         if value.primitive_type:
-            return map_type.get(value.primitive_type, value.primitive_type)
+            if stub:
+                return map_stub_type.get(value.primitive_type, value.primitive_type)
+            else:
+                return map_type.get(value.primitive_type, value.primitive_type)
 
         if value.type is None:
             return "dict"
