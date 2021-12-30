@@ -223,19 +223,6 @@ class RedshiftDestinationConfiguration(AWSProperty):
     }
 
 
-class S3DestinationConfiguration(AWSProperty):
-    props = {
-        "BucketARN": (str, True),
-        "BufferingHints": (BufferingHints, False),
-        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
-        "CompressionFormat": (str, False),
-        "EncryptionConfiguration": (EncryptionConfiguration, False),
-        "ErrorOutputPrefix": (str, False),
-        "Prefix": (str, False),
-        "RoleARN": (str, True),
-    }
-
-
 class HiveJsonSerDe(AWSProperty):
     props = {
         "TimestampFormats": ([str], False),
@@ -322,12 +309,6 @@ class DataFormatConversionConfiguration(AWSProperty):
     }
 
 
-class RetryOptions(AWSProperty):
-    props = {
-        "DurationInSeconds": (integer, False),
-    }
-
-
 class DynamicPartitioningConfiguration(AWSProperty):
     props = {
         "Enabled": (boolean, False),
@@ -372,12 +353,6 @@ class HttpEndpointRequestConfiguration(AWSProperty):
     props = {
         "CommonAttributes": ([HttpEndpointCommonAttribute], False),
         "ContentEncoding": (str, False),
-    }
-
-
-class RetryOptions(AWSProperty):
-    props = {
-        "DurationInSeconds": (integer, False),
     }
 
 
