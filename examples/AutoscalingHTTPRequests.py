@@ -253,7 +253,7 @@ LaunchConfig = t.add_resource(
     )
 )
 
-LoadBalancer = t.add_resource(
+LoadBalancerResource = t.add_resource(
     LoadBalancer(
         "LoadBalancer",
         ConnectionDrainingPolicy=elb.ConnectionDrainingPolicy(
@@ -293,7 +293,7 @@ AutoscalingGroup = t.add_resource(
         MinSize=Ref(ScaleCapacity),
         MaxSize=Ref(ScaleCapacity),
         VPCZoneIdentifier=[Ref(ApiSubnet1), Ref(ApiSubnet2)],
-        LoadBalancerNames=[Ref(LoadBalancer)],
+        LoadBalancerNames=[Ref(LoadBalancerResource)],
         AvailabilityZones=[Ref(VPCAvailabilityZone1), Ref(VPCAvailabilityZone2)],
         HealthCheckType="ELB",
         UpdatePolicy=UpdatePolicy(
@@ -327,7 +327,7 @@ HTTPRequestAlarm = t.add_resource(
         Namespace="AWS/SQS",
         MetricName="RequestCount",
         Dimensions=[
-            MetricDimension(Name="LoadBalancerName", Value=Ref(LoadBalancer)),
+            MetricDimension(Name="LoadBalancerName", Value=Ref(LoadBalancerResource)),
         ],
         Statistic="Sum",
         Period="300",

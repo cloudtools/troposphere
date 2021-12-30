@@ -132,7 +132,7 @@ PrivateSubnet = t.add_resource(
     )
 )
 
-CustomerGateway = t.add_resource(
+CustomerGatewayResource = t.add_resource(
     CustomerGateway(
         "CustomerGateway",
         BgpAsn="65000",
@@ -145,7 +145,7 @@ CustomerGateway = t.add_resource(
     )
 )
 
-VPNConnectionRoute = t.add_resource(
+VPNConnectionRouteResource = t.add_resource(
     VPNConnectionRoute(
         "VPNConnectionRoute",
         VpnConnectionId=Ref("VPNConnection"),
@@ -164,7 +164,7 @@ PrivateRouteTable = t.add_resource(
     )
 )
 
-VPC = t.add_resource(
+VPCResource = t.add_resource(
     VPC(
         "VPC",
         EnableDnsSupport="true",
@@ -190,7 +190,7 @@ OutBoundPrivateNetworkAclEntry = t.add_resource(
     )
 )
 
-VPNGateway = t.add_resource(
+VPNGatewayResource = t.add_resource(
     VPNGateway(
         "VPNGateway",
         Type="ipsec.1",
@@ -208,13 +208,13 @@ PrivateSubnetNetworkAclAssociation = t.add_resource(
     )
 )
 
-VPNConnection = t.add_resource(
+t.add_resource(
     VPNConnection(
         "VPNConnection",
-        CustomerGatewayId=Ref(CustomerGateway),
+        CustomerGatewayId=Ref(CustomerGatewayResource),
         StaticRoutesOnly="true",
         Type="ipsec.1",
-        VpnGatewayId=Ref(VPNGateway),
+        VpnGatewayId=Ref(VPNGatewayResource),
     )
 )
 
@@ -243,7 +243,7 @@ VPCId = t.add_output(
     Output(
         "VPCId",
         Description="VPCId of the newly created VPC",
-        Value=Ref(VPC),
+        Value=Ref(VPCResource),
     )
 )
 

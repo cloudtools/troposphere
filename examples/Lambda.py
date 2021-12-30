@@ -152,7 +152,7 @@ AllSecurityGroups = t.add_resource(
     )
 )
 
-SecurityGroup = t.add_resource(
+t.add_resource(
     SecurityGroup(
         "SecurityGroup",
         SecurityGroupIngress=[

@@ -20,7 +20,7 @@ OperatorEmail = t.add_parameter(
 
 S3Bucket = t.add_resource(Bucket("S3Bucket", DeletionPolicy="Retain"))
 
-Topic = t.add_resource(
+topic = t.add_resource(
     Topic(
         "Topic",
         Subscription=[
@@ -32,10 +32,10 @@ Topic = t.add_resource(
     )
 )
 
-TopicPolicy = t.add_resource(
+topic_policy = t.add_resource(
     TopicPolicy(
         "TopicPolicy",
-        Topics=[Ref(Topic)],
+        Topics=[Ref(topic)],
         PolicyDocument={
             "Version": "2008-10-17",
             "Statement": [
@@ -51,7 +51,7 @@ TopicPolicy = t.add_resource(
     )
 )
 
-BucketPolicy = t.add_resource(
+bucket_policy = t.add_resource(
     BucketPolicy(
         "BucketPolicy",
         PolicyDocument={
@@ -94,8 +94,8 @@ myTrail = t.add_resource(
         "myTrail",
         IsLogging=True,
         S3BucketName=Ref(S3Bucket),
-        SnsTopicName=GetAtt(Topic, "TopicName"),
-        DependsOn=["BucketPolicy", "TopicPolicy"],
+        SnsTopicName=GetAtt(topic, "TopicName"),
+        DependsOn=[bucket_policy, topic_policy],
     )
 )
 

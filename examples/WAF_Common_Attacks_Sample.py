@@ -77,7 +77,7 @@ SqliRule = t.add_resource(
     )
 )
 
-XssMatchSet = t.add_resource(
+XssMatchSetResource = t.add_resource(
     XssMatchSet(
         "XssMatchSet",
         Name=Join("", [Ref(WebACLName), "XssMatch"]),
@@ -121,7 +121,7 @@ XssRule = t.add_resource(
         "XssRule",
         Name=Join("", [Ref(WebACLName), "XssRule"]),
         Predicates=[
-            Predicates(DataId=Ref(XssMatchSet), Type="XssMatch", Negated=False)
+            Predicates(DataId=Ref(XssMatchSetResource), Type="XssMatch", Negated=False)
         ],
         MetricName=Join("", [Ref(WebACLName), "XssRule"]),
     )

@@ -230,7 +230,7 @@ ref_stack_id = Ref("AWS::StackId")
 ref_region = Ref("AWS::Region")
 ref_stack_name = Ref("AWS::StackName")
 
-VPC = t.add_resource(
+VPCResource = t.add_resource(
     VPC("VPC", CidrBlock="10.0.0.0/16", Tags=Tags(Application=ref_stack_id))
 )
 
@@ -238,7 +238,7 @@ subnet = t.add_resource(
     Subnet(
         "Subnet",
         CidrBlock="10.0.0.0/24",
-        VpcId=Ref(VPC),
+        VpcId=Ref(VPCResource),
         Tags=Tags(Application=ref_stack_id),
     )
 )
@@ -249,12 +249,14 @@ internetGateway = t.add_resource(
 
 gatewayAttachment = t.add_resource(
     VPCGatewayAttachment(
-        "AttachGateway", VpcId=Ref(VPC), InternetGatewayId=Ref(internetGateway)
+        "AttachGateway", VpcId=Ref(VPCResource), InternetGatewayId=Ref(internetGateway)
     )
 )
 
 routeTable = t.add_resource(
-    RouteTable("RouteTable", VpcId=Ref(VPC), Tags=Tags(Application=ref_stack_id))
+    RouteTable(
+        "RouteTable", VpcId=Ref(VPCResource), Tags=Tags(Application=ref_stack_id)
+    )
 )
 
 route = t.add_resource(
@@ -278,7 +280,7 @@ subnetRouteTableAssociation = t.add_resource(
 networkAcl = t.add_resource(
     NetworkAcl(
         "NetworkAcl",
-        VpcId=Ref(VPC),
+        VpcId=Ref(VPCResource),
         Tags=Tags(Application=ref_stack_id),
     )
 )
@@ -384,7 +386,7 @@ instanceSecurityGroup = t.add_resource(
                 IpProtocol="tcp", FromPort="80", ToPort="80", CidrIp="0.0.0.0/0"
             ),
         ],
-        VpcId=Ref(VPC),
+        VpcId=Ref(VPCResource),
     )
 )
 

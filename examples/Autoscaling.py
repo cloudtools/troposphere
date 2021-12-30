@@ -247,7 +247,7 @@ LaunchConfig = t.add_resource(
     )
 )
 
-LoadBalancer = t.add_resource(
+LoadBalancerResource = t.add_resource(
     LoadBalancer(
         "LoadBalancer",
         ConnectionDrainingPolicy=elb.ConnectionDrainingPolicy(
@@ -287,7 +287,7 @@ AutoscalingGroup = t.add_resource(
         MinSize=Ref(ScaleCapacity),
         MaxSize=Ref(ScaleCapacity),
         VPCZoneIdentifier=[Ref(ApiSubnet1), Ref(ApiSubnet2)],
-        LoadBalancerNames=[Ref(LoadBalancer)],
+        LoadBalancerNames=[Ref(LoadBalancerResource)],
         AvailabilityZones=[Ref(VPCAvailabilityZone1), Ref(VPCAvailabilityZone2)],
         HealthCheckType="EC2",
         UpdatePolicy=UpdatePolicy(
