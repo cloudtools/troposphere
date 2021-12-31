@@ -25,6 +25,17 @@ class ACL(AWSObject):
     }
 
 
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-cluster-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "Port": (integer, False),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-cluster.html>`__
@@ -35,6 +46,7 @@ class Cluster(AWSObject):
     props: PropsDictType = {
         "ACLName": (str, True),
         "AutoMinorVersionUpgrade": (boolean, False),
+        "ClusterEndpoint": (Endpoint, False),
         "ClusterName": (str, True),
         "Description": (str, False),
         "EngineVersion": (str, False),
