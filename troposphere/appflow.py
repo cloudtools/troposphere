@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,41 +7,59 @@
 # Resource specification version: 51.0.0
 
 
-from troposphere import Tags
-
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
 class AmplitudeConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `AmplitudeConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "ApiKey": (str, True),
         "SecretKey": (str, True),
     }
 
 
 class DatadogConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `DatadogConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "ApiKey": (str, True),
         "ApplicationKey": (str, True),
     }
 
 
 class DynatraceConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `DynatraceConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "ApiToken": (str, True),
     }
 
 
 class ConnectorOAuthRequest(AWSProperty):
-    props = {
+    """
+    `ConnectorOAuthRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html>`__
+    """
+
+    props: PropsDictType = {
         "AuthCode": (str, False),
         "RedirectUri": (str, False),
     }
 
 
 class GoogleAnalyticsConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `GoogleAnalyticsConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-googleanalyticsconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "AccessToken": (str, False),
         "ClientId": (str, True),
         "ClientSecret": (str, True),
@@ -51,7 +69,11 @@ class GoogleAnalyticsConnectorProfileCredentials(AWSProperty):
 
 
 class InforNexusConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `InforNexusConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "AccessKeyId": (str, True),
         "Datakey": (str, True),
         "SecretAccessKey": (str, True),
@@ -60,7 +82,11 @@ class InforNexusConnectorProfileCredentials(AWSProperty):
 
 
 class MarketoConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `MarketoConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "AccessToken": (str, False),
         "ClientId": (str, True),
         "ClientSecret": (str, True),
@@ -69,21 +95,33 @@ class MarketoConnectorProfileCredentials(AWSProperty):
 
 
 class RedshiftConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `RedshiftConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "Password": (str, True),
         "Username": (str, True),
     }
 
 
 class SAPODataConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `SAPODataConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "BasicAuthCredentials": (dict, False),
         "OAuthCredentials": (dict, False),
     }
 
 
 class SalesforceConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `SalesforceConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "AccessToken": (str, False),
         "ClientCredentialsArn": (str, False),
         "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
@@ -92,20 +130,32 @@ class SalesforceConnectorProfileCredentials(AWSProperty):
 
 
 class ServiceNowConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `ServiceNowConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "Password": (str, True),
         "Username": (str, True),
     }
 
 
 class SingularConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `SingularConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-singularconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "ApiKey": (str, True),
     }
 
 
 class SlackConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `SlackConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "AccessToken": (str, False),
         "ClientId": (str, True),
         "ClientSecret": (str, True),
@@ -114,27 +164,43 @@ class SlackConnectorProfileCredentials(AWSProperty):
 
 
 class SnowflakeConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `SnowflakeConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "Password": (str, True),
         "Username": (str, True),
     }
 
 
 class TrendmicroConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `TrendmicroConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-trendmicroconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "ApiSecretKey": (str, True),
     }
 
 
 class VeevaConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `VeevaConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "Password": (str, True),
         "Username": (str, True),
     }
 
 
 class ZendeskConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `ZendeskConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "AccessToken": (str, False),
         "ClientId": (str, True),
         "ClientSecret": (str, True),
@@ -143,7 +209,11 @@ class ZendeskConnectorProfileCredentials(AWSProperty):
 
 
 class ConnectorProfileCredentials(AWSProperty):
-    props = {
+    """
+    `ConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
         "Amplitude": (AmplitudeConnectorProfileCredentials, False),
         "Datadog": (DatadogConnectorProfileCredentials, False),
         "Dynatrace": (DynatraceConnectorProfileCredentials, False),
@@ -164,31 +234,51 @@ class ConnectorProfileCredentials(AWSProperty):
 
 
 class DatadogConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `DatadogConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class DynatraceConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `DynatraceConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-dynatraceconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class InforNexusConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `InforNexusConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-infornexusconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class MarketoConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `MarketoConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-marketoconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class RedshiftConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `RedshiftConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketName": (str, True),
         "BucketPrefix": (str, False),
         "DatabaseUrl": (str, True),
@@ -197,7 +287,11 @@ class RedshiftConnectorProfileProperties(AWSProperty):
 
 
 class OAuthProperties(AWSProperty):
-    props = {
+    """
+    `OAuthProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "AuthCodeUrl": (str, False),
         "OAuthScopes": ([str], False),
         "TokenUrl": (str, False),
@@ -205,7 +299,11 @@ class OAuthProperties(AWSProperty):
 
 
 class SAPODataConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `SAPODataConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "ApplicationHostUrl": (str, False),
         "ApplicationServicePath": (str, False),
         "ClientNumber": (str, False),
@@ -217,26 +315,42 @@ class SAPODataConnectorProfileProperties(AWSProperty):
 
 
 class SalesforceConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `SalesforceConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-salesforceconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, False),
         "isSandboxEnvironment": (boolean, False),
     }
 
 
 class ServiceNowConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `ServiceNowConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-servicenowconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class SlackConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `SlackConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-slackconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class SnowflakeConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `SnowflakeConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-snowflakeconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "AccountName": (str, False),
         "BucketName": (str, True),
         "BucketPrefix": (str, False),
@@ -248,19 +362,31 @@ class SnowflakeConnectorProfileProperties(AWSProperty):
 
 
 class VeevaConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `VeevaConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-veevaconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class ZendeskConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `ZendeskConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-zendeskconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "InstanceUrl": (str, True),
     }
 
 
 class ConnectorProfileProperties(AWSProperty):
-    props = {
+    """
+    `ConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Datadog": (DatadogConnectorProfileProperties, False),
         "Dynatrace": (DynatraceConnectorProfileProperties, False),
         "InforNexus": (InforNexusConnectorProfileProperties, False),
@@ -277,16 +403,24 @@ class ConnectorProfileProperties(AWSProperty):
 
 
 class ConnectorProfileConfig(AWSProperty):
-    props = {
+    """
+    `ConnectorProfileConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectorprofileconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "ConnectorProfileCredentials": (ConnectorProfileCredentials, True),
         "ConnectorProfileProperties": (ConnectorProfileProperties, False),
     }
 
 
 class ConnectorProfile(AWSObject):
+    """
+    `ConnectorProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connectorprofile.html>`__
+    """
+
     resource_type = "AWS::AppFlow::ConnectorProfile"
 
-    props = {
+    props: PropsDictType = {
         "ConnectionMode": (str, True),
         "ConnectorProfileConfig": (ConnectorProfileConfig, False),
         "ConnectorProfileName": (str, True),
@@ -296,7 +430,11 @@ class ConnectorProfile(AWSObject):
 
 
 class ErrorHandlingConfig(AWSProperty):
-    props = {
+    """
+    `ErrorHandlingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-errorhandlingconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketName": (str, False),
         "BucketPrefix": (str, False),
         "FailOnFirstError": (boolean, False),
@@ -304,20 +442,32 @@ class ErrorHandlingConfig(AWSProperty):
 
 
 class EventBridgeDestinationProperties(AWSProperty):
-    props = {
+    """
+    `EventBridgeDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-eventbridgedestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "ErrorHandlingConfig": (ErrorHandlingConfig, False),
         "Object": (str, True),
     }
 
 
 class LookoutMetricsDestinationProperties(AWSProperty):
-    props = {
+    """
+    `LookoutMetricsDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-lookoutmetricsdestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, False),
     }
 
 
 class RedshiftDestinationProperties(AWSProperty):
-    props = {
+    """
+    `RedshiftDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketPrefix": (str, False),
         "ErrorHandlingConfig": (ErrorHandlingConfig, False),
         "IntermediateBucketName": (str, True),
@@ -326,20 +476,32 @@ class RedshiftDestinationProperties(AWSProperty):
 
 
 class AggregationConfig(AWSProperty):
-    props = {
+    """
+    `AggregationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-aggregationconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "AggregationType": (str, False),
     }
 
 
 class PrefixConfig(AWSProperty):
-    props = {
+    """
+    `PrefixConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-prefixconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "PrefixFormat": (str, False),
         "PrefixType": (str, False),
     }
 
 
 class S3OutputFormatConfig(AWSProperty):
-    props = {
+    """
+    `S3OutputFormatConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3outputformatconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "AggregationConfig": (AggregationConfig, False),
         "FileType": (str, False),
         "PrefixConfig": (PrefixConfig, False),
@@ -347,7 +509,11 @@ class S3OutputFormatConfig(AWSProperty):
 
 
 class S3DestinationProperties(AWSProperty):
-    props = {
+    """
+    `S3DestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3destinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketName": (str, True),
         "BucketPrefix": (str, False),
         "S3OutputFormatConfig": (S3OutputFormatConfig, False),
@@ -355,7 +521,11 @@ class S3DestinationProperties(AWSProperty):
 
 
 class SalesforceDestinationProperties(AWSProperty):
-    props = {
+    """
+    `SalesforceDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "ErrorHandlingConfig": (ErrorHandlingConfig, False),
         "IdFieldNames": ([str], False),
         "Object": (str, True),
@@ -364,7 +534,11 @@ class SalesforceDestinationProperties(AWSProperty):
 
 
 class SnowflakeDestinationProperties(AWSProperty):
-    props = {
+    """
+    `SnowflakeDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-snowflakedestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketPrefix": (str, False),
         "ErrorHandlingConfig": (ErrorHandlingConfig, False),
         "IntermediateBucketName": (str, True),
@@ -373,7 +547,11 @@ class SnowflakeDestinationProperties(AWSProperty):
 
 
 class UpsolverS3OutputFormatConfig(AWSProperty):
-    props = {
+    """
+    `UpsolverS3OutputFormatConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolvers3outputformatconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "AggregationConfig": (AggregationConfig, False),
         "FileType": (str, False),
         "PrefixConfig": (PrefixConfig, True),
@@ -381,7 +559,11 @@ class UpsolverS3OutputFormatConfig(AWSProperty):
 
 
 class UpsolverDestinationProperties(AWSProperty):
-    props = {
+    """
+    `UpsolverDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-upsolverdestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketName": (str, True),
         "BucketPrefix": (str, False),
         "S3OutputFormatConfig": (UpsolverS3OutputFormatConfig, True),
@@ -389,7 +571,11 @@ class UpsolverDestinationProperties(AWSProperty):
 
 
 class ZendeskDestinationProperties(AWSProperty):
-    props = {
+    """
+    `ZendeskDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendeskdestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "ErrorHandlingConfig": (ErrorHandlingConfig, False),
         "IdFieldNames": ([str], False),
         "Object": (str, True),
@@ -398,7 +584,11 @@ class ZendeskDestinationProperties(AWSProperty):
 
 
 class DestinationConnectorProperties(AWSProperty):
-    props = {
+    """
+    `DestinationConnectorProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationconnectorproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "EventBridge": (EventBridgeDestinationProperties, False),
         "LookoutMetrics": (LookoutMetricsDestinationProperties, False),
         "Redshift": (RedshiftDestinationProperties, False),
@@ -411,7 +601,11 @@ class DestinationConnectorProperties(AWSProperty):
 
 
 class DestinationFlowConfig(AWSProperty):
-    props = {
+    """
+    `DestinationFlowConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-destinationflowconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "ConnectorProfileName": (str, False),
         "ConnectorType": (str, True),
         "DestinationConnectorProperties": (DestinationConnectorProperties, True),
@@ -419,55 +613,91 @@ class DestinationFlowConfig(AWSProperty):
 
 
 class IncrementalPullConfig(AWSProperty):
-    props = {
+    """
+    `IncrementalPullConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-incrementalpullconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "DatetimeTypeFieldName": (str, False),
     }
 
 
 class AmplitudeSourceProperties(AWSProperty):
-    props = {
+    """
+    `AmplitudeSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-amplitudesourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class DatadogSourceProperties(AWSProperty):
-    props = {
+    """
+    `DatadogSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datadogsourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class DynatraceSourceProperties(AWSProperty):
-    props = {
+    """
+    `DynatraceSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-dynatracesourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class GoogleAnalyticsSourceProperties(AWSProperty):
-    props = {
+    """
+    `GoogleAnalyticsSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-googleanalyticssourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class InforNexusSourceProperties(AWSProperty):
-    props = {
+    """
+    `InforNexusSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-infornexussourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class MarketoSourceProperties(AWSProperty):
-    props = {
+    """
+    `MarketoSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketosourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class S3InputFormatConfig(AWSProperty):
-    props = {
+    """
+    `S3InputFormatConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3inputformatconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "S3InputFileType": (str, False),
     }
 
 
 class S3SourceProperties(AWSProperty):
-    props = {
+    """
+    `S3SourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3sourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketName": (str, True),
         "BucketPrefix": (str, True),
         "S3InputFormatConfig": (S3InputFormatConfig, False),
@@ -475,13 +705,21 @@ class S3SourceProperties(AWSProperty):
 
 
 class SAPODataSourceProperties(AWSProperty):
-    props = {
+    """
+    `SAPODataSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "ObjectPath": (str, True),
     }
 
 
 class SalesforceSourceProperties(AWSProperty):
-    props = {
+    """
+    `SalesforceSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcesourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "EnableDynamicFieldUpdate": (boolean, False),
         "IncludeDeletedRecords": (boolean, False),
         "Object": (str, True),
@@ -489,31 +727,51 @@ class SalesforceSourceProperties(AWSProperty):
 
 
 class ServiceNowSourceProperties(AWSProperty):
-    props = {
+    """
+    `ServiceNowSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-servicenowsourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class SingularSourceProperties(AWSProperty):
-    props = {
+    """
+    `SingularSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-singularsourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class SlackSourceProperties(AWSProperty):
-    props = {
+    """
+    `SlackSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-slacksourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class TrendmicroSourceProperties(AWSProperty):
-    props = {
+    """
+    `TrendmicroSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-trendmicrosourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class VeevaSourceProperties(AWSProperty):
-    props = {
+    """
+    `VeevaSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-veevasourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "DocumentType": (str, False),
         "IncludeAllVersions": (boolean, False),
         "IncludeRenditions": (boolean, False),
@@ -523,13 +781,21 @@ class VeevaSourceProperties(AWSProperty):
 
 
 class ZendeskSourceProperties(AWSProperty):
-    props = {
+    """
+    `ZendeskSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-zendesksourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Object": (str, True),
     }
 
 
 class SourceConnectorProperties(AWSProperty):
-    props = {
+    """
+    `SourceConnectorProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceconnectorproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "Amplitude": (AmplitudeSourceProperties, False),
         "Datadog": (DatadogSourceProperties, False),
         "Dynatrace": (DynatraceSourceProperties, False),
@@ -549,7 +815,11 @@ class SourceConnectorProperties(AWSProperty):
 
 
 class SourceFlowConfig(AWSProperty):
-    props = {
+    """
+    `SourceFlowConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sourceflowconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "ConnectorProfileName": (str, False),
         "ConnectorType": (str, True),
         "IncrementalPullConfig": (IncrementalPullConfig, False),
@@ -558,7 +828,11 @@ class SourceFlowConfig(AWSProperty):
 
 
 class ConnectorOperator(AWSProperty):
-    props = {
+    """
+    `ConnectorOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-connectoroperator.html>`__
+    """
+
+    props: PropsDictType = {
         "Amplitude": (str, False),
         "Datadog": (str, False),
         "Dynatrace": (str, False),
@@ -578,14 +852,22 @@ class ConnectorOperator(AWSProperty):
 
 
 class TaskPropertiesObject(AWSProperty):
-    props = {
+    """
+    `TaskPropertiesObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-taskpropertiesobject.html>`__
+    """
+
+    props: PropsDictType = {
         "Key": (str, True),
         "Value": (str, True),
     }
 
 
 class Task(AWSProperty):
-    props = {
+    """
+    `Task <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-task.html>`__
+    """
+
+    props: PropsDictType = {
         "ConnectorOperator": (ConnectorOperator, False),
         "DestinationField": (str, False),
         "SourceFields": ([str], True),
@@ -595,7 +877,11 @@ class Task(AWSProperty):
 
 
 class ScheduledTriggerProperties(AWSProperty):
-    props = {
+    """
+    `ScheduledTriggerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-scheduledtriggerproperties.html>`__
+    """
+
+    props: PropsDictType = {
         "DataPullMode": (str, False),
         "ScheduleEndTime": (double, False),
         "ScheduleExpression": (str, True),
@@ -606,16 +892,24 @@ class ScheduledTriggerProperties(AWSProperty):
 
 
 class TriggerConfig(AWSProperty):
-    props = {
+    """
+    `TriggerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-triggerconfig.html>`__
+    """
+
+    props: PropsDictType = {
         "TriggerProperties": (ScheduledTriggerProperties, False),
         "TriggerType": (str, True),
     }
 
 
 class Flow(AWSObject):
+    """
+    `Flow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-flow.html>`__
+    """
+
     resource_type = "AWS::AppFlow::Flow"
 
-    props = {
+    props: PropsDictType = {
         "Description": (str, False),
         "DestinationFlowConfigList": ([DestinationFlowConfig], True),
         "FlowName": (str, True),
