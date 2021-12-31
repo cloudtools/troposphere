@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,13 +7,17 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
 class Database(AWSObject):
+    """
+    `Database <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-database.html>`__
+    """
+
     resource_type = "AWS::Timestream::Database"
 
-    props = {
+    props: PropsDictType = {
         "DatabaseName": (str, False),
         "KmsKeyId": (str, False),
         "Tags": (Tags, False),
@@ -21,7 +25,11 @@ class Database(AWSObject):
 
 
 class S3Configuration(AWSProperty):
-    props = {
+    """
+    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html>`__
+    """
+
+    props: PropsDictType = {
         "BucketName": (str, True),
         "EncryptionOption": (str, False),
         "ObjectKeyPrefix": (str, False),
@@ -29,38 +37,62 @@ class S3Configuration(AWSProperty):
 
 
 class ErrorReportConfiguration(AWSProperty):
-    props = {
+    """
+    `ErrorReportConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-errorreportconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
         "S3Configuration": (S3Configuration, True),
     }
 
 
 class SnsConfiguration(AWSProperty):
-    props = {
+    """
+    `SnsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-snsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
         "TopicArn": (str, True),
     }
 
 
 class NotificationConfiguration(AWSProperty):
-    props = {
+    """
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-notificationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
         "SnsConfiguration": (SnsConfiguration, True),
     }
 
 
 class ScheduleConfiguration(AWSProperty):
-    props = {
+    """
+    `ScheduleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-scheduleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
         "ScheduleExpression": (str, True),
     }
 
 
 class DimensionMapping(AWSProperty):
-    props = {
+    """
+    `DimensionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-dimensionmapping.html>`__
+    """
+
+    props: PropsDictType = {
         "DimensionValueType": (str, True),
         "Name": (str, True),
     }
 
 
 class MultiMeasureAttributeMapping(AWSProperty):
-    props = {
+    """
+    `MultiMeasureAttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasureattributemapping.html>`__
+    """
+
+    props: PropsDictType = {
         "MeasureValueType": (str, True),
         "SourceColumn": (str, True),
         "TargetMultiMeasureAttributeName": (str, False),
@@ -68,7 +100,11 @@ class MultiMeasureAttributeMapping(AWSProperty):
 
 
 class MixedMeasureMapping(AWSProperty):
-    props = {
+    """
+    `MixedMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-mixedmeasuremapping.html>`__
+    """
+
+    props: PropsDictType = {
         "MeasureName": (str, False),
         "MeasureValueType": (str, True),
         "MultiMeasureAttributeMappings": ([MultiMeasureAttributeMapping], False),
@@ -78,14 +114,22 @@ class MixedMeasureMapping(AWSProperty):
 
 
 class MultiMeasureMappings(AWSProperty):
-    props = {
+    """
+    `MultiMeasureMappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-multimeasuremappings.html>`__
+    """
+
+    props: PropsDictType = {
         "MultiMeasureAttributeMappings": ([MultiMeasureAttributeMapping], True),
         "TargetMultiMeasureName": (str, False),
     }
 
 
 class TimestreamConfiguration(AWSProperty):
-    props = {
+    """
+    `TimestreamConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-timestreamconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
         "DatabaseName": (str, True),
         "DimensionMappings": ([DimensionMapping], True),
         "MeasureNameColumn": (str, False),
@@ -97,15 +141,23 @@ class TimestreamConfiguration(AWSProperty):
 
 
 class TargetConfiguration(AWSProperty):
-    props = {
+    """
+    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-targetconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
         "TimestreamConfiguration": (TimestreamConfiguration, True),
     }
 
 
 class ScheduledQuery(AWSObject):
+    """
+    `ScheduledQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-scheduledquery.html>`__
+    """
+
     resource_type = "AWS::Timestream::ScheduledQuery"
 
-    props = {
+    props: PropsDictType = {
         "ClientToken": (str, False),
         "ErrorReportConfiguration": (ErrorReportConfiguration, True),
         "KmsKeyId": (str, False),
@@ -120,9 +172,13 @@ class ScheduledQuery(AWSObject):
 
 
 class Table(AWSObject):
+    """
+    `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html>`__
+    """
+
     resource_type = "AWS::Timestream::Table"
 
-    props = {
+    props: PropsDictType = {
         "DatabaseName": (str, True),
         "RetentionProperties": (dict, False),
         "TableName": (str, False),
