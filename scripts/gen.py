@@ -314,7 +314,7 @@ class CodeGenerator:
             code.append("from . import AWSObject")
         if self.properties:
             code.append("from . import AWSProperty")
-        if self._walk_for_key("Tags"):
+        if self._walk_for_key("Tags") or self._walk_for_type("Tags"):
             code.append("from . import Tags")
         code.append("from . import PropsDictType")
 
