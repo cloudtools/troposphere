@@ -68,6 +68,18 @@ copyright_header = """\
 spec_version = ""
 
 
+def service_to_filename(service_name):
+    service_map = {
+        "kinesisanalytics": "analytics",
+        "kinesisfirehose": "firehose",
+        "lambda": "awslambda",
+    }
+
+    if service_name in service_map:
+        return service_map[service_name]
+    return service_name
+
+
 class ResourceSpecDuplicateError(Exception):
     def __init__(self, message, names):
         self.message = message
@@ -236,7 +248,8 @@ class ResourceSpec:
 
     def _get_validators(self, service_name, service):
         try:
-            validator_filename = f"troposphere/validators/{service_name}.py"
+            filename_base = service_to_filename(service_name)
+            validator_filename = f"troposphere/validators/{filename_base}.py"
             file_contents = open(validator_filename).read()
         except FileNotFoundError:
             return
@@ -329,9 +342,8 @@ class CodeGenerator:
 
         # Output any constants defined in the validation code
         for v in self.service.constants:
-            code.append(
-                f"from .validators.{self.service_name} import {v}  # noqa: F401"
-            )
+            filename = service_to_filename(self.service_name)
+            code.append(f"from .validators.{filename} import {v}  # noqa: F401")
 
         if not stub:
             # Output imports for any property validators found.
@@ -340,11 +352,13 @@ class CodeGenerator:
                 for validator in d.values():
                     property_imports.add(validator)
             for v in sorted(property_imports):
-                code.append(f"from .validators.{self.service_name} import {v}")
+                filename = service_to_filename(self.service_name)
+                code.append(f"from .validators.{filename} import {v}")
 
             # Output imports for any class validators found
             for k, v in self.service.class_validators.items():
-                code.append(f"from .validators.{self.service_name} import {v}")
+                filename = service_to_filename(self.service_name)
+                code.append(f"from .validators.{filename} import {v}")
 
         if stub and self._walk_for_stub_type("List"):
             code.append("from typing import List")
@@ -671,14 +685,34 @@ class CodeGenerator:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--stub", action="store_true", default=False)
-    parser.add_argument("--name", action="store")
-    parser.add_argument("filename", nargs="+")
+    parser.add_argument(
+        "--spec", action="store", default="CloudFormationResourceSpecification.json"
+    )
+    parser.add_argument("--directory", "-d", action="store")
+    parser.add_argument("service_names", nargs="+")
+    parser.add_argument("--verbose", "-v", action="store_true", default=False)
     args = parser.parse_args()
 
     stub = args.stub
+    extension = ".py"
+    if stub:
+        extension = "pyi"
 
-    service_name = args.name.lower()
-    r = ResourceSpec(args.filename[0]).parse(limit_warnings=[service_name])
+    service_names = [name.lower() for name in args.service_names]
 
-    code = CodeGenerator(service_name, r.services[service_name]).generate()
-    print(code)
+    if args.verbose:
+        print(f"Parsing resource specification file: {args.spec}")
+    r = ResourceSpec(args.spec).parse(limit_warnings=[service_names])
+
+    for service_name in service_names:
+        filename_base = service_to_filename(service_name)
+        filename = f"{args.directory}/{filename_base}{extension}"
+
+        if args.verbose:
+            print(f"Generating service: {service_name} filename: {filename}")
+        code = CodeGenerator(service_name, r.services[service_name]).generate()
+        if args.directory:
+            with open(filename, "w+") as f:
+                print(code, file=f)
+        else:
+            print(code)
