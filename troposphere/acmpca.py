@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 from .validators.acmpca import (
     validate_certificateauthority_type,
@@ -22,7 +22,7 @@ class ExtendedKeyUsage(AWSProperty):
     `ExtendedKeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ExtendedKeyUsageObjectIdentifier": (str, False),
         "ExtendedKeyUsageType": (str, False),
     }
@@ -33,7 +33,7 @@ class EdiPartyName(AWSProperty):
     `EdiPartyName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-edipartyname.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "NameAssigner": (str, True),
         "PartyName": (str, True),
     }
@@ -44,7 +44,7 @@ class OtherName(AWSProperty):
     `OtherName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-othername.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "TypeId": (str, True),
         "Value": (str, True),
     }
@@ -55,7 +55,7 @@ class Subject(AWSProperty):
     `Subject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CommonName": (str, False),
         "Country": (str, False),
         "DistinguishedNameQualifier": (str, False),
@@ -78,7 +78,7 @@ class GeneralName(AWSProperty):
     `GeneralName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-generalname.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "DirectoryName": (Subject, False),
         "DnsName": (str, False),
         "EdiPartyName": (EdiPartyName, False),
@@ -95,7 +95,7 @@ class KeyUsage(AWSProperty):
     `KeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-keyusage.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CRLSign": (boolean, False),
         "DataEncipherment": (boolean, False),
         "DecipherOnly": (boolean, False),
@@ -113,7 +113,7 @@ class Qualifier(AWSProperty):
     `Qualifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-qualifier.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CpsUri": (str, True),
     }
 
@@ -123,7 +123,7 @@ class PolicyQualifierInfo(AWSProperty):
     `PolicyQualifierInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyqualifierinfo.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "PolicyQualifierId": (str, True),
         "Qualifier": (Qualifier, True),
     }
@@ -134,7 +134,7 @@ class PolicyInformation(AWSProperty):
     `PolicyInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-policyinformation.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CertPolicyId": (str, True),
         "PolicyQualifiers": ([PolicyQualifierInfo], False),
     }
@@ -145,7 +145,7 @@ class Extensions(AWSProperty):
     `Extensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extensions.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CertificatePolicies": ([PolicyInformation], False),
         "ExtendedKeyUsage": ([ExtendedKeyUsage], False),
         "KeyUsage": (KeyUsage, False),
@@ -158,7 +158,7 @@ class ApiPassthrough(AWSProperty):
     `ApiPassthrough <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-apipassthrough.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Extensions": (Extensions, False),
         "Subject": (Subject, False),
     }
@@ -169,7 +169,7 @@ class Validity(AWSProperty):
     `Validity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-validity.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Type": (validate_validity_type, True),
         "Value": (double, True),
     }
@@ -182,7 +182,7 @@ class Certificate(AWSObject):
 
     resource_type = "AWS::ACMPCA::Certificate"
 
-    props = {
+    props: PropsDictType = {
         "ApiPassthrough": (ApiPassthrough, False),
         "CertificateAuthorityArn": (str, True),
         "CertificateSigningRequest": (str, True),
@@ -198,7 +198,7 @@ class AccessMethod(AWSProperty):
     `AccessMethod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessmethod.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AccessMethodType": (str, False),
         "CustomObjectIdentifier": (str, False),
     }
@@ -209,7 +209,7 @@ class AccessDescription(AWSProperty):
     `AccessDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-accessdescription.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AccessLocation": (GeneralName, True),
         "AccessMethod": (AccessMethod, True),
     }
@@ -220,7 +220,7 @@ class CsrExtensions(AWSProperty):
     `CsrExtensions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-csrextensions.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "KeyUsage": (KeyUsage, False),
         "SubjectInformationAccess": ([AccessDescription], False),
     }
@@ -231,7 +231,7 @@ class CrlConfiguration(AWSProperty):
     `CrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CustomCname": (str, False),
         "Enabled": (boolean, False),
         "ExpirationInDays": (integer, False),
@@ -245,7 +245,7 @@ class OcspConfiguration(AWSProperty):
     `OcspConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-ocspconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Enabled": (boolean, False),
         "OcspCustomCname": (str, False),
     }
@@ -256,7 +256,7 @@ class RevocationConfiguration(AWSProperty):
     `RevocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-revocationconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CrlConfiguration": (CrlConfiguration, False),
         "OcspConfiguration": (OcspConfiguration, False),
     }
@@ -269,7 +269,7 @@ class CertificateAuthority(AWSObject):
 
     resource_type = "AWS::ACMPCA::CertificateAuthority"
 
-    props = {
+    props: PropsDictType = {
         "CsrExtensions": (CsrExtensions, False),
         "KeyAlgorithm": (validate_key_algorithm, True),
         "KeyStorageSecurityStandard": (str, False),
@@ -288,7 +288,7 @@ class CertificateAuthorityActivation(AWSObject):
 
     resource_type = "AWS::ACMPCA::CertificateAuthorityActivation"
 
-    props = {
+    props: PropsDictType = {
         "Certificate": (str, True),
         "CertificateAuthorityArn": (str, True),
         "CertificateChain": (str, False),
@@ -303,7 +303,7 @@ class Permission(AWSObject):
 
     resource_type = "AWS::ACMPCA::Permission"
 
-    props = {
+    props: PropsDictType = {
         "Actions": ([str], True),
         "CertificateAuthorityArn": (str, True),
         "Principal": (str, True),
