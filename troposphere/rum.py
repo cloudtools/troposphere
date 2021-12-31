@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,12 +7,16 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double
 
 
 class AppMonitorConfiguration(AWSProperty):
-    props = {
+    """
+    `AppMonitorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-appmonitorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
         "AllowCookies": (boolean, False),
         "EnableXRay": (boolean, False),
         "ExcludedPages": ([str], False),
@@ -26,9 +30,13 @@ class AppMonitorConfiguration(AWSProperty):
 
 
 class AppMonitor(AWSObject):
+    """
+    `AppMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html>`__
+    """
+
     resource_type = "AWS::RUM::AppMonitor"
 
-    props = {
+    props: PropsDictType = {
         "AppMonitorConfiguration": (AppMonitorConfiguration, False),
         "CwLogEnabled": (boolean, False),
         "Domain": (str, False),
