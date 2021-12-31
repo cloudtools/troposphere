@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2017, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,8 +7,9 @@ import json
 import re
 import sys
 import types
+from typing import Any, Callable, Dict, List, Tuple, Type, Union
 
-import cfn_flip
+import cfn_flip  # type: ignore
 
 from . import validators
 
@@ -515,6 +516,17 @@ class Ref(AWSHelperFn):
     def __hash__(self):
         return hash(list(self.data.values())[0])
 
+
+# The type of the props dict
+PropsDictType = Dict[
+    str,
+    Tuple[
+        Union[
+            str, AWSProperty, AWSHelperFn, Callable, Dict, List[Any], Tuple[Type, ...]
+        ],
+        bool,
+    ],
+]
 
 # Pseudo Parameter Ref's
 AccountId = Ref(AWS_ACCOUNT_ID)

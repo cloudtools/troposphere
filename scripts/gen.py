@@ -56,7 +56,7 @@ import jsonpatch  # type: ignore
 stub = False
 
 copyright_header = """\
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -316,6 +316,7 @@ class CodeGenerator:
             code.append("from . import AWSProperty")
         if self._walk_for_key("Tags"):
             code.append("from . import Tags")
+        code.append("from . import PropsDictType")
 
         if not stub:
             # Output imports for commonly used validators
@@ -594,7 +595,7 @@ class CodeGenerator:
                 code.append("")
 
         # Output the props dict
-        code.append("    props = {")
+        code.append("    props: PropsDictType = {")
         for key, value in sorted(property_type.properties.items()):
             if property_validator and key in property_validator:
                 value_type = property_validator[key]

@@ -1,11 +1,12 @@
-# Copyright (c) 2017, Fernando Freire <fernando.freire@nike.com>
+# Copyright (c) 2017-2022, Fernando Freire <fernando.freire@nike.com>
 # All rights reserved.
 #
 # See LICENSE file for full license.
 
 import types
+from typing import Tuple, Type
 
-from . import AWSHelperFn, AWSObject, AWSProperty
+from . import AWSHelperFn, AWSObject, AWSProperty, PropsDictType
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .apigatewayv2 import AccessLogSettings, RouteSettings
 from .awslambda import (
@@ -32,7 +33,7 @@ from .validators import (
 try:
     from awacs.aws import PolicyDocument
 
-    policytypes = (dict, list, str, PolicyDocument)
+    policytypes: Tuple[Type, ...] = (dict, list, str, PolicyDocument)
 except ImportError:
     policytypes = (dict, list, str)
 
@@ -50,7 +51,10 @@ def primary_key_type_validator(x):
 
 
 class DeadLetterQueue(AWSProperty):
-    props = {"Type": (str, False), "TargetArn": (str, False)}
+    props: PropsDictType = {
+        "Type": (str, False),
+        "TargetArn": (str, False),
+    }
 
     def validate(self):
         valid_types = ["SQS", "SNS"]
@@ -59,7 +63,7 @@ class DeadLetterQueue(AWSProperty):
 
 
 class S3Location(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Bucket": (str, True),
         "Key": (str, True),
         "Version": (str, False),
@@ -67,14 +71,14 @@ class S3Location(AWSProperty):
 
 
 class Hooks(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "PreTraffic": (str, False),
         "PostTraffic": (str, False),
     }
 
 
 class DeploymentPreference(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Type": (str, True),
         "Alarms": (list, False),
         "Hooks": (Hooks, False),
@@ -84,7 +88,7 @@ class DeploymentPreference(AWSProperty):
 
 
 class EventInvokeDestination(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Destination": (str, False),
         "Type": (str, False),
     }
@@ -113,14 +117,14 @@ class OnSuccess(EventInvokeDestination):
 
 
 class DestinationConfiguration(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "OnFailure": (OnFailure, False),
         "OnSuccess": (OnSuccess, False),
     }
 
 
 class EventInvokeConfiguration(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "DestinationConfig": (DestinationConfiguration, False),
         "MaximumEventAgeInSeconds": (integer, False),
         "MaximumRetryAttempts": (integer, False),
@@ -130,7 +134,7 @@ class EventInvokeConfiguration(AWSProperty):
 class Function(AWSObject):
     resource_type = "AWS::Serverless::Function"
 
-    props = {
+    props: PropsDictType = {
         "Architectures": ([str], False),
         "AssumeRolePolicyDocument": (policytypes, False),
         "AutoPublishAlias": (str, False),
@@ -204,14 +208,14 @@ class FunctionForPackaging(Function):
 
 
 class CognitoAuthIdentity(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Header": (str, False),
         "ValidationExpression": (str, False),
     }
 
 
 class LambdaTokenAuthIdentity(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Header": (str, False),
         "ValidationExpression": (str, False),
         "ReauthorizeEvery": (str, False),
@@ -219,7 +223,7 @@ class LambdaTokenAuthIdentity(AWSProperty):
 
 
 class LambdaRequestAuthIdentity(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Headers": ([str], False),
         "QueryStrings": ([str], False),
         "StageVariables": ([str], False),
@@ -229,14 +233,14 @@ class LambdaRequestAuthIdentity(AWSProperty):
 
 
 class CognitoAuth(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "UserPoolArn": (str, False),
         "Identity": (CognitoAuthIdentity, False),
     }
 
 
 class LambdaTokenAuth(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "FunctionPayloadType": (str, False),
         "FunctionArn": (str, False),
         "FunctionInvokeRole": (str, False),
@@ -245,7 +249,7 @@ class LambdaTokenAuth(AWSProperty):
 
 
 class LambdaRequestAuth(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "FunctionPayloadType": (str, False),
         "FunctionArn": (str, False),
         "FunctionInvokeRole": (str, False),
@@ -254,7 +258,7 @@ class LambdaRequestAuth(AWSProperty):
 
 
 class Authorizers(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "DefaultAuthorizer": (str, False),
         "CognitoAuth": (CognitoAuth, False),
         "LambdaTokenAuth": (LambdaTokenAuth, False),
@@ -263,7 +267,7 @@ class Authorizers(AWSProperty):
 
 
 class ResourcePolicyStatement(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "AwsAccountBlacklist": (list, False),
         "AwsAccountWhitelist": (list, False),
         "CustomStatements": (list, False),
@@ -275,7 +279,7 @@ class ResourcePolicyStatement(AWSProperty):
 
 
 class Auth(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "AddDefaultAuthorizerToCorsPreflight": (bool, False),
         "ApiKeyRequired": (bool, False),
         "Authorizers": (Authorizers, False),
@@ -286,7 +290,7 @@ class Auth(AWSProperty):
 
 
 class Cors(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "AllowCredentials": (str, False),
         "AllowHeaders": (str, False),
         "AllowMethods": (str, False),
@@ -296,7 +300,7 @@ class Cors(AWSProperty):
 
 
 class Route53(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "DistributionDomainName": (str, False),
         "EvaluateTargetHealth": (bool, False),
         "HostedZoneId": (str, False),
@@ -313,7 +317,7 @@ class Route53(AWSProperty):
 
 
 class Domain(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "BasePath": (list, False),
         "CertificateArn": (str, True),
         "DomainName": (str, True),
@@ -331,7 +335,7 @@ class Domain(AWSProperty):
 
 
 class EndpointConfiguration(AWSProperty):
-    props = {"Type": (str, False), "VPCEndpointIds": (list, False)}
+    props: PropsDictType = {"Type": (str, False), "VPCEndpointIds": (list, False)}
 
     def validate(self):
         valid_types = ["REGIONAL", "EDGE", "PRIVATE"]
@@ -342,13 +346,17 @@ class EndpointConfiguration(AWSProperty):
 
 
 class ApiDefinition(AWSProperty):
-    props = {"Bucket": (str, True), "Key": (str, True), "Version": (str, False)}
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "Version": (str, False),
+    }
 
 
 class Api(AWSObject):
     resource_type = "AWS::Serverless::Api"
 
-    props = {
+    props: PropsDictType = {
         "AccessLogSetting": (AccessLogSetting, False),
         "Auth": (Auth, False),
         "BinaryMediaTypes": ([str], False),
@@ -378,7 +386,7 @@ class Api(AWSObject):
 
 
 class OAuth2Authorizer(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "AuthorizationScopes": (list, False),
         "IdentitySource": (str, False),
         "JwtConfiguration": (dict, False),
@@ -386,7 +394,7 @@ class OAuth2Authorizer(AWSProperty):
 
 
 class LambdaAuthorizationIdentity(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Context": (list, False),
         "Headers": (list, False),
         "QueryStrings": (list, False),
@@ -396,7 +404,7 @@ class LambdaAuthorizationIdentity(AWSProperty):
 
 
 class LambdaAuthorizer(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "AuthorizerPayloadFormatVersion": (str, True),
         "EnableSimpleResponses": (boolean, False),
         "FunctionArn": (str, True),
@@ -406,14 +414,14 @@ class LambdaAuthorizer(AWSProperty):
 
 
 class HttpApiAuth(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Authorizers": ((OAuth2Authorizer, LambdaAuthorizer), False),
         "DefaultAuthorizer": (str, False),
     }
 
 
 class HttpApiCorsConfiguration(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "AllowCredentials": (boolean, False),
         "AllowHeaders": (list, False),
         "AllowMethods": (list, False),
@@ -434,7 +442,7 @@ class HttpApiDomainConfiguration(Domain):
 class HttpApi(AWSObject):
     resource_type = "AWS::Serverless::HttpApi"
 
-    props = {
+    props: PropsDictType = {
         "AccessLogSettings": (AccessLogSettings, False),
         "Auth": (HttpApiAuth, False),
         "CorsConfiguration": ((str, HttpApiCorsConfiguration), False),
@@ -460,13 +468,16 @@ class HttpApi(AWSObject):
 
 
 class PrimaryKey(AWSProperty):
-    props = {"Name": (str, False), "Type": (primary_key_type_validator, False)}
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Type": (primary_key_type_validator, False),
+    }
 
 
 class SimpleTable(AWSObject):
     resource_type = "AWS::Serverless::SimpleTable"
 
-    props = {
+    props: PropsDictType = {
         "PrimaryKey": (PrimaryKey, False),
         "ProvisionedThroughput": (ProvisionedThroughput, False),
         "SSESpecification": (SSESpecification, False),
@@ -478,7 +489,7 @@ class SimpleTable(AWSObject):
 class LayerVersion(AWSObject):
     resource_type = "AWS::Serverless::LayerVersion"
 
-    props = {
+    props: PropsDictType = {
         "CompatibleArchitectures": ([str], False),
         "CompatibleRuntimes": ([str], False),
         "ContentUri": ((S3Location, str), True),
@@ -492,13 +503,17 @@ class LayerVersion(AWSObject):
 class S3Event(AWSObject):
     resource_type = "S3"
 
-    props = {"Bucket": (str, True), "Events": (list, True), "Filter": (Filter, False)}
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Events": (list, True),
+        "Filter": (Filter, False),
+    }
 
 
 class SNSEvent(AWSObject):
     resource_type = "SNS"
 
-    props = {
+    props: PropsDictType = {
         "FilterPolicy": (dict, False),
         "Region": (str, False),
         "SqsSubscription": (bool, False),
@@ -516,7 +531,7 @@ def starting_position_validator(x):
 class KinesisEvent(AWSObject):
     resource_type = "Kinesis"
 
-    props = {
+    props: PropsDictType = {
         "Stream": (str, True),
         "StartingPosition": (starting_position_validator, True),
         "BatchSize": (positive_integer, False),
@@ -533,7 +548,7 @@ class KinesisEvent(AWSObject):
 class DynamoDBEvent(AWSObject):
     resource_type = "DynamoDB"
 
-    props = {
+    props: PropsDictType = {
         "Stream": (str, True),
         "StartingPosition": (starting_position_validator, True),
         "BatchSize": (positive_integer, False),
@@ -541,13 +556,16 @@ class DynamoDBEvent(AWSObject):
 
 
 class RequestModel(AWSProperty):
-    props = {"Model": (str, True), "Required": (bool, False)}
+    props: PropsDictType = {
+        "Model": (str, True),
+        "Required": (bool, False),
+    }
 
 
 class ApiEvent(AWSObject):
     resource_type = "Api"
 
-    props = {
+    props: PropsDictType = {
         "Auth": (Auth, False),
         "Path": (str, True),
         "Method": (str, True),
@@ -560,7 +578,7 @@ class ApiEvent(AWSObject):
 class ScheduleEvent(AWSObject):
     resource_type = "Schedule"
 
-    props = {
+    props: PropsDictType = {
         "Schedule": (str, True),
         "Input": (str, False),
         "Description": (str, False),
@@ -572,24 +590,31 @@ class ScheduleEvent(AWSObject):
 class CloudWatchEvent(AWSObject):
     resource_type = "CloudWatchEvent"
 
-    props = {"Pattern": (dict, True), "Input": (str, False), "InputPath": (str, False)}
+    props: PropsDictType = {
+        "Pattern": (dict, True),
+        "Input": (str, False),
+        "InputPath": (str, False),
+    }
 
 
 class IoTRuleEvent(AWSObject):
     resource_type = "IoTRule"
 
-    props = {"Sql": (str, True), "AwsIotSqlVersion": (str, False)}
+    props: PropsDictType = {
+        "Sql": (str, True),
+        "AwsIotSqlVersion": (str, False),
+    }
 
 
 class AlexaSkillEvent(AWSObject):
     resource_type = "AlexaSkill"
-    props = {}
+    props: PropsDictType = {}
 
 
 class SQSEvent(AWSObject):
     resource_type = "SQS"
 
-    props = {"Queue": (str, True), "BatchSize": (positive_integer, True)}
+    props: PropsDictType = {"Queue": (str, True), "BatchSize": (positive_integer, True)}
 
     def validate(self):
         if not 1 <= self.properties["BatchSize"] <= 10:
@@ -597,7 +622,7 @@ class SQSEvent(AWSObject):
 
 
 class ApplicationLocation(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "ApplicationId": (str, True),
         "SemanticVersion": (str, True),
     }
@@ -606,7 +631,7 @@ class ApplicationLocation(AWSProperty):
 class Application(AWSObject):
     resource_type = "AWS::Serverless::Application"
 
-    props = {
+    props: PropsDictType = {
         "Location": ((ApplicationLocation, str), True),
         "NotificationARNs": ([str], False),
         "Parameters": (dict, False),
@@ -647,7 +672,7 @@ class GlobalsHelperFn(AWSHelperFn):
 
 
 class FunctionGlobals(GlobalsHelperFn):
-    props = {
+    props: PropsDictType = {
         "AssumeRolePolicyDocument": (policytypes, False),
         "AutoPublishAlias": (str, False),
         "CodeUri": ((S3Location, str), False),
@@ -673,7 +698,7 @@ class FunctionGlobals(GlobalsHelperFn):
 
 
 class ApiGlobals(GlobalsHelperFn):
-    props = {
+    props: PropsDictType = {
         "AccessLogSetting": (AccessLogSetting, False),
         "Auth": (Auth, False),
         "BinaryMediaTypes": ([str], False),
@@ -694,7 +719,7 @@ class ApiGlobals(GlobalsHelperFn):
 
 
 class HttpApiGlobals(GlobalsHelperFn):
-    props = {
+    props: PropsDictType = {
         "AccessLogSettings": (AccessLogSettings, False),
         "Auth": (HttpApiAuth, False),
         "StageVariables": (dict, False),
@@ -703,7 +728,7 @@ class HttpApiGlobals(GlobalsHelperFn):
 
 
 class SimpleTableGlobals(GlobalsHelperFn):
-    props = {
+    props: PropsDictType = {
         "SSESpecification": (SSESpecification, False),
     }
 
@@ -714,7 +739,7 @@ class Globals(GlobalsHelperFn):
     See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html
     """
 
-    props = {
+    props: PropsDictType = {
         "Api": (ApiGlobals, False),
         "Function": (FunctionGlobals, False),
         "HttpApi": (HttpApiGlobals, False),
