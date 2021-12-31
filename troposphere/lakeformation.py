@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean
 
 
@@ -16,7 +16,7 @@ class DataLakePrincipal(AWSProperty):
     `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "DataLakePrincipalIdentifier": (str, False),
     }
 
@@ -28,7 +28,7 @@ class DataLakeSettings(AWSObject):
 
     resource_type = "AWS::LakeFormation::DataLakeSettings"
 
-    props = {
+    props: PropsDictType = {
         "Admins": ([DataLakePrincipal], False),
         "TrustedResourceOwners": ([str], False),
     }
@@ -39,7 +39,7 @@ class DataLocationResource(AWSProperty):
     `DataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CatalogId": (str, False),
         "S3Resource": (str, False),
     }
@@ -50,7 +50,7 @@ class DatabaseResource(AWSProperty):
     `DatabaseResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CatalogId": (str, False),
         "Name": (str, False),
     }
@@ -61,7 +61,7 @@ class TableWildcard(AWSProperty):
     `TableWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html>`__
     """
 
-    props = {}
+    props: PropsDictType = {}
 
 
 class TableResource(AWSProperty):
@@ -69,7 +69,7 @@ class TableResource(AWSProperty):
     `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CatalogId": (str, False),
         "DatabaseName": (str, False),
         "Name": (str, False),
@@ -82,7 +82,7 @@ class ColumnWildcard(AWSProperty):
     `ColumnWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-columnwildcard.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ExcludedColumnNames": ([str], False),
     }
 
@@ -92,7 +92,7 @@ class TableWithColumnsResource(AWSProperty):
     `TableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CatalogId": (str, False),
         "ColumnNames": ([str], False),
         "ColumnWildcard": (ColumnWildcard, False),
@@ -106,7 +106,7 @@ class ResourceProperty(AWSProperty):
     `ResourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "DataLocationResource": (DataLocationResource, False),
         "DatabaseResource": (DatabaseResource, False),
         "TableResource": (TableResource, False),
@@ -121,7 +121,7 @@ class Permissions(AWSObject):
 
     resource_type = "AWS::LakeFormation::Permissions"
 
-    props = {
+    props: PropsDictType = {
         "DataLakePrincipal": (DataLakePrincipal, True),
         "Permissions": ([str], False),
         "PermissionsWithGrantOption": ([str], False),
@@ -136,7 +136,7 @@ class Resource(AWSObject):
 
     resource_type = "AWS::LakeFormation::Resource"
 
-    props = {
+    props: PropsDictType = {
         "ResourceArn": (str, True),
         "RoleArn": (str, False),
         "UseServiceLinkedRole": (boolean, True),

@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty
+from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 from .validators.kinesis import kinesis_stream_mode, validate_tags_or_list
 
@@ -17,7 +17,7 @@ class StreamEncryption(AWSProperty):
     `StreamEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "EncryptionType": (str, True),
         "KeyId": (str, True),
     }
@@ -28,7 +28,7 @@ class StreamModeDetails(AWSProperty):
     `StreamModeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streammodedetails.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "StreamMode": (kinesis_stream_mode, True),
     }
 
@@ -40,7 +40,7 @@ class Stream(AWSObject):
 
     resource_type = "AWS::Kinesis::Stream"
 
-    props = {
+    props: PropsDictType = {
         "Name": (str, False),
         "RetentionPeriodHours": (integer, False),
         "ShardCount": (integer, False),
@@ -57,7 +57,7 @@ class StreamConsumer(AWSObject):
 
     resource_type = "AWS::Kinesis::StreamConsumer"
 
-    props = {
+    props: PropsDictType = {
         "ConsumerName": (str, True),
         "StreamARN": (str, True),
     }

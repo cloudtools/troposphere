@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
@@ -16,7 +16,7 @@ class RelationalDatabaseParameter(AWSProperty):
     `RelationalDatabaseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AllowedValues": (str, False),
         "ApplyMethod": (str, False),
         "ApplyType": (str, False),
@@ -35,7 +35,7 @@ class Database(AWSObject):
 
     resource_type = "AWS::Lightsail::Database"
 
-    props = {
+    props: PropsDictType = {
         "AvailabilityZone": (str, False),
         "BackupRetention": (boolean, False),
         "CaCertificateIdentifier": (str, False),
@@ -59,7 +59,7 @@ class AutoSnapshotAddOn(AWSProperty):
     `AutoSnapshotAddOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-autosnapshotaddon.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "SnapshotTimeOfDay": (str, False),
     }
 
@@ -69,7 +69,7 @@ class AddOn(AWSProperty):
     `AddOn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-addon.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AddOnType": (str, True),
         "AutoSnapshotAddOnRequest": (AutoSnapshotAddOn, False),
         "Status": (str, False),
@@ -83,7 +83,7 @@ class Disk(AWSObject):
 
     resource_type = "AWS::Lightsail::Disk"
 
-    props = {
+    props: PropsDictType = {
         "AddOns": ([AddOn], False),
         "AvailabilityZone": (str, False),
         "DiskName": (str, True),
@@ -97,7 +97,7 @@ class DiskProperty(AWSProperty):
     `DiskProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-disk.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AttachedTo": (str, False),
         "AttachmentState": (str, False),
         "DiskName": (str, True),
@@ -113,7 +113,7 @@ class Hardware(AWSProperty):
     `Hardware <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-hardware.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CpuCount": (integer, False),
         "Disks": ([DiskProperty], False),
         "RamSizeInGb": (integer, False),
@@ -125,7 +125,7 @@ class MonthlyTransfer(AWSProperty):
     `MonthlyTransfer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "GbPerMonthAllocated": (str, False),
     }
 
@@ -135,7 +135,7 @@ class Port(AWSProperty):
     `Port <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-port.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AccessDirection": (str, False),
         "AccessFrom": (str, False),
         "AccessType": (str, False),
@@ -154,7 +154,7 @@ class Networking(AWSProperty):
     `Networking <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-networking.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "MonthlyTransfer": (MonthlyTransfer, False),
         "Ports": ([Port], True),
     }
@@ -167,7 +167,7 @@ class Instance(AWSObject):
 
     resource_type = "AWS::Lightsail::Instance"
 
-    props = {
+    props: PropsDictType = {
         "AddOns": ([AddOn], False),
         "AvailabilityZone": (str, False),
         "BlueprintId": (str, True),
@@ -188,7 +188,7 @@ class StaticIp(AWSObject):
 
     resource_type = "AWS::Lightsail::StaticIp"
 
-    props = {
+    props: PropsDictType = {
         "AttachedTo": (str, False),
         "StaticIpName": (str, True),
     }
