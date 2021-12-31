@@ -270,3 +270,23 @@ class TestECSValidators(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             ecs.scope_validator("bad_scope")
+
+    def test_network_port(self):
+        valid_values = [-1, 0, 65535]
+        for x in valid_values:
+            ecs.validate_network_port(x)
+
+        invalid_values = [-2, 65536]
+        for x in invalid_values:
+            with self.assertRaises(ValueError):
+                ecs.validate_network_port(x)
+
+    def test_scaling_step_size(self):
+        valid_values = [1, 100, 10000]
+        for x in valid_values:
+            ecs.validate_scaling_step_size(x)
+
+        invalid_values = [-1, 0, 10001]
+        for x in invalid_values:
+            with self.assertRaises(ValueError):
+                ecs.validate_scaling_step_size(x)

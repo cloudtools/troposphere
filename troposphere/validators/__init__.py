@@ -533,13 +533,6 @@ def cloudfront_referrer_policy(referrer_policy):
     return referrer_policy
 
 
-def ecs_proxy_type(proxy_type):
-    valid_types = ["APPMESH"]
-    if proxy_type not in valid_types:
-        raise ValueError('Type must be one of: "%s"' % (", ".join(valid_types)))
-    return proxy_type
-
-
 def backup_vault_name(name):
     vault_name_re = compile(r"^[a-zA-Z0-9\-\_\.]{1,50}$")  # noqa
     if vault_name_re.match(name):
@@ -672,13 +665,3 @@ def findingsfilter_action(action):
     if action not in valid_actions:
         raise ValueError('Action must be one of: "%s"' % (", ".join(valid_actions)))
     return action
-
-
-def ecs_efs_encryption_status(status):
-    valid_status = ["ENABLED", "DISABLED"]
-    if status not in valid_status:
-        raise ValueError(
-            'ECS EFS Encryption in transit can only be one of: "%s"'
-            % (", ".join(valid_status))
-        )
-    return status
