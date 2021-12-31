@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import integer
 from .validators.resiliencehub import (
     validate_resiliencypolicy_policy,
@@ -20,7 +20,7 @@ class PhysicalResourceId(AWSProperty):
     `PhysicalResourceId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AwsAccountId": (str, False),
         "AwsRegion": (str, False),
         "Identifier": (str, True),
@@ -33,7 +33,7 @@ class ResourceMapping(AWSProperty):
     `ResourceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-resourcemapping.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "LogicalStackName": (str, False),
         "MappingType": (str, True),
         "PhysicalResourceId": (PhysicalResourceId, True),
@@ -48,7 +48,7 @@ class App(AWSObject):
 
     resource_type = "AWS::ResilienceHub::App"
 
-    props = {
+    props: PropsDictType = {
         "AppTemplateBody": (str, True),
         "Description": (str, False),
         "Name": (str, True),
@@ -63,7 +63,7 @@ class FailurePolicy(AWSProperty):
     `FailurePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-failurepolicy.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "RpoInSecs": (integer, True),
         "RtoInSecs": (integer, True),
     }
@@ -76,7 +76,7 @@ class ResiliencyPolicy(AWSObject):
 
     resource_type = "AWS::ResilienceHub::ResiliencyPolicy"
 
-    props = {
+    props: PropsDictType = {
         "DataLocationConstraint": (str, False),
         "Policy": (validate_resiliencypolicy_policy, True),
         "PolicyDescription": (str, False),

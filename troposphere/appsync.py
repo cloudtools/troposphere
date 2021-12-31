@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double
 from .validators.appsync import resolver_kind_validator
 
@@ -19,7 +19,7 @@ class ApiCache(AWSObject):
 
     resource_type = "AWS::AppSync::ApiCache"
 
-    props = {
+    props: PropsDictType = {
         "ApiCachingBehavior": (str, True),
         "ApiId": (str, True),
         "AtRestEncryptionEnabled": (boolean, False),
@@ -36,7 +36,7 @@ class ApiKey(AWSObject):
 
     resource_type = "AWS::AppSync::ApiKey"
 
-    props = {
+    props: PropsDictType = {
         "ApiId": (str, True),
         "ApiKeyId": (str, False),
         "Description": (str, False),
@@ -49,7 +49,7 @@ class DeltaSyncConfig(AWSProperty):
     `DeltaSyncConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-deltasyncconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "BaseTableTTL": (str, True),
         "DeltaSyncTableName": (str, True),
         "DeltaSyncTableTTL": (str, True),
@@ -61,7 +61,7 @@ class DynamoDBConfig(AWSProperty):
     `DynamoDBConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-dynamodbconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AwsRegion": (str, True),
         "DeltaSyncConfig": (DeltaSyncConfig, False),
         "TableName": (str, True),
@@ -75,7 +75,7 @@ class ElasticsearchConfig(AWSProperty):
     `ElasticsearchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-elasticsearchconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AwsRegion": (str, True),
         "Endpoint": (str, True),
     }
@@ -86,7 +86,7 @@ class AwsIamConfig(AWSProperty):
     `AwsIamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "SigningRegion": (str, False),
         "SigningServiceName": (str, False),
     }
@@ -97,7 +97,7 @@ class AuthorizationConfig(AWSProperty):
     `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-authorizationconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AuthorizationType": (str, True),
         "AwsIamConfig": (AwsIamConfig, False),
     }
@@ -108,7 +108,7 @@ class HttpConfig(AWSProperty):
     `HttpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-httpconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AuthorizationConfig": (AuthorizationConfig, False),
         "Endpoint": (str, True),
     }
@@ -119,7 +119,7 @@ class LambdaConfig(AWSProperty):
     `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "LambdaFunctionArn": (str, True),
     }
 
@@ -129,7 +129,7 @@ class OpenSearchServiceConfig(AWSProperty):
     `OpenSearchServiceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-opensearchserviceconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AwsRegion": (str, True),
         "Endpoint": (str, True),
     }
@@ -140,7 +140,7 @@ class RdsHttpEndpointConfig(AWSProperty):
     `RdsHttpEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-rdshttpendpointconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AwsRegion": (str, True),
         "AwsSecretStoreArn": (str, True),
         "DatabaseName": (str, False),
@@ -154,7 +154,7 @@ class RelationalDatabaseConfig(AWSProperty):
     `RelationalDatabaseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-relationaldatabaseconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "RdsHttpEndpointConfig": (RdsHttpEndpointConfig, False),
         "RelationalDatabaseSourceType": (str, True),
     }
@@ -167,7 +167,7 @@ class DataSource(AWSObject):
 
     resource_type = "AWS::AppSync::DataSource"
 
-    props = {
+    props: PropsDictType = {
         "ApiId": (str, True),
         "Description": (str, False),
         "DynamoDBConfig": (DynamoDBConfig, False),
@@ -189,7 +189,7 @@ class DomainName(AWSObject):
 
     resource_type = "AWS::AppSync::DomainName"
 
-    props = {
+    props: PropsDictType = {
         "CertificateArn": (str, True),
         "Description": (str, False),
         "DomainName": (str, True),
@@ -203,7 +203,7 @@ class DomainNameApiAssociation(AWSObject):
 
     resource_type = "AWS::AppSync::DomainNameApiAssociation"
 
-    props = {
+    props: PropsDictType = {
         "ApiId": (str, True),
         "DomainName": (str, True),
     }
@@ -214,7 +214,7 @@ class LambdaConflictHandlerConfig(AWSProperty):
     `LambdaConflictHandlerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "LambdaConflictHandlerArn": (str, False),
     }
 
@@ -224,7 +224,7 @@ class SyncConfig(AWSProperty):
     `SyncConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-syncconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ConflictDetection": (str, True),
         "ConflictHandler": (str, False),
         "LambdaConflictHandlerConfig": (LambdaConflictHandlerConfig, False),
@@ -238,7 +238,7 @@ class FunctionConfiguration(AWSObject):
 
     resource_type = "AWS::AppSync::FunctionConfiguration"
 
-    props = {
+    props: PropsDictType = {
         "ApiId": (str, True),
         "DataSourceName": (str, True),
         "Description": (str, False),
@@ -257,7 +257,7 @@ class CognitoUserPoolConfig(AWSProperty):
     `CognitoUserPoolConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-cognitouserpoolconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AppIdClientRegex": (str, False),
         "AwsRegion": (str, False),
         "UserPoolId": (str, False),
@@ -269,7 +269,7 @@ class LambdaAuthorizerConfig(AWSProperty):
     `LambdaAuthorizerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AuthorizerResultTtlInSeconds": (double, False),
         "AuthorizerUri": (str, False),
         "IdentityValidationExpression": (str, False),
@@ -281,7 +281,7 @@ class OpenIDConnectConfig(AWSProperty):
     `OpenIDConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AuthTTL": (double, False),
         "ClientId": (str, False),
         "IatTTL": (double, False),
@@ -294,7 +294,7 @@ class AdditionalAuthenticationProvider(AWSProperty):
     `AdditionalAuthenticationProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AuthenticationType": (str, True),
         "LambdaAuthorizerConfig": (LambdaAuthorizerConfig, False),
         "OpenIDConnectConfig": (OpenIDConnectConfig, False),
@@ -307,7 +307,7 @@ class LogConfig(AWSProperty):
     `LogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CloudWatchLogsRoleArn": (str, False),
         "ExcludeVerboseContent": (boolean, False),
         "FieldLogLevel": (str, False),
@@ -319,7 +319,7 @@ class UserPoolConfig(AWSProperty):
     `UserPoolConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-userpoolconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AppIdClientRegex": (str, False),
         "AwsRegion": (str, False),
         "DefaultAction": (str, False),
@@ -334,7 +334,7 @@ class GraphQLApi(AWSObject):
 
     resource_type = "AWS::AppSync::GraphQLApi"
 
-    props = {
+    props: PropsDictType = {
         "AdditionalAuthenticationProviders": (
             [AdditionalAuthenticationProvider],
             False,
@@ -357,7 +357,7 @@ class GraphQLSchema(AWSObject):
 
     resource_type = "AWS::AppSync::GraphQLSchema"
 
-    props = {
+    props: PropsDictType = {
         "ApiId": (str, True),
         "Definition": (str, False),
         "DefinitionS3Location": (str, False),
@@ -369,7 +369,7 @@ class CachingConfig(AWSProperty):
     `CachingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-cachingconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CachingKeys": ([str], False),
         "Ttl": (double, False),
     }
@@ -380,7 +380,7 @@ class PipelineConfig(AWSProperty):
     `PipelineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-pipelineconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Functions": ([str], False),
     }
 
@@ -392,7 +392,7 @@ class Resolver(AWSObject):
 
     resource_type = "AWS::AppSync::Resolver"
 
-    props = {
+    props: PropsDictType = {
         "ApiId": (str, True),
         "CachingConfig": (CachingConfig, False),
         "DataSourceName": (str, False),
