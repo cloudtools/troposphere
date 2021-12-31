@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
 class IamRole(AWSProperty):
@@ -15,7 +15,7 @@ class IamRole(AWSProperty):
     `IamRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamrole.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "arn": (str, False),
     }
 
@@ -25,7 +25,7 @@ class IamUser(AWSProperty):
     `IamUser <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-iamuser.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "arn": (str, False),
     }
 
@@ -35,7 +35,7 @@ class User(AWSProperty):
     `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-user.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "id": (str, False),
     }
 
@@ -45,7 +45,7 @@ class AccessPolicyIdentity(AWSProperty):
     `AccessPolicyIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyidentity.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "IamRole": (IamRole, False),
         "IamUser": (IamUser, False),
         "User": (User, False),
@@ -57,7 +57,7 @@ class PortalProperty(AWSProperty):
     `PortalProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-portal.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "id": (str, False),
     }
 
@@ -67,7 +67,7 @@ class ProjectProperty(AWSProperty):
     `ProjectProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-project.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "id": (str, False),
     }
 
@@ -77,7 +77,7 @@ class AccessPolicyResource(AWSProperty):
     `AccessPolicyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-accesspolicy-accesspolicyresource.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Portal": (PortalProperty, False),
         "Project": (ProjectProperty, False),
     }
@@ -90,7 +90,7 @@ class AccessPolicy(AWSObject):
 
     resource_type = "AWS::IoTSiteWise::AccessPolicy"
 
-    props = {
+    props: PropsDictType = {
         "AccessPolicyIdentity": (AccessPolicyIdentity, True),
         "AccessPolicyPermission": (str, True),
         "AccessPolicyResource": (AccessPolicyResource, True),
@@ -102,7 +102,7 @@ class AssetHierarchy(AWSProperty):
     `AssetHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assethierarchy.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ChildAssetId": (str, True),
         "LogicalId": (str, True),
     }
@@ -113,7 +113,7 @@ class AssetProperty(AWSProperty):
     `AssetProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-asset-assetproperty.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Alias": (str, False),
         "LogicalId": (str, True),
         "NotificationState": (str, False),
@@ -127,7 +127,7 @@ class Asset(AWSObject):
 
     resource_type = "AWS::IoTSiteWise::Asset"
 
-    props = {
+    props: PropsDictType = {
         "AssetHierarchies": ([AssetHierarchy], False),
         "AssetModelId": (str, True),
         "AssetName": (str, True),
@@ -141,7 +141,7 @@ class Attribute(AWSProperty):
     `Attribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-attribute.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "DefaultValue": (str, False),
     }
 
@@ -151,7 +151,7 @@ class VariableValue(AWSProperty):
     `VariableValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "HierarchyLogicalId": (str, False),
         "PropertyLogicalId": (str, True),
     }
@@ -162,7 +162,7 @@ class ExpressionVariable(AWSProperty):
     `ExpressionVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-expressionvariable.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Name": (str, True),
         "Value": (VariableValue, True),
     }
@@ -173,7 +173,7 @@ class TumblingWindow(AWSProperty):
     `TumblingWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-tumblingwindow.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Interval": (str, True),
         "Offset": (str, False),
     }
@@ -184,7 +184,7 @@ class MetricWindow(AWSProperty):
     `MetricWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metricwindow.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Tumbling": (TumblingWindow, False),
     }
 
@@ -194,7 +194,7 @@ class Metric(AWSProperty):
     `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-metric.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Expression": (str, True),
         "Variables": ([ExpressionVariable], True),
         "Window": (MetricWindow, True),
@@ -206,7 +206,7 @@ class Transform(AWSProperty):
     `Transform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-transform.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Expression": (str, True),
         "Variables": ([ExpressionVariable], True),
     }
@@ -217,7 +217,7 @@ class PropertyType(AWSProperty):
     `PropertyType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertytype.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Attribute": (Attribute, False),
         "Metric": (Metric, False),
         "Transform": (Transform, False),
@@ -230,7 +230,7 @@ class AssetModelProperty(AWSProperty):
     `AssetModelProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelproperty.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "DataType": (str, True),
         "DataTypeSpec": (str, False),
         "LogicalId": (str, True),
@@ -245,7 +245,7 @@ class AssetModelCompositeModel(AWSProperty):
     `AssetModelCompositeModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelcompositemodel.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CompositeModelProperties": ([AssetModelProperty], False),
         "Description": (str, False),
         "Name": (str, True),
@@ -258,7 +258,7 @@ class AssetModelHierarchy(AWSProperty):
     `AssetModelHierarchy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-assetmodelhierarchy.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ChildAssetModelId": (str, True),
         "LogicalId": (str, True),
         "Name": (str, True),
@@ -272,7 +272,7 @@ class AssetModel(AWSObject):
 
     resource_type = "AWS::IoTSiteWise::AssetModel"
 
-    props = {
+    props: PropsDictType = {
         "AssetModelCompositeModels": ([AssetModelCompositeModel], False),
         "AssetModelDescription": (str, False),
         "AssetModelHierarchies": ([AssetModelHierarchy], False),
@@ -289,7 +289,7 @@ class Dashboard(AWSObject):
 
     resource_type = "AWS::IoTSiteWise::Dashboard"
 
-    props = {
+    props: PropsDictType = {
         "DashboardDefinition": (str, True),
         "DashboardDescription": (str, True),
         "DashboardName": (str, True),
@@ -303,7 +303,7 @@ class GatewayCapabilitySummary(AWSProperty):
     `GatewayCapabilitySummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CapabilityConfiguration": (str, False),
         "CapabilityNamespace": (str, True),
     }
@@ -314,7 +314,7 @@ class Greengrass(AWSProperty):
     `Greengrass <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "GroupArn": (str, True),
     }
 
@@ -324,7 +324,7 @@ class GatewayPlatform(AWSProperty):
     `GatewayPlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Greengrass": (Greengrass, True),
     }
 
@@ -336,7 +336,7 @@ class Gateway(AWSObject):
 
     resource_type = "AWS::IoTSiteWise::Gateway"
 
-    props = {
+    props: PropsDictType = {
         "GatewayCapabilitySummaries": ([GatewayCapabilitySummary], False),
         "GatewayName": (str, True),
         "GatewayPlatform": (GatewayPlatform, True),
@@ -351,7 +351,7 @@ class Portal(AWSObject):
 
     resource_type = "AWS::IoTSiteWise::Portal"
 
-    props = {
+    props: PropsDictType = {
         "Alarms": (dict, False),
         "NotificationSenderEmail": (str, False),
         "PortalAuthMode": (str, False),
@@ -370,7 +370,7 @@ class Project(AWSObject):
 
     resource_type = "AWS::IoTSiteWise::Project"
 
-    props = {
+    props: PropsDictType = {
         "AssetIds": ([str], False),
         "PortalId": (str, True),
         "ProjectDescription": (str, False),
