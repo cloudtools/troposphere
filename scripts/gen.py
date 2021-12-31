@@ -451,7 +451,7 @@ class CodeGenerator:
                     and key in self.property_validators[class_name]
                 ):
                     continue
-                if key == "Tags":
+                if key == "Tags" and value.primitive_type != "Json":
                     return True
         for class_name, property_type in sorted(self.properties.items()):
             for key, value in sorted(property_type.properties.items()):
@@ -461,7 +461,7 @@ class CodeGenerator:
                     and key in self.property_validators[class_name]
                 ):
                     continue
-                if key == "Tags":
+                if key == "Tags" and value.primitive_type != "Json":
                     return True
         return False
 
