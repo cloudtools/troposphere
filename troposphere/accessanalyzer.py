@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 
 
@@ -16,7 +16,7 @@ class Filter(AWSProperty):
     `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-filter.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Contains": ([str], False),
         "Eq": ([str], False),
         "Exists": (boolean, False),
@@ -30,7 +30,7 @@ class ArchiveRule(AWSProperty):
     `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-archiverule.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Filter": ([Filter], True),
         "RuleName": (str, True),
     }
@@ -43,7 +43,7 @@ class Analyzer(AWSObject):
 
     resource_type = "AWS::AccessAnalyzer::Analyzer"
 
-    props = {
+    props: PropsDictType = {
         "AnalyzerName": (str, False),
         "ArchiveRules": ([ArchiveRule], False),
         "Tags": (Tags, False),
