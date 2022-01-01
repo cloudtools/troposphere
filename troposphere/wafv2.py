@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 from .validators.wafv2 import (
     validate_comparison_operator,
@@ -27,7 +27,7 @@ class IPSet(AWSObject):
 
     resource_type = "AWS::WAFv2::IPSet"
 
-    props = {
+    props: PropsDictType = {
         "Addresses": ([str], True),
         "Description": (str, False),
         "IPAddressVersion": (validate_ipaddress_version, True),
@@ -42,7 +42,7 @@ class LoggingConfigurationFieldToMatch(AWSProperty):
     `LoggingConfigurationFieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "JsonBody": (dict, False),
         "Method": (dict, False),
         "QueryString": (dict, False),
@@ -58,7 +58,7 @@ class LoggingConfiguration(AWSObject):
 
     resource_type = "AWS::WAFv2::LoggingConfiguration"
 
-    props = {
+    props: PropsDictType = {
         "LogDestinationConfigs": ([str], True),
         "LoggingFilter": (dict, False),
         "RedactedFields": ([LoggingConfigurationFieldToMatch], False),
@@ -73,7 +73,7 @@ class RegexPatternSet(AWSObject):
 
     resource_type = "AWS::WAFv2::RegexPatternSet"
 
-    props = {
+    props: PropsDictType = {
         "Description": (str, False),
         "Name": (str, False),
         "RegularExpressionList": ([str], True),
@@ -87,7 +87,7 @@ class CustomResponseBody(AWSProperty):
     `CustomResponseBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponsebody.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Content": (wafv2_custom_body_response_content, True),
         "ContentType": (wafv2_custom_body_response_content_type, True),
     }
@@ -98,7 +98,7 @@ class ImmunityTimeProperty(AWSProperty):
     `ImmunityTimeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ImmunityTime": (integer, True),
     }
 
@@ -108,7 +108,7 @@ class CaptchaConfig(AWSProperty):
     `CaptchaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ImmunityTimeProperty": (ImmunityTimeProperty, False),
     }
 
@@ -118,7 +118,7 @@ class Label(AWSProperty):
     `Label <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-label.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Name": (str, True),
     }
 
@@ -128,7 +128,7 @@ class CustomHTTPHeader(AWSProperty):
     `CustomHTTPHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customhttpheader.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Name": (str, True),
         "Value": (str, True),
     }
@@ -139,7 +139,7 @@ class CustomRequestHandling(AWSProperty):
     `CustomRequestHandling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customrequesthandling.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "InsertHeaders": ([CustomHTTPHeader], True),
     }
 
@@ -149,7 +149,7 @@ class AllowAction(AWSProperty):
     `AllowAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-allowaction.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CustomRequestHandling": (CustomRequestHandling, False),
     }
 
@@ -159,7 +159,7 @@ class CustomResponse(AWSProperty):
     `CustomResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-customresponse.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CustomResponseBodyKey": (str, False),
         "ResponseCode": (integer, True),
         "ResponseHeaders": ([CustomHTTPHeader], False),
@@ -171,7 +171,7 @@ class BlockAction(AWSProperty):
     `BlockAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-blockaction.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CustomResponse": (CustomResponse, False),
     }
 
@@ -181,7 +181,7 @@ class CaptchaAction(AWSProperty):
     `CaptchaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaaction.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CustomRequestHandling": (CustomRequestHandling, False),
     }
 
@@ -191,7 +191,7 @@ class CountAction(AWSProperty):
     `CountAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CustomRequestHandling": (CustomRequestHandling, False),
     }
 
@@ -201,7 +201,7 @@ class RuleAction(AWSProperty):
     `RuleAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleaction.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Allow": (AllowAction, False),
         "Block": (BlockAction, False),
         "Captcha": (CaptchaAction, False),
@@ -214,7 +214,7 @@ class JsonMatchPattern(AWSProperty):
     `JsonMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "All": (dict, False),
         "IncludedPaths": ([str], False),
     }
@@ -225,7 +225,7 @@ class JsonBody(AWSProperty):
     `JsonBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "InvalidFallbackBehavior": (str, False),
         "MatchPattern": (JsonMatchPattern, True),
         "MatchScope": (str, True),
@@ -237,7 +237,7 @@ class FieldToMatch(AWSProperty):
     `FieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AllQueryArguments": (dict, False),
         "Body": (dict, False),
         "JsonBody": (JsonBody, False),
@@ -254,7 +254,7 @@ class TextTransformation(AWSProperty):
     `TextTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-texttransformation.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Priority": (integer, True),
         "Type": (validate_transformation_type, True),
     }
@@ -265,7 +265,7 @@ class ByteMatchStatement(AWSProperty):
     `ByteMatchStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-bytematchstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
         "PositionalConstraint": (validate_positional_constraint, True),
         "SearchString": (str, False),
@@ -279,7 +279,7 @@ class ForwardedIPConfiguration(AWSProperty):
     `ForwardedIPConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-forwardedipconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "FallbackBehavior": (str, True),
         "HeaderName": (str, True),
     }
@@ -290,7 +290,7 @@ class GeoMatchStatement(AWSProperty):
     `GeoMatchStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-geomatchstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CountryCodes": ([str], False),
         "ForwardedIPConfig": (ForwardedIPConfiguration, False),
     }
@@ -301,7 +301,7 @@ class IPSetForwardedIPConfiguration(AWSProperty):
     `IPSetForwardedIPConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetforwardedipconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "FallbackBehavior": (str, True),
         "HeaderName": (str, True),
         "Position": (str, True),
@@ -313,7 +313,7 @@ class IPSetReferenceStatement(AWSProperty):
     `IPSetReferenceStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ipsetreferencestatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Arn": (str, True),
         "IPSetForwardedIPConfig": (IPSetForwardedIPConfiguration, False),
     }
@@ -324,7 +324,7 @@ class LabelMatchStatement(AWSProperty):
     `LabelMatchStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-labelmatchstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Key": (str, True),
         "Scope": (str, True),
     }
@@ -335,7 +335,7 @@ class ExcludedRule(AWSProperty):
     `ExcludedRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-excludedrule.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Name": (str, True),
     }
 
@@ -345,7 +345,7 @@ class ManagedRuleGroupStatement(AWSProperty):
     `ManagedRuleGroupStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ExcludedRules": ([ExcludedRule], False),
         "Name": (str, True),
         "VendorName": (str, True),
@@ -358,7 +358,7 @@ class RegexMatchStatement(AWSProperty):
     `RegexMatchStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexmatchstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
         "RegexString": (str, True),
         "TextTransformations": ([TextTransformation], True),
@@ -370,7 +370,7 @@ class RegexPatternSetReferenceStatement(AWSProperty):
     `RegexPatternSetReferenceStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-regexpatternsetreferencestatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Arn": (str, True),
         "FieldToMatch": (FieldToMatch, True),
         "TextTransformations": ([TextTransformation], True),
@@ -382,7 +382,7 @@ class RuleGroupReferenceStatement(AWSProperty):
     `RuleGroupReferenceStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rulegroupreferencestatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Arn": (str, True),
         "ExcludedRules": ([ExcludedRule], False),
     }
@@ -393,7 +393,7 @@ class SizeConstraintStatement(AWSProperty):
     `SizeConstraintStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sizeconstraintstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ComparisonOperator": (validate_comparison_operator, True),
         "FieldToMatch": (FieldToMatch, True),
         "Size": (double, True),
@@ -406,7 +406,7 @@ class SqliMatchStatement(AWSProperty):
     `SqliMatchStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-sqlimatchstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
         "TextTransformations": ([TextTransformation], True),
     }
@@ -417,7 +417,7 @@ class XssMatchStatement(AWSProperty):
     `XssMatchStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-xssmatchstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
         "TextTransformations": ([TextTransformation], True),
     }
@@ -428,7 +428,7 @@ class StatementThree(AWSProperty):
     `StatementThree <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ByteMatchStatement": (ByteMatchStatement, False),
         "GeoMatchStatement": (GeoMatchStatement, False),
         "IPSetReferenceStatement": (IPSetReferenceStatement, False),
@@ -448,7 +448,7 @@ class AndStatementTwo(AWSProperty):
     `AndStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Statements": ([StatementThree], True),
     }
 
@@ -458,7 +458,7 @@ class NotStatementTwo(AWSProperty):
     `NotStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Statement": (StatementThree, True),
     }
 
@@ -468,7 +468,7 @@ class OrStatementTwo(AWSProperty):
     `OrStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Statements": ([StatementThree], True),
     }
 
@@ -478,7 +478,7 @@ class RateBasedStatementTwo(AWSProperty):
     `RateBasedStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AggregateKeyType": (str, True),
         "ForwardedIPConfig": (ForwardedIPConfiguration, False),
         "Limit": (integer, True),
@@ -491,7 +491,7 @@ class StatementTwo(AWSProperty):
     `StatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AndStatement": (AndStatementTwo, False),
         "ByteMatchStatement": (ByteMatchStatement, False),
         "GeoMatchStatement": (GeoMatchStatement, False),
@@ -515,7 +515,7 @@ class AndStatementOne(AWSProperty):
     `AndStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Statements": ([StatementTwo], True),
     }
 
@@ -525,7 +525,7 @@ class NotStatementOne(AWSProperty):
     `NotStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Statement": (StatementTwo, True),
     }
 
@@ -535,7 +535,7 @@ class OrStatementOne(AWSProperty):
     `OrStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Statements": ([StatementTwo], True),
     }
 
@@ -545,7 +545,7 @@ class RateBasedStatementOne(AWSProperty):
     `RateBasedStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AggregateKeyType": (str, True),
         "ForwardedIPConfig": (ForwardedIPConfiguration, False),
         "Limit": (integer, True),
@@ -558,7 +558,7 @@ class StatementOne(AWSProperty):
     `StatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AndStatement": (AndStatementOne, False),
         "ByteMatchStatement": (ByteMatchStatement, False),
         "GeoMatchStatement": (GeoMatchStatement, False),
@@ -582,7 +582,7 @@ class VisibilityConfig(AWSProperty):
     `VisibilityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-visibilityconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "CloudWatchMetricsEnabled": (boolean, True),
         "MetricName": (str, True),
         "SampledRequestsEnabled": (boolean, True),
@@ -594,7 +594,7 @@ class RuleGroupRule(AWSProperty):
     `RuleGroupRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-rule.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Action": (RuleAction, False),
         "CaptchaConfig": (CaptchaConfig, False),
         "Name": (str, True),
@@ -612,7 +612,7 @@ class RuleGroup(AWSObject):
 
     resource_type = "AWS::WAFv2::RuleGroup"
 
-    props = {
+    props: PropsDictType = {
         "Capacity": (integer, True),
         "CustomResponseBodies": (validate_custom_response_bodies, False),
         "Description": (str, False),
@@ -629,7 +629,7 @@ class DefaultAction(AWSProperty):
     `DefaultAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Allow": (AllowAction, False),
         "Block": (BlockAction, False),
     }
@@ -640,7 +640,7 @@ class OverrideAction(AWSProperty):
     `OverrideAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-overrideaction.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Count": (dict, False),
         "None": (dict, False),
     }
@@ -651,7 +651,7 @@ class WebACLRule(AWSProperty):
     `WebACLRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-rule.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Action": (RuleAction, False),
         "CaptchaConfig": (CaptchaConfig, False),
         "Name": (str, True),
@@ -670,7 +670,7 @@ class WebACL(AWSObject):
 
     resource_type = "AWS::WAFv2::WebACL"
 
-    props = {
+    props: PropsDictType = {
         "CaptchaConfig": (CaptchaConfig, False),
         "CustomResponseBodies": (validate_custom_response_bodies, False),
         "DefaultAction": (DefaultAction, True),
@@ -690,7 +690,7 @@ class WebACLAssociation(AWSObject):
 
     resource_type = "AWS::WAFv2::WebACLAssociation"
 
-    props = {
+    props: PropsDictType = {
         "ResourceArn": (str, True),
         "WebACLArn": (str, True),
     }
