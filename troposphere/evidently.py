@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
@@ -16,7 +16,7 @@ class MetricGoalObject(AWSProperty):
     `MetricGoalObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-metricgoalobject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "DesiredChange": (str, True),
         "EntityIdKey": (str, True),
         "EventPattern": (str, True),
@@ -31,7 +31,7 @@ class TreatmentToWeight(AWSProperty):
     `TreatmentToWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmenttoweight.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "SplitWeight": (integer, True),
         "Treatment": (str, True),
     }
@@ -42,7 +42,7 @@ class OnlineAbConfigObject(AWSProperty):
     `OnlineAbConfigObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-onlineabconfigobject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ControlTreatmentName": (str, False),
         "TreatmentWeights": ([TreatmentToWeight], False),
     }
@@ -53,7 +53,7 @@ class TreatmentObject(AWSProperty):
     `TreatmentObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Description": (str, False),
         "Feature": (str, True),
         "TreatmentName": (str, True),
@@ -68,7 +68,7 @@ class Experiment(AWSObject):
 
     resource_type = "AWS::Evidently::Experiment"
 
-    props = {
+    props: PropsDictType = {
         "Description": (str, False),
         "MetricGoals": ([MetricGoalObject], True),
         "Name": (str, True),
@@ -86,7 +86,7 @@ class EntityOverride(AWSProperty):
     `EntityOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-entityoverride.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "EntityId": (str, False),
         "Variation": (str, False),
     }
@@ -97,7 +97,7 @@ class VariationObject(AWSProperty):
     `VariationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-feature-variationobject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "BooleanValue": (boolean, False),
         "DoubleValue": (double, False),
         "LongValue": (double, False),
@@ -113,7 +113,7 @@ class Feature(AWSObject):
 
     resource_type = "AWS::Evidently::Feature"
 
-    props = {
+    props: PropsDictType = {
         "DefaultVariation": (str, False),
         "Description": (str, False),
         "EntityOverrides": ([EntityOverride], False),
@@ -130,7 +130,7 @@ class LaunchGroupObject(AWSProperty):
     `LaunchGroupObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-launchgroupobject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Description": (str, False),
         "Feature": (str, True),
         "GroupName": (str, True),
@@ -143,7 +143,7 @@ class MetricDefinitionObject(AWSProperty):
     `MetricDefinitionObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-metricdefinitionobject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "EntityIdKey": (str, True),
         "EventPattern": (str, True),
         "MetricName": (str, True),
@@ -157,7 +157,7 @@ class GroupToWeight(AWSProperty):
     `GroupToWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-grouptoweight.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "GroupName": (str, True),
         "SplitWeight": (integer, True),
     }
@@ -168,7 +168,7 @@ class StepConfig(AWSProperty):
     `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "GroupWeights": ([GroupToWeight], True),
         "StartTime": (str, True),
     }
@@ -181,7 +181,7 @@ class Launch(AWSObject):
 
     resource_type = "AWS::Evidently::Launch"
 
-    props = {
+    props: PropsDictType = {
         "Description": (str, False),
         "Groups": ([LaunchGroupObject], True),
         "MetricMonitors": ([MetricDefinitionObject], False),
@@ -198,7 +198,7 @@ class S3Destination(AWSProperty):
     `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "BucketName": (str, True),
         "Prefix": (str, False),
     }
@@ -209,7 +209,7 @@ class DataDeliveryObject(AWSProperty):
     `DataDeliveryObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-datadeliveryobject.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "LogGroup": (str, False),
         "S3": (S3Destination, False),
     }
@@ -222,7 +222,7 @@ class Project(AWSObject):
 
     resource_type = "AWS::Evidently::Project"
 
-    props = {
+    props: PropsDictType = {
         "DataDelivery": (DataDeliveryObject, False),
         "Description": (str, False),
         "Name": (str, True),

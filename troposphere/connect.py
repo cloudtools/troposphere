@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
@@ -18,7 +18,7 @@ class ContactFlow(AWSObject):
 
     resource_type = "AWS::Connect::ContactFlow"
 
-    props = {
+    props: PropsDictType = {
         "Content": (str, True),
         "Description": (str, False),
         "InstanceArn": (str, True),
@@ -36,7 +36,7 @@ class ContactFlowModule(AWSObject):
 
     resource_type = "AWS::Connect::ContactFlowModule"
 
-    props = {
+    props: PropsDictType = {
         "Content": (str, True),
         "Description": (str, False),
         "InstanceArn": (str, True),
@@ -51,7 +51,7 @@ class HoursOfOperationTimeSlice(AWSProperty):
     `HoursOfOperationTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Hours": (integer, True),
         "Minutes": (integer, True),
     }
@@ -62,7 +62,7 @@ class HoursOfOperationConfig(AWSProperty):
     `HoursOfOperationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Day": (str, True),
         "EndTime": (HoursOfOperationTimeSlice, True),
         "StartTime": (HoursOfOperationTimeSlice, True),
@@ -76,7 +76,7 @@ class HoursOfOperation(AWSObject):
 
     resource_type = "AWS::Connect::HoursOfOperation"
 
-    props = {
+    props: PropsDictType = {
         "Config": ([HoursOfOperationConfig], True),
         "Description": (str, False),
         "InstanceArn": (str, True),
@@ -91,7 +91,7 @@ class PhoneNumberQuickConnectConfig(AWSProperty):
     `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "PhoneNumber": (str, True),
     }
 
@@ -101,7 +101,7 @@ class QueueQuickConnectConfig(AWSProperty):
     `QueueQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-queuequickconnectconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ContactFlowArn": (str, True),
         "QueueArn": (str, True),
     }
@@ -112,7 +112,7 @@ class UserQuickConnectConfig(AWSProperty):
     `UserQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-userquickconnectconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ContactFlowArn": (str, True),
         "UserArn": (str, True),
     }
@@ -123,7 +123,7 @@ class QuickConnectConfig(AWSProperty):
     `QuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-quickconnectconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "PhoneConfig": (PhoneNumberQuickConnectConfig, False),
         "QueueConfig": (QueueQuickConnectConfig, False),
         "QuickConnectType": (str, True),
@@ -138,7 +138,7 @@ class QuickConnect(AWSObject):
 
     resource_type = "AWS::Connect::QuickConnect"
 
-    props = {
+    props: PropsDictType = {
         "Description": (str, False),
         "InstanceArn": (str, True),
         "Name": (str, True),
@@ -152,7 +152,7 @@ class UserIdentityInfo(AWSProperty):
     `UserIdentityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Email": (str, False),
         "FirstName": (str, False),
         "LastName": (str, False),
@@ -164,7 +164,7 @@ class UserPhoneConfig(AWSProperty):
     `UserPhoneConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userphoneconfig.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "AfterContactWorkTimeLimit": (integer, False),
         "AutoAccept": (boolean, False),
         "DeskPhoneNumber": (str, False),
@@ -179,7 +179,7 @@ class User(AWSObject):
 
     resource_type = "AWS::Connect::User"
 
-    props = {
+    props: PropsDictType = {
         "DirectoryUserId": (str, False),
         "HierarchyGroupArn": (str, False),
         "IdentityInfo": (UserIdentityInfo, False),
@@ -200,7 +200,7 @@ class UserHierarchyGroup(AWSObject):
 
     resource_type = "AWS::Connect::UserHierarchyGroup"
 
-    props = {
+    props: PropsDictType = {
         "InstanceArn": (str, True),
         "Name": (str, True),
         "ParentGroupArn": (str, False),

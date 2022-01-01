@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2021, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -7,7 +7,7 @@
 # Resource specification version: 51.0.0
 
 
-from . import AWSObject, AWSProperty, Tags
+from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 from .validators.ecr import policytypes
 
@@ -19,7 +19,7 @@ class PublicRepository(AWSObject):
 
     resource_type = "AWS::ECR::PublicRepository"
 
-    props = {
+    props: PropsDictType = {
         "RepositoryCatalogData": (dict, False),
         "RepositoryName": (str, False),
         "RepositoryPolicyText": (policytypes, False),
@@ -34,7 +34,7 @@ class RegistryPolicy(AWSObject):
 
     resource_type = "AWS::ECR::RegistryPolicy"
 
-    props = {
+    props: PropsDictType = {
         "PolicyText": (policytypes, True),
     }
 
@@ -44,7 +44,7 @@ class ReplicationDestination(AWSProperty):
     `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Region": (str, True),
         "RegistryId": (str, True),
     }
@@ -55,7 +55,7 @@ class RepositoryFilter(AWSProperty):
     `RepositoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Filter": (str, True),
         "FilterType": (str, True),
     }
@@ -66,7 +66,7 @@ class ReplicationRule(AWSProperty):
     `ReplicationRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationrule.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Destinations": ([ReplicationDestination], True),
         "RepositoryFilters": ([RepositoryFilter], False),
     }
@@ -77,7 +77,7 @@ class ReplicationConfigurationProperty(AWSProperty):
     `ReplicationConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "Rules": ([ReplicationRule], True),
     }
 
@@ -89,7 +89,7 @@ class ReplicationConfiguration(AWSObject):
 
     resource_type = "AWS::ECR::ReplicationConfiguration"
 
-    props = {
+    props: PropsDictType = {
         "ReplicationConfigurationProperty": (ReplicationConfigurationProperty, True),
     }
 
@@ -99,7 +99,7 @@ class EncryptionConfiguration(AWSProperty):
     `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-encryptionconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "EncryptionType": (str, True),
         "KmsKey": (str, False),
     }
@@ -110,7 +110,7 @@ class ImageScanningConfiguration(AWSProperty):
     `ImageScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-imagescanningconfiguration.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "ScanOnPush": (boolean, False),
     }
 
@@ -120,7 +120,7 @@ class LifecyclePolicy(AWSProperty):
     `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-repository-lifecyclepolicy.html>`__
     """
 
-    props = {
+    props: PropsDictType = {
         "LifecyclePolicyText": (str, False),
         "RegistryId": (str, False),
     }
@@ -133,7 +133,7 @@ class Repository(AWSObject):
 
     resource_type = "AWS::ECR::Repository"
 
-    props = {
+    props: PropsDictType = {
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTagMutability": (str, False),
