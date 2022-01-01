@@ -8,6 +8,7 @@ from troposphere.awslambda import (
     ImageConfig,
     validate_memory_size,
 )
+from troposphere.validators.awslambda import check_zip_file
 
 
 class TestAWSLambda(unittest.TestCase):
@@ -64,7 +65,7 @@ class TestAWSLambda(unittest.TestCase):
             GetAtt("foo", "bar"),
         ]
         for z in positive_tests:
-            Code.check_zip_file(z)
+            check_zip_file(z)
         negative_tests = [
             "a" * 4097,
             Join("", ["a" * 4097]),
@@ -73,7 +74,7 @@ class TestAWSLambda(unittest.TestCase):
         ]
         for z in negative_tests:
             with self.assertRaises(ValueError):
-                Code.check_zip_file(z)
+                check_zip_file(z)
 
     def test_environment_variable_invalid_name(self):
         for var in ["1", "2var", "_var", "/var"]:
