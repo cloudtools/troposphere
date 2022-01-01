@@ -1,3 +1,142 @@
+3.2.0 (2022*01*01)
+------------------
+Major Changes
+^^^^^^^^^^^^^
+* Python 3.6 support removed due to Python EOL
+* Moving to auto-generation of troposphere classes
+
+  To make troposphere easier to maintain and keep up-to-date, the core
+  troposphere classes will be migrated to be auto-generated from
+  the CloudFormation Resource Specification. Changes have been made to
+  maintain backward compatibility in troposphere 3.x releases. Please
+  open a github issue if an auto-generated class is not compatible.
+
+  Note: a future troposphere 4.x release will likely align more with the AWS
+  naming of Resources and Properties which would break backward compatibility.
+
+Changes
+^^^^^^^
+* Add Architectures to AWS::Serverless::Function (#1971)
+* Update EKS per 2021-11-10 changes
+* Update IoTWireless per 2021-11-11 changes
+* Update Batch per 2021-11-11 changes
+* Added CopyTagsToSnapshot to DBCluster (#1973)
+* Run tests against Python 3.10 and add trove classifier (#1974)
+* Update Location per 2021-11-12 changes
+* Update AppStream per 2021-11-18 changes
+* Update MSK per 2021-11-18 changes
+* Update FSx per 2021-11-18 changes
+* Update FinSpace per 2021-11-18 changes
+* Update CloudFormation per 2021-11-18 changes
+* Added ecs.TaskDefinition.RuntimePlatform (#1976)
+* AWS::ElastiCache::ReplicationGroup.DataTieringEnabled (#1977)
+* AWS::Logs::LogGroup.Tags (#1978)
+* CHANGELOG.rst Formatting Fixes (#1983)
+* Fixed NetworkFirewall::LoggingConfiguration (#1984)
+* Update NetworkFirewall jsonpatch for LoggingConfiguration
+* Update CloudFront (adding ResponseHeadersPolicyId fields) per 2021-11-04 changes (#1982)
+* Update cfn2py - change add_description to set_description (#1975)
+* Added CompatibleArchitectures to Serverless::LayerVersion (#1972)
+* Add UpdateConfig to EKS::Nodegroup (#1980)
+* Added RedshiftRetryOptions and enabled support for RetryOptions in Re… (#1981)
+* Update Kinesis per 2021-12-09 (#1988)
+* Update AppFlow 18.6.0->51.0.0 (#1985)
+* Move validators into a module to support future changes
+* pre-commit checks for black+isort (#1989)
+* Fix black formatting/isort
+* First pass cleanup for the code generator script
+* Auto-generate NetworkFirewall
+* Update Timestream per 2021-12-03 changes
+* Add AWS::RUM per 2021-12-03 changes
+* Auto-generate FSx
+* Add AWS::Evidently per 2021-12-03 changes
+* Remove (now unused) yaml import from the gen.py
+* ap-southeast-3 (Jakarta), ap-northeast-3 (Osaka), and new zone in Beijing (#1991)
+* More updates for code generation and update some resources
+* Update Connect per 2021-12-03 changes
+* Add AWS::ResilienceHub
+* Update SageMaker per 2021-12-03 changes and fix SageMaker::Device
+* Rearrange S3 classes to make comparison to auto-generated code easier
+* Auto-generate S3 and update per 2021-12-03 changes
+* Auto-generate AppSync and update per 2021-12-06 changes
+* Auto-generate Kinesis
+* Auto-generate AccessAnalyzer
+* Auto-generate ACMPCA
+* Makefile tweaks: add fix target and combine spec2 with spec
+* Add a few more items into .gitignore
+* Fix some lint errors
+* Remove support for Python 3.6 due to EOL
+* Re-gen Evidently to add documentation links
+* Use anonymous hyperlink targers to prevent warnings in the docs
+* Auto-generate LakeFormation
+* Auto-generate Lightsail
+* Auto-generate CodeDeploy
+* Regenerate doc links
+* First pass update to CONTRIBUTING documentation
+* Auto-generate ECR
+* Install myst_parser for markdown docs
+* Adding missing troposphere.validators package (#1995)
+* Clean up stub generation
+* Auto-generate WAFv2 (#1996)
+* Remove redundent classes from KinesisFirehose
+* Fix examples where variables were aliasing classes
+* Introduce PropsDictType and other changes to be more mypy friendly
+* Add AWS::Lex
+* Regen AccessAnalyzer
+* Regen ACMPCA
+* Auto-generate Amplify
+* Auto-generate KinesisAnalytics
+* Auto-generate AppFlow
+* Auto-generate ApplicationAutoScaling
+* Auto-generate ApplicationInsights
+* Auto-generate AppRunner
+* Auto-generate APS
+* Auto-generate ASK
+* Auto-generate AuditManager
+* Auto-generate QLDB
+* Auto-generate QuickSight
+* Auto-generate RUM
+* Auto-generate Wisdom
+* Auto-generate WorkSpaces
+* Auto-generate FinSpace
+* Auto-generate GameLift
+* Auto-generate HealthLake
+* Auto-generate EMRContainers
+* Auto-generate DevOpsGuru
+* Auto-generate MemoryDB
+* Auto-generate Signer
+* Add back Endpoint to MemoryDB for backward compatibility
+* Regen AppSync, ResilienceHub, and S3
+* Regen Kinesis, LakeFormation, and Lightsail
+* Auto-generate LookoutEquipment, LookoutMetrics, and LookoutVision
+* Auto-generate ECS
+* Auto-generate Location
+* Auto-generate LicenseManager
+* Regen IoTSiteWise
+* Auto-generate IoTCoreDeviceAdvisor and IoTFleetHub
+* Don't emit a Tags import for Json style tags
+* Auto-generate CodeGuruProfiler and CodeGuruReviewer
+* Auto-generate CodeStar, CodeStarConnections, and CodeStarNotifications
+* Auto-generate CodeArtifact
+* Auto-generate AppIntegrations
+* Auto-generate Rekognition
+* Auto-generate Route53RecoveryReadiness
+* Auto-generate ServiceCatalogAppRegistry
+* Auto-generate Timestream
+* Auto-generate SSO
+* Auto-generate RoboMaker
+* Auto-generate SDB
+* Auto-generate SES
+* Auto-generate SQS
+* Updates to gen.py
+* Auto-generate Lambda
+* Regen CodeDeploy, Connect, DataBrew, ECR, and Evidently
+* Regen FSx, NetworkFirewall, SageMaker, and WAFv2
+* Auto-generate CE
+* Auto-generate CertificateManager
+* Auto-generate Cloud9
+* Auto-generate CUR
+
 3.1.1 (2021*11*06)
 ------------------
 * Added "CompatibleArchitectures" to LayerVersion (#1963)
