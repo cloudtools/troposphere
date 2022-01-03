@@ -652,13 +652,24 @@ class DockerVolumeConfiguration(AWSProperty):
     }
 
 
+class AuthorizationConfig(AWSProperty):
+    """
+    `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-authorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessPointId": (str, False),
+        "IAM": (str, False),
+    }
+
+
 class EFSVolumeConfiguration(AWSProperty):
     """
     `EFSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-efsvolumeconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "AuthorizationConfig": (dict, False),
+        "AuthorizationConfig": (AuthorizationConfig, False),
         "FilesystemId": (str, True),
         "RootDirectory": (str, False),
         "TransitEncryption": (ecs_proxy_type, False),
