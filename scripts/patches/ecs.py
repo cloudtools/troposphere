@@ -75,6 +75,18 @@ patches = [
         "path": "/PropertyTypes/AWS::ECS::Service.NetworkConfiguration/Properties/AwsvpcConfiguration/Type",
         "value": "AwsvpcConfiguration",
     },
+    # backward compatibility
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::ECS::TaskDefinition.HostVolumeProperties",
+        "path": "/PropertyTypes/AWS::ECS::TaskDefinition.Host",
+    },
+    # backward compatibility
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::ECS::TaskDefinition.Volume/Properties/Host/Type",
+        "value": "Host",
+    },
     # Fix spec - AuthorizationConfig has a PrimitiveType of Json which was being emitted but als a Type of AuthorizationConfig
     {
         "op": "remove",

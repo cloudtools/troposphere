@@ -677,9 +677,9 @@ class EFSVolumeConfiguration(AWSProperty):
     }
 
 
-class HostVolumeProperties(AWSProperty):
+class Host(AWSProperty):
     """
-    `HostVolumeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html>`__
+    `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html>`__
     """
 
     props: PropsDictType = {
@@ -695,7 +695,7 @@ class Volume(AWSProperty):
     props: PropsDictType = {
         "DockerVolumeConfiguration": (DockerVolumeConfiguration, False),
         "EFSVolumeConfiguration": (EFSVolumeConfiguration, False),
-        "Host": (HostVolumeProperties, False),
+        "Host": (Host, False),
         "Name": (str, False),
     }
 
