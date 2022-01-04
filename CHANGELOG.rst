@@ -1,3 +1,9 @@
+3.2.1 (2022*01*03)
+------------------
+* Restore AWS::ECS::TaskDefinition AuthorizationConfig (Fixes #1997)
+* Fix backward compat issue with ECS HostVolumeProperties => Host
+* Fix backward compat issue with CodeDeploy RevisionLocation => Revision
+
 3.2.0 (2022*01*01)
 ------------------
 Major Changes
