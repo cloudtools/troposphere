@@ -199,9 +199,9 @@ class S3Location(AWSProperty):
     }
 
 
-class RevisionLocation(AWSProperty):
+class Revision(AWSProperty):
     """
-    `RevisionLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html>`__
+    `Revision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-deployment-revision.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class Deployment(AWSProperty):
     props: PropsDictType = {
         "Description": (str, False),
         "IgnoreApplicationStopFailures": (boolean, False),
-        "Revision": (RevisionLocation, True),
+        "Revision": (Revision, True),
     }
 
 

@@ -65,4 +65,16 @@ patches = [
         "path": "/PropertyTypes/AWS::CodeDeploy::DeploymentGroup.LoadBalancerInfo/Properties/ElbInfoList/ItemType",
         "value": "ElbInfoList",
     },
+    # backward compatibility
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::CodeDeploy::DeploymentGroup.RevisionLocation",
+        "path": "/PropertyTypes/AWS::CodeDeploy::DeploymentGroup.Revision",
+    },
+    # backward compatibility
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::CodeDeploy::DeploymentGroup.Deployment/Properties/Revision/Type",
+        "value": "Revision",
+    },
 ]
