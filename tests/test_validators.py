@@ -4,7 +4,6 @@ from troposphere import NoValue, Parameter, Ref, Tags
 from troposphere.validators import (
     boolean,
     check_required,
-    compliance_level,
     elb_name,
     encoding,
     iam_group_name,
@@ -16,19 +15,22 @@ from troposphere.validators import (
     integer_range,
     mutually_exclusive,
     network_port,
-    notification_event,
-    notification_type,
     one_of,
-    operating_system,
     positive_integer,
     s3_bucket_name,
     status,
     tags_or_list,
-    task_type,
     tg_healthcheck_port,
     waf_action_type,
 )
 from troposphere.validators.backup import backup_vault_name
+from troposphere.validators.ssm import (
+    compliance_level,
+    notification_event,
+    notification_type,
+    operating_system,
+    task_type,
+)
 
 
 class TestValidators(unittest.TestCase):
