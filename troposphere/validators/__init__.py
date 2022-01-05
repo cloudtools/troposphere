@@ -403,14 +403,6 @@ def key_usage_type(key):
     return key
 
 
-def backup_vault_name(name):
-    vault_name_re = compile(r"^[a-zA-Z0-9\-\_\.]{1,50}$")  # noqa
-    if vault_name_re.match(name):
-        return name
-    else:
-        raise ValueError("%s is not a valid backup vault name" % name)
-
-
 def waf_action_type(action):
     valid_actions = ["ALLOW", "BLOCK", "COUNT"]
     if action not in valid_actions:

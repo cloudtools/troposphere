@@ -2,7 +2,6 @@ import unittest
 
 from troposphere import NoValue, Parameter, Ref, Tags
 from troposphere.validators import (
-    backup_vault_name,
     boolean,
     check_required,
     compliance_level,
@@ -29,6 +28,7 @@ from troposphere.validators import (
     tg_healthcheck_port,
     waf_action_type,
 )
+from troposphere.validators.backup import backup_vault_name
 
 
 class TestValidators(unittest.TestCase):
