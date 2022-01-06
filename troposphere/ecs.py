@@ -16,6 +16,7 @@ from .validators.ecs import RUNTIME_PLATFORM_OS_FAMILY  # noqa: F401
 from .validators.ecs import SCHEDULING_STRATEGY_DAEMON  # noqa: F401
 from .validators.ecs import SCHEDULING_STRATEGY_REPLICA  # noqa: F401
 from .validators.ecs import (
+    ecs_efs_encryption_status,
     ecs_proxy_type,
     launch_type_validator,
     placement_constraint_validator,
@@ -620,7 +621,7 @@ class ProxyConfiguration(AWSProperty):
     props: PropsDictType = {
         "ContainerName": (str, True),
         "ProxyConfigurationProperties": (list, False),
-        "Type": (str, False),
+        "Type": (ecs_proxy_type, False),
     }
 
 
@@ -672,7 +673,7 @@ class EFSVolumeConfiguration(AWSProperty):
         "AuthorizationConfig": (AuthorizationConfig, False),
         "FilesystemId": (str, True),
         "RootDirectory": (str, False),
-        "TransitEncryption": (ecs_proxy_type, False),
+        "TransitEncryption": (ecs_efs_encryption_status, False),
         "TransitEncryptionPort": (validate_transit_encryption_port, False),
     }
 

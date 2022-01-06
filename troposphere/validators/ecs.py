@@ -80,7 +80,7 @@ def ecs_efs_encryption_status(status):
 
 def ecs_proxy_type(proxy_type):
     """
-    Property: EFSVolumeConfiguration.TransitEncryption
+    Property: ProxyConfiguration.Type
     """
 
     valid_types = ["APPMESH"]
