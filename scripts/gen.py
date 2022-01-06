@@ -244,6 +244,21 @@ class ResourceSpec:
         for service_name, service in self.services.items():
             self._get_validators(service_name, service)
 
+        # Remap any "List of Tag" to Tags
+        for service_name, service in self.services.items():
+            for class_name, resource_type in sorted(service.resources.items()):
+                for key, value in sorted(resource_type.properties.items()):
+                    if key in service.property_validators:
+                        continue
+                    if value.type == "List" and value.item_type == "Tag":
+                        value.type = "Tags"
+            for class_name, property_type in sorted(service.properties.items()):
+                for key, value in sorted(property_type.properties.items()):
+                    if key in service.property_validators:
+                        continue
+                    if value.type == "List" and value.item_type == "Tag":
+                        value.type = "Tags"
+
         return self
 
     def _get_validators(self, service_name, service):
@@ -327,7 +342,7 @@ class CodeGenerator:
             code.append("from . import AWSObject")
         if self.properties:
             code.append("from . import AWSProperty")
-        if self._walk_for_key("Tags") or self._walk_for_type("Tags"):
+        if self._walk_for_tags():
             code.append("from . import Tags")
         code.append("from . import PropsDictType")
 
@@ -389,19 +404,24 @@ class CodeGenerator:
         if not property_type_list:
             return n
         for property_name in sorted(property_type_list):
-            if property_name == "Tag":
+            if property_name == "Tag" or property_name == "Tags":
                 continue
 
             # prevent recursive properties
             if property_name == name:
                 continue
 
-            child = self._build_tree(
-                property_name,
-                self.properties[property_name],
-                "",
-                None,
-            )
+            try:
+                child = self._build_tree(
+                    property_name,
+                    self.properties[property_name],
+                    "",
+                    None,
+                )
+            except KeyError:
+                print(property_name, self.properties[property_name])
+                raise
+
             if child is not None:
                 n.add_child(child)
         return n
@@ -421,7 +441,8 @@ class CodeGenerator:
                 return property.item_type == check_type
             else:
                 return property.primitive_item_type == check_type
-        return False
+
+        return property.type == check_type
 
     def _walk_for_stub_type(self, check_type: str) -> bool:
         """
@@ -453,29 +474,37 @@ class CodeGenerator:
 
         return False
 
-    def _walk_for_key(self, check_key: str) -> bool:
+    def _walk_for_tags(self) -> bool:
         """
-        Walk the resources/properties looking for a specific key.
+        Walk the resources/properties looking for tags
         """
         for class_name, resource_type in sorted(self.resources.items()):
             for key, value in sorted(resource_type.properties.items()):
+                # Don't import if we'll be overwriting with a validator
                 if (
                     self.property_validators
                     and class_name in self.property_validators
                     and key in self.property_validators[class_name]
                 ):
                     continue
-                if key == "Tags" and value.primitive_type != "Json":
+                # Look for a Tags type/key
+                if value.type == "Tags" or (
+                    key == "Tags" and value.primitive_type != "Json"
+                ):
                     return True
         for class_name, property_type in sorted(self.properties.items()):
             for key, value in sorted(property_type.properties.items()):
+                # Don't import if we'll be overwriting with a validator
                 if (
                     self.property_validators
                     and class_name in self.property_validators
                     and key in self.property_validators[class_name]
                 ):
                     continue
-                if key == "Tags" and value.primitive_type != "Json":
+                # Look for a Tags type/key
+                if value.type == "Tags" or (
+                    key == "Tags" and value.primitive_type != "Json"
+                ):
                     return True
         return False
 
@@ -685,11 +714,12 @@ class CodeGenerator:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--stub", action="store_true", default=False)
+    parser.add_argument("--directory", "-d", action="store")
+    parser.add_argument("--filelist", action="store")
     parser.add_argument(
         "--spec", action="store", default="CloudFormationResourceSpecification.json"
     )
-    parser.add_argument("--directory", "-d", action="store")
-    parser.add_argument("service_names", nargs="+")
+    parser.add_argument("service_names", nargs="*")
     parser.add_argument("--verbose", "-v", action="store_true", default=False)
     args = parser.parse_args()
 
@@ -698,11 +728,21 @@ if __name__ == "__main__":
     if stub:
         extension = "pyi"
 
-    service_names = [name.lower() for name in args.service_names]
+    if args.filelist and not args.directory:
+        print("Must use -d option with the --filelist option")
+        sys.exit(1)
+    elif args.filelist:
+        with open(args.filelist) as f:
+            service_names = f.read().splitlines()
+    else:
+        if not args.service_names:
+            print("No service names specified")
+            sys.exit(1)
+        service_names = [name.lower() for name in args.service_names]
 
     if args.verbose:
         print(f"Parsing resource specification file: {args.spec}")
-    r = ResourceSpec(args.spec).parse(limit_warnings=[service_names])
+    r = ResourceSpec(args.spec).parse(limit_warnings=service_names)
 
     for service_name in service_names:
         filename_base = service_to_filename(service_name)
