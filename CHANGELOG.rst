@@ -35,6 +35,7 @@
 * Auto-generate Inspector
 * Add AWS::InspectorV2
 * Add missing jsonpatch files
+* Add the TableClass property to DynamoDB Resource
 
 3.2.1 (2022*01*03)
 ------------------
