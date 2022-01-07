@@ -299,6 +299,7 @@ class GameSessionQueue(AWSObject):
         "NotificationTarget": (str, False),
         "PlayerLatencyPolicies": ([PlayerLatencyPolicy], False),
         "PriorityConfiguration": (PriorityConfiguration, False),
+        "Tags": (Tags, False),
         "TimeoutInSeconds": (integer, False),
     }
 
@@ -336,6 +337,7 @@ class MatchmakingConfiguration(AWSObject):
         "NotificationTarget": (str, False),
         "RequestTimeoutSeconds": (integer, True),
         "RuleSetName": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -349,6 +351,7 @@ class MatchmakingRuleSet(AWSObject):
     props: PropsDictType = {
         "Name": (str, True),
         "RuleSetBody": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -362,5 +365,6 @@ class Script(AWSObject):
     props: PropsDictType = {
         "Name": (str, False),
         "StorageLocation": (S3Location, True),
+        "Tags": (Tags, False),
         "Version": (str, False),
     }

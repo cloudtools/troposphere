@@ -10,6 +10,28 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import double
 
 
+class StreamingSessionStorageRoot(AWSProperty):
+    """
+    `StreamingSessionStorageRoot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html>`__
+    """
+
+    props: PropsDictType = {
+        "Linux": (str, False),
+        "Windows": (str, False),
+    }
+
+
+class StreamConfigurationSessionStorage(AWSProperty):
+    """
+    `StreamConfigurationSessionStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionstorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": ([str], False),
+        "Root": (StreamingSessionStorageRoot, False),
+    }
+
+
 class StreamConfiguration(AWSProperty):
     """
     `StreamConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html>`__
@@ -19,6 +41,8 @@ class StreamConfiguration(AWSProperty):
         "ClipboardMode": (str, True),
         "Ec2InstanceTypes": ([str], True),
         "MaxSessionLengthInMinutes": (double, False),
+        "MaxStoppedSessionLengthInMinutes": (double, False),
+        "SessionStorage": (StreamConfigurationSessionStorage, False),
         "StreamingImageIds": ([str], True),
     }
 

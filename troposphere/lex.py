@@ -566,8 +566,8 @@ class BotAliasLocaleSettingsItem(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BotAliasLocaleSetting": (BotAliasLocaleSettings, False),
-        "LocaleId": (str, False),
+        "BotAliasLocaleSetting": (BotAliasLocaleSettings, True),
+        "LocaleId": (str, True),
     }
 
 

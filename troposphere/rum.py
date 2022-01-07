@@ -38,7 +38,7 @@ class AppMonitor(AWSObject):
     props: PropsDictType = {
         "AppMonitorConfiguration": (AppMonitorConfiguration, False),
         "CwLogEnabled": (boolean, False),
-        "Domain": (str, False),
-        "Name": (str, False),
+        "Domain": (str, True),
+        "Name": (str, True),
         "Tags": (Tags, False),
     }

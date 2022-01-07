@@ -7,7 +7,58 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
+
+
+class Alarm(AWSObject):
+    """
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-alarm.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::Alarm"
+
+    props: PropsDictType = {
+        "AlarmName": (str, True),
+        "ComparisonOperator": (str, True),
+        "ContactProtocols": ([str], False),
+        "DatapointsToAlarm": (integer, False),
+        "EvaluationPeriods": (integer, True),
+        "MetricName": (str, True),
+        "MonitoredResourceName": (str, True),
+        "NotificationEnabled": (boolean, False),
+        "NotificationTriggers": ([str], False),
+        "Threshold": (double, True),
+        "TreatMissingData": (str, False),
+    }
+
+
+class AccessRules(AWSProperty):
+    """
+    `AccessRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-bucket-accessrules.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowPublicOverrides": (boolean, False),
+        "GetObject": (str, False),
+    }
+
+
+class Bucket(AWSObject):
+    """
+    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-bucket.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::Bucket"
+
+    props: PropsDictType = {
+        "AccessRules": (AccessRules, False),
+        "BucketName": (str, True),
+        "BundleId": (str, True),
+        "ObjectVersioning": (boolean, False),
+        "ReadOnlyAccessAccounts": ([str], False),
+        "ResourcesReceivingAccess": ([str], False),
+        "Tags": (Tags, False),
+    }
 
 
 class RelationalDatabaseParameter(AWSProperty):
@@ -177,6 +228,41 @@ class Instance(AWSObject):
         "Networking": (Networking, False),
         "Tags": (Tags, False),
         "UserData": (str, False),
+    }
+
+
+class LoadBalancer(AWSObject):
+    """
+    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancer.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::LoadBalancer"
+
+    props: PropsDictType = {
+        "AttachedInstances": ([str], False),
+        "HealthCheckPath": (str, False),
+        "InstancePort": (integer, True),
+        "IpAddressType": (str, False),
+        "LoadBalancerName": (str, True),
+        "SessionStickinessEnabled": (boolean, False),
+        "SessionStickinessLBCookieDurationSeconds": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class LoadBalancerTlsCertificate(AWSObject):
+    """
+    `LoadBalancerTlsCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-loadbalancertlscertificate.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::LoadBalancerTlsCertificate"
+
+    props: PropsDictType = {
+        "CertificateAlternativeNames": ([str], False),
+        "CertificateDomainName": (str, True),
+        "CertificateName": (str, True),
+        "IsAttached": (boolean, False),
+        "LoadBalancerName": (str, True),
     }
 
 

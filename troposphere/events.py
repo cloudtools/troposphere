@@ -68,6 +68,7 @@ class EventBus(AWSObject):
     props: PropsDictType = {
         "EventSourceName": (str, False),
         "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 
