@@ -7,7 +7,6 @@ import json
 import os
 import re
 import sys
-import warnings
 from collections import defaultdict
 from dataclasses import dataclass, field, fields
 from typing import Dict, List, Union
@@ -54,6 +53,7 @@ import jsonpatch  # type: ignore
 # - Need to figure out the correct Timestamp type
 
 stub = False
+verbose = False
 
 copyright_header = """\
 # Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
@@ -244,7 +244,17 @@ class ResourceSpec:
         for service_name, service in self.services.items():
             self._get_validators(service_name, service)
 
-        # Remap any "List of Tag" to Tags
+        # Run some automatic "fixups" across the services
+        self._fix_tags()
+        self._fix_duplicate_names()
+
+        return self
+
+    def _fix_tags(self):
+        """
+        Remap any "List of Tag" to Tags
+        """
+
         for service_name, service in self.services.items():
             for class_name, resource_type in sorted(service.resources.items()):
                 for key, value in sorted(resource_type.properties.items()):
@@ -259,7 +269,42 @@ class ResourceSpec:
                     if value.type == "List" and value.item_type == "Tag":
                         value.type = "Tags"
 
-        return self
+    def _fix_duplicate_names(self):
+        """
+        Find and fix duplication of Resource name and Property name by
+        adding "Property" to the end of the Property name
+        """
+
+        def update_property(old, new: str, value: Property):
+            if value.primitive_type == old:
+                value.primitive_type = new
+            elif value.type == old:
+                value.type = new
+            elif value.item_type == old:
+                value.item_type = new
+
+        for service_name, service in self.services.items():
+            dups = []
+            p = service.properties.keys()
+            for class_name in sorted(service.resources.keys()):
+                if class_name in p:
+                    dups.append(class_name)
+
+            if dups and verbose:
+                print(f"Found dups in {service_name}: {dups}", file=sys.stderr)
+
+            for dup_class_name in dups:
+                new_class_name = f"{dup_class_name}Property"
+                service.properties[new_class_name] = service.properties.pop(
+                    dup_class_name
+                )
+
+                for class_name, resource_type in sorted(service.resources.items()):
+                    for key, value in sorted(resource_type.properties.items()):
+                        update_property(dup_class_name, new_class_name, value)
+                for class_name, property_type in sorted(service.properties.items()):
+                    for key, value in sorted(property_type.properties.items()):
+                        update_property(dup_class_name, new_class_name, value)
 
     def _get_validators(self, service_name, service):
         try:
@@ -329,8 +374,6 @@ class CodeGenerator:
 
     def generate(self, file=None) -> str:
         """Generated the troposphere source code."""
-
-        self._check_for_consistency()
 
         code = []
 
@@ -419,7 +462,7 @@ class CodeGenerator:
                     None,
                 )
             except KeyError:
-                print(property_name, self.properties[property_name])
+                print(property_name, self.properties.keys())
                 raise
 
             if child is not None:
@@ -547,17 +590,6 @@ class CodeGenerator:
             code += self._generate_class(t, class_validator, property_validator)
 
         return code
-
-    def _check_for_consistency(self):
-        """Double check for issues in the resource spec."""
-
-        dups = []
-        p = self.properties.keys()
-        for class_name in sorted(self.resources.keys()):
-            if class_name in p:
-                dups.append(class_name)
-        if dups:
-            warnings.warn(f"Names used as both a resource and property: {dups}")
 
     def _get_type(self, value: Property, stub=False):
         """Map AWS CloudFoundation types into Python types"""
@@ -724,6 +756,8 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     stub = args.stub
+    verbose = args.verbose
+
     extension = ".py"
     if stub:
         extension = "pyi"
@@ -741,7 +775,7 @@ if __name__ == "__main__":
         service_names = [name.lower() for name in args.service_names]
 
     if args.verbose:
-        print(f"Parsing resource specification file: {args.spec}")
+        print(f"Parsing resource specification file: {args.spec}", file=sys.stderr)
     r = ResourceSpec(args.spec).parse(limit_warnings=service_names)
 
     for service_name in service_names:
@@ -749,7 +783,10 @@ if __name__ == "__main__":
         filename = f"{args.directory}/{filename_base}{extension}"
 
         if args.verbose:
-            print(f"Generating service: {service_name} filename: {filename}")
+            print(
+                f"Generating service: {service_name} filename: {filename}",
+                file=sys.stderr,
+            )
         code = CodeGenerator(service_name, r.services[service_name]).generate()
         if args.directory:
             with open(filename, "w+") as f:
