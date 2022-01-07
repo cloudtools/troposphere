@@ -20,13 +20,13 @@ sys.path.insert(0, os.path.abspath(".."))
 # -- Project information -----------------------------------------------------
 
 project = "troposphere"
-copyright = "2019, cloudtools"
+copyright = "2012-2022, cloudtools"
 author = "cloudtools"
 
 # The short X.Y version
 version = ""
 # The full version, including alpha/beta/rc tags
-release = "3.2.1"
+release = "3.2.2"
 
 
 # -- General configuration ---------------------------------------------------

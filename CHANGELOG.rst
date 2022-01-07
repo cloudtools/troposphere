@@ -1,3 +1,41 @@
+3.2.2 (2022*01*07)
+------------------
+* Auto-generate CloudFront
+* Auto-generate Backup
+* Auto-generate AmazonMQ
+* Auto-generate SSM
+* Auto-generate IVS
+* Auto-generate IoTEvents
+* Auto-generate ManagedBlockchain
+* Auto-generate MediaConvert
+* Auto-generate MSK
+* Auto-generate NimbleStudio
+* Auto-generate OpenSearchService
+* Auto-generate RAM
+* Auto-generate Route53RecoveryControl
+* Auto-generate S3ObjectLambda
+* Auto-generate S3Outposts
+* Auto-generate ServiceDiscovery
+* Auto-generate SSMContacts
+* Auto-generate SSMIncidents
+* Auto-generate Transfer
+* Auto-generate Events
+* Auto-generate FIS
+* Auto-generate DataSync
+* Various changes to the code generator
+* Fix copy/paste issue resulting in incorrect ECS validator assignment (Fixes #2000)
+* Automatically correct Resource/Property dups in the code generator
+* Auto-generate XRay
+* Add missing CloudFront jsonpatch
+* Auto-generate Greengrass
+* Auto-generate GreengrassV2
+* Add code regen and remove the resource spec version from the code
+* Upgrade auto-generated files to spec version 52.0.0
+* Auto-generate AppStream
+* Auto-generate Inspector
+* Add AWS::InspectorV2
+* Add missing jsonpatch files
+
 3.2.1 (2022*01*03)
 ------------------
 * Restore AWS::ECS::TaskDefinition AuthorizationConfig (Fixes #1997)
