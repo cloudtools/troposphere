@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+grep -l PropsDictType troposphere/*.py | \
+    cut -d/ -f2 | \
+    cut -d. -f1 | \
+    sed '/__init__/d' | \
+    sed '/serverless/d' | \
+    sed 's/awslambda/lambda/' | \
+    sed 's/analytics/kinesisanalytics/' | \
+    sort > autogen
+python3 scripts/gen.py --filelist autogen -d troposphere
+make fix

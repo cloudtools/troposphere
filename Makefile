@@ -18,7 +18,10 @@ help: ## show this message
 		printf "%s\n" $$help_info; \
 	done
 
-fix: fix-black fix-isort
+regen: CloudFormationResourceSpecification.json ## regenerates troposphere code
+	./scripts/regen
+
+fix: fix-black fix-isort ## run both fix-black and fix-isort
 
 fix-black: ## automatically fix all black errors
 	@black ${PYDIRS}
