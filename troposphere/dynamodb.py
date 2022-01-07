@@ -37,6 +37,15 @@ def billing_mode_validator(x):
     return x
 
 
+def table_class_validator(x):
+    valid_table_classes = ["STANDARD", "STANDARD_INFREQUENT_ACCESS"]
+    if x not in valid_table_classes:
+        raise ValueError(
+            "Table class must be one of: %s" % ", ".join(valid_table_classes)
+        )
+    return x
+
+
 class AttributeDefinition(AWSProperty):
     props = {
         "AttributeName": (str, True),
@@ -219,6 +228,7 @@ class Table(AWSObject):
         "SSESpecification": (SSESpecification, False),
         "StreamSpecification": (StreamSpecification, False),
         "TableName": (str, False),
+        "TableClass": (table_class_validator, False),
         "Tags": (Tags, False),
         "TimeToLiveSpecification": (TimeToLiveSpecification, False),
     }
