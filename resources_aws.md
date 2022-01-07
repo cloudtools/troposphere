@@ -90,6 +90,7 @@
 - [AWS::IVS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IVS.html)
 - [AWS::ImageBuilder](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ImageBuilder.html)
 - [AWS::Inspector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Inspector.html)
+- [AWS::InspectorV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_InspectorV2.html)
 - [AWS::IoT](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT.html)
 - [AWS::IoT1Click](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT1Click.html)
 - [AWS::IoTAnalytics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTAnalytics.html)
