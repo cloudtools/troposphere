@@ -363,15 +363,6 @@ def resourcequery_type(type):
     return type
 
 
-def canary_runtime_version(runtime_version):
-    valid_runtime_versions = ["syn-nodejs-2.0", "syn-nodejs-2.0-beta", "syn-1.0"]
-    if runtime_version not in valid_runtime_versions:
-        raise ValueError(
-            'RuntimeVersion must be one of: "%s"' % (", ".join(valid_runtime_versions))
-        )
-    return runtime_version
-
-
 def component_platforms(component_platform):
     valid_component_platforms = ["Linux", "Windows"]
     if component_platform not in valid_component_platforms:
