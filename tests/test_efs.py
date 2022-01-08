@@ -29,18 +29,18 @@ class TestEfs(unittest.TestCase):
         self.assertEqual(result["Type"], "AWS::EFS::FileSystem")
 
     def test_validateProvisionedThroughputInMibps(self):
-        with self.assertRaises(TypeError):
-            file_system = efs.FileSystem("Efs", ProvisionedThroughputInMibps="512")
-            file_system.to_dict()
-
-        with self.assertRaises(TypeError):
-            file_system = efs.FileSystem("Efs", ProvisionedThroughputInMibps=512)
-            file_system.to_dict()
-
-        file_system = efs.FileSystem("Efs", ProvisionedThroughputInMibps=512.0)
-
-        result = file_system.to_dict()
+        result = efs.FileSystem("Efs", ProvisionedThroughputInMibps=512.0).to_dict()
         self.assertEqual(result["Type"], "AWS::EFS::FileSystem")
+
+        efs.FileSystem("Efs", ProvisionedThroughputInMibps=512).to_dict()
+        efs.FileSystem("Efs", ProvisionedThroughputInMibps=512.0).to_dict()
+
+        with self.assertRaises(TypeError):
+            efs.FileSystem("Efs", ProvisionedThroughputInMibps="512").to_dict()
+        with self.assertRaises(ValueError):
+            efs.FileSystem("Efs", ProvisionedThroughputInMibps=-512.0).to_dict()
+        with self.assertRaises(ValueError):
+            efs.FileSystem("Efs", ProvisionedThroughputInMibps=-512).to_dict()
 
     def test_validateBackupPolicy(self):
         with self.assertRaises(ValueError):
