@@ -401,40 +401,6 @@ def containerlevelmetrics_status(status):
     return status
 
 
-def accelerator_ipaddresstype(type):
-    valid_types = ["IPV4"]
-    if type not in valid_types:
-        raise ValueError(
-            'IpAddressType must be one of: "%s"' % (", ".join(valid_types))
-        )
-    return type
-
-
-def listener_clientaffinity(affinity):
-    valid_affinities = ["NONE", "SOURCE_IP"]
-    if affinity not in valid_affinities:
-        raise ValueError(
-            'ClientAffinity must be one of: "%s"' % (", ".join(valid_affinities))
-        )
-    return affinity
-
-
-def listener_protocol(protocol):
-    valid_protocols = ["TCP", "UDP"]
-    if protocol not in valid_protocols:
-        raise ValueError('Protocol must be one of: "%s"' % (", ".join(valid_protocols)))
-    return protocol
-
-
-def endpointgroup_healthcheckprotocol(protocol):
-    valid_protocols = ["HTTP", "HTTPS", "TCP"]
-    if protocol not in valid_protocols:
-        raise ValueError(
-            'HealthCheckProtocol must be one of: "%s"' % (", ".join(valid_protocols))
-        )
-    return protocol
-
-
 def session_findingpublishingfrequency(frequency):
     valid_frequencies = ["FIFTEEN_MINUTES", "ONE_HOUR", "SIX_HOURS"]
     if frequency not in valid_frequencies:
