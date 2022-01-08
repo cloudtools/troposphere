@@ -134,6 +134,17 @@ class Service:
         self.property_validators = defaultdict(dict)
         self.constants = []
 
+    def get_property_items(self):
+        """
+        Generator to interate over all the resource and propery items
+        """
+        for class_name, resource_type in self.resources.items():
+            for key, resource_value in resource_type.properties.items():
+                yield (class_name, key, resource_value)
+        for class_name, property_type in self.properties.items():
+            for key, property_value in property_type.properties.items():
+                yield (class_name, key, property_value)
+
 
 class ResourceSpec:
     def __init__(self, filename: str):
@@ -255,18 +266,11 @@ class ResourceSpec:
         """
 
         for service_name, service in self.services.items():
-            for class_name, resource_type in sorted(service.resources.items()):
-                for key, value in sorted(resource_type.properties.items()):
-                    if key in service.property_validators:
-                        continue
-                    if value.type == "List" and value.item_type == "Tag":
-                        value.type = "Tags"
-            for class_name, property_type in sorted(service.properties.items()):
-                for key, value in sorted(property_type.properties.items()):
-                    if key in service.property_validators:
-                        continue
-                    if value.type == "List" and value.item_type == "Tag":
-                        value.type = "Tags"
+            for (class_name, key, value) in service.get_property_items():
+                if key in service.property_validators:
+                    continue
+                if value.type == "List" and value.item_type == "Tag":
+                    value.type = "Tags"
 
     def _fix_duplicate_names(self):
         """
@@ -298,14 +302,16 @@ class ResourceSpec:
                     dup_class_name
                 )
 
-                for class_name, resource_type in sorted(service.resources.items()):
-                    for key, value in sorted(resource_type.properties.items()):
-                        update_property(dup_class_name, new_class_name, value)
-                for class_name, property_type in sorted(service.properties.items()):
-                    for key, value in sorted(property_type.properties.items()):
-                        update_property(dup_class_name, new_class_name, value)
+                for (class_name, key, value) in service.get_property_items():
+                    update_property(dup_class_name, new_class_name, value)
 
     def _get_validators(self, service_name, service):
+        """
+        Look for a validator file with a corresponding service name to
+        import constants and validators. The validators are either attached
+        to a property (Property: class.property_key) or a class (Class: class)
+        by scanning the AST and parsing these values out of the docstring.
+        """
         try:
             filename_base = service_to_filename(service_name)
             validator_filename = f"troposphere/validators/{filename_base}.py"
@@ -376,7 +382,7 @@ class CodeGenerator:
 
         code = []
 
-        # Output the copyright header along with the version of the Resource Specification
+        # Output the copyright header
         code.append(copyright_header)
 
         # Output imports for commonly used classes
@@ -490,64 +496,36 @@ class CodeGenerator:
         """
         Walk the resources/properties looking for a specific type.
         """
-        for class_name, resource_type in sorted(self.resources.items()):
-            for key, resource_value in sorted(resource_type.properties.items()):
-                if resource_value.type == check_type:
-                    return True
-        for class_name, property_type in sorted(self.properties.items()):
-            for key, property_value in sorted(property_type.properties.items()):
-                if property_value.type == check_type:
-                    return True
-
+        for (class_name, key, value) in self.service.get_property_items():
+            if value.type == check_type:
+                return True
         return False
 
     def _walk_for_type(self, check_type: str) -> bool:
         """
         Walk the resources/properties looking for a specific type via _check_type()
         """
-        for class_name, resource_type in sorted(self.resources.items()):
-            for key, resource_value in sorted(resource_type.properties.items()):
-                if self._check_type(check_type, resource_value):
-                    return True
-        for class_name, property_type in sorted(self.properties.items()):
-            for key, property_value in sorted(property_type.properties.items()):
-                if self._check_type(check_type, property_value):
-                    return True
-
+        for (class_name, key, value) in self.service.get_property_items():
+            # Don't import if we will be overwriting with a validator
+            if key in self.property_validators[class_name]:
+                continue
+            if self._check_type(check_type, value):
+                return True
         return False
 
     def _walk_for_tags(self) -> bool:
         """
         Walk the resources/properties looking for tags
         """
-        for class_name, resource_type in sorted(self.resources.items()):
-            for key, value in sorted(resource_type.properties.items()):
-                # Don't import if we'll be overwriting with a validator
-                if (
-                    self.property_validators
-                    and class_name in self.property_validators
-                    and key in self.property_validators[class_name]
-                ):
-                    continue
-                # Look for a Tags type/key
-                if value.type == "Tags" or (
-                    key == "Tags" and value.primitive_type != "Json"
-                ):
-                    return True
-        for class_name, property_type in sorted(self.properties.items()):
-            for key, value in sorted(property_type.properties.items()):
-                # Don't import if we'll be overwriting with a validator
-                if (
-                    self.property_validators
-                    and class_name in self.property_validators
-                    and key in self.property_validators[class_name]
-                ):
-                    continue
-                # Look for a Tags type/key
-                if value.type == "Tags" or (
-                    key == "Tags" and value.primitive_type != "Json"
-                ):
-                    return True
+        for (class_name, key, value) in self.service.get_property_items():
+            # Don't import if we will be overwriting with a validator
+            if key in self.property_validators[class_name]:
+                continue
+            # Look for a Tags type/key
+            if value.type == "Tags" or (
+                key == "Tags" and value.primitive_type != "Json"
+            ):
+                return True
         return False
 
     def _get_type_list(
