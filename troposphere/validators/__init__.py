@@ -342,13 +342,6 @@ def statistic_type(statistic):
     return statistic
 
 
-def key_usage_type(key):
-    valid_values = ["ENCRYPT_DECRYPT", "SIGN_VERIFY"]
-    if key not in valid_values:
-        raise ValueError('KeyUsage must be one of: "%s"' % (", ".join(valid_values)))
-    return key
-
-
 def waf_action_type(action):
     valid_actions = ["ALLOW", "BLOCK", "COUNT"]
     if action not in valid_actions:
