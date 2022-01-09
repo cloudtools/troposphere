@@ -6,11 +6,6 @@ from troposphere.validators import (
     check_required,
     elb_name,
     encoding,
-    iam_group_name,
-    iam_names,
-    iam_path,
-    iam_role_name,
-    iam_user_name,
     integer,
     integer_range,
     mutually_exclusive,
@@ -18,12 +13,19 @@ from troposphere.validators import (
     one_of,
     positive_integer,
     s3_bucket_name,
-    status,
     tags_or_list,
     tg_healthcheck_port,
     waf_action_type,
 )
 from troposphere.validators.backup import backup_vault_name
+from troposphere.validators.iam import (
+    iam_group_name,
+    iam_names,
+    iam_path,
+    iam_role_name,
+    iam_user_name,
+    status,
+)
 from troposphere.validators.ssm import (
     compliance_level,
     notification_event,
