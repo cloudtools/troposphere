@@ -292,13 +292,6 @@ def waf_action_type(action):
     return action
 
 
-def resourcequery_type(type):
-    valid_types = ["TAG_FILTERS_1_0", "CLOUDFORMATION_STACK_1_0"]
-    if type not in valid_types:
-        raise ValueError('Type must be one of: "%s"' % (", ".join(valid_types)))
-    return type
-
-
 def component_platforms(component_platform):
     valid_component_platforms = ["Linux", "Windows"]
     if component_platform not in valid_component_platforms:
