@@ -194,6 +194,19 @@ class ResourceSpec:
         def get_service_name(name: str):
             return name.split(":")[2].lower()
 
+        def get_resource_name(name: str):
+            """
+            Short term backward compatibility hack for resources that need
+            to be renamed. Put back together the real resource name such that:
+                AWS::SNS::SubscriptionResource::Subscription
+            will produce a class of "SubscriptionResource" and a resource name
+            of "AWS::SNS::Subscription".
+            """
+            if name.count(":") == 6:
+                name_list = name.split(":")
+                return f"{name_list[0]}::{name_list[2]}::{name_list[6]}"
+            return name
+
         self._patch()
 
         spec_version = self.spec["ResourceSpecificationVersion"]
@@ -208,7 +221,7 @@ class ResourceSpec:
             for k, v in sorted(resource_dict["Properties"].items()):
                 properties[k] = to_dataclass(Property, v)
             service.resources[class_name] = ResourceType(
-                documentation, class_name, properties, resource_name
+                documentation, class_name, properties, get_resource_name(resource_name)
             )
 
         for property_name, property_dict in sorted(self.spec["PropertyTypes"].items()):
