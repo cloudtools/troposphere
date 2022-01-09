@@ -3,6 +3,6 @@ patches = [
     {
         "op": "move",
         "from": "/ResourceTypes/AWS::SNS::Subscription",
-        "path": "/ResourceTypes/AWS::SNS::SubscriptionResource",
+        "path": "/ResourceTypes/AWS::SNS::SubscriptionResource::Subscription",
     },
 ]

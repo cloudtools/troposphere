@@ -16,7 +16,7 @@ class SubscriptionResource(AWSObject):
     `SubscriptionResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-subscription.html>`__
     """
 
-    resource_type = "AWS::SNS::SubscriptionResource"
+    resource_type = "AWS::SNS::Subscription"
 
     props: PropsDictType = {
         "DeliveryPolicy": (dict, False),
