@@ -342,27 +342,3 @@ def containerlevelmetrics_status(status):
             'ContainerLevelMetrics must be one of: "%s"' % (", ".join(valid_status))
         )
     return status
-
-
-def session_findingpublishingfrequency(frequency):
-    valid_frequencies = ["FIFTEEN_MINUTES", "ONE_HOUR", "SIX_HOURS"]
-    if frequency not in valid_frequencies:
-        raise ValueError(
-            'FindingPublishingFrequency must be one of: "%s"'
-            % (", ".join(valid_frequencies))
-        )
-    return frequency
-
-
-def session_status(status):
-    valid_status = ["ENABLED", "DISABLED"]
-    if status not in valid_status:
-        raise ValueError('Status must be one of: "%s"' % (", ".join(valid_status)))
-    return status
-
-
-def findingsfilter_action(action):
-    valid_actions = ["ARCHIVE", "NOOP"]
-    if action not in valid_actions:
-        raise ValueError('Action must be one of: "%s"' % (", ".join(valid_actions)))
-    return action
