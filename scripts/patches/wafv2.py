@@ -204,4 +204,29 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::WAFv2::WebACL.ManagedRuleGroupStatement/Properties/ScopeDownStatement",
     },
+    # Remove redundent RuleGroup properties
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.AndStatement",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.LabelSummary",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.NotStatement",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.OrStatement",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.RateBasedStatement",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.Statement",
+    },
 ]

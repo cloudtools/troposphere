@@ -28,4 +28,9 @@ patches = [
         "path": "/ResourceTypes/AWS::SSM::MaintenanceWindowTask/Properties/Targets/ItemType",
         "value": "Targets",
     },
+    # backward compatibility
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::SSM::MaintenanceWindowTask.Target",
+    },
 ]
