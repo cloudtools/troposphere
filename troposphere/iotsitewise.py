@@ -318,13 +318,24 @@ class Greengrass(AWSProperty):
     }
 
 
+class GreengrassV2(AWSProperty):
+    """
+    `GreengrassV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html>`__
+    """
+
+    props: PropsDictType = {
+        "CoreDeviceThingName": (str, True),
+    }
+
+
 class GatewayPlatform(AWSProperty):
     """
     `GatewayPlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html>`__
     """
 
     props: PropsDictType = {
-        "Greengrass": (Greengrass, True),
+        "Greengrass": (Greengrass, False),
+        "GreengrassV2": (GreengrassV2, False),
     }
 
 

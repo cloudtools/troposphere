@@ -1146,6 +1146,7 @@ class Pipeline(AWSObject):
     resource_type = "AWS::SageMaker::Pipeline"
 
     props: PropsDictType = {
+        "ParallelismConfiguration": (dict, False),
         "PipelineDefinition": (dict, True),
         "PipelineDescription": (str, False),
         "PipelineDisplayName": (str, False),
