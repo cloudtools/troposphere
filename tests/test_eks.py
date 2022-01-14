@@ -31,3 +31,29 @@ class TestEKSValidators(unittest.TestCase):
         for x in invalid_values:
             with self.assertRaises(ValueError):
                 eks.validate_taint_value(x)
+
+    def test_cluster_logging(self):
+        logging = eks.ClusterLogging(
+            EnabledTypes=[
+                eks.LoggingTypeConfig(Type="scheduler"),
+                eks.LoggingTypeConfig(Type="api"),
+            ],
+        )
+        logging.validate()
+
+        with self.assertRaises(TypeError):
+            logging = eks.ClusterLogging(
+                EnabledTypes=[
+                    "enable",
+                    eks.LoggingTypeConfig(Type="api"),
+                ],
+            )
+
+        with self.assertRaises(ValueError):
+            logging = eks.ClusterLogging(
+                EnabledTypes=[
+                    eks.LoggingTypeConfig(Type="foobar"),
+                    eks.LoggingTypeConfig(Type="api"),
+                ],
+            )
+            logging.validate()
