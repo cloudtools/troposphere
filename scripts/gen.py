@@ -12,6 +12,7 @@ from dataclasses import dataclass, field, fields
 from typing import Dict, List, Union
 
 import jsonpatch  # type: ignore
+import jsonpointer  # type: ignore
 
 # Python code generator to create new troposphere classes from the
 # AWS resource specification.
@@ -51,6 +52,7 @@ import jsonpatch  # type: ignore
 # - Verify propery dependency/ordering in the file
 # - Needs better error checking
 # - Need to figure out the correct Timestamp type
+
 
 stub = False
 verbose = False
@@ -161,8 +163,6 @@ class ResourceSpec:
 
         import importlib.util
 
-        import jsonpointer
-
         patch_dir = "scripts/patches"
         for patch_file in os.listdir(patch_dir):
             if patch_file.endswith(".py"):
@@ -179,6 +179,13 @@ class ResourceSpec:
                         self.spec = jsonpatch.apply_patch(self.spec, [p], in_place=True)
                     except jsonpointer.JsonPointerException:
                         print(f"jsonpatch error: {p}", file=sys.stderr)
+                        raise
+                    except jsonpatch.JsonPatchConflict:
+                        print(f"jsonpatch error: {p}", file=sys.stderr)
+                        path = p["path"]
+                        obj = jsonpointer.JsonPointer(path).to_last(self.spec)
+                        print(f"path: {path}", file=sys.stderr)
+                        print(f"obj: {obj}", file=sys.stderr)
                         raise
 
     def parse(self, limit_warnings=None):
@@ -278,11 +285,18 @@ class ResourceSpec:
         Remap any "List of Tag" to Tags
         """
 
+        TAG_NAMES = ["Tag", "Tags", "TagFormat", "TagsEntry"]
+
         for service_name, service in self.services.items():
             for (class_name, key, value) in service.get_property_items():
                 if key in service.property_validators:
                     continue
-                if value.type == "List" and value.item_type == "Tag":
+                if value.type == "List" and value.item_type in TAG_NAMES:
+                    value.type = "Tags"
+                    # Check we haven't deleted this already
+                    if value.item_type in service.properties:
+                        del service.properties[value.item_type]
+                elif value.type == "List" and value.primitive_item_type == "Json":
                     value.type = "Tags"
 
     def _fix_duplicate_names(self):
@@ -334,6 +348,7 @@ class ResourceSpec:
 
         # Look for these patterns to match where to apply validation functions
         class_re = re.compile(r"^Class: ([\w]*)", re.MULTILINE)
+        export_re = re.compile(r"^Export:", re.MULTILINE)
         property_re = re.compile(r"^Property: ([\w]*)\.([\w]*)", re.MULTILINE)
 
         # Parse and walk the top-level AST of the validation code file
@@ -342,6 +357,12 @@ class ResourceSpec:
             if isinstance(node, ast.Assign):
                 for t in node.targets:
                     service.constants.append(t.id)
+            if isinstance(node, ast.ClassDef):
+                docstring = ast.get_docstring(node, clean=True)
+                if docstring:
+                    r = export_re.search(docstring)
+                    if r:
+                        service.constants.append(node.name)
             if isinstance(node, ast.FunctionDef):
                 docstring = ast.get_docstring(node, clean=True)
                 if docstring:
@@ -450,6 +471,39 @@ class CodeGenerator:
             )
             code += self._generate_tree(t, seen)
 
+        # Look for any properties that were not emitted and include at the end, ignoring Tags
+        property_set = set(self.properties.keys())
+        seen_set = set(seen.keys())
+        unseen = sorted(property_set.difference(seen_set))
+        if unseen and verbose:
+            print(
+                f"unseen properties in service {self.service_name}: {unseen}",
+                file=sys.stderr,
+            )
+
+        # Now let's look for dependencies between properties to output in
+        # the correct order
+        from functools import cmp_to_key
+
+        def cmp(a, b):
+            if a[0] in b[1]:
+                return -1
+            if b[0] in a[1]:
+                return 1
+            if a == b:
+                return 0
+            elif a < b:
+                return -1
+            else:
+                return 1
+
+        unseen_tuple = [(x, self._get_type_list(self.properties[x])) for x in unseen]
+        unseen = [x[0] for x in sorted(unseen_tuple, key=cmp_to_key(cmp))]
+
+        for property_name in unseen:
+            n = Node(property_name, self.properties[property_name], "", "")
+            code += self._generate_tree(n, seen)
+
         return "\n".join(code)
 
     def _build_tree(
@@ -480,7 +534,7 @@ class CodeGenerator:
                     None,
                 )
             except KeyError:
-                print(property_name, self.properties.keys())
+                print(property_name, self.properties.keys(), file=sys.stderr)
                 raise
 
             if child is not None:
@@ -534,10 +588,7 @@ class CodeGenerator:
             # Don't import if we will be overwriting with a validator
             if key in self.property_validators[class_name]:
                 continue
-            # Look for a Tags type/key
-            if value.type == "Tags" or (
-                key == "Tags" and value.primitive_type != "Json"
-            ):
+            if value.type == "Tags":
                 return True
         return False
 
@@ -620,9 +671,13 @@ class CodeGenerator:
                 return "[%s]" % value.item_type
             else:
                 if stub:
-                    return "[%s]" % map_stub_type.get(value.primitive_item_type)
+                    return "[%s]" % map_stub_type.get(
+                        value.primitive_item_type, value.primitive_item_type
+                    )
                 else:
-                    return "[%s]" % map_type.get(value.primitive_item_type)
+                    return "[%s]" % map_type.get(
+                        value.primitive_item_type, value.primitive_item_type
+                    )
         elif value.type == "Map":
             return "dict"
         else:
@@ -664,8 +719,8 @@ class CodeGenerator:
         for key, value in sorted(property_type.properties.items()):
             if property_validator and key in property_validator:
                 value_type = property_validator[key]
-            elif key == "Tags":
-                value_type = "Tags"
+            elif value.type == "Tags":
+                value_type = value.type
                 if value.primitive_type == "Json":
                     value_type = "dict"
             else:
