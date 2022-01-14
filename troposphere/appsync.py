@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double
+from .validators import boolean, double, integer
 from .validators.appsync import resolver_kind_validator
 
 
@@ -242,6 +242,7 @@ class FunctionConfiguration(AWSObject):
         "DataSourceName": (str, True),
         "Description": (str, False),
         "FunctionVersion": (str, True),
+        "MaxBatchSize": (integer, False),
         "Name": (str, True),
         "RequestMappingTemplate": (str, False),
         "RequestMappingTemplateS3Location": (str, False),
@@ -370,7 +371,7 @@ class CachingConfig(AWSProperty):
 
     props: PropsDictType = {
         "CachingKeys": ([str], False),
-        "Ttl": (double, False),
+        "Ttl": (double, True),
     }
 
 
@@ -397,6 +398,7 @@ class Resolver(AWSObject):
         "DataSourceName": (str, False),
         "FieldName": (str, True),
         "Kind": (resolver_kind_validator, False),
+        "MaxBatchSize": (integer, False),
         "PipelineConfig": (PipelineConfig, False),
         "RequestMappingTemplate": (str, False),
         "RequestMappingTemplateS3Location": (str, False),
