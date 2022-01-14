@@ -77,6 +77,7 @@
 - [AWS::FMS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FMS.html)
 - [AWS::FSx](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FSx.html)
 - [AWS::FinSpace](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FinSpace.html)
+- [AWS::Forecast](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Forecast.html)
 - [AWS::FraudDetector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_FraudDetector.html)
 - [AWS::GameLift](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GameLift.html)
 - [AWS::GlobalAccelerator](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_GlobalAccelerator.html)
