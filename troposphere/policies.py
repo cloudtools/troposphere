@@ -1,9 +1,9 @@
-from . import AWSAttribute, AWSProperty, validate_pausetime
+from . import AWSAttribute, AWSProperty, PropsDictType, validate_pausetime
 from .validators import boolean, integer, positive_integer
 
 
 class AutoScalingRollingUpdate(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "MaxBatchSize": (positive_integer, False),
         "MinInstancesInService": (integer, False),
         "MinSuccessfulInstancesPercent": (integer, False),
@@ -14,19 +14,19 @@ class AutoScalingRollingUpdate(AWSProperty):
 
 
 class AutoScalingScheduledAction(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "IgnoreUnmodifiedGroupSizeProperties": (boolean, False),
     }
 
 
 class AutoScalingReplacingUpdate(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "WillReplace": (boolean, False),
     }
 
 
 class CodeDeployLambdaAliasUpdate(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "AfterAllowTrafficHook": (str, False),
         "ApplicationName": (boolean, True),
         "BeforeAllowTrafficHook": (str, False),
@@ -35,7 +35,7 @@ class CodeDeployLambdaAliasUpdate(AWSProperty):
 
 
 class UpdatePolicy(AWSAttribute):
-    props = {
+    props: PropsDictType = {
         "AutoScalingRollingUpdate": (AutoScalingRollingUpdate, False),
         "AutoScalingScheduledAction": (AutoScalingScheduledAction, False),
         "AutoScalingReplacingUpdate": (AutoScalingReplacingUpdate, False),
@@ -46,20 +46,20 @@ class UpdatePolicy(AWSAttribute):
 
 
 class ResourceSignal(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "Count": (positive_integer, False),
         "Timeout": (validate_pausetime, False),
     }
 
 
 class AutoScalingCreationPolicy(AWSProperty):
-    props = {
+    props: PropsDictType = {
         "MinSuccessfulInstancesPercent": (integer, False),
     }
 
 
 class CreationPolicy(AWSAttribute):
-    props = {
+    props: PropsDictType = {
         "AutoScalingCreationPolicy": (AutoScalingCreationPolicy, False),
         "ResourceSignal": (ResourceSignal, True),
     }
