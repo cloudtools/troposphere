@@ -161,3 +161,13 @@ class Service(AWSObject):
         "Tags": (Tags, False),
         "Type": (str, False),
     }
+
+
+class PrivateDnsPropertiesMutable(AWSProperty):
+    """
+    `PrivateDnsPropertiesMutable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicediscovery-privatednsnamespace-privatednspropertiesmutable.html>`__
+    """
+
+    props: PropsDictType = {
+        "SOA": (SOA, False),
+    }
