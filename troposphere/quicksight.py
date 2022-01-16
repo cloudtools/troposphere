@@ -409,7 +409,7 @@ class TagColumnOperation(AWSProperty):
 
     props: PropsDictType = {
         "ColumnName": (str, True),
-        "Tags": (Tags, True),
+        "Tags": ([ColumnTag], True),
     }
 
 

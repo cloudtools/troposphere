@@ -76,17 +76,6 @@ class MaintenanceWindow(AWSProperty):
     }
 
 
-class TagsEntry(AWSProperty):
-    """
-    `TagsEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-configuration-tagsentry.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": (str, True),
-    }
-
-
 class User(AWSProperty):
     """
     `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amazonmq-broker-user.html>`__
