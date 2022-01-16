@@ -1,6 +1,7 @@
 from troposphere import Template
 from troposphere.iot import (
     Action,
+    AttributePayload,
     Certificate,
     IotAnalyticsAction,
     LambdaAction,
@@ -34,12 +35,12 @@ policy_principal = PolicyPrincipalAttachment(
 
 thing = Thing(
     "MyThing",
-    AttributePayload={
-        "Attributes": {
+    AttributePayload=AttributePayload(
+        Attributes={
             "myAttributeA": "MyAttributeValueA",
             "myAttributeB": "MyAttributeValueB",
         }
-    },
+    ),
     ThingName="NameParameter",
 )
 
