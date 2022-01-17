@@ -229,6 +229,41 @@ class TestEMR(unittest.TestCase):
             JobFlowId=Ref(cluster),
         )
 
+    def test_Configuration(self):
+        emr.Configuration(
+            Classification="hadoop-env",
+            Configurations=[
+                emr.Configuration(
+                    Classification="export",
+                    ConfigurationProperties={
+                        "HADOOP_DATANODE_HEAPSIZE": "2048",
+                        "HADOOP_NAMENODE_OPTS": "opts",
+                    },
+                ),
+            ],
+        ).to_dict()
+
+        with self.assertRaises(TypeError):
+            emr.Configuration(
+                Classification="hadoop-env",
+                Configurations=[
+                    "illegalvalue",
+                    emr.Configuration(
+                        Classification="export",
+                        ConfigurationProperties={
+                            "HADOOP_DATANODE_HEAPSIZE": "2048",
+                            "HADOOP_NAMENODE_OPTS": "opts",
+                        },
+                    ),
+                ],
+            ).to_dict()
+
+        with self.assertRaises(TypeError):
+            emr.Configuration(
+                Classification="hadoop-env",
+                Configurations="invalid",
+            ).to_dict()
+
     def simple_helper(self, adjustment, scaling):
         sc = emr.SimpleScalingPolicyConfiguration(
             AdjustmentType=adjustment,
