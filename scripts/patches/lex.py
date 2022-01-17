@@ -6,12 +6,6 @@ patches = [
         "path": "/ResourceTypes/AWS::Lex::ResourcePolicy/Properties/Policy/Type",
         "value": "Map",
     },
-    # Fix missing Type for AWS::Lex::BotAlias TextLogDestination
-    {
-        "op": "add",
-        "path": "/PropertyTypes/AWS::Lex::BotAlias.TextLogDestination/Properties/CloudWatch/Type",
-        "value": "CloudWatchLogGroupLogDestination",
-    },
     {
         "op": "add",
         "path": "/ResourceTypes/AWS::Lex::Bot/Properties/BotTags/PrimitiveType",
