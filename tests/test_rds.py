@@ -1,6 +1,7 @@
 import unittest
 
 import troposphere.rds as rds
+import troposphere.validators.rds as vrds
 from troposphere import If, Parameter, Ref
 
 AWS_NO_VALUE = "AWS::NoValue"
@@ -242,50 +243,46 @@ class TestRDS(unittest.TestCase):
 class TestRDSValidators(unittest.TestCase):
     def test_validate_iops(self):
         with self.assertRaises(ValueError):
-            rds.validate_iops(500)
-        rds.validate_iops(2000)
-        rds.validate_iops(0)
+            vrds.validate_iops(500)
+        vrds.validate_iops(2000)
+        vrds.validate_iops(0)
 
     def test_validate_storage_type(self):
-        for t in rds.VALID_STORAGE_TYPES:
-            rds.validate_storage_type(t)
+        vrds.validate_storage_type("standard")
 
         with self.assertRaises(ValueError):
-            rds.validate_storage_type("bad_storage_type")
+            vrds.validate_storage_type("bad_storage_type")
 
     def test_validate_engine(self):
-        for e in rds.VALID_DB_ENGINES:
-            rds.validate_engine(e)
+        vrds.validate_engine("postgres")
 
         with self.assertRaises(ValueError):
-            rds.validate_engine("bad_engine")
+            vrds.validate_engine("bad_engine")
 
     def test_validate_engine_mode(self):
-        for e in rds.VALID_DB_ENGINE_MODES:
-            rds.validate_engine_mode(e)
+        vrds.validate_engine_mode("provisioned")
 
         with self.assertRaises(ValueError):
-            rds.validate_engine_mode("bad_engine")
+            vrds.validate_engine_mode("bad_engine")
 
     def test_validate_license_model(self):
-        for lm in rds.VALID_LICENSE_MODELS:
-            rds.validate_license_model(lm)
+        vrds.validate_license_model("postgresql-license")
 
         with self.assertRaises(ValueError):
-            rds.validate_license_model("bad_license_model")
+            vrds.validate_license_model("bad_license_model")
 
     def test_validate_backup_window(self):
         good_windows = ("10:00-11:00", "22:00-06:00")
         for w in good_windows:
-            rds.validate_backup_window(w)
+            vrds.validate_backup_window(w)
 
         bad_format = ("bad_backup_window", "28:11-10:00", "10:00-28:11")
         for w in bad_format:
             with self.assertRaisesRegex(ValueError, "must be in the format"):
-                rds.validate_backup_window(w)
+                vrds.validate_backup_window(w)
 
         with self.assertRaisesRegex(ValueError, "must be at least 30 "):
-            rds.validate_backup_window("10:00-10:10")
+            vrds.validate_backup_window("10:00-10:10")
 
     def test_validate_maintenance_window(self):
         good_windows = (
@@ -295,39 +292,35 @@ class TestRDSValidators(unittest.TestCase):
         )
 
         for w in good_windows:
-            rds.validate_maintenance_window(w)
+            vrds.validate_maintenance_window(w)
 
         bad_format = ("bad_mainteance", "Mon:10:00-Tue:28:00", "10:00-22:00")
         for w in bad_format:
             with self.assertRaisesRegex(ValueError, "must be in the format"):
-                rds.validate_maintenance_window(w)
+                vrds.validate_maintenance_window(w)
 
         bad_days = ("Boo:10:00-Woo:10:30", "Boo:10:00-Tue:10:30", "Mon:10:00-Boo:10:30")
         for w in bad_days:
             with self.assertRaisesRegex(ValueError, " day part of ranges "):
-                rds.validate_maintenance_window(w)
+                vrds.validate_maintenance_window(w)
 
         with self.assertRaisesRegex(ValueError, "must be at least 30 "):
-            rds.validate_maintenance_window("Mon:10:00-Mon:10:10")
+            vrds.validate_maintenance_window("Mon:10:00-Mon:10:10")
 
     def test_validate_backup_retention_period(self):
         for d in (1, 10, 15, 35):
-            rds.validate_backup_retention_period(d)
+            vrds.validate_backup_retention_period(d)
 
         with self.assertRaisesRegex(ValueError, " cannot be larger than 35 "):
-            rds.validate_backup_retention_period(40)
+            vrds.validate_backup_retention_period(40)
 
-        rds.validate_backup_retention_period(10)
+        vrds.validate_backup_retention_period(10)
 
     def test_validate_capacity(self):
-        for e in rds.VALID_MYSQL_SCALING_CONFIGURATION_CAPACITIES:
-            rds.validate_capacity(e)
-
-        for e in rds.VALID_POSTGRESL_SCALING_CONFIGURATION_CAPACITIES:
-            rds.validate_capacity(e)
+        vrds.validate_capacity(64)
 
         with self.assertRaises(ValueError):
-            rds.validate_capacity(3)
+            vrds.validate_capacity(3)
 
         with self.assertRaises(ValueError):
-            rds.validate_capacity(100001)
+            vrds.validate_capacity(100001)
