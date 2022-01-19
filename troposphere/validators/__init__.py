@@ -200,7 +200,7 @@ def json_checker(prop):
     elif isinstance(prop, AWSHelperFn):
         return prop
     else:
-        raise ValueError("json object must be a str or dict")
+        raise TypeError("json object must be a str or dict")
 
 
 def vpn_pre_shared_key(key):

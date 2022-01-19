@@ -19,7 +19,7 @@ class TestOpsWorksStack(unittest.TestCase):
             VpcId="myvpcid",
             DefaultSubnetId="subnetid",
         )
-        self.assertTrue(stack.validate())
+        self.assertIsNone(stack.validate())
 
     def test_no_required(self):
         stack = Stack(
