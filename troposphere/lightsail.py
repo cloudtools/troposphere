@@ -61,6 +61,124 @@ class Bucket(AWSObject):
     }
 
 
+class Certificate(AWSObject):
+    """
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-certificate.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::Certificate"
+
+    props: PropsDictType = {
+        "CertificateName": (str, True),
+        "DomainName": (str, True),
+        "SubjectAlternativeNames": ([str], False),
+        "Tags": (Tags, False),
+    }
+
+
+class EnvironmentVariable(AWSProperty):
+    """
+    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-environmentvariable.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (str, False),
+        "Variable": (str, False),
+    }
+
+
+class PortInfo(AWSProperty):
+    """
+    `PortInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-portinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "Port": (str, False),
+        "Protocol": (str, False),
+    }
+
+
+class ContainerProperty(AWSProperty):
+    """
+    `ContainerProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-container.html>`__
+    """
+
+    props: PropsDictType = {
+        "Command": ([str], False),
+        "ContainerName": (str, False),
+        "Environment": ([EnvironmentVariable], False),
+        "Image": (str, False),
+        "Ports": ([PortInfo], False),
+    }
+
+
+class HealthCheckConfig(AWSProperty):
+    """
+    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-healthcheckconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HealthyThreshold": (integer, False),
+        "IntervalSeconds": (integer, False),
+        "Path": (str, False),
+        "SuccessCodes": (str, False),
+        "TimeoutSeconds": (integer, False),
+        "UnhealthyThreshold": (integer, False),
+    }
+
+
+class PublicEndpoint(AWSProperty):
+    """
+    `PublicEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerName": (str, False),
+        "ContainerPort": (integer, False),
+        "HealthCheckConfig": (HealthCheckConfig, False),
+    }
+
+
+class ContainerServiceDeployment(AWSProperty):
+    """
+    `ContainerServiceDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-containerservicedeployment.html>`__
+    """
+
+    props: PropsDictType = {
+        "Containers": ([ContainerProperty], False),
+        "PublicEndpoint": (PublicEndpoint, False),
+    }
+
+
+class PublicDomainName(AWSProperty):
+    """
+    `PublicDomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateName": (str, False),
+        "DomainNames": ([str], False),
+    }
+
+
+class Container(AWSObject):
+    """
+    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-container.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::Container"
+
+    props: PropsDictType = {
+        "ContainerServiceDeployment": (ContainerServiceDeployment, False),
+        "IsDisabled": (boolean, False),
+        "Power": (str, True),
+        "PublicDomainNames": ([PublicDomainName], False),
+        "Scale": (integer, True),
+        "ServiceName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class RelationalDatabaseParameter(AWSProperty):
     """
     `RelationalDatabaseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-database-relationaldatabaseparameter.html>`__
@@ -138,6 +256,110 @@ class Disk(AWSObject):
         "AvailabilityZone": (str, False),
         "DiskName": (str, True),
         "SizeInGb": (integer, True),
+        "Tags": (Tags, False),
+    }
+
+
+class CacheBehavior(AWSProperty):
+    """
+    `CacheBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehavior.html>`__
+    """
+
+    props: PropsDictType = {
+        "Behavior": (str, False),
+    }
+
+
+class CacheBehaviorPerPath(AWSProperty):
+    """
+    `CacheBehaviorPerPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachebehaviorperpath.html>`__
+    """
+
+    props: PropsDictType = {
+        "Behavior": (str, False),
+        "Path": (str, False),
+    }
+
+
+class CookieObject(AWSProperty):
+    """
+    `CookieObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cookieobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "CookiesAllowList": ([str], False),
+        "Option": (str, False),
+    }
+
+
+class HeaderObject(AWSProperty):
+    """
+    `HeaderObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-headerobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "HeadersAllowList": ([str], False),
+        "Option": (str, False),
+    }
+
+
+class QueryStringObject(AWSProperty):
+    """
+    `QueryStringObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-querystringobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "Option": (boolean, False),
+        "QueryStringsAllowList": ([str], False),
+    }
+
+
+class CacheSettings(AWSProperty):
+    """
+    `CacheSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-cachesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedHTTPMethods": (str, False),
+        "CachedHTTPMethods": (str, False),
+        "DefaultTTL": (integer, False),
+        "ForwardedCookies": (CookieObject, False),
+        "ForwardedHeaders": (HeaderObject, False),
+        "ForwardedQueryStrings": (QueryStringObject, False),
+        "MaximumTTL": (integer, False),
+        "MinimumTTL": (integer, False),
+    }
+
+
+class InputOrigin(AWSProperty):
+    """
+    `InputOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-distribution-inputorigin.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "ProtocolPolicy": (str, False),
+        "RegionName": (str, False),
+    }
+
+
+class Distribution(AWSObject):
+    """
+    `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-distribution.html>`__
+    """
+
+    resource_type = "AWS::Lightsail::Distribution"
+
+    props: PropsDictType = {
+        "BundleId": (str, True),
+        "CacheBehaviorSettings": (CacheSettings, False),
+        "CacheBehaviors": ([CacheBehaviorPerPath], False),
+        "CertificateName": (str, False),
+        "DefaultCacheBehavior": (CacheBehavior, True),
+        "DistributionName": (str, True),
+        "IpAddressType": (str, False),
+        "IsEnabled": (boolean, False),
+        "Origin": (InputOrigin, True),
         "Tags": (Tags, False),
     }
 

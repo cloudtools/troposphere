@@ -62,6 +62,28 @@ class ElasticsearchSettings(AWSProperty):
     }
 
 
+class GcpMySQLSettings(AWSProperty):
+    """
+    `GcpMySQLSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-gcpmysqlsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AfterConnectScript": (str, False),
+        "CleanSourceMetadataOnMismatch": (boolean, False),
+        "DatabaseName": (str, False),
+        "EventsPollInterval": (integer, False),
+        "MaxFileSize": (integer, False),
+        "ParallelLoadThreads": (integer, False),
+        "Password": (str, False),
+        "Port": (integer, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+        "ServerName": (str, False),
+        "ServerTimezone": (str, False),
+        "Username": (str, False),
+    }
+
+
 class IbmDb2Settings(AWSProperty):
     """
     `IbmDb2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html>`__
@@ -270,6 +292,7 @@ class Endpoint(AWSObject):
         "EndpointType": (str, True),
         "EngineName": (str, True),
         "ExtraConnectionAttributes": (str, False),
+        "GcpMySQLSettings": (GcpMySQLSettings, False),
         "IbmDb2Settings": (IbmDb2Settings, False),
         "KafkaSettings": (KafkaSettings, False),
         "KinesisSettings": (KinesisSettings, False),

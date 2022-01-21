@@ -327,6 +327,7 @@ class OutputLocation(AWSProperty):
 
     props: PropsDictType = {
         "Bucket": (str, True),
+        "BucketOwner": (str, False),
         "Key": (str, False),
     }
 

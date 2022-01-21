@@ -196,6 +196,17 @@ class MaintenanceWindowLambdaParameters(AWSProperty):
     }
 
 
+class CloudWatchOutputConfig(AWSProperty):
+    """
+    `CloudWatchOutputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-cloudwatchoutputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogGroupName": (str, False),
+        "CloudWatchOutputEnabled": (boolean, False),
+    }
+
+
 class NotificationConfig(AWSProperty):
     """
     `NotificationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssm-maintenancewindowtask-notificationconfig.html>`__
@@ -214,9 +225,11 @@ class MaintenanceWindowRunCommandParameters(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CloudWatchOutputConfig": (CloudWatchOutputConfig, False),
         "Comment": (str, False),
         "DocumentHash": (str, False),
         "DocumentHashType": (str, False),
+        "DocumentVersion": (str, False),
         "NotificationConfig": (NotificationConfig, False),
         "OutputS3BucketName": (validate_s3_bucket_name, False),
         "OutputS3KeyPrefix": (str, False),

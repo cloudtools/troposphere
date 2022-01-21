@@ -10,9 +10,4 @@ patches = [
         "path": "/ResourceTypes/AWS::SageMaker::Device/Properties/Device/Type",
         "value": "DeviceProperty",
     },
-    {
-        "op": "remove",
-        "path": "/ResourceTypes/AWS::SageMaker::Device/Properties/Device/PrimitiveType",
-        "value": "DeviceProperty",
-    },
 ]

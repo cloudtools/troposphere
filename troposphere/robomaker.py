@@ -45,7 +45,7 @@ class RobotSoftwareSuite(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
-        "Version": (str, True),
+        "Version": (str, False),
     }
 
 
@@ -108,7 +108,7 @@ class SimulationSoftwareSuite(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
-        "Version": (str, True),
+        "Version": (str, False),
     }
 
 

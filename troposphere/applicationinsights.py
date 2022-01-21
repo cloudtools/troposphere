@@ -31,6 +31,30 @@ class AlarmMetric(AWSProperty):
     }
 
 
+class HAClusterPrometheusExporter(AWSProperty):
+    """
+    `HAClusterPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-haclusterprometheusexporter.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrometheusPort": (str, False),
+    }
+
+
+class HANAPrometheusExporter(AWSProperty):
+    """
+    `HANAPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-hanaprometheusexporter.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgreeToInstallHANADBClient": (boolean, False),
+        "HANAPort": (str, False),
+        "HANASID": (str, False),
+        "HANASecretName": (str, False),
+        "PrometheusPort": (str, False),
+    }
+
+
 class JMXPrometheusExporter(AWSProperty):
     """
     `JMXPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-jmxprometheusexporter.html>`__
@@ -78,6 +102,8 @@ class ConfigurationDetails(AWSProperty):
     props: PropsDictType = {
         "AlarmMetrics": ([AlarmMetric], False),
         "Alarms": ([Alarm], False),
+        "HAClusterPrometheusExporter": (HAClusterPrometheusExporter, False),
+        "HANAPrometheusExporter": (HANAPrometheusExporter, False),
         "JMXPrometheusExporter": (JMXPrometheusExporter, False),
         "Logs": ([Log], False),
         "WindowsEvents": ([WindowsEvent], False),
