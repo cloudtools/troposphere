@@ -15,7 +15,6 @@ from troposphere.iotanalytics import (
     Pipeline,
     RetentionPeriod,
     S3DestinationConfiguration,
-    ServiceManagedS3,
     Trigger,
     TriggeringDataset,
     VersioningConfiguration,
@@ -64,7 +63,7 @@ datastore = Datastore(
     "TestDatastore",
     DatastoreName="testdatastore",
     DatastoreStorage=DatastoreStorage(
-        ServiceManagedS3=ServiceManagedS3(),
+        ServiceManagedS3={},
     ),
     RetentionPeriod=RetentionPeriod(
         NumberOfDays=365,
