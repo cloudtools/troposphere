@@ -290,39 +290,3 @@ def waf_action_type(action):
     if action not in valid_actions:
         raise ValueError('Type must be one of: "%s"' % (", ".join(valid_actions)))
     return action
-
-
-def component_platforms(component_platform):
-    valid_component_platforms = ["Linux", "Windows"]
-    if component_platform not in valid_component_platforms:
-        raise ValueError(
-            'Platform must be one of: "%s"' % (", ".join(valid_component_platforms))
-        )
-    return component_platform
-
-
-def imagepipeline_status(status):
-    valid_status = ["DISABLED", "ENABLED"]
-    if status not in valid_status:
-        raise ValueError('Status must be one of: "%s"' % (", ".join(valid_status)))
-    return status
-
-
-def schedule_pipelineexecutionstartcondition(startcondition):
-    valid_startcondition = [
-        "EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE",
-        "EXPRESSION_MATCH_ONLY",
-    ]
-    if startcondition not in valid_startcondition:
-        raise ValueError(
-            'PipelineExecutionStartCondition must be one of: "%s"'
-            % (", ".join(valid_startcondition))
-        )
-    return startcondition
-
-
-def ebsinstanceblockdevicespecification_volume_type(type):
-    valid_types = ["gp2", "io1", "io2", "sc1", "st1", "standard"]
-    if type not in valid_types:
-        raise ValueError('VolumeType must be one of: "%s"' % (", ".join(valid_types)))
-    return type
