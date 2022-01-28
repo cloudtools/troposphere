@@ -24,7 +24,7 @@ cond_normal = """Resources:
   MyWaitCondition:
     Properties:
       Handle: !Sub "My\\nspecial multiline\\nHandle"
-      Timeout: 30
+      Timeout: '30'
     Type: AWS::CloudFormation::WaitCondition
 """
 
@@ -33,7 +33,7 @@ cond_long = """Resources:
     Properties:
       Handle:
         Fn::Sub: "My\\nspecial multiline\\nHandle"
-      Timeout: 30
+      Timeout: '30'
     Type: AWS::CloudFormation::WaitCondition
 """
 
@@ -44,7 +44,7 @@ cond_clean = """Resources:
         My
         special multiline
         Handle
-      Timeout: 30
+      Timeout: '30'
     Type: AWS::CloudFormation::WaitCondition
 """
 
