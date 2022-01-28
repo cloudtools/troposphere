@@ -179,6 +179,7 @@ class Table(AWSObject):
 
     props: PropsDictType = {
         "DatabaseName": (str, True),
+        "MagneticStoreWriteProperties": (dict, False),
         "RetentionProperties": (dict, False),
         "TableName": (str, False),
         "Tags": (Tags, False),

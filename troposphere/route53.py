@@ -119,7 +119,6 @@ class RecordSet(AWSProperty):
 
     props: PropsDictType = {
         "AliasTarget": (AliasTarget, False),
-        "Comment": (str, False),
         "Failover": (str, False),
         "GeoLocation": (GeoLocation, False),
         "HealthCheckId": (str, False),

@@ -54,6 +54,8 @@ class RotationRules(AWSProperty):
 
     props: PropsDictType = {
         "AutomaticallyAfterDays": (integer, False),
+        "Duration": (str, False),
+        "ScheduleExpression": (str, False),
     }
 
 
@@ -66,6 +68,7 @@ class RotationSchedule(AWSObject):
 
     props: PropsDictType = {
         "HostedRotationLambda": (HostedRotationLambda, False),
+        "RotateImmediatelyOnUpdate": (boolean, False),
         "RotationLambdaARN": (str, False),
         "RotationRules": (RotationRules, False),
         "SecretId": (str, True),

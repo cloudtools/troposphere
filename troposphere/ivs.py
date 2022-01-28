@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class Channel(AWSObject):
@@ -61,6 +61,17 @@ class DestinationConfiguration(AWSProperty):
     }
 
 
+class ThumbnailConfiguration(AWSProperty):
+    """
+    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-thumbnailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RecordingMode": (str, True),
+        "TargetIntervalSeconds": (integer, False),
+    }
+
+
 class RecordingConfiguration(AWSObject):
     """
     `RecordingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-recordingconfiguration.html>`__
@@ -72,6 +83,7 @@ class RecordingConfiguration(AWSObject):
         "DestinationConfiguration": (DestinationConfiguration, True),
         "Name": (str, False),
         "Tags": (Tags, False),
+        "ThumbnailConfiguration": (ThumbnailConfiguration, False),
     }
 
 

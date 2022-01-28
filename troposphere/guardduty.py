@@ -10,6 +10,26 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean, integer
 
 
+class CFNKubernetesAuditLogsConfiguration(AWSProperty):
+    """
+    `CFNKubernetesAuditLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesauditlogsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enable": (boolean, False),
+    }
+
+
+class CFNKubernetesConfiguration(AWSProperty):
+    """
+    `CFNKubernetesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnkubernetesconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuditLogs": (CFNKubernetesAuditLogsConfiguration, False),
+    }
+
+
 class CFNS3LogsConfiguration(AWSProperty):
     """
     `CFNS3LogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html>`__
@@ -26,6 +46,7 @@ class CFNDataSourceConfigurations(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Kubernetes": (CFNKubernetesConfiguration, False),
         "S3Logs": (CFNS3LogsConfiguration, False),
     }
 

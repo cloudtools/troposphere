@@ -20,7 +20,7 @@ class GeofenceCollection(AWSObject):
         "CollectionName": (str, True),
         "Description": (str, False),
         "KmsKeyId": (str, False),
-        "PricingPlan": (str, True),
+        "PricingPlan": (str, False),
         "PricingPlanDataSource": (str, False),
     }
 
@@ -46,7 +46,7 @@ class Map(AWSObject):
         "Configuration": (MapConfiguration, True),
         "Description": (str, False),
         "MapName": (str, True),
-        "PricingPlan": (str, True),
+        "PricingPlan": (str, False),
     }
 
 
@@ -72,7 +72,7 @@ class PlaceIndex(AWSObject):
         "DataSourceConfiguration": (DataSourceConfiguration, False),
         "Description": (str, False),
         "IndexName": (str, True),
-        "PricingPlan": (str, True),
+        "PricingPlan": (str, False),
     }
 
 
@@ -87,7 +87,7 @@ class RouteCalculator(AWSObject):
         "CalculatorName": (str, True),
         "DataSource": (str, True),
         "Description": (str, False),
-        "PricingPlan": (str, True),
+        "PricingPlan": (str, False),
     }
 
 
@@ -102,7 +102,7 @@ class Tracker(AWSObject):
         "Description": (str, False),
         "KmsKeyId": (str, False),
         "PositionFiltering": (str, False),
-        "PricingPlan": (str, True),
+        "PricingPlan": (str, False),
         "PricingPlanDataSource": (str, False),
         "TrackerName": (str, True),
     }

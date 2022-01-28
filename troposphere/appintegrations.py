@@ -9,6 +9,23 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class DataIntegration(AWSObject):
+    """
+    `DataIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html>`__
+    """
+
+    resource_type = "AWS::AppIntegrations::DataIntegration"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "KmsKey": (str, True),
+        "Name": (str, True),
+        "ScheduleConfig": (dict, True),
+        "SourceURI": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class EventFilter(AWSProperty):
     """
     `EventFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-eventintegration-eventfilter.html>`__
@@ -32,4 +49,16 @@ class EventIntegration(AWSObject):
         "EventFilter": (EventFilter, True),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ScheduleConfig(AWSProperty):
+    """
+    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-scheduleconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirstExecutionFrom": (str, True),
+        "Object": (str, True),
+        "ScheduleExpression": (str, True),
     }

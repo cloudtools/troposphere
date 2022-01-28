@@ -87,9 +87,4 @@ patches = [
         "path": "/PropertyTypes/AWS::ECS::TaskDefinition.Volume/Properties/Host/Type",
         "value": "Host",
     },
-    # Fix spec - AuthorizationConfig has a PrimitiveType of Json which was being emitted but als a Type of AuthorizationConfig
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::ECS::TaskDefinition.EFSVolumeConfiguration/Properties/AuthorizationConfig/PrimitiveType",
-    },
 ]

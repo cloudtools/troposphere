@@ -30,12 +30,24 @@ class ConnectivityInfo(AWSProperty):
     }
 
 
+class ProvisionedThroughput(AWSProperty):
+    """
+    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-provisionedthroughput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "VolumeThroughput": (integer, False),
+    }
+
+
 class EBSStorageInfo(AWSProperty):
     """
     `EBSStorageInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-ebsstorageinfo.html>`__
     """
 
     props: PropsDictType = {
+        "ProvisionedThroughput": (ProvisionedThroughput, False),
         "VolumeSize": (integer, False),
     }
 
