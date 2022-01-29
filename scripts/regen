@@ -13,9 +13,9 @@ grep -l PropsDictType troposphere/*.py | \
     cut -d. -f1 | \
     sed -e '/__init__/d' -e '/constants/d' -e '/policies/d' | \
     sed -e '/serverless/d' -e '/template_generator/d' -e '/utils/d' | \
-    sed 's/analytics/kinesisanalytics/' | \
+    sed 's/^analytics$/kinesisanalytics/' | \
     sed 's/awslambda/lambda/' | \
-    sed 's/firehose/kinesisfirehose/' | \
+    sed 's/^firehose$/kinesisfirehose/' | \
     sort > autogen
 python3 scripts/gen.py --filelist autogen -d troposphere ${verbose}
 make fix
