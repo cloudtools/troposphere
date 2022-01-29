@@ -223,7 +223,11 @@ def main():
             "ListenerRuleApi",
             ListenerArn=Ref(Listener),
             Conditions=[elb.Condition(Field="path-pattern", Values=["/api/*"])],
-            Actions=[elb.Action(Type="forward", TargetGroupArn=Ref(TargetGroupApi))],
+            Actions=[
+                elb.ListenerRuleAction(
+                    Type="forward", TargetGroupArn=Ref(TargetGroupApi)
+                )
+            ],
             Priority="1",
         )
     )

@@ -14,10 +14,10 @@ from troposphere.validators import (
     positive_integer,
     s3_bucket_name,
     tags_or_list,
-    tg_healthcheck_port,
     waf_action_type,
 )
 from troposphere.validators.backup import backup_vault_name
+from troposphere.validators.elasticloadbalancingv2 import tg_healthcheck_port
 from troposphere.validators.iam import (
     iam_group_name,
     iam_names,

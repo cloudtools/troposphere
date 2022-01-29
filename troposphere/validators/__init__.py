@@ -98,12 +98,6 @@ def network_port(x):
     return x
 
 
-def tg_healthcheck_port(x):
-    if isinstance(x, str) and x == "traffic-port":
-        return x
-    return network_port(x)
-
-
 def s3_bucket_name(b):
 
     # consecutive periods not allowed

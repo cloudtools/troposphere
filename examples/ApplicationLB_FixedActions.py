@@ -62,7 +62,7 @@ def main():
                     ),
                 ],
                 Actions=[
-                    elb.Action(
+                    elb.ListenerRuleAction(
                         Type="fixed-response",
                         FixedResponseConfig=elb.FixedResponseConfig(
                             StatusCode="200",
@@ -92,7 +92,7 @@ def main():
                     ),
                 ],
                 Actions=[
-                    elb.Action(
+                    elb.ListenerRuleAction(
                         Type="fixed-response",
                         FixedResponseConfig=elb.FixedResponseConfig(
                             StatusCode="200",
@@ -110,7 +110,7 @@ def main():
                 ListenerArn=listener.ref(),
                 Conditions=[elb.Condition(Field="path-pattern", Values=["/metrics/*"])],
                 Actions=[
-                    elb.Action(
+                    elb.ListenerRuleAction(
                         Type="redirect",
                         RedirectConfig=elb.RedirectConfig(
                             StatusCode="HTTP_301", Protocol="HTTPS", Port="443"
@@ -129,7 +129,7 @@ def main():
                     )
                 ],
                 Actions=[
-                    elb.Action(
+                    elb.ListenerRuleAction(
                         Type="fixed-response",
                         FixedResponseConfig=elb.FixedResponseConfig(
                             StatusCode="200",
