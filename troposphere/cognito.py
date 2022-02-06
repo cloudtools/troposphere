@@ -267,6 +267,7 @@ class SmsConfiguration(AWSProperty):
     props: PropsDictType = {
         "ExternalId": (str, False),
         "SnsCallerArn": (str, False),
+        "SnsRegion": (str, False),
     }
 
 

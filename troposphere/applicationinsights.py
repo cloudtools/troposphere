@@ -47,10 +47,10 @@ class HANAPrometheusExporter(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AgreeToInstallHANADBClient": (boolean, False),
-        "HANAPort": (str, False),
-        "HANASID": (str, False),
-        "HANASecretName": (str, False),
+        "AgreeToInstallHANADBClient": (boolean, True),
+        "HANAPort": (str, True),
+        "HANASID": (str, True),
+        "HANASecretName": (str, True),
         "PrometheusPort": (str, False),
     }
 

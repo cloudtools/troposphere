@@ -70,9 +70,10 @@ class RobotApplication(AWSObject):
 
     props: PropsDictType = {
         "CurrentRevisionId": (str, False),
+        "Environment": (str, False),
         "Name": (str, False),
         "RobotSoftwareSuite": (RobotSoftwareSuite, True),
-        "Sources": ([SourceConfig], True),
+        "Sources": ([SourceConfig], False),
         "Tags": (dict, False),
     }
 

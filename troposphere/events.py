@@ -303,6 +303,27 @@ class RunCommandParameters(AWSProperty):
     }
 
 
+class SageMakerPipelineParameter(AWSProperty):
+    """
+    `SageMakerPipelineParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
+class SageMakerPipelineParameters(AWSProperty):
+    """
+    `SageMakerPipelineParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sagemakerpipelineparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "PipelineParameterList": ([SageMakerPipelineParameter], False),
+    }
+
+
 class SqsParameters(AWSProperty):
     """
     `SqsParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-sqsparameters.html>`__
@@ -333,6 +354,7 @@ class Target(AWSProperty):
         "RetryPolicy": (RetryPolicy, False),
         "RoleArn": (str, False),
         "RunCommandParameters": (RunCommandParameters, False),
+        "SageMakerPipelineParameters": (SageMakerPipelineParameters, False),
         "SqsParameters": (SqsParameters, False),
     }
 
