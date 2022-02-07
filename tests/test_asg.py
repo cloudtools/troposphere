@@ -15,7 +15,7 @@ class TestAutoScalingGroup(unittest.TestCase):
             MinSize="1",
         )
         with self.assertRaises(ValueError):
-            self.assertTrue(group.validate())
+            group.validate()
 
     def test_none(self):
         group = AutoScalingGroup(
@@ -24,7 +24,7 @@ class TestAutoScalingGroup(unittest.TestCase):
             MinSize="1",
         )
         with self.assertRaises(ValueError):
-            self.assertTrue(group.validate())
+            group.validate()
 
     def test_instanceid(self):
         group = AutoScalingGroup(
@@ -34,7 +34,7 @@ class TestAutoScalingGroup(unittest.TestCase):
             MaxSize="1",
             MinSize="1",
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_launchconfigurationname(self):
         group = AutoScalingGroup(
@@ -44,7 +44,7 @@ class TestAutoScalingGroup(unittest.TestCase):
             MaxSize="1",
             MinSize="1",
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_size_if(self):
         group = AutoScalingGroup(
@@ -62,7 +62,7 @@ class TestAutoScalingGroup(unittest.TestCase):
                 )
             ),
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_helperfn_as_updatepolicy(self):
         update_policy = UpdatePolicy(
@@ -81,7 +81,7 @@ class TestAutoScalingGroup(unittest.TestCase):
             MinSize="1",
             UpdatePolicy=If("UseUpdatePolicy", update_policy, Ref("AWS::NoValue")),
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_helperfn_as_AutoScalingRollingUpdate(self):
         update_policy = UpdatePolicy(
@@ -104,7 +104,7 @@ class TestAutoScalingGroup(unittest.TestCase):
             MinSize="1",
             UpdatePolicy=If("UseUpdatePolicy", update_policy, Ref("AWS::NoValue")),
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_AutoScalingRollingUpdate_all_defaults(self):
         group = AutoScalingGroup(
@@ -117,7 +117,7 @@ class TestAutoScalingGroup(unittest.TestCase):
                 AutoScalingRollingUpdate=AutoScalingRollingUpdate()
             ),
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_AutoScalingRollingUpdate_validation(self):
         update_policy = UpdatePolicy(
@@ -135,7 +135,7 @@ class TestAutoScalingGroup(unittest.TestCase):
         )
 
         with self.assertRaises(ValueError):
-            self.assertTrue(group.validate())
+            group.validate()
 
 
 if __name__ == "__main__":

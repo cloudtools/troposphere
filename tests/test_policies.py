@@ -85,7 +85,7 @@ class TestUpdatePolicy(unittest.TestCase):
             ),
         )
         with self.assertRaises(ValueError):
-            self.assertTrue(group.validate())
+            group.validate()
 
     def test_mininstances_maxsize_is_ref(self):
         paramMaxSize = Parameter("ParamMaxSize", Type="String")
@@ -101,7 +101,7 @@ class TestUpdatePolicy(unittest.TestCase):
                 )
             ),
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_mininstances_mininstancesinservice_is_ref(self):
         paramMinInstancesInService = Parameter(
@@ -121,7 +121,7 @@ class TestUpdatePolicy(unittest.TestCase):
                 )
             ),
         )
-        self.assertTrue(group.validate())
+        self.assertIsNone(group.validate())
 
     def test_json(self):
         p = UpdatePolicy(

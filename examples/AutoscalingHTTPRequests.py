@@ -1,4 +1,3 @@
-import troposphere.ec2 as ec2
 import troposphere.elasticloadbalancing as elb
 from troposphere import (
     Base64,
@@ -11,6 +10,8 @@ from troposphere import (
 )
 from troposphere.autoscaling import (
     AutoScalingGroup,
+    BlockDeviceMapping,
+    EBSBlockDevice,
     LaunchConfiguration,
     ScalingPolicy,
     Tag,
@@ -244,8 +245,8 @@ LaunchConfig = t.add_resource(
         ImageId=Ref(AmiId),
         KeyName=Ref(KeyName),
         BlockDeviceMappings=[
-            ec2.BlockDeviceMapping(
-                DeviceName="/dev/sda1", Ebs=ec2.EBSBlockDevice(VolumeSize="8")
+            BlockDeviceMapping(
+                DeviceName="/dev/sda1", Ebs=EBSBlockDevice(VolumeSize="8")
             ),
         ],
         SecurityGroups=[Ref(SecurityGroup)],
