@@ -47,6 +47,27 @@ class InstanceConfiguration(AWSProperty):
     }
 
 
+class EgressConfiguration(AWSProperty):
+    """
+    `EgressConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-egressconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EgressType": (str, True),
+        "VpcConnectorArn": (str, False),
+    }
+
+
+class NetworkConfiguration(AWSProperty):
+    """
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EgressConfiguration": (EgressConfiguration, True),
+    }
+
+
 class AuthenticationConfiguration(AWSProperty):
     """
     `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-authenticationconfiguration.html>`__
@@ -166,7 +187,23 @@ class Service(AWSObject):
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "HealthCheckConfiguration": (HealthCheckConfiguration, False),
         "InstanceConfiguration": (InstanceConfiguration, False),
+        "NetworkConfiguration": (NetworkConfiguration, False),
         "ServiceName": (str, False),
         "SourceConfiguration": (SourceConfiguration, True),
         "Tags": (Tags, False),
+    }
+
+
+class VpcConnector(AWSObject):
+    """
+    `VpcConnector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcconnector.html>`__
+    """
+
+    resource_type = "AWS::AppRunner::VpcConnector"
+
+    props: PropsDictType = {
+        "SecurityGroups": ([str], False),
+        "Subnets": ([str], True),
+        "Tags": (Tags, False),
+        "VpcConnectorName": (str, False),
     }

@@ -207,6 +207,17 @@ class FlowDefinition(AWSProperty):
     }
 
 
+class ObjectTypeMapping(AWSProperty):
+    """
+    `ObjectTypeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-objecttypemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class Integration(AWSObject):
     """
     `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-integration.html>`__
@@ -217,7 +228,8 @@ class Integration(AWSObject):
     props: PropsDictType = {
         "DomainName": (str, True),
         "FlowDefinition": (FlowDefinition, False),
-        "ObjectTypeName": (str, True),
+        "ObjectTypeName": (str, False),
+        "ObjectTypeNames": ([ObjectTypeMapping], False),
         "Tags": (Tags, False),
         "Uri": (str, False),
     }

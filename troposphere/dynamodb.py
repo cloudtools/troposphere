@@ -194,6 +194,7 @@ class ReplicaSpecification(AWSProperty):
         "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
         "Region": (str, True),
         "SSESpecification": (ReplicaSSESpecification, False),
+        "TableClass": (str, False),
         "Tags": (Tags, False),
     }
 

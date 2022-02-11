@@ -35,6 +35,61 @@ class CustomResource(AWSObject):
     }
 
 
+class HookDefaultVersion(AWSObject):
+    """
+    `HookDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::HookDefaultVersion"
+
+    props: PropsDictType = {
+        "TypeName": (str, False),
+        "TypeVersionArn": (str, False),
+        "VersionId": (str, False),
+    }
+
+
+class HookTypeConfig(AWSObject):
+    """
+    `HookTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hooktypeconfig.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::HookTypeConfig"
+
+    props: PropsDictType = {
+        "Configuration": (str, True),
+        "ConfigurationAlias": (str, False),
+        "TypeArn": (str, False),
+        "TypeName": (str, False),
+    }
+
+
+class LoggingConfig(AWSProperty):
+    """
+    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupName": (str, False),
+        "LogRoleArn": (str, False),
+    }
+
+
+class HookVersion(AWSObject):
+    """
+    `HookVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookversion.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::HookVersion"
+
+    props: PropsDictType = {
+        "ExecutionRoleArn": (str, False),
+        "LoggingConfig": (LoggingConfig, False),
+        "SchemaHandlerPackage": (str, True),
+        "TypeName": (str, True),
+    }
+
+
 class Macro(AWSObject):
     """
     `Macro <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-macro.html>`__
@@ -118,17 +173,6 @@ class ResourceDefaultVersion(AWSObject):
         "TypeName": (str, False),
         "TypeVersionArn": (str, False),
         "VersionId": (str, False),
-    }
-
-
-class LoggingConfig(AWSProperty):
-    """
-    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-typeactivation-loggingconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "LogGroupName": (str, False),
-        "LogRoleArn": (str, False),
     }
 
 

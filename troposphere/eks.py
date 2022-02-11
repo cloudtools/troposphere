@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double
+from .validators import boolean, double, integer
 from .validators.eks import VALID_TAINT_EFFECT  # noqa: F401
 from .validators.eks import (
     validate_cluster_logging,
@@ -191,9 +191,9 @@ class ScalingConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DesiredSize": (double, False),
-        "MaxSize": (double, False),
-        "MinSize": (double, False),
+        "DesiredSize": (integer, False),
+        "MaxSize": (integer, False),
+        "MinSize": (integer, False),
     }
 
 
@@ -231,7 +231,7 @@ class Nodegroup(AWSObject):
         "AmiType": (str, False),
         "CapacityType": (str, False),
         "ClusterName": (str, True),
-        "DiskSize": (double, False),
+        "DiskSize": (integer, False),
         "ForceUpdateEnabled": (boolean, False),
         "InstanceTypes": ([str], False),
         "Labels": (dict, False),

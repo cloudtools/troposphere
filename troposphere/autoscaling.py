@@ -295,7 +295,7 @@ class AutoScalingGroup(AWSObject):
 
 class EBSBlockDevice(AWSProperty):
     """
-    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-template.html>`__
+    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevice.html>`__
     """
 
     props: PropsDictType = {
@@ -311,7 +311,7 @@ class EBSBlockDevice(AWSProperty):
 
 class BlockDeviceMapping(AWSProperty):
     """
-    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig-blockdev-mapping.html>`__
+    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-blockdevicemapping.html>`__
     """
 
     props: PropsDictType = {
@@ -324,7 +324,7 @@ class BlockDeviceMapping(AWSProperty):
 
 class MetadataOptions(AWSProperty):
     """
-    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfig-metadataoptions.html>`__
+    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-launchconfiguration-metadataoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -336,7 +336,7 @@ class MetadataOptions(AWSProperty):
 
 class LaunchConfiguration(AWSObject):
     """
-    `LaunchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-launchconfig.html>`__
+    `LaunchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-launchconfiguration.html>`__
     """
 
     resource_type = "AWS::AutoScaling::LaunchConfiguration"

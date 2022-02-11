@@ -291,7 +291,7 @@ class EmailTemplate(AWSProperty):
 
     props: PropsDictType = {
         "HtmlPart": (str, False),
-        "SubjectPart": (str, False),
+        "SubjectPart": (str, True),
         "TemplateName": (str, False),
         "TextPart": (str, False),
     }

@@ -20,7 +20,7 @@ class RedrivePolicy(AWSProperty):
 
 class Queue(AWSObject):
     """
-    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-queues.html>`__
+    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queue.html>`__
     """
 
     resource_type = "AWS::SQS::Queue"

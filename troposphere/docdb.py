@@ -20,6 +20,7 @@ class DBCluster(AWSObject):
     props: PropsDictType = {
         "AvailabilityZones": ([str], False),
         "BackupRetentionPeriod": (integer, False),
+        "CopyTagsToSnapshot": (boolean, False),
         "DBClusterIdentifier": (str, False),
         "DBClusterParameterGroupName": (str, False),
         "DBSubnetGroupName": (str, False),
