@@ -101,6 +101,7 @@
 - [AWS::IoTSiteWise](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTSiteWise.html)
 - [AWS::IoTWireless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTWireless.html)
 - [AWS::KMS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KMS.html)
+- [AWS::KafkaConnect](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KafkaConnect.html)
 - [AWS::Kendra](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Kendra.html)
 - [AWS::Kinesis](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Kinesis.html)
 - [AWS::KinesisAnalytics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KinesisAnalytics.html)
