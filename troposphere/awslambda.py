@@ -148,6 +148,26 @@ class EventInvokeConfig(AWSObject):
     }
 
 
+class Filter(AWSProperty):
+    """
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Pattern": (str, False),
+    }
+
+
+class FilterCriteria(AWSProperty):
+    """
+    `FilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filtercriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Filters": ([Filter], False),
+    }
+
+
 class Endpoints(AWSProperty):
     """
     `Endpoints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html>`__
@@ -192,7 +212,7 @@ class EventSourceMapping(AWSObject):
         "DestinationConfig": (DestinationConfig, False),
         "Enabled": (boolean, False),
         "EventSourceArn": (str, False),
-        "FilterCriteria": (dict, False),
+        "FilterCriteria": (FilterCriteria, False),
         "FunctionName": (str, True),
         "FunctionResponseTypes": ([str], False),
         "MaximumBatchingWindowInSeconds": (integer, False),

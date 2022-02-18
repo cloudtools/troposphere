@@ -26,6 +26,19 @@ class PublicRepository(AWSObject):
     }
 
 
+class PullThroughCacheRule(AWSObject):
+    """
+    `PullThroughCacheRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-pullthroughcacherule.html>`__
+    """
+
+    resource_type = "AWS::ECR::PullThroughCacheRule"
+
+    props: PropsDictType = {
+        "EcrRepositoryPrefix": (str, False),
+        "UpstreamRegistryUrl": (str, False),
+    }
+
+
 class RegistryPolicy(AWSObject):
     """
     `RegistryPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registrypolicy.html>`__

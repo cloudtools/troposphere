@@ -10,6 +10,80 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class DocumentAttributeValue(AWSProperty):
+    """
+    `DocumentAttributeValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributevalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "DateValue": (str, False),
+        "LongValue": (integer, False),
+        "StringListValue": ([str], False),
+        "StringValue": (str, False),
+    }
+
+
+class DocumentAttributeCondition(AWSProperty):
+    """
+    `DocumentAttributeCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributecondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionDocumentAttributeKey": (str, True),
+        "ConditionOnValue": (DocumentAttributeValue, False),
+        "Operator": (str, True),
+    }
+
+
+class HookConfiguration(AWSProperty):
+    """
+    `HookConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-hookconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InvocationCondition": (DocumentAttributeCondition, False),
+        "LambdaArn": (str, True),
+        "S3Bucket": (str, True),
+    }
+
+
+class DocumentAttributeTarget(AWSProperty):
+    """
+    `DocumentAttributeTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-documentattributetarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetDocumentAttributeKey": (str, True),
+        "TargetDocumentAttributeValue": (DocumentAttributeValue, False),
+        "TargetDocumentAttributeValueDeletion": (boolean, False),
+    }
+
+
+class InlineCustomDocumentEnrichmentConfiguration(AWSProperty):
+    """
+    `InlineCustomDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-inlinecustomdocumentenrichmentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Condition": (DocumentAttributeCondition, False),
+        "DocumentContentDeletion": (boolean, False),
+        "Target": (DocumentAttributeTarget, False),
+    }
+
+
+class CustomDocumentEnrichmentConfiguration(AWSProperty):
+    """
+    `CustomDocumentEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-customdocumentenrichmentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InlineConfigurations": ([InlineCustomDocumentEnrichmentConfiguration], False),
+        "PostExtractionHookConfiguration": (HookConfiguration, False),
+        "PreExtractionHookConfiguration": (HookConfiguration, False),
+        "RoleArn": (str, False),
+    }
+
+
 class ConfluenceAttachmentToIndexFieldMapping(AWSProperty):
     """
     `ConfluenceAttachmentToIndexFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-confluenceattachmenttoindexfieldmapping.html>`__
@@ -600,6 +674,10 @@ class DataSource(AWSObject):
     resource_type = "AWS::Kendra::DataSource"
 
     props: PropsDictType = {
+        "CustomDocumentEnrichmentConfiguration": (
+            CustomDocumentEnrichmentConfiguration,
+            False,
+        ),
         "DataSourceConfiguration": (DataSourceConfiguration, False),
         "Description": (str, False),
         "IndexId": (str, True),

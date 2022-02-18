@@ -339,6 +339,29 @@ class ExcludedRule(AWSProperty):
     }
 
 
+class FieldIdentifier(AWSProperty):
+    """
+    `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldidentifier.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identifier": (str, True),
+    }
+
+
+class ManagedRuleGroupConfig(AWSProperty):
+    """
+    `ManagedRuleGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LoginPath": (str, False),
+        "PasswordField": (FieldIdentifier, False),
+        "PayloadType": (str, False),
+        "UsernameField": (FieldIdentifier, False),
+    }
+
+
 class ManagedRuleGroupStatement(AWSProperty):
     """
     `ManagedRuleGroupStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html>`__
@@ -346,6 +369,7 @@ class ManagedRuleGroupStatement(AWSProperty):
 
     props: PropsDictType = {
         "ExcludedRules": ([ExcludedRule], False),
+        "ManagedRuleGroupConfigs": ([ManagedRuleGroupConfig], False),
         "Name": (str, True),
         "VendorName": (str, True),
         "Version": (str, False),

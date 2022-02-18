@@ -103,6 +103,7 @@ class Authorizer(AWSObject):
     props: PropsDictType = {
         "AuthorizerFunctionArn": (str, True),
         "AuthorizerName": (str, False),
+        "EnableCachingForHttp": (boolean, False),
         "SigningDisabled": (boolean, False),
         "Status": (str, False),
         "Tags": (Tags, False),
