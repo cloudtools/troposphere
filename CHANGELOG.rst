@@ -1,3 +1,136 @@
+4.0.0-beta.0 (2022*02*19)
+-------------------------
+This release has refactored the code to allow for auto-generation of the troposphere classes from the AWS
+Resource Specification. Backward compatibility changes were applied to minimize changes to existing scripts.
+
+Breaking Changes
+^^^^^^^^^^^^^^^^
+* AWS::EC2
+  - Ipv6Addresses AWSHelperFn class is now an AWSProperty InstanceIpv6Address
+  - Added Ipv6Addresses function that returns a InstanceIpv6Address for backward compatibility
+  - SpotFleet::LaunchSpecifications IamInstanceProfile change: IamInstanceProfile => IamInstanceProfileSpecification
+  - SpotFleet::LaunchSpecifications NetworkInterfaces change: NetworkInterfaces => InstanceNetworkInterfaceSpecification
+  - SpotFleet::LaunchSpecifications Placement change: Placement => SpotPlacement
+  - SpotFleet::LaunchSpecifications TagSpecifications change: SpotFleetTagSpecification => TagSpecifications
+* AWS::ElasticLoadBalancingV2::ListenerRule Action was renamed ListenerRuleAction due to conflict with Listener Action AuthenticateOidcConfig
+* AWS::OpsWorksCM resources have been moved out of opsworks.py into opsworkscm.py, please adjust imports.
+* AWS::Route53Resolver resources have been moved out of route53.py into route53resolver.py, please adjust imports.
+* Removed deprecated Elasticsearch ElasticsearchDomain alias, use Domain instead
+* Removed deprecated IAM PolicyProperty alias, use Policy instead.
+  Note: a future major version will rename the Policy resource and property again..
+* json_checker now uses TypeError (rather than ValueError) for non-str or non-dict types
+
+Changes
+^^^^^^^
+* Add missing entry for the 3.2.2 release
+* Auto-generate MWAA
+* Auto-generate ElasticBeanstalk
+* Auto-generate Elasticsearch
+* Auto-generate ElastiCache
+* Auto-generate SNS
+* Auto-generate SecurityHub
+* Auto-generate Synthetics
+* Auto-generate Neptune
+* Auto-generate KMS
+* Auto-generate GlobalAccelerator
+* Better handle selective imports of primitive types in code generator
+* Auto-generate EFS
+* Auto-generate SecretsManager
+* Auto-generate DAX
+* Auto-generate DMS
+* Auto-generate DataPipeline
+* Auto-generate Detective
+* Auto-generate DirectoryService
+* Auto-generate DLM
+* Auto-generate DocDB
+* Add backward compatibility to allow resource renames to work correctly
+* Fix SNS Subscription resource type
+* Auto-generate IAM
+* Add missing EFS patch
+* Auto-generate Macie
+* Auto-generate ResourceGroups
+* Auto-generate GuardDuty
+* Auto-generate Panorama
+* Auto-generate WAFRegional
+* Auto-generate StepFunctions
+* Remove unneeded properties that should not be emitted
+* Auto-generate Cassandra
+* Auto-generate Athena
+* Auto-generate FMS
+* Remove py.typed until type information is fully implemented (#2003)
+* Change for gen to emit all meaningful properties, Tags cleanup, and other changes
+* Auto-generate NetworkManager
+* Auto-generate ApiGateway
+* Auto-generate Config
+* Auto-generate EKS
+* Update AppSync per 2022-01-13 changes
+* Add AWS::Forecast
+* Updates from 53.0.0 spec
+* Auto-generate KinesisFirehose
+* Tweaks for the regen script
+* Add PropsDictType into policies.py
+* Auto-generate ApiGatewayV2
+* Auto-generate AppConfig
+* Add PrivateDnsPropertiesMutable to ServiceDiscovery
+* Auto-generate AppMesh
+* Auto-generate CloudTrail
+* Fixup some incorrect Tags types
+* Auto-generate EventSchemas
+* Auto-generate CustomerProfiles
+* Auto-generate Chatbot
+* Auto-generate FraudDetector
+* Auto-generate WAF
+* Auto-generate IoT
+* Auto-generate IoT1Click
+* Auto-generate EMR
+* Auto-generate RDS
+* Auto-generate Cognito
+* Remove workaround for Lex TextLogDestination
+* Auto-generate CloudWatch
+* Auto-generate Redshift
+* Auto-generate CodePipeline
+* Auto-generate ServiceCatalog
+* Auto-generate OpsWorks
+* Auto-generate OpsWorksCM
+* Auto-generate Route53
+* Auto-generate Route53Resolver
+* Auto-generate Pinpoint
+* Auto-generate PinpointEmail
+* Auto-generate AutoScalingPlans
+* Updates from spec version 53.1.0
+* Auto-generate Logs
+* Auto-generate GroundStation
+* Auto-generate Glue
+* Auto-generate Batch
+* Auto-generate Budgets
+* Auto-generate CodeCommit
+* Auto-generate CodeBuild
+* Auto-generate MediaConnect
+* Auto-generate MediaLive
+* Auto-generate MediaStore
+* Auto-generate Kendra
+* Auto-generate ImageBuilder
+* Auto-generate IoTWireless
+* Updates from spec version 54.0.0
+* Auto-generate CloudFormation
+* Auto-generate MediaPackage
+* Auto-generate KinesisAnalyticsV2
+* Auto-generate IoTAnalytics
+* Anchor some substitutions in regen
+* Auto-generate ElasticLoadBalancing
+* Auto-generate ElasticLoadBalancingV2
+* Auto-generate DynamoDB
+* Updates from spec version 55.0.0
+* Auto-generate AutoScaling
+* Updates from spec version 56.0.0
+* Add AWS::KafkaConnect
+* Run black and isort on kafkaconnect.py
+* Updates from spec version 57.0.0
+* Add AWS::IoTThingsGraph and AWS::RefactorSpaces
+* Allow function exports in gen.py
+* Auto-generate EC2
+* Save copy of resource spec via "make spec"
+
 3.2.2 (2022*01*07)
 ------------------
 * Auto-generate CloudFront
