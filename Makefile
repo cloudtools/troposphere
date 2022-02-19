@@ -73,7 +73,10 @@ spec:
 	unzip -d spec CloudFormationResourceSpecification.zip
 	rm CloudFormationResourceSpecification.zip
 	curl -O --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
-	/bin/echo -n "Downloaded version: " && jq .ResourceSpecificationVersion CloudFormationResourceSpecification.json
+	SPECVERSION=$$(jq -r .ResourceSpecificationVersion CloudFormationResourceSpecification.json) && \
+	/bin/echo "Downloaded version:" $${SPECVERSION} && \
+	mkdir -p .backup && \
+	ln -f CloudFormationResourceSpecification.json .backup/CloudFormationResourceSpecification_$${SPECVERSION}.json
 
 test: ## run tests
 	@python setup.py test
