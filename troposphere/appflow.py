@@ -519,6 +519,31 @@ class S3DestinationProperties(AWSProperty):
     }
 
 
+class SuccessResponseHandlingConfig(AWSProperty):
+    """
+    `SuccessResponseHandlingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-successresponsehandlingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, False),
+        "BucketPrefix": (str, False),
+    }
+
+
+class SAPODataDestinationProperties(AWSProperty):
+    """
+    `SAPODataDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatadestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ErrorHandlingConfig": (ErrorHandlingConfig, False),
+        "IdFieldNames": ([str], False),
+        "ObjectPath": (str, True),
+        "SuccessResponseHandlingConfig": (SuccessResponseHandlingConfig, False),
+        "WriteOperationType": (str, False),
+    }
+
+
 class SalesforceDestinationProperties(AWSProperty):
     """
     `SalesforceDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-salesforcedestinationproperties.html>`__
@@ -592,6 +617,7 @@ class DestinationConnectorProperties(AWSProperty):
         "LookoutMetrics": (LookoutMetricsDestinationProperties, False),
         "Redshift": (RedshiftDestinationProperties, False),
         "S3": (S3DestinationProperties, False),
+        "SAPOData": (SAPODataDestinationProperties, False),
         "Salesforce": (SalesforceDestinationProperties, False),
         "Snowflake": (SnowflakeDestinationProperties, False),
         "Upsolver": (UpsolverDestinationProperties, False),

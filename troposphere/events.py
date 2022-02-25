@@ -43,6 +43,89 @@ class Archive(AWSObject):
     }
 
 
+class ApiKeyAuthParameters(AWSProperty):
+    """
+    `ApiKeyAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-apikeyauthparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKeyName": (str, True),
+        "ApiKeyValue": (str, True),
+    }
+
+
+class BasicAuthParameters(AWSProperty):
+    """
+    `BasicAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-basicauthparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "Password": (str, True),
+        "Username": (str, True),
+    }
+
+
+class Parameter(AWSProperty):
+    """
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-parameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsValueSecret": (boolean, False),
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ConnectionHttpParameters(AWSProperty):
+    """
+    `ConnectionHttpParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectionhttpparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "BodyParameters": ([Parameter], False),
+        "HeaderParameters": ([Parameter], False),
+        "QueryStringParameters": ([Parameter], False),
+    }
+
+
+class ClientParameters(AWSProperty):
+    """
+    `ClientParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-clientparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientID": (str, True),
+        "ClientSecret": (str, True),
+    }
+
+
+class OAuthParameters(AWSProperty):
+    """
+    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-oauthparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationEndpoint": (str, True),
+        "ClientParameters": (ClientParameters, True),
+        "HttpMethod": (str, True),
+        "OAuthHttpParameters": (ConnectionHttpParameters, False),
+    }
+
+
+class AuthParameters(AWSProperty):
+    """
+    `AuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-authparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKeyAuthParameters": (ApiKeyAuthParameters, False),
+        "BasicAuthParameters": (BasicAuthParameters, False),
+        "InvocationHttpParameters": (ConnectionHttpParameters, False),
+        "OAuthParameters": (OAuthParameters, False),
+    }
+
+
 class Connection(AWSObject):
     """
     `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-connection.html>`__
@@ -51,7 +134,7 @@ class Connection(AWSObject):
     resource_type = "AWS::Events::Connection"
 
     props: PropsDictType = {
-        "AuthParameters": (dict, True),
+        "AuthParameters": (AuthParameters, True),
         "AuthorizationType": (str, True),
         "Description": (str, False),
         "Name": (str, False),

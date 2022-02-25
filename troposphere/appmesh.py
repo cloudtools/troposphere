@@ -1442,3 +1442,11 @@ class VirtualService(AWSObject):
         "Tags": (Tags, False),
         "VirtualServiceName": (str, True),
     }
+
+
+class MeshServiceDiscovery(AWSProperty):
+    """
+    `MeshServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html>`__
+    """
+
+    props: PropsDictType = {}

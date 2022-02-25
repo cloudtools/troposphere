@@ -53,6 +53,21 @@ class LocationEFS(AWSObject):
     }
 
 
+class LocationFSxLustre(AWSObject):
+    """
+    `LocationFSxLustre <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxlustre.html>`__
+    """
+
+    resource_type = "AWS::DataSync::LocationFSxLustre"
+
+    props: PropsDictType = {
+        "FsxFilesystemArn": (str, True),
+        "SecurityGroupArns": ([str], True),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class LocationFSxWindows(AWSObject):
     """
     `LocationFSxWindows <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html>`__

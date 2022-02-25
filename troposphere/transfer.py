@@ -85,6 +85,8 @@ class Server(AWSObject):
         "IdentityProviderDetails": (IdentityProviderDetails, False),
         "IdentityProviderType": (str, False),
         "LoggingRole": (str, False),
+        "PostAuthenticationLoginBanner": (str, False),
+        "PreAuthenticationLoginBanner": (str, False),
         "ProtocolDetails": (ProtocolDetails, False),
         "Protocols": ([str], False),
         "SecurityPolicyName": (str, False),

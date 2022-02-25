@@ -9,6 +9,18 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class ScheduleConfig(AWSProperty):
+    """
+    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-scheduleconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirstExecutionFrom": (str, True),
+        "Object": (str, True),
+        "ScheduleExpression": (str, True),
+    }
+
+
 class DataIntegration(AWSObject):
     """
     `DataIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-dataintegration.html>`__
@@ -20,7 +32,7 @@ class DataIntegration(AWSObject):
         "Description": (str, False),
         "KmsKey": (str, True),
         "Name": (str, True),
-        "ScheduleConfig": (dict, True),
+        "ScheduleConfig": (ScheduleConfig, True),
         "SourceURI": (str, True),
         "Tags": (Tags, False),
     }
@@ -49,16 +61,4 @@ class EventIntegration(AWSObject):
         "EventFilter": (EventFilter, True),
         "Name": (str, True),
         "Tags": (Tags, False),
-    }
-
-
-class ScheduleConfig(AWSProperty):
-    """
-    `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-scheduleconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "FirstExecutionFrom": (str, True),
-        "Object": (str, True),
-        "ScheduleExpression": (str, True),
     }
