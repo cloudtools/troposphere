@@ -28,6 +28,4 @@ pytest-cov>=2.6
 black==21.6b0
 build==0.5.1
 isort==5.9.1
-pycodestyle==2.7.0
-pyflakes==2.3.1
 tox==3.23.1
