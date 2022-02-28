@@ -99,7 +99,6 @@ def network_port(x):
 
 
 def s3_bucket_name(b):
-
     # consecutive periods not allowed
 
     if ".." in b:
@@ -136,7 +135,14 @@ def encoding(encoding):
 
 
 def one_of(class_name, properties, property, conditionals):
-    if properties.get(property) not in conditionals:
+    from .. import AWSHelperFn
+
+    check_property = properties.get(property)
+    if isinstance(check_property, AWSHelperFn) or issubclass(
+        type(check_property), AWSHelperFn
+    ):
+        return
+    if check_property not in conditionals:
         raise ValueError(
             # Ensure we handle None as a valid value
             '%s.%s must be one of: "%s"'
@@ -144,7 +150,8 @@ def one_of(class_name, properties, property, conditionals):
                 class_name,
                 property,
                 ", ".join(condition for condition in conditionals if condition),
-            )
+            ),
+            "or a CFN Intrinsic function / troposphere.AWSHelperFn",
         )
 
 

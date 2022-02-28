@@ -1,6 +1,6 @@
 import unittest
 
-from troposphere import NoValue, Parameter, Ref, Tags
+from troposphere import AWS_REGION, NoValue, Parameter, Ref, Tags
 from troposphere.validators import (
     boolean,
     check_required,
@@ -207,6 +207,7 @@ class TestValidators(unittest.TestCase):
         conds = ["Bilbo", "Frodo"]
         one_of("hobbits", {"first": "Bilbo"}, "first", conds)
         one_of("hobbits", {"first": "Frodo"}, "first", conds)
+        one_of("hobbits", {"first": Ref(AWS_REGION)}, "first", conds)
         with self.assertRaises(ValueError):
             one_of("hobbits", {"first": "Gandalf"}, "first", conds)
             one_of("hobbits", {"first": "Gandalf"}, "second", conds)
