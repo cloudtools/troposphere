@@ -23,7 +23,7 @@ from .validators.ecs import (
     scope_validator,
     validate_ephemeral_storage_size,
     validate_network_port,
-    validate_rutime_platform,
+    validate_runtime_platform,
     validate_scaling_step_size,
     validate_target_capacity,
     validate_transit_encryption_port,
@@ -635,7 +635,7 @@ class RuntimePlatform(AWSProperty):
     }
 
     def validate(self):
-        validate_rutime_platform(self)
+        validate_runtime_platform(self)
 
 
 class DockerVolumeConfiguration(AWSProperty):

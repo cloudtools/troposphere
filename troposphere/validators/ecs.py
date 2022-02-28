@@ -137,7 +137,7 @@ def launch_type_validator(x):
     return x
 
 
-def validate_rutime_platform(self):
+def validate_runtime_platform(self):
     """
     Class: RuntimePlatform
     """
