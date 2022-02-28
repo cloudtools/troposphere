@@ -135,10 +135,13 @@ def encoding(encoding):
 
 
 def one_of(class_name, properties, property, conditionals):
-    if (
-        isinstance(properties.get(property), (int, float, str, list, dict))
-        and properties.get(property) not in conditionals
+    from .. import AWSHelperFn
+
+    if isinstance(properties.get(property), AWSHelperFn) or issubclass(
+        type(properties.get(property)), AWSHelperFn
     ):
+        return
+    if properties.get(property) not in conditionals:
         raise ValueError(
             # Ensure we handle None as a valid value
             '%s.%s must be one of: "%s"'
