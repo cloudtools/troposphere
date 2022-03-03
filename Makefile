@@ -32,7 +32,7 @@ fix-isort: ## automatically fix all isort errors
 clean:
 	rm -rf ${p39dir} troposphere.egg-info
 
-lint: lint-flake8 ## run all linters
+lint: lint-flake8 lint-pyright ## run all linters
 
 lint-black: ## run black
 	@echo "Running black... If this fails, run 'make fix-black' to resolve."
@@ -48,6 +48,11 @@ lint-flake8: ## run flake8
 lint-isort: ## run isort
 	@echo "Running isort... If this fails, run 'make fix-isort' to resolve."
 	@isort ${PYDIRS} --check-only
+	@echo ""
+
+lint-pyright: ## run pyright
+	@echo "Running pyright..."
+	@npx pyright
 	@echo ""
 
 release-test:

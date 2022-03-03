@@ -63,3 +63,4 @@ docs/_build/
 *.ipynb
 
 .DS_Store
+node_modules

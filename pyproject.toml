@@ -1,0 +1,23 @@
+[tool.pyright]
+include = [
+  "**/troposphere",
+]
+pythonPlatform = "All"
+pythonVersion = "3.7"
+reportDuplicateImport = "none"
+reportImportCycles = "none"
+reportIncompatibleMethodOverride = "warning"
+reportMissingTypeStubs = "none"
+reportPrivateUsage = "none"
+reportUnknownMemberType = "none"
+reportUnnecessaryIsInstance = "warning"
+reportUnusedImport = "none"
+reportUnusedVariable = "none"
+reportWildcardImportFromLibrary = "none"
+strict = [
+  "**/__init__.py"
+]
+strictParameterNoneValue = false
+typeCheckingMode = "off"
+useLibraryCodeForTypes = true
+venv = ".venv"
