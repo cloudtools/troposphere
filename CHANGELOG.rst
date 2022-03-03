@@ -1,3 +1,15 @@
+4.0.0-beta.1 (not released yet)
+-------------------------------
+Breaking Changes
+^^^^^^^^^^^^^^^^
+* AWS::WAFv2
+  - Renamed AndStatementOne, AndStatementTwo => AndStatement
+  - Renamed NotStatementOne, NotStatementTwo => NotStatement
+  - Renamed OrStatementOne, OrStatementTwo => OrStatement
+  - Renamed RateBasedStatementOne, RateBasedStatementTwo => RateBasedStatement
+  - Renamed StatementOne, StatementTwo, StatementThree => Statement
+
+
 4.0.0-beta.0 (2022*02*19)
 -------------------------
 This release has refactored the code to allow for auto-generation of the troposphere classes from the AWS

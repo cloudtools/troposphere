@@ -13,6 +13,8 @@ from .validators.wafv2 import (
     validate_custom_response_bodies,
     validate_ipaddress_version,
     validate_positional_constraint,
+    validate_statement,
+    validate_statements,
     validate_transformation_type,
     wafv2_custom_body_response_content,
     wafv2_custom_body_response_content_type,
@@ -208,6 +210,16 @@ class RuleAction(AWSProperty):
     }
 
 
+class AndStatement(AWSProperty):
+    """
+    `AndStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "Statements": (validate_statements, True),
+    }
+
+
 class JsonMatchPattern(AWSProperty):
     """
     `JsonMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html>`__
@@ -371,8 +383,42 @@ class ManagedRuleGroupStatement(AWSProperty):
         "ExcludedRules": ([ExcludedRule], False),
         "ManagedRuleGroupConfigs": ([ManagedRuleGroupConfig], False),
         "Name": (str, True),
+        "ScopeDownStatement": (validate_statement, False),
         "VendorName": (str, True),
         "Version": (str, False),
+    }
+
+
+class NotStatement(AWSProperty):
+    """
+    `NotStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "Statement": (validate_statement, True),
+    }
+
+
+class OrStatement(AWSProperty):
+    """
+    `OrStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "Statements": (validate_statements, True),
+    }
+
+
+class RateBasedStatement(AWSProperty):
+    """
+    `RateBasedStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "AggregateKeyType": (str, True),
+        "ForwardedIPConfig": (ForwardedIPConfiguration, False),
+        "Limit": (integer, True),
+        "ScopeDownStatement": (validate_statement, False),
     }
 
 
@@ -446,151 +492,21 @@ class XssMatchStatement(AWSProperty):
     }
 
 
-class StatementThree(AWSProperty):
+class Statement(AWSProperty):
     """
-    `StatementThree <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>`__
+    `Statement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>`__
     """
 
     props: PropsDictType = {
+        "AndStatement": (AndStatement, False),
         "ByteMatchStatement": (ByteMatchStatement, False),
         "GeoMatchStatement": (GeoMatchStatement, False),
         "IPSetReferenceStatement": (IPSetReferenceStatement, False),
         "LabelMatchStatement": (LabelMatchStatement, False),
         "ManagedRuleGroupStatement": (ManagedRuleGroupStatement, False),
-        "RegexMatchStatement": (RegexMatchStatement, False),
-        "RegexPatternSetReferenceStatement": (RegexPatternSetReferenceStatement, False),
-        "RuleGroupReferenceStatement": (RuleGroupReferenceStatement, False),
-        "SizeConstraintStatement": (SizeConstraintStatement, False),
-        "SqliMatchStatement": (SqliMatchStatement, False),
-        "XssMatchStatement": (XssMatchStatement, False),
-    }
-
-
-class AndStatementTwo(AWSProperty):
-    """
-    `AndStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "Statements": ([StatementThree], True),
-    }
-
-
-class NotStatementTwo(AWSProperty):
-    """
-    `NotStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "Statement": (StatementThree, True),
-    }
-
-
-class OrStatementTwo(AWSProperty):
-    """
-    `OrStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "Statements": ([StatementThree], True),
-    }
-
-
-class RateBasedStatementTwo(AWSProperty):
-    """
-    `RateBasedStatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "AggregateKeyType": (str, True),
-        "ForwardedIPConfig": (ForwardedIPConfiguration, False),
-        "Limit": (integer, True),
-        "ScopeDownStatement": (StatementThree, False),
-    }
-
-
-class StatementTwo(AWSProperty):
-    """
-    `StatementTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>`__
-    """
-
-    props: PropsDictType = {
-        "AndStatement": (AndStatementTwo, False),
-        "ByteMatchStatement": (ByteMatchStatement, False),
-        "GeoMatchStatement": (GeoMatchStatement, False),
-        "IPSetReferenceStatement": (IPSetReferenceStatement, False),
-        "LabelMatchStatement": (LabelMatchStatement, False),
-        "ManagedRuleGroupStatement": (ManagedRuleGroupStatement, False),
-        "NotStatement": (NotStatementTwo, False),
-        "OrStatement": (OrStatementTwo, False),
-        "RateBasedStatement": (RateBasedStatementTwo, False),
-        "RegexMatchStatement": (RegexMatchStatement, False),
-        "RegexPatternSetReferenceStatement": (RegexPatternSetReferenceStatement, False),
-        "RuleGroupReferenceStatement": (RuleGroupReferenceStatement, False),
-        "SizeConstraintStatement": (SizeConstraintStatement, False),
-        "SqliMatchStatement": (SqliMatchStatement, False),
-        "XssMatchStatement": (XssMatchStatement, False),
-    }
-
-
-class AndStatementOne(AWSProperty):
-    """
-    `AndStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-andstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "Statements": ([StatementTwo], True),
-    }
-
-
-class NotStatementOne(AWSProperty):
-    """
-    `NotStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-notstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "Statement": (StatementTwo, True),
-    }
-
-
-class OrStatementOne(AWSProperty):
-    """
-    `OrStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-orstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "Statements": ([StatementTwo], True),
-    }
-
-
-class RateBasedStatementOne(AWSProperty):
-    """
-    `RateBasedStatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html>`__
-    """
-
-    props: PropsDictType = {
-        "AggregateKeyType": (str, True),
-        "ForwardedIPConfig": (ForwardedIPConfiguration, False),
-        "Limit": (integer, True),
-        "ScopeDownStatement": (StatementTwo, False),
-    }
-
-
-class StatementOne(AWSProperty):
-    """
-    `StatementOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-statement.html>`__
-    """
-
-    props: PropsDictType = {
-        "AndStatement": (AndStatementOne, False),
-        "ByteMatchStatement": (ByteMatchStatement, False),
-        "GeoMatchStatement": (GeoMatchStatement, False),
-        "IPSetReferenceStatement": (IPSetReferenceStatement, False),
-        "LabelMatchStatement": (LabelMatchStatement, False),
-        "ManagedRuleGroupStatement": (ManagedRuleGroupStatement, False),
-        "NotStatement": (NotStatementOne, False),
-        "OrStatement": (OrStatementOne, False),
-        "RateBasedStatement": (RateBasedStatementOne, False),
+        "NotStatement": (NotStatement, False),
+        "OrStatement": (OrStatement, False),
+        "RateBasedStatement": (RateBasedStatement, False),
         "RegexMatchStatement": (RegexMatchStatement, False),
         "RegexPatternSetReferenceStatement": (RegexPatternSetReferenceStatement, False),
         "RuleGroupReferenceStatement": (RuleGroupReferenceStatement, False),
@@ -623,7 +539,7 @@ class RuleGroupRule(AWSProperty):
         "Name": (str, True),
         "Priority": (integer, True),
         "RuleLabels": ([Label], False),
-        "Statement": (StatementOne, True),
+        "Statement": (validate_statement, True),
         "VisibilityConfig": (VisibilityConfig, True),
     }
 
@@ -681,7 +597,7 @@ class WebACLRule(AWSProperty):
         "OverrideAction": (OverrideAction, False),
         "Priority": (integer, True),
         "RuleLabels": ([Label], False),
-        "Statement": (StatementOne, True),
+        "Statement": (validate_statement, True),
         "VisibilityConfig": (VisibilityConfig, True),
     }
 

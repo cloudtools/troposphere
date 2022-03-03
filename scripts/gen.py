@@ -410,6 +410,7 @@ class CodeGenerator:
         self.resources: Dict[str, ResourceType] = service.resources
         self.properties: Dict[str, PropertyType] = service.properties
         self.property_validators = service.property_validators
+        self.statement_found = False
 
     def generate(self, file=None) -> str:
         """Generated the troposphere source code."""
@@ -525,6 +526,13 @@ class CodeGenerator:
             # prevent recursive properties
             if property_name == name:
                 continue
+            # This is a horrible hack to fix an indirect recursion issue in WAFv2
+            # XXX - Need to implement a more durable solution to detect recursion
+            if self.service_name == "wafv2" and property_name == "Statement":
+                if self.statement_found:
+                    continue
+                else:
+                    self.statement_found = True
 
             try:
                 child = self._build_tree(

@@ -4,6 +4,40 @@
 # See LICENSE file for full license.
 
 
+def validate_statement(statement):
+    """
+    Validate Transformation Type for WebACL TextTransformation
+    Property: RuleGroupRule.Statement
+    Property: WebACLRule.Statement
+    Property: ManagedRuleGroupStatement.ScopeDownStatement
+    Property: NotStatement.Statement
+    Property: RateBasedStatement.ScopeDownStatement
+    """
+
+    from .. import AWSHelperFn
+    from ..wafv2 import Statement
+
+    if not isinstance(statement, (Statement, AWSHelperFn)):
+        raise TypeError(f"{statement} is not a valid Statement")
+
+    return statement
+
+
+def validate_statements(statements):
+    """
+    Property: AndStatement.Statements
+    Property: OrStatement.Statements
+    """
+
+    if not isinstance(statements, list) or len(statements) != 2:
+        raise TypeError("Statements must be a list of 2 Statement elements")
+
+    for s in statements:
+        validate_statement(s)
+
+    return statements
+
+
 def validate_transformation_type(transformation_type):
     """
     Validate Transformation Type for WebACL TextTransformation
