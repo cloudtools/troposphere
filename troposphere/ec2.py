@@ -2375,10 +2375,10 @@ class TransitGatewayVpcAttachment(AWSObject):
         "AddSubnetIds": ([str], False),
         "Options": (dict, False),
         "RemoveSubnetIds": ([str], False),
-        "SubnetIds": ([str], False),
+        "SubnetIds": ([str], True),
         "Tags": (Tags, False),
-        "TransitGatewayId": (str, False),
-        "VpcId": (str, False),
+        "TransitGatewayId": (str, True),
+        "VpcId": (str, True),
     }
 
 

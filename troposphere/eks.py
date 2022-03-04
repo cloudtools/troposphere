@@ -162,6 +162,49 @@ class FargateProfile(AWSObject):
     }
 
 
+class RequiredClaim(AWSProperty):
+    """
+    `RequiredClaim <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-requiredclaim.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class OidcIdentityProviderConfig(AWSProperty):
+    """
+    `OidcIdentityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-identityproviderconfig-oidcidentityproviderconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientId": (str, True),
+        "GroupsClaim": (str, False),
+        "GroupsPrefix": (str, False),
+        "IssuerUrl": (str, True),
+        "RequiredClaims": ([RequiredClaim], False),
+        "UsernameClaim": (str, False),
+        "UsernamePrefix": (str, False),
+    }
+
+
+class IdentityProviderConfig(AWSObject):
+    """
+    `IdentityProviderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-identityproviderconfig.html>`__
+    """
+
+    resource_type = "AWS::EKS::IdentityProviderConfig"
+
+    props: PropsDictType = {
+        "ClusterName": (str, True),
+        "IdentityProviderConfigName": (str, False),
+        "Oidc": (OidcIdentityProviderConfig, False),
+        "Tags": (Tags, False),
+        "Type": (str, True),
+    }
+
+
 class LaunchTemplateSpecification(AWSProperty):
     """
     `LaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-nodegroup-launchtemplatespecification.html>`__

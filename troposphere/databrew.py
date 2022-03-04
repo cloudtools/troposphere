@@ -315,6 +315,7 @@ class Output(AWSProperty):
         "Format": (str, False),
         "FormatOptions": (OutputFormatOptions, False),
         "Location": (S3Location, True),
+        "MaxOutputFiles": (integer, False),
         "Overwrite": (boolean, False),
         "PartitionColumns": ([str], False),
     }
