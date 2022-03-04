@@ -10,6 +10,19 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean, integer
 
 
+class BatchScramSecret(AWSObject):
+    """
+    `BatchScramSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-batchscramsecret.html>`__
+    """
+
+    resource_type = "AWS::MSK::BatchScramSecret"
+
+    props: PropsDictType = {
+        "ClusterArn": (str, True),
+        "SecretArnList": ([str], False),
+    }
+
+
 class PublicAccess(AWSProperty):
     """
     `PublicAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-publicaccess.html>`__
@@ -293,6 +306,7 @@ class Cluster(AWSObject):
         "ClientAuthentication": (ClientAuthentication, False),
         "ClusterName": (str, True),
         "ConfigurationInfo": (ConfigurationInfo, False),
+        "CurrentVersion": (str, False),
         "EncryptionInfo": (EncryptionInfo, False),
         "EnhancedMonitoring": (str, False),
         "KafkaVersion": (str, True),
@@ -300,4 +314,19 @@ class Cluster(AWSObject):
         "NumberOfBrokerNodes": (integer, True),
         "OpenMonitoring": (OpenMonitoring, False),
         "Tags": (dict, False),
+    }
+
+
+class Configuration(AWSObject):
+    """
+    `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html>`__
+    """
+
+    resource_type = "AWS::MSK::Configuration"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "KafkaVersionsList": ([str], False),
+        "Name": (str, False),
+        "ServerProperties": (str, True),
     }
