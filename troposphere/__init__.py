@@ -200,7 +200,8 @@ class BaseAWSObject:
 
         # Now that it is initialized, populate it with the kwargs
         for k, v in kwargs.items():
-            self.__setattr__(k, v)
+            if v is not None:
+                self.__setattr__(k, v)
 
         self.add_to_template()
 

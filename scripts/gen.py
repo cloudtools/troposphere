@@ -410,7 +410,6 @@ class CodeGenerator:
         self.resources: Dict[str, ResourceType] = service.resources
         self.properties: Dict[str, PropertyType] = service.properties
         self.property_validators = service.property_validators
-        self.statement_found = False
 
     def generate(self, file=None) -> str:
         """Generated the troposphere source code."""
@@ -428,6 +427,8 @@ class CodeGenerator:
         if self._walk_for_tags():
             code.append("from . import Tags")
         code.append("from . import PropsDictType")
+        code.append("from . import Template")
+        code.append("from typing import Optional")
 
         if not stub:
             # Output imports for commonly used validators
@@ -526,13 +527,6 @@ class CodeGenerator:
             # prevent recursive properties
             if property_name == name:
                 continue
-            # This is a horrible hack to fix an indirect recursion issue in WAFv2
-            # XXX - Need to implement a more durable solution to detect recursion
-            if self.service_name == "wafv2" and property_name == "Statement":
-                if self.statement_found:
-                    continue
-                else:
-                    self.statement_found = True
 
             try:
                 child = self._build_tree(
@@ -676,10 +670,13 @@ class CodeGenerator:
 
         if value.type == "List":
             if value.item_type:
-                return "[%s]" % value.item_type
+                if stub:
+                    return "'list[%s]'" % value.item_type
+                else:
+                    return "[%s]" % value.item_type
             else:
                 if stub:
-                    return "[%s]" % map_stub_type.get(
+                    return "'list[%s]'" % map_stub_type.get(
                         value.primitive_item_type, value.primitive_item_type
                     )
                 else:
@@ -722,7 +719,36 @@ class CodeGenerator:
                 code.append('    """')
                 code.append("")
 
+        if len(property_type.properties) == 0:
+            code.append(
+                "    def __init__(self, title: Optional[str], template: Optional[Template] = None, validation: bool = True):"
+            )
+            code.append("        super().__init__(title, template, validation,)")
+        else:
+            # Output the __init__ function
+            code.append(
+                "    def __init__(self, title: Optional[str], template: Optional[Template] = None, validation: bool = True, *,"
+            )
+            for key, value in sorted(property_type.properties.items()):
+                if property_validator and key in property_validator:
+                    value_type = property_validator[key]
+                elif value.type == "Tags":
+                    value_type = value.type
+                    if value.primitive_type == "Json":
+                        value_type = "dict"
+                else:
+                    value_type = self._get_type(value, stub=True)
+
+                code.append(f"        {key}: {value_type} = None,")
+            code.append("):")
+
+            code.append("        super().__init__(title, template, validation,")
+            for key, value in sorted(property_type.properties.items()):
+                code.append(f"            {key}={key}, ")
+            code.append("        )")
+
         # Output the props dict
+        code.append("")
         code.append("    props: PropsDictType = {")
         for key, value in sorted(property_type.properties.items()):
             if property_validator and key in property_validator:
