@@ -167,5 +167,3 @@ class Server(AWSObject):
                     "The user_data_format attribute "
                     "must be either HEAT_CFNTOOLS or RAW"
                 )
-
-        return True

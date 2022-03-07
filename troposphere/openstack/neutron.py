@@ -73,8 +73,6 @@ class FirewallRule(AWSObject):
                     "The protocol attribute must be " "either tcp, udp, icmp or None"
                 )
 
-        return True
-
 
 class FloatingIP(AWSObject):
     resource_type = "OS::Neutron::FloatingIP"
@@ -120,8 +118,6 @@ class HealthMonitor(AWSObject):
                     "The type attribute must be " "either PING, TCP, HTTP or HTTPS"
                 )
 
-        return True
-
 
 class SessionPersistence(AWSProperty):
     props = {
@@ -143,8 +139,6 @@ class SessionPersistence(AWSProperty):
                     "The type attribute must be "
                     "either SOURCE_IP, HTTP_COOKIE or APP_COOKIE"
                 )
-
-        return True
 
 
 class VIP(AWSProperty):
@@ -190,8 +184,6 @@ class Pool(AWSObject):
                 raise ValueError(
                     "The type attribute must be " "either TCP, HTTP or HTTPS"
                 )
-
-        return True
 
 
 class LoadBalancer(AWSObject):
@@ -309,5 +301,3 @@ class SecurityGroupRule(AWSProperty):
                     "The remote_mode attribute must be "
                     "either remote_ip_prefix or remote_group_id"
                 )
-
-        return True
