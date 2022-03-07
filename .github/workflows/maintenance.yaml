@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '* 13 * * *'
+    - cron: '0 13 * * *'
   workflow_dispatch: # Enables on-demand/manual triggering
 jobs:
   job:
