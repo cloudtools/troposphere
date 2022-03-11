@@ -589,7 +589,7 @@ class AudioLogDestination(AWSProperty):
     """
 
     props: PropsDictType = {
-        "S3Bucket": (S3BucketLogDestination, False),
+        "S3Bucket": (S3BucketLogDestination, True),
     }
 
 
@@ -621,7 +621,7 @@ class TextLogDestination(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CloudWatch": (CloudWatchLogGroupLogDestination, False),
+        "CloudWatch": (CloudWatchLogGroupLogDestination, True),
     }
 
 
@@ -631,8 +631,8 @@ class TextLogSetting(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Destination": (TextLogDestination, False),
-        "Enabled": (boolean, False),
+        "Destination": (TextLogDestination, True),
+        "Enabled": (boolean, True),
     }
 
 

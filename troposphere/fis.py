@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
+from .validators import integer
 
 
 class ExperimentTemplateAction(AWSProperty):
@@ -20,6 +21,18 @@ class ExperimentTemplateAction(AWSProperty):
         "Parameters": (dict, False),
         "StartAfter": ([str], False),
         "Targets": (dict, False),
+    }
+
+
+class ExperimentTemplateLogConfiguration(AWSProperty):
+    """
+    `ExperimentTemplateLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogsConfiguration": (dict, False),
+        "LogSchemaVersion": (integer, True),
+        "S3Configuration": (dict, False),
     }
 
 
@@ -52,6 +65,7 @@ class ExperimentTemplateTarget(AWSProperty):
 
     props: PropsDictType = {
         "Filters": ([ExperimentTemplateTargetFilter], False),
+        "Parameters": (dict, False),
         "ResourceArns": ([str], False),
         "ResourceTags": (dict, False),
         "ResourceType": (str, True),
@@ -69,6 +83,7 @@ class ExperimentTemplate(AWSObject):
     props: PropsDictType = {
         "Actions": (dict, False),
         "Description": (str, True),
+        "LogConfiguration": (ExperimentTemplateLogConfiguration, False),
         "RoleArn": (str, True),
         "StopConditions": ([ExperimentTemplateStopCondition], True),
         "Tags": (dict, True),
