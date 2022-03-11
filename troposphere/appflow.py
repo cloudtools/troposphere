@@ -461,6 +461,17 @@ class LookoutMetricsDestinationProperties(AWSProperty):
     }
 
 
+class MarketoDestinationProperties(AWSProperty):
+    """
+    `MarketoDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-marketodestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ErrorHandlingConfig": (ErrorHandlingConfig, False),
+        "Object": (str, True),
+    }
+
+
 class RedshiftDestinationProperties(AWSProperty):
     """
     `RedshiftDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-redshiftdestinationproperties.html>`__
@@ -615,6 +626,7 @@ class DestinationConnectorProperties(AWSProperty):
     props: PropsDictType = {
         "EventBridge": (EventBridgeDestinationProperties, False),
         "LookoutMetrics": (LookoutMetricsDestinationProperties, False),
+        "Marketo": (MarketoDestinationProperties, False),
         "Redshift": (RedshiftDestinationProperties, False),
         "S3": (S3DestinationProperties, False),
         "SAPOData": (SAPODataDestinationProperties, False),

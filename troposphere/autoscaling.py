@@ -383,6 +383,85 @@ class LifecycleHook(AWSObject):
     }
 
 
+class MetricDimension(AWSProperty):
+    """
+    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Metric(AWSProperty):
+    """
+    `Metric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metric.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dimensions": ([MetricDimension], False),
+        "MetricName": (str, True),
+        "Namespace": (str, True),
+    }
+
+
+class MetricStat(AWSProperty):
+    """
+    `MetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricstat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Metric": (Metric, True),
+        "Stat": (str, True),
+        "Unit": (str, False),
+    }
+
+
+class MetricDataQuery(AWSProperty):
+    """
+    `MetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdataquery.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (str, False),
+        "Id": (str, True),
+        "Label": (str, False),
+        "MetricStat": (MetricStat, False),
+        "ReturnData": (boolean, False),
+    }
+
+
+class PredictiveScalingCustomizedCapacityMetric(AWSProperty):
+    """
+    `PredictiveScalingCustomizedCapacityMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricDataQueries": ([MetricDataQuery], True),
+    }
+
+
+class PredictiveScalingCustomizedLoadMetric(AWSProperty):
+    """
+    `PredictiveScalingCustomizedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricDataQueries": ([MetricDataQuery], True),
+    }
+
+
+class PredictiveScalingCustomizedScalingMetric(AWSProperty):
+    """
+    `PredictiveScalingCustomizedScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricDataQueries": ([MetricDataQuery], True),
+    }
+
+
 class PredictiveScalingPredefinedLoadMetric(AWSProperty):
     """
     `PredictiveScalingPredefinedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-predictivescalingpredefinedloadmetric.html>`__
@@ -422,6 +501,18 @@ class PredictiveScalingMetricSpecification(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomizedCapacityMetricSpecification": (
+            PredictiveScalingCustomizedCapacityMetric,
+            False,
+        ),
+        "CustomizedLoadMetricSpecification": (
+            PredictiveScalingCustomizedLoadMetric,
+            False,
+        ),
+        "CustomizedScalingMetricSpecification": (
+            PredictiveScalingCustomizedScalingMetric,
+            False,
+        ),
         "PredefinedLoadMetricSpecification": (
             PredictiveScalingPredefinedLoadMetric,
             False,
@@ -461,17 +552,6 @@ class StepAdjustments(AWSProperty):
         "MetricIntervalLowerBound": (double, False),
         "MetricIntervalUpperBound": (double, False),
         "ScalingAdjustment": (integer, True),
-    }
-
-
-class MetricDimension(AWSProperty):
-    """
-    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-metricdimension.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "Value": (str, True),
     }
 
 
