@@ -196,6 +196,12 @@ class TestValidators(unittest.TestCase):
         with self.assertRaises(ValueError):
             ExceptionAWSProperty(foo="bar")
 
+    def test_error_message(self):
+        from troposphere.cloudfront import CustomHeader
+
+        with self.assertRaisesRegex(ValueError, "troposphere.cloudfront.CustomHeader"):
+            CustomHeader(Header="Cache-Policy", Value="no-cache").to_dict()
+
 
 class TestHealthCheck(unittest.TestCase):
     def test_healthy_interval_ok(self):
