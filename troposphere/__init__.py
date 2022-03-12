@@ -397,7 +397,7 @@ class BaseAWSObject:
     def _validate_props(self) -> None:
         for k, (_, required) in self.props.items():
             if required and k not in self.properties:
-                rtype = getattr(self, "resource_type", "<unknown type>")
+                rtype = getattr(self, "resource_type", type(self))
                 title = getattr(self, "title")
                 msg = "Resource %s required in type %s" % (k, rtype)
                 if title:
