@@ -112,6 +112,7 @@ class RootVolumeConfiguration(AWSProperty):
         "DataCompressionType": (str, False),
         "NfsExports": ([NfsExports], False),
         "ReadOnly": (boolean, False),
+        "RecordSizeKiB": (integer, False),
         "UserAndGroupQuotas": ([UserAndGroupQuotas], False),
     }
 
@@ -128,6 +129,7 @@ class OpenZFSConfiguration(AWSProperty):
         "DailyAutomaticBackupStartTime": (str, False),
         "DeploymentType": (str, True),
         "DiskIopsConfiguration": (DiskIopsConfiguration, False),
+        "Options": ([str], False),
         "RootVolumeConfiguration": (RootVolumeConfiguration, False),
         "ThroughputCapacity": (integer, False),
         "WeeklyMaintenanceStartTime": (str, False),
