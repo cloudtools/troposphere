@@ -22,6 +22,7 @@
 - [AWS::AutoScalingPlans](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScalingPlans.html)
 - [AWS::Backup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Backup.html)
 - [AWS::Batch](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Batch.html)
+- [AWS::BillingConductor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BillingConductor.html)
 - [AWS::Budgets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Budgets.html)
 - [AWS::CE](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CE.html)
 - [AWS::CUR](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CUR.html)
