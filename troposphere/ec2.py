@@ -2018,10 +2018,14 @@ class Subnet(AWSObject):
     props: PropsDictType = {
         "AssignIpv6AddressOnCreation": (boolean, False),
         "AvailabilityZone": (str, False),
-        "CidrBlock": (str, True),
+        "AvailabilityZoneId": (str, False),
+        "CidrBlock": (str, False),
+        "EnableDns64": (boolean, False),
         "Ipv6CidrBlock": (str, False),
+        "Ipv6Native": (boolean, False),
         "MapPublicIpOnLaunch": (boolean, False),
         "OutpostArn": (str, False),
+        "PrivateDnsNameOptionsOnLaunch": (dict, False),
         "Tags": (validate_tags_or_list, False),
         "VpcId": (str, True),
     }

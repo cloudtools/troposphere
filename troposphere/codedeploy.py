@@ -296,6 +296,28 @@ class TargetGroupInfo(AWSProperty):
     }
 
 
+class TrafficRoute(AWSProperty):
+    """
+    `TrafficRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-trafficroute.html>`__
+    """
+
+    props: PropsDictType = {
+        "ListenerArns": ([str], False),
+    }
+
+
+class TargetGroupPairInfo(AWSProperty):
+    """
+    `TargetGroupPairInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-targetgrouppairinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProdTrafficRoute": (TrafficRoute, False),
+        "TargetGroups": ([TargetGroupInfo], False),
+        "TestTrafficRoute": (TrafficRoute, False),
+    }
+
+
 class LoadBalancerInfo(AWSProperty):
     """
     `LoadBalancerInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentgroup-loadbalancerinfo.html>`__
@@ -304,6 +326,7 @@ class LoadBalancerInfo(AWSProperty):
     props: PropsDictType = {
         "ElbInfoList": ([ElbInfoList], False),
         "TargetGroupInfoList": ([TargetGroupInfo], False),
+        "TargetGroupPairInfoList": ([TargetGroupPairInfo], False),
     }
 
     def validate(self):
@@ -389,7 +412,9 @@ class DeploymentGroup(AWSObject):
         "LoadBalancerInfo": (LoadBalancerInfo, False),
         "OnPremisesInstanceTagFilters": ([OnPremisesInstanceTagFilters], False),
         "OnPremisesTagSet": (OnPremisesTagSet, False),
+        "OutdatedInstancesStrategy": (str, False),
         "ServiceRoleArn": (str, True),
+        "Tags": (Tags, False),
         "TriggerConfigurations": ([TriggerConfig], False),
     }
 

@@ -16,6 +16,18 @@ from .validators.acmpca import (
 )
 
 
+class CustomExtension(AWSProperty):
+    """
+    `CustomExtension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-customextension.html>`__
+    """
+
+    props: PropsDictType = {
+        "Critical": (boolean, False),
+        "ObjectIdentifier": (str, True),
+        "Value": (str, True),
+    }
+
+
 class ExtendedKeyUsage(AWSProperty):
     """
     `ExtendedKeyUsage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificate-extendedkeyusage.html>`__
@@ -49,6 +61,17 @@ class OtherName(AWSProperty):
     }
 
 
+class CustomAttribute(AWSProperty):
+    """
+    `CustomAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-customattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "ObjectIdentifier": (str, True),
+        "Value": (str, True),
+    }
+
+
 class Subject(AWSProperty):
     """
     `Subject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-subject.html>`__
@@ -57,6 +80,7 @@ class Subject(AWSProperty):
     props: PropsDictType = {
         "CommonName": (str, False),
         "Country": (str, False),
+        "CustomAttributes": ([CustomAttribute], False),
         "DistinguishedNameQualifier": (str, False),
         "GenerationQualifier": (str, False),
         "GivenName": (str, False),
@@ -146,6 +170,7 @@ class Extensions(AWSProperty):
 
     props: PropsDictType = {
         "CertificatePolicies": ([PolicyInformation], False),
+        "CustomExtensions": ([CustomExtension], False),
         "ExtendedKeyUsage": ([ExtendedKeyUsage], False),
         "KeyUsage": (KeyUsage, False),
         "SubjectAlternativeNames": ([GeneralName], False),
