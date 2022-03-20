@@ -1,7 +1,16 @@
-4.0.0-beta.1 (not released yet)
+4.0.0-beta.1 (2022*03*20)
 -------------------------------
 Breaking Changes
 ^^^^^^^^^^^^^^^^
+* AWS::DataBrew
+  - Renamed Job.S3TableOutputOptions S3Location => JobS3Location
+* AWS::ImageBuilder
+  - Renamed ContainerRecipe ComponentConfiguration => ContainerComponentConfiguration
+* AWS::SageMaker
+  - Renamed ModelBiasEndpointInput EndpointInput => ModelBiasEndpointInput
+  - Renamed ModelExplainabilityJobInput EndpointInput => ModelExplainabilityEndpointInput
+  - Renamed ModelQualityJobDefinition EndpointInput => ModelBiasEndpointInput
+
 * AWS::WAFv2
   - Renamed AndStatementOne, AndStatementTwo => AndStatement
   - Renamed NotStatementOne, NotStatementTwo => NotStatement
@@ -9,6 +18,29 @@ Breaking Changes
   - Renamed RateBasedStatementOne, RateBasedStatementTwo => RateBasedStatement
   - Renamed StatementOne, StatementTwo, StatementThree => Statement
 
+Changes
+^^^^^^^
+* Updates from spec version 58.0.0
+* automating maintenance with Github actions
+* removing double requirement from requirements-dev.txt
+* Run maintenance action once a day at 5am
+* Fix typo in ECS validator name
+* Allow the use of AWSHelperFn in one_of validator
+* Update maintenance workflow to include spec version
+* Updates from spec version 59.0.0
+* Remove maintenance run on push to main and change cron time
+* Add type annotations for base classes & some validators (#2013)
+* Reimplement WAFv2 Statement validation
+* Fix typing issues in openstack
+* Only run the maintenance workflow once a day
+* Improve error message for AWSProperty types where resource_type is not defined
+* Add AWS::KinesisVideo and AWS::Personalize
+* Updates from spec version 60.0.0
+* Updates from spec version 61.0.0
+* Add AWS::BillingConductor
+* DataBrew: Fix duplicate but different S3Location
+* ImageBuilder: Fix duplicate but different ComponentConfiguration
+* SageMaker: Fix duplicate but different ComponentConfiguration
 
 4.0.0-beta.0 (2022*02*19)
 -------------------------
