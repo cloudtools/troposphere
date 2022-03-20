@@ -801,6 +801,7 @@ if __name__ == "__main__":
     parser.add_argument("--stub", action="store_true", default=False)
     parser.add_argument("--directory", "-d", action="store")
     parser.add_argument("--filelist", action="store")
+    parser.add_argument("--missing", "-m", action="store_true", default=False)
     parser.add_argument(
         "--spec", action="store", default="CloudFormationResourceSpecification.json"
     )
@@ -830,6 +831,11 @@ if __name__ == "__main__":
     if args.verbose:
         print(f"Parsing resource specification file: {args.spec}", file=sys.stderr)
     r = ResourceSpec(args.spec).parse(limit_warnings=service_names)
+
+    if args.missing:
+        missing_resources = set(r.services.keys()).difference(set(service_names))
+        print(f"Missing resources: {missing_resources}")
+        sys.exit(0)
 
     for service_name in service_names:
         filename_base = service_to_filename(service_name)
