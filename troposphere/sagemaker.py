@@ -804,6 +804,25 @@ class ModelBiasBaselineConfig(AWSProperty):
     }
 
 
+class ModelBiasEndpointInput(AWSProperty):
+    """
+    `ModelBiasEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelbiasjobdefinition-endpointinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTimeOffset": (str, False),
+        "EndpointName": (str, True),
+        "FeaturesAttribute": (str, False),
+        "InferenceAttribute": (str, False),
+        "LocalPath": (str, True),
+        "ProbabilityAttribute": (str, False),
+        "ProbabilityThresholdAttribute": (double, False),
+        "S3DataDistributionType": (str, False),
+        "S3InputMode": (str, False),
+        "StartTimeOffset": (str, False),
+    }
+
+
 class MonitoringGroundTruthS3Input(AWSProperty):
     """
     `MonitoringGroundTruthS3Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-monitoringgroundtruths3input.html>`__
@@ -820,7 +839,7 @@ class ModelBiasJobInput(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EndpointInput": (EndpointInput, True),
+        "EndpointInput": (ModelBiasEndpointInput, True),
         "GroundTruthS3Input": (MonitoringGroundTruthS3Input, True),
     }
 
@@ -869,13 +888,29 @@ class ModelExplainabilityBaselineConfig(AWSProperty):
     }
 
 
+class ModelExplainabilityEndpointInput(AWSProperty):
+    """
+    `ModelExplainabilityEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-endpointinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndpointName": (str, True),
+        "FeaturesAttribute": (str, False),
+        "InferenceAttribute": (str, False),
+        "LocalPath": (str, True),
+        "ProbabilityAttribute": (str, False),
+        "S3DataDistributionType": (str, False),
+        "S3InputMode": (str, False),
+    }
+
+
 class ModelExplainabilityJobInput(AWSProperty):
     """
     `ModelExplainabilityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityjobinput.html>`__
     """
 
     props: PropsDictType = {
-        "EndpointInput": (EndpointInput, True),
+        "EndpointInput": (ModelExplainabilityEndpointInput, True),
     }
 
 
@@ -945,13 +980,31 @@ class ModelQualityBaselineConfig(AWSProperty):
     }
 
 
+class ModelQualityEndpointInput(AWSProperty):
+    """
+    `ModelQualityEndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-endpointinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTimeOffset": (str, False),
+        "EndpointName": (str, True),
+        "InferenceAttribute": (str, False),
+        "LocalPath": (str, True),
+        "ProbabilityAttribute": (str, False),
+        "ProbabilityThresholdAttribute": (double, False),
+        "S3DataDistributionType": (str, False),
+        "S3InputMode": (str, False),
+        "StartTimeOffset": (str, False),
+    }
+
+
 class ModelQualityJobInput(AWSProperty):
     """
     `ModelQualityJobInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelqualityjobdefinition-modelqualityjobinput.html>`__
     """
 
     props: PropsDictType = {
-        "EndpointInput": (EndpointInput, True),
+        "EndpointInput": (ModelQualityEndpointInput, True),
         "GroundTruthS3Input": (MonitoringGroundTruthS3Input, True),
     }
 
