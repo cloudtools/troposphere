@@ -226,13 +226,25 @@ class DatabaseTableOutputOptions(AWSProperty):
     }
 
 
+class JobS3Location(AWSProperty):
+    """
+    `JobS3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "BucketOwner": (str, False),
+        "Key": (str, False),
+    }
+
+
 class S3TableOutputOptions(AWSProperty):
     """
     `S3TableOutputOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-job-s3tableoutputoptions.html>`__
     """
 
     props: PropsDictType = {
-        "Location": (S3Location, True),
+        "Location": (JobS3Location, True),
     }
 
 

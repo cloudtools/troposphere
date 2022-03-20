@@ -20,4 +20,15 @@ patches = [
         "path": "/ResourceTypes/AWS::DataBrew::Job/Properties/Recipe/Type",
         "value": "JobRecipe",
     },
+    # Rename AWS::DataBrew::Job.S3Location to AWS::DataBrew::Job.JobS3Location
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::DataBrew::Job.S3Location",
+        "path": "/PropertyTypes/AWS::DataBrew::Job.JobS3Location",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::DataBrew::Job.S3TableOutputOptions/Properties/Location/Type",
+        "value": "JobS3Location",
+    },
 ]
