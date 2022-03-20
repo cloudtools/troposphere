@@ -37,25 +37,13 @@ class Component(AWSObject):
     }
 
 
-class ComponentParameter(AWSProperty):
+class ContainerComponentConfiguration(AWSProperty):
     """
-    `ComponentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "Value": ([str], True),
-    }
-
-
-class ComponentConfiguration(AWSProperty):
-    """
-    `ComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html>`__
+    `ContainerComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html>`__
     """
 
     props: PropsDictType = {
         "ComponentArn": (str, False),
-        "Parameters": ([ComponentParameter], False),
     }
 
 
@@ -119,7 +107,7 @@ class ContainerRecipe(AWSObject):
     resource_type = "AWS::ImageBuilder::ContainerRecipe"
 
     props: PropsDictType = {
-        "Components": ([ComponentConfiguration], True),
+        "Components": ([ContainerComponentConfiguration], True),
         "ContainerType": (str, True),
         "Description": (str, False),
         "DockerfileTemplateData": (str, False),
@@ -261,6 +249,28 @@ class AdditionalInstanceConfiguration(AWSProperty):
     props: PropsDictType = {
         "SystemsManagerAgent": (SystemsManagerAgent, False),
         "UserDataOverride": (str, False),
+    }
+
+
+class ComponentParameter(AWSProperty):
+    """
+    `ComponentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": ([str], True),
+    }
+
+
+class ComponentConfiguration(AWSProperty):
+    """
+    `ComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComponentArn": (str, False),
+        "Parameters": ([ComponentParameter], False),
     }
 
 
