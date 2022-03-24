@@ -366,13 +366,18 @@ class Api(AWSObject):
         "Cors": ((str, Cors), False),
         "DefinitionBody": (dict, False),
         "DefinitionUri": ((str, ApiDefinition), False),
+        "Description": (str, False),
+        "DisableExecuteApiEndpoint": (bool, False),
         "Domain": (Domain, False),
         "EndpointConfiguration": (EndpointConfiguration, False),
         "MethodSettings": ([MethodSetting], False),
         "MinimumCompressionSize": (integer_range(0, 10485760), False),
+        "Mode": (str, False),
+        "Models": (dict, False),
         "Name": (str, False),
         "OpenApiVersion": (str, False),
         "StageName": (str, True),
+        "Tags": (dict, False),
         "TracingEnabled": (bool, False),
         "Variables": (dict, False),
     }
@@ -559,6 +564,8 @@ class RequestModel(AWSProperty):
     props: PropsDictType = {
         "Model": (str, True),
         "Required": (bool, False),
+        "ValidateBody": (bool, False),
+        "ValidateParameters": (bool, False),
     }
 
 
