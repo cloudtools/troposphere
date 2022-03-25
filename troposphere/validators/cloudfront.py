@@ -28,10 +28,16 @@ def cloudfront_access_control_allow_methods(access_control_allow_methods):
     Property: AccessControlAllowMethods.Items
     """
     valid_values = ["GET", "DELETE", "HEAD", "OPTIONS", "PATCH", "POST", "PUT", "ALL"]
-    if access_control_allow_methods not in valid_values:
-        raise ValueError(
-            'AccessControlAllowMethods must be of: "%s"' % (", ".join(valid_values))
-        )
+
+    if not isinstance(access_control_allow_methods, list):
+        raise TypeError("AccessControlAllowMethods is not a list")
+
+    for method in access_control_allow_methods:
+        if method not in valid_values:
+            raise ValueError(
+                'AccessControlAllowMethods must be one of: "%s"'
+                % (", ".join(valid_values))
+            )
     return access_control_allow_methods
 
 
