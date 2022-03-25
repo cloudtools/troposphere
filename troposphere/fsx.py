@@ -71,34 +71,34 @@ class OntapConfiguration(AWSProperty):
 
 class ClientConfigurations(AWSProperty):
     """
-    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports-clientconfigurations.html>`__
+    `ClientConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports-clientconfigurations.html>`__
     """
 
     props: PropsDictType = {
-        "Clients": (str, False),
-        "Options": ([str], False),
+        "Clients": (str, True),
+        "Options": ([str], True),
     }
 
 
 class NfsExports(AWSProperty):
     """
-    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-nfsexports.html>`__
+    `NfsExports <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-nfsexports.html>`__
     """
 
     props: PropsDictType = {
-        "ClientConfigurations": ([ClientConfigurations], False),
+        "ClientConfigurations": ([ClientConfigurations], True),
     }
 
 
 class UserAndGroupQuotas(AWSProperty):
     """
-    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-rootvolumeconfiguration-userandgroupquotas.html>`__
+    `UserAndGroupQuotas <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-userandgroupquotas.html>`__
     """
 
     props: PropsDictType = {
-        "Id": (integer, False),
-        "StorageCapacityQuotaGiB": (integer, False),
-        "Type": (str, False),
+        "Id": (integer, True),
+        "StorageCapacityQuotaGiB": (integer, True),
+        "Type": (str, True),
     }
 
 
@@ -150,7 +150,7 @@ class AuditLogConfiguration(AWSProperty):
 
 class SelfManagedActiveDirectoryConfiguration(AWSProperty):
     """
-    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-windowsconfiguration-selfmanagedactivedirectoryconfiguration.html>`__
+    `SelfManagedActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration-selfmanagedactivedirectoryconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -207,4 +207,123 @@ class FileSystem(AWSObject):
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
         "WindowsConfiguration": (WindowsConfiguration, False),
+    }
+
+
+class Snapshot(AWSObject):
+    """
+    `Snapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-snapshot.html>`__
+    """
+
+    resource_type = "AWS::FSx::Snapshot"
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "VolumeId": (str, True),
+    }
+
+
+class ActiveDirectoryConfiguration(AWSProperty):
+    """
+    `ActiveDirectoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-storagevirtualmachine-activedirectoryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetBiosName": (str, False),
+        "SelfManagedActiveDirectoryConfiguration": (
+            SelfManagedActiveDirectoryConfiguration,
+            False,
+        ),
+    }
+
+
+class StorageVirtualMachine(AWSObject):
+    """
+    `StorageVirtualMachine <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-storagevirtualmachine.html>`__
+    """
+
+    resource_type = "AWS::FSx::StorageVirtualMachine"
+
+    props: PropsDictType = {
+        "ActiveDirectoryConfiguration": (ActiveDirectoryConfiguration, False),
+        "FileSystemId": (str, True),
+        "Name": (str, True),
+        "RootVolumeSecurityStyle": (str, False),
+        "SvmAdminPassword": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class TieringPolicy(AWSProperty):
+    """
+    `TieringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "CoolingPeriod": (integer, False),
+        "Name": (str, False),
+    }
+
+
+class VolumeOntapConfiguration(AWSProperty):
+    """
+    `VolumeOntapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "JunctionPath": (str, True),
+        "SecurityStyle": (str, False),
+        "SizeInMegabytes": (str, True),
+        "StorageEfficiencyEnabled": (str, True),
+        "StorageVirtualMachineId": (str, True),
+        "TieringPolicy": (TieringPolicy, False),
+    }
+
+
+class OriginSnapshot(AWSProperty):
+    """
+    `OriginSnapshot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration-originsnapshot.html>`__
+    """
+
+    props: PropsDictType = {
+        "CopyStrategy": (str, True),
+        "SnapshotARN": (str, True),
+    }
+
+
+class VolumeOpenZFSConfiguration(AWSProperty):
+    """
+    `VolumeOpenZFSConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-openzfsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CopyTagsToSnapshots": (boolean, False),
+        "DataCompressionType": (str, False),
+        "NfsExports": ([NfsExports], False),
+        "Options": ([str], False),
+        "OriginSnapshot": (OriginSnapshot, False),
+        "ParentVolumeId": (str, True),
+        "ReadOnly": (boolean, False),
+        "RecordSizeKiB": (integer, False),
+        "StorageCapacityQuotaGiB": (integer, False),
+        "StorageCapacityReservationGiB": (integer, False),
+        "UserAndGroupQuotas": ([UserAndGroupQuotas], False),
+    }
+
+
+class Volume(AWSObject):
+    """
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-volume.html>`__
+    """
+
+    resource_type = "AWS::FSx::Volume"
+
+    props: PropsDictType = {
+        "BackupId": (str, False),
+        "Name": (str, True),
+        "OntapConfiguration": (VolumeOntapConfiguration, False),
+        "OpenZFSConfiguration": (VolumeOpenZFSConfiguration, False),
+        "Tags": (Tags, False),
+        "VolumeType": (str, False),
     }

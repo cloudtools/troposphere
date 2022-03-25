@@ -69,6 +69,7 @@ class DBInstance(AWSObject):
         "DBClusterIdentifier": (str, True),
         "DBInstanceClass": (str, True),
         "DBInstanceIdentifier": (str, False),
+        "EnablePerformanceInsights": (boolean, False),
         "PreferredMaintenanceWindow": (str, False),
         "Tags": (Tags, False),
     }

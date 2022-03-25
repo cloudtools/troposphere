@@ -64,6 +64,17 @@ class Authorization(AWSProperty):
     }
 
 
+class EncryptionContractConfiguration(AWSProperty):
+    """
+    `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-encryptioncontractconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PresetSpeke20Audio": (str, True),
+        "PresetSpeke20Video": (str, True),
+    }
+
+
 class OriginEndpointSpekeKeyProvider(AWSProperty):
     """
     `OriginEndpointSpekeKeyProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-spekekeyprovider.html>`__
@@ -71,6 +82,7 @@ class OriginEndpointSpekeKeyProvider(AWSProperty):
 
     props: PropsDictType = {
         "CertificateArn": (str, False),
+        "EncryptionContractConfiguration": (EncryptionContractConfiguration, False),
         "ResourceId": (str, True),
         "RoleArn": (str, True),
         "SystemIds": ([str], True),

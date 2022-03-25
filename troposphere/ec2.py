@@ -1256,6 +1256,16 @@ class Monitoring(AWSProperty):
     }
 
 
+class Ipv4PrefixSpecification(AWSProperty):
+    """
+    `Ipv4PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv4prefixspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ipv4Prefix": (str, False),
+    }
+
+
 class Ipv6Add(AWSProperty):
     """
     `Ipv6Add <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6add.html>`__
@@ -1263,6 +1273,16 @@ class Ipv6Add(AWSProperty):
 
     props: PropsDictType = {
         "Ipv6Address": (str, False),
+    }
+
+
+class Ipv6PrefixSpecification(AWSProperty):
+    """
+    `Ipv6PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6prefixspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ipv6Prefix": (str, False),
     }
 
 
@@ -1279,8 +1299,12 @@ class NetworkInterfaces(AWSProperty):
         "DeviceIndex": (integer, False),
         "Groups": ([str], False),
         "InterfaceType": (str, False),
+        "Ipv4PrefixCount": (integer, False),
+        "Ipv4Prefixes": ([Ipv4PrefixSpecification], False),
         "Ipv6AddressCount": (integer, False),
         "Ipv6Addresses": ([Ipv6Add], False),
+        "Ipv6PrefixCount": (integer, False),
+        "Ipv6Prefixes": ([Ipv6PrefixSpecification], False),
         "NetworkCardIndex": (integer, False),
         "NetworkInterfaceId": (str, False),
         "PrivateIpAddress": (str, False),

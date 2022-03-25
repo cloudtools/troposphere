@@ -266,6 +266,16 @@ class Environment(AWSProperty):
     }
 
 
+class EphemeralStorage(AWSProperty):
+    """
+    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-ephemeralstorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "Size": (integer, True),
+    }
+
+
 class FileSystemConfig(AWSProperty):
     """
     `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-filesystemconfig.html>`__
@@ -327,6 +337,7 @@ class Function(AWSObject):
         "DeadLetterConfig": (DeadLetterConfig, False),
         "Description": (str, False),
         "Environment": (Environment, False),
+        "EphemeralStorage": (EphemeralStorage, False),
         "FileSystemConfigs": ([FileSystemConfig], False),
         "FunctionName": (str, False),
         "Handler": (str, False),
@@ -401,6 +412,7 @@ class Permission(AWSObject):
         "EventSourceToken": (str, False),
         "FunctionName": (str, True),
         "Principal": (str, True),
+        "PrincipalOrgID": (str, False),
         "SourceAccount": (str, False),
         "SourceArn": (str, False),
     }
