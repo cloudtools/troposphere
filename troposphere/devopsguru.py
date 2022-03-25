@@ -51,6 +51,17 @@ class CloudFormationCollectionFilter(AWSProperty):
     }
 
 
+class TagCollection(AWSProperty):
+    """
+    `TagCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-tagcollection.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppBoundaryKey": (str, False),
+        "TagValues": ([str], False),
+    }
+
+
 class ResourceCollectionFilter(AWSProperty):
     """
     `ResourceCollectionFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-resourcecollection-resourcecollectionfilter.html>`__
@@ -58,6 +69,7 @@ class ResourceCollectionFilter(AWSProperty):
 
     props: PropsDictType = {
         "CloudFormation": (CloudFormationCollectionFilter, False),
+        "Tags": ([TagCollection], False),
     }
 
 

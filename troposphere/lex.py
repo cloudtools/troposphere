@@ -11,6 +11,27 @@ from .validators import boolean, double, integer
 from .validators.lex import policytypes
 
 
+class CustomVocabularyItem(AWSProperty):
+    """
+    `CustomVocabularyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabularyitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Phrase": (str, True),
+        "Weight": (integer, False),
+    }
+
+
+class CustomVocabulary(AWSProperty):
+    """
+    `CustomVocabulary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-customvocabulary.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomVocabularyItems": ([CustomVocabularyItem], True),
+    }
+
+
 class DialogCodeHookSetting(AWSProperty):
     """
     `DialogCodeHookSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html>`__
@@ -434,6 +455,16 @@ class SlotTypeValue(AWSProperty):
     }
 
 
+class AdvancedRecognitionSetting(AWSProperty):
+    """
+    `AdvancedRecognitionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-advancedrecognitionsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioRecognitionStrategy": (str, False),
+    }
+
+
 class SlotValueRegexFilter(AWSProperty):
     """
     `SlotValueRegexFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueregexfilter.html>`__
@@ -450,6 +481,7 @@ class SlotValueSelectionSetting(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdvancedRecognitionSetting": (AdvancedRecognitionSetting, False),
         "RegexFilter": (SlotValueRegexFilter, False),
         "ResolutionStrategy": (str, True),
     }
@@ -486,6 +518,7 @@ class BotLocale(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomVocabulary": (CustomVocabulary, False),
         "Description": (str, False),
         "Intents": ([Intent], False),
         "LocaleId": (str, True),
@@ -504,27 +537,6 @@ class S3Location(AWSProperty):
         "S3Bucket": (str, True),
         "S3ObjectKey": (str, True),
         "S3ObjectVersion": (str, False),
-    }
-
-
-class Bot(AWSObject):
-    """
-    `Bot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html>`__
-    """
-
-    resource_type = "AWS::Lex::Bot"
-
-    props: PropsDictType = {
-        "AutoBuildBotLocales": (boolean, False),
-        "BotFileS3Location": (S3Location, False),
-        "BotLocales": ([BotLocale], False),
-        "BotTags": (Tags, False),
-        "DataPrivacy": (dict, True),
-        "Description": (str, False),
-        "IdleSessionTTLInSeconds": (integer, True),
-        "Name": (str, True),
-        "RoleArn": (str, True),
-        "TestBotAliasTags": (Tags, False),
     }
 
 
@@ -644,6 +656,41 @@ class ConversationLogSettings(AWSProperty):
     props: PropsDictType = {
         "AudioLogSettings": ([AudioLogSetting], False),
         "TextLogSettings": ([TextLogSetting], False),
+    }
+
+
+class TestBotAliasSettings(AWSProperty):
+    """
+    `TestBotAliasSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "BotAliasLocaleSettings": ([BotAliasLocaleSettingsItem], False),
+        "ConversationLogSettings": (ConversationLogSettings, False),
+        "Description": (str, False),
+        "SentimentAnalysisSettings": (dict, False),
+    }
+
+
+class Bot(AWSObject):
+    """
+    `Bot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lex-bot.html>`__
+    """
+
+    resource_type = "AWS::Lex::Bot"
+
+    props: PropsDictType = {
+        "AutoBuildBotLocales": (boolean, False),
+        "BotFileS3Location": (S3Location, False),
+        "BotLocales": ([BotLocale], False),
+        "BotTags": (Tags, False),
+        "DataPrivacy": (dict, True),
+        "Description": (str, False),
+        "IdleSessionTTLInSeconds": (integer, True),
+        "Name": (str, True),
+        "RoleArn": (str, True),
+        "TestBotAliasSettings": (TestBotAliasSettings, False),
+        "TestBotAliasTags": (Tags, False),
     }
 
 
