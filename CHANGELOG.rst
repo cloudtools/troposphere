@@ -1,3 +1,17 @@
+4.0.0 (2022*03*28)
+-------------------------------
+Breaking Changes
+^^^^^^^^^^^^^^^^
+* See breaking changes in 4.0.0-beta.0 and 4.0.0-beta.1
+
+Changes
+^^^^^^^
+* Fix AccessControlAllowMethods.Items validator (Fixes #2023)
+* Fix duplicate resource names due to FSx::Volume
+* Updates from spec version 62.0.0
+* Update serverless.py
+* EMR: Add missing JobFlowInstancesConfig properties
+
 4.0.0-beta.1 (2022*03*20)
 -------------------------------
 Breaking Changes
