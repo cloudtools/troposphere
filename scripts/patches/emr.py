@@ -65,4 +65,22 @@ patches = [
         "path": "/PropertyTypes/AWS::EMR::InstanceGroupConfig.EbsConfiguration/Properties/EbsBlockDeviceConfigs/ItemType",
         "value": "EbsBlockDeviceConfigs",
     },
+    {
+        "op": "add",
+        "path": "/PropertyTypes/AWS::EMR::Cluster.JobFlowInstancesConfig/Properties/TaskInstanceFleets",
+        "value": {
+            "ItemType": "InstanceFleetConfigProperty",
+            "Required": False,
+            "Type": "List",
+        },
+    },
+    {
+        "op": "add",
+        "path": "/PropertyTypes/AWS::EMR::Cluster.JobFlowInstancesConfig/Properties/TaskInstanceGroup",
+        "value": {
+            "ItemType": "InstanceGroupConfigProperty",
+            "Required": False,
+            "Type": "List",
+        },
+    },
 ]

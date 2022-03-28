@@ -316,6 +316,8 @@ class JobFlowInstancesConfig(AWSProperty):
         "MasterInstanceGroup": (InstanceGroupConfigProperty, False),
         "Placement": (PlacementType, False),
         "ServiceAccessSecurityGroup": (str, False),
+        "TaskInstanceFleets": ([InstanceFleetConfigProperty], False),
+        "TaskInstanceGroup": ([InstanceGroupConfigProperty], False),
         "TerminationProtected": (boolean, False),
     }
 
