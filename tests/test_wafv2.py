@@ -61,12 +61,11 @@ class TestWafV2CustomBodies(unittest.TestCase):
 
     def test_statements_validator(self):
         validate_statements([Statement(), Statement()])
+        validate_statements([Statement(), Statement(), Statement()])
         with self.assertRaises(TypeError):
-            validate_statements(
-                [
-                    Statement(),
-                ]
-            )
+            validate_statements([])
+        with self.assertRaises(TypeError):
+            validate_statements([Statement()])
         with self.assertRaises(TypeError):
             validate_statements("foo")
         with self.assertRaises(TypeError):
