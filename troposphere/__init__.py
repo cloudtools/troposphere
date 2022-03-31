@@ -702,6 +702,17 @@ class Tags(AWSHelperFn):
         return cls(**kwargs)
 
 
+__OutputTypeVar = TypeVar("__OutputTypeVar", "Output", List["Output"])
+__ParameterTypeVar = TypeVar("__ParameterTypeVar", "Parameter", List["Parameter"])
+__ResourceTypeVar = TypeVar(
+    "__ResourceTypeVar", bound=Union[BaseAWSObject, List[BaseAWSObject]]
+)
+__UpdateTypeVar = TypeVar(
+    "__UpdateTypeVar",
+    bound=Union[BaseAWSObject, List[BaseAWSObject], List["Output"], List["Parameter"]],
+)
+
+
 class Template:
     from troposphere.serverless import Globals
 
@@ -758,9 +769,7 @@ class Template:
     def handle_duplicate_key(self, key: Optional[str]) -> NoReturn:
         raise ValueError('duplicate key "%s" detected' % key)
 
-    def _update(
-        self, d: Dict[Any, Any], values: Union[BaseAWSObject, List[BaseAWSObject]]
-    ) -> Any:
+    def _update(self, d: Dict[Any, Any], values: __UpdateTypeVar) -> __UpdateTypeVar:
         if isinstance(values, list):
             for v in values:
                 if v.title in d:
@@ -772,7 +781,7 @@ class Template:
             d[values.title] = values
         return values
 
-    def add_output(self, output: Output) -> Output:
+    def add_output(self, output: __OutputTypeVar) -> __OutputTypeVar:
         if len(self.outputs) >= MAX_OUTPUTS:
             raise ValueError("Maximum outputs %d reached" % MAX_OUTPUTS)
         return self._update(self.outputs, output)
@@ -784,7 +793,7 @@ class Template:
             self.mappings[name] = {}
         self.mappings[name].update(mapping)
 
-    def add_parameter(self, parameter: Parameter) -> Parameter:
+    def add_parameter(self, parameter: __ParameterTypeVar) -> __ParameterTypeVar:
         if len(self.parameters) >= MAX_PARAMETERS:
             raise ValueError("Maximum parameters %d reached" % MAX_PARAMETERS)
         return self._update(self.parameters, parameter)
@@ -796,7 +805,7 @@ class Template:
             self.add_parameter(parameter)
         return parameter
 
-    def add_resource(self, resource: __BaseAWSObjectTypeVar) -> __BaseAWSObjectTypeVar:
+    def add_resource(self, resource: __ResourceTypeVar) -> __ResourceTypeVar:
         if len(self.resources) >= MAX_RESOURCES:
             raise ValueError("Maximum number of resources %d reached" % MAX_RESOURCES)
         return self._update(self.resources, resource)
