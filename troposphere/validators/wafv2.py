@@ -29,8 +29,8 @@ def validate_statements(statements):
     Property: OrStatement.Statements
     """
 
-    if not isinstance(statements, list) or len(statements) != 2:
-        raise TypeError("Statements must be a list of 2 Statement elements")
+    if not isinstance(statements, list) or len(statements) < 2:
+        raise TypeError("Statements must be a list of at least 2 Statement elements")
 
     for s in statements:
         validate_statement(s)
