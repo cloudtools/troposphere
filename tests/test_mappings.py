@@ -4,27 +4,27 @@ from troposphere import Template
 
 single_mapping = """\
 {
-    "Mappings": {
-        "map": {
-            "n": "v"
-        }
-    },
-    "Resources": {}
+ "Mappings": {
+  "map": {
+   "n": "v"
+  }
+ },
+ "Resources": {}
 }"""
 
 multiple_mappings = """\
 {
-    "Mappings": {
-        "map": {
-            "k1": {
-                "n1": "v1"
-            },
-            "k2": {
-                "n2": "v2"
-            }
-        }
-    },
-    "Resources": {}
+ "Mappings": {
+  "map": {
+   "k1": {
+    "n1": "v1"
+   },
+   "k2": {
+    "n2": "v2"
+   }
+  }
+ },
+ "Resources": {}
 }"""
 
 
