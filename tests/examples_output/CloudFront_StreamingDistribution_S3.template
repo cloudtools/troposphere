@@ -1,51 +1,51 @@
 {
-    "Description": "AWS CloudFormation Sample Template CloudFront_S3: Sample template showing how to create an Amazon CloudFront Streaming distribution using an S3 origin. **WARNING** This template creates a CloudFront distribution. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "DistributionId": {
-            "Value": {
-                "Ref": "myDistribution"
-            }
-        },
-        "DistributionName": {
-            "Value": {
-                "Fn::Join": [
-                    "",
-                    [
-                        "http://",
-                        {
-                            "Fn::GetAtt": [
-                                "myDistribution",
-                                "DomainName"
-                            ]
-                        }
-                    ]
-                ]
-            }
-        }
-    },
-    "Parameters": {
-        "S3DNSName": {
-            "Description": "The DNS name of an existing S3 bucket to use as the Cloudfront distribution origin",
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "myDistribution": {
-            "Properties": {
-                "StreamingDistributionConfig": {
-                    "Comment": "Streaming distribution",
-                    "Enabled": true,
-                    "S3Origin": {
-                        "DomainName": {
-                            "Ref": "S3DNSName"
-                        }
-                    },
-                    "TrustedSigners": {
-                        "Enabled": false
-                    }
-                }
-            },
-            "Type": "AWS::CloudFront::StreamingDistribution"
-        }
+ "Description": "AWS CloudFormation Sample Template CloudFront_S3: Sample template showing how to create an Amazon CloudFront Streaming distribution using an S3 origin. **WARNING** This template creates a CloudFront distribution. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "DistributionId": {
+   "Value": {
+    "Ref": "myDistribution"
+   }
+  },
+  "DistributionName": {
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "myDistribution",
+        "DomainName"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "S3DNSName": {
+   "Description": "The DNS name of an existing S3 bucket to use as the Cloudfront distribution origin",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "myDistribution": {
+   "Properties": {
+    "StreamingDistributionConfig": {
+     "Comment": "Streaming distribution",
+     "Enabled": true,
+     "S3Origin": {
+      "DomainName": {
+       "Ref": "S3DNSName"
+      }
+     },
+     "TrustedSigners": {
+      "Enabled": false
+     }
     }
+   },
+   "Type": "AWS::CloudFront::StreamingDistribution"
+  }
+ }
 }

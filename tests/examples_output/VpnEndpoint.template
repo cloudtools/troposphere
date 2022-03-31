@@ -1,38 +1,38 @@
 {
-    "Resources": {
-        "myClientVpnEndpoint": {
-            "Properties": {
-                "AuthenticationOptions": [
-                    {
-                        "ActiveDirectory": {
-                            "DirectoryId": "d-926example"
-                        },
-                        "Type": "directory-service-authentication"
-                    }
-                ],
-                "ClientCidrBlock": "10.0.0.0/22",
-                "ConnectionLogOptions": {
-                    "Enabled": false
-                },
-                "Description": "My Client VPN Endpoint",
-                "DnsServers": [
-                    "11.11.0.1"
-                ],
-                "ServerCertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/12345678-1234-1234-1234-123456789012",
-                "TagSpecifications": [
-                    {
-                        "ResourceType": "client-vpn-endpoint",
-                        "Tags": [
-                            {
-                                "Key": "Purpose",
-                                "Value": "Production"
-                            }
-                        ]
-                    }
-                ],
-                "TransportProtocol": "udp"
-            },
-            "Type": "AWS::EC2::ClientVpnEndpoint"
-        }
-    }
+ "Resources": {
+  "myClientVpnEndpoint": {
+   "Properties": {
+    "AuthenticationOptions": [
+     {
+      "ActiveDirectory": {
+       "DirectoryId": "d-926example"
+      },
+      "Type": "directory-service-authentication"
+     }
+    ],
+    "ClientCidrBlock": "10.0.0.0/22",
+    "ConnectionLogOptions": {
+     "Enabled": false
+    },
+    "Description": "My Client VPN Endpoint",
+    "DnsServers": [
+     "11.11.0.1"
+    ],
+    "ServerCertificateArn": "arn:aws:acm:us-east-1:111122223333:certificate/12345678-1234-1234-1234-123456789012",
+    "TagSpecifications": [
+     {
+      "ResourceType": "client-vpn-endpoint",
+      "Tags": [
+       {
+        "Key": "Purpose",
+        "Value": "Production"
+       }
+      ]
+     }
+    ],
+    "TransportProtocol": "udp"
+   },
+   "Type": "AWS::EC2::ClientVpnEndpoint"
+  }
+ }
 }

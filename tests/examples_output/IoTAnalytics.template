@@ -1,113 +1,113 @@
 {
-    "Resources": {
-        "TestChannel": {
-            "Properties": {
-                "ChannelName": "testchannel",
-                "ChannelStorage": {
-                    "CustomerManagedS3": {
-                        "Bucket": "customerbucket",
-                        "KeyPrefix": "bobdog",
-                        "RoleArn": "arn"
-                    }
-                },
-                "RetentionPeriod": {
-                    "NumberOfDays": 10
-                },
-                "Tags": [
-                    {
-                        "Key": "Manufacturer",
-                        "Value": "AmazonWebServices"
-                    }
-                ]
-            },
-            "Type": "AWS::IoTAnalytics::Channel"
-        },
-        "TestDataset": {
-            "Properties": {
-                "Actions": [
-                    {
-                        "ActionName": "actionname"
-                    }
-                ],
-                "ContentDeliveryRules": [
-                    {
-                        "Destination": {
-                            "S3DestinationConfiguration": {
-                                "Bucket": "testbucket",
-                                "Key": "testkey",
-                                "RoleArn": "arn"
-                            }
-                        },
-                        "EntryName": "entryname"
-                    }
-                ],
-                "DatasetName": "testdataset",
-                "RetentionPeriod": {
-                    "Unlimited": true
-                },
-                "Tags": [
-                    {
-                        "Key": "Manufacturer",
-                        "Value": "AmazonWebServices"
-                    }
-                ],
-                "Triggers": [
-                    {
-                        "TriggeringDataset": {
-                            "DatasetName": "testdataset"
-                        }
-                    }
-                ],
-                "VersioningConfiguration": {
-                    "Unlimited": true
-                }
-            },
-            "Type": "AWS::IoTAnalytics::Dataset"
-        },
-        "TestDatastore": {
-            "Properties": {
-                "DatastoreName": "testdatastore",
-                "DatastoreStorage": {
-                    "ServiceManagedS3": {}
-                },
-                "RetentionPeriod": {
-                    "NumberOfDays": 365
-                },
-                "Tags": [
-                    {
-                        "Key": "Manufacturer",
-                        "Value": "AmazonWebServices"
-                    }
-                ]
-            },
-            "Type": "AWS::IoTAnalytics::Datastore"
-        },
-        "TestPipeline": {
-            "Properties": {
-                "PipelineActivities": [
-                    {
-                        "Channel": {
-                            "ChannelName": "ChannelName",
-                            "Name": "testchannel",
-                            "Next": "DatastoreActivity"
-                        }
-                    },
-                    {
-                        "Datastore": {
-                            "DatastoreName": "testdatastore",
-                            "Name": "DatastoreActivity"
-                        }
-                    }
-                ],
-                "PipelineName": "testpipeline",
-                "Tags": [
-                    {
-                        "Key": "Manufacturer",
-                        "Value": "AmazonWebServices"
-                    }
-                ]
-            },
-            "Type": "AWS::IoTAnalytics::Pipeline"
-        }
+ "Resources": {
+  "TestChannel": {
+   "Properties": {
+    "ChannelName": "testchannel",
+    "ChannelStorage": {
+     "CustomerManagedS3": {
+      "Bucket": "customerbucket",
+      "KeyPrefix": "bobdog",
+      "RoleArn": "arn"
+     }
+    },
+    "RetentionPeriod": {
+     "NumberOfDays": 10
+    },
+    "Tags": [
+     {
+      "Key": "Manufacturer",
+      "Value": "AmazonWebServices"
+     }
+    ]
+   },
+   "Type": "AWS::IoTAnalytics::Channel"
+  },
+  "TestDataset": {
+   "Properties": {
+    "Actions": [
+     {
+      "ActionName": "actionname"
+     }
+    ],
+    "ContentDeliveryRules": [
+     {
+      "Destination": {
+       "S3DestinationConfiguration": {
+        "Bucket": "testbucket",
+        "Key": "testkey",
+        "RoleArn": "arn"
+       }
+      },
+      "EntryName": "entryname"
+     }
+    ],
+    "DatasetName": "testdataset",
+    "RetentionPeriod": {
+     "Unlimited": true
+    },
+    "Tags": [
+     {
+      "Key": "Manufacturer",
+      "Value": "AmazonWebServices"
+     }
+    ],
+    "Triggers": [
+     {
+      "TriggeringDataset": {
+       "DatasetName": "testdataset"
+      }
+     }
+    ],
+    "VersioningConfiguration": {
+     "Unlimited": true
     }
+   },
+   "Type": "AWS::IoTAnalytics::Dataset"
+  },
+  "TestDatastore": {
+   "Properties": {
+    "DatastoreName": "testdatastore",
+    "DatastoreStorage": {
+     "ServiceManagedS3": {}
+    },
+    "RetentionPeriod": {
+     "NumberOfDays": 365
+    },
+    "Tags": [
+     {
+      "Key": "Manufacturer",
+      "Value": "AmazonWebServices"
+     }
+    ]
+   },
+   "Type": "AWS::IoTAnalytics::Datastore"
+  },
+  "TestPipeline": {
+   "Properties": {
+    "PipelineActivities": [
+     {
+      "Channel": {
+       "ChannelName": "ChannelName",
+       "Name": "testchannel",
+       "Next": "DatastoreActivity"
+      }
+     },
+     {
+      "Datastore": {
+       "DatastoreName": "testdatastore",
+       "Name": "DatastoreActivity"
+      }
+     }
+    ],
+    "PipelineName": "testpipeline",
+    "Tags": [
+     {
+      "Key": "Manufacturer",
+      "Value": "AmazonWebServices"
+     }
+    ]
+   },
+   "Type": "AWS::IoTAnalytics::Pipeline"
+  }
+ }
 }

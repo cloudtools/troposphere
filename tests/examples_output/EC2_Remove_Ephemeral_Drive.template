@@ -1,140 +1,140 @@
 {
-    "Mappings": {
-        "RegionMap": {
-            "ap-northeast-1": {
-                "AMI": "ami-6959870f"
-            },
-            "ap-northeast-2": {
-                "AMI": "ami-08d77266"
-            },
-            "ap-south-1": {
-                "AMI": "ami-50591a3f"
-            },
-            "ap-southeast-1": {
-                "AMI": "ami-d9dca7ba"
-            },
-            "ap-southeast-2": {
-                "AMI": "ami-02ad4060"
-            },
-            "ca-central-1": {
-                "AMI": "ami-13e45c77"
-            },
-            "eu-central-1": {
-                "AMI": "ami-e613ac89"
-            },
-            "eu-west-1": {
-                "AMI": "ami-eed00d97"
-            },
-            "eu-west-2": {
-                "AMI": "ami-ba5f42de"
-            },
-            "sa-east-1": {
-                "AMI": "ami-1ca7d970"
-            },
-            "us-east-1": {
-                "AMI": "ami-bcdc16c6"
-            },
-            "us-east-2": {
-                "AMI": "ami-49426e2c"
-            },
-            "us-west-1": {
-                "AMI": "ami-1b17257b"
-            },
-            "us-west-2": {
-                "AMI": "ami-19e92861"
-            }
-        }
+ "Mappings": {
+  "RegionMap": {
+   "ap-northeast-1": {
+    "AMI": "ami-6959870f"
+   },
+   "ap-northeast-2": {
+    "AMI": "ami-08d77266"
+   },
+   "ap-south-1": {
+    "AMI": "ami-50591a3f"
+   },
+   "ap-southeast-1": {
+    "AMI": "ami-d9dca7ba"
+   },
+   "ap-southeast-2": {
+    "AMI": "ami-02ad4060"
+   },
+   "ca-central-1": {
+    "AMI": "ami-13e45c77"
+   },
+   "eu-central-1": {
+    "AMI": "ami-e613ac89"
+   },
+   "eu-west-1": {
+    "AMI": "ami-eed00d97"
+   },
+   "eu-west-2": {
+    "AMI": "ami-ba5f42de"
+   },
+   "sa-east-1": {
+    "AMI": "ami-1ca7d970"
+   },
+   "us-east-1": {
+    "AMI": "ami-bcdc16c6"
+   },
+   "us-east-2": {
+    "AMI": "ami-49426e2c"
+   },
+   "us-west-1": {
+    "AMI": "ami-1b17257b"
+   },
+   "us-west-2": {
+    "AMI": "ami-19e92861"
+   }
+  }
+ },
+ "Outputs": {
+  "AZ": {
+   "Description": "Availability Zone of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "AvailabilityZone"
+    ]
+   }
+  },
+  "InstanceId": {
+   "Description": "InstanceId of the newly created EC2 instance",
+   "Value": {
+    "Ref": "Ec2Instance"
+   }
+  },
+  "PrivateDNS": {
+   "Description": "Private DNSName of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PrivateDnsName"
+    ]
+   }
+  },
+  "PrivateIP": {
+   "Description": "Private IP address of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PrivateIp"
+    ]
+   }
+  },
+  "PublicDNS": {
+   "Description": "Public DNSName of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PublicDnsName"
+    ]
+   }
+  },
+  "PublicIP": {
+   "Description": "Public IP address of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PublicIp"
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "KeyName": {
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "Ec2Instance": {
+   "Properties": {
+    "BlockDeviceMappings": [
+     {
+      "DeviceName": "/dev/sdb",
+      "NoDevice": {}
+     },
+     {
+      "DeviceName": "/dev/sdc",
+      "NoDevice": {}
+     }
+    ],
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
     },
-    "Outputs": {
-        "AZ": {
-            "Description": "Availability Zone of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "AvailabilityZone"
-                ]
-            }
-        },
-        "InstanceId": {
-            "Description": "InstanceId of the newly created EC2 instance",
-            "Value": {
-                "Ref": "Ec2Instance"
-            }
-        },
-        "PrivateDNS": {
-            "Description": "Private DNSName of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PrivateDnsName"
-                ]
-            }
-        },
-        "PrivateIP": {
-            "Description": "Private IP address of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PrivateIp"
-                ]
-            }
-        },
-        "PublicDNS": {
-            "Description": "Public DNSName of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PublicDnsName"
-                ]
-            }
-        },
-        "PublicIP": {
-            "Description": "Public IP address of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PublicIp"
-                ]
-            }
-        }
+    "InstanceType": "t2.micro",
+    "KeyName": {
+     "Ref": "KeyName"
     },
-    "Parameters": {
-        "KeyName": {
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "Ec2Instance": {
-            "Properties": {
-                "BlockDeviceMappings": [
-                    {
-                        "DeviceName": "/dev/sdb",
-                        "NoDevice": {}
-                    },
-                    {
-                        "DeviceName": "/dev/sdc",
-                        "NoDevice": {}
-                    }
-                ],
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": "t2.micro",
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    "default"
-                ]
-            },
-            "Type": "AWS::EC2::Instance"
-        }
-    }
+    "SecurityGroups": [
+     "default"
+    ]
+   },
+   "Type": "AWS::EC2::Instance"
+  }
+ }
 }

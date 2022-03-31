@@ -1,44 +1,44 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS CloudFormation Sample Template RDS_Snapshot_On_Delete: Sample template showing how to create an RDS DBInstance that is snapshotted on stack deletion. **WARNING** This template creates an Amazon RDS database instance. When the stack is deleted a database snpshot will be left in your account. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "JDBCConnectionString": {
-            "Description": "JDBC connection string for the database",
-            "Value": {
-                "Fn::Join": [
-                    "",
-                    [
-                        "jdbc:mysql://",
-                        {
-                            "Fn::GetAtt": [
-                                "MyDB",
-                                "Endpoint.Address"
-                            ]
-                        },
-                        ":",
-                        {
-                            "Fn::GetAtt": [
-                                "MyDB",
-                                "Endpoint.Port"
-                            ]
-                        },
-                        "/MyDatabase"
-                    ]
-                ]
-            }
-        }
-    },
-    "Resources": {
-        "MyDB": {
-            "Properties": {
-                "AllocatedStorage": "5",
-                "DBInstanceClass": "db.m1.small",
-                "DBName": "MyDatabase",
-                "Engine": "MySQL",
-                "MasterUserPassword": "myPassword",
-                "MasterUsername": "myName"
-            },
-            "Type": "AWS::RDS::DBInstance"
-        }
-    }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "AWS CloudFormation Sample Template RDS_Snapshot_On_Delete: Sample template showing how to create an RDS DBInstance that is snapshotted on stack deletion. **WARNING** This template creates an Amazon RDS database instance. When the stack is deleted a database snpshot will be left in your account. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "JDBCConnectionString": {
+   "Description": "JDBC connection string for the database",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "jdbc:mysql://",
+      {
+       "Fn::GetAtt": [
+        "MyDB",
+        "Endpoint.Address"
+       ]
+      },
+      ":",
+      {
+       "Fn::GetAtt": [
+        "MyDB",
+        "Endpoint.Port"
+       ]
+      },
+      "/MyDatabase"
+     ]
+    ]
+   }
+  }
+ },
+ "Resources": {
+  "MyDB": {
+   "Properties": {
+    "AllocatedStorage": "5",
+    "DBInstanceClass": "db.m1.small",
+    "DBName": "MyDatabase",
+    "Engine": "MySQL",
+    "MasterUserPassword": "myPassword",
+    "MasterUsername": "myName"
+   },
+   "Type": "AWS::RDS::DBInstance"
+  }
+ }
 }

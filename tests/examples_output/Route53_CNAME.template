@@ -1,59 +1,59 @@
 {
-    "Description": "AWS CloudFormation Sample Template Route53_CNAME: Sample template showing how to create an Amazon Route 53 CNAME record.  It assumes that you already  have a Hosted Zone registered with Amazon Route 53. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "DomainName": {
-            "Value": {
-                "Ref": "myDNSRecord"
-            }
-        }
+ "Description": "AWS CloudFormation Sample Template Route53_CNAME: Sample template showing how to create an Amazon Route 53 CNAME record.  It assumes that you already  have a Hosted Zone registered with Amazon Route 53. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "DomainName": {
+   "Value": {
+    "Ref": "myDNSRecord"
+   }
+  }
+ },
+ "Parameters": {
+  "HostedZone": {
+   "Description": "The DNS name of an existing Amazon Route 53 hosted zone",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "myDNSRecord": {
+   "Properties": {
+    "Comment": "CNAME redirect to aws.amazon.com.",
+    "HostedZoneName": {
+     "Fn::Join": [
+      "",
+      [
+       {
+        "Ref": "HostedZone"
+       },
+       "."
+      ]
+     ]
     },
-    "Parameters": {
-        "HostedZone": {
-            "Description": "The DNS name of an existing Amazon Route 53 hosted zone",
-            "Type": "String"
-        }
+    "Name": {
+     "Fn::Join": [
+      "",
+      [
+       {
+        "Ref": "AWS::StackName"
+       },
+       ".",
+       {
+        "Ref": "AWS::Region"
+       },
+       ".",
+       {
+        "Ref": "HostedZone"
+       },
+       "."
+      ]
+     ]
     },
-    "Resources": {
-        "myDNSRecord": {
-            "Properties": {
-                "Comment": "CNAME redirect to aws.amazon.com.",
-                "HostedZoneName": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            {
-                                "Ref": "HostedZone"
-                            },
-                            "."
-                        ]
-                    ]
-                },
-                "Name": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            {
-                                "Ref": "AWS::StackName"
-                            },
-                            ".",
-                            {
-                                "Ref": "AWS::Region"
-                            },
-                            ".",
-                            {
-                                "Ref": "HostedZone"
-                            },
-                            "."
-                        ]
-                    ]
-                },
-                "ResourceRecords": [
-                    "aws.amazon.com"
-                ],
-                "TTL": "900",
-                "Type": "CNAME"
-            },
-            "Type": "AWS::Route53::RecordSet"
-        }
-    }
+    "ResourceRecords": [
+     "aws.amazon.com"
+    ],
+    "TTL": "900",
+    "Type": "CNAME"
+   },
+   "Type": "AWS::Route53::RecordSet"
+  }
+ }
 }

@@ -1,74 +1,74 @@
 {
-    "Description": "AWS CloudFormation Sample Template: This template demonstrates the creation of a DynamoDB table.",
-    "Outputs": {
-        "QueueArn": {
-            "Description": "ARN of SQS Queue",
-            "Value": {
-                "Fn::GetAtt": [
-                    "SQSQueue",
-                    "Arn"
-                ]
-            }
+ "Description": "AWS CloudFormation Sample Template: This template demonstrates the creation of a DynamoDB table.",
+ "Outputs": {
+  "QueueArn": {
+   "Description": "ARN of SQS Queue",
+   "Value": {
+    "Fn::GetAtt": [
+     "SQSQueue",
+     "Arn"
+    ]
+   }
+  }
+ },
+ "Resources": {
+  "AllowSNS2SQSPolicy": {
+   "Properties": {
+    "PolicyDocument": {
+     "Id": "PublicationPolicy",
+     "Statement": [
+      {
+       "Action": [
+        "sqs:SendMessage"
+       ],
+       "Condition": {
+        "ArnEquals": {
+         "aws:SourceArn": {
+          "Ref": "SNSTopic"
+         }
         }
+       },
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": {
+        "Fn::GetAtt": [
+         "SQSQueue",
+         "Arn"
+        ]
+       },
+       "Sid": "Allow-SNS-SendMessage"
+      }
+     ],
+     "Version": "2008-10-17"
     },
-    "Resources": {
-        "AllowSNS2SQSPolicy": {
-            "Properties": {
-                "PolicyDocument": {
-                    "Id": "PublicationPolicy",
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sqs:SendMessage"
-                            ],
-                            "Condition": {
-                                "ArnEquals": {
-                                    "aws:SourceArn": {
-                                        "Ref": "SNSTopic"
-                                    }
-                                }
-                            },
-                            "Effect": "Allow",
-                            "Principal": {
-                                "AWS": "*"
-                            },
-                            "Resource": {
-                                "Fn::GetAtt": [
-                                    "SQSQueue",
-                                    "Arn"
-                                ]
-                            },
-                            "Sid": "Allow-SNS-SendMessage"
-                        }
-                    ],
-                    "Version": "2008-10-17"
-                },
-                "Queues": [
-                    {
-                        "Ref": "SQSQueue"
-                    }
-                ]
-            },
-            "Type": "AWS::SQS::QueuePolicy"
-        },
-        "SNSTopic": {
-            "Properties": {
-                "Subscription": [
-                    {
-                        "Endpoint": {
-                            "Fn::GetAtt": [
-                                "SQSQueue",
-                                "Arn"
-                            ]
-                        },
-                        "Protocol": "sqs"
-                    }
-                ]
-            },
-            "Type": "AWS::SNS::Topic"
-        },
-        "SQSQueue": {
-            "Type": "AWS::SQS::Queue"
-        }
-    }
+    "Queues": [
+     {
+      "Ref": "SQSQueue"
+     }
+    ]
+   },
+   "Type": "AWS::SQS::QueuePolicy"
+  },
+  "SNSTopic": {
+   "Properties": {
+    "Subscription": [
+     {
+      "Endpoint": {
+       "Fn::GetAtt": [
+        "SQSQueue",
+        "Arn"
+       ]
+      },
+      "Protocol": "sqs"
+     }
+    ]
+   },
+   "Type": "AWS::SNS::Topic"
+  },
+  "SQSQueue": {
+   "Type": "AWS::SQS::Queue"
+  }
+ }
 }

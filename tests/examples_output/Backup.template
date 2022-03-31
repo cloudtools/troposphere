@@ -1,103 +1,103 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS Backup",
-    "Resources": {
-        "Backup": {
-            "Properties": {
-                "BackupPlan": {
-                    "BackupPlanName": "BackupPlan",
-                    "BackupPlanRule": [
-                        {
-                            "CopyActions": [
-                                {
-                                    "DestinationBackupVaultArn": "arn:aws:backup:ca-central-1:111112222212:backup-vault:TestVault",
-                                    "Lifecycle": {
-                                        "DeleteAfterDays": 31
-                                    }
-                                }
-                            ],
-                            "Lifecycle": {
-                                "DeleteAfterDays": 31
-                            },
-                            "RecoveryPointTags": {
-                                "Classifier": "Classifier",
-                                "Environment": "Environment",
-                                "Project": "Project"
-                            },
-                            "RuleName": "Rule 1",
-                            "ScheduleExpression": "cron(0 0/12 * * ? *)",
-                            "TargetBackupVault": {
-                                "Ref": "Vault"
-                            }
-                        }
-                    ]
-                },
-                "BackupPlanTags": {
-                    "Classifier": "Classifier",
-                    "Environment": "Environment",
-                    "Project": "Project"
-                }
-            },
-            "Type": "AWS::Backup::BackupPlan"
-        },
-        "BackupServiceRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "backup.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ManagedPolicyArns": [
-                    "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
-                    "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores"
-                ]
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "StorageBackupSelectionByTags": {
-            "Properties": {
-                "BackupPlanId": {
-                    "Ref": "Backup"
-                },
-                "BackupSelection": {
-                    "IamRoleArn": {
-                        "Fn::GetAtt": [
-                            "BackupServiceRole",
-                            "Arn"
-                        ]
-                    },
-                    "ListOfTags": [
-                        {
-                            "ConditionKey": "Backup",
-                            "ConditionType": "STRINGEQUALS",
-                            "ConditionValue": "True"
-                        }
-                    ],
-                    "SelectionName": "MySelection"
-                }
-            },
-            "Type": "AWS::Backup::BackupSelection"
-        },
-        "Vault": {
-            "Properties": {
-                "BackupVaultName": "my-backup-vault",
-                "BackupVaultTags": {
-                    "Classifier": "Classifier",
-                    "Environment": "Environment",
-                    "Project": "Project"
-                }
-            },
-            "Type": "AWS::Backup::BackupVault"
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "AWS Backup",
+ "Resources": {
+  "Backup": {
+   "Properties": {
+    "BackupPlan": {
+     "BackupPlanName": "BackupPlan",
+     "BackupPlanRule": [
+      {
+       "CopyActions": [
+        {
+         "DestinationBackupVaultArn": "arn:aws:backup:ca-central-1:111112222212:backup-vault:TestVault",
+         "Lifecycle": {
+          "DeleteAfterDays": 31
+         }
         }
+       ],
+       "Lifecycle": {
+        "DeleteAfterDays": 31
+       },
+       "RecoveryPointTags": {
+        "Classifier": "Classifier",
+        "Environment": "Environment",
+        "Project": "Project"
+       },
+       "RuleName": "Rule 1",
+       "ScheduleExpression": "cron(0 0/12 * * ? *)",
+       "TargetBackupVault": {
+        "Ref": "Vault"
+       }
+      }
+     ]
+    },
+    "BackupPlanTags": {
+     "Classifier": "Classifier",
+     "Environment": "Environment",
+     "Project": "Project"
     }
+   },
+   "Type": "AWS::Backup::BackupPlan"
+  },
+  "BackupServiceRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "backup.amazonaws.com"
+        ]
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForBackup",
+     "arn:aws:iam::aws:policy/service-role/AWSBackupServiceRolePolicyForRestores"
+    ]
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "StorageBackupSelectionByTags": {
+   "Properties": {
+    "BackupPlanId": {
+     "Ref": "Backup"
+    },
+    "BackupSelection": {
+     "IamRoleArn": {
+      "Fn::GetAtt": [
+       "BackupServiceRole",
+       "Arn"
+      ]
+     },
+     "ListOfTags": [
+      {
+       "ConditionKey": "Backup",
+       "ConditionType": "STRINGEQUALS",
+       "ConditionValue": "True"
+      }
+     ],
+     "SelectionName": "MySelection"
+    }
+   },
+   "Type": "AWS::Backup::BackupSelection"
+  },
+  "Vault": {
+   "Properties": {
+    "BackupVaultName": "my-backup-vault",
+    "BackupVaultTags": {
+     "Classifier": "Classifier",
+     "Environment": "Environment",
+     "Project": "Project"
+    }
+   },
+   "Type": "AWS::Backup::BackupVault"
+  }
+ }
 }

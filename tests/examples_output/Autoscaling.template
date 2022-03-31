@@ -1,284 +1,284 @@
 {
-    "Description": "Configures autoscaling group for api app",
-    "Parameters": {
-        "AmiId": {
-            "Description": "The AMI id for the api instances",
-            "Type": "String"
-        },
-        "ApiSubnet1": {
-            "Description": "First private VPC subnet ID for the api app.",
-            "Type": "String"
-        },
-        "ApiSubnet2": {
-            "Description": "Second private VPC subnet ID for the api app.",
-            "Type": "String"
-        },
-        "DeployBucket": {
-            "Description": "The S3 bucket with the cloudformation scripts.",
-            "Type": "String"
-        },
-        "DeployUserAccessKey": {
-            "Description": "The access key of the deploy user",
-            "Type": "String"
-        },
-        "DeployUserSecretKey": {
-            "Description": "The secret key of the deploy user",
-            "Type": "String"
-        },
-        "EnvType": {
-            "Description": "The environment being deployed into",
-            "Type": "String"
-        },
-        "KeyName": {
-            "AllowedPattern": "[ -~]*",
-            "ConstraintDescription": "can contain only ASCII characters.",
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access",
-            "MaxLength": "255",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "LoadBalancerSecurityGroup": {
-            "Description": "Security group for api app load balancer.",
-            "Type": "String"
-        },
-        "PublicSubnet1": {
-            "Description": "A public VPC subnet ID for the api app load balancer.",
-            "Type": "String"
-        },
-        "PublicSubnet2": {
-            "Description": "A public VPC subnet ID for the api load balancer.",
-            "Type": "String"
-        },
-        "RootStackName": {
-            "Description": "The root stack name",
-            "Type": "String"
-        },
-        "SSLCertificateId": {
-            "Description": "SSL certificate for load balancer.",
-            "Type": "String"
-        },
-        "ScaleCapacity": {
-            "Default": "1",
-            "Description": "Number of api servers to run",
-            "Type": "String"
-        },
-        "SecurityGroup": {
-            "Description": "Security group for api instances.",
-            "Type": "String"
-        },
-        "VPCAvailabilityZone1": {
-            "Description": "First availability zone",
-            "MaxLength": "255",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "VPCAvailabilityZone2": {
-            "Description": "Second availability zone",
-            "MaxLength": "255",
-            "MinLength": "1",
-            "Type": "String"
-        }
+ "Description": "Configures autoscaling group for api app",
+ "Parameters": {
+  "AmiId": {
+   "Description": "The AMI id for the api instances",
+   "Type": "String"
+  },
+  "ApiSubnet1": {
+   "Description": "First private VPC subnet ID for the api app.",
+   "Type": "String"
+  },
+  "ApiSubnet2": {
+   "Description": "Second private VPC subnet ID for the api app.",
+   "Type": "String"
+  },
+  "DeployBucket": {
+   "Description": "The S3 bucket with the cloudformation scripts.",
+   "Type": "String"
+  },
+  "DeployUserAccessKey": {
+   "Description": "The access key of the deploy user",
+   "Type": "String"
+  },
+  "DeployUserSecretKey": {
+   "Description": "The secret key of the deploy user",
+   "Type": "String"
+  },
+  "EnvType": {
+   "Description": "The environment being deployed into",
+   "Type": "String"
+  },
+  "KeyName": {
+   "AllowedPattern": "[ -~]*",
+   "ConstraintDescription": "can contain only ASCII characters.",
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access",
+   "MaxLength": "255",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "LoadBalancerSecurityGroup": {
+   "Description": "Security group for api app load balancer.",
+   "Type": "String"
+  },
+  "PublicSubnet1": {
+   "Description": "A public VPC subnet ID for the api app load balancer.",
+   "Type": "String"
+  },
+  "PublicSubnet2": {
+   "Description": "A public VPC subnet ID for the api load balancer.",
+   "Type": "String"
+  },
+  "RootStackName": {
+   "Description": "The root stack name",
+   "Type": "String"
+  },
+  "SSLCertificateId": {
+   "Description": "SSL certificate for load balancer.",
+   "Type": "String"
+  },
+  "ScaleCapacity": {
+   "Default": "1",
+   "Description": "Number of api servers to run",
+   "Type": "String"
+  },
+  "SecurityGroup": {
+   "Description": "Security group for api instances.",
+   "Type": "String"
+  },
+  "VPCAvailabilityZone1": {
+   "Description": "First availability zone",
+   "MaxLength": "255",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "VPCAvailabilityZone2": {
+   "Description": "Second availability zone",
+   "MaxLength": "255",
+   "MinLength": "1",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "AutoscalingGroup": {
+   "Properties": {
+    "AvailabilityZones": [
+     {
+      "Ref": "VPCAvailabilityZone1"
+     },
+     {
+      "Ref": "VPCAvailabilityZone2"
+     }
+    ],
+    "DesiredCapacity": {
+     "Ref": "ScaleCapacity"
     },
-    "Resources": {
-        "AutoscalingGroup": {
-            "Properties": {
-                "AvailabilityZones": [
-                    {
-                        "Ref": "VPCAvailabilityZone1"
-                    },
-                    {
-                        "Ref": "VPCAvailabilityZone2"
-                    }
-                ],
-                "DesiredCapacity": {
-                    "Ref": "ScaleCapacity"
-                },
-                "HealthCheckType": "EC2",
-                "LaunchConfigurationName": {
-                    "Ref": "LaunchConfiguration"
-                },
-                "LoadBalancerNames": [
-                    {
-                        "Ref": "LoadBalancer"
-                    }
-                ],
-                "MaxSize": {
-                    "Ref": "ScaleCapacity"
-                },
-                "MinSize": {
-                    "Ref": "ScaleCapacity"
-                },
-                "Tags": [
-                    {
-                        "Key": "Environment",
-                        "PropagateAtLaunch": true,
-                        "Value": {
-                            "Ref": "EnvType"
-                        }
-                    }
-                ],
-                "VPCZoneIdentifier": [
-                    {
-                        "Ref": "ApiSubnet1"
-                    },
-                    {
-                        "Ref": "ApiSubnet2"
-                    }
-                ]
-            },
-            "Type": "AWS::AutoScaling::AutoScalingGroup",
-            "UpdatePolicy": {
-                "AutoScalingReplacingUpdate": {
-                    "WillReplace": true
-                },
-                "AutoScalingRollingUpdate": {
-                    "MaxBatchSize": "1",
-                    "MinInstancesInService": "1",
-                    "PauseTime": "PT5M",
-                    "WaitOnResourceSignals": true
-                }
-            }
-        },
-        "LaunchConfiguration": {
-            "Metadata": {
-                "AWS::CloudFormation::Authentication": {
-                    "DeployUserAuth": {
-                        "accessKeyId": {
-                            "Ref": "DeployUserAccessKey"
-                        },
-                        "secretKey": {
-                            "Ref": "DeployUserSecretKey"
-                        },
-                        "type": "S3"
-                    }
-                },
-                "AWS::CloudFormation::Init": {
-                    "config": {
-                        "files": {
-                            "/etc/rsyslog.d/20-somethin.conf": {
-                                "authentication": "DeployUserAuth",
-                                "group": "root",
-                                "mode": "000644",
-                                "owner": "root",
-                                "source": {
-                                    "Fn::Join": [
-                                        "",
-                                        [
-                                            "http://",
-                                            {
-                                                "Ref": "DeployBucket"
-                                            },
-                                            ".s3.amazonaws.com/stacks/",
-                                            {
-                                                "Ref": "RootStackName"
-                                            },
-                                            "/env/etc/rsyslog.d/20-somethin.conf"
-                                        ]
-                                    ]
-                                }
-                            }
-                        },
-                        "services": {
-                            "sysvinit": {
-                                "rsyslog": {
-                                    "enabled": true,
-                                    "ensureRunning": true,
-                                    "files": [
-                                        "/etc/rsyslog.d/20-somethin.conf"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "Properties": {
-                "BlockDeviceMappings": [
-                    {
-                        "DeviceName": "/dev/sda1",
-                        "Ebs": {
-                            "VolumeSize": "8"
-                        }
-                    }
-                ],
-                "ImageId": {
-                    "Ref": "AmiId"
-                },
-                "InstanceType": "m1.small",
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "SecurityGroup"
-                    }
-                ],
-                "UserData": {
-                    "Fn::Base64": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "#!/bin/bash\n",
-                                "cfn-signal -e 0",
-                                "    --resource AutoscalingGroup",
-                                "    --stack ",
-                                {
-                                    "Ref": "AWS::StackName"
-                                },
-                                "    --region ",
-                                {
-                                    "Ref": "AWS::Region"
-                                },
-                                "\n"
-                            ]
-                        ]
-                    }
-                }
-            },
-            "Type": "AWS::AutoScaling::LaunchConfiguration"
-        },
-        "LoadBalancer": {
-            "Properties": {
-                "ConnectionDrainingPolicy": {
-                    "Enabled": true,
-                    "Timeout": 120
-                },
-                "CrossZone": true,
-                "HealthCheck": {
-                    "HealthyThreshold": "5",
-                    "Interval": "20",
-                    "Target": "HTTP:80/",
-                    "Timeout": "15",
-                    "UnhealthyThreshold": "2"
-                },
-                "Listeners": [
-                    {
-                        "InstancePort": "80",
-                        "InstanceProtocol": "HTTP",
-                        "LoadBalancerPort": "443",
-                        "Protocol": "HTTPS",
-                        "SSLCertificateId": {
-                            "Ref": "SSLCertificateId"
-                        }
-                    }
-                ],
-                "LoadBalancerName": "api-lb",
-                "Scheme": "internet-facing",
-                "SecurityGroups": [
-                    {
-                        "Ref": "LoadBalancerSecurityGroup"
-                    }
-                ],
-                "Subnets": [
-                    {
-                        "Ref": "PublicSubnet1"
-                    },
-                    {
-                        "Ref": "PublicSubnet2"
-                    }
-                ]
-            },
-            "Type": "AWS::ElasticLoadBalancing::LoadBalancer"
-        }
+    "HealthCheckType": "EC2",
+    "LaunchConfigurationName": {
+     "Ref": "LaunchConfiguration"
+    },
+    "LoadBalancerNames": [
+     {
+      "Ref": "LoadBalancer"
+     }
+    ],
+    "MaxSize": {
+     "Ref": "ScaleCapacity"
+    },
+    "MinSize": {
+     "Ref": "ScaleCapacity"
+    },
+    "Tags": [
+     {
+      "Key": "Environment",
+      "PropagateAtLaunch": true,
+      "Value": {
+       "Ref": "EnvType"
+      }
+     }
+    ],
+    "VPCZoneIdentifier": [
+     {
+      "Ref": "ApiSubnet1"
+     },
+     {
+      "Ref": "ApiSubnet2"
+     }
+    ]
+   },
+   "Type": "AWS::AutoScaling::AutoScalingGroup",
+   "UpdatePolicy": {
+    "AutoScalingReplacingUpdate": {
+     "WillReplace": true
+    },
+    "AutoScalingRollingUpdate": {
+     "MaxBatchSize": "1",
+     "MinInstancesInService": "1",
+     "PauseTime": "PT5M",
+     "WaitOnResourceSignals": true
     }
+   }
+  },
+  "LaunchConfiguration": {
+   "Metadata": {
+    "AWS::CloudFormation::Authentication": {
+     "DeployUserAuth": {
+      "accessKeyId": {
+       "Ref": "DeployUserAccessKey"
+      },
+      "secretKey": {
+       "Ref": "DeployUserSecretKey"
+      },
+      "type": "S3"
+     }
+    },
+    "AWS::CloudFormation::Init": {
+     "config": {
+      "files": {
+       "/etc/rsyslog.d/20-somethin.conf": {
+        "authentication": "DeployUserAuth",
+        "group": "root",
+        "mode": "000644",
+        "owner": "root",
+        "source": {
+         "Fn::Join": [
+          "",
+          [
+           "http://",
+           {
+            "Ref": "DeployBucket"
+           },
+           ".s3.amazonaws.com/stacks/",
+           {
+            "Ref": "RootStackName"
+           },
+           "/env/etc/rsyslog.d/20-somethin.conf"
+          ]
+         ]
+        }
+       }
+      },
+      "services": {
+       "sysvinit": {
+        "rsyslog": {
+         "enabled": true,
+         "ensureRunning": true,
+         "files": [
+          "/etc/rsyslog.d/20-somethin.conf"
+         ]
+        }
+       }
+      }
+     }
+    }
+   },
+   "Properties": {
+    "BlockDeviceMappings": [
+     {
+      "DeviceName": "/dev/sda1",
+      "Ebs": {
+       "VolumeSize": "8"
+      }
+     }
+    ],
+    "ImageId": {
+     "Ref": "AmiId"
+    },
+    "InstanceType": "m1.small",
+    "KeyName": {
+     "Ref": "KeyName"
+    },
+    "SecurityGroups": [
+     {
+      "Ref": "SecurityGroup"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "#!/bin/bash\n",
+        "cfn-signal -e 0",
+        "    --resource AutoscalingGroup",
+        "    --stack ",
+        {
+         "Ref": "AWS::StackName"
+        },
+        "    --region ",
+        {
+         "Ref": "AWS::Region"
+        },
+        "\n"
+       ]
+      ]
+     }
+    }
+   },
+   "Type": "AWS::AutoScaling::LaunchConfiguration"
+  },
+  "LoadBalancer": {
+   "Properties": {
+    "ConnectionDrainingPolicy": {
+     "Enabled": true,
+     "Timeout": 120
+    },
+    "CrossZone": true,
+    "HealthCheck": {
+     "HealthyThreshold": "5",
+     "Interval": "20",
+     "Target": "HTTP:80/",
+     "Timeout": "15",
+     "UnhealthyThreshold": "2"
+    },
+    "Listeners": [
+     {
+      "InstancePort": "80",
+      "InstanceProtocol": "HTTP",
+      "LoadBalancerPort": "443",
+      "Protocol": "HTTPS",
+      "SSLCertificateId": {
+       "Ref": "SSLCertificateId"
+      }
+     }
+    ],
+    "LoadBalancerName": "api-lb",
+    "Scheme": "internet-facing",
+    "SecurityGroups": [
+     {
+      "Ref": "LoadBalancerSecurityGroup"
+     }
+    ],
+    "Subnets": [
+     {
+      "Ref": "PublicSubnet1"
+     },
+     {
+      "Ref": "PublicSubnet2"
+     }
+    ]
+   },
+   "Type": "AWS::ElasticLoadBalancing::LoadBalancer"
+  }
+ }
 }

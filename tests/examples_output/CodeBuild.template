@@ -1,30 +1,30 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Resources": {
-        "DemoProject": {
-            "Properties": {
-                "Artifacts": {
-                    "Type": "NO_ARTIFACTS"
-                },
-                "Environment": {
-                    "ComputeType": "BUILD_GENERAL1_SMALL",
-                    "EnvironmentVariables": [
-                        {
-                            "Name": "APP_NAME",
-                            "Value": "demo"
-                        }
-                    ],
-                    "Image": "aws/codebuild/java:openjdk-8",
-                    "Type": "LINUX_CONTAINER"
-                },
-                "Name": "DemoProject",
-                "ServiceRole": "arn:aws:iam::0123456789:role/codebuild-role",
-                "Source": {
-                    "Location": "codebuild-demo-test/0123ab9a371ebf0187b0fe5614fbb72c",
-                    "Type": "S3"
-                }
-            },
-            "Type": "AWS::CodeBuild::Project"
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "DemoProject": {
+   "Properties": {
+    "Artifacts": {
+     "Type": "NO_ARTIFACTS"
+    },
+    "Environment": {
+     "ComputeType": "BUILD_GENERAL1_SMALL",
+     "EnvironmentVariables": [
+      {
+       "Name": "APP_NAME",
+       "Value": "demo"
+      }
+     ],
+     "Image": "aws/codebuild/java:openjdk-8",
+     "Type": "LINUX_CONTAINER"
+    },
+    "Name": "DemoProject",
+    "ServiceRole": "arn:aws:iam::0123456789:role/codebuild-role",
+    "Source": {
+     "Location": "codebuild-demo-test/0123ab9a371ebf0187b0fe5614fbb72c",
+     "Type": "S3"
     }
+   },
+   "Type": "AWS::CodeBuild::Project"
+  }
+ }
 }

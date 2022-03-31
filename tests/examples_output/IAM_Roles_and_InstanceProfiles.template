@@ -1,35 +1,35 @@
 {
-    "Description": "AWS CloudFormation Sample Template: This template demonstrates the creation of IAM Roles and InstanceProfiles.",
-    "Resources": {
-        "CFNInstanceProfile": {
-            "Properties": {
-                "Roles": [
-                    {
-                        "Ref": "CFNRole"
-                    }
-                ]
-            },
-            "Type": "AWS::IAM::InstanceProfile"
-        },
-        "CFNRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "ec2.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            "Type": "AWS::IAM::Role"
-        }
+ "Description": "AWS CloudFormation Sample Template: This template demonstrates the creation of IAM Roles and InstanceProfiles.",
+ "Resources": {
+  "CFNInstanceProfile": {
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "CFNRole"
+     }
+    ]
+   },
+   "Type": "AWS::IAM::InstanceProfile"
+  },
+  "CFNRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "ec2.amazonaws.com"
+        ]
+       }
+      }
+     ]
     }
+   },
+   "Type": "AWS::IAM::Role"
+  }
+ }
 }

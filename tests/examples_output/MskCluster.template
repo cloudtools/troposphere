@@ -1,53 +1,53 @@
 {
-    "Resources": {
-        "TestCluster": {
-            "Properties": {
-                "BrokerNodeGroupInfo": {
-                    "BrokerAZDistribution": "DEFAULT",
-                    "ClientSubnets": [
-                        "subnet-ce49ff7bcd",
-                        "subnet-2541a68474",
-                        "subnet-1d6b6f39da"
-                    ],
-                    "InstanceType": "kafka.m5.large",
-                    "SecurityGroups": [
-                        "sg-c73ebda3"
-                    ],
-                    "StorageInfo": {
-                        "EBSStorageInfo": {
-                            "VolumeSize": 100
-                        }
-                    }
-                },
-                "ClientAuthentication": {
-                    "Tls": {
-                        "CertificateAuthorityArnList": [
-                            "ReplaceWithCAArn"
-                        ]
-                    }
-                },
-                "ClusterName": "MyMskCluster",
-                "ConfigurationInfo": {
-                    "Arn": "arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1",
-                    "Revision": 1
-                },
-                "EncryptionInfo": {
-                    "EncryptionAtRest": {
-                        "DataVolumeKMSKeyId": "ReplaceWithKmsKeyArn"
-                    },
-                    "EncryptionInTransit": {
-                        "ClientBroker": "TLS",
-                        "InCluster": true
-                    }
-                },
-                "EnhancedMonitoring": "PER_BROKER",
-                "KafkaVersion": "2.1.0",
-                "NumberOfBrokerNodes": 3,
-                "Tags": {
-                    "MyTagName": "MyTagValue"
-                }
-            },
-            "Type": "AWS::MSK::Cluster"
-        }
+ "Resources": {
+  "TestCluster": {
+   "Properties": {
+    "BrokerNodeGroupInfo": {
+     "BrokerAZDistribution": "DEFAULT",
+     "ClientSubnets": [
+      "subnet-ce49ff7bcd",
+      "subnet-2541a68474",
+      "subnet-1d6b6f39da"
+     ],
+     "InstanceType": "kafka.m5.large",
+     "SecurityGroups": [
+      "sg-c73ebda3"
+     ],
+     "StorageInfo": {
+      "EBSStorageInfo": {
+       "VolumeSize": 100
+      }
+     }
+    },
+    "ClientAuthentication": {
+     "Tls": {
+      "CertificateAuthorityArnList": [
+       "ReplaceWithCAArn"
+      ]
+     }
+    },
+    "ClusterName": "MyMskCluster",
+    "ConfigurationInfo": {
+     "Arn": "arn:aws:kafka:us-east-1:123456789012:configuration/example-configuration-name/abcdabcd-1234-abcd-1234-abcd123e8e8e-1",
+     "Revision": 1
+    },
+    "EncryptionInfo": {
+     "EncryptionAtRest": {
+      "DataVolumeKMSKeyId": "ReplaceWithKmsKeyArn"
+     },
+     "EncryptionInTransit": {
+      "ClientBroker": "TLS",
+      "InCluster": true
+     }
+    },
+    "EnhancedMonitoring": "PER_BROKER",
+    "KafkaVersion": "2.1.0",
+    "NumberOfBrokerNodes": 3,
+    "Tags": {
+     "MyTagName": "MyTagValue"
     }
+   },
+   "Type": "AWS::MSK::Cluster"
+  }
+ }
 }

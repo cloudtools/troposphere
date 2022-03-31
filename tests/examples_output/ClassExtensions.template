@@ -1,26 +1,26 @@
 {
-    "Resources": {
-        "jones1": {
-            "Properties": {
-                "ImageId": "ami-xxxx",
-                "InstanceType": "t1.micro",
-                "Monitoring": true,
-                "SecurityGroups": [
-                    "frontend"
-                ]
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "williams1": {
-            "Properties": {
-                "ImageId": "ami-xxxx",
-                "InstanceType": "m2.large",
-                "Monitoring": true,
-                "SecurityGroups": [
-                    "processing"
-                ]
-            },
-            "Type": "AWS::EC2::Instance"
-        }
-    }
+ "Resources": {
+  "jones1": {
+   "Properties": {
+    "ImageId": "ami-xxxx",
+    "InstanceType": "t1.micro",
+    "Monitoring": true,
+    "SecurityGroups": [
+     "frontend"
+    ]
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "williams1": {
+   "Properties": {
+    "ImageId": "ami-xxxx",
+    "InstanceType": "m2.large",
+    "Monitoring": true,
+    "SecurityGroups": [
+     "processing"
+    ]
+   },
+   "Type": "AWS::EC2::Instance"
+  }
+ }
 }

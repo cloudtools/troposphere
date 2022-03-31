@@ -1,172 +1,172 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS Batch",
-    "Outputs": {
-        "BatchComputeEnvironment": {
-            "Value": {
-                "Ref": "BatchComputeEnvironment"
-            }
-        },
-        "BatchSecurityGroup": {
-            "Value": {
-                "Ref": "BatchSecurityGroup"
-            }
-        },
-        "ExampleJobQueue": {
-            "Value": {
-                "Ref": "ExampleJobQueue"
-            }
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "AWS Batch",
+ "Outputs": {
+  "BatchComputeEnvironment": {
+   "Value": {
+    "Ref": "BatchComputeEnvironment"
+   }
+  },
+  "BatchSecurityGroup": {
+   "Value": {
+    "Ref": "BatchSecurityGroup"
+   }
+  },
+  "ExampleJobQueue": {
+   "Value": {
+    "Ref": "ExampleJobQueue"
+   }
+  }
+ },
+ "Parameters": {
+  "PrivateSubnetA": {
+   "Type": "String"
+  },
+  "PrivateSubnetB": {
+   "Type": "String"
+  },
+  "Vpc": {
+   "ConstraintDescription": "Must be a valid VPC ID.",
+   "Type": "AWS::EC2::VPC::Id"
+  }
+ },
+ "Resources": {
+  "BatchComputeEnvironment": {
+   "Properties": {
+    "ComputeResources": {
+     "DesiredvCpus": 0,
+     "InstanceRole": {
+      "Ref": "BatchInstanceProfile"
+     },
+     "InstanceTypes": [
+      "m4.large"
+     ],
+     "LaunchTemplate": {
+      "LaunchTemplateName": "container-volume-encrypt"
+     },
+     "MaxvCpus": 10,
+     "MinvCpus": 0,
+     "PlacementGroup": "ExampleClusterGroup",
+     "SecurityGroupIds": [
+      {
+       "Fn::GetAtt": [
+        "BatchSecurityGroup",
+        "GroupId"
+       ]
+      }
+     ],
+     "Subnets": [
+      {
+       "Ref": "PrivateSubnetA"
+      },
+      {
+       "Ref": "PrivateSubnetB"
+      }
+     ],
+     "Tags": {
+      "Name": "batch-compute-environment",
+      "Project": "example"
+     },
+     "Type": "EC2"
     },
-    "Parameters": {
-        "PrivateSubnetA": {
-            "Type": "String"
-        },
-        "PrivateSubnetB": {
-            "Type": "String"
-        },
-        "Vpc": {
-            "ConstraintDescription": "Must be a valid VPC ID.",
-            "Type": "AWS::EC2::VPC::Id"
-        }
+    "ServiceRole": {
+     "Ref": "BatchServiceRole"
     },
-    "Resources": {
-        "BatchComputeEnvironment": {
-            "Properties": {
-                "ComputeResources": {
-                    "DesiredvCpus": 0,
-                    "InstanceRole": {
-                        "Ref": "BatchInstanceProfile"
-                    },
-                    "InstanceTypes": [
-                        "m4.large"
-                    ],
-                    "LaunchTemplate": {
-                        "LaunchTemplateName": "container-volume-encrypt"
-                    },
-                    "MaxvCpus": 10,
-                    "MinvCpus": 0,
-                    "PlacementGroup": "ExampleClusterGroup",
-                    "SecurityGroupIds": [
-                        {
-                            "Fn::GetAtt": [
-                                "BatchSecurityGroup",
-                                "GroupId"
-                            ]
-                        }
-                    ],
-                    "Subnets": [
-                        {
-                            "Ref": "PrivateSubnetA"
-                        },
-                        {
-                            "Ref": "PrivateSubnetB"
-                        }
-                    ],
-                    "Tags": {
-                        "Name": "batch-compute-environment",
-                        "Project": "example"
-                    },
-                    "Type": "EC2"
-                },
-                "ServiceRole": {
-                    "Ref": "BatchServiceRole"
-                },
-                "Type": "MANAGED"
-            },
-            "Type": "AWS::Batch::ComputeEnvironment"
-        },
-        "BatchInstanceProfile": {
-            "Properties": {
-                "Path": "/",
-                "Roles": [
-                    {
-                        "Ref": "BatchInstanceRole"
-                    }
-                ]
-            },
-            "Type": "AWS::IAM::InstanceProfile"
-        },
-        "BatchInstanceRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "ec2.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ManagedPolicyArns": [
-                    "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
-                ],
-                "Path": "/",
-                "Policies": []
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "BatchSecurityGroup": {
-            "Properties": {
-                "GroupDescription": "Enable access to Batch instances",
-                "Tags": [
-                    {
-                        "Key": "Name",
-                        "Value": "batch-sg"
-                    }
-                ],
-                "VpcId": {
-                    "Ref": "Vpc"
-                }
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        },
-        "BatchServiceRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "batch.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ManagedPolicyArns": [
-                    "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"
-                ],
-                "Path": "/",
-                "Policies": []
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "ExampleJobQueue": {
-            "Properties": {
-                "ComputeEnvironmentOrder": [
-                    {
-                        "ComputeEnvironment": {
-                            "Ref": "BatchComputeEnvironment"
-                        },
-                        "Order": 1
-                    }
-                ],
-                "JobQueueName": "example-job-queue",
-                "Priority": 1,
-                "State": "ENABLED"
-            },
-            "Type": "AWS::Batch::JobQueue"
-        }
+    "Type": "MANAGED"
+   },
+   "Type": "AWS::Batch::ComputeEnvironment"
+  },
+  "BatchInstanceProfile": {
+   "Properties": {
+    "Path": "/",
+    "Roles": [
+     {
+      "Ref": "BatchInstanceRole"
+     }
+    ]
+   },
+   "Type": "AWS::IAM::InstanceProfile"
+  },
+  "BatchInstanceRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "ec2.amazonaws.com"
+        ]
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     "arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceforEC2Role"
+    ],
+    "Path": "/",
+    "Policies": []
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "BatchSecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Enable access to Batch instances",
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "batch-sg"
+     }
+    ],
+    "VpcId": {
+     "Ref": "Vpc"
     }
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  },
+  "BatchServiceRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "batch.amazonaws.com"
+        ]
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     "arn:aws:iam::aws:policy/service-role/AWSBatchServiceRole"
+    ],
+    "Path": "/",
+    "Policies": []
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "ExampleJobQueue": {
+   "Properties": {
+    "ComputeEnvironmentOrder": [
+     {
+      "ComputeEnvironment": {
+       "Ref": "BatchComputeEnvironment"
+      },
+      "Order": 1
+     }
+    ],
+    "JobQueueName": "example-job-queue",
+    "Priority": 1,
+    "State": "ENABLED"
+   },
+   "Type": "AWS::Batch::JobQueue"
+  }
+ }
 }

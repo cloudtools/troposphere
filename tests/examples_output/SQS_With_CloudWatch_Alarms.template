@@ -1,88 +1,88 @@
 {
-    "Description": "AWS CloudFormation Sample Template SQS_With_CloudWatch_Alarms: Sample template showing how to create an SQS queue with AWS CloudWatch alarms on queue depth. **WARNING** This template creates an Amazon SQS Queue and one or more Amazon CloudWatch alarms. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "QueueARN": {
-            "Description": "ARN of newly created SQS Queue",
-            "Value": {
-                "Fn::GetAtt": [
-                    "MyQueue",
-                    "Arn"
-                ]
-            }
-        },
-        "QueueName": {
-            "Description": "Name newly created SQS Queue",
-            "Value": {
-                "Fn::GetAtt": [
-                    "MyQueue",
-                    "QueueName"
-                ]
-            }
-        },
-        "QueueURL": {
-            "Description": "URL of newly created SQS Queue",
-            "Value": {
-                "Ref": "MyQueue"
-            }
-        }
-    },
-    "Parameters": {
-        "AlarmEmail": {
-            "Default": "nobody@amazon.com",
-            "Description": "Email address to notify if there are any operational issues",
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "AlarmTopic": {
-            "Properties": {
-                "Subscription": [
-                    {
-                        "Endpoint": {
-                            "Ref": "AlarmEmail"
-                        },
-                        "Protocol": "email"
-                    }
-                ]
-            },
-            "Type": "AWS::SNS::Topic"
-        },
-        "MyQueue": {
-            "Type": "AWS::SQS::Queue"
-        },
-        "QueueDepthAlarm": {
-            "Properties": {
-                "AlarmActions": [
-                    {
-                        "Ref": "AlarmTopic"
-                    }
-                ],
-                "AlarmDescription": "Alarm if queue depth grows beyond 10 messages",
-                "ComparisonOperator": "GreaterThanThreshold",
-                "Dimensions": [
-                    {
-                        "Name": "QueueName",
-                        "Value": {
-                            "Fn::GetAtt": [
-                                "MyQueue",
-                                "QueueName"
-                            ]
-                        }
-                    }
-                ],
-                "EvaluationPeriods": "1",
-                "InsufficientDataActions": [
-                    {
-                        "Ref": "AlarmTopic"
-                    }
-                ],
-                "MetricName": "ApproximateNumberOfMessagesVisible",
-                "Namespace": "AWS/SQS",
-                "Period": "300",
-                "Statistic": "Sum",
-                "Threshold": "10"
-            },
-            "Type": "AWS::CloudWatch::Alarm"
-        }
-    }
+ "Description": "AWS CloudFormation Sample Template SQS_With_CloudWatch_Alarms: Sample template showing how to create an SQS queue with AWS CloudWatch alarms on queue depth. **WARNING** This template creates an Amazon SQS Queue and one or more Amazon CloudWatch alarms. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "QueueARN": {
+   "Description": "ARN of newly created SQS Queue",
+   "Value": {
+    "Fn::GetAtt": [
+     "MyQueue",
+     "Arn"
+    ]
+   }
+  },
+  "QueueName": {
+   "Description": "Name newly created SQS Queue",
+   "Value": {
+    "Fn::GetAtt": [
+     "MyQueue",
+     "QueueName"
+    ]
+   }
+  },
+  "QueueURL": {
+   "Description": "URL of newly created SQS Queue",
+   "Value": {
+    "Ref": "MyQueue"
+   }
+  }
+ },
+ "Parameters": {
+  "AlarmEmail": {
+   "Default": "nobody@amazon.com",
+   "Description": "Email address to notify if there are any operational issues",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "AlarmTopic": {
+   "Properties": {
+    "Subscription": [
+     {
+      "Endpoint": {
+       "Ref": "AlarmEmail"
+      },
+      "Protocol": "email"
+     }
+    ]
+   },
+   "Type": "AWS::SNS::Topic"
+  },
+  "MyQueue": {
+   "Type": "AWS::SQS::Queue"
+  },
+  "QueueDepthAlarm": {
+   "Properties": {
+    "AlarmActions": [
+     {
+      "Ref": "AlarmTopic"
+     }
+    ],
+    "AlarmDescription": "Alarm if queue depth grows beyond 10 messages",
+    "ComparisonOperator": "GreaterThanThreshold",
+    "Dimensions": [
+     {
+      "Name": "QueueName",
+      "Value": {
+       "Fn::GetAtt": [
+        "MyQueue",
+        "QueueName"
+       ]
+      }
+     }
+    ],
+    "EvaluationPeriods": "1",
+    "InsufficientDataActions": [
+     {
+      "Ref": "AlarmTopic"
+     }
+    ],
+    "MetricName": "ApproximateNumberOfMessagesVisible",
+    "Namespace": "AWS/SQS",
+    "Period": "300",
+    "Statistic": "Sum",
+    "Threshold": "10"
+   },
+   "Type": "AWS::CloudWatch::Alarm"
+  }
+ }
 }

@@ -1,29 +1,29 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Resources": {
-        "MediaPackage": {
-            "Properties": {
-                "Id": "MediaPackageChannel"
-            },
-            "Type": "AWS::MediaPackage::Channel"
-        },
-        "MediaPackageOriginEndpoint": {
-            "Properties": {
-                "ChannelId": "MediaPackageChannel",
-                "Description": "MediaPackage HLS endpoint",
-                "HlsPackage": {
-                    "IncludeIframeOnlyStream": false,
-                    "PlaylistType": "NONE",
-                    "PlaylistWindowSeconds": 60,
-                    "ProgramDateTimeIntervalSeconds": 0,
-                    "SegmentDurationSeconds": 6,
-                    "UseAudioRenditionGroup": false
-                },
-                "Id": "MediaPackageOriginEndpoint",
-                "ManifestName": "MediaPackageOriginEndpoint",
-                "Origination": "ALLOW"
-            },
-            "Type": "AWS::MediaPackage::OriginEndpoint"
-        }
-    }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "MediaPackage": {
+   "Properties": {
+    "Id": "MediaPackageChannel"
+   },
+   "Type": "AWS::MediaPackage::Channel"
+  },
+  "MediaPackageOriginEndpoint": {
+   "Properties": {
+    "ChannelId": "MediaPackageChannel",
+    "Description": "MediaPackage HLS endpoint",
+    "HlsPackage": {
+     "IncludeIframeOnlyStream": false,
+     "PlaylistType": "NONE",
+     "PlaylistWindowSeconds": 60,
+     "ProgramDateTimeIntervalSeconds": 0,
+     "SegmentDurationSeconds": 6,
+     "UseAudioRenditionGroup": false
+    },
+    "Id": "MediaPackageOriginEndpoint",
+    "ManifestName": "MediaPackageOriginEndpoint",
+    "Origination": "ALLOW"
+   },
+   "Type": "AWS::MediaPackage::OriginEndpoint"
+  }
+ }
 }

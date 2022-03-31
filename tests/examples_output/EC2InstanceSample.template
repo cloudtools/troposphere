@@ -1,112 +1,112 @@
 {
-    "Mappings": {
-        "RegionMap": {
-            "ap-northeast-1": {
-                "AMI": "ami-dcfa4edd"
-            },
-            "ap-southeast-1": {
-                "AMI": "ami-74dda626"
-            },
-            "eu-west-1": {
-                "AMI": "ami-24506250"
-            },
-            "sa-east-1": {
-                "AMI": "ami-3e3be423"
-            },
-            "us-east-1": {
-                "AMI": "ami-7f418316"
-            },
-            "us-west-1": {
-                "AMI": "ami-951945d0"
-            },
-            "us-west-2": {
-                "AMI": "ami-16fd7026"
-            }
-        }
+ "Mappings": {
+  "RegionMap": {
+   "ap-northeast-1": {
+    "AMI": "ami-dcfa4edd"
+   },
+   "ap-southeast-1": {
+    "AMI": "ami-74dda626"
+   },
+   "eu-west-1": {
+    "AMI": "ami-24506250"
+   },
+   "sa-east-1": {
+    "AMI": "ami-3e3be423"
+   },
+   "us-east-1": {
+    "AMI": "ami-7f418316"
+   },
+   "us-west-1": {
+    "AMI": "ami-951945d0"
+   },
+   "us-west-2": {
+    "AMI": "ami-16fd7026"
+   }
+  }
+ },
+ "Outputs": {
+  "AZ": {
+   "Description": "Availability Zone of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "AvailabilityZone"
+    ]
+   }
+  },
+  "InstanceId": {
+   "Description": "InstanceId of the newly created EC2 instance",
+   "Value": {
+    "Ref": "Ec2Instance"
+   }
+  },
+  "PrivateDNS": {
+   "Description": "Private DNSName of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PrivateDnsName"
+    ]
+   }
+  },
+  "PrivateIP": {
+   "Description": "Private IP address of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PrivateIp"
+    ]
+   }
+  },
+  "PublicDNS": {
+   "Description": "Public DNSName of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PublicDnsName"
+    ]
+   }
+  },
+  "PublicIP": {
+   "Description": "Public IP address of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PublicIp"
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "KeyName": {
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "Ec2Instance": {
+   "Properties": {
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
     },
-    "Outputs": {
-        "AZ": {
-            "Description": "Availability Zone of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "AvailabilityZone"
-                ]
-            }
-        },
-        "InstanceId": {
-            "Description": "InstanceId of the newly created EC2 instance",
-            "Value": {
-                "Ref": "Ec2Instance"
-            }
-        },
-        "PrivateDNS": {
-            "Description": "Private DNSName of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PrivateDnsName"
-                ]
-            }
-        },
-        "PrivateIP": {
-            "Description": "Private IP address of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PrivateIp"
-                ]
-            }
-        },
-        "PublicDNS": {
-            "Description": "Public DNSName of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PublicDnsName"
-                ]
-            }
-        },
-        "PublicIP": {
-            "Description": "Public IP address of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PublicIp"
-                ]
-            }
-        }
+    "InstanceType": "t1.micro",
+    "KeyName": {
+     "Ref": "KeyName"
     },
-    "Parameters": {
-        "KeyName": {
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "Ec2Instance": {
-            "Properties": {
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": "t1.micro",
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    "default"
-                ],
-                "UserData": {
-                    "Fn::Base64": "80"
-                }
-            },
-            "Type": "AWS::EC2::Instance"
-        }
+    "SecurityGroups": [
+     "default"
+    ],
+    "UserData": {
+     "Fn::Base64": "80"
     }
+   },
+   "Type": "AWS::EC2::Instance"
+  }
+ }
 }

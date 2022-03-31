@@ -1,167 +1,167 @@
 {
-    "Conditions": {
-        "BarEqualsTwo": {
-            "Fn::Equals": [
-                "Bar",
-                {
-                    "Ref": "Two"
-                }
-            ]
-        },
-        "LaunchInstance": {
-            "Fn::And": [
-                {
-                    "Condition": "OneEqualsFoo"
-                },
-                {
-                    "Condition": "NotOneEqualsFoo"
-                },
-                {
-                    "Condition": "BarEqualsTwo"
-                },
-                {
-                    "Condition": "OneEqualsFooAndNotBarEqualsTwo"
-                },
-                {
-                    "Condition": "OneIsQuzAndThreeEqualsFour"
-                }
-            ]
-        },
-        "LaunchWithGusto": {
-            "Fn::And": [
-                {
-                    "Condition": "LaunchInstance"
-                },
-                {
-                    "Fn::Equals": [
-                        {
-                            "Ref": "One"
-                        },
-                        "Gusto"
-                    ]
-                }
-            ]
-        },
-        "NotOneEqualsFoo": {
-            "Fn::Not": [
-                {
-                    "Condition": "OneEqualsFoo"
-                }
-            ]
-        },
-        "OneEqualsFoo": {
-            "Fn::Equals": [
-                {
-                    "Ref": "One"
-                },
-                "Foo"
-            ]
-        },
-        "OneEqualsFooAndBarEqualsTwoAndThreeEqualsPft": {
-            "Fn::And": [
-                {
-                    "Condition": "OneEqualsFoo"
-                },
-                {
-                    "Condition": "BarEqualsTwo"
-                },
-                {
-                    "Fn::Equals": [
-                        {
-                            "Ref": "Three"
-                        },
-                        "Pft"
-                    ]
-                }
-            ]
-        },
-        "OneEqualsFooAndNotBarEqualsTwo": {
-            "Fn::And": [
-                {
-                    "Condition": "OneEqualsFoo"
-                },
-                {
-                    "Fn::Not": [
-                        {
-                            "Condition": "BarEqualsTwo"
-                        }
-                    ]
-                }
-            ]
-        },
-        "OneEqualsFooOrBarEqualsTwo": {
-            "Fn::Or": [
-                {
-                    "Condition": "OneEqualsFoo"
-                },
-                {
-                    "Condition": "BarEqualsTwo"
-                }
-            ]
-        },
-        "OneIsQuzAndThreeEqualsFour": {
-            "Fn::And": [
-                {
-                    "Fn::Equals": [
-                        {
-                            "Ref": "One"
-                        },
-                        "Quz"
-                    ]
-                },
-                {
-                    "Condition": "ThreeEqualsFour"
-                }
-            ]
-        },
-        "ThreeEqualsFour": {
-            "Fn::Equals": [
-                {
-                    "Ref": "Three"
-                },
-                {
-                    "Ref": "Four"
-                }
-            ]
-        }
-    },
-    "Parameters": {
-        "Four": {
-            "Type": "String"
-        },
-        "One": {
-            "Type": "String"
-        },
-        "SshKeyName": {
-            "Type": "String"
-        },
-        "Three": {
-            "Type": "String"
-        },
-        "Two": {
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "Ec2Instance": {
-            "Condition": "LaunchInstance",
-            "Properties": {
-                "ImageId": {
-                    "Fn::If": [
-                        "ConditionNameEqualsFoo",
-                        "ami-12345678",
-                        "ami-87654321"
-                    ]
-                },
-                "InstanceType": "t1.micro",
-                "KeyName": {
-                    "Ref": "SshKeyName"
-                },
-                "SecurityGroups": [
-                    "default"
-                ]
-            },
-            "Type": "AWS::EC2::Instance"
-        }
+ "Conditions": {
+  "BarEqualsTwo": {
+   "Fn::Equals": [
+    "Bar",
+    {
+     "Ref": "Two"
     }
+   ]
+  },
+  "LaunchInstance": {
+   "Fn::And": [
+    {
+     "Condition": "OneEqualsFoo"
+    },
+    {
+     "Condition": "NotOneEqualsFoo"
+    },
+    {
+     "Condition": "BarEqualsTwo"
+    },
+    {
+     "Condition": "OneEqualsFooAndNotBarEqualsTwo"
+    },
+    {
+     "Condition": "OneIsQuzAndThreeEqualsFour"
+    }
+   ]
+  },
+  "LaunchWithGusto": {
+   "Fn::And": [
+    {
+     "Condition": "LaunchInstance"
+    },
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "One"
+      },
+      "Gusto"
+     ]
+    }
+   ]
+  },
+  "NotOneEqualsFoo": {
+   "Fn::Not": [
+    {
+     "Condition": "OneEqualsFoo"
+    }
+   ]
+  },
+  "OneEqualsFoo": {
+   "Fn::Equals": [
+    {
+     "Ref": "One"
+    },
+    "Foo"
+   ]
+  },
+  "OneEqualsFooAndBarEqualsTwoAndThreeEqualsPft": {
+   "Fn::And": [
+    {
+     "Condition": "OneEqualsFoo"
+    },
+    {
+     "Condition": "BarEqualsTwo"
+    },
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "Three"
+      },
+      "Pft"
+     ]
+    }
+   ]
+  },
+  "OneEqualsFooAndNotBarEqualsTwo": {
+   "Fn::And": [
+    {
+     "Condition": "OneEqualsFoo"
+    },
+    {
+     "Fn::Not": [
+      {
+       "Condition": "BarEqualsTwo"
+      }
+     ]
+    }
+   ]
+  },
+  "OneEqualsFooOrBarEqualsTwo": {
+   "Fn::Or": [
+    {
+     "Condition": "OneEqualsFoo"
+    },
+    {
+     "Condition": "BarEqualsTwo"
+    }
+   ]
+  },
+  "OneIsQuzAndThreeEqualsFour": {
+   "Fn::And": [
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "One"
+      },
+      "Quz"
+     ]
+    },
+    {
+     "Condition": "ThreeEqualsFour"
+    }
+   ]
+  },
+  "ThreeEqualsFour": {
+   "Fn::Equals": [
+    {
+     "Ref": "Three"
+    },
+    {
+     "Ref": "Four"
+    }
+   ]
+  }
+ },
+ "Parameters": {
+  "Four": {
+   "Type": "String"
+  },
+  "One": {
+   "Type": "String"
+  },
+  "SshKeyName": {
+   "Type": "String"
+  },
+  "Three": {
+   "Type": "String"
+  },
+  "Two": {
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "Ec2Instance": {
+   "Condition": "LaunchInstance",
+   "Properties": {
+    "ImageId": {
+     "Fn::If": [
+      "ConditionNameEqualsFoo",
+      "ami-12345678",
+      "ami-87654321"
+     ]
+    },
+    "InstanceType": "t1.micro",
+    "KeyName": {
+     "Ref": "SshKeyName"
+    },
+    "SecurityGroups": [
+     "default"
+    ]
+   },
+   "Type": "AWS::EC2::Instance"
+  }
+ }
 }

@@ -1,221 +1,221 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS CloudFormation Sample Template: ELB with 2 EC2 instances",
-    "Mappings": {
-        "RegionMap": {
-            "ap-northeast-1": {
-                "AMI": "ami-9c03a89d"
-            },
-            "ap-southeast-1": {
-                "AMI": "ami-66f28c34"
-            },
-            "eu-west-1": {
-                "AMI": "ami-37c2f643"
-            },
-            "sa-east-1": {
-                "AMI": "ami-a039e6bd"
-            },
-            "us-east-1": {
-                "AMI": "ami-6411e20d"
-            },
-            "us-west-1": {
-                "AMI": "ami-c9c7978c"
-            },
-            "us-west-2": {
-                "AMI": "ami-fcff72cc"
-            }
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "AWS CloudFormation Sample Template: ELB with 2 EC2 instances",
+ "Mappings": {
+  "RegionMap": {
+   "ap-northeast-1": {
+    "AMI": "ami-9c03a89d"
+   },
+   "ap-southeast-1": {
+    "AMI": "ami-66f28c34"
+   },
+   "eu-west-1": {
+    "AMI": "ami-37c2f643"
+   },
+   "sa-east-1": {
+    "AMI": "ami-a039e6bd"
+   },
+   "us-east-1": {
+    "AMI": "ami-6411e20d"
+   },
+   "us-west-1": {
+    "AMI": "ami-c9c7978c"
+   },
+   "us-west-2": {
+    "AMI": "ami-fcff72cc"
+   }
+  }
+ },
+ "Outputs": {
+  "URL": {
+   "Description": "URL of the sample website",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "ElasticLoadBalancer",
+        "DNSName"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "InstanceType": {
+   "AllowedValues": [
+    "t1.micro",
+    "m1.small",
+    "m1.medium",
+    "m1.large",
+    "m1.xlarge",
+    "m2.xlarge",
+    "m2.2xlarge",
+    "m2.4xlarge",
+    "c1.medium",
+    "c1.xlarge",
+    "cc1.4xlarge",
+    "cc2.8xlarge",
+    "cg1.4xlarge"
+   ],
+   "ConstraintDescription": "must be a valid EC2 instance type.",
+   "Default": "m1.small",
+   "Description": "WebServer EC2 instance type",
+   "Type": "String"
+  },
+  "KeyName": {
+   "Default": "mark",
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+   "Type": "String"
+  },
+  "WebServerPort": {
+   "Default": "8888",
+   "Description": "TCP/IP port of the web server",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "Ec2Instance1": {
+   "Properties": {
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
     },
-    "Outputs": {
-        "URL": {
-            "Description": "URL of the sample website",
-            "Value": {
-                "Fn::Join": [
-                    "",
-                    [
-                        "http://",
-                        {
-                            "Fn::GetAtt": [
-                                "ElasticLoadBalancer",
-                                "DNSName"
-                            ]
-                        }
-                    ]
-                ]
-            }
-        }
+    "InstanceType": {
+     "Ref": "InstanceType"
     },
-    "Parameters": {
-        "InstanceType": {
-            "AllowedValues": [
-                "t1.micro",
-                "m1.small",
-                "m1.medium",
-                "m1.large",
-                "m1.xlarge",
-                "m2.xlarge",
-                "m2.2xlarge",
-                "m2.4xlarge",
-                "c1.medium",
-                "c1.xlarge",
-                "cc1.4xlarge",
-                "cc2.8xlarge",
-                "cg1.4xlarge"
-            ],
-            "ConstraintDescription": "must be a valid EC2 instance type.",
-            "Default": "m1.small",
-            "Description": "WebServer EC2 instance type",
-            "Type": "String"
-        },
-        "KeyName": {
-            "Default": "mark",
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
-            "Type": "String"
-        },
-        "WebServerPort": {
-            "Default": "8888",
-            "Description": "TCP/IP port of the web server",
-            "Type": "String"
-        }
+    "KeyName": {
+     "Ref": "KeyName"
     },
-    "Resources": {
-        "Ec2Instance1": {
-            "Properties": {
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": {
-                    "Ref": "InstanceType"
-                },
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "InstanceSecurityGroup"
-                    }
-                ],
-                "UserData": {
-                    "Fn::Base64": {
-                        "Ref": "WebServerPort"
-                    }
-                }
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "Ec2Instance2": {
-            "Properties": {
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": {
-                    "Ref": "InstanceType"
-                },
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "InstanceSecurityGroup"
-                    }
-                ],
-                "UserData": {
-                    "Fn::Base64": {
-                        "Ref": "WebServerPort"
-                    }
-                }
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "ElasticLoadBalancer": {
-            "Properties": {
-                "AccessLoggingPolicy": {
-                    "EmitInterval": 5,
-                    "Enabled": true,
-                    "S3BucketName": "logging",
-                    "S3BucketPrefix": "myELB"
-                },
-                "AvailabilityZones": {
-                    "Fn::GetAZs": ""
-                },
-                "ConnectionDrainingPolicy": {
-                    "Enabled": true,
-                    "Timeout": 300
-                },
-                "CrossZone": true,
-                "HealthCheck": {
-                    "HealthyThreshold": "3",
-                    "Interval": "30",
-                    "Target": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "HTTP:",
-                                {
-                                    "Ref": "WebServerPort"
-                                },
-                                "/"
-                            ]
-                        ]
-                    },
-                    "Timeout": "5",
-                    "UnhealthyThreshold": "5"
-                },
-                "Instances": [
-                    {
-                        "Ref": "Ec2Instance1"
-                    },
-                    {
-                        "Ref": "Ec2Instance2"
-                    }
-                ],
-                "Listeners": [
-                    {
-                        "InstancePort": {
-                            "Ref": "WebServerPort"
-                        },
-                        "LoadBalancerPort": "80",
-                        "Protocol": "HTTP"
-                    }
-                ]
-            },
-            "Type": "AWS::ElasticLoadBalancing::LoadBalancer"
-        },
-        "InstanceSecurityGroup": {
-            "Properties": {
-                "GroupDescription": "Enable SSH and HTTP access on the inbound port",
-                "SecurityGroupIngress": [
-                    {
-                        "CidrIp": "0.0.0.0/0",
-                        "FromPort": "22",
-                        "IpProtocol": "tcp",
-                        "ToPort": "22"
-                    },
-                    {
-                        "CidrIp": "0.0.0.0/0",
-                        "FromPort": {
-                            "Ref": "WebServerPort"
-                        },
-                        "IpProtocol": "tcp",
-                        "ToPort": {
-                            "Ref": "WebServerPort"
-                        }
-                    }
-                ]
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        }
+    "SecurityGroups": [
+     {
+      "Ref": "InstanceSecurityGroup"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": {
+      "Ref": "WebServerPort"
+     }
     }
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "Ec2Instance2": {
+   "Properties": {
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
+    },
+    "InstanceType": {
+     "Ref": "InstanceType"
+    },
+    "KeyName": {
+     "Ref": "KeyName"
+    },
+    "SecurityGroups": [
+     {
+      "Ref": "InstanceSecurityGroup"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": {
+      "Ref": "WebServerPort"
+     }
+    }
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "ElasticLoadBalancer": {
+   "Properties": {
+    "AccessLoggingPolicy": {
+     "EmitInterval": 5,
+     "Enabled": true,
+     "S3BucketName": "logging",
+     "S3BucketPrefix": "myELB"
+    },
+    "AvailabilityZones": {
+     "Fn::GetAZs": ""
+    },
+    "ConnectionDrainingPolicy": {
+     "Enabled": true,
+     "Timeout": 300
+    },
+    "CrossZone": true,
+    "HealthCheck": {
+     "HealthyThreshold": "3",
+     "Interval": "30",
+     "Target": {
+      "Fn::Join": [
+       "",
+       [
+        "HTTP:",
+        {
+         "Ref": "WebServerPort"
+        },
+        "/"
+       ]
+      ]
+     },
+     "Timeout": "5",
+     "UnhealthyThreshold": "5"
+    },
+    "Instances": [
+     {
+      "Ref": "Ec2Instance1"
+     },
+     {
+      "Ref": "Ec2Instance2"
+     }
+    ],
+    "Listeners": [
+     {
+      "InstancePort": {
+       "Ref": "WebServerPort"
+      },
+      "LoadBalancerPort": "80",
+      "Protocol": "HTTP"
+     }
+    ]
+   },
+   "Type": "AWS::ElasticLoadBalancing::LoadBalancer"
+  },
+  "InstanceSecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Enable SSH and HTTP access on the inbound port",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "FromPort": "22",
+      "IpProtocol": "tcp",
+      "ToPort": "22"
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "FromPort": {
+       "Ref": "WebServerPort"
+      },
+      "IpProtocol": "tcp",
+      "ToPort": {
+       "Ref": "WebServerPort"
+      }
+     }
+    ]
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  }
+ }
 }

@@ -1,97 +1,97 @@
 {
-    "Description": "2012-09-09",
-    "Parameters": {
-        "RHELPatchGroupName": {
-            "Description": "The value of the RHEL patch group tag that will have the baseline applied to them.",
-            "Type": "String"
-        },
-        "WindowsPatchGroupName": {
-            "Description": "The value of the Windows patch group tagthat will have baseline applied to them.",
-            "Type": "String"
-        }
+ "Description": "2012-09-09",
+ "Parameters": {
+  "RHELPatchGroupName": {
+   "Description": "The value of the RHEL patch group tag that will have the baseline applied to them.",
+   "Type": "String"
+  },
+  "WindowsPatchGroupName": {
+   "Description": "The value of the Windows patch group tagthat will have baseline applied to them.",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "LinuxBaselineTimestampParameter": {
+   "Properties": {
+    "Name": "/OS/REDHAT",
+    "Type": "String",
+    "Value": "Redhat TIME_STAMP_VALUE"
+   },
+   "Type": "AWS::SSM::Parameter"
+  },
+  "RHELBASELINE": {
+   "Properties": {
+    "ApprovalRules": {
+     "PatchRules": [
+      {
+       "ApproveAfterDays": 90,
+       "ComplianceLevel": "CRITICAL",
+       "PatchFilterGroup": {
+        "PatchFilters": [
+         {
+          "Key": "CLASSIFICATION",
+          "Values": [
+           "Security"
+          ]
+         }
+        ]
+       }
+      }
+     ]
     },
-    "Resources": {
-        "LinuxBaselineTimestampParameter": {
-            "Properties": {
-                "Name": "/OS/REDHAT",
-                "Type": "String",
-                "Value": "Redhat TIME_STAMP_VALUE"
-            },
-            "Type": "AWS::SSM::Parameter"
-        },
-        "RHELBASELINE": {
-            "Properties": {
-                "ApprovalRules": {
-                    "PatchRules": [
-                        {
-                            "ApproveAfterDays": 90,
-                            "ComplianceLevel": "CRITICAL",
-                            "PatchFilterGroup": {
-                                "PatchFilters": [
-                                    {
-                                        "Key": "CLASSIFICATION",
-                                        "Values": [
-                                            "Security"
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "Description": "Baseline containing all updates approved",
-                "Name": {
-                    "Ref": "RHELPatchGroupName"
-                },
-                "OperatingSystem": "REDHAT_ENTERPRISE_LINUX",
-                "PatchGroups": [
-                    {
-                        "Ref": "RHELPatchGroupName"
-                    }
-                ]
-            },
-            "Type": "AWS::SSM::PatchBaseline"
-        },
-        "WINDOWSBASELINE": {
-            "Properties": {
-                "ApprovalRules": {
-                    "PatchRules": [
-                        {
-                            "ApproveAfterDays": 90,
-                            "ComplianceLevel": "CRITICAL",
-                            "PatchFilterGroup": {
-                                "PatchFilters": [
-                                    {
-                                        "Key": "CLASSIFICATION",
-                                        "Values": [
-                                            "SecurityUpdates"
-                                        ]
-                                    }
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "Description": "Baseline containing all updates approved",
-                "Name": {
-                    "Ref": "WindowsPatchGroupName"
-                },
-                "OperatingSystem": "WINDOWS",
-                "PatchGroups": [
-                    {
-                        "Ref": "WindowsPatchGroupName"
-                    }
-                ]
-            },
-            "Type": "AWS::SSM::PatchBaseline"
-        },
-        "WindowsBaselineTimestampParameter": {
-            "Properties": {
-                "Name": "/OS/WINDOWS",
-                "Type": "String",
-                "Value": "Windows TIMESTAMP_VALUE"
-            },
-            "Type": "AWS::SSM::Parameter"
-        }
-    }
+    "Description": "Baseline containing all updates approved",
+    "Name": {
+     "Ref": "RHELPatchGroupName"
+    },
+    "OperatingSystem": "REDHAT_ENTERPRISE_LINUX",
+    "PatchGroups": [
+     {
+      "Ref": "RHELPatchGroupName"
+     }
+    ]
+   },
+   "Type": "AWS::SSM::PatchBaseline"
+  },
+  "WINDOWSBASELINE": {
+   "Properties": {
+    "ApprovalRules": {
+     "PatchRules": [
+      {
+       "ApproveAfterDays": 90,
+       "ComplianceLevel": "CRITICAL",
+       "PatchFilterGroup": {
+        "PatchFilters": [
+         {
+          "Key": "CLASSIFICATION",
+          "Values": [
+           "SecurityUpdates"
+          ]
+         }
+        ]
+       }
+      }
+     ]
+    },
+    "Description": "Baseline containing all updates approved",
+    "Name": {
+     "Ref": "WindowsPatchGroupName"
+    },
+    "OperatingSystem": "WINDOWS",
+    "PatchGroups": [
+     {
+      "Ref": "WindowsPatchGroupName"
+     }
+    ]
+   },
+   "Type": "AWS::SSM::PatchBaseline"
+  },
+  "WindowsBaselineTimestampParameter": {
+   "Properties": {
+    "Name": "/OS/WINDOWS",
+    "Type": "String",
+    "Value": "Windows TIMESTAMP_VALUE"
+   },
+   "Type": "AWS::SSM::Parameter"
+  }
+ }
 }

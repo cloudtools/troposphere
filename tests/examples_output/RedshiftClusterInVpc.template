@@ -1,190 +1,190 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Conditions": {
-        "IsMultiNodeCluster": {
-            "Fn::Equals": [
-                {
-                    "Ref": "ClusterType"
-                },
-                "multi-node"
-            ]
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Conditions": {
+  "IsMultiNodeCluster": {
+   "Fn::Equals": [
+    {
+     "Ref": "ClusterType"
     },
-    "Description": "AWS CloudFormation Sample Template: Redshift cluster in a VPC",
-    "Outputs": {
-        "ClusterEndpoint": {
-            "Value": {
-                "Fn::Join": [
-                    ":",
-                    [
-                        {
-                            "Fn::GetAtt": [
-                                "RedshiftCluster",
-                                "Endpoint.Address"
-                            ]
-                        },
-                        {
-                            "Fn::GetAtt": [
-                                "RedshiftCluster",
-                                "Endpoint.Port"
-                            ]
-                        }
-                    ]
-                ]
-            }
-        }
+    "multi-node"
+   ]
+  }
+ },
+ "Description": "AWS CloudFormation Sample Template: Redshift cluster in a VPC",
+ "Outputs": {
+  "ClusterEndpoint": {
+   "Value": {
+    "Fn::Join": [
+     ":",
+     [
+      {
+       "Fn::GetAtt": [
+        "RedshiftCluster",
+        "Endpoint.Address"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "RedshiftCluster",
+        "Endpoint.Port"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "ClusterType": {
+   "AllowedValues": [
+    "single-node",
+    "multi-node"
+   ],
+   "Default": "single-node",
+   "Description": "The type of the cluster",
+   "Type": "String"
+  },
+  "DatabaseName": {
+   "AllowedPattern": "([a-z]|[0-9])+",
+   "Default": "defaultdb",
+   "Description": "The name of the first database to be created when the redshift cluster is created",
+   "Type": "String"
+  },
+  "MasterUserPassword": {
+   "Description": "The password associated with the master user account for the redshift cluster that is being created.",
+   "NoEcho": true,
+   "Type": "String"
+  },
+  "MasterUsername": {
+   "AllowedPattern": "([a-z])([a-z]|[0-9])*",
+   "Default": "defaultuser",
+   "Description": "The user name associated with the master user account for the redshift cluster that is being created",
+   "NoEcho": true,
+   "Type": "String"
+  },
+  "NodeType": {
+   "Default": "dw2.large",
+   "Description": "The node type to be provisioned for the redshift cluster",
+   "Type": "String"
+  },
+  "NumberOfNodes": {
+   "Default": "1",
+   "Description": "The number of compute nodes in the redshift cluster. When cluster type is specified as: 1) single-node, the NumberOfNodes parameter should be specified as 1, 2) multi-node, the NumberOfNodes parameter should be greater than 1",
+   "Type": "Number"
+  }
+ },
+ "Resources": {
+  "GatewayAttachment": {
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "InternetGateway"
     },
-    "Parameters": {
-        "ClusterType": {
-            "AllowedValues": [
-                "single-node",
-                "multi-node"
-            ],
-            "Default": "single-node",
-            "Description": "The type of the cluster",
-            "Type": "String"
-        },
-        "DatabaseName": {
-            "AllowedPattern": "([a-z]|[0-9])+",
-            "Default": "defaultdb",
-            "Description": "The name of the first database to be created when the redshift cluster is created",
-            "Type": "String"
-        },
-        "MasterUserPassword": {
-            "Description": "The password associated with the master user account for the redshift cluster that is being created.",
-            "NoEcho": true,
-            "Type": "String"
-        },
-        "MasterUsername": {
-            "AllowedPattern": "([a-z])([a-z]|[0-9])*",
-            "Default": "defaultuser",
-            "Description": "The user name associated with the master user account for the redshift cluster that is being created",
-            "NoEcho": true,
-            "Type": "String"
-        },
-        "NodeType": {
-            "Default": "dw2.large",
-            "Description": "The node type to be provisioned for the redshift cluster",
-            "Type": "String"
-        },
-        "NumberOfNodes": {
-            "Default": "1",
-            "Description": "The number of compute nodes in the redshift cluster. When cluster type is specified as: 1) single-node, the NumberOfNodes parameter should be specified as 1, 2) multi-node, the NumberOfNodes parameter should be greater than 1",
-            "Type": "Number"
-        }
-    },
-    "Resources": {
-        "GatewayAttachment": {
-            "Properties": {
-                "InternetGatewayId": {
-                    "Ref": "InternetGateway"
-                },
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::VPCGatewayAttachment"
-        },
-        "InternetGateway": {
-            "Type": "AWS::EC2::InternetGateway"
-        },
-        "RedshiftCluster": {
-            "Properties": {
-                "ClusterParameterGroupName": {
-                    "Ref": "RedshiftClusterParameterGroup"
-                },
-                "ClusterSubnetGroupName": {
-                    "Ref": "RedshiftClusterSubnetGroup"
-                },
-                "ClusterType": {
-                    "Ref": "ClusterType"
-                },
-                "DBName": {
-                    "Ref": "DatabaseName"
-                },
-                "MasterUserPassword": {
-                    "Ref": "MasterUserPassword"
-                },
-                "MasterUsername": {
-                    "Ref": "MasterUsername"
-                },
-                "NodeType": {
-                    "Ref": "NodeType"
-                },
-                "NumberOfNodes": {
-                    "Fn::If": [
-                        "IsMultiNodeCluster",
-                        {
-                            "Ref": "NumberOfNodes"
-                        },
-                        {
-                            "Ref": "AWS::NoValue"
-                        }
-                    ]
-                },
-                "VpcSecurityGroupIds": [
-                    {
-                        "Ref": "SecurityGroup"
-                    }
-                ]
-            },
-            "Type": "AWS::Redshift::Cluster"
-        },
-        "RedshiftClusterParameterGroup": {
-            "Properties": {
-                "Description": "Cluster parameter group",
-                "ParameterGroupFamily": "redshift-1.0",
-                "Parameters": [
-                    {
-                        "ParameterName": "enable_user_activity_logging",
-                        "ParameterValue": "true"
-                    }
-                ]
-            },
-            "Type": "AWS::Redshift::ClusterParameterGroup"
-        },
-        "RedshiftClusterSubnetGroup": {
-            "Properties": {
-                "Description": "Cluster subnet group",
-                "SubnetIds": [
-                    {
-                        "Ref": "Subnet"
-                    }
-                ]
-            },
-            "Type": "AWS::Redshift::ClusterSubnetGroup"
-        },
-        "SecurityGroup": {
-            "Properties": {
-                "GroupDescription": "Security Group",
-                "SecurityGroupIngress": [
-                    {
-                        "CidrIp": "10.0.0.0/16",
-                        "FromPort": "80",
-                        "IpProtocol": "tcp",
-                        "ToPort": "80"
-                    }
-                ],
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        },
-        "Subnet": {
-            "Properties": {
-                "CidrBlock": "10.0.0.0/24",
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::Subnet"
-        },
-        "VPC": {
-            "Properties": {
-                "CidrBlock": "10.0.0.0/16"
-            },
-            "Type": "AWS::EC2::VPC"
-        }
+    "VpcId": {
+     "Ref": "VPC"
     }
+   },
+   "Type": "AWS::EC2::VPCGatewayAttachment"
+  },
+  "InternetGateway": {
+   "Type": "AWS::EC2::InternetGateway"
+  },
+  "RedshiftCluster": {
+   "Properties": {
+    "ClusterParameterGroupName": {
+     "Ref": "RedshiftClusterParameterGroup"
+    },
+    "ClusterSubnetGroupName": {
+     "Ref": "RedshiftClusterSubnetGroup"
+    },
+    "ClusterType": {
+     "Ref": "ClusterType"
+    },
+    "DBName": {
+     "Ref": "DatabaseName"
+    },
+    "MasterUserPassword": {
+     "Ref": "MasterUserPassword"
+    },
+    "MasterUsername": {
+     "Ref": "MasterUsername"
+    },
+    "NodeType": {
+     "Ref": "NodeType"
+    },
+    "NumberOfNodes": {
+     "Fn::If": [
+      "IsMultiNodeCluster",
+      {
+       "Ref": "NumberOfNodes"
+      },
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
+    },
+    "VpcSecurityGroupIds": [
+     {
+      "Ref": "SecurityGroup"
+     }
+    ]
+   },
+   "Type": "AWS::Redshift::Cluster"
+  },
+  "RedshiftClusterParameterGroup": {
+   "Properties": {
+    "Description": "Cluster parameter group",
+    "ParameterGroupFamily": "redshift-1.0",
+    "Parameters": [
+     {
+      "ParameterName": "enable_user_activity_logging",
+      "ParameterValue": "true"
+     }
+    ]
+   },
+   "Type": "AWS::Redshift::ClusterParameterGroup"
+  },
+  "RedshiftClusterSubnetGroup": {
+   "Properties": {
+    "Description": "Cluster subnet group",
+    "SubnetIds": [
+     {
+      "Ref": "Subnet"
+     }
+    ]
+   },
+   "Type": "AWS::Redshift::ClusterSubnetGroup"
+  },
+  "SecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Security Group",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "10.0.0.0/16",
+      "FromPort": "80",
+      "IpProtocol": "tcp",
+      "ToPort": "80"
+     }
+    ],
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  },
+  "Subnet": {
+   "Properties": {
+    "CidrBlock": "10.0.0.0/24",
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::Subnet"
+  },
+  "VPC": {
+   "Properties": {
+    "CidrBlock": "10.0.0.0/16"
+   },
+   "Type": "AWS::EC2::VPC"
+  }
+ }
 }

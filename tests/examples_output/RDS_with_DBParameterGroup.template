@@ -1,55 +1,55 @@
 {
-    "Description": "AWS CloudFormation Sample Template RDS_with_DBParameterGroup: Sample template showing how to create an Amazon RDS Database Instance with a DBParameterGroup.**WARNING** This template creates an Amazon Relational Database Service database instance. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Parameters": {
-        "DBPassword": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumeric characters.",
-            "Description": "The database admin account password",
-            "MaxLength": "41",
-            "MinLength": "1",
-            "NoEcho": true,
-            "Type": "String"
-        },
-        "DBUser": {
-            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
-            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
-            "Description": "The database admin account username",
-            "MaxLength": "16",
-            "MinLength": "1",
-            "NoEcho": true,
-            "Type": "String"
-        }
+ "Description": "AWS CloudFormation Sample Template RDS_with_DBParameterGroup: Sample template showing how to create an Amazon RDS Database Instance with a DBParameterGroup.**WARNING** This template creates an Amazon Relational Database Service database instance. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Parameters": {
+  "DBPassword": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumeric characters.",
+   "Description": "The database admin account password",
+   "MaxLength": "41",
+   "MinLength": "1",
+   "NoEcho": true,
+   "Type": "String"
+  },
+  "DBUser": {
+   "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+   "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
+   "Description": "The database admin account username",
+   "MaxLength": "16",
+   "MinLength": "1",
+   "NoEcho": true,
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "MyDB": {
+   "Properties": {
+    "AllocatedStorage": "5",
+    "DBInstanceClass": "db.m1.small",
+    "DBParameterGroupName": {
+     "Ref": "MyRDSParamGroup"
     },
-    "Resources": {
-        "MyDB": {
-            "Properties": {
-                "AllocatedStorage": "5",
-                "DBInstanceClass": "db.m1.small",
-                "DBParameterGroupName": {
-                    "Ref": "MyRDSParamGroup"
-                },
-                "Engine": "MySQL",
-                "EngineVersion": "5.5",
-                "MasterUserPassword": {
-                    "Ref": "DBPassword"
-                },
-                "MasterUsername": {
-                    "Ref": "DBUser"
-                }
-            },
-            "Type": "AWS::RDS::DBInstance"
-        },
-        "MyRDSParamGroup": {
-            "Properties": {
-                "Description": "CloudFormation Sample Database Parameter Group",
-                "Family": "MySQL5.5",
-                "Parameters": {
-                    "autocommit": "1",
-                    "general_log": "1",
-                    "old_passwords": "0"
-                }
-            },
-            "Type": "AWS::RDS::DBParameterGroup"
-        }
+    "Engine": "MySQL",
+    "EngineVersion": "5.5",
+    "MasterUserPassword": {
+     "Ref": "DBPassword"
+    },
+    "MasterUsername": {
+     "Ref": "DBUser"
     }
+   },
+   "Type": "AWS::RDS::DBInstance"
+  },
+  "MyRDSParamGroup": {
+   "Properties": {
+    "Description": "CloudFormation Sample Database Parameter Group",
+    "Family": "MySQL5.5",
+    "Parameters": {
+     "autocommit": "1",
+     "general_log": "1",
+     "old_passwords": "0"
+    }
+   },
+   "Type": "AWS::RDS::DBParameterGroup"
+  }
+ }
 }

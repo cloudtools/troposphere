@@ -1,54 +1,54 @@
 {
-    "Description": "AWS CloudFormation Sample Template SQS: Sample template showing how to create an SQS queue with a dead letter queue. **WARNING** This template creates Amazon SQS Queues. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "DeadLetterQueueARN": {
-            "Description": "ARN of the dead letter queue",
-            "Value": {
-                "Fn::GetAtt": [
-                    "MyDeadLetterQueue",
-                    "Arn"
-                ]
-            }
-        },
-        "DeadLetterQueueURL": {
-            "Description": "URL of the dead letter queue",
-            "Value": {
-                "Ref": "MyDeadLetterQueue"
-            }
-        },
-        "SourceQueueARN": {
-            "Description": "ARN of the source queue",
-            "Value": {
-                "Fn::GetAtt": [
-                    "MySourceQueue",
-                    "Arn"
-                ]
-            }
-        },
-        "SourceQueueURL": {
-            "Description": "URL of the source queue",
-            "Value": {
-                "Ref": "MySourceQueue"
-            }
-        }
-    },
-    "Resources": {
-        "MyDeadLetterQueue": {
-            "Type": "AWS::SQS::Queue"
-        },
-        "MySourceQueue": {
-            "Properties": {
-                "RedrivePolicy": {
-                    "deadLetterTargetArn": {
-                        "Fn::GetAtt": [
-                            "MyDeadLetterQueue",
-                            "Arn"
-                        ]
-                    },
-                    "maxReceiveCount": "5"
-                }
-            },
-            "Type": "AWS::SQS::Queue"
-        }
+ "Description": "AWS CloudFormation Sample Template SQS: Sample template showing how to create an SQS queue with a dead letter queue. **WARNING** This template creates Amazon SQS Queues. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "DeadLetterQueueARN": {
+   "Description": "ARN of the dead letter queue",
+   "Value": {
+    "Fn::GetAtt": [
+     "MyDeadLetterQueue",
+     "Arn"
+    ]
+   }
+  },
+  "DeadLetterQueueURL": {
+   "Description": "URL of the dead letter queue",
+   "Value": {
+    "Ref": "MyDeadLetterQueue"
+   }
+  },
+  "SourceQueueARN": {
+   "Description": "ARN of the source queue",
+   "Value": {
+    "Fn::GetAtt": [
+     "MySourceQueue",
+     "Arn"
+    ]
+   }
+  },
+  "SourceQueueURL": {
+   "Description": "URL of the source queue",
+   "Value": {
+    "Ref": "MySourceQueue"
+   }
+  }
+ },
+ "Resources": {
+  "MyDeadLetterQueue": {
+   "Type": "AWS::SQS::Queue"
+  },
+  "MySourceQueue": {
+   "Properties": {
+    "RedrivePolicy": {
+     "deadLetterTargetArn": {
+      "Fn::GetAtt": [
+       "MyDeadLetterQueue",
+       "Arn"
+      ]
+     },
+     "maxReceiveCount": "5"
     }
+   },
+   "Type": "AWS::SQS::Queue"
+  }
+ }
 }

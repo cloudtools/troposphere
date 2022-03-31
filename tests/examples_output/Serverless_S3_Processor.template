@@ -1,31 +1,31 @@
 {
-    "Description": "A function is triggered off an upload to a bucket. It logs the content type of the uploaded object.",
-    "Resources": {
-        "Bucket": {
-            "Type": "AWS::S3::Bucket"
-        },
-        "ProcessorFunction": {
-            "Properties": {
-                "CodeUri": "s3://<bucket>/s3_processor.zip",
-                "Events": {
-                    "PhotoUpload": {
-                        "Properties": {
-                            "Bucket": {
-                                "Ref": "Bucket"
-                            },
-                            "Events": [
-                                "s3:ObjectCreated:*"
-                            ]
-                        },
-                        "Type": "S3"
-                    }
-                },
-                "Handler": "index.handler",
-                "Policies": "AmazonS3ReadOnlyAccess",
-                "Runtime": "nodejs4.3"
-            },
-            "Type": "AWS::Serverless::Function"
-        }
+ "Description": "A function is triggered off an upload to a bucket. It logs the content type of the uploaded object.",
+ "Resources": {
+  "Bucket": {
+   "Type": "AWS::S3::Bucket"
+  },
+  "ProcessorFunction": {
+   "Properties": {
+    "CodeUri": "s3://<bucket>/s3_processor.zip",
+    "Events": {
+     "PhotoUpload": {
+      "Properties": {
+       "Bucket": {
+        "Ref": "Bucket"
+       },
+       "Events": [
+        "s3:ObjectCreated:*"
+       ]
+      },
+      "Type": "S3"
+     }
     },
-    "Transform": "AWS::Serverless-2016-10-31"
+    "Handler": "index.handler",
+    "Policies": "AmazonS3ReadOnlyAccess",
+    "Runtime": "nodejs4.3"
+   },
+   "Type": "AWS::Serverless::Function"
+  }
+ },
+ "Transform": "AWS::Serverless-2016-10-31"
 }

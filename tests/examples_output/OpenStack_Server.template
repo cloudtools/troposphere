@@ -1,70 +1,70 @@
 {
-    "Parameters": {
-        "KeyName": {
-            "Description": "Name of an existing OpenStack KeyPair to enable SSH access to the instance",
-            "Type": "String"
-        }
+ "Parameters": {
+  "KeyName": {
+   "Description": "Name of an existing OpenStack KeyPair to enable SSH access to the instance",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "OpenStackInstance": {
+   "Properties": {
+    "flavor": "t1.micro",
+    "image": "MyImage",
+    "key_name": {
+     "Ref": "KeyName"
     },
-    "Resources": {
-        "OpenStackInstance": {
-            "Properties": {
-                "flavor": "t1.micro",
-                "image": "MyImage",
-                "key_name": {
-                    "Ref": "KeyName"
-                },
-                "networks": [
-                    {
-                        "Properties": {
-                            "fixed_ips": [
-                                {
-                                    "ip_address": "192.168.1.20"
-                                }
-                            ],
-                            "network_id": "3e47c369-7007-472e-9e96-7dadb51e3e99",
-                            "security_groups": [
-                                {
-                                    "Ref": "OpenStackSecurityGroup"
-                                }
-                            ]
-                        },
-                        "Type": "OS::Neutron::Port"
-                    }
-                ],
-                "user_data": {
-                    "Fn::Base64": {
-                        "Fn::Join": [
-                            "\n",
-                            [
-                                "#!/bin/bash",
-                                "echo \"Upgrade started at $(date)\"",
-                                "apt-get update",
-                                "apt-get -y upgrade",
-                                "echo \"Upgrade complete at $(date)\""
-                            ]
-                        ]
-                    }
-                }
-            },
-            "Type": "OS::Nova::Server"
-        },
-        "OpenStackSecurityGroup": {
-            "Properties": {
-                "description": "Instance Security Group",
-                "rules": [
-                    {
-                        "port_range_max": 22,
-                        "port_range_min": 22,
-                        "protocol": "tcp",
-                        "remote_ip_prefix": "192.168.1.0/24"
-                    },
-                    {
-                        "protocol": "icmp",
-                        "remote_ip_prefix": "0.0.0.0/0"
-                    }
-                ]
-            },
-            "Type": "OS::Neutron::SecurityGroup"
+    "networks": [
+     {
+      "Properties": {
+       "fixed_ips": [
+        {
+         "ip_address": "192.168.1.20"
         }
+       ],
+       "network_id": "3e47c369-7007-472e-9e96-7dadb51e3e99",
+       "security_groups": [
+        {
+         "Ref": "OpenStackSecurityGroup"
+        }
+       ]
+      },
+      "Type": "OS::Neutron::Port"
+     }
+    ],
+    "user_data": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "\n",
+       [
+        "#!/bin/bash",
+        "echo \"Upgrade started at $(date)\"",
+        "apt-get update",
+        "apt-get -y upgrade",
+        "echo \"Upgrade complete at $(date)\""
+       ]
+      ]
+     }
     }
+   },
+   "Type": "OS::Nova::Server"
+  },
+  "OpenStackSecurityGroup": {
+   "Properties": {
+    "description": "Instance Security Group",
+    "rules": [
+     {
+      "port_range_max": 22,
+      "port_range_min": 22,
+      "protocol": "tcp",
+      "remote_ip_prefix": "192.168.1.0/24"
+     },
+     {
+      "protocol": "icmp",
+      "remote_ip_prefix": "0.0.0.0/0"
+     }
+    ]
+   },
+   "Type": "OS::Neutron::SecurityGroup"
+  }
+ }
 }

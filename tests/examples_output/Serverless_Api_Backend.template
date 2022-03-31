@@ -1,84 +1,84 @@
 {
-    "Description": "Simple CRUD webservice. State is stored in a SimpleTable (DynamoDB) resource.",
-    "Resources": {
-        "DeleteFunction": {
-            "Properties": {
-                "CodeUri": "s3://<bucket>/api_backend.zip",
-                "Environment": {
-                    "Variables": {
-                        "TABLE_NAME": {
-                            "Ref": "Table"
-                        }
-                    }
-                },
-                "Events": {
-                    "DeleteResource": {
-                        "Properties": {
-                            "Method": "delete",
-                            "Path": "/resource/{resourceId}"
-                        },
-                        "Type": "Api"
-                    }
-                },
-                "Handler": "index.delete",
-                "Policies": "AmazonDynamoDBFullAccess",
-                "Runtime": "nodejs4.3"
-            },
-            "Type": "AWS::Serverless::Function"
-        },
-        "GetFunction": {
-            "Properties": {
-                "CodeUri": "s3://<bucket>/api_backend.zip",
-                "Environment": {
-                    "Variables": {
-                        "TABLE_NAME": {
-                            "Ref": "Table"
-                        }
-                    }
-                },
-                "Events": {
-                    "GetResource": {
-                        "Properties": {
-                            "Method": "get",
-                            "Path": "/resource/{resourceId}"
-                        },
-                        "Type": "Api"
-                    }
-                },
-                "Handler": "index.get",
-                "Policies": "AmazonDynamoDBReadOnlyAccess",
-                "Runtime": "nodejs4.3"
-            },
-            "Type": "AWS::Serverless::Function"
-        },
-        "PutFunction": {
-            "Properties": {
-                "CodeUri": "s3://<bucket>/api_backend.zip",
-                "Environment": {
-                    "Variables": {
-                        "TABLE_NAME": {
-                            "Ref": "Table"
-                        }
-                    }
-                },
-                "Events": {
-                    "PutResource": {
-                        "Properties": {
-                            "Method": "put",
-                            "Path": "/resource/{resourceId}"
-                        },
-                        "Type": "Api"
-                    }
-                },
-                "Handler": "index.put",
-                "Policies": "AmazonDynamoDBFullAccess",
-                "Runtime": "nodejs4.3"
-            },
-            "Type": "AWS::Serverless::Function"
-        },
-        "Table": {
-            "Type": "AWS::Serverless::SimpleTable"
-        }
+ "Description": "Simple CRUD webservice. State is stored in a SimpleTable (DynamoDB) resource.",
+ "Resources": {
+  "DeleteFunction": {
+   "Properties": {
+    "CodeUri": "s3://<bucket>/api_backend.zip",
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "Table"
+      }
+     }
     },
-    "Transform": "AWS::Serverless-2016-10-31"
+    "Events": {
+     "DeleteResource": {
+      "Properties": {
+       "Method": "delete",
+       "Path": "/resource/{resourceId}"
+      },
+      "Type": "Api"
+     }
+    },
+    "Handler": "index.delete",
+    "Policies": "AmazonDynamoDBFullAccess",
+    "Runtime": "nodejs4.3"
+   },
+   "Type": "AWS::Serverless::Function"
+  },
+  "GetFunction": {
+   "Properties": {
+    "CodeUri": "s3://<bucket>/api_backend.zip",
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "Table"
+      }
+     }
+    },
+    "Events": {
+     "GetResource": {
+      "Properties": {
+       "Method": "get",
+       "Path": "/resource/{resourceId}"
+      },
+      "Type": "Api"
+     }
+    },
+    "Handler": "index.get",
+    "Policies": "AmazonDynamoDBReadOnlyAccess",
+    "Runtime": "nodejs4.3"
+   },
+   "Type": "AWS::Serverless::Function"
+  },
+  "PutFunction": {
+   "Properties": {
+    "CodeUri": "s3://<bucket>/api_backend.zip",
+    "Environment": {
+     "Variables": {
+      "TABLE_NAME": {
+       "Ref": "Table"
+      }
+     }
+    },
+    "Events": {
+     "PutResource": {
+      "Properties": {
+       "Method": "put",
+       "Path": "/resource/{resourceId}"
+      },
+      "Type": "Api"
+     }
+    },
+    "Handler": "index.put",
+    "Policies": "AmazonDynamoDBFullAccess",
+    "Runtime": "nodejs4.3"
+   },
+   "Type": "AWS::Serverless::Function"
+  },
+  "Table": {
+   "Type": "AWS::Serverless::SimpleTable"
+  }
+ },
+ "Transform": "AWS::Serverless-2016-10-31"
 }

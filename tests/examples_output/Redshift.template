@@ -1,126 +1,126 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Conditions": {
-        "IsMultiNodeCluster": {
-            "Fn::Equals": [
-                {
-                    "Ref": "ClusterType"
-                },
-                "multi-node"
-            ]
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Conditions": {
+  "IsMultiNodeCluster": {
+   "Fn::Equals": [
+    {
+     "Ref": "ClusterType"
     },
-    "Description": "AWS CloudFormation Sample Template: Redshift cluster",
-    "Outputs": {
-        "ClusterEndpoint": {
-            "Value": {
-                "Fn::Join": [
-                    ":",
-                    [
-                        {
-                            "Fn::GetAtt": [
-                                "RedshiftCluster",
-                                "Endpoint.Address"
-                            ]
-                        },
-                        {
-                            "Fn::GetAtt": [
-                                "RedshiftCluster",
-                                "Endpoint.Port"
-                            ]
-                        }
-                    ]
-                ]
-            }
-        }
+    "multi-node"
+   ]
+  }
+ },
+ "Description": "AWS CloudFormation Sample Template: Redshift cluster",
+ "Outputs": {
+  "ClusterEndpoint": {
+   "Value": {
+    "Fn::Join": [
+     ":",
+     [
+      {
+       "Fn::GetAtt": [
+        "RedshiftCluster",
+        "Endpoint.Address"
+       ]
+      },
+      {
+       "Fn::GetAtt": [
+        "RedshiftCluster",
+        "Endpoint.Port"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "ClusterType": {
+   "AllowedValues": [
+    "single-node",
+    "multi-node"
+   ],
+   "Default": "single-node",
+   "Description": "The type of the cluster",
+   "Type": "String"
+  },
+  "DatabaseName": {
+   "AllowedPattern": "([a-z]|[0-9])+",
+   "Default": "defaultdb",
+   "Description": "The name of the first database to be created when the redshift cluster is created",
+   "Type": "String"
+  },
+  "MasterUserPassword": {
+   "Description": "The password associated with the master user account for the redshift cluster that is being created.",
+   "NoEcho": true,
+   "Type": "String"
+  },
+  "MasterUsername": {
+   "AllowedPattern": "([a-z])([a-z]|[0-9])*",
+   "Default": "defaultuser",
+   "Description": "The user name associated with the master user account for the redshift cluster that is being created",
+   "NoEcho": true,
+   "Type": "String"
+  },
+  "NodeType": {
+   "Default": "dw2.large",
+   "Description": "The node type to be provisioned for the redshift cluster",
+   "Type": "String"
+  },
+  "NumberOfNodes": {
+   "Default": "1",
+   "Description": "The number of compute nodes in the redshift cluster. When cluster type is specified as: 1) single-node, the NumberOfNodes parameter should be specified as 1, 2) multi-node, the NumberOfNodes parameter should be greater than 1",
+   "Type": "Number"
+  }
+ },
+ "Resources": {
+  "RedshiftCluster": {
+   "DeletionPolicy": "Snapshot",
+   "Properties": {
+    "ClusterParameterGroupName": {
+     "Ref": "RedshiftClusterParameterGroup"
     },
-    "Parameters": {
-        "ClusterType": {
-            "AllowedValues": [
-                "single-node",
-                "multi-node"
-            ],
-            "Default": "single-node",
-            "Description": "The type of the cluster",
-            "Type": "String"
-        },
-        "DatabaseName": {
-            "AllowedPattern": "([a-z]|[0-9])+",
-            "Default": "defaultdb",
-            "Description": "The name of the first database to be created when the redshift cluster is created",
-            "Type": "String"
-        },
-        "MasterUserPassword": {
-            "Description": "The password associated with the master user account for the redshift cluster that is being created.",
-            "NoEcho": true,
-            "Type": "String"
-        },
-        "MasterUsername": {
-            "AllowedPattern": "([a-z])([a-z]|[0-9])*",
-            "Default": "defaultuser",
-            "Description": "The user name associated with the master user account for the redshift cluster that is being created",
-            "NoEcho": true,
-            "Type": "String"
-        },
-        "NodeType": {
-            "Default": "dw2.large",
-            "Description": "The node type to be provisioned for the redshift cluster",
-            "Type": "String"
-        },
-        "NumberOfNodes": {
-            "Default": "1",
-            "Description": "The number of compute nodes in the redshift cluster. When cluster type is specified as: 1) single-node, the NumberOfNodes parameter should be specified as 1, 2) multi-node, the NumberOfNodes parameter should be greater than 1",
-            "Type": "Number"
-        }
+    "ClusterType": {
+     "Ref": "ClusterType"
     },
-    "Resources": {
-        "RedshiftCluster": {
-            "DeletionPolicy": "Snapshot",
-            "Properties": {
-                "ClusterParameterGroupName": {
-                    "Ref": "RedshiftClusterParameterGroup"
-                },
-                "ClusterType": {
-                    "Ref": "ClusterType"
-                },
-                "DBName": {
-                    "Ref": "DatabaseName"
-                },
-                "MasterUserPassword": {
-                    "Ref": "MasterUserPassword"
-                },
-                "MasterUsername": {
-                    "Ref": "MasterUsername"
-                },
-                "NodeType": {
-                    "Ref": "NodeType"
-                },
-                "NumberOfNodes": {
-                    "Fn::If": [
-                        "IsMultiNodeCluster",
-                        {
-                            "Ref": "NumberOfNodes"
-                        },
-                        {
-                            "Ref": "AWS::NoValue"
-                        }
-                    ]
-                }
-            },
-            "Type": "AWS::Redshift::Cluster"
-        },
-        "RedshiftClusterParameterGroup": {
-            "Properties": {
-                "Description": "Cluster parameter group",
-                "ParameterGroupFamily": "redshift-1.0",
-                "Parameters": [
-                    {
-                        "ParameterName": "enable_user_activity_logging",
-                        "ParameterValue": "true"
-                    }
-                ]
-            },
-            "Type": "AWS::Redshift::ClusterParameterGroup"
-        }
+    "DBName": {
+     "Ref": "DatabaseName"
+    },
+    "MasterUserPassword": {
+     "Ref": "MasterUserPassword"
+    },
+    "MasterUsername": {
+     "Ref": "MasterUsername"
+    },
+    "NodeType": {
+     "Ref": "NodeType"
+    },
+    "NumberOfNodes": {
+     "Fn::If": [
+      "IsMultiNodeCluster",
+      {
+       "Ref": "NumberOfNodes"
+      },
+      {
+       "Ref": "AWS::NoValue"
+      }
+     ]
     }
+   },
+   "Type": "AWS::Redshift::Cluster"
+  },
+  "RedshiftClusterParameterGroup": {
+   "Properties": {
+    "Description": "Cluster parameter group",
+    "ParameterGroupFamily": "redshift-1.0",
+    "Parameters": [
+     {
+      "ParameterName": "enable_user_activity_logging",
+      "ParameterValue": "true"
+     }
+    ]
+   },
+   "Type": "AWS::Redshift::ClusterParameterGroup"
+  }
+ }
 }

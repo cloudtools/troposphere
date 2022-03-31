@@ -1,18 +1,18 @@
 {
-    "Outputs": {
-        "StreamName": {
-            "Description": "Stream Name (Physical ID)",
-            "Value": {
-                "Ref": "TestStream"
-            }
-        }
-    },
-    "Resources": {
-        "TestStream": {
-            "Properties": {
-                "ShardCount": 1
-            },
-            "Type": "AWS::Kinesis::Stream"
-        }
-    }
+ "Outputs": {
+  "StreamName": {
+   "Description": "Stream Name (Physical ID)",
+   "Value": {
+    "Ref": "TestStream"
+   }
+  }
+ },
+ "Resources": {
+  "TestStream": {
+   "Properties": {
+    "ShardCount": 1
+   },
+   "Type": "AWS::Kinesis::Stream"
+  }
+ }
 }

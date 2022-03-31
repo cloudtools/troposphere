@@ -1,19 +1,19 @@
 {
-    "Description": "A function that uses the configured traffic shifting type for a canary deployment.",
-    "Resources": {
-        "Function": {
-            "Properties": {
-                "AutoPublishAlias": "live",
-                "CodeUri": "s3://<bucket>/function.zip",
-                "DeploymentPreference": {
-                    "Enabled": true,
-                    "Type": "Canary10Percent5Minutes"
-                },
-                "Handler": "index.handler",
-                "Runtime": "nodejs6.10"
-            },
-            "Type": "AWS::Serverless::Function"
-        }
+ "Description": "A function that uses the configured traffic shifting type for a canary deployment.",
+ "Resources": {
+  "Function": {
+   "Properties": {
+    "AutoPublishAlias": "live",
+    "CodeUri": "s3://<bucket>/function.zip",
+    "DeploymentPreference": {
+     "Enabled": true,
+     "Type": "Canary10Percent5Minutes"
     },
-    "Transform": "AWS::Serverless-2016-10-31"
+    "Handler": "index.handler",
+    "Runtime": "nodejs6.10"
+   },
+   "Type": "AWS::Serverless::Function"
+  }
+ },
+ "Transform": "AWS::Serverless-2016-10-31"
 }

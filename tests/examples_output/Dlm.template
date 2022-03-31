@@ -1,71 +1,71 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Resources": {
-        "DlmRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "ec2.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ]
-                }
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "LifecyclePolicy": {
-            "Properties": {
-                "Description": "Daily backup",
-                "ExecutionRoleArn": {
-                    "Fn::GetAtt": [
-                        "DlmRole",
-                        "Arn"
-                    ]
-                },
-                "PolicyDetails": {
-                    "ResourceTypes": [
-                        "VOLUME"
-                    ],
-                    "Schedules": [
-                        {
-                            "CopyTags": true,
-                            "CreateRule": {
-                                "Interval": 12,
-                                "IntervalUnit": "HOURS",
-                                "Times": [
-                                    "13:00"
-                                ]
-                            },
-                            "Name": "Daily Snapshots",
-                            "RetainRule": {
-                                "Count": 1
-                            },
-                            "TagsToAdd": [
-                                {
-                                    "Key": "type",
-                                    "Value": "DailySnapshot"
-                                }
-                            ]
-                        }
-                    ],
-                    "TargetTags": [
-                        {
-                            "Key": "Backup",
-                            "Value": "True"
-                        }
-                    ]
-                },
-                "State": "ENABLED"
-            },
-            "Type": "AWS::DLM::LifecyclePolicy"
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Resources": {
+  "DlmRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "ec2.amazonaws.com"
+        ]
+       }
+      }
+     ]
     }
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "LifecyclePolicy": {
+   "Properties": {
+    "Description": "Daily backup",
+    "ExecutionRoleArn": {
+     "Fn::GetAtt": [
+      "DlmRole",
+      "Arn"
+     ]
+    },
+    "PolicyDetails": {
+     "ResourceTypes": [
+      "VOLUME"
+     ],
+     "Schedules": [
+      {
+       "CopyTags": true,
+       "CreateRule": {
+        "Interval": 12,
+        "IntervalUnit": "HOURS",
+        "Times": [
+         "13:00"
+        ]
+       },
+       "Name": "Daily Snapshots",
+       "RetainRule": {
+        "Count": 1
+       },
+       "TagsToAdd": [
+        {
+         "Key": "type",
+         "Value": "DailySnapshot"
+        }
+       ]
+      }
+     ],
+     "TargetTags": [
+      {
+       "Key": "Backup",
+       "Value": "True"
+      }
+     ]
+    },
+    "State": "ENABLED"
+   },
+   "Type": "AWS::DLM::LifecyclePolicy"
+  }
+ }
 }

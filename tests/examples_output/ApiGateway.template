@@ -1,251 +1,251 @@
 {
-    "Outputs": {
-        "ApiEndpoint": {
-            "Description": "Endpoint for this stage of the api",
-            "Value": {
-                "Fn::Join": [
-                    "",
-                    [
-                        "https://",
-                        {
-                            "Ref": "ExampleApi"
-                        },
-                        ".execute-api.eu-west-1.amazonaws.com/",
-                        "v1"
-                    ]
-                ]
-            }
-        },
-        "ApiKey": {
-            "Description": "API key",
-            "Value": {
-                "Ref": "ApiKey"
-            }
-        }
+ "Outputs": {
+  "ApiEndpoint": {
+   "Description": "Endpoint for this stage of the api",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "https://",
+      {
+       "Ref": "ExampleApi"
+      },
+      ".execute-api.eu-west-1.amazonaws.com/",
+      "v1"
+     ]
+    ]
+   }
+  },
+  "ApiKey": {
+   "Description": "API key",
+   "Value": {
+    "Ref": "ApiKey"
+   }
+  }
+ },
+ "Resources": {
+  "ApiKey": {
+   "Properties": {
+    "StageKeys": [
+     {
+      "RestApiId": {
+       "Ref": "ExampleApi"
+      },
+      "StageName": {
+       "Ref": "v1Stage"
+      }
+     }
+    ]
+   },
+   "Type": "AWS::ApiGateway::ApiKey"
+  },
+  "ExampleApi": {
+   "Properties": {
+    "Name": "ExampleApi"
+   },
+   "Type": "AWS::ApiGateway::RestApi"
+  },
+  "ExampleUsagePlan": {
+   "Properties": {
+    "ApiStages": [
+     {
+      "ApiId": {
+       "Ref": "ExampleApi"
+      },
+      "Stage": {
+       "Ref": "v1Stage"
+      },
+      "Throttle": {
+       "/some/api/path/GET": {
+        "BurstLimit": 500,
+        "RateLimit": 5000
+       }
+      }
+     }
+    ],
+    "Description": "Example usage plan",
+    "Quota": {
+     "Limit": 50000,
+     "Period": "MONTH"
     },
-    "Resources": {
-        "ApiKey": {
-            "Properties": {
-                "StageKeys": [
-                    {
-                        "RestApiId": {
-                            "Ref": "ExampleApi"
-                        },
-                        "StageName": {
-                            "Ref": "v1Stage"
-                        }
-                    }
-                ]
-            },
-            "Type": "AWS::ApiGateway::ApiKey"
-        },
-        "ExampleApi": {
-            "Properties": {
-                "Name": "ExampleApi"
-            },
-            "Type": "AWS::ApiGateway::RestApi"
-        },
-        "ExampleUsagePlan": {
-            "Properties": {
-                "ApiStages": [
-                    {
-                        "ApiId": {
-                            "Ref": "ExampleApi"
-                        },
-                        "Stage": {
-                            "Ref": "v1Stage"
-                        },
-                        "Throttle": {
-                            "/some/api/path/GET": {
-                                "BurstLimit": 500,
-                                "RateLimit": 5000
-                            }
-                        }
-                    }
-                ],
-                "Description": "Example usage plan",
-                "Quota": {
-                    "Limit": 50000,
-                    "Period": "MONTH"
-                },
-                "Throttle": {
-                    "BurstLimit": 500,
-                    "RateLimit": 5000
-                },
-                "UsagePlanName": "ExampleUsagePlan"
-            },
-            "Type": "AWS::ApiGateway::UsagePlan"
-        },
-        "ExampleUsagePlanKey": {
-            "Properties": {
-                "KeyId": {
-                    "Ref": "ApiKey"
-                },
-                "KeyType": "API_KEY",
-                "UsagePlanId": {
-                    "Ref": "ExampleUsagePlan"
-                }
-            },
-            "Type": "AWS::ApiGateway::UsagePlanKey"
-        },
-        "FoobarFunction": {
-            "Properties": {
-                "Code": {
-                    "ZipFile": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "var response = require('cfn-response');",
-                                "exports.handler = function(event, context) {",
-                                "   context.succeed('foobar!');",
-                                "   return 'foobar!';",
-                                "};"
-                            ]
-                        ]
-                    }
-                },
-                "Handler": "index.handler",
-                "Role": {
-                    "Fn::GetAtt": [
-                        "LambdaExecutionRole",
-                        "Arn"
-                    ]
-                },
-                "Runtime": "nodejs4.3"
-            },
-            "Type": "AWS::Lambda::Function"
-        },
-        "FoobarResource": {
-            "Properties": {
-                "ParentId": {
-                    "Fn::GetAtt": [
-                        "ExampleApi",
-                        "RootResourceId"
-                    ]
-                },
-                "PathPart": "foobar",
-                "RestApiId": {
-                    "Ref": "ExampleApi"
-                }
-            },
-            "Type": "AWS::ApiGateway::Resource"
-        },
-        "LambdaExecutionRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "lambda.amazonaws.com",
-                                    "apigateway.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ],
-                    "Version": "2012-10-17"
-                },
-                "Path": "/",
-                "Policies": [
-                    {
-                        "PolicyDocument": {
-                            "Statement": [
-                                {
-                                    "Action": [
-                                        "logs:*"
-                                    ],
-                                    "Effect": "Allow",
-                                    "Resource": "arn:aws:logs:*:*:*"
-                                },
-                                {
-                                    "Action": [
-                                        "lambda:*"
-                                    ],
-                                    "Effect": "Allow",
-                                    "Resource": "*"
-                                }
-                            ],
-                            "Version": "2012-10-17"
-                        },
-                        "PolicyName": "root"
-                    }
-                ]
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "LambdaMethod": {
-            "DependsOn": "FoobarFunction",
-            "Properties": {
-                "AuthorizationType": "NONE",
-                "HttpMethod": "GET",
-                "Integration": {
-                    "Credentials": {
-                        "Fn::GetAtt": [
-                            "LambdaExecutionRole",
-                            "Arn"
-                        ]
-                    },
-                    "IntegrationHttpMethod": "POST",
-                    "IntegrationResponses": [
-                        {
-                            "StatusCode": "200"
-                        }
-                    ],
-                    "Type": "AWS",
-                    "Uri": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/",
-                                {
-                                    "Fn::GetAtt": [
-                                        "FoobarFunction",
-                                        "Arn"
-                                    ]
-                                },
-                                "/invocations"
-                            ]
-                        ]
-                    }
-                },
-                "MethodResponses": [
-                    {
-                        "StatusCode": "200"
-                    }
-                ],
-                "ResourceId": {
-                    "Ref": "FoobarResource"
-                },
-                "RestApiId": {
-                    "Ref": "ExampleApi"
-                }
-            },
-            "Type": "AWS::ApiGateway::Method"
-        },
-        "v1Deployment": {
-            "DependsOn": "LambdaMethod",
-            "Properties": {
-                "RestApiId": {
-                    "Ref": "ExampleApi"
-                }
-            },
-            "Type": "AWS::ApiGateway::Deployment"
-        },
-        "v1Stage": {
-            "Properties": {
-                "DeploymentId": {
-                    "Ref": "v1Deployment"
-                },
-                "RestApiId": {
-                    "Ref": "ExampleApi"
-                },
-                "StageName": "v1"
-            },
-            "Type": "AWS::ApiGateway::Stage"
-        }
+    "Throttle": {
+     "BurstLimit": 500,
+     "RateLimit": 5000
+    },
+    "UsagePlanName": "ExampleUsagePlan"
+   },
+   "Type": "AWS::ApiGateway::UsagePlan"
+  },
+  "ExampleUsagePlanKey": {
+   "Properties": {
+    "KeyId": {
+     "Ref": "ApiKey"
+    },
+    "KeyType": "API_KEY",
+    "UsagePlanId": {
+     "Ref": "ExampleUsagePlan"
     }
+   },
+   "Type": "AWS::ApiGateway::UsagePlanKey"
+  },
+  "FoobarFunction": {
+   "Properties": {
+    "Code": {
+     "ZipFile": {
+      "Fn::Join": [
+       "",
+       [
+        "var response = require('cfn-response');",
+        "exports.handler = function(event, context) {",
+        "   context.succeed('foobar!');",
+        "   return 'foobar!';",
+        "};"
+       ]
+      ]
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "LambdaExecutionRole",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs4.3"
+   },
+   "Type": "AWS::Lambda::Function"
+  },
+  "FoobarResource": {
+   "Properties": {
+    "ParentId": {
+     "Fn::GetAtt": [
+      "ExampleApi",
+      "RootResourceId"
+     ]
+    },
+    "PathPart": "foobar",
+    "RestApiId": {
+     "Ref": "ExampleApi"
+    }
+   },
+   "Type": "AWS::ApiGateway::Resource"
+  },
+  "LambdaExecutionRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "lambda.amazonaws.com",
+         "apigateway.amazonaws.com"
+        ]
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "Path": "/",
+    "Policies": [
+     {
+      "PolicyDocument": {
+       "Statement": [
+        {
+         "Action": [
+          "logs:*"
+         ],
+         "Effect": "Allow",
+         "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+         "Action": [
+          "lambda:*"
+         ],
+         "Effect": "Allow",
+         "Resource": "*"
+        }
+       ],
+       "Version": "2012-10-17"
+      },
+      "PolicyName": "root"
+     }
+    ]
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "LambdaMethod": {
+   "DependsOn": "FoobarFunction",
+   "Properties": {
+    "AuthorizationType": "NONE",
+    "HttpMethod": "GET",
+    "Integration": {
+     "Credentials": {
+      "Fn::GetAtt": [
+       "LambdaExecutionRole",
+       "Arn"
+      ]
+     },
+     "IntegrationHttpMethod": "POST",
+     "IntegrationResponses": [
+      {
+       "StatusCode": "200"
+      }
+     ],
+     "Type": "AWS",
+     "Uri": {
+      "Fn::Join": [
+       "",
+       [
+        "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/",
+        {
+         "Fn::GetAtt": [
+          "FoobarFunction",
+          "Arn"
+         ]
+        },
+        "/invocations"
+       ]
+      ]
+     }
+    },
+    "MethodResponses": [
+     {
+      "StatusCode": "200"
+     }
+    ],
+    "ResourceId": {
+     "Ref": "FoobarResource"
+    },
+    "RestApiId": {
+     "Ref": "ExampleApi"
+    }
+   },
+   "Type": "AWS::ApiGateway::Method"
+  },
+  "v1Deployment": {
+   "DependsOn": "LambdaMethod",
+   "Properties": {
+    "RestApiId": {
+     "Ref": "ExampleApi"
+    }
+   },
+   "Type": "AWS::ApiGateway::Deployment"
+  },
+  "v1Stage": {
+   "Properties": {
+    "DeploymentId": {
+     "Ref": "v1Deployment"
+    },
+    "RestApiId": {
+     "Ref": "ExampleApi"
+    },
+    "StageName": "v1"
+   },
+   "Type": "AWS::ApiGateway::Stage"
+  }
+ }
 }

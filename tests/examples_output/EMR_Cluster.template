@@ -1,363 +1,363 @@
 {
-    "Conditions": {
-        "WithSpotPrice": {
-            "Fn::Not": [
-                {
-                    "Fn::Equals": [
-                        {
-                            "Ref": "SpotPrice"
-                        },
-                        "0"
-                    ]
-                }
-            ]
-        }
-    },
-    "Description": "Sample CloudFormation template for creating an EMR cluster",
-    "Parameters": {
-        "GcTimeRatioValue": {
-            "Default": "19",
-            "Description": "Hadoop name node garbage collector time ratio",
-            "Type": "Number"
-        },
-        "KeyName": {
-            "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
-            "Type": "AWS::EC2::KeyPair::KeyName"
-        },
-        "SpotPrice": {
-            "Default": "0.1",
-            "Description": "Spot price (or use 0 for 'on demand' instance)",
-            "Type": "Number"
-        },
-        "Subnet": {
-            "Description": "Subnet ID for creating the EMR cluster",
-            "Type": "AWS::EC2::Subnet::Id"
-        }
-    },
-    "Resources": {
-        "EMRInstanceProfile": {
-            "Properties": {
-                "Roles": [
-                    {
-                        "Ref": "EMRJobFlowRole"
-                    }
-                ]
-            },
-            "Type": "AWS::IAM::InstanceProfile"
-        },
-        "EMRJobFlowRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "ec2.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ManagedPolicyArns": [
-                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"
-                ]
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "EMRSampleCluster": {
-            "Properties": {
-                "Applications": [
-                    {
-                        "Name": "Hadoop"
-                    },
-                    {
-                        "Name": "Hive"
-                    },
-                    {
-                        "Name": "Mahout"
-                    },
-                    {
-                        "Name": "Pig"
-                    },
-                    {
-                        "Name": "Spark"
-                    }
-                ],
-                "AutoScalingRole": "EMR_AutoScaling_DefaultRole",
-                "BootstrapActions": [
-                    {
-                        "Name": "Dummy bootstrap action",
-                        "ScriptBootstrapAction": {
-                            "Args": [
-                                "dummy",
-                                "parameter"
-                            ],
-                            "Path": "file:/usr/share/aws/emr/scripts/install-hue"
-                        }
-                    }
-                ],
-                "Configurations": [
-                    {
-                        "Classification": "core-site",
-                        "ConfigurationProperties": {
-                            "hadoop.security.groups.cache.secs": "250"
-                        }
-                    },
-                    {
-                        "Classification": "mapred-site",
-                        "ConfigurationProperties": {
-                            "mapred.tasktracker.map.tasks.maximum": "2",
-                            "mapreduce.map.sort.spill.percent": "90",
-                            "mapreduce.tasktracker.reduce.tasks.maximum": "5"
-                        }
-                    },
-                    {
-                        "Classification": "hadoop-env",
-                        "Configurations": [
-                            {
-                                "Classification": "export",
-                                "ConfigurationProperties": {
-                                    "HADOOP_DATANODE_HEAPSIZE": "2048",
-                                    "HADOOP_NAMENODE_OPTS": {
-                                        "Fn::Join": [
-                                            "",
-                                            [
-                                                "-XX:GCTimeRatio=",
-                                                {
-                                                    "Ref": "GcTimeRatioValue"
-                                                }
-                                            ]
-                                        ]
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                ],
-                "Instances": {
-                    "CoreInstanceGroup": {
-                        "AutoScalingPolicy": {
-                            "Constraints": {
-                                "MaxCapacity": "3",
-                                "MinCapacity": "1"
-                            },
-                            "Rules": [
-                                {
-                                    "Action": {
-                                        "Market": "ON_DEMAND",
-                                        "SimpleScalingPolicyConfiguration": {
-                                            "AdjustmentType": "EXACT_CAPACITY",
-                                            "CoolDown": "300",
-                                            "ScalingAdjustment": "1"
-                                        }
-                                    },
-                                    "Description": "CoreAutoScalingPolicy rules",
-                                    "Name": "CoreAutoScalingPolicy",
-                                    "Trigger": {
-                                        "CloudWatchAlarmDefinition": {
-                                            "ComparisonOperator": "GREATER_THAN",
-                                            "Dimensions": [
-                                                {
-                                                    "Key": "my.custom.master.property",
-                                                    "Value": "my.custom.master.value"
-                                                }
-                                            ],
-                                            "EvaluationPeriods": "120",
-                                            "MetricName": "TestMetric",
-                                            "Namespace": "AWS/ElasticMapReduce",
-                                            "Period": "300",
-                                            "Statistic": "AVERAGE",
-                                            "Threshold": "50",
-                                            "Unit": "PERCENT"
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        "BidPrice": {
-                            "Fn::If": [
-                                "WithSpotPrice",
-                                {
-                                    "Ref": "SpotPrice"
-                                },
-                                {
-                                    "Ref": "AWS::NoValue"
-                                }
-                            ]
-                        },
-                        "EbsConfiguration": {
-                            "EbsBlockDeviceConfigs": [
-                                {
-                                    "VolumeSpecification": {
-                                        "SizeInGB": "10",
-                                        "VolumeType": "gp2"
-                                    },
-                                    "VolumesPerInstance": "1"
-                                }
-                            ],
-                            "EbsOptimized": true
-                        },
-                        "InstanceCount": "1",
-                        "InstanceType": "m4.large",
-                        "Market": {
-                            "Fn::If": [
-                                "WithSpotPrice",
-                                "SPOT",
-                                "ON_DEMAND"
-                            ]
-                        },
-                        "Name": "Core Instance"
-                    },
-                    "Ec2KeyName": {
-                        "Ref": "KeyName"
-                    },
-                    "Ec2SubnetId": {
-                        "Ref": "Subnet"
-                    },
-                    "MasterInstanceGroup": {
-                        "AutoScalingPolicy": {
-                            "Constraints": {
-                                "MaxCapacity": "3",
-                                "MinCapacity": "1"
-                            },
-                            "Rules": [
-                                {
-                                    "Action": {
-                                        "Market": "ON_DEMAND",
-                                        "SimpleScalingPolicyConfiguration": {
-                                            "AdjustmentType": "EXACT_CAPACITY",
-                                            "CoolDown": "300",
-                                            "ScalingAdjustment": "1"
-                                        }
-                                    },
-                                    "Description": "MasterAutoScalingPolicy rules",
-                                    "Name": "MasterAutoScalingPolicy",
-                                    "Trigger": {
-                                        "CloudWatchAlarmDefinition": {
-                                            "ComparisonOperator": "GREATER_THAN",
-                                            "Dimensions": [
-                                                {
-                                                    "Key": "my.custom.master.property",
-                                                    "Value": "my.custom.master.value"
-                                                }
-                                            ],
-                                            "EvaluationPeriods": "120",
-                                            "MetricName": "TestMetric",
-                                            "Namespace": "AWS/ElasticMapReduce",
-                                            "Period": "300",
-                                            "Statistic": "AVERAGE",
-                                            "Threshold": "50",
-                                            "Unit": "PERCENT"
-                                        }
-                                    }
-                                }
-                            ]
-                        },
-                        "InstanceCount": "1",
-                        "InstanceType": "m4.large",
-                        "Market": "ON_DEMAND",
-                        "Name": "Master Instance"
-                    }
-                },
-                "JobFlowRole": {
-                    "Ref": "EMRInstanceProfile"
-                },
-                "Name": "EMR Sample Cluster",
-                "ReleaseLabel": "emr-4.4.0",
-                "SecurityConfiguration": {
-                    "Ref": "EMRSecurityConfiguration"
-                },
-                "ServiceRole": {
-                    "Ref": "EMRServiceRole"
-                },
-                "Tags": [
-                    {
-                        "Key": "Name",
-                        "Value": "EMR Sample Cluster"
-                    }
-                ],
-                "VisibleToAllUsers": true
-            },
-            "Type": "AWS::EMR::Cluster"
-        },
-        "EMRSecurityConfiguration": {
-            "Properties": {
-                "Name": "EMRSampleClusterSecurityConfiguration",
-                "SecurityConfiguration": {
-                    "EncryptionConfiguration": {
-                        "AtRestEncryptionConfiguration": {
-                            "LocalDiskEncryptionConfiguration": {
-                                "AwsKmsKey": "arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234",
-                                "EncryptionKeyProviderType": "AwsKms"
-                            },
-                            "S3EncryptionConfiguration": {
-                                "AwsKmsKey": "arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234",
-                                "EncryptionMode": "SSE-KMS"
-                            }
-                        },
-                        "EnableAtRestEncryption": true,
-                        "EnableInTransitEncryption": true,
-                        "InTransitEncryptionConfiguration": {
-                            "TLSCertificateConfiguration": {
-                                "CertificateProviderType": "PEM",
-                                "S3Object": "s3://MyConfigStore/artifacts/MyCerts.zip"
-                            }
-                        }
-                    }
-                }
-            },
-            "Type": "AWS::EMR::SecurityConfiguration"
-        },
-        "EMRServiceRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "sts:AssumeRole"
-                            ],
-                            "Effect": "Allow",
-                            "Principal": {
-                                "Service": [
-                                    "elasticmapreduce.amazonaws.com"
-                                ]
-                            }
-                        }
-                    ]
-                },
-                "ManagedPolicyArns": [
-                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"
-                ]
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "TestStep": {
-            "Properties": {
-                "ActionOnFailure": "CONTINUE",
-                "HadoopJarStep": {
-                    "Args": [
-                        "5",
-                        "10"
-                    ],
-                    "Jar": "s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar",
-                    "MainClass": "pi",
-                    "StepProperties": [
-                        {
-                            "Key": "my.custom.property",
-                            "Value": "my.custom.value"
-                        }
-                    ]
-                },
-                "JobFlowId": {
-                    "Ref": "EMRSampleCluster"
-                },
-                "Name": "TestStep"
-            },
-            "Type": "AWS::EMR::Step"
-        }
+ "Conditions": {
+  "WithSpotPrice": {
+   "Fn::Not": [
+    {
+     "Fn::Equals": [
+      {
+       "Ref": "SpotPrice"
+      },
+      "0"
+     ]
     }
+   ]
+  }
+ },
+ "Description": "Sample CloudFormation template for creating an EMR cluster",
+ "Parameters": {
+  "GcTimeRatioValue": {
+   "Default": "19",
+   "Description": "Hadoop name node garbage collector time ratio",
+   "Type": "Number"
+  },
+  "KeyName": {
+   "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
+   "Type": "AWS::EC2::KeyPair::KeyName"
+  },
+  "SpotPrice": {
+   "Default": "0.1",
+   "Description": "Spot price (or use 0 for 'on demand' instance)",
+   "Type": "Number"
+  },
+  "Subnet": {
+   "Description": "Subnet ID for creating the EMR cluster",
+   "Type": "AWS::EC2::Subnet::Id"
+  }
+ },
+ "Resources": {
+  "EMRInstanceProfile": {
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "EMRJobFlowRole"
+     }
+    ]
+   },
+   "Type": "AWS::IAM::InstanceProfile"
+  },
+  "EMRJobFlowRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "ec2.amazonaws.com"
+        ]
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"
+    ]
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "EMRSampleCluster": {
+   "Properties": {
+    "Applications": [
+     {
+      "Name": "Hadoop"
+     },
+     {
+      "Name": "Hive"
+     },
+     {
+      "Name": "Mahout"
+     },
+     {
+      "Name": "Pig"
+     },
+     {
+      "Name": "Spark"
+     }
+    ],
+    "AutoScalingRole": "EMR_AutoScaling_DefaultRole",
+    "BootstrapActions": [
+     {
+      "Name": "Dummy bootstrap action",
+      "ScriptBootstrapAction": {
+       "Args": [
+        "dummy",
+        "parameter"
+       ],
+       "Path": "file:/usr/share/aws/emr/scripts/install-hue"
+      }
+     }
+    ],
+    "Configurations": [
+     {
+      "Classification": "core-site",
+      "ConfigurationProperties": {
+       "hadoop.security.groups.cache.secs": "250"
+      }
+     },
+     {
+      "Classification": "mapred-site",
+      "ConfigurationProperties": {
+       "mapred.tasktracker.map.tasks.maximum": "2",
+       "mapreduce.map.sort.spill.percent": "90",
+       "mapreduce.tasktracker.reduce.tasks.maximum": "5"
+      }
+     },
+     {
+      "Classification": "hadoop-env",
+      "Configurations": [
+       {
+        "Classification": "export",
+        "ConfigurationProperties": {
+         "HADOOP_DATANODE_HEAPSIZE": "2048",
+         "HADOOP_NAMENODE_OPTS": {
+          "Fn::Join": [
+           "",
+           [
+            "-XX:GCTimeRatio=",
+            {
+             "Ref": "GcTimeRatioValue"
+            }
+           ]
+          ]
+         }
+        }
+       }
+      ]
+     }
+    ],
+    "Instances": {
+     "CoreInstanceGroup": {
+      "AutoScalingPolicy": {
+       "Constraints": {
+        "MaxCapacity": "3",
+        "MinCapacity": "1"
+       },
+       "Rules": [
+        {
+         "Action": {
+          "Market": "ON_DEMAND",
+          "SimpleScalingPolicyConfiguration": {
+           "AdjustmentType": "EXACT_CAPACITY",
+           "CoolDown": "300",
+           "ScalingAdjustment": "1"
+          }
+         },
+         "Description": "CoreAutoScalingPolicy rules",
+         "Name": "CoreAutoScalingPolicy",
+         "Trigger": {
+          "CloudWatchAlarmDefinition": {
+           "ComparisonOperator": "GREATER_THAN",
+           "Dimensions": [
+            {
+             "Key": "my.custom.master.property",
+             "Value": "my.custom.master.value"
+            }
+           ],
+           "EvaluationPeriods": "120",
+           "MetricName": "TestMetric",
+           "Namespace": "AWS/ElasticMapReduce",
+           "Period": "300",
+           "Statistic": "AVERAGE",
+           "Threshold": "50",
+           "Unit": "PERCENT"
+          }
+         }
+        }
+       ]
+      },
+      "BidPrice": {
+       "Fn::If": [
+        "WithSpotPrice",
+        {
+         "Ref": "SpotPrice"
+        },
+        {
+         "Ref": "AWS::NoValue"
+        }
+       ]
+      },
+      "EbsConfiguration": {
+       "EbsBlockDeviceConfigs": [
+        {
+         "VolumeSpecification": {
+          "SizeInGB": "10",
+          "VolumeType": "gp2"
+         },
+         "VolumesPerInstance": "1"
+        }
+       ],
+       "EbsOptimized": true
+      },
+      "InstanceCount": "1",
+      "InstanceType": "m4.large",
+      "Market": {
+       "Fn::If": [
+        "WithSpotPrice",
+        "SPOT",
+        "ON_DEMAND"
+       ]
+      },
+      "Name": "Core Instance"
+     },
+     "Ec2KeyName": {
+      "Ref": "KeyName"
+     },
+     "Ec2SubnetId": {
+      "Ref": "Subnet"
+     },
+     "MasterInstanceGroup": {
+      "AutoScalingPolicy": {
+       "Constraints": {
+        "MaxCapacity": "3",
+        "MinCapacity": "1"
+       },
+       "Rules": [
+        {
+         "Action": {
+          "Market": "ON_DEMAND",
+          "SimpleScalingPolicyConfiguration": {
+           "AdjustmentType": "EXACT_CAPACITY",
+           "CoolDown": "300",
+           "ScalingAdjustment": "1"
+          }
+         },
+         "Description": "MasterAutoScalingPolicy rules",
+         "Name": "MasterAutoScalingPolicy",
+         "Trigger": {
+          "CloudWatchAlarmDefinition": {
+           "ComparisonOperator": "GREATER_THAN",
+           "Dimensions": [
+            {
+             "Key": "my.custom.master.property",
+             "Value": "my.custom.master.value"
+            }
+           ],
+           "EvaluationPeriods": "120",
+           "MetricName": "TestMetric",
+           "Namespace": "AWS/ElasticMapReduce",
+           "Period": "300",
+           "Statistic": "AVERAGE",
+           "Threshold": "50",
+           "Unit": "PERCENT"
+          }
+         }
+        }
+       ]
+      },
+      "InstanceCount": "1",
+      "InstanceType": "m4.large",
+      "Market": "ON_DEMAND",
+      "Name": "Master Instance"
+     }
+    },
+    "JobFlowRole": {
+     "Ref": "EMRInstanceProfile"
+    },
+    "Name": "EMR Sample Cluster",
+    "ReleaseLabel": "emr-4.4.0",
+    "SecurityConfiguration": {
+     "Ref": "EMRSecurityConfiguration"
+    },
+    "ServiceRole": {
+     "Ref": "EMRServiceRole"
+    },
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "EMR Sample Cluster"
+     }
+    ],
+    "VisibleToAllUsers": true
+   },
+   "Type": "AWS::EMR::Cluster"
+  },
+  "EMRSecurityConfiguration": {
+   "Properties": {
+    "Name": "EMRSampleClusterSecurityConfiguration",
+    "SecurityConfiguration": {
+     "EncryptionConfiguration": {
+      "AtRestEncryptionConfiguration": {
+       "LocalDiskEncryptionConfiguration": {
+        "AwsKmsKey": "arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234",
+        "EncryptionKeyProviderType": "AwsKms"
+       },
+       "S3EncryptionConfiguration": {
+        "AwsKmsKey": "arn:aws:kms:us-east-1:123456789012:key/1234-1234-1234-1234-1234",
+        "EncryptionMode": "SSE-KMS"
+       }
+      },
+      "EnableAtRestEncryption": true,
+      "EnableInTransitEncryption": true,
+      "InTransitEncryptionConfiguration": {
+       "TLSCertificateConfiguration": {
+        "CertificateProviderType": "PEM",
+        "S3Object": "s3://MyConfigStore/artifacts/MyCerts.zip"
+       }
+      }
+     }
+    }
+   },
+   "Type": "AWS::EMR::SecurityConfiguration"
+  },
+  "EMRServiceRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "sts:AssumeRole"
+       ],
+       "Effect": "Allow",
+       "Principal": {
+        "Service": [
+         "elasticmapreduce.amazonaws.com"
+        ]
+       }
+      }
+     ]
+    },
+    "ManagedPolicyArns": [
+     "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"
+    ]
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "TestStep": {
+   "Properties": {
+    "ActionOnFailure": "CONTINUE",
+    "HadoopJarStep": {
+     "Args": [
+      "5",
+      "10"
+     ],
+     "Jar": "s3://emr-cfn-test/hadoop-mapreduce-examples-2.6.0.jar",
+     "MainClass": "pi",
+     "StepProperties": [
+      {
+       "Key": "my.custom.property",
+       "Value": "my.custom.value"
+      }
+     ]
+    },
+    "JobFlowId": {
+     "Ref": "EMRSampleCluster"
+    },
+    "Name": "TestStep"
+   },
+   "Type": "AWS::EMR::Step"
+  }
+ }
 }
