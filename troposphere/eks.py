@@ -34,13 +34,23 @@ class Addon(AWSObject):
     }
 
 
+class Provider(AWSProperty):
+    """
+    `Provider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-provider.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyArn": (str, False),
+    }
+
+
 class EncryptionConfig(AWSProperty):
     """
     `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-encryptionconfig.html>`__
     """
 
     props: PropsDictType = {
-        "Provider": (dict, False),
+        "Provider": (Provider, False),
         "Resources": ([str], False),
     }
 

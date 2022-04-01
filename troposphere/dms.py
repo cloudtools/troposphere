@@ -203,10 +203,41 @@ class OracleSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AccessAlternateDirectly": (boolean, False),
+        "AddSupplementalLogging": (boolean, False),
+        "AdditionalArchivedLogDestId": (integer, False),
+        "AllowSelectNestedTables": (boolean, False),
+        "ArchivedLogDestId": (integer, False),
+        "ArchivedLogsOnly": (boolean, False),
+        "AsmPassword": (str, False),
+        "AsmServer": (str, False),
+        "AsmUser": (str, False),
+        "CharLengthSemantics": (str, False),
+        "DirectPathNoLog": (boolean, False),
+        "DirectPathParallelLoad": (boolean, False),
+        "EnableHomogenousTablespace": (boolean, False),
+        "ExtraArchivedLogDestIds": ([integer], False),
+        "FailTasksOnLobTruncation": (boolean, False),
+        "NumberDatatypeScale": (integer, False),
+        "OraclePathPrefix": (str, False),
+        "ParallelAsmReadThreads": (integer, False),
+        "ReadAheadBlocks": (integer, False),
+        "ReadTableSpaceName": (boolean, False),
+        "ReplacePathPrefix": (boolean, False),
+        "RetryInterval": (integer, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerOracleAsmAccessRoleArn": (str, False),
         "SecretsManagerOracleAsmSecretId": (str, False),
         "SecretsManagerSecretId": (str, False),
+        "SecurityDbEncryption": (str, False),
+        "SecurityDbEncryptionName": (str, False),
+        "SpatialDataOptionToGeoJsonFunctionName": (str, False),
+        "StandbyDelayTime": (integer, False),
+        "UseAlternateFolderForOnline": (boolean, False),
+        "UseBFile": (boolean, False),
+        "UseDirectPathFullLoad": (boolean, False),
+        "UseLogminerReader": (boolean, False),
+        "UsePathPrefix": (str, False),
     }
 
 
@@ -216,8 +247,19 @@ class PostgreSqlSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AfterConnectScript": (str, False),
+        "CaptureDdls": (boolean, False),
+        "DdlArtifactsSchema": (str, False),
+        "ExecuteTimeout": (integer, False),
+        "FailTasksOnLobTruncation": (boolean, False),
+        "HeartbeatEnable": (boolean, False),
+        "HeartbeatFrequency": (integer, False),
+        "HeartbeatSchema": (str, False),
+        "MaxFileSize": (integer, False),
+        "PluginName": (str, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
+        "SlotName": (str, False),
     }
 
 
