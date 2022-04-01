@@ -1,120 +1,120 @@
 {
-    "Parameters": {
-        "ArtifactStoreS3Location": {
-            "Description": "This should be an S3 bucket resource or bucket name",
-            "Type": "String"
-        },
-        "CodePipelineServiceRole": {
-            "Description": "The CodePipelineServiceRole ARN to use",
-            "Type": "String"
-        }
+ "Parameters": {
+  "ArtifactStoreS3Location": {
+   "Description": "This should be an S3 bucket resource or bucket name",
+   "Type": "String"
+  },
+  "CodePipelineServiceRole": {
+   "Description": "The CodePipelineServiceRole ARN to use",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "AppPipeline": {
+   "Properties": {
+    "ArtifactStore": {
+     "Location": {
+      "Ref": "ArtifactStoreS3Location"
+     },
+     "Type": "S3"
     },
-    "Resources": {
-        "AppPipeline": {
-            "Properties": {
-                "ArtifactStore": {
-                    "Location": {
-                        "Ref": "ArtifactStoreS3Location"
-                    },
-                    "Type": "S3"
-                },
-                "DisableInboundStageTransitions": [
-                    {
-                        "Reason": "Disabling the transition until integration tests are completed",
-                        "StageName": "Release"
-                    }
-                ],
-                "RoleArn": {
-                    "Ref": "CodePipelineServiceRole"
-                },
-                "Stages": [
-                    {
-                        "Actions": [
-                            {
-                                "ActionTypeId": {
-                                    "Category": "Source",
-                                    "Owner": "AWS",
-                                    "Provider": "S3",
-                                    "Version": "1"
-                                },
-                                "Configuration": {
-                                    "S3Bucket": {
-                                        "Ref": "SourceS3Bucket"
-                                    },
-                                    "S3ObjectKey": {
-                                        "Ref": "SourceS3ObjectKey"
-                                    }
-                                },
-                                "Name": "SourceAction",
-                                "OutputArtifacts": [
-                                    {
-                                        "Name": "SourceOutput"
-                                    }
-                                ],
-                                "RunOrder": "1"
-                            }
-                        ],
-                        "Name": "Source"
-                    },
-                    {
-                        "Actions": [
-                            {
-                                "ActionTypeId": {
-                                    "Category": "Deploy",
-                                    "Owner": "AWS",
-                                    "Provider": "CodeDeploy",
-                                    "Version": "1"
-                                },
-                                "Configuration": {
-                                    "ApplicationName": {
-                                        "Ref": "ApplicationName"
-                                    },
-                                    "DeploymentGroupName": {
-                                        "Ref": "DeploymentGroupName"
-                                    }
-                                },
-                                "InputArtifacts": [
-                                    {
-                                        "Name": "SourceOutput"
-                                    }
-                                ],
-                                "Name": "BetaAction",
-                                "RunOrder": "1"
-                            }
-                        ],
-                        "Name": "Beta"
-                    },
-                    {
-                        "Actions": [
-                            {
-                                "ActionTypeId": {
-                                    "Category": "Deploy",
-                                    "Owner": "AWS",
-                                    "Provider": "CodeDeploy",
-                                    "Version": "1"
-                                },
-                                "Configuration": {
-                                    "ApplicationName": {
-                                        "Ref": "ApplicationName"
-                                    },
-                                    "DeploymentGroupName": {
-                                        "Ref": "DeploymentGroupName"
-                                    }
-                                },
-                                "InputArtifacts": [
-                                    {
-                                        "Name": "SourceOutput"
-                                    }
-                                ],
-                                "Name": "ReleaseAction",
-                                "RunOrder": "1"
-                            }
-                        ],
-                        "Name": "Release"
-                    }
-                ]
-            },
-            "Type": "AWS::CodePipeline::Pipeline"
-        }
-    }
+    "DisableInboundStageTransitions": [
+     {
+      "Reason": "Disabling the transition until integration tests are completed",
+      "StageName": "Release"
+     }
+    ],
+    "RoleArn": {
+     "Ref": "CodePipelineServiceRole"
+    },
+    "Stages": [
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Source",
+         "Owner": "AWS",
+         "Provider": "S3",
+         "Version": "1"
+        },
+        "Configuration": {
+         "S3Bucket": {
+          "Ref": "SourceS3Bucket"
+         },
+         "S3ObjectKey": {
+          "Ref": "SourceS3ObjectKey"
+         }
+        },
+        "Name": "SourceAction",
+        "OutputArtifacts": [
+         {
+          "Name": "SourceOutput"
+         }
+        ],
+        "RunOrder": "1"
+       }
+      ],
+      "Name": "Source"
+     },
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Deploy",
+         "Owner": "AWS",
+         "Provider": "CodeDeploy",
+         "Version": "1"
+        },
+        "Configuration": {
+         "ApplicationName": {
+          "Ref": "ApplicationName"
+         },
+         "DeploymentGroupName": {
+          "Ref": "DeploymentGroupName"
+         }
+        },
+        "InputArtifacts": [
+         {
+          "Name": "SourceOutput"
+         }
+        ],
+        "Name": "BetaAction",
+        "RunOrder": "1"
+       }
+      ],
+      "Name": "Beta"
+     },
+     {
+      "Actions": [
+       {
+        "ActionTypeId": {
+         "Category": "Deploy",
+         "Owner": "AWS",
+         "Provider": "CodeDeploy",
+         "Version": "1"
+        },
+        "Configuration": {
+         "ApplicationName": {
+          "Ref": "ApplicationName"
+         },
+         "DeploymentGroupName": {
+          "Ref": "DeploymentGroupName"
+         }
+        },
+        "InputArtifacts": [
+         {
+          "Name": "SourceOutput"
+         }
+        ],
+        "Name": "ReleaseAction",
+        "RunOrder": "1"
+       }
+      ],
+      "Name": "Release"
+     }
+    ]
+   },
+   "Type": "AWS::CodePipeline::Pipeline"
+  }
+ }
 }

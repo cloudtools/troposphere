@@ -1,104 +1,104 @@
 {
-    "Description": "AWS CloudFormation Sample Template Route53_A: Sample template showing how to create an Amazon Route 53 A record that maps to the public IP address of an EC2 instance. It assumes that you already have a Hosted Zone registered with Amazon Route 53. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Mappings": {
-        "RegionMap": {
-            "ap-northeast-1": {
-                "AMI": "ami-dcfa4edd"
-            },
-            "ap-southeast-1": {
-                "AMI": "ami-74dda626"
-            },
-            "eu-west-1": {
-                "AMI": "ami-24506250"
-            },
-            "sa-east-1": {
-                "AMI": "ami-3e3be423"
-            },
-            "us-east-1": {
-                "AMI": "ami-7f418316"
-            },
-            "us-west-1": {
-                "AMI": "ami-951945d0"
-            },
-            "us-west-2": {
-                "AMI": "ami-16fd7026"
-            }
-        }
+ "Description": "AWS CloudFormation Sample Template Route53_A: Sample template showing how to create an Amazon Route 53 A record that maps to the public IP address of an EC2 instance. It assumes that you already have a Hosted Zone registered with Amazon Route 53. **WARNING** This template creates an Amazon EC2 instance. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Mappings": {
+  "RegionMap": {
+   "ap-northeast-1": {
+    "AMI": "ami-dcfa4edd"
+   },
+   "ap-southeast-1": {
+    "AMI": "ami-74dda626"
+   },
+   "eu-west-1": {
+    "AMI": "ami-24506250"
+   },
+   "sa-east-1": {
+    "AMI": "ami-3e3be423"
+   },
+   "us-east-1": {
+    "AMI": "ami-7f418316"
+   },
+   "us-west-1": {
+    "AMI": "ami-951945d0"
+   },
+   "us-west-2": {
+    "AMI": "ami-16fd7026"
+   }
+  }
+ },
+ "Outputs": {
+  "DomainName": {
+   "Value": {
+    "Ref": "myDNSRecord"
+   }
+  }
+ },
+ "Parameters": {
+  "HostedZone": {
+   "Description": "The DNS name of an existing Amazon Route 53 hosted zone",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "Ec2Instance": {
+   "Properties": {
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
     },
-    "Outputs": {
-        "DomainName": {
-            "Value": {
-                "Ref": "myDNSRecord"
-            }
-        }
+    "InstanceType": "m1.small"
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "myDNSRecord": {
+   "Properties": {
+    "Comment": "DNS name for my instance.",
+    "HostedZoneName": {
+     "Fn::Join": [
+      "",
+      [
+       {
+        "Ref": "HostedZone"
+       },
+       "."
+      ]
+     ]
     },
-    "Parameters": {
-        "HostedZone": {
-            "Description": "The DNS name of an existing Amazon Route 53 hosted zone",
-            "Type": "String"
-        }
+    "Name": {
+     "Fn::Join": [
+      "",
+      [
+       {
+        "Ref": "Ec2Instance"
+       },
+       ".",
+       {
+        "Ref": "AWS::Region"
+       },
+       ".",
+       {
+        "Ref": "HostedZone"
+       },
+       "."
+      ]
+     ]
     },
-    "Resources": {
-        "Ec2Instance": {
-            "Properties": {
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": "m1.small"
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "myDNSRecord": {
-            "Properties": {
-                "Comment": "DNS name for my instance.",
-                "HostedZoneName": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            {
-                                "Ref": "HostedZone"
-                            },
-                            "."
-                        ]
-                    ]
-                },
-                "Name": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            {
-                                "Ref": "Ec2Instance"
-                            },
-                            ".",
-                            {
-                                "Ref": "AWS::Region"
-                            },
-                            ".",
-                            {
-                                "Ref": "HostedZone"
-                            },
-                            "."
-                        ]
-                    ]
-                },
-                "ResourceRecords": [
-                    {
-                        "Fn::GetAtt": [
-                            "Ec2Instance",
-                            "PublicIp"
-                        ]
-                    }
-                ],
-                "TTL": "900",
-                "Type": "A"
-            },
-            "Type": "AWS::Route53::RecordSet"
-        }
-    }
+    "ResourceRecords": [
+     {
+      "Fn::GetAtt": [
+       "Ec2Instance",
+       "PublicIp"
+      ]
+     }
+    ],
+    "TTL": "900",
+    "Type": "A"
+   },
+   "Type": "AWS::Route53::RecordSet"
+  }
+ }
 }

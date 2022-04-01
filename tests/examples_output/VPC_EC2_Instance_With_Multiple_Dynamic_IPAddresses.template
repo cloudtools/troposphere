@@ -1,237 +1,237 @@
 {
-    "Mappings": {
-        "RegionMap": {
-            "ap-northeast-1": {
-                "AMI": "ami-dcfa4edd"
-            },
-            "ap-southeast-1": {
-                "AMI": "ami-74dda626"
-            },
-            "eu-west-1": {
-                "AMI": "ami-24506250"
-            },
-            "sa-east-1": {
-                "AMI": "ami-3e3be423"
-            },
-            "us-east-1": {
-                "AMI": "ami-7f418316"
-            },
-            "us-west-1": {
-                "AMI": "ami-951945d0"
-            },
-            "us-west-2": {
-                "AMI": "ami-16fd7026"
-            }
+ "Mappings": {
+  "RegionMap": {
+   "ap-northeast-1": {
+    "AMI": "ami-dcfa4edd"
+   },
+   "ap-southeast-1": {
+    "AMI": "ami-74dda626"
+   },
+   "eu-west-1": {
+    "AMI": "ami-24506250"
+   },
+   "sa-east-1": {
+    "AMI": "ami-3e3be423"
+   },
+   "us-east-1": {
+    "AMI": "ami-7f418316"
+   },
+   "us-west-1": {
+    "AMI": "ami-951945d0"
+   },
+   "us-west-2": {
+    "AMI": "ami-16fd7026"
+   }
+  }
+ },
+ "Outputs": {
+  "EIP1": {
+   "Description": "Primary public IP address for Eth0",
+   "Value": {
+    "Fn::Join": [
+     " ",
+     [
+      "IP address",
+      {
+       "Ref": "EIP1"
+      },
+      "on subnet",
+      {
+       "Ref": "SubnetId"
+      }
+     ]
+    ]
+   }
+  },
+  "FirstSecondaryPrivateIPAddress": {
+   "Description": "First secondary private IP address of Eth0",
+   "Value": {
+    "Fn::Join": [
+     " ",
+     [
+      "IP address",
+      {
+       "Fn::Select": [
+        "0",
+        {
+         "Fn::GetAtt": [
+          "Eth0",
+          "SecondaryPrivateIpAddresses"
+         ]
         }
+       ]
+      },
+      "on subnet",
+      {
+       "Ref": "SubnetId"
+      }
+     ]
+    ]
+   }
+  },
+  "InstanceId": {
+   "Description": "InstanceId of the newly created EC2 instance",
+   "Value": {
+    "Ref": "EC2Instance"
+   }
+  },
+  "PrimaryPrivateIPAddress": {
+   "Description": "Primary private IP address of Eth0",
+   "Value": {
+    "Fn::Join": [
+     " ",
+     [
+      "IP address",
+      {
+       "Fn::GetAtt": [
+        "Eth0",
+        "PrimaryPrivateIpAddress"
+       ]
+      },
+      "on subnet",
+      {
+       "Ref": "SubnetId"
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "KeyName": {
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+   "Type": "String"
+  },
+  "SSHLocation": {
+   "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+   "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
+   "Default": "0.0.0.0/0",
+   "Description": "The IP address range that can be used to SSH to the EC2 instances",
+   "MaxLength": "18",
+   "MinLength": "9",
+   "Type": "String"
+  },
+  "SecondaryIPAddressCount": {
+   "ConstraintDescription": "must be a number from 1 to 5.",
+   "Default": "1",
+   "Description": "Number of secondary IP addresses to assign to the network interface (1-5)",
+   "MaxValue": "5",
+   "MinValue": "1",
+   "Type": "Number"
+  },
+  "SubnetId": {
+   "Description": "SubnetId of an existing subnet (for the primary network) in your Virtual Private Cloud (VPC)access to the instance",
+   "Type": "String"
+  },
+  "VpcId": {
+   "Description": "VpcId of your existing Virtual Private Cloud (VPC)",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "EC2Instance": {
+   "Properties": {
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
     },
-    "Outputs": {
-        "EIP1": {
-            "Description": "Primary public IP address for Eth0",
-            "Value": {
-                "Fn::Join": [
-                    " ",
-                    [
-                        "IP address",
-                        {
-                            "Ref": "EIP1"
-                        },
-                        "on subnet",
-                        {
-                            "Ref": "SubnetId"
-                        }
-                    ]
-                ]
-            }
-        },
-        "FirstSecondaryPrivateIPAddress": {
-            "Description": "First secondary private IP address of Eth0",
-            "Value": {
-                "Fn::Join": [
-                    " ",
-                    [
-                        "IP address",
-                        {
-                            "Fn::Select": [
-                                "0",
-                                {
-                                    "Fn::GetAtt": [
-                                        "Eth0",
-                                        "SecondaryPrivateIpAddresses"
-                                    ]
-                                }
-                            ]
-                        },
-                        "on subnet",
-                        {
-                            "Ref": "SubnetId"
-                        }
-                    ]
-                ]
-            }
-        },
-        "InstanceId": {
-            "Description": "InstanceId of the newly created EC2 instance",
-            "Value": {
-                "Ref": "EC2Instance"
-            }
-        },
-        "PrimaryPrivateIPAddress": {
-            "Description": "Primary private IP address of Eth0",
-            "Value": {
-                "Fn::Join": [
-                    " ",
-                    [
-                        "IP address",
-                        {
-                            "Fn::GetAtt": [
-                                "Eth0",
-                                "PrimaryPrivateIpAddress"
-                            ]
-                        },
-                        "on subnet",
-                        {
-                            "Ref": "SubnetId"
-                        }
-                    ]
-                ]
-            }
-        }
+    "KeyName": {
+     "Ref": "KeyName"
     },
-    "Parameters": {
-        "KeyName": {
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
-            "Type": "String"
-        },
-        "SSHLocation": {
-            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
-            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
-            "Default": "0.0.0.0/0",
-            "Description": "The IP address range that can be used to SSH to the EC2 instances",
-            "MaxLength": "18",
-            "MinLength": "9",
-            "Type": "String"
-        },
-        "SecondaryIPAddressCount": {
-            "ConstraintDescription": "must be a number from 1 to 5.",
-            "Default": "1",
-            "Description": "Number of secondary IP addresses to assign to the network interface (1-5)",
-            "MaxValue": "5",
-            "MinValue": "1",
-            "Type": "Number"
-        },
-        "SubnetId": {
-            "Description": "SubnetId of an existing subnet (for the primary network) in your Virtual Private Cloud (VPC)access to the instance",
-            "Type": "String"
-        },
-        "VpcId": {
-            "Description": "VpcId of your existing Virtual Private Cloud (VPC)",
-            "Type": "String"
-        }
+    "NetworkInterfaces": [
+     {
+      "DeviceIndex": "0",
+      "NetworkInterfaceId": {
+       "Ref": "Eth0"
+      }
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "MyInstance"
+     }
+    ]
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "EIP1": {
+   "Properties": {
+    "Domain": "vpc"
+   },
+   "Type": "AWS::EC2::EIP"
+  },
+  "EIPAssoc1": {
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "EIP1",
+      "AllocationId"
+     ]
     },
-    "Resources": {
-        "EC2Instance": {
-            "Properties": {
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "NetworkInterfaces": [
-                    {
-                        "DeviceIndex": "0",
-                        "NetworkInterfaceId": {
-                            "Ref": "Eth0"
-                        }
-                    }
-                ],
-                "Tags": [
-                    {
-                        "Key": "Name",
-                        "Value": "MyInstance"
-                    }
-                ]
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "EIP1": {
-            "Properties": {
-                "Domain": "vpc"
-            },
-            "Type": "AWS::EC2::EIP"
-        },
-        "EIPAssoc1": {
-            "Properties": {
-                "AllocationId": {
-                    "Fn::GetAtt": [
-                        "EIP1",
-                        "AllocationId"
-                    ]
-                },
-                "NetworkInterfaceId": {
-                    "Ref": "Eth0"
-                },
-                "PrivateIpAddress": {
-                    "Fn::GetAtt": [
-                        "Eth0",
-                        "PrimaryPrivateIpAddress"
-                    ]
-                }
-            },
-            "Type": "AWS::EC2::EIPAssociation"
-        },
-        "Eth0": {
-            "Properties": {
-                "Description": "eth0",
-                "GroupSet": [
-                    {
-                        "Ref": "SSHSecurityGroup"
-                    }
-                ],
-                "SecondaryPrivateIpAddressCount": {
-                    "Ref": "SecondaryIPAddressCount"
-                },
-                "SourceDestCheck": true,
-                "SubnetId": {
-                    "Ref": "SubnetId"
-                },
-                "Tags": [
-                    {
-                        "Key": "Interface",
-                        "Value": "eth0"
-                    },
-                    {
-                        "Key": "Name",
-                        "Value": "Interface 0"
-                    }
-                ]
-            },
-            "Type": "AWS::EC2::NetworkInterface"
-        },
-        "SSHSecurityGroup": {
-            "Properties": {
-                "GroupDescription": "Enable SSH access via port 22",
-                "SecurityGroupIngress": [
-                    {
-                        "CidrIp": {
-                            "Ref": "SSHLocation"
-                        },
-                        "FromPort": "22",
-                        "IpProtocol": "tcp",
-                        "ToPort": "22"
-                    }
-                ],
-                "VpcId": {
-                    "Ref": "VpcId"
-                }
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        }
+    "NetworkInterfaceId": {
+     "Ref": "Eth0"
+    },
+    "PrivateIpAddress": {
+     "Fn::GetAtt": [
+      "Eth0",
+      "PrimaryPrivateIpAddress"
+     ]
     }
+   },
+   "Type": "AWS::EC2::EIPAssociation"
+  },
+  "Eth0": {
+   "Properties": {
+    "Description": "eth0",
+    "GroupSet": [
+     {
+      "Ref": "SSHSecurityGroup"
+     }
+    ],
+    "SecondaryPrivateIpAddressCount": {
+     "Ref": "SecondaryIPAddressCount"
+    },
+    "SourceDestCheck": true,
+    "SubnetId": {
+     "Ref": "SubnetId"
+    },
+    "Tags": [
+     {
+      "Key": "Interface",
+      "Value": "eth0"
+     },
+     {
+      "Key": "Name",
+      "Value": "Interface 0"
+     }
+    ]
+   },
+   "Type": "AWS::EC2::NetworkInterface"
+  },
+  "SSHSecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Enable SSH access via port 22",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": {
+       "Ref": "SSHLocation"
+      },
+      "FromPort": "22",
+      "IpProtocol": "tcp",
+      "ToPort": "22"
+     }
+    ],
+    "VpcId": {
+     "Ref": "VpcId"
+    }
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  }
+ }
 }

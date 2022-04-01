@@ -1,28 +1,28 @@
 {
-    "Description": "Example template showing how the WaitCondition and WaitConditionHandle are configured. With this template, the stack will not complete until either the WaitCondition timeout occurs, or you manually signal the WaitCondition object using the URL created by the WaitConditionHandle. You can use CURL or some other equivalent mechanism to signal the WaitCondition. To find the URL, use cfn-describe-stack-resources or the AWS Management Console to display the PhysicalResourceId of the WaitConditionHandle - this is the URL to use to signal. For details of the signal request see the AWS CloudFormation User Guide at http://docs.amazonwebservices.com/AWSCloudFormation/latest/UserGuide/",
-    "Outputs": {
-        "ApplicationData": {
-            "Description": "The data passed back as part of signalling the WaitCondition",
-            "Value": {
-                "Fn::GetAtt": [
-                    "myWaitCondition",
-                    "Data"
-                ]
-            }
-        }
+ "Description": "Example template showing how the WaitCondition and WaitConditionHandle are configured. With this template, the stack will not complete until either the WaitCondition timeout occurs, or you manually signal the WaitCondition object using the URL created by the WaitConditionHandle. You can use CURL or some other equivalent mechanism to signal the WaitCondition. To find the URL, use cfn-describe-stack-resources or the AWS Management Console to display the PhysicalResourceId of the WaitConditionHandle - this is the URL to use to signal. For details of the signal request see the AWS CloudFormation User Guide at http://docs.amazonwebservices.com/AWSCloudFormation/latest/UserGuide/",
+ "Outputs": {
+  "ApplicationData": {
+   "Description": "The data passed back as part of signalling the WaitCondition",
+   "Value": {
+    "Fn::GetAtt": [
+     "myWaitCondition",
+     "Data"
+    ]
+   }
+  }
+ },
+ "Resources": {
+  "myWaitCondition": {
+   "Properties": {
+    "Handle": {
+     "Ref": "myWaitHandle"
     },
-    "Resources": {
-        "myWaitCondition": {
-            "Properties": {
-                "Handle": {
-                    "Ref": "myWaitHandle"
-                },
-                "Timeout": "300"
-            },
-            "Type": "AWS::CloudFormation::WaitCondition"
-        },
-        "myWaitHandle": {
-            "Type": "AWS::CloudFormation::WaitConditionHandle"
-        }
-    }
+    "Timeout": "300"
+   },
+   "Type": "AWS::CloudFormation::WaitCondition"
+  },
+  "myWaitHandle": {
+   "Type": "AWS::CloudFormation::WaitConditionHandle"
+  }
+ }
 }

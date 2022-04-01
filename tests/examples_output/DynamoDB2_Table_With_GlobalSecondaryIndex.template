@@ -1,162 +1,162 @@
 {
-    "Description": "Create a dynamodb table with a global secondary index",
-    "Outputs": {
-        "GSITable": {
-            "Description": "Table with a Global Secondary Index",
-            "Value": {
-                "Ref": "GSITable"
-            }
-        }
-    },
-    "Parameters": {
-        "ReadCapacityUnits": {
-            "ConstraintDescription": "should be between 5 and 10000",
-            "Default": "10",
-            "Description": "Provisioned read throughput",
-            "MaxValue": "10000",
-            "MinValue": "5",
-            "Type": "Number"
+ "Description": "Create a dynamodb table with a global secondary index",
+ "Outputs": {
+  "GSITable": {
+   "Description": "Table with a Global Secondary Index",
+   "Value": {
+    "Ref": "GSITable"
+   }
+  }
+ },
+ "Parameters": {
+  "ReadCapacityUnits": {
+   "ConstraintDescription": "should be between 5 and 10000",
+   "Default": "10",
+   "Description": "Provisioned read throughput",
+   "MaxValue": "10000",
+   "MinValue": "5",
+   "Type": "Number"
+  },
+  "SecondaryIndexHashDataType": {
+   "AllowedPattern": "[S|N|B]",
+   "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
+   "Default": "S",
+   "Description": "Secondary Index: Primary Key Data Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "SecondaryIndexHashName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Default": "tokenType",
+   "Description": "Secondary Index: Primary Key Field",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "SecondaryIndexRangeDataType": {
+   "AllowedPattern": "[S|N|B]",
+   "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
+   "Default": "S",
+   "Description": "Secondary Index: Range Key Data Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "TableIndexDataType": {
+   "AllowedPattern": "[S|N|B]",
+   "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
+   "Default": "S",
+   "Description": " Table: Primary Key Data Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "TableIndexName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Default": "id",
+   "Description": "Table: Primary Key Field",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "WriteCapacityUnits": {
+   "ConstraintDescription": "should be between 5 and 10000",
+   "Default": "5",
+   "Description": "Provisioned write throughput",
+   "MaxValue": "10000",
+   "MinValue": "5",
+   "Type": "Number"
+  },
+  "refreshSecondaryIndexRangeName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Default": "tokenUpdatedTime",
+   "Description": "Secondary Index: Range Key Field",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "GSITable": {
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": {
+       "Ref": "TableIndexName"
+      },
+      "AttributeType": {
+       "Ref": "TableIndexDataType"
+      }
+     },
+     {
+      "AttributeName": {
+       "Ref": "SecondaryIndexHashName"
+      },
+      "AttributeType": {
+       "Ref": "SecondaryIndexHashDataType"
+      }
+     },
+     {
+      "AttributeName": {
+       "Ref": "refreshSecondaryIndexRangeName"
+      },
+      "AttributeType": {
+       "Ref": "SecondaryIndexRangeDataType"
+      }
+     }
+    ],
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "SecondaryIndex",
+      "KeySchema": [
+       {
+        "AttributeName": {
+         "Ref": "SecondaryIndexHashName"
         },
-        "SecondaryIndexHashDataType": {
-            "AllowedPattern": "[S|N|B]",
-            "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
-            "Default": "S",
-            "Description": "Secondary Index: Primary Key Data Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": {
+         "Ref": "refreshSecondaryIndexRangeName"
         },
-        "SecondaryIndexHashName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Default": "tokenType",
-            "Description": "Secondary Index: Primary Key Field",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "SecondaryIndexRangeDataType": {
-            "AllowedPattern": "[S|N|B]",
-            "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
-            "Default": "S",
-            "Description": "Secondary Index: Range Key Data Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "TableIndexDataType": {
-            "AllowedPattern": "[S|N|B]",
-            "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
-            "Default": "S",
-            "Description": " Table: Primary Key Data Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "TableIndexName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Default": "id",
-            "Description": "Table: Primary Key Field",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "WriteCapacityUnits": {
-            "ConstraintDescription": "should be between 5 and 10000",
-            "Default": "5",
-            "Description": "Provisioned write throughput",
-            "MaxValue": "10000",
-            "MinValue": "5",
-            "Type": "Number"
-        },
-        "refreshSecondaryIndexRangeName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Default": "tokenUpdatedTime",
-            "Description": "Secondary Index: Range Key Field",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "GSITable": {
-            "Properties": {
-                "AttributeDefinitions": [
-                    {
-                        "AttributeName": {
-                            "Ref": "TableIndexName"
-                        },
-                        "AttributeType": {
-                            "Ref": "TableIndexDataType"
-                        }
-                    },
-                    {
-                        "AttributeName": {
-                            "Ref": "SecondaryIndexHashName"
-                        },
-                        "AttributeType": {
-                            "Ref": "SecondaryIndexHashDataType"
-                        }
-                    },
-                    {
-                        "AttributeName": {
-                            "Ref": "refreshSecondaryIndexRangeName"
-                        },
-                        "AttributeType": {
-                            "Ref": "SecondaryIndexRangeDataType"
-                        }
-                    }
-                ],
-                "GlobalSecondaryIndexes": [
-                    {
-                        "IndexName": "SecondaryIndex",
-                        "KeySchema": [
-                            {
-                                "AttributeName": {
-                                    "Ref": "SecondaryIndexHashName"
-                                },
-                                "KeyType": "HASH"
-                            },
-                            {
-                                "AttributeName": {
-                                    "Ref": "refreshSecondaryIndexRangeName"
-                                },
-                                "KeyType": "RANGE"
-                            }
-                        ],
-                        "Projection": {
-                            "ProjectionType": "ALL"
-                        },
-                        "ProvisionedThroughput": {
-                            "ReadCapacityUnits": {
-                                "Ref": "ReadCapacityUnits"
-                            },
-                            "WriteCapacityUnits": {
-                                "Ref": "WriteCapacityUnits"
-                            }
-                        }
-                    }
-                ],
-                "KeySchema": [
-                    {
-                        "AttributeName": {
-                            "Ref": "TableIndexName"
-                        },
-                        "KeyType": "HASH"
-                    }
-                ],
-                "ProvisionedThroughput": {
-                    "ReadCapacityUnits": {
-                        "Ref": "ReadCapacityUnits"
-                    },
-                    "WriteCapacityUnits": {
-                        "Ref": "WriteCapacityUnits"
-                    }
-                }
-            },
-            "Type": "AWS::DynamoDB::Table"
-        }
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+       "ReadCapacityUnits": {
+        "Ref": "ReadCapacityUnits"
+       },
+       "WriteCapacityUnits": {
+        "Ref": "WriteCapacityUnits"
+       }
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": {
+       "Ref": "TableIndexName"
+      },
+      "KeyType": "HASH"
+     }
+    ],
+    "ProvisionedThroughput": {
+     "ReadCapacityUnits": {
+      "Ref": "ReadCapacityUnits"
+     },
+     "WriteCapacityUnits": {
+      "Ref": "WriteCapacityUnits"
+     }
     }
+   },
+   "Type": "AWS::DynamoDB::Table"
+  }
+ }
 }

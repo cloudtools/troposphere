@@ -1,130 +1,130 @@
 {
-    "Description": "Configures an EC2 instance using cfn-init configsets",
-    "Outputs": {
-        "PublicIp": {
-            "Description": "Public IP of the newly created EC2 instance",
-            "Value": {
-                "Fn::GetAtt": [
-                    "Ec2Instance",
-                    "PublicIp"
-                ]
-            }
+ "Description": "Configures an EC2 instance using cfn-init configsets",
+ "Outputs": {
+  "PublicIp": {
+   "Description": "Public IP of the newly created EC2 instance",
+   "Value": {
+    "Fn::GetAtt": [
+     "Ec2Instance",
+     "PublicIp"
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "AmiId": {
+   "Default": "ami-98aa1cf0",
+   "Type": "String"
+  },
+  "KeyName": {
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access",
+   "Type": "AWS::EC2::KeyPair::KeyName"
+  }
+ },
+ "Resources": {
+  "Ec2Instance": {
+   "Metadata": {
+    "AWS::CloudFormation::Init": {
+     "config1": {
+      "commands": {
+       "test": {
+        "command": "echo \"$CFNTEST\" > text.txt",
+        "cwd": "~",
+        "env": {
+         "CFNTEST": "I come from config1."
         }
-    },
-    "Parameters": {
-        "AmiId": {
-            "Default": "ami-98aa1cf0",
-            "Type": "String"
-        },
-        "KeyName": {
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access",
-            "Type": "AWS::EC2::KeyPair::KeyName"
+       }
+      }
+     },
+     "config2": {
+      "commands": {
+       "test": {
+        "command": "echo \"$CFNTEST\" > text.txt",
+        "cwd": "~",
+        "env": {
+         "CFNTEST": "I come from config2."
         }
-    },
-    "Resources": {
-        "Ec2Instance": {
-            "Metadata": {
-                "AWS::CloudFormation::Init": {
-                    "config1": {
-                        "commands": {
-                            "test": {
-                                "command": "echo \"$CFNTEST\" > text.txt",
-                                "cwd": "~",
-                                "env": {
-                                    "CFNTEST": "I come from config1."
-                                }
-                            }
-                        }
-                    },
-                    "config2": {
-                        "commands": {
-                            "test": {
-                                "command": "echo \"$CFNTEST\" > text.txt",
-                                "cwd": "~",
-                                "env": {
-                                    "CFNTEST": "I come from config2."
-                                }
-                            }
-                        }
-                    },
-                    "configSets": {
-                        "ascending": [
-                            "config1",
-                            "config2"
-                        ],
-                        "descending": [
-                            "config2",
-                            "config1"
-                        ]
-                    }
-                }
-            },
-            "Properties": {
-                "IamInstanceProfile": "PullCredentials",
-                "ImageId": {
-                    "Ref": "AmiId"
-                },
-                "InstanceType": "t1.micro",
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "SecurityGroup"
-                    }
-                ],
-                "Tags": [
-                    {
-                        "Key": "Name",
-                        "Value": "ops.cfninit"
-                    },
-                    {
-                        "Key": "env",
-                        "Value": "ops"
-                    }
-                ],
-                "UserData": {
-                    "Fn::Base64": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "#!/bin/bash\n",
-                                "sudo apt-get update\n",
-                                "sudo apt-get -y install python-setuptools\n",
-                                "sudo apt-get -y install python-pip\n",
-                                "sudo pip install https://s3.amazonaws.com/cloudformation-examples/",
-                                "aws-cfn-bootstrap-latest.tar.gz\n",
-                                "cfn-init -s '",
-                                {
-                                    "Ref": "AWS::StackName"
-                                },
-                                "' -r Ec2Instance -c ascending"
-                            ]
-                        ]
-                    }
-                }
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "SecurityGroup": {
-            "Properties": {
-                "GroupDescription": "Allows SSH access from anywhere",
-                "SecurityGroupIngress": [
-                    {
-                        "CidrIp": "0.0.0.0/0",
-                        "FromPort": 22,
-                        "IpProtocol": "tcp",
-                        "ToPort": 22
-                    }
-                ],
-                "Tags": [
-                    {
-                        "Key": "Name",
-                        "Value": "ops.cfninit-sg"
-                    }
-                ]
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        }
+       }
+      }
+     },
+     "configSets": {
+      "ascending": [
+       "config1",
+       "config2"
+      ],
+      "descending": [
+       "config2",
+       "config1"
+      ]
+     }
     }
+   },
+   "Properties": {
+    "IamInstanceProfile": "PullCredentials",
+    "ImageId": {
+     "Ref": "AmiId"
+    },
+    "InstanceType": "t1.micro",
+    "KeyName": {
+     "Ref": "KeyName"
+    },
+    "SecurityGroups": [
+     {
+      "Ref": "SecurityGroup"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "ops.cfninit"
+     },
+     {
+      "Key": "env",
+      "Value": "ops"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "",
+       [
+        "#!/bin/bash\n",
+        "sudo apt-get update\n",
+        "sudo apt-get -y install python-setuptools\n",
+        "sudo apt-get -y install python-pip\n",
+        "sudo pip install https://s3.amazonaws.com/cloudformation-examples/",
+        "aws-cfn-bootstrap-latest.tar.gz\n",
+        "cfn-init -s '",
+        {
+         "Ref": "AWS::StackName"
+        },
+        "' -r Ec2Instance -c ascending"
+       ]
+      ]
+     }
+    }
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "SecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Allows SSH access from anywhere",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "FromPort": 22,
+      "IpProtocol": "tcp",
+      "ToPort": 22
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "ops.cfninit-sg"
+     }
+    ]
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  }
+ }
 }

@@ -916,7 +916,7 @@ class Template:
 
     def to_json(
         self,
-        indent: int = 4,
+        indent: int = 1,
         sort_keys: bool = True,
         separators: Tuple[str, str] = (",", ": "),
     ) -> str:

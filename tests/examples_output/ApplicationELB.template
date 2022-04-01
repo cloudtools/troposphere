@@ -1,314 +1,314 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS CloudFormation Sample Template: ELB with 2 EC2 instances",
-    "Mappings": {
-        "RegionMap": {
-            "ap-northeast-1": {
-                "AMI": "ami-9c03a89d"
-            },
-            "ap-southeast-1": {
-                "AMI": "ami-66f28c34"
-            },
-            "eu-west-1": {
-                "AMI": "ami-37c2f643"
-            },
-            "sa-east-1": {
-                "AMI": "ami-a039e6bd"
-            },
-            "us-east-1": {
-                "AMI": "ami-6411e20d"
-            },
-            "us-west-1": {
-                "AMI": "ami-c9c7978c"
-            },
-            "us-west-2": {
-                "AMI": "ami-fcff72cc"
-            }
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "AWS CloudFormation Sample Template: ELB with 2 EC2 instances",
+ "Mappings": {
+  "RegionMap": {
+   "ap-northeast-1": {
+    "AMI": "ami-9c03a89d"
+   },
+   "ap-southeast-1": {
+    "AMI": "ami-66f28c34"
+   },
+   "eu-west-1": {
+    "AMI": "ami-37c2f643"
+   },
+   "sa-east-1": {
+    "AMI": "ami-a039e6bd"
+   },
+   "us-east-1": {
+    "AMI": "ami-6411e20d"
+   },
+   "us-west-1": {
+    "AMI": "ami-c9c7978c"
+   },
+   "us-west-2": {
+    "AMI": "ami-fcff72cc"
+   }
+  }
+ },
+ "Outputs": {
+  "URL": {
+   "Description": "URL of the sample website",
+   "Value": {
+    "Fn::Join": [
+     "",
+     [
+      "http://",
+      {
+       "Fn::GetAtt": [
+        "ApplicationElasticLB",
+        "DNSName"
+       ]
+      }
+     ]
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "ApiServerPort": {
+   "Default": "8889",
+   "Description": "TCP/IP port of the api server",
+   "Type": "String"
+  },
+  "InstanceType": {
+   "AllowedValues": [
+    "t1.micro",
+    "m1.small",
+    "m1.medium",
+    "m1.large",
+    "m1.xlarge",
+    "m2.xlarge",
+    "m2.2xlarge",
+    "m2.4xlarge",
+    "c1.medium",
+    "c1.xlarge",
+    "cc1.4xlarge",
+    "cc2.8xlarge",
+    "cg1.4xlarge"
+   ],
+   "ConstraintDescription": "must be a valid EC2 instance type.",
+   "Default": "m1.small",
+   "Description": "WebServer EC2 instance type",
+   "Type": "String"
+  },
+  "KeyName": {
+   "Default": "mark",
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+   "Type": "String"
+  },
+  "VpcId": {
+   "Default": "vpc-82c514e6",
+   "Type": "String"
+  },
+  "WebServerPort": {
+   "Default": "8888",
+   "Description": "TCP/IP port of the web server",
+   "Type": "String"
+  },
+  "subnetA": {
+   "Default": "subnet-096fd06d",
+   "Type": "String"
+  },
+  "subnetB": {
+   "Default": "subnet-1313ef4b",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "ApiInstance": {
+   "Properties": {
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
     },
-    "Outputs": {
-        "URL": {
-            "Description": "URL of the sample website",
-            "Value": {
-                "Fn::Join": [
-                    "",
-                    [
-                        "http://",
-                        {
-                            "Fn::GetAtt": [
-                                "ApplicationElasticLB",
-                                "DNSName"
-                            ]
-                        }
-                    ]
-                ]
-            }
-        }
+    "InstanceType": {
+     "Ref": "InstanceType"
     },
-    "Parameters": {
-        "ApiServerPort": {
-            "Default": "8889",
-            "Description": "TCP/IP port of the api server",
-            "Type": "String"
-        },
-        "InstanceType": {
-            "AllowedValues": [
-                "t1.micro",
-                "m1.small",
-                "m1.medium",
-                "m1.large",
-                "m1.xlarge",
-                "m2.xlarge",
-                "m2.2xlarge",
-                "m2.4xlarge",
-                "c1.medium",
-                "c1.xlarge",
-                "cc1.4xlarge",
-                "cc2.8xlarge",
-                "cg1.4xlarge"
-            ],
-            "ConstraintDescription": "must be a valid EC2 instance type.",
-            "Default": "m1.small",
-            "Description": "WebServer EC2 instance type",
-            "Type": "String"
-        },
-        "KeyName": {
-            "Default": "mark",
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
-            "Type": "String"
-        },
-        "VpcId": {
-            "Default": "vpc-82c514e6",
-            "Type": "String"
-        },
-        "WebServerPort": {
-            "Default": "8888",
-            "Description": "TCP/IP port of the web server",
-            "Type": "String"
-        },
-        "subnetA": {
-            "Default": "subnet-096fd06d",
-            "Type": "String"
-        },
-        "subnetB": {
-            "Default": "subnet-1313ef4b",
-            "Type": "String"
-        }
+    "KeyName": {
+     "Ref": "KeyName"
     },
-    "Resources": {
-        "ApiInstance": {
-            "Properties": {
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": {
-                    "Ref": "InstanceType"
-                },
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "InstanceSecurityGroup"
-                    }
-                ],
-                "UserData": {
-                    "Fn::Base64": {
-                        "Ref": "ApiServerPort"
-                    }
-                }
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "ApplicationElasticLB": {
-            "Properties": {
-                "Name": "ApplicationElasticLB",
-                "Scheme": "internet-facing",
-                "Subnets": [
-                    {
-                        "Ref": "subnetA"
-                    },
-                    {
-                        "Ref": "subnetB"
-                    }
-                ]
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer"
-        },
-        "InstanceSecurityGroup": {
-            "Properties": {
-                "GroupDescription": "Enable SSH and HTTP access on the inbound port",
-                "SecurityGroupIngress": [
-                    {
-                        "CidrIp": "0.0.0.0/0",
-                        "FromPort": "22",
-                        "IpProtocol": "tcp",
-                        "ToPort": "22"
-                    },
-                    {
-                        "CidrIp": "0.0.0.0/0",
-                        "FromPort": {
-                            "Ref": "WebServerPort"
-                        },
-                        "IpProtocol": "tcp",
-                        "ToPort": {
-                            "Ref": "WebServerPort"
-                        }
-                    },
-                    {
-                        "CidrIp": "0.0.0.0/0",
-                        "FromPort": {
-                            "Ref": "ApiServerPort"
-                        },
-                        "IpProtocol": "tcp",
-                        "ToPort": {
-                            "Ref": "ApiServerPort"
-                        }
-                    }
-                ]
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        },
-        "Listener": {
-            "Properties": {
-                "DefaultActions": [
-                    {
-                        "TargetGroupArn": {
-                            "Ref": "TargetGroupWeb"
-                        },
-                        "Type": "forward"
-                    }
-                ],
-                "LoadBalancerArn": {
-                    "Ref": "ApplicationElasticLB"
-                },
-                "Port": "80",
-                "Protocol": "HTTP"
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::Listener"
-        },
-        "ListenerRuleApi": {
-            "Properties": {
-                "Actions": [
-                    {
-                        "TargetGroupArn": {
-                            "Ref": "TargetGroupApi"
-                        },
-                        "Type": "forward"
-                    }
-                ],
-                "Conditions": [
-                    {
-                        "Field": "path-pattern",
-                        "Values": [
-                            "/api/*"
-                        ]
-                    }
-                ],
-                "ListenerArn": {
-                    "Ref": "Listener"
-                },
-                "Priority": "1"
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
-        },
-        "TargetGroupApi": {
-            "Properties": {
-                "HealthCheckIntervalSeconds": "30",
-                "HealthCheckProtocol": "HTTP",
-                "HealthCheckTimeoutSeconds": "10",
-                "HealthyThresholdCount": "4",
-                "Matcher": {
-                    "HttpCode": "200"
-                },
-                "Name": "ApiTarget",
-                "Port": {
-                    "Ref": "ApiServerPort"
-                },
-                "Protocol": "HTTP",
-                "Targets": [
-                    {
-                        "Id": {
-                            "Ref": "ApiInstance"
-                        },
-                        "Port": {
-                            "Ref": "ApiServerPort"
-                        }
-                    }
-                ],
-                "UnhealthyThresholdCount": "3",
-                "VpcId": {
-                    "Ref": "VpcId"
-                }
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::TargetGroup"
-        },
-        "TargetGroupWeb": {
-            "Properties": {
-                "HealthCheckIntervalSeconds": "30",
-                "HealthCheckProtocol": "HTTP",
-                "HealthCheckTimeoutSeconds": "10",
-                "HealthyThresholdCount": "4",
-                "Matcher": {
-                    "HttpCode": "200"
-                },
-                "Name": "WebTarget",
-                "Port": {
-                    "Ref": "WebServerPort"
-                },
-                "Protocol": "HTTP",
-                "Targets": [
-                    {
-                        "Id": {
-                            "Ref": "WebInstance"
-                        },
-                        "Port": {
-                            "Ref": "WebServerPort"
-                        }
-                    }
-                ],
-                "UnhealthyThresholdCount": "3",
-                "VpcId": {
-                    "Ref": "VpcId"
-                }
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::TargetGroup"
-        },
-        "WebInstance": {
-            "Properties": {
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": {
-                    "Ref": "InstanceType"
-                },
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "InstanceSecurityGroup"
-                    }
-                ],
-                "UserData": {
-                    "Fn::Base64": {
-                        "Ref": "WebServerPort"
-                    }
-                }
-            },
-            "Type": "AWS::EC2::Instance"
-        }
+    "SecurityGroups": [
+     {
+      "Ref": "InstanceSecurityGroup"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": {
+      "Ref": "ApiServerPort"
+     }
     }
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "ApplicationElasticLB": {
+   "Properties": {
+    "Name": "ApplicationElasticLB",
+    "Scheme": "internet-facing",
+    "Subnets": [
+     {
+      "Ref": "subnetA"
+     },
+     {
+      "Ref": "subnetB"
+     }
+    ]
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  },
+  "InstanceSecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Enable SSH and HTTP access on the inbound port",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "0.0.0.0/0",
+      "FromPort": "22",
+      "IpProtocol": "tcp",
+      "ToPort": "22"
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "FromPort": {
+       "Ref": "WebServerPort"
+      },
+      "IpProtocol": "tcp",
+      "ToPort": {
+       "Ref": "WebServerPort"
+      }
+     },
+     {
+      "CidrIp": "0.0.0.0/0",
+      "FromPort": {
+       "Ref": "ApiServerPort"
+      },
+      "IpProtocol": "tcp",
+      "ToPort": {
+       "Ref": "ApiServerPort"
+      }
+     }
+    ]
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  },
+  "Listener": {
+   "Properties": {
+    "DefaultActions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "TargetGroupWeb"
+      },
+      "Type": "forward"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "ApplicationElasticLB"
+    },
+    "Port": "80",
+    "Protocol": "HTTP"
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::Listener"
+  },
+  "ListenerRuleApi": {
+   "Properties": {
+    "Actions": [
+     {
+      "TargetGroupArn": {
+       "Ref": "TargetGroupApi"
+      },
+      "Type": "forward"
+     }
+    ],
+    "Conditions": [
+     {
+      "Field": "path-pattern",
+      "Values": [
+       "/api/*"
+      ]
+     }
+    ],
+    "ListenerArn": {
+     "Ref": "Listener"
+    },
+    "Priority": "1"
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
+  },
+  "TargetGroupApi": {
+   "Properties": {
+    "HealthCheckIntervalSeconds": "30",
+    "HealthCheckProtocol": "HTTP",
+    "HealthCheckTimeoutSeconds": "10",
+    "HealthyThresholdCount": "4",
+    "Matcher": {
+     "HttpCode": "200"
+    },
+    "Name": "ApiTarget",
+    "Port": {
+     "Ref": "ApiServerPort"
+    },
+    "Protocol": "HTTP",
+    "Targets": [
+     {
+      "Id": {
+       "Ref": "ApiInstance"
+      },
+      "Port": {
+       "Ref": "ApiServerPort"
+      }
+     }
+    ],
+    "UnhealthyThresholdCount": "3",
+    "VpcId": {
+     "Ref": "VpcId"
+    }
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup"
+  },
+  "TargetGroupWeb": {
+   "Properties": {
+    "HealthCheckIntervalSeconds": "30",
+    "HealthCheckProtocol": "HTTP",
+    "HealthCheckTimeoutSeconds": "10",
+    "HealthyThresholdCount": "4",
+    "Matcher": {
+     "HttpCode": "200"
+    },
+    "Name": "WebTarget",
+    "Port": {
+     "Ref": "WebServerPort"
+    },
+    "Protocol": "HTTP",
+    "Targets": [
+     {
+      "Id": {
+       "Ref": "WebInstance"
+      },
+      "Port": {
+       "Ref": "WebServerPort"
+      }
+     }
+    ],
+    "UnhealthyThresholdCount": "3",
+    "VpcId": {
+     "Ref": "VpcId"
+    }
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::TargetGroup"
+  },
+  "WebInstance": {
+   "Properties": {
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
+    },
+    "InstanceType": {
+     "Ref": "InstanceType"
+    },
+    "KeyName": {
+     "Ref": "KeyName"
+    },
+    "SecurityGroups": [
+     {
+      "Ref": "InstanceSecurityGroup"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": {
+      "Ref": "WebServerPort"
+     }
+    }
+   },
+   "Type": "AWS::EC2::Instance"
+  }
+ }
 }

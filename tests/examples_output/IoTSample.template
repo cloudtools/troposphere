@@ -1,69 +1,69 @@
 {
-    "Resources": {
-        "MyCertificate": {
-            "Properties": {
-                "CertificateSigningRequest": "CSRParameter",
-                "Status": "StatusParameter"
-            },
-            "Type": "AWS::IoT::Certificate"
-        },
-        "MyPolicy": {
-            "Properties": {
-                "PolicyDocument": {
-                    "Version": "2012-10-17"
-                },
-                "PolicyName": "NameParameter"
-            },
-            "Type": "AWS::IoT::Policy"
-        },
-        "MyPolicyPrincipalAttachment": {
-            "Properties": {
-                "PolicyName": "NameParameter",
-                "Principal": "arn:aws:iot:ap-southeast-2:123456789012"
-            },
-            "Type": "AWS::IoT::PolicyPrincipalAttachment"
-        },
-        "MyThing": {
-            "Properties": {
-                "AttributePayload": {
-                    "Attributes": {
-                        "myAttributeA": "MyAttributeValueA",
-                        "myAttributeB": "MyAttributeValueB"
-                    }
-                },
-                "ThingName": "NameParameter"
-            },
-            "Type": "AWS::IoT::Thing"
-        },
-        "MyThingPrincipalAttachment": {
-            "Properties": {
-                "Principal": "arn:aws:iot:ap-southeast-2:123456789012",
-                "ThingName": "NameParameter"
-            },
-            "Type": "AWS::IoT::ThingPrincipalAttachment"
-        },
-        "MyTopicRule": {
-            "Properties": {
-                "RuleName": "NameParameter",
-                "TopicRulePayload": {
-                    "Actions": [
-                        {
-                            "Lambda": {
-                                "FunctionArn": "arn"
-                            }
-                        },
-                        {
-                            "IotAnalytics": {
-                                "ChannelName": "mychannel",
-                                "RoleArn": "arn"
-                            }
-                        }
-                    ],
-                    "RuleDisabled": true,
-                    "Sql": "SELECT temp FROM SomeTopic WHERE temp > 60"
-                }
-            },
-            "Type": "AWS::IoT::TopicRule"
-        }
+ "Resources": {
+  "MyCertificate": {
+   "Properties": {
+    "CertificateSigningRequest": "CSRParameter",
+    "Status": "StatusParameter"
+   },
+   "Type": "AWS::IoT::Certificate"
+  },
+  "MyPolicy": {
+   "Properties": {
+    "PolicyDocument": {
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "NameParameter"
+   },
+   "Type": "AWS::IoT::Policy"
+  },
+  "MyPolicyPrincipalAttachment": {
+   "Properties": {
+    "PolicyName": "NameParameter",
+    "Principal": "arn:aws:iot:ap-southeast-2:123456789012"
+   },
+   "Type": "AWS::IoT::PolicyPrincipalAttachment"
+  },
+  "MyThing": {
+   "Properties": {
+    "AttributePayload": {
+     "Attributes": {
+      "myAttributeA": "MyAttributeValueA",
+      "myAttributeB": "MyAttributeValueB"
+     }
+    },
+    "ThingName": "NameParameter"
+   },
+   "Type": "AWS::IoT::Thing"
+  },
+  "MyThingPrincipalAttachment": {
+   "Properties": {
+    "Principal": "arn:aws:iot:ap-southeast-2:123456789012",
+    "ThingName": "NameParameter"
+   },
+   "Type": "AWS::IoT::ThingPrincipalAttachment"
+  },
+  "MyTopicRule": {
+   "Properties": {
+    "RuleName": "NameParameter",
+    "TopicRulePayload": {
+     "Actions": [
+      {
+       "Lambda": {
+        "FunctionArn": "arn"
+       }
+      },
+      {
+       "IotAnalytics": {
+        "ChannelName": "mychannel",
+        "RoleArn": "arn"
+       }
+      }
+     ],
+     "RuleDisabled": true,
+     "Sql": "SELECT temp FROM SomeTopic WHERE temp > 60"
     }
+   },
+   "Type": "AWS::IoT::TopicRule"
+  }
+ }
 }

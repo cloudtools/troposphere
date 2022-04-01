@@ -1,49 +1,49 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "Sample Kinesis Firehose Delivery Stream",
-    "Resources": {
-        "MyDeliveryStream": {
-            "Properties": {
-                "DeliveryStreamName": "MyDeliveryStream",
-                "RedshiftDestinationConfiguration": {
-                    "CloudWatchLoggingOptions": {
-                        "Enabled": true,
-                        "LogGroupName": "my-log-group",
-                        "LogStreamName": "my-log-stream"
-                    },
-                    "ClusterJDBCURL": "jdbc:redshift://my-redshift-db.asdf.us-west-2.redshift.amazonaws.com:5432/mydb",
-                    "CopyCommand": {
-                        "CopyOptions": "JSON 'auto'",
-                        "DataTableColumns": "mycol",
-                        "DataTableName": "mytable"
-                    },
-                    "Password": "hooli-suxx",
-                    "RoleARN": "arn:aws:iam::12345:role/my-role",
-                    "S3Configuration": {
-                        "BucketARN": "arn:aws:s3:::muh-bucket",
-                        "BufferingHints": {
-                            "IntervalInSeconds": 5,
-                            "SizeInMBs": 60
-                        },
-                        "CloudWatchLoggingOptions": {
-                            "Enabled": true,
-                            "LogGroupName": "my-other-log-group",
-                            "LogStreamName": "my-other-log-stream"
-                        },
-                        "CompressionFormat": "UNCOMPRESSED",
-                        "EncryptionConfiguration": {
-                            "KMSEncryptionConfig": {
-                                "AWSKMSKeyARN": "aws-kms-key-arn"
-                            },
-                            "NoEncryptionConfig": "NoEncryption"
-                        },
-                        "Prefix": "my-prefix",
-                        "RoleARN": "arn:aws:iam::12345:role/my-role"
-                    },
-                    "Username": "erlich_bachman"
-                }
-            },
-            "Type": "AWS::KinesisFirehose::DeliveryStream"
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "Sample Kinesis Firehose Delivery Stream",
+ "Resources": {
+  "MyDeliveryStream": {
+   "Properties": {
+    "DeliveryStreamName": "MyDeliveryStream",
+    "RedshiftDestinationConfiguration": {
+     "CloudWatchLoggingOptions": {
+      "Enabled": true,
+      "LogGroupName": "my-log-group",
+      "LogStreamName": "my-log-stream"
+     },
+     "ClusterJDBCURL": "jdbc:redshift://my-redshift-db.asdf.us-west-2.redshift.amazonaws.com:5432/mydb",
+     "CopyCommand": {
+      "CopyOptions": "JSON 'auto'",
+      "DataTableColumns": "mycol",
+      "DataTableName": "mytable"
+     },
+     "Password": "hooli-suxx",
+     "RoleARN": "arn:aws:iam::12345:role/my-role",
+     "S3Configuration": {
+      "BucketARN": "arn:aws:s3:::muh-bucket",
+      "BufferingHints": {
+       "IntervalInSeconds": 5,
+       "SizeInMBs": 60
+      },
+      "CloudWatchLoggingOptions": {
+       "Enabled": true,
+       "LogGroupName": "my-other-log-group",
+       "LogStreamName": "my-other-log-stream"
+      },
+      "CompressionFormat": "UNCOMPRESSED",
+      "EncryptionConfiguration": {
+       "KMSEncryptionConfig": {
+        "AWSKMSKeyARN": "aws-kms-key-arn"
+       },
+       "NoEncryptionConfig": "NoEncryption"
+      },
+      "Prefix": "my-prefix",
+      "RoleARN": "arn:aws:iam::12345:role/my-role"
+     },
+     "Username": "erlich_bachman"
     }
+   },
+   "Type": "AWS::KinesisFirehose::DeliveryStream"
+  }
+ }
 }

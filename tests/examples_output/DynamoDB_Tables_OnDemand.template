@@ -1,263 +1,263 @@
 {
-    "Conditions": {
-        "OnDemand": {
-            "Fn::Equals": [
-                {
-                    "Ref": "BillOnDemand"
-                },
-                "true"
-            ]
-        }
+ "Conditions": {
+  "OnDemand": {
+   "Fn::Equals": [
+    {
+     "Ref": "BillOnDemand"
     },
-    "Description": "Create two dynamodb tables with conditional on-demand billing. One with global secondary index and one without",
-    "Outputs": {
-        "GSITable": {
-            "Description": "Table with a Global Secondary Index",
-            "Value": {
-                "Ref": "GSITable"
-            }
-        }
+    "true"
+   ]
+  }
+ },
+ "Description": "Create two dynamodb tables with conditional on-demand billing. One with global secondary index and one without",
+ "Outputs": {
+  "GSITable": {
+   "Description": "Table with a Global Secondary Index",
+   "Value": {
+    "Ref": "GSITable"
+   }
+  }
+ },
+ "Parameters": {
+  "BillOnDemand": {
+   "AllowedPattern": "(false|true)",
+   "Default": "true",
+   "Type": "String"
+  },
+  "HashKeyElementName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Description": "HashType PrimaryKey Name",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "HashKeyElementType": {
+   "AllowedPattern": "[S|N]",
+   "ConstraintDescription": "must be either S or N",
+   "Default": "S",
+   "Description": "HashType PrimaryKey Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "ReadCapacityUnits": {
+   "ConstraintDescription": "should be between 5 and 10000",
+   "Default": "5",
+   "Description": "Provisioned read throughput",
+   "MaxValue": "10000",
+   "MinValue": "5",
+   "Type": "Number"
+  },
+  "SecondaryIndexHashDataType": {
+   "AllowedPattern": "[S|N|B]",
+   "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
+   "Default": "S",
+   "Description": "Secondary Index: Primary Key Data Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "SecondaryIndexHashName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Default": "tokenType",
+   "Description": "Secondary Index: Primary Key Field",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "SecondaryIndexRangeDataType": {
+   "AllowedPattern": "[S|N|B]",
+   "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
+   "Default": "S",
+   "Description": "Secondary Index: Range Key Data Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "TableIndexDataType": {
+   "AllowedPattern": "[S|N|B]",
+   "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
+   "Default": "S",
+   "Description": " Table: Primary Key Data Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "TableIndexName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Default": "id",
+   "Description": "Table: Primary Key Field",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "WriteCapacityUnits": {
+   "ConstraintDescription": "should be between 5 and 10000",
+   "Default": "10",
+   "Description": "Provisioned write throughput",
+   "MaxValue": "10000",
+   "MinValue": "5",
+   "Type": "Number"
+  },
+  "refreshSecondaryIndexRangeName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Default": "tokenUpdatedTime",
+   "Description": "Secondary Index: Range Key Field",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "GSITable": {
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": {
+       "Ref": "TableIndexName"
+      },
+      "AttributeType": {
+       "Ref": "TableIndexDataType"
+      }
+     },
+     {
+      "AttributeName": {
+       "Ref": "SecondaryIndexHashName"
+      },
+      "AttributeType": {
+       "Ref": "SecondaryIndexHashDataType"
+      }
+     },
+     {
+      "AttributeName": {
+       "Ref": "refreshSecondaryIndexRangeName"
+      },
+      "AttributeType": {
+       "Ref": "SecondaryIndexRangeDataType"
+      }
+     }
+    ],
+    "BillingMode": {
+     "Fn::If": [
+      "OnDemand",
+      "PAY_PER_REQUEST",
+      "PROVISIONED"
+     ]
     },
-    "Parameters": {
-        "BillOnDemand": {
-            "AllowedPattern": "(false|true)",
-            "Default": "true",
-            "Type": "String"
+    "GlobalSecondaryIndexes": [
+     {
+      "IndexName": "SecondaryIndex",
+      "KeySchema": [
+       {
+        "AttributeName": {
+         "Ref": "SecondaryIndexHashName"
         },
-        "HashKeyElementName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Description": "HashType PrimaryKey Name",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
+        "KeyType": "HASH"
+       },
+       {
+        "AttributeName": {
+         "Ref": "refreshSecondaryIndexRangeName"
         },
-        "HashKeyElementType": {
-            "AllowedPattern": "[S|N]",
-            "ConstraintDescription": "must be either S or N",
-            "Default": "S",
-            "Description": "HashType PrimaryKey Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
+        "KeyType": "RANGE"
+       }
+      ],
+      "Projection": {
+       "ProjectionType": "ALL"
+      },
+      "ProvisionedThroughput": {
+       "Fn::If": [
+        "OnDemand",
+        {
+         "Ref": "AWS::NoValue"
         },
-        "ReadCapacityUnits": {
-            "ConstraintDescription": "should be between 5 and 10000",
-            "Default": "5",
-            "Description": "Provisioned read throughput",
-            "MaxValue": "10000",
-            "MinValue": "5",
-            "Type": "Number"
-        },
-        "SecondaryIndexHashDataType": {
-            "AllowedPattern": "[S|N|B]",
-            "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
-            "Default": "S",
-            "Description": "Secondary Index: Primary Key Data Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "SecondaryIndexHashName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Default": "tokenType",
-            "Description": "Secondary Index: Primary Key Field",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "SecondaryIndexRangeDataType": {
-            "AllowedPattern": "[S|N|B]",
-            "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
-            "Default": "S",
-            "Description": "Secondary Index: Range Key Data Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "TableIndexDataType": {
-            "AllowedPattern": "[S|N|B]",
-            "ConstraintDescription": "S for string data, N for numeric data, or B for binary data",
-            "Default": "S",
-            "Description": " Table: Primary Key Data Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "TableIndexName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Default": "id",
-            "Description": "Table: Primary Key Field",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "WriteCapacityUnits": {
-            "ConstraintDescription": "should be between 5 and 10000",
-            "Default": "10",
-            "Description": "Provisioned write throughput",
-            "MaxValue": "10000",
-            "MinValue": "5",
-            "Type": "Number"
-        },
-        "refreshSecondaryIndexRangeName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Default": "tokenUpdatedTime",
-            "Description": "Secondary Index: Range Key Field",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
+        {
+         "ReadCapacityUnits": {
+          "Ref": "ReadCapacityUnits"
+         },
+         "WriteCapacityUnits": {
+          "Ref": "WriteCapacityUnits"
+         }
         }
-    },
-    "Resources": {
-        "GSITable": {
-            "Properties": {
-                "AttributeDefinitions": [
-                    {
-                        "AttributeName": {
-                            "Ref": "TableIndexName"
-                        },
-                        "AttributeType": {
-                            "Ref": "TableIndexDataType"
-                        }
-                    },
-                    {
-                        "AttributeName": {
-                            "Ref": "SecondaryIndexHashName"
-                        },
-                        "AttributeType": {
-                            "Ref": "SecondaryIndexHashDataType"
-                        }
-                    },
-                    {
-                        "AttributeName": {
-                            "Ref": "refreshSecondaryIndexRangeName"
-                        },
-                        "AttributeType": {
-                            "Ref": "SecondaryIndexRangeDataType"
-                        }
-                    }
-                ],
-                "BillingMode": {
-                    "Fn::If": [
-                        "OnDemand",
-                        "PAY_PER_REQUEST",
-                        "PROVISIONED"
-                    ]
-                },
-                "GlobalSecondaryIndexes": [
-                    {
-                        "IndexName": "SecondaryIndex",
-                        "KeySchema": [
-                            {
-                                "AttributeName": {
-                                    "Ref": "SecondaryIndexHashName"
-                                },
-                                "KeyType": "HASH"
-                            },
-                            {
-                                "AttributeName": {
-                                    "Ref": "refreshSecondaryIndexRangeName"
-                                },
-                                "KeyType": "RANGE"
-                            }
-                        ],
-                        "Projection": {
-                            "ProjectionType": "ALL"
-                        },
-                        "ProvisionedThroughput": {
-                            "Fn::If": [
-                                "OnDemand",
-                                {
-                                    "Ref": "AWS::NoValue"
-                                },
-                                {
-                                    "ReadCapacityUnits": {
-                                        "Ref": "ReadCapacityUnits"
-                                    },
-                                    "WriteCapacityUnits": {
-                                        "Ref": "WriteCapacityUnits"
-                                    }
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "KeySchema": [
-                    {
-                        "AttributeName": {
-                            "Ref": "TableIndexName"
-                        },
-                        "KeyType": "HASH"
-                    }
-                ],
-                "ProvisionedThroughput": {
-                    "Fn::If": [
-                        "OnDemand",
-                        {
-                            "Ref": "AWS::NoValue"
-                        },
-                        {
-                            "ReadCapacityUnits": {
-                                "Ref": "ReadCapacityUnits"
-                            },
-                            "WriteCapacityUnits": {
-                                "Ref": "WriteCapacityUnits"
-                            }
-                        }
-                    ]
-                }
-            },
-            "Type": "AWS::DynamoDB::Table"
-        },
-        "myDynamoDBTable": {
-            "Properties": {
-                "AttributeDefinitions": [
-                    {
-                        "AttributeName": {
-                            "Ref": "HashKeyElementName"
-                        },
-                        "AttributeType": {
-                            "Ref": "HashKeyElementType"
-                        }
-                    }
-                ],
-                "BillingMode": {
-                    "Fn::If": [
-                        "OnDemand",
-                        "PAY_PER_REQUEST",
-                        "PROVISIONED"
-                    ]
-                },
-                "KeySchema": [
-                    {
-                        "AttributeName": {
-                            "Ref": "HashKeyElementName"
-                        },
-                        "KeyType": "HASH"
-                    }
-                ],
-                "ProvisionedThroughput": {
-                    "Fn::If": [
-                        "OnDemand",
-                        {
-                            "Ref": "AWS::NoValue"
-                        },
-                        {
-                            "ReadCapacityUnits": {
-                                "Ref": "ReadCapacityUnits"
-                            },
-                            "WriteCapacityUnits": {
-                                "Ref": "WriteCapacityUnits"
-                            }
-                        }
-                    ]
-                }
-            },
-            "Type": "AWS::DynamoDB::Table"
-        }
+       ]
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": {
+       "Ref": "TableIndexName"
+      },
+      "KeyType": "HASH"
+     }
+    ],
+    "ProvisionedThroughput": {
+     "Fn::If": [
+      "OnDemand",
+      {
+       "Ref": "AWS::NoValue"
+      },
+      {
+       "ReadCapacityUnits": {
+        "Ref": "ReadCapacityUnits"
+       },
+       "WriteCapacityUnits": {
+        "Ref": "WriteCapacityUnits"
+       }
+      }
+     ]
     }
+   },
+   "Type": "AWS::DynamoDB::Table"
+  },
+  "myDynamoDBTable": {
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": {
+       "Ref": "HashKeyElementName"
+      },
+      "AttributeType": {
+       "Ref": "HashKeyElementType"
+      }
+     }
+    ],
+    "BillingMode": {
+     "Fn::If": [
+      "OnDemand",
+      "PAY_PER_REQUEST",
+      "PROVISIONED"
+     ]
+    },
+    "KeySchema": [
+     {
+      "AttributeName": {
+       "Ref": "HashKeyElementName"
+      },
+      "KeyType": "HASH"
+     }
+    ],
+    "ProvisionedThroughput": {
+     "Fn::If": [
+      "OnDemand",
+      {
+       "Ref": "AWS::NoValue"
+      },
+      {
+       "ReadCapacityUnits": {
+        "Ref": "ReadCapacityUnits"
+       },
+       "WriteCapacityUnits": {
+        "Ref": "WriteCapacityUnits"
+       }
+      }
+     ]
+    }
+   },
+   "Type": "AWS::DynamoDB::Table"
+  }
+ }
 }

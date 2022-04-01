@@ -1,49 +1,49 @@
 {
-    "Description": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing :How to create a publicly accessible S3 bucket. How to enable bucket object versions. How to archive and delete current objects. How to archive and delete non current (versioned) objects. **WARNING** This template creates an Amazon S3 Bucket. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "BucketName": {
-            "Description": "Name of S3 bucket to hold website content",
-            "Value": {
-                "Ref": "S3Bucket"
-            }
+ "Description": "AWS CloudFormation Sample Template S3_Bucket: Sample template showing :How to create a publicly accessible S3 bucket. How to enable bucket object versions. How to archive and delete current objects. How to archive and delete non current (versioned) objects. **WARNING** This template creates an Amazon S3 Bucket. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "BucketName": {
+   "Description": "Name of S3 bucket to hold website content",
+   "Value": {
+    "Ref": "S3Bucket"
+   }
+  }
+ },
+ "Resources": {
+  "S3Bucket": {
+   "Properties": {
+    "AccessControl": "PublicRead",
+    "LifecycleConfiguration": {
+     "Rules": [
+      {
+       "ExpirationInDays": 3650,
+       "Id": "S3BucketRule001",
+       "NoncurrentVersionExpirationInDays": 365,
+       "NoncurrentVersionTransitions": [
+        {
+         "StorageClass": "STANDARD_IA",
+         "TransitionInDays": 30
+        },
+        {
+         "StorageClass": "GLACIER",
+         "TransitionInDays": 120
         }
+       ],
+       "Prefix": "/only-this-sub-dir",
+       "Status": "Enabled",
+       "Transitions": [
+        {
+         "StorageClass": "STANDARD_IA",
+         "TransitionInDays": 60
+        }
+       ]
+      }
+     ]
     },
-    "Resources": {
-        "S3Bucket": {
-            "Properties": {
-                "AccessControl": "PublicRead",
-                "LifecycleConfiguration": {
-                    "Rules": [
-                        {
-                            "ExpirationInDays": 3650,
-                            "Id": "S3BucketRule001",
-                            "NoncurrentVersionExpirationInDays": 365,
-                            "NoncurrentVersionTransitions": [
-                                {
-                                    "StorageClass": "STANDARD_IA",
-                                    "TransitionInDays": 30
-                                },
-                                {
-                                    "StorageClass": "GLACIER",
-                                    "TransitionInDays": 120
-                                }
-                            ],
-                            "Prefix": "/only-this-sub-dir",
-                            "Status": "Enabled",
-                            "Transitions": [
-                                {
-                                    "StorageClass": "STANDARD_IA",
-                                    "TransitionInDays": 60
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "VersioningConfiguration": {
-                    "Status": "Enabled"
-                }
-            },
-            "Type": "AWS::S3::Bucket"
-        }
+    "VersioningConfiguration": {
+     "Status": "Enabled"
     }
+   },
+   "Type": "AWS::S3::Bucket"
+  }
+ }
 }

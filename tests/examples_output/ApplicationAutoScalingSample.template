@@ -1,36 +1,36 @@
 {
-    "Resources": {
-        "scalableTarget": {
-            "Properties": {
-                "MaxCapacity": 2,
-                "MinCapacity": 1,
-                "ResourceId": "service/ecsStack",
-                "RoleARN": "Access Management (IAM) role",
-                "ScalableDimension": "ecs:service:DesiredCount",
-                "ServiceNamespace": "ecs"
-            },
-            "Type": "AWS::ApplicationAutoScaling::ScalableTarget"
-        },
-        "scalingPolicy": {
-            "Properties": {
-                "PolicyName": "AStepPolicy",
-                "PolicyType": "StepScaling",
-                "ScalingTargetId": {
-                    "Ref": "scalableTarget"
-                },
-                "StepScalingPolicyConfiguration": {
-                    "AdjustmentType": "PercentChangeInCapacity",
-                    "Cooldown": 60,
-                    "MetricAggregationType": "Average",
-                    "StepAdjustments": [
-                        {
-                            "MetricIntervalLowerBound": 0,
-                            "ScalingAdjustment": 200
-                        }
-                    ]
-                }
-            },
-            "Type": "AWS::ApplicationAutoScaling::ScalingPolicy"
-        }
+ "Resources": {
+  "scalableTarget": {
+   "Properties": {
+    "MaxCapacity": 2,
+    "MinCapacity": 1,
+    "ResourceId": "service/ecsStack",
+    "RoleARN": "Access Management (IAM) role",
+    "ScalableDimension": "ecs:service:DesiredCount",
+    "ServiceNamespace": "ecs"
+   },
+   "Type": "AWS::ApplicationAutoScaling::ScalableTarget"
+  },
+  "scalingPolicy": {
+   "Properties": {
+    "PolicyName": "AStepPolicy",
+    "PolicyType": "StepScaling",
+    "ScalingTargetId": {
+     "Ref": "scalableTarget"
+    },
+    "StepScalingPolicyConfiguration": {
+     "AdjustmentType": "PercentChangeInCapacity",
+     "Cooldown": 60,
+     "MetricAggregationType": "Average",
+     "StepAdjustments": [
+      {
+       "MetricIntervalLowerBound": 0,
+       "ScalingAdjustment": 200
+      }
+     ]
     }
+   },
+   "Type": "AWS::ApplicationAutoScaling::ScalingPolicy"
+  }
+ }
 }

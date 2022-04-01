@@ -1,29 +1,29 @@
 {
-    "Description": "AWS CloudFormation Sample Template SQS: Sample template showing how to create an SQS queue with Server Side Encryption. **WARNING** This template creates Amazon SQS Queues. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "SourceQueueARN": {
-            "Description": "ARN of the source queue",
-            "Value": {
-                "Fn::GetAtt": [
-                    "MySourceQueue",
-                    "Arn"
-                ]
-            }
-        },
-        "SourceQueueURL": {
-            "Description": "URL of the source queue",
-            "Value": {
-                "Ref": "MySourceQueue"
-            }
-        }
-    },
-    "Resources": {
-        "MySourceQueue": {
-            "Properties": {
-                "KmsDataKeyReusePeriodSeconds": 60,
-                "KmsMasterKeyId": "testing"
-            },
-            "Type": "AWS::SQS::Queue"
-        }
-    }
+ "Description": "AWS CloudFormation Sample Template SQS: Sample template showing how to create an SQS queue with Server Side Encryption. **WARNING** This template creates Amazon SQS Queues. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "SourceQueueARN": {
+   "Description": "ARN of the source queue",
+   "Value": {
+    "Fn::GetAtt": [
+     "MySourceQueue",
+     "Arn"
+    ]
+   }
+  },
+  "SourceQueueURL": {
+   "Description": "URL of the source queue",
+   "Value": {
+    "Ref": "MySourceQueue"
+   }
+  }
+ },
+ "Resources": {
+  "MySourceQueue": {
+   "Properties": {
+    "KmsDataKeyReusePeriodSeconds": 60,
+    "KmsMasterKeyId": "testing"
+   },
+   "Type": "AWS::SQS::Queue"
+  }
+ }
 }

@@ -1,27 +1,27 @@
 {
-    "Description": "Example template showing how a Lambda Function CustomResource might lookFor information on AWS Lambda-backed Custom Resources see:http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources-lambda.html",
-    "Resources": {
-        "ClusterGroup": {
-            "Properties": {
-                "PlacementGroupName": "ExampleClusterGroup",
-                "ServiceToken": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            "arn:aws:lambda:",
-                            {
-                                "Ref": "AWS::Region"
-                            },
-                            ":",
-                            {
-                                "Ref": "AWS::AccountId"
-                            },
-                            ":function:cfnPlacementGroup"
-                        ]
-                    ]
-                }
-            },
-            "Type": "Custom::PlacementGroup"
-        }
+ "Description": "Example template showing how a Lambda Function CustomResource might lookFor information on AWS Lambda-backed Custom Resources see:http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-custom-resources-lambda.html",
+ "Resources": {
+  "ClusterGroup": {
+   "Properties": {
+    "PlacementGroupName": "ExampleClusterGroup",
+    "ServiceToken": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:aws:lambda:",
+       {
+        "Ref": "AWS::Region"
+       },
+       ":",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":function:cfnPlacementGroup"
+      ]
+     ]
     }
+   },
+   "Type": "Custom::PlacementGroup"
+  }
+ }
 }

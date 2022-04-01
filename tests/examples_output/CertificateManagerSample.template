@@ -1,22 +1,22 @@
 {
-    "Resources": {
-        "mycert": {
-            "Properties": {
-                "DomainName": "example.com",
-                "DomainValidationOptions": [
-                    {
-                        "DomainName": "example.com",
-                        "ValidationDomain": "example.com"
-                    }
-                ],
-                "Tags": [
-                    {
-                        "Key": "tag-key",
-                        "Value": "tag-value"
-                    }
-                ]
-            },
-            "Type": "AWS::CertificateManager::Certificate"
-        }
-    }
+ "Resources": {
+  "mycert": {
+   "Properties": {
+    "DomainName": "example.com",
+    "DomainValidationOptions": [
+     {
+      "DomainName": "example.com",
+      "ValidationDomain": "example.com"
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "tag-key",
+      "Value": "tag-value"
+     }
+    ]
+   },
+   "Type": "AWS::CertificateManager::Certificate"
+  }
+ }
 }

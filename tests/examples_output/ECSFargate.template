@@ -1,59 +1,59 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Parameters": {
-        "Subnet": {
-            "Description": "A VPC subnet ID for the container.",
-            "Type": "AWS::EC2::Subnet::Id"
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Parameters": {
+  "Subnet": {
+   "Description": "A VPC subnet ID for the container.",
+   "Type": "AWS::EC2::Subnet::Id"
+  }
+ },
+ "Resources": {
+  "Cluster": {
+   "Type": "AWS::ECS::Cluster"
+  },
+  "NginxService": {
+   "Properties": {
+    "Cluster": {
+     "Ref": "Cluster"
     },
-    "Resources": {
-        "Cluster": {
-            "Type": "AWS::ECS::Cluster"
-        },
-        "NginxService": {
-            "Properties": {
-                "Cluster": {
-                    "Ref": "Cluster"
-                },
-                "DesiredCount": 1,
-                "LaunchType": "FARGATE",
-                "NetworkConfiguration": {
-                    "AwsvpcConfiguration": {
-                        "Subnets": [
-                            {
-                                "Ref": "Subnet"
-                            }
-                        ]
-                    }
-                },
-                "TaskDefinition": {
-                    "Ref": "TaskDefinition"
-                }
-            },
-            "Type": "AWS::ECS::Service"
-        },
-        "TaskDefinition": {
-            "Properties": {
-                "ContainerDefinitions": [
-                    {
-                        "Essential": true,
-                        "Image": "nginx",
-                        "Name": "nginx",
-                        "PortMappings": [
-                            {
-                                "ContainerPort": 80
-                            }
-                        ]
-                    }
-                ],
-                "Cpu": "256",
-                "Memory": "512",
-                "NetworkMode": "awsvpc",
-                "RequiresCompatibilities": [
-                    "FARGATE"
-                ]
-            },
-            "Type": "AWS::ECS::TaskDefinition"
-        }
+    "DesiredCount": 1,
+    "LaunchType": "FARGATE",
+    "NetworkConfiguration": {
+     "AwsvpcConfiguration": {
+      "Subnets": [
+       {
+        "Ref": "Subnet"
+       }
+      ]
+     }
+    },
+    "TaskDefinition": {
+     "Ref": "TaskDefinition"
     }
+   },
+   "Type": "AWS::ECS::Service"
+  },
+  "TaskDefinition": {
+   "Properties": {
+    "ContainerDefinitions": [
+     {
+      "Essential": true,
+      "Image": "nginx",
+      "Name": "nginx",
+      "PortMappings": [
+       {
+        "ContainerPort": 80
+       }
+      ]
+     }
+    ],
+    "Cpu": "256",
+    "Memory": "512",
+    "NetworkMode": "awsvpc",
+    "RequiresCompatibilities": [
+     "FARGATE"
+    ]
+   },
+   "Type": "AWS::ECS::TaskDefinition"
+  }
+ }
 }

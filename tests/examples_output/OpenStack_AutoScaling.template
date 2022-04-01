@@ -1,155 +1,155 @@
 {
-    "Resources": {
-        "MyAutoScalingGroup": {
-            "Properties": {
-                "AvailabilityZones": {
-                    "Fn::GetAZs": ""
-                },
-                "DesiredCapacity": "2",
-                "LaunchConfigurationName": {
-                    "Ref": "MyLaunchConfig"
-                },
-                "LoadBalancerNames": {
-                    "Ref": "MyLoadBalancer"
-                },
-                "MaxSize": "2",
-                "MinSize": "1",
-                "VPCZoneIdentifier": [
-                    "1016941e-8462-4a3a-a11d-d7836ca7a2df"
-                ]
-            },
-            "Type": "AWS::AutoScaling::AutoScalingGroup"
+ "Resources": {
+  "MyAutoScalingGroup": {
+   "Properties": {
+    "AvailabilityZones": {
+     "Fn::GetAZs": ""
+    },
+    "DesiredCapacity": "2",
+    "LaunchConfigurationName": {
+     "Ref": "MyLaunchConfig"
+    },
+    "LoadBalancerNames": {
+     "Ref": "MyLoadBalancer"
+    },
+    "MaxSize": "2",
+    "MinSize": "1",
+    "VPCZoneIdentifier": [
+     "1016941e-8462-4a3a-a11d-d7836ca7a2df"
+    ]
+   },
+   "Type": "AWS::AutoScaling::AutoScalingGroup"
+  },
+  "MyHealthMon": {
+   "Properties": {
+    "delay": 3,
+    "expected_codes": "200",
+    "max_retries": 5,
+    "timeout": 10,
+    "type": "HTTP",
+    "url_path": "/"
+   },
+   "Type": "OS::Neutron::HealthMonitor"
+  },
+  "MyLaunchConfig": {
+   "Metadata": {
+    "AWS::CloudFormation::Init": {
+     "config": {
+      "files": {
+       "file1": {
+        "content": {
+         "Fn::Join": [
+          "\n",
+          [
+           "This is a",
+           "test file"
+          ]
+         ]
         },
-        "MyHealthMon": {
-            "Properties": {
-                "delay": 3,
-                "expected_codes": "200",
-                "max_retries": 5,
-                "timeout": 10,
-                "type": "HTTP",
-                "url_path": "/"
-            },
-            "Type": "OS::Neutron::HealthMonitor"
+        "context": {
+         "security_group_id": {
+          "Ref": "MySecurityGroup"
+         }
         },
-        "MyLaunchConfig": {
-            "Metadata": {
-                "AWS::CloudFormation::Init": {
-                    "config": {
-                        "files": {
-                            "file1": {
-                                "content": {
-                                    "Fn::Join": [
-                                        "\n",
-                                        [
-                                            "This is a",
-                                            "test file"
-                                        ]
-                                    ]
-                                },
-                                "context": {
-                                    "security_group_id": {
-                                        "Ref": "MySecurityGroup"
-                                    }
-                                },
-                                "group": "root",
-                                "mode": "000755",
-                                "owner": "root"
-                            }
-                        },
-                        "services": {
-                            "sysvinit": {
-                                "service1": {
-                                    "enabled": true,
-                                    "ensureRunning": true,
-                                    "files": [
-                                        "/etc/service1/somefile.conf"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "Properties": {
-                "ImageId": "Ubuntu",
-                "InstanceType": "t1.micro",
-                "KeyName": "bootstrap",
-                "SecurityGroups": [
-                    {
-                        "Ref": "MySecurityGroup"
-                    }
-                ],
-                "UserData": {
-                    "Fn::Base64": {
-                        "Fn::Join": [
-                            "\n",
-                            [
-                                "#!/bin/bash",
-                                "echo \"Upgrade started at $(date)\"",
-                                "apt-get update",
-                                "apt-get -y upgrade",
-                                "echo \"Upgrade complete at $(date)\""
-                            ]
-                        ]
-                    }
-                }
-            },
-            "Type": "AWS::AutoScaling::LaunchConfiguration"
-        },
-        "MyLoadBalancer": {
-            "Properties": {
-                "pool_id": {
-                    "Ref": "MyPool"
-                },
-                "protocol_port": 80
-            },
-            "Type": "OS::Neutron::LoadBalancer"
-        },
-        "MyPool": {
-            "Properties": {
-                "description": "My instance pool",
-                "lb_method": "ROUND_ROBIN",
-                "monitors": [
-                    {
-                        "Ref": "MyHealthMon"
-                    }
-                ],
-                "name": "mypool",
-                "protocol": "HTTP",
-                "subnet_id": "c5b15643-1358-4796-af8f-c9050b0b3e2a",
-                "vip": {
-                    "connection_limit": 100,
-                    "description": "My VIP",
-                    "name": "my-vip",
-                    "protocol_port": 80
-                }
-            },
-            "Type": "OS::Neutron::Pool"
-        },
-        "MySecurityGroup": {
-            "Properties": {
-                "description": "Instance Security Group",
-                "rules": [
-                    {
-                        "port_range_max": 22,
-                        "port_range_min": 22,
-                        "protocol": "tcp",
-                        "remote_ip_prefix": "192.168.1.0/24"
-                    },
-                    {
-                        "port_range_max": 80,
-                        "port_range_min": 80,
-                        "protocol": "tcp",
-                        "remote_group_id": "faf49966-ffc2-4602-84e9-917ae2ce7b89",
-                        "remote_mode": "remote_group_id"
-                    },
-                    {
-                        "protocol": "icmp",
-                        "remote_ip_prefix": "0.0.0.0/0"
-                    }
-                ]
-            },
-            "Type": "OS::Neutron::SecurityGroup"
+        "group": "root",
+        "mode": "000755",
+        "owner": "root"
+       }
+      },
+      "services": {
+       "sysvinit": {
+        "service1": {
+         "enabled": true,
+         "ensureRunning": true,
+         "files": [
+          "/etc/service1/somefile.conf"
+         ]
         }
+       }
+      }
+     }
     }
+   },
+   "Properties": {
+    "ImageId": "Ubuntu",
+    "InstanceType": "t1.micro",
+    "KeyName": "bootstrap",
+    "SecurityGroups": [
+     {
+      "Ref": "MySecurityGroup"
+     }
+    ],
+    "UserData": {
+     "Fn::Base64": {
+      "Fn::Join": [
+       "\n",
+       [
+        "#!/bin/bash",
+        "echo \"Upgrade started at $(date)\"",
+        "apt-get update",
+        "apt-get -y upgrade",
+        "echo \"Upgrade complete at $(date)\""
+       ]
+      ]
+     }
+    }
+   },
+   "Type": "AWS::AutoScaling::LaunchConfiguration"
+  },
+  "MyLoadBalancer": {
+   "Properties": {
+    "pool_id": {
+     "Ref": "MyPool"
+    },
+    "protocol_port": 80
+   },
+   "Type": "OS::Neutron::LoadBalancer"
+  },
+  "MyPool": {
+   "Properties": {
+    "description": "My instance pool",
+    "lb_method": "ROUND_ROBIN",
+    "monitors": [
+     {
+      "Ref": "MyHealthMon"
+     }
+    ],
+    "name": "mypool",
+    "protocol": "HTTP",
+    "subnet_id": "c5b15643-1358-4796-af8f-c9050b0b3e2a",
+    "vip": {
+     "connection_limit": 100,
+     "description": "My VIP",
+     "name": "my-vip",
+     "protocol_port": 80
+    }
+   },
+   "Type": "OS::Neutron::Pool"
+  },
+  "MySecurityGroup": {
+   "Properties": {
+    "description": "Instance Security Group",
+    "rules": [
+     {
+      "port_range_max": 22,
+      "port_range_min": 22,
+      "protocol": "tcp",
+      "remote_ip_prefix": "192.168.1.0/24"
+     },
+     {
+      "port_range_max": 80,
+      "port_range_min": 80,
+      "protocol": "tcp",
+      "remote_group_id": "faf49966-ffc2-4602-84e9-917ae2ce7b89",
+      "remote_mode": "remote_group_id"
+     },
+     {
+      "protocol": "icmp",
+      "remote_ip_prefix": "0.0.0.0/0"
+     }
+    ]
+   },
+   "Type": "OS::Neutron::SecurityGroup"
+  }
+ }
 }

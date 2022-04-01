@@ -1,291 +1,291 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Description": "AWS CloudFormation Sample Template VPC_With_VPN_Connection.template: Sample template showing how to create a private subnet with a VPN connection using static routing to an existing VPN endpoint. NOTE: The VPNConnection created will define the configuration you need yonk the tunnels to your VPN endpoint - you can get the VPN Gateway configuration from the AWS Management console. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "PrivateSubnet": {
-            "Description": "SubnetId of the VPN connected subnet",
-            "Value": {
-                "Ref": "PrivateSubnet"
-            }
-        },
-        "VPCId": {
-            "Description": "VPCId of the newly created VPC",
-            "Value": {
-                "Ref": "VPC"
-            }
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Description": "AWS CloudFormation Sample Template VPC_With_VPN_Connection.template: Sample template showing how to create a private subnet with a VPN connection using static routing to an existing VPN endpoint. NOTE: The VPNConnection created will define the configuration you need yonk the tunnels to your VPN endpoint - you can get the VPN Gateway configuration from the AWS Management console. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "PrivateSubnet": {
+   "Description": "SubnetId of the VPN connected subnet",
+   "Value": {
+    "Ref": "PrivateSubnet"
+   }
+  },
+  "VPCId": {
+   "Description": "VPCId of the newly created VPC",
+   "Value": {
+    "Ref": "VPC"
+   }
+  }
+ },
+ "Parameters": {
+  "OnPremiseCIDR": {
+   "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+   "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
+   "Default": "10.0.0.0/16",
+   "Description": "IP Address range for your existing infrastructure",
+   "MaxLength": "18",
+   "MinLength": "9",
+   "Type": "String"
+  },
+  "SubnetCIDR": {
+   "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+   "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
+   "Default": "10.1.0.0/24",
+   "Description": "IP Address range for the VPN connected Subnet",
+   "MaxLength": "18",
+   "MinLength": "9",
+   "Type": "String"
+  },
+  "VPCCIDR": {
+   "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
+   "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
+   "Default": "10.1.0.0/16",
+   "Description": "IP Address range for the VPN connected VPC",
+   "MaxLength": "18",
+   "MinLength": "9",
+   "Type": "String"
+  },
+  "VPNAddress": {
+   "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})",
+   "ConstraintDescription": "must be a valid IP address of the form x.x.x.x",
+   "Description": "IP Address of your VPN device",
+   "MaxLength": "15",
+   "MinLength": "7",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "CustomerGateway": {
+   "Properties": {
+    "BgpAsn": "65000",
+    "IpAddress": {
+     "Ref": "VPNAddress"
     },
-    "Parameters": {
-        "OnPremiseCIDR": {
-            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
-            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
-            "Default": "10.0.0.0/16",
-            "Description": "IP Address range for your existing infrastructure",
-            "MaxLength": "18",
-            "MinLength": "9",
-            "Type": "String"
-        },
-        "SubnetCIDR": {
-            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
-            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
-            "Default": "10.1.0.0/24",
-            "Description": "IP Address range for the VPN connected Subnet",
-            "MaxLength": "18",
-            "MinLength": "9",
-            "Type": "String"
-        },
-        "VPCCIDR": {
-            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})",
-            "ConstraintDescription": "must be a valid IP CIDR range of the form x.x.x.x/x.",
-            "Default": "10.1.0.0/16",
-            "Description": "IP Address range for the VPN connected VPC",
-            "MaxLength": "18",
-            "MinLength": "9",
-            "Type": "String"
-        },
-        "VPNAddress": {
-            "AllowedPattern": "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})",
-            "ConstraintDescription": "must be a valid IP address of the form x.x.x.x",
-            "Description": "IP Address of your VPN device",
-            "MaxLength": "15",
-            "MinLength": "7",
-            "Type": "String"
-        }
+    "Tags": [
+     {
+      "Key": "Application",
+      "Value": {
+       "Ref": "AWS::StackName"
+      }
+     },
+     {
+      "Key": "VPN",
+      "Value": {
+       "Fn::Join": [
+        "",
+        [
+         "Gateway to ",
+         {
+          "Ref": "VPNAddress"
+         }
+        ]
+       ]
+      }
+     }
+    ],
+    "Type": "ipsec.1"
+   },
+   "Type": "AWS::EC2::CustomerGateway"
+  },
+  "InboundPrivateNetworkAclEntry": {
+   "Properties": {
+    "CidrBlock": "0.0.0.0/0",
+    "Egress": false,
+    "NetworkAclId": {
+     "Ref": "PrivateNetworkAcl"
     },
-    "Resources": {
-        "CustomerGateway": {
-            "Properties": {
-                "BgpAsn": "65000",
-                "IpAddress": {
-                    "Ref": "VPNAddress"
-                },
-                "Tags": [
-                    {
-                        "Key": "Application",
-                        "Value": {
-                            "Ref": "AWS::StackName"
-                        }
-                    },
-                    {
-                        "Key": "VPN",
-                        "Value": {
-                            "Fn::Join": [
-                                "",
-                                [
-                                    "Gateway to ",
-                                    {
-                                        "Ref": "VPNAddress"
-                                    }
-                                ]
-                            ]
-                        }
-                    }
-                ],
-                "Type": "ipsec.1"
-            },
-            "Type": "AWS::EC2::CustomerGateway"
-        },
-        "InboundPrivateNetworkAclEntry": {
-            "Properties": {
-                "CidrBlock": "0.0.0.0/0",
-                "Egress": false,
-                "NetworkAclId": {
-                    "Ref": "PrivateNetworkAcl"
-                },
-                "PortRange": {
-                    "From": "0",
-                    "To": "65535"
-                },
-                "Protocol": "6",
-                "RuleAction": "allow",
-                "RuleNumber": "100"
-            },
-            "Type": "AWS::EC2::NetworkAclEntry"
-        },
-        "OutBoundPrivateNetworkAclEntry": {
-            "Properties": {
-                "CidrBlock": "0.0.0.0/0",
-                "Egress": true,
-                "NetworkAclId": {
-                    "Ref": "PrivateNetworkAcl"
-                },
-                "PortRange": {
-                    "From": "0",
-                    "To": "65535"
-                },
-                "Protocol": "6",
-                "RuleAction": "allow",
-                "RuleNumber": "100"
-            },
-            "Type": "AWS::EC2::NetworkAclEntry"
-        },
-        "PrivateNetworkAcl": {
-            "Properties": {
-                "Tags": [
-                    {
-                        "Key": "Application",
-                        "Value": {
-                            "Ref": "AWS::StackName"
-                        }
-                    },
-                    {
-                        "Key": "Network",
-                        "Value": "Private"
-                    }
-                ],
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::NetworkAcl"
-        },
-        "PrivateRoute": {
-            "Properties": {
-                "DestinationCidrBlock": "0.0.0.0/0",
-                "GatewayId": {
-                    "Ref": "VPNGateway"
-                },
-                "RouteTableId": {
-                    "Ref": "PrivateRouteTable"
-                }
-            },
-            "Type": "AWS::EC2::Route"
-        },
-        "PrivateRouteTable": {
-            "Properties": {
-                "Tags": [
-                    {
-                        "Key": "Application",
-                        "Value": {
-                            "Ref": "AWS::StackName"
-                        }
-                    },
-                    {
-                        "Key": "Network",
-                        "Value": "VPN Connected Subnet"
-                    }
-                ],
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::RouteTable"
-        },
-        "PrivateSubnet": {
-            "Properties": {
-                "CidrBlock": {
-                    "Ref": "SubnetCIDR"
-                },
-                "Tags": [
-                    {
-                        "Key": "Application",
-                        "Value": {
-                            "Ref": "AWS::StackName"
-                        }
-                    },
-                    {
-                        "Key": "Network",
-                        "Value": "VPN Connected Subnet"
-                    }
-                ],
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::Subnet"
-        },
-        "PrivateSubnetNetworkAclAssociation": {
-            "Properties": {
-                "NetworkAclId": {
-                    "Ref": "PrivateNetworkAcl"
-                },
-                "SubnetId": {
-                    "Ref": "PrivateSubnet"
-                }
-            },
-            "Type": "AWS::EC2::SubnetNetworkAclAssociation"
-        },
-        "PrivateSubnetRouteTableAssociation": {
-            "Properties": {
-                "RouteTableId": {
-                    "Ref": "PrivateRouteTable"
-                },
-                "SubnetId": {
-                    "Ref": "PrivateSubnet"
-                }
-            },
-            "Type": "AWS::EC2::SubnetRouteTableAssociation"
-        },
-        "VPC": {
-            "Properties": {
-                "CidrBlock": {
-                    "Ref": "VPCCIDR"
-                },
-                "EnableDnsHostnames": true,
-                "EnableDnsSupport": true,
-                "Tags": [
-                    {
-                        "Key": "Application",
-                        "Value": {
-                            "Ref": "AWS::StackName"
-                        }
-                    },
-                    {
-                        "Key": "Network",
-                        "Value": "VPN Connected VPC"
-                    }
-                ]
-            },
-            "Type": "AWS::EC2::VPC"
-        },
-        "VPNConnection": {
-            "Properties": {
-                "CustomerGatewayId": {
-                    "Ref": "CustomerGateway"
-                },
-                "StaticRoutesOnly": true,
-                "Type": "ipsec.1",
-                "VpnGatewayId": {
-                    "Ref": "VPNGateway"
-                }
-            },
-            "Type": "AWS::EC2::VPNConnection"
-        },
-        "VPNConnectionRoute": {
-            "Properties": {
-                "DestinationCidrBlock": {
-                    "Ref": "OnPremiseCIDR"
-                },
-                "VpnConnectionId": {
-                    "Ref": "VPNConnection"
-                }
-            },
-            "Type": "AWS::EC2::VPNConnectionRoute"
-        },
-        "VPNGateway": {
-            "Properties": {
-                "Tags": [
-                    {
-                        "Key": "Application",
-                        "Value": {
-                            "Ref": "AWS::StackName"
-                        }
-                    }
-                ],
-                "Type": "ipsec.1"
-            },
-            "Type": "AWS::EC2::VPNGateway"
-        },
-        "VPNGatewayAttachment": {
-            "Properties": {
-                "VpcId": {
-                    "Ref": "VPC"
-                },
-                "VpnGatewayId": {
-                    "Ref": "VPNGateway"
-                }
-            },
-            "Type": "AWS::EC2::VPCGatewayAttachment"
-        }
+    "PortRange": {
+     "From": "0",
+     "To": "65535"
+    },
+    "Protocol": "6",
+    "RuleAction": "allow",
+    "RuleNumber": "100"
+   },
+   "Type": "AWS::EC2::NetworkAclEntry"
+  },
+  "OutBoundPrivateNetworkAclEntry": {
+   "Properties": {
+    "CidrBlock": "0.0.0.0/0",
+    "Egress": true,
+    "NetworkAclId": {
+     "Ref": "PrivateNetworkAcl"
+    },
+    "PortRange": {
+     "From": "0",
+     "To": "65535"
+    },
+    "Protocol": "6",
+    "RuleAction": "allow",
+    "RuleNumber": "100"
+   },
+   "Type": "AWS::EC2::NetworkAclEntry"
+  },
+  "PrivateNetworkAcl": {
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Application",
+      "Value": {
+       "Ref": "AWS::StackName"
+      }
+     },
+     {
+      "Key": "Network",
+      "Value": "Private"
+     }
+    ],
+    "VpcId": {
+     "Ref": "VPC"
     }
+   },
+   "Type": "AWS::EC2::NetworkAcl"
+  },
+  "PrivateRoute": {
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "VPNGateway"
+    },
+    "RouteTableId": {
+     "Ref": "PrivateRouteTable"
+    }
+   },
+   "Type": "AWS::EC2::Route"
+  },
+  "PrivateRouteTable": {
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Application",
+      "Value": {
+       "Ref": "AWS::StackName"
+      }
+     },
+     {
+      "Key": "Network",
+      "Value": "VPN Connected Subnet"
+     }
+    ],
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::RouteTable"
+  },
+  "PrivateSubnet": {
+   "Properties": {
+    "CidrBlock": {
+     "Ref": "SubnetCIDR"
+    },
+    "Tags": [
+     {
+      "Key": "Application",
+      "Value": {
+       "Ref": "AWS::StackName"
+      }
+     },
+     {
+      "Key": "Network",
+      "Value": "VPN Connected Subnet"
+     }
+    ],
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::Subnet"
+  },
+  "PrivateSubnetNetworkAclAssociation": {
+   "Properties": {
+    "NetworkAclId": {
+     "Ref": "PrivateNetworkAcl"
+    },
+    "SubnetId": {
+     "Ref": "PrivateSubnet"
+    }
+   },
+   "Type": "AWS::EC2::SubnetNetworkAclAssociation"
+  },
+  "PrivateSubnetRouteTableAssociation": {
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "PrivateRouteTable"
+    },
+    "SubnetId": {
+     "Ref": "PrivateSubnet"
+    }
+   },
+   "Type": "AWS::EC2::SubnetRouteTableAssociation"
+  },
+  "VPC": {
+   "Properties": {
+    "CidrBlock": {
+     "Ref": "VPCCIDR"
+    },
+    "EnableDnsHostnames": true,
+    "EnableDnsSupport": true,
+    "Tags": [
+     {
+      "Key": "Application",
+      "Value": {
+       "Ref": "AWS::StackName"
+      }
+     },
+     {
+      "Key": "Network",
+      "Value": "VPN Connected VPC"
+     }
+    ]
+   },
+   "Type": "AWS::EC2::VPC"
+  },
+  "VPNConnection": {
+   "Properties": {
+    "CustomerGatewayId": {
+     "Ref": "CustomerGateway"
+    },
+    "StaticRoutesOnly": true,
+    "Type": "ipsec.1",
+    "VpnGatewayId": {
+     "Ref": "VPNGateway"
+    }
+   },
+   "Type": "AWS::EC2::VPNConnection"
+  },
+  "VPNConnectionRoute": {
+   "Properties": {
+    "DestinationCidrBlock": {
+     "Ref": "OnPremiseCIDR"
+    },
+    "VpnConnectionId": {
+     "Ref": "VPNConnection"
+    }
+   },
+   "Type": "AWS::EC2::VPNConnectionRoute"
+  },
+  "VPNGateway": {
+   "Properties": {
+    "Tags": [
+     {
+      "Key": "Application",
+      "Value": {
+       "Ref": "AWS::StackName"
+      }
+     }
+    ],
+    "Type": "ipsec.1"
+   },
+   "Type": "AWS::EC2::VPNGateway"
+  },
+  "VPNGatewayAttachment": {
+   "Properties": {
+    "VpcId": {
+     "Ref": "VPC"
+    },
+    "VpnGatewayId": {
+     "Ref": "VPNGateway"
+    }
+   },
+   "Type": "AWS::EC2::VPCGatewayAttachment"
+  }
+ }
 }

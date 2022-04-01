@@ -1,229 +1,229 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Parameters": {
-        "AppName": {
-            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
-            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
-            "Default": "myapp",
-            "Description": "The app name",
-            "MaxLength": "64",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "InstanceRole": {
-            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
-            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
-            "Default": "aws-opsworks-ec2-role",
-            "Description": "The OpsWorks instance role",
-            "MaxLength": "64",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "MysqlRootPassword": {
-            "Description": "MysqlRootPassword",
-            "NoEcho": true,
-            "Type": "String"
-        },
-        "ServiceRole": {
-            "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
-            "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
-            "Default": "aws-opsworks-service-role",
-            "Description": "The OpsWorks service role",
-            "MaxLength": "64",
-            "MinLength": "1",
-            "Type": "String"
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Parameters": {
+  "AppName": {
+   "AllowedPattern": "[a-zA-Z][a-zA-Z0-9]*",
+   "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
+   "Default": "myapp",
+   "Description": "The app name",
+   "MaxLength": "64",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "InstanceRole": {
+   "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
+   "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
+   "Default": "aws-opsworks-ec2-role",
+   "Description": "The OpsWorks instance role",
+   "MaxLength": "64",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "MysqlRootPassword": {
+   "Description": "MysqlRootPassword",
+   "NoEcho": true,
+   "Type": "String"
+  },
+  "ServiceRole": {
+   "AllowedPattern": "[a-zA-Z][a-zA-Z0-9-]*",
+   "ConstraintDescription": "must begin with a letter and contain only alphanumeric characters.",
+   "Default": "aws-opsworks-service-role",
+   "Description": "The OpsWorks service role",
+   "MaxLength": "64",
+   "MinLength": "1",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "DBLayer": {
+   "Properties": {
+    "Attributes": {
+     "MysqlRootPassword": {
+      "Ref": "MysqlRootPassword"
+     },
+     "MysqlRootPasswordUbiquitous": "true"
     },
-    "Resources": {
-        "DBLayer": {
-            "Properties": {
-                "Attributes": {
-                    "MysqlRootPassword": {
-                        "Ref": "MysqlRootPassword"
-                    },
-                    "MysqlRootPasswordUbiquitous": "true"
-                },
-                "AutoAssignElasticIps": false,
-                "AutoAssignPublicIps": true,
-                "CustomRecipes": {
-                    "Setup": [
-                        "phpapp::dbsetup"
-                    ]
-                },
-                "EnableAutoHealing": true,
-                "Name": "MyMySQL",
-                "Shortname": "db-layer",
-                "StackId": {
-                    "Ref": "myStack"
-                },
-                "Type": "db-master",
-                "VolumeConfigurations": [
-                    {
-                        "MountPoint": "/vol/mysql",
-                        "NumberOfDisks": 1,
-                        "Size": 10
-                    }
-                ]
-            },
-            "Type": "AWS::OpsWorks::Layer"
-        },
-        "ELB": {
-            "Properties": {
-                "AvailabilityZones": {
-                    "Fn::GetAZs": ""
-                },
-                "HealthCheck": {
-                    "HealthyThreshold": "2",
-                    "Interval": "30",
-                    "Target": "HTTP:80/",
-                    "Timeout": "5",
-                    "UnhealthyThreshold": "10"
-                },
-                "Listeners": [
-                    {
-                        "InstancePort": "80",
-                        "InstanceProtocol": "HTTP",
-                        "LoadBalancerPort": "80",
-                        "Protocol": "HTTP"
-                    }
-                ]
-            },
-            "Type": "AWS::ElasticLoadBalancing::LoadBalancer"
-        },
-        "ELBAttachment": {
-            "Properties": {
-                "ElasticLoadBalancerName": {
-                    "Ref": "ELB"
-                },
-                "LayerId": {
-                    "Ref": "myLayer"
-                }
-            },
-            "Type": "AWS::OpsWorks::ElasticLoadBalancerAttachment"
-        },
-        "myApp": {
-            "Properties": {
-                "AppSource": {
-                    "Revision": "version2",
-                    "Type": "git",
-                    "Url": "git://github.com/amazonwebservices/opsworks-demo-php-simple-app.git"
-                },
-                "Attributes": {
-                    "DocumentRoot": "web"
-                },
-                "Name": {
-                    "Ref": "AppName"
-                },
-                "StackId": {
-                    "Ref": "myStack"
-                },
-                "Type": "php"
-            },
-            "Type": "AWS::OpsWorks::App"
-        },
-        "myAppInstance1": {
-            "Properties": {
-                "InstanceType": "m1.small",
-                "LayerIds": [
-                    {
-                        "Ref": "myLayer"
-                    }
-                ],
-                "StackId": {
-                    "Ref": "myStack"
-                }
-            },
-            "Type": "AWS::OpsWorks::Instance"
-        },
-        "myAppInstance2": {
-            "Properties": {
-                "InstanceType": "m1.small",
-                "LayerIds": [
-                    {
-                        "Ref": "myLayer"
-                    }
-                ],
-                "StackId": {
-                    "Ref": "myStack"
-                }
-            },
-            "Type": "AWS::OpsWorks::Instance"
-        },
-        "myDBInstance": {
-            "Properties": {
-                "InstanceType": "m1.small",
-                "LayerIds": [
-                    {
-                        "Ref": "DBLayer"
-                    }
-                ],
-                "StackId": {
-                    "Ref": "myStack"
-                }
-            },
-            "Type": "AWS::OpsWorks::Instance"
-        },
-        "myLayer": {
-            "Properties": {
-                "AutoAssignElasticIps": false,
-                "AutoAssignPublicIps": true,
-                "CustomRecipes": {
-                    "Configure": [
-                        "phpapp::appsetup"
-                    ]
-                },
-                "EnableAutoHealing": true,
-                "Name": "MyPHPApp",
-                "Shortname": "php-app",
-                "StackId": {
-                    "Ref": "myStack"
-                },
-                "Type": "php-app"
-            },
-            "Type": "AWS::OpsWorks::Layer"
-        },
-        "myStack": {
-            "Properties": {
-                "CustomCookbooksSource": {
-                    "Type": "git",
-                    "Url": "git://github.com/amazonwebservices/opsworks-example-cookbooks.git"
-                },
-                "DefaultInstanceProfileArn": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            "arn:aws:iam::",
-                            {
-                                "Ref": "AWS::AccountId"
-                            },
-                            ":instance-profile/",
-                            {
-                                "Ref": "InstanceRole"
-                            }
-                        ]
-                    ]
-                },
-                "Name": {
-                    "Ref": "AWS::StackName"
-                },
-                "ServiceRoleArn": {
-                    "Fn::Join": [
-                        "",
-                        [
-                            "arn:aws:iam::",
-                            {
-                                "Ref": "AWS::AccountId"
-                            },
-                            ":role/",
-                            {
-                                "Ref": "ServiceRole"
-                            }
-                        ]
-                    ]
-                },
-                "UseCustomCookbooks": true
-            },
-            "Type": "AWS::OpsWorks::Stack"
-        }
+    "AutoAssignElasticIps": false,
+    "AutoAssignPublicIps": true,
+    "CustomRecipes": {
+     "Setup": [
+      "phpapp::dbsetup"
+     ]
+    },
+    "EnableAutoHealing": true,
+    "Name": "MyMySQL",
+    "Shortname": "db-layer",
+    "StackId": {
+     "Ref": "myStack"
+    },
+    "Type": "db-master",
+    "VolumeConfigurations": [
+     {
+      "MountPoint": "/vol/mysql",
+      "NumberOfDisks": 1,
+      "Size": 10
+     }
+    ]
+   },
+   "Type": "AWS::OpsWorks::Layer"
+  },
+  "ELB": {
+   "Properties": {
+    "AvailabilityZones": {
+     "Fn::GetAZs": ""
+    },
+    "HealthCheck": {
+     "HealthyThreshold": "2",
+     "Interval": "30",
+     "Target": "HTTP:80/",
+     "Timeout": "5",
+     "UnhealthyThreshold": "10"
+    },
+    "Listeners": [
+     {
+      "InstancePort": "80",
+      "InstanceProtocol": "HTTP",
+      "LoadBalancerPort": "80",
+      "Protocol": "HTTP"
+     }
+    ]
+   },
+   "Type": "AWS::ElasticLoadBalancing::LoadBalancer"
+  },
+  "ELBAttachment": {
+   "Properties": {
+    "ElasticLoadBalancerName": {
+     "Ref": "ELB"
+    },
+    "LayerId": {
+     "Ref": "myLayer"
     }
+   },
+   "Type": "AWS::OpsWorks::ElasticLoadBalancerAttachment"
+  },
+  "myApp": {
+   "Properties": {
+    "AppSource": {
+     "Revision": "version2",
+     "Type": "git",
+     "Url": "git://github.com/amazonwebservices/opsworks-demo-php-simple-app.git"
+    },
+    "Attributes": {
+     "DocumentRoot": "web"
+    },
+    "Name": {
+     "Ref": "AppName"
+    },
+    "StackId": {
+     "Ref": "myStack"
+    },
+    "Type": "php"
+   },
+   "Type": "AWS::OpsWorks::App"
+  },
+  "myAppInstance1": {
+   "Properties": {
+    "InstanceType": "m1.small",
+    "LayerIds": [
+     {
+      "Ref": "myLayer"
+     }
+    ],
+    "StackId": {
+     "Ref": "myStack"
+    }
+   },
+   "Type": "AWS::OpsWorks::Instance"
+  },
+  "myAppInstance2": {
+   "Properties": {
+    "InstanceType": "m1.small",
+    "LayerIds": [
+     {
+      "Ref": "myLayer"
+     }
+    ],
+    "StackId": {
+     "Ref": "myStack"
+    }
+   },
+   "Type": "AWS::OpsWorks::Instance"
+  },
+  "myDBInstance": {
+   "Properties": {
+    "InstanceType": "m1.small",
+    "LayerIds": [
+     {
+      "Ref": "DBLayer"
+     }
+    ],
+    "StackId": {
+     "Ref": "myStack"
+    }
+   },
+   "Type": "AWS::OpsWorks::Instance"
+  },
+  "myLayer": {
+   "Properties": {
+    "AutoAssignElasticIps": false,
+    "AutoAssignPublicIps": true,
+    "CustomRecipes": {
+     "Configure": [
+      "phpapp::appsetup"
+     ]
+    },
+    "EnableAutoHealing": true,
+    "Name": "MyPHPApp",
+    "Shortname": "php-app",
+    "StackId": {
+     "Ref": "myStack"
+    },
+    "Type": "php-app"
+   },
+   "Type": "AWS::OpsWorks::Layer"
+  },
+  "myStack": {
+   "Properties": {
+    "CustomCookbooksSource": {
+     "Type": "git",
+     "Url": "git://github.com/amazonwebservices/opsworks-example-cookbooks.git"
+    },
+    "DefaultInstanceProfileArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:aws:iam::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":instance-profile/",
+       {
+        "Ref": "InstanceRole"
+       }
+      ]
+     ]
+    },
+    "Name": {
+     "Ref": "AWS::StackName"
+    },
+    "ServiceRoleArn": {
+     "Fn::Join": [
+      "",
+      [
+       "arn:aws:iam::",
+       {
+        "Ref": "AWS::AccountId"
+       },
+       ":role/",
+       {
+        "Ref": "ServiceRole"
+       }
+      ]
+     ]
+    },
+    "UseCustomCookbooks": true
+   },
+   "Type": "AWS::OpsWorks::Stack"
+  }
+ }
 }

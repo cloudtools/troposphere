@@ -1,152 +1,152 @@
 {
-    "AWSTemplateFormatVersion": "2010-09-09",
-    "Mappings": {
-        "RegionMap": {
-            "ap-northeast-1": {
-                "AMI": "ami-dcfa4edd"
-            },
-            "ap-southeast-1": {
-                "AMI": "ami-74dda626"
-            },
-            "eu-west-1": {
-                "AMI": "ami-24506250"
-            },
-            "sa-east-1": {
-                "AMI": "ami-3e3be423"
-            },
-            "us-east-1": {
-                "AMI": "ami-7f418316"
-            },
-            "us-west-1": {
-                "AMI": "ami-951945d0"
-            },
-            "us-west-2": {
-                "AMI": "ami-16fd7026"
-            }
-        }
-    },
-    "Parameters": {
-        "KeyName": {
-            "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
-            "Type": "String"
-        },
-        "SubnetId": {
-            "Description": "Subnet ID where the MountTarget and instance should be created",
-            "Type": "String"
-        },
-        "VpcId": {
-            "Description": "VPC ID where the MountTarget and instance should be created",
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "EFSHostRole": {
-            "Properties": {
-                "AssumeRolePolicyDocument": {
-                    "Statement": [
-                        {
-                            "Action": [
-                                "elasticfilesystem:DescribeFileSystems",
-                                "elasticfilesystem:DescribeTags"
-                            ],
-                            "Effect": "Allow",
-                            "Resource": [
-                                "*"
-                            ]
-                        }
-                    ]
-                }
-            },
-            "Type": "AWS::IAM::Role"
-        },
-        "EFSHostSecurityGroup": {
-            "Properties": {
-                "GroupDescription": "EC2 Instance Security Group"
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        },
-        "EFSInstanceProfile": {
-            "Properties": {
-                "Roles": [
-                    {
-                        "Ref": "EFSHostRole"
-                    }
-                ]
-            },
-            "Type": "AWS::IAM::InstanceProfile"
-        },
-        "Ec2Instance": {
-            "DependsOn": "MyEFSMountTarget",
-            "Properties": {
-                "IamInstanceProfile": {
-                    "Ref": "EFSInstanceProfile"
-                },
-                "ImageId": {
-                    "Fn::FindInMap": [
-                        "RegionMap",
-                        {
-                            "Ref": "AWS::Region"
-                        },
-                        "AMI"
-                    ]
-                },
-                "InstanceType": "t1.micro",
-                "KeyName": {
-                    "Ref": "KeyName"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "EFSHostSecurityGroup"
-                    }
-                ]
-            },
-            "Type": "AWS::EC2::Instance"
-        },
-        "MyEFSFileSystem": {
-            "Properties": {
-                "FileSystemTags": [
-                    {
-                        "Key": "Name",
-                        "Value": "MyEFSFileSystem"
-                    }
-                ]
-            },
-            "Type": "AWS::EFS::FileSystem"
-        },
-        "MyEFSMountTarget": {
-            "Properties": {
-                "FileSystemId": {
-                    "Ref": "MyEFSFileSystem"
-                },
-                "SecurityGroups": [
-                    {
-                        "Ref": "SecurityGroup"
-                    }
-                ],
-                "SubnetId": {
-                    "Ref": "SubnetId"
-                }
-            },
-            "Type": "AWS::EFS::MountTarget"
-        },
-        "SecurityGroup": {
-            "Properties": {
-                "GroupDescription": "Allow NFS over TCP",
-                "SecurityGroupIngress": [
-                    {
-                        "FromPort": "2049",
-                        "IpProtocol": "tcp",
-                        "SourceSecurityGroupId": {
-                            "Ref": "EFSHostSecurityGroup"
-                        },
-                        "ToPort": "2049"
-                    }
-                ],
-                "VpcId": {
-                    "Ref": "VpcId"
-                }
-            },
-            "Type": "AWS::EC2::SecurityGroup"
-        }
+ "AWSTemplateFormatVersion": "2010-09-09",
+ "Mappings": {
+  "RegionMap": {
+   "ap-northeast-1": {
+    "AMI": "ami-dcfa4edd"
+   },
+   "ap-southeast-1": {
+    "AMI": "ami-74dda626"
+   },
+   "eu-west-1": {
+    "AMI": "ami-24506250"
+   },
+   "sa-east-1": {
+    "AMI": "ami-3e3be423"
+   },
+   "us-east-1": {
+    "AMI": "ami-7f418316"
+   },
+   "us-west-1": {
+    "AMI": "ami-951945d0"
+   },
+   "us-west-2": {
+    "AMI": "ami-16fd7026"
+   }
+  }
+ },
+ "Parameters": {
+  "KeyName": {
+   "Description": "Name of an existing EC2 KeyPair to enable SSH access to the instance",
+   "Type": "String"
+  },
+  "SubnetId": {
+   "Description": "Subnet ID where the MountTarget and instance should be created",
+   "Type": "String"
+  },
+  "VpcId": {
+   "Description": "VPC ID where the MountTarget and instance should be created",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "EFSHostRole": {
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "elasticfilesystem:DescribeFileSystems",
+        "elasticfilesystem:DescribeTags"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        "*"
+       ]
+      }
+     ]
     }
+   },
+   "Type": "AWS::IAM::Role"
+  },
+  "EFSHostSecurityGroup": {
+   "Properties": {
+    "GroupDescription": "EC2 Instance Security Group"
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  },
+  "EFSInstanceProfile": {
+   "Properties": {
+    "Roles": [
+     {
+      "Ref": "EFSHostRole"
+     }
+    ]
+   },
+   "Type": "AWS::IAM::InstanceProfile"
+  },
+  "Ec2Instance": {
+   "DependsOn": "MyEFSMountTarget",
+   "Properties": {
+    "IamInstanceProfile": {
+     "Ref": "EFSInstanceProfile"
+    },
+    "ImageId": {
+     "Fn::FindInMap": [
+      "RegionMap",
+      {
+       "Ref": "AWS::Region"
+      },
+      "AMI"
+     ]
+    },
+    "InstanceType": "t1.micro",
+    "KeyName": {
+     "Ref": "KeyName"
+    },
+    "SecurityGroups": [
+     {
+      "Ref": "EFSHostSecurityGroup"
+     }
+    ]
+   },
+   "Type": "AWS::EC2::Instance"
+  },
+  "MyEFSFileSystem": {
+   "Properties": {
+    "FileSystemTags": [
+     {
+      "Key": "Name",
+      "Value": "MyEFSFileSystem"
+     }
+    ]
+   },
+   "Type": "AWS::EFS::FileSystem"
+  },
+  "MyEFSMountTarget": {
+   "Properties": {
+    "FileSystemId": {
+     "Ref": "MyEFSFileSystem"
+    },
+    "SecurityGroups": [
+     {
+      "Ref": "SecurityGroup"
+     }
+    ],
+    "SubnetId": {
+     "Ref": "SubnetId"
+    }
+   },
+   "Type": "AWS::EFS::MountTarget"
+  },
+  "SecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Allow NFS over TCP",
+    "SecurityGroupIngress": [
+     {
+      "FromPort": "2049",
+      "IpProtocol": "tcp",
+      "SourceSecurityGroupId": {
+       "Ref": "EFSHostSecurityGroup"
+      },
+      "ToPort": "2049"
+     }
+    ],
+    "VpcId": {
+     "Ref": "VpcId"
+    }
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  }
+ }
 }

@@ -1,78 +1,78 @@
 {
-    "Resources": {
-        "FoobarFunction": {
-            "Properties": {
-                "Code": {
-                    "ZipFile": {
-                        "Fn::Join": [
-                            "",
-                            [
-                                "var response = require('cfn-response');",
-                                "exports.handler = function(event, context) {",
-                                "   context.succeed('foobar!');",
-                                "   return 'foobar!';",
-                                "};"
-                            ]
-                        ]
-                    }
-                },
-                "Handler": "index.handler",
-                "Role": {
-                    "Fn::GetAtt": [
-                        "LambdaExecutionRole",
-                        "Arn"
-                    ]
-                },
-                "Runtime": "nodejs"
-            },
-            "Type": "AWS::Lambda::Function"
-        },
-        "FoobarPermission": {
-            "Properties": {
-                "Action": "lambda:invokeFunction",
-                "FunctionName": {
-                    "Ref": "FoobarFunction"
-                },
-                "Principal": "events.amazonaws.com",
-                "SourceArn": {
-                    "Fn::GetAtt": [
-                        "FoobarRule",
-                        "Arn"
-                    ]
-                }
-            },
-            "Type": "AWS::Lambda::Permission"
-        },
-        "FoobarRule": {
-            "Properties": {
-                "Description": "Foobar CloudWatch Event",
-                "EventPattern": {
-                    "detail": {
-                        "state": [
-                            "stopping"
-                        ]
-                    },
-                    "detail-type": [
-                        "EC2 Instance State-change Notification"
-                    ],
-                    "source": [
-                        "aws.ec2"
-                    ]
-                },
-                "State": "ENABLED",
-                "Targets": [
-                    {
-                        "Arn": {
-                            "Fn::GetAtt": [
-                                "FoobarFunction",
-                                "Arn"
-                            ]
-                        },
-                        "Id": "FooBarFunction1"
-                    }
-                ]
-            },
-            "Type": "AWS::Events::Rule"
-        }
+ "Resources": {
+  "FoobarFunction": {
+   "Properties": {
+    "Code": {
+     "ZipFile": {
+      "Fn::Join": [
+       "",
+       [
+        "var response = require('cfn-response');",
+        "exports.handler = function(event, context) {",
+        "   context.succeed('foobar!');",
+        "   return 'foobar!';",
+        "};"
+       ]
+      ]
+     }
+    },
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "LambdaExecutionRole",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs"
+   },
+   "Type": "AWS::Lambda::Function"
+  },
+  "FoobarPermission": {
+   "Properties": {
+    "Action": "lambda:invokeFunction",
+    "FunctionName": {
+     "Ref": "FoobarFunction"
+    },
+    "Principal": "events.amazonaws.com",
+    "SourceArn": {
+     "Fn::GetAtt": [
+      "FoobarRule",
+      "Arn"
+     ]
     }
+   },
+   "Type": "AWS::Lambda::Permission"
+  },
+  "FoobarRule": {
+   "Properties": {
+    "Description": "Foobar CloudWatch Event",
+    "EventPattern": {
+     "detail": {
+      "state": [
+       "stopping"
+      ]
+     },
+     "detail-type": [
+      "EC2 Instance State-change Notification"
+     ],
+     "source": [
+      "aws.ec2"
+     ]
+    },
+    "State": "ENABLED",
+    "Targets": [
+     {
+      "Arn": {
+       "Fn::GetAtt": [
+        "FoobarFunction",
+        "Arn"
+       ]
+      },
+      "Id": "FooBarFunction1"
+     }
+    ]
+   },
+   "Type": "AWS::Events::Rule"
+  }
+ }
 }

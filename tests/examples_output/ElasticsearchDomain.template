@@ -1,52 +1,52 @@
 {
-    "Description": "Elasticsearch Domain example",
-    "Resources": {
-        "ElasticsearchDomain": {
-            "Properties": {
-                "AccessPolicies": {
-                    "Statement": [
-                        {
-                            "Action": "es:*",
-                            "Effect": "Allow",
-                            "Principal": {
-                                "AWS": "*"
-                            },
-                            "Resource": "*"
-                        }
-                    ],
-                    "Version": "2012-10-17"
-                },
-                "AdvancedOptions": {
-                    "rest.action.multi.allow_explicit_index": true
-                },
-                "DomainName": "ExampleElasticsearchDomain",
-                "EBSOptions": {
-                    "EBSEnabled": true,
-                    "Iops": 0,
-                    "VolumeSize": 20,
-                    "VolumeType": "gp2"
-                },
-                "ElasticsearchClusterConfig": {
-                    "DedicatedMasterCount": 3,
-                    "DedicatedMasterEnabled": true,
-                    "DedicatedMasterType": "m3.medium.elasticsearch",
-                    "InstanceCount": 2,
-                    "InstanceType": "m3.medium.elasticsearch",
-                    "ZoneAwarenessEnabled": true
-                },
-                "SnapshotOptions": {
-                    "AutomatedSnapshotStartHour": 0
-                },
-                "VPCOptions": {
-                    "SecurityGroupIds": [
-                        "sg-04cf048c"
-                    ],
-                    "SubnetIds": [
-                        "subnet-4f2bb123"
-                    ]
-                }
-            },
-            "Type": "AWS::Elasticsearch::Domain"
-        }
+ "Description": "Elasticsearch Domain example",
+ "Resources": {
+  "ElasticsearchDomain": {
+   "Properties": {
+    "AccessPolicies": {
+     "Statement": [
+      {
+       "Action": "es:*",
+       "Effect": "Allow",
+       "Principal": {
+        "AWS": "*"
+       },
+       "Resource": "*"
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "AdvancedOptions": {
+     "rest.action.multi.allow_explicit_index": true
+    },
+    "DomainName": "ExampleElasticsearchDomain",
+    "EBSOptions": {
+     "EBSEnabled": true,
+     "Iops": 0,
+     "VolumeSize": 20,
+     "VolumeType": "gp2"
+    },
+    "ElasticsearchClusterConfig": {
+     "DedicatedMasterCount": 3,
+     "DedicatedMasterEnabled": true,
+     "DedicatedMasterType": "m3.medium.elasticsearch",
+     "InstanceCount": 2,
+     "InstanceType": "m3.medium.elasticsearch",
+     "ZoneAwarenessEnabled": true
+    },
+    "SnapshotOptions": {
+     "AutomatedSnapshotStartHour": 0
+    },
+    "VPCOptions": {
+     "SecurityGroupIds": [
+      "sg-04cf048c"
+     ],
+     "SubnetIds": [
+      "subnet-4f2bb123"
+     ]
     }
+   },
+   "Type": "AWS::Elasticsearch::Domain"
+  }
+ }
 }

@@ -1,191 +1,191 @@
 {
-    "Parameters": {
-        "subnetA": {
-            "Type": "String"
-        },
-        "subnetB": {
-            "Type": "String"
-        }
+ "Parameters": {
+  "subnetA": {
+   "Type": "String"
+  },
+  "subnetB": {
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "ALB": {
+   "Properties": {
+    "Scheme": "internet-facing",
+    "Subnets": [
+     {
+      "Ref": "subnetA"
+     },
+     {
+      "Ref": "subnetB"
+     }
+    ]
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer"
+  },
+  "Listener": {
+   "Properties": {
+    "DefaultActions": [
+     {
+      "FixedResponseConfig": {
+       "ContentType": "text/plain",
+       "MessageBody": "This is a fixed response for the default ALB action",
+       "StatusCode": "200"
+      },
+      "Type": "fixed-response"
+     }
+    ],
+    "LoadBalancerArn": {
+     "Ref": "ALB"
     },
-    "Resources": {
-        "ALB": {
-            "Properties": {
-                "Scheme": "internet-facing",
-                "Subnets": [
-                    {
-                        "Ref": "subnetA"
-                    },
-                    {
-                        "Ref": "subnetB"
-                    }
-                ]
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer"
-        },
-        "Listener": {
-            "Properties": {
-                "DefaultActions": [
-                    {
-                        "FixedResponseConfig": {
-                            "ContentType": "text/plain",
-                            "MessageBody": "This is a fixed response for the default ALB action",
-                            "StatusCode": "200"
-                        },
-                        "Type": "fixed-response"
-                    }
-                ],
-                "LoadBalancerArn": {
-                    "Ref": "ALB"
-                },
-                "Port": "80",
-                "Protocol": "HTTP"
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::Listener"
-        },
-        "ListenerRuleApi": {
-            "Properties": {
-                "Actions": [
-                    {
-                        "FixedResponseConfig": {
-                            "ContentType": "text/plain",
-                            "MessageBody": "This is a fixed response for any API POST request with header X-Action: Create",
-                            "StatusCode": "200"
-                        },
-                        "Type": "fixed-response"
-                    }
-                ],
-                "Conditions": [
-                    {
-                        "Field": "host-header",
-                        "Values": [
-                            "api.example.com"
-                        ]
-                    },
-                    {
-                        "Field": "http-header",
-                        "HttpHeaderConfig": {
-                            "HttpHeaderName": "X-Action",
-                            "Values": [
-                                "Create"
-                            ]
-                        }
-                    },
-                    {
-                        "Field": "path-pattern",
-                        "PathPatternConfig": {
-                            "Values": [
-                                "/api/*"
-                            ]
-                        }
-                    },
-                    {
-                        "Field": "http-request-method",
-                        "HttpRequestMethodConfig": {
-                            "Values": [
-                                "POST"
-                            ]
-                        }
-                    }
-                ],
-                "ListenerArn": {
-                    "Ref": "Listener"
-                },
-                "Priority": "10"
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
-        },
-        "ListenerRuleMetrics": {
-            "Properties": {
-                "Actions": [
-                    {
-                        "RedirectConfig": {
-                            "Port": "443",
-                            "Protocol": "HTTPS",
-                            "StatusCode": "HTTP_301"
-                        },
-                        "Type": "redirect"
-                    }
-                ],
-                "Conditions": [
-                    {
-                        "Field": "path-pattern",
-                        "Values": [
-                            "/metrics/*"
-                        ]
-                    }
-                ],
-                "ListenerArn": {
-                    "Ref": "Listener"
-                },
-                "Priority": "30"
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
-        },
-        "ListenerRuleSourceIp": {
-            "Properties": {
-                "Actions": [
-                    {
-                        "FixedResponseConfig": {
-                            "ContentType": "text/plain",
-                            "MessageBody": "The request came from IP range 52.30.12.16/28",
-                            "StatusCode": "200"
-                        },
-                        "Type": "fixed-response"
-                    }
-                ],
-                "Conditions": [
-                    {
-                        "Field": "source-ip",
-                        "SourceIpConfig": {
-                            "Values": [
-                                "52.30.12.16/28"
-                            ]
-                        }
-                    }
-                ],
-                "ListenerArn": {
-                    "Ref": "Listener"
-                },
-                "Priority": "40"
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
-        },
-        "ListenerRuleWeb": {
-            "Properties": {
-                "Actions": [
-                    {
-                        "FixedResponseConfig": {
-                            "ContentType": "text/plain",
-                            "MessageBody": "This is a fixed response for any WEB request",
-                            "StatusCode": "200"
-                        },
-                        "Type": "fixed-response"
-                    }
-                ],
-                "Conditions": [
-                    {
-                        "Field": "host-header",
-                        "HostHeaderConfig": {
-                            "Values": [
-                                "www.example.com"
-                            ]
-                        }
-                    },
-                    {
-                        "Field": "path-pattern",
-                        "PathPatternConfig": {
-                            "Values": [
-                                "/web/*"
-                            ]
-                        }
-                    }
-                ],
-                "ListenerArn": {
-                    "Ref": "Listener"
-                },
-                "Priority": "20"
-            },
-            "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
-        }
-    }
+    "Port": "80",
+    "Protocol": "HTTP"
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::Listener"
+  },
+  "ListenerRuleApi": {
+   "Properties": {
+    "Actions": [
+     {
+      "FixedResponseConfig": {
+       "ContentType": "text/plain",
+       "MessageBody": "This is a fixed response for any API POST request with header X-Action: Create",
+       "StatusCode": "200"
+      },
+      "Type": "fixed-response"
+     }
+    ],
+    "Conditions": [
+     {
+      "Field": "host-header",
+      "Values": [
+       "api.example.com"
+      ]
+     },
+     {
+      "Field": "http-header",
+      "HttpHeaderConfig": {
+       "HttpHeaderName": "X-Action",
+       "Values": [
+        "Create"
+       ]
+      }
+     },
+     {
+      "Field": "path-pattern",
+      "PathPatternConfig": {
+       "Values": [
+        "/api/*"
+       ]
+      }
+     },
+     {
+      "Field": "http-request-method",
+      "HttpRequestMethodConfig": {
+       "Values": [
+        "POST"
+       ]
+      }
+     }
+    ],
+    "ListenerArn": {
+     "Ref": "Listener"
+    },
+    "Priority": "10"
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
+  },
+  "ListenerRuleMetrics": {
+   "Properties": {
+    "Actions": [
+     {
+      "RedirectConfig": {
+       "Port": "443",
+       "Protocol": "HTTPS",
+       "StatusCode": "HTTP_301"
+      },
+      "Type": "redirect"
+     }
+    ],
+    "Conditions": [
+     {
+      "Field": "path-pattern",
+      "Values": [
+       "/metrics/*"
+      ]
+     }
+    ],
+    "ListenerArn": {
+     "Ref": "Listener"
+    },
+    "Priority": "30"
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
+  },
+  "ListenerRuleSourceIp": {
+   "Properties": {
+    "Actions": [
+     {
+      "FixedResponseConfig": {
+       "ContentType": "text/plain",
+       "MessageBody": "The request came from IP range 52.30.12.16/28",
+       "StatusCode": "200"
+      },
+      "Type": "fixed-response"
+     }
+    ],
+    "Conditions": [
+     {
+      "Field": "source-ip",
+      "SourceIpConfig": {
+       "Values": [
+        "52.30.12.16/28"
+       ]
+      }
+     }
+    ],
+    "ListenerArn": {
+     "Ref": "Listener"
+    },
+    "Priority": "40"
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
+  },
+  "ListenerRuleWeb": {
+   "Properties": {
+    "Actions": [
+     {
+      "FixedResponseConfig": {
+       "ContentType": "text/plain",
+       "MessageBody": "This is a fixed response for any WEB request",
+       "StatusCode": "200"
+      },
+      "Type": "fixed-response"
+     }
+    ],
+    "Conditions": [
+     {
+      "Field": "host-header",
+      "HostHeaderConfig": {
+       "Values": [
+        "www.example.com"
+       ]
+      }
+     },
+     {
+      "Field": "path-pattern",
+      "PathPatternConfig": {
+       "Values": [
+        "/web/*"
+       ]
+      }
+     }
+    ],
+    "ListenerArn": {
+     "Ref": "Listener"
+    },
+    "Priority": "20"
+   },
+   "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
+  }
+ }
 }

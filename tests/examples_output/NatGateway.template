@@ -1,164 +1,164 @@
 {
-    "Description": "AWS CloudFormation Sample Template NatGateway: Sample template showing how to create a public NAT gateway. **WARNING** This template creates an Amazon NAT gateway. You will be billed for the AWS resources used if you create a stack from this template.",
-    "Outputs": {
-        "NatEip": {
-            "Description": "Nat Elastic IP",
-            "Value": {
-                "Ref": "NatEip"
-            }
-        },
-        "VPCId": {
-            "Description": "VPC Id",
-            "Value": {
-                "Ref": "VPC"
-            }
-        }
+ "Description": "AWS CloudFormation Sample Template NatGateway: Sample template showing how to create a public NAT gateway. **WARNING** This template creates an Amazon NAT gateway. You will be billed for the AWS resources used if you create a stack from this template.",
+ "Outputs": {
+  "NatEip": {
+   "Description": "Nat Elastic IP",
+   "Value": {
+    "Ref": "NatEip"
+   }
+  },
+  "VPCId": {
+   "Description": "VPC Id",
+   "Value": {
+    "Ref": "VPC"
+   }
+  }
+ },
+ "Parameters": {
+  "PrivateSubnetCidr": {
+   "Default": "172.18.32.0/21",
+   "Description": "Public Subnet CIDR",
+   "Type": "String"
+  },
+  "PublicSubnetCidr": {
+   "Default": "172.18.0.0/22",
+   "Description": "Public Subnet CIDR",
+   "Type": "String"
+  },
+  "VPCCIDR": {
+   "Default": "172.18.0.0/16",
+   "Description": "The IP address space for this VPC, in CIDR notation",
+   "Type": "String"
+  }
+ },
+ "Resources": {
+  "InternetGateway": {
+   "Type": "AWS::EC2::InternetGateway"
+  },
+  "Nat": {
+   "Properties": {
+    "AllocationId": {
+     "Fn::GetAtt": [
+      "NatEip",
+      "AllocationId"
+     ]
     },
-    "Parameters": {
-        "PrivateSubnetCidr": {
-            "Default": "172.18.32.0/21",
-            "Description": "Public Subnet CIDR",
-            "Type": "String"
-        },
-        "PublicSubnetCidr": {
-            "Default": "172.18.0.0/22",
-            "Description": "Public Subnet CIDR",
-            "Type": "String"
-        },
-        "VPCCIDR": {
-            "Default": "172.18.0.0/16",
-            "Description": "The IP address space for this VPC, in CIDR notation",
-            "Type": "String"
-        }
-    },
-    "Resources": {
-        "InternetGateway": {
-            "Type": "AWS::EC2::InternetGateway"
-        },
-        "Nat": {
-            "Properties": {
-                "AllocationId": {
-                    "Fn::GetAtt": [
-                        "NatEip",
-                        "AllocationId"
-                    ]
-                },
-                "SubnetId": {
-                    "Ref": "PublicSubnet"
-                }
-            },
-            "Type": "AWS::EC2::NatGateway"
-        },
-        "NatAttachment": {
-            "Properties": {
-                "InternetGatewayId": {
-                    "Ref": "InternetGateway"
-                },
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::VPCGatewayAttachment"
-        },
-        "NatEip": {
-            "Properties": {
-                "Domain": "vpc"
-            },
-            "Type": "AWS::EC2::EIP"
-        },
-        "NatRoute": {
-            "Properties": {
-                "DestinationCidrBlock": "0.0.0.0/0",
-                "NatGatewayId": {
-                    "Ref": "Nat"
-                },
-                "RouteTableId": {
-                    "Ref": "PrivateRouteTable"
-                }
-            },
-            "Type": "AWS::EC2::Route"
-        },
-        "PrivateRouteAssociation": {
-            "Properties": {
-                "RouteTableId": {
-                    "Ref": "PrivateRouteTable"
-                },
-                "SubnetId": {
-                    "Ref": "PrivateSubnet"
-                }
-            },
-            "Type": "AWS::EC2::SubnetRouteTableAssociation"
-        },
-        "PrivateRouteTable": {
-            "Properties": {
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::RouteTable"
-        },
-        "PrivateSubnet": {
-            "Properties": {
-                "CidrBlock": {
-                    "Ref": "PrivateSubnetCidr"
-                },
-                "MapPublicIpOnLaunch": false,
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::Subnet"
-        },
-        "PublicDefaultRoute": {
-            "Properties": {
-                "DestinationCidrBlock": "0.0.0.0/0",
-                "GatewayId": {
-                    "Ref": "InternetGateway"
-                },
-                "RouteTableId": {
-                    "Ref": "PublicRouteTable"
-                }
-            },
-            "Type": "AWS::EC2::Route"
-        },
-        "PublicRouteAssociation": {
-            "Properties": {
-                "RouteTableId": {
-                    "Ref": "PublicRouteTable"
-                },
-                "SubnetId": {
-                    "Ref": "PublicSubnet"
-                }
-            },
-            "Type": "AWS::EC2::SubnetRouteTableAssociation"
-        },
-        "PublicRouteTable": {
-            "Properties": {
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::RouteTable"
-        },
-        "PublicSubnet": {
-            "Properties": {
-                "CidrBlock": {
-                    "Ref": "PublicSubnetCidr"
-                },
-                "MapPublicIpOnLaunch": true,
-                "VpcId": {
-                    "Ref": "VPC"
-                }
-            },
-            "Type": "AWS::EC2::Subnet"
-        },
-        "VPC": {
-            "Properties": {
-                "CidrBlock": {
-                    "Ref": "VPCCIDR"
-                }
-            },
-            "Type": "AWS::EC2::VPC"
-        }
+    "SubnetId": {
+     "Ref": "PublicSubnet"
     }
+   },
+   "Type": "AWS::EC2::NatGateway"
+  },
+  "NatAttachment": {
+   "Properties": {
+    "InternetGatewayId": {
+     "Ref": "InternetGateway"
+    },
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::VPCGatewayAttachment"
+  },
+  "NatEip": {
+   "Properties": {
+    "Domain": "vpc"
+   },
+   "Type": "AWS::EC2::EIP"
+  },
+  "NatRoute": {
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "NatGatewayId": {
+     "Ref": "Nat"
+    },
+    "RouteTableId": {
+     "Ref": "PrivateRouteTable"
+    }
+   },
+   "Type": "AWS::EC2::Route"
+  },
+  "PrivateRouteAssociation": {
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "PrivateRouteTable"
+    },
+    "SubnetId": {
+     "Ref": "PrivateSubnet"
+    }
+   },
+   "Type": "AWS::EC2::SubnetRouteTableAssociation"
+  },
+  "PrivateRouteTable": {
+   "Properties": {
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::RouteTable"
+  },
+  "PrivateSubnet": {
+   "Properties": {
+    "CidrBlock": {
+     "Ref": "PrivateSubnetCidr"
+    },
+    "MapPublicIpOnLaunch": false,
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::Subnet"
+  },
+  "PublicDefaultRoute": {
+   "Properties": {
+    "DestinationCidrBlock": "0.0.0.0/0",
+    "GatewayId": {
+     "Ref": "InternetGateway"
+    },
+    "RouteTableId": {
+     "Ref": "PublicRouteTable"
+    }
+   },
+   "Type": "AWS::EC2::Route"
+  },
+  "PublicRouteAssociation": {
+   "Properties": {
+    "RouteTableId": {
+     "Ref": "PublicRouteTable"
+    },
+    "SubnetId": {
+     "Ref": "PublicSubnet"
+    }
+   },
+   "Type": "AWS::EC2::SubnetRouteTableAssociation"
+  },
+  "PublicRouteTable": {
+   "Properties": {
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::RouteTable"
+  },
+  "PublicSubnet": {
+   "Properties": {
+    "CidrBlock": {
+     "Ref": "PublicSubnetCidr"
+    },
+    "MapPublicIpOnLaunch": true,
+    "VpcId": {
+     "Ref": "VPC"
+    }
+   },
+   "Type": "AWS::EC2::Subnet"
+  },
+  "VPC": {
+   "Properties": {
+    "CidrBlock": {
+     "Ref": "VPCCIDR"
+    }
+   },
+   "Type": "AWS::EC2::VPC"
+  }
+ }
 }

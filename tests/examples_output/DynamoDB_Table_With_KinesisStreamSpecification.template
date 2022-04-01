@@ -1,92 +1,92 @@
 {
-    "Description": "Create a DynamoDB Table with a Kinesis Stream Specification.",
-    "Outputs": {
-        "TableName": {
-            "Description": "Table with Kinesis Stream Specification",
-            "Value": {
-                "Ref": "DynamoDBTableWithKinesis"
-            }
-        }
+ "Description": "Create a DynamoDB Table with a Kinesis Stream Specification.",
+ "Outputs": {
+  "TableName": {
+   "Description": "Table with Kinesis Stream Specification",
+   "Value": {
+    "Ref": "DynamoDBTableWithKinesis"
+   }
+  }
+ },
+ "Parameters": {
+  "HashKeyElementName": {
+   "AllowedPattern": "[a-zA-Z0-9]*",
+   "ConstraintDescription": "must contain only alphanumberic characters",
+   "Description": "HashType PrimaryKey Name",
+   "MaxLength": "2048",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "HashKeyElementType": {
+   "AllowedPattern": "[S|N]",
+   "ConstraintDescription": "must be either S or N",
+   "Default": "S",
+   "Description": "HashType PrimaryKey Type",
+   "MaxLength": "1",
+   "MinLength": "1",
+   "Type": "String"
+  },
+  "ReadCapacityUnits": {
+   "ConstraintDescription": "should be between 5 and 10000",
+   "Default": "10",
+   "Description": "Provisioned read throughput",
+   "MaxValue": "10000",
+   "MinValue": "5",
+   "Type": "Number"
+  },
+  "StreamArn": {
+   "AllowedPattern": "arn:aws[-a-z]*:\\S+:\\S+:\\d+:.*",
+   "ConstraintDescription": "must be a valid arn",
+   "Description": "Kinesis StreamArn",
+   "MaxLength": "1024",
+   "MinLength": "37",
+   "Type": "String"
+  },
+  "WriteCapacityUnits": {
+   "ConstraintDescription": "should be between 5 and 10000",
+   "Default": "5",
+   "Description": "Provisioned write throughput",
+   "MaxValue": "10000",
+   "MinValue": "5",
+   "Type": "Number"
+  }
+ },
+ "Resources": {
+  "DynamoDBTableWithKinesis": {
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": {
+       "Ref": "HashKeyElementName"
+      },
+      "AttributeType": {
+       "Ref": "HashKeyElementType"
+      }
+     }
+    ],
+    "KeySchema": [
+     {
+      "AttributeName": {
+       "Ref": "HashKeyElementName"
+      },
+      "KeyType": "HASH"
+     }
+    ],
+    "KinesisStreamSpecification": {
+     "StreamArn": {
+      "Ref": "StreamArn"
+     }
     },
-    "Parameters": {
-        "HashKeyElementName": {
-            "AllowedPattern": "[a-zA-Z0-9]*",
-            "ConstraintDescription": "must contain only alphanumberic characters",
-            "Description": "HashType PrimaryKey Name",
-            "MaxLength": "2048",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "HashKeyElementType": {
-            "AllowedPattern": "[S|N]",
-            "ConstraintDescription": "must be either S or N",
-            "Default": "S",
-            "Description": "HashType PrimaryKey Type",
-            "MaxLength": "1",
-            "MinLength": "1",
-            "Type": "String"
-        },
-        "ReadCapacityUnits": {
-            "ConstraintDescription": "should be between 5 and 10000",
-            "Default": "10",
-            "Description": "Provisioned read throughput",
-            "MaxValue": "10000",
-            "MinValue": "5",
-            "Type": "Number"
-        },
-        "StreamArn": {
-            "AllowedPattern": "arn:aws[-a-z]*:\\S+:\\S+:\\d+:.*",
-            "ConstraintDescription": "must be a valid arn",
-            "Description": "Kinesis StreamArn",
-            "MaxLength": "1024",
-            "MinLength": "37",
-            "Type": "String"
-        },
-        "WriteCapacityUnits": {
-            "ConstraintDescription": "should be between 5 and 10000",
-            "Default": "5",
-            "Description": "Provisioned write throughput",
-            "MaxValue": "10000",
-            "MinValue": "5",
-            "Type": "Number"
-        }
-    },
-    "Resources": {
-        "DynamoDBTableWithKinesis": {
-            "Properties": {
-                "AttributeDefinitions": [
-                    {
-                        "AttributeName": {
-                            "Ref": "HashKeyElementName"
-                        },
-                        "AttributeType": {
-                            "Ref": "HashKeyElementType"
-                        }
-                    }
-                ],
-                "KeySchema": [
-                    {
-                        "AttributeName": {
-                            "Ref": "HashKeyElementName"
-                        },
-                        "KeyType": "HASH"
-                    }
-                ],
-                "KinesisStreamSpecification": {
-                    "StreamArn": {
-                        "Ref": "StreamArn"
-                    }
-                },
-                "ProvisionedThroughput": {
-                    "ReadCapacityUnits": {
-                        "Ref": "ReadCapacityUnits"
-                    },
-                    "WriteCapacityUnits": {
-                        "Ref": "WriteCapacityUnits"
-                    }
-                }
-            },
-            "Type": "AWS::DynamoDB::Table"
-        }
+    "ProvisionedThroughput": {
+     "ReadCapacityUnits": {
+      "Ref": "ReadCapacityUnits"
+     },
+     "WriteCapacityUnits": {
+      "Ref": "WriteCapacityUnits"
+     }
     }
+   },
+   "Type": "AWS::DynamoDB::Table"
+  }
+ }
 }
