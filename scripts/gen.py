@@ -712,7 +712,7 @@ class CodeGenerator:
                 code.append(f"    `{class_name} <{property_type.documentation}>`__")
                 code.append('    """')
                 code.append("")
-            code.append(f"    resource_type = '{resource_name}'")
+            code.append(f'    resource_type = "{resource_name}"')
             code.append("")
         else:
             code.append(f"class {class_name}(AWSProperty):")
