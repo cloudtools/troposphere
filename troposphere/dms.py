@@ -104,8 +104,11 @@ class KafkaSettings(AWSProperty):
         "Broker": (str, False),
         "IncludeControlDetails": (boolean, False),
         "IncludeNullAndEmpty": (boolean, False),
+        "IncludePartitionValue": (boolean, False),
         "IncludeTableAlterOperations": (boolean, False),
         "IncludeTransactionDetails": (boolean, False),
+        "MessageFormat": (str, False),
+        "MessageMaxBytes": (integer, False),
         "NoHexPrefix": (boolean, False),
         "PartitionIncludeSchemaTable": (boolean, False),
         "SaslPassword": (str, False),
@@ -127,6 +130,7 @@ class KinesisSettings(AWSProperty):
     props: PropsDictType = {
         "IncludeControlDetails": (boolean, False),
         "IncludeNullAndEmpty": (boolean, False),
+        "IncludePartitionValue": (boolean, False),
         "IncludeTableAlterOperations": (boolean, False),
         "IncludeTransactionDetails": (boolean, False),
         "MessageFormat": (str, False),
@@ -176,8 +180,15 @@ class MySqlSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AfterConnectScript": (str, False),
+        "CleanSourceMetadataOnMismatch": (boolean, False),
+        "EventsPollInterval": (integer, False),
+        "MaxFileSize": (integer, False),
+        "ParallelLoadThreads": (integer, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
+        "ServerTimezone": (str, False),
+        "TargetDbType": (str, False),
     }
 
 

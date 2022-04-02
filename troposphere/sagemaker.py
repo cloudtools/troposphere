@@ -346,6 +346,30 @@ class DeviceFleet(AWSObject):
     }
 
 
+class RStudioServerProDomainSettings(AWSProperty):
+    """
+    `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultResourceSpec": (ResourceSpec, False),
+        "DomainExecutionRoleArn": (str, True),
+        "RStudioConnectUrl": (str, False),
+        "RStudioPackageManagerUrl": (str, False),
+    }
+
+
+class DomainSettings(AWSProperty):
+    """
+    `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
+        "SecurityGroupIds": ([str], False),
+    }
+
+
 class JupyterServerAppSettings(AWSProperty):
     """
     `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`__
@@ -379,6 +403,17 @@ class KernelGatewayAppSettings(AWSProperty):
     }
 
 
+class RStudioServerProAppSettings(AWSProperty):
+    """
+    `RStudioServerProAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-rstudioserverproappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessStatus": (str, False),
+        "UserGroup": (str, False),
+    }
+
+
 class SharingSettings(AWSProperty):
     """
     `SharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-sharingsettings.html>`__
@@ -400,6 +435,7 @@ class UserSettings(AWSProperty):
         "ExecutionRole": (str, False),
         "JupyterServerAppSettings": (JupyterServerAppSettings, False),
         "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
+        "RStudioServerProAppSettings": (RStudioServerProAppSettings, False),
         "SecurityGroups": ([str], False),
         "SharingSettings": (SharingSettings, False),
     }
@@ -414,9 +450,11 @@ class Domain(AWSObject):
 
     props: PropsDictType = {
         "AppNetworkAccessType": (str, False),
+        "AppSecurityGroupManagement": (str, False),
         "AuthMode": (str, True),
         "DefaultUserSettings": (UserSettings, True),
         "DomainName": (str, True),
+        "DomainSettings": (DomainSettings, False),
         "KmsKeyId": (str, False),
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
