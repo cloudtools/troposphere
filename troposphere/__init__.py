@@ -34,7 +34,7 @@ from . import validators
 if TYPE_CHECKING:
     from .type_defs.protocols import JSONreprProtocol, ToDictProtocol
 
-__version__ = "4.0.0"
+__version__ = "4.0.1"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete = "Delete"

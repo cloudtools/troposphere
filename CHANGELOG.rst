@@ -1,3 +1,22 @@
+4.0.1 (2022*04*04)
+-------------------------------
+Breaking Changes
+^^^^^^^^^^^^^^^^
+* The json template indent was reduced from 4 to 1 for space savings.
+  Old spacing can be restored using to_json(indent=4).
+
+Changes
+^^^^^^^
+* Updates from spec version 63.0.0
+* reduce JSON CloudFormation template size (#2028)
+* Updates from spec version 65.0.0
+* Update black and isort versions
+* Output resource_type string in a more black compatible format
+* Let type hints show that lists are also valid
+* Fix WAFv2 AndStatement and OrStatement validation (Fixes #2026)
+* Add click to requirements-dev.txt to force version
+* Black formatting
+
 4.0.0 (2022*03*28)
 -------------------------------
 Breaking Changes
