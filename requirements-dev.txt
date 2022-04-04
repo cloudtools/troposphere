@@ -27,5 +27,6 @@ pytest-cov>=2.6
 
 black==22.3.0
 build==0.5.1
+click==8.0.4
 isort==5.10.1
 tox==3.23.1
