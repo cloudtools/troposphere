@@ -52,7 +52,7 @@ def validate_transit_encryption_port(port):
     """
     Property: EFSVolumeConfiguration.TransitEncryptionPort
     """
-    return integer_range(1, (2 ** 16) - 1)(port)
+    return integer_range(1, (2**16) - 1)(port)
 
 
 def validate_network_port(x):
