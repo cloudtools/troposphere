@@ -18,6 +18,7 @@ from typing import (
     List,
     NoReturn,
     Optional,
+    Sequence,
     Set,
     Tuple,
     Type,
@@ -702,14 +703,19 @@ class Tags(AWSHelperFn):
         return cls(**kwargs)
 
 
-__OutputTypeVar = TypeVar("__OutputTypeVar", "Output", List["Output"])
-__ParameterTypeVar = TypeVar("__ParameterTypeVar", "Parameter", List["Parameter"])
+__OutputTypeVar = TypeVar("__OutputTypeVar", "Output", Sequence["Output"])
+__ParameterTypeVar = TypeVar("__ParameterTypeVar", "Parameter", Sequence["Parameter"])
 __ResourceTypeVar = TypeVar(
-    "__ResourceTypeVar", bound=Union[BaseAWSObject, List[BaseAWSObject]]
+    "__ResourceTypeVar", bound=Union[BaseAWSObject, Sequence[BaseAWSObject]]
 )
 __UpdateTypeVar = TypeVar(
     "__UpdateTypeVar",
-    bound=Union[BaseAWSObject, List[BaseAWSObject], List["Output"], List["Parameter"]],
+    bound=Union[
+        BaseAWSObject,
+        Sequence[BaseAWSObject],
+        Sequence["Output"],
+        Sequence["Parameter"],
+    ],
 )
 
 
@@ -770,7 +776,7 @@ class Template:
         raise ValueError('duplicate key "%s" detected' % key)
 
     def _update(self, d: Dict[Any, Any], values: __UpdateTypeVar) -> __UpdateTypeVar:
-        if isinstance(values, list):
+        if isinstance(values, collections.abc.Sequence) and not isinstance(values, str):
             for v in values:
                 if v.title in d:
                     self.handle_duplicate_key(v.title)
