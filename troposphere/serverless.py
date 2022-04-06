@@ -11,6 +11,7 @@ from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .apigatewayv2 import AccessLogSettings, RouteSettings
 from .awslambda import (
     DestinationConfig,
+    EphemeralStorage,
     Environment,
     FileSystemConfig,
     ImageConfig,
@@ -144,6 +145,7 @@ class Function(AWSObject):
         "DeadLetterQueue": (DeadLetterQueue, False),
         "DeploymentPreference": (DeploymentPreference, False),
         "Description": (str, False),
+        "EphemeralStorage": (EphemeralStorage, False),
         "Environment": (Environment, False),
         "EventInvokeConfig": (EventInvokeConfiguration, False),
         "Events": (dict, False),
