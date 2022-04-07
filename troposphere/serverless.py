@@ -11,8 +11,8 @@ from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .apigatewayv2 import AccessLogSettings, RouteSettings
 from .awslambda import (
     DestinationConfig,
-    EphemeralStorage,
     Environment,
+    EphemeralStorage,
     FileSystemConfig,
     ImageConfig,
     ProvisionedConcurrencyConfiguration,
