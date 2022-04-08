@@ -141,6 +141,84 @@ class Connection(AWSObject):
     }
 
 
+class EndpointEventBus(AWSProperty):
+    """
+    `EndpointEventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-endpointeventbus.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventBusArn": (str, True),
+    }
+
+
+class ReplicationConfig(AWSProperty):
+    """
+    `ReplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-replicationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class Primary(AWSProperty):
+    """
+    `Primary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-primary.html>`__
+    """
+
+    props: PropsDictType = {
+        "HealthCheck": (str, True),
+    }
+
+
+class Secondary(AWSProperty):
+    """
+    `Secondary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-secondary.html>`__
+    """
+
+    props: PropsDictType = {
+        "Route": (str, True),
+    }
+
+
+class FailoverConfig(AWSProperty):
+    """
+    `FailoverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-failoverconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Primary": (Primary, True),
+        "Secondary": (Secondary, True),
+    }
+
+
+class RoutingConfig(AWSProperty):
+    """
+    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-endpoint-routingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailoverConfig": (FailoverConfig, True),
+    }
+
+
+class Endpoint(AWSObject):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-endpoint.html>`__
+    """
+
+    resource_type = "AWS::Events::Endpoint"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "EventBuses": ([EndpointEventBus], True),
+        "Name": (str, True),
+        "ReplicationConfig": (ReplicationConfig, False),
+        "RoleArn": (str, False),
+        "RoutingConfig": (RoutingConfig, True),
+    }
+
+
 class EventBus(AWSObject):
     """
     `EventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html>`__

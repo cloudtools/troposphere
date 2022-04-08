@@ -68,6 +68,52 @@ class LocationFSxLustre(AWSObject):
     }
 
 
+class MountOptions(AWSProperty):
+    """
+    `MountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Version": (str, False),
+    }
+
+
+class NFS(AWSProperty):
+    """
+    `NFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-nfs.html>`__
+    """
+
+    props: PropsDictType = {
+        "MountOptions": (MountOptions, True),
+    }
+
+
+class Protocol(AWSProperty):
+    """
+    `Protocol <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html>`__
+    """
+
+    props: PropsDictType = {
+        "NFS": (NFS, False),
+    }
+
+
+class LocationFSxOpenZFS(AWSObject):
+    """
+    `LocationFSxOpenZFS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxopenzfs.html>`__
+    """
+
+    resource_type = "AWS::DataSync::LocationFSxOpenZFS"
+
+    props: PropsDictType = {
+        "FsxFilesystemArn": (str, True),
+        "Protocol": (Protocol, True),
+        "SecurityGroupArns": ([str], True),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class LocationFSxWindows(AWSObject):
     """
     `LocationFSxWindows <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxwindows.html>`__
@@ -129,16 +175,6 @@ class LocationHDFS(AWSObject):
         "SimpleUser": (str, False),
         "Subdirectory": (str, False),
         "Tags": (Tags, False),
-    }
-
-
-class MountOptions(AWSProperty):
-    """
-    `MountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationsmb-mountoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "Version": (str, False),
     }
 
 

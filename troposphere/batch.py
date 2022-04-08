@@ -65,6 +65,18 @@ class ComputeResources(AWSProperty):
         "Subnets": ([str], True),
         "Tags": (dict, False),
         "Type": (str, True),
+        "UpdateToLatestImageVersion": (boolean, False),
+    }
+
+
+class UpdatePolicy(AWSProperty):
+    """
+    `UpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "JobExecutionTimeoutMinutes": (integer, False),
+        "TerminateJobsOnUpdate": (boolean, False),
     }
 
 
@@ -78,11 +90,13 @@ class ComputeEnvironment(AWSObject):
     props: PropsDictType = {
         "ComputeEnvironmentName": (str, False),
         "ComputeResources": (ComputeResources, False),
+        "ReplaceComputeEnvironment": (boolean, False),
         "ServiceRole": (str, False),
         "State": (validate_environment_state, False),
         "Tags": (dict, False),
         "Type": (str, True),
         "UnmanagedvCpus": (integer, False),
+        "UpdatePolicy": (UpdatePolicy, False),
     }
 
 
