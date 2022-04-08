@@ -411,10 +411,41 @@ class Permission(AWSObject):
         "Action": (str, True),
         "EventSourceToken": (str, False),
         "FunctionName": (str, True),
+        "FunctionUrlAuthType": (str, False),
         "Principal": (str, True),
         "PrincipalOrgID": (str, False),
         "SourceAccount": (str, False),
         "SourceArn": (str, False),
+    }
+
+
+class Cors(AWSProperty):
+    """
+    `Cors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-url-cors.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowCredentials": (boolean, False),
+        "AllowHeaders": ([str], False),
+        "AllowMethods": ([str], False),
+        "AllowOrigins": ([str], False),
+        "ExposeHeaders": ([str], False),
+        "MaxAge": (integer, False),
+    }
+
+
+class Url(AWSObject):
+    """
+    `Url <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-url.html>`__
+    """
+
+    resource_type = "AWS::Lambda::Url"
+
+    props: PropsDictType = {
+        "AuthType": (str, True),
+        "Cors": (Cors, False),
+        "Qualifier": (str, False),
+        "TargetFunctionArn": (str, True),
     }
 
 

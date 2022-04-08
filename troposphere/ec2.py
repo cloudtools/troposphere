@@ -1232,6 +1232,16 @@ class LaunchTemplateElasticInferenceAccelerator(AWSProperty):
     }
 
 
+class MaintenanceOptions(AWSProperty):
+    """
+    `MaintenanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-maintenanceoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoRecovery": (str, False),
+    }
+
+
 class MetadataOptions(AWSProperty):
     """
     `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html>`__
@@ -1342,6 +1352,7 @@ class LaunchTemplateData(AWSProperty):
         "KernelId": (str, False),
         "KeyName": (str, False),
         "LicenseSpecifications": ([LicenseSpecification], False),
+        "MaintenanceOptions": (MaintenanceOptions, False),
         "MetadataOptions": (MetadataOptions, False),
         "Monitoring": (Monitoring, False),
         "NetworkInterfaces": ([NetworkInterfaces], False),
@@ -2171,6 +2182,7 @@ class TrafficMirrorTarget(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "GatewayLoadBalancerEndpointId": (str, False),
         "NetworkInterfaceId": (str, False),
         "NetworkLoadBalancerArn": (str, False),
         "Tags": (Tags, False),

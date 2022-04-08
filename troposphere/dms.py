@@ -34,6 +34,9 @@ class DocDbSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DocsToInvestigate": (integer, False),
+        "ExtractDocId": (boolean, False),
+        "NestingLevel": (str, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
     }
@@ -90,8 +93,11 @@ class IbmDb2Settings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CurrentLsn": (str, False),
+        "MaxKBytesPerRead": (integer, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
+        "SetDataCaptureChanges": (boolean, False),
     }
 
 
@@ -147,8 +153,15 @@ class MicrosoftSqlServerSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BcpPacketSize": (integer, False),
+        "ControlTablesFileGroup": (str, False),
+        "QuerySingleAlwaysOnNode": (boolean, False),
+        "ReadBackupOnly": (boolean, False),
+        "SafeguardPolicy": (str, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
+        "UseBcpFullLoad": (boolean, False),
+        "UseThirdPartyBackupDevice": (boolean, False),
     }
 
 
@@ -296,8 +309,31 @@ class RedshiftSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AcceptAnyDate": (boolean, False),
+        "AfterConnectScript": (str, False),
+        "BucketFolder": (str, False),
+        "BucketName": (str, False),
+        "CaseSensitiveNames": (boolean, False),
+        "CompUpdate": (boolean, False),
+        "ConnectionTimeout": (integer, False),
+        "DateFormat": (str, False),
+        "EmptyAsNull": (boolean, False),
+        "EncryptionMode": (str, False),
+        "ExplicitIds": (boolean, False),
+        "FileTransferUploadStreams": (integer, False),
+        "LoadTimeout": (integer, False),
+        "MaxFileSize": (integer, False),
+        "RemoveQuotes": (boolean, False),
+        "ReplaceChars": (str, False),
+        "ReplaceInvalidChars": (str, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
+        "ServerSideEncryptionKmsKeyId": (str, False),
+        "ServiceAccessRoleArn": (str, False),
+        "TimeFormat": (str, False),
+        "TrimBlanks": (boolean, False),
+        "TruncateColumns": (boolean, False),
+        "WriteBufferSize": (integer, False),
     }
 
 
