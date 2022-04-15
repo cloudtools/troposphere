@@ -106,35 +106,6 @@ class WorkGroupConfiguration(AWSProperty):
     }
 
 
-class ResultConfigurationUpdates(AWSProperty):
-    """
-    `ResultConfigurationUpdates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-resultconfigurationupdates.html>`__
-    """
-
-    props: PropsDictType = {
-        "EncryptionConfiguration": (EncryptionConfiguration, False),
-        "OutputLocation": (str, False),
-        "RemoveEncryptionConfiguration": (boolean, False),
-        "RemoveOutputLocation": (boolean, False),
-    }
-
-
-class WorkGroupConfigurationUpdates(AWSProperty):
-    """
-    `WorkGroupConfigurationUpdates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-workgroupconfigurationupdates.html>`__
-    """
-
-    props: PropsDictType = {
-        "BytesScannedCutoffPerQuery": (integer, False),
-        "EnforceWorkGroupConfiguration": (boolean, False),
-        "EngineVersion": (EngineVersion, False),
-        "PublishCloudWatchMetricsEnabled": (boolean, False),
-        "RemoveBytesScannedCutoffPerQuery": (boolean, False),
-        "RequesterPaysEnabled": (boolean, False),
-        "ResultConfigurationUpdates": (ResultConfigurationUpdates, False),
-    }
-
-
 class WorkGroup(AWSObject):
     """
     `WorkGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-workgroup.html>`__
@@ -149,5 +120,4 @@ class WorkGroup(AWSObject):
         "State": (validate_workgroup_state, False),
         "Tags": (Tags, False),
         "WorkGroupConfiguration": (WorkGroupConfiguration, False),
-        "WorkGroupConfigurationUpdates": (WorkGroupConfigurationUpdates, False),
     }

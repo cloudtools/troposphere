@@ -13,7 +13,7 @@ from .validators.appstream import validate_tags_or_list
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-application-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-fleet-s3location.html>`__
     """
 
     props: PropsDictType = {
@@ -210,6 +210,7 @@ class Fleet(AWSObject):
         "MaxUserDurationInSeconds": (integer, False),
         "Name": (str, True),
         "Platform": (str, False),
+        "SessionScriptS3Location": (S3Location, False),
         "StreamView": (str, False),
         "Tags": (validate_tags_or_list, False),
         "UsbDeviceFilterStrings": ([str], False),

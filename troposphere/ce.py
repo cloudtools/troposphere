@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import double
 
 
+class ResourceTag(AWSProperty):
+    """
+    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class AnomalyMonitor(AWSObject):
     """
     `AnomalyMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ce-anomalymonitor.html>`__
@@ -22,6 +33,7 @@ class AnomalyMonitor(AWSObject):
         "MonitorName": (str, True),
         "MonitorSpecification": (str, False),
         "MonitorType": (str, True),
+        "ResourceTags": ([ResourceTag], False),
     }
 
 
@@ -47,6 +59,7 @@ class AnomalySubscription(AWSObject):
     props: PropsDictType = {
         "Frequency": (str, True),
         "MonitorArnList": ([str], True),
+        "ResourceTags": ([ResourceTag], False),
         "Subscribers": ([Subscriber], True),
         "SubscriptionName": (str, True),
         "Threshold": (double, True),

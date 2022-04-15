@@ -118,6 +118,7 @@ class Document(AWSObject):
         "Requires": ([DocumentRequires], False),
         "Tags": (Tags, False),
         "TargetType": (str, False),
+        "UpdateMethod": (str, False),
         "VersionName": (str, False),
     }
 

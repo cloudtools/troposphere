@@ -10,6 +10,30 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class TraceConfiguration(AWSProperty):
+    """
+    `TraceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-observabilityconfiguration-traceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Vendor": (str, True),
+    }
+
+
+class ObservabilityConfiguration(AWSObject):
+    """
+    `ObservabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-observabilityconfiguration.html>`__
+    """
+
+    resource_type = "AWS::AppRunner::ObservabilityConfiguration"
+
+    props: PropsDictType = {
+        "ObservabilityConfigurationName": (str, False),
+        "Tags": (Tags, False),
+        "TraceConfiguration": (TraceConfiguration, False),
+    }
+
+
 class EncryptionConfiguration(AWSProperty):
     """
     `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-encryptionconfiguration.html>`__
@@ -65,6 +89,17 @@ class NetworkConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "EgressConfiguration": (EgressConfiguration, True),
+    }
+
+
+class ServiceObservabilityConfiguration(AWSProperty):
+    """
+    `ServiceObservabilityConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-serviceobservabilityconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ObservabilityConfigurationArn": (str, False),
+        "ObservabilityEnabled": (boolean, True),
     }
 
 
@@ -188,6 +223,7 @@ class Service(AWSObject):
         "HealthCheckConfiguration": (HealthCheckConfiguration, False),
         "InstanceConfiguration": (InstanceConfiguration, False),
         "NetworkConfiguration": (NetworkConfiguration, False),
+        "ObservabilityConfiguration": (ServiceObservabilityConfiguration, False),
         "ServiceName": (str, False),
         "SourceConfiguration": (SourceConfiguration, True),
         "Tags": (Tags, False),
