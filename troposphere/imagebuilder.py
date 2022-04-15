@@ -90,7 +90,7 @@ class InstanceConfiguration(AWSProperty):
 
 class TargetContainerRepository(AWSProperty):
     """
-    `TargetContainerRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-targetcontainerrepository.html>`__
+    `TargetContainerRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-targetcontainerrepository.html>`__
     """
 
     props: PropsDictType = {
@@ -125,6 +125,46 @@ class ContainerRecipe(AWSObject):
     }
 
 
+class LaunchPermissionConfiguration(AWSProperty):
+    """
+    `LaunchPermissionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchpermissionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "OrganizationArns": ([str], False),
+        "OrganizationalUnitArns": ([str], False),
+        "UserGroups": ([str], False),
+        "UserIds": ([str], False),
+    }
+
+
+class AmiDistributionConfiguration(AWSProperty):
+    """
+    `AmiDistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-amidistributionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AmiTags": (dict, False),
+        "Description": (str, False),
+        "KmsKeyId": (str, False),
+        "LaunchPermissionConfiguration": (LaunchPermissionConfiguration, False),
+        "Name": (str, False),
+        "TargetAccountIds": ([str], False),
+    }
+
+
+class ContainerDistributionConfiguration(AWSProperty):
+    """
+    `ContainerDistributionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-containerdistributionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerTags": ([str], False),
+        "Description": (str, False),
+        "TargetRepository": (TargetContainerRepository, False),
+    }
+
+
 class LaunchTemplateConfiguration(AWSProperty):
     """
     `LaunchTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html>`__
@@ -143,8 +183,11 @@ class Distribution(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AmiDistributionConfiguration": (dict, False),
-        "ContainerDistributionConfiguration": (dict, False),
+        "AmiDistributionConfiguration": (AmiDistributionConfiguration, False),
+        "ContainerDistributionConfiguration": (
+            ContainerDistributionConfiguration,
+            False,
+        ),
         "LaunchTemplateConfigurations": ([LaunchTemplateConfiguration], False),
         "LicenseConfigurationArns": ([str], False),
         "Region": (str, True),
