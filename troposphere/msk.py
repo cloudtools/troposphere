@@ -327,6 +327,6 @@ class Configuration(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "KafkaVersionsList": ([str], False),
-        "Name": (str, False),
+        "Name": (str, True),
         "ServerProperties": (str, True),
     }

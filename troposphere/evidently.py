@@ -47,6 +47,19 @@ class OnlineAbConfigObject(AWSProperty):
     }
 
 
+class RunningStatusObject(AWSProperty):
+    """
+    `RunningStatusObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-runningstatusobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnalysisCompleteTime": (str, False),
+        "DesiredState": (str, False),
+        "Reason": (str, False),
+        "Status": (str, False),
+    }
+
+
 class TreatmentObject(AWSProperty):
     """
     `TreatmentObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-experiment-treatmentobject.html>`__
@@ -74,6 +87,7 @@ class Experiment(AWSObject):
         "OnlineAbConfig": (OnlineAbConfigObject, True),
         "Project": (str, True),
         "RandomizationSalt": (str, False),
+        "RunningStatus": (RunningStatusObject, False),
         "SamplingRate": (integer, False),
         "Tags": (Tags, False),
         "Treatments": ([TreatmentObject], True),
@@ -121,6 +135,18 @@ class Feature(AWSObject):
         "Project": (str, True),
         "Tags": (Tags, False),
         "Variations": ([VariationObject], True),
+    }
+
+
+class ExecutionStatusObject(AWSProperty):
+    """
+    `ExecutionStatusObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-executionstatusobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "DesiredState": (str, False),
+        "Reason": (str, False),
+        "Status": (str, True),
     }
 
 
@@ -182,6 +208,7 @@ class Launch(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "ExecutionStatus": (ExecutionStatusObject, False),
         "Groups": ([LaunchGroupObject], True),
         "MetricMonitors": ([MetricDefinitionObject], False),
         "Name": (str, True),
