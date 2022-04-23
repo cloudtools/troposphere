@@ -37,8 +37,7 @@ jobs:
             ${{ runner.os }}-pip-${{ matrix.python-version }}
       - name: Install Python Dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
-          python -m pip install --upgrade flake8 cfn_flip>=1.0.2
+          pip install -r requirements-dev.txt
       - name: Install Node Dependencies
         run: npm install
       - name: Ensure spec generation and formatting fixups are clean
