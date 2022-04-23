@@ -15,6 +15,7 @@ sphinx_rtd_theme>=0.4.2
 # ---- S/W Engineering Libraries
 
 # ---- ---- Styling and Linting
+flake8>=4.0.1
 pycodestyle>=2.4
 pydocstyle>=3.0
 pyflakes>=2.1
