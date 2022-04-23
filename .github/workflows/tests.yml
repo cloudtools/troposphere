@@ -41,6 +41,11 @@ jobs:
           python -m pip install --upgrade flake8 cfn_flip>=1.0.2
       - name: Install Node Dependencies
         run: npm install
+      - name: Ensure spec generation and formatting fixups are clean
+        run: |
+          make spec
+          make regen
+          git diff --exit-code
       - name: Run Lints
         run: make lint
       - name: Run Tests
