@@ -85,6 +85,23 @@ class HoursOfOperation(AWSObject):
     }
 
 
+class PhoneNumber(AWSObject):
+    """
+    `PhoneNumber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html>`__
+    """
+
+    resource_type = "AWS::Connect::PhoneNumber"
+
+    props: PropsDictType = {
+        "CountryCode": (str, True),
+        "Description": (str, False),
+        "Prefix": (str, False),
+        "Tags": (Tags, False),
+        "TargetArn": (str, True),
+        "Type": (str, True),
+    }
+
+
 class PhoneNumberQuickConnectConfig(AWSProperty):
     """
     `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__

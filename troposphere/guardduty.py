@@ -72,10 +72,17 @@ class Condition(AWSProperty):
 
     props: PropsDictType = {
         "Eq": ([str], False),
+        "Equals": ([str], False),
+        "GreaterThan": (integer, False),
+        "GreaterThanOrEqual": (integer, False),
+        "Gt": (integer, False),
         "Gte": (integer, False),
+        "LessThan": (integer, False),
+        "LessThanOrEqual": (integer, False),
         "Lt": (integer, False),
         "Lte": (integer, False),
         "Neq": ([str], False),
+        "NotEquals": ([str], False),
     }
 
 
