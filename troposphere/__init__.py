@@ -776,6 +776,7 @@ class Template:
         raise ValueError('duplicate key "%s" detected' % key)
 
     def _update(self, d: Dict[Any, Any], values: __UpdateTypeVar) -> __UpdateTypeVar:
+        assert not isinstance(values, str)
         if isinstance(values, collections.abc.Sequence) and not isinstance(values, str):
             for v in values:
                 if v.title in d:
