@@ -19,7 +19,7 @@ from .validators.cloudwatch import (
 
 class MetricDimension(AWSProperty):
     """
-    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudwatch-alarm-dimension.html>`__
+    `MetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-dimension.html>`__
     """
 
     props: PropsDictType = {
@@ -71,7 +71,7 @@ class MetricDataQuery(AWSProperty):
 
 class Alarm(AWSObject):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__
     """
 
     resource_type = "AWS::CloudWatch::Alarm"
