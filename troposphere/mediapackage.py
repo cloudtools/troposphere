@@ -334,6 +334,7 @@ class DashManifest(AWSProperty):
         "ManifestName": (str, False),
         "MinBufferTimeSeconds": (integer, False),
         "Profile": (str, False),
+        "ScteMarkersSource": (str, False),
         "StreamSelection": (StreamSelection, False),
     }
 

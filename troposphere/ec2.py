@@ -1022,6 +1022,21 @@ class InternetGateway(AWSObject):
     }
 
 
+class KeyPair(AWSObject):
+    """
+    `KeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-keypair.html>`__
+    """
+
+    resource_type = "AWS::EC2::KeyPair"
+
+    props: PropsDictType = {
+        "KeyName": (str, True),
+        "KeyType": (str, False),
+        "PublicKeyMaterial": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class CapacityReservationTarget(AWSProperty):
     """
     `CapacityReservationTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationtarget.html>`__
@@ -2735,6 +2750,22 @@ class SecurityGroupRule(AWSProperty):
         "SourceSecurityGroupName": (str, False),
         "SourceSecurityGroupOwnerId": (str, False),
         "ToPort": (validate_network_port, False),
+    }
+
+
+class TransitGatewayRouteTableRoute(AWSProperty):
+    """
+    `TransitGatewayRouteTableRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachmentId": (str, False),
+        "DestinationCidr": (str, False),
+        "PrefixListId": (str, False),
+        "ResourceId": (str, False),
+        "ResourceType": (str, False),
+        "RouteOrigin": (str, False),
+        "State": (str, False),
     }
 
 

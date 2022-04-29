@@ -35,6 +35,7 @@ class HostedRotationLambda(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ExcludeCharacters": (str, False),
         "KmsKeyArn": (str, False),
         "MasterSecretArn": (str, False),
         "MasterSecretKmsKeyArn": (str, False),
