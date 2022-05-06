@@ -2417,7 +2417,7 @@ class VPC(AWSObject):
     resource_type = "AWS::EC2::VPC"
 
     props: PropsDictType = {
-        "CidrBlock": (str, True),
+        "CidrBlock": (str, False),
         "EnableDnsHostnames": (boolean, False),
         "EnableDnsSupport": (boolean, False),
         "InstanceTenancy": (instance_tenancy, False),
