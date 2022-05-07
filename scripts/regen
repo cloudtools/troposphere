@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 while getopts "v" option; do
   case "${option}" in
     v)
