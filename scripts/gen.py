@@ -534,6 +534,10 @@ class CodeGenerator:
                 else:
                     self.statement_found = True
 
+            # Really a primitive type so stop recursing
+            if property_name == "List":
+                continue
+
             try:
                 child = self._build_tree(
                     property_name,
