@@ -39,6 +39,7 @@ class Queue(AWSObject):
         "ReceiveMessageWaitTimeSeconds": (integer, False),
         "RedriveAllowPolicy": (dict, False),
         "RedrivePolicy": (RedrivePolicy, False),
+        "SqsManagedSseEnabled": (boolean, False),
         "Tags": (Tags, False),
         "VisibilityTimeout": (integer, False),
     }

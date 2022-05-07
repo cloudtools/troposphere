@@ -73,6 +73,7 @@ class Association(AWSObject):
         "OutputLocation": (InstanceAssociationOutputLocation, False),
         "Parameters": (dict, False),
         "ScheduleExpression": (str, False),
+        "ScheduleOffset": (integer, False),
         "SyncCompliance": (str, False),
         "Targets": ([Targets], False),
         "WaitForSuccessTimeoutSeconds": (integer, False),

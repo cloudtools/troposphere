@@ -220,6 +220,64 @@ class AndStatement(AWSProperty):
     }
 
 
+class Body(AWSProperty):
+    """
+    `Body <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-body.html>`__
+    """
+
+    props: PropsDictType = {
+        "OversizeHandling": (str, False),
+    }
+
+
+class CookieMatchPattern(AWSProperty):
+    """
+    `CookieMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookiematchpattern.html>`__
+    """
+
+    props: PropsDictType = {
+        "All": (dict, False),
+        "ExcludedCookies": ([str], False),
+        "IncludedCookies": ([str], False),
+    }
+
+
+class Cookies(AWSProperty):
+    """
+    `Cookies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-cookies.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchPattern": (CookieMatchPattern, True),
+        "MatchScope": (str, True),
+        "OversizeHandling": (str, True),
+    }
+
+
+class HeaderMatchPattern(AWSProperty):
+    """
+    `HeaderMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headermatchpattern.html>`__
+    """
+
+    props: PropsDictType = {
+        "All": (dict, False),
+        "ExcludedHeaders": ([str], False),
+        "IncludedHeaders": ([str], False),
+    }
+
+
+class Headers(AWSProperty):
+    """
+    `Headers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-headers.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchPattern": (HeaderMatchPattern, True),
+        "MatchScope": (str, True),
+        "OversizeHandling": (str, True),
+    }
+
+
 class JsonMatchPattern(AWSProperty):
     """
     `JsonMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html>`__
@@ -240,6 +298,7 @@ class JsonBody(AWSProperty):
         "InvalidFallbackBehavior": (str, False),
         "MatchPattern": (JsonMatchPattern, True),
         "MatchScope": (str, True),
+        "OversizeHandling": (str, False),
     }
 
 
@@ -250,7 +309,9 @@ class FieldToMatch(AWSProperty):
 
     props: PropsDictType = {
         "AllQueryArguments": (dict, False),
-        "Body": (dict, False),
+        "Body": (Body, False),
+        "Cookies": (Cookies, False),
+        "Headers": (Headers, False),
         "JsonBody": (JsonBody, False),
         "Method": (dict, False),
         "QueryString": (dict, False),
