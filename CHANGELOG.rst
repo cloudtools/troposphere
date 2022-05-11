@@ -1,3 +1,22 @@
+4.0.2 (2022*05*11)
+-------------------------------
+* Add ephemeral storage
+* #2038 Add support for additional Flink runtime environments (#2037)
+* Fix isort in serverless.py
+* Updates from spec version 66.0.0 (#2039)
+* Updates from spec version 66.1.0 (#2040)
+* Updates from spec version 68.0.0 (#2041)
+* tests action: ensure spec generation and formatting fixups are clean
+* Add AWS::IoTTwinMaker and AWS::MediaTailor
+* Add package-lock engines dependency info
+* Install development dependencies when testing
+* Add flake8 to requirements-dev.txt
+* Updates from spec version 68.1.0 (#2043)
+* Updates from spec version 69.0.0 (#2044)
+* Fail on error for commands used to regen
+* When generating files, handle a primitive type in the item_type
+* Further updates from spec version 69.0.0
+
 4.0.1 (2022*04*04)
 -------------------------------
 Breaking Changes
