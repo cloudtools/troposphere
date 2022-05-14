@@ -43,12 +43,13 @@ class CdnConfiguration(AWSProperty):
     }
 
 
-class DashConfigurationForPut(AWSProperty):
+class DashConfiguration(AWSProperty):
     """
-    `DashConfigurationForPut <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-dashconfigurationforput.html>`__
+    `DashConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-dashconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "ManifestEndpointPrefix": (str, False),
         "MpdLocation": (str, False),
         "OriginManifestType": (str, False),
     }
@@ -98,14 +99,23 @@ class PlaybackConfiguration(AWSObject):
         "Bumper": (Bumper, False),
         "CdnConfiguration": (CdnConfiguration, False),
         "ConfigurationAliases": (dict, False),
-        "DashConfiguration": (DashConfigurationForPut, False),
+        "DashConfiguration": (DashConfiguration, False),
         "LivePreRollConfiguration": (LivePreRollConfiguration, False),
         "ManifestProcessingRules": (ManifestProcessingRules, False),
         "Name": (str, True),
         "PersonalizationThresholdSeconds": (integer, False),
-        "SessionInitializationEndpointPrefix": (str, False),
         "SlateAdUrl": (str, False),
         "Tags": (Tags, False),
         "TranscodeProfileName": (str, False),
         "VideoContentSourceUrl": (str, True),
+    }
+
+
+class HlsConfiguration(AWSProperty):
+    """
+    `HlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManifestEndpointPrefix": (str, False),
     }

@@ -265,6 +265,7 @@ class AutoScalingGroup(AWSObject):
         "CapacityRebalance": (boolean, False),
         "Context": (str, False),
         "Cooldown": (str, False),
+        "DefaultInstanceWarmup": (integer, False),
         "DesiredCapacity": (str, False),
         "DesiredCapacityType": (str, False),
         "HealthCheckGracePeriod": (integer, False),

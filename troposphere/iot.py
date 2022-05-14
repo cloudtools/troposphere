@@ -417,6 +417,21 @@ class ResourceSpecificLogging(AWSObject):
     }
 
 
+class RoleAlias(AWSObject):
+    """
+    `RoleAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-rolealias.html>`__
+    """
+
+    resource_type = "AWS::IoT::RoleAlias"
+
+    props: PropsDictType = {
+        "CredentialDurationSeconds": (integer, False),
+        "RoleAlias": (str, False),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class ScheduledAudit(AWSObject):
     """
     `ScheduledAudit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-scheduledaudit.html>`__

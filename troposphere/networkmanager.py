@@ -7,7 +7,75 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import integer
+from .validators import boolean, double, integer
+
+
+class ConnectAttachmentOptions(AWSProperty):
+    """
+    `ConnectAttachmentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectattachment-connectattachmentoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Protocol": (str, False),
+    }
+
+
+class ConnectAttachment(AWSObject):
+    """
+    `ConnectAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::ConnectAttachment"
+
+    props: PropsDictType = {
+        "CoreNetworkId": (str, False),
+        "EdgeLocation": (str, False),
+        "Options": (ConnectAttachmentOptions, False),
+        "Tags": (Tags, False),
+        "TransportAttachmentId": (str, False),
+    }
+
+
+class BgpOptions(AWSProperty):
+    """
+    `BgpOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-bgpoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "PeerAsn": (double, False),
+    }
+
+
+class ConnectPeer(AWSObject):
+    """
+    `ConnectPeer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectpeer.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::ConnectPeer"
+
+    props: PropsDictType = {
+        "BgpOptions": (BgpOptions, False),
+        "ConnectAttachmentId": (str, False),
+        "CoreNetworkAddress": (str, False),
+        "InsideCidrBlocks": ([str], False),
+        "PeerAddress": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class CoreNetwork(AWSObject):
+    """
+    `CoreNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-corenetwork.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::CoreNetwork"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "GlobalNetworkId": (str, True),
+        "PolicyDocument": (str, False),
+        "Tags": (Tags, False),
+    }
 
 
 class CustomerGatewayAssociation(AWSObject):
@@ -128,6 +196,20 @@ class Site(AWSObject):
     }
 
 
+class SiteToSiteVpnAttachment(AWSObject):
+    """
+    `SiteToSiteVpnAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-sitetositevpnattachment.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::SiteToSiteVpnAttachment"
+
+    props: PropsDictType = {
+        "CoreNetworkId": (str, False),
+        "Tags": (Tags, False),
+        "VpnConnectionArn": (str, False),
+    }
+
+
 class TransitGatewayRegistration(AWSObject):
     """
     `TransitGatewayRegistration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html>`__
@@ -138,4 +220,54 @@ class TransitGatewayRegistration(AWSObject):
     props: PropsDictType = {
         "GlobalNetworkId": (str, True),
         "TransitGatewayArn": (str, True),
+    }
+
+
+class VpcOptions(AWSProperty):
+    """
+    `VpcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-vpcoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Ipv6Support": (boolean, False),
+    }
+
+
+class VpcAttachment(AWSObject):
+    """
+    `VpcAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-vpcattachment.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::VpcAttachment"
+
+    props: PropsDictType = {
+        "CoreNetworkId": (str, False),
+        "Options": (VpcOptions, False),
+        "SubnetArns": ([str], False),
+        "Tags": (Tags, False),
+        "VpcArn": (str, False),
+    }
+
+
+class CoreNetworkEdge(AWSProperty):
+    """
+    `CoreNetworkEdge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworkedge.html>`__
+    """
+
+    props: PropsDictType = {
+        "Asn": (double, False),
+        "EdgeLocation": (str, False),
+        "InsideCidrBlocks": ([str], False),
+    }
+
+
+class CoreNetworkSegment(AWSProperty):
+    """
+    `CoreNetworkSegment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-corenetwork-corenetworksegment.html>`__
+    """
+
+    props: PropsDictType = {
+        "EdgeLocations": ([str], False),
+        "Name": (str, False),
+        "SharedSegments": ([str], False),
     }
