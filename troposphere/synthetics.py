@@ -115,6 +115,7 @@ class Canary(AWSObject):
         "ArtifactConfig": (ArtifactConfig, False),
         "ArtifactS3Location": (str, True),
         "Code": (Code, True),
+        "DeleteLambdaResourcesOnCanaryDeletion": (boolean, False),
         "ExecutionRoleArn": (str, True),
         "FailureRetentionPeriod": (integer, False),
         "Name": (str, True),

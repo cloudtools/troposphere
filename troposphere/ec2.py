@@ -2197,6 +2197,7 @@ class TrafficMirrorTarget(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "GatewayLoadBalancerEndpointId": (str, False),
         "NetworkInterfaceId": (str, False),
         "NetworkLoadBalancerArn": (str, False),
         "Tags": (Tags, False),
