@@ -976,6 +976,394 @@ class ModelExplainabilityJobDefinition(AWSObject):
     }
 
 
+class ModelPackageContainerDefinition(AWSProperty):
+    """
+    `ModelPackageContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerHostname": (str, False),
+        "Environment": (dict, False),
+        "Framework": (str, False),
+        "FrameworkVersion": (str, False),
+        "Image": (str, True),
+        "ImageDigest": (str, False),
+        "ModelDataUrl": (str, False),
+        "ModelInput": (dict, False),
+        "NearestModelName": (str, False),
+        "ProductId": (str, False),
+    }
+
+
+class AdditionalInferenceSpecificationDefinition(AWSProperty):
+    """
+    `AdditionalInferenceSpecificationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Containers": ([ModelPackageContainerDefinition], True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "SupportedContentTypes": ([str], False),
+        "SupportedRealtimeInferenceInstanceTypes": ([str], False),
+        "SupportedResponseMIMETypes": ([str], False),
+        "SupportedTransformInstanceTypes": ([str], False),
+    }
+
+
+class FileSource(AWSProperty):
+    """
+    `FileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-filesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentDigest": (str, False),
+        "ContentType": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class MetricsSource(AWSProperty):
+    """
+    `MetricsSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metricssource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentDigest": (str, False),
+        "ContentType": (str, True),
+        "S3Uri": (str, True),
+    }
+
+
+class DriftCheckBias(AWSProperty):
+    """
+    `DriftCheckBias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbias.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigFile": (FileSource, False),
+        "PostTrainingConstraints": (MetricsSource, False),
+        "PreTrainingConstraints": (MetricsSource, False),
+    }
+
+
+class DriftCheckExplainability(AWSProperty):
+    """
+    `DriftCheckExplainability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckexplainability.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigFile": (FileSource, False),
+        "Constraints": (MetricsSource, False),
+    }
+
+
+class DriftCheckModelDataQuality(AWSProperty):
+    """
+    `DriftCheckModelDataQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodeldataquality.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constraints": (MetricsSource, False),
+        "Statistics": (MetricsSource, False),
+    }
+
+
+class DriftCheckModelQuality(AWSProperty):
+    """
+    `DriftCheckModelQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckmodelquality.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constraints": (MetricsSource, False),
+        "Statistics": (MetricsSource, False),
+    }
+
+
+class DriftCheckBaselines(AWSProperty):
+    """
+    `DriftCheckBaselines <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-driftcheckbaselines.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bias": (DriftCheckBias, False),
+        "Explainability": (DriftCheckExplainability, False),
+        "ModelDataQuality": (DriftCheckModelDataQuality, False),
+        "ModelQuality": (DriftCheckModelQuality, False),
+    }
+
+
+class InferenceSpecification(AWSProperty):
+    """
+    `InferenceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Containers": ([ModelPackageContainerDefinition], True),
+        "SupportedContentTypes": ([str], True),
+        "SupportedRealtimeInferenceInstanceTypes": ([str], False),
+        "SupportedResponseMIMETypes": ([str], True),
+        "SupportedTransformInstanceTypes": ([str], False),
+    }
+
+
+class MetadataProperties(AWSProperty):
+    """
+    `MetadataProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "CommitId": (str, False),
+        "GeneratedBy": (str, False),
+        "ProjectId": (str, False),
+        "Repository": (str, False),
+    }
+
+
+class Bias(AWSProperty):
+    """
+    `Bias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html>`__
+    """
+
+    props: PropsDictType = {
+        "PostTrainingReport": (MetricsSource, False),
+        "PreTrainingReport": (MetricsSource, False),
+        "Report": (MetricsSource, False),
+    }
+
+
+class Explainability(AWSProperty):
+    """
+    `Explainability <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-explainability.html>`__
+    """
+
+    props: PropsDictType = {
+        "Report": (MetricsSource, False),
+    }
+
+
+class ModelDataQuality(AWSProperty):
+    """
+    `ModelDataQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldataquality.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constraints": (MetricsSource, False),
+        "Statistics": (MetricsSource, False),
+    }
+
+
+class ModelQuality(AWSProperty):
+    """
+    `ModelQuality <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelquality.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constraints": (MetricsSource, False),
+        "Statistics": (MetricsSource, False),
+    }
+
+
+class ModelMetrics(AWSProperty):
+    """
+    `ModelMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelmetrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bias": (Bias, False),
+        "Explainability": (Explainability, False),
+        "ModelDataQuality": (ModelDataQuality, False),
+        "ModelQuality": (ModelQuality, False),
+    }
+
+
+class ModelPackageStatusItem(AWSProperty):
+    """
+    `ModelPackageStatusItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureReason": (str, False),
+        "Name": (str, True),
+        "Status": (str, True),
+    }
+
+
+class ModelPackageStatusDetails(AWSProperty):
+    """
+    `ModelPackageStatusDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagestatusdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageScanStatuses": ([ModelPackageStatusItem], False),
+        "ValidationStatuses": ([ModelPackageStatusItem], True),
+    }
+
+
+class SourceAlgorithm(AWSProperty):
+    """
+    `SourceAlgorithm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithm.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmName": (str, True),
+        "ModelDataUrl": (str, False),
+    }
+
+
+class SourceAlgorithmSpecification(AWSProperty):
+    """
+    `SourceAlgorithmSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithmspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceAlgorithms": ([SourceAlgorithm], True),
+    }
+
+
+class S3DataSource(AWSProperty):
+    """
+    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataType": (str, True),
+        "S3Uri": (str, True),
+    }
+
+
+class DataSource(AWSProperty):
+    """
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataSource": (S3DataSource, True),
+    }
+
+
+class TransformInput(AWSProperty):
+    """
+    `TransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transforminput.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompressionType": (str, False),
+        "ContentType": (str, False),
+        "DataSource": (DataSource, True),
+        "SplitType": (str, False),
+    }
+
+
+class TransformOutput(AWSProperty):
+    """
+    `TransformOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformoutput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Accept": (str, False),
+        "AssembleWith": (str, False),
+        "KmsKeyId": (str, False),
+        "S3OutputPath": (str, True),
+    }
+
+
+class TransformResources(AWSProperty):
+    """
+    `TransformResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformresources.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, True),
+        "InstanceType": (str, True),
+        "VolumeKmsKeyId": (str, False),
+    }
+
+
+class TransformJobDefinition(AWSProperty):
+    """
+    `TransformJobDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-transformjobdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "BatchStrategy": (str, False),
+        "Environment": (dict, False),
+        "MaxConcurrentTransforms": (integer, False),
+        "MaxPayloadInMB": (integer, False),
+        "TransformInput": (TransformInput, True),
+        "TransformOutput": (TransformOutput, True),
+        "TransformResources": (TransformResources, True),
+    }
+
+
+class ValidationProfile(AWSProperty):
+    """
+    `ValidationProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationprofile.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProfileName": (str, True),
+        "TransformJobDefinition": (TransformJobDefinition, True),
+    }
+
+
+class ValidationSpecification(AWSProperty):
+    """
+    `ValidationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-validationspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ValidationProfiles": ([ValidationProfile], True),
+        "ValidationRole": (str, True),
+    }
+
+
+class ModelPackage(AWSObject):
+    """
+    `ModelPackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackage.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::ModelPackage"
+
+    props: PropsDictType = {
+        "AdditionalInferenceSpecificationDefinition": (
+            AdditionalInferenceSpecificationDefinition,
+            False,
+        ),
+        "AdditionalInferenceSpecifications": (
+            [AdditionalInferenceSpecificationDefinition],
+            False,
+        ),
+        "AdditionalInferenceSpecificationsToAdd": (
+            [AdditionalInferenceSpecificationDefinition],
+            False,
+        ),
+        "ApprovalDescription": (str, False),
+        "CertifyForMarketplace": (boolean, False),
+        "ClientToken": (str, False),
+        "CustomerMetadataProperties": (dict, False),
+        "Domain": (str, False),
+        "DriftCheckBaselines": (DriftCheckBaselines, False),
+        "Environment": (dict, False),
+        "InferenceSpecification": (InferenceSpecification, False),
+        "LastModifiedTime": (str, False),
+        "MetadataProperties": (MetadataProperties, False),
+        "ModelApprovalStatus": (str, False),
+        "ModelMetrics": (ModelMetrics, False),
+        "ModelPackageDescription": (str, False),
+        "ModelPackageGroupName": (str, False),
+        "ModelPackageName": (str, False),
+        "ModelPackageStatusDetails": (ModelPackageStatusDetails, False),
+        "ModelPackageStatusItem": (ModelPackageStatusItem, False),
+        "ModelPackageVersion": (integer, False),
+        "SamplePayloadUrl": (str, False),
+        "SourceAlgorithmSpecification": (SourceAlgorithmSpecification, False),
+        "Tags": (Tags, False),
+        "Task": (str, False),
+        "ValidationSpecification": (ValidationSpecification, False),
+    }
+
+
 class ModelPackageGroup(AWSObject):
     """
     `ModelPackageGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelpackagegroup.html>`__

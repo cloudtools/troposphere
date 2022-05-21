@@ -291,6 +291,7 @@ class Options(AWSProperty):
         "Gid": (str, False),
         "LogLevel": (str, False),
         "Mtime": (str, False),
+        "ObjectTags": (str, False),
         "OverwriteMode": (str, False),
         "PosixPermissions": (str, False),
         "PreserveDeletedFiles": (str, False),
