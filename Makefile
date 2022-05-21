@@ -27,7 +27,7 @@ fix-black: ## automatically fix all black errors
 	@black ${PYDIRS}
 
 fix-isort: ## automatically fix all isort errors
-	@isort ${PYDIRS}
+	@isort -q ${PYDIRS}
 
 clean:
 	rm -rf ${p39dir} troposphere.egg-info
@@ -72,12 +72,12 @@ release-test-39:
 	rm -rf ${p39dir}
 
 spec:
-	curl -O https://d1uauaxba7bl26.cloudfront.net/latest/CloudFormationResourceSpecification.zip
+	curl -s -O https://d1uauaxba7bl26.cloudfront.net/latest/CloudFormationResourceSpecification.zip
 	rm -rf spec
 	mkdir spec
-	unzip -d spec CloudFormationResourceSpecification.zip
+	unzip -q -d spec CloudFormationResourceSpecification.zip
 	rm CloudFormationResourceSpecification.zip
-	curl -O --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
+	curl -s -O --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
 	SPECVERSION=$$(jq -r .ResourceSpecificationVersion CloudFormationResourceSpecification.json) && \
 	/bin/echo "Downloaded version:" $${SPECVERSION} && \
 	mkdir -p .backup && \
