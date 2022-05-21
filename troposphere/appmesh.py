@@ -301,6 +301,16 @@ class EgressFilter(AWSProperty):
     }
 
 
+class MeshServiceDiscovery(AWSProperty):
+    """
+    `MeshServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html>`__
+    """
+
+    props: PropsDictType = {
+        "IpPreference": (str, False),
+    }
+
+
 class MeshSpec(AWSProperty):
     """
     `MeshSpec <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshspec.html>`__
@@ -308,6 +318,7 @@ class MeshSpec(AWSProperty):
 
     props: PropsDictType = {
         "EgressFilter": (EgressFilter, False),
+        "ServiceDiscovery": (MeshServiceDiscovery, False),
     }
 
 
@@ -1294,6 +1305,7 @@ class AwsCloudMapServiceDiscovery(AWSProperty):
 
     props: PropsDictType = {
         "Attributes": ([AwsCloudMapInstanceAttribute], False),
+        "IpPreference": (str, False),
         "NamespaceName": (str, True),
         "ServiceName": (str, True),
     }
@@ -1306,6 +1318,7 @@ class DnsServiceDiscovery(AWSProperty):
 
     props: PropsDictType = {
         "Hostname": (str, True),
+        "IpPreference": (str, False),
         "ResponseType": (str, False),
     }
 
@@ -1442,11 +1455,3 @@ class VirtualService(AWSObject):
         "Tags": (Tags, False),
         "VirtualServiceName": (str, True),
     }
-
-
-class MeshServiceDiscovery(AWSProperty):
-    """
-    `MeshServiceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-mesh-meshservicediscovery.html>`__
-    """
-
-    props: PropsDictType = {}

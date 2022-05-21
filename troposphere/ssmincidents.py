@@ -44,6 +44,27 @@ class ReplicationSet(AWSObject):
     }
 
 
+class DynamicSsmParameterValue(AWSProperty):
+    """
+    `DynamicSsmParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparametervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Variable": (str, False),
+    }
+
+
+class DynamicSsmParameter(AWSProperty):
+    """
+    `DynamicSsmParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-dynamicssmparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (DynamicSsmParameterValue, True),
+    }
+
+
 class SsmParameter(AWSProperty):
     """
     `SsmParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-ssmparameter.html>`__
@@ -63,6 +84,7 @@ class SsmAutomation(AWSProperty):
     props: PropsDictType = {
         "DocumentName": (str, True),
         "DocumentVersion": (str, False),
+        "DynamicParameters": ([DynamicSsmParameter], False),
         "Parameters": ([SsmParameter], False),
         "RoleArn": (str, True),
         "TargetAccount": (str, False),

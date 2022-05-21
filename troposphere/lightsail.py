@@ -469,6 +469,7 @@ class LoadBalancer(AWSObject):
         "SessionStickinessEnabled": (boolean, False),
         "SessionStickinessLBCookieDurationSeconds": (str, False),
         "Tags": (Tags, False),
+        "TlsPolicyName": (str, False),
     }
 
 
@@ -483,6 +484,7 @@ class LoadBalancerTlsCertificate(AWSObject):
         "CertificateAlternativeNames": ([str], False),
         "CertificateDomainName": (str, True),
         "CertificateName": (str, True),
+        "HttpsRedirectionEnabled": (boolean, False),
         "IsAttached": (boolean, False),
         "LoadBalancerName": (str, True),
     }

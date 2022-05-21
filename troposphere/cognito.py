@@ -287,7 +287,7 @@ class UsernameConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CaseSensitive": (boolean, False),
+        "CaseSensitive": (boolean, True),
     }
 
 
@@ -381,6 +381,7 @@ class UserPoolClient(AWSObject):
         "CallbackURLs": ([str], False),
         "ClientName": (str, False),
         "DefaultRedirectURI": (str, False),
+        "EnablePropagateAdditionalUserContextData": (boolean, False),
         "EnableTokenRevocation": (boolean, False),
         "ExplicitAuthFlows": ([str], False),
         "GenerateSecret": (boolean, False),
