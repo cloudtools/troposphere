@@ -186,6 +186,27 @@ class BaiduChannel(AWSObject):
     }
 
 
+class CustomDeliveryConfiguration(AWSProperty):
+    """
+    `CustomDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-customdeliveryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeliveryUri": (str, False),
+        "EndpointTypes": ([str], False),
+    }
+
+
+class CampaignCustomMessage(AWSProperty):
+    """
+    `CampaignCustomMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaigncustommessage.html>`__
+    """
+
+    props: PropsDictType = {
+        "Data": (str, False),
+    }
+
+
 class CampaignEmailMessage(AWSProperty):
     """
     `CampaignEmailMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-campaignemailmessage.html>`__
@@ -334,6 +355,7 @@ class MessageConfiguration(AWSProperty):
         "ADMMessage": (Message, False),
         "APNSMessage": (Message, False),
         "BaiduMessage": (Message, False),
+        "CustomMessage": (CampaignCustomMessage, False),
         "DefaultMessage": (Message, False),
         "EmailMessage": (CampaignEmailMessage, False),
         "GCMMessage": (Message, False),
@@ -392,15 +414,41 @@ class Schedule(AWSProperty):
     }
 
 
+class Template(AWSProperty):
+    """
+    `Template <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-template.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Version": (str, False),
+    }
+
+
+class TemplateConfiguration(AWSProperty):
+    """
+    `TemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-templateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmailTemplate": (Template, False),
+        "PushTemplate": (Template, False),
+        "SMSTemplate": (Template, False),
+        "VoiceTemplate": (Template, False),
+    }
+
+
 class WriteTreatmentResource(AWSProperty):
     """
     `WriteTreatmentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pinpoint-campaign-writetreatmentresource.html>`__
     """
 
     props: PropsDictType = {
+        "CustomDeliveryConfiguration": (CustomDeliveryConfiguration, False),
         "MessageConfiguration": (MessageConfiguration, False),
         "Schedule": (Schedule, False),
         "SizePercent": (integer, False),
+        "TemplateConfiguration": (TemplateConfiguration, False),
         "TreatmentDescription": (str, False),
         "TreatmentName": (str, False),
     }
@@ -417,17 +465,19 @@ class Campaign(AWSObject):
         "AdditionalTreatments": ([WriteTreatmentResource], False),
         "ApplicationId": (str, True),
         "CampaignHook": (CampaignHook, False),
+        "CustomDeliveryConfiguration": (CustomDeliveryConfiguration, False),
         "Description": (str, False),
         "HoldoutPercent": (integer, False),
         "IsPaused": (boolean, False),
         "Limits": (Limits, False),
-        "MessageConfiguration": (MessageConfiguration, True),
+        "MessageConfiguration": (MessageConfiguration, False),
         "Name": (str, True),
         "Priority": (integer, False),
         "Schedule": (Schedule, True),
         "SegmentId": (str, True),
         "SegmentVersion": (integer, False),
         "Tags": (dict, False),
+        "TemplateConfiguration": (TemplateConfiguration, False),
         "TreatmentDescription": (str, False),
         "TreatmentName": (str, False),
     }

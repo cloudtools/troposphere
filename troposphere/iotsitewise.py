@@ -127,6 +127,7 @@ class Asset(AWSObject):
     resource_type = "AWS::IoTSiteWise::Asset"
 
     props: PropsDictType = {
+        "AssetDescription": (str, False),
         "AssetHierarchies": ([AssetHierarchy], False),
         "AssetModelId": (str, True),
         "AssetName": (str, True),
