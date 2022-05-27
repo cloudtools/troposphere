@@ -73,7 +73,7 @@ class CoreNetwork(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "GlobalNetworkId": (str, True),
-        "PolicyDocument": (str, False),
+        "PolicyDocument": (dict, False),
         "Tags": (Tags, False),
     }
 

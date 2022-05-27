@@ -271,6 +271,16 @@ class SmsConfiguration(AWSProperty):
     }
 
 
+class UserAttributeUpdateSettings(AWSProperty):
+    """
+    `UserAttributeUpdateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userattributeupdatesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributesRequireVerificationBeforeUpdate": ([str], True),
+    }
+
+
 class UserPoolAddOns(AWSProperty):
     """
     `UserPoolAddOns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-userpooladdons.html>`__
@@ -330,6 +340,7 @@ class UserPool(AWSObject):
         "SmsAuthenticationMessage": (str, False),
         "SmsConfiguration": (SmsConfiguration, False),
         "SmsVerificationMessage": (str, False),
+        "UserAttributeUpdateSettings": (UserAttributeUpdateSettings, False),
         "UserPoolAddOns": (UserPoolAddOns, False),
         "UserPoolName": (str, False),
         "UserPoolTags": (dict, False),

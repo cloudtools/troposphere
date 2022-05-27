@@ -126,6 +126,23 @@ class MulticastGroup(AWSObject):
     }
 
 
+class NetworkAnalyzerConfiguration(AWSObject):
+    """
+    `NetworkAnalyzerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-networkanalyzerconfiguration.html>`__
+    """
+
+    resource_type = "AWS::IoTWireless::NetworkAnalyzerConfiguration"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "TraceContent": (dict, False),
+        "WirelessDevices": ([str], False),
+        "WirelessGateways": ([str], False),
+    }
+
+
 class SidewalkAccountInfo(AWSProperty):
     """
     `SidewalkAccountInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfo.html>`__

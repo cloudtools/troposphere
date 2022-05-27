@@ -1349,6 +1349,7 @@ class LaunchTemplateData(AWSProperty):
         "CapacityReservationSpecification": (CapacityReservationSpecification, False),
         "CpuOptions": (CpuOptions, False),
         "CreditSpecification": (LaunchTemplateCreditSpecification, False),
+        "DisableApiStop": (boolean, False),
         "DisableApiTermination": (boolean, False),
         "EbsOptimized": (boolean, False),
         "ElasticGpuSpecifications": ([ElasticGpuSpecification], False),
@@ -2235,6 +2236,7 @@ class TransitGatewayAttachment(AWSObject):
     resource_type = "AWS::EC2::TransitGatewayAttachment"
 
     props: PropsDictType = {
+        "Options": (dict, False),
         "SubnetIds": ([str], True),
         "Tags": (validate_tags_or_list, False),
         "TransitGatewayId": (str, True),
