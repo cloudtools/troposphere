@@ -37,6 +37,7 @@ class ResourceMapping(AWSProperty):
         "MappingType": (str, True),
         "PhysicalResourceId": (PhysicalResourceId, True),
         "ResourceName": (str, False),
+        "TerraformSourceName": (str, False),
     }
 
 
@@ -48,6 +49,7 @@ class App(AWSObject):
     resource_type = "AWS::ResilienceHub::App"
 
     props: PropsDictType = {
+        "AppAssessmentSchedule": (str, False),
         "AppTemplateBody": (str, True),
         "Description": (str, False),
         "Name": (str, True),

@@ -367,6 +367,8 @@ class EventSubscription(AWSObject):
         "SnsTopicArn": (str, True),
         "SourceIds": ([str], False),
         "SourceType": (str, False),
+        "SubscriptionName": (str, False),
+        "Tags": (Tags, False),
     }
 
 
