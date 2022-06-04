@@ -165,6 +165,42 @@ class ContainerDistributionConfiguration(AWSProperty):
     }
 
 
+class FastLaunchLaunchTemplateSpecification(AWSProperty):
+    """
+    `FastLaunchLaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchlaunchtemplatespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "LaunchTemplateId": (str, False),
+        "LaunchTemplateName": (str, False),
+        "LaunchTemplateVersion": (str, False),
+    }
+
+
+class FastLaunchSnapshotConfiguration(AWSProperty):
+    """
+    `FastLaunchSnapshotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchsnapshotconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetResourceCount": (integer, False),
+    }
+
+
+class FastLaunchConfiguration(AWSProperty):
+    """
+    `FastLaunchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-fastlaunchconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountId": (str, False),
+        "Enabled": (boolean, False),
+        "LaunchTemplate": (FastLaunchLaunchTemplateSpecification, False),
+        "MaxParallelLaunches": (integer, False),
+        "SnapshotConfiguration": (FastLaunchSnapshotConfiguration, False),
+    }
+
+
 class LaunchTemplateConfiguration(AWSProperty):
     """
     `LaunchTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-launchtemplateconfiguration.html>`__
@@ -188,6 +224,7 @@ class Distribution(AWSProperty):
             ContainerDistributionConfiguration,
             False,
         ),
+        "FastLaunchConfigurations": ([FastLaunchConfiguration], False),
         "LaunchTemplateConfigurations": ([LaunchTemplateConfiguration], False),
         "LicenseConfigurationArns": ([str], False),
         "Region": (str, True),
