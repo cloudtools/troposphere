@@ -297,7 +297,7 @@ class UsernameConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CaseSensitive": (boolean, True),
+        "CaseSensitive": (boolean, False),
     }
 
 

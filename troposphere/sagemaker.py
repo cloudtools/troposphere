@@ -1713,3 +1713,14 @@ class Workteam(AWSObject):
         "Tags": (Tags, False),
         "WorkteamName": (str, False),
     }
+
+
+class RSessionAppSettings(AWSProperty):
+    """
+    `RSessionAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomImages": ([CustomImage], False),
+        "DefaultResourceSpec": (ResourceSpec, False),
+    }

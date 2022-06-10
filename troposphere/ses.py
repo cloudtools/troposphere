@@ -10,6 +10,57 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 
 
+class DeliveryOptions(AWSProperty):
+    """
+    `DeliveryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-deliveryoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "SendingPoolName": (str, False),
+        "TlsPolicy": (str, False),
+    }
+
+
+class ReputationOptions(AWSProperty):
+    """
+    `ReputationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-reputationoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReputationMetricsEnabled": (boolean, False),
+    }
+
+
+class SendingOptions(AWSProperty):
+    """
+    `SendingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-sendingoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "SendingEnabled": (boolean, False),
+    }
+
+
+class SuppressionOptions(AWSProperty):
+    """
+    `SuppressionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-suppressionoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "SuppressedReasons": ([str], False),
+    }
+
+
+class TrackingOptions(AWSProperty):
+    """
+    `TrackingOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-trackingoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomRedirectDomain": (str, False),
+    }
+
+
 class ConfigurationSet(AWSObject):
     """
     `ConfigurationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html>`__
@@ -18,7 +69,12 @@ class ConfigurationSet(AWSObject):
     resource_type = "AWS::SES::ConfigurationSet"
 
     props: PropsDictType = {
+        "DeliveryOptions": (DeliveryOptions, False),
         "Name": (str, False),
+        "ReputationOptions": (ReputationOptions, False),
+        "SendingOptions": (SendingOptions, False),
+        "SuppressionOptions": (SuppressionOptions, False),
+        "TrackingOptions": (TrackingOptions, False),
     }
 
 
@@ -55,6 +111,16 @@ class KinesisFirehoseDestination(AWSProperty):
     }
 
 
+class SnsDestination(AWSProperty):
+    """
+    `SnsDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-snsdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "TopicARN": (str, True),
+    }
+
+
 class EventDestination(AWSProperty):
     """
     `EventDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventdestination.html>`__
@@ -66,6 +132,7 @@ class EventDestination(AWSProperty):
         "KinesisFirehoseDestination": (KinesisFirehoseDestination, False),
         "MatchingEventTypes": ([str], True),
         "Name": (str, False),
+        "SnsDestination": (SnsDestination, False),
     }
 
 

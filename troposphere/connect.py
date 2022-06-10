@@ -163,6 +163,61 @@ class QuickConnect(AWSObject):
     }
 
 
+class FieldIdentifier(AWSProperty):
+    """
+    `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class DefaultFieldValue(AWSProperty):
+    """
+    `DefaultFieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-defaultfieldvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValue": (str, True),
+        "Id": (FieldIdentifier, True),
+    }
+
+
+class Field(AWSProperty):
+    """
+    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Id": (FieldIdentifier, True),
+        "SingleSelectOptions": ([str], False),
+        "Type": (str, True),
+    }
+
+
+class TaskTemplate(AWSObject):
+    """
+    `TaskTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-tasktemplate.html>`__
+    """
+
+    resource_type = "AWS::Connect::TaskTemplate"
+
+    props: PropsDictType = {
+        "ClientToken": (str, False),
+        "Constraints": (dict, False),
+        "ContactFlowArn": (str, False),
+        "Defaults": ([DefaultFieldValue], False),
+        "Description": (str, False),
+        "Fields": ([Field], False),
+        "InstanceArn": (str, True),
+        "Name": (str, False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class UserIdentityInfo(AWSProperty):
     """
     `UserIdentityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html>`__

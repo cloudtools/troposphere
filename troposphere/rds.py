@@ -197,7 +197,7 @@ class DBInstance(AWSObject):
 
 class DBParameterGroup(AWSObject):
     """
-    `DBParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbparametergroup.html>`__
+    `DBParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbparametergroup.html>`__
     """
 
     resource_type = "AWS::RDS::DBParameterGroup"
