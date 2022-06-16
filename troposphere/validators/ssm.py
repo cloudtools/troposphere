@@ -7,6 +7,38 @@
 from . import json_checker, s3_bucket_name
 
 
+def validate_document_content(x):
+    """
+    Property: Document.Content
+    """
+
+    def check_json(x):
+        import json
+
+        try:
+            json.loads(x)
+            return True
+        except json.decoder.JSONDecodeError:
+            return False
+
+    def check_yaml(x):
+        import yaml
+
+        try:
+            yaml.safe_load(x)
+            return True
+        except yaml.composer.ComposerError:
+            return False
+
+    if isinstance(x, dict):
+        return x
+
+    if check_json(x) or check_yaml(x):
+        return x
+
+    raise ValueError("Content must be one of dict or json/yaml string")
+
+
 def validate_json_checker(x):
     """
     Property: MaintenanceWindowLambdaParameters.Payload

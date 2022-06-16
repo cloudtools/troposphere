@@ -14,6 +14,7 @@ from .validators.ssm import (
     notification_type,
     operating_system,
     task_type,
+    validate_document_content,
     validate_json_checker,
     validate_s3_bucket_name,
 )
@@ -112,7 +113,7 @@ class Document(AWSObject):
 
     props: PropsDictType = {
         "Attachments": ([AttachmentsSource], False),
-        "Content": (dict, True),
+        "Content": (validate_document_content, True),
         "DocumentFormat": (str, False),
         "DocumentType": (str, False),
         "Name": (str, False),
