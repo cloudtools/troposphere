@@ -63,15 +63,18 @@ def operating_system(os):
     """
 
     valid_os = [
-        "WINDOWS",
         "AMAZON_LINUX",
         "AMAZON_LINUX_2",
-        "UBUNTU",
-        "REDHAT_ENTERPRISE_LINUX",
-        "SUSE",
         "CENTOS",
         "DEBIAN",
+        "MACOS",
         "ORACLE_LINUX",
+        "RASPBIAN",
+        "REDHAT_ENTERPRISE_LINUX",
+        "ROCKY_LINUX",
+        "SUSE",
+        "UBUNTU",
+        "WINDOWS",
     ]
     if os not in valid_os:
         raise ValueError('OperatingSystem must be one of: "%s"' % (", ".join(valid_os)))
