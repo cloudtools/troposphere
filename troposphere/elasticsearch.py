@@ -36,6 +36,7 @@ class AdvancedSecurityOptionsInput(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AnonymousAuthEnabled": (boolean, False),
         "Enabled": (boolean, False),
         "InternalUserDatabaseEnabled": (boolean, False),
         "MasterUserOptions": (MasterUserOptions, False),

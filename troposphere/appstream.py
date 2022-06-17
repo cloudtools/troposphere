@@ -276,6 +276,16 @@ class StorageConnector(AWSProperty):
     }
 
 
+class StreamingExperienceSettings(AWSProperty):
+    """
+    `StreamingExperienceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-streamingexperiencesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "PreferredProtocol": (str, False),
+    }
+
+
 class UserSetting(AWSProperty):
     """
     `UserSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-stack-usersetting.html>`__
@@ -306,6 +316,7 @@ class Stack(AWSObject):
         "Name": (str, False),
         "RedirectURL": (str, False),
         "StorageConnectors": ([StorageConnector], False),
+        "StreamingExperienceSettings": (StreamingExperienceSettings, False),
         "Tags": (validate_tags_or_list, False),
         "UserSettings": ([UserSetting], False),
     }

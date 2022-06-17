@@ -17,8 +17,8 @@ class S3ContentLocation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BucketARN": (str, False),
-        "FileKey": (str, False),
+        "BucketARN": (str, True),
+        "FileKey": (str, True),
         "ObjectVersion": (str, False),
     }
 
@@ -319,7 +319,7 @@ class S3ContentBaseLocation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BasePath": (str, True),
+        "BasePath": (str, False),
         "BucketARN": (str, True),
     }
 

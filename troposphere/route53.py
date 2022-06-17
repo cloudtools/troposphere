@@ -13,6 +13,30 @@ from .validators.route53 import AliasTarget  # noqa: F401
 from .validators.route53 import HealthCheckConfiguration  # noqa: F401
 
 
+class Location(AWSProperty):
+    """
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrcollection-location.html>`__
+    """
+
+    props: PropsDictType = {
+        "CidrList": ([str], True),
+        "LocationName": (str, True),
+    }
+
+
+class CidrCollection(AWSObject):
+    """
+    `CidrCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-cidrcollection.html>`__
+    """
+
+    resource_type = "AWS::Route53::CidrCollection"
+
+    props: PropsDictType = {
+        "Locations": ([Location], False),
+        "Name": (str, True),
+    }
+
+
 class DNSSEC(AWSObject):
     """
     `DNSSEC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-dnssec.html>`__
@@ -100,6 +124,17 @@ class KeySigningKey(AWSObject):
     }
 
 
+class CidrRoutingConfig(AWSProperty):
+    """
+    `CidrRoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-cidrroutingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CollectionId": (str, True),
+        "LocationName": (str, True),
+    }
+
+
 class GeoLocation(AWSProperty):
     """
     `GeoLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset-geolocation.html>`__
@@ -119,6 +154,7 @@ class RecordSet(AWSProperty):
 
     props: PropsDictType = {
         "AliasTarget": (AliasTarget, False),
+        "CidrRoutingConfig": (CidrRoutingConfig, False),
         "Failover": (str, False),
         "GeoLocation": (GeoLocation, False),
         "HealthCheckId": (str, False),
@@ -159,6 +195,7 @@ class RecordSetType(AWSObject):
 
     props: PropsDictType = {
         "AliasTarget": (AliasTarget, False),
+        "CidrRoutingConfig": (CidrRoutingConfig, False),
         "Comment": (str, False),
         "Failover": (str, False),
         "GeoLocation": (GeoLocation, False),

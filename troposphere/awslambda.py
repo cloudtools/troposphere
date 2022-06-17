@@ -444,6 +444,7 @@ class Url(AWSObject):
     props: PropsDictType = {
         "AuthType": (str, True),
         "Cors": (Cors, False),
+        "InvokeMode": (str, False),
         "Qualifier": (str, False),
         "TargetFunctionArn": (str, True),
     }
