@@ -66,7 +66,7 @@ class Source(AWSProperty):
     props: PropsDictType = {
         "Owner": (str, True),
         "SourceDetails": ([SourceDetails], False),
-        "SourceIdentifier": (str, True),
+        "SourceIdentifier": (str, False),
     }
 
 

@@ -586,6 +586,7 @@ class EIP(AWSObject):
     props: PropsDictType = {
         "Domain": (str, False),
         "InstanceId": (str, False),
+        "NetworkBorderGroup": (str, False),
         "PublicIpv4Pool": (str, False),
         "Tags": (Tags, False),
     }
@@ -910,6 +911,7 @@ class NetworkInterfaceProperty(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AssociateCarrierIpAddress": (boolean, False),
         "AssociatePublicIpAddress": (boolean, False),
         "DeleteOnTermination": (boolean, False),
         "Description": (str, False),
@@ -2603,7 +2605,7 @@ class VPNConnectionRoute(AWSObject):
 
 class VPNGateway(AWSObject):
     """
-    `VPNGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gateway.html>`__
+    `VPNGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngateway.html>`__
     """
 
     resource_type = "AWS::EC2::VPNGateway"

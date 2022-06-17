@@ -341,7 +341,7 @@ class DBSecurityGroupIngress(AWSObject):
 
 class DBSubnetGroup(AWSObject):
     """
-    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnet-group.html>`__
+    `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnetgroup.html>`__
     """
 
     resource_type = "AWS::RDS::DBSubnetGroup"

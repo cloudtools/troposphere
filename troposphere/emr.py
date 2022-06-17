@@ -40,6 +40,16 @@ class Application(AWSProperty):
     }
 
 
+class AutoTerminationPolicy(AWSProperty):
+    """
+    `AutoTerminationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-autoterminationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdleTimeout": (integer, False),
+    }
+
+
 class ScriptBootstrapActionConfig(AWSProperty):
     """
     `ScriptBootstrapActionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-scriptbootstrapactionconfig.html>`__
@@ -318,6 +328,7 @@ class JobFlowInstancesConfig(AWSProperty):
         "ServiceAccessSecurityGroup": (str, False),
         "TaskInstanceFleets": ([InstanceFleetConfigProperty], False),
         "TaskInstanceGroup": ([InstanceGroupConfigProperty], False),
+        "TaskInstanceGroups": ([InstanceGroupConfigProperty], False),
         "TerminationProtected": (boolean, False),
     }
 
@@ -396,6 +407,7 @@ class Cluster(AWSObject):
         "AdditionalInfo": (dict, False),
         "Applications": ([Application], False),
         "AutoScalingRole": (str, False),
+        "AutoTerminationPolicy": (AutoTerminationPolicy, False),
         "BootstrapActions": ([BootstrapActionConfig], False),
         "Configurations": ([Configuration], False),
         "CustomAmiId": (str, False),
