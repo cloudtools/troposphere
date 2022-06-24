@@ -70,4 +70,25 @@ patches = [
         "path": "/PropertyTypes/AWS::SageMaker::ModelPackage.TransformJobDefinition/Properties/Environment/PrimitiveType",
         "value": "Json",
     },
+    # Remove Clarify* properties that aren't being used yet
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyInferenceConfig",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyShapConfig",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyExplainerConfig",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyShapBaselineConfig",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::SageMaker::EndpointConfig.ClarifyTextConfig",
+    },
 ]
