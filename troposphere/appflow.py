@@ -21,6 +21,78 @@ class AmplitudeConnectorProfileCredentials(AWSProperty):
     }
 
 
+class ApiKeyCredentials(AWSProperty):
+    """
+    `ApiKeyCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-apikeycredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKey": (str, True),
+        "ApiSecretKey": (str, False),
+    }
+
+
+class BasicAuthCredentials(AWSProperty):
+    """
+    `BasicAuthCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-basicauthcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "Password": (str, True),
+        "Username": (str, True),
+    }
+
+
+class CustomAuthCredentials(AWSProperty):
+    """
+    `CustomAuthCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customauthcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "CredentialsMap": (dict, False),
+        "CustomAuthenticationType": (str, True),
+    }
+
+
+class ConnectorOAuthRequest(AWSProperty):
+    """
+    `ConnectorOAuthRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthCode": (str, False),
+        "RedirectUri": (str, False),
+    }
+
+
+class OAuth2Credentials(AWSProperty):
+    """
+    `OAuth2Credentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2credentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessToken": (str, False),
+        "ClientId": (str, False),
+        "ClientSecret": (str, False),
+        "OAuthRequest": (ConnectorOAuthRequest, False),
+        "RefreshToken": (str, False),
+    }
+
+
+class CustomConnectorProfileCredentials(AWSProperty):
+    """
+    `CustomConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApiKey": (ApiKeyCredentials, False),
+        "AuthenticationType": (str, True),
+        "Basic": (BasicAuthCredentials, False),
+        "Custom": (CustomAuthCredentials, False),
+        "Oauth2": (OAuth2Credentials, False),
+    }
+
+
 class DatadogConnectorProfileCredentials(AWSProperty):
     """
     `DatadogConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-datadogconnectorprofilecredentials.html>`__
@@ -39,17 +111,6 @@ class DynatraceConnectorProfileCredentials(AWSProperty):
 
     props: PropsDictType = {
         "ApiToken": (str, True),
-    }
-
-
-class ConnectorOAuthRequest(AWSProperty):
-    """
-    `ConnectorOAuthRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-connectoroauthrequest.html>`__
-    """
-
-    props: PropsDictType = {
-        "AuthCode": (str, False),
-        "RedirectUri": (str, False),
     }
 
 
@@ -110,7 +171,7 @@ class SAPODataConnectorProfileCredentials(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BasicAuthCredentials": (dict, False),
+        "BasicAuthCredentials": (BasicAuthCredentials, False),
         "OAuthCredentials": (dict, False),
     }
 
@@ -214,6 +275,7 @@ class ConnectorProfileCredentials(AWSProperty):
 
     props: PropsDictType = {
         "Amplitude": (AmplitudeConnectorProfileCredentials, False),
+        "CustomConnector": (CustomConnectorProfileCredentials, False),
         "Datadog": (DatadogConnectorProfileCredentials, False),
         "Dynatrace": (DynatraceConnectorProfileCredentials, False),
         "GoogleAnalytics": (GoogleAnalyticsConnectorProfileCredentials, False),
@@ -229,6 +291,29 @@ class ConnectorProfileCredentials(AWSProperty):
         "Trendmicro": (TrendmicroConnectorProfileCredentials, False),
         "Veeva": (VeevaConnectorProfileCredentials, False),
         "Zendesk": (ZendeskConnectorProfileCredentials, False),
+    }
+
+
+class OAuth2Properties(AWSProperty):
+    """
+    `OAuth2Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauth2properties.html>`__
+    """
+
+    props: PropsDictType = {
+        "OAuth2GrantType": (str, False),
+        "TokenUrl": (str, False),
+        "TokenUrlCustomProperties": (dict, False),
+    }
+
+
+class CustomConnectorProfileProperties(AWSProperty):
+    """
+    `CustomConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-customconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "OAuth2Properties": (OAuth2Properties, False),
+        "ProfileProperties": (dict, False),
     }
 
 
@@ -386,6 +471,7 @@ class ConnectorProfileProperties(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomConnector": (CustomConnectorProfileProperties, False),
         "Datadog": (DatadogConnectorProfileProperties, False),
         "Dynatrace": (DynatraceConnectorProfileProperties, False),
         "InforNexus": (InforNexusConnectorProfileProperties, False),
@@ -421,6 +507,7 @@ class ConnectorProfile(AWSObject):
 
     props: PropsDictType = {
         "ConnectionMode": (str, True),
+        "ConnectorLabel": (str, False),
         "ConnectorProfileConfig": (ConnectorProfileConfig, False),
         "ConnectorProfileName": (str, True),
         "ConnectorType": (str, True),
@@ -437,6 +524,20 @@ class ErrorHandlingConfig(AWSProperty):
         "BucketName": (str, False),
         "BucketPrefix": (str, False),
         "FailOnFirstError": (boolean, False),
+    }
+
+
+class CustomConnectorDestinationProperties(AWSProperty):
+    """
+    `CustomConnectorDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectordestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomProperties": (dict, False),
+        "EntityName": (str, True),
+        "ErrorHandlingConfig": (ErrorHandlingConfig, False),
+        "IdFieldNames": ([str], False),
+        "WriteOperationType": (str, False),
     }
 
 
@@ -515,6 +616,7 @@ class S3OutputFormatConfig(AWSProperty):
         "AggregationConfig": (AggregationConfig, False),
         "FileType": (str, False),
         "PrefixConfig": (PrefixConfig, False),
+        "PreserveSourceDataTyping": (boolean, False),
     }
 
 
@@ -624,6 +726,7 @@ class DestinationConnectorProperties(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomConnector": (CustomConnectorDestinationProperties, False),
         "EventBridge": (EventBridgeDestinationProperties, False),
         "LookoutMetrics": (LookoutMetricsDestinationProperties, False),
         "Marketo": (MarketoDestinationProperties, False),
@@ -643,6 +746,7 @@ class DestinationFlowConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ApiVersion": (str, False),
         "ConnectorProfileName": (str, False),
         "ConnectorType": (str, True),
         "DestinationConnectorProperties": (DestinationConnectorProperties, True),
@@ -666,6 +770,17 @@ class AmplitudeSourceProperties(AWSProperty):
 
     props: PropsDictType = {
         "Object": (str, True),
+    }
+
+
+class CustomConnectorSourceProperties(AWSProperty):
+    """
+    `CustomConnectorSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomProperties": (dict, False),
+        "EntityName": (str, True),
     }
 
 
@@ -834,6 +949,7 @@ class SourceConnectorProperties(AWSProperty):
 
     props: PropsDictType = {
         "Amplitude": (AmplitudeSourceProperties, False),
+        "CustomConnector": (CustomConnectorSourceProperties, False),
         "Datadog": (DatadogSourceProperties, False),
         "Dynatrace": (DynatraceSourceProperties, False),
         "GoogleAnalytics": (GoogleAnalyticsSourceProperties, False),
@@ -857,6 +973,7 @@ class SourceFlowConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ApiVersion": (str, False),
         "ConnectorProfileName": (str, False),
         "ConnectorType": (str, True),
         "IncrementalPullConfig": (IncrementalPullConfig, False),
@@ -871,6 +988,7 @@ class ConnectorOperator(AWSProperty):
 
     props: PropsDictType = {
         "Amplitude": (str, False),
+        "CustomConnector": (str, False),
         "Datadog": (str, False),
         "Dynatrace": (str, False),
         "GoogleAnalytics": (str, False),
@@ -920,6 +1038,7 @@ class ScheduledTriggerProperties(AWSProperty):
 
     props: PropsDictType = {
         "DataPullMode": (str, False),
+        "FlowErrorDeactivationThreshold": (integer, False),
         "ScheduleEndTime": (double, False),
         "ScheduleExpression": (str, True),
         "ScheduleOffset": (double, False),

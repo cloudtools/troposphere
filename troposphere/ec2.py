@@ -271,7 +271,7 @@ class ClientVpnTargetNetworkAssociation(AWSObject):
 
 class CustomerGateway(AWSObject):
     """
-    `CustomerGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customer-gateway.html>`__
+    `CustomerGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-customergateway.html>`__
     """
 
     resource_type = "AWS::EC2::CustomerGateway"
@@ -1392,7 +1392,7 @@ class LaunchTemplate(AWSObject):
     resource_type = "AWS::EC2::LaunchTemplate"
 
     props: PropsDictType = {
-        "LaunchTemplateData": (LaunchTemplateData, False),
+        "LaunchTemplateData": (LaunchTemplateData, True),
         "LaunchTemplateName": (str, False),
         "TagSpecifications": ([TagSpecifications], False),
     }

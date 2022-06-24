@@ -284,6 +284,7 @@ class DataQualityJobDefinition(AWSObject):
         "DataQualityBaselineConfig": (DataQualityBaselineConfig, False),
         "DataQualityJobInput": (DataQualityJobInput, True),
         "DataQualityJobOutputConfig": (MonitoringOutputConfig, True),
+        "EndpointName": (str, False),
         "JobDefinitionName": (str, False),
         "JobResources": (MonitoringResources, True),
         "NetworkConfig": (NetworkConfig, False),
@@ -890,6 +891,7 @@ class ModelBiasJobDefinition(AWSObject):
     resource_type = "AWS::SageMaker::ModelBiasJobDefinition"
 
     props: PropsDictType = {
+        "EndpointName": (str, False),
         "JobDefinitionName": (str, False),
         "JobResources": (MonitoringResources, True),
         "ModelBiasAppSpecification": (ModelBiasAppSpecification, True),
@@ -960,6 +962,7 @@ class ModelExplainabilityJobDefinition(AWSObject):
     resource_type = "AWS::SageMaker::ModelExplainabilityJobDefinition"
 
     props: PropsDictType = {
+        "EndpointName": (str, False),
         "JobDefinitionName": (str, False),
         "JobResources": (MonitoringResources, True),
         "ModelExplainabilityAppSpecification": (
@@ -1443,6 +1446,7 @@ class ModelQualityJobDefinition(AWSObject):
     resource_type = "AWS::SageMaker::ModelQualityJobDefinition"
 
     props: PropsDictType = {
+        "EndpointName": (str, False),
         "JobDefinitionName": (str, False),
         "JobResources": (MonitoringResources, True),
         "ModelQualityAppSpecification": (ModelQualityAppSpecification, True),
@@ -1712,6 +1716,75 @@ class Workteam(AWSObject):
         "NotificationConfiguration": (NotificationConfiguration, False),
         "Tags": (Tags, False),
         "WorkteamName": (str, False),
+    }
+
+
+class ClarifyInferenceConfig(AWSProperty):
+    """
+    `ClarifyInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyinferenceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentTemplate": (str, False),
+        "FeatureHeaders": ([ClarifyHeader], False),
+        "FeatureTypes": ([ClarifyFeatureType], False),
+        "FeaturesAttribute": (str, False),
+        "LabelAttribute": (str, False),
+        "LabelHeaders": ([ClarifyHeader], False),
+        "LabelIndex": (integer, False),
+        "MaxPayloadInMB": (integer, False),
+        "MaxRecordCount": (integer, False),
+        "ProbabilityAttribute": (str, False),
+        "ProbabilityIndex": (integer, False),
+    }
+
+
+class ClarifyShapConfig(AWSProperty):
+    """
+    `ClarifyShapConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "NumberOfSamples": (integer, False),
+        "Seed": (integer, False),
+        "ShapBaselineConfig": (ClarifyShapBaselineConfig, True),
+        "TextConfig": (ClarifyTextConfig, False),
+        "UseLogit": (boolean, False),
+    }
+
+
+class ClarifyExplainerConfig(AWSProperty):
+    """
+    `ClarifyExplainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyexplainerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableExplanations": (str, False),
+        "InferenceConfig": (ClarifyInferenceConfig, False),
+        "ShapConfig": (ClarifyShapConfig, True),
+    }
+
+
+class ClarifyShapBaselineConfig(AWSProperty):
+    """
+    `ClarifyShapBaselineConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifyshapbaselineconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MimeType": (str, False),
+        "ShapBaseline": (str, False),
+        "ShapBaselineUri": (str, False),
+    }
+
+
+class ClarifyTextConfig(AWSProperty):
+    """
+    `ClarifyTextConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-clarifytextconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Granularity": (str, True),
+        "Language": (str, True),
     }
 
 
