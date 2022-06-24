@@ -7,7 +7,52 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
+
+
+class AdvancedFieldSelector(AWSProperty):
+    """
+    `AdvancedFieldSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndsWith": ([str], False),
+        "Equals": ([str], False),
+        "Field": (str, True),
+        "NotEndsWith": ([str], False),
+        "NotEquals": ([str], False),
+        "NotStartsWith": ([str], False),
+        "StartsWith": ([str], False),
+    }
+
+
+class AdvancedEventSelector(AWSProperty):
+    """
+    `AdvancedEventSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedeventselector.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldSelectors": ([AdvancedFieldSelector], True),
+        "Name": (str, False),
+    }
+
+
+class EventDataStore(AWSObject):
+    """
+    `EventDataStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-eventdatastore.html>`__
+    """
+
+    resource_type = "AWS::CloudTrail::EventDataStore"
+
+    props: PropsDictType = {
+        "AdvancedEventSelectors": ([AdvancedEventSelector], False),
+        "MultiRegionEnabled": (boolean, False),
+        "Name": (str, False),
+        "OrganizationEnabled": (boolean, False),
+        "RetentionPeriod": (integer, False),
+        "Tags": (Tags, False),
+        "TerminationProtectionEnabled": (boolean, False),
+    }
 
 
 class DataResource(AWSProperty):

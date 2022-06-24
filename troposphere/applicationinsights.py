@@ -205,6 +205,7 @@ class Application(AWSObject):
         "CWEMonitorEnabled": (boolean, False),
         "ComponentMonitoringSettings": ([ComponentMonitoringSetting], False),
         "CustomComponents": ([CustomComponent], False),
+        "GroupingType": (str, False),
         "LogPatternSets": ([LogPatternSet], False),
         "OpsCenterEnabled": (boolean, False),
         "OpsItemSNSTopicArn": (str, False),

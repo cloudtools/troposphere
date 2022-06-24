@@ -112,6 +112,23 @@ class Authorizer(AWSObject):
     }
 
 
+class CACertificate(AWSObject):
+    """
+    `CACertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html>`__
+    """
+
+    resource_type = "AWS::IoT::CACertificate"
+
+    props: PropsDictType = {
+        "AutoRegistrationStatus": (str, False),
+        "CACertificatePem": (str, False),
+        "RegistrationConfig": (dict, False),
+        "Status": (str, True),
+        "Tags": (Tags, False),
+        "VerificationCertificatePem": (str, False),
+    }
+
+
 class Certificate(AWSObject):
     """
     `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificate.html>`__
