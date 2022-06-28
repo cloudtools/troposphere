@@ -69,7 +69,7 @@ def cloudfront_cache_query_string_behavior(query_string_behavior):
     """
     Property: CacheQueryStringsConfig.QueryStringBehavior
     """
-    valid_values = ["none", "whitelist", "all"]
+    valid_values = ["none", "whitelist", "allExcept", "all"]
     if query_string_behavior not in valid_values:
         raise ValueError(
             'QueryStringBehavior must be one of: "%s"' % (", ".join(valid_values))
