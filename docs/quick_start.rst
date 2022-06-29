@@ -48,8 +48,6 @@ regarding the use of CloudFormation and Troposphere.
     # template exports the subnet IDs to be used by a second template which
     # will create an EC2 instance in one of those subnets.
     #
-    from __future__ import print_function
-
     from troposphere import ec2
     from troposphere import Tags, GetAtt, Ref, Sub, Export
     from troposphere import Template, Output
@@ -155,8 +153,6 @@ And the EC2 instance template:
     # Generate a CloudFormation template that creates an EC2 instance in a
     # subnet which was created previously by another template (learncf-subnet)
     #
-    from __future__ import print_function
-
     from troposphere import ec2
     from troposphere import Tags, ImportValue
     from troposphere import Template
