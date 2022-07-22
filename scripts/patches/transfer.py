@@ -19,4 +19,14 @@ patches = [
         "path": "/ResourceTypes/AWS::Transfer::User/Properties/SshPublicKeys/PrimitiveItemType",
         "value": "String",
     },
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::Transfer::Server.ProtocolDetails/Properties/As2Transports/ItemType",
+        "path": "/PropertyTypes/AWS::Transfer::Server.ProtocolDetails/Properties/As2Transports/PrimitiveItemType",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::Transfer::Server.ProtocolDetails/Properties/As2Transports/PrimitiveItemType",
+        "value": "String",
+    },
 ]
