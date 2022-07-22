@@ -129,6 +129,7 @@ class IncidentTemplate(AWSProperty):
     props: PropsDictType = {
         "DedupeString": (str, False),
         "Impact": (integer, True),
+        "IncidentTags": (Tags, False),
         "NotificationTargets": ([NotificationTargetItem], False),
         "Summary": (str, False),
         "Title": (str, True),

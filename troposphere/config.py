@@ -43,6 +43,18 @@ class Scope(AWSProperty):
     }
 
 
+class CustomPolicyDetails(AWSProperty):
+    """
+    `CustomPolicyDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-custompolicydetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableDebugLogDelivery": (boolean, False),
+        "PolicyRuntime": (str, False),
+        "PolicyText": (str, False),
+    }
+
+
 class SourceDetails(AWSProperty):
     """
     `SourceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html>`__
@@ -64,6 +76,7 @@ class Source(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomPolicyDetails": (CustomPolicyDetails, False),
         "Owner": (str, True),
         "SourceDetails": ([SourceDetails], False),
         "SourceIdentifier": (str, False),

@@ -461,7 +461,7 @@ class DistributionConfig(AWSProperty):
         "Comment": (str, False),
         "CustomErrorResponses": ([CustomErrorResponse], False),
         "CustomOrigin": (LegacyCustomOrigin, False),
-        "DefaultCacheBehavior": (DefaultCacheBehavior, False),
+        "DefaultCacheBehavior": (DefaultCacheBehavior, True),
         "DefaultRootObject": (str, False),
         "Enabled": (boolean, True),
         "HttpVersion": (str, False),

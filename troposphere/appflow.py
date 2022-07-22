@@ -1038,6 +1038,7 @@ class ScheduledTriggerProperties(AWSProperty):
 
     props: PropsDictType = {
         "DataPullMode": (str, False),
+        "FirstExecutionFrom": (double, False),
         "FlowErrorDeactivationThreshold": (integer, False),
         "ScheduleEndTime": (double, False),
         "ScheduleExpression": (str, True),

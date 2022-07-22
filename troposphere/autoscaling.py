@@ -546,7 +546,7 @@ class PredictiveScalingConfiguration(AWSProperty):
 
 class StepAdjustments(AWSProperty):
     """
-    `StepAdjustments <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustments.html>`__
+    `StepAdjustments <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-scalingpolicy-stepadjustment.html>`__
     """
 
     props: PropsDictType = {
@@ -596,7 +596,7 @@ class TargetTrackingConfiguration(AWSProperty):
 
 class ScalingPolicy(AWSObject):
     """
-    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-policy.html>`__
+    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scalingpolicy.html>`__
     """
 
     resource_type = "AWS::AutoScaling::ScalingPolicy"

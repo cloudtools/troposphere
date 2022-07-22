@@ -269,6 +269,17 @@ class SqlApplicationConfiguration(AWSProperty):
     }
 
 
+class VpcConfiguration(AWSProperty):
+    """
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-vpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "SubnetIds": ([str], True),
+    }
+
+
 class GlueDataCatalogConfiguration(AWSProperty):
     """
     `GlueDataCatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-gluedatacatalogconfiguration.html>`__
@@ -368,7 +379,50 @@ class ApplicationConfiguration(AWSProperty):
         "EnvironmentProperties": (EnvironmentProperties, False),
         "FlinkApplicationConfiguration": (FlinkApplicationConfiguration, False),
         "SqlApplicationConfiguration": (SqlApplicationConfiguration, False),
+        "VpcConfigurations": ([VpcConfiguration], False),
         "ZeppelinApplicationConfiguration": (ZeppelinApplicationConfiguration, False),
+    }
+
+
+class ApplicationMaintenanceConfiguration(AWSProperty):
+    """
+    `ApplicationMaintenanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationmaintenanceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationMaintenanceWindowStartTime": (str, True),
+    }
+
+
+class ApplicationRestoreConfiguration(AWSProperty):
+    """
+    `ApplicationRestoreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationrestoreconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationRestoreType": (str, True),
+        "SnapshotName": (str, False),
+    }
+
+
+class FlinkRunConfiguration(AWSProperty):
+    """
+    `FlinkRunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-flinkrunconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowNonRestoredState": (boolean, False),
+    }
+
+
+class RunConfiguration(AWSProperty):
+    """
+    `RunConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-runconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationRestoreConfiguration": (ApplicationRestoreConfiguration, False),
+        "FlinkRunConfiguration": (FlinkRunConfiguration, False),
     }
 
 
@@ -382,8 +436,13 @@ class Application(AWSObject):
     props: PropsDictType = {
         "ApplicationConfiguration": (ApplicationConfiguration, False),
         "ApplicationDescription": (str, False),
+        "ApplicationMaintenanceConfiguration": (
+            ApplicationMaintenanceConfiguration,
+            False,
+        ),
         "ApplicationMode": (str, False),
         "ApplicationName": (str, False),
+        "RunConfiguration": (RunConfiguration, False),
         "RuntimeEnvironment": (validate_runtime_environment, True),
         "ServiceExecutionRole": (str, True),
         "Tags": (Tags, False),

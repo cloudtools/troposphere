@@ -250,6 +250,7 @@ class DeploymentTargets(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AccountFilterType": (str, False),
         "Accounts": ([str], False),
         "OrganizationalUnitIds": ([str], False),
     }

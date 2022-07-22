@@ -58,6 +58,17 @@ class LogStream(AWSObject):
     }
 
 
+class Dimension(AWSProperty):
+    """
+    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-dimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class MetricTransformation(AWSProperty):
     """
     `MetricTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-metricfilter-metrictransformation.html>`__
@@ -65,9 +76,11 @@ class MetricTransformation(AWSProperty):
 
     props: PropsDictType = {
         "DefaultValue": (double, False),
+        "Dimensions": ([Dimension], False),
         "MetricName": (str, True),
         "MetricNamespace": (str, True),
         "MetricValue": (str, True),
+        "Unit": (str, False),
     }
 
 
@@ -79,6 +92,7 @@ class MetricFilter(AWSObject):
     resource_type = "AWS::Logs::MetricFilter"
 
     props: PropsDictType = {
+        "FilterName": (str, False),
         "FilterPattern": (str, True),
         "LogGroupName": (str, True),
         "MetricTransformations": ([MetricTransformation], True),

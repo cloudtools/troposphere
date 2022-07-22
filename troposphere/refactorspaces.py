@@ -53,6 +53,16 @@ class Environment(AWSObject):
     }
 
 
+class DefaultRouteInput(AWSProperty):
+    """
+    `DefaultRouteInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-defaultrouteinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActivationState": (str, True),
+    }
+
+
 class UriPathRouteInput(AWSProperty):
     """
     `UriPathRouteInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-refactorspaces-route-uripathrouteinput.html>`__
@@ -75,6 +85,7 @@ class Route(AWSObject):
 
     props: PropsDictType = {
         "ApplicationIdentifier": (str, True),
+        "DefaultRoute": (DefaultRouteInput, False),
         "EnvironmentIdentifier": (str, True),
         "RouteType": (str, False),
         "ServiceIdentifier": (str, True),
