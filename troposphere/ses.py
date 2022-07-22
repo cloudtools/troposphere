@@ -177,6 +177,88 @@ class ContactList(AWSObject):
     }
 
 
+class DedicatedIpPool(AWSObject):
+    """
+    `DedicatedIpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-dedicatedippool.html>`__
+    """
+
+    resource_type = "AWS::SES::DedicatedIpPool"
+
+    props: PropsDictType = {
+        "PoolName": (str, False),
+    }
+
+
+class ConfigurationSetAttributes(AWSProperty):
+    """
+    `ConfigurationSetAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-configurationsetattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigurationSetName": (str, False),
+    }
+
+
+class DkimAttributes(AWSProperty):
+    """
+    `DkimAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-dkimattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "SigningEnabled": (boolean, False),
+    }
+
+
+class DkimSigningAttributes(AWSProperty):
+    """
+    `DkimSigningAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-dkimsigningattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainSigningPrivateKey": (str, False),
+        "DomainSigningSelector": (str, False),
+        "NextSigningKeyLength": (str, False),
+    }
+
+
+class FeedbackAttributes(AWSProperty):
+    """
+    `FeedbackAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-feedbackattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmailForwardingEnabled": (boolean, False),
+    }
+
+
+class MailFromAttributes(AWSProperty):
+    """
+    `MailFromAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-emailidentity-mailfromattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "BehaviorOnMxFailure": (str, False),
+        "MailFromDomain": (str, False),
+    }
+
+
+class EmailIdentity(AWSObject):
+    """
+    `EmailIdentity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-emailidentity.html>`__
+    """
+
+    resource_type = "AWS::SES::EmailIdentity"
+
+    props: PropsDictType = {
+        "ConfigurationSetAttributes": (ConfigurationSetAttributes, False),
+        "DkimAttributes": (DkimAttributes, False),
+        "DkimSigningAttributes": (DkimSigningAttributes, False),
+        "EmailIdentity": (str, True),
+        "FeedbackAttributes": (FeedbackAttributes, False),
+        "MailFromAttributes": (MailFromAttributes, False),
+    }
+
+
 class IpFilter(AWSProperty):
     """
     `IpFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html>`__

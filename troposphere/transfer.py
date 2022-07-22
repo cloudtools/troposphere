@@ -44,6 +44,7 @@ class ProtocolDetails(AWSProperty):
     """
 
     props: PropsDictType = {
+        "As2Transports": ([str], False),
         "PassiveIp": (str, False),
         "SetStatOption": (str, False),
         "TlsSessionResumptionMode": (str, False),

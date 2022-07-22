@@ -258,6 +258,17 @@ class ColumnLevelPermissionRule(AWSProperty):
     }
 
 
+class DataSetUsageConfiguration(AWSProperty):
+    """
+    `DataSetUsageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisableUseAsDirectQuerySource": (boolean, False),
+        "DisableUseAsImportedSource": (boolean, False),
+    }
+
+
 class FieldFolder(AWSProperty):
     """
     `FieldFolder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-fieldfolder.html>`__
@@ -311,6 +322,7 @@ class LogicalTableSource(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DataSetArn": (str, False),
         "JoinInstruction": (JoinInstruction, False),
         "PhysicalTableId": (str, False),
     }
@@ -541,6 +553,7 @@ class DataSet(AWSObject):
         "ColumnGroups": ([ColumnGroup], False),
         "ColumnLevelPermissionRules": ([ColumnLevelPermissionRule], False),
         "DataSetId": (str, False),
+        "DataSetUsageConfiguration": (DataSetUsageConfiguration, False),
         "FieldFolders": (dict, False),
         "ImportMode": (str, False),
         "IngestionWaitPolicy": (IngestionWaitPolicy, False),

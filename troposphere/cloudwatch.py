@@ -176,6 +176,9 @@ class CompositeAlarm(AWSObject):
 
     props: PropsDictType = {
         "ActionsEnabled": (boolean, False),
+        "ActionsSuppressor": (str, False),
+        "ActionsSuppressorExtensionPeriod": (integer, False),
+        "ActionsSuppressorWaitPeriod": (integer, False),
         "AlarmActions": ([str], False),
         "AlarmDescription": (str, False),
         "AlarmName": (str, True),

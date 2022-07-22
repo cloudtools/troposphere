@@ -121,7 +121,8 @@ class CACertificate(AWSObject):
 
     props: PropsDictType = {
         "AutoRegistrationStatus": (str, False),
-        "CACertificatePem": (str, False),
+        "CACertificatePem": (str, True),
+        "CertificateMode": (str, False),
         "RegistrationConfig": (dict, False),
         "Status": (str, True),
         "Tags": (Tags, False),

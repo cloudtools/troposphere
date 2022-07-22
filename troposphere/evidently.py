@@ -87,8 +87,10 @@ class Experiment(AWSObject):
         "OnlineAbConfig": (OnlineAbConfigObject, True),
         "Project": (str, True),
         "RandomizationSalt": (str, False),
+        "RemoveSegment": (boolean, False),
         "RunningStatus": (RunningStatusObject, False),
         "SamplingRate": (integer, False),
+        "Segment": (str, False),
         "Tags": (Tags, False),
         "Treatments": ([TreatmentObject], True),
     }
@@ -188,6 +190,18 @@ class GroupToWeight(AWSProperty):
     }
 
 
+class SegmentOverride(AWSProperty):
+    """
+    `SegmentOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-segmentoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "EvaluationOrder": (integer, True),
+        "Segment": (str, True),
+        "Weights": ([GroupToWeight], True),
+    }
+
+
 class StepConfig(AWSProperty):
     """
     `StepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-launch-stepconfig.html>`__
@@ -195,6 +209,7 @@ class StepConfig(AWSProperty):
 
     props: PropsDictType = {
         "GroupWeights": ([GroupToWeight], True),
+        "SegmentOverrides": ([SegmentOverride], False),
         "StartTime": (str, True),
     }
 
@@ -252,5 +267,20 @@ class Project(AWSObject):
         "DataDelivery": (DataDeliveryObject, False),
         "Description": (str, False),
         "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class Segment(AWSObject):
+    """
+    `Segment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-evidently-segment.html>`__
+    """
+
+    resource_type = "AWS::Evidently::Segment"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Pattern": (str, False),
         "Tags": (Tags, False),
     }

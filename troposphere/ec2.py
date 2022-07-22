@@ -679,7 +679,9 @@ class Host(AWSObject):
         "AutoPlacement": (str, False),
         "AvailabilityZone": (str, True),
         "HostRecovery": (str, False),
-        "InstanceType": (str, True),
+        "InstanceFamily": (str, False),
+        "InstanceType": (str, False),
+        "OutpostArn": (str, False),
     }
 
 
@@ -1677,6 +1679,7 @@ class PlacementGroup(AWSObject):
     resource_type = "AWS::EC2::PlacementGroup"
 
     props: PropsDictType = {
+        "SpreadLevel": (str, False),
         "Strategy": (str, False),
     }
 
@@ -2508,6 +2511,7 @@ class VPCEndpointService(AWSObject):
 
     props: PropsDictType = {
         "AcceptanceRequired": (boolean, False),
+        "ContributorInsightsEnabled": (boolean, False),
         "GatewayLoadBalancerArns": ([str], False),
         "NetworkLoadBalancerArns": ([str], False),
         "PayerResponsibility": (str, False),

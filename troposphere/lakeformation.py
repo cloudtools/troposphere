@@ -10,9 +10,48 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean
 
 
+class ColumnWildcard(AWSProperty):
+    """
+    `ColumnWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-columnwildcard.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExcludedColumnNames": ([str], False),
+    }
+
+
+class RowFilter(AWSProperty):
+    """
+    `RowFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datacellsfilter-rowfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllRowsWildcard": (dict, False),
+        "FilterExpression": (str, False),
+    }
+
+
+class DataCellsFilter(AWSObject):
+    """
+    `DataCellsFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-datacellsfilter.html>`__
+    """
+
+    resource_type = "AWS::LakeFormation::DataCellsFilter"
+
+    props: PropsDictType = {
+        "ColumnNames": ([str], False),
+        "ColumnWildcard": (ColumnWildcard, False),
+        "DatabaseName": (str, True),
+        "Name": (str, True),
+        "RowFilter": (RowFilter, False),
+        "TableCatalogId": (str, True),
+        "TableName": (str, True),
+    }
+
+
 class DataLakePrincipal(AWSProperty):
     """
-    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalakeprincipal.html>`__
+    `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalakeprincipal.html>`__
     """
 
     props: PropsDictType = {
@@ -33,25 +72,73 @@ class DataLakeSettings(AWSObject):
     }
 
 
-class DataLocationResource(AWSProperty):
+class DataCellsFilterResource(AWSProperty):
     """
-    `DataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html>`__
+    `DataCellsFilterResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datacellsfilterresource.html>`__
     """
 
     props: PropsDictType = {
-        "CatalogId": (str, False),
-        "S3Resource": (str, False),
+        "DatabaseName": (str, True),
+        "Name": (str, True),
+        "TableCatalogId": (str, True),
+        "TableName": (str, True),
+    }
+
+
+class DataLocationResource(AWSProperty):
+    """
+    `DataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-datalocationresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogId": (str, True),
+        "ResourceArn": (str, True),
     }
 
 
 class DatabaseResource(AWSProperty):
     """
-    `DatabaseResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-databaseresource.html>`__
+    `DatabaseResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-databaseresource.html>`__
     """
 
     props: PropsDictType = {
-        "CatalogId": (str, False),
-        "Name": (str, False),
+        "CatalogId": (str, True),
+        "Name": (str, True),
+    }
+
+
+class LFTagKeyResource(AWSProperty):
+    """
+    `LFTagKeyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagkeyresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogId": (str, True),
+        "TagKey": (str, True),
+        "TagValues": ([str], True),
+    }
+
+
+class LFTag(AWSProperty):
+    """
+    `LFTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftag.html>`__
+    """
+
+    props: PropsDictType = {
+        "TagKey": (str, False),
+        "TagValues": ([str], False),
+    }
+
+
+class LFTagPolicyResource(AWSProperty):
+    """
+    `LFTagPolicyResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-lftagpolicyresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogId": (str, True),
+        "Expression": ([LFTag], True),
+        "ResourceType": (str, True),
     }
 
 
@@ -65,51 +152,45 @@ class TableWildcard(AWSProperty):
 
 class TableResource(AWSProperty):
     """
-    `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tableresource.html>`__
+    `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tableresource.html>`__
     """
 
     props: PropsDictType = {
-        "CatalogId": (str, False),
-        "DatabaseName": (str, False),
+        "CatalogId": (str, True),
+        "DatabaseName": (str, True),
         "Name": (str, False),
         "TableWildcard": (TableWildcard, False),
     }
 
 
-class ColumnWildcard(AWSProperty):
-    """
-    `ColumnWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-columnwildcard.html>`__
-    """
-
-    props: PropsDictType = {
-        "ExcludedColumnNames": ([str], False),
-    }
-
-
 class TableWithColumnsResource(AWSProperty):
     """
-    `TableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewithcolumnsresource.html>`__
+    `TableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-tablewithcolumnsresource.html>`__
     """
 
     props: PropsDictType = {
-        "CatalogId": (str, False),
+        "CatalogId": (str, True),
         "ColumnNames": ([str], False),
         "ColumnWildcard": (ColumnWildcard, False),
-        "DatabaseName": (str, False),
-        "Name": (str, False),
+        "DatabaseName": (str, True),
+        "Name": (str, True),
     }
 
 
 class ResourceProperty(AWSProperty):
     """
-    `ResourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-resource.html>`__
+    `ResourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-principalpermissions-resource.html>`__
     """
 
     props: PropsDictType = {
-        "DataLocationResource": (DataLocationResource, False),
-        "DatabaseResource": (DatabaseResource, False),
-        "TableResource": (TableResource, False),
-        "TableWithColumnsResource": (TableWithColumnsResource, False),
+        "Catalog": (dict, False),
+        "DataCellsFilter": (DataCellsFilterResource, False),
+        "DataLocation": (DataLocationResource, False),
+        "Database": (DatabaseResource, False),
+        "LFTag": (LFTagKeyResource, False),
+        "LFTagPolicy": (LFTagPolicyResource, False),
+        "Table": (TableResource, False),
+        "TableWithColumns": (TableWithColumnsResource, False),
     }
 
 
@@ -128,6 +209,22 @@ class Permissions(AWSObject):
     }
 
 
+class PrincipalPermissions(AWSObject):
+    """
+    `PrincipalPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-principalpermissions.html>`__
+    """
+
+    resource_type = "AWS::LakeFormation::PrincipalPermissions"
+
+    props: PropsDictType = {
+        "Catalog": (str, False),
+        "Permissions": ([str], True),
+        "PermissionsWithGrantOption": ([str], True),
+        "Principal": (DataLakePrincipal, True),
+        "Resource": (ResourceProperty, True),
+    }
+
+
 class Resource(AWSObject):
     """
     `Resource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-resource.html>`__
@@ -139,4 +236,80 @@ class Resource(AWSObject):
         "ResourceArn": (str, True),
         "RoleArn": (str, False),
         "UseServiceLinkedRole": (boolean, True),
+    }
+
+
+class Tag(AWSObject):
+    """
+    `Tag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tag.html>`__
+    """
+
+    resource_type = "AWS::LakeFormation::Tag"
+
+    props: PropsDictType = {
+        "CatalogId": (str, False),
+        "TagKey": (str, True),
+        "TagValues": ([str], True),
+    }
+
+
+class LFTagPair(AWSProperty):
+    """
+    `LFTagPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-lftagpair.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogId": (str, True),
+        "TagKey": (str, True),
+        "TagValues": ([str], True),
+    }
+
+
+class TagAssociationTableWithColumnsResource(AWSProperty):
+    """
+    `TagAssociationTableWithColumnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tablewithcolumnsresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogId": (str, True),
+        "ColumnNames": ([str], True),
+        "DatabaseName": (str, True),
+        "Name": (str, True),
+    }
+
+
+class TagAssociationResource(AWSProperty):
+    """
+    `TagAssociationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-resource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Catalog": (dict, False),
+        "Database": (DatabaseResource, False),
+        "Table": (TableResource, False),
+        "TableWithColumns": (TagAssociationTableWithColumnsResource, False),
+    }
+
+
+class TagAssociation(AWSObject):
+    """
+    `TagAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lakeformation-tagassociation.html>`__
+    """
+
+    resource_type = "AWS::LakeFormation::TagAssociation"
+
+    props: PropsDictType = {
+        "LFTags": ([LFTagPair], True),
+        "Resource": (TagAssociationResource, True),
+    }
+
+
+class PermissionsDataLocationResource(AWSProperty):
+    """
+    `PermissionsDataLocationResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-datalocationresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogId": (str, False),
+        "S3Resource": (str, False),
     }

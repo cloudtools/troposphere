@@ -60,6 +60,28 @@ class InstanceAccessControlAttributeConfiguration(AWSObject):
     }
 
 
+class CustomerManagedPolicyReference(AWSProperty):
+    """
+    `CustomerManagedPolicyReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-customermanagedpolicyreference.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Path": (str, False),
+    }
+
+
+class PermissionsBoundary(AWSProperty):
+    """
+    `PermissionsBoundary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-permissionset-permissionsboundary.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomerManagedPolicyReference": (CustomerManagedPolicyReference, False),
+        "ManagedPolicyArn": (str, False),
+    }
+
+
 class PermissionSet(AWSObject):
     """
     `PermissionSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-permissionset.html>`__
@@ -68,11 +90,13 @@ class PermissionSet(AWSObject):
     resource_type = "AWS::SSO::PermissionSet"
 
     props: PropsDictType = {
+        "CustomerManagedPolicyReferences": ([CustomerManagedPolicyReference], False),
         "Description": (str, False),
         "InlinePolicy": (dict, False),
         "InstanceArn": (str, True),
         "ManagedPolicies": ([str], False),
         "Name": (str, True),
+        "PermissionsBoundary": (PermissionsBoundary, False),
         "RelayStateType": (str, False),
         "SessionDuration": (str, False),
         "Tags": (Tags, False),

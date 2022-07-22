@@ -91,6 +91,56 @@ class NFS(AWSProperty):
     }
 
 
+class SmbMountOptions(AWSProperty):
+    """
+    `SmbMountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smbmountoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Version": (str, False),
+    }
+
+
+class SMB(AWSProperty):
+    """
+    `SMB <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-smb.html>`__
+    """
+
+    props: PropsDictType = {
+        "Domain": (str, False),
+        "MountOptions": (SmbMountOptions, True),
+        "Password": (str, True),
+        "User": (str, True),
+    }
+
+
+class ONTAPProtocol(AWSProperty):
+    """
+    `ONTAPProtocol <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-protocol.html>`__
+    """
+
+    props: PropsDictType = {
+        "NFS": (NFS, False),
+        "SMB": (SMB, False),
+    }
+
+
+class LocationFSxONTAP(AWSObject):
+    """
+    `LocationFSxONTAP <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationfsxontap.html>`__
+    """
+
+    resource_type = "AWS::DataSync::LocationFSxONTAP"
+
+    props: PropsDictType = {
+        "Protocol": (ONTAPProtocol, True),
+        "SecurityGroupArns": ([str], True),
+        "StorageVirtualMachineArn": (str, True),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Protocol(AWSProperty):
     """
     `Protocol <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxopenzfs-protocol.html>`__
@@ -334,4 +384,14 @@ class Task(AWSObject):
         "Schedule": (TaskSchedule, False),
         "SourceLocationArn": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class NfsMountOptions(AWSProperty):
+    """
+    `NfsMountOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationfsxontap-nfsmountoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Version": (str, False),
     }

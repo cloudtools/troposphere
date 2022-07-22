@@ -1571,6 +1571,16 @@ class MonitoringSchedule(AWSObject):
     }
 
 
+class InstanceMetadataServiceConfiguration(AWSProperty):
+    """
+    `InstanceMetadataServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-notebookinstance-instancemetadataserviceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MinimumInstanceMetadataServiceVersion": (str, True),
+    }
+
+
 class NotebookInstance(AWSObject):
     """
     `NotebookInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-notebookinstance.html>`__
@@ -1583,6 +1593,10 @@ class NotebookInstance(AWSObject):
         "AdditionalCodeRepositories": ([str], False),
         "DefaultCodeRepository": (str, False),
         "DirectInternetAccess": (str, False),
+        "InstanceMetadataServiceConfiguration": (
+            InstanceMetadataServiceConfiguration,
+            False,
+        ),
         "InstanceType": (str, True),
         "KmsKeyId": (str, False),
         "LifecycleConfigName": (str, False),
@@ -1683,13 +1697,24 @@ class CognitoMemberDefinition(AWSProperty):
     }
 
 
+class OidcMemberDefinition(AWSProperty):
+    """
+    `OidcMemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-oidcmemberdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "OidcGroups": ([str], True),
+    }
+
+
 class MemberDefinition(AWSProperty):
     """
     `MemberDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-workteam-memberdefinition.html>`__
     """
 
     props: PropsDictType = {
-        "CognitoMemberDefinition": (CognitoMemberDefinition, True),
+        "CognitoMemberDefinition": (CognitoMemberDefinition, False),
+        "OidcMemberDefinition": (OidcMemberDefinition, False),
     }
 
 
@@ -1715,6 +1740,7 @@ class Workteam(AWSObject):
         "MemberDefinitions": ([MemberDefinition], False),
         "NotificationConfiguration": (NotificationConfiguration, False),
         "Tags": (Tags, False),
+        "WorkforceName": (str, False),
         "WorkteamName": (str, False),
     }
 
