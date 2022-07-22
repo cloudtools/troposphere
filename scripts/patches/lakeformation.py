@@ -20,4 +20,55 @@ patches = [
         "path": "/ResourceTypes/AWS::LakeFormation::DataLakeSettings/Properties/Admins/ItemType",
         "value": "DataLakePrincipal",
     },
+    {
+        "op": "add",
+        "path": "/PropertyTypes/AWS::LakeFormation::PrincipalPermissions.Resource/Properties/Catalog/PrimitiveType",
+        "value": "Json",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::LakeFormation::PrincipalPermissions.Resource/Properties/Catalog/Type",
+    },
+    {
+        "op": "add",
+        "path": "/PropertyTypes/AWS::LakeFormation::TagAssociation.Resource/Properties/Catalog/PrimitiveType",
+        "value": "Json",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::LakeFormation::TagAssociation.Resource/Properties/Catalog/Type",
+    },
+    # Rename AWS::LakeFormation::TagAssociation.Resource to AWS::LakeFormation::TagAssociation.TagAssociationResource
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::LakeFormation::TagAssociation.Resource",
+        "path": "/PropertyTypes/AWS::LakeFormation::TagAssociation.TagAssociationResource",
+    },
+    {
+        "op": "replace",
+        "path": "/ResourceTypes/AWS::LakeFormation::TagAssociation/Properties/Resource/Type",
+        "value": "TagAssociationResource",
+    },
+    # Rename AWS::LakeFormation::TagAssociation.TableWithColumns to AWS::LakeFormation::TagAssociation.TagAssociationTableWithColumns
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::LakeFormation::TagAssociation.TableWithColumnsResource",
+        "path": "/PropertyTypes/AWS::LakeFormation::TagAssociation.TagAssociationTableWithColumnsResource",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::LakeFormation::TagAssociation.TagAssociationResource/Properties/TableWithColumns/Type",
+        "value": "TagAssociationTableWithColumnsResource",
+    },
+    # Rename AWS::LakeFormation::Permissions.DataLocationResource to AWS::LakeFormation::Permissions.PermissionsDataLocationResource
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::LakeFormation::Permissions.DataLocationResource",
+        "path": "/PropertyTypes/AWS::LakeFormation::Permissions.PermissionsDataLocationResource",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::LakeFormation::Permissions.ResourceProperty/Properties/DataLocationResource/Type",
+        "value": "PermissionsDataLocationResource",
+    },
 ]
