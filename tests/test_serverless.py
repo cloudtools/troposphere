@@ -431,9 +431,9 @@ class TestServerless(unittest.TestCase):
         )
         t.to_json()
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(AttributeError):
             _ = Globals(Unexpected="blah")
-        with self.assertRaises(ValueError):
+        with self.assertRaises(TypeError):
             _ = Globals(Function="not FunctionGlobals")
 
 
