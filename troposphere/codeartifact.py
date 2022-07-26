@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, PropsDictType, Tags
+from .validators.codeartifact import policytypes
 
 
 class Domain(AWSObject):
@@ -19,7 +20,7 @@ class Domain(AWSObject):
     props: PropsDictType = {
         "DomainName": (str, True),
         "EncryptionKey": (str, False),
-        "PermissionsPolicyDocument": (dict, False),
+        "PermissionsPolicyDocument": (policytypes, False),
         "Tags": (Tags, False),
     }
 
@@ -36,7 +37,7 @@ class Repository(AWSObject):
         "DomainName": (str, True),
         "DomainOwner": (str, False),
         "ExternalConnections": ([str], False),
-        "PermissionsPolicyDocument": (dict, False),
+        "PermissionsPolicyDocument": (policytypes, False),
         "RepositoryName": (str, True),
         "Tags": (Tags, False),
         "Upstreams": ([str], False),
