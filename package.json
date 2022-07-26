@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/cloudtools/troposphere#readme",
   "devDependencies": {
-    "pyright": "^1.1.226"
+    "pyright": "=1.1.261"
   },
   "engines": {
     "npm": ">=7.0.0",
