@@ -432,9 +432,21 @@ class TestServerless(unittest.TestCase):
         t.to_json()
 
         with self.assertRaises(AttributeError):
-            _ = Globals(Unexpected="blah")
+            Globals(Unexpected="blah")
         with self.assertRaises(TypeError):
-            _ = Globals(Function="not FunctionGlobals")
+            Globals(Function="not FunctionGlobals")
+
+        # Assert list types are validated correctly
+        FunctionGlobals(Layers=["test"])
+        with self.assertRaises(TypeError):
+            FunctionGlobals(Layers="not a list")
+        with self.assertRaises(TypeError):
+            FunctionGlobals(Layers=[1, 2, 3])
+
+        # Assert function validators work as intended
+        FunctionGlobals(MemorySize=128)
+        with self.assertRaises(ValueError):
+            FunctionGlobals(MemorySize=64)
 
 
 if __name__ == "__main__":
