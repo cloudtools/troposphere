@@ -656,31 +656,7 @@ class Application(AWSObject):
         mutually_exclusive(self.__class__.__name__, self.properties, conds)
 
 
-class GlobalsHelperFn(AWSHelperFn):
-    def __init__(self, **kwargs):
-        remaining_kwargs = kwargs.copy()
-        for k, (key_type, required) in self.props.items():
-            if k in kwargs:
-                kwarg_value = remaining_kwargs.pop(k)
-                if not isinstance(kwarg_value, key_type):
-                    raise ValueError(
-                        f"Provided {self.__class__.__name__} property '{k}' is of type {type(kwarg_value)} instead of expected {key_type}"
-                    )
-            elif required:
-                raise ValueError(
-                    f"Required {self.__class__.__name__} property '{k}' not provided"
-                )
-
-        if remaining_kwargs:
-            unexpected_properties = [f"'{k}'" for k in remaining_kwargs.keys()]
-            raise ValueError(
-                f"Unexpected {self.__class__.__name__} properties provided: {unexpected_properties}"
-            )
-
-        self.data = kwargs
-
-
-class FunctionGlobals(GlobalsHelperFn):
+class FunctionGlobals(AWSProperty):
     props: PropsDictType = {
         "AssumeRolePolicyDocument": (policytypes, False),
         "AutoPublishAlias": (str, False),
@@ -706,7 +682,7 @@ class FunctionGlobals(GlobalsHelperFn):
     }
 
 
-class ApiGlobals(GlobalsHelperFn):
+class ApiGlobals(AWSProperty):
     props: PropsDictType = {
         "AccessLogSetting": (AccessLogSetting, False),
         "Auth": (Auth, False),
@@ -727,7 +703,7 @@ class ApiGlobals(GlobalsHelperFn):
     }
 
 
-class HttpApiGlobals(GlobalsHelperFn):
+class HttpApiGlobals(AWSProperty):
     props: PropsDictType = {
         "AccessLogSettings": (AccessLogSettings, False),
         "Auth": (HttpApiAuth, False),
@@ -736,13 +712,13 @@ class HttpApiGlobals(GlobalsHelperFn):
     }
 
 
-class SimpleTableGlobals(GlobalsHelperFn):
+class SimpleTableGlobals(AWSProperty):
     props: PropsDictType = {
         "SSESpecification": (SSESpecification, False),
     }
 
 
-class Globals(GlobalsHelperFn):
+class Globals(AWSProperty):
     """Supported Globals properties.
 
     See: https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-template-anatomy-globals.html
