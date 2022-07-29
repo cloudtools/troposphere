@@ -20,7 +20,7 @@ def ebsinstanceblockdevicespecification_volume_type(type):
     """
     Property: EbsInstanceBlockDeviceSpecification.VolumeType
     """
-    valid_types = ["gp2", "io1", "io2", "sc1", "st1", "standard"]
+    valid_types = ["gp2", "gp3", "io1", "io2", "sc1", "st1", "standard"]
     if type not in valid_types:
         raise ValueError('VolumeType must be one of: "%s"' % (", ".join(valid_types)))
     return type
