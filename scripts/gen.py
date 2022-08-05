@@ -546,7 +546,14 @@ class CodeGenerator:
                     None,
                 )
             except KeyError:
-                print(property_name, self.properties.keys(), file=sys.stderr)
+                print(
+                    f"Could not find property '{property_name}' while generating service {self.service_name}",
+                    file=sys.stderr,
+                )
+                print(
+                    f"Available property keys:\n{self.properties.keys()}",
+                    file=sys.stderr,
+                )
                 raise
 
             if child is not None:
