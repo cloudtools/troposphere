@@ -91,6 +91,7 @@ class Parameters(AWSProperty):
 
     props: PropsDictType = {
         "ExcludeBootVolume": (boolean, False),
+        "ExcludeDataVolumeTags": (Tags, False),
         "NoReboot": (boolean, False),
     }
 

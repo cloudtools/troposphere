@@ -391,7 +391,7 @@ class GlobalCluster(AWSObject):
 
 class OptionSetting(AWSProperty):
     """
-    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations-optionsettings.html>`__
+    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -402,7 +402,7 @@ class OptionSetting(AWSProperty):
 
 class OptionConfiguration(AWSProperty):
     """
-    `OptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfigurations.html>`__
+    `OptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -425,7 +425,7 @@ class OptionGroup(AWSObject):
     props: PropsDictType = {
         "EngineName": (str, True),
         "MajorEngineVersion": (str, True),
-        "OptionConfigurations": ([OptionConfiguration], True),
+        "OptionConfigurations": ([OptionConfiguration], False),
         "OptionGroupDescription": (str, True),
         "Tags": (validate_tags_or_list, False),
     }
