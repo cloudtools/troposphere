@@ -30,6 +30,29 @@ class CFNKubernetesConfiguration(AWSProperty):
     }
 
 
+class CFNScanEc2InstanceWithFindingsConfiguration(AWSProperty):
+    """
+    `CFNScanEc2InstanceWithFindingsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnscanec2instancewithfindingsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EbsVolumes": (boolean, False),
+    }
+
+
+class CFNMalwareProtectionConfiguration(AWSProperty):
+    """
+    `CFNMalwareProtectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnmalwareprotectionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScanEc2InstanceWithFindings": (
+            CFNScanEc2InstanceWithFindingsConfiguration,
+            False,
+        ),
+    }
+
+
 class CFNS3LogsConfiguration(AWSProperty):
     """
     `CFNS3LogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfns3logsconfiguration.html>`__
@@ -47,6 +70,7 @@ class CFNDataSourceConfigurations(AWSProperty):
 
     props: PropsDictType = {
         "Kubernetes": (CFNKubernetesConfiguration, False),
+        "MalwareProtection": (CFNMalwareProtectionConfiguration, False),
         "S3Logs": (CFNS3LogsConfiguration, False),
     }
 

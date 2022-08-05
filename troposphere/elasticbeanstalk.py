@@ -63,7 +63,7 @@ class ApplicationResourceLifecycleConfig(AWSProperty):
 
 class Application(AWSObject):
     """
-    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk.html>`__
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-application.html>`__
     """
 
     resource_type = "AWS::ElasticBeanstalk::Application"

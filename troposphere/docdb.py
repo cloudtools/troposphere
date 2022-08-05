@@ -33,9 +33,13 @@ class DBCluster(AWSObject):
         "Port": (integer, False),
         "PreferredBackupWindow": (str, False),
         "PreferredMaintenanceWindow": (str, False),
+        "RestoreToTime": (str, False),
+        "RestoreType": (str, False),
         "SnapshotIdentifier": (str, False),
+        "SourceDBClusterIdentifier": (str, False),
         "StorageEncrypted": (boolean, False),
         "Tags": (Tags, False),
+        "UseLatestRestorableTime": (boolean, False),
         "VpcSecurityGroupIds": ([str], False),
     }
 

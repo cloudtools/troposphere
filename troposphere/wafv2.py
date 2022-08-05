@@ -538,6 +538,7 @@ class SqliMatchStatement(AWSProperty):
 
     props: PropsDictType = {
         "FieldToMatch": (FieldToMatch, True),
+        "SensitivityLevel": (str, False),
         "TextTransformations": ([TextTransformation], True),
     }
 

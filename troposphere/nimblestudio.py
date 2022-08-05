@@ -27,7 +27,7 @@ class StreamConfigurationSessionStorage(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Mode": ([str], False),
+        "Mode": ([str], True),
         "Root": (StreamingSessionStorageRoot, False),
     }
 

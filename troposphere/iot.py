@@ -112,6 +112,18 @@ class Authorizer(AWSObject):
     }
 
 
+class RegistrationConfig(AWSProperty):
+    """
+    `RegistrationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cacertificate-registrationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RoleArn": (str, False),
+        "TemplateBody": (str, False),
+        "TemplateName": (str, False),
+    }
+
+
 class CACertificate(AWSObject):
     """
     `CACertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-cacertificate.html>`__
@@ -123,7 +135,7 @@ class CACertificate(AWSObject):
         "AutoRegistrationStatus": (str, False),
         "CACertificatePem": (str, True),
         "CertificateMode": (str, False),
-        "RegistrationConfig": (dict, False),
+        "RegistrationConfig": (RegistrationConfig, False),
         "Status": (str, True),
         "Tags": (Tags, False),
         "VerificationCertificatePem": (str, False),
@@ -418,6 +430,7 @@ class ProvisioningTemplate(AWSObject):
         "Tags": (Tags, False),
         "TemplateBody": (str, True),
         "TemplateName": (str, False),
+        "TemplateType": (str, False),
     }
 
 

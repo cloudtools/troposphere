@@ -225,6 +225,7 @@ class PromptSpecification(AWSProperty):
         "AllowInterrupt": (boolean, False),
         "MaxRetries": (integer, True),
         "MessageGroupsList": ([MessageGroup], True),
+        "MessageSelectionStrategy": (str, False),
     }
 
 

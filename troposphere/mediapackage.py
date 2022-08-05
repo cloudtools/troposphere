@@ -179,6 +179,7 @@ class OriginEndpointDashPackage(AWSProperty):
         "AdTriggers": ([str], False),
         "AdsOnDeliveryRestrictions": (str, False),
         "Encryption": (OriginEndpointDashEncryption, False),
+        "IncludeIframeOnlyStream": (boolean, False),
         "ManifestLayout": (str, False),
         "ManifestWindowSeconds": (integer, False),
         "MinBufferTimeSeconds": (integer, False),
