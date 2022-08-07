@@ -1,6 +1,6 @@
 # Extend the official tutorial to be more close to production, the original tutorial is located at:
 # https://docs.aws.amazon.com/batch/latest/userguide/batch_sns_tutorial.html
-# This example would send successful job every 1 minute and failed job every 3 minutes.
+# This example would send a successful job every 1 minute and failed job every 3 minutes.
 # The failed jobs would invoke the lambda function through SNS.
 
 from awacs.aws import Allow, PolicyDocument, Principal, Statement
