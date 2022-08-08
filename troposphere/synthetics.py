@@ -128,3 +128,17 @@ class Canary(AWSObject):
         "VPCConfig": (VPCConfig, False),
         "VisualReference": (VisualReference, False),
     }
+
+
+class Group(AWSObject):
+    """
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-synthetics-group.html>`__
+    """
+
+    resource_type = "AWS::Synthetics::Group"
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "ResourceArns": ([str], False),
+        "Tags": (Tags, False),
+    }
