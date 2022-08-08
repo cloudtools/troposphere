@@ -20,7 +20,7 @@ from .validators.dynamodb import (
 
 class AttributeDefinition(AWSProperty):
     """
-    `AttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-attributedefinition.html>`__
+    `AttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-attributedef.html>`__
     """
 
     props: PropsDictType = {
@@ -31,7 +31,7 @@ class AttributeDefinition(AWSProperty):
 
 class KeySchema(AWSProperty):
     """
-    `KeySchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-keyschema.html>`__
+    `KeySchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-keyschema.html>`__
     """
 
     props: PropsDictType = {
@@ -42,7 +42,7 @@ class KeySchema(AWSProperty):
 
 class Projection(AWSProperty):
     """
-    `Projection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-projection.html>`__
+    `Projection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-projectionobject.html>`__
     """
 
     props: PropsDictType = {
@@ -119,7 +119,7 @@ class GlobalTableSSESpecification(AWSProperty):
 
 class LocalSecondaryIndex(AWSProperty):
     """
-    `LocalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-localsecondaryindex.html>`__
+    `LocalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-lsi.html>`__
     """
 
     props: PropsDictType = {
@@ -131,7 +131,7 @@ class LocalSecondaryIndex(AWSProperty):
 
 class ContributorInsightsSpecification(AWSProperty):
     """
-    `ContributorInsightsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html>`__
+    `ContributorInsightsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-contributorinsightsspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -201,7 +201,7 @@ class ReplicaSpecification(AWSProperty):
 
 class StreamSpecification(AWSProperty):
     """
-    `StreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html>`__
+    `StreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-streamspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -211,7 +211,7 @@ class StreamSpecification(AWSProperty):
 
 class TimeToLiveSpecification(AWSProperty):
     """
-    `TimeToLiveSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-timetolivespecification.html>`__
+    `TimeToLiveSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-timetolivespecification.html>`__
     """
 
     props: PropsDictType = {
@@ -247,7 +247,7 @@ class GlobalTable(AWSObject):
 
 class ProvisionedThroughput(AWSProperty):
     """
-    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-provisionedthroughput.html>`__
+    `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-provisionedthroughput.html>`__
     """
 
     props: PropsDictType = {
@@ -258,7 +258,7 @@ class ProvisionedThroughput(AWSProperty):
 
 class GlobalSecondaryIndex(AWSProperty):
     """
-    `GlobalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-globalsecondaryindex.html>`__
+    `GlobalSecondaryIndex <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-gsi.html>`__
     """
 
     props: PropsDictType = {
@@ -272,7 +272,7 @@ class GlobalSecondaryIndex(AWSProperty):
 
 class KinesisStreamSpecification(AWSProperty):
     """
-    `KinesisStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html>`__
+    `KinesisStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-kinesisstreamspecification.html>`__
     """
 
     props: PropsDictType = {
