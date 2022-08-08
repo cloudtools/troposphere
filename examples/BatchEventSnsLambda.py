@@ -6,8 +6,9 @@
 from awacs.aws import Allow, PolicyDocument, Principal, Statement
 from awacs.batch import SubmitJob
 from awacs.sns import Publish
-from troposphere import GetAtt, Join, Parameter, Ref, Region, Template
-from troposphere.awslambda import Environment, Permission, Function, Code
+
+from troposphere import GetAtt, Join, Output, Parameter, Ref, Template
+from troposphere.awslambda import Code, Function, Permission
 from troposphere.batch import (
     ComputeEnvironment,
     ComputeEnvironmentOrder,
@@ -26,8 +27,9 @@ from troposphere.events import BatchParameters, Rule, Target
 from troposphere.iam import Policy, Role
 from troposphere.sns import Subscription, Topic, TopicPolicy
 
-
-t = Template(Description="Setup cron jobs with a job queue and send message through sns when a job fails.")
+t = Template(
+    Description="Setup cron jobs with a job queue and send message through sns when a job fails."
+)
 t.set_version("2010-09-09")
 t.set_transform("AWS::Serverless-2016-10-31")
 
@@ -47,20 +49,6 @@ SubnetList = [
     )
     for i in range(1, 4)
 ]
-
-Region = t.add_parameter(
-    Parameter(
-        "Region",
-        Type="String",
-    )
-)
-
-ProjectId = t.add_parameter(
-    Parameter(
-        "ProjectId",
-        Type="String",
-    )
-)
 
 
 EventBridgeInvokeBatchJobQueueRole = t.add_resource(
@@ -123,7 +111,14 @@ BatchComputeEnvironment = t.add_resource(
             Subnets=[Ref(SubNet) for SubNet in SubnetList],
             Type="FARGATE",
         ),
-        ServiceRole=Join(":", ["arn:aws:iam:", Ref(ProjectId), "role/aws-service-role/batch.amazonaws.com/AWSServiceRoleForBatch"]),
+        ServiceRole=Join(
+            ":",
+            [
+                "arn:aws:iam:",
+                Ref("AWS::AccountId"),
+                "role/aws-service-role/batch.amazonaws.com/AWSServiceRoleForBatch",
+            ],
+        ),
         State="ENABLED",
     )
 )
@@ -133,7 +128,9 @@ JobQueueCron = t.add_resource(
         "JobQueueCron",
         JobQueueName="cron-queue",
         ComputeEnvironmentOrder=[
-            ComputeEnvironmentOrder(ComputeEnvironment=Ref(BatchComputeEnvironment), Order=1),
+            ComputeEnvironmentOrder(
+                ComputeEnvironment=Ref(BatchComputeEnvironment), Order=1
+            ),
         ],
         Priority=60,
         State="ENABLED",
@@ -149,7 +146,9 @@ JobDefinitionFailCron = t.add_resource(
             Command=["/bin/sh", "-c", "exit 1"],
             Image="public.ecr.aws/amazonlinux/amazonlinux:latest",
             ExecutionRoleArn=GetAtt(BatchTaskFargateRole, "Arn"),
-            FargatePlatformConfiguration=FargatePlatformConfiguration(PlatformVersion="1.4.0"),
+            FargatePlatformConfiguration=FargatePlatformConfiguration(
+                PlatformVersion="1.4.0"
+            ),
             NetworkConfiguration=NetworkConfiguration(AssignPublicIp="ENABLED"),
             ResourceRequirements=[
                 ResourceRequirement(Type="MEMORY", Value="8192"),
@@ -173,7 +172,9 @@ JobDefinitionSuccessCron = t.add_resource(
             Command=["echo", "'Success'"],
             Image="public.ecr.aws/amazonlinux/amazonlinux:latest",
             ExecutionRoleArn=GetAtt(BatchTaskFargateRole, "Arn"),
-            FargatePlatformConfiguration=FargatePlatformConfiguration(PlatformVersion="1.4.0"),
+            FargatePlatformConfiguration=FargatePlatformConfiguration(
+                PlatformVersion="1.4.0"
+            ),
             NetworkConfiguration=NetworkConfiguration(AssignPublicIp="ENABLED"),
             ResourceRequirements=[
                 ResourceRequirement(Type="MEMORY", Value="8192"),
@@ -203,7 +204,16 @@ EventRuleCronFailJob = t.add_resource(
                 Arn=Ref(JobQueueCron),
                 RoleArn=GetAtt(EventBridgeInvokeBatchJobQueueRole, "Arn"),
                 BatchParameters=BatchParameters(
-                    JobDefinition=Join(":", ["arn:aws:batch", Ref(Region), Ref(ProjectId), "job-definition/cron-fail", JobFailRevision]),
+                    JobDefinition=Join(
+                        ":",
+                        [
+                            "arn:aws:batch",
+                            Ref("AWS::Region"),
+                            Ref("AWS::AccountId"),
+                            "job-definition/cron-fail",
+                            JobFailRevision,
+                        ],
+                    ),
                     JobName="cron-fail-eventbridge",
                 ),
                 Id="cron-fail",
@@ -225,7 +235,16 @@ EventRuleCronSuccessJob = t.add_resource(
                 Arn=Ref(JobQueueCron),
                 RoleArn=GetAtt(EventBridgeInvokeBatchJobQueueRole, "Arn"),
                 BatchParameters=BatchParameters(
-                    JobDefinition=Join(":", ["arn:aws:batch", Ref(Region), Ref(ProjectId), "job-definition/cron-success", JobSuccessRevision]),
+                    JobDefinition=Join(
+                        ":",
+                        [
+                            "arn:aws:batch",
+                            Ref("AWS::Region"),
+                            Ref("AWS::AccountId"),
+                            "job-definition/cron-success",
+                            JobSuccessRevision,
+                        ],
+                    ),
                     JobName="cron-success-eventbridge",
                 ),
                 Id="cron-success",
@@ -272,7 +291,7 @@ LambdaExecutionRole = t.add_resource(
 LambdaCronFailNotify = t.add_resource(
     Function(
         "LambdaCronFailNotify",
-        Handler="app.lambda_handler",
+        Handler="index.lambda_handler",
         Code=Code(
             ZipFile="""
 import boto3
@@ -337,7 +356,11 @@ EventRuleCronFailed = t.add_resource(
         Name="cron-failed",
         Description="Send SNS for cron jobs of cron-queue for which status are FAILED",
         State="ENABLED",
-        EventPattern={"detail-type": ["Batch Job State Change"], "source": ["aws.batch"], "detail": {"status": ["FAILED"], "jobQueue": [Ref(JobQueueCron)]}},
+        EventPattern={
+            "detail-type": ["Batch Job State Change"],
+            "source": ["aws.batch"],
+            "detail": {"status": ["FAILED"], "jobQueue": [Ref(JobQueueCron)]},
+        },
         Targets=[
             Target(
                 "CronFailedAsTarget",
@@ -358,5 +381,16 @@ LambdaInvokePermissionCronFailed = t.add_resource(
     )
 )
 
+t.add_output(
+    [
+        Output("BatchComputeEnvironment", Value=Ref(BatchComputeEnvironment)),
+        Output("JobQueueCron", Value=Ref(JobQueueCron)),
+        Output("EventRuleCronFailJob", Value=Ref(EventRuleCronFailJob)),
+        Output("EventRuleCronSuccessJob", Value=Ref(EventRuleCronSuccessJob)),
+        Output("SnsTopicCronFailed", Value=Ref(SnsTopicCronFailed)),
+        Output("LambdaCronFailNotify", Value=Ref(LambdaCronFailNotify)),
+    ]
+)
 
-print(t.to_yaml())
+
+print(t.to_json())
