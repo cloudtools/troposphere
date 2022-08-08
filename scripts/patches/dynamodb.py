@@ -21,15 +21,4 @@ patches = [
         "path": "/ResourceTypes/AWS::DynamoDB::GlobalTable/Properties/SSESpecification/Type",
         "value": "GlobalTableSSESpecification",
     },
-    # Fix issue in spec 82.0.0 that changed Type to Json
-    {
-        "op": "replace",
-        "path": "/ResourceTypes/AWS::DynamoDB::Table/Properties/KeySchema/Type",
-        "value": "List",
-    },
-    {
-        "op": "add",
-        "path": "/ResourceTypes/AWS::DynamoDB::Table/Properties/KeySchema/ItemType",
-        "value": "KeySchema",
-    },
 ]

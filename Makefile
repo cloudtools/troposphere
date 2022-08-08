@@ -77,6 +77,7 @@ spec:
 	mkdir spec
 	unzip -q -d spec CloudFormationResourceSpecification.zip
 	rm CloudFormationResourceSpecification.zip
+	rm CloudFormationResourceSpecification.json
 	curl -s -O --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
 	SPECVERSION=$$(jq -r .ResourceSpecificationVersion CloudFormationResourceSpecification.json) && \
 	/bin/echo "Downloaded version:" $${SPECVERSION} && \
