@@ -1,3 +1,37 @@
+4.1.0 (2022*08*08)
+-------------------------------
+* Updates from spec version 72.0.0 (#2046)
+* Make spec download and isort fixups less verbose
+* Fix issues with recent changes to SageMaker spec files (72.1.0)
+* Updates from spec version 72.1.0 (#2048)
+* Updates from spec version 73.1.0 (#2049)
+* Updates from spec version 75.0.0 (#2051)
+* Updates from spec version 76.0.0 (#2052)
+* Updates from spec version 76.0.0 (#2056)
+* Update SSM Patch Baseline OS validator (#2057)
+* Add spec patch for AppFlow
+* Updates from spec version 78.0.0 (#2059)
+* Remove unused Clarify* properties from SageMaker to pass lint
+* Add "allExcept" as a valid CloudFront::Cachepolicy QueryStringBehavior (Fixes #2060)
+* Remove uneeded `from __future__ import print_function` (#2058)
+* Allow json/yaml strings for SSM Document.Content property (#2055)
+* Fix broken regen due to LakeFormation changes
+* Fix DataSync::LocationFSxONTAP.Protocol type duplication
+* Fix spec issue with Transfer::Server ProtocolDetails
+* Updates from spec version 81.1.0 (#2062)
+* Allow CodeArtifact resources to accept policytypes (Fixes #2065)
+* Pin pyright to version 1.1.261
+* Add support for list types and validator functions in GlobalsHelperFn type check (#2064)
+* Add gp3 as an allowed volume type for ImageBuilder
+* Provide better error message for missing property in generator
+* Fix issue in spec 82.0.0 with DynamoDB KeySchema Type
+* Updates from spec version 82.0.0 (#2067)
+* Add example of SNS alert for failed batch job events (#2069)
+* Fix backup of spec files
+* Revert "Fix issue in spec 82.0.0 with DynamoDB KeySchema Type"
+* Fix first run of "make spec" where a spec file isn't initally there
+* Updates from spec version 83.0.0 (#2068)
+
 4.0.2 (2022*05*11)
 -------------------------------
 * Add ephemeral storage
