@@ -10,6 +10,7 @@ from . import AWSHelperFn, AWSObject, AWSProperty, PropsDictType
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .apigatewayv2 import AccessLogSettings, RouteSettings
 from .awslambda import (
+    Cors,
     DestinationConfig,
     Environment,
     EphemeralStorage,
@@ -132,6 +133,24 @@ class EventInvokeConfiguration(AWSProperty):
     }
 
 
+def validate_authtype(authtype):
+    VALID_AUTHTYPE = [
+        "AWS_IAM",
+        "NONE",
+    ]
+
+    if authtype not in VALID_AUTHTYPE:
+        raise ValueError("AuthType must be one of: %s" % ", ".join(VALID_AUTHTYPE))
+    return authtype
+
+
+class FunctionUrlConfig(AWSProperty):
+    props: PropsDictType = {
+        "AuthType": (validate_authtype, True),
+        "Cors": (Cors, False),
+    }
+
+
 class Function(AWSObject):
     resource_type = "AWS::Serverless::Function"
 
@@ -151,6 +170,7 @@ class Function(AWSObject):
         "Events": (dict, False),
         "FileSystemConfigs": ([FileSystemConfig], False),
         "FunctionName": (str, False),
+        "FunctionUrlConfig": (FunctionUrlConfig, False),
         "Handler": (str, False),
         "ImageConfig": (ImageConfig, False),
         "ImageUri": ((AWSHelperFn, str, dict), False),
