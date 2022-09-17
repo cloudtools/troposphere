@@ -9,4 +9,9 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::Macie::FindingsFilter.FindingsFilterListItem",
     },
+    {
+        "op": "add",
+        "path": "/ResourceTypes/AWS::Macie::AllowList/Properties/Criteria/PrimitiveType",
+        "value": "Json",
+    },
 ]
