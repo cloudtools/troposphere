@@ -81,7 +81,7 @@ class Cluster(AWSObject):
 
 class AmazonRedshiftParameter(AWSProperty):
     """
-    `AmazonRedshiftParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html>`__
+    `AmazonRedshiftParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -155,10 +155,10 @@ class EndpointAccess(AWSObject):
     resource_type = "AWS::Redshift::EndpointAccess"
 
     props: PropsDictType = {
-        "ClusterIdentifier": (str, False),
+        "ClusterIdentifier": (str, True),
         "EndpointName": (str, True),
         "ResourceOwner": (str, False),
-        "SubnetGroupName": (str, False),
+        "SubnetGroupName": (str, True),
         "VpcSecurityGroupIds": ([str], True),
     }
 
@@ -197,52 +197,6 @@ class EventSubscription(AWSObject):
     }
 
 
-class PauseClusterMessage(AWSProperty):
-    """
-    `PauseClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html>`__
-    """
-
-    props: PropsDictType = {
-        "ClusterIdentifier": (str, True),
-    }
-
-
-class ResizeClusterMessage(AWSProperty):
-    """
-    `ResizeClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resizeclustermessage.html>`__
-    """
-
-    props: PropsDictType = {
-        "Classic": (boolean, False),
-        "ClusterIdentifier": (str, True),
-        "ClusterType": (str, False),
-        "NodeType": (str, False),
-        "NumberOfNodes": (integer, False),
-    }
-
-
-class ResumeClusterMessage(AWSProperty):
-    """
-    `ResumeClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-resumeclustermessage.html>`__
-    """
-
-    props: PropsDictType = {
-        "ClusterIdentifier": (str, True),
-    }
-
-
-class ScheduledActionType(AWSProperty):
-    """
-    `ScheduledActionType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-scheduledactiontype.html>`__
-    """
-
-    props: PropsDictType = {
-        "PauseCluster": (PauseClusterMessage, False),
-        "ResizeCluster": (ResizeClusterMessage, False),
-        "ResumeCluster": (ResumeClusterMessage, False),
-    }
-
-
 class ScheduledAction(AWSObject):
     """
     `ScheduledAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-scheduledaction.html>`__
@@ -258,7 +212,7 @@ class ScheduledAction(AWSObject):
         "ScheduledActionDescription": (str, False),
         "ScheduledActionName": (str, True),
         "StartTime": (str, False),
-        "TargetAction": (ScheduledActionType, False),
+        "TargetAction": (dict, False),
     }
 
 

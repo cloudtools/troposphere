@@ -9,4 +9,9 @@ patches = [
         "path": "/ResourceTypes/AWS::Redshift::ClusterParameterGroup/Properties/Parameters/ItemType",
         "value": "AmazonRedshiftParameter",
     },
+    {
+        "op": "add",
+        "path": "/ResourceTypes/AWS::Redshift::ScheduledAction/Properties/TargetAction/PrimitiveType",
+        "value": "Json",
+    },
 ]
