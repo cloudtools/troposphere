@@ -666,7 +666,7 @@ class StateMachine(AWSObject):
 
     props: PropsDictType = {
         "Definition": (dict, False),
-        "DefinitionUri": (S3Location, False),
+        "DefinitionUri": ((S3Location, str), False),
         "DefinitionSubstitutions": (dict, False),
         "Events": (dict, False),
         "Logging": (LoggingConfiguration, False),
