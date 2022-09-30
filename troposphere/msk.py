@@ -92,17 +92,7 @@ class BrokerNodeGroupInfo(AWSProperty):
 
 class Iam(AWSProperty):
     """
-    `Iam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-iam.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, True),
-    }
-
-
-class Scram(AWSProperty):
-    """
-    `Scram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html>`__
+    `Iam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-iam.html>`__
     """
 
     props: PropsDictType = {
@@ -112,45 +102,21 @@ class Scram(AWSProperty):
 
 class Sasl(AWSProperty):
     """
-    `Sasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html>`__
+    `Sasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-sasl.html>`__
     """
 
     props: PropsDictType = {
-        "Iam": (Iam, False),
-        "Scram": (Scram, False),
-    }
-
-
-class Tls(AWSProperty):
-    """
-    `Tls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html>`__
-    """
-
-    props: PropsDictType = {
-        "CertificateAuthorityArnList": ([str], False),
-        "Enabled": (boolean, False),
-    }
-
-
-class Unauthenticated(AWSProperty):
-    """
-    `Unauthenticated <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-unauthenticated.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, True),
+        "Iam": (Iam, True),
     }
 
 
 class ClientAuthentication(AWSProperty):
     """
-    `ClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html>`__
+    `ClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html>`__
     """
 
     props: PropsDictType = {
-        "Sasl": (Sasl, False),
-        "Tls": (Tls, False),
-        "Unauthenticated": (Unauthenticated, False),
+        "Sasl": (Sasl, True),
     }
 
 
@@ -329,4 +295,61 @@ class Configuration(AWSObject):
         "KafkaVersionsList": ([str], False),
         "Name": (str, True),
         "ServerProperties": (str, True),
+    }
+
+
+class VpcConfig(AWSProperty):
+    """
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-vpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroups": ([str], False),
+        "SubnetIds": ([str], True),
+    }
+
+
+class ServerlessCluster(AWSObject):
+    """
+    `ServerlessCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-serverlesscluster.html>`__
+    """
+
+    resource_type = "AWS::MSK::ServerlessCluster"
+
+    props: PropsDictType = {
+        "ClientAuthentication": (ClientAuthentication, True),
+        "ClusterName": (str, True),
+        "Tags": (dict, False),
+        "VpcConfigs": ([VpcConfig], True),
+    }
+
+
+class Scram(AWSProperty):
+    """
+    `Scram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+    }
+
+
+class Tls(AWSProperty):
+    """
+    `Tls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateAuthorityArnList": ([str], False),
+        "Enabled": (boolean, False),
+    }
+
+
+class Unauthenticated(AWSProperty):
+    """
+    `Unauthenticated <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-unauthenticated.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
     }

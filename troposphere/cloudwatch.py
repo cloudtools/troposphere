@@ -71,7 +71,7 @@ class MetricDataQuery(AWSProperty):
 
 class Alarm(AWSObject):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cw-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudwatch-alarm.html>`__
     """
 
     resource_type = "AWS::CloudWatch::Alarm"

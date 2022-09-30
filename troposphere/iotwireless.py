@@ -35,6 +35,7 @@ class LoRaWANDeviceProfile(AWSProperty):
     props: PropsDictType = {
         "ClassBTimeout": (integer, False),
         "ClassCTimeout": (integer, False),
+        "FactoryPresetFreqsList": ([integer], False),
         "MacVersion": (str, False),
         "MaxDutyCycle": (integer, False),
         "MaxEirp": (integer, False),
@@ -43,6 +44,10 @@ class LoRaWANDeviceProfile(AWSProperty):
         "PingSlotPeriod": (integer, False),
         "RegParamsRevision": (str, False),
         "RfRegion": (str, False),
+        "RxDataRate2": (integer, False),
+        "RxDelay1": (integer, False),
+        "RxDrOffset1": (integer, False),
+        "RxFreq2": (integer, False),
         "Supports32BitFCnt": (boolean, False),
         "SupportsClassB": (boolean, False),
         "SupportsClassC": (boolean, False),
@@ -417,4 +422,5 @@ class WirelessGateway(AWSObject):
         "Name": (str, False),
         "Tags": (Tags, False),
         "ThingArn": (str, False),
+        "ThingName": (str, False),
     }

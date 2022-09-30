@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 from .validators.rds import (
     validate_backtrack_window,
     validate_backup_retention_period,
@@ -48,6 +48,17 @@ class ScalingConfiguration(AWSProperty):
     }
 
 
+class ServerlessV2ScalingConfiguration(AWSProperty):
+    """
+    `ServerlessV2ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-serverlessv2scalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxCapacity": (double, False),
+        "MinCapacity": (double, False),
+    }
+
+
 class DBCluster(AWSObject):
     """
     `DBCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbcluster.html>`__
@@ -56,13 +67,17 @@ class DBCluster(AWSObject):
     resource_type = "AWS::RDS::DBCluster"
 
     props: PropsDictType = {
+        "AllocatedStorage": (integer, False),
         "AssociatedRoles": ([DBClusterRole], False),
+        "AutoMinorVersionUpgrade": (boolean, False),
         "AvailabilityZones": ([str], False),
         "BacktrackWindow": (validate_backtrack_window, False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),
         "CopyTagsToSnapshot": (boolean, False),
         "DBClusterIdentifier": (str, False),
+        "DBClusterInstanceClass": (str, False),
         "DBClusterParameterGroupName": (str, False),
+        "DBInstanceParameterGroupName": (str, False),
         "DBSubnetGroupName": (str, False),
         "DatabaseName": (str, False),
         "DeletionProtection": (boolean, False),
@@ -73,19 +88,28 @@ class DBCluster(AWSObject):
         "EngineMode": (validate_engine_mode, False),
         "EngineVersion": (str, False),
         "GlobalClusterIdentifier": (str, False),
+        "Iops": (integer, False),
         "KmsKeyId": (str, False),
         "MasterUserPassword": (str, False),
         "MasterUsername": (str, False),
+        "MonitoringInterval": (integer, False),
+        "MonitoringRoleArn": (str, False),
+        "PerformanceInsightsEnabled": (boolean, False),
+        "PerformanceInsightsKmsKeyId": (str, False),
+        "PerformanceInsightsRetentionPeriod": (integer, False),
         "Port": (validate_network_port, False),
         "PreferredBackupWindow": (validate_backup_window, False),
         "PreferredMaintenanceWindow": (str, False),
+        "PubliclyAccessible": (boolean, False),
         "ReplicationSourceIdentifier": (str, False),
         "RestoreType": (str, False),
         "ScalingConfiguration": (ScalingConfiguration, False),
+        "ServerlessV2ScalingConfiguration": (ServerlessV2ScalingConfiguration, False),
         "SnapshotIdentifier": (str, False),
         "SourceDBClusterIdentifier": (str, False),
         "SourceRegion": (str, False),
         "StorageEncrypted": (boolean, False),
+        "StorageType": (str, False),
         "Tags": (validate_tags_or_list, False),
         "UseLatestRestorableTime": (boolean, False),
         "VpcSecurityGroupIds": ([str], False),
@@ -131,7 +155,7 @@ class ProcessorFeature(AWSProperty):
 
 class DBInstance(AWSObject):
     """
-    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-database-instance.html>`__
+    `DBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbinstance.html>`__
     """
 
     resource_type = "AWS::RDS::DBInstance"
@@ -146,8 +170,9 @@ class DBInstance(AWSObject):
         "CACertificateIdentifier": (str, False),
         "CharacterSetName": (str, False),
         "CopyTagsToSnapshot": (boolean, False),
+        "CustomIAMInstanceProfile": (str, False),
         "DBClusterIdentifier": (str, False),
-        "DBInstanceClass": (str, True),
+        "DBInstanceClass": (str, False),
         "DBInstanceIdentifier": (str, False),
         "DBName": (str, False),
         "DBParameterGroupName": (str, False),
@@ -172,6 +197,7 @@ class DBInstance(AWSObject):
         "MonitoringInterval": (integer, False),
         "MonitoringRoleArn": (str, False),
         "MultiAZ": (boolean, False),
+        "NcharCharacterSetName": (str, False),
         "OptionGroupName": (str, False),
         "PerformanceInsightsKMSKeyId": (str, False),
         "PerformanceInsightsRetentionPeriod": (integer, False),
@@ -428,4 +454,26 @@ class OptionGroup(AWSObject):
         "OptionConfigurations": ([OptionConfiguration], False),
         "OptionGroupDescription": (str, True),
         "Tags": (validate_tags_or_list, False),
+    }
+
+
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "HostedZoneId": (str, False),
+        "Port": (str, False),
+    }
+
+
+class ReadEndpoint(AWSProperty):
+    """
+    `ReadEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-readendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
     }

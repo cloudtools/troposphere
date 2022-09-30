@@ -748,6 +748,7 @@ class IPAMPool(AWSObject):
         "AllocationMinNetmaskLength": (integer, False),
         "AllocationResourceTags": (Tags, False),
         "AutoImport": (boolean, False),
+        "AwsService": (str, False),
         "Description": (str, False),
         "IpamScopeId": (str, True),
         "Locale": (str, False),
@@ -1397,6 +1398,7 @@ class LaunchTemplate(AWSObject):
         "LaunchTemplateData": (LaunchTemplateData, True),
         "LaunchTemplateName": (str, False),
         "TagSpecifications": ([TagSpecifications], False),
+        "VersionDescription": (str, False),
     }
 
 
@@ -2575,7 +2577,7 @@ class VpnTunnelOptionsSpecification(AWSProperty):
 
 class VPNConnection(AWSObject):
     """
-    `VPNConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection.html>`__
+    `VPNConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnection.html>`__
     """
 
     resource_type = "AWS::EC2::VPNConnection"
@@ -2668,6 +2670,17 @@ class VolumeAttachment(AWSObject):
         "Device": (str, True),
         "InstanceId": (str, True),
         "VolumeId": (str, True),
+    }
+
+
+class AdditionalDetail(AWSProperty):
+    """
+    `AdditionalDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalDetailType": (str, False),
+        "Component": (AnalysisComponent, False),
     }
 
 

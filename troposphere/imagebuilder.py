@@ -37,6 +37,17 @@ class Component(AWSObject):
     }
 
 
+class ComponentParameter(AWSProperty):
+    """
+    `ComponentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": ([str], True),
+    }
+
+
 class ContainerComponentConfiguration(AWSProperty):
     """
     `ContainerComponentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-containerrecipe-componentconfiguration.html>`__
@@ -44,6 +55,7 @@ class ContainerComponentConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ComponentArn": (str, False),
+        "Parameters": ([ComponentParameter], False),
     }
 
 
@@ -329,17 +341,6 @@ class AdditionalInstanceConfiguration(AWSProperty):
     props: PropsDictType = {
         "SystemsManagerAgent": (SystemsManagerAgent, False),
         "UserDataOverride": (str, False),
-    }
-
-
-class ComponentParameter(AWSProperty):
-    """
-    `ComponentParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagerecipe-componentparameter.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "Value": ([str], True),
     }
 
 

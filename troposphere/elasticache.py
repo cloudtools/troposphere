@@ -89,6 +89,7 @@ class CacheCluster(AWSObject):
         "SnapshotRetentionLimit": (integer, False),
         "SnapshotWindow": (str, False),
         "Tags": (Tags, False),
+        "TransitEncryptionEnabled": (boolean, False),
         "VpcSecurityGroupIds": ([str], False),
     }
 
@@ -258,7 +259,7 @@ class SecurityGroupIngress(AWSObject):
 
 class SubnetGroup(AWSObject):
     """
-    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-subnetgroup.html>`__
+    `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html>`__
     """
 
     resource_type = "AWS::ElastiCache::SubnetGroup"

@@ -24,7 +24,7 @@ class Destination(AWSObject):
 
     props: PropsDictType = {
         "DestinationName": (str, True),
-        "DestinationPolicy": (str, True),
+        "DestinationPolicy": (str, False),
         "RoleArn": (str, True),
         "TargetArn": (str, True),
     }

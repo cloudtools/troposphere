@@ -97,6 +97,7 @@ class OriginEndpointCmafEncryption(AWSProperty):
 
     props: PropsDictType = {
         "ConstantInitializationVector": (str, False),
+        "EncryptionMethod": (str, False),
         "KeyRotationIntervalSeconds": (integer, False),
         "SpekeKeyProvider": (OriginEndpointSpekeKeyProvider, True),
     }

@@ -77,7 +77,7 @@ class Application(AWSObject):
 
 class SourceBundle(AWSProperty):
     """
-    `SourceBundle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-sourcebundle.html>`__
+    `SourceBundle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-applicationversion-sourcebundle.html>`__
     """
 
     props: PropsDictType = {
@@ -88,7 +88,7 @@ class SourceBundle(AWSProperty):
 
 class ApplicationVersion(AWSObject):
     """
-    `ApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-version.html>`__
+    `ApplicationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-applicationversion.html>`__
     """
 
     resource_type = "AWS::ElasticBeanstalk::ApplicationVersion"

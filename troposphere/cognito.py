@@ -389,6 +389,7 @@ class UserPoolClient(AWSObject):
         "AllowedOAuthFlowsUserPoolClient": (boolean, False),
         "AllowedOAuthScopes": ([str], False),
         "AnalyticsConfiguration": (AnalyticsConfiguration, False),
+        "AuthSessionValidity": (integer, False),
         "CallbackURLs": ([str], False),
         "ClientName": (str, False),
         "DefaultRedirectURI": (str, False),

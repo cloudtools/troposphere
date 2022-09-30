@@ -148,6 +148,16 @@ class EventInvokeConfig(AWSObject):
     }
 
 
+class AmazonManagedKafkaEventSourceConfig(AWSProperty):
+    """
+    `AmazonManagedKafkaEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-amazonmanagedkafkaeventsourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConsumerGroupId": (str, False),
+    }
+
+
 class Filter(AWSProperty):
     """
     `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html>`__
@@ -188,6 +198,16 @@ class SelfManagedEventSource(AWSProperty):
     }
 
 
+class SelfManagedKafkaEventSourceConfig(AWSProperty):
+    """
+    `SelfManagedKafkaEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-selfmanagedkafkaeventsourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConsumerGroupId": (str, False),
+    }
+
+
 class SourceAccessConfiguration(AWSProperty):
     """
     `SourceAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-sourceaccessconfiguration.html>`__
@@ -207,6 +227,10 @@ class EventSourceMapping(AWSObject):
     resource_type = "AWS::Lambda::EventSourceMapping"
 
     props: PropsDictType = {
+        "AmazonManagedKafkaEventSourceConfig": (
+            AmazonManagedKafkaEventSourceConfig,
+            False,
+        ),
         "BatchSize": (integer, False),
         "BisectBatchOnFunctionError": (boolean, False),
         "DestinationConfig": (DestinationConfig, False),
@@ -221,6 +245,7 @@ class EventSourceMapping(AWSObject):
         "ParallelizationFactor": (integer, False),
         "Queues": ([str], False),
         "SelfManagedEventSource": (SelfManagedEventSource, False),
+        "SelfManagedKafkaEventSourceConfig": (SelfManagedKafkaEventSourceConfig, False),
         "SourceAccessConfigurations": ([SourceAccessConfiguration], False),
         "StartingPosition": (str, False),
         "StartingPositionTimestamp": (double, False),

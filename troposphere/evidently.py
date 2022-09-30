@@ -234,6 +234,17 @@ class Launch(AWSObject):
     }
 
 
+class AppConfigResourceObject(AWSProperty):
+    """
+    `AppConfigResourceObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-appconfigresourceobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationId": (str, True),
+        "EnvironmentId": (str, True),
+    }
+
+
 class S3Destination(AWSProperty):
     """
     `S3Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-evidently-project-s3destination.html>`__
@@ -264,6 +275,7 @@ class Project(AWSObject):
     resource_type = "AWS::Evidently::Project"
 
     props: PropsDictType = {
+        "AppConfigResource": (AppConfigResourceObject, False),
         "DataDelivery": (DataDeliveryObject, False),
         "Description": (str, False),
         "Name": (str, True),
