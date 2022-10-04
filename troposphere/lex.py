@@ -509,6 +509,7 @@ class VoiceSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Engine": (str, False),
         "VoiceId": (str, True),
     }
 

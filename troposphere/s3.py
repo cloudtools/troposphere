@@ -945,3 +945,24 @@ class StorageLens(AWSObject):
         "StorageLensConfiguration": (StorageLensConfiguration, True),
         "Tags": (Tags, False),
     }
+
+
+class SSEKMS(AWSProperty):
+    """
+    `SSEKMS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyId": (str, True),
+    }
+
+
+class Encryption(AWSProperty):
+    """
+    `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html>`__
+    """
+
+    props: PropsDictType = {
+        "SSEKMS": (SSEKMS, False),
+        "SSES3": (dict, False),
+    }

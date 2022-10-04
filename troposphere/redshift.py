@@ -81,7 +81,7 @@ class Cluster(AWSObject):
 
 class AmazonRedshiftParameter(AWSProperty):
     """
-    `AmazonRedshiftParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-property-redshift-clusterparametergroup-parameter.html>`__
+    `AmazonRedshiftParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-clusterparametergroup-parameter.html>`__
     """
 
     props: PropsDictType = {
@@ -155,10 +155,10 @@ class EndpointAccess(AWSObject):
     resource_type = "AWS::Redshift::EndpointAccess"
 
     props: PropsDictType = {
-        "ClusterIdentifier": (str, False),
+        "ClusterIdentifier": (str, True),
         "EndpointName": (str, True),
         "ResourceOwner": (str, False),
-        "SubnetGroupName": (str, False),
+        "SubnetGroupName": (str, True),
         "VpcSecurityGroupIds": ([str], True),
     }
 

@@ -100,6 +100,17 @@ class Logging(AWSProperty):
     }
 
 
+class OutpostConfig(AWSProperty):
+    """
+    `OutpostConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ControlPlaneInstanceType": (str, True),
+        "OutpostArns": ([str], True),
+    }
+
+
 class ResourcesVpcConfig(AWSProperty):
     """
     `ResourcesVpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-resourcesvpcconfig.html>`__
@@ -126,6 +137,7 @@ class Cluster(AWSObject):
         "KubernetesNetworkConfig": (KubernetesNetworkConfig, False),
         "Logging": (Logging, False),
         "Name": (str, False),
+        "OutpostConfig": (OutpostConfig, False),
         "ResourcesVpcConfig": (ResourcesVpcConfig, True),
         "RoleArn": (str, True),
         "Tags": (Tags, False),

@@ -440,12 +440,14 @@ class Job(AWSObject):
         "Connections": (ConnectionsList, False),
         "DefaultArguments": (dict, False),
         "Description": (str, False),
+        "ExecutionClass": (str, False),
         "ExecutionProperty": (ExecutionProperty, False),
         "GlueVersion": (str, False),
         "LogUri": (str, False),
         "MaxCapacity": (double, False),
         "MaxRetries": (double, False),
         "Name": (str, False),
+        "NonOverridableArguments": (dict, False),
         "NotificationProperty": (NotificationProperty, False),
         "NumberOfWorkers": (integer, False),
         "Role": (str, True),
@@ -882,6 +884,17 @@ class Action(AWSProperty):
     }
 
 
+class EventBatchingCondition(AWSProperty):
+    """
+    `EventBatchingCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-eventbatchingcondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "BatchSize": (integer, True),
+        "BatchWindow": (integer, False),
+    }
+
+
 class Condition(AWSProperty):
     """
     `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-condition.html>`__
@@ -917,6 +930,7 @@ class Trigger(AWSObject):
     props: PropsDictType = {
         "Actions": ([Action], True),
         "Description": (str, False),
+        "EventBatchingCondition": (EventBatchingCondition, False),
         "Name": (str, False),
         "Predicate": (Predicate, False),
         "Schedule": (str, False),
@@ -937,6 +951,7 @@ class Workflow(AWSObject):
     props: PropsDictType = {
         "DefaultRunProperties": (dict, False),
         "Description": (str, False),
+        "MaxConcurrentRuns": (integer, False),
         "Name": (str, False),
         "Tags": (dict, False),
     }

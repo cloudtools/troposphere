@@ -35,6 +35,49 @@ class IEMap(AWSProperty):
     }
 
 
+class NetworkFirewallPolicy(AWSProperty):
+    """
+    `NetworkFirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkfirewallpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirewallDeploymentModel": (str, True),
+    }
+
+
+class ThirdPartyFirewallPolicy(AWSProperty):
+    """
+    `ThirdPartyFirewallPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-thirdpartyfirewallpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirewallDeploymentModel": (str, True),
+    }
+
+
+class PolicyOption(AWSProperty):
+    """
+    `PolicyOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-policyoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetworkFirewallPolicy": (NetworkFirewallPolicy, False),
+        "ThirdPartyFirewallPolicy": (ThirdPartyFirewallPolicy, False),
+    }
+
+
+class SecurityServicePolicyData(AWSProperty):
+    """
+    `SecurityServicePolicyData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-securityservicepolicydata.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManagedServiceData": (str, False),
+        "PolicyOption": (PolicyOption, False),
+        "Type": (str, True),
+    }
+
+
 class Policy(AWSObject):
     """
     `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-policy.html>`__

@@ -190,6 +190,7 @@ class ConformancePack(AWSObject):
         "DeliveryS3KeyPrefix": (str, False),
         "TemplateBody": (str, False),
         "TemplateS3Uri": (str, False),
+        "TemplateSSMDocumentDetails": (dict, False),
     }
 
 

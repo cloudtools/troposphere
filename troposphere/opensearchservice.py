@@ -99,6 +99,7 @@ class EBSOptions(AWSProperty):
     props: PropsDictType = {
         "EBSEnabled": (boolean, False),
         "Iops": (integer, False),
+        "Throughput": (integer, False),
         "VolumeSize": (integer, False),
         "VolumeType": (str, False),
     }

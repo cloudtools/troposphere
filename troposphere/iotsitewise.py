@@ -116,6 +116,7 @@ class AssetProperty(AWSProperty):
         "Alias": (str, False),
         "LogicalId": (str, True),
         "NotificationState": (str, False),
+        "Unit": (str, False),
     }
 
 

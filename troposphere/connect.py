@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class ContactFlow(AWSObject):
@@ -24,7 +24,7 @@ class ContactFlow(AWSObject):
         "Name": (str, True),
         "State": (str, False),
         "Tags": (Tags, False),
-        "Type": (str, False),
+        "Type": (str, True),
     }
 
 
@@ -82,6 +82,110 @@ class HoursOfOperation(AWSObject):
         "Name": (str, True),
         "Tags": (Tags, False),
         "TimeZone": (str, True),
+    }
+
+
+class Attributes(AWSProperty):
+    """
+    `Attributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instance-attributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoResolveBestVoices": (boolean, False),
+        "ContactLens": (boolean, False),
+        "ContactflowLogs": (boolean, False),
+        "EarlyMedia": (boolean, False),
+        "InboundCalls": (boolean, True),
+        "OutboundCalls": (boolean, True),
+        "UseCustomTTSVoices": (boolean, False),
+    }
+
+
+class Instance(AWSObject):
+    """
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instance.html>`__
+    """
+
+    resource_type = "AWS::Connect::Instance"
+
+    props: PropsDictType = {
+        "Attributes": (Attributes, True),
+        "DirectoryId": (str, False),
+        "IdentityManagementType": (str, True),
+        "InstanceAlias": (str, False),
+    }
+
+
+class KinesisFirehoseConfig(AWSProperty):
+    """
+    `KinesisFirehoseConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisfirehoseconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirehoseArn": (str, True),
+    }
+
+
+class KinesisStreamConfig(AWSProperty):
+    """
+    `KinesisStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisstreamconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "StreamArn": (str, True),
+    }
+
+
+class EncryptionConfig(AWSProperty):
+    """
+    `EncryptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-encryptionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionType": (str, True),
+        "KeyId": (str, True),
+    }
+
+
+class KinesisVideoStreamConfig(AWSProperty):
+    """
+    `KinesisVideoStreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-kinesisvideostreamconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncryptionConfig": (EncryptionConfig, False),
+        "Prefix": (str, True),
+        "RetentionPeriodHours": (double, True),
+    }
+
+
+class S3Config(AWSProperty):
+    """
+    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-instancestorageconfig-s3config.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "BucketPrefix": (str, True),
+        "EncryptionConfig": (EncryptionConfig, False),
+    }
+
+
+class InstanceStorageConfig(AWSObject):
+    """
+    `InstanceStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-instancestorageconfig.html>`__
+    """
+
+    resource_type = "AWS::Connect::InstanceStorageConfig"
+
+    props: PropsDictType = {
+        "InstanceArn": (str, True),
+        "KinesisFirehoseConfig": (KinesisFirehoseConfig, False),
+        "KinesisStreamConfig": (KinesisStreamConfig, False),
+        "KinesisVideoStreamConfig": (KinesisVideoStreamConfig, False),
+        "ResourceType": (str, True),
+        "S3Config": (S3Config, False),
+        "StorageType": (str, True),
     }
 
 

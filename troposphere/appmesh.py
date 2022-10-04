@@ -27,6 +27,7 @@ class GatewayRouteTarget(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Port": (integer, False),
         "VirtualService": (GatewayRouteVirtualService, True),
     }
 
@@ -118,6 +119,7 @@ class GrpcGatewayRouteMatch(AWSProperty):
     props: PropsDictType = {
         "Hostname": (GatewayRouteHostnameMatch, False),
         "Metadata": ([GrpcGatewayRouteMetadata], False),
+        "Port": (integer, False),
         "ServiceName": (str, False),
     }
 
@@ -245,6 +247,7 @@ class HttpGatewayRouteMatch(AWSProperty):
         "Hostname": (GatewayRouteHostnameMatch, False),
         "Method": (str, False),
         "Path": (HttpPathMatch, False),
+        "Port": (integer, False),
         "Prefix": (str, False),
         "QueryParameters": ([QueryParameter], False),
     }
@@ -367,6 +370,7 @@ class WeightedTarget(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Port": (integer, False),
         "VirtualNode": (str, True),
         "Weight": (integer, True),
     }
@@ -427,6 +431,7 @@ class GrpcRouteMatch(AWSProperty):
     props: PropsDictType = {
         "Metadata": ([GrpcRouteMetadata], False),
         "MethodName": (str, False),
+        "Port": (integer, False),
         "ServiceName": (str, False),
     }
 
@@ -513,6 +518,7 @@ class HttpRouteMatch(AWSProperty):
         "Headers": ([HttpRouteHeader], False),
         "Method": (str, False),
         "Path": (HttpPathMatch, False),
+        "Port": (integer, False),
         "Prefix": (str, False),
         "QueryParameters": ([QueryParameter], False),
         "Scheme": (str, False),
@@ -553,6 +559,16 @@ class TcpRouteAction(AWSProperty):
     }
 
 
+class TcpRouteMatch(AWSProperty):
+    """
+    `TcpRouteMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-route-tcproutematch.html>`__
+    """
+
+    props: PropsDictType = {
+        "Port": (integer, False),
+    }
+
+
 class TcpTimeout(AWSProperty):
     """
     `TcpTimeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-tcptimeout.html>`__
@@ -570,6 +586,7 @@ class TcpRoute(AWSProperty):
 
     props: PropsDictType = {
         "Action": (TcpRouteAction, True),
+        "Match": (TcpRouteMatch, False),
         "Timeout": (TcpTimeout, False),
     }
 
@@ -882,12 +899,35 @@ class VirtualGatewayListener(AWSProperty):
     }
 
 
+class JsonFormatRef(AWSProperty):
+    """
+    `JsonFormatRef <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-jsonformatref.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class LoggingFormat(AWSProperty):
+    """
+    `LoggingFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualnode-loggingformat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Json": ([JsonFormatRef], False),
+        "Text": (str, False),
+    }
+
+
 class VirtualGatewayFileAccessLog(AWSProperty):
     """
     `VirtualGatewayFileAccessLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appmesh-virtualgateway-virtualgatewayfileaccesslog.html>`__
     """
 
     props: PropsDictType = {
+        "Format": (LoggingFormat, False),
         "Path": (str, True),
     }
 
@@ -1263,6 +1303,7 @@ class FileAccessLog(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Format": (LoggingFormat, False),
         "Path": (str, True),
     }
 

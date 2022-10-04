@@ -342,6 +342,7 @@ class Origin(AWSProperty):
         "CustomOriginConfig": (CustomOriginConfig, False),
         "DomainName": (str, True),
         "Id": (str, True),
+        "OriginAccessControlId": (str, False),
         "OriginCustomHeaders": ([OriginCustomHeader], False),
         "OriginPath": (str, False),
         "OriginShield": (OriginShield, False),
@@ -548,6 +549,65 @@ class KeyGroup(AWSObject):
 
     props: PropsDictType = {
         "KeyGroupConfig": (KeyGroupConfig, True),
+    }
+
+
+class RealtimeMetricsSubscriptionConfig(AWSProperty):
+    """
+    `RealtimeMetricsSubscriptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RealtimeMetricsSubscriptionStatus": (str, True),
+    }
+
+
+class MonitoringSubscriptionProperty(AWSProperty):
+    """
+    `MonitoringSubscriptionProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-monitoringsubscription.html>`__
+    """
+
+    props: PropsDictType = {
+        "RealtimeMetricsSubscriptionConfig": (RealtimeMetricsSubscriptionConfig, False),
+    }
+
+
+class MonitoringSubscription(AWSObject):
+    """
+    `MonitoringSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-monitoringsubscription.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::MonitoringSubscription"
+
+    props: PropsDictType = {
+        "DistributionId": (str, True),
+        "MonitoringSubscription": (MonitoringSubscriptionProperty, True),
+    }
+
+
+class OriginAccessControlConfig(AWSProperty):
+    """
+    `OriginAccessControlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-originaccesscontrol-originaccesscontrolconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "OriginAccessControlOriginType": (str, True),
+        "SigningBehavior": (str, True),
+        "SigningProtocol": (str, True),
+    }
+
+
+class OriginAccessControl(AWSObject):
+    """
+    `OriginAccessControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-originaccesscontrol.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::OriginAccessControl"
+
+    props: PropsDictType = {
+        "OriginAccessControlConfig": (OriginAccessControlConfig, True),
     }
 
 
@@ -834,6 +894,17 @@ class SecurityHeadersConfig(AWSProperty):
     }
 
 
+class ServerTimingHeadersConfig(AWSProperty):
+    """
+    `ServerTimingHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-servertimingheadersconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "SamplingRate": (double, False),
+    }
+
+
 class ResponseHeadersPolicyConfig(AWSProperty):
     """
     `ResponseHeadersPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-responseheaderspolicyconfig.html>`__
@@ -845,6 +916,7 @@ class ResponseHeadersPolicyConfig(AWSProperty):
         "CustomHeadersConfig": (CustomHeadersConfig, False),
         "Name": (str, True),
         "SecurityHeadersConfig": (SecurityHeadersConfig, False),
+        "ServerTimingHeadersConfig": (ServerTimingHeadersConfig, False),
     }
 
 

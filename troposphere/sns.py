@@ -33,7 +33,7 @@ class SubscriptionResource(AWSObject):
 
 class Subscription(AWSProperty):
     """
-    `Subscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-subscription.html>`__
+    `Subscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-subscription.html>`__
     """
 
     props: PropsDictType = {
@@ -44,13 +44,14 @@ class Subscription(AWSProperty):
 
 class Topic(AWSObject):
     """
-    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic.html>`__
+    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topic.html>`__
     """
 
     resource_type = "AWS::SNS::Topic"
 
     props: PropsDictType = {
         "ContentBasedDeduplication": (boolean, False),
+        "DataProtectionPolicy": (dict, False),
         "DisplayName": (str, False),
         "FifoTopic": (boolean, False),
         "KmsMasterKeyId": (str, False),

@@ -136,6 +136,7 @@ class CACertificate(AWSObject):
         "CACertificatePem": (str, True),
         "CertificateMode": (str, False),
         "RegistrationConfig": (RegistrationConfig, False),
+        "RemoveAutoRegistration": (boolean, False),
         "Status": (str, True),
         "Tags": (Tags, False),
         "VerificationCertificatePem": (str, False),

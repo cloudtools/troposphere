@@ -96,6 +96,38 @@ class Parameters(AWSProperty):
     }
 
 
+class RetentionArchiveTier(AWSProperty):
+    """
+    `RetentionArchiveTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-retentionarchivetier.html>`__
+    """
+
+    props: PropsDictType = {
+        "Count": (integer, False),
+        "Interval": (integer, False),
+        "IntervalUnit": (str, False),
+    }
+
+
+class ArchiveRetainRule(AWSProperty):
+    """
+    `ArchiveRetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiveretainrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetentionArchiveTier": (RetentionArchiveTier, True),
+    }
+
+
+class ArchiveRule(AWSProperty):
+    """
+    `ArchiveRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-archiverule.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetainRule": (ArchiveRetainRule, True),
+    }
+
+
 class CreateRule(AWSProperty):
     """
     `CreateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html>`__
@@ -192,6 +224,7 @@ class Schedule(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ArchiveRule": (ArchiveRule, False),
         "CopyTags": (boolean, False),
         "CreateRule": (CreateRule, False),
         "CrossRegionCopyRules": ([CrossRegionCopyRule], False),

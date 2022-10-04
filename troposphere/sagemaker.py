@@ -656,12 +656,15 @@ class ProductionVariant(AWSProperty):
 
     props: PropsDictType = {
         "AcceleratorType": (str, False),
+        "ContainerStartupHealthCheckTimeoutInSeconds": (integer, False),
         "InitialInstanceCount": (integer, False),
         "InitialVariantWeight": (double, True),
         "InstanceType": (str, False),
+        "ModelDataDownloadTimeoutInSeconds": (integer, False),
         "ModelName": (str, True),
         "ServerlessConfig": (ServerlessConfig, False),
         "VariantName": (str, True),
+        "VolumeSizeInGB": (integer, False),
     }
 
 
@@ -1753,4 +1756,16 @@ class RSessionAppSettings(AWSProperty):
     props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class UserContext(AWSProperty):
+    """
+    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-usercontext.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainId": (str, False),
+        "UserProfileArn": (str, False),
+        "UserProfileName": (str, False),
     }
