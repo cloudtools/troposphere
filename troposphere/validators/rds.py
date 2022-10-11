@@ -275,7 +275,6 @@ def validate_dbinstance(self) -> None:
     if "SourceDBInstanceIdentifier" in self.properties:
 
         invalid_replica_properties = (
-            "BackupRetentionPeriod",
             "DBName",
             "MasterUsername",
             "MasterUserPassword",
