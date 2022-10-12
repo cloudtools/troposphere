@@ -398,5 +398,9 @@ patches = (
             "path": "/PropertyTypes/AWS::EC2::SpotFleet.SpotFleetRequestConfigData/Properties/LaunchTemplateConfigs/ItemType",
             "value": "LaunchTemplateConfigs",
         },
+        {
+            "op": "remove",
+            "path": "/PropertyTypes/AWS::EC2::NetworkInsightsAnalysis.AdditionalDetail",
+        },
     ]
 )

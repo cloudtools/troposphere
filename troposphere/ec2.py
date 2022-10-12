@@ -2673,17 +2673,6 @@ class VolumeAttachment(AWSObject):
     }
 
 
-class AdditionalDetail(AWSProperty):
-    """
-    `AdditionalDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-additionaldetail.html>`__
-    """
-
-    props: PropsDictType = {
-        "AdditionalDetailType": (str, False),
-        "Component": (AnalysisComponent, False),
-    }
-
-
 class EbsBlockDevice(AWSProperty):
     """
     `EbsBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-ebsblockdevice.html>`__

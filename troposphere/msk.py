@@ -100,23 +100,57 @@ class Iam(AWSProperty):
     }
 
 
-class Sasl(AWSProperty):
+class Scram(AWSProperty):
     """
-    `Sasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-sasl.html>`__
+    `Scram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html>`__
     """
 
     props: PropsDictType = {
-        "Iam": (Iam, True),
+        "Enabled": (boolean, True),
+    }
+
+
+class Sasl(AWSProperty):
+    """
+    `Sasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-sasl.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iam": (Iam, False),
+        "Scram": (Scram, False),
+    }
+
+
+class Tls(AWSProperty):
+    """
+    `Tls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateAuthorityArnList": ([str], False),
+        "Enabled": (boolean, False),
+    }
+
+
+class Unauthenticated(AWSProperty):
+    """
+    `Unauthenticated <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-unauthenticated.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
     }
 
 
 class ClientAuthentication(AWSProperty):
     """
-    `ClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-serverlesscluster-clientauthentication.html>`__
+    `ClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-clientauthentication.html>`__
     """
 
     props: PropsDictType = {
-        "Sasl": (Sasl, True),
+        "Sasl": (Sasl, False),
+        "Tls": (Tls, False),
+        "Unauthenticated": (Unauthenticated, False),
     }
 
 
@@ -321,35 +355,4 @@ class ServerlessCluster(AWSObject):
         "ClusterName": (str, True),
         "Tags": (dict, False),
         "VpcConfigs": ([VpcConfig], True),
-    }
-
-
-class Scram(AWSProperty):
-    """
-    `Scram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-scram.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, True),
-    }
-
-
-class Tls(AWSProperty):
-    """
-    `Tls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-tls.html>`__
-    """
-
-    props: PropsDictType = {
-        "CertificateAuthorityArnList": ([str], False),
-        "Enabled": (boolean, False),
-    }
-
-
-class Unauthenticated(AWSProperty):
-    """
-    `Unauthenticated <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-unauthenticated.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, True),
     }
