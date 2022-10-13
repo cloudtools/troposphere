@@ -688,20 +688,19 @@ DB_CR1_8XLARGE = "db.cr1.8xlarge"
 # ElastiCache node types
 #
 
+CACHE_T1_MICRO = "cache.t1.micro"
+
 CACHE_T2_MICRO = "cache.t2.micro"
 CACHE_T2_SMALL = "cache.t2.small"
 CACHE_T2_MEDIUM = "cache.t2.medium"
 
-CACHE_M3_MEDIUM = "cache.m3.medium"
-CACHE_M3_LARGE = "cache.m3.large"
-CACHE_M3_XLARGE = "cache.m3.xlarge"
-CACHE_M3_2XLARGE = "cache.m3.2xlarge"
+CACHE_T3_MICRO = "cache.t3.micro"
+CACHE_T3_SMALL = "cache.t3.small"
+CACHE_T3_MEDIUM = "cache.t3.medium"
 
-CACHE_R3_LARGE = "cache.r3.large"
-CACHE_R3_XLARGE = "cache.r3.xlarge"
-CACHE_R3_2XLARGE = "cache.r3.2xlarge"
-CACHE_R3_4XLARGE = "cache.r3.4xlarge"
-CACHE_R3_8XLARGE = "cache.r3.8xlarge"
+CACHE_T4G_MICRO = "cache.t4g.micro"
+CACHE_T4G_SMALL = "cache.t4g.small"
+CACHE_T4G_MEDIUM = "cache.t4g.medium"
 
 CACHE_M1_SMALL = "cache.m1.small"
 CACHE_M1_MEDIUM = "cache.m1.medium"
@@ -712,9 +711,60 @@ CACHE_M2_XLARGE = "cache.m2.xlarge"
 CACHE_M2_2XLARGE = "cache.m2.2xlarge"
 CACHE_M2_4XLARGE = "cache.m2.4xlarge"
 
-CACHE_C1_XLARGE = "cache.c1.xlarge"
+CACHE_M3_MEDIUM = "cache.m3.medium"
+CACHE_M3_LARGE = "cache.m3.large"
+CACHE_M3_XLARGE = "cache.m3.xlarge"
+CACHE_M3_2XLARGE = "cache.m3.2xlarge"
 
-CACHE_T1_MICRO = "cache.t1.micro"
+CACHE_M4_LARGE = "cache.m4.large"
+CACHE_M4_XLARGE = "cache.m4.xlarge"
+CACHE_M4_2XLARGE = "cache.m4.2xlarge"
+CACHE_M4_4XLARGE = "cache.m4.4xlarge"
+CACHE_M4_10XLARGE = "cache.m4.10xlarge"
+
+CACHE_M5_LARGE = "cache.m5.large"
+CACHE_M5_XLARGE = "cache.m5.xlarge"
+CACHE_M5_2XLARGE = "cache.m5.2xlarge"
+CACHE_M5_4XLARGE = "cache.m5.4xlarge"
+CACHE_M5_12XLARGE = "cache.m5.12xlarge"
+
+CACHE_M6G_LARGE = "cache.m6g.large"
+CACHE_M6G_XLARGE = "cache.m6g.xlarge"
+CACHE_M6G_2XLARGE = "cache.m6g.2xlarge"
+CACHE_M6G_4XLARGE = "cache.m6g.4xlarge"
+CACHE_M6G_8XLARGE = "cache.m6g.8xlarge"
+CACHE_M6G_12XLARGE = "cache.m6g.12xlarge"
+CACHE_M6G_16XLARGE = "cache.m6g.16xlarge"
+
+CACHE_R3_LARGE = "cache.r3.large"
+CACHE_R3_XLARGE = "cache.r3.xlarge"
+CACHE_R3_2XLARGE = "cache.r3.2xlarge"
+CACHE_R3_4XLARGE = "cache.r3.4xlarge"
+CACHE_R3_8XLARGE = "cache.r3.8xlarge"
+
+CACHE_R4_LARGE = "cache.r4.large"
+CACHE_R4_XLARGE = "cache.r4.xlarge"
+CACHE_R4_2XLARGE = "cache.r4.2xlarge"
+CACHE_R4_4XLARGE = "cache.r4.4xlarge"
+CACHE_R4_8XLARGE = "cache.r4.8xlarge"
+CACHE_R4_16XLARGE = "cache.r4.16xlarge"
+
+CACHE_R5_LARGE = "cache.r5.large"
+CACHE_R5_XLARGE = "cache.r5.xlarge"
+CACHE_R5_2XLARGE = "cache.r5.2xlarge"
+CACHE_R5_4XLARGE = "cache.r5.4xlarge"
+CACHE_R5_12XLARGE = "cache.r5.12xlarge"
+CACHE_R5_24XLARGE = "cache.r5.24xlarge"
+
+CACHE_R6G_LARGE = "cache.r6g.large"
+CACHE_R6G_XLARGE = "cache.r6g.xlarge"
+CACHE_R6G_2XLARGE = "cache.r6g.2xlarge"
+CACHE_R6G_4XLARGE = "cache.r6g.4xlarge"
+CACHE_R6G_8XLARGE = "cache.r6g.8xlarge"
+CACHE_R6G_12XLARGE = "cache.r6g.12xlarge"
+CACHE_R6G_16XLARGE = "cache.r6g.16xlarge"
+
+CACHE_C1_XLARGE = "cache.c1.xlarge"
 
 #
 # Elasticsearch instance types
