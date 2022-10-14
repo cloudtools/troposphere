@@ -551,7 +551,7 @@ class CodeGenerator:
                     file=sys.stderr,
                 )
                 print(
-                    f"Available property keys:\n{self.properties.keys()}",
+                    f"Available property keys:\n{sorted(self.properties.keys())}",
                     file=sys.stderr,
                 )
                 raise
