@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class ComponentDependencyRequirement(AWSProperty):
@@ -138,4 +138,178 @@ class ComponentVersion(AWSObject):
         "InlineRecipe": (str, False),
         "LambdaFunction": (LambdaFunctionRecipeSource, False),
         "Tags": (dict, False),
+    }
+
+
+class ComponentConfigurationUpdate(AWSProperty):
+    """
+    `ComponentConfigurationUpdate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentconfigurationupdate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Merge": (str, False),
+        "Reset": ([str], False),
+    }
+
+
+class SystemResourceLimits(AWSProperty):
+    """
+    `SystemResourceLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-systemresourcelimits.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cpus": (double, False),
+        "Memory": (integer, False),
+    }
+
+
+class ComponentRunWith(AWSProperty):
+    """
+    `ComponentRunWith <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentrunwith.html>`__
+    """
+
+    props: PropsDictType = {
+        "PosixUser": (str, False),
+        "SystemResourceLimits": (SystemResourceLimits, False),
+        "WindowsUser": (str, False),
+    }
+
+
+class ComponentDeploymentSpecification(AWSProperty):
+    """
+    `ComponentDeploymentSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-componentdeploymentspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComponentVersion": (str, False),
+        "ConfigurationUpdate": (ComponentConfigurationUpdate, False),
+        "RunWith": (ComponentRunWith, False),
+    }
+
+
+class IoTJobAbortCriteria(AWSProperty):
+    """
+    `IoTJobAbortCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortcriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "FailureType": (str, True),
+        "MinNumberOfExecutedThings": (integer, True),
+        "ThresholdPercentage": (double, True),
+    }
+
+
+class IoTJobAbortConfig(AWSProperty):
+    """
+    `IoTJobAbortConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobabortconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CriteriaList": ([IoTJobAbortCriteria], True),
+    }
+
+
+class IoTJobRateIncreaseCriteria(AWSProperty):
+    props: PropsDictType = {
+        "NumberOfNotifiedThings": (integer, False),
+        "NumberOfSucceededThings": (integer, False),
+    }
+
+
+class IoTJobExponentialRolloutRate(AWSProperty):
+    """
+    `IoTJobExponentialRolloutRate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexponentialrolloutrate.html>`__
+    """
+
+    props: PropsDictType = {
+        "BaseRatePerMinute": (integer, True),
+        "IncrementFactor": (double, True),
+        "RateIncreaseCriteria": (IoTJobRateIncreaseCriteria, True),
+    }
+
+
+class IoTJobExecutionsRolloutConfig(AWSProperty):
+    """
+    `IoTJobExecutionsRolloutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobexecutionsrolloutconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExponentialRate": (IoTJobExponentialRolloutRate, False),
+        "MaximumPerMinute": (integer, False),
+    }
+
+
+class IoTJobTimeoutConfig(AWSProperty):
+    """
+    `IoTJobTimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-iotjobtimeoutconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InProgressTimeoutInMinutes": (integer, False),
+    }
+
+
+class DeploymentIoTJobConfiguration(AWSProperty):
+    """
+    `DeploymentIoTJobConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentiotjobconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AbortConfig": (IoTJobAbortConfig, False),
+        "JobExecutionsRolloutConfig": (IoTJobExecutionsRolloutConfig, False),
+        "TimeoutConfig": (IoTJobTimeoutConfig, False),
+    }
+
+
+class DeploymentComponentUpdatePolicy(AWSProperty):
+    """
+    `DeploymentComponentUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentcomponentupdatepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, False),
+        "TimeoutInSeconds": (integer, False),
+    }
+
+
+class DeploymentConfigurationValidationPolicy(AWSProperty):
+    """
+    `DeploymentConfigurationValidationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentconfigurationvalidationpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "TimeoutInSeconds": (integer, False),
+    }
+
+
+class DeploymentPolicies(AWSProperty):
+    """
+    `DeploymentPolicies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-greengrassv2-deployment-deploymentpolicies.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComponentUpdatePolicy": (DeploymentComponentUpdatePolicy, False),
+        "ConfigurationValidationPolicy": (
+            DeploymentConfigurationValidationPolicy,
+            False,
+        ),
+        "FailureHandlingPolicy": (str, False),
+    }
+
+
+class Deployment(AWSObject):
+    """
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-greengrassv2-deployment.html>`__
+    """
+
+    resource_type = "AWS::GreengrassV2::Deployment"
+
+    props: PropsDictType = {
+        "Components": (dict, False),
+        "DeploymentName": (str, False),
+        "DeploymentPolicies": (DeploymentPolicies, False),
+        "IotJobConfiguration": (DeploymentIoTJobConfiguration, False),
+        "Tags": (dict, False),
+        "TargetArn": (str, True),
     }

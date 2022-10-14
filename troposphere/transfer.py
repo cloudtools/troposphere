@@ -11,6 +11,75 @@ from .validators import double
 from .validators.transfer import validate_homedirectory_type
 
 
+class Agreement(AWSObject):
+    """
+    `Agreement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html>`__
+    """
+
+    resource_type = "AWS::Transfer::Agreement"
+
+    props: PropsDictType = {
+        "AccessRole": (str, True),
+        "BaseDirectory": (str, True),
+        "Description": (str, False),
+        "LocalProfileId": (str, True),
+        "PartnerProfileId": (str, True),
+        "ServerId": (str, True),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class Certificate(AWSObject):
+    """
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-certificate.html>`__
+    """
+
+    resource_type = "AWS::Transfer::Certificate"
+
+    props: PropsDictType = {
+        "ActiveDate": (str, False),
+        "Certificate": (str, True),
+        "CertificateChain": (str, False),
+        "Description": (str, False),
+        "InactiveDate": (str, False),
+        "PrivateKey": (str, False),
+        "Tags": (Tags, False),
+        "Usage": (str, True),
+    }
+
+
+class Connector(AWSObject):
+    """
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html>`__
+    """
+
+    resource_type = "AWS::Transfer::Connector"
+
+    props: PropsDictType = {
+        "AccessRole": (str, True),
+        "As2Config": (dict, True),
+        "LoggingRole": (str, False),
+        "Tags": (Tags, False),
+        "Url": (str, True),
+    }
+
+
+class Profile(AWSObject):
+    """
+    `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-profile.html>`__
+    """
+
+    resource_type = "AWS::Transfer::Profile"
+
+    props: PropsDictType = {
+        "As2Id": (str, True),
+        "CertificateIds": ([str], False),
+        "ProfileType": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class EndpointDetails(AWSProperty):
     """
     `EndpointDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-endpointdetails.html>`__
