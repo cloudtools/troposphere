@@ -7,7 +7,28 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import boolean, double
+from .validators import boolean, double, integer
+
+
+class HistoricalOptions(AWSProperty):
+    """
+    `HistoricalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-historicaloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "BudgetAdjustmentPeriod": (integer, True),
+    }
+
+
+class AutoAdjustData(AWSProperty):
+    """
+    `AutoAdjustData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-autoadjustdata.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoAdjustType": (str, True),
+        "HistoricalOptions": (HistoricalOptions, False),
+    }
 
 
 class CostTypes(AWSProperty):
@@ -58,6 +79,7 @@ class BudgetData(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoAdjustData": (AutoAdjustData, False),
         "BudgetLimit": (Spend, False),
         "BudgetName": (str, False),
         "BudgetType": (str, True),

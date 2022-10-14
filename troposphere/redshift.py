@@ -147,6 +147,17 @@ class ClusterSubnetGroup(AWSObject):
     }
 
 
+class VpcSecurityGroup(AWSProperty):
+    """
+    `VpcSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+        "VpcSecurityGroupId": (str, False),
+    }
+
+
 class EndpointAccess(AWSObject):
     """
     `EndpointAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html>`__
@@ -159,7 +170,9 @@ class EndpointAccess(AWSObject):
         "EndpointName": (str, True),
         "ResourceOwner": (str, False),
         "SubnetGroupName": (str, True),
+        "VpcEndpoint": (dict, False),
         "VpcSecurityGroupIds": ([str], True),
+        "VpcSecurityGroups": ([VpcSecurityGroup], False),
     }
 
 
@@ -270,15 +283,4 @@ class Endpoint(AWSProperty):
     props: PropsDictType = {
         "Address": (str, False),
         "Port": (str, False),
-    }
-
-
-class VpcSecurityGroup(AWSProperty):
-    """
-    `VpcSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>`__
-    """
-
-    props: PropsDictType = {
-        "Status": (str, False),
-        "VpcSecurityGroupId": (str, False),
     }

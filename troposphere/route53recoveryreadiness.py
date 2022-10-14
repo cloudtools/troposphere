@@ -17,7 +17,7 @@ class Cell(AWSObject):
     resource_type = "AWS::Route53RecoveryReadiness::Cell"
 
     props: PropsDictType = {
-        "CellName": (str, True),
+        "CellName": (str, False),
         "Cells": ([str], False),
         "Tags": (Tags, False),
     }
@@ -31,7 +31,7 @@ class ReadinessCheck(AWSObject):
     resource_type = "AWS::Route53RecoveryReadiness::ReadinessCheck"
 
     props: PropsDictType = {
-        "ReadinessCheckName": (str, True),
+        "ReadinessCheckName": (str, False),
         "ResourceSetName": (str, False),
         "Tags": (Tags, False),
     }
@@ -46,7 +46,7 @@ class RecoveryGroup(AWSObject):
 
     props: PropsDictType = {
         "Cells": ([str], False),
-        "RecoveryGroupName": (str, True),
+        "RecoveryGroupName": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -118,7 +118,7 @@ class ResourceSet(AWSObject):
     resource_type = "AWS::Route53RecoveryReadiness::ResourceSet"
 
     props: PropsDictType = {
-        "ResourceSetName": (str, True),
+        "ResourceSetName": (str, False),
         "ResourceSetType": (str, True),
         "Resources": ([Resource], True),
         "Tags": (Tags, False),

@@ -578,7 +578,7 @@ class EC2Fleet(AWSObject):
 
 class EIP(AWSObject):
     """
-    `EIP <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip.html>`__
+    `EIP <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eip.html>`__
     """
 
     resource_type = "AWS::EC2::EIP"
