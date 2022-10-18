@@ -35,7 +35,7 @@ def validate_volume_type(volume_type):
     Property: EBSOptions.VolumeType
     """
 
-    VALID_VOLUME_TYPES = ("standard", "gp2", "io1")
+    VALID_VOLUME_TYPES = ("standard", "gp2", "gp3", "io1")
 
     if volume_type not in VALID_VOLUME_TYPES:
         raise ValueError(
