@@ -216,6 +216,76 @@ class IntentClosingSetting(AWSProperty):
     }
 
 
+class AllowedInputTypes(AWSProperty):
+    """
+    `AllowedInputTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-allowedinputtypes.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowAudioInput": (boolean, True),
+        "AllowDTMFInput": (boolean, True),
+    }
+
+
+class AudioSpecification(AWSProperty):
+    """
+    `AudioSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audiospecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTimeoutMs": (integer, True),
+        "MaxLengthMs": (integer, True),
+    }
+
+
+class DTMFSpecification(AWSProperty):
+    """
+    `DTMFSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dtmfspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeletionCharacter": (str, True),
+        "EndCharacter": (str, True),
+        "EndTimeoutMs": (integer, True),
+        "MaxLength": (integer, True),
+    }
+
+
+class AudioAndDTMFInputSpecification(AWSProperty):
+    """
+    `AudioAndDTMFInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-audioanddtmfinputspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioSpecification": (AudioSpecification, False),
+        "DTMFSpecification": (DTMFSpecification, False),
+        "StartTimeoutMs": (integer, True),
+    }
+
+
+class TextInputSpecification(AWSProperty):
+    """
+    `TextInputSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-textinputspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "StartTimeoutMs": (integer, True),
+    }
+
+
+class PromptAttemptSpecification(AWSProperty):
+    """
+    `PromptAttemptSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptattemptspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowInterrupt": (boolean, False),
+        "AllowedInputTypes": (AllowedInputTypes, True),
+        "AudioAndDTMFInputSpecification": (AudioAndDTMFInputSpecification, False),
+        "TextInputSpecification": (TextInputSpecification, False),
+    }
+
+
 class PromptSpecification(AWSProperty):
     """
     `PromptSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-promptspecification.html>`__
@@ -226,6 +296,7 @@ class PromptSpecification(AWSProperty):
         "MaxRetries": (integer, True),
         "MessageGroupsList": ([MessageGroup], True),
         "MessageSelectionStrategy": (str, False),
+        "PromptAttemptsSpecification": (dict, False),
     }
 
 

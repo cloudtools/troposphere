@@ -186,6 +186,7 @@ class DedicatedIpPool(AWSObject):
 
     props: PropsDictType = {
         "PoolName": (str, False),
+        "ScalingMode": (str, False),
     }
 
 

@@ -137,7 +137,8 @@ class WorkflowDetails(AWSProperty):
     """
 
     props: PropsDictType = {
-        "OnUpload": ([WorkflowDetail], True),
+        "OnPartialUpload": ([WorkflowDetail], False),
+        "OnUpload": ([WorkflowDetail], False),
     }
 
 

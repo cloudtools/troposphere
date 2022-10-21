@@ -663,6 +663,7 @@ class SalesforceDestinationProperties(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DataTransferApi": (str, False),
         "ErrorHandlingConfig": (ErrorHandlingConfig, False),
         "IdFieldNames": ([str], False),
         "Object": (str, True),
@@ -872,6 +873,7 @@ class SalesforceSourceProperties(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DataTransferApi": (str, False),
         "EnableDynamicFieldUpdate": (boolean, False),
         "IncludeDeletedRecords": (boolean, False),
         "Object": (str, True),

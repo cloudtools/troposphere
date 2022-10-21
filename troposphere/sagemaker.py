@@ -160,6 +160,52 @@ class DataQualityBaselineConfig(AWSProperty):
     }
 
 
+class Csv(AWSProperty):
+    """
+    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-csv.html>`__
+    """
+
+    props: PropsDictType = {
+        "Header": (boolean, False),
+    }
+
+
+class Json(AWSProperty):
+    """
+    `Json <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-json.html>`__
+    """
+
+    props: PropsDictType = {
+        "Line": (boolean, False),
+    }
+
+
+class DatasetFormat(AWSProperty):
+    """
+    `DatasetFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-datasetformat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Csv": (Csv, False),
+        "Json": (Json, False),
+        "Parquet": (boolean, False),
+    }
+
+
+class BatchTransformInput(AWSProperty):
+    """
+    `BatchTransformInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-batchtransforminput.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataCapturedDestinationS3Uri": (str, True),
+        "DatasetFormat": (DatasetFormat, True),
+        "LocalPath": (str, True),
+        "S3DataDistributionType": (str, False),
+        "S3InputMode": (str, False),
+    }
+
+
 class EndpointInput(AWSProperty):
     """
     `EndpointInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-endpointinput.html>`__
@@ -179,7 +225,8 @@ class DataQualityJobInput(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EndpointInput": (EndpointInput, True),
+        "BatchTransformInput": (BatchTransformInput, False),
+        "EndpointInput": (EndpointInput, False),
     }
 
 
@@ -961,7 +1008,8 @@ class ModelBiasJobInput(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EndpointInput": (ModelBiasEndpointInput, True),
+        "BatchTransformInput": (BatchTransformInput, False),
+        "EndpointInput": (ModelBiasEndpointInput, False),
         "GroundTruthS3Input": (MonitoringGroundTruthS3Input, True),
     }
 
@@ -1033,7 +1081,8 @@ class ModelExplainabilityJobInput(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EndpointInput": (ModelExplainabilityEndpointInput, True),
+        "BatchTransformInput": (BatchTransformInput, False),
+        "EndpointInput": (ModelExplainabilityEndpointInput, False),
     }
 
 
@@ -1516,7 +1565,8 @@ class ModelQualityJobInput(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EndpointInput": (ModelQualityEndpointInput, True),
+        "BatchTransformInput": (BatchTransformInput, False),
+        "EndpointInput": (ModelQualityEndpointInput, False),
         "GroundTruthS3Input": (MonitoringGroundTruthS3Input, True),
     }
 
@@ -1591,7 +1641,8 @@ class MonitoringInput(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EndpointInput": (EndpointInput, True),
+        "BatchTransformInput": (BatchTransformInput, False),
+        "EndpointInput": (EndpointInput, False),
     }
 
 

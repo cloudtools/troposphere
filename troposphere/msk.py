@@ -313,6 +313,7 @@ class Cluster(AWSObject):
         "LoggingInfo": (LoggingInfo, False),
         "NumberOfBrokerNodes": (integer, True),
         "OpenMonitoring": (OpenMonitoring, False),
+        "StorageMode": (str, False),
         "Tags": (dict, False),
     }
 
