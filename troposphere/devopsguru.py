@@ -9,6 +9,17 @@
 from . import AWSObject, AWSProperty, PropsDictType
 
 
+class NotificationFilterConfig(AWSProperty):
+    """
+    `NotificationFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationfilterconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MessageTypes": ([str], False),
+        "Severities": ([str], False),
+    }
+
+
 class SnsChannelConfig(AWSProperty):
     """
     `SnsChannelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-snschannelconfig.html>`__
@@ -25,6 +36,7 @@ class NotificationChannelConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Filters": (NotificationFilterConfig, False),
         "Sns": (SnsChannelConfig, False),
     }
 

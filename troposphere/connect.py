@@ -331,6 +331,8 @@ class UserIdentityInfo(AWSProperty):
         "Email": (str, False),
         "FirstName": (str, False),
         "LastName": (str, False),
+        "Mobile": (str, False),
+        "SecondaryEmail": (str, False),
     }
 
 

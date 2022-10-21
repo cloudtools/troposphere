@@ -55,6 +55,7 @@ class Topic(AWSObject):
         "DisplayName": (str, False),
         "FifoTopic": (boolean, False),
         "KmsMasterKeyId": (str, False),
+        "SignatureVersion": (str, False),
         "Subscription": ([Subscription], False),
         "Tags": (Tags, False),
         "TopicName": (str, False),
