@@ -14,6 +14,7 @@ from troposphere.serverless import (
     Function,
     FunctionForPackaging,
     FunctionGlobals,
+    FunctionUrlConfig,
     Globals,
     HttpApi,
     HttpApiAuth,
@@ -97,6 +98,31 @@ class TestServerless(unittest.TestCase):
         t = Template()
         t.add_resource(serverless_func)
         t.to_json()
+
+    def test_functionurlconfig_oneof(self):
+        serverless_func = Function(
+            "SomeHandler",
+            FunctionUrlConfig=FunctionUrlConfig(
+                AuthType="AWS_IAM",
+            ),
+            Handler="index.handler",
+            Runtime="nodejs",
+            CodeUri="s3://bucket/handler.zip",
+        )
+        t = Template()
+        t.add_resource(serverless_func)
+        t.to_json()
+
+        with self.assertRaises(ValueError):
+            serverless_func = Function(
+                "SomeHandler",
+                FunctionUrlConfig=FunctionUrlConfig(
+                    AuthType="foobar",
+                ),
+                Handler="index.handler",
+                Runtime="nodejs",
+                CodeUri="s3://bucket/handler.zip",
+            )
 
     def test_optional_auto_publish_alias(self):
         serverless_func = Function(
