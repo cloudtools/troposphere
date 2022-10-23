@@ -205,6 +205,23 @@ class TestRDS(unittest.TestCase):
         i.Iops = 5000
         i.to_dict()
 
+    def test_storage_sqlserver(self):
+        i = rds.DBInstance(
+            "NoAZAndMultiAZ",
+            MasterUsername="myuser",
+            MasterUserPassword="mypassword",
+            DBInstanceClass="db.m1.small",
+            Engine="sqlserver-ee",
+            StorageType="io1",
+            Iops=1000,
+            AllocatedStorage=10,
+        )
+        with self.assertRaisesRegex(ValueError, " must be at least 20 "):
+            i.to_dict()
+
+        i.AllocatedStorage = 20
+        i.to_dict()
+
     def test_snapshot(self):
         i = rds.DBInstance(
             "MyDB",
