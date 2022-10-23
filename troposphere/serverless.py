@@ -6,6 +6,7 @@
 import types
 from typing import Tuple, Type
 
+from stepfunctions import LoggingConfiguration, TracingConfiguration
 from . import AWSHelperFn, AWSObject, AWSProperty, PropsDictType
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .apigatewayv2 import AccessLogSettings, RouteSettings
@@ -654,6 +655,37 @@ class Application(AWSObject):
             "DefinitionUri",
         ]
         mutually_exclusive(self.__class__.__name__, self.properties, conds)
+
+
+class StateMachine(AWSObject):
+    """
+    `StateMachine <https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-statemachine.html>`__
+    """
+
+    resource_type = "AWS::Serverless::StateMachine"
+
+    props: PropsDictType = {
+        "Definition": (dict, False),
+        "DefinitionUri": ((S3Location, str), False),
+        "DefinitionSubstitutions": (dict, False),
+        "Events": (dict, False),
+        "Logging": (LoggingConfiguration, False),
+        "Name": (str, False),
+        "PermissionsBoundary": (str, False),
+        "Policies": (policytypes, False),
+        "Role": (str, False),
+        "Tags": (dict, False),
+        "TracingConfiguration": (TracingConfiguration, False),
+        "Type": (str, False),
+    }
+
+    def validate(self):
+        if not self.properties.get("Policies") and not self.properties.get("Role"):
+            raise ValueError("You provide either a Role or Policies.")
+
+        valid_types = ["STANDARD", "EXPRESS"]
+        if "Type" in self.properties and self.properties["Type"] not in valid_types:
+            raise ValueError("StateMachine Type must be STANDARD or EXPRESS")
 
 
 class FunctionGlobals(AWSProperty):
