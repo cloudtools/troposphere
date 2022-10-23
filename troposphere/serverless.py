@@ -6,7 +6,6 @@
 import types
 from typing import Tuple, Type
 
-from stepfunctions import LoggingConfiguration, TracingConfiguration
 from . import AWSHelperFn, AWSObject, AWSProperty, PropsDictType
 from .apigateway import AccessLogSetting, CanarySetting, MethodSetting
 from .apigatewayv2 import AccessLogSettings, RouteSettings
@@ -23,6 +22,7 @@ from .awslambda import (
 )
 from .dynamodb import ProvisionedThroughput, SSESpecification
 from .s3 import Filter
+from .stepfunctions import LoggingConfiguration, TracingConfiguration
 from .validators import (
     boolean,
     exactly_one,
