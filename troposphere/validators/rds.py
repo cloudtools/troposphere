@@ -340,12 +340,18 @@ def validate_dbinstance(self) -> None:
     allocated_storage = self.properties.get("AllocatedStorage")
     iops = self.properties.get("Iops", None)
     if iops and not isinstance(iops, AWSHelperFn):
+        min_storage_size = 100
+        engine = self.properties.get("Engine")
+        if not isinstance(engine, AWSHelperFn) and engine.startswith("sqlserver"):
+            min_storage_size = 20
+
         if (
             not isinstance(allocated_storage, AWSHelperFn)
-            and int(allocated_storage) < 100
+            and int(allocated_storage) < min_storage_size
         ):
             raise ValueError(
-                "AllocatedStorage must be at least 100 when " "Iops is set."
+                f"AllocatedStorage must be at least {min_storage_size} when "
+                "Iops is set."
             )
         if (
             not isinstance(allocated_storage, AWSHelperFn)
