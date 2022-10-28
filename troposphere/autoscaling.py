@@ -618,7 +618,7 @@ class ScalingPolicy(AWSObject):
 
 class ScheduledAction(AWSObject):
     """
-    `ScheduledAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-as-scheduledaction.html>`__
+    `ScheduledAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-scheduledaction.html>`__
     """
 
     resource_type = "AWS::AutoScaling::ScheduledAction"

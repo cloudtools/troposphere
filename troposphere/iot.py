@@ -906,6 +906,32 @@ class LambdaAction(AWSProperty):
     }
 
 
+class Timestamp(AWSProperty):
+    """
+    `Timestamp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-timestamp.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, False),
+        "Value": (str, True),
+    }
+
+
+class LocationAction(AWSProperty):
+    """
+    `LocationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-locationaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeviceId": (str, True),
+        "Latitude": (str, True),
+        "Longitude": (str, True),
+        "RoleArn": (str, True),
+        "Timestamp": (Timestamp, False),
+        "TrackerName": (str, True),
+    }
+
+
 class OpenSearchAction(AWSProperty):
     """
     `OpenSearchAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-opensearchaction.html>`__
@@ -926,6 +952,7 @@ class RepublishAction(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Headers": (dict, False),
         "Qos": (integer, False),
         "RoleArn": (str, True),
         "Topic": (str, True),
@@ -1009,7 +1036,6 @@ class TimestreamAction(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BatchMode": (boolean, False),
         "DatabaseName": (str, True),
         "Dimensions": ([TimestreamDimension], True),
         "RoleArn": (str, True),
@@ -1038,6 +1064,7 @@ class Action(AWSProperty):
         "Kafka": (KafkaAction, False),
         "Kinesis": (KinesisAction, False),
         "Lambda": (LambdaAction, False),
+        "Location": (LocationAction, False),
         "OpenSearch": (OpenSearchAction, False),
         "Republish": (RepublishAction, False),
         "S3": (S3Action, False),

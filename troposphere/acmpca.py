@@ -302,6 +302,7 @@ class CertificateAuthority(AWSObject):
         "Subject": (Subject, True),
         "Tags": (Tags, False),
         "Type": (validate_certificateauthority_type, True),
+        "UsageMode": (str, False),
     }
 
 

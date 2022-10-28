@@ -328,6 +328,7 @@ class UserPool(AWSObject):
         "AdminCreateUserConfig": (AdminCreateUserConfig, False),
         "AliasAttributes": ([str], False),
         "AutoVerifiedAttributes": ([str], False),
+        "DeletionProtection": (str, False),
         "DeviceConfiguration": (DeviceConfiguration, False),
         "EmailConfiguration": (EmailConfiguration, False),
         "EmailVerificationMessage": (str, False),
