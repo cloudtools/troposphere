@@ -651,7 +651,7 @@ class FlowLog(AWSObject):
         "ResourceId": (str, True),
         "ResourceType": (str, True),
         "Tags": (Tags, False),
-        "TrafficType": (str, True),
+        "TrafficType": (str, False),
     }
 
 
@@ -2638,7 +2638,7 @@ class VPNGatewayRoutePropagation(AWSObject):
 
 class Volume(AWSObject):
     """
-    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html>`__
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html>`__
     """
 
     resource_type = "AWS::EC2::Volume"

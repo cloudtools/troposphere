@@ -88,7 +88,7 @@ class NetworkConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EgressConfiguration": (EgressConfiguration, True),
+        "EgressConfiguration": (EgressConfiguration, False),
     }
 
 

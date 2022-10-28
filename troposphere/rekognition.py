@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double
+from .validators import boolean, double, integer
 from .validators.rekognition import validate_PolygonRegionsOfInterest
 
 
@@ -152,6 +152,16 @@ class Point(AWSProperty):
     """
 
     props: PropsDictType = {
-        "X": (double, True),
-        "Y": (double, True),
+        "X": (integer, True),
+        "Y": (integer, True),
+    }
+
+
+class Polygon(AWSProperty):
+    """
+    `Polygon <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-polygon.html>`__
+    """
+
+    props: PropsDictType = {
+        "Polygon": ([Point], True),
     }

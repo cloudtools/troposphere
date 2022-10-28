@@ -15,6 +15,55 @@ from .validators.fsx import (
 )
 
 
+class AutoExportPolicy(AWSProperty):
+    """
+    `AutoExportPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoexportpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Events": ([str], True),
+    }
+
+
+class AutoImportPolicy(AWSProperty):
+    """
+    `AutoImportPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-autoimportpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Events": ([str], True),
+    }
+
+
+class S3(AWSProperty):
+    """
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-datarepositoryassociation-s3.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoExportPolicy": (AutoExportPolicy, False),
+        "AutoImportPolicy": (AutoImportPolicy, False),
+    }
+
+
+class DataRepositoryAssociation(AWSObject):
+    """
+    `DataRepositoryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fsx-datarepositoryassociation.html>`__
+    """
+
+    resource_type = "AWS::FSx::DataRepositoryAssociation"
+
+    props: PropsDictType = {
+        "BatchImportMetaDataOnCreate": (boolean, False),
+        "DataRepositoryPath": (str, True),
+        "FileSystemId": (str, True),
+        "FileSystemPath": (str, True),
+        "ImportedFileChunkSize": (integer, False),
+        "S3": (S3, False),
+        "Tags": (Tags, False),
+    }
+
+
 class LustreConfiguration(AWSProperty):
     """
     `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html>`__
