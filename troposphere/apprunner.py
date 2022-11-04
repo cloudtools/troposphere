@@ -82,6 +82,16 @@ class EgressConfiguration(AWSProperty):
     }
 
 
+class IngressConfiguration(AWSProperty):
+    """
+    `IngressConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-ingressconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsPubliclyAccessible": (boolean, True),
+    }
+
+
 class NetworkConfiguration(AWSProperty):
     """
     `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-service-networkconfiguration.html>`__
@@ -89,6 +99,7 @@ class NetworkConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "EgressConfiguration": (EgressConfiguration, False),
+        "IngressConfiguration": (IngressConfiguration, False),
     }
 
 
@@ -242,4 +253,30 @@ class VpcConnector(AWSObject):
         "Subnets": ([str], True),
         "Tags": (Tags, False),
         "VpcConnectorName": (str, False),
+    }
+
+
+class IngressVpcConfiguration(AWSProperty):
+    """
+    `IngressVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-vpcingressconnection-ingressvpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcEndpointId": (str, True),
+        "VpcId": (str, True),
+    }
+
+
+class VpcIngressConnection(AWSObject):
+    """
+    `VpcIngressConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-vpcingressconnection.html>`__
+    """
+
+    resource_type = "AWS::AppRunner::VpcIngressConnection"
+
+    props: PropsDictType = {
+        "IngressVpcConfiguration": (IngressVpcConfiguration, True),
+        "ServiceArn": (str, True),
+        "Tags": (Tags, False),
+        "VpcIngressConnectionName": (str, False),
     }

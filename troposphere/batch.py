@@ -304,6 +304,130 @@ class ContainerProperties(AWSProperty):
     }
 
 
+class EksContainerEnvironmentVariable(AWSProperty):
+    """
+    `EksContainerEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerenvironmentvariable.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, False),
+    }
+
+
+class EksContainerVolumeMount(AWSProperty):
+    """
+    `EksContainerVolumeMount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html>`__
+    """
+
+    props: PropsDictType = {
+        "MountPath": (str, False),
+        "Name": (str, False),
+        "ReadOnly": (boolean, False),
+    }
+
+
+class Resources(AWSProperty):
+    """
+    `Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer-resources.html>`__
+    """
+
+    props: PropsDictType = {
+        "Limits": (dict, False),
+        "Requests": (dict, False),
+    }
+
+
+class SecurityContext(AWSProperty):
+    """
+    `SecurityContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer-securitycontext.html>`__
+    """
+
+    props: PropsDictType = {
+        "Privileged": (boolean, False),
+        "ReadOnlyRootFilesystem": (boolean, False),
+        "RunAsGroup": (integer, False),
+        "RunAsNonRoot": (boolean, False),
+        "RunAsUser": (integer, False),
+    }
+
+
+class EksContainer(AWSProperty):
+    """
+    `EksContainer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer.html>`__
+    """
+
+    props: PropsDictType = {
+        "Args": ([str], False),
+        "Command": ([str], False),
+        "Env": ([EksContainerEnvironmentVariable], False),
+        "Image": (str, True),
+        "ImagePullPolicy": (str, False),
+        "Name": (str, False),
+        "Resources": (Resources, False),
+        "SecurityContext": (SecurityContext, False),
+        "VolumeMounts": ([EksContainerVolumeMount], False),
+    }
+
+
+class EmptyDir(AWSProperty):
+    """
+    `EmptyDir <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume-emptydir.html>`__
+    """
+
+    props: PropsDictType = {
+        "Medium": (str, False),
+        "SizeLimit": (str, False),
+    }
+
+
+class HostPath(AWSProperty):
+    """
+    `HostPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume-hostpath.html>`__
+    """
+
+    props: PropsDictType = {
+        "Path": (str, False),
+    }
+
+
+class EksVolume(AWSProperty):
+    """
+    `EksVolume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmptyDir": (EmptyDir, False),
+        "HostPath": (HostPath, False),
+        "Name": (str, True),
+        "Secret": (Secret, False),
+    }
+
+
+class PodProperties(AWSProperty):
+    """
+    `PodProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Containers": ([EksContainer], False),
+        "DnsPolicy": (str, False),
+        "HostNetwork": (boolean, False),
+        "ServiceAccountName": (str, False),
+        "Volumes": ([EksVolume], False),
+    }
+
+
+class EksProperties(AWSProperty):
+    """
+    `EksProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "PodProperties": (PodProperties, False),
+    }
+
+
 class NodeRangeProperty(AWSProperty):
     """
     `NodeRangeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html>`__
@@ -370,6 +494,7 @@ class JobDefinition(AWSObject):
 
     props: PropsDictType = {
         "ContainerProperties": (ContainerProperties, False),
+        "EksProperties": (EksProperties, False),
         "JobDefinitionName": (str, False),
         "NodeProperties": (NodeProperties, False),
         "Parameters": (dict, False),
