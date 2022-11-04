@@ -19,8 +19,8 @@ jobs:
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
       - name: Install Node
@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '17'
       - name: Pip Cache (Linux)
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         if: runner.os == 'Linux'
         with:
           path: ~/.cache/pip
