@@ -946,13 +946,39 @@ class OpenSearchAction(AWSProperty):
     }
 
 
+class UserProperty(AWSProperty):
+    """
+    `UserProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-userproperty.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class RepublishActionHeaders(AWSProperty):
+    """
+    `RepublishActionHeaders <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishactionheaders.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentType": (str, False),
+        "CorrelationData": (str, False),
+        "MessageExpiry": (str, False),
+        "PayloadFormatIndicator": (str, False),
+        "ResponseTopic": (str, False),
+        "UserProperties": ([UserProperty], False),
+    }
+
+
 class RepublishAction(AWSProperty):
     """
     `RepublishAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-republishaction.html>`__
     """
 
     props: PropsDictType = {
-        "Headers": (dict, False),
+        "Headers": (RepublishActionHeaders, False),
         "Qos": (integer, False),
         "RoleArn": (str, True),
         "Topic": (str, True),

@@ -45,6 +45,7 @@ class ScalingConfiguration(AWSProperty):
         "MaxCapacity": (validate_capacity, False),
         "MinCapacity": (validate_capacity, False),
         "SecondsUntilAutoPause": (integer, False),
+        "TimeoutAction": (str, False),
     }
 
 
@@ -127,6 +128,7 @@ class DBClusterParameterGroup(AWSObject):
     resource_type = "AWS::RDS::DBClusterParameterGroup"
 
     props: PropsDictType = {
+        "DBClusterParameterGroupName": (str, False),
         "Description": (str, True),
         "Family": (str, True),
         "Parameters": (dict, True),
@@ -211,6 +213,7 @@ class DBInstance(AWSObject):
         "ProcessorFeatures": ([ProcessorFeature], False),
         "PromotionTier": (integer, False),
         "PubliclyAccessible": (boolean, False),
+        "ReplicaMode": (str, False),
         "SourceDBInstanceIdentifier": (str, False),
         "SourceRegion": (str, False),
         "StorageEncrypted": (boolean, False),
@@ -233,6 +236,7 @@ class DBParameterGroup(AWSObject):
     resource_type = "AWS::RDS::DBParameterGroup"
 
     props: PropsDictType = {
+        "DBParameterGroupName": (str, False),
         "Description": (str, True),
         "Family": (str, True),
         "Parameters": (dict, False),
@@ -457,6 +461,7 @@ class OptionGroup(AWSObject):
         "MajorEngineVersion": (str, True),
         "OptionConfigurations": ([OptionConfiguration], False),
         "OptionGroupDescription": (str, True),
+        "OptionGroupName": (str, False),
         "Tags": (validate_tags_or_list, False),
     }
 

@@ -818,6 +818,7 @@ class DataSourceCredentials(AWSProperty):
     props: PropsDictType = {
         "CopySourceArn": (str, False),
         "CredentialPair": (CredentialPair, False),
+        "SecretArn": (str, False),
     }
 
 
