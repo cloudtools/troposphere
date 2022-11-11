@@ -100,6 +100,16 @@ class Logging(AWSProperty):
     }
 
 
+class ControlPlanePlacement(AWSProperty):
+    """
+    `ControlPlanePlacement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-controlplaneplacement.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupName": (str, False),
+    }
+
+
 class OutpostConfig(AWSProperty):
     """
     `OutpostConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-outpostconfig.html>`__
@@ -107,6 +117,7 @@ class OutpostConfig(AWSProperty):
 
     props: PropsDictType = {
         "ControlPlaneInstanceType": (str, True),
+        "ControlPlanePlacement": (ControlPlanePlacement, False),
         "OutpostArns": ([str], True),
     }
 

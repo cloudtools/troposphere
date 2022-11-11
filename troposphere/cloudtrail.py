@@ -46,6 +46,7 @@ class EventDataStore(AWSObject):
 
     props: PropsDictType = {
         "AdvancedEventSelectors": ([AdvancedEventSelector], False),
+        "KmsKeyId": (str, False),
         "MultiRegionEnabled": (boolean, False),
         "Name": (str, False),
         "OrganizationEnabled": (boolean, False),

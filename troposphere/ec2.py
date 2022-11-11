@@ -440,6 +440,7 @@ class Placement(AWSProperty):
     props: PropsDictType = {
         "Affinity": (str, False),
         "AvailabilityZone": (str, False),
+        "GroupId": (str, False),
         "GroupName": (str, False),
         "HostId": (str, False),
         "HostResourceGroupArn": (str, False),
@@ -1169,6 +1170,17 @@ class MemoryMiB(AWSProperty):
     }
 
 
+class NetworkBandwidthGbps(AWSProperty):
+    """
+    `NetworkBandwidthGbps <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkbandwidthgbps.html>`__
+    """
+
+    props: PropsDictType = {
+        "Max": (double, False),
+        "Min": (double, False),
+    }
+
+
 class NetworkInterfaceCount(AWSProperty):
     """
     `NetworkInterfaceCount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkinterfacecount.html>`__
@@ -1213,6 +1225,7 @@ class InstanceRequirements(AWSProperty):
         "AcceleratorNames": ([str], False),
         "AcceleratorTotalMemoryMiB": (AcceleratorTotalMemoryMiB, False),
         "AcceleratorTypes": ([str], False),
+        "AllowedInstanceTypes": ([str], False),
         "BareMetal": (str, False),
         "BaselineEbsBandwidthMbps": (BaselineEbsBandwidthMbps, False),
         "BurstablePerformance": (str, False),
@@ -1223,6 +1236,7 @@ class InstanceRequirements(AWSProperty):
         "LocalStorageTypes": ([str], False),
         "MemoryGiBPerVCpu": (MemoryGiBPerVCpu, False),
         "MemoryMiB": (MemoryMiB, False),
+        "NetworkBandwidthGbps": (NetworkBandwidthGbps, False),
         "NetworkInterfaceCount": (NetworkInterfaceCount, False),
         "OnDemandMaxPricePercentageOverLowestPrice": (integer, False),
         "RequireHibernateSupport": (boolean, False),
@@ -1426,7 +1440,8 @@ class LocalGatewayRoute(AWSObject):
     props: PropsDictType = {
         "DestinationCidrBlock": (str, True),
         "LocalGatewayRouteTableId": (str, True),
-        "LocalGatewayVirtualInterfaceGroupId": (str, True),
+        "LocalGatewayVirtualInterfaceGroupId": (str, False),
+        "NetworkInterfaceId": (str, False),
     }
 
 

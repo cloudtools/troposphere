@@ -23,6 +23,7 @@ class Ec2ConfigurationObject(AWSProperty):
 
     props: PropsDictType = {
         "ImageIdOverride": (str, False),
+        "ImageKubernetesVersion": (str, False),
         "ImageType": (str, True),
     }
 
@@ -69,6 +70,17 @@ class ComputeResources(AWSProperty):
     }
 
 
+class EksConfiguration(AWSProperty):
+    """
+    `EksConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-eksconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EksClusterArn": (str, True),
+        "KubernetesNamespace": (str, True),
+    }
+
+
 class UpdatePolicy(AWSProperty):
     """
     `UpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-updatepolicy.html>`__
@@ -90,6 +102,7 @@ class ComputeEnvironment(AWSObject):
     props: PropsDictType = {
         "ComputeEnvironmentName": (str, False),
         "ComputeResources": (ComputeResources, False),
+        "EksConfiguration": (EksConfiguration, False),
         "ReplaceComputeEnvironment": (boolean, False),
         "ServiceRole": (str, False),
         "State": (validate_environment_state, False),

@@ -92,12 +92,23 @@ class StatefulEngineOptions(AWSProperty):
     }
 
 
+class StatefulRuleGroupOverride(AWSProperty):
+    """
+    `StatefulRuleGroupOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, False),
+    }
+
+
 class StatefulRuleGroupReference(AWSProperty):
     """
     `StatefulRuleGroupReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulrulegroupreference.html>`__
     """
 
     props: PropsDictType = {
+        "Override": (StatefulRuleGroupOverride, False),
         "Priority": (integer, False),
         "ResourceArn": (str, True),
     }

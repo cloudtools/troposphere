@@ -102,7 +102,7 @@ class ApplicationVersion(AWSObject):
 
 class OptionSetting(AWSProperty):
     """
-    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-option-settings.html>`__
+    `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-optionsetting.html>`__
     """
 
     props: PropsDictType = {
@@ -144,7 +144,7 @@ class ConfigurationTemplate(AWSObject):
 
 class Tier(AWSProperty):
     """
-    `Tier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment-tier.html>`__
+    `Tier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticbeanstalk-environment-tier.html>`__
     """
 
     props: PropsDictType = {
@@ -156,7 +156,7 @@ class Tier(AWSProperty):
 
 class Environment(AWSObject):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-beanstalk-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticbeanstalk-environment.html>`__
     """
 
     resource_type = "AWS::ElasticBeanstalk::Environment"

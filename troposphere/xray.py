@@ -36,6 +36,20 @@ class Group(AWSObject):
     }
 
 
+class ResourcePolicy(AWSObject):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-resourcepolicy.html>`__
+    """
+
+    resource_type = "AWS::XRay::ResourcePolicy"
+
+    props: PropsDictType = {
+        "BypassPolicyLockoutCheck": (boolean, False),
+        "PolicyDocument": (str, True),
+        "PolicyName": (str, True),
+    }
+
+
 class SamplingRuleProperty(AWSProperty):
     """
     `SamplingRuleProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-xray-samplingrule-samplingrule.html>`__

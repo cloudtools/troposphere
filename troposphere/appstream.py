@@ -102,6 +102,17 @@ class ApplicationFleetAssociation(AWSObject):
     }
 
 
+class CertificateBasedAuthProperties(AWSProperty):
+    """
+    `CertificateBasedAuthProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-certificatebasedauthproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateAuthorityArn": (str, False),
+        "Status": (str, False),
+    }
+
+
 class ServiceAccountCredentials(AWSProperty):
     """
     `ServiceAccountCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appstream-directoryconfig-serviceaccountcredentials.html>`__
@@ -121,6 +132,7 @@ class DirectoryConfig(AWSObject):
     resource_type = "AWS::AppStream::DirectoryConfig"
 
     props: PropsDictType = {
+        "CertificateBasedAuthProperties": (CertificateBasedAuthProperties, False),
         "DirectoryName": (str, True),
         "OrganizationalUnitDistinguishedNames": ([str], True),
         "ServiceAccountCredentials": (ServiceAccountCredentials, True),
