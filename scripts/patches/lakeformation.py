@@ -29,6 +29,17 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::LakeFormation::PrincipalPermissions.Resource/Properties/Catalog/Type",
     },
+    # Rename AWS::LakeFormation::PrincipalPermissions.Resource to AWS::LakeFormation::PrincipalPermissions.PrincipalResource
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::LakeFormation::PrincipalPermissions.Resource",
+        "path": "/PropertyTypes/AWS::LakeFormation::PrincipalPermissions.PrincipalResource",
+    },
+    {
+        "op": "replace",
+        "path": "/ResourceTypes/AWS::LakeFormation::PrincipalPermissions/Properties/Resource/Type",
+        "value": "PrincipalResource",
+    },
     {
         "op": "add",
         "path": "/PropertyTypes/AWS::LakeFormation::TagAssociation.Resource/Properties/Catalog/PrimitiveType",
