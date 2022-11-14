@@ -47,6 +47,7 @@ class Cluster(AWSObject):
         "AutoMinorVersionUpgrade": (boolean, False),
         "ClusterEndpoint": (Endpoint, False),
         "ClusterName": (str, True),
+        "DataTiering": (str, False),
         "Description": (str, False),
         "EngineVersion": (str, False),
         "FinalSnapshotName": (str, False),

@@ -61,6 +61,37 @@ class TrackingOptions(AWSProperty):
     }
 
 
+class DashboardOptions(AWSProperty):
+    """
+    `DashboardOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-dashboardoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "EngagementMetrics": (str, True),
+    }
+
+
+class GuardianOptions(AWSProperty):
+    """
+    `GuardianOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-guardianoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "OptimizedSharedDelivery": (str, True),
+    }
+
+
+class VdmOptions(AWSProperty):
+    """
+    `VdmOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationset-vdmoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DashboardOptions": (DashboardOptions, False),
+        "GuardianOptions": (GuardianOptions, False),
+    }
+
+
 class ConfigurationSet(AWSObject):
     """
     `ConfigurationSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-configurationset.html>`__
@@ -75,6 +106,7 @@ class ConfigurationSet(AWSObject):
         "SendingOptions": (SendingOptions, False),
         "SuppressionOptions": (SuppressionOptions, False),
         "TrackingOptions": (TrackingOptions, False),
+        "VdmOptions": (VdmOptions, False),
     }
 
 
@@ -456,4 +488,37 @@ class Template(AWSObject):
 
     props: PropsDictType = {
         "Template": (EmailTemplate, False),
+    }
+
+
+class DashboardAttributes(AWSProperty):
+    """
+    `DashboardAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-vdmattributes-dashboardattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "EngagementMetrics": (str, False),
+    }
+
+
+class GuardianAttributes(AWSProperty):
+    """
+    `GuardianAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-vdmattributes-guardianattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "OptimizedSharedDelivery": (str, False),
+    }
+
+
+class VdmAttributes(AWSObject):
+    """
+    `VdmAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-vdmattributes.html>`__
+    """
+
+    resource_type = "AWS::SES::VdmAttributes"
+
+    props: PropsDictType = {
+        "DashboardAttributes": (DashboardAttributes, False),
+        "GuardianAttributes": (GuardianAttributes, False),
     }

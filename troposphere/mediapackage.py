@@ -66,7 +66,7 @@ class Authorization(AWSProperty):
 
 class EncryptionContractConfiguration(AWSProperty):
     """
-    `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-originendpoint-encryptioncontractconfiguration.html>`__
+    `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -154,6 +154,7 @@ class SpekeKeyProvider(AWSProperty):
     """
 
     props: PropsDictType = {
+        "EncryptionContractConfiguration": (EncryptionContractConfiguration, False),
         "RoleArn": (str, True),
         "SystemIds": ([str], True),
         "Url": (str, True),
@@ -220,6 +221,7 @@ class OriginEndpointHlsPackage(AWSProperty):
         "AdTriggers": ([str], False),
         "AdsOnDeliveryRestrictions": (str, False),
         "Encryption": (OriginEndpointHlsEncryption, False),
+        "IncludeDvbSubtitles": (boolean, False),
         "IncludeIframeOnlyStream": (boolean, False),
         "PlaylistType": (str, False),
         "PlaylistWindowSeconds": (integer, False),
@@ -376,6 +378,7 @@ class HlsPackage(AWSProperty):
     props: PropsDictType = {
         "Encryption": (HlsEncryption, False),
         "HlsManifests": ([HlsManifest], True),
+        "IncludeDvbSubtitles": (boolean, False),
         "SegmentDurationSeconds": (integer, False),
         "UseAudioRenditionGroup": (boolean, False),
     }

@@ -217,6 +217,7 @@ class DBInstance(AWSObject):
         "SourceDBInstanceIdentifier": (str, False),
         "SourceRegion": (str, False),
         "StorageEncrypted": (boolean, False),
+        "StorageThroughput": (integer, False),
         "StorageType": (str, False),
         "Tags": (validate_tags_or_list, False),
         "Timezone": (str, False),
