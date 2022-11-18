@@ -1469,6 +1469,7 @@ class NatGateway(AWSObject):
     props: PropsDictType = {
         "AllocationId": (str, False),
         "ConnectivityType": (str, False),
+        "PrivateIpAddress": (str, False),
         "SubnetId": (str, True),
         "Tags": (validate_tags_or_list, False),
     }

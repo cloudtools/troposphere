@@ -37,6 +37,10 @@ class AuditCheckConfigurations(AWSProperty):
         "DeviceCertificateExpiringCheck": (AuditCheckConfiguration, False),
         "DeviceCertificateKeyQualityCheck": (AuditCheckConfiguration, False),
         "DeviceCertificateSharedCheck": (AuditCheckConfiguration, False),
+        "IntermediateCaRevokedForActiveDeviceCertificatesCheck": (
+            AuditCheckConfiguration,
+            False,
+        ),
         "IotPolicyOverlyPermissiveCheck": (AuditCheckConfiguration, False),
         "IotRoleAliasAllowsAccessToUnusedServicesCheck": (
             AuditCheckConfiguration,

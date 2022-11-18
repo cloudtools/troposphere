@@ -457,3 +457,16 @@ class ResourceDataSync(AWSObject):
         "SyncSource": (SyncSource, False),
         "SyncType": (str, False),
     }
+
+
+class ResourcePolicy(AWSObject):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssm-resourcepolicy.html>`__
+    """
+
+    resource_type = "AWS::SSM::ResourcePolicy"
+
+    props: PropsDictType = {
+        "Policy": (dict, True),
+        "ResourceArn": (str, True),
+    }

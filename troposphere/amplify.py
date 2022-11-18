@@ -47,6 +47,7 @@ class AutoBranchCreationConfig(AWSProperty):
         "EnablePerformanceMode": (boolean, False),
         "EnablePullRequestPreview": (boolean, False),
         "EnvironmentVariables": ([EnvironmentVariable], False),
+        "Framework": (str, False),
         "PullRequestEnvironmentName": (str, False),
         "Stage": (str, False),
     }
@@ -85,6 +86,7 @@ class App(AWSObject):
         "IAMServiceRole": (str, False),
         "Name": (str, True),
         "OauthToken": (str, False),
+        "Platform": (str, False),
         "Repository": (str, False),
         "Tags": (Tags, False),
     }
@@ -107,6 +109,7 @@ class Branch(AWSObject):
         "EnablePerformanceMode": (boolean, False),
         "EnablePullRequestPreview": (boolean, False),
         "EnvironmentVariables": ([EnvironmentVariable], False),
+        "Framework": (str, False),
         "PullRequestEnvironmentName": (str, False),
         "Stage": (str, False),
         "Tags": (Tags, False),

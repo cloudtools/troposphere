@@ -103,6 +103,17 @@ class PropertyDefinition(AWSProperty):
     }
 
 
+class PropertyGroup(AWSProperty):
+    """
+    `PropertyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-propertygroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupType": (str, False),
+        "PropertyNames": ([str], False),
+    }
+
+
 class ComponentType(AWSObject):
     """
     `ComponentType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-componenttype.html>`__
@@ -117,6 +128,7 @@ class ComponentType(AWSObject):
         "Functions": (dict, False),
         "IsSingleton": (boolean, False),
         "PropertyDefinitions": (dict, False),
+        "PropertyGroups": (dict, False),
         "Tags": (dict, False),
         "WorkspaceId": (str, True),
     }
@@ -155,6 +167,7 @@ class Component(AWSProperty):
         "DefinedIn": (str, False),
         "Description": (str, False),
         "Properties": (dict, False),
+        "PropertyGroups": (dict, False),
         "Status": (Status, False),
     }
 

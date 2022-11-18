@@ -181,7 +181,7 @@ class CompositeAlarm(AWSObject):
         "ActionsSuppressorWaitPeriod": (integer, False),
         "AlarmActions": ([str], False),
         "AlarmDescription": (str, False),
-        "AlarmName": (str, True),
+        "AlarmName": (str, False),
         "AlarmRule": (str, True),
         "InsufficientDataActions": ([str], False),
         "OKActions": ([str], False),

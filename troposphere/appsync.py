@@ -208,6 +208,17 @@ class DomainNameApiAssociation(AWSObject):
     }
 
 
+class AppSyncRuntime(AWSProperty):
+    """
+    `AppSyncRuntime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-appsyncruntime.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "RuntimeVersion": (str, True),
+    }
+
+
 class LambdaConflictHandlerConfig(AWSProperty):
     """
     `LambdaConflictHandlerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-resolver-lambdaconflicthandlerconfig.html>`__
@@ -239,15 +250,18 @@ class FunctionConfiguration(AWSObject):
 
     props: PropsDictType = {
         "ApiId": (str, True),
+        "Code": (str, False),
+        "CodeS3Location": (str, False),
         "DataSourceName": (str, True),
         "Description": (str, False),
-        "FunctionVersion": (str, True),
+        "FunctionVersion": (str, False),
         "MaxBatchSize": (integer, False),
         "Name": (str, True),
         "RequestMappingTemplate": (str, False),
         "RequestMappingTemplateS3Location": (str, False),
         "ResponseMappingTemplate": (str, False),
         "ResponseMappingTemplateS3Location": (str, False),
+        "Runtime": (AppSyncRuntime, False),
         "SyncConfig": (SyncConfig, False),
     }
 
@@ -395,6 +409,8 @@ class Resolver(AWSObject):
     props: PropsDictType = {
         "ApiId": (str, True),
         "CachingConfig": (CachingConfig, False),
+        "Code": (str, False),
+        "CodeS3Location": (str, False),
         "DataSourceName": (str, False),
         "FieldName": (str, True),
         "Kind": (resolver_kind_validator, False),
@@ -404,6 +420,7 @@ class Resolver(AWSObject):
         "RequestMappingTemplateS3Location": (str, False),
         "ResponseMappingTemplate": (str, False),
         "ResponseMappingTemplateS3Location": (str, False),
+        "Runtime": (AppSyncRuntime, False),
         "SyncConfig": (SyncConfig, False),
         "TypeName": (str, True),
     }
