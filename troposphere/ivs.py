@@ -82,6 +82,7 @@ class RecordingConfiguration(AWSObject):
     props: PropsDictType = {
         "DestinationConfiguration": (DestinationConfiguration, True),
         "Name": (str, False),
+        "RecordingReconnectWindowSeconds": (integer, False),
         "Tags": (Tags, False),
         "ThumbnailConfiguration": (ThumbnailConfiguration, False),
     }

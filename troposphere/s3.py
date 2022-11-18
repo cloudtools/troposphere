@@ -804,6 +804,36 @@ class ActivityMetrics(AWSProperty):
     }
 
 
+class AdvancedCostOptimizationMetrics(AWSProperty):
+    """
+    `AdvancedCostOptimizationMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advancedcostoptimizationmetrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsEnabled": (boolean, False),
+    }
+
+
+class AdvancedDataProtectionMetrics(AWSProperty):
+    """
+    `AdvancedDataProtectionMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-advanceddataprotectionmetrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsEnabled": (boolean, False),
+    }
+
+
+class DetailedStatusCodesMetrics(AWSProperty):
+    """
+    `DetailedStatusCodesMetrics <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-detailedstatuscodesmetrics.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsEnabled": (boolean, False),
+    }
+
+
 class SelectionCriteria(AWSProperty):
     """
     `SelectionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-selectioncriteria.html>`__
@@ -844,6 +874,9 @@ class BucketLevel(AWSProperty):
 
     props: PropsDictType = {
         "ActivityMetrics": (ActivityMetrics, False),
+        "AdvancedCostOptimizationMetrics": (AdvancedCostOptimizationMetrics, False),
+        "AdvancedDataProtectionMetrics": (AdvancedDataProtectionMetrics, False),
+        "DetailedStatusCodesMetrics": (DetailedStatusCodesMetrics, False),
         "PrefixLevel": (PrefixLevel, False),
     }
 
@@ -855,7 +888,10 @@ class AccountLevel(AWSProperty):
 
     props: PropsDictType = {
         "ActivityMetrics": (ActivityMetrics, False),
+        "AdvancedCostOptimizationMetrics": (AdvancedCostOptimizationMetrics, False),
+        "AdvancedDataProtectionMetrics": (AdvancedDataProtectionMetrics, False),
         "BucketLevel": (BucketLevel, True),
+        "DetailedStatusCodesMetrics": (DetailedStatusCodesMetrics, False),
     }
 
 

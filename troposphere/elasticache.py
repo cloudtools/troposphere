@@ -281,6 +281,7 @@ class User(AWSObject):
 
     props: PropsDictType = {
         "AccessString": (str, False),
+        "AuthenticationMode": (dict, False),
         "Engine": (str, True),
         "NoPasswordRequired": (boolean, False),
         "Passwords": ([str], False),

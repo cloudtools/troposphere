@@ -143,6 +143,17 @@ class MemoryMiBRequest(AWSProperty):
     }
 
 
+class NetworkBandwidthGbpsRequest(AWSProperty):
+    """
+    `NetworkBandwidthGbpsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkbandwidthgbpsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Max": (double, False),
+        "Min": (double, False),
+    }
+
+
 class NetworkInterfaceCountRequest(AWSProperty):
     """
     `NetworkInterfaceCountRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-networkinterfacecountrequest.html>`__
@@ -187,6 +198,7 @@ class InstanceRequirements(AWSProperty):
         "AcceleratorNames": ([str], False),
         "AcceleratorTotalMemoryMiB": (AcceleratorTotalMemoryMiBRequest, False),
         "AcceleratorTypes": ([str], False),
+        "AllowedInstanceTypes": ([str], False),
         "BareMetal": (str, False),
         "BaselineEbsBandwidthMbps": (BaselineEbsBandwidthMbpsRequest, False),
         "BurstablePerformance": (str, False),
@@ -197,6 +209,7 @@ class InstanceRequirements(AWSProperty):
         "LocalStorageTypes": ([str], False),
         "MemoryGiBPerVCpu": (MemoryGiBPerVCpuRequest, False),
         "MemoryMiB": (MemoryMiBRequest, False),
+        "NetworkBandwidthGbps": (NetworkBandwidthGbpsRequest, False),
         "NetworkInterfaceCount": (NetworkInterfaceCountRequest, False),
         "OnDemandMaxPricePercentageOverLowestPrice": (integer, False),
         "RequireHibernateSupport": (boolean, False),

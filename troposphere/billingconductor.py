@@ -131,6 +131,7 @@ class PricingRule(AWSObject):
     resource_type = "AWS::BillingConductor::PricingRule"
 
     props: PropsDictType = {
+        "BillingEntity": (str, False),
         "Description": (str, False),
         "ModifierPercentage": (double, True),
         "Name": (str, True),

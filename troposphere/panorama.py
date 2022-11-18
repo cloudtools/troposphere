@@ -79,3 +79,17 @@ class PackageVersion(AWSObject):
         "PatchVersion": (str, True),
         "UpdatedLatestPatchVersion": (str, False),
     }
+
+
+class StorageLocation(AWSProperty):
+    """
+    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "BinaryPrefixLocation": (str, False),
+        "Bucket": (str, False),
+        "GeneratedPrefixLocation": (str, False),
+        "ManifestPrefixLocation": (str, False),
+        "RepoPrefixLocation": (str, False),
+    }

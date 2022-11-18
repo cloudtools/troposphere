@@ -419,6 +419,7 @@ class Cluster(AWSObject):
         "LogUri": (str, False),
         "ManagedScalingPolicy": (ManagedScalingPolicy, False),
         "Name": (str, True),
+        "OSReleaseLabel": (str, False),
         "ReleaseLabel": (str, False),
         "ScaleDownBehavior": (str, False),
         "SecurityConfiguration": (str, False),

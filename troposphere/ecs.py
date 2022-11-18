@@ -129,6 +129,16 @@ class ClusterSetting(AWSProperty):
     }
 
 
+class ServiceConnectDefaults(AWSProperty):
+    """
+    `ServiceConnectDefaults <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-serviceconnectdefaults.html>`__
+    """
+
+    props: PropsDictType = {
+        "Namespace": (str, False),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-cluster.html>`__
@@ -142,6 +152,7 @@ class Cluster(AWSObject):
         "ClusterSettings": ([ClusterSetting], False),
         "Configuration": (ClusterConfiguration, False),
         "DefaultCapacityProviderStrategy": ([CapacityProviderStrategyItem], False),
+        "ServiceConnectDefaults": (ServiceConnectDefaults, False),
         "Tags": (Tags, False),
     }
 
@@ -276,6 +287,66 @@ class PlacementStrategy(AWSProperty):
     }
 
 
+class Secret(AWSProperty):
+    """
+    `Secret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "ValueFrom": (str, True),
+    }
+
+
+class LogConfiguration(AWSProperty):
+    """
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogDriver": (str, True),
+        "Options": (dict, False),
+        "SecretOptions": ([Secret], False),
+    }
+
+
+class ServiceConnectClientAlias(AWSProperty):
+    """
+    `ServiceConnectClientAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectclientalias.html>`__
+    """
+
+    props: PropsDictType = {
+        "DnsName": (str, False),
+        "Port": (integer, True),
+    }
+
+
+class ServiceConnectService(AWSProperty):
+    """
+    `ServiceConnectService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientAliases": ([ServiceConnectClientAlias], False),
+        "DiscoveryName": (str, False),
+        "IngressPortOverride": (integer, False),
+        "PortName": (str, True),
+    }
+
+
+class ServiceConnectConfiguration(AWSProperty):
+    """
+    `ServiceConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "LogConfiguration": (LogConfiguration, False),
+        "Namespace": (str, False),
+        "Services": ([ServiceConnectService], False),
+    }
+
+
 class ServiceRegistry(AWSProperty):
     """
     `ServiceRegistry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-serviceregistry.html>`__
@@ -314,6 +385,7 @@ class Service(AWSObject):
         "PropagateTags": (str, False),
         "Role": (str, False),
         "SchedulingStrategy": (str, False),
+        "ServiceConnectConfiguration": (ServiceConnectConfiguration, False),
         "ServiceName": (str, False),
         "ServiceRegistries": ([ServiceRegistry], False),
         "Tags": (Tags, False),
@@ -441,29 +513,6 @@ class LinuxParameters(AWSProperty):
     }
 
 
-class Secret(AWSProperty):
-    """
-    `Secret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-secret.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "ValueFrom": (str, True),
-    }
-
-
-class LogConfiguration(AWSProperty):
-    """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "LogDriver": (str, True),
-        "Options": (dict, False),
-        "SecretOptions": ([Secret], False),
-    }
-
-
 class MountPoint(AWSProperty):
     """
     `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html>`__
@@ -482,8 +531,10 @@ class PortMapping(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AppProtocol": (str, False),
         "ContainerPort": (validate_network_port, False),
         "HostPort": (validate_network_port, False),
+        "Name": (str, False),
         "Protocol": (str, False),
     }
 
