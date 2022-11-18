@@ -54,10 +54,6 @@ patches = [
     },
     {
         "op": "remove",
-        "path": "/ResourceTypes/AWS::SageMaker::ModelPackage/Properties/Tag",
-    },
-    {
-        "op": "remove",
         "path": "/PropertyTypes/AWS::SageMaker::ModelPackage.ModelPackageContainerDefinition/Properties/Environment/Type",
     },
     {
