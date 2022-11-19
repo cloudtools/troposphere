@@ -268,7 +268,6 @@ class JobTemplate(AWSObject):
         "Document": (str, False),
         "DocumentSource": (str, False),
         "JobArn": (str, False),
-        "JobExecutionsRetryConfig": (dict, False),
         "JobExecutionsRolloutConfig": (validate_json_checker, False),
         "JobTemplateId": (str, True),
         "PresignedUrlConfig": (dict, False),
