@@ -2,6 +2,7 @@
 from troposphere import Template
 from troposphere.redshiftserverless import Namespace, Workgroup
 
+
 # Redshift serverless cluster variables
 admin_username = "{{{{resolve:ssm:/redshift_admin_username}}}}"
 admin_password = "{{{{resolve:ssm:/redshift_admin_password}}}}"
@@ -20,7 +21,7 @@ t.set_description("RedshiftServerless: Template and module example")
 
 RedshiftServerlessNamespace = t.add_resource(
     Namespace(
-        "RedshiftServerlessNamespace",
+        title="Namespace",
         AdminUsername=admin_username,
         AdminUserPassword=admin_password,
         DbName=default_db_name,
@@ -32,7 +33,7 @@ RedshiftServerlessNamespace = t.add_resource(
 
 RedshiftServerlessWorkgroup = t.add_resource(
     Workgroup(
-        "RedshiftServerlessWorkgroup",
+        title="Workgroup",
         EnhancedVpcRouting=True,
         NamespaceName=serverless_namespace_name,
         PubliclyAccessible=False,

@@ -1,7 +1,7 @@
 {
  "Description": "RedshiftServerless: Template and module example",
  "Resources": {
-  "RedshiftServerlessNamespace": {
+  "Namespace": {
    "Properties": {
     "AdminUserPassword": "{{{{resolve:ssm:/redshift_admin_password}}}}",
     "AdminUsername": "{{{{resolve:ssm:/redshift_admin_username}}}}",
@@ -12,7 +12,7 @@
    },
    "Type": "AWS::RedshiftServerless::Namespace"
   },
-  "RedshiftServerlessWorkgroup": {
+  "Workgroup": {
    "Properties": {
     "EnhancedVpcRouting": true,
     "NamespaceName": "serverless",
