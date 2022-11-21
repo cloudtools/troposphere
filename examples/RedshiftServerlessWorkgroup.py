@@ -6,8 +6,8 @@ app_group = "redshift-serverless".capitalize()
 app_group_l = app_group.lower()
 
 # Redshift serverless cluster variables
-admin_username = f"{{{{resolve:ssm:/redshift_admin_username}}}}"
-admin_password = f"{{{{resolve:ssm:/redshift_admin_password}}}}"
+admin_username = "{{{{resolve:ssm:/redshift_admin_username}}}}"
+admin_password = "{{{{resolve:ssm:/redshift_admin_password}}}}"
 default_iam_role_arn = "arn:aws:iam::123456789123:role/service-role/AmazonRedshift-CommandsAccessRole-123451234512345"
 default_db_name = "dev"
 iam_roles = []
@@ -18,7 +18,7 @@ subnet_ids = ["subnet-12345678912345678", "subnet-98765432198765432"]
 
 # Prepare Template
 t = Template()
-t.set_description(f"RedshiftServerless: Template and module example")
+t.set_description("RedshiftServerless: Template and module example")
 
 # Private security group
 privateSecurityGroup = t.add_resource(
@@ -59,7 +59,7 @@ redshiftServerlessWorkGroup = t.add_resource(
         PubliclyAccessible=False,
         SecurityGroupIds=[Ref("privateSecurityGroup")],
         SubnetIds=subnet_ids,
-        WorkgroupName=f"redshiftServerlessWorkGroup",
+        WorkgroupName="redshiftServerlessWorkGroup",
     )
 )
 
