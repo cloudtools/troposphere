@@ -1,5 +1,17 @@
 {
  "Description": "RedshiftServerless: Template and module example",
+ "Outputs": {
+  "NamespaceName": {
+   "Value": {
+    "Ref": "redshiftServerlessClusterNamespace"
+   }
+  },
+  "WorkgroupName": {
+   "Value": {
+    "Ref": "redshiftServerlessWorkGroup"
+   }
+  }
+ },
  "Resources": {
   "privateSecurityGroup": {
    "Properties": {
@@ -25,8 +37,8 @@
   },
   "redshiftServerlessClusterNamespace": {
    "Properties": {
-    "AdminUserPassword": "{{resolve:ssm:/redshift_admin_password}}",
-    "AdminUsername": "{{resolve:ssm:/redshift_admin_username}}",
+    "AdminUserPassword": "{{{{resolve:ssm:/redshift_admin_password}}}}",
+    "AdminUsername": "{{{{resolve:ssm:/redshift_admin_username}}}}",
     "DbName": "dev",
     "DefaultIamRoleArn": "arn:aws:iam::123456789123:role/service-role/AmazonRedshift-CommandsAccessRole-123451234512345",
     "IamRoles": [],
