@@ -23,7 +23,7 @@ t.set_description("RedshiftServerless: Template and module example")
 
 RedshiftServerlessClusterNamespace = t.add_resource(
     Namespace(
-        "RedshiftServerlessClusterNamespace",
+        "Namespace",
         AdminUsername=admin_username,
         AdminUserPassword=admin_password,
         DbName=default_db_name,
@@ -35,7 +35,7 @@ RedshiftServerlessClusterNamespace = t.add_resource(
 
 RedshiftServerlessWorkGroup = t.add_resource(
     Workgroup(
-        "RedshiftServerlessWorkGroup",
+        "Workgroup",
         EnhancedVpcRouting=True,
         NamespaceName=serverless_namespace_name,
         PubliclyAccessible=False,
@@ -46,13 +46,12 @@ RedshiftServerlessWorkGroup = t.add_resource(
 )
 
 t.add_output(
-    Output("RedshiftServerlessWorkGroup", Value=Ref(RedshiftServerlessWorkGroup))
+    Output("Workgroup", Value=Ref(RedshiftServerlessWorkGroup))
 )
 
 t.add_output(
     Output(
-        "RedshiftServerlessClusterNamespace",
-        Value=Ref(RedshiftServerlessClusterNamespace),
+        "Namespace", Value=Ref(RedshiftServerlessClusterNamespace),
     )
 )
 
