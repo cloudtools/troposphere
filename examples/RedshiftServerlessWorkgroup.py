@@ -2,7 +2,6 @@
 from troposphere import Template
 from troposphere.redshiftserverless import Namespace, Workgroup
 
-
 # Redshift serverless cluster variables
 admin_username = "{{{{resolve:ssm:/redshift_admin_username}}}}"
 admin_password = "{{{{resolve:ssm:/redshift_admin_password}}}}"
