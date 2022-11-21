@@ -1,0 +1,58 @@
+{
+ "Description": "RedshiftServerless: Template and module example",
+ "Resources": {
+  "privateSecurityGroup": {
+   "Properties": {
+    "GroupDescription": "Private Security Group",
+    "SecurityGroupIngress": [
+     {
+      "CidrIp": "10.0.0.0/8",
+      "Description": "Allow TCP 5439 to Redshift Serverless cluster",
+      "FromPort": 5439,
+      "IpProtocol": "tcp",
+      "ToPort": 5439
+     }
+    ],
+    "Tags": [
+     {
+      "Key": "Name",
+      "Value": "example-private-sg"
+     }
+    ],
+    "VpcId": "vpc-12345678123456789"
+   },
+   "Type": "AWS::EC2::SecurityGroup"
+  },
+  "redshiftServerlessClusterNamespace": {
+   "Properties": {
+    "AdminUserPassword": "{{resolve:ssm:/redshift_admin_password}}",
+    "AdminUsername": "{{resolve:ssm:/redshift_admin_username}}",
+    "DbName": "dev",
+    "DefaultIamRoleArn": "arn:aws:iam::123456789123:role/service-role/AmazonRedshift-CommandsAccessRole-123451234512345",
+    "IamRoles": [],
+    "NamespaceName": "serverless"
+   },
+   "Type": "AWS::RedshiftServerless::Namespace"
+  },
+  "redshiftServerlessWorkGroup": {
+   "Properties": {
+    "EnhancedVpcRouting": true,
+    "NamespaceName": {
+     "Ref": "redshiftServerlessClusterNamespace"
+    },
+    "PubliclyAccessible": false,
+    "SecurityGroupIds": [
+     {
+      "Ref": "privateSecurityGroup"
+     }
+    ],
+    "SubnetIds": [
+     "subnet-12345678912345678",
+     "subnet-98765432198765432"
+    ],
+    "WorkgroupName": "redshiftServerlessWorkGroup"
+   },
+   "Type": "AWS::RedshiftServerless::Workgroup"
+  }
+ }
+}
