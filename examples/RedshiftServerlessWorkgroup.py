@@ -21,7 +21,7 @@ security_group_ids = ["sg-12345123451234567"]
 t = Template()
 t.set_description("RedshiftServerless: Template and module example")
 
-RedshiftServerlessClusterNamespace = t.add_resource(
+Namespace = t.add_resource(
     Namespace(
         "Namespace",
         AdminUsername=admin_username,
@@ -33,7 +33,7 @@ RedshiftServerlessClusterNamespace = t.add_resource(
     )
 )
 
-RedshiftServerlessWorkGroup = t.add_resource(
+Workgroup = t.add_resource(
     Workgroup(
         "Workgroup",
         EnhancedVpcRouting=True,
