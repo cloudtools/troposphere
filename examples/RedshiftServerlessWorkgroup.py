@@ -15,7 +15,7 @@ serverless_namespace_name = "serverless"
 tcp_port = 5439
 vpc_id = "vpc-12345678123456789"
 subnet_ids = ["subnet-12345678912345678", "subnet-98765432198765432"]
-security_group_ids = ['sg-12345123451234567']
+security_group_ids = ["sg-12345123451234567"]
 
 # Prepare Template
 t = Template()
