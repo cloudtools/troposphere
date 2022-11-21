@@ -1,17 +1,5 @@
 {
  "Description": "RedshiftServerless: Template and module example",
- "Outputs": {
-  "Namespace": {
-   "Value": {
-    "Ref": "Namespace"
-   }
-  },
-  "Workgroup": {
-   "Value": {
-    "Ref": "Workgroup"
-   }
-  }
- },
  "Resources": {
   "Namespace": {
    "Properties": {

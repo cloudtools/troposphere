@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from troposphere import Output, Ref, Template
+from troposphere import Template
 from troposphere.redshiftserverless import Namespace, Workgroup
 
 app_group = "redshift-serverless".capitalize()
@@ -44,16 +44,6 @@ RedshiftServerlessWorkGroup = t.add_resource(
         WorkgroupName="RedshiftServerlessWorkGroup",
     )
 )
-
-t.add_output(Output("Workgroup", Value=Ref(RedshiftServerlessWorkGroup)))
-
-t.add_output(
-    Output(
-        "Namespace",
-        Value=Ref(RedshiftServerlessClusterNamespace),
-    )
-)
-
 
 # Output all necessary files with the template and stack_details
 print(t.to_json())
