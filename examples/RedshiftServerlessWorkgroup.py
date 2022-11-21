@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from troposphere import Output, Ref, Tags, Template, ec2
+from troposphere import Output, Ref, Template
 from troposphere.redshiftserverless import Namespace, Workgroup
 
 app_group = "redshift-serverless".capitalize()
@@ -15,29 +15,11 @@ serverless_namespace_name = "serverless"
 tcp_port = 5439
 vpc_id = "vpc-12345678123456789"
 subnet_ids = ["subnet-12345678912345678", "subnet-98765432198765432"]
+security_group_ids = ['sg-12345123451234567']
 
 # Prepare Template
 t = Template()
 t.set_description("RedshiftServerless: Template and module example")
-
-# Private security group
-privateSecurityGroup = t.add_resource(
-    ec2.SecurityGroup(
-        "privateSecurityGroup",
-        GroupDescription="Private Security Group",
-        VpcId=vpc_id,
-        SecurityGroupIngress=[
-            ec2.SecurityGroupRule(
-                IpProtocol="tcp",
-                FromPort=tcp_port,
-                ToPort=tcp_port,
-                CidrIp="10.0.0.0/8",
-                Description="Allow TCP 5439 to Redshift Serverless cluster",
-            )
-        ],
-        Tags=Tags(Name="example-private-sg"),
-    )
-)
 
 redshiftServerlessClusterNamespace = t.add_resource(
     Namespace(
@@ -55,9 +37,9 @@ redshiftServerlessWorkGroup = t.add_resource(
     Workgroup(
         "redshiftServerlessWorkGroup",
         EnhancedVpcRouting=True,
-        NamespaceName=Ref("redshiftServerlessClusterNamespace"),
+        NamespaceName=serverless_namespace_name,
         PubliclyAccessible=False,
-        SecurityGroupIds=[Ref("privateSecurityGroup")],
+        SecurityGroupIds=security_group_ids,
         SubnetIds=subnet_ids,
         WorkgroupName="redshiftServerlessWorkGroup",
     )
