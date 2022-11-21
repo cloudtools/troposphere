@@ -45,9 +45,16 @@ RedshiftServerlessWorkGroup = t.add_resource(
     )
 )
 
-t.add_output(Output("RedshiftServerlessWorkGroup", Value=Ref(RedshiftServerlessWorkGroup)))
+t.add_output(
+    Output("RedshiftServerlessWorkGroup", Value=Ref(RedshiftServerlessWorkGroup))
+)
 
-t.add_output(Output("RedshiftServerlessClusterNamespace", Value=Ref(RedshiftServerlessClusterNamespace)))
+t.add_output(
+    Output(
+        "RedshiftServerlessClusterNamespace",
+        Value=Ref(RedshiftServerlessClusterNamespace),
+    )
+)
 
 
 # Output all necessary files with the template and stack_details
