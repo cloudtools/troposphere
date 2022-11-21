@@ -17,7 +17,6 @@ from .validators.apigatewayv2 import (
     validate_logging_level,
     validate_model,
     validate_passthrough_behavior,
-    validate_tags_or_list,
     validate_timeout_in_millis,
 )
 
@@ -397,7 +396,7 @@ class Stage(AWSObject):
         "RouteSettings": (dict, False),
         "StageName": (str, True),
         "StageVariables": (dict, False),
-        "Tags": (validate_tags_or_list, False),
+        "Tags": (dict, False),
     }
 
 

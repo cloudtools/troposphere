@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 
-from . import integer_range, json_checker, positive_integer, tags_or_list
+from . import integer_range, json_checker, positive_integer
 
 
 def dict_or_string(x):
@@ -22,14 +22,6 @@ def validate_timeout_in_millis(x):
     Property: Integration.TimeoutInMillis
     """
     return integer_range(50, 29000)(x)
-
-
-def validate_tags_or_list(x):
-    """
-    Property: StageDescription.Tags
-    Property: Stage.Tags
-    """
-    return tags_or_list(x)
 
 
 def validate_integration_type(integration_type):
@@ -59,7 +51,7 @@ def validate_logging_level(logging_level):
     Property: RouteSettings.LoggingLevel
     """
 
-    valid_logging_levels = ["WARN", "INFO", "DEBUG"]
+    valid_logging_levels = ["INFO", "ERROR", "OFF"]
     if logging_level not in valid_logging_levels:
         raise ValueError("{} is not a valid LoggingLevel".format(logging_level))
     return logging_level
