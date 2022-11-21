@@ -23,7 +23,7 @@ t.set_description("RedshiftServerless: Template and module example")
 
 Namespace = t.add_resource(
     Namespace(
-        "Namespace",
+        title="Namespace",
         AdminUsername=admin_username,
         AdminUserPassword=admin_password,
         DbName=default_db_name,
@@ -35,7 +35,7 @@ Namespace = t.add_resource(
 
 Workgroup = t.add_resource(
     Workgroup(
-        "Workgroup",
+        title="Workgroup",
         EnhancedVpcRouting=True,
         NamespaceName=serverless_namespace_name,
         PubliclyAccessible=False,
