@@ -1,7 +1,7 @@
 {
  "Description": "RedshiftServerless: Template and module example",
  "Resources": {
-  "Namespace": {
+  "RedshiftServerlessNamespace": {
    "Properties": {
     "AdminUserPassword": "{{{{resolve:ssm:/redshift_admin_password}}}}",
     "AdminUsername": "{{{{resolve:ssm:/redshift_admin_username}}}}",
@@ -12,7 +12,7 @@
    },
    "Type": "AWS::RedshiftServerless::Namespace"
   },
-  "Workgroup": {
+  "RedshiftServerlessWorkgroup": {
    "Properties": {
     "EnhancedVpcRouting": true,
     "NamespaceName": "serverless",
@@ -24,7 +24,7 @@
      "subnet-12345678912345678",
      "subnet-98765432198765432"
     ],
-    "WorkgroupName": "RedshiftServerlessWorkGroup"
+    "WorkgroupName": "RedshiftServerlessWorkgroup"
    },
    "Type": "AWS::RedshiftServerless::Workgroup"
   }
