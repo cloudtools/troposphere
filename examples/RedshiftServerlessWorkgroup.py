@@ -45,13 +45,12 @@ RedshiftServerlessWorkGroup = t.add_resource(
     )
 )
 
-t.add_output(
-    Output("Workgroup", Value=Ref(RedshiftServerlessWorkGroup))
-)
+t.add_output(Output("Workgroup", Value=Ref(RedshiftServerlessWorkGroup)))
 
 t.add_output(
     Output(
-        "Namespace", Value=Ref(RedshiftServerlessClusterNamespace),
+        "Namespace",
+        Value=Ref(RedshiftServerlessClusterNamespace),
     )
 )
 
