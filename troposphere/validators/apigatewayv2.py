@@ -59,7 +59,7 @@ def validate_logging_level(logging_level):
     Property: RouteSettings.LoggingLevel
     """
 
-    valid_logging_levels = ["WARN", "INFO", "DEBUG"]
+    valid_logging_levels = ["INFO", "ERROR", "OFF"]
     if logging_level not in valid_logging_levels:
         raise ValueError("{} is not a valid LoggingLevel".format(logging_level))
     return logging_level
