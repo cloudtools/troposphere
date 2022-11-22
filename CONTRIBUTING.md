@@ -20,7 +20,7 @@ Thus the code base grew organically as new validation routines and features were
 bit challenging to know what new resources and properties were added periodically from AWS.
 
 Eventually AWS added the Resource Specification and started publishing machine readable versions but
-initially it had quite a few errors and inconsistensies. An early code generator was used for adding
+initially it had quite a few errors and inconsistencies. An early code generator was used for adding
 new resources and delta changes to existing code but still needed hand tweaking.
 
 An updated code generator is now available but may require tweaks to handle inconsistencies or backward compatibility.
@@ -113,7 +113,7 @@ The above example replaces the *Type* field. But sometimes there is a need to us
 
 Early on it was not always clear what AWS wanted Resources and Properties named. These
 names have been kept historically for backward compatibility (although these might change
- in a future release). Thus, the names used in code generatio must be maintained.
+ in a future release). Thus, the names used in code generation must be maintained.
  An S3 example to maintain the seage of `S3Key` instead of the current name `S3KeyFilter`.
 
 ```
@@ -154,7 +154,7 @@ WAFv2 with 2 different Property contents. This renames the LoggingConfiguration 
 
 One of the core reasons to use troposphere is to help with the validation of the CloudFormation template prior to applying it into AWS.
 The code generator will usually do type validation to ensure the correct type is used for a property and tje *required* field which will
-warn if thereare missing required fields. The other validators allow for functions to do further type and value validation along with
+warn if there are missing required fields. The other validators allow for functions to do further type and value validation along with
 class validation.
 
 ### Property type function validators
