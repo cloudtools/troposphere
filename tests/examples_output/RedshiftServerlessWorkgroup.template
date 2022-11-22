@@ -1,7 +1,7 @@
 {
  "Description": "RedshiftServerless: Template and module example",
  "Resources": {
-  "Namespace": {
+  "RedshiftServerlessNamespace": {
    "Properties": {
     "AdminUserPassword": "{{{{resolve:ssm:/redshift_admin_password}}}}",
     "AdminUsername": "{{{{resolve:ssm:/redshift_admin_username}}}}",
@@ -12,8 +12,14 @@
    },
    "Type": "AWS::RedshiftServerless::Namespace"
   },
-  "Workgroup": {
+  "RedshiftServerlessWorkgroup": {
    "Properties": {
+    "ConfigParameters": [
+     {
+      "ParameterKey": "enable_user_activity_logging",
+      "ParameterValue": "true"
+     }
+    ],
     "EnhancedVpcRouting": true,
     "NamespaceName": "serverless",
     "PubliclyAccessible": false,
