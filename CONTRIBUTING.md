@@ -45,8 +45,8 @@ make spec
 To generate code, the current process is roughly, scan the CloudFormation history to identify changes and then run (using S3 as an example):
 
 ```
-  python3 scripts/gen.py --stub --name s3 CloudFormationResourceSpecification.json > troposphere/s3.py
-  ```
+  python3 scripts/gen.py s3 CloudFormationResourceSpecification.json > troposphere/s3.py
+```
 Use the auto-formatters to clean up the generated code using:
 ```
 make fix
