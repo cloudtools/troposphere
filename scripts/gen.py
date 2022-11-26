@@ -844,7 +844,8 @@ if __name__ == "__main__":
     r = ResourceSpec(args.spec).parse(limit_warnings=service_names)
 
     if args.missing:
-        missing_resources = set(r.services.keys()).difference(set(service_names))
+        missing_resources = list(set(r.services.keys()).difference(set(service_names)))
+        missing_resources.sort()
         print(f"Missing resources: {missing_resources}")
         sys.exit(0)
 
