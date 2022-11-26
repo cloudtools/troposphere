@@ -5,6 +5,9 @@
 
 
 def validate_policy_type(policy_type):
+    """
+    Property: Policy.Type
+    """
     valid_types = [
         "AISERVICES_OPT_OUT_POLICY",
         "BACKUP_POLICY",
