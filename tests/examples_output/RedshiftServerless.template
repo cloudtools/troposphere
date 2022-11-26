@@ -1,0 +1,38 @@
+{
+ "Description": "RedshiftServerless: Template and module example",
+ "Resources": {
+  "RedshiftServerlessNamespace": {
+   "Properties": {
+    "AdminUserPassword": "{{{{resolve:ssm:/redshift_admin_password}}}}",
+    "AdminUsername": "{{{{resolve:ssm:/redshift_admin_username}}}}",
+    "DbName": "dev",
+    "DefaultIamRoleArn": "arn:aws:iam::123456789123:role/service-role/AmazonRedshift-CommandsAccessRole-123451234512345",
+    "IamRoles": [],
+    "NamespaceName": "serverless"
+   },
+   "Type": "AWS::RedshiftServerless::Namespace"
+  },
+  "RedshiftServerlessWorkgroup": {
+   "Properties": {
+    "ConfigParameters": [
+     {
+      "ParameterKey": "enable_user_activity_logging",
+      "ParameterValue": "true"
+     }
+    ],
+    "EnhancedVpcRouting": true,
+    "NamespaceName": "serverless",
+    "PubliclyAccessible": false,
+    "SecurityGroupIds": [
+     "sg-12345123451234567"
+    ],
+    "SubnetIds": [
+     "subnet-12345678912345678",
+     "subnet-98765432198765432"
+    ],
+    "WorkgroupName": "RedshiftServerlessWorkgroup"
+   },
+   "Type": "AWS::RedshiftServerless::Workgroup"
+  }
+ }
+}
