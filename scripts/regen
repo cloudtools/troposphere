@@ -13,8 +13,8 @@ done
 grep -l PropsDictType troposphere/*.py | \
     cut -d/ -f2 | \
     cut -d. -f1 | \
-    sed -e '/__init__/d' -e '/constants/d' -e '/policies/d' | \
-    sed -e '/serverless/d' -e '/template_generator/d' -e '/utils/d' | \
+    sed -e '/^__init__/d' -e '/^constants/d' -e '/^policies/d' | \
+    sed -e '/^serverless/d' -e '/^template_generator/d' -e '/^utils/d' | \
     sed 's/^analytics$/kinesisanalytics/' | \
     sed 's/awslambda/lambda/' | \
     sed 's/^firehose$/kinesisfirehose/' | \
