@@ -38,7 +38,7 @@ def validate_load_balancer_info(self):
     """
     Class: LoadBalancerInfo
     """
-    conds = ["ElbInfoList", "TargetGroupInfoList"]
+    conds = ["ElbInfoList", "TargetGroupInfoList", "TargetGroupPairInfoList"]
     exactly_one(self.__class__.__name__, self.properties, conds)
 
 
