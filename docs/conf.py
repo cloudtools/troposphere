@@ -26,7 +26,7 @@ author = "cloudtools"
 # The short X.Y version
 version = ""
 # The full version, including alpha/beta/rc tags
-release = "4.1.0"
+release = "4.2.0"
 
 
 # -- General configuration ---------------------------------------------------

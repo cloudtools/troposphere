@@ -1,3 +1,47 @@
+4.2.0 (2022*11*28)
+-------------------------------
+* me-central-1 (UAE) (#2078)
+* Updates from spec version 91.0.0 (#2077)
+* Fix EC2 and MSK issues from the 91.0.0 spec
+* Add T3, T4G, M4, M5, M6G, R4, R5 and R6G constants for Elasticache nodes. (#2079)
+* Add spec patches for GreengrassV2 and Rekognition
+* Redo SageMaker Clarify* patches now that it is implemented more fully
+* Sort available property keys for error message
+* Updates from spec version 93.0.0 (#2082)
+* Allow setting hosted elasticsearch volume_types to gp3 (#2083)
+* Updates from spec version 94.0.0 (#2085)
+* Added AWS::Serverless::StateMachine (#2076)
+* Fix import issue with previous serverless.py change
+* Add a simple test for the new AWS::LanguageExtensions transform (#2074)
+* Add support for FunctionUrlConfig in Serverless Function (#2072)
+* Allow RDS storage for sqlserver to have a minimum of 20GB (#2087)
+* Run tests against Python 3.11 and add trove classifier (#2089)
+* Updates from spec version 95.0.0 (#2090)
+* Updates from spec version 96.0.0 (#2091)
+* Use the latest github actions (#2092)
+* Updates from spec version 97.0.0 (#2093)
+* Lakeformation: remove ResourceProperty naming conflict (#2088)
+* Fix jsonpatch for SageMaker::ModelPackage (spec file removed Tag)
+* Updates from spec version 98.0.0 (#2097)
+* Updates from spec version 99.0.0 (#2098)
+* Add redshiftserverless.py module (#2101)
+* Add AWS::Organizations support (#2102)
+* Add comment to include validator in Organizations regen
+* Fix regen script to be more specific on service names to exclude
+* Sort missing service names
+* Add AWS::ConnectCampaigns
+* Add AWS::ControlTower
+* Add AWS::EMRServerless
+* Add AWS::IdentityStore
+* Add AWS::IoTFleetWise
+* Add AWS::M2
+* Add AWS::ResourceExplorer2
+* Add AWS::RolesAnywhere
+* AWS::SupportApp
+* Update resources_aws.md with newly added services
+* Switched ApiGatewayV2 Stage resource props to show tag as a dict instead of validator, and also updated LogLevels to match CloudFormation/Boto3 definition of LogLevels
+* Fix CodeDeploy LoadBalancerInfo validator to include TargetGroupPairInfoList (fixes #2096)
+
 4.1.0 (2022*08*08)
 -------------------------------
 * Updates from spec version 72.0.0 (#2046)
