@@ -1628,6 +1628,7 @@ class NetworkInsightsAnalysis(AWSObject):
     resource_type = "AWS::EC2::NetworkInsightsAnalysis"
 
     props: PropsDictType = {
+        "AdditionalAccounts": ([str], False),
         "FilterInArns": ([str], False),
         "NetworkInsightsPathId": (str, True),
         "Tags": (Tags, False),
@@ -2669,7 +2670,7 @@ class VPNGatewayRoutePropagation(AWSObject):
 
 class Volume(AWSObject):
     """
-    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volume.html>`__
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volume.html>`__
     """
 
     resource_type = "AWS::EC2::Volume"

@@ -56,6 +56,7 @@ class AccessPoint(AWSObject):
 
     props: PropsDictType = {
         "Bucket": (str, True),
+        "BucketAccountId": (str, False),
         "Name": (str, False),
         "Policy": (policytypes, False),
         "PolicyStatus": (dict, False),

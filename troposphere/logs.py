@@ -38,6 +38,7 @@ class LogGroup(AWSObject):
     resource_type = "AWS::Logs::LogGroup"
 
     props: PropsDictType = {
+        "DataProtectionPolicy": (dict, False),
         "KmsKeyId": (str, False),
         "LogGroupName": (str, False),
         "RetentionInDays": (validate_loggroup_retention_in_days, False),

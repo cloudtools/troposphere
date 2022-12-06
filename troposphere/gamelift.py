@@ -64,6 +64,16 @@ class Build(AWSObject):
     }
 
 
+class AnywhereConfiguration(AWSProperty):
+    """
+    `AnywhereConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cost": (str, True),
+    }
+
+
 class CertificateConfiguration(AWSProperty):
     """
     `CertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html>`__
@@ -153,8 +163,10 @@ class Fleet(AWSObject):
     resource_type = "AWS::GameLift::Fleet"
 
     props: PropsDictType = {
+        "AnywhereConfiguration": (AnywhereConfiguration, False),
         "BuildId": (str, False),
         "CertificateConfiguration": (CertificateConfiguration, False),
+        "ComputeType": (str, False),
         "Description": (str, False),
         "DesiredEC2Instances": (integer, False),
         "EC2InboundPermissions": ([IpPermission], False),
@@ -165,7 +177,7 @@ class Fleet(AWSObject):
         "MaxSize": (integer, False),
         "MetricGroups": ([str], False),
         "MinSize": (integer, False),
-        "Name": (str, False),
+        "Name": (str, True),
         "NewGameSessionProtectionPolicy": (str, False),
         "PeerVpcAwsAccountId": (str, False),
         "PeerVpcId": (str, False),
@@ -301,6 +313,19 @@ class GameSessionQueue(AWSObject):
         "PriorityConfiguration": (PriorityConfiguration, False),
         "Tags": (Tags, False),
         "TimeoutInSeconds": (integer, False),
+    }
+
+
+class Location(AWSObject):
+    """
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-location.html>`__
+    """
+
+    resource_type = "AWS::GameLift::Location"
+
+    props: PropsDictType = {
+        "LocationName": (str, True),
+        "Tags": (Tags, False),
     }
 
 
