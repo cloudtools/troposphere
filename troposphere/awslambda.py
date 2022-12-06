@@ -327,6 +327,16 @@ class ImageConfig(AWSProperty):
         validate_image_config(self)
 
 
+class SnapStart(AWSProperty):
+    """
+    `SnapStart <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplyOn": (str, True),
+    }
+
+
 class TracingConfig(AWSProperty):
     """
     `TracingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-tracingconfig.html>`__
@@ -374,6 +384,7 @@ class Function(AWSObject):
         "ReservedConcurrentExecutions": (integer, False),
         "Role": (str, True),
         "Runtime": (str, False),
+        "SnapStart": (SnapStart, False),
         "Tags": (Tags, False),
         "Timeout": (integer, False),
         "TracingConfig": (TracingConfig, False),

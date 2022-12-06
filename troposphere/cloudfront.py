@@ -130,6 +130,75 @@ class CloudFrontOriginAccessIdentity(AWSObject):
     }
 
 
+class SingleHeaderConfig(AWSProperty):
+    """
+    `SingleHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Header": (str, True),
+        "Value": (str, True),
+    }
+
+
+class SessionStickinessConfig(AWSProperty):
+    """
+    `SessionStickinessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-sessionstickinessconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdleTTL": (integer, True),
+        "MaximumTTL": (integer, True),
+    }
+
+
+class SingleWeightConfig(AWSProperty):
+    """
+    `SingleWeightConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SessionStickinessConfig": (SessionStickinessConfig, False),
+        "Weight": (double, True),
+    }
+
+
+class TrafficConfig(AWSProperty):
+    """
+    `TrafficConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-trafficconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SingleHeaderConfig": (SingleHeaderConfig, False),
+        "SingleWeightConfig": (SingleWeightConfig, False),
+        "Type": (str, True),
+    }
+
+
+class ContinuousDeploymentPolicyConfig(AWSProperty):
+    """
+    `ContinuousDeploymentPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-continuousdeploymentpolicyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "StagingDistributionDnsNames": ([str], True),
+        "TrafficConfig": (TrafficConfig, False),
+    }
+
+
+class ContinuousDeploymentPolicy(AWSObject):
+    """
+    `ContinuousDeploymentPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-continuousdeploymentpolicy.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::ContinuousDeploymentPolicy"
+
+    props: PropsDictType = {
+        "ContinuousDeploymentPolicyConfig": (ContinuousDeploymentPolicyConfig, True),
+    }
+
+
 class Cookies(AWSProperty):
     """
     `Cookies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-cookies.html>`__
@@ -460,6 +529,7 @@ class DistributionConfig(AWSProperty):
         "CNAMEs": ([str], False),
         "CacheBehaviors": ([CacheBehavior], False),
         "Comment": (str, False),
+        "ContinuousDeploymentPolicyId": (str, False),
         "CustomErrorResponses": ([CustomErrorResponse], False),
         "CustomOrigin": (LegacyCustomOrigin, False),
         "DefaultCacheBehavior": (DefaultCacheBehavior, True),
@@ -473,6 +543,7 @@ class DistributionConfig(AWSProperty):
         "PriceClass": (priceclass_type, False),
         "Restrictions": (Restrictions, False),
         "S3Origin": (LegacyS3Origin, False),
+        "Staging": (boolean, False),
         "ViewerCertificate": (ViewerCertificate, False),
         "WebACLId": (str, False),
     }

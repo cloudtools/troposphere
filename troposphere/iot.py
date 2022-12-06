@@ -41,6 +41,7 @@ class AuditCheckConfigurations(AWSProperty):
             AuditCheckConfiguration,
             False,
         ),
+        "IoTPolicyPotentialMisConfigurationCheck": (AuditCheckConfiguration, False),
         "IotPolicyOverlyPermissiveCheck": (AuditCheckConfiguration, False),
         "IotRoleAliasAllowsAccessToUnusedServicesCheck": (
             AuditCheckConfiguration,

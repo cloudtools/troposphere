@@ -17,9 +17,9 @@ from .validators.firehose import (
 )
 
 
-class AmazonopensearchserviceBufferingHints(AWSProperty):
+class AmazonOpenSearchServerlessBufferingHints(AWSProperty):
     """
-    `AmazonopensearchserviceBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints.html>`__
+    `AmazonOpenSearchServerlessBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessbufferinghints.html>`__
     """
 
     props: PropsDictType = {
@@ -28,9 +28,9 @@ class AmazonopensearchserviceBufferingHints(AWSProperty):
     }
 
 
-class AmazonopensearchserviceRetryOptions(AWSProperty):
+class AmazonOpenSearchServerlessRetryOptions(AWSProperty):
     """
-    `AmazonopensearchserviceRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserviceretryoptions.html>`__
+    `AmazonOpenSearchServerlessRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessretryoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -141,6 +141,46 @@ class VpcConfiguration(AWSProperty):
         "RoleARN": (str, True),
         "SecurityGroupIds": ([str], True),
         "SubnetIds": ([str], True),
+    }
+
+
+class AmazonOpenSearchServerlessDestinationConfiguration(AWSProperty):
+    """
+    `AmazonOpenSearchServerlessDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserverlessdestinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BufferingHints": (AmazonOpenSearchServerlessBufferingHints, False),
+        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
+        "CollectionEndpoint": (str, False),
+        "IndexName": (str, True),
+        "ProcessingConfiguration": (ProcessingConfiguration, False),
+        "RetryOptions": (AmazonOpenSearchServerlessRetryOptions, False),
+        "RoleARN": (str, True),
+        "S3BackupMode": (str, False),
+        "S3Configuration": (S3DestinationConfiguration, True),
+        "VpcConfiguration": (VpcConfiguration, False),
+    }
+
+
+class AmazonopensearchserviceBufferingHints(AWSProperty):
+    """
+    `AmazonopensearchserviceBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicebufferinghints.html>`__
+    """
+
+    props: PropsDictType = {
+        "IntervalInSeconds": (integer, False),
+        "SizeInMBs": (integer, False),
+    }
+
+
+class AmazonopensearchserviceRetryOptions(AWSProperty):
+    """
+    `AmazonopensearchserviceRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchserviceretryoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationInSeconds": (integer, False),
     }
 
 
@@ -526,6 +566,10 @@ class DeliveryStream(AWSObject):
     resource_type = "AWS::KinesisFirehose::DeliveryStream"
 
     props: PropsDictType = {
+        "AmazonOpenSearchServerlessDestinationConfiguration": (
+            AmazonOpenSearchServerlessDestinationConfiguration,
+            False,
+        ),
         "AmazonopensearchserviceDestinationConfiguration": (
             AmazonopensearchserviceDestinationConfiguration,
             False,

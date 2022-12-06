@@ -160,8 +160,8 @@ class RedshiftConnectorProfileCredentials(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Password": (str, True),
-        "Username": (str, True),
+        "Password": (str, False),
+        "Username": (str, False),
     }
 
 
@@ -365,8 +365,13 @@ class RedshiftConnectorProfileProperties(AWSProperty):
     props: PropsDictType = {
         "BucketName": (str, True),
         "BucketPrefix": (str, False),
-        "DatabaseUrl": (str, True),
+        "ClusterIdentifier": (str, False),
+        "DataApiRoleArn": (str, False),
+        "DatabaseName": (str, False),
+        "DatabaseUrl": (str, False),
+        "IsRedshiftServerless": (boolean, False),
         "RoleArn": (str, True),
+        "WorkgroupName": (str, False),
     }
 
 
@@ -493,7 +498,7 @@ class ConnectorProfileConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ConnectorProfileCredentials": (ConnectorProfileCredentials, True),
+        "ConnectorProfileCredentials": (ConnectorProfileCredentials, False),
         "ConnectorProfileProperties": (ConnectorProfileProperties, False),
     }
 
@@ -593,6 +598,7 @@ class AggregationConfig(AWSProperty):
 
     props: PropsDictType = {
         "AggregationType": (str, False),
+        "TargetFileSize": (integer, False),
     }
 
 
@@ -602,6 +608,7 @@ class PrefixConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "PathPrefixHierarchy": ([str], False),
         "PrefixFormat": (str, False),
         "PrefixType": (str, False),
     }
@@ -751,6 +758,28 @@ class DestinationFlowConfig(AWSProperty):
         "ConnectorProfileName": (str, False),
         "ConnectorType": (str, True),
         "DestinationConnectorProperties": (DestinationConnectorProperties, True),
+    }
+
+
+class GlueDataCatalog(AWSProperty):
+    """
+    `GlueDataCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-gluedatacatalog.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatabaseName": (str, True),
+        "RoleArn": (str, True),
+        "TablePrefix": (str, True),
+    }
+
+
+class MetadataCatalogConfig(AWSProperty):
+    """
+    `MetadataCatalogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-metadatacatalogconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlueDataCatalog": (GlueDataCatalog, False),
     }
 
 
@@ -1073,6 +1102,7 @@ class Flow(AWSObject):
         "DestinationFlowConfigList": ([DestinationFlowConfig], True),
         "FlowName": (str, True),
         "KMSArn": (str, False),
+        "MetadataCatalogConfig": (MetadataCatalogConfig, False),
         "SourceFlowConfig": (SourceFlowConfig, True),
         "Tags": (Tags, False),
         "Tasks": ([Task], True),
