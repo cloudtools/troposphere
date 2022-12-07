@@ -285,13 +285,24 @@ class ResourceSpec:
         Remap any "List of Tag" to Tags
         """
 
-        TAG_NAMES = ["Tag", "Tags", "TagFormat", "TagsEntry"]
+        SUPPORTED_TAG_NAMES = ["Tag", "Tags", "TagFormat", "TagsEntry"]
+        UNSUPPORTED_TAG_NAMES = ["TagMap"]
 
         for service_name, service in self.services.items():
             for (class_name, key, value) in service.get_property_items():
                 if key in service.property_validators:
                     continue
-                if value.type == "List" and value.item_type in TAG_NAMES:
+                if value.item_type in UNSUPPORTED_TAG_NAMES:
+                    print(
+                        f"Unsupported Tag format found: {service_name} {class_name} {value.item_type}",
+                        file=sys.stderr,
+                    )
+                    # Check we haven't deleted this already
+                    if value.item_type in service.properties:
+                        del service.properties[value.item_type]
+                    value.type = None
+                    value.primitive_item_type == "Json"
+                elif value.type == "List" and value.item_type in SUPPORTED_TAG_NAMES:
                     value.type = "Tags"
                     # Check we haven't deleted this already
                     if value.item_type in service.properties:
