@@ -8,6 +8,10 @@
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double
+from .validators.scheduler import (
+    validate_ecsparameters_tags,
+    validate_flexibletimewindow_mode,
+)
 
 
 class FlexibleTimeWindow(AWSProperty):
@@ -17,7 +21,7 @@ class FlexibleTimeWindow(AWSProperty):
 
     props: PropsDictType = {
         "MaximumWindowInMinutes": (double, False),
-        "Mode": (str, True),
+        "Mode": (validate_flexibletimewindow_mode, True),
     }
 
 
@@ -104,7 +108,7 @@ class EcsParameters(AWSProperty):
         "PlatformVersion": (str, False),
         "PropagateTags": (str, False),
         "ReferenceId": (str, False),
-        "Tags": (dict, False),
+        "Tags": (validate_ecsparameters_tags, False),
         "TaskCount": (double, False),
         "TaskDefinitionArn": (str, True),
     }
