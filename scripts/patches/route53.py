@@ -1,11 +1,6 @@
 patches = [
     {
         "op": "replace",
-        "path": "/ResourceTypes/AWS::Route53::HealthCheck/Properties/HealthCheckConfig/PrimitiveType",
-        "value": "HealthCheckConfiguration",
-    },
-    {
-        "op": "replace",
         "path": "/ResourceTypes/AWS::Route53::HealthCheck/Properties/HealthCheckTags/Type",
         "value": "Tags",
     },

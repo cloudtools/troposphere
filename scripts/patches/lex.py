@@ -2,11 +2,6 @@ patches = [
     # Replace AWS::Lex::ResourcePolicy.Policy from Type "Policy" to Map
     # Note: a policy validator will replace this as well.
     {
-        "op": "replace",
-        "path": "/ResourceTypes/AWS::Lex::ResourcePolicy/Properties/Policy/Type",
-        "value": "Map",
-    },
-    {
         "op": "add",
         "path": "/ResourceTypes/AWS::Lex::Bot/Properties/BotTags/PrimitiveType",
         "value": "Tags",

@@ -10,13 +10,4 @@ patches = [
         "path": "/PropertyTypes/AWS::Lightsail::Instance.Hardware/Properties/Disks/ItemType",
         "value": "DiskProperty",
     },
-    # Remove Location and State attribute properties
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::Lightsail::Instance.Location",
-    },
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::Lightsail::Instance.State",
-    },
 ]
