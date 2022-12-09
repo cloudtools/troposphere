@@ -44,6 +44,17 @@ class Function(AWSProperty):
     }
 
 
+class RelationshipValue(AWSProperty):
+    """
+    `RelationshipValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-relationshipvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetComponentName": (str, False),
+        "TargetEntityId": (str, False),
+    }
+
+
 class DataValue(AWSProperty):
     """
     `DataValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-datavalue.html>`__
@@ -57,14 +68,14 @@ class DataValue(AWSProperty):
         "ListValue": (validate_listvalue, False),
         "LongValue": (double, False),
         "MapValue": (dict, False),
-        "RelationshipValue": (dict, False),
+        "RelationshipValue": (RelationshipValue, False),
         "StringValue": (str, False),
     }
 
 
 class Relationship(AWSProperty):
     """
-    `Relationship <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-relationship.html>`__
+    `Relationship <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-relationship.html>`__
     """
 
     props: PropsDictType = {
@@ -75,14 +86,14 @@ class Relationship(AWSProperty):
 
 class DataType(AWSProperty):
     """
-    `DataType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-datatype.html>`__
+    `DataType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-datatype.html>`__
     """
 
     props: PropsDictType = {
         "AllowedValues": ([DataValue], False),
         "NestedType": (validate_nestedtypel, False),
         "Relationship": (Relationship, False),
-        "Type": (str, True),
+        "Type": (str, False),
         "UnitOfMeasure": (str, False),
     }
 
@@ -134,14 +145,44 @@ class ComponentType(AWSObject):
     }
 
 
+class Definition(AWSProperty):
+    """
+    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-definition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Configuration": (dict, False),
+        "DataType": (DataType, False),
+        "DefaultValue": (DataValue, False),
+        "IsExternalId": (boolean, False),
+        "IsFinal": (boolean, False),
+        "IsImported": (boolean, False),
+        "IsInherited": (boolean, False),
+        "IsRequiredInEntity": (boolean, False),
+        "IsStoredExternally": (boolean, False),
+        "IsTimeSeries": (boolean, False),
+    }
+
+
 class Property(AWSProperty):
     """
     `Property <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-property.html>`__
     """
 
     props: PropsDictType = {
-        "Definition": (dict, False),
+        "Definition": (Definition, False),
         "Value": (DataValue, False),
+    }
+
+
+class Error(AWSProperty):
+    """
+    `Error <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-error.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, False),
+        "Message": (str, False),
     }
 
 
@@ -151,7 +192,7 @@ class Status(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Error": (dict, False),
+        "Error": (Error, False),
         "State": (str, False),
     }
 

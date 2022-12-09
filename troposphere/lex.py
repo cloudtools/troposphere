@@ -601,6 +601,16 @@ class BotLocale(AWSProperty):
     }
 
 
+class DataPrivacy(AWSProperty):
+    """
+    `DataPrivacy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dataprivacy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChildDirected": (boolean, True),
+    }
+
+
 class S3Location(AWSProperty):
     """
     `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html>`__
@@ -732,6 +742,16 @@ class ConversationLogSettings(AWSProperty):
     }
 
 
+class SentimentAnalysisSettings(AWSProperty):
+    """
+    `SentimentAnalysisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-botalias-sentimentanalysissettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DetectSentiment": (boolean, True),
+    }
+
+
 class TestBotAliasSettings(AWSProperty):
     """
     `TestBotAliasSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-testbotaliassettings.html>`__
@@ -741,7 +761,7 @@ class TestBotAliasSettings(AWSProperty):
         "BotAliasLocaleSettings": ([BotAliasLocaleSettingsItem], False),
         "ConversationLogSettings": (ConversationLogSettings, False),
         "Description": (str, False),
-        "SentimentAnalysisSettings": (dict, False),
+        "SentimentAnalysisSettings": (SentimentAnalysisSettings, False),
     }
 
 
@@ -757,7 +777,7 @@ class Bot(AWSObject):
         "BotFileS3Location": (S3Location, False),
         "BotLocales": ([BotLocale], False),
         "BotTags": (Tags, False),
-        "DataPrivacy": (dict, True),
+        "DataPrivacy": (DataPrivacy, True),
         "Description": (str, False),
         "IdleSessionTTLInSeconds": (integer, True),
         "Name": (str, True),
@@ -782,7 +802,7 @@ class BotAlias(AWSObject):
         "BotVersion": (str, False),
         "ConversationLogSettings": (ConversationLogSettings, False),
         "Description": (str, False),
-        "SentimentAnalysisSettings": (dict, False),
+        "SentimentAnalysisSettings": (SentimentAnalysisSettings, False),
     }
 
 

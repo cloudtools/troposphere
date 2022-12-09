@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double, integer
+from .validators import boolean, double
 from .validators.rekognition import validate_PolygonRegionsOfInterest
 
 
@@ -143,25 +143,4 @@ class StreamProcessor(AWSObject):
         "RoleArn": (str, True),
         "S3Destination": (S3Destination, False),
         "Tags": (Tags, False),
-    }
-
-
-class Point(AWSProperty):
-    """
-    `Point <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-point.html>`__
-    """
-
-    props: PropsDictType = {
-        "X": (integer, True),
-        "Y": (integer, True),
-    }
-
-
-class Polygon(AWSProperty):
-    """
-    `Polygon <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rekognition-streamprocessor-polygon.html>`__
-    """
-
-    props: PropsDictType = {
-        "Polygon": ([Point], True),
     }

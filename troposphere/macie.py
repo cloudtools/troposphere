@@ -69,6 +69,21 @@ class CustomDataIdentifier(AWSObject):
     }
 
 
+class CriterionAdditionalProperties(AWSProperty):
+    """
+    `CriterionAdditionalProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-criterionadditionalproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "eq": ([str], False),
+        "gt": (integer, False),
+        "gte": (integer, False),
+        "lt": (integer, False),
+        "lte": (integer, False),
+        "neq": ([str], False),
+    }
+
+
 class FindingCriteria(AWSProperty):
     """
     `FindingCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-macie-findingsfilter-findingcriteria.html>`__

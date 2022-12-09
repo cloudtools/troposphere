@@ -224,3 +224,14 @@ class StudioComponent(AWSObject):
         "Tags": (dict, False),
         "Type": (str, True),
     }
+
+
+class StreamingImageEncryptionConfiguration(AWSProperty):
+    """
+    `StreamingImageEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-streamingimage-streamingimageencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyArn": (str, False),
+        "KeyType": (str, True),
+    }

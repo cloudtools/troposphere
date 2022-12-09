@@ -808,6 +808,7 @@ class EndpointConfig(AWSObject):
         "ExplainerConfig": (ExplainerConfig, False),
         "KmsKeyId": (str, False),
         "ProductionVariants": ([ProductionVariant], True),
+        "ShadowProductionVariants": ([ProductionVariant], False),
         "Tags": (Tags, False),
     }
 
@@ -823,6 +824,63 @@ class FeatureDefinition(AWSProperty):
     }
 
 
+class DataCatalogConfig(AWSProperty):
+    """
+    `DataCatalogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-datacatalogconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Catalog": (str, True),
+        "Database": (str, True),
+        "TableName": (str, True),
+    }
+
+
+class S3StorageConfig(AWSProperty):
+    """
+    `S3StorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-s3storageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+        "S3Uri": (str, True),
+    }
+
+
+class OfflineStoreConfig(AWSProperty):
+    """
+    `OfflineStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-offlinestoreconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataCatalogConfig": (DataCatalogConfig, False),
+        "DisableGlueTableCreation": (boolean, False),
+        "S3StorageConfig": (S3StorageConfig, True),
+        "TableFormat": (str, False),
+    }
+
+
+class OnlineStoreSecurityConfig(AWSProperty):
+    """
+    `OnlineStoreSecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoresecurityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+    }
+
+
+class OnlineStoreConfig(AWSProperty):
+    """
+    `OnlineStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableOnlineStore": (boolean, False),
+        "SecurityConfig": (OnlineStoreSecurityConfig, False),
+    }
+
+
 class FeatureGroup(AWSObject):
     """
     `FeatureGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html>`__
@@ -835,8 +893,8 @@ class FeatureGroup(AWSObject):
         "EventTimeFeatureName": (str, True),
         "FeatureDefinitions": ([FeatureDefinition], True),
         "FeatureGroupName": (str, True),
-        "OfflineStoreConfig": (dict, False),
-        "OnlineStoreConfig": (dict, False),
+        "OfflineStoreConfig": (OfflineStoreConfig, False),
+        "OnlineStoreConfig": (OnlineStoreConfig, False),
         "RecordIdentifierFeatureName": (str, True),
         "RoleArn": (str, False),
         "Tags": (Tags, False),
@@ -1111,6 +1169,16 @@ class ModelExplainabilityJobDefinition(AWSObject):
     }
 
 
+class ModelInput(AWSProperty):
+    """
+    `ModelInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataInputConfig": (str, True),
+    }
+
+
 class ModelPackageContainerDefinition(AWSProperty):
     """
     `ModelPackageContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html>`__
@@ -1124,7 +1192,7 @@ class ModelPackageContainerDefinition(AWSProperty):
         "Image": (str, True),
         "ImageDigest": (str, False),
         "ModelDataUrl": (str, False),
-        "ModelInput": (dict, False),
+        "ModelInput": (ModelInput, False),
         "NearestModelName": (str, False),
         "ProductId": (str, False),
     }
@@ -1769,6 +1837,40 @@ class NotebookInstanceLifecycleConfig(AWSObject):
     }
 
 
+class ParallelismConfiguration(AWSProperty):
+    """
+    `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxParallelExecutionSteps": (integer, True),
+    }
+
+
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "ETag": (str, False),
+        "Key": (str, True),
+        "Version": (str, False),
+    }
+
+
+class PipelineDefinition(AWSProperty):
+    """
+    `PipelineDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-pipelinedefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "PipelineDefinitionBody": (str, False),
+        "PipelineDefinitionS3Location": (S3Location, False),
+    }
+
+
 class Pipeline(AWSObject):
     """
     `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-pipeline.html>`__
@@ -1777,13 +1879,37 @@ class Pipeline(AWSObject):
     resource_type = "AWS::SageMaker::Pipeline"
 
     props: PropsDictType = {
-        "ParallelismConfiguration": (dict, False),
-        "PipelineDefinition": (dict, True),
+        "ParallelismConfiguration": (ParallelismConfiguration, False),
+        "PipelineDefinition": (PipelineDefinition, True),
         "PipelineDescription": (str, False),
         "PipelineDisplayName": (str, False),
         "PipelineName": (str, True),
         "RoleArn": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class ProvisioningParameter(AWSProperty):
+    """
+    `ProvisioningParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ServiceCatalogProvisioningDetails(AWSProperty):
+    """
+    `ServiceCatalogProvisioningDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisioningdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "PathId": (str, False),
+        "ProductId": (str, True),
+        "ProvisioningArtifactId": (str, False),
+        "ProvisioningParameters": ([ProvisioningParameter], False),
     }
 
 
@@ -1797,7 +1923,7 @@ class Project(AWSObject):
     props: PropsDictType = {
         "ProjectDescription": (str, False),
         "ProjectName": (str, True),
-        "ServiceCatalogProvisioningDetails": (dict, True),
+        "ServiceCatalogProvisioningDetails": (ServiceCatalogProvisioningDetails, True),
         "Tags": (Tags, False),
     }
 
@@ -1887,6 +2013,17 @@ class RSessionAppSettings(AWSProperty):
     props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class ServiceCatalogProvisionedProductDetails(AWSProperty):
+    """
+    `ServiceCatalogProvisionedProductDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisionedproductdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProvisionedProductId": (str, False),
+        "ProvisionedProductStatusMessage": (str, False),
     }
 
 

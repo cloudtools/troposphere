@@ -55,6 +55,16 @@ class DashConfiguration(AWSProperty):
     }
 
 
+class HlsConfiguration(AWSProperty):
+    """
+    `HlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManifestEndpointPrefix": (str, False),
+    }
+
+
 class LivePreRollConfiguration(AWSProperty):
     """
     `LivePreRollConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-liveprerollconfiguration.html>`__
@@ -100,6 +110,7 @@ class PlaybackConfiguration(AWSObject):
         "CdnConfiguration": (CdnConfiguration, False),
         "ConfigurationAliases": (dict, False),
         "DashConfiguration": (DashConfiguration, False),
+        "HlsConfiguration": (HlsConfiguration, False),
         "LivePreRollConfiguration": (LivePreRollConfiguration, False),
         "ManifestProcessingRules": (ManifestProcessingRules, False),
         "Name": (str, True),
@@ -108,14 +119,4 @@ class PlaybackConfiguration(AWSObject):
         "Tags": (Tags, False),
         "TranscodeProfileName": (str, False),
         "VideoContentSourceUrl": (str, True),
-    }
-
-
-class HlsConfiguration(AWSProperty):
-    """
-    `HlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-hlsconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "ManifestEndpointPrefix": (str, False),
     }

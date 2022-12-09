@@ -356,6 +356,17 @@ class Gateway(AWSObject):
     }
 
 
+class Alarms(AWSProperty):
+    """
+    `Alarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-alarms.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmRoleArn": (str, False),
+        "NotificationLambdaArn": (str, False),
+    }
+
+
 class Portal(AWSObject):
     """
     `Portal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html>`__
@@ -364,7 +375,7 @@ class Portal(AWSObject):
     resource_type = "AWS::IoTSiteWise::Portal"
 
     props: PropsDictType = {
-        "Alarms": (dict, False),
+        "Alarms": (Alarms, False),
         "NotificationSenderEmail": (str, False),
         "PortalAuthMode": (str, False),
         "PortalContactEmail": (str, True),

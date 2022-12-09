@@ -79,38 +79,13 @@ class DataCatalogInputDefinition(AWSProperty):
     }
 
 
-class DatabaseInputDefinition(AWSProperty):
-    """
-    `DatabaseInputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html>`__
-    """
-
-    props: PropsDictType = {
-        "DatabaseTableName": (str, False),
-        "GlueConnectionName": (str, True),
-        "QueryString": (str, False),
-        "TempDirectory": (S3Location, False),
-    }
-
-
-class Metadata(AWSProperty):
-    """
-    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html>`__
-    """
-
-    props: PropsDictType = {
-        "SourceArn": (str, False),
-    }
-
-
 class Input(AWSProperty):
     """
-    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-input.html>`__
+    `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-recipe-input.html>`__
     """
 
     props: PropsDictType = {
         "DataCatalogInputDefinition": (DataCatalogInputDefinition, False),
-        "DatabaseInputDefinition": (DatabaseInputDefinition, False),
-        "Metadata": (Metadata, False),
         "S3InputDefinition": (S3Location, False),
     }
 
@@ -539,7 +514,7 @@ class RecipeParameters(AWSProperty):
         "HiddenColumns": (str, False),
         "IgnoreCase": (str, False),
         "IncludeInSplit": (str, False),
-        "Input": (dict, False),
+        "Input": (Input, False),
         "Interval": (str, False),
         "IsText": (str, False),
         "JoinKeys": (str, False),
@@ -729,4 +704,27 @@ class Schedule(AWSObject):
         "JobNames": ([str], False),
         "Name": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class DatabaseInputDefinition(AWSProperty):
+    """
+    `DatabaseInputDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-databaseinputdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatabaseTableName": (str, False),
+        "GlueConnectionName": (str, True),
+        "QueryString": (str, False),
+        "TempDirectory": (S3Location, False),
+    }
+
+
+class Metadata(AWSProperty):
+    """
+    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-databrew-dataset-metadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceArn": (str, False),
     }

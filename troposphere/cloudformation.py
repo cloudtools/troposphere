@@ -218,6 +218,16 @@ class AutoDeployment(AWSProperty):
     }
 
 
+class ManagedExecution(AWSProperty):
+    """
+    `ManagedExecution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-managedexecution.html>`__
+    """
+
+    props: PropsDictType = {
+        "Active": (boolean, False),
+    }
+
+
 class OperationPreferences(AWSProperty):
     """
     `OperationPreferences <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-stackset-operationpreferences.html>`__
@@ -282,7 +292,7 @@ class StackSet(AWSObject):
         "Capabilities": ([str], False),
         "Description": (str, False),
         "ExecutionRoleName": (str, False),
-        "ManagedExecution": (dict, False),
+        "ManagedExecution": (ManagedExecution, False),
         "OperationPreferences": (OperationPreferences, False),
         "Parameters": ([Parameter], False),
         "PermissionModel": (str, True),

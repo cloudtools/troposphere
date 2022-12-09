@@ -33,6 +33,68 @@ class PublicAccess(AWSProperty):
     }
 
 
+class VpcConnectivityIam(AWSProperty):
+    """
+    `VpcConnectivityIam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityiam.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+    }
+
+
+class VpcConnectivityScram(AWSProperty):
+    """
+    `VpcConnectivityScram <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityscram.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+    }
+
+
+class VpcConnectivitySasl(AWSProperty):
+    """
+    `VpcConnectivitySasl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitysasl.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iam": (VpcConnectivityIam, False),
+        "Scram": (VpcConnectivityScram, False),
+    }
+
+
+class VpcConnectivityTls(AWSProperty):
+    """
+    `VpcConnectivityTls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivitytls.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+    }
+
+
+class VpcConnectivityClientAuthentication(AWSProperty):
+    """
+    `VpcConnectivityClientAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivityclientauthentication.html>`__
+    """
+
+    props: PropsDictType = {
+        "Sasl": (VpcConnectivitySasl, False),
+        "Tls": (VpcConnectivityTls, False),
+    }
+
+
+class VpcConnectivity(AWSProperty):
+    """
+    `VpcConnectivity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-vpcconnectivity.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientAuthentication": (VpcConnectivityClientAuthentication, False),
+    }
+
+
 class ConnectivityInfo(AWSProperty):
     """
     `ConnectivityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-cluster-connectivityinfo.html>`__
@@ -40,6 +102,7 @@ class ConnectivityInfo(AWSProperty):
 
     props: PropsDictType = {
         "PublicAccess": (PublicAccess, False),
+        "VpcConnectivity": (VpcConnectivity, False),
     }
 
 

@@ -256,6 +256,84 @@ class FleetMetric(AWSObject):
     }
 
 
+class AbortCriteria(AWSProperty):
+    """
+    `AbortCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortcriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "FailureType": (str, True),
+        "MinNumberOfExecutedThings": (integer, True),
+        "ThresholdPercentage": (double, True),
+    }
+
+
+class AbortConfig(AWSProperty):
+    """
+    `AbortConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-abortconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CriteriaList": ([AbortCriteria], True),
+    }
+
+
+class RateIncreaseCriteria(AWSProperty):
+    """
+    `RateIncreaseCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-rateincreasecriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "NumberOfNotifiedThings": (integer, False),
+        "NumberOfSucceededThings": (integer, False),
+    }
+
+
+class ExponentialRolloutRate(AWSProperty):
+    """
+    `ExponentialRolloutRate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-exponentialrolloutrate.html>`__
+    """
+
+    props: PropsDictType = {
+        "BaseRatePerMinute": (integer, True),
+        "IncrementFactor": (double, True),
+        "RateIncreaseCriteria": (RateIncreaseCriteria, True),
+    }
+
+
+class JobExecutionsRolloutConfig(AWSProperty):
+    """
+    `JobExecutionsRolloutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsrolloutconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExponentialRolloutRate": (ExponentialRolloutRate, False),
+        "MaximumPerMinute": (integer, False),
+    }
+
+
+class PresignedUrlConfig(AWSProperty):
+    """
+    `PresignedUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-presignedurlconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExpiresInSec": (integer, False),
+        "RoleArn": (str, True),
+    }
+
+
+class TimeoutConfig(AWSProperty):
+    """
+    `TimeoutConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-timeoutconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InProgressTimeoutInMinutes": (integer, True),
+    }
+
+
 class JobTemplate(AWSObject):
     """
     `JobTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-jobtemplate.html>`__
@@ -271,7 +349,7 @@ class JobTemplate(AWSObject):
         "JobArn": (str, False),
         "JobExecutionsRolloutConfig": (validate_json_checker, False),
         "JobTemplateId": (str, True),
-        "PresignedUrlConfig": (dict, False),
+        "PresignedUrlConfig": (PresignedUrlConfig, False),
         "Tags": (Tags, False),
         "TimeoutConfig": (validate_json_checker, False),
     }

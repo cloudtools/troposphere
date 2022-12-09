@@ -91,6 +91,7 @@ class BasePathMapping(AWSObject):
     props: PropsDictType = {
         "BasePath": (str, False),
         "DomainName": (str, True),
+        "Id": (str, False),
         "RestApiId": (str, False),
         "Stage": (str, False),
     }

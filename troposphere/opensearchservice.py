@@ -182,3 +182,20 @@ class Domain(AWSObject):
         "Tags": (Tags, False),
         "VPCOptions": (VPCOptions, False),
     }
+
+
+class ServiceSoftwareOptions(AWSProperty):
+    """
+    `ServiceSoftwareOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-servicesoftwareoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutomatedUpdateDate": (str, False),
+        "Cancellable": (boolean, False),
+        "CurrentVersion": (str, False),
+        "Description": (str, False),
+        "NewVersion": (str, False),
+        "OptionalDeployment": (boolean, False),
+        "UpdateAvailable": (boolean, False),
+        "UpdateStatus": (str, False),
+    }

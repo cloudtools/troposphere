@@ -56,7 +56,7 @@ class RunningStatusObject(AWSProperty):
         "AnalysisCompleteTime": (str, False),
         "DesiredState": (str, False),
         "Reason": (str, False),
-        "Status": (str, False),
+        "Status": (str, True),
     }
 
 
@@ -117,7 +117,7 @@ class VariationObject(AWSProperty):
         "DoubleValue": (double, False),
         "LongValue": (double, False),
         "StringValue": (str, False),
-        "VariationName": (str, False),
+        "VariationName": (str, True),
     }
 
 

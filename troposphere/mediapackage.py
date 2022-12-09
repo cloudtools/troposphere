@@ -449,3 +449,26 @@ class EgressEndpoint(AWSProperty):
         "PackagingConfigurationId": (str, True),
         "Url": (str, True),
     }
+
+
+class IngestEndpoint(AWSProperty):
+    """
+    `IngestEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, False),
+        "Password": (str, False),
+        "Url": (str, False),
+        "Username": (str, False),
+    }
+
+
+class HlsIngest(AWSProperty):
+    """
+    `HlsIngest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html>`__
+    """
+
+    props: PropsDictType = {
+        "ingestEndpoints": ([IngestEndpoint], False),
+    }

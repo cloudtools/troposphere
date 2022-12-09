@@ -51,6 +51,20 @@ class ApplicationInstance(AWSObject):
     }
 
 
+class StorageLocation(AWSProperty):
+    """
+    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "BinaryPrefixLocation": (str, False),
+        "Bucket": (str, False),
+        "GeneratedPrefixLocation": (str, False),
+        "ManifestPrefixLocation": (str, False),
+        "RepoPrefixLocation": (str, False),
+    }
+
+
 class Package(AWSObject):
     """
     `Package <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-panorama-package.html>`__
@@ -60,6 +74,7 @@ class Package(AWSObject):
 
     props: PropsDictType = {
         "PackageName": (str, True),
+        "StorageLocation": (StorageLocation, False),
         "Tags": (Tags, False),
     }
 
@@ -78,18 +93,4 @@ class PackageVersion(AWSObject):
         "PackageVersion": (str, True),
         "PatchVersion": (str, True),
         "UpdatedLatestPatchVersion": (str, False),
-    }
-
-
-class StorageLocation(AWSProperty):
-    """
-    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-panorama-package-storagelocation.html>`__
-    """
-
-    props: PropsDictType = {
-        "BinaryPrefixLocation": (str, False),
-        "Bucket": (str, False),
-        "GeneratedPrefixLocation": (str, False),
-        "ManifestPrefixLocation": (str, False),
-        "RepoPrefixLocation": (str, False),
     }

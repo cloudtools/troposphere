@@ -10,6 +10,41 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class LambdaConnectorProvisioningConfig(AWSProperty):
+    """
+    `LambdaConnectorProvisioningConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-lambdaconnectorprovisioningconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaArn": (str, True),
+    }
+
+
+class ConnectorProvisioningConfig(AWSProperty):
+    """
+    `ConnectorProvisioningConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connector-connectorprovisioningconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Lambda": (LambdaConnectorProvisioningConfig, False),
+    }
+
+
+class Connector(AWSObject):
+    """
+    `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appflow-connector.html>`__
+    """
+
+    resource_type = "AWS::AppFlow::Connector"
+
+    props: PropsDictType = {
+        "ConnectorLabel": (str, False),
+        "ConnectorProvisioningConfig": (ConnectorProvisioningConfig, True),
+        "ConnectorProvisioningType": (str, True),
+        "Description": (str, False),
+    }
+
+
 class AmplitudeConnectorProfileCredentials(AWSProperty):
     """
     `AmplitudeConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-amplitudeconnectorprofilecredentials.html>`__
@@ -165,6 +200,20 @@ class RedshiftConnectorProfileCredentials(AWSProperty):
     }
 
 
+class OAuthCredentials(AWSProperty):
+    """
+    `OAuthCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-oauthcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessToken": (str, False),
+        "ClientId": (str, False),
+        "ClientSecret": (str, False),
+        "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
+        "RefreshToken": (str, False),
+    }
+
+
 class SAPODataConnectorProfileCredentials(AWSProperty):
     """
     `SAPODataConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-sapodataconnectorprofilecredentials.html>`__
@@ -172,7 +221,7 @@ class SAPODataConnectorProfileCredentials(AWSProperty):
 
     props: PropsDictType = {
         "BasicAuthCredentials": (BasicAuthCredentials, False),
-        "OAuthCredentials": (dict, False),
+        "OAuthCredentials": (OAuthCredentials, False),
     }
 
 

@@ -28,11 +28,11 @@ class ConnectAttachment(AWSObject):
     resource_type = "AWS::NetworkManager::ConnectAttachment"
 
     props: PropsDictType = {
-        "CoreNetworkId": (str, False),
-        "EdgeLocation": (str, False),
-        "Options": (ConnectAttachmentOptions, False),
+        "CoreNetworkId": (str, True),
+        "EdgeLocation": (str, True),
+        "Options": (ConnectAttachmentOptions, True),
         "Tags": (Tags, False),
-        "TransportAttachmentId": (str, False),
+        "TransportAttachmentId": (str, True),
     }
 
 
@@ -241,11 +241,38 @@ class VpcAttachment(AWSObject):
     resource_type = "AWS::NetworkManager::VpcAttachment"
 
     props: PropsDictType = {
-        "CoreNetworkId": (str, False),
+        "CoreNetworkId": (str, True),
         "Options": (VpcOptions, False),
-        "SubnetArns": ([str], False),
+        "SubnetArns": ([str], True),
         "Tags": (Tags, False),
-        "VpcArn": (str, False),
+        "VpcArn": (str, True),
+    }
+
+
+class ConnectPeerBgpConfiguration(AWSProperty):
+    """
+    `ConnectPeerBgpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerbgpconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CoreNetworkAddress": (str, False),
+        "CoreNetworkAsn": (double, False),
+        "PeerAddress": (str, False),
+        "PeerAsn": (double, False),
+    }
+
+
+class ConnectPeerConfiguration(AWSProperty):
+    """
+    `ConnectPeerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-connectpeer-connectpeerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BgpConfigurations": ([ConnectPeerBgpConfiguration], False),
+        "CoreNetworkAddress": (str, False),
+        "InsideCidrBlocks": ([str], False),
+        "PeerAddress": (str, False),
+        "Protocol": (str, False),
     }
 
 
@@ -270,4 +297,16 @@ class CoreNetworkSegment(AWSProperty):
         "EdgeLocations": ([str], False),
         "Name": (str, False),
         "SharedSegments": ([str], False),
+    }
+
+
+class ProposedSegmentChange(AWSProperty):
+    """
+    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachmentPolicyRuleNumber": (integer, False),
+        "SegmentName": (str, False),
+        "Tags": (Tags, False),
     }

@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double
+from .validators import double, integer
 from .validators.transfer import validate_homedirectory_type
 
 
@@ -49,6 +49,23 @@ class Certificate(AWSObject):
     }
 
 
+class As2Config(AWSProperty):
+    """
+    `As2Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-as2config.html>`__
+    """
+
+    props: PropsDictType = {
+        "Compression": (str, False),
+        "EncryptionAlgorithm": (str, False),
+        "LocalProfileId": (str, False),
+        "MdnResponse": (str, False),
+        "MdnSigningAlgorithm": (str, False),
+        "MessageSubject": (str, False),
+        "PartnerProfileId": (str, False),
+        "SigningAlgorithm": (str, False),
+    }
+
+
 class Connector(AWSObject):
     """
     `Connector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-connector.html>`__
@@ -58,7 +75,7 @@ class Connector(AWSObject):
 
     props: PropsDictType = {
         "AccessRole": (str, True),
-        "As2Config": (dict, True),
+        "As2Config": (As2Config, True),
         "LoggingRole": (str, False),
         "Tags": (Tags, False),
         "Url": (str, True),
@@ -211,16 +228,97 @@ class User(AWSObject):
     }
 
 
+class S3InputFileLocation(AWSProperty):
+    """
+    `S3InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3inputfilelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, False),
+        "Key": (str, False),
+    }
+
+
+class InputFileLocation(AWSProperty):
+    """
+    `InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-inputfilelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3FileLocation": (S3InputFileLocation, False),
+    }
+
+
+class CopyStepDetails(AWSProperty):
+    """
+    `CopyStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-copystepdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationFileLocation": (InputFileLocation, False),
+        "Name": (str, False),
+        "OverwriteExisting": (str, False),
+        "SourceFileLocation": (str, False),
+    }
+
+
+class CustomStepDetails(AWSProperty):
+    """
+    `CustomStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-customstepdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "SourceFileLocation": (str, False),
+        "Target": (str, False),
+        "TimeoutSeconds": (integer, False),
+    }
+
+
+class DeleteStepDetails(AWSProperty):
+    """
+    `DeleteStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-deletestepdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "SourceFileLocation": (str, False),
+    }
+
+
+class S3Tag(AWSProperty):
+    """
+    `S3Tag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3tag.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class TagStepDetails(AWSProperty):
+    """
+    `TagStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-tagstepdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "SourceFileLocation": (str, False),
+        "Tags": ([S3Tag], False),
+    }
+
+
 class WorkflowStep(AWSProperty):
     """
     `WorkflowStep <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-workflowstep.html>`__
     """
 
     props: PropsDictType = {
-        "CopyStepDetails": (dict, False),
-        "CustomStepDetails": (dict, False),
-        "DeleteStepDetails": (dict, False),
-        "TagStepDetails": (dict, False),
+        "CopyStepDetails": (CopyStepDetails, False),
+        "CustomStepDetails": (CustomStepDetails, False),
+        "DeleteStepDetails": (DeleteStepDetails, False),
+        "TagStepDetails": (TagStepDetails, False),
         "Type": (str, False),
     }
 

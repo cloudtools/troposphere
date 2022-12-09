@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double
+from .validators import boolean, double, integer
 from .validators.backup import (
     backup_vault_name,
     validate_backup_selection,
@@ -103,13 +103,37 @@ class ConditionResourceType(AWSProperty):
     }
 
 
+class ConditionParameter(AWSProperty):
+    """
+    `ConditionParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditionparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionKey": (str, False),
+        "ConditionValue": (str, False),
+    }
+
+
+class Conditions(AWSProperty):
+    """
+    `Conditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-conditions.html>`__
+    """
+
+    props: PropsDictType = {
+        "StringEquals": ([ConditionParameter], False),
+        "StringLike": ([ConditionParameter], False),
+        "StringNotEquals": ([ConditionParameter], False),
+        "StringNotLike": ([ConditionParameter], False),
+    }
+
+
 class BackupSelectionResourceType(AWSProperty):
     """
     `BackupSelectionResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupselection-backupselectionresourcetype.html>`__
     """
 
     props: PropsDictType = {
-        "Conditions": (dict, False),
+        "Conditions": (Conditions, False),
         "IamRoleArn": (str, True),
         "ListOfTags": ([ConditionResourceType], False),
         "NotResources": ([str], False),
@@ -140,9 +164,9 @@ class LockConfigurationType(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ChangeableForDays": (double, False),
-        "MaxRetentionDays": (double, False),
-        "MinRetentionDays": (double, True),
+        "ChangeableForDays": (integer, False),
+        "MaxRetentionDays": (integer, False),
+        "MinRetentionDays": (integer, True),
     }
 
 
@@ -185,6 +209,18 @@ class ControlInputParameter(AWSProperty):
     }
 
 
+class ControlScope(AWSProperty):
+    """
+    `ControlScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-controlscope.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComplianceResourceIds": ([str], False),
+        "ComplianceResourceTypes": ([str], False),
+        "Tags": (Tags, False),
+    }
+
+
 class FrameworkControl(AWSProperty):
     """
     `FrameworkControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-framework-frameworkcontrol.html>`__
@@ -193,7 +229,7 @@ class FrameworkControl(AWSProperty):
     props: PropsDictType = {
         "ControlInputParameters": ([ControlInputParameter], False),
         "ControlName": (str, True),
-        "ControlScope": (dict, False),
+        "ControlScope": (ControlScope, False),
     }
 
 
@@ -212,6 +248,32 @@ class Framework(AWSObject):
     }
 
 
+class ReportDeliveryChannel(AWSProperty):
+    """
+    `ReportDeliveryChannel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportdeliverychannel.html>`__
+    """
+
+    props: PropsDictType = {
+        "Formats": ([str], False),
+        "S3BucketName": (str, True),
+        "S3KeyPrefix": (str, False),
+    }
+
+
+class ReportSetting(AWSProperty):
+    """
+    `ReportSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-reportplan-reportsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "Accounts": ([str], False),
+        "FrameworkArns": ([str], False),
+        "OrganizationUnits": ([str], False),
+        "Regions": ([str], False),
+        "ReportTemplate": (str, True),
+    }
+
+
 class ReportPlan(AWSObject):
     """
     `ReportPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-reportplan.html>`__
@@ -220,9 +282,9 @@ class ReportPlan(AWSObject):
     resource_type = "AWS::Backup::ReportPlan"
 
     props: PropsDictType = {
-        "ReportDeliveryChannel": (dict, True),
+        "ReportDeliveryChannel": (ReportDeliveryChannel, True),
         "ReportPlanDescription": (str, False),
         "ReportPlanName": (str, False),
         "ReportPlanTags": (Tags, False),
-        "ReportSetting": (dict, True),
+        "ReportSetting": (ReportSetting, True),
     }

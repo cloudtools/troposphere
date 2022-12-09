@@ -45,6 +45,40 @@ class AbortIncompleteMultipartUpload(AWSProperty):
     }
 
 
+class FilterTag(AWSProperty):
+    """
+    `FilterTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filtertag.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class FilterAndOperator(AWSProperty):
+    """
+    `FilterAndOperator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filterandoperator.html>`__
+    """
+
+    props: PropsDictType = {
+        "Prefix": (str, False),
+        "Tags": ([FilterTag], True),
+    }
+
+
+class Filter(AWSProperty):
+    """
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "AndOperator": (FilterAndOperator, False),
+        "Prefix": (str, False),
+        "Tag": (FilterTag, False),
+    }
+
+
 class Rule(AWSProperty):
     """
     `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-bucket-rule.html>`__
@@ -54,9 +88,9 @@ class Rule(AWSProperty):
         "AbortIncompleteMultipartUpload": (AbortIncompleteMultipartUpload, False),
         "ExpirationDate": (str, False),
         "ExpirationInDays": (integer, False),
-        "Filter": (dict, False),
+        "Filter": (Filter, False),
         "Id": (str, False),
-        "Status": (str, False),
+        "Status": (str, True),
     }
 
 

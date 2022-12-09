@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import boolean
 
 
 class Database(AWSObject):
@@ -25,12 +26,13 @@ class Database(AWSObject):
 
 class S3Configuration(AWSProperty):
     """
-    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-scheduledquery-s3configuration.html>`__
+    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-s3configuration.html>`__
     """
 
     props: PropsDictType = {
         "BucketName": (str, True),
-        "EncryptionOption": (str, False),
+        "EncryptionOption": (str, True),
+        "KmsKeyId": (str, False),
         "ObjectKeyPrefix": (str, False),
     }
 
@@ -170,6 +172,38 @@ class ScheduledQuery(AWSObject):
     }
 
 
+class MagneticStoreRejectedDataLocation(AWSProperty):
+    """
+    `MagneticStoreRejectedDataLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorerejecteddatalocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Configuration": (S3Configuration, False),
+    }
+
+
+class MagneticStoreWriteProperties(AWSProperty):
+    """
+    `MagneticStoreWriteProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-magneticstorewriteproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableMagneticStoreWrites": (boolean, True),
+        "MagneticStoreRejectedDataLocation": (MagneticStoreRejectedDataLocation, False),
+    }
+
+
+class RetentionProperties(AWSProperty):
+    """
+    `RetentionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-retentionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "MagneticStoreRetentionPeriodInDays": (str, False),
+        "MemoryStoreRetentionPeriodInHours": (str, False),
+    }
+
+
 class Table(AWSObject):
     """
     `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html>`__
@@ -179,8 +213,8 @@ class Table(AWSObject):
 
     props: PropsDictType = {
         "DatabaseName": (str, True),
-        "MagneticStoreWriteProperties": (dict, False),
-        "RetentionProperties": (dict, False),
+        "MagneticStoreWriteProperties": (MagneticStoreWriteProperties, False),
+        "RetentionProperties": (RetentionProperties, False),
         "TableName": (str, False),
         "Tags": (Tags, False),
     }

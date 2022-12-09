@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "Port": (str, False),
+    }
+
+
 class LoggingProperties(AWSProperty):
     """
     `LoggingProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-loggingproperties.html>`__
@@ -50,6 +61,7 @@ class Cluster(AWSObject):
         "DestinationRegion": (str, False),
         "ElasticIp": (str, False),
         "Encrypted": (boolean, False),
+        "Endpoint": (Endpoint, False),
         "EnhancedVpcRouting": (boolean, False),
         "HsmClientCertificateIdentifier": (str, False),
         "HsmConfigurationIdentifier": (str, False),
@@ -147,6 +159,31 @@ class ClusterSubnetGroup(AWSObject):
     }
 
 
+class NetworkInterface(AWSProperty):
+    """
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-networkinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "NetworkInterfaceId": (str, False),
+        "PrivateIpAddress": (str, False),
+        "SubnetId": (str, False),
+    }
+
+
+class VpcEndpoint(AWSProperty):
+    """
+    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetworkInterfaces": ([NetworkInterface], False),
+        "VpcEndpointId": (str, False),
+        "VpcId": (str, False),
+    }
+
+
 class VpcSecurityGroup(AWSProperty):
     """
     `VpcSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>`__
@@ -170,7 +207,7 @@ class EndpointAccess(AWSObject):
         "EndpointName": (str, True),
         "ResourceOwner": (str, False),
         "SubnetGroupName": (str, True),
-        "VpcEndpoint": (dict, False),
+        "VpcEndpoint": (VpcEndpoint, False),
         "VpcSecurityGroupIds": ([str], True),
         "VpcSecurityGroups": ([VpcSecurityGroup], False),
     }
@@ -272,15 +309,4 @@ class ScheduledAction(AWSObject):
         "ScheduledActionName": (str, True),
         "StartTime": (str, False),
         "TargetAction": (ScheduledActionType, False),
-    }
-
-
-class Endpoint(AWSProperty):
-    """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-cluster-endpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "Address": (str, False),
-        "Port": (str, False),
     }

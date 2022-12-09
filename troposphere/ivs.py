@@ -36,7 +36,7 @@ class PlaybackKeyPair(AWSObject):
 
     props: PropsDictType = {
         "Name": (str, False),
-        "PublicKeyMaterial": (str, True),
+        "PublicKeyMaterial": (str, False),
         "Tags": (Tags, False),
     }
 

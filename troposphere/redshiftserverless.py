@@ -61,3 +61,82 @@ class Workgroup(AWSObject):
         "Tags": (Tags, False),
         "WorkgroupName": (str, True),
     }
+
+
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "Port": (integer, False),
+        "VpcEndpoints": ([VpcEndpoint], False),
+    }
+
+
+class NamespaceProperty(AWSProperty):
+    """
+    `NamespaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdminUsername": (str, False),
+        "CreationDate": (str, False),
+        "DbName": (str, False),
+        "DefaultIamRoleArn": (str, False),
+        "IamRoles": ([str], False),
+        "KmsKeyId": (str, False),
+        "LogExports": ([str], False),
+        "NamespaceArn": (str, False),
+        "NamespaceId": (str, False),
+        "NamespaceName": (str, False),
+        "Status": (str, False),
+    }
+
+
+class NetworkInterface(AWSProperty):
+    """
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-networkinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "NetworkInterfaceId": (str, False),
+        "PrivateIpAddress": (str, False),
+        "SubnetId": (str, False),
+    }
+
+
+class VpcEndpoint(AWSProperty):
+    """
+    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-vpcendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetworkInterfaces": ([NetworkInterface], False),
+        "VpcEndpointId": (str, False),
+        "VpcId": (str, False),
+    }
+
+
+class WorkgroupProperty(AWSProperty):
+    """
+    `WorkgroupProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "BaseCapacity": (integer, False),
+        "ConfigParameters": ([ConfigParameter], False),
+        "CreationDate": (str, False),
+        "Endpoint": (Endpoint, False),
+        "EnhancedVpcRouting": (boolean, False),
+        "NamespaceName": (str, False),
+        "PubliclyAccessible": (boolean, False),
+        "SecurityGroupIds": ([str], False),
+        "Status": (str, False),
+        "SubnetIds": ([str], False),
+        "WorkgroupArn": (str, False),
+        "WorkgroupId": (str, False),
+        "WorkgroupName": (str, False),
+    }

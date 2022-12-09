@@ -267,6 +267,107 @@ class QuickConnect(AWSObject):
     }
 
 
+class EventBridgeAction(AWSProperty):
+    """
+    `EventBridgeAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class NotificationRecipientType(AWSProperty):
+    """
+    `NotificationRecipientType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-notificationrecipienttype.html>`__
+    """
+
+    props: PropsDictType = {
+        "UserArns": ([str], False),
+        "UserTags": (dict, False),
+    }
+
+
+class SendNotificationAction(AWSProperty):
+    """
+    `SendNotificationAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-sendnotificationaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Content": (str, True),
+        "ContentType": (str, True),
+        "DeliveryMethod": (str, True),
+        "Recipient": (NotificationRecipientType, True),
+        "Subject": (str, False),
+    }
+
+
+class Reference(AWSProperty):
+    """
+    `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-reference.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (str, True),
+    }
+
+
+class TaskAction(AWSProperty):
+    """
+    `TaskAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-taskaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContactFlowArn": (str, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "References": (dict, False),
+    }
+
+
+class Actions(AWSProperty):
+    """
+    `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssignContactCategoryActions": (Tags, False),
+        "EventBridgeActions": ([EventBridgeAction], False),
+        "SendNotificationActions": ([SendNotificationAction], False),
+        "TaskActions": ([TaskAction], False),
+    }
+
+
+class RuleTriggerEventSource(AWSProperty):
+    """
+    `RuleTriggerEventSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-ruletriggereventsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventSourceName": (str, True),
+        "IntegrationAssociationArn": (str, False),
+    }
+
+
+class Rule(AWSObject):
+    """
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-rule.html>`__
+    """
+
+    resource_type = "AWS::Connect::Rule"
+
+    props: PropsDictType = {
+        "Actions": (Actions, True),
+        "Function": (str, True),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "PublishStatus": (str, True),
+        "Tags": (Tags, False),
+        "TriggerEventSource": (RuleTriggerEventSource, True),
+    }
+
+
 class FieldIdentifier(AWSProperty):
     """
     `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
@@ -274,6 +375,48 @@ class FieldIdentifier(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
+    }
+
+
+class InvisibleFieldInfo(AWSProperty):
+    """
+    `InvisibleFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-invisiblefieldinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (FieldIdentifier, True),
+    }
+
+
+class ReadOnlyFieldInfo(AWSProperty):
+    """
+    `ReadOnlyFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-readonlyfieldinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (FieldIdentifier, True),
+    }
+
+
+class RequiredFieldInfo(AWSProperty):
+    """
+    `RequiredFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-requiredfieldinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (FieldIdentifier, True),
+    }
+
+
+class Constraints(AWSProperty):
+    """
+    `Constraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-constraints.html>`__
+    """
+
+    props: PropsDictType = {
+        "InvisibleFields": ([InvisibleFieldInfo], False),
+        "ReadOnlyFields": ([ReadOnlyFieldInfo], False),
+        "RequiredFields": ([RequiredFieldInfo], False),
     }
 
 
@@ -310,7 +453,7 @@ class TaskTemplate(AWSObject):
 
     props: PropsDictType = {
         "ClientToken": (str, False),
-        "Constraints": (dict, False),
+        "Constraints": (Constraints, False),
         "ContactFlowArn": (str, False),
         "Defaults": ([DefaultFieldValue], False),
         "Description": (str, False),

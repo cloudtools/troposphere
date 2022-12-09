@@ -10,13 +10,25 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 
 
+class SourcePriority(AWSProperty):
+    """
+    `SourcePriority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcepriority.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrimarySource": (str, True),
+    }
+
+
 class FailoverConfig(AWSProperty):
     """
     `FailoverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-failoverconfig.html>`__
     """
 
     props: PropsDictType = {
+        "FailoverMode": (str, False),
         "RecoveryWindow": (integer, False),
+        "SourcePriority": (SourcePriority, False),
         "State": (str, False),
     }
 
@@ -55,8 +67,12 @@ class Source(AWSProperty):
         "MinLatency": (integer, False),
         "Name": (str, False),
         "Protocol": (str, False),
+        "SenderControlPort": (integer, False),
+        "SenderIpAddress": (str, False),
         "SourceArn": (str, False),
         "SourceIngestPort": (str, False),
+        "SourceListenerAddress": (str, False),
+        "SourceListenerPort": (integer, False),
         "StreamId": (str, False),
         "VpcInterfaceName": (str, False),
         "WhitelistCidr": (str, False),
