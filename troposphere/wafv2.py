@@ -435,6 +435,17 @@ class ManagedRuleGroupConfig(AWSProperty):
     }
 
 
+class RuleActionOverride(AWSProperty):
+    """
+    `RuleActionOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionToUse": (RuleAction, True),
+        "Name": (str, True),
+    }
+
+
 class ManagedRuleGroupStatement(AWSProperty):
     """
     `ManagedRuleGroupStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupstatement.html>`__
@@ -444,6 +455,7 @@ class ManagedRuleGroupStatement(AWSProperty):
         "ExcludedRules": ([ExcludedRule], False),
         "ManagedRuleGroupConfigs": ([ManagedRuleGroupConfig], False),
         "Name": (str, True),
+        "RuleActionOverrides": ([RuleActionOverride], False),
         "ScopeDownStatement": (validate_statement, False),
         "VendorName": (str, True),
         "Version": (str, False),
@@ -515,6 +527,7 @@ class RuleGroupReferenceStatement(AWSProperty):
     props: PropsDictType = {
         "Arn": (str, True),
         "ExcludedRules": ([ExcludedRule], False),
+        "RuleActionOverrides": ([RuleActionOverride], False),
     }
 
 
