@@ -87,7 +87,7 @@ class DBCluster(AWSObject):
         "EnableCloudwatchLogsExports": ([str], False),
         "EnableHttpEndpoint": (boolean, False),
         "EnableIAMDatabaseAuthentication": (boolean, False),
-        "Engine": (validate_engine, True),
+        "Engine": (validate_engine, False),
         "EngineMode": (validate_engine_mode, False),
         "EngineVersion": (str, False),
         "GlobalClusterIdentifier": (str, False),
@@ -147,6 +147,18 @@ class DBInstanceRole(AWSProperty):
     }
 
 
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "HostedZoneId": (str, False),
+        "Port": (str, False),
+    }
+
+
 class ProcessorFeature(AWSProperty):
     """
     `ProcessorFeature <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-processorfeature.html>`__
@@ -191,6 +203,7 @@ class DBInstance(AWSObject):
         "EnableCloudwatchLogsExports": ([str], False),
         "EnableIAMDatabaseAuthentication": (boolean, False),
         "EnablePerformanceInsights": (boolean, False),
+        "Endpoint": (Endpoint, False),
         "Engine": (validate_engine, False),
         "EngineVersion": (str, False),
         "Iops": (validate_iops, False),
@@ -464,18 +477,6 @@ class OptionGroup(AWSObject):
         "OptionGroupDescription": (str, True),
         "OptionGroupName": (str, False),
         "Tags": (validate_tags_or_list, False),
-    }
-
-
-class Endpoint(AWSProperty):
-    """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "Address": (str, False),
-        "HostedZoneId": (str, False),
-        "Port": (str, False),
     }
 
 

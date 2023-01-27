@@ -102,6 +102,17 @@ class SubnetGroup(AWSObject):
     }
 
 
+class AuthenticationMode(AWSProperty):
+    """
+    `AuthenticationMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-memorydb-user-authenticationmode.html>`__
+    """
+
+    props: PropsDictType = {
+        "Passwords": ([str], False),
+        "Type": (str, False),
+    }
+
+
 class User(AWSObject):
     """
     `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-user.html>`__
@@ -111,7 +122,7 @@ class User(AWSObject):
 
     props: PropsDictType = {
         "AccessString": (str, True),
-        "AuthenticationMode": (dict, True),
+        "AuthenticationMode": (AuthenticationMode, True),
         "Tags": (Tags, False),
         "UserName": (str, True),
     }

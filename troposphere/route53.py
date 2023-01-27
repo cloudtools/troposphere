@@ -49,6 +49,43 @@ class DNSSEC(AWSObject):
     }
 
 
+class AlarmIdentifier(AWSProperty):
+    """
+    `AlarmIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-alarmidentifier.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Region": (str, True),
+    }
+
+
+class HealthCheckConfig(AWSProperty):
+    """
+    `HealthCheckConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-healthcheck-healthcheckconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmIdentifier": (AlarmIdentifier, False),
+        "ChildHealthChecks": ([str], False),
+        "EnableSNI": (boolean, False),
+        "FailureThreshold": (integer, False),
+        "FullyQualifiedDomainName": (str, False),
+        "HealthThreshold": (integer, False),
+        "IPAddress": (str, False),
+        "InsufficientDataHealthStatus": (str, False),
+        "Inverted": (boolean, False),
+        "MeasureLatency": (boolean, False),
+        "Port": (integer, False),
+        "Regions": ([str], False),
+        "RequestInterval": (integer, False),
+        "ResourcePath": (str, False),
+        "RoutingControlArn": (str, False),
+        "SearchString": (str, False),
+        "Type": (str, True),
+    }
+
+
 class HealthCheck(AWSObject):
     """
     `HealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53-healthcheck.html>`__
@@ -57,7 +94,7 @@ class HealthCheck(AWSObject):
     resource_type = "AWS::Route53::HealthCheck"
 
     props: PropsDictType = {
-        "HealthCheckConfig": (HealthCheckConfiguration, True),
+        "HealthCheckConfig": (HealthCheckConfig, True),
         "HealthCheckTags": (Tags, False),
     }
 

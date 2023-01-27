@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double
+from .validators import boolean, double
 
 
 class AccountGrouping(AWSProperty):
@@ -123,6 +123,26 @@ class PricingPlan(AWSObject):
     }
 
 
+class FreeTier(AWSProperty):
+    """
+    `FreeTier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-freetier.html>`__
+    """
+
+    props: PropsDictType = {
+        "Activated": (boolean, True),
+    }
+
+
+class Tiering(AWSProperty):
+    """
+    `Tiering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-pricingrule-tiering.html>`__
+    """
+
+    props: PropsDictType = {
+        "FreeTier": (FreeTier, False),
+    }
+
+
 class PricingRule(AWSObject):
     """
     `PricingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-billingconductor-pricingrule.html>`__
@@ -133,10 +153,11 @@ class PricingRule(AWSObject):
     props: PropsDictType = {
         "BillingEntity": (str, False),
         "Description": (str, False),
-        "ModifierPercentage": (double, True),
+        "ModifierPercentage": (double, False),
         "Name": (str, True),
         "Scope": (str, True),
         "Service": (str, False),
         "Tags": (Tags, False),
+        "Tiering": (Tiering, False),
         "Type": (str, True),
     }

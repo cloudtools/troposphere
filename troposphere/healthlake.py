@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import integer
 
 
 class PreloadDataConfig(AWSProperty):
@@ -53,4 +54,15 @@ class FHIRDatastore(AWSObject):
         "PreloadDataConfig": (PreloadDataConfig, False),
         "SseConfiguration": (SseConfiguration, False),
         "Tags": (Tags, False),
+    }
+
+
+class CreatedAt(AWSProperty):
+    """
+    `CreatedAt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-createdat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Nanos": (integer, True),
+        "Seconds": (str, True),
     }

@@ -38,17 +38,105 @@ class IPSet(AWSObject):
     }
 
 
+class JsonMatchPattern(AWSProperty):
+    """
+    `JsonMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html>`__
+    """
+
+    props: PropsDictType = {
+        "All": (dict, False),
+        "IncludedPaths": ([str], False),
+    }
+
+
+class JsonBody(AWSProperty):
+    """
+    `JsonBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html>`__
+    """
+
+    props: PropsDictType = {
+        "InvalidFallbackBehavior": (str, False),
+        "MatchPattern": (JsonMatchPattern, True),
+        "MatchScope": (str, True),
+        "OversizeHandling": (str, False),
+    }
+
+
+class SingleHeader(AWSProperty):
+    """
+    `SingleHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singleheader.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
 class LoggingConfigurationFieldToMatch(AWSProperty):
     """
     `LoggingConfigurationFieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-fieldtomatch.html>`__
     """
 
     props: PropsDictType = {
-        "JsonBody": (dict, False),
+        "JsonBody": (JsonBody, False),
         "Method": (dict, False),
         "QueryString": (dict, False),
-        "SingleHeader": (dict, False),
+        "SingleHeader": (SingleHeader, False),
         "UriPath": (dict, False),
+    }
+
+
+class ActionCondition(AWSProperty):
+    """
+    `ActionCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-actioncondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+    }
+
+
+class LabelNameCondition(AWSProperty):
+    """
+    `LabelNameCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-labelnamecondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "LabelName": (str, True),
+    }
+
+
+class Condition(AWSProperty):
+    """
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-condition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionCondition": (ActionCondition, False),
+        "LabelNameCondition": (LabelNameCondition, False),
+    }
+
+
+class Filter(AWSProperty):
+    """
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Behavior": (str, True),
+        "Conditions": ([Condition], True),
+        "Requirement": (str, True),
+    }
+
+
+class LoggingFilter(AWSProperty):
+    """
+    `LoggingFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-loggingfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultBehavior": (str, True),
+        "Filters": ([Filter], True),
     }
 
 
@@ -61,7 +149,7 @@ class LoggingConfiguration(AWSObject):
 
     props: PropsDictType = {
         "LogDestinationConfigs": ([str], True),
-        "LoggingFilter": (dict, False),
+        "LoggingFilter": (LoggingFilter, False),
         "RedactedFields": ([LoggingConfigurationFieldToMatch], False),
         "ResourceArn": (str, True),
     }
@@ -278,27 +366,13 @@ class Headers(AWSProperty):
     }
 
 
-class JsonMatchPattern(AWSProperty):
+class SingleQueryArgument(AWSProperty):
     """
-    `JsonMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html>`__
-    """
-
-    props: PropsDictType = {
-        "All": (dict, False),
-        "IncludedPaths": ([str], False),
-    }
-
-
-class JsonBody(AWSProperty):
-    """
-    `JsonBody <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonbody.html>`__
+    `SingleQueryArgument <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-singlequeryargument.html>`__
     """
 
     props: PropsDictType = {
-        "InvalidFallbackBehavior": (str, False),
-        "MatchPattern": (JsonMatchPattern, True),
-        "MatchScope": (str, True),
-        "OversizeHandling": (str, False),
+        "Name": (str, True),
     }
 
 
@@ -315,8 +389,8 @@ class FieldToMatch(AWSProperty):
         "JsonBody": (JsonBody, False),
         "Method": (dict, False),
         "QueryString": (dict, False),
-        "SingleHeader": (dict, False),
-        "SingleQueryArgument": (dict, False),
+        "SingleHeader": (SingleHeader, False),
+        "SingleQueryArgument": (SingleQueryArgument, False),
         "UriPath": (dict, False),
     }
 
@@ -694,4 +768,55 @@ class WebACLAssociation(AWSObject):
     props: PropsDictType = {
         "ResourceArn": (str, True),
         "WebACLArn": (str, True),
+    }
+
+
+class Allow(AWSProperty):
+    """
+    `Allow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allow.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomRequestHandling": (CustomRequestHandling, False),
+    }
+
+
+class Block(AWSProperty):
+    """
+    `Block <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-block.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomResponse": (CustomResponse, False),
+    }
+
+
+class Captcha(AWSProperty):
+    """
+    `Captcha <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captcha.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomRequestHandling": (CustomRequestHandling, False),
+    }
+
+
+class Count(AWSProperty):
+    """
+    `Count <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-count.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomRequestHandling": (CustomRequestHandling, False),
+    }
+
+
+class MatchPattern(AWSProperty):
+    """
+    `MatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-matchpattern.html>`__
+    """
+
+    props: PropsDictType = {
+        "All": (dict, False),
+        "IncludedPaths": ([str], False),
     }

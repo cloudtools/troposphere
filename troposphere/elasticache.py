@@ -276,6 +276,17 @@ class SubnetGroup(AWSObject):
     }
 
 
+class AuthenticationMode(AWSProperty):
+    """
+    `AuthenticationMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-user-authenticationmode.html>`__
+    """
+
+    props: PropsDictType = {
+        "Passwords": ([str], False),
+        "Type": (str, True),
+    }
+
+
 class User(AWSObject):
     """
     `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-user.html>`__
@@ -285,7 +296,7 @@ class User(AWSObject):
 
     props: PropsDictType = {
         "AccessString": (str, False),
-        "AuthenticationMode": (dict, False),
+        "AuthenticationMode": (AuthenticationMode, False),
         "Engine": (str, True),
         "NoPasswordRequired": (boolean, False),
         "Passwords": ([str], False),

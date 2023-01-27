@@ -131,6 +131,17 @@ class MulticastGroup(AWSObject):
     }
 
 
+class TraceContent(AWSProperty):
+    """
+    `TraceContent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-networkanalyzerconfiguration-tracecontent.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogLevel": (str, False),
+        "WirelessDeviceFrameInfo": (str, False),
+    }
+
+
 class NetworkAnalyzerConfiguration(AWSObject):
     """
     `NetworkAnalyzerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-networkanalyzerconfiguration.html>`__
@@ -142,7 +153,7 @@ class NetworkAnalyzerConfiguration(AWSObject):
         "Description": (str, False),
         "Name": (str, True),
         "Tags": (Tags, False),
-        "TraceContent": (dict, False),
+        "TraceContent": (TraceContent, False),
         "WirelessDevices": ([str], False),
         "WirelessGateways": ([str], False),
     }
@@ -423,4 +434,16 @@ class WirelessGateway(AWSObject):
         "Tags": (Tags, False),
         "ThingArn": (str, False),
         "ThingName": (str, False),
+    }
+
+
+class SidewalkAccountInfoWithFingerprint(AWSProperty):
+    """
+    `SidewalkAccountInfoWithFingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfowithfingerprint.html>`__
+    """
+
+    props: PropsDictType = {
+        "AmazonId": (str, False),
+        "Arn": (str, False),
+        "Fingerprint": (str, False),
     }

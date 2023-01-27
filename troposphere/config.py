@@ -176,6 +176,17 @@ class ConformancePackInputParameter(AWSProperty):
     }
 
 
+class TemplateSSMDocumentDetails(AWSProperty):
+    """
+    `TemplateSSMDocumentDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-conformancepack-templatessmdocumentdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "DocumentName": (str, False),
+        "DocumentVersion": (str, False),
+    }
+
+
 class ConformancePack(AWSObject):
     """
     `ConformancePack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-config-conformancepack.html>`__
@@ -190,7 +201,7 @@ class ConformancePack(AWSObject):
         "DeliveryS3KeyPrefix": (str, False),
         "TemplateBody": (str, False),
         "TemplateS3Uri": (str, False),
-        "TemplateSSMDocumentDetails": (dict, False),
+        "TemplateSSMDocumentDetails": (TemplateSSMDocumentDetails, False),
     }
 
 

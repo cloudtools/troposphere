@@ -1075,3 +1075,156 @@ class Theme(AWSObject):
         "ThemeId": (str, True),
         "VersionDescription": (str, False),
     }
+
+
+class ColumnGroupColumnSchema(AWSProperty):
+    """
+    `ColumnGroupColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupcolumnschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+    }
+
+
+class ColumnGroupSchema(AWSProperty):
+    """
+    `ColumnGroupSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columngroupschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnGroupColumnSchemaList": ([ColumnGroupColumnSchema], False),
+        "Name": (str, False),
+    }
+
+
+class ColumnSchema(AWSProperty):
+    """
+    `ColumnSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataType": (str, False),
+        "GeographicRole": (str, False),
+        "Name": (str, False),
+    }
+
+
+class DashboardError(AWSProperty):
+    """
+    `DashboardError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboarderror.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "Type": (str, False),
+    }
+
+
+class DashboardVersion(AWSProperty):
+    """
+    `DashboardVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversion.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "CreatedTime": (str, False),
+        "DataSetArns": ([str], False),
+        "Description": (str, False),
+        "Errors": ([DashboardError], False),
+        "Sheets": ([Sheet], False),
+        "SourceEntityArn": (str, False),
+        "Status": (str, False),
+        "ThemeArn": (str, False),
+        "VersionNumber": (double, False),
+    }
+
+
+class DataSetSchema(AWSProperty):
+    """
+    `DataSetSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnSchemaList": ([ColumnSchema], False),
+    }
+
+
+class DataSetConfiguration(AWSProperty):
+    """
+    `DataSetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnGroupSchemaList": ([ColumnGroupSchema], False),
+        "DataSetSchema": (DataSetSchema, False),
+        "Placeholder": (str, False),
+    }
+
+
+class Sheet(AWSProperty):
+    """
+    `Sheet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheet.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "SheetId": (str, False),
+    }
+
+
+class TemplateError(AWSProperty):
+    """
+    `TemplateError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateerror.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "Type": (str, False),
+    }
+
+
+class TemplateVersion(AWSProperty):
+    """
+    `TemplateVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templateversion.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreatedTime": (str, False),
+        "DataSetConfigurations": ([DataSetConfiguration], False),
+        "Description": (str, False),
+        "Errors": ([TemplateError], False),
+        "Sheets": ([Sheet], False),
+        "SourceEntityArn": (str, False),
+        "Status": (str, False),
+        "ThemeArn": (str, False),
+        "VersionNumber": (double, False),
+    }
+
+
+class ThemeError(AWSProperty):
+    """
+    `ThemeError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeerror.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "Type": (str, False),
+    }
+
+
+class ThemeVersion(AWSProperty):
+    """
+    `ThemeVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-theme-themeversion.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "BaseThemeId": (str, False),
+        "Configuration": (ThemeConfiguration, False),
+        "CreatedTime": (str, False),
+        "Description": (str, False),
+        "Errors": ([ThemeError], False),
+        "Status": (str, False),
+        "VersionNumber": (double, False),
+    }

@@ -24,6 +24,16 @@ from .validators.s3 import (
 )
 
 
+class PolicyStatus(AWSProperty):
+    """
+    `PolicyStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspointpolicy-policystatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsPublic": (str, True),
+    }
+
+
 class PublicAccessBlockConfiguration(AWSProperty):
     """
     `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html>`__
@@ -59,7 +69,7 @@ class AccessPoint(AWSObject):
         "BucketAccountId": (str, False),
         "Name": (str, False),
         "Policy": (policytypes, False),
-        "PolicyStatus": (dict, False),
+        "PolicyStatus": (PolicyStatus, False),
         "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
         "VpcConfiguration": (VpcConfiguration, False),
     }

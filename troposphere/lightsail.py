@@ -392,6 +392,17 @@ class Hardware(AWSProperty):
     }
 
 
+class Location(AWSProperty):
+    """
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "RegionName": (str, False),
+    }
+
+
 class MonthlyTransfer(AWSProperty):
     """
     `MonthlyTransfer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-monthlytransfer.html>`__
@@ -432,6 +443,17 @@ class Networking(AWSProperty):
     }
 
 
+class State(AWSProperty):
+    """
+    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-state.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (integer, False),
+        "Name": (str, False),
+    }
+
+
 class Instance(AWSObject):
     """
     `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-instance.html>`__
@@ -447,7 +469,9 @@ class Instance(AWSObject):
         "Hardware": (Hardware, False),
         "InstanceName": (str, True),
         "KeyPairName": (str, False),
+        "Location": (Location, False),
         "Networking": (Networking, False),
+        "State": (State, False),
         "Tags": (Tags, False),
         "UserData": (str, False),
     }

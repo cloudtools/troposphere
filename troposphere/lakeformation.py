@@ -94,14 +94,6 @@ class PermissionsDataLocationResource(AWSProperty):
     }
 
 
-class TableWildcard(AWSProperty):
-    """
-    `TableWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html>`__
-    """
-
-    props: PropsDictType = {}
-
-
 class TableResource(AWSProperty):
     """
     `TableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-tagassociation-tableresource.html>`__
@@ -111,7 +103,7 @@ class TableResource(AWSProperty):
         "CatalogId": (str, True),
         "DatabaseName": (str, True),
         "Name": (str, False),
-        "TableWildcard": (TableWildcard, False),
+        "TableWildcard": (dict, False),
     }
 
 
@@ -326,3 +318,11 @@ class TagAssociation(AWSObject):
         "LFTags": ([LFTagPair], True),
         "Resource": (TagAssociationResource, True),
     }
+
+
+class TableWildcard(AWSProperty):
+    """
+    `TableWildcard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-permissions-tablewildcard.html>`__
+    """
+
+    props: PropsDictType = {}

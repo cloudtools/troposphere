@@ -9,6 +9,16 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class AgentPermissions(AWSProperty):
+    """
+    `AgentPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-agentpermissions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Principals": ([str], True),
+    }
+
+
 class Channel(AWSProperty):
     """
     `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codeguruprofiler-profilinggroup-channel.html>`__
@@ -28,7 +38,7 @@ class ProfilingGroup(AWSObject):
     resource_type = "AWS::CodeGuruProfiler::ProfilingGroup"
 
     props: PropsDictType = {
-        "AgentPermissions": (dict, False),
+        "AgentPermissions": (AgentPermissions, False),
         "AnomalyDetectionNotificationConfiguration": ([Channel], False),
         "ComputePlatform": (str, False),
         "ProfilingGroupName": (str, True),

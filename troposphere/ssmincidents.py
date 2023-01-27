@@ -136,6 +136,38 @@ class IncidentTemplate(AWSProperty):
     }
 
 
+class PagerDutyIncidentConfiguration(AWSProperty):
+    """
+    `PagerDutyIncidentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyincidentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ServiceId": (str, True),
+    }
+
+
+class PagerDutyConfiguration(AWSProperty):
+    """
+    `PagerDutyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-pagerdutyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "PagerDutyIncidentConfiguration": (PagerDutyIncidentConfiguration, True),
+        "SecretId": (str, True),
+    }
+
+
+class Integration(AWSProperty):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ssmincidents-responseplan-integration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PagerDutyConfiguration": (PagerDutyConfiguration, True),
+    }
+
+
 class ResponsePlan(AWSObject):
     """
     `ResponsePlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ssmincidents-responseplan.html>`__
@@ -149,6 +181,7 @@ class ResponsePlan(AWSObject):
         "DisplayName": (str, False),
         "Engagements": ([str], False),
         "IncidentTemplate": (IncidentTemplate, True),
+        "Integrations": ([Integration], False),
         "Name": (str, True),
         "Tags": (Tags, False),
     }

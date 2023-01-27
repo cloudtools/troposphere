@@ -10,34 +10,14 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean, integer
 
 
-class Content(AWSProperty):
-    """
-    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-application-content.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3Location": (str, True),
-    }
-
-
-class S3Location(AWSProperty):
-    """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-application-s3location.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3Location": (str, True),
-    }
-
-
 class Definition(AWSProperty):
     """
     `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-m2-application-definition.html>`__
     """
 
     props: PropsDictType = {
-        "Content": (Content, False),
-        "S3Location": (S3Location, False),
+        "Content": (str, False),
+        "S3Location": (str, False),
     }
 
 

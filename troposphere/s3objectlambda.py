@@ -10,6 +10,27 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import boolean
 
 
+class AwsLambda(AWSProperty):
+    """
+    `AwsLambda <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-awslambda.html>`__
+    """
+
+    props: PropsDictType = {
+        "FunctionArn": (str, True),
+        "FunctionPayload": (str, False),
+    }
+
+
+class ContentTransformation(AWSProperty):
+    """
+    `ContentTransformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-contenttransformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsLambda": (AwsLambda, True),
+    }
+
+
 class TransformationConfiguration(AWSProperty):
     """
     `TransformationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-transformationconfiguration.html>`__
@@ -17,7 +38,7 @@ class TransformationConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Actions": ([str], True),
-        "ContentTransformation": (dict, True),
+        "ContentTransformation": (ContentTransformation, True),
     }
 
 
@@ -57,4 +78,27 @@ class AccessPointPolicy(AWSObject):
     props: PropsDictType = {
         "ObjectLambdaAccessPoint": (str, True),
         "PolicyDocument": (dict, True),
+    }
+
+
+class PolicyStatus(AWSProperty):
+    """
+    `PolicyStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-policystatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsPublic": (boolean, False),
+    }
+
+
+class PublicAccessBlockConfiguration(AWSProperty):
+    """
+    `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-publicaccessblockconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BlockPublicAcls": (boolean, False),
+        "BlockPublicPolicy": (boolean, False),
+        "IgnorePublicAcls": (boolean, False),
+        "RestrictPublicBuckets": (boolean, False),
     }

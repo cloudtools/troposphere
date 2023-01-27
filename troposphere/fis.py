@@ -24,15 +24,36 @@ class ExperimentTemplateAction(AWSProperty):
     }
 
 
+class CloudWatchLogsConfiguration(AWSProperty):
+    """
+    `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchlogsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupArn": (str, True),
+    }
+
+
+class S3Configuration(AWSProperty):
+    """
+    `S3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-s3configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "Prefix": (str, False),
+    }
+
+
 class ExperimentTemplateLogConfiguration(AWSProperty):
     """
     `ExperimentTemplateLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplatelogconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "CloudWatchLogsConfiguration": (dict, False),
+        "CloudWatchLogsConfiguration": (CloudWatchLogsConfiguration, False),
         "LogSchemaVersion": (integer, True),
-        "S3Configuration": (dict, False),
+        "S3Configuration": (S3Configuration, False),
     }
 
 

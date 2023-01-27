@@ -11,6 +11,20 @@ from .validators import boolean
 from .validators.ecr import policytypes
 
 
+class RepositoryCatalogData(AWSProperty):
+    """
+    `RepositoryCatalogData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-publicrepository-repositorycatalogdata.html>`__
+    """
+
+    props: PropsDictType = {
+        "AboutText": (str, False),
+        "Architectures": ([str], False),
+        "OperatingSystems": ([str], False),
+        "RepositoryDescription": (str, False),
+        "UsageText": (str, False),
+    }
+
+
 class PublicRepository(AWSObject):
     """
     `PublicRepository <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-publicrepository.html>`__
@@ -19,7 +33,7 @@ class PublicRepository(AWSObject):
     resource_type = "AWS::ECR::PublicRepository"
 
     props: PropsDictType = {
-        "RepositoryCatalogData": (dict, False),
+        "RepositoryCatalogData": (RepositoryCatalogData, False),
         "RepositoryName": (str, False),
         "RepositoryPolicyText": (policytypes, False),
         "Tags": (Tags, False),

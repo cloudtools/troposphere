@@ -87,7 +87,7 @@ class SourceConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AppIntegrations": (AppIntegrationsConfiguration, False),
+        "AppIntegrations": (AppIntegrationsConfiguration, True),
     }
 
 

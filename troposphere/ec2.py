@@ -648,6 +648,18 @@ class EnclaveCertificateIamRoleAssociation(AWSObject):
     }
 
 
+class DestinationOptions(AWSProperty):
+    """
+    `DestinationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-flowlog-destinationoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileFormat": (str, True),
+        "HiveCompatiblePartitions": (boolean, True),
+        "PerHourPartition": (boolean, True),
+    }
+
+
 class FlowLog(AWSObject):
     """
     `FlowLog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-flowlog.html>`__
@@ -657,7 +669,7 @@ class FlowLog(AWSObject):
 
     props: PropsDictType = {
         "DeliverLogsPermissionArn": (str, False),
-        "DestinationOptions": (dict, False),
+        "DestinationOptions": (DestinationOptions, False),
         "LogDestination": (str, False),
         "LogDestinationType": (str, False),
         "LogFormat": (str, False),
@@ -1704,6 +1716,21 @@ class NetworkInterfacePermission(AWSObject):
     }
 
 
+class NetworkPerformanceMetricSubscription(AWSObject):
+    """
+    `NetworkPerformanceMetricSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkperformancemetricsubscription.html>`__
+    """
+
+    resource_type = "AWS::EC2::NetworkPerformanceMetricSubscription"
+
+    props: PropsDictType = {
+        "Destination": (str, True),
+        "Metric": (str, True),
+        "Source": (str, True),
+        "Statistic": (str, True),
+    }
+
+
 class PlacementGroup(AWSObject):
     """
     `PlacementGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-placementgroup.html>`__
@@ -2098,6 +2125,18 @@ class SpotFleet(AWSObject):
     }
 
 
+class PrivateDnsNameOptionsOnLaunch(AWSProperty):
+    """
+    `PrivateDnsNameOptionsOnLaunch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-subnet-privatednsnameoptionsonlaunch.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableResourceNameDnsAAAARecord": (boolean, False),
+        "EnableResourceNameDnsARecord": (boolean, False),
+        "HostnameType": (str, False),
+    }
+
+
 class Subnet(AWSObject):
     """
     `Subnet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet.html>`__
@@ -2115,7 +2154,7 @@ class Subnet(AWSObject):
         "Ipv6Native": (boolean, False),
         "MapPublicIpOnLaunch": (boolean, False),
         "OutpostArn": (str, False),
-        "PrivateDnsNameOptionsOnLaunch": (dict, False),
+        "PrivateDnsNameOptionsOnLaunch": (PrivateDnsNameOptionsOnLaunch, False),
         "Tags": (validate_tags_or_list, False),
         "VpcId": (str, True),
     }
@@ -2267,6 +2306,18 @@ class TransitGateway(AWSObject):
     }
 
 
+class Options(AWSProperty):
+    """
+    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewayvpcattachment-options.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplianceModeSupport": (str, False),
+        "DnsSupport": (str, False),
+        "Ipv6Support": (str, False),
+    }
+
+
 class TransitGatewayAttachment(AWSObject):
     """
     `TransitGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewayattachment.html>`__
@@ -2275,7 +2326,7 @@ class TransitGatewayAttachment(AWSObject):
     resource_type = "AWS::EC2::TransitGatewayAttachment"
 
     props: PropsDictType = {
-        "Options": (dict, False),
+        "Options": (Options, False),
         "SubnetIds": ([str], True),
         "Tags": (validate_tags_or_list, False),
         "TransitGatewayId": (str, True),
@@ -2315,7 +2366,7 @@ class TransitGatewayMulticastDomain(AWSObject):
     resource_type = "AWS::EC2::TransitGatewayMulticastDomain"
 
     props: PropsDictType = {
-        "Options": (dict, False),
+        "Options": (Options, False),
         "Tags": (Tags, False),
         "TransitGatewayId": (str, True),
     }
@@ -2442,7 +2493,7 @@ class TransitGatewayVpcAttachment(AWSObject):
 
     props: PropsDictType = {
         "AddSubnetIds": ([str], False),
-        "Options": (dict, False),
+        "Options": (Options, False),
         "RemoveSubnetIds": ([str], False),
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
@@ -2773,6 +2824,17 @@ class NoDevice(AWSProperty):
     """
 
     props: PropsDictType = {}
+
+
+class PeeringAttachmentStatus(AWSProperty):
+    """
+    `PeeringAttachmentStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaypeeringattachment-peeringattachmentstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, False),
+        "Message": (str, False),
+    }
 
 
 class SecurityGroupRule(AWSProperty):

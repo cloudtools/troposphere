@@ -300,7 +300,7 @@ class Secret(AWSProperty):
 
 class LogConfiguration(AWSProperty):
     """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-logconfiguration.html>`__
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-logconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -406,7 +406,7 @@ class ContainerDependency(AWSProperty):
 
 class Environment(AWSProperty):
     """
-    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-environment.html>`__
+    `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-keyvaluepair.html>`__
     """
 
     props: PropsDictType = {
@@ -453,7 +453,7 @@ class HealthCheck(AWSProperty):
 
 class HostEntry(AWSProperty):
     """
-    `HostEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-hostentry.html>`__
+    `HostEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostentry.html>`__
     """
 
     props: PropsDictType = {
@@ -515,7 +515,7 @@ class LinuxParameters(AWSProperty):
 
 class MountPoint(AWSProperty):
     """
-    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-mountpoints.html>`__
+    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-mountpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -527,7 +527,7 @@ class MountPoint(AWSProperty):
 
 class PortMapping(AWSProperty):
     """
-    `PortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-portmappings.html>`__
+    `PortMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-portmapping.html>`__
     """
 
     props: PropsDictType = {
@@ -573,7 +573,7 @@ class SystemControl(AWSProperty):
 
 class Ulimit(AWSProperty):
     """
-    `Ulimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-ulimit.html>`__
+    `Ulimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-ulimit.html>`__
     """
 
     props: PropsDictType = {
@@ -585,7 +585,7 @@ class Ulimit(AWSProperty):
 
 class VolumesFrom(AWSProperty):
     """
-    `VolumesFrom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions-volumesfrom.html>`__
+    `VolumesFrom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumefrom.html>`__
     """
 
     props: PropsDictType = {
@@ -596,7 +596,7 @@ class VolumesFrom(AWSProperty):
 
 class ContainerDefinition(AWSProperty):
     """
-    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinitions.html>`__
+    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-containerdefinition.html>`__
     """
 
     props: PropsDictType = {
@@ -730,7 +730,7 @@ class EFSVolumeConfiguration(AWSProperty):
 
 class Host(AWSProperty):
     """
-    `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes-host.html>`__
+    `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostvolumeproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -740,7 +740,7 @@ class Host(AWSProperty):
 
 class Volume(AWSProperty):
     """
-    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volumes.html>`__
+    `Volume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-volume.html>`__
     """
 
     props: PropsDictType = {
