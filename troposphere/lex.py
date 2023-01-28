@@ -157,6 +157,95 @@ class FulfillmentUpdatesSpecification(AWSProperty):
     }
 
 
+class Condition(AWSProperty):
+    """
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-condition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExpressionString": (str, True),
+    }
+
+
+class DialogAction(AWSProperty):
+    """
+    `DialogAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "SlotToElicit": (str, False),
+        "SuppressNextMessage": (boolean, False),
+        "Type": (str, True),
+    }
+
+
+class SlotValue(AWSProperty):
+    """
+    `SlotValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "InterpretedValue": (str, False),
+    }
+
+
+class SlotValueOverride(AWSProperty):
+    """
+    `SlotValueOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "Shape": (str, False),
+        "Value": (SlotValue, False),
+        "Values": ([str], False),
+    }
+
+
+class SlotValueOverrideMap(AWSProperty):
+    """
+    `SlotValueOverrideMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotvalueoverridemap.html>`__
+    """
+
+    props: PropsDictType = {
+        "SlotName": (str, False),
+        "SlotValueOverride": (SlotValueOverride, False),
+    }
+
+
+class IntentOverride(AWSProperty):
+    """
+    `IntentOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-intentoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Slots": ([SlotValueOverrideMap], False),
+    }
+
+
+class SessionAttribute(AWSProperty):
+    """
+    `SessionAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sessionattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, False),
+    }
+
+
+class DialogState(AWSProperty):
+    """
+    `DialogState <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogstate.html>`__
+    """
+
+    props: PropsDictType = {
+        "DialogAction": (DialogAction, False),
+        "Intent": (IntentOverride, False),
+        "SessionAttributes": ([SessionAttribute], False),
+    }
+
+
 class ResponseSpecification(AWSProperty):
     """
     `ResponseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-responsespecification.html>`__
@@ -168,14 +257,56 @@ class ResponseSpecification(AWSProperty):
     }
 
 
+class ConditionalBranch(AWSProperty):
+    """
+    `ConditionalBranch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalbranch.html>`__
+    """
+
+    props: PropsDictType = {
+        "Condition": (Condition, True),
+        "Name": (str, True),
+        "NextStep": (DialogState, True),
+        "Response": (ResponseSpecification, False),
+    }
+
+
+class DefaultConditionalBranch(AWSProperty):
+    """
+    `DefaultConditionalBranch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-defaultconditionalbranch.html>`__
+    """
+
+    props: PropsDictType = {
+        "NextStep": (DialogState, False),
+        "Response": (ResponseSpecification, False),
+    }
+
+
+class ConditionalSpecification(AWSProperty):
+    """
+    `ConditionalSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-conditionalspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionalBranches": ([ConditionalBranch], True),
+        "DefaultBranch": (DefaultConditionalBranch, True),
+        "IsActive": (boolean, True),
+    }
+
+
 class PostFulfillmentStatusSpecification(AWSProperty):
     """
     `PostFulfillmentStatusSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postfulfillmentstatusspecification.html>`__
     """
 
     props: PropsDictType = {
+        "FailureConditional": (ConditionalSpecification, False),
+        "FailureNextStep": (DialogState, False),
         "FailureResponse": (ResponseSpecification, False),
+        "SuccessConditional": (ConditionalSpecification, False),
+        "SuccessNextStep": (DialogState, False),
         "SuccessResponse": (ResponseSpecification, False),
+        "TimeoutConditional": (ConditionalSpecification, False),
+        "TimeoutNextStep": (DialogState, False),
         "TimeoutResponse": (ResponseSpecification, False),
     }
 
@@ -188,10 +319,55 @@ class FulfillmentCodeHookSetting(AWSProperty):
     props: PropsDictType = {
         "Enabled": (boolean, True),
         "FulfillmentUpdatesSpecification": (FulfillmentUpdatesSpecification, False),
+        "IsActive": (boolean, False),
         "PostFulfillmentStatusSpecification": (
             PostFulfillmentStatusSpecification,
             False,
         ),
+    }
+
+
+class PostDialogCodeHookInvocationSpecification(AWSProperty):
+    """
+    `PostDialogCodeHookInvocationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-postdialogcodehookinvocationspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureConditional": (ConditionalSpecification, False),
+        "FailureNextStep": (DialogState, False),
+        "FailureResponse": (ResponseSpecification, False),
+        "SuccessConditional": (ConditionalSpecification, False),
+        "SuccessNextStep": (DialogState, False),
+        "SuccessResponse": (ResponseSpecification, False),
+        "TimeoutConditional": (ConditionalSpecification, False),
+        "TimeoutNextStep": (DialogState, False),
+        "TimeoutResponse": (ResponseSpecification, False),
+    }
+
+
+class DialogCodeHookInvocationSetting(AWSProperty):
+    """
+    `DialogCodeHookInvocationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehookinvocationsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableCodeHookInvocation": (boolean, True),
+        "InvocationLabel": (str, False),
+        "IsActive": (boolean, True),
+        "PostCodeHookSpecification": (PostDialogCodeHookInvocationSpecification, True),
+    }
+
+
+class InitialResponseSetting(AWSProperty):
+    """
+    `InitialResponseSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-initialresponsesetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeHook": (DialogCodeHookInvocationSetting, False),
+        "Conditional": (ConditionalSpecification, False),
+        "InitialResponse": (ResponseSpecification, False),
+        "NextStep": (DialogState, False),
     }
 
 
@@ -211,8 +387,21 @@ class IntentClosingSetting(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ClosingResponse": (ResponseSpecification, True),
+        "ClosingResponse": (ResponseSpecification, False),
+        "Conditional": (ConditionalSpecification, False),
         "IsActive": (boolean, False),
+        "NextStep": (DialogState, False),
+    }
+
+
+class ElicitationCodeHookInvocationSetting(AWSProperty):
+    """
+    `ElicitationCodeHookInvocationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-elicitationcodehookinvocationsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableCodeHookInvocation": (boolean, True),
+        "InvocationLabel": (str, False),
     }
 
 
@@ -306,7 +495,17 @@ class IntentConfirmationSetting(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DeclinationResponse": (ResponseSpecification, True),
+        "CodeHook": (DialogCodeHookInvocationSetting, False),
+        "ConfirmationConditional": (ConditionalSpecification, False),
+        "ConfirmationNextStep": (DialogState, False),
+        "ConfirmationResponse": (ResponseSpecification, False),
+        "DeclinationConditional": (ConditionalSpecification, False),
+        "DeclinationNextStep": (DialogState, False),
+        "DeclinationResponse": (ResponseSpecification, False),
+        "ElicitationCodeHook": (ElicitationCodeHookInvocationSetting, False),
+        "FailureConditional": (ConditionalSpecification, False),
+        "FailureNextStep": (DialogState, False),
+        "FailureResponse": (ResponseSpecification, False),
         "IsActive": (boolean, False),
         "PromptSpecification": (PromptSpecification, True),
     }
@@ -366,6 +565,23 @@ class ObfuscationSetting(AWSProperty):
     }
 
 
+class SlotCaptureSetting(AWSProperty):
+    """
+    `SlotCaptureSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotcapturesetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaptureConditional": (ConditionalSpecification, False),
+        "CaptureNextStep": (DialogState, False),
+        "CaptureResponse": (ResponseSpecification, False),
+        "CodeHook": (DialogCodeHookInvocationSetting, False),
+        "ElicitationCodeHook": (ElicitationCodeHookInvocationSetting, False),
+        "FailureConditional": (ConditionalSpecification, False),
+        "FailureNextStep": (DialogState, False),
+        "FailureResponse": (ResponseSpecification, False),
+    }
+
+
 class SlotDefaultValue(AWSProperty):
     """
     `SlotDefaultValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-slotdefaultvalue.html>`__
@@ -421,6 +637,7 @@ class SlotValueElicitationSetting(AWSProperty):
         "DefaultValueSpecification": (SlotDefaultValueSpecification, False),
         "PromptSpecification": (PromptSpecification, False),
         "SampleUtterances": ([SampleUtterance], False),
+        "SlotCaptureSetting": (SlotCaptureSetting, False),
         "SlotConstraint": (str, True),
         "WaitAndContinueSpecification": (WaitAndContinueSpecification, False),
     }
@@ -461,6 +678,7 @@ class Intent(AWSProperty):
         "Description": (str, False),
         "DialogCodeHook": (DialogCodeHookSetting, False),
         "FulfillmentCodeHook": (FulfillmentCodeHookSetting, False),
+        "InitialResponseSetting": (InitialResponseSetting, False),
         "InputContexts": ([InputContext], False),
         "IntentClosingSetting": (IntentClosingSetting, False),
         "IntentConfirmationSetting": (IntentConfirmationSetting, False),

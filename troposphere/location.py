@@ -20,8 +20,6 @@ class GeofenceCollection(AWSObject):
         "CollectionName": (str, True),
         "Description": (str, False),
         "KmsKeyId": (str, False),
-        "PricingPlan": (str, False),
-        "PricingPlanDataSource": (str, False),
     }
 
 

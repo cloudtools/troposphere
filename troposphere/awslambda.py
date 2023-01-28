@@ -338,6 +338,17 @@ class ImageConfig(AWSProperty):
         validate_image_config(self)
 
 
+class RuntimeManagementConfig(AWSProperty):
+    """
+    `RuntimeManagementConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-runtimemanagementconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RuntimeVersionArn": (str, False),
+        "UpdateRuntimeOn": (str, True),
+    }
+
+
 class SnapStart(AWSProperty):
     """
     `SnapStart <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-function-snapstart.html>`__
@@ -395,6 +406,7 @@ class Function(AWSObject):
         "ReservedConcurrentExecutions": (integer, False),
         "Role": (str, True),
         "Runtime": (str, False),
+        "RuntimeManagementConfig": (RuntimeManagementConfig, False),
         "SnapStart": (SnapStart, False),
         "Tags": (Tags, False),
         "Timeout": (integer, False),

@@ -258,6 +258,28 @@ class DistributionConfiguration(AWSObject):
     }
 
 
+class EcrConfiguration(AWSProperty):
+    """
+    `EcrConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-ecrconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerTags": ([str], False),
+        "RepositoryName": (str, False),
+    }
+
+
+class ImageScanningConfiguration(AWSProperty):
+    """
+    `ImageScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagescanningconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EcrConfiguration": (EcrConfiguration, False),
+        "ImageScanningEnabled": (boolean, False),
+    }
+
+
 class ImageTestsConfiguration(AWSProperty):
     """
     `ImageTestsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-imagetestsconfiguration.html>`__
@@ -281,6 +303,7 @@ class Image(AWSObject):
         "DistributionConfigurationArn": (str, False),
         "EnhancedImageMetadataEnabled": (boolean, False),
         "ImageRecipeArn": (str, False),
+        "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
         "InfrastructureConfigurationArn": (str, True),
         "Tags": (dict, False),
@@ -314,6 +337,7 @@ class ImagePipeline(AWSObject):
         "DistributionConfigurationArn": (str, False),
         "EnhancedImageMetadataEnabled": (boolean, False),
         "ImageRecipeArn": (str, False),
+        "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
         "InfrastructureConfigurationArn": (str, True),
         "Name": (str, True),

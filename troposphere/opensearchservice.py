@@ -23,15 +23,45 @@ class MasterUserOptions(AWSProperty):
     }
 
 
+class Idp(AWSProperty):
+    """
+    `Idp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-idp.html>`__
+    """
+
+    props: PropsDictType = {
+        "EntityId": (str, True),
+        "MetadataContent": (str, True),
+    }
+
+
+class SAMLOptions(AWSProperty):
+    """
+    `SAMLOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-samloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "Idp": (Idp, False),
+        "MasterBackendRole": (str, False),
+        "MasterUserName": (str, False),
+        "RolesKey": (str, False),
+        "SessionTimeoutMinutes": (integer, False),
+        "SubjectKey": (str, False),
+    }
+
+
 class AdvancedSecurityOptionsInput(AWSProperty):
     """
     `AdvancedSecurityOptionsInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-advancedsecurityoptionsinput.html>`__
     """
 
     props: PropsDictType = {
+        "AnonymousAuthDisableDate": (str, False),
+        "AnonymousAuthEnabled": (boolean, False),
         "Enabled": (boolean, False),
         "InternalUserDatabaseEnabled": (boolean, False),
         "MasterUserOptions": (MasterUserOptions, False),
+        "SAMLOptions": (SAMLOptions, False),
     }
 
 

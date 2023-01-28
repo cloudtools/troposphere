@@ -278,6 +278,7 @@ class CustomerGateway(AWSObject):
 
     props: PropsDictType = {
         "BgpAsn": (integer, True),
+        "DeviceName": (str, False),
         "IpAddress": (str, True),
         "Tags": (validate_tags_or_list, False),
         "Type": (str, True),
@@ -1481,7 +1482,11 @@ class NatGateway(AWSObject):
     props: PropsDictType = {
         "AllocationId": (str, False),
         "ConnectivityType": (str, False),
+        "MaxDrainDurationSeconds": (integer, False),
         "PrivateIpAddress": (str, False),
+        "SecondaryAllocationIds": ([str], False),
+        "SecondaryPrivateIpAddressCount": (integer, False),
+        "SecondaryPrivateIpAddresses": ([str], False),
         "SubnetId": (str, True),
         "Tags": (validate_tags_or_list, False),
     }

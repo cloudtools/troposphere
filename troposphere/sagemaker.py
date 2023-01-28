@@ -394,30 +394,6 @@ class DeviceFleet(AWSObject):
     }
 
 
-class RStudioServerProDomainSettings(AWSProperty):
-    """
-    `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "DefaultResourceSpec": (ResourceSpec, False),
-        "DomainExecutionRoleArn": (str, True),
-        "RStudioConnectUrl": (str, False),
-        "RStudioPackageManagerUrl": (str, False),
-    }
-
-
-class DomainSettings(AWSProperty):
-    """
-    `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
-        "SecurityGroupIds": ([str], False),
-    }
-
-
 class JupyterServerAppSettings(AWSProperty):
     """
     `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`__
@@ -448,6 +424,43 @@ class KernelGatewayAppSettings(AWSProperty):
     props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class DefaultSpaceSettings(AWSProperty):
+    """
+    `DefaultSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecutionRole": (str, False),
+        "JupyterServerAppSettings": (JupyterServerAppSettings, False),
+        "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
+        "SecurityGroups": ([str], False),
+    }
+
+
+class RStudioServerProDomainSettings(AWSProperty):
+    """
+    `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultResourceSpec": (ResourceSpec, False),
+        "DomainExecutionRoleArn": (str, True),
+        "RStudioConnectUrl": (str, False),
+        "RStudioPackageManagerUrl": (str, False),
+    }
+
+
+class DomainSettings(AWSProperty):
+    """
+    `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
+        "SecurityGroupIds": ([str], False),
     }
 
 
@@ -500,6 +513,7 @@ class Domain(AWSObject):
         "AppNetworkAccessType": (str, False),
         "AppSecurityGroupManagement": (str, False),
         "AuthMode": (str, True),
+        "DefaultSpaceSettings": (DefaultSpaceSettings, False),
         "DefaultUserSettings": (UserSettings, True),
         "DomainName": (str, True),
         "DomainSettings": (DomainSettings, False),

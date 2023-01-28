@@ -16,4 +16,13 @@ patches = [
         "path": "/ResourceTypes/AWS::Lex::BotAlias/Properties/BotAliasTags/PrimitiveType",
         "value": "Tags",
     },
+    {
+        "op": "add",
+        "path": "/PropertyTypes/AWS::Lex::Bot.SlotValueOverride/Properties/Values/PrimitiveItemType",
+        "value": "String",
+    },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::Lex::Bot.SlotValueOverride/Properties/Values/ItemType",
+    },
 ]

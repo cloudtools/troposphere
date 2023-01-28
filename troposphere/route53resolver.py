@@ -105,6 +105,7 @@ class IpAddressRequest(AWSProperty):
 
     props: PropsDictType = {
         "Ip": (str, False),
+        "Ipv6": (str, False),
         "SubnetId": (str, True),
     }
 
@@ -122,6 +123,7 @@ class ResolverEndpoint(AWSObject):
         "Name": (str, False),
         "OutpostArn": (str, False),
         "PreferredInstanceType": (str, False),
+        "ResolverEndpointType": (str, False),
         "SecurityGroupIds": ([str], True),
         "Tags": (Tags, False),
     }

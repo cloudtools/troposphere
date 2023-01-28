@@ -238,6 +238,8 @@ class DataflowEndpointGroup(AWSObject):
     resource_type = "AWS::GroundStation::DataflowEndpointGroup"
 
     props: PropsDictType = {
+        "ContactPostPassDurationSeconds": (integer, False),
+        "ContactPrePassDurationSeconds": (integer, False),
         "EndpointDetails": ([EndpointDetails], True),
         "Tags": (Tags, False),
     }

@@ -10,6 +10,19 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class ApprovedOrigin(AWSObject):
+    """
+    `ApprovedOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html>`__
+    """
+
+    resource_type = "AWS::Connect::ApprovedOrigin"
+
+    props: PropsDictType = {
+        "InstanceId": (str, True),
+        "Origin": (str, True),
+    }
+
+
 class ContactFlow(AWSObject):
     """
     `ContactFlow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflow.html>`__
@@ -189,6 +202,20 @@ class InstanceStorageConfig(AWSObject):
     }
 
 
+class IntegrationAssociation(AWSObject):
+    """
+    `IntegrationAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-integrationassociation.html>`__
+    """
+
+    resource_type = "AWS::Connect::IntegrationAssociation"
+
+    props: PropsDictType = {
+        "InstanceId": (str, True),
+        "IntegrationArn": (str, True),
+        "IntegrationType": (str, True),
+    }
+
+
 class PhoneNumber(AWSObject):
     """
     `PhoneNumber <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-phonenumber.html>`__
@@ -365,6 +392,19 @@ class Rule(AWSObject):
         "PublishStatus": (str, True),
         "Tags": (Tags, False),
         "TriggerEventSource": (RuleTriggerEventSource, True),
+    }
+
+
+class SecurityKey(AWSObject):
+    """
+    `SecurityKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securitykey.html>`__
+    """
+
+    resource_type = "AWS::Connect::SecurityKey"
+
+    props: PropsDictType = {
+        "InstanceId": (str, True),
+        "Key": (str, True),
     }
 
 

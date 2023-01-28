@@ -189,6 +189,19 @@ class MarketoConnectorProfileCredentials(AWSProperty):
     }
 
 
+class PardotConnectorProfileCredentials(AWSProperty):
+    """
+    `PardotConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofilecredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessToken": (str, False),
+        "ClientCredentialsArn": (str, False),
+        "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
+        "RefreshToken": (str, False),
+    }
+
+
 class RedshiftConnectorProfileCredentials(AWSProperty):
     """
     `RedshiftConnectorProfileCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-redshiftconnectorprofilecredentials.html>`__
@@ -330,6 +343,7 @@ class ConnectorProfileCredentials(AWSProperty):
         "GoogleAnalytics": (GoogleAnalyticsConnectorProfileCredentials, False),
         "InforNexus": (InforNexusConnectorProfileCredentials, False),
         "Marketo": (MarketoConnectorProfileCredentials, False),
+        "Pardot": (PardotConnectorProfileCredentials, False),
         "Redshift": (RedshiftConnectorProfileCredentials, False),
         "SAPOData": (SAPODataConnectorProfileCredentials, False),
         "Salesforce": (SalesforceConnectorProfileCredentials, False),
@@ -403,6 +417,18 @@ class MarketoConnectorProfileProperties(AWSProperty):
 
     props: PropsDictType = {
         "InstanceUrl": (str, True),
+    }
+
+
+class PardotConnectorProfileProperties(AWSProperty):
+    """
+    `PardotConnectorProfileProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-connectorprofile-pardotconnectorprofileproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "BusinessUnitId": (str, True),
+        "InstanceUrl": (str, False),
+        "IsSandboxEnvironment": (boolean, False),
     }
 
 
@@ -530,6 +556,7 @@ class ConnectorProfileProperties(AWSProperty):
         "Dynatrace": (DynatraceConnectorProfileProperties, False),
         "InforNexus": (InforNexusConnectorProfileProperties, False),
         "Marketo": (MarketoConnectorProfileProperties, False),
+        "Pardot": (PardotConnectorProfileProperties, False),
         "Redshift": (RedshiftConnectorProfileProperties, False),
         "SAPOData": (SAPODataConnectorProfileProperties, False),
         "Salesforce": (SalesforceConnectorProfileProperties, False),
@@ -913,6 +940,16 @@ class MarketoSourceProperties(AWSProperty):
     }
 
 
+class PardotSourceProperties(AWSProperty):
+    """
+    `PardotSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-pardotsourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Object": (str, True),
+    }
+
+
 class S3InputFormatConfig(AWSProperty):
     """
     `S3InputFormatConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-s3inputformatconfig.html>`__
@@ -1035,6 +1072,7 @@ class SourceConnectorProperties(AWSProperty):
         "GoogleAnalytics": (GoogleAnalyticsSourceProperties, False),
         "InforNexus": (InforNexusSourceProperties, False),
         "Marketo": (MarketoSourceProperties, False),
+        "Pardot": (PardotSourceProperties, False),
         "S3": (S3SourceProperties, False),
         "SAPOData": (SAPODataSourceProperties, False),
         "Salesforce": (SalesforceSourceProperties, False),
@@ -1074,6 +1112,7 @@ class ConnectorOperator(AWSProperty):
         "GoogleAnalytics": (str, False),
         "InforNexus": (str, False),
         "Marketo": (str, False),
+        "Pardot": (str, False),
         "S3": (str, False),
         "SAPOData": (str, False),
         "Salesforce": (str, False),

@@ -56,6 +56,16 @@ class AppMonitorConfiguration(AWSProperty):
     }
 
 
+class CustomEvents(AWSProperty):
+    """
+    `CustomEvents <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-customevents.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+    }
+
+
 class AppMonitor(AWSObject):
     """
     `AppMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html>`__
@@ -65,6 +75,7 @@ class AppMonitor(AWSObject):
 
     props: PropsDictType = {
         "AppMonitorConfiguration": (AppMonitorConfiguration, False),
+        "CustomEvents": (CustomEvents, False),
         "CwLogEnabled": (boolean, False),
         "Domain": (str, True),
         "Name": (str, True),

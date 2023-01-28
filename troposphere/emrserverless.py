@@ -31,6 +31,16 @@ class AutoStopConfiguration(AWSProperty):
     }
 
 
+class ImageConfigurationInput(AWSProperty):
+    """
+    `ImageConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-imageconfigurationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageUri": (str, False),
+    }
+
+
 class WorkerConfiguration(AWSProperty):
     """
     `WorkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workerconfiguration.html>`__
@@ -88,6 +98,16 @@ class NetworkConfiguration(AWSProperty):
     }
 
 
+class WorkerTypeSpecificationInput(AWSProperty):
+    """
+    `WorkerTypeSpecificationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageConfiguration": (ImageConfigurationInput, False),
+    }
+
+
 class Application(AWSObject):
     """
     `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emrserverless-application.html>`__
@@ -99,6 +119,7 @@ class Application(AWSObject):
         "Architecture": (str, False),
         "AutoStartConfiguration": (AutoStartConfiguration, False),
         "AutoStopConfiguration": (AutoStopConfiguration, False),
+        "ImageConfiguration": (ImageConfigurationInput, False),
         "InitialCapacity": ([InitialCapacityConfigKeyValuePair], False),
         "MaximumCapacity": (MaximumAllowedResources, False),
         "Name": (str, False),
@@ -106,4 +127,5 @@ class Application(AWSObject):
         "ReleaseLabel": (str, True),
         "Tags": (Tags, False),
         "Type": (str, True),
+        "WorkerTypeSpecifications": (dict, False),
     }
