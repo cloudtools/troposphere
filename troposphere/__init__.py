@@ -954,7 +954,7 @@ class Template:
 
 
 class Export(AWSHelperFn):
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: Union[str, AWSHelperFn]) -> None:
         self.data = {
             "Name": name,
         }
