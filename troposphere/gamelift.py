@@ -36,9 +36,9 @@ class Alias(AWSObject):
     }
 
 
-class S3Location(AWSProperty):
+class StorageLocation(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html>`__
+    `StorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-build-storagelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -59,7 +59,7 @@ class Build(AWSObject):
     props: PropsDictType = {
         "Name": (str, False),
         "OperatingSystem": (str, False),
-        "StorageLocation": (S3Location, False),
+        "StorageLocation": (StorageLocation, False),
         "Version": (str, False),
     }
 
@@ -377,6 +377,19 @@ class MatchmakingRuleSet(AWSObject):
         "Name": (str, True),
         "RuleSetBody": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-script-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "ObjectVersion": (str, False),
+        "RoleArn": (str, True),
     }
 
 

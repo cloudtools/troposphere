@@ -89,6 +89,7 @@ class StatefulEngineOptions(AWSProperty):
 
     props: PropsDictType = {
         "RuleOrder": (str, False),
+        "StreamExceptionPolicy": (str, False),
     }
 
 
@@ -189,6 +190,26 @@ class LoggingConfiguration(AWSObject):
         "FirewallArn": (str, True),
         "FirewallName": (str, False),
         "LoggingConfiguration": (LoggingConfigurationProperty, True),
+    }
+
+
+class IPSetReference(AWSProperty):
+    """
+    `IPSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipsetreference.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReferenceArn": (str, False),
+    }
+
+
+class ReferenceSets(AWSProperty):
+    """
+    `ReferenceSets <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-referencesets.html>`__
+    """
+
+    props: PropsDictType = {
+        "IPSetReferences": (dict, False),
     }
 
 
@@ -382,6 +403,7 @@ class RuleGroupProperty(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ReferenceSets": (ReferenceSets, False),
         "RuleVariables": (RuleVariables, False),
         "RulesSource": (RulesSource, True),
         "StatefulRuleOptions": (StatefulRuleOptions, False),

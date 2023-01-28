@@ -51,7 +51,7 @@ class SimpleAD(AWSObject):
         "Description": (str, False),
         "EnableSso": (boolean, False),
         "Name": (str, True),
-        "Password": (str, True),
+        "Password": (str, False),
         "ShortName": (str, False),
         "Size": (str, True),
         "VpcSettings": (VpcSettings, True),

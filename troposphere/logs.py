@@ -136,6 +136,8 @@ class SubscriptionFilter(AWSObject):
 
     props: PropsDictType = {
         "DestinationArn": (str, True),
+        "Distribution": (str, False),
+        "FilterName": (str, False),
         "FilterPattern": (str, True),
         "LogGroupName": (str, True),
         "RoleArn": (str, False),

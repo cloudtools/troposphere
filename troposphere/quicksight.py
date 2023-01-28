@@ -620,6 +620,18 @@ class AuroraPostgreSqlParameters(AWSProperty):
     }
 
 
+class DatabricksParameters(AWSProperty):
+    """
+    `DatabricksParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-databricksparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "Host": (str, True),
+        "Port": (double, True),
+        "SqlEndpointPath": (str, True),
+    }
+
+
 class MariaDbParameters(AWSProperty):
     """
     `MariaDbParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-mariadbparameters.html>`__
@@ -783,6 +795,7 @@ class DataSourceParameters(AWSProperty):
         "AthenaParameters": (AthenaParameters, False),
         "AuroraParameters": (AuroraParameters, False),
         "AuroraPostgreSqlParameters": (AuroraPostgreSqlParameters, False),
+        "DatabricksParameters": (DatabricksParameters, False),
         "MariaDbParameters": (MariaDbParameters, False),
         "MySqlParameters": (MySqlParameters, False),
         "OracleParameters": (OracleParameters, False),

@@ -18,7 +18,7 @@ class MetricGoalObject(AWSProperty):
     props: PropsDictType = {
         "DesiredChange": (str, True),
         "EntityIdKey": (str, True),
-        "EventPattern": (str, True),
+        "EventPattern": (str, False),
         "MetricName": (str, True),
         "UnitLabel": (str, False),
         "ValueKey": (str, True),
@@ -172,7 +172,7 @@ class MetricDefinitionObject(AWSProperty):
 
     props: PropsDictType = {
         "EntityIdKey": (str, True),
-        "EventPattern": (str, True),
+        "EventPattern": (str, False),
         "MetricName": (str, True),
         "UnitLabel": (str, False),
         "ValueKey": (str, True),

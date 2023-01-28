@@ -321,10 +321,13 @@ class VolumeOntapConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "JunctionPath": (str, True),
+        "CopyTagsToBackups": (str, False),
+        "JunctionPath": (str, False),
+        "OntapVolumeType": (str, False),
         "SecurityStyle": (str, False),
         "SizeInMegabytes": (str, True),
-        "StorageEfficiencyEnabled": (str, True),
+        "SnapshotPolicy": (str, False),
+        "StorageEfficiencyEnabled": (str, False),
         "StorageVirtualMachineId": (str, True),
         "TieringPolicy": (TieringPolicy, False),
     }

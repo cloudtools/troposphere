@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class ClusterEndpoint(AWSProperty):
+    """
+    `ClusterEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53recoverycontrol-cluster-clusterendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Endpoint": (str, False),
+        "Region": (str, False),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53recoverycontrol-cluster.html>`__
@@ -18,6 +29,7 @@ class Cluster(AWSObject):
     resource_type = "AWS::Route53RecoveryControl::Cluster"
 
     props: PropsDictType = {
+        "ClusterEndpoints": ([ClusterEndpoint], False),
         "Name": (str, False),
         "Tags": (Tags, False),
     }

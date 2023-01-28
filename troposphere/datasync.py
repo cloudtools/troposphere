@@ -48,7 +48,7 @@ class LocationEFS(AWSObject):
     props: PropsDictType = {
         "AccessPointArn": (str, False),
         "Ec2Config": (Ec2Config, True),
-        "EfsFilesystemArn": (str, True),
+        "EfsFilesystemArn": (str, False),
         "FileSystemAccessRoleArn": (str, False),
         "InTransitEncryption": (str, False),
         "Subdirectory": (str, False),

@@ -592,8 +592,8 @@ class Function(AWSObject):
 
     props: PropsDictType = {
         "AutoPublish": (boolean, False),
-        "FunctionCode": (str, False),
-        "FunctionConfig": (FunctionConfig, False),
+        "FunctionCode": (str, True),
+        "FunctionConfig": (FunctionConfig, True),
         "FunctionMetadata": (FunctionMetadata, False),
         "Name": (str, True),
     }

@@ -272,6 +272,7 @@ class AuthFormat(AWSProperty):
 
     props: PropsDictType = {
         "AuthScheme": (str, False),
+        "ClientPasswordAuthType": (str, False),
         "Description": (str, False),
         "IAMAuth": (str, False),
         "SecretArn": (str, False),
