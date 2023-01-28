@@ -44,6 +44,7 @@ class ScalingConfiguration(AWSProperty):
         "AutoPause": (boolean, False),
         "MaxCapacity": (validate_capacity, False),
         "MinCapacity": (validate_capacity, False),
+        "SecondsBeforeTimeout": (integer, False),
         "SecondsUntilAutoPause": (integer, False),
         "TimeoutAction": (str, False),
     }
@@ -80,6 +81,7 @@ class DBCluster(AWSObject):
         "DBClusterParameterGroupName": (str, False),
         "DBInstanceParameterGroupName": (str, False),
         "DBSubnetGroupName": (str, False),
+        "DBSystemId": (str, False),
         "DatabaseName": (str, False),
         "DeletionProtection": (boolean, False),
         "Domain": (str, False),
@@ -189,6 +191,7 @@ class DBInstance(AWSObject):
         "CopyTagsToSnapshot": (boolean, False),
         "CustomIAMInstanceProfile": (str, False),
         "DBClusterIdentifier": (str, False),
+        "DBClusterSnapshotIdentifier": (str, False),
         "DBInstanceClass": (str, False),
         "DBInstanceIdentifier": (str, False),
         "DBName": (str, False),
@@ -227,7 +230,10 @@ class DBInstance(AWSObject):
         "PromotionTier": (integer, False),
         "PubliclyAccessible": (boolean, False),
         "ReplicaMode": (str, False),
+        "RestoreTime": (str, False),
+        "SourceDBInstanceAutomatedBackupsArn": (str, False),
         "SourceDBInstanceIdentifier": (str, False),
+        "SourceDbiResourceId": (str, False),
         "SourceRegion": (str, False),
         "StorageEncrypted": (boolean, False),
         "StorageThroughput": (integer, False),
@@ -235,6 +241,7 @@ class DBInstance(AWSObject):
         "Tags": (validate_tags_or_list, False),
         "Timezone": (str, False),
         "UseDefaultProcessorFeatures": (boolean, False),
+        "UseLatestRestorableTime": (boolean, False),
         "VPCSecurityGroups": ([str], False),
     }
 

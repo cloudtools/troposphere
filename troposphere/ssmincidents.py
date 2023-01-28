@@ -41,6 +41,7 @@ class ReplicationSet(AWSObject):
     props: PropsDictType = {
         "DeletionProtected": (boolean, False),
         "Regions": ([ReplicationRegion], True),
+        "Tags": (Tags, False),
     }
 
 

@@ -120,6 +120,8 @@ class ResolverEndpoint(AWSObject):
         "Direction": (str, True),
         "IpAddresses": ([IpAddressRequest], True),
         "Name": (str, False),
+        "OutpostArn": (str, False),
+        "PreferredInstanceType": (str, False),
         "SecurityGroupIds": ([str], True),
         "Tags": (Tags, False),
     }

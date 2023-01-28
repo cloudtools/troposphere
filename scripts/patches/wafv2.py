@@ -41,10 +41,6 @@ patches = [
     },
     {
         "op": "remove",
-        "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.LabelSummary",
-    },
-    {
-        "op": "remove",
         "path": "/PropertyTypes/AWS::WAFv2::RuleGroup.NotStatement",
     },
     {

@@ -32,6 +32,7 @@ class Application(AWSObject):
         "Definition": (Definition, True),
         "Description": (str, False),
         "EngineType": (str, True),
+        "KmsKeyId": (str, False),
         "Name": (str, True),
         "Tags": (dict, False),
     }
@@ -93,6 +94,7 @@ class Environment(AWSObject):
         "EngineVersion": (str, False),
         "HighAvailabilityConfig": (HighAvailabilityConfig, False),
         "InstanceType": (str, True),
+        "KmsKeyId": (str, False),
         "Name": (str, True),
         "PreferredMaintenanceWindow": (str, False),
         "PubliclyAccessible": (boolean, False),

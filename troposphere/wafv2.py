@@ -182,6 +182,16 @@ class CustomResponseBody(AWSProperty):
     }
 
 
+class LabelSummary(AWSProperty):
+    """
+    `LabelSummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-labelsummary.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+    }
+
+
 class ImmunityTimeProperty(AWSProperty):
     """
     `ImmunityTimeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-immunitytimeproperty.html>`__
@@ -195,6 +205,16 @@ class ImmunityTimeProperty(AWSProperty):
 class CaptchaConfig(AWSProperty):
     """
     `CaptchaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-captchaconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImmunityTimeProperty": (ImmunityTimeProperty, False),
+    }
+
+
+class ChallengeConfig(AWSProperty):
+    """
+    `ChallengeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -275,6 +295,16 @@ class CaptchaAction(AWSProperty):
     }
 
 
+class ChallengeAction(AWSProperty):
+    """
+    `ChallengeAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-challengeaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomRequestHandling": (CustomRequestHandling, False),
+    }
+
+
 class CountAction(AWSProperty):
     """
     `CountAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-countaction.html>`__
@@ -294,6 +324,7 @@ class RuleAction(AWSProperty):
         "Allow": (AllowAction, False),
         "Block": (BlockAction, False),
         "Captcha": (CaptchaAction, False),
+        "Challenge": (ChallengeAction, False),
         "Count": (CountAction, False),
     }
 
@@ -486,6 +517,16 @@ class ExcludedRule(AWSProperty):
     }
 
 
+class AWSManagedRulesBotControlRuleSet(AWSProperty):
+    """
+    `AWSManagedRulesBotControlRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html>`__
+    """
+
+    props: PropsDictType = {
+        "InspectionLevel": (str, True),
+    }
+
+
 class FieldIdentifier(AWSProperty):
     """
     `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldidentifier.html>`__
@@ -502,10 +543,22 @@ class ManagedRuleGroupConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AWSManagedRulesBotControlRuleSet": (AWSManagedRulesBotControlRuleSet, False),
         "LoginPath": (str, False),
         "PasswordField": (FieldIdentifier, False),
         "PayloadType": (str, False),
         "UsernameField": (FieldIdentifier, False),
+    }
+
+
+class RuleActionOverride(AWSProperty):
+    """
+    `RuleActionOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ruleactionoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionToUse": (RuleAction, True),
+        "Name": (str, True),
     }
 
 
@@ -518,6 +571,7 @@ class ManagedRuleGroupStatement(AWSProperty):
         "ExcludedRules": ([ExcludedRule], False),
         "ManagedRuleGroupConfigs": ([ManagedRuleGroupConfig], False),
         "Name": (str, True),
+        "RuleActionOverrides": ([RuleActionOverride], False),
         "ScopeDownStatement": (validate_statement, False),
         "VendorName": (str, True),
         "Version": (str, False),
@@ -589,6 +643,7 @@ class RuleGroupReferenceStatement(AWSProperty):
     props: PropsDictType = {
         "Arn": (str, True),
         "ExcludedRules": ([ExcludedRule], False),
+        "RuleActionOverrides": ([RuleActionOverride], False),
     }
 
 
@@ -672,6 +727,7 @@ class RuleGroupRule(AWSProperty):
     props: PropsDictType = {
         "Action": (RuleAction, False),
         "CaptchaConfig": (CaptchaConfig, False),
+        "ChallengeConfig": (ChallengeConfig, False),
         "Name": (str, True),
         "Priority": (integer, True),
         "RuleLabels": ([Label], False),
@@ -688,7 +744,9 @@ class RuleGroup(AWSObject):
     resource_type = "AWS::WAFv2::RuleGroup"
 
     props: PropsDictType = {
+        "AvailableLabels": ([LabelSummary], False),
         "Capacity": (integer, True),
+        "ConsumedLabels": ([LabelSummary], False),
         "CustomResponseBodies": (validate_custom_response_bodies, False),
         "Description": (str, False),
         "Name": (str, False),
@@ -729,6 +787,7 @@ class WebACLRule(AWSProperty):
     props: PropsDictType = {
         "Action": (RuleAction, False),
         "CaptchaConfig": (CaptchaConfig, False),
+        "ChallengeConfig": (ChallengeConfig, False),
         "Name": (str, True),
         "OverrideAction": (OverrideAction, False),
         "Priority": (integer, True),
@@ -747,6 +806,7 @@ class WebACL(AWSObject):
 
     props: PropsDictType = {
         "CaptchaConfig": (CaptchaConfig, False),
+        "ChallengeConfig": (ChallengeConfig, False),
         "CustomResponseBodies": (validate_custom_response_bodies, False),
         "DefaultAction": (DefaultAction, True),
         "Description": (str, False),
@@ -754,6 +814,7 @@ class WebACL(AWSObject):
         "Rules": ([WebACLRule], False),
         "Scope": (str, True),
         "Tags": (Tags, False),
+        "TokenDomains": ([str], False),
         "VisibilityConfig": (VisibilityConfig, True),
     }
 
@@ -794,6 +855,16 @@ class Block(AWSProperty):
 class Captcha(AWSProperty):
     """
     `Captcha <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captcha.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomRequestHandling": (CustomRequestHandling, False),
+    }
+
+
+class Challenge(AWSProperty):
+    """
+    `Challenge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-challenge.html>`__
     """
 
     props: PropsDictType = {

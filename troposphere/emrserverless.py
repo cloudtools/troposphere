@@ -96,6 +96,7 @@ class Application(AWSObject):
     resource_type = "AWS::EMRServerless::Application"
 
     props: PropsDictType = {
+        "Architecture": (str, False),
         "AutoStartConfiguration": (AutoStartConfiguration, False),
         "AutoStopConfiguration": (AutoStopConfiguration, False),
         "InitialCapacity": ([InitialCapacityConfigKeyValuePair], False),

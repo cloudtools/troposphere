@@ -28,6 +28,7 @@ class Addon(AWSObject):
         "AddonName": (str, True),
         "AddonVersion": (str, False),
         "ClusterName": (str, True),
+        "ConfigurationValues": (str, False),
         "ResolveConflicts": (str, False),
         "ServiceAccountRoleArn": (str, False),
         "Tags": (Tags, False),

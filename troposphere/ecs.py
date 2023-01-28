@@ -197,6 +197,18 @@ class PrimaryTaskSet(AWSObject):
     }
 
 
+class DeploymentAlarms(AWSProperty):
+    """
+    `DeploymentAlarms <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentalarms.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmNames": ([str], True),
+        "Enable": (boolean, True),
+        "Rollback": (boolean, True),
+    }
+
+
 class DeploymentCircuitBreaker(AWSProperty):
     """
     `DeploymentCircuitBreaker <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-deploymentcircuitbreaker.html>`__
@@ -214,6 +226,7 @@ class DeploymentConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Alarms": (DeploymentAlarms, False),
         "DeploymentCircuitBreaker": (DeploymentCircuitBreaker, False),
         "MaximumPercent": (integer, False),
         "MinimumHealthyPercent": (integer, False),
@@ -533,6 +546,7 @@ class PortMapping(AWSProperty):
     props: PropsDictType = {
         "AppProtocol": (str, False),
         "ContainerPort": (validate_network_port, False),
+        "ContainerPortRange": (str, False),
         "HostPort": (validate_network_port, False),
         "Name": (str, False),
         "Protocol": (str, False),

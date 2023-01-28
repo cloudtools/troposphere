@@ -248,6 +248,21 @@ class Scene(AWSObject):
     }
 
 
+class SyncJob(AWSObject):
+    """
+    `SyncJob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-syncjob.html>`__
+    """
+
+    resource_type = "AWS::IoTTwinMaker::SyncJob"
+
+    props: PropsDictType = {
+        "SyncRole": (str, True),
+        "SyncSource": (str, True),
+        "Tags": (dict, False),
+        "WorkspaceId": (str, True),
+    }
+
+
 class Workspace(AWSObject):
     """
     `Workspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-workspace.html>`__
