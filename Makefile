@@ -71,14 +71,15 @@ release-test-39:
 	deactivate && \
 	rm -rf ${p39dir}
 
+SPEC_VERSION?=latest
 spec:
-	curl -s -O https://d1uauaxba7bl26.cloudfront.net/latest/CloudFormationResourceSpecification.zip
+	curl -s -O https://d1uauaxba7bl26.cloudfront.net/${SPEC_VERSION}/CloudFormationResourceSpecification.zip
 	rm -rf spec
 	mkdir spec
 	unzip -q -d spec CloudFormationResourceSpecification.zip
 	rm CloudFormationResourceSpecification.zip
 	rm -f CloudFormationResourceSpecification.json
-	curl -s -O --compressed https://d1uauaxba7bl26.cloudfront.net/latest/gzip/CloudFormationResourceSpecification.json
+	curl -s -O --compressed https://d1uauaxba7bl26.cloudfront.net/${SPEC_VERSION}/gzip/CloudFormationResourceSpecification.json
 	SPECVERSION=$$(jq -r .ResourceSpecificationVersion CloudFormationResourceSpecification.json) && \
 	/bin/echo "Downloaded version:" $${SPECVERSION} && \
 	mkdir -p .backup && \
