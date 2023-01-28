@@ -262,6 +262,7 @@ class MetricStream(AWSObject):
         "ExcludeFilters": ([MetricStreamFilter], False),
         "FirehoseArn": (str, True),
         "IncludeFilters": ([MetricStreamFilter], False),
+        "IncludeLinkedAccountsMetrics": (boolean, False),
         "Name": (str, False),
         "OutputFormat": (str, True),
         "RoleArn": (str, True),

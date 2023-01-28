@@ -29,6 +29,7 @@ class Addon(AWSObject):
         "AddonVersion": (str, False),
         "ClusterName": (str, True),
         "ConfigurationValues": (str, False),
+        "PreserveOnDelete": (boolean, False),
         "ResolveConflicts": (str, False),
         "ServiceAccountRoleArn": (str, False),
         "Tags": (Tags, False),

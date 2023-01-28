@@ -239,9 +239,9 @@ class S3InputFileLocation(AWSProperty):
     }
 
 
-class InputFileLocation(AWSProperty):
+class S3FileLocation(AWSProperty):
     """
-    `InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-inputfilelocation.html>`__
+    `S3FileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3filelocation.html>`__
     """
 
     props: PropsDictType = {
@@ -255,7 +255,7 @@ class CopyStepDetails(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DestinationFileLocation": (InputFileLocation, False),
+        "DestinationFileLocation": (S3FileLocation, False),
         "Name": (str, False),
         "OverwriteExisting": (str, False),
         "SourceFileLocation": (str, False),
@@ -272,6 +272,42 @@ class CustomStepDetails(AWSProperty):
         "SourceFileLocation": (str, False),
         "Target": (str, False),
         "TimeoutSeconds": (integer, False),
+    }
+
+
+class EfsInputFileLocation(AWSProperty):
+    """
+    `EfsInputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-efsinputfilelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileSystemId": (str, False),
+        "Path": (str, False),
+    }
+
+
+class InputFileLocation(AWSProperty):
+    """
+    `InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-inputfilelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "EfsFileLocation": (EfsInputFileLocation, False),
+        "S3FileLocation": (S3InputFileLocation, False),
+    }
+
+
+class DecryptStepDetails(AWSProperty):
+    """
+    `DecryptStepDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-decryptstepdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationFileLocation": (InputFileLocation, False),
+        "Name": (str, False),
+        "OverwriteExisting": (str, False),
+        "SourceFileLocation": (str, False),
+        "Type": (str, False),
     }
 
 
@@ -317,6 +353,7 @@ class WorkflowStep(AWSProperty):
     props: PropsDictType = {
         "CopyStepDetails": (CopyStepDetails, False),
         "CustomStepDetails": (CustomStepDetails, False),
+        "DecryptStepDetails": (DecryptStepDetails, False),
         "DeleteStepDetails": (DeleteStepDetails, False),
         "TagStepDetails": (TagStepDetails, False),
         "Type": (str, False),

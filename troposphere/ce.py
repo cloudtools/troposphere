@@ -62,7 +62,8 @@ class AnomalySubscription(AWSObject):
         "ResourceTags": ([ResourceTag], False),
         "Subscribers": ([Subscriber], True),
         "SubscriptionName": (str, True),
-        "Threshold": (double, True),
+        "Threshold": (double, False),
+        "ThresholdExpression": (str, False),
     }
 
 

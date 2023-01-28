@@ -151,6 +151,17 @@ class DBClusterParameterGroup(AWSObject):
     }
 
 
+class CertificateDetails(AWSProperty):
+    """
+    `CertificateDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "CAIdentifier": (str, False),
+        "ValidTill": (str, False),
+    }
+
+
 class DBInstanceRole(AWSProperty):
     """
     `DBInstanceRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html>`__
@@ -200,6 +211,8 @@ class DBInstance(AWSObject):
         "AvailabilityZone": (str, False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),
         "CACertificateIdentifier": (str, False),
+        "CertificateDetails": (CertificateDetails, False),
+        "CertificateRotationRestart": (boolean, False),
         "CharacterSetName": (str, False),
         "CopyTagsToSnapshot": (boolean, False),
         "CustomIAMInstanceProfile": (str, False),

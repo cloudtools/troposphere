@@ -155,9 +155,11 @@ class PricingRule(AWSObject):
         "Description": (str, False),
         "ModifierPercentage": (double, False),
         "Name": (str, True),
+        "Operation": (str, False),
         "Scope": (str, True),
         "Service": (str, False),
         "Tags": (Tags, False),
         "Tiering": (Tiering, False),
         "Type": (str, True),
+        "UsageType": (str, False),
     }
