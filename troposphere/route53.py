@@ -8,9 +8,7 @@
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
-from .validators.route53 import AlarmIdentifier  # noqa: F401
 from .validators.route53 import AliasTarget  # noqa: F401
-from .validators.route53 import HealthCheckConfiguration  # noqa: F401
 
 
 class Location(AWSProperty):

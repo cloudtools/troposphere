@@ -43,58 +43,6 @@ class ConfigParameter(AWSProperty):
     }
 
 
-class Workgroup(AWSObject):
-    """
-    `Workgroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html>`__
-    """
-
-    resource_type = "AWS::RedshiftServerless::Workgroup"
-
-    props: PropsDictType = {
-        "BaseCapacity": (integer, False),
-        "ConfigParameters": ([ConfigParameter], False),
-        "EnhancedVpcRouting": (boolean, False),
-        "NamespaceName": (str, False),
-        "PubliclyAccessible": (boolean, False),
-        "SecurityGroupIds": ([str], False),
-        "SubnetIds": ([str], False),
-        "Tags": (Tags, False),
-        "WorkgroupName": (str, True),
-    }
-
-
-class Endpoint(AWSProperty):
-    """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "Address": (str, False),
-        "Port": (integer, False),
-        "VpcEndpoints": ([VpcEndpoint], False),
-    }
-
-
-class NamespaceProperty(AWSProperty):
-    """
-    `NamespaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html>`__
-    """
-
-    props: PropsDictType = {
-        "AdminUsername": (str, False),
-        "CreationDate": (str, False),
-        "DbName": (str, False),
-        "DefaultIamRoleArn": (str, False),
-        "IamRoles": ([str], False),
-        "KmsKeyId": (str, False),
-        "LogExports": ([str], False),
-        "NamespaceArn": (str, False),
-        "NamespaceId": (str, False),
-        "NamespaceName": (str, False),
-        "Status": (str, False),
-    }
-
-
 class NetworkInterface(AWSProperty):
     """
     `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-networkinterface.html>`__
@@ -120,6 +68,18 @@ class VpcEndpoint(AWSProperty):
     }
 
 
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "Port": (integer, False),
+        "VpcEndpoints": ([VpcEndpoint], False),
+    }
+
+
 class WorkgroupProperty(AWSProperty):
     """
     `WorkgroupProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-workgroup.html>`__
@@ -139,4 +99,45 @@ class WorkgroupProperty(AWSProperty):
         "WorkgroupArn": (str, False),
         "WorkgroupId": (str, False),
         "WorkgroupName": (str, False),
+    }
+
+
+class Workgroup(AWSObject):
+    """
+    `Workgroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-workgroup.html>`__
+    """
+
+    resource_type = "AWS::RedshiftServerless::Workgroup"
+
+    props: PropsDictType = {
+        "BaseCapacity": (integer, False),
+        "ConfigParameters": ([ConfigParameter], False),
+        "EnhancedVpcRouting": (boolean, False),
+        "NamespaceName": (str, False),
+        "PubliclyAccessible": (boolean, False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
+        "Tags": (Tags, False),
+        "Workgroup": (WorkgroupProperty, False),
+        "WorkgroupName": (str, True),
+    }
+
+
+class NamespaceProperty(AWSProperty):
+    """
+    `NamespaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdminUsername": (str, False),
+        "CreationDate": (str, False),
+        "DbName": (str, False),
+        "DefaultIamRoleArn": (str, False),
+        "IamRoles": ([str], False),
+        "KmsKeyId": (str, False),
+        "LogExports": ([str], False),
+        "NamespaceArn": (str, False),
+        "NamespaceId": (str, False),
+        "NamespaceName": (str, False),
+        "Status": (str, False),
     }

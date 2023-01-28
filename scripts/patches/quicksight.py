@@ -8,4 +8,8 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::QuickSight::Analysis.Sheet",
     },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::QuickSight::Dashboard.DashboardVersion",
+    },
 ]

@@ -5,43 +5,7 @@
 
 
 from .. import AWSProperty
-from . import boolean, network_port, positive_integer
-
-
-class AlarmIdentifier(AWSProperty):
-    """
-    Export:
-    """
-
-    props = {
-        "Name": (str, True),
-        "Region": (str, True),
-    }
-
-
-class HealthCheckConfiguration(AWSProperty):
-    """
-    Export:
-    """
-
-    props = {
-        "AlarmIdentifier": (AlarmIdentifier, False),
-        "ChildHealthChecks": ([str], False),
-        "EnableSNI": (boolean, False),
-        "FailureThreshold": (positive_integer, False),
-        "FullyQualifiedDomainName": (str, False),
-        "HealthThreshold": (positive_integer, False),
-        "InsufficientDataHealthStatus": (str, False),
-        "Inverted": (boolean, False),
-        "IPAddress": (str, False),
-        "MeasureLatency": (boolean, False),
-        "Port": (network_port, False),
-        "Regions": ([str], False),
-        "RequestInterval": (positive_integer, False),
-        "ResourcePath": (str, False),
-        "SearchString": (str, False),
-        "Type": (str, True),
-    }
+from . import boolean
 
 
 class AliasTarget(AWSProperty):

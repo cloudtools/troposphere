@@ -1121,25 +1121,6 @@ class DashboardError(AWSProperty):
     }
 
 
-class DashboardVersion(AWSProperty):
-    """
-    `DashboardVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardversion.html>`__
-    """
-
-    props: PropsDictType = {
-        "Arn": (str, False),
-        "CreatedTime": (str, False),
-        "DataSetArns": ([str], False),
-        "Description": (str, False),
-        "Errors": ([DashboardError], False),
-        "Sheets": ([Sheet], False),
-        "SourceEntityArn": (str, False),
-        "Status": (str, False),
-        "ThemeArn": (str, False),
-        "VersionNumber": (double, False),
-    }
-
-
 class DataSetSchema(AWSProperty):
     """
     `DataSetSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetschema.html>`__
