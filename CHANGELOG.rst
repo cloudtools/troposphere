@@ -1,3 +1,35 @@
+4.3.0 (2023*01*28)
+-------------------------------
+* Patch GameLift::Fleet to add type for AnywhereConfiguration
+* Updates from spec version 100.0.0 (#2103)
+* Add support for Flink 1.15 runtime environment (#2106)
+* Remove unneeded patches due to spec updates
+* Updates from spec version 101.0.0 (#2109)
+* Allow version override for spec download
+* Fix lint issues
+* Updates from spec version 102.0.0
+* Updates from spec version 103.0.0
+* Updates from spec version 104.0.0
+* Updates from spec version 105.0.0
+* Updates from spec version 106.0.0
+* Updates from spec version 107.0.0
+* Updates from spec version 108.0.0
+* Updates from spec version 109.0.0
+* Add AWS::DocDBElastic
+* Add AWS::Grafana
+* Add AWS::KendraRanking
+* Add AWS::Oam
+* Add AWS::OpenSearchServerless
+* Add AWS::Pipes
+* Add AWS::Scheduler
+* Add new AWS services to resource doc
+* Modify `SourceDBInstanceIdentifier` validator to allow `BackupRetentionPeriod` (#2116)
+* Fix tests related to GH-2116
+* Add support for TagMap tags
+* Enable AWS::Scheduler
+* Support for FSx/Lustre PERSISTENT_2 DeploymentType (#2110)
+* Be more lenient about types for Export (#2114)
+
 4.2.0 (2022*11*28)
 -------------------------------
 * me-central-1 (UAE) (#2078)
