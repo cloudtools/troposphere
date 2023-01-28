@@ -169,6 +169,18 @@ class SidewalkAccountInfo(AWSProperty):
     }
 
 
+class SidewalkAccountInfoWithFingerprint(AWSProperty):
+    """
+    `SidewalkAccountInfoWithFingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfowithfingerprint.html>`__
+    """
+
+    props: PropsDictType = {
+        "AmazonId": (str, False),
+        "Arn": (str, False),
+        "Fingerprint": (str, False),
+    }
+
+
 class SidewalkUpdateAccount(AWSProperty):
     """
     `SidewalkUpdateAccount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkupdateaccount.html>`__
@@ -188,10 +200,10 @@ class PartnerAccount(AWSObject):
 
     props: PropsDictType = {
         "AccountLinked": (boolean, False),
-        "Fingerprint": (str, False),
         "PartnerAccountId": (str, False),
         "PartnerType": (str, False),
         "Sidewalk": (SidewalkAccountInfo, False),
+        "SidewalkResponse": (SidewalkAccountInfoWithFingerprint, False),
         "SidewalkUpdate": (SidewalkUpdateAccount, False),
         "Tags": (Tags, False),
     }
@@ -434,16 +446,4 @@ class WirelessGateway(AWSObject):
         "Tags": (Tags, False),
         "ThingArn": (str, False),
         "ThingName": (str, False),
-    }
-
-
-class SidewalkAccountInfoWithFingerprint(AWSProperty):
-    """
-    `SidewalkAccountInfoWithFingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-partneraccount-sidewalkaccountinfowithfingerprint.html>`__
-    """
-
-    props: PropsDictType = {
-        "AmazonId": (str, False),
-        "Arn": (str, False),
-        "Fingerprint": (str, False),
     }
