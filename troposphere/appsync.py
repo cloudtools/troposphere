@@ -80,6 +80,16 @@ class ElasticsearchConfig(AWSProperty):
     }
 
 
+class EventBridgeConfig(AWSProperty):
+    """
+    `EventBridgeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-eventbridgeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventBusArn": (str, True),
+    }
+
+
 class AwsIamConfig(AWSProperty):
     """
     `AwsIamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-awsiamconfig.html>`__
@@ -171,6 +181,7 @@ class DataSource(AWSObject):
         "Description": (str, False),
         "DynamoDBConfig": (DynamoDBConfig, False),
         "ElasticsearchConfig": (ElasticsearchConfig, False),
+        "EventBridgeConfig": (EventBridgeConfig, False),
         "HttpConfig": (HttpConfig, False),
         "LambdaConfig": (LambdaConfig, False),
         "Name": (str, True),

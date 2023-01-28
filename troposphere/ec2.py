@@ -1739,8 +1739,10 @@ class PlacementGroup(AWSObject):
     resource_type = "AWS::EC2::PlacementGroup"
 
     props: PropsDictType = {
+        "PartitionCount": (integer, False),
         "SpreadLevel": (str, False),
         "Strategy": (str, False),
+        "Tags": (Tags, False),
     }
 
 

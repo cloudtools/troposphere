@@ -145,6 +145,7 @@ class CodeConfigurationValues(AWSProperty):
         "BuildCommand": (str, False),
         "Port": (str, False),
         "Runtime": (str, True),
+        "RuntimeEnvironmentSecrets": ([KeyValuePair], False),
         "RuntimeEnvironmentVariables": ([KeyValuePair], False),
         "StartCommand": (str, False),
     }
@@ -191,6 +192,7 @@ class ImageConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Port": (str, False),
+        "RuntimeEnvironmentSecrets": ([KeyValuePair], False),
         "RuntimeEnvironmentVariables": ([KeyValuePair], False),
         "StartCommand": (str, False),
     }

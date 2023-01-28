@@ -27,6 +27,29 @@ class Asset(AWSObject):
     }
 
 
+class IngestEndpoint(AWSProperty):
+    """
+    `IngestEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
+        "Password": (str, True),
+        "Url": (str, True),
+        "Username": (str, True),
+    }
+
+
+class HlsIngest(AWSProperty):
+    """
+    `HlsIngest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html>`__
+    """
+
+    props: PropsDictType = {
+        "ingestEndpoints": ([IngestEndpoint], False),
+    }
+
+
 class LogConfiguration(AWSProperty):
     """
     `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packaginggroup-logconfiguration.html>`__
@@ -47,6 +70,7 @@ class Channel(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "EgressAccessLogs": (LogConfiguration, False),
+        "HlsIngest": (HlsIngest, False),
         "Id": (str, True),
         "IngressAccessLogs": (LogConfiguration, False),
         "Tags": (Tags, False),
@@ -352,6 +376,7 @@ class DashPackage(AWSProperty):
         "DashManifests": ([DashManifest], True),
         "Encryption": (DashEncryption, False),
         "IncludeEncoderConfigurationInSegments": (boolean, False),
+        "IncludeIframeOnlyStream": (boolean, False),
         "PeriodTriggers": ([str], False),
         "SegmentDurationSeconds": (integer, False),
         "SegmentTemplateFormat": (str, False),
@@ -448,27 +473,4 @@ class EgressEndpoint(AWSProperty):
     props: PropsDictType = {
         "PackagingConfigurationId": (str, True),
         "Url": (str, True),
-    }
-
-
-class IngestEndpoint(AWSProperty):
-    """
-    `IngestEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-ingestendpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "Id": (str, False),
-        "Password": (str, False),
-        "Url": (str, False),
-        "Username": (str, False),
-    }
-
-
-class HlsIngest(AWSProperty):
-    """
-    `HlsIngest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-channel-hlsingest.html>`__
-    """
-
-    props: PropsDictType = {
-        "ingestEndpoints": ([IngestEndpoint], False),
     }

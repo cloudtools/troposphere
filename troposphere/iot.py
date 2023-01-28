@@ -279,6 +279,27 @@ class AbortConfig(AWSProperty):
     }
 
 
+class RetryCriteria(AWSProperty):
+    """
+    `RetryCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-retrycriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureType": (str, False),
+        "NumberOfRetries": (integer, False),
+    }
+
+
+class JobExecutionsRetryConfig(AWSProperty):
+    """
+    `JobExecutionsRetryConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-jobexecutionsretryconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetryCriteriaList": ([RetryCriteria], False),
+    }
+
+
 class RateIncreaseCriteria(AWSProperty):
     """
     `RateIncreaseCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-rateincreasecriteria.html>`__
@@ -347,6 +368,7 @@ class JobTemplate(AWSObject):
         "Document": (str, False),
         "DocumentSource": (str, False),
         "JobArn": (str, False),
+        "JobExecutionsRetryConfig": (JobExecutionsRetryConfig, False),
         "JobExecutionsRolloutConfig": (validate_json_checker, False),
         "JobTemplateId": (str, True),
         "PresignedUrlConfig": (PresignedUrlConfig, False),

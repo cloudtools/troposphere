@@ -64,7 +64,7 @@ class LocationFSxLustre(AWSObject):
     resource_type = "AWS::DataSync::LocationFSxLustre"
 
     props: PropsDictType = {
-        "FsxFilesystemArn": (str, True),
+        "FsxFilesystemArn": (str, False),
         "SecurityGroupArns": ([str], True),
         "Subdirectory": (str, False),
         "Tags": (Tags, False),
@@ -176,8 +176,8 @@ class LocationFSxWindows(AWSObject):
 
     props: PropsDictType = {
         "Domain": (str, False),
-        "FsxFilesystemArn": (str, True),
-        "Password": (str, True),
+        "FsxFilesystemArn": (str, False),
+        "Password": (str, False),
         "SecurityGroupArns": ([str], True),
         "Subdirectory": (str, False),
         "Tags": (Tags, False),
@@ -251,8 +251,8 @@ class LocationNFS(AWSObject):
     props: PropsDictType = {
         "MountOptions": (MountOptions, False),
         "OnPremConfig": (OnPremConfig, True),
-        "ServerHostname": (str, True),
-        "Subdirectory": (str, True),
+        "ServerHostname": (str, False),
+        "Subdirectory": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -267,9 +267,9 @@ class LocationObjectStorage(AWSObject):
     props: PropsDictType = {
         "AccessKey": (str, False),
         "AgentArns": ([str], True),
-        "BucketName": (str, True),
+        "BucketName": (str, False),
         "SecretKey": (str, False),
-        "ServerHostname": (str, True),
+        "ServerHostname": (str, False),
         "ServerPort": (integer, False),
         "ServerProtocol": (str, False),
         "Subdirectory": (str, False),
@@ -314,9 +314,9 @@ class LocationSMB(AWSObject):
         "AgentArns": ([str], True),
         "Domain": (str, False),
         "MountOptions": (MountOptions, False),
-        "Password": (str, True),
-        "ServerHostname": (str, True),
-        "Subdirectory": (str, True),
+        "Password": (str, False),
+        "ServerHostname": (str, False),
+        "Subdirectory": (str, False),
         "Tags": (Tags, False),
         "User": (str, True),
     }

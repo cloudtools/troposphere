@@ -35,6 +35,17 @@ class DBClusterRole(AWSProperty):
     }
 
 
+class MasterUserSecret(AWSProperty):
+    """
+    `MasterUserSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-masterusersecret.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+        "SecretArn": (str, False),
+    }
+
+
 class ScalingConfiguration(AWSProperty):
     """
     `ScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-scalingconfiguration.html>`__
@@ -95,7 +106,9 @@ class DBCluster(AWSObject):
         "GlobalClusterIdentifier": (str, False),
         "Iops": (integer, False),
         "KmsKeyId": (str, False),
+        "ManageMasterUserPassword": (boolean, False),
         "MasterUserPassword": (str, False),
+        "MasterUserSecret": (MasterUserSecret, False),
         "MasterUsername": (str, False),
         "MonitoringInterval": (integer, False),
         "MonitoringRoleArn": (str, False),
@@ -212,7 +225,9 @@ class DBInstance(AWSObject):
         "Iops": (validate_iops, False),
         "KmsKeyId": (str, False),
         "LicenseModel": (validate_license_model, False),
+        "ManageMasterUserPassword": (boolean, False),
         "MasterUserPassword": (str, False),
+        "MasterUserSecret": (MasterUserSecret, False),
         "MasterUsername": (str, False),
         "MaxAllocatedStorage": (integer, False),
         "MonitoringInterval": (integer, False),

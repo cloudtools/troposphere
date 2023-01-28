@@ -7,6 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
+from .validators import double
 
 
 class AWSAccount(AWSProperty):
@@ -29,6 +30,26 @@ class AssessmentReportsDestination(AWSProperty):
     props: PropsDictType = {
         "Destination": (str, False),
         "DestinationType": (str, False),
+    }
+
+
+class Delegation(AWSProperty):
+    """
+    `Delegation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-auditmanager-assessment-delegation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AssessmentId": (str, False),
+        "AssessmentName": (str, False),
+        "Comment": (str, False),
+        "ControlSetId": (str, False),
+        "CreatedBy": (str, False),
+        "CreationTime": (double, False),
+        "Id": (str, False),
+        "LastUpdated": (double, False),
+        "RoleArn": (str, False),
+        "RoleType": (str, False),
+        "Status": (str, False),
     }
 
 
@@ -74,6 +95,7 @@ class Assessment(AWSObject):
     props: PropsDictType = {
         "AssessmentReportsDestination": (AssessmentReportsDestination, False),
         "AwsAccount": (AWSAccount, False),
+        "Delegations": ([Delegation], False),
         "Description": (str, False),
         "FrameworkId": (str, False),
         "Name": (str, False),

@@ -178,6 +178,16 @@ class FilterCriteria(AWSProperty):
     }
 
 
+class ScalingConfig(AWSProperty):
+    """
+    `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumConcurrency": (integer, False),
+    }
+
+
 class Endpoints(AWSProperty):
     """
     `Endpoints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-endpoints.html>`__
@@ -244,6 +254,7 @@ class EventSourceMapping(AWSObject):
         "MaximumRetryAttempts": (integer, False),
         "ParallelizationFactor": (integer, False),
         "Queues": ([str], False),
+        "ScalingConfig": (ScalingConfig, False),
         "SelfManagedEventSource": (SelfManagedEventSource, False),
         "SelfManagedKafkaEventSourceConfig": (SelfManagedKafkaEventSourceConfig, False),
         "SourceAccessConfigurations": ([SourceAccessConfiguration], False),
