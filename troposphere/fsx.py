@@ -10,6 +10,7 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 from .validators.fsx import (
     storage_type,
+    validate_lustreconfiguration,
     validate_lustreconfiguration_deploymenttype,
     validate_lustreconfiguration_perunitstoragethroughput,
 )
@@ -86,6 +87,9 @@ class LustreConfiguration(AWSProperty):
         ),
         "WeeklyMaintenanceStartTime": (str, False),
     }
+
+    def validate(self):
+        validate_lustreconfiguration(self)
 
 
 class DiskIopsConfiguration(AWSProperty):
