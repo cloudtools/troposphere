@@ -75,7 +75,7 @@ class TestRDS(unittest.TestCase):
 
         with self.assertRaisesRegex(
             ValueError,
-            "BackupRetentionPeriod, DBName, DBSnapshotIdentifier, "
+            "DBName, DBSnapshotIdentifier, "
             "MasterUserPassword, MasterUsername, "
             "MultiAZ, PreferredBackupWindow "
             "properties can't be provided when "
