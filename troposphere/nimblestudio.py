@@ -32,18 +32,33 @@ class StreamConfigurationSessionStorage(AWSProperty):
     }
 
 
+class VolumeConfiguration(AWSProperty):
+    """
+    `VolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-volumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iops": (double, False),
+        "Size": (double, False),
+        "Throughput": (double, False),
+    }
+
+
 class StreamConfiguration(AWSProperty):
     """
     `StreamConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "AutomaticTerminationMode": (str, False),
         "ClipboardMode": (str, True),
         "Ec2InstanceTypes": ([str], True),
         "MaxSessionLengthInMinutes": (double, False),
         "MaxStoppedSessionLengthInMinutes": (double, False),
+        "SessionPersistenceMode": (str, False),
         "SessionStorage": (StreamConfigurationSessionStorage, False),
         "StreamingImageIds": ([str], True),
+        "VolumeConfiguration": (VolumeConfiguration, False),
     }
 
 

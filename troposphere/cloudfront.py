@@ -881,6 +881,26 @@ class CustomHeadersConfig(AWSProperty):
     }
 
 
+class RemoveHeader(AWSProperty):
+    """
+    `RemoveHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheader.html>`__
+    """
+
+    props: PropsDictType = {
+        "Header": (str, True),
+    }
+
+
+class RemoveHeadersConfig(AWSProperty):
+    """
+    `RemoveHeadersConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-removeheadersconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Items": ([RemoveHeader], True),
+    }
+
+
 class ContentSecurityPolicy(AWSProperty):
     """
     `ContentSecurityPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-responseheaderspolicy-contentsecuritypolicy.html>`__
@@ -986,6 +1006,7 @@ class ResponseHeadersPolicyConfig(AWSProperty):
         "CorsConfig": (CorsConfig, False),
         "CustomHeadersConfig": (CustomHeadersConfig, False),
         "Name": (str, True),
+        "RemoveHeadersConfig": (RemoveHeadersConfig, False),
         "SecurityHeadersConfig": (SecurityHeadersConfig, False),
         "ServerTimingHeadersConfig": (ServerTimingHeadersConfig, False),
     }
