@@ -55,10 +55,10 @@ class ConnectPeer(AWSObject):
 
     props: PropsDictType = {
         "BgpOptions": (BgpOptions, False),
-        "ConnectAttachmentId": (str, False),
+        "ConnectAttachmentId": (str, True),
         "CoreNetworkAddress": (str, False),
-        "InsideCidrBlocks": ([str], False),
-        "PeerAddress": (str, False),
+        "InsideCidrBlocks": ([str], True),
+        "PeerAddress": (str, True),
         "Tags": (Tags, False),
     }
 
@@ -204,9 +204,9 @@ class SiteToSiteVpnAttachment(AWSObject):
     resource_type = "AWS::NetworkManager::SiteToSiteVpnAttachment"
 
     props: PropsDictType = {
-        "CoreNetworkId": (str, False),
+        "CoreNetworkId": (str, True),
         "Tags": (Tags, False),
-        "VpnConnectionArn": (str, False),
+        "VpnConnectionArn": (str, True),
     }
 
 

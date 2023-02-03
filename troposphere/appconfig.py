@@ -73,6 +73,7 @@ class Deployment(AWSObject):
         "DeploymentStrategyId": (str, True),
         "Description": (str, False),
         "EnvironmentId": (str, True),
+        "KmsKeyIdentifier": (str, False),
         "Tags": (Tags, False),
     }
 

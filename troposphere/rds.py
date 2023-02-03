@@ -304,7 +304,6 @@ class AuthFormat(AWSProperty):
         "Description": (str, False),
         "IAMAuth": (str, False),
         "SecretArn": (str, False),
-        "UserName": (str, False),
     }
 
 
@@ -340,7 +339,6 @@ class DBProxyEndpoint(AWSObject):
         "DBProxyEndpointName": (str, True),
         "DBProxyName": (str, True),
         "Tags": (Tags, False),
-        "TargetRole": (str, False),
         "VpcSecurityGroupIds": ([str], False),
         "VpcSubnetIds": ([str], True),
     }

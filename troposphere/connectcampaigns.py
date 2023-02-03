@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double
+from .validators import boolean, double
 
 
 class PredictiveDialerConfig(AWSProperty):
@@ -41,12 +41,23 @@ class DialerConfig(AWSProperty):
     }
 
 
+class AnswerMachineDetectionConfig(AWSProperty):
+    """
+    `AnswerMachineDetectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-answermachinedetectionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableAnswerMachineDetection": (boolean, True),
+    }
+
+
 class OutboundCallConfig(AWSProperty):
     """
     `OutboundCallConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-outboundcallconfig.html>`__
     """
 
     props: PropsDictType = {
+        "AnswerMachineDetectionConfig": (AnswerMachineDetectionConfig, False),
         "ConnectContactFlowArn": (str, True),
         "ConnectQueueArn": (str, True),
         "ConnectSourcePhoneNumber": (str, False),

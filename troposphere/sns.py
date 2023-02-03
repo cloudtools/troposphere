@@ -60,6 +60,7 @@ class Topic(AWSObject):
         "Subscription": ([Subscription], False),
         "Tags": (Tags, False),
         "TopicName": (str, False),
+        "TracingConfig": (str, False),
     }
 
 

@@ -715,7 +715,7 @@ class Host(AWSObject):
 
 class IpamOperatingRegion(AWSProperty):
     """
-    `IpamOperatingRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamoperatingregion.html>`__
+    `IpamOperatingRegion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamoperatingregion.html>`__
     """
 
     props: PropsDictType = {
@@ -731,8 +731,11 @@ class IPAM(AWSObject):
     resource_type = "AWS::EC2::IPAM"
 
     props: PropsDictType = {
+        "DefaultResourceDiscoveryAssociationId": (str, False),
+        "DefaultResourceDiscoveryId": (str, False),
         "Description": (str, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
+        "ResourceDiscoveryAssociationCount": (integer, False),
         "Tags": (Tags, False),
     }
 
@@ -781,8 +784,51 @@ class IPAMPool(AWSObject):
         "IpamScopeId": (str, True),
         "Locale": (str, False),
         "ProvisionedCidrs": ([ProvisionedCidr], False),
+        "PublicIpSource": (str, False),
         "PubliclyAdvertisable": (boolean, False),
         "SourceIpamPoolId": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class IPAMPoolCidr(AWSObject):
+    """
+    `IPAMPoolCidr <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampoolcidr.html>`__
+    """
+
+    resource_type = "AWS::EC2::IPAMPoolCidr"
+
+    props: PropsDictType = {
+        "Cidr": (str, False),
+        "IpamPoolId": (str, True),
+        "NetmaskLength": (integer, False),
+    }
+
+
+class IPAMResourceDiscovery(AWSObject):
+    """
+    `IPAMResourceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html>`__
+    """
+
+    resource_type = "AWS::EC2::IPAMResourceDiscovery"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "OperatingRegions": ([IpamOperatingRegion], False),
+        "Tags": (Tags, False),
+    }
+
+
+class IPAMResourceDiscoveryAssociation(AWSObject):
+    """
+    `IPAMResourceDiscoveryAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscoveryassociation.html>`__
+    """
+
+    resource_type = "AWS::EC2::IPAMResourceDiscoveryAssociation"
+
+    props: PropsDictType = {
+        "IpamId": (str, True),
+        "IpamResourceDiscoveryId": (str, True),
         "Tags": (Tags, False),
     }
 

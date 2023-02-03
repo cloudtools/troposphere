@@ -1108,6 +1108,253 @@ class ModelBiasJobDefinition(AWSObject):
     }
 
 
+class AdditionalInformation(AWSProperty):
+    """
+    `AdditionalInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-additionalinformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "CaveatsAndRecommendations": (str, False),
+        "CustomDetails": (dict, False),
+        "EthicalConsiderations": (str, False),
+    }
+
+
+class BusinessDetails(AWSProperty):
+    """
+    `BusinessDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-businessdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "BusinessProblem": (str, False),
+        "BusinessStakeholders": (str, False),
+        "LineOfBusiness": (str, False),
+    }
+
+
+class MetricDataItems(AWSProperty):
+    """
+    `MetricDataItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricdataitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Notes": (str, False),
+        "Type": (str, True),
+        "Value": (dict, True),
+        "XAxisName": ([str], False),
+        "YAxisName": ([str], False),
+    }
+
+
+class MetricGroup(AWSProperty):
+    """
+    `MetricGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-metricgroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricData": ([MetricDataItems], True),
+        "Name": (str, True),
+    }
+
+
+class EvaluationDetail(AWSProperty):
+    """
+    `EvaluationDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-evaluationdetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "Datasets": ([str], False),
+        "EvaluationJobArn": (str, False),
+        "EvaluationObservation": (str, False),
+        "Metadata": (dict, False),
+        "MetricGroups": ([MetricGroup], False),
+        "Name": (str, True),
+    }
+
+
+class IntendedUses(AWSProperty):
+    """
+    `IntendedUses <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-intendeduses.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExplanationsForRiskRating": (str, False),
+        "FactorsAffectingModelEfficiency": (str, False),
+        "IntendedUses": (str, False),
+        "PurposeOfModel": (str, False),
+        "RiskRating": (str, False),
+    }
+
+
+class InferenceEnvironment(AWSProperty):
+    """
+    `InferenceEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-inferenceenvironment.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerImage": ([str], False),
+    }
+
+
+class ModelOverview(AWSProperty):
+    """
+    `ModelOverview <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modeloverview.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmType": (str, False),
+        "InferenceEnvironment": (InferenceEnvironment, False),
+        "ModelArtifact": ([str], False),
+        "ModelCreator": (str, False),
+        "ModelDescription": (str, False),
+        "ModelId": (str, False),
+        "ModelName": (str, False),
+        "ModelOwner": (str, False),
+        "ModelVersion": (double, False),
+        "ProblemType": (str, False),
+    }
+
+
+class Function(AWSProperty):
+    """
+    `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-function.html>`__
+    """
+
+    props: PropsDictType = {
+        "Condition": (str, False),
+        "Facet": (str, False),
+        "Function": (str, False),
+    }
+
+
+class ObjectiveFunction(AWSProperty):
+    """
+    `ObjectiveFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-objectivefunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Function": (Function, False),
+        "Notes": (str, False),
+    }
+
+
+class TrainingEnvironment(AWSProperty):
+    """
+    `TrainingEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingenvironment.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerImage": ([str], False),
+    }
+
+
+class TrainingHyperParameter(AWSProperty):
+    """
+    `TrainingHyperParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-traininghyperparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
+class TrainingMetric(AWSProperty):
+    """
+    `TrainingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Notes": (str, False),
+        "Value": (double, True),
+    }
+
+
+class TrainingJobDetails(AWSProperty):
+    """
+    `TrainingJobDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingjobdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "HyperParameters": ([TrainingHyperParameter], False),
+        "TrainingArn": (str, False),
+        "TrainingDatasets": ([str], False),
+        "TrainingEnvironment": (TrainingEnvironment, False),
+        "TrainingMetrics": ([TrainingMetric], False),
+        "UserProvidedHyperParameters": ([TrainingHyperParameter], False),
+        "UserProvidedTrainingMetrics": ([TrainingMetric], False),
+    }
+
+
+class TrainingDetails(AWSProperty):
+    """
+    `TrainingDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-trainingdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ObjectiveFunction": (ObjectiveFunction, False),
+        "TrainingJobDetails": (TrainingJobDetails, False),
+        "TrainingObservations": (str, False),
+    }
+
+
+class Content(AWSProperty):
+    """
+    `Content <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-content.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalInformation": (AdditionalInformation, False),
+        "BusinessDetails": (BusinessDetails, False),
+        "EvaluationDetails": ([EvaluationDetail], False),
+        "IntendedUses": (IntendedUses, False),
+        "ModelOverview": (ModelOverview, False),
+        "TrainingDetails": (TrainingDetails, False),
+    }
+
+
+class SecurityConfig(AWSProperty):
+    """
+    `SecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-securityconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyId": (str, False),
+    }
+
+
+class UserContext(AWSProperty):
+    """
+    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-usercontext.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainId": (str, False),
+        "UserProfileArn": (str, False),
+        "UserProfileName": (str, False),
+    }
+
+
+class ModelCard(AWSObject):
+    """
+    `ModelCard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-modelcard.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::ModelCard"
+
+    props: PropsDictType = {
+        "Content": (Content, True),
+        "CreatedBy": (UserContext, False),
+        "LastModifiedBy": (UserContext, False),
+        "ModelCardName": (str, True),
+        "ModelCardStatus": (str, True),
+        "SecurityConfig": (SecurityConfig, False),
+        "Tags": (Tags, False),
+    }
+
+
 class ModelExplainabilityAppSpecification(AWSProperty):
     """
     `ModelExplainabilityAppSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelexplainabilityjobdefinition-modelexplainabilityappspecification.html>`__
@@ -2038,16 +2285,4 @@ class ServiceCatalogProvisionedProductDetails(AWSProperty):
     props: PropsDictType = {
         "ProvisionedProductId": (str, False),
         "ProvisionedProductStatusMessage": (str, False),
-    }
-
-
-class UserContext(AWSProperty):
-    """
-    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-usercontext.html>`__
-    """
-
-    props: PropsDictType = {
-        "DomainId": (str, False),
-        "UserProfileArn": (str, False),
-        "UserProfileName": (str, False),
     }
