@@ -47,7 +47,6 @@ class Server(AWSObject):
         "PreferredBackupWindow": (str, False),
         "PreferredMaintenanceWindow": (str, False),
         "SecurityGroupIds": ([str], False),
-        "ServerName": (str, False),
         "ServiceRoleArn": (str, True),
         "SubnetIds": ([str], False),
         "Tags": (validate_tags_or_list, False),

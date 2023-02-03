@@ -832,56 +832,6 @@ class WebACLAssociation(AWSObject):
     }
 
 
-class Allow(AWSProperty):
-    """
-    `Allow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-allow.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomRequestHandling": (CustomRequestHandling, False),
-    }
-
-
-class Block(AWSProperty):
-    """
-    `Block <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-block.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomResponse": (CustomResponse, False),
-    }
-
-
-class Captcha(AWSProperty):
-    """
-    `Captcha <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-captcha.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomRequestHandling": (CustomRequestHandling, False),
-    }
-
-
-class Challenge(AWSProperty):
-    """
-    `Challenge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-challenge.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomRequestHandling": (CustomRequestHandling, False),
-    }
-
-
-class Count(AWSProperty):
-    """
-    `Count <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-rulegroup-count.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomRequestHandling": (CustomRequestHandling, False),
-    }
-
-
 class MatchPattern(AWSProperty):
     """
     `MatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-loggingconfiguration-matchpattern.html>`__

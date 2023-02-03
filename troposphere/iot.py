@@ -756,6 +756,7 @@ class CloudwatchLogsAction(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BatchMode": (boolean, False),
         "LogGroupName": (str, True),
         "RoleArn": (str, True),
     }

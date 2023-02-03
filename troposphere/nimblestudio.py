@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import double
 
 
+class StreamConfigurationSessionBackup(AWSProperty):
+    """
+    `StreamConfigurationSessionBackup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamconfigurationsessionbackup.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxBackupsToRetain": (double, False),
+        "Mode": (str, False),
+    }
+
+
 class StreamingSessionStorageRoot(AWSProperty):
     """
     `StreamingSessionStorageRoot <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-nimblestudio-launchprofile-streamingsessionstorageroot.html>`__
@@ -55,6 +66,7 @@ class StreamConfiguration(AWSProperty):
         "Ec2InstanceTypes": ([str], True),
         "MaxSessionLengthInMinutes": (double, False),
         "MaxStoppedSessionLengthInMinutes": (double, False),
+        "SessionBackup": (StreamConfigurationSessionBackup, False),
         "SessionPersistenceMode": (str, False),
         "SessionStorage": (StreamConfigurationSessionStorage, False),
         "StreamingImageIds": ([str], True),

@@ -18,9 +18,9 @@ class CRL(AWSObject):
     resource_type = "AWS::RolesAnywhere::CRL"
 
     props: PropsDictType = {
-        "CrlData": (str, False),
+        "CrlData": (str, True),
         "Enabled": (boolean, False),
-        "Name": (str, False),
+        "Name": (str, True),
         "Tags": (Tags, False),
         "TrustAnchorArn": (str, False),
     }
@@ -37,9 +37,9 @@ class Profile(AWSObject):
         "DurationSeconds": (double, False),
         "Enabled": (boolean, False),
         "ManagedPolicyArns": ([str], False),
-        "Name": (str, False),
+        "Name": (str, True),
         "RequireInstanceProperties": (boolean, False),
-        "RoleArns": ([str], False),
+        "RoleArns": ([str], True),
         "SessionPolicy": (str, False),
         "Tags": (Tags, False),
     }
@@ -76,7 +76,7 @@ class TrustAnchor(AWSObject):
 
     props: PropsDictType = {
         "Enabled": (boolean, False),
-        "Name": (str, False),
-        "Source": (Source, False),
+        "Name": (str, True),
+        "Source": (Source, True),
         "Tags": (Tags, False),
     }

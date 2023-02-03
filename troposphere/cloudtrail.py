@@ -10,6 +10,32 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class Destination(AWSProperty):
+    """
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-channel-destination.html>`__
+    """
+
+    props: PropsDictType = {
+        "Location": (str, True),
+        "Type": (str, True),
+    }
+
+
+class Channel(AWSObject):
+    """
+    `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-channel.html>`__
+    """
+
+    resource_type = "AWS::CloudTrail::Channel"
+
+    props: PropsDictType = {
+        "Destinations": ([Destination], False),
+        "Name": (str, False),
+        "Source": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class AdvancedFieldSelector(AWSProperty):
     """
     `AdvancedFieldSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html>`__
@@ -53,6 +79,19 @@ class EventDataStore(AWSObject):
         "RetentionPeriod": (integer, False),
         "Tags": (Tags, False),
         "TerminationProtectionEnabled": (boolean, False),
+    }
+
+
+class ResourcePolicy(AWSObject):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-resourcepolicy.html>`__
+    """
+
+    resource_type = "AWS::CloudTrail::ResourcePolicy"
+
+    props: PropsDictType = {
+        "ResourceArn": (str, True),
+        "ResourcePolicy": (dict, True),
     }
 
 

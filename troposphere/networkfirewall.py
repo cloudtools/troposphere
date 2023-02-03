@@ -17,6 +17,7 @@ class SubnetMapping(AWSProperty):
     """
 
     props: PropsDictType = {
+        "IPAddressType": (str, False),
         "SubnetId": (str, True),
     }
 
