@@ -55,3 +55,16 @@ class Policy(AWSObject):
         "TargetIds": ([str], False),
         "Type": (validate_policy_type, True),
     }
+
+
+class ResourcePolicy(AWSObject):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-resourcepolicy.html>`__
+    """
+
+    resource_type = "AWS::Organizations::ResourcePolicy"
+
+    props: PropsDictType = {
+        "Content": (dict, True),
+        "Tags": (Tags, False),
+    }

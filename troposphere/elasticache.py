@@ -227,6 +227,7 @@ class ReplicationGroup(AWSObject):
         "SnapshottingClusterId": (str, False),
         "Tags": (Tags, False),
         "TransitEncryptionEnabled": (boolean, False),
+        "TransitEncryptionMode": (str, False),
         "UserGroupIds": ([str], False),
     }
 

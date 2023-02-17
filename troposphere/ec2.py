@@ -1504,6 +1504,20 @@ class LocalGatewayRoute(AWSObject):
     }
 
 
+class LocalGatewayRouteTable(AWSObject):
+    """
+    `LocalGatewayRouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetable.html>`__
+    """
+
+    resource_type = "AWS::EC2::LocalGatewayRouteTable"
+
+    props: PropsDictType = {
+        "LocalGatewayId": (str, True),
+        "Mode": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class LocalGatewayRouteTableVPCAssociation(AWSObject):
     """
     `LocalGatewayRouteTableVPCAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevpcassociation.html>`__
@@ -1515,6 +1529,20 @@ class LocalGatewayRouteTableVPCAssociation(AWSObject):
         "LocalGatewayRouteTableId": (str, True),
         "Tags": (validate_tags_or_list, False),
         "VpcId": (str, True),
+    }
+
+
+class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(AWSObject):
+    """
+    `LocalGatewayRouteTableVirtualInterfaceGroupAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-localgatewayroutetablevirtualinterfacegroupassociation.html>`__
+    """
+
+    resource_type = "AWS::EC2::LocalGatewayRouteTableVirtualInterfaceGroupAssociation"
+
+    props: PropsDictType = {
+        "LocalGatewayRouteTableId": (str, True),
+        "LocalGatewayVirtualInterfaceGroupId": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -1706,7 +1734,7 @@ class NetworkInsightsPath(AWSObject):
     resource_type = "AWS::EC2::NetworkInsightsPath"
 
     props: PropsDictType = {
-        "Destination": (str, True),
+        "Destination": (str, False),
         "DestinationIp": (str, False),
         "DestinationPort": (integer, False),
         "Protocol": (str, True),
@@ -2734,7 +2762,7 @@ class VPNConnection(AWSObject):
 
 class VPNConnectionRoute(AWSObject):
     """
-    `VPNConnectionRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-connection-route.html>`__
+    `VPNConnectionRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpnconnectionroute.html>`__
     """
 
     resource_type = "AWS::EC2::VPNConnectionRoute"

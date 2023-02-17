@@ -139,6 +139,16 @@ class ContributorInsightsSpecification(AWSProperty):
     }
 
 
+class KinesisStreamSpecification(AWSProperty):
+    """
+    `KinesisStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "StreamArn": (str, True),
+    }
+
+
 class PointInTimeRecoverySpecification(AWSProperty):
     """
     `PointInTimeRecoverySpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html>`__
@@ -190,6 +200,7 @@ class ReplicaSpecification(AWSProperty):
     props: PropsDictType = {
         "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
         "GlobalSecondaryIndexes": ([ReplicaGlobalSecondaryIndexSpecification], False),
+        "KinesisStreamSpecification": (KinesisStreamSpecification, False),
         "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
         "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
         "Region": (str, True),
@@ -313,16 +324,6 @@ class ImportSourceSpecification(AWSProperty):
         "InputFormat": (str, True),
         "InputFormatOptions": (InputFormatOptions, False),
         "S3BucketSource": (S3BucketSource, True),
-    }
-
-
-class KinesisStreamSpecification(AWSProperty):
-    """
-    `KinesisStreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-kinesisstreamspecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "StreamArn": (str, True),
     }
 
 

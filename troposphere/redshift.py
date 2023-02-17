@@ -159,42 +159,6 @@ class ClusterSubnetGroup(AWSObject):
     }
 
 
-class NetworkInterface(AWSProperty):
-    """
-    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-networkinterface.html>`__
-    """
-
-    props: PropsDictType = {
-        "AvailabilityZone": (str, False),
-        "NetworkInterfaceId": (str, False),
-        "PrivateIpAddress": (str, False),
-        "SubnetId": (str, False),
-    }
-
-
-class VpcEndpoint(AWSProperty):
-    """
-    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcendpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "NetworkInterfaces": ([NetworkInterface], False),
-        "VpcEndpointId": (str, False),
-        "VpcId": (str, False),
-    }
-
-
-class VpcSecurityGroup(AWSProperty):
-    """
-    `VpcSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>`__
-    """
-
-    props: PropsDictType = {
-        "Status": (str, False),
-        "VpcSecurityGroupId": (str, False),
-    }
-
-
 class EndpointAccess(AWSObject):
     """
     `EndpointAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-endpointaccess.html>`__
@@ -207,9 +171,7 @@ class EndpointAccess(AWSObject):
         "EndpointName": (str, True),
         "ResourceOwner": (str, False),
         "SubnetGroupName": (str, True),
-        "VpcEndpoint": (VpcEndpoint, False),
         "VpcSecurityGroupIds": ([str], True),
-        "VpcSecurityGroups": ([VpcSecurityGroup], False),
     }
 
 
@@ -309,4 +271,40 @@ class ScheduledAction(AWSObject):
         "ScheduledActionName": (str, True),
         "StartTime": (str, False),
         "TargetAction": (ScheduledActionType, False),
+    }
+
+
+class NetworkInterface(AWSProperty):
+    """
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-networkinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "NetworkInterfaceId": (str, False),
+        "PrivateIpAddress": (str, False),
+        "SubnetId": (str, False),
+    }
+
+
+class VpcEndpoint(AWSProperty):
+    """
+    `VpcEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetworkInterfaces": ([NetworkInterface], False),
+        "VpcEndpointId": (str, False),
+        "VpcId": (str, False),
+    }
+
+
+class VpcSecurityGroup(AWSProperty):
+    """
+    `VpcSecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-endpointaccess-vpcsecuritygroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+        "VpcSecurityGroupId": (str, False),
     }

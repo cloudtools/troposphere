@@ -161,7 +161,8 @@ class TargetAddress(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Ip": (str, True),
+        "Ip": (str, False),
+        "Ipv6": (str, False),
         "Port": (str, False),
     }
 

@@ -101,3 +101,19 @@ class Policy(AWSObject):
         "SecurityServicePolicyData": (validate_json_checker, True),
         "Tags": (Tags, False),
     }
+
+
+class ResourceSet(AWSObject):
+    """
+    `ResourceSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fms-resourceset.html>`__
+    """
+
+    resource_type = "AWS::FMS::ResourceSet"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "ResourceTypeList": ([str], True),
+        "Resources": ([str], False),
+        "Tags": (Tags, False),
+    }

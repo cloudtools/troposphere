@@ -17,7 +17,7 @@ class Link(AWSObject):
     resource_type = "AWS::Oam::Link"
 
     props: PropsDictType = {
-        "LabelTemplate": (str, True),
+        "LabelTemplate": (str, False),
         "ResourceTypes": ([str], True),
         "SinkIdentifier": (str, True),
         "Tags": (dict, False),

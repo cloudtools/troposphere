@@ -18,7 +18,7 @@ class Agent(AWSObject):
     resource_type = "AWS::DataSync::Agent"
 
     props: PropsDictType = {
-        "ActivationKey": (str, True),
+        "ActivationKey": (str, False),
         "AgentName": (str, False),
         "SecurityGroupArns": ([str], False),
         "SubnetArns": ([str], False),
@@ -133,7 +133,7 @@ class LocationFSxONTAP(AWSObject):
     resource_type = "AWS::DataSync::LocationFSxONTAP"
 
     props: PropsDictType = {
-        "Protocol": (ONTAPProtocol, True),
+        "Protocol": (ONTAPProtocol, False),
         "SecurityGroupArns": ([str], True),
         "StorageVirtualMachineArn": (str, True),
         "Subdirectory": (str, False),
@@ -159,7 +159,7 @@ class LocationFSxOpenZFS(AWSObject):
     resource_type = "AWS::DataSync::LocationFSxOpenZFS"
 
     props: PropsDictType = {
-        "FsxFilesystemArn": (str, True),
+        "FsxFilesystemArn": (str, False),
         "Protocol": (Protocol, True),
         "SecurityGroupArns": ([str], True),
         "Subdirectory": (str, False),
@@ -269,6 +269,7 @@ class LocationObjectStorage(AWSObject):
         "AgentArns": ([str], True),
         "BucketName": (str, False),
         "SecretKey": (str, False),
+        "ServerCertificate": (str, False),
         "ServerHostname": (str, False),
         "ServerPort": (integer, False),
         "ServerProtocol": (str, False),
@@ -295,7 +296,7 @@ class LocationS3(AWSObject):
     resource_type = "AWS::DataSync::LocationS3"
 
     props: PropsDictType = {
-        "S3BucketArn": (str, True),
+        "S3BucketArn": (str, False),
         "S3Config": (S3Config, True),
         "S3StorageClass": (str, False),
         "Subdirectory": (str, False),

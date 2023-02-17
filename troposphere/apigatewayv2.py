@@ -417,7 +417,7 @@ class VpcLink(AWSObject):
 
 class ParameterConstraints(AWSProperty):
     """
-    `ParameterConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html>`__
+    `ParameterConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-route-parameterconstraints.html>`__
     """
 
     props: PropsDictType = {
