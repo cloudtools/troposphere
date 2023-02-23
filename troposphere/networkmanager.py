@@ -210,6 +210,20 @@ class SiteToSiteVpnAttachment(AWSObject):
     }
 
 
+class TransitGatewayPeering(AWSObject):
+    """
+    `TransitGatewayPeering <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewaypeering.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::TransitGatewayPeering"
+
+    props: PropsDictType = {
+        "CoreNetworkId": (str, True),
+        "Tags": (Tags, False),
+        "TransitGatewayArn": (str, True),
+    }
+
+
 class TransitGatewayRegistration(AWSObject):
     """
     `TransitGatewayRegistration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayregistration.html>`__

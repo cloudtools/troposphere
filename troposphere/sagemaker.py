@@ -2189,6 +2189,32 @@ class Project(AWSObject):
     }
 
 
+class SpaceSettings(AWSProperty):
+    """
+    `SpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "JupyterServerAppSettings": (JupyterServerAppSettings, False),
+        "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
+    }
+
+
+class Space(AWSObject):
+    """
+    `Space <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-space.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::Space"
+
+    props: PropsDictType = {
+        "DomainId": (str, True),
+        "SpaceName": (str, True),
+        "SpaceSettings": (SpaceSettings, False),
+        "Tags": (Tags, False),
+    }
+
+
 class UserProfile(AWSObject):
     """
     `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-userprofile.html>`__

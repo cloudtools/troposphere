@@ -232,18 +232,18 @@ class DeliveryChannel(AWSObject):
     }
 
 
-class OrganizationCustomCodeRuleMetadata(AWSProperty):
+class OrganizationCustomPolicyRuleMetadata(AWSProperty):
     """
-    `OrganizationCustomCodeRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustomcoderulemetadata.html>`__
+    `OrganizationCustomPolicyRuleMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-organizationconfigrule-organizationcustompolicyrulemetadata.html>`__
     """
 
     props: PropsDictType = {
-        "CodeText": (str, True),
         "DebugLogDeliveryAccounts": ([str], False),
         "Description": (str, False),
         "InputParameters": (str, False),
         "MaximumExecutionFrequency": (str, False),
         "OrganizationConfigRuleTriggerTypes": ([str], False),
+        "PolicyText": (str, True),
         "ResourceIdScope": (str, False),
         "ResourceTypesScope": ([str], False),
         "Runtime": (str, True),
@@ -297,8 +297,8 @@ class OrganizationConfigRule(AWSObject):
     props: PropsDictType = {
         "ExcludedAccounts": ([str], False),
         "OrganizationConfigRuleName": (str, True),
-        "OrganizationCustomCodeRuleMetadata": (
-            OrganizationCustomCodeRuleMetadata,
+        "OrganizationCustomPolicyRuleMetadata": (
+            OrganizationCustomPolicyRuleMetadata,
             False,
         ),
         "OrganizationCustomRuleMetadata": (OrganizationCustomRuleMetadata, False),

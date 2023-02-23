@@ -10,26 +10,6 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
-class NamespaceProperty(AWSProperty):
-    """
-    `NamespaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html>`__
-    """
-
-    props: PropsDictType = {
-        "AdminUsername": (str, False),
-        "CreationDate": (str, False),
-        "DbName": (str, False),
-        "DefaultIamRoleArn": (str, False),
-        "IamRoles": ([str], False),
-        "KmsKeyId": (str, False),
-        "LogExports": ([str], False),
-        "NamespaceArn": (str, False),
-        "NamespaceId": (str, False),
-        "NamespaceName": (str, False),
-        "Status": (str, False),
-    }
-
-
 class Namespace(AWSObject):
     """
     `Namespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshiftserverless-namespace.html>`__
@@ -47,7 +27,6 @@ class Namespace(AWSObject):
         "IamRoles": ([str], False),
         "KmsKeyId": (str, False),
         "LogExports": ([str], False),
-        "Namespace": (NamespaceProperty, False),
         "NamespaceName": (str, True),
         "Tags": (Tags, False),
     }
@@ -135,10 +114,31 @@ class Workgroup(AWSObject):
         "ConfigParameters": ([ConfigParameter], False),
         "EnhancedVpcRouting": (boolean, False),
         "NamespaceName": (str, False),
+        "Port": (integer, False),
         "PubliclyAccessible": (boolean, False),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], False),
         "Tags": (Tags, False),
         "Workgroup": (WorkgroupProperty, False),
         "WorkgroupName": (str, True),
+    }
+
+
+class NamespaceProperty(AWSProperty):
+    """
+    `NamespaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-namespace-namespace.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdminUsername": (str, False),
+        "CreationDate": (str, False),
+        "DbName": (str, False),
+        "DefaultIamRoleArn": (str, False),
+        "IamRoles": ([str], False),
+        "KmsKeyId": (str, False),
+        "LogExports": ([str], False),
+        "NamespaceArn": (str, False),
+        "NamespaceId": (str, False),
+        "NamespaceName": (str, False),
+        "Status": (str, False),
     }
