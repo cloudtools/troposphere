@@ -3,11 +3,12 @@
 #
 # See LICENSE file for full license.
 
+from ..type_defs.compat import Final
 from . import exactly_one, mutually_exclusive
 
-KEY_ONLY = "KEY_ONLY"
-VALUE_ONLY = "VALUE_ONLY"
-KEY_AND_VALUE = "KEY_AND_VALUE"
+KEY_ONLY: Final = "KEY_ONLY"
+VALUE_ONLY: Final = "VALUE_ONLY"
+KEY_AND_VALUE: Final = "KEY_AND_VALUE"
 
 
 def deployment_option_validator(x):
