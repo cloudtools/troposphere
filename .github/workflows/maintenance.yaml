@@ -7,8 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
       - run: |
-          pip install -r requirements-dev.txt
+          python -m pip install -r requirements-dev.txt
           make spec
           make regen
       - name: Set spec version variable
