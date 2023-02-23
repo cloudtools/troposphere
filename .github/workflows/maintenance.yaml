@@ -1,3 +1,4 @@
+name: Automated Maintenance
 on:
   schedule:
     - cron: '0 13 * * *'
