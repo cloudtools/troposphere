@@ -51,7 +51,7 @@ def validate_credentials_provider(credential_provider):
     Property: RegistryCredential.CredentialProvider
     """
 
-    VALID_CREDENTIAL_PROVIDERS = "SECRETS_MANAGER"
+    VALID_CREDENTIAL_PROVIDERS = ("SECRETS_MANAGER",)
 
     if credential_provider not in VALID_CREDENTIAL_PROVIDERS:
         raise ValueError(
@@ -89,12 +89,12 @@ def validate_projectfilesystemlocation_type(projectfilesystemlocation_type):
     Property: ProjectFileSystemLocation.Type
     """
 
-    VALID_PROJECTFILESYSTEMLOCATION_TYPE = "EFS"
+    VALID_PROJECTFILESYSTEMLOCATION_TYPES = ("EFS",)
 
-    if projectfilesystemlocation_type not in VALID_PROJECTFILESYSTEMLOCATION_TYPE:
+    if projectfilesystemlocation_type not in VALID_PROJECTFILESYSTEMLOCATION_TYPES:
         raise ValueError(
             "ProjectFileSystemLocation Type must be one of: %s"
-            % ", ".join(VALID_PROJECTFILESYSTEMLOCATION_TYPE)
+            % ", ".join(VALID_PROJECTFILESYSTEMLOCATION_TYPES)
         )
     return projectfilesystemlocation_type
 

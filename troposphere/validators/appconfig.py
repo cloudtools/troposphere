@@ -9,12 +9,12 @@ def validate_growth_type(growth_type):
     Property: DeploymentStrategy.GrowthType
     """
 
-    VALID_GROWTH_TYPE = "LINEAR"
+    VALID_GROWTH_TYPES = ("LINEAR",)
 
-    if growth_type not in VALID_GROWTH_TYPE:
+    if growth_type not in VALID_GROWTH_TYPES:
         raise ValueError(
             "DeploymentStrategy GrowthType must be one of: %s"
-            % ", ".join(VALID_GROWTH_TYPE)
+            % ", ".join(VALID_GROWTH_TYPES)
         )
     return growth_type
 
