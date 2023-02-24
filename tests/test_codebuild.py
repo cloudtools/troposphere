@@ -84,3 +84,37 @@ class TestCodeBuildFilters(unittest.TestCase):
                     [None],
                 ]
             ).validate()
+
+
+class TestCodeBuildRegistryCredential(unittest.TestCase):
+    def test_registrycredential_provider_bad_value(self):
+        with self.assertRaisesRegex(ValueError, "CredentialProvider must be one of"):
+            codebuild.RegistryCredential(
+                Credential="Foo",
+                CredentialProvider="SECRETS",
+            )
+
+    def test_registrycredential(self):
+        codebuild.RegistryCredential(
+            Credential="Foo",
+            CredentialProvider="SECRETS_MANAGER",
+        )
+
+
+class TestCodeBuildProjectFileSystemLocation(unittest.TestCase):
+    def test_projectfilesystemlocation_type_bad_value(self):
+        with self.assertRaisesRegex(ValueError, "Type must be one of"):
+            codebuild.ProjectFileSystemLocation(
+                Identifier="foo",
+                Location="bar",
+                MountPoint="baz",
+                Type="EF",
+            )
+
+    def test_projectfilesystemlocation(self):
+        codebuild.ProjectFileSystemLocation(
+            Identifier="foo",
+            Location="bar",
+            MountPoint="baz",
+            Type="EFS",
+        )

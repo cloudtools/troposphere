@@ -25,7 +25,10 @@ def validate_interval(interval):
     VALID_INTERVALS = (2, 3, 4, 6, 8, 12, 24)
 
     if interval not in VALID_INTERVALS:
-        raise ValueError("Interval must be one of : %s" % ", ".join(VALID_INTERVALS))
+        raise ValueError(
+            "Interval must be one of : %s"
+            % ", ".join([str(i) for i in VALID_INTERVALS])
+        )
     return interval
 
 
@@ -35,7 +38,7 @@ def validate_interval_unit(interval_unit):
     Property: CreateRule.IntervalUnit
     """
 
-    VALID_INTERVAL_UNITS = "HOURS"
+    VALID_INTERVAL_UNITS = ("HOURS",)
 
     if interval_unit not in VALID_INTERVAL_UNITS:
         raise ValueError(
