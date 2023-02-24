@@ -212,7 +212,7 @@ class Endpoint(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "EventBuses": ([EndpointEventBus], True),
-        "Name": (str, True),
+        "Name": (str, False),
         "ReplicationConfig": (ReplicationConfig, False),
         "RoleArn": (str, False),
         "RoutingConfig": (RoutingConfig, True),

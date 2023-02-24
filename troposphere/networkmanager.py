@@ -237,6 +237,33 @@ class TransitGatewayRegistration(AWSObject):
     }
 
 
+class ProposedSegmentChange(AWSProperty):
+    """
+    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachmentPolicyRuleNumber": (integer, False),
+        "SegmentName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class TransitGatewayRouteTableAttachment(AWSObject):
+    """
+    `TransitGatewayRouteTableAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-transitgatewayroutetableattachment.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::TransitGatewayRouteTableAttachment"
+
+    props: PropsDictType = {
+        "PeeringId": (str, True),
+        "ProposedSegmentChange": (ProposedSegmentChange, False),
+        "Tags": (Tags, False),
+        "TransitGatewayRouteTableArn": (str, True),
+    }
+
+
 class VpcOptions(AWSProperty):
     """
     `VpcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-vpcoptions.html>`__
@@ -312,16 +339,4 @@ class CoreNetworkSegment(AWSProperty):
         "EdgeLocations": ([str], False),
         "Name": (str, False),
         "SharedSegments": ([str], False),
-    }
-
-
-class ProposedSegmentChange(AWSProperty):
-    """
-    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
-    """
-
-    props: PropsDictType = {
-        "AttachmentPolicyRuleNumber": (integer, False),
-        "SegmentName": (str, False),
-        "Tags": (Tags, False),
     }
