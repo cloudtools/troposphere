@@ -5,6 +5,7 @@
 
 
 from .. import If
+from ..type_defs.compat import Final
 from . import elb_name, exactly_one, network_port, one_of, tags_or_list
 
 
@@ -115,10 +116,10 @@ def validate_action(self):
     requires("fixed-response", ["FixedResponseConfig"])
 
 
-TARGET_TYPE_ALB = "alb"
-TARGET_TYPE_INSTANCE = "instance"
-TARGET_TYPE_IP = "ip"
-TARGET_TYPE_LAMBDA = "lambda"
+TARGET_TYPE_ALB: Final = "alb"
+TARGET_TYPE_INSTANCE: Final = "instance"
+TARGET_TYPE_IP: Final = "ip"
+TARGET_TYPE_LAMBDA: Final = "lambda"
 
 
 def validate_target_type(target_type):

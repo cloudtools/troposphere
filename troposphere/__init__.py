@@ -34,29 +34,36 @@ from . import validators
 if TYPE_CHECKING:
     from .type_defs.protocols import JSONreprProtocol, ToDictProtocol
 
+    # We cannot `from .type_defs.compat import Final` here for now
+    # https://github.com/microsoft/pyright/issues/4197
+    if sys.version_info < (3, 8):
+        from typing_extensions import Final
+    else:
+        from typing import Final
+
 __version__ = "4.3.0"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
-Delete = "Delete"
-Retain = "Retain"
-Snapshot = "Snapshot"
+Delete: Final = "Delete"
+Retain: Final = "Retain"
+Snapshot: Final = "Snapshot"
 
 # Pseudo Parameters
-AWS_ACCOUNT_ID = "AWS::AccountId"
-AWS_NOTIFICATION_ARNS = "AWS::NotificationARNs"
-AWS_NO_VALUE = "AWS::NoValue"
-AWS_PARTITION = "AWS::Partition"
-AWS_REGION = "AWS::Region"
-AWS_STACK_ID = "AWS::StackId"
-AWS_STACK_NAME = "AWS::StackName"
-AWS_URL_SUFFIX = "AWS::URLSuffix"
+AWS_ACCOUNT_ID: Final = "AWS::AccountId"
+AWS_NOTIFICATION_ARNS: Final = "AWS::NotificationARNs"
+AWS_NO_VALUE: Final = "AWS::NoValue"
+AWS_PARTITION: Final = "AWS::Partition"
+AWS_REGION: Final = "AWS::Region"
+AWS_STACK_ID: Final = "AWS::StackId"
+AWS_STACK_NAME: Final = "AWS::StackName"
+AWS_URL_SUFFIX: Final = "AWS::URLSuffix"
 
 # Template Limits
-MAX_MAPPINGS = 200
-MAX_OUTPUTS = 200
-MAX_PARAMETERS = 200
-MAX_RESOURCES = 500
-PARAMETER_TITLE_MAX = 255
+MAX_MAPPINGS: Final[int] = 200
+MAX_OUTPUTS: Final[int] = 200
+MAX_PARAMETERS: Final[int] = 200
+MAX_RESOURCES: Final[int] = 500
+PARAMETER_TITLE_MAX: Final[int] = 255
 
 
 valid_names = re.compile(r"^[a-zA-Z0-9]+$")

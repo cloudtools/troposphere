@@ -4,11 +4,12 @@
 # See LICENSE file for full license.
 
 
+from ..type_defs.compat import Final
 from . import network_port
 
-CDC = "cdc"
-FULL_LOAD = "full-load"
-FULL_LOAD_AND_CDC = "full-load-and-cdc"
+CDC: Final = "cdc"
+FULL_LOAD: Final = "full-load"
+FULL_LOAD_AND_CDC: Final = "full-load-and-cdc"
 
 
 def validate_network_port(x):

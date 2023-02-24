@@ -4,11 +4,13 @@
 # See LICENSE file for full license.
 
 
-ONE_HOUR = "One_Hour"
-THREE_HOURS = "Three_Hours"
-SIX_HOURS = "Six_Hours"
-TWELVE_HOURS = "Twelve_Hours"
-TWENTYFOUR_HOURS = "TwentyFour_Hours"
+from ..type_defs.compat import Final
+
+ONE_HOUR: Final = "One_Hour"
+THREE_HOURS: Final = "Three_Hours"
+SIX_HOURS: Final = "Six_Hours"
+TWELVE_HOURS: Final = "Twelve_Hours"
+TWENTYFOUR_HOURS: Final = "TwentyFour_Hours"
 
 
 def validate_source_details(self):

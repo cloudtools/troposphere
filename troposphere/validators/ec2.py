@@ -6,12 +6,13 @@
 
 from .. import AWSProperty
 from ..compat import validate_policytype
+from ..type_defs.compat import Final
 from . import exactly_one, integer_range, network_port, tags_or_list
 
-PERMISSION_INSTANCE_ATTACH = "INSTANCE-ATTACH"
-PERMISSION_EIP_ASSOCIATE = "EIP-ASSOCIATE"
+PERMISSION_INSTANCE_ATTACH: Final = "INSTANCE-ATTACH"
+PERMISSION_EIP_ASSOCIATE: Final = "EIP-ASSOCIATE"
 
-NO_DEVICE = {}
+NO_DEVICE: Final = {}
 
 
 def Ipv6Addresses(ipv6_address):
