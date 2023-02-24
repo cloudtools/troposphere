@@ -41,6 +41,7 @@ class HostedRotationLambda(AWSProperty):
         "MasterSecretKmsKeyArn": (str, False),
         "RotationLambdaName": (str, False),
         "RotationType": (str, True),
+        "Runtime": (str, False),
         "SuperuserSecretArn": (str, False),
         "SuperuserSecretKmsKeyArn": (str, False),
         "VpcSecurityGroupIds": (str, False),

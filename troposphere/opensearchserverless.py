@@ -93,6 +93,6 @@ class VpcEndpoint(AWSObject):
     props: PropsDictType = {
         "Name": (str, True),
         "SecurityGroupIds": ([str], False),
-        "SubnetIds": ([str], False),
+        "SubnetIds": ([str], True),
         "VpcId": (str, True),
     }

@@ -138,4 +138,5 @@ class HostedConfigurationVersion(AWSObject):
         "ContentType": (str, True),
         "Description": (str, False),
         "LatestVersionNumber": (double, False),
+        "VersionLabel": (str, False),
     }

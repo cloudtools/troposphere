@@ -112,6 +112,7 @@ class ClusterParameterGroup(AWSObject):
     props: PropsDictType = {
         "Description": (str, True),
         "ParameterGroupFamily": (str, True),
+        "ParameterGroupName": (str, False),
         "Parameters": ([AmazonRedshiftParameter], False),
         "Tags": (Tags, False),
     }
