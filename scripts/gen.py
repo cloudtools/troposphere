@@ -368,6 +368,8 @@ class ResourceSpec:
             if isinstance(node, ast.Assign):
                 for t in node.targets:
                     service.constants.append(t.id)
+            if isinstance(node, ast.AnnAssign):
+                service.constants.append(node.target.id)
             if isinstance(node, ast.ClassDef) or isinstance(node, ast.FunctionDef):
                 docstring = ast.get_docstring(node, clean=True)
                 if docstring:
