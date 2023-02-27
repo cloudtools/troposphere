@@ -86,7 +86,7 @@ def validate_variables_name(variables):
 
 
 def check_zip_file(zip_file):
-    maxlength = 4096
+    maxlength = 4 * 1024 * 1024  # 4MB
     toolong = (
         "ZipFile length cannot exceed %d characters. For larger "
         "source use S3Bucket/S3Key properties instead. "

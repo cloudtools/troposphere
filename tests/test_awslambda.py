@@ -56,21 +56,20 @@ class TestAWSLambda(unittest.TestCase):
         t.to_json()
 
     def test_check_zip_file(self):
+        four_mb = 4 * 1024 * 1024
         positive_tests = [
-            "a" * 4096,
-            Join("", ["a" * 4096]),
+            "a" * four_mb,
+            Join("", ["a" * four_mb]),
             Join("", ["a", 10]),
-            Join("", ["a" * 4096, Ref("EmptyParameter")]),
-            Join("ab", ["a" * 2047, "a" * 2047]),
+            Join("", ["a" * four_mb, Ref("EmptyParameter")]),
             GetAtt("foo", "bar"),
         ]
         for z in positive_tests:
             check_zip_file(z)
         negative_tests = [
-            "a" * 4097,
-            Join("", ["a" * 4097]),
-            Join("", ["a" * 4097, Ref("EmptyParameter")]),
-            Join("abc", ["a" * 2047, "a" * 2047]),
+            "a" * (four_mb + 1),
+            Join("", ["a" * (four_mb + 1)]),
+            Join("", ["a" * (four_mb + 1), Ref("EmptyParameter")]),
         ]
         for z in negative_tests:
             with self.assertRaises(ValueError):
