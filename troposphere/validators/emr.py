@@ -125,7 +125,7 @@ def volume_type_validator(x):
     """
     Property: VolumeSpecification.VolumeType
     """
-    valid_values = ["standard", "io1", "gp2"]
+    valid_values = ["gp2", "gp3", "io1", "sc1", "st1", "standard"]
     if x not in valid_values:
         raise ValueError("VolumeType must be one of: %s" % ", ".join(valid_values))
     return x
