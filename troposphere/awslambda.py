@@ -158,6 +158,18 @@ class AmazonManagedKafkaEventSourceConfig(AWSProperty):
     }
 
 
+class DocumentDBEventSourceConfig(AWSProperty):
+    """
+    `DocumentDBEventSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-documentdbeventsourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CollectionName": (str, False),
+        "DatabaseName": (str, False),
+        "FullDocument": (str, False),
+    }
+
+
 class Filter(AWSProperty):
     """
     `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-filter.html>`__
@@ -244,6 +256,7 @@ class EventSourceMapping(AWSObject):
         "BatchSize": (integer, False),
         "BisectBatchOnFunctionError": (boolean, False),
         "DestinationConfig": (DestinationConfig, False),
+        "DocumentDBEventSourceConfig": (DocumentDBEventSourceConfig, False),
         "Enabled": (boolean, False),
         "EventSourceArn": (str, False),
         "FilterCriteria": (FilterCriteria, False),

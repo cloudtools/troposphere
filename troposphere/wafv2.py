@@ -517,16 +517,6 @@ class ExcludedRule(AWSProperty):
     }
 
 
-class AWSManagedRulesBotControlRuleSet(AWSProperty):
-    """
-    `AWSManagedRulesBotControlRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html>`__
-    """
-
-    props: PropsDictType = {
-        "InspectionLevel": (str, True),
-    }
-
-
 class FieldIdentifier(AWSProperty):
     """
     `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldidentifier.html>`__
@@ -537,12 +527,106 @@ class FieldIdentifier(AWSProperty):
     }
 
 
+class RequestInspection(AWSProperty):
+    """
+    `RequestInspection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html>`__
+    """
+
+    props: PropsDictType = {
+        "PasswordField": (FieldIdentifier, True),
+        "PayloadType": (str, True),
+        "UsernameField": (FieldIdentifier, True),
+    }
+
+
+class ResponseInspectionBodyContains(AWSProperty):
+    """
+    `ResponseInspectionBodyContains <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionbodycontains.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureStrings": ([str], True),
+        "SuccessStrings": ([str], True),
+    }
+
+
+class ResponseInspectionHeader(AWSProperty):
+    """
+    `ResponseInspectionHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionheader.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureValues": ([str], True),
+        "Name": (str, True),
+        "SuccessValues": ([str], True),
+    }
+
+
+class ResponseInspectionJson(AWSProperty):
+    """
+    `ResponseInspectionJson <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionjson.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureValues": ([str], True),
+        "Identifier": (str, True),
+        "SuccessValues": ([str], True),
+    }
+
+
+class ResponseInspectionStatusCode(AWSProperty):
+    """
+    `ResponseInspectionStatusCode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspectionstatuscode.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureCodes": ([integer], True),
+        "SuccessCodes": ([integer], True),
+    }
+
+
+class ResponseInspection(AWSProperty):
+    """
+    `ResponseInspection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-responseinspection.html>`__
+    """
+
+    props: PropsDictType = {
+        "BodyContains": (ResponseInspectionBodyContains, False),
+        "Header": (ResponseInspectionHeader, False),
+        "Json": (ResponseInspectionJson, False),
+        "StatusCode": (ResponseInspectionStatusCode, False),
+    }
+
+
+class AWSManagedRulesATPRuleSet(AWSProperty):
+    """
+    `AWSManagedRulesATPRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html>`__
+    """
+
+    props: PropsDictType = {
+        "LoginPath": (str, True),
+        "RequestInspection": (RequestInspection, False),
+        "ResponseInspection": (ResponseInspection, False),
+    }
+
+
+class AWSManagedRulesBotControlRuleSet(AWSProperty):
+    """
+    `AWSManagedRulesBotControlRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesbotcontrolruleset.html>`__
+    """
+
+    props: PropsDictType = {
+        "InspectionLevel": (str, True),
+    }
+
+
 class ManagedRuleGroupConfig(AWSProperty):
     """
     `ManagedRuleGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-managedrulegroupconfig.html>`__
     """
 
     props: PropsDictType = {
+        "AWSManagedRulesATPRuleSet": (AWSManagedRulesATPRuleSet, False),
         "AWSManagedRulesBotControlRuleSet": (AWSManagedRulesBotControlRuleSet, False),
         "LoginPath": (str, False),
         "PasswordField": (FieldIdentifier, False),

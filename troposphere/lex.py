@@ -17,6 +17,7 @@ class CustomVocabularyItem(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DisplayAs": (str, False),
         "Phrase": (str, True),
         "Weight": (integer, False),
     }

@@ -310,6 +310,7 @@ class Deployment(AWSObject):
         "DeploymentName": (str, False),
         "DeploymentPolicies": (DeploymentPolicies, False),
         "IotJobConfiguration": (DeploymentIoTJobConfiguration, False),
+        "ParentTargetArn": (str, False),
         "Tags": (dict, False),
         "TargetArn": (str, True),
     }
