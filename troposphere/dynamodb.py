@@ -350,6 +350,7 @@ class Table(AWSObject):
         "AttributeDefinitions": ([AttributeDefinition], False),
         "BillingMode": (billing_mode_validator, False),
         "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
+        "DeletionProtectionEnabled": (boolean, False),
         "GlobalSecondaryIndexes": ([GlobalSecondaryIndex], False),
         "ImportSourceSpecification": (ImportSourceSpecification, False),
         "KeySchema": ([KeySchema], True),

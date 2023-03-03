@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class EgressEndpoint(AWSProperty):
+    """
+    `EgressEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "PackagingConfigurationId": (str, True),
+        "Url": (str, True),
+    }
+
+
 class Asset(AWSObject):
     """
     `Asset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackage-asset.html>`__
@@ -18,6 +29,7 @@ class Asset(AWSObject):
     resource_type = "AWS::MediaPackage::Asset"
 
     props: PropsDictType = {
+        "EgressEndpoints": ([EgressEndpoint], False),
         "Id": (str, True),
         "PackagingGroupId": (str, True),
         "ResourceId": (str, False),
@@ -462,15 +474,4 @@ class PackagingGroup(AWSObject):
         "EgressAccessLogs": (LogConfiguration, False),
         "Id": (str, True),
         "Tags": (Tags, False),
-    }
-
-
-class EgressEndpoint(AWSProperty):
-    """
-    `EgressEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-asset-egressendpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "PackagingConfigurationId": (str, True),
-        "Url": (str, True),
     }

@@ -301,6 +301,7 @@ class User(AWSObject):
         "Engine": (str, True),
         "NoPasswordRequired": (boolean, False),
         "Passwords": ([str], False),
+        "Tags": (Tags, False),
         "UserId": (str, True),
         "UserName": (str, True),
     }
@@ -315,6 +316,7 @@ class UserGroup(AWSObject):
 
     props: PropsDictType = {
         "Engine": (str, True),
+        "Tags": (Tags, False),
         "UserGroupId": (str, True),
-        "UserIds": ([str], False),
+        "UserIds": ([str], True),
     }

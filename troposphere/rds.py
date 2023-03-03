@@ -339,6 +339,7 @@ class DBProxyEndpoint(AWSObject):
         "DBProxyEndpointName": (str, True),
         "DBProxyName": (str, True),
         "Tags": (Tags, False),
+        "TargetRole": (str, False),
         "VpcSecurityGroupIds": ([str], False),
         "VpcSubnetIds": ([str], True),
     }
