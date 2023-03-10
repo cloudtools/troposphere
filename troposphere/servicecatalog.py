@@ -37,6 +37,40 @@ class ProvisioningArtifactProperties(AWSProperty):
     }
 
 
+class CodeStarParameters(AWSProperty):
+    """
+    `CodeStarParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-codestarparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ArtifactPath": (str, True),
+        "Branch": (str, True),
+        "ConnectionArn": (str, True),
+        "Repository": (str, True),
+    }
+
+
+class ConnectionParameters(AWSProperty):
+    """
+    `ConnectionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection-connectionparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeStar": (CodeStarParameters, False),
+    }
+
+
+class SourceConnection(AWSProperty):
+    """
+    `SourceConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-servicecatalog-cloudformationproduct-sourceconnection.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionParameters": (ConnectionParameters, True),
+        "Type": (str, True),
+    }
+
+
 class CloudFormationProduct(AWSObject):
     """
     `CloudFormationProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-servicecatalog-cloudformationproduct.html>`__
@@ -50,8 +84,9 @@ class CloudFormationProduct(AWSObject):
         "Distributor": (str, False),
         "Name": (str, True),
         "Owner": (str, True),
-        "ProvisioningArtifactParameters": ([ProvisioningArtifactProperties], True),
+        "ProvisioningArtifactParameters": ([ProvisioningArtifactProperties], False),
         "ReplaceProvisioningArtifacts": (boolean, False),
+        "SourceConnection": (SourceConnection, False),
         "SupportDescription": (str, False),
         "SupportEmail": (str, False),
         "SupportUrl": (str, False),

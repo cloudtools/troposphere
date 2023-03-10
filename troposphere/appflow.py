@@ -486,6 +486,7 @@ class SalesforceConnectorProfileProperties(AWSProperty):
     props: PropsDictType = {
         "InstanceUrl": (str, False),
         "isSandboxEnvironment": (boolean, False),
+        "usePrivateLinkForMetadataAndAuthorization": (boolean, False),
     }
 
 
@@ -1173,6 +1174,7 @@ class TriggerConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ActivateFlowOnCreate": (boolean, False),
         "TriggerProperties": (ScheduledTriggerProperties, False),
         "TriggerType": (str, True),
     }

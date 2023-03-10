@@ -199,6 +199,7 @@ class ReplicaSpecification(AWSProperty):
 
     props: PropsDictType = {
         "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
+        "DeletionProtectionEnabled": (boolean, False),
         "GlobalSecondaryIndexes": ([ReplicaGlobalSecondaryIndexSpecification], False),
         "KinesisStreamSpecification": (KinesisStreamSpecification, False),
         "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),

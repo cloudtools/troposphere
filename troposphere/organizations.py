@@ -48,7 +48,7 @@ class Policy(AWSObject):
     resource_type = "AWS::Organizations::Policy"
 
     props: PropsDictType = {
-        "Content": (str, True),
+        "Content": (dict, True),
         "Description": (str, False),
         "Name": (str, True),
         "Tags": (Tags, False),
