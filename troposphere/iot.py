@@ -334,6 +334,17 @@ class JobExecutionsRolloutConfig(AWSProperty):
     }
 
 
+class MaintenanceWindow(AWSProperty):
+    """
+    `MaintenanceWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-maintenancewindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationInMinutes": (integer, False),
+        "StartTime": (str, False),
+    }
+
+
 class PresignedUrlConfig(AWSProperty):
     """
     `PresignedUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-jobtemplate-presignedurlconfig.html>`__
@@ -371,6 +382,7 @@ class JobTemplate(AWSObject):
         "JobExecutionsRetryConfig": (JobExecutionsRetryConfig, False),
         "JobExecutionsRolloutConfig": (validate_json_checker, False),
         "JobTemplateId": (str, True),
+        "MaintenanceWindows": ([MaintenanceWindow], False),
         "PresignedUrlConfig": (PresignedUrlConfig, False),
         "Tags": (Tags, False),
         "TimeoutConfig": (validate_json_checker, False),
