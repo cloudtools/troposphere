@@ -1,3 +1,21 @@
+4.3.1 (2023*03*10)
+-------------------------------
+* Updates from spec version 109.0.0 (#2120)
+* Updates from spec version 112.0.0 (#2121)
+* Add many missing EC2, RDS and Elasticache instance type constants. (#2124)
+* Run spec checks in their own GitHub Actions job (#2127)
+* Fix valid values used by validators (#2125)
+* Mark constants as final (#2126)
+* Updates from spec version 113.0.0 (#2129)
+* Fix black formatting
+* Fix generating constants based on recent use of typing.Final
+* Add gp3 as valid RDS StorageType (Fixes #2123)
+* Change Lambda ZipFile limit from 4096 to 4MB (Fixes #2119)
+* Allow gp3, st1, sc1 for EMR volume type (Fixes #2113)
+* Updates from spec version 114.0.0 (#2130)
+* Fixup for a new 114.0.0 spec - remove AppIntegrations patch
+* Updates from spec version 115.0.0 (#2131)
+
 4.3.0 (2023*01*28)
 -------------------------------
 * Patch GameLift::Fleet to add type for AnywhereConfiguration
