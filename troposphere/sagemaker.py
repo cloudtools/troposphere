@@ -665,7 +665,7 @@ class AsyncInferenceConfig(AWSProperty):
 
 class CaptureContentTypeHeader(AWSProperty):
     """
-    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-datacaptureconfig-capturecontenttypeheader.html>`__
+    `CaptureContentTypeHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-capturecontenttypeheader.html>`__
     """
 
     props: PropsDictType = {
@@ -941,6 +941,109 @@ class ImageVersion(AWSObject):
     props: PropsDictType = {
         "BaseImage": (str, True),
         "ImageName": (str, True),
+    }
+
+
+class DataStorageConfig(AWSProperty):
+    """
+    `DataStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContentType": (CaptureContentTypeHeader, False),
+        "Destination": (str, True),
+        "KmsKey": (str, False),
+    }
+
+
+class InferenceExperimentSchedule(AWSProperty):
+    """
+    `InferenceExperimentSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-inferenceexperimentschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndTime": (str, False),
+        "StartTime": (str, False),
+    }
+
+
+class RealTimeInferenceConfig(AWSProperty):
+    """
+    `RealTimeInferenceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-realtimeinferenceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, True),
+        "InstanceType": (str, True),
+    }
+
+
+class ModelInfrastructureConfig(AWSProperty):
+    """
+    `ModelInfrastructureConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelinfrastructureconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfrastructureType": (str, True),
+        "RealTimeInferenceConfig": (RealTimeInferenceConfig, True),
+    }
+
+
+class ModelVariantConfig(AWSProperty):
+    """
+    `ModelVariantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-modelvariantconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfrastructureConfig": (ModelInfrastructureConfig, True),
+        "ModelName": (str, True),
+        "VariantName": (str, True),
+    }
+
+
+class ShadowModelVariantConfig(AWSProperty):
+    """
+    `ShadowModelVariantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodelvariantconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SamplingPercentage": (integer, True),
+        "ShadowModelVariantName": (str, True),
+    }
+
+
+class ShadowModeConfig(AWSProperty):
+    """
+    `ShadowModeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-shadowmodeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ShadowModelVariants": ([ShadowModelVariantConfig], True),
+        "SourceModelVariantName": (str, True),
+    }
+
+
+class InferenceExperiment(AWSObject):
+    """
+    `InferenceExperiment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferenceexperiment.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::InferenceExperiment"
+
+    props: PropsDictType = {
+        "DataStorageConfig": (DataStorageConfig, False),
+        "Description": (str, False),
+        "DesiredState": (str, False),
+        "EndpointName": (str, True),
+        "KmsKey": (str, False),
+        "ModelVariants": ([ModelVariantConfig], True),
+        "Name": (str, True),
+        "RoleArn": (str, True),
+        "Schedule": (InferenceExperimentSchedule, False),
+        "ShadowModeConfig": (ShadowModeConfig, False),
+        "StatusReason": (str, False),
+        "Tags": (Tags, False),
+        "Type": (str, True),
     }
 
 
@@ -2289,6 +2392,18 @@ class Workteam(AWSObject):
         "Tags": (Tags, False),
         "WorkforceName": (str, False),
         "WorkteamName": (str, False),
+    }
+
+
+class EndpointMetadata(AWSProperty):
+    """
+    `EndpointMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-endpointmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndpointConfigName": (str, False),
+        "EndpointName": (str, True),
+        "EndpointStatus": (str, False),
     }
 
 

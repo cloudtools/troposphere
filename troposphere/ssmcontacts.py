@@ -64,7 +64,7 @@ class Contact(AWSObject):
     props: PropsDictType = {
         "Alias": (str, True),
         "DisplayName": (str, True),
-        "Plan": ([Stage], True),
+        "Plan": ([Stage], False),
         "Type": (str, True),
     }
 

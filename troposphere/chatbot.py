@@ -11,6 +11,26 @@ from .validators import boolean
 from .validators.chatbot import validate_logginglevel
 
 
+class MicrosoftTeamsChannelConfiguration(AWSObject):
+    """
+    `MicrosoftTeamsChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-microsoftteamschannelconfiguration.html>`__
+    """
+
+    resource_type = "AWS::Chatbot::MicrosoftTeamsChannelConfiguration"
+
+    props: PropsDictType = {
+        "ConfigurationName": (str, True),
+        "GuardrailPolicies": ([str], False),
+        "IamRoleArn": (str, True),
+        "LoggingLevel": (str, False),
+        "SnsTopicArns": ([str], False),
+        "TeamId": (str, True),
+        "TeamsChannelId": (str, True),
+        "TeamsTenantId": (str, True),
+        "UserRoleRequired": (boolean, False),
+    }
+
+
 class SlackChannelConfiguration(AWSObject):
     """
     `SlackChannelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-chatbot-slackchannelconfiguration.html>`__

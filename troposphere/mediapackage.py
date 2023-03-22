@@ -105,10 +105,7 @@ class EncryptionContractConfiguration(AWSProperty):
     `EncryptionContractConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackage-packagingconfiguration-encryptioncontractconfiguration.html>`__
     """
 
-    props: PropsDictType = {
-        "PresetSpeke20Audio": (str, True),
-        "PresetSpeke20Video": (str, True),
-    }
+    props: PropsDictType = {}
 
 
 class OriginEndpointSpekeKeyProvider(AWSProperty):

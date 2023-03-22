@@ -19,6 +19,7 @@ class MetricDefinition(AWSProperty):
         "DimensionKeys": (dict, False),
         "EventPattern": (str, False),
         "Name": (str, True),
+        "Namespace": (str, False),
         "UnitLabel": (str, False),
         "ValueKey": (str, False),
     }

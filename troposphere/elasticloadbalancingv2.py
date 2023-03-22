@@ -328,7 +328,7 @@ class ListenerRule(AWSObject):
     props: PropsDictType = {
         "Actions": ([ListenerRuleAction], True),
         "Conditions": ([Condition], True),
-        "ListenerArn": (str, True),
+        "ListenerArn": (str, False),
         "Priority": (integer, True),
     }
 

@@ -91,6 +91,7 @@ class Table(AWSObject):
 
     props: PropsDictType = {
         "BillingMode": (BillingMode, False),
+        "ClientSideTimestampsEnabled": (boolean, False),
         "ClusteringKeyColumns": ([ClusteringKeyColumn], False),
         "DefaultTimeToLive": (integer, False),
         "EncryptionSpecification": (EncryptionSpecification, False),

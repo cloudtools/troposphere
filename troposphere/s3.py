@@ -775,6 +775,7 @@ class Region(AWSProperty):
 
     props: PropsDictType = {
         "Bucket": (str, True),
+        "BucketAccountId": (str, False),
     }
 
 
