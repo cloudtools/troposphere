@@ -1,3 +1,7 @@
+4.3.2 (2023*03*10)
+-------------------------------
+* Include the troposphere/type_defs package in the build
+
 4.3.1 (2023*03*10)
 -------------------------------
 * Updates from spec version 109.0.0 (#2120)
