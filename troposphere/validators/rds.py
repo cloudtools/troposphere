@@ -262,6 +262,49 @@ def validate_capacity(capacity):
     return capacity
 
 
+def validate_v2_capacity(capacity):
+    """
+    Validate ServerlessV2ScalingConfiguration capacity for serverless DBCluster
+    Property: ServerlessV2ScalingConfiguration.MinCapacity
+    """
+    if capacity < 0.5:
+        raise ValueError(
+            "ServerlessV2ScalingConfiguration capacity {} cannot be smaller than 0.5.".format(
+                capacity
+            )
+        )
+    if capacity > 128:
+        raise ValueError(
+            "ServerlessV2ScalingConfiguration capacity {} cannot be larger than 128.".format(
+                capacity
+            )
+        )
+
+    if capacity * 10 % 5 != 0:
+        raise ValueError(
+            "ServerlessV2ScalingConfiguration capacity {} cannot be only specific in half-step increments.".format(
+                capacity
+            )
+        )
+
+    return capacity
+
+
+def validate_v2_max_capacity(capacity):
+    """
+    Validate ServerlessV2ScalingConfiguration max capacity for serverless DBCluster
+    Property: ServerlessV2ScalingConfiguration.MaxCapacity
+    """
+    if capacity < 1:
+        raise ValueError(
+            "ServerlessV2ScalingConfiguration max capacity {} cannot be smaller than 1.".format(
+                capacity
+            )
+        )
+
+    return validate_v2_capacity(capacity)
+
+
 def validate_dbinstance(self) -> None:
     """
     Class: DBInstance
