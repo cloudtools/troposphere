@@ -58,6 +58,16 @@ class PreparedStatement(AWSObject):
     }
 
 
+class CustomerContentEncryptionConfiguration(AWSProperty):
+    """
+    `CustomerContentEncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-customercontentencryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKey": (str, True),
+    }
+
+
 class EngineVersion(AWSProperty):
     """
     `EngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-engineversion.html>`__
@@ -66,6 +76,16 @@ class EngineVersion(AWSProperty):
     props: PropsDictType = {
         "EffectiveEngineVersion": (str, False),
         "SelectedEngineVersion": (str, False),
+    }
+
+
+class AclConfiguration(AWSProperty):
+    """
+    `AclConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-workgroup-aclconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3AclOption": (str, True),
     }
 
 
@@ -86,7 +106,9 @@ class ResultConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AclConfiguration": (AclConfiguration, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),
+        "ExpectedBucketOwner": (str, False),
         "OutputLocation": (str, False),
     }
 
@@ -97,9 +119,15 @@ class WorkGroupConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdditionalConfiguration": (str, False),
         "BytesScannedCutoffPerQuery": (integer, False),
+        "CustomerContentEncryptionConfiguration": (
+            CustomerContentEncryptionConfiguration,
+            False,
+        ),
         "EnforceWorkGroupConfiguration": (boolean, False),
         "EngineVersion": (EngineVersion, False),
+        "ExecutionRole": (str, False),
         "PublishCloudWatchMetricsEnabled": (boolean, False),
         "RequesterPaysEnabled": (boolean, False),
         "ResultConfiguration": (ResultConfiguration, False),
