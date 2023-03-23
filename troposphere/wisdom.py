@@ -77,7 +77,7 @@ class AppIntegrationsConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AppIntegrationArn": (str, True),
-        "ObjectFields": ([str], True),
+        "ObjectFields": ([str], False),
     }
 
 

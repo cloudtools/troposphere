@@ -75,6 +75,29 @@ class CFNDataSourceConfigurations(AWSProperty):
     }
 
 
+class FeatureAdditionalConfiguration(AWSProperty):
+    """
+    `FeatureAdditionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Status": (str, False),
+    }
+
+
+class FeatureConfigurations(AWSProperty):
+    """
+    `FeatureConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalConfiguration": ([FeatureAdditionalConfiguration], False),
+        "Name": (str, False),
+        "Status": (str, False),
+    }
+
+
 class Detector(AWSObject):
     """
     `Detector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-detector.html>`__
@@ -85,6 +108,7 @@ class Detector(AWSObject):
     props: PropsDictType = {
         "DataSources": (CFNDataSourceConfigurations, False),
         "Enable": (boolean, True),
+        "Features": ([FeatureConfigurations], False),
         "FindingPublishingFrequency": (str, False),
         "Tags": (Tags, False),
     }

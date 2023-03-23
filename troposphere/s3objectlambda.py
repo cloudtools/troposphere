@@ -81,6 +81,17 @@ class AccessPointPolicy(AWSObject):
     }
 
 
+class Alias(AWSProperty):
+    """
+    `Alias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-alias.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+        "Value": (str, False),
+    }
+
+
 class PolicyStatus(AWSProperty):
     """
     `PolicyStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-policystatus.html>`__

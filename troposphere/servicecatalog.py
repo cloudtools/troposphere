@@ -34,6 +34,7 @@ class ProvisioningArtifactProperties(AWSProperty):
         "DisableTemplateValidation": (boolean, False),
         "Info": (dict, True),
         "Name": (str, False),
+        "Type": (str, False),
     }
 
 
@@ -84,6 +85,7 @@ class CloudFormationProduct(AWSObject):
         "Distributor": (str, False),
         "Name": (str, True),
         "Owner": (str, True),
+        "ProductType": (str, False),
         "ProvisioningArtifactParameters": ([ProvisioningArtifactProperties], False),
         "ReplaceProvisioningArtifacts": (boolean, False),
         "SourceConnection": (SourceConnection, False),
