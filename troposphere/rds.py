@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double, integer
+from .validators import boolean, integer
 from .validators.rds import (
     validate_backtrack_window,
     validate_backup_retention_period,
@@ -21,6 +21,8 @@ from .validators.rds import (
     validate_network_port,
     validate_str_or_int,
     validate_tags_or_list,
+    validate_v2_capacity,
+    validate_v2_max_capacity,
 )
 
 
@@ -67,8 +69,8 @@ class ServerlessV2ScalingConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "MaxCapacity": (double, False),
-        "MinCapacity": (double, False),
+        "MaxCapacity": (validate_v2_max_capacity, False),
+        "MinCapacity": (validate_v2_capacity, False),
     }
 
 

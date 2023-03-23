@@ -341,3 +341,16 @@ class TestRDSValidators(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             vrds.validate_capacity(100001)
+
+    def test_v2_validate_capacity(self):
+        vrds.validate_v2_capacity(64)
+        vrds.validate_v2_capacity(0.5)
+
+        with self.assertRaises(ValueError):
+            vrds.validate_v2_capacity(129)
+
+        with self.assertRaises(ValueError):
+            vrds.validate_v2_capacity(1.1)
+
+        with self.assertRaises(ValueError):
+            vrds.validate_v2_max_capacity(0.5)
