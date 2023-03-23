@@ -167,6 +167,38 @@ class NodeToNodeEncryptionOptions(AWSProperty):
     }
 
 
+class WindowStartTime(AWSProperty):
+    """
+    `WindowStartTime <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-windowstarttime.html>`__
+    """
+
+    props: PropsDictType = {
+        "Hours": (integer, True),
+        "Minutes": (integer, True),
+    }
+
+
+class OffPeakWindow(AWSProperty):
+    """
+    `OffPeakWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "WindowStartTime": (WindowStartTime, False),
+    }
+
+
+class OffPeakWindowOptions(AWSProperty):
+    """
+    `OffPeakWindowOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-offpeakwindowoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "OffPeakWindow": (OffPeakWindow, False),
+    }
+
+
 class SnapshotOptions(AWSProperty):
     """
     `SnapshotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-snapshotoptions.html>`__
@@ -174,6 +206,16 @@ class SnapshotOptions(AWSProperty):
 
     props: PropsDictType = {
         "AutomatedSnapshotStartHour": (integer, False),
+    }
+
+
+class SoftwareUpdateOptions(AWSProperty):
+    """
+    `SoftwareUpdateOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-softwareupdateoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoSoftwareUpdateEnabled": (boolean, False),
     }
 
 
@@ -208,7 +250,9 @@ class Domain(AWSObject):
         "EngineVersion": (validate_search_service_engine_version, False),
         "LogPublishingOptions": (dict, False),
         "NodeToNodeEncryptionOptions": (NodeToNodeEncryptionOptions, False),
+        "OffPeakWindowOptions": (OffPeakWindowOptions, False),
         "SnapshotOptions": (SnapshotOptions, False),
+        "SoftwareUpdateOptions": (SoftwareUpdateOptions, False),
         "Tags": (Tags, False),
         "VPCOptions": (VPCOptions, False),
     }

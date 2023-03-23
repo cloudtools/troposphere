@@ -30,11 +30,11 @@ class Application(AWSObject):
 
     props: PropsDictType = {
         "ApiGatewayProxy": (ApiGatewayProxyInput, False),
-        "EnvironmentIdentifier": (str, False),
-        "Name": (str, False),
-        "ProxyType": (str, False),
+        "EnvironmentIdentifier": (str, True),
+        "Name": (str, True),
+        "ProxyType": (str, True),
         "Tags": (Tags, False),
-        "VpcId": (str, False),
+        "VpcId": (str, True),
     }
 
 
@@ -47,8 +47,8 @@ class Environment(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "Name": (str, False),
-        "NetworkFabricType": (str, False),
+        "Name": (str, True),
+        "NetworkFabricType": (str, True),
         "Tags": (Tags, False),
     }
 
@@ -87,7 +87,7 @@ class Route(AWSObject):
         "ApplicationIdentifier": (str, True),
         "DefaultRoute": (DefaultRouteInput, False),
         "EnvironmentIdentifier": (str, True),
-        "RouteType": (str, False),
+        "RouteType": (str, True),
         "ServiceIdentifier": (str, True),
         "Tags": (Tags, False),
         "UriPathRoute": (UriPathRouteInput, False),
@@ -125,10 +125,10 @@ class Service(AWSObject):
     props: PropsDictType = {
         "ApplicationIdentifier": (str, True),
         "Description": (str, False),
-        "EndpointType": (str, False),
+        "EndpointType": (str, True),
         "EnvironmentIdentifier": (str, True),
         "LambdaEndpoint": (LambdaEndpointInput, False),
-        "Name": (str, False),
+        "Name": (str, True),
         "Tags": (Tags, False),
         "UrlEndpoint": (UrlEndpointInput, False),
         "VpcId": (str, False),
