@@ -385,7 +385,10 @@ def validate_dbinstance(self) -> None:
 
     allocated_storage = self.properties.get("AllocatedStorage")
     iops = self.properties.get("Iops", None)
-    if iops and not isinstance(iops, AWSHelperFn):
+    if (
+        iops and not isinstance(iops, AWSHelperFn)
+        and storage_type not in ["gp3"]
+    ):
         min_storage_size = 100
         engine = self.properties.get("Engine")
         if not isinstance(engine, AWSHelperFn) and engine.startswith("sqlserver"):
