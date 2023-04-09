@@ -68,17 +68,17 @@ class SamplingRuleProperty(AWSProperty):
 
     props: PropsDictType = {
         "Attributes": (dict, False),
-        "FixedRate": (double, False),
-        "HTTPMethod": (str, False),
-        "Host": (str, False),
-        "Priority": (integer, False),
-        "ReservoirSize": (integer, False),
-        "ResourceARN": (str, False),
+        "FixedRate": (double, True),
+        "HTTPMethod": (str, True),
+        "Host": (str, True),
+        "Priority": (integer, True),
+        "ReservoirSize": (integer, True),
+        "ResourceARN": (str, True),
         "RuleARN": (str, False),
         "RuleName": (str, False),
-        "ServiceName": (str, False),
-        "ServiceType": (str, False),
-        "URLPath": (str, False),
+        "ServiceName": (str, True),
+        "ServiceType": (str, True),
+        "URLPath": (str, True),
         "Version": (integer, False),
     }
 

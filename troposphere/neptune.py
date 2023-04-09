@@ -40,7 +40,6 @@ class DBCluster(AWSObject):
         "EngineVersion": (str, False),
         "IamAuthEnabled": (boolean, False),
         "KmsKeyId": (str, False),
-        "Port": (integer, False),
         "PreferredBackupWindow": (str, False),
         "PreferredMaintenanceWindow": (str, False),
         "RestoreToTime": (str, False),
