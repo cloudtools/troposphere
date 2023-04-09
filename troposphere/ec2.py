@@ -706,6 +706,7 @@ class Host(AWSObject):
     props: PropsDictType = {
         "AutoPlacement": (str, False),
         "AvailabilityZone": (str, True),
+        "HostMaintenance": (str, False),
         "HostRecovery": (str, False),
         "InstanceFamily": (str, False),
         "InstanceType": (str, False),

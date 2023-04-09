@@ -195,6 +195,64 @@ class SocketAddress(AWSProperty):
     }
 
 
+class ConnectionDetails(AWSProperty):
+    """
+    `ConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-connectiondetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mtu": (integer, False),
+        "SocketAddress": (SocketAddress, False),
+    }
+
+
+class IntegerRange(AWSProperty):
+    """
+    `IntegerRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-integerrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "Maximum": (integer, False),
+        "Minimum": (integer, False),
+    }
+
+
+class RangedSocketAddress(AWSProperty):
+    """
+    `RangedSocketAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedsocketaddress.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "PortRange": (IntegerRange, False),
+    }
+
+
+class RangedConnectionDetails(AWSProperty):
+    """
+    `RangedConnectionDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-rangedconnectiondetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mtu": (integer, False),
+        "SocketAddress": (RangedSocketAddress, False),
+    }
+
+
+class AwsGroundStationAgentEndpoint(AWSProperty):
+    """
+    `AwsGroundStationAgentEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-awsgroundstationagentendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentStatus": (str, False),
+        "AuditResults": (str, False),
+        "EgressAddress": (ConnectionDetails, False),
+        "IngressAddress": (RangedConnectionDetails, False),
+        "Name": (str, False),
+    }
+
+
 class DataflowEndpoint(AWSProperty):
     """
     `DataflowEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-dataflowendpointgroup-dataflowendpoint.html>`__
@@ -225,6 +283,7 @@ class EndpointDetails(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AwsGroundStationAgentEndpoint": (AwsGroundStationAgentEndpoint, False),
         "Endpoint": (DataflowEndpoint, False),
         "SecurityDetails": (SecurityDetails, False),
     }
@@ -256,6 +315,17 @@ class DataflowEdge(AWSProperty):
     }
 
 
+class StreamsKmsKey(AWSProperty):
+    """
+    `StreamsKmsKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-groundstation-missionprofile-streamskmskey.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsAliasArn": (str, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
 class MissionProfile(AWSObject):
     """
     `MissionProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-groundstation-missionprofile.html>`__
@@ -269,6 +339,8 @@ class MissionProfile(AWSObject):
         "DataflowEdges": ([DataflowEdge], True),
         "MinimumViableContactDurationSeconds": (integer, True),
         "Name": (str, True),
+        "StreamsKmsKey": (StreamsKmsKey, False),
+        "StreamsKmsRole": (str, False),
         "Tags": (Tags, False),
         "TrackingConfigArn": (str, True),
     }

@@ -420,6 +420,33 @@ class WirelessDevice(AWSObject):
     }
 
 
+class Sidewalk(AWSProperty):
+    """
+    `Sidewalk <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdeviceimporttask-sidewalk.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeviceCreationFile": (str, False),
+        "DeviceCreationFileList": ([str], False),
+        "Role": (str, False),
+        "SidewalkManufacturingSn": (str, False),
+    }
+
+
+class WirelessDeviceImportTask(AWSObject):
+    """
+    `WirelessDeviceImportTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotwireless-wirelessdeviceimporttask.html>`__
+    """
+
+    resource_type = "AWS::IoTWireless::WirelessDeviceImportTask"
+
+    props: PropsDictType = {
+        "DestinationName": (str, True),
+        "Sidewalk": (Sidewalk, True),
+        "Tags": (Tags, False),
+    }
+
+
 class LoRaWANGateway(AWSProperty):
     """
     `LoRaWANGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessgateway-lorawangateway.html>`__

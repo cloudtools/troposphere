@@ -123,6 +123,7 @@ class DBCluster(AWSObject):
         "PreferredMaintenanceWindow": (str, False),
         "PubliclyAccessible": (boolean, False),
         "ReplicationSourceIdentifier": (str, False),
+        "RestoreToTime": (str, False),
         "RestoreType": (str, False),
         "ScalingConfiguration": (ScalingConfiguration, False),
         "ServerlessV2ScalingConfiguration": (ServerlessV2ScalingConfiguration, False),

@@ -80,8 +80,8 @@ class Workspace(AWSObject):
     resource_type = "AWS::Grafana::Workspace"
 
     props: PropsDictType = {
-        "AccountAccessType": (str, False),
-        "AuthenticationProviders": ([str], False),
+        "AccountAccessType": (str, True),
+        "AuthenticationProviders": ([str], True),
         "ClientToken": (str, False),
         "DataSources": ([str], False),
         "Description": (str, False),
@@ -89,7 +89,7 @@ class Workspace(AWSObject):
         "NotificationDestinations": ([str], False),
         "OrganizationRoleName": (str, False),
         "OrganizationalUnits": ([str], False),
-        "PermissionType": (str, False),
+        "PermissionType": (str, True),
         "RoleArn": (str, False),
         "SamlConfiguration": (SamlConfiguration, False),
         "StackSetName": (str, False),
