@@ -100,6 +100,11 @@ def validate_engine(engine):
         "aurora-mysql",
         "aurora-postgresql",
         "mariadb",
+        "custom-oracle-ee",
+        "custom-oracle-ee-cdb",
+        "custom-sqlserver-ee",
+        "custom-sqlserver-se",
+        "custom-sqlserver-web",
     )
 
     if engine not in VALID_DB_ENGINES:
