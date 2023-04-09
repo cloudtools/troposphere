@@ -100,8 +100,6 @@ class Tracker(AWSObject):
         "Description": (str, False),
         "KmsKeyId": (str, False),
         "PositionFiltering": (str, False),
-        "PricingPlan": (str, False),
-        "PricingPlanDataSource": (str, False),
         "TrackerName": (str, True),
     }
 

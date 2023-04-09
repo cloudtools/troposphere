@@ -124,6 +124,16 @@ class Environment(AWSProperty):
     }
 
 
+class EphemeralStorage(AWSProperty):
+    """
+    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-ephemeralstorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "SizeInGiB": (integer, True),
+    }
+
+
 class FargatePlatformConfiguration(AWSProperty):
     """
     `FargatePlatformConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html>`__
@@ -296,6 +306,7 @@ class ContainerProperties(AWSProperty):
     props: PropsDictType = {
         "Command": ([str], False),
         "Environment": ([Environment], False),
+        "EphemeralStorage": (EphemeralStorage, False),
         "ExecutionRoleArn": (str, False),
         "FargatePlatformConfiguration": (FargatePlatformConfiguration, False),
         "Image": (str, True),
@@ -328,6 +339,31 @@ class EksContainerEnvironmentVariable(AWSProperty):
     }
 
 
+class EksContainerResourceRequirements(AWSProperty):
+    """
+    `EksContainerResourceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainerresourcerequirements.html>`__
+    """
+
+    props: PropsDictType = {
+        "Limits": (dict, False),
+        "Requests": (dict, False),
+    }
+
+
+class EksContainerSecurityContext(AWSProperty):
+    """
+    `EksContainerSecurityContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainersecuritycontext.html>`__
+    """
+
+    props: PropsDictType = {
+        "Privileged": (boolean, False),
+        "ReadOnlyRootFilesystem": (boolean, False),
+        "RunAsGroup": (integer, False),
+        "RunAsNonRoot": (boolean, False),
+        "RunAsUser": (integer, False),
+    }
+
+
 class EksContainerVolumeMount(AWSProperty):
     """
     `EksContainerVolumeMount <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainervolumemount.html>`__
@@ -337,31 +373,6 @@ class EksContainerVolumeMount(AWSProperty):
         "MountPath": (str, False),
         "Name": (str, False),
         "ReadOnly": (boolean, False),
-    }
-
-
-class Resources(AWSProperty):
-    """
-    `Resources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer-resources.html>`__
-    """
-
-    props: PropsDictType = {
-        "Limits": (dict, False),
-        "Requests": (dict, False),
-    }
-
-
-class SecurityContext(AWSProperty):
-    """
-    `SecurityContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekscontainer-securitycontext.html>`__
-    """
-
-    props: PropsDictType = {
-        "Privileged": (boolean, False),
-        "ReadOnlyRootFilesystem": (boolean, False),
-        "RunAsGroup": (integer, False),
-        "RunAsNonRoot": (boolean, False),
-        "RunAsUser": (integer, False),
     }
 
 
@@ -377,15 +388,15 @@ class EksContainer(AWSProperty):
         "Image": (str, True),
         "ImagePullPolicy": (str, False),
         "Name": (str, False),
-        "Resources": (Resources, False),
-        "SecurityContext": (SecurityContext, False),
+        "Resources": (EksContainerResourceRequirements, False),
+        "SecurityContext": (EksContainerSecurityContext, False),
         "VolumeMounts": ([EksContainerVolumeMount], False),
     }
 
 
-class EmptyDir(AWSProperty):
+class EksEmptyDir(AWSProperty):
     """
-    `EmptyDir <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume-emptydir.html>`__
+    `EksEmptyDir <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksemptydir.html>`__
     """
 
     props: PropsDictType = {
@@ -394,13 +405,24 @@ class EmptyDir(AWSProperty):
     }
 
 
-class HostPath(AWSProperty):
+class EksHostPath(AWSProperty):
     """
-    `HostPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksvolume-hostpath.html>`__
+    `EksHostPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekshostpath.html>`__
     """
 
     props: PropsDictType = {
         "Path": (str, False),
+    }
+
+
+class EksSecret(AWSProperty):
+    """
+    `EksSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekssecret.html>`__
+    """
+
+    props: PropsDictType = {
+        "Optional": (boolean, False),
+        "SecretName": (str, True),
     }
 
 
@@ -410,10 +432,20 @@ class EksVolume(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EmptyDir": (EmptyDir, False),
-        "HostPath": (HostPath, False),
+        "EmptyDir": (EksEmptyDir, False),
+        "HostPath": (EksHostPath, False),
         "Name": (str, True),
-        "Secret": (Secret, False),
+        "Secret": (EksSecret, False),
+    }
+
+
+class Metadata(AWSProperty):
+    """
+    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties-metadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "Labels": (dict, False),
     }
 
 
@@ -426,6 +458,7 @@ class PodProperties(AWSProperty):
         "Containers": ([EksContainer], False),
         "DnsPolicy": (str, False),
         "HostNetwork": (boolean, False),
+        "Metadata": (Metadata, False),
         "ServiceAccountName": (str, False),
         "Volumes": ([EksVolume], False),
     }

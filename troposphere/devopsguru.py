@@ -9,6 +9,16 @@
 from . import AWSObject, AWSProperty, PropsDictType
 
 
+class LogAnomalyDetectionIntegration(AWSObject):
+    """
+    `LogAnomalyDetectionIntegration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-devopsguru-loganomalydetectionintegration.html>`__
+    """
+
+    resource_type = "AWS::DevOpsGuru::LogAnomalyDetectionIntegration"
+
+    props: PropsDictType = {}
+
+
 class NotificationFilterConfig(AWSProperty):
     """
     `NotificationFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-devopsguru-notificationchannel-notificationfilterconfig.html>`__

@@ -19,9 +19,9 @@ class AccessPolicy(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "Name": (str, False),
-        "Policy": (str, False),
-        "Type": (str, False),
+        "Name": (str, True),
+        "Policy": (str, True),
+        "Type": (str, True),
     }
 
 
@@ -77,9 +77,9 @@ class SecurityPolicy(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "Name": (str, False),
+        "Name": (str, True),
         "Policy": (str, True),
-        "Type": (str, False),
+        "Type": (str, True),
     }
 
 
