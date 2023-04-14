@@ -583,6 +583,16 @@ class DynamoDBEvent(AWSObject):
     }
 
 
+class ApiFunctionAuth(AWSProperty):
+    props: PropsDictType = {
+        "ApiKeyRequired": (bool, False),
+        "AuthorizationScopes": (list, False),
+        "Authorizer": (str, False),
+        "InvokeRole": (str, False),
+        "ResourcePolicy": (ResourcePolicyStatement, False),
+    }
+
+
 class RequestModel(AWSProperty):
     props: PropsDictType = {
         "Model": (str, True),
@@ -596,7 +606,7 @@ class ApiEvent(AWSObject):
     resource_type = "Api"
 
     props: PropsDictType = {
-        "Auth": (Auth, False),
+        "Auth": (ApiFunctionAuth, False),
         "Path": (str, True),
         "Method": (str, True),
         "RequestModel": (RequestModel, False),
