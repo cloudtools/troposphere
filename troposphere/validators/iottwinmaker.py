@@ -12,11 +12,11 @@ def validate_listvalue(values):
     from ..iottwinmaker import DataValue
 
     if not isinstance(values, list):
-        raise TypeError("ListValue must be a list")
+        raise TypeError("ListValue must be a list", list)
 
     for v in values:
         if not isinstance(v, (DataValue, AWSHelperFn)):
-            raise TypeError("ListValue must contain DataValue or AWSHelperFn")
+            raise TypeError("ListValue must contain DataValue or AWSHelperFn", AWSHelperFn, DataValue)
 
 
 def validate_nestedtypel(value):
@@ -27,4 +27,4 @@ def validate_nestedtypel(value):
     from ..iottwinmaker import DataType
 
     if not isinstance(value, (DataType, AWSHelperFn)):
-        raise TypeError("NestedType must be either DataType or AWSHelperFn")
+        raise TypeError("NestedType must be either DataType or AWSHelperFn", AWSHelperFn, DataType)

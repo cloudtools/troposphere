@@ -18,7 +18,7 @@ def validate_statement(statement):
     from ..wafv2 import Statement
 
     if not isinstance(statement, (Statement, AWSHelperFn)):
-        raise TypeError(f"{statement} is not a valid Statement")
+        raise TypeError(f"{statement} is not a valid Statement", Statement)
 
     return statement
 
