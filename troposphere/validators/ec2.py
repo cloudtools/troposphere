@@ -343,3 +343,38 @@ def validate_vpn_connection(self):
         "TransitGatewayId",
     ]
     exactly_one(self.__class__.__name__, self.properties, conds)
+
+
+def validate_placement_strategy(strategy):
+    """
+    Validate PlacementGroup Strategy
+    Property: PlacementGroup.Strategy
+    """
+
+    VALID_PLACEMENT_STRATEGIES = ["cluster", "partition", "spread"]
+
+    if strategy not in VALID_PLACEMENT_STRATEGIES:
+        raise ValueError(
+            "PlacementGroup Strategy must be one of: %s"
+            % ", ".join(VALID_PLACEMENT_STRATEGIES)
+        )
+    return strategy
+
+
+def validate_placement_spread_level(spread_level):
+    """
+    Validate PlacementGroup SpreadLevel
+    Property: PlacementGroup.SpreadLevel
+    """
+
+    VALID_PLACEMENT_SPREAD_LEVEL = [
+        "host",
+        "rack",
+    ]
+
+    if spread_level not in VALID_PLACEMENT_SPREAD_LEVEL:
+        raise ValueError(
+            "PlacementGroup SpreadLevel must be one of: %s"
+            % ", ".join(VALID_PLACEMENT_SPREAD_LEVEL)
+        )
+    return spread_level
