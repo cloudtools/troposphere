@@ -1,6 +1,7 @@
 import unittest
 
 import troposphere.ec2 as ec2
+import troposphere.validators.ec2 as vec2
 
 
 class TestEC2(unittest.TestCase):
@@ -108,3 +109,17 @@ class TestEC2(unittest.TestCase):
         )
         with self.assertRaises(ValueError):
             vpn.to_dict()
+
+    def test_validate_placement_strategy(self):
+        for s in ('cluster', 'spread', 'partition'):
+            vec2.validate_placement_strategy(s)
+
+        with self.assertRaises(ValueError):
+            vec2.validate_placement_strategy('notOk')
+
+    def test_validate_placement_spread_level(self):
+        for s in ('host', 'rack'):
+            vec2.validate_placement_spread_level(s)
+
+        with self.assertRaises(ValueError):
+            vec2.validate_placement_spread_level('notHostOrRack')
