@@ -7,13 +7,14 @@ from . import one_of
 
 Bursting = "bursting"
 Provisioned = "provisioned"
+Elastic = "elastic"
 
 
 def throughput_mode_validator(mode):
     """
     Property: FileSystem.ThroughputMode
     """
-    valid_modes = [Bursting, Provisioned]
+    valid_modes = [Bursting, Provisioned, Elastic]
     if mode not in valid_modes:
         raise ValueError(
             'ThroughputMode must be one of: "%s"' % (", ".join(valid_modes))
