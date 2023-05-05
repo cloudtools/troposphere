@@ -383,10 +383,10 @@ def validate_dbinstance(self) -> None:
     storage_type = self.properties.get("StorageType", None)
     if (
         storage_type
-        and storage_type in ["io1", "gp3"]
+        and storage_type in ["io1"]
         and "Iops" not in self.properties
     ):
-        raise ValueError("Must specify Iops if using StorageType io1 or gp3")
+        raise ValueError("Must specify Iops if using StorageType io1")
 
     allocated_storage = self.properties.get("AllocatedStorage")
     iops = self.properties.get("Iops", None)
