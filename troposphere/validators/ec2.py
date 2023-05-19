@@ -3,6 +3,7 @@
 #
 # See LICENSE file for full license.
 
+import re
 
 from .. import AWSProperty
 from ..compat import validate_policytype
@@ -196,7 +197,7 @@ def vpn_pre_shared_key(key):
     """
     Property: VpnTunnelOptionsSpecification.PreSharedKey
     """
-    pre_shared_key_match_re = compile(r"^(?!0)([A-Za-z0-9]|\_|\.){8,64}$")
+    pre_shared_key_match_re = re.compile(r"^(?!0)([A-Za-z0-9]|\_|\.){8,64}$")
     if not pre_shared_key_match_re.match(key):
         raise ValueError(
             "%s is not a valid key."
@@ -220,7 +221,7 @@ def vpn_tunnel_inside_cidr(cidr):
         "169.254.5.0/30",
         "169.254.169.252/30",
     ]
-    cidr_match_re = compile(
+    cidr_match_re = re.compile(
         r"^169\.254\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)"
         r"\.(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\/30$"
     )
