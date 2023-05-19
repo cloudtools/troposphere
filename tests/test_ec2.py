@@ -108,3 +108,36 @@ class TestEC2(unittest.TestCase):
         )
         with self.assertRaises(ValueError):
             vpn.to_dict()
+
+    def test_vpn_conn_with_correct_props(self):
+        vpn = ec2.VPNConnection(
+            "VPNConnection",
+            StaticRoutesOnly=True,
+            TransitGatewayId="tgw-b2b86767",
+            CustomerGatewayId="cgw-0e11f167",
+            Type="ipsec.1",
+            VpnTunnelOptionsSpecifications=[
+                ec2.VpnTunnelOptionsSpecification(
+                    PreSharedKey="123_23626326236", TunnelInsideCidr="169.254.15.0/30"
+                ),
+                ec2.VpnTunnelOptionsSpecification(
+                    PreSharedKey="asdf_fds12888", TunnelInsideCidr="169.254.16.0/30"
+                ),
+            ],
+        )
+        vpn.to_dict()
+
+    def test_vpn_conn_tunnel_options_specification(self):
+        ec2.VpnTunnelOptionsSpecification(
+            PreSharedKey="12345678", TunnelInsideCidr="169.254.18.0/30"
+        )
+
+        with self.assertRaises(ValueError):
+            ec2.VpnTunnelOptionsSpecification(
+                PreSharedKey="1234567", TunnelInsideCidr="169.254.0.0/30"
+            )
+
+        with self.assertRaises(ValueError):
+            ec2.VpnTunnelOptionsSpecification(
+                PreSharedKey="0SAD_FEA_SDF", TunnelInsideCidr="192.168.16.0/30"
+            )
