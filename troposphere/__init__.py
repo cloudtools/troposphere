@@ -509,11 +509,14 @@ class Base64(AWSHelperFn):
 
 class FindInMap(AWSHelperFn):
     def __init__(
-        self, mapname: object, toplevelkey: object, secondlevelkey: object
+        self, mapname: object, toplevelkey: object, secondlevelkey: object, defaultvalue: Optional[object] = None
     ) -> None:
-        self.data = {
-            "Fn::FindInMap": [self.getdata(mapname), toplevelkey, secondlevelkey]
-        }
+        find_in_map_details = [self.getdata(mapname), toplevelkey, secondlevelkey]
+
+        if defaultvalue is not None:
+            find_in_map_details.append(defaultvalue)
+
+        self.data = {"Fn::FindInMap": find_in_map_details}
 
 
 class GetAtt(AWSHelperFn):
