@@ -15,8 +15,10 @@ from .awslambda import (
     Environment,
     EphemeralStorage,
     FileSystemConfig,
+    FilterCriteria,
     ImageConfig,
     ProvisionedConcurrencyConfiguration,
+    SourceAccessConfiguration,
     VPCConfig,
     validate_memory_size,
     validate_package_type,
@@ -26,6 +28,7 @@ from .s3 import Filter
 from .stepfunctions import LoggingConfiguration, TracingConfiguration
 from .validators import (
     boolean,
+    double,
     exactly_one,
     integer,
     integer_range,
@@ -617,6 +620,51 @@ class ScheduleEvent(AWSObject):
     }
 
 
+class DeadLetterConfig(AWSProperty):
+    props: PropsDictType = {
+        "Arn": (str, False),
+        "QueueLogicalId": (str, False),
+        "Type": (str, False),
+    }
+
+
+class FlexibleTimeWindow(AWSProperty):
+    props: PropsDictType = {
+        "MaximumWindowInMinutes": (double, False),
+        "Mode": (str, True),
+    }
+
+
+class RetryPolicy(AWSProperty):
+    props: PropsDictType = {
+        "MaximumEventAgeInSeconds": (double, False),
+        "MaximumRetryAttempts": (double, False),
+    }
+
+
+class ScheduleV2Event(AWSObject):
+    resource_type = "ScheduleV2"
+
+    props: PropsDictType = {
+        "DeadLetterConfig": (DeadLetterConfig, False),
+        "Description": (str, False),
+        "EndDate": (str, False),
+        "FlexibleTimeWindow": (FlexibleTimeWindow, False),
+        "GroupName": (str, False),
+        "Input": (str, False),
+        "KmsKeyArn": (str, False),
+        "Name": (str, False),
+        "OmitName": (bool, False),
+        "PermissionsBoundary": (str, False),
+        "RetryPolicy": (RetryPolicy, False),
+        "RoleArn": (str, False),
+        "ScheduleExpression": (str, True),
+        "ScheduleExpressionTimezone": (str, False),
+        "StartDate": (str, False),
+        "State": (str, False),
+    }
+
+
 class CloudWatchEvent(AWSObject):
     resource_type = "CloudWatchEvent"
 
@@ -649,6 +697,90 @@ class SQSEvent(AWSObject):
     def validate(self):
         if not 1 <= self.properties["BatchSize"] <= 10:
             raise ValueError("BatchSize must be between 1 and 10")
+
+
+class MSKEvent(AWSObject):
+    resource_type = "MSK"
+
+    props: PropsDictType = {
+        "ConsumerGroupId": (str, False),
+        "FilterCriteria": (FilterCriteria, False),
+        "MaximumBatchingWindowInSeconds": (integer, False),
+        "SourceAccessConfigurations": ([SourceAccessConfiguration], False),
+        "StartingPosition": (str, True),
+        "StartingPositionTimestamp": (double, False),
+        "Stream": (str, True),
+        "Topics": ([str], True),
+    }
+
+
+class SelfManagedKafkaEvent(AWSObject):
+    resource_type = "SelfManagedKafka"
+
+    props: PropsDictType = {
+        "BatchSize": (integer, False),
+        "ConsumerGroupId": (str, False),
+        "Enabled": (bool, False),
+        "FilterCriteria": (FilterCriteria, False),
+        "KafkaBootstrapServers": ([str], False),
+        "SourceAccessConfigurations": ([SourceAccessConfiguration], True),
+        "Topics": ([str], True),
+    }
+
+
+class MQEvent(AWSObject):
+    resource_type = "MQ"
+
+    props: PropsDictType = {
+        "BatchSize": (integer, False),
+        "Broker": (str, True),
+        "DynamicPolicyName": (bool, False),
+        "Enabled": (bool, False),
+        "FilterCriteria": (FilterCriteria, False),
+        "MaximumBatchingWindowInSeconds": (integer, False),
+        "Queues": ([str], True),
+        "SecretsManagerKmsKeyId": (str, False),
+        "SourceAccessConfigurations": ([str], True),
+    }
+
+
+class DocumentDBEvent(AWSObject):
+    resource_type = "DocumentDB"
+
+    props: PropsDictType = {
+        "BatchSize": (integer, False),
+        "Cluster": (str, True),
+        "CollectionName": (str, False),
+        "DatabaseName": (str, True),
+        "Enabled": (bool, False),
+        "FilterCriteria": (FilterCriteria, False),
+        "FullDocument": (str, False),
+        "MaximumBatchingWindowInSeconds": (integer, False),
+        "SecretsManagerKmsKeyId": (str, False),
+        "SourceAccessConfigurations": ([str], True),
+        "StartingPosition": (str, True),
+        "StartingPositionTimestamp": (double, False),
+    }
+
+
+class Target(AWSProperty):
+    props: PropsDictType = {"Id": (str, True)}
+
+
+class EventBridgeRuleEvent(AWSObject):
+    resource_type = "EventBridgeRule"
+
+    props: PropsDictType = {
+        "DeadLetterConfig": (DeadLetterConfig, False),
+        "EventBusName": (str, False),
+        "Input": (str, False),
+        "InputPath": (str, False),
+        "Name": (str, False),
+        "Pattern": (dict, True),
+        "RetryPolicy": (RetryPolicy, False),
+        "State": (str, False),
+        "Target": (Target, False),
+    }
 
 
 class ApplicationLocation(AWSProperty):
