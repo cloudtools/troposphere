@@ -732,12 +732,12 @@ class MQEvent(AWSObject):
     resource_type = "MQ"
 
     props: PropsDictType = {
-        "BatchSize": (int, False),
+        "BatchSize": (integer, False),
         "Broker": (str, True),
         "DynamicPolicyName": (bool, False),
         "Enabled": (bool, False),
         "FilterCriteria": (FilterCriteria, False),
-        "MaximumBatchingWindowInSeconds": (int, False),
+        "MaximumBatchingWindowInSeconds": (integer, False),
         "Queues": ([str], True),
         "SecretsManagerKmsKeyId": (str, False),
         "SourceAccessConfigurations": ([str], True)
@@ -748,14 +748,14 @@ class DocumentDBEvent(AWSObject):
     resource_type = "DocumentDB"
 
     props: PropsDictType = {
-        "BatchSize": (int, False),
+        "BatchSize": (integer, False),
         "Cluster": (str, True),
         "CollectionName": (str, False),
         "DatabaseName": (str, True),
         "Enabled": (bool, False),
         "FilterCriteria": (FilterCriteria, False),
         "FullDocument": (str, False),
-        "MaximumBatchingWindowInSeconds": (int, False),
+        "MaximumBatchingWindowInSeconds": (integer, False),
         "SecretsManagerKmsKeyId": (str, False),
         "SourceAccessConfigurations": ([str], True),
         "StartingPosition": (str, True),
