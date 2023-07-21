@@ -116,7 +116,7 @@ def cloudfront_origin_request_cookie_behavior(cookie_behavior):
     """
     Property: OriginRequestCookiesConfig.CookieBehavior
     """
-    valid_values = ["none", "whitelist", "all"]
+    valid_values = ["none", "whitelist", "all", "allExcept"]
     if cookie_behavior not in valid_values:
         raise ValueError(
             'CookieBehavior must be one of: "%s"' % (", ".join(valid_values))
@@ -128,7 +128,7 @@ def cloudfront_origin_request_header_behavior(header_behavior):
     """
     Property: OriginRequestHeadersConfig.HeaderBehavior
     """
-    valid_values = ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront"]
+    valid_values = ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront", "allExcept"]
     if header_behavior not in valid_values:
         raise ValueError(
             'HeaderBehavior must be one of: "%s"' % (", ".join(valid_values))
@@ -140,7 +140,7 @@ def cloudfront_origin_request_query_string_behavior(query_string_behavior):
     """
     Property: OriginRequestQueryStringsConfig.QueryStringBehavior
     """
-    valid_values = ["none", "whitelist", "all"]
+    valid_values = ["none", "whitelist", "all", "allExcept"]
     if query_string_behavior not in valid_values:
         raise ValueError(
             'QueryStringBehavior must be one of: "%s"' % (", ".join(valid_values))
