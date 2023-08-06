@@ -414,6 +414,7 @@ class JobCommand(AWSProperty):
         "Name": (str, False),
         "PythonVersion": (str, False),
         "ScriptLocation": (str, False),
+        "Runtime": (str, False)
     }
 
 
