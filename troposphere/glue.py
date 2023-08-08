@@ -442,6 +442,7 @@ class JobCommand(AWSProperty):
     props: PropsDictType = {
         "Name": (str, False),
         "PythonVersion": (str, False),
+        "Runtime": (str, False),
         "ScriptLocation": (str, False),
     }
 

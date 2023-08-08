@@ -5791,6 +5791,48 @@ class ColumnLevelPermissionRule(AWSProperty):
     }
 
 
+class LookbackWindow(AWSProperty):
+    """
+    `LookbackWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-lookbackwindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, False),
+        "Size": (double, False),
+        "SizeUnit": (str, False),
+    }
+
+
+class IncrementalRefresh(AWSProperty):
+    """
+    `IncrementalRefresh <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-incrementalrefresh.html>`__
+    """
+
+    props: PropsDictType = {
+        "LookbackWindow": (LookbackWindow, False),
+    }
+
+
+class RefreshConfiguration(AWSProperty):
+    """
+    `RefreshConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncrementalRefresh": (IncrementalRefresh, False),
+    }
+
+
+class DataSetRefreshProperties(AWSProperty):
+    """
+    `DataSetRefreshProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "RefreshConfiguration": (RefreshConfiguration, False),
+    }
+
+
 class DataSetUsageConfiguration(AWSProperty):
     """
     `DataSetUsageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetusageconfiguration.html>`__
@@ -5799,6 +5841,112 @@ class DataSetUsageConfiguration(AWSProperty):
     props: PropsDictType = {
         "DisableUseAsDirectQuerySource": (boolean, False),
         "DisableUseAsImportedSource": (boolean, False),
+    }
+
+
+class DateTimeDatasetParameterDefaultValues(AWSProperty):
+    """
+    `DateTimeDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameterdefaultvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValues": ([str], False),
+    }
+
+
+class DateTimeDatasetParameter(AWSProperty):
+    """
+    `DateTimeDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datetimedatasetparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValues": (DateTimeDatasetParameterDefaultValues, False),
+        "Id": (str, True),
+        "Name": (str, True),
+        "TimeGranularity": (str, False),
+        "ValueType": (str, True),
+    }
+
+
+class DecimalDatasetParameterDefaultValues(AWSProperty):
+    """
+    `DecimalDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameterdefaultvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValues": ([double], False),
+    }
+
+
+class DecimalDatasetParameter(AWSProperty):
+    """
+    `DecimalDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-decimaldatasetparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValues": (DecimalDatasetParameterDefaultValues, False),
+        "Id": (str, True),
+        "Name": (str, True),
+        "ValueType": (str, True),
+    }
+
+
+class IntegerDatasetParameterDefaultValues(AWSProperty):
+    """
+    `IntegerDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameterdefaultvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValues": ([double], False),
+    }
+
+
+class IntegerDatasetParameter(AWSProperty):
+    """
+    `IntegerDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-integerdatasetparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValues": (IntegerDatasetParameterDefaultValues, False),
+        "Id": (str, True),
+        "Name": (str, True),
+        "ValueType": (str, True),
+    }
+
+
+class StringDatasetParameterDefaultValues(AWSProperty):
+    """
+    `StringDatasetParameterDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameterdefaultvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticValues": ([str], False),
+    }
+
+
+class StringDatasetParameter(AWSProperty):
+    """
+    `StringDatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-stringdatasetparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValues": (StringDatasetParameterDefaultValues, False),
+        "Id": (str, True),
+        "Name": (str, True),
+        "ValueType": (str, True),
+    }
+
+
+class DatasetParameter(AWSProperty):
+    """
+    `DatasetParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DateTimeDatasetParameter": (DateTimeDatasetParameter, False),
+        "DecimalDatasetParameter": (DecimalDatasetParameter, False),
+        "IntegerDatasetParameter": (IntegerDatasetParameter, False),
+        "StringDatasetParameter": (StringDatasetParameter, False),
     }
 
 
@@ -5905,6 +6053,31 @@ class FilterOperation(AWSProperty):
     }
 
 
+class NewDefaultValues(AWSProperty):
+    """
+    `NewDefaultValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-newdefaultvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "DateTimeStaticValues": ([str], False),
+        "DecimalStaticValues": ([double], False),
+        "IntegerStaticValues": ([double], False),
+        "StringStaticValues": ([str], False),
+    }
+
+
+class OverrideDatasetParameterOperation(AWSProperty):
+    """
+    `OverrideDatasetParameterOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-overridedatasetparameteroperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "NewDefaultValues": (NewDefaultValues, False),
+        "NewParameterName": (str, False),
+        "ParameterName": (str, True),
+    }
+
+
 class ProjectOperation(AWSProperty):
     """
     `ProjectOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-projectoperation.html>`__
@@ -5967,6 +6140,7 @@ class TransformOperation(AWSProperty):
         "CastColumnTypeOperation": (CastColumnTypeOperation, False),
         "CreateColumnsOperation": (CreateColumnsOperation, False),
         "FilterOperation": (FilterOperation, False),
+        "OverrideDatasetParameterOperation": (OverrideDatasetParameterOperation, False),
         "ProjectOperation": (ProjectOperation, False),
         "RenameColumnOperation": (RenameColumnOperation, False),
         "TagColumnOperation": (TagColumnOperation, False),
@@ -6071,6 +6245,32 @@ class RowLevelPermissionDataSet(AWSProperty):
         "FormatVersion": (str, False),
         "Namespace": (str, False),
         "PermissionPolicy": (str, True),
+        "Status": (str, False),
+    }
+
+
+class RowLevelPermissionTagRule(AWSProperty):
+    """
+    `RowLevelPermissionTagRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "MatchAllValue": (str, False),
+        "TagKey": (str, True),
+        "TagMultiValueDelimiter": (str, False),
+    }
+
+
+class RowLevelPermissionTagConfiguration(AWSProperty):
+    """
+    `RowLevelPermissionTagConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-rowlevelpermissiontagconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+        "TagRuleConfigurations": (dict, False),
+        "TagRules": ([RowLevelPermissionTagRule], True),
     }
 
 
@@ -6086,7 +6286,9 @@ class DataSet(AWSObject):
         "ColumnGroups": ([ColumnGroup], False),
         "ColumnLevelPermissionRules": ([ColumnLevelPermissionRule], False),
         "DataSetId": (str, False),
+        "DataSetRefreshProperties": (DataSetRefreshProperties, False),
         "DataSetUsageConfiguration": (DataSetUsageConfiguration, False),
+        "DatasetParameters": ([DatasetParameter], False),
         "FieldFolders": (dict, False),
         "ImportMode": (str, False),
         "IngestionWaitPolicy": (IngestionWaitPolicy, False),
@@ -6095,6 +6297,10 @@ class DataSet(AWSObject):
         "Permissions": ([ResourcePermission], False),
         "PhysicalTableMap": (dict, False),
         "RowLevelPermissionDataSet": (RowLevelPermissionDataSet, False),
+        "RowLevelPermissionTagConfiguration": (
+            RowLevelPermissionTagConfiguration,
+            False,
+        ),
         "Tags": (Tags, False),
     }
 
@@ -6125,6 +6331,7 @@ class AthenaParameters(AWSProperty):
     """
 
     props: PropsDictType = {
+        "RoleArn": (str, False),
         "WorkGroup": (str, False),
     }
 
@@ -6267,6 +6474,7 @@ class S3Parameters(AWSProperty):
 
     props: PropsDictType = {
         "ManifestFileLocation": (ManifestFileLocation, True),
+        "RoleArn": (str, False),
     }
 
 

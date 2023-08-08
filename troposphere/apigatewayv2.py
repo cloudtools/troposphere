@@ -360,6 +360,16 @@ class Route(AWSObject):
     }
 
 
+class ParameterConstraints(AWSProperty):
+    """
+    `ParameterConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html>`__
+    """
+
+    props: PropsDictType = {
+        "Required": (boolean, True),
+    }
+
+
 class RouteResponse(AWSObject):
     """
     `RouteResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigatewayv2-routeresponse.html>`__
@@ -412,16 +422,6 @@ class VpcLink(AWSObject):
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
         "Tags": (dict, False),
-    }
-
-
-class ParameterConstraints(AWSProperty):
-    """
-    `ParameterConstraints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-routeresponse-parameterconstraints.html>`__
-    """
-
-    props: PropsDictType = {
-        "Required": (boolean, True),
     }
 
 
