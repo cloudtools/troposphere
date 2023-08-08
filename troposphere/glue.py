@@ -162,7 +162,10 @@ class CatalogTarget(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ConnectionName": (str, False),
         "DatabaseName": (str, False),
+        "DlqEventQueueArn": (str, False),
+        "EventQueueArn": (str, False),
         "Tables": ([str], False),
     }
 

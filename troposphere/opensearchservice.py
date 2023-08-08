@@ -86,6 +86,7 @@ class ClusterConfig(AWSProperty):
         "DedicatedMasterType": (str, False),
         "InstanceCount": (integer, False),
         "InstanceType": (str, False),
+        "MultiAZWithStandbyEnabled": (boolean, False),
         "WarmCount": (integer, False),
         "WarmEnabled": (boolean, False),
         "WarmType": (str, False),

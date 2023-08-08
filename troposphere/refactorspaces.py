@@ -70,6 +70,7 @@ class UriPathRouteInput(AWSProperty):
 
     props: PropsDictType = {
         "ActivationState": (str, True),
+        "AppendSourcePath": (boolean, False),
         "IncludeChildPaths": (boolean, False),
         "Methods": ([str], False),
         "SourcePath": (str, False),

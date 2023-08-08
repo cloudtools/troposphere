@@ -2290,6 +2290,17 @@ class Pipeline(AWSObject):
     }
 
 
+class ServiceCatalogProvisionedProductDetails(AWSProperty):
+    """
+    `ServiceCatalogProvisionedProductDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisionedproductdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProvisionedProductId": (str, False),
+        "ProvisionedProductStatusMessage": (str, False),
+    }
+
+
 class ProvisioningParameter(AWSProperty):
     """
     `ProvisioningParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-provisioningparameter.html>`__
@@ -2324,6 +2335,10 @@ class Project(AWSObject):
     props: PropsDictType = {
         "ProjectDescription": (str, False),
         "ProjectName": (str, True),
+        "ServiceCatalogProvisionedProductDetails": (
+            ServiceCatalogProvisionedProductDetails,
+            False,
+        ),
         "ServiceCatalogProvisioningDetails": (ServiceCatalogProvisioningDetails, True),
         "Tags": (Tags, False),
     }
@@ -2464,15 +2479,4 @@ class RSessionAppSettings(AWSProperty):
     props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
-    }
-
-
-class ServiceCatalogProvisionedProductDetails(AWSProperty):
-    """
-    `ServiceCatalogProvisionedProductDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-project-servicecatalogprovisionedproductdetails.html>`__
-    """
-
-    props: PropsDictType = {
-        "ProvisionedProductId": (str, False),
-        "ProvisionedProductStatusMessage": (str, False),
     }
