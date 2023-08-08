@@ -245,7 +245,7 @@ class GameServerGroup(AWSObject):
         "GameServerGroupName": (str, True),
         "GameServerProtectionPolicy": (str, False),
         "InstanceDefinitions": ([InstanceDefinition], True),
-        "LaunchTemplate": (LaunchTemplate, True),
+        "LaunchTemplate": (LaunchTemplate, False),
         "MaxSize": (double, False),
         "MinSize": (double, False),
         "RoleArn": (str, True),

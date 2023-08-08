@@ -72,6 +72,8 @@ class Environment(AWSObject):
         "RequirementsS3Path": (str, False),
         "Schedulers": (integer, False),
         "SourceBucketArn": (str, False),
+        "StartupScriptS3ObjectVersion": (str, False),
+        "StartupScriptS3Path": (str, False),
         "Tags": (dict, False),
         "WebserverAccessMode": (str, False),
         "WeeklyMaintenanceWindowStart": (str, False),

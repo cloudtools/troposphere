@@ -262,6 +262,7 @@ class DBInstance(AWSObject):
         "PubliclyAccessible": (boolean, False),
         "ReplicaMode": (str, False),
         "RestoreTime": (str, False),
+        "SourceDBClusterIdentifier": (str, False),
         "SourceDBInstanceAutomatedBackupsArn": (str, False),
         "SourceDBInstanceIdentifier": (str, False),
         "SourceDbiResourceId": (str, False),
