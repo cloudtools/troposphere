@@ -26,6 +26,26 @@ from .validators.rds import (
 )
 
 
+class CustomDBEngineVersion(AWSObject):
+    """
+    `CustomDBEngineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-customdbengineversion.html>`__
+    """
+
+    resource_type = "AWS::RDS::CustomDBEngineVersion"
+
+    props: PropsDictType = {
+        "DatabaseInstallationFilesS3BucketName": (str, True),
+        "DatabaseInstallationFilesS3Prefix": (str, False),
+        "Description": (str, False),
+        "Engine": (str, True),
+        "EngineVersion": (str, True),
+        "KMSKeyId": (str, False),
+        "Manifest": (str, False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class DBClusterRole(AWSProperty):
     """
     `DBClusterRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbcluster-dbclusterrole.html>`__

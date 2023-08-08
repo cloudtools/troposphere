@@ -227,7 +227,7 @@ class TimeToLiveSpecification(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AttributeName": (str, True),
+        "AttributeName": (str, False),
         "Enabled": (boolean, True),
     }
 
