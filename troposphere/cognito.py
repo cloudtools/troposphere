@@ -68,6 +68,21 @@ class IdentityPool(AWSObject):
     }
 
 
+class IdentityPoolPrincipalTag(AWSObject):
+    """
+    `IdentityPoolPrincipalTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolprincipaltag.html>`__
+    """
+
+    resource_type = "AWS::Cognito::IdentityPoolPrincipalTag"
+
+    props: PropsDictType = {
+        "IdentityPoolId": (str, True),
+        "IdentityProviderName": (str, True),
+        "PrincipalTags": (dict, False),
+        "UseDefaults": (boolean, False),
+    }
+
+
 class IdentityPoolRoleAttachment(AWSObject):
     """
     `IdentityPoolRoleAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-identitypoolroleattachment.html>`__

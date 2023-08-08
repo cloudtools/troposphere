@@ -364,11 +364,14 @@ class GraphQLApi(AWSObject):
             [AdditionalAuthenticationProvider],
             False,
         ),
+        "ApiType": (str, False),
         "AuthenticationType": (str, True),
         "LambdaAuthorizerConfig": (LambdaAuthorizerConfig, False),
         "LogConfig": (LogConfig, False),
+        "MergedApiExecutionRoleArn": (str, False),
         "Name": (str, True),
         "OpenIDConnectConfig": (OpenIDConnectConfig, False),
+        "OwnerContact": (str, False),
         "Tags": (Tags, False),
         "UserPoolConfig": (UserPoolConfig, False),
         "Visibility": (str, False),
@@ -435,4 +438,29 @@ class Resolver(AWSObject):
         "Runtime": (AppSyncRuntime, False),
         "SyncConfig": (SyncConfig, False),
         "TypeName": (str, True),
+    }
+
+
+class SourceApiAssociationConfig(AWSProperty):
+    """
+    `SourceApiAssociationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-sourceapiassociation-sourceapiassociationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MergeType": (str, False),
+    }
+
+
+class SourceApiAssociation(AWSObject):
+    """
+    `SourceApiAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-sourceapiassociation.html>`__
+    """
+
+    resource_type = "AWS::AppSync::SourceApiAssociation"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "MergedApiIdentifier": (str, False),
+        "SourceApiAssociationConfig": (SourceApiAssociationConfig, False),
+        "SourceApiIdentifier": (str, False),
     }

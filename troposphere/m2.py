@@ -34,6 +34,7 @@ class Application(AWSObject):
         "EngineType": (str, True),
         "KmsKeyId": (str, False),
         "Name": (str, True),
+        "RoleArn": (str, False),
         "Tags": (dict, False),
     }
 

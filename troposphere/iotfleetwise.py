@@ -44,6 +44,41 @@ class CollectionScheme(AWSProperty):
     }
 
 
+class S3Config(AWSProperty):
+    """
+    `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketArn": (str, True),
+        "DataFormat": (str, False),
+        "Prefix": (str, False),
+        "StorageCompressionFormat": (str, False),
+    }
+
+
+class TimestreamConfig(AWSProperty):
+    """
+    `TimestreamConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timestreamconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecutionRoleArn": (str, True),
+        "TimestreamTableArn": (str, True),
+    }
+
+
+class DataDestinationConfig(AWSProperty):
+    """
+    `DataDestinationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datadestinationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Config": (S3Config, False),
+        "TimestreamConfig": (TimestreamConfig, False),
+    }
+
+
 class SignalInformation(AWSProperty):
     """
     `SignalInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html>`__
@@ -67,6 +102,7 @@ class Campaign(AWSObject):
         "Action": (str, True),
         "CollectionScheme": (CollectionScheme, True),
         "Compression": (str, False),
+        "DataDestinationConfigs": ([DataDestinationConfig], False),
         "DataExtraDimensions": ([str], False),
         "Description": (str, False),
         "DiagnosticsMode": (str, False),

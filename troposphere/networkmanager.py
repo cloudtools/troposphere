@@ -20,6 +20,18 @@ class ConnectAttachmentOptions(AWSProperty):
     }
 
 
+class ProposedSegmentChange(AWSProperty):
+    """
+    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachmentPolicyRuleNumber": (integer, False),
+        "SegmentName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class ConnectAttachment(AWSObject):
     """
     `ConnectAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-connectattachment.html>`__
@@ -31,6 +43,7 @@ class ConnectAttachment(AWSObject):
         "CoreNetworkId": (str, True),
         "EdgeLocation": (str, True),
         "Options": (ConnectAttachmentOptions, True),
+        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "Tags": (Tags, False),
         "TransportAttachmentId": (str, True),
     }
@@ -205,6 +218,7 @@ class SiteToSiteVpnAttachment(AWSObject):
 
     props: PropsDictType = {
         "CoreNetworkId": (str, True),
+        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "Tags": (Tags, False),
         "VpnConnectionArn": (str, True),
     }
@@ -234,18 +248,6 @@ class TransitGatewayRegistration(AWSObject):
     props: PropsDictType = {
         "GlobalNetworkId": (str, True),
         "TransitGatewayArn": (str, True),
-    }
-
-
-class ProposedSegmentChange(AWSProperty):
-    """
-    `ProposedSegmentChange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-vpcattachment-proposedsegmentchange.html>`__
-    """
-
-    props: PropsDictType = {
-        "AttachmentPolicyRuleNumber": (integer, False),
-        "SegmentName": (str, False),
-        "Tags": (Tags, False),
     }
 
 
@@ -285,6 +287,7 @@ class VpcAttachment(AWSObject):
     props: PropsDictType = {
         "CoreNetworkId": (str, True),
         "Options": (VpcOptions, False),
+        "ProposedSegmentChange": (ProposedSegmentChange, False),
         "SubnetArns": ([str], True),
         "Tags": (Tags, False),
         "VpcArn": (str, True),

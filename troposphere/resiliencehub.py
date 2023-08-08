@@ -33,6 +33,7 @@ class ResourceMapping(AWSProperty):
     """
 
     props: PropsDictType = {
+        "EksSourceName": (str, False),
         "LogicalStackName": (str, False),
         "MappingType": (str, True),
         "PhysicalResourceId": (PhysicalResourceId, True),

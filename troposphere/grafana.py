@@ -96,6 +96,7 @@ class Workspace(AWSObject):
         "ClientToken": (str, False),
         "DataSources": ([str], False),
         "Description": (str, False),
+        "GrafanaVersion": (str, False),
         "Name": (str, False),
         "NetworkAccessControl": (NetworkAccessControl, False),
         "NotificationDestinations": ([str], False),
