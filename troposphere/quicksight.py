@@ -6422,6 +6422,57 @@ class DataSource(AWSObject):
     }
 
 
+class RefreshOnDay(AWSProperty):
+    """
+    `RefreshOnDay <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshonday.html>`__
+    """
+
+    props: PropsDictType = {
+        "DayOfMonth": (str, False),
+        "DayOfWeek": (str, False),
+    }
+
+
+class ScheduleFrequency(AWSProperty):
+    """
+    `ScheduleFrequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-schedulefrequency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Interval": (str, False),
+        "RefreshOnDay": (RefreshOnDay, False),
+        "TimeOfTheDay": (str, False),
+        "TimeZone": (str, False),
+    }
+
+
+class RefreshScheduleMap(AWSProperty):
+    """
+    `RefreshScheduleMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-refreshschedule-refreshschedulemap.html>`__
+    """
+
+    props: PropsDictType = {
+        "RefreshType": (str, False),
+        "ScheduleFrequency": (ScheduleFrequency, False),
+        "ScheduleId": (str, False),
+        "StartAfterDateTime": (str, False),
+    }
+
+
+class RefreshSchedule(AWSObject):
+    """
+    `RefreshSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-refreshschedule.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::RefreshSchedule"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, False),
+        "DataSetId": (str, False),
+        "Schedule": (RefreshScheduleMap, False),
+    }
+
+
 class TemplateSourceAnalysis(AWSProperty):
     """
     `TemplateSourceAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-templatesourceanalysis.html>`__

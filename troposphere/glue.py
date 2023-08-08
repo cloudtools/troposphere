@@ -167,6 +167,19 @@ class CatalogTarget(AWSProperty):
     }
 
 
+class DeltaTarget(AWSProperty):
+    """
+    `DeltaTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-deltatarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionName": (str, False),
+        "CreateNativeDeltaTable": (boolean, False),
+        "DeltaTables": ([str], False),
+        "WriteManifest": (boolean, False),
+    }
+
+
 class DynamoDBTarget(AWSProperty):
     """
     `DynamoDBTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-dynamodbtarget.html>`__
@@ -222,6 +235,7 @@ class Targets(AWSProperty):
 
     props: PropsDictType = {
         "CatalogTargets": ([CatalogTarget], False),
+        "DeltaTargets": ([DeltaTarget], False),
         "DynamoDBTargets": ([DynamoDBTarget], False),
         "JdbcTargets": ([JdbcTarget], False),
         "MongoDBTargets": ([MongoDBTarget], False),
@@ -310,6 +324,17 @@ class DatabaseIdentifier(AWSProperty):
     }
 
 
+class FederatedDatabase(AWSProperty):
+    """
+    `FederatedDatabase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput-federateddatabase.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionName": (str, False),
+        "Identifier": (str, False),
+    }
+
+
 class DataLakePrincipal(AWSProperty):
     """
     `DataLakePrincipal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-datalakeprincipal.html>`__
@@ -339,6 +364,7 @@ class DatabaseInput(AWSProperty):
     props: PropsDictType = {
         "CreateTableDefaultPermissions": ([PrincipalPrivileges], False),
         "Description": (str, False),
+        "FederatedDatabase": (FederatedDatabase, False),
         "LocationUri": (str, False),
         "Name": (str, False),
         "Parameters": (dict, False),

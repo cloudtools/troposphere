@@ -68,6 +68,12 @@ class DataLakeSettings(AWSObject):
 
     props: PropsDictType = {
         "Admins": ([DataLakePrincipal], False),
+        "AllowExternalDataFiltering": (boolean, False),
+        "AuthorizedSessionTagValueList": ([str], False),
+        "CreateDatabaseDefaultPermissions": ([], False),
+        "CreateTableDefaultPermissions": ([], False),
+        "ExternalDataFilteringAllowList": ([], False),
+        "Parameters": (dict, False),
         "TrustedResourceOwners": ([str], False),
     }
 
@@ -317,6 +323,17 @@ class TagAssociation(AWSObject):
     props: PropsDictType = {
         "LFTags": ([LFTagPair], True),
         "Resource": (TagAssociationResource, True),
+    }
+
+
+class PrincipalPermissionsProperty(AWSProperty):
+    """
+    `PrincipalPermissionsProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lakeformation-datalakesettings-principalpermissions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Permissions": ([], False),
+        "Principal": (DataLakePrincipal, False),
     }
 
 

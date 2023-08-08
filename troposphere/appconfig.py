@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double
+from .validators import boolean, double, integer
 from .validators.appconfig import (
     validate_growth_type,
     validate_replicate_to,
@@ -120,6 +120,50 @@ class Environment(AWSObject):
         "Description": (str, False),
         "Monitors": ([Monitors], False),
         "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class Parameter(AWSProperty):
+    """
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-extension-parameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Required": (boolean, True),
+    }
+
+
+class Extension(AWSObject):
+    """
+    `Extension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extension.html>`__
+    """
+
+    resource_type = "AWS::AppConfig::Extension"
+
+    props: PropsDictType = {
+        "Actions": (dict, True),
+        "Description": (str, False),
+        "LatestVersionNumber": (integer, False),
+        "Name": (str, True),
+        "Parameters": (dict, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ExtensionAssociation(AWSObject):
+    """
+    `ExtensionAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-extensionassociation.html>`__
+    """
+
+    resource_type = "AWS::AppConfig::ExtensionAssociation"
+
+    props: PropsDictType = {
+        "ExtensionIdentifier": (str, False),
+        "ExtensionVersionNumber": (integer, False),
+        "Parameters": (dict, False),
+        "ResourceIdentifier": (str, False),
         "Tags": (Tags, False),
     }
 
