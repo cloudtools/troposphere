@@ -11,6 +11,41 @@ from .validators import boolean, integer
 from .validators.athena import validate_encryptionoption, validate_workgroup_state
 
 
+class CapacityAssignment(AWSProperty):
+    """
+    `CapacityAssignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignment.html>`__
+    """
+
+    props: PropsDictType = {
+        "WorkgroupNames": ([str], True),
+    }
+
+
+class CapacityAssignmentConfiguration(AWSProperty):
+    """
+    `CapacityAssignmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-athena-capacityreservation-capacityassignmentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityAssignments": ([CapacityAssignment], True),
+    }
+
+
+class CapacityReservation(AWSObject):
+    """
+    `CapacityReservation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-capacityreservation.html>`__
+    """
+
+    resource_type = "AWS::Athena::CapacityReservation"
+
+    props: PropsDictType = {
+        "CapacityAssignmentConfiguration": (CapacityAssignmentConfiguration, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "TargetDpus": (integer, True),
+    }
+
+
 class DataCatalog(AWSObject):
     """
     `DataCatalog <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-athena-datacatalog.html>`__

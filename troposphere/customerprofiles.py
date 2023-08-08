@@ -10,6 +10,80 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class AttributeItem(AWSProperty):
+    """
+    `AttributeItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributeitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class AttributeDetails(AWSProperty):
+    """
+    `AttributeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-attributedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attributes": ([AttributeItem], True),
+        "Expression": (str, True),
+    }
+
+
+class Range(AWSProperty):
+    """
+    `Range <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-range.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class Threshold(AWSProperty):
+    """
+    `Threshold <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-threshold.html>`__
+    """
+
+    props: PropsDictType = {
+        "Operator": (str, True),
+        "Value": (str, True),
+    }
+
+
+class Conditions(AWSProperty):
+    """
+    `Conditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-calculatedattributedefinition-conditions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ObjectCount": (integer, False),
+        "Range": (Range, False),
+        "Threshold": (Threshold, False),
+    }
+
+
+class CalculatedAttributeDefinition(AWSObject):
+    """
+    `CalculatedAttributeDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-calculatedattributedefinition.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::CalculatedAttributeDefinition"
+
+    props: PropsDictType = {
+        "AttributeDetails": (AttributeDetails, True),
+        "CalculatedAttributeName": (str, True),
+        "Conditions": (Conditions, False),
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "DomainName": (str, True),
+        "Statistic": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class Domain(AWSObject):
     """
     `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html>`__
