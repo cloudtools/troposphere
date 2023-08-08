@@ -132,6 +132,7 @@ class Service:
         self.documentation: str = None
         self.resources: Dict[str, ResourceType] = {}
         self.properties: Dict[str, PropertyType] = {}
+        self.standalone_types: Dict[str, Property] = {}
         self.class_validators = {}
         self.property_validators = defaultdict(dict)
         self.constants = []
@@ -270,6 +271,9 @@ class ResourceSpec:
                 service.properties[class_name] = PropertyType(
                     documentation, properties, property_name
                 )
+            else:
+                # No Properties, record as a standalone type
+                service.standalone_types[class_name] = property_dict
 
         for service_name, service in self.services.items():
             self._get_validators(service_name, service)
@@ -277,6 +281,7 @@ class ResourceSpec:
         # Run some automatic "fixups" across the services
         self._fix_tags()
         self._fix_duplicate_names()
+        self._fix_standalone_types()
 
         return self
 
@@ -342,6 +347,51 @@ class ResourceSpec:
 
                 for (class_name, key, value) in service.get_property_items():
                     update_property(dup_class_name, new_class_name, value)
+
+    def _fix_standalone_types(self):
+        for service_name, service in self.services.items():
+            for (class_name, key, value) in service.get_property_items():
+                if key == "Tags":
+                    continue
+
+                if (
+                    value.type in service.standalone_types
+                    or value.item_type in service.standalone_types
+                ):
+
+                    # Determine if matching a type or item_type
+                    if value.type in service.standalone_types:
+                        update_name = value.type
+                    else:
+                        update_name = value.item_type
+
+                    sat = service.standalone_types[update_name]
+
+                    # Determine if updating a Resource or a Property
+                    if class_name in service.properties:
+                        props = service.properties[class_name].properties
+                    else:
+                        props = service.resources[class_name].properties
+
+                    # Determine if the replacement it a Type or PrimitiveType
+                    primitive = False
+                    if "Type" in sat:
+                        replacement_type = sat["Type"]
+                    else:
+                        replacement_type = sat["PrimitiveType"]
+                        primitive = True
+
+                    if props[key].type == update_name:
+                        if primitive:
+                            props[key].primitive_type = replacement_type
+                        else:
+                            props[key].type = replacement_type
+                    else:
+                        if primitive:
+                            props[key].primitive_item_type = replacement_type
+                            props[key].item_type = ""
+                        else:
+                            props[key].item_type = replacement_type
 
     def _get_validators(self, service_name, service):
         """
@@ -422,6 +472,7 @@ class CodeGenerator:
         self.service = service
         self.resources: Dict[str, ResourceType] = service.resources
         self.properties: Dict[str, PropertyType] = service.properties
+        self.standalone_types: Dict[str, PropertyType] = service.standalone_types
         self.property_validators = service.property_validators
         self.statement_found = False
 
