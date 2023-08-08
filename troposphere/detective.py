@@ -37,3 +37,15 @@ class MemberInvitation(AWSObject):
         "MemberId": (str, True),
         "Message": (str, False),
     }
+
+
+class OrganizationAdmin(AWSObject):
+    """
+    `OrganizationAdmin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-detective-organizationadmin.html>`__
+    """
+
+    resource_type = "AWS::Detective::OrganizationAdmin"
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+    }

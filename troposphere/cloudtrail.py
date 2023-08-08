@@ -38,7 +38,7 @@ class Channel(AWSObject):
 
 class AdvancedFieldSelector(AWSProperty):
     """
-    `AdvancedFieldSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedfieldselector.html>`__
+    `AdvancedFieldSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html>`__
     """
 
     props: PropsDictType = {
@@ -54,7 +54,7 @@ class AdvancedFieldSelector(AWSProperty):
 
 class AdvancedEventSelector(AWSProperty):
     """
-    `AdvancedEventSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-eventdatastore-advancedeventselector.html>`__
+    `AdvancedEventSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedeventselector.html>`__
     """
 
     props: PropsDictType = {
@@ -72,6 +72,7 @@ class EventDataStore(AWSObject):
 
     props: PropsDictType = {
         "AdvancedEventSelectors": ([AdvancedEventSelector], False),
+        "IngestionEnabled": (boolean, False),
         "KmsKeyId": (str, False),
         "MultiRegionEnabled": (boolean, False),
         "Name": (str, False),
@@ -137,6 +138,7 @@ class Trail(AWSObject):
     resource_type = "AWS::CloudTrail::Trail"
 
     props: PropsDictType = {
+        "AdvancedEventSelectors": ([AdvancedEventSelector], False),
         "CloudWatchLogsLogGroupArn": (str, False),
         "CloudWatchLogsRoleArn": (str, False),
         "EnableLogFileValidation": (boolean, False),

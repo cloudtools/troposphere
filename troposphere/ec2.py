@@ -1780,7 +1780,6 @@ class NetworkInterface(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "EnablePrimaryIpv6": (boolean, False),
         "GroupSet": ([str], False),
         "InterfaceType": (str, False),
         "Ipv6AddressCount": (integer, False),
