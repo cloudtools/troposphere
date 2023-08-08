@@ -381,6 +381,19 @@ class Cluster(AWSObject):
     }
 
 
+class ClusterPolicy(AWSObject):
+    """
+    `ClusterPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-clusterpolicy.html>`__
+    """
+
+    resource_type = "AWS::MSK::ClusterPolicy"
+
+    props: PropsDictType = {
+        "ClusterArn": (str, True),
+        "Policy": (dict, True),
+    }
+
+
 class Configuration(AWSObject):
     """
     `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html>`__
@@ -419,4 +432,21 @@ class ServerlessCluster(AWSObject):
         "ClusterName": (str, True),
         "Tags": (dict, False),
         "VpcConfigs": ([VpcConfig], True),
+    }
+
+
+class VpcConnection(AWSObject):
+    """
+    `VpcConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-vpcconnection.html>`__
+    """
+
+    resource_type = "AWS::MSK::VpcConnection"
+
+    props: PropsDictType = {
+        "Authentication": (str, True),
+        "ClientSubnets": ([str], True),
+        "SecurityGroups": ([str], True),
+        "Tags": (dict, False),
+        "TargetClusterArn": (str, True),
+        "VpcId": (str, True),
     }

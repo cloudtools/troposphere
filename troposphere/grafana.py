@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import double
 
 
+class NetworkAccessControl(AWSProperty):
+    """
+    `NetworkAccessControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-networkaccesscontrol.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrefixListIds": ([str], False),
+        "VpceIds": ([str], False),
+    }
+
+
 class AssertionAttributes(AWSProperty):
     """
     `AssertionAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-grafana-workspace-assertionattributes.html>`__
@@ -86,6 +97,7 @@ class Workspace(AWSObject):
         "DataSources": ([str], False),
         "Description": (str, False),
         "Name": (str, False),
+        "NetworkAccessControl": (NetworkAccessControl, False),
         "NotificationDestinations": ([str], False),
         "OrganizationRoleName": (str, False),
         "OrganizationalUnits": ([str], False),

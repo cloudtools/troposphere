@@ -323,6 +323,46 @@ class LocationSMB(AWSObject):
     }
 
 
+class ServerConfiguration(AWSProperty):
+    """
+    `ServerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-serverconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ServerHostname": (str, True),
+        "ServerPort": (integer, False),
+    }
+
+
+class ServerCredentials(AWSProperty):
+    """
+    `ServerCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-storagesystem-servercredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "Password": (str, True),
+        "Username": (str, True),
+    }
+
+
+class StorageSystem(AWSObject):
+    """
+    `StorageSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-storagesystem.html>`__
+    """
+
+    resource_type = "AWS::DataSync::StorageSystem"
+
+    props: PropsDictType = {
+        "AgentArns": ([str], True),
+        "CloudWatchLogGroupArn": (str, False),
+        "Name": (str, False),
+        "ServerConfiguration": (ServerConfiguration, True),
+        "ServerCredentials": (ServerCredentials, False),
+        "SystemType": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class FilterRule(AWSProperty):
     """
     `FilterRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-filterrule.html>`__

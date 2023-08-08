@@ -121,8 +121,8 @@ class User(AWSObject):
     resource_type = "AWS::MemoryDB::User"
 
     props: PropsDictType = {
-        "AccessString": (str, True),
-        "AuthenticationMode": (AuthenticationMode, True),
+        "AccessString": (str, False),
+        "AuthenticationMode": (AuthenticationMode, False),
         "Tags": (Tags, False),
         "UserName": (str, True),
     }
