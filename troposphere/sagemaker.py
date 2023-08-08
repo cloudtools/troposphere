@@ -788,6 +788,7 @@ class ServerlessConfig(AWSProperty):
     props: PropsDictType = {
         "MaxConcurrency": (integer, True),
         "MemorySizeInMB": (integer, True),
+        "ProvisionedConcurrency": (integer, False),
     }
 
 
@@ -1322,6 +1323,92 @@ class ModelOverview(AWSProperty):
     }
 
 
+class ModelInput(AWSProperty):
+    """
+    `ModelInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataInputConfig": (str, True),
+    }
+
+
+class ModelPackageContainerDefinition(AWSProperty):
+    """
+    `ModelPackageContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerHostname": (str, False),
+        "Environment": (dict, False),
+        "Framework": (str, False),
+        "FrameworkVersion": (str, False),
+        "Image": (str, True),
+        "ImageDigest": (str, False),
+        "ModelDataUrl": (str, False),
+        "ModelInput": (ModelInput, False),
+        "NearestModelName": (str, False),
+        "ProductId": (str, False),
+    }
+
+
+class InferenceSpecification(AWSProperty):
+    """
+    `InferenceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Containers": ([ModelPackageContainerDefinition], True),
+        "SupportedContentTypes": ([str], True),
+        "SupportedRealtimeInferenceInstanceTypes": ([str], False),
+        "SupportedResponseMIMETypes": ([str], True),
+        "SupportedTransformInstanceTypes": ([str], False),
+    }
+
+
+class ModelPackageCreator(AWSProperty):
+    """
+    `ModelPackageCreator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagecreator.html>`__
+    """
+
+    props: PropsDictType = {
+        "UserProfileName": (str, False),
+    }
+
+
+class SourceAlgorithm(AWSProperty):
+    """
+    `SourceAlgorithm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithm.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlgorithmName": (str, True),
+        "ModelDataUrl": (str, False),
+    }
+
+
+class ModelPackageDetails(AWSProperty):
+    """
+    `ModelPackageDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-modelpackagedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApprovalDescription": (str, False),
+        "CreatedBy": (ModelPackageCreator, False),
+        "Domain": (str, False),
+        "InferenceSpecification": (InferenceSpecification, False),
+        "ModelApprovalStatus": (str, False),
+        "ModelPackageArn": (str, False),
+        "ModelPackageDescription": (str, False),
+        "ModelPackageGroupName": (str, False),
+        "ModelPackageName": (str, False),
+        "ModelPackageStatus": (str, False),
+        "ModelPackageVersion": (double, False),
+        "SourceAlgorithms": ([SourceAlgorithm], False),
+        "Task": (str, False),
+    }
+
+
 class Function(AWSProperty):
     """
     `Function <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-function.html>`__
@@ -1417,6 +1504,7 @@ class Content(AWSProperty):
         "EvaluationDetails": ([EvaluationDetail], False),
         "IntendedUses": (IntendedUses, False),
         "ModelOverview": (ModelOverview, False),
+        "ModelPackageDetails": (ModelPackageDetails, False),
         "TrainingDetails": (TrainingDetails, False),
     }
 
@@ -1536,35 +1624,6 @@ class ModelExplainabilityJobDefinition(AWSObject):
     }
 
 
-class ModelInput(AWSProperty):
-    """
-    `ModelInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelinput.html>`__
-    """
-
-    props: PropsDictType = {
-        "DataInputConfig": (str, True),
-    }
-
-
-class ModelPackageContainerDefinition(AWSProperty):
-    """
-    `ModelPackageContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelpackagecontainerdefinition.html>`__
-    """
-
-    props: PropsDictType = {
-        "ContainerHostname": (str, False),
-        "Environment": (dict, False),
-        "Framework": (str, False),
-        "FrameworkVersion": (str, False),
-        "Image": (str, True),
-        "ImageDigest": (str, False),
-        "ModelDataUrl": (str, False),
-        "ModelInput": (ModelInput, False),
-        "NearestModelName": (str, False),
-        "ProductId": (str, False),
-    }
-
-
 class AdditionalInferenceSpecificationDefinition(AWSProperty):
     """
     `AdditionalInferenceSpecificationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-additionalinferencespecificationdefinition.html>`__
@@ -1663,20 +1722,6 @@ class DriftCheckBaselines(AWSProperty):
     }
 
 
-class InferenceSpecification(AWSProperty):
-    """
-    `InferenceSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-inferencespecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "Containers": ([ModelPackageContainerDefinition], True),
-        "SupportedContentTypes": ([str], True),
-        "SupportedRealtimeInferenceInstanceTypes": ([str], False),
-        "SupportedResponseMIMETypes": ([str], True),
-        "SupportedTransformInstanceTypes": ([str], False),
-    }
-
-
 class MetadataProperties(AWSProperty):
     """
     `MetadataProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-metadataproperties.html>`__
@@ -1767,17 +1812,6 @@ class ModelPackageStatusDetails(AWSProperty):
     props: PropsDictType = {
         "ImageScanStatuses": ([ModelPackageStatusItem], False),
         "ValidationStatuses": ([ModelPackageStatusItem], True),
-    }
-
-
-class SourceAlgorithm(AWSProperty):
-    """
-    `SourceAlgorithm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-sourcealgorithm.html>`__
-    """
-
-    props: PropsDictType = {
-        "AlgorithmName": (str, True),
-        "ModelDataUrl": (str, False),
     }
 
 
@@ -2395,6 +2429,18 @@ class Workteam(AWSObject):
         "Tags": (Tags, False),
         "WorkforceName": (str, False),
         "WorkteamName": (str, False),
+    }
+
+
+class Container(AWSProperty):
+    """
+    `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html>`__
+    """
+
+    props: PropsDictType = {
+        "Image": (str, True),
+        "ModelDataUrl": (str, False),
+        "NearestModelName": (str, False),
     }
 
 

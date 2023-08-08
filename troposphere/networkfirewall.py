@@ -83,6 +83,26 @@ class CustomAction(AWSProperty):
     }
 
 
+class IPSet(AWSProperty):
+    """
+    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html>`__
+    """
+
+    props: PropsDictType = {
+        "Definition": ([str], False),
+    }
+
+
+class PolicyVariables(AWSProperty):
+    """
+    `PolicyVariables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-policyvariables.html>`__
+    """
+
+    props: PropsDictType = {
+        "RuleVariables": (dict, False),
+    }
+
+
 class StatefulEngineOptions(AWSProperty):
     """
     `StatefulEngineOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html>`__
@@ -133,6 +153,7 @@ class FirewallPolicyProperty(AWSProperty):
     """
 
     props: PropsDictType = {
+        "PolicyVariables": (PolicyVariables, False),
         "StatefulDefaultActions": ([str], False),
         "StatefulEngineOptions": (StatefulEngineOptions, False),
         "StatefulRuleGroupReferences": ([StatefulRuleGroupReference], False),
@@ -211,16 +232,6 @@ class ReferenceSets(AWSProperty):
 
     props: PropsDictType = {
         "IPSetReferences": (dict, False),
-    }
-
-
-class IPSet(AWSProperty):
-    """
-    `IPSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-ipset.html>`__
-    """
-
-    props: PropsDictType = {
-        "Definition": ([str], False),
     }
 
 

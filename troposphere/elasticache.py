@@ -199,6 +199,7 @@ class ReplicationGroup(AWSObject):
         "CacheParameterGroupName": (str, False),
         "CacheSecurityGroupNames": ([str], False),
         "CacheSubnetGroupName": (str, False),
+        "ClusterMode": (str, False),
         "DataTieringEnabled": (boolean, False),
         "Engine": (str, False),
         "EngineVersion": (str, False),

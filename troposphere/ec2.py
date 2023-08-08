@@ -736,7 +736,6 @@ class IPAM(AWSObject):
         "DefaultResourceDiscoveryId": (str, False),
         "Description": (str, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
-        "ResourceDiscoveryAssociationCount": (integer, False),
         "Tags": (Tags, False),
     }
 
@@ -2828,6 +2827,71 @@ class VPNGatewayRoutePropagation(AWSObject):
     }
 
 
+class LoadBalancerOptions(AWSProperty):
+    """
+    `LoadBalancerOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "LoadBalancerArn": (str, False),
+        "Port": (integer, False),
+        "Protocol": (str, False),
+        "SubnetIds": ([str], False),
+    }
+
+
+class NetworkInterfaceOptions(AWSProperty):
+    """
+    `NetworkInterfaceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-networkinterfaceoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetworkInterfaceId": (str, False),
+        "Port": (integer, False),
+        "Protocol": (str, False),
+    }
+
+
+class VerifiedAccessEndpoint(AWSObject):
+    """
+    `VerifiedAccessEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html>`__
+    """
+
+    resource_type = "AWS::EC2::VerifiedAccessEndpoint"
+
+    props: PropsDictType = {
+        "ApplicationDomain": (str, True),
+        "AttachmentType": (str, True),
+        "Description": (str, False),
+        "DomainCertificateArn": (str, True),
+        "EndpointDomainPrefix": (str, True),
+        "EndpointType": (str, True),
+        "LoadBalancerOptions": (LoadBalancerOptions, False),
+        "NetworkInterfaceOptions": (NetworkInterfaceOptions, False),
+        "PolicyDocument": (str, False),
+        "PolicyEnabled": (boolean, False),
+        "SecurityGroupIds": ([str], False),
+        "Tags": (Tags, False),
+        "VerifiedAccessGroupId": (str, True),
+    }
+
+
+class VerifiedAccessGroup(AWSObject):
+    """
+    `VerifiedAccessGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessgroup.html>`__
+    """
+
+    resource_type = "AWS::EC2::VerifiedAccessGroup"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "PolicyDocument": (str, False),
+        "PolicyEnabled": (boolean, False),
+        "Tags": (Tags, False),
+        "VerifiedAccessInstanceId": (str, True),
+    }
+
+
 class CloudWatchLogs(AWSProperty):
     """
     `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-cloudwatchlogs.html>`__
@@ -2875,9 +2939,9 @@ class VerifiedAccessLogs(AWSProperty):
     }
 
 
-class VerifiedAccessTrustProvider(AWSProperty):
+class VerifiedAccessTrustProviderProperty(AWSProperty):
     """
-    `VerifiedAccessTrustProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html>`__
+    `VerifiedAccessTrustProviderProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html>`__
     """
 
     props: PropsDictType = {
@@ -2901,7 +2965,52 @@ class VerifiedAccessInstance(AWSObject):
         "LoggingConfigurations": (VerifiedAccessLogs, False),
         "Tags": (Tags, False),
         "VerifiedAccessTrustProviderIds": ([str], False),
-        "VerifiedAccessTrustProviders": ([VerifiedAccessTrustProvider], False),
+        "VerifiedAccessTrustProviders": ([VerifiedAccessTrustProviderProperty], False),
+    }
+
+
+class DeviceOptions(AWSProperty):
+    """
+    `DeviceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-deviceoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "TenantId": (str, False),
+    }
+
+
+class OidcOptions(AWSProperty):
+    """
+    `OidcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-oidcoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationEndpoint": (str, False),
+        "ClientId": (str, False),
+        "ClientSecret": (str, False),
+        "Issuer": (str, False),
+        "Scope": (str, False),
+        "TokenEndpoint": (str, False),
+        "UserInfoEndpoint": (str, False),
+    }
+
+
+class VerifiedAccessTrustProvider(AWSObject):
+    """
+    `VerifiedAccessTrustProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccesstrustprovider.html>`__
+    """
+
+    resource_type = "AWS::EC2::VerifiedAccessTrustProvider"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DeviceOptions": (DeviceOptions, False),
+        "DeviceTrustProviderType": (str, False),
+        "OidcOptions": (OidcOptions, False),
+        "PolicyReferenceName": (str, True),
+        "Tags": (Tags, False),
+        "TrustProviderType": (str, True),
+        "UserTrustProviderType": (str, False),
     }
 
 

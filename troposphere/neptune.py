@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class DBClusterRole(AWSProperty):
@@ -18,6 +18,17 @@ class DBClusterRole(AWSProperty):
     props: PropsDictType = {
         "FeatureName": (str, False),
         "RoleArn": (str, True),
+    }
+
+
+class ServerlessScalingConfiguration(AWSProperty):
+    """
+    `ServerlessScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-neptune-dbcluster-serverlessscalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxCapacity": (double, True),
+        "MinCapacity": (double, True),
     }
 
 
@@ -32,8 +43,10 @@ class DBCluster(AWSObject):
         "AssociatedRoles": ([DBClusterRole], False),
         "AvailabilityZones": ([str], False),
         "BackupRetentionPeriod": (integer, False),
+        "CopyTagsToSnapshot": (boolean, False),
         "DBClusterIdentifier": (str, False),
         "DBClusterParameterGroupName": (str, False),
+        "DBInstanceParameterGroupName": (str, False),
         "DBSubnetGroupName": (str, False),
         "DeletionProtection": (boolean, False),
         "EnableCloudwatchLogsExports": ([str], False),
@@ -44,6 +57,7 @@ class DBCluster(AWSObject):
         "PreferredMaintenanceWindow": (str, False),
         "RestoreToTime": (str, False),
         "RestoreType": (str, False),
+        "ServerlessScalingConfiguration": (ServerlessScalingConfiguration, False),
         "SnapshotIdentifier": (str, False),
         "SourceDBClusterIdentifier": (str, False),
         "StorageEncrypted": (boolean, False),

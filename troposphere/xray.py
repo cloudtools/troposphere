@@ -30,7 +30,7 @@ class Group(AWSObject):
 
     props: PropsDictType = {
         "FilterExpression": (str, False),
-        "GroupName": (str, False),
+        "GroupName": (str, True),
         "InsightsConfiguration": (InsightsConfiguration, False),
         "Tags": (Tags, False),
     }
@@ -80,7 +80,6 @@ class SamplingRule(AWSObject):
     resource_type = "AWS::XRay::SamplingRule"
 
     props: PropsDictType = {
-        "RuleName": (str, False),
         "SamplingRule": (SamplingRuleProperty, False),
         "Tags": (Tags, False),
     }

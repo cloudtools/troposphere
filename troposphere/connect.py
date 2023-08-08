@@ -233,6 +233,22 @@ class PhoneNumber(AWSObject):
     }
 
 
+class Prompt(AWSObject):
+    """
+    `Prompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-prompt.html>`__
+    """
+
+    resource_type = "AWS::Connect::Prompt"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "S3Uri": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class PhoneNumberQuickConnectConfig(AWSProperty):
     """
     `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__

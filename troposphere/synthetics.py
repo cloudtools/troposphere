@@ -43,6 +43,7 @@ class Code(AWSProperty):
         "S3Key": (str, False),
         "S3ObjectVersion": (str, False),
         "Script": (str, False),
+        "SourceLocationArn": (str, False),
     }
 
 
@@ -115,14 +116,13 @@ class Canary(AWSObject):
         "ArtifactConfig": (ArtifactConfig, False),
         "ArtifactS3Location": (str, True),
         "Code": (Code, True),
-        "DeleteLambdaResourcesOnCanaryDeletion": (boolean, False),
         "ExecutionRoleArn": (str, True),
         "FailureRetentionPeriod": (integer, False),
         "Name": (str, True),
         "RunConfig": (RunConfig, False),
         "RuntimeVersion": (canary_runtime_version, True),
         "Schedule": (Schedule, True),
-        "StartCanaryAfterCreation": (boolean, True),
+        "StartCanaryAfterCreation": (boolean, False),
         "SuccessRetentionPeriod": (integer, False),
         "Tags": (Tags, False),
         "VPCConfig": (VPCConfig, False),
