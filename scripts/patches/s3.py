@@ -1,13 +1,4 @@
 patches = [
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::S3::StorageLens.S3BucketDestination/Properties/Encryption/Type",
-    },
-    {
-        "op": "add",
-        "path": "/PropertyTypes/AWS::S3::StorageLens.S3BucketDestination/Properties/Encryption/PrimitiveType",
-        "value": "Json",
-    },
     # Rename AWS::S3::StorageLens.DataExport to AWS::S3::StorageLens.StorageLensDataExport due to conflict with AWS::S3::Bucket.DataExport
     {
         "op": "move",
