@@ -244,6 +244,17 @@ class AddOn(AWSProperty):
     }
 
 
+class Location(AWSProperty):
+    """
+    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "RegionName": (str, False),
+    }
+
+
 class Disk(AWSObject):
     """
     `Disk <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lightsail-disk.html>`__
@@ -255,6 +266,7 @@ class Disk(AWSObject):
         "AddOns": ([AddOn], False),
         "AvailabilityZone": (str, False),
         "DiskName": (str, True),
+        "Location": (Location, False),
         "SizeInGb": (integer, True),
         "Tags": (Tags, False),
     }
@@ -389,17 +401,6 @@ class Hardware(AWSProperty):
         "CpuCount": (integer, False),
         "Disks": ([DiskProperty], False),
         "RamSizeInGb": (integer, False),
-    }
-
-
-class Location(AWSProperty):
-    """
-    `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-instance-location.html>`__
-    """
-
-    props: PropsDictType = {
-        "AvailabilityZone": (str, False),
-        "RegionName": (str, False),
     }
 
 

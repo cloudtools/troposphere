@@ -9,14 +9,25 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class FileConfiguration(AWSProperty):
+    """
+    `FileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-fileconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Filters": (dict, False),
+        "Folders": ([str], True),
+    }
+
+
 class ScheduleConfig(AWSProperty):
     """
     `ScheduleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-scheduleconfig.html>`__
     """
 
     props: PropsDictType = {
-        "FirstExecutionFrom": (str, True),
-        "Object": (str, True),
+        "FirstExecutionFrom": (str, False),
+        "Object": (str, False),
         "ScheduleExpression": (str, True),
     }
 
@@ -30,8 +41,10 @@ class DataIntegration(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "FileConfiguration": (FileConfiguration, False),
         "KmsKey": (str, True),
         "Name": (str, True),
+        "ObjectConfiguration": (dict, False),
         "ScheduleConfig": (ScheduleConfig, True),
         "SourceURI": (str, True),
         "Tags": (Tags, False),

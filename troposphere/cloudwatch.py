@@ -225,6 +225,7 @@ class MetricStreamFilter(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MetricNames": ([str], False),
         "Namespace": (str, True),
     }
 

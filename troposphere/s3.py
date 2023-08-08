@@ -24,16 +24,6 @@ from .validators.s3 import (
 )
 
 
-class PolicyStatus(AWSProperty):
-    """
-    `PolicyStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspointpolicy-policystatus.html>`__
-    """
-
-    props: PropsDictType = {
-        "IsPublic": (str, True),
-    }
-
-
 class PublicAccessBlockConfiguration(AWSProperty):
     """
     `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html>`__
@@ -69,7 +59,6 @@ class AccessPoint(AWSObject):
         "BucketAccountId": (str, False),
         "Name": (str, False),
         "Policy": (policytypes, False),
-        "PolicyStatus": (PolicyStatus, False),
         "PublicAccessBlockConfiguration": (PublicAccessBlockConfiguration, False),
         "VpcConfiguration": (VpcConfiguration, False),
     }
@@ -938,6 +927,27 @@ class CloudWatchMetrics(AWSProperty):
     }
 
 
+class SSEKMS(AWSProperty):
+    """
+    `SSEKMS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyId": (str, True),
+    }
+
+
+class Encryption(AWSProperty):
+    """
+    `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html>`__
+    """
+
+    props: PropsDictType = {
+        "SSEKMS": (SSEKMS, False),
+        "SSES3": (dict, False),
+    }
+
+
 class S3BucketDestination(AWSProperty):
     """
     `S3BucketDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-s3bucketdestination.html>`__
@@ -946,7 +956,7 @@ class S3BucketDestination(AWSProperty):
     props: PropsDictType = {
         "AccountId": (str, True),
         "Arn": (str, True),
-        "Encryption": (dict, False),
+        "Encryption": (Encryption, False),
         "Format": (str, True),
         "OutputSchemaVersion": (str, True),
         "Prefix": (str, False),
@@ -994,22 +1004,11 @@ class StorageLens(AWSObject):
     }
 
 
-class SSEKMS(AWSProperty):
+class PolicyStatus(AWSProperty):
     """
-    `SSEKMS <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-ssekms.html>`__
-    """
-
-    props: PropsDictType = {
-        "KeyId": (str, True),
-    }
-
-
-class Encryption(AWSProperty):
-    """
-    `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-encryption.html>`__
+    `PolicyStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspointpolicy-policystatus.html>`__
     """
 
     props: PropsDictType = {
-        "SSEKMS": (SSEKMS, False),
-        "SSES3": (dict, False),
+        "IsPublic": (str, True),
     }

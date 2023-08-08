@@ -87,8 +87,8 @@ class Alias(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Status": (str, False),
-        "Value": (str, False),
+        "Status": (str, True),
+        "Value": (str, True),
     }
 
 

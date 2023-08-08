@@ -258,6 +258,7 @@ class Resource(AWSObject):
         "ResourceArn": (str, True),
         "RoleArn": (str, False),
         "UseServiceLinkedRole": (boolean, True),
+        "WithFederation": (boolean, False),
     }
 
 
