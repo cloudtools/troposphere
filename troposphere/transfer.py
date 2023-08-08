@@ -55,6 +55,7 @@ class As2Config(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BasicAuthSecretId": (str, False),
         "Compression": (str, False),
         "EncryptionAlgorithm": (str, False),
         "LocalProfileId": (str, False),
@@ -63,6 +64,17 @@ class As2Config(AWSProperty):
         "MessageSubject": (str, False),
         "PartnerProfileId": (str, False),
         "SigningAlgorithm": (str, False),
+    }
+
+
+class SftpConfig(AWSProperty):
+    """
+    `SftpConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-connector-sftpconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrustedHostKeys": ([str], False),
+        "UserSecretId": (str, False),
     }
 
 
@@ -75,8 +87,9 @@ class Connector(AWSObject):
 
     props: PropsDictType = {
         "AccessRole": (str, True),
-        "As2Config": (As2Config, True),
+        "As2Config": (As2Config, False),
         "LoggingRole": (str, False),
+        "SftpConfig": (SftpConfig, False),
         "Tags": (Tags, False),
         "Url": (str, True),
     }
