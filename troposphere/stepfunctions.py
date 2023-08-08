@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class Activity(AWSObject):
@@ -95,4 +95,58 @@ class StateMachine(AWSObject):
         "StateMachineType": (str, False),
         "Tags": (Tags, False),
         "TracingConfiguration": (TracingConfiguration, False),
+    }
+
+
+class DeploymentPreference(AWSProperty):
+    """
+    `DeploymentPreference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-deploymentpreference.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alarms": ([str], False),
+        "Interval": (integer, False),
+        "Percentage": (integer, False),
+        "StateMachineVersionArn": (str, True),
+        "Type": (str, True),
+    }
+
+
+class RoutingConfigurationVersion(AWSProperty):
+    """
+    `RoutingConfigurationVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachinealias-routingconfigurationversion.html>`__
+    """
+
+    props: PropsDictType = {
+        "StateMachineVersionArn": (str, True),
+        "Weight": (integer, True),
+    }
+
+
+class StateMachineAlias(AWSObject):
+    """
+    `StateMachineAlias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachinealias.html>`__
+    """
+
+    resource_type = "AWS::StepFunctions::StateMachineAlias"
+
+    props: PropsDictType = {
+        "DeploymentPreference": (DeploymentPreference, False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "RoutingConfiguration": ([RoutingConfigurationVersion], False),
+    }
+
+
+class StateMachineVersion(AWSObject):
+    """
+    `StateMachineVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-statemachineversion.html>`__
+    """
+
+    resource_type = "AWS::StepFunctions::StateMachineVersion"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "StateMachineArn": (str, True),
+        "StateMachineRevisionId": (str, False),
     }

@@ -70,7 +70,7 @@ class ConnectPeer(AWSObject):
         "BgpOptions": (BgpOptions, False),
         "ConnectAttachmentId": (str, True),
         "CoreNetworkAddress": (str, False),
-        "InsideCidrBlocks": ([str], True),
+        "InsideCidrBlocks": ([str], False),
         "PeerAddress": (str, True),
         "Tags": (Tags, False),
     }
@@ -106,6 +106,17 @@ class CustomerGatewayAssociation(AWSObject):
     }
 
 
+class AWSLocation(AWSProperty):
+    """
+    `AWSLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-device-awslocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "SubnetArn": (str, False),
+        "Zone": (str, False),
+    }
+
+
 class Location(AWSProperty):
     """
     `Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkmanager-site-location.html>`__
@@ -126,6 +137,7 @@ class Device(AWSObject):
     resource_type = "AWS::NetworkManager::Device"
 
     props: PropsDictType = {
+        "AWSLocation": (AWSLocation, False),
         "Description": (str, False),
         "GlobalNetworkId": (str, True),
         "Location": (Location, False),

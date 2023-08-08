@@ -174,28 +174,6 @@ class CalculatedField(AWSProperty):
     }
 
 
-class CustomColor(AWSProperty):
-    """
-    `CustomColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcolor.html>`__
-    """
-
-    props: PropsDictType = {
-        "Color": (str, True),
-        "FieldValue": (str, False),
-        "SpecialValue": (str, False),
-    }
-
-
-class ColorsConfiguration(AWSProperty):
-    """
-    `ColorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorsconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomColors": ([CustomColor], False),
-    }
-
-
 class ColumnIdentifier(AWSProperty):
     """
     `ColumnIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnidentifier.html>`__
@@ -376,7 +354,6 @@ class ColumnConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColorsConfiguration": (ColorsConfiguration, False),
         "Column": (ColumnIdentifier, True),
         "FormatConfiguration": (FormatConfiguration, False),
         "Role": (str, False),
@@ -639,7 +616,7 @@ class AggregationSortConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AggregationFunction": (AggregationFunction, True),
+        "AggregationFunction": (AggregationFunction, False),
         "Column": (ColumnIdentifier, True),
         "SortDirection": (str, True),
     }
@@ -2052,6 +2029,7 @@ class DataLabelOptions(AWSProperty):
         "MeasureLabelVisibility": (str, False),
         "Overlap": (str, False),
         "Position": (str, False),
+        "TotalsVisibility": (str, False),
         "Visibility": (str, False),
     }
 
@@ -2078,7 +2056,7 @@ class ReferenceLineDynamicDataConfiguration(AWSProperty):
     props: PropsDictType = {
         "Calculation": (NumericalAggregationFunction, True),
         "Column": (ColumnIdentifier, True),
-        "MeasureAggregationFunction": (AggregationFunction, True),
+        "MeasureAggregationFunction": (AggregationFunction, False),
     }
 
 
@@ -2425,6 +2403,7 @@ class FilterOperationSelectedFieldsConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "SelectedColumns": ([ColumnIdentifier], False),
         "SelectedFieldOptions": (str, False),
         "SelectedFields": ([str], False),
     }
@@ -2520,6 +2499,7 @@ class DestinationParameterValueConfiguration(AWSProperty):
     props: PropsDictType = {
         "CustomValuesConfiguration": (CustomValuesConfiguration, False),
         "SelectAllValueOptions": (str, False),
+        "SourceColumn": (ColumnIdentifier, False),
         "SourceField": (str, False),
         "SourceParameterName": (str, False),
     }
@@ -3394,6 +3374,36 @@ class ClusterMarkerConfiguration(AWSProperty):
     }
 
 
+class GeospatialHeatmapDataColor(AWSProperty):
+    """
+    `GeospatialHeatmapDataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialheatmapdatacolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, True),
+    }
+
+
+class GeospatialHeatmapColorScale(AWSProperty):
+    """
+    `GeospatialHeatmapColorScale <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialheatmapcolorscale.html>`__
+    """
+
+    props: PropsDictType = {
+        "Colors": ([GeospatialHeatmapDataColor], False),
+    }
+
+
+class GeospatialHeatmapConfiguration(AWSProperty):
+    """
+    `GeospatialHeatmapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialheatmapconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "HeatmapColor": (GeospatialHeatmapColorScale, False),
+    }
+
+
 class GeospatialPointStyleOptions(AWSProperty):
     """
     `GeospatialPointStyleOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-geospatialpointstyleoptions.html>`__
@@ -3401,6 +3411,7 @@ class GeospatialPointStyleOptions(AWSProperty):
 
     props: PropsDictType = {
         "ClusterMarkerConfiguration": (ClusterMarkerConfiguration, False),
+        "HeatmapConfiguration": (GeospatialHeatmapConfiguration, False),
         "SelectedPointStyle": (str, False),
     }
 
@@ -4326,6 +4337,7 @@ class PivotTableCellConditionalFormatting(AWSProperty):
     props: PropsDictType = {
         "FieldId": (str, True),
         "Scope": (PivotTableConditionalFormattingScope, False),
+        "Scopes": ([PivotTableConditionalFormattingScope], False),
         "TextFormat": (TextConditionalFormat, False),
     }
 
@@ -4364,6 +4376,28 @@ class PivotTableDataPathOption(AWSProperty):
     }
 
 
+class PivotTableFieldCollapseStateTarget(AWSProperty):
+    """
+    `PivotTableFieldCollapseStateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldcollapsestatetarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldDataPathValues": ([DataPathValue], False),
+        "FieldId": (str, False),
+    }
+
+
+class PivotTableFieldCollapseStateOption(AWSProperty):
+    """
+    `PivotTableFieldCollapseStateOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldcollapsestateoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+        "Target": (PivotTableFieldCollapseStateTarget, True),
+    }
+
+
 class PivotTableFieldOption(AWSProperty):
     """
     `PivotTableFieldOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablefieldoption.html>`__
@@ -4382,6 +4416,7 @@ class PivotTableFieldOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CollapseStateOptions": ([PivotTableFieldCollapseStateOption], False),
         "DataPathOptions": ([PivotTableDataPathOption], False),
         "SelectedFieldOptions": ([PivotTableFieldOption], False),
     }
@@ -4482,6 +4517,7 @@ class PivotTableOptions(AWSProperty):
 
     props: PropsDictType = {
         "CellStyle": (TableCellStyle, False),
+        "CollapsedRowDimensionsVisibility": (str, False),
         "ColumnHeaderStyle": (TableCellStyle, False),
         "ColumnNamesVisibility": (str, False),
         "MetricPlacement": (str, False),
@@ -4697,6 +4733,7 @@ class RadarChartConfiguration(AWSProperty):
         "AlternateBandColorsVisibility": (str, False),
         "AlternateBandEvenColor": (str, False),
         "AlternateBandOddColor": (str, False),
+        "AxesRangeScale": (str, False),
         "BaseSeriesSettings": (RadarChartSeriesSettings, False),
         "CategoryAxis": (AxisDisplayOptions, False),
         "CategoryLabelOptions": (ChartAxisLabelOptions, False),
@@ -4793,6 +4830,7 @@ class ScatterPlotCategoricallyAggregatedFieldWells(AWSProperty):
 
     props: PropsDictType = {
         "Category": ([DimensionField], False),
+        "Label": ([DimensionField], False),
         "Size": ([MeasureField], False),
         "XAxis": ([MeasureField], False),
         "YAxis": ([MeasureField], False),
@@ -4805,6 +4843,8 @@ class ScatterPlotUnaggregatedFieldWells(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Category": ([DimensionField], False),
+        "Label": ([DimensionField], False),
         "Size": ([MeasureField], False),
         "XAxis": ([DimensionField], False),
         "YAxis": ([DimensionField], False),
@@ -5532,6 +5572,7 @@ class ResourcePermission(AWSProperty):
     props: PropsDictType = {
         "Actions": ([str], True),
         "Principal": (str, True),
+        "Resource": (str, False),
     }
 
 
@@ -6944,9 +6985,9 @@ class Theme(AWSObject):
 
     props: PropsDictType = {
         "AwsAccountId": (str, True),
-        "BaseThemeId": (str, False),
-        "Configuration": (ThemeConfiguration, False),
-        "Name": (str, False),
+        "BaseThemeId": (str, True),
+        "Configuration": (ThemeConfiguration, True),
+        "Name": (str, True),
         "Permissions": ([ResourcePermission], False),
         "Tags": (Tags, False),
         "ThemeId": (str, True),

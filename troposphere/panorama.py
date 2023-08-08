@@ -41,12 +41,10 @@ class ApplicationInstance(AWSObject):
         "ApplicationInstanceIdToReplace": (str, False),
         "DefaultRuntimeContextDevice": (str, True),
         "Description": (str, False),
-        "DeviceId": (str, False),
         "ManifestOverridesPayload": (ManifestOverridesPayload, False),
         "ManifestPayload": (ManifestPayload, True),
         "Name": (str, False),
         "RuntimeRoleArn": (str, False),
-        "StatusFilter": (str, False),
         "Tags": (Tags, False),
     }
 

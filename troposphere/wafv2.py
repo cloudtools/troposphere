@@ -841,6 +841,26 @@ class RuleGroup(AWSObject):
     }
 
 
+class RequestBodyAssociatedResourceTypeConfig(AWSProperty):
+    """
+    `RequestBodyAssociatedResourceTypeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestbodyassociatedresourcetypeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultSizeInspectionLimit": (str, True),
+    }
+
+
+class AssociationConfig(AWSProperty):
+    """
+    `AssociationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-associationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RequestBody": (dict, False),
+    }
+
+
 class DefaultAction(AWSProperty):
     """
     `DefaultAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html>`__
@@ -889,6 +909,7 @@ class WebACL(AWSObject):
     resource_type = "AWS::WAFv2::WebACL"
 
     props: PropsDictType = {
+        "AssociationConfig": (AssociationConfig, False),
         "CaptchaConfig": (CaptchaConfig, False),
         "ChallengeConfig": (ChallengeConfig, False),
         "CustomResponseBodies": (validate_custom_response_bodies, False),
