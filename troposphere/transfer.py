@@ -180,6 +180,7 @@ class Server(AWSObject):
         "ProtocolDetails": (ProtocolDetails, False),
         "Protocols": ([str], False),
         "SecurityPolicyName": (str, False),
+        "StructuredLogDestinations": ([str], False),
         "Tags": (Tags, False),
         "WorkflowDetails": (WorkflowDetails, False),
     }

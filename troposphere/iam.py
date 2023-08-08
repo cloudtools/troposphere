@@ -183,7 +183,7 @@ class ServiceLinkedRole(AWSObject):
     resource_type = "AWS::IAM::ServiceLinkedRole"
 
     props: PropsDictType = {
-        "AWSServiceName": (str, True),
+        "AWSServiceName": (str, False),
         "CustomSuffix": (str, False),
         "Description": (str, False),
     }

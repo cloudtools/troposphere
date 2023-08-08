@@ -333,8 +333,8 @@ class PrincipalPermissionsProperty(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Permissions": ([], False),
-        "Principal": (DataLakePrincipal, False),
+        "Permissions": ([str], True),
+        "Principal": (DataLakePrincipal, True),
     }
 
 

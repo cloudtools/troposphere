@@ -10,6 +10,22 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class AutoScalingConfiguration(AWSObject):
+    """
+    `AutoScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apprunner-autoscalingconfiguration.html>`__
+    """
+
+    resource_type = "AWS::AppRunner::AutoScalingConfiguration"
+
+    props: PropsDictType = {
+        "AutoScalingConfigurationName": (str, False),
+        "MaxConcurrency": (integer, False),
+        "MaxSize": (integer, False),
+        "MinSize": (integer, False),
+        "Tags": (Tags, False),
+    }
+
+
 class TraceConfiguration(AWSProperty):
     """
     `TraceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apprunner-observabilityconfiguration-traceconfiguration.html>`__

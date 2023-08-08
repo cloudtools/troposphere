@@ -1348,7 +1348,6 @@ class ModelPackageContainerDefinition(AWSProperty):
         "ModelDataUrl": (str, False),
         "ModelInput": (ModelInput, False),
         "NearestModelName": (str, False),
-        "ProductId": (str, False),
     }
 
 
@@ -1521,7 +1520,7 @@ class SecurityConfig(AWSProperty):
 
 class UserContext(AWSProperty):
     """
-    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-usercontext.html>`__
+    `UserContext <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-usercontext.html>`__
     """
 
     props: PropsDictType = {
@@ -1810,8 +1809,7 @@ class ModelPackageStatusDetails(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ImageScanStatuses": ([ModelPackageStatusItem], False),
-        "ValidationStatuses": ([ModelPackageStatusItem], True),
+        "ValidationStatuses": ([ModelPackageStatusItem], False),
     }
 
 
@@ -1930,10 +1928,6 @@ class ModelPackage(AWSObject):
     resource_type = "AWS::SageMaker::ModelPackage"
 
     props: PropsDictType = {
-        "AdditionalInferenceSpecificationDefinition": (
-            AdditionalInferenceSpecificationDefinition,
-            False,
-        ),
         "AdditionalInferenceSpecifications": (
             [AdditionalInferenceSpecificationDefinition],
             False,
@@ -1948,7 +1942,6 @@ class ModelPackage(AWSObject):
         "CustomerMetadataProperties": (dict, False),
         "Domain": (str, False),
         "DriftCheckBaselines": (DriftCheckBaselines, False),
-        "Environment": (dict, False),
         "InferenceSpecification": (InferenceSpecification, False),
         "LastModifiedTime": (str, False),
         "MetadataProperties": (MetadataProperties, False),
@@ -1958,7 +1951,6 @@ class ModelPackage(AWSObject):
         "ModelPackageGroupName": (str, False),
         "ModelPackageName": (str, False),
         "ModelPackageStatusDetails": (ModelPackageStatusDetails, False),
-        "ModelPackageStatusItem": (ModelPackageStatusItem, False),
         "ModelPackageVersion": (integer, False),
         "SamplePayloadUrl": (str, False),
         "SourceAlgorithmSpecification": (SourceAlgorithmSpecification, False),

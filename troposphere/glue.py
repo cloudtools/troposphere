@@ -316,6 +316,34 @@ class DataCatalogEncryptionSettings(AWSObject):
     }
 
 
+class DataQualityTargetTable(AWSProperty):
+    """
+    `DataQualityTargetTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-dataqualityruleset-dataqualitytargettable.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatabaseName": (str, False),
+        "TableName": (str, False),
+    }
+
+
+class DataQualityRuleset(AWSObject):
+    """
+    `DataQualityRuleset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-dataqualityruleset.html>`__
+    """
+
+    resource_type = "AWS::Glue::DataQualityRuleset"
+
+    props: PropsDictType = {
+        "ClientToken": (str, False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "Ruleset": (str, False),
+        "Tags": (dict, False),
+        "TargetTable": (DataQualityTargetTable, False),
+    }
+
+
 class DatabaseIdentifier(AWSProperty):
     """
     `DatabaseIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseidentifier.html>`__

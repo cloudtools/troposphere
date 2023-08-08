@@ -435,7 +435,7 @@ class InstanceRequirementsRequest(AWSProperty):
 
 class Placement(AWSProperty):
     """
-    `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-placement.html>`__
+    `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-placement.html>`__
     """
 
     props: PropsDictType = {
@@ -849,7 +849,7 @@ class IPAMScope(AWSObject):
 
 class EBSBlockDevice(AWSProperty):
     """
-    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-blockdevicemapping-ebs.html>`__
+    `EBSBlockDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ebs.html>`__
     """
 
     props: PropsDictType = {
@@ -879,7 +879,7 @@ class BlockDeviceMapping(AWSProperty):
 
 class CpuOptions(AWSProperty):
     """
-    `CpuOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-cpuoptions.html>`__
+    `CpuOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpuoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -922,7 +922,7 @@ class ElasticInferenceAccelerator(AWSProperty):
 
 class EnclaveOptions(AWSProperty):
     """
-    `EnclaveOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-enclaveoptions.html>`__
+    `EnclaveOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enclaveoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -932,7 +932,7 @@ class EnclaveOptions(AWSProperty):
 
 class HibernationOptions(AWSProperty):
     """
-    `HibernationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-hibernationoptions.html>`__
+    `HibernationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-hibernationoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1007,7 +1007,7 @@ class NetworkInterfaceProperty(AWSProperty):
 
 class PrivateDnsNameOptions(AWSProperty):
     """
-    `PrivateDnsNameOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-privatednsnameoptions.html>`__
+    `PrivateDnsNameOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-privatednsnameoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1110,6 +1110,7 @@ class KeyPair(AWSObject):
     resource_type = "AWS::EC2::KeyPair"
 
     props: PropsDictType = {
+        "KeyFormat": (str, False),
         "KeyName": (str, True),
         "KeyType": (str, False),
         "PublicKeyMaterial": (str, False),
@@ -1130,7 +1131,7 @@ class CapacityReservationTarget(AWSProperty):
 
 class CapacityReservationSpecification(AWSProperty):
     """
-    `CapacityReservationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-capacityreservationspecification.html>`__
+    `CapacityReservationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-capacityreservationspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1141,7 +1142,7 @@ class CapacityReservationSpecification(AWSProperty):
 
 class IamInstanceProfile(AWSProperty):
     """
-    `IamInstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-iaminstanceprofile.html>`__
+    `IamInstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-iaminstanceprofile.html>`__
     """
 
     props: PropsDictType = {
@@ -1152,7 +1153,7 @@ class IamInstanceProfile(AWSProperty):
 
 class SpotOptions(AWSProperty):
     """
-    `SpotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions-spotoptions.html>`__
+    `SpotOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-spotoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1166,7 +1167,7 @@ class SpotOptions(AWSProperty):
 
 class InstanceMarketOptions(AWSProperty):
     """
-    `InstanceMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancemarketoptions.html>`__
+    `InstanceMarketOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancemarketoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1276,7 +1277,7 @@ class VCpuCount(AWSProperty):
 
 class InstanceRequirements(AWSProperty):
     """
-    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-instancerequirements.html>`__
+    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-instancerequirements.html>`__
     """
 
     props: PropsDictType = {
@@ -1321,7 +1322,7 @@ class LaunchTemplateBlockDeviceMapping(AWSProperty):
 
 class LaunchTemplateCreditSpecification(AWSProperty):
     """
-    `LaunchTemplateCreditSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-creditspecification.html>`__
+    `LaunchTemplateCreditSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-creditspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1342,7 +1343,7 @@ class LaunchTemplateElasticInferenceAccelerator(AWSProperty):
 
 class MaintenanceOptions(AWSProperty):
     """
-    `MaintenanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-maintenanceoptions.html>`__
+    `MaintenanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-maintenanceoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1352,7 +1353,7 @@ class MaintenanceOptions(AWSProperty):
 
 class MetadataOptions(AWSProperty):
     """
-    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata-metadataoptions.html>`__
+    `MetadataOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-metadataoptions.html>`__
     """
 
     props: PropsDictType = {
@@ -1604,7 +1605,7 @@ class PortRange(AWSProperty):
 
 class NetworkAclEntry(AWSObject):
     """
-    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html>`__
+    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkAclEntry"
@@ -2816,7 +2817,7 @@ class VPNGateway(AWSObject):
 
 class VPNGatewayRoutePropagation(AWSObject):
     """
-    `VPNGatewayRoutePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html>`__
+    `VPNGatewayRoutePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gatewayrouteprop.html>`__
     """
 
     resource_type = "AWS::EC2::VPNGatewayRoutePropagation"
@@ -2934,7 +2935,9 @@ class VerifiedAccessLogs(AWSProperty):
 
     props: PropsDictType = {
         "CloudWatchLogs": (CloudWatchLogs, False),
+        "IncludeTrustContext": (boolean, False),
         "KinesisDataFirehose": (KinesisDataFirehose, False),
+        "LogVersion": (str, False),
         "S3": (S3, False),
     }
 
@@ -3039,13 +3042,13 @@ class Volume(AWSObject):
 
 class VolumeAttachment(AWSObject):
     """
-    `VolumeAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ebs-volumeattachment.html>`__
+    `VolumeAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-volumeattachment.html>`__
     """
 
     resource_type = "AWS::EC2::VolumeAttachment"
 
     props: PropsDictType = {
-        "Device": (str, True),
+        "Device": (str, False),
         "InstanceId": (str, True),
         "VolumeId": (str, True),
     }

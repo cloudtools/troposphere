@@ -14,6 +14,17 @@ from .validators.cassandra import (
 )
 
 
+class ReplicationSpecification(AWSProperty):
+    """
+    `ReplicationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-keyspace-replicationspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "RegionList": ([str], False),
+        "ReplicationStrategy": (str, False),
+    }
+
+
 class Keyspace(AWSObject):
     """
     `Keyspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-keyspace.html>`__
@@ -23,6 +34,7 @@ class Keyspace(AWSObject):
 
     props: PropsDictType = {
         "KeyspaceName": (str, False),
+        "ReplicationSpecification": (ReplicationSpecification, False),
         "Tags": (Tags, False),
     }
 

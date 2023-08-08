@@ -212,6 +212,9 @@ class Hub(AWSObject):
     resource_type = "AWS::SecurityHub::Hub"
 
     props: PropsDictType = {
+        "AutoEnableControls": (boolean, False),
+        "ControlFindingGenerator": (str, False),
+        "EnableDefaultStandards": (boolean, False),
         "Tags": (dict, False),
     }
 

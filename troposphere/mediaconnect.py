@@ -36,7 +36,7 @@ class BridgeOutputProperty(AWSProperty):
 
 class VpcInterfaceAttachment(AWSProperty):
     """
-    `VpcInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html>`__
+    `VpcInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-vpcinterfaceattachment.html>`__
     """
 
     props: PropsDictType = {
@@ -188,6 +188,17 @@ class Encryption(AWSProperty):
     }
 
 
+class GatewayBridgeSource(AWSProperty):
+    """
+    `GatewayBridgeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-gatewaybridgesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "BridgeArn": (str, True),
+        "VpcInterfaceAttachment": (VpcInterfaceAttachment, False),
+    }
+
+
 class Source(AWSProperty):
     """
     `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html>`__
@@ -197,6 +208,7 @@ class Source(AWSProperty):
         "Decryption": (Encryption, False),
         "Description": (str, False),
         "EntitlementArn": (str, False),
+        "GatewayBridgeSource": (GatewayBridgeSource, False),
         "IngestIp": (str, False),
         "IngestPort": (integer, False),
         "MaxBitrate": (integer, False),
@@ -299,6 +311,7 @@ class FlowSource(AWSObject):
         "Description": (str, True),
         "EntitlementArn": (str, False),
         "FlowArn": (str, False),
+        "GatewayBridgeSource": (GatewayBridgeSource, False),
         "IngestPort": (integer, False),
         "MaxBitrate": (integer, False),
         "MaxLatency": (integer, False),

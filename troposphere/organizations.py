@@ -26,6 +26,18 @@ class Account(AWSObject):
     }
 
 
+class Organization(AWSObject):
+    """
+    `Organization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organization.html>`__
+    """
+
+    resource_type = "AWS::Organizations::Organization"
+
+    props: PropsDictType = {
+        "FeatureSet": (str, False),
+    }
+
+
 class OrganizationalUnit(AWSObject):
     """
     `OrganizationalUnit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-organizations-organizationalunit.html>`__
