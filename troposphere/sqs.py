@@ -48,6 +48,19 @@ class Queue(AWSObject):
         validate_queue(self)
 
 
+class QueueInlinePolicy(AWSObject):
+    """
+    `QueueInlinePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queueinlinepolicy.html>`__
+    """
+
+    resource_type = "AWS::SQS::QueueInlinePolicy"
+
+    props: PropsDictType = {
+        "PolicyDocument": (dict, True),
+        "Queue": (str, True),
+    }
+
+
 class QueuePolicy(AWSObject):
     """
     `QueuePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html>`__

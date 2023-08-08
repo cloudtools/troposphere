@@ -16,6 +16,7 @@ class AccountGrouping(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoAssociate": (boolean, False),
         "LinkedAccountIds": ([str], True),
     }
 

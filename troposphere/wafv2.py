@@ -527,15 +527,18 @@ class FieldIdentifier(AWSProperty):
     }
 
 
-class RequestInspection(AWSProperty):
+class RequestInspectionACFP(AWSProperty):
     """
-    `RequestInspection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html>`__
+    `RequestInspectionACFP <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspectionacfp.html>`__
     """
 
     props: PropsDictType = {
-        "PasswordField": (FieldIdentifier, True),
+        "AddressFields": ([FieldIdentifier], False),
+        "EmailField": (FieldIdentifier, False),
+        "PasswordField": (FieldIdentifier, False),
         "PayloadType": (str, True),
-        "UsernameField": (FieldIdentifier, True),
+        "PhoneNumberFields": ([FieldIdentifier], False),
+        "UsernameField": (FieldIdentifier, False),
     }
 
 
@@ -598,12 +601,39 @@ class ResponseInspection(AWSProperty):
     }
 
 
+class AWSManagedRulesACFPRuleSet(AWSProperty):
+    """
+    `AWSManagedRulesACFPRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesacfpruleset.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreationPath": (str, True),
+        "EnableRegexInPath": (boolean, False),
+        "RegistrationPagePath": (str, True),
+        "RequestInspection": (RequestInspectionACFP, True),
+        "ResponseInspection": (ResponseInspection, False),
+    }
+
+
+class RequestInspection(AWSProperty):
+    """
+    `RequestInspection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-requestinspection.html>`__
+    """
+
+    props: PropsDictType = {
+        "PasswordField": (FieldIdentifier, True),
+        "PayloadType": (str, True),
+        "UsernameField": (FieldIdentifier, True),
+    }
+
+
 class AWSManagedRulesATPRuleSet(AWSProperty):
     """
     `AWSManagedRulesATPRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-awsmanagedrulesatpruleset.html>`__
     """
 
     props: PropsDictType = {
+        "EnableRegexInPath": (boolean, False),
         "LoginPath": (str, True),
         "RequestInspection": (RequestInspection, False),
         "ResponseInspection": (ResponseInspection, False),
@@ -626,6 +656,7 @@ class ManagedRuleGroupConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AWSManagedRulesACFPRuleSet": (AWSManagedRulesACFPRuleSet, False),
         "AWSManagedRulesATPRuleSet": (AWSManagedRulesATPRuleSet, False),
         "AWSManagedRulesBotControlRuleSet": (AWSManagedRulesBotControlRuleSet, False),
         "LoginPath": (str, False),
