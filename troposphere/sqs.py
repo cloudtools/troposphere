@@ -50,7 +50,7 @@ class Queue(AWSObject):
 
 class QueuePolicy(AWSObject):
     """
-    `QueuePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sqs-policy.html>`__
+    `QueuePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sqs-queuepolicy.html>`__
     """
 
     resource_type = "AWS::SQS::QueuePolicy"

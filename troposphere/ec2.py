@@ -704,6 +704,7 @@ class Host(AWSObject):
     resource_type = "AWS::EC2::Host"
 
     props: PropsDictType = {
+        "AssetId": (str, False),
         "AutoPlacement": (str, False),
         "AvailabilityZone": (str, True),
         "HostMaintenance": (str, False),

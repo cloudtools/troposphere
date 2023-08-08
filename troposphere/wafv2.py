@@ -682,6 +682,87 @@ class OrStatement(AWSProperty):
     }
 
 
+class RateLimitCookie(AWSProperty):
+    """
+    `RateLimitCookie <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitcookie.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "TextTransformations": ([TextTransformation], True),
+    }
+
+
+class RateLimitHeader(AWSProperty):
+    """
+    `RateLimitHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitheader.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "TextTransformations": ([TextTransformation], True),
+    }
+
+
+class RateLimitLabelNamespace(AWSProperty):
+    """
+    `RateLimitLabelNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitlabelnamespace.html>`__
+    """
+
+    props: PropsDictType = {
+        "Namespace": (str, True),
+    }
+
+
+class RateLimitQueryArgument(AWSProperty):
+    """
+    `RateLimitQueryArgument <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitqueryargument.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "TextTransformations": ([TextTransformation], True),
+    }
+
+
+class RateLimitQueryString(AWSProperty):
+    """
+    `RateLimitQueryString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitquerystring.html>`__
+    """
+
+    props: PropsDictType = {
+        "TextTransformations": ([TextTransformation], True),
+    }
+
+
+class RateLimitUriPath(AWSProperty):
+    """
+    `RateLimitUriPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimituripath.html>`__
+    """
+
+    props: PropsDictType = {
+        "TextTransformations": ([TextTransformation], True),
+    }
+
+
+class RateBasedStatementCustomKey(AWSProperty):
+    """
+    `RateBasedStatementCustomKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatementcustomkey.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cookie": (RateLimitCookie, False),
+        "ForwardedIP": (dict, False),
+        "HTTPMethod": (dict, False),
+        "Header": (RateLimitHeader, False),
+        "IP": (dict, False),
+        "LabelNamespace": (RateLimitLabelNamespace, False),
+        "QueryArgument": (RateLimitQueryArgument, False),
+        "QueryString": (RateLimitQueryString, False),
+        "UriPath": (RateLimitUriPath, False),
+    }
+
+
 class RateBasedStatement(AWSProperty):
     """
     `RateBasedStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratebasedstatement.html>`__
@@ -689,6 +770,7 @@ class RateBasedStatement(AWSProperty):
 
     props: PropsDictType = {
         "AggregateKeyType": (str, True),
+        "CustomKeys": ([RateBasedStatementCustomKey], False),
         "ForwardedIPConfig": (ForwardedIPConfiguration, False),
         "Limit": (integer, True),
         "ScopeDownStatement": (validate_statement, False),

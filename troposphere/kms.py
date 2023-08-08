@@ -44,6 +44,7 @@ class Key(AWSObject):
         "KeySpec": (str, False),
         "KeyUsage": (key_usage_type, False),
         "MultiRegion": (boolean, False),
+        "Origin": (str, False),
         "PendingWindowInDays": (validate_pending_window_in_days, False),
         "Tags": (validate_tags_or_list, False),
     }

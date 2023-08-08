@@ -957,8 +957,17 @@ class ImageVersion(AWSObject):
     resource_type = "AWS::SageMaker::ImageVersion"
 
     props: PropsDictType = {
+        "Alias": (str, False),
+        "Aliases": ([str], False),
         "BaseImage": (str, True),
+        "Horovod": (boolean, False),
         "ImageName": (str, True),
+        "JobType": (str, False),
+        "MLFramework": (str, False),
+        "Processor": (str, False),
+        "ProgrammingLang": (str, False),
+        "ReleaseNotes": (str, False),
+        "VendorGuidance": (str, False),
     }
 
 

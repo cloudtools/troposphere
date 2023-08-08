@@ -204,6 +204,28 @@ class RetentionProperties(AWSProperty):
     }
 
 
+class PartitionKey(AWSProperty):
+    """
+    `PartitionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-partitionkey.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnforcementInRecord": (str, False),
+        "Name": (str, False),
+        "Type": (str, True),
+    }
+
+
+class Schema(AWSProperty):
+    """
+    `Schema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-table-schema.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompositePartitionKey": ([PartitionKey], False),
+    }
+
+
 class Table(AWSObject):
     """
     `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-table.html>`__
@@ -215,6 +237,7 @@ class Table(AWSObject):
         "DatabaseName": (str, True),
         "MagneticStoreWriteProperties": (MagneticStoreWriteProperties, False),
         "RetentionProperties": (RetentionProperties, False),
+        "Schema": (Schema, False),
         "TableName": (str, False),
         "Tags": (Tags, False),
     }
