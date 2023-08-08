@@ -101,6 +101,8 @@ class Broker(AWSObject):
         "AutoMinorVersionUpgrade": (boolean, True),
         "BrokerName": (str, True),
         "Configuration": (ConfigurationId, False),
+        "DataReplicationMode": (str, False),
+        "DataReplicationPrimaryBrokerArn": (str, False),
         "DeploymentMode": (str, True),
         "EncryptionOptions": (EncryptionOptions, False),
         "EngineType": (str, True),

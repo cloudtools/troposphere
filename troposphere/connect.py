@@ -249,6 +249,38 @@ class Prompt(AWSObject):
     }
 
 
+class OutboundCallerConfig(AWSProperty):
+    """
+    `OutboundCallerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundcallerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "OutboundCallerIdName": (str, False),
+        "OutboundCallerIdNumberArn": (str, False),
+        "OutboundFlowArn": (str, False),
+    }
+
+
+class Queue(AWSObject):
+    """
+    `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html>`__
+    """
+
+    resource_type = "AWS::Connect::Queue"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "HoursOfOperationArn": (str, True),
+        "InstanceArn": (str, True),
+        "MaxContacts": (integer, False),
+        "Name": (str, True),
+        "OutboundCallerConfig": (OutboundCallerConfig, False),
+        "QuickConnectArns": ([str], False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class PhoneNumberQuickConnectConfig(AWSProperty):
     """
     `PhoneNumberQuickConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-quickconnect-phonenumberquickconnectconfig.html>`__
@@ -306,6 +338,69 @@ class QuickConnect(AWSObject):
         "InstanceArn": (str, True),
         "Name": (str, True),
         "QuickConnectConfig": (QuickConnectConfig, True),
+        "Tags": (Tags, False),
+    }
+
+
+class CrossChannelBehavior(AWSProperty):
+    """
+    `CrossChannelBehavior <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-crosschannelbehavior.html>`__
+    """
+
+    props: PropsDictType = {
+        "BehaviorType": (str, True),
+    }
+
+
+class MediaConcurrency(AWSProperty):
+    """
+    `MediaConcurrency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-mediaconcurrency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Channel": (str, True),
+        "Concurrency": (integer, True),
+        "CrossChannelBehavior": (CrossChannelBehavior, False),
+    }
+
+
+class RoutingProfileQueueReference(AWSProperty):
+    """
+    `RoutingProfileQueueReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeuereference.html>`__
+    """
+
+    props: PropsDictType = {
+        "Channel": (str, True),
+        "QueueArn": (str, True),
+    }
+
+
+class RoutingProfileQueueConfig(AWSProperty):
+    """
+    `RoutingProfileQueueConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-routingprofile-routingprofilequeueconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Delay": (integer, True),
+        "Priority": (integer, True),
+        "QueueReference": (RoutingProfileQueueReference, True),
+    }
+
+
+class RoutingProfile(AWSObject):
+    """
+    `RoutingProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-routingprofile.html>`__
+    """
+
+    resource_type = "AWS::Connect::RoutingProfile"
+
+    props: PropsDictType = {
+        "DefaultOutboundQueueArn": (str, True),
+        "Description": (str, True),
+        "InstanceArn": (str, True),
+        "MediaConcurrencies": ([MediaConcurrency], True),
+        "Name": (str, True),
+        "QueueConfigs": ([RoutingProfileQueueConfig], False),
         "Tags": (Tags, False),
     }
 

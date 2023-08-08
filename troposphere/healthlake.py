@@ -7,7 +7,20 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import integer
+from .validators import boolean, integer
+
+
+class IdentityProviderConfiguration(AWSProperty):
+    """
+    `IdentityProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-healthlake-fhirdatastore-identityproviderconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationStrategy": (str, True),
+        "FineGrainedAuthorizationEnabled": (boolean, False),
+        "IdpLambdaArn": (str, False),
+        "Metadata": (str, False),
+    }
 
 
 class PreloadDataConfig(AWSProperty):
@@ -51,6 +64,7 @@ class FHIRDatastore(AWSObject):
     props: PropsDictType = {
         "DatastoreName": (str, False),
         "DatastoreTypeVersion": (str, True),
+        "IdentityProviderConfiguration": (IdentityProviderConfiguration, False),
         "PreloadDataConfig": (PreloadDataConfig, False),
         "SseConfiguration": (SseConfiguration, False),
         "Tags": (Tags, False),

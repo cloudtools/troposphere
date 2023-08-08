@@ -473,6 +473,7 @@ class SAPODataConnectorProfileProperties(AWSProperty):
         "ApplicationHostUrl": (str, False),
         "ApplicationServicePath": (str, False),
         "ClientNumber": (str, False),
+        "DisableSSO": (boolean, False),
         "LogonLanguage": (str, False),
         "OAuthProperties": (OAuthProperties, False),
         "PortNumber": (integer, False),

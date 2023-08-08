@@ -15,6 +15,21 @@ from .validators.logs import (
 )
 
 
+class AccountPolicy(AWSObject):
+    """
+    `AccountPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-accountpolicy.html>`__
+    """
+
+    resource_type = "AWS::Logs::AccountPolicy"
+
+    props: PropsDictType = {
+        "PolicyDocument": (str, True),
+        "PolicyName": (str, True),
+        "PolicyType": (str, True),
+        "Scope": (str, False),
+    }
+
+
 class Destination(AWSObject):
     """
     `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html>`__
