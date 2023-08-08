@@ -100,6 +100,21 @@ class Domain(AWSObject):
     }
 
 
+class EventStream(AWSObject):
+    """
+    `EventStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventstream.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::EventStream"
+
+    props: PropsDictType = {
+        "DomainName": (str, True),
+        "EventStreamName": (str, True),
+        "Tags": (Tags, False),
+        "Uri": (str, True),
+    }
+
+
 class IncrementalPullConfig(AWSProperty):
     """
     `IncrementalPullConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html>`__
@@ -372,4 +387,15 @@ class ObjectType(AWSObject):
         "ObjectTypeName": (str, False),
         "Tags": (Tags, False),
         "TemplateId": (str, False),
+    }
+
+
+class DestinationDetails(AWSProperty):
+    """
+    `DestinationDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventstream-destinationdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, True),
+        "Uri": (str, True),
     }

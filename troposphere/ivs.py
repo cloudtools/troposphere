@@ -22,6 +22,7 @@ class Channel(AWSObject):
         "InsecureIngest": (boolean, False),
         "LatencyMode": (str, False),
         "Name": (str, False),
+        "Preset": (str, False),
         "RecordingConfigurationArn": (str, False),
         "Tags": (Tags, False),
         "Type": (str, False),

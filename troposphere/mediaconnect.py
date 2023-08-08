@@ -10,6 +10,85 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 
 
+class BridgeNetworkOutput(AWSProperty):
+    """
+    `BridgeNetworkOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgeoutput-bridgenetworkoutput.html>`__
+    """
+
+    props: PropsDictType = {
+        "IpAddress": (str, True),
+        "NetworkName": (str, True),
+        "Port": (integer, True),
+        "Protocol": (str, True),
+        "Ttl": (integer, True),
+    }
+
+
+class BridgeOutputProperty(AWSProperty):
+    """
+    `BridgeOutputProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgeoutput.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetworkOutput": (BridgeNetworkOutput, False),
+    }
+
+
+class VpcInterfaceAttachment(AWSProperty):
+    """
+    `VpcInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcInterfaceName": (str, False),
+    }
+
+
+class BridgeFlowSource(AWSProperty):
+    """
+    `BridgeFlowSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgeflowsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "FlowArn": (str, True),
+        "FlowVpcInterfaceAttachment": (VpcInterfaceAttachment, False),
+    }
+
+
+class BridgeNetworkSource(AWSProperty):
+    """
+    `BridgeNetworkSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html>`__
+    """
+
+    props: PropsDictType = {
+        "MulticastIp": (str, True),
+        "NetworkName": (str, True),
+        "Port": (integer, True),
+        "Protocol": (str, True),
+    }
+
+
+class BridgeSourceProperty(AWSProperty):
+    """
+    `BridgeSourceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-bridgesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "FlowSource": (BridgeFlowSource, False),
+        "NetworkSource": (BridgeNetworkSource, False),
+    }
+
+
+class EgressGatewayBridge(AWSProperty):
+    """
+    `EgressGatewayBridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-egressgatewaybridge.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxBitrate": (integer, True),
+    }
+
+
 class SourcePriority(AWSProperty):
     """
     `SourcePriority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcepriority.html>`__
@@ -30,6 +109,64 @@ class FailoverConfig(AWSProperty):
         "RecoveryWindow": (integer, False),
         "SourcePriority": (SourcePriority, False),
         "State": (str, False),
+    }
+
+
+class IngressGatewayBridge(AWSProperty):
+    """
+    `IngressGatewayBridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridge-ingressgatewaybridge.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxBitrate": (integer, True),
+        "MaxOutputs": (integer, True),
+    }
+
+
+class Bridge(AWSObject):
+    """
+    `Bridge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridge.html>`__
+    """
+
+    resource_type = "AWS::MediaConnect::Bridge"
+
+    props: PropsDictType = {
+        "EgressGatewayBridge": (EgressGatewayBridge, False),
+        "IngressGatewayBridge": (IngressGatewayBridge, False),
+        "Name": (str, True),
+        "Outputs": ([BridgeOutputProperty], False),
+        "PlacementArn": (str, True),
+        "SourceFailoverConfig": (FailoverConfig, False),
+        "Sources": ([BridgeSourceProperty], True),
+    }
+
+
+class BridgeOutput(AWSObject):
+    """
+    `BridgeOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgeoutput.html>`__
+    """
+
+    resource_type = "AWS::MediaConnect::BridgeOutput"
+
+    props: PropsDictType = {
+        "BridgeArn": (str, True),
+        "Name": (str, True),
+        "NetworkOutput": (BridgeNetworkOutput, True),
+    }
+
+
+class BridgeSource(AWSObject):
+    """
+    `BridgeSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-bridgesource.html>`__
+    """
+
+    resource_type = "AWS::MediaConnect::BridgeSource"
+
+    props: PropsDictType = {
+        "BridgeArn": (str, True),
+        "FlowSource": (BridgeFlowSource, False),
+        "Name": (str, True),
+        "NetworkSource": (BridgeNetworkSource, False),
     }
 
 
@@ -125,16 +262,6 @@ class FlowOutputEncryption(AWSProperty):
     }
 
 
-class VpcInterfaceAttachment(AWSProperty):
-    """
-    `VpcInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-vpcinterfaceattachment.html>`__
-    """
-
-    props: PropsDictType = {
-        "VpcInterfaceName": (str, False),
-    }
-
-
 class FlowOutput(AWSObject):
     """
     `FlowOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html>`__
@@ -201,4 +328,29 @@ class FlowVpcInterface(AWSObject):
         "RoleArn": (str, True),
         "SecurityGroupIds": ([str], True),
         "SubnetId": (str, True),
+    }
+
+
+class GatewayNetwork(AWSProperty):
+    """
+    `GatewayNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-gateway-gatewaynetwork.html>`__
+    """
+
+    props: PropsDictType = {
+        "CidrBlock": (str, True),
+        "Name": (str, True),
+    }
+
+
+class Gateway(AWSObject):
+    """
+    `Gateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-gateway.html>`__
+    """
+
+    resource_type = "AWS::MediaConnect::Gateway"
+
+    props: PropsDictType = {
+        "EgressCidrBlocks": ([str], True),
+        "Name": (str, True),
+        "Networks": ([GatewayNetwork], True),
     }
