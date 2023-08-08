@@ -247,6 +247,8 @@ class SalesforceConnectorProfileCredentials(AWSProperty):
         "AccessToken": (str, False),
         "ClientCredentialsArn": (str, False),
         "ConnectorOAuthRequest": (ConnectorOAuthRequest, False),
+        "JwtToken": (str, False),
+        "OAuth2GrantType": (str, False),
         "RefreshToken": (str, False),
     }
 
@@ -1174,7 +1176,6 @@ class TriggerConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ActivateFlowOnCreate": (boolean, False),
         "TriggerProperties": (ScheduledTriggerProperties, False),
         "TriggerType": (str, True),
     }
@@ -1191,6 +1192,7 @@ class Flow(AWSObject):
         "Description": (str, False),
         "DestinationFlowConfigList": ([DestinationFlowConfig], True),
         "FlowName": (str, True),
+        "FlowStatus": (str, False),
         "KMSArn": (str, False),
         "MetadataCatalogConfig": (MetadataCatalogConfig, False),
         "SourceFlowConfig": (SourceFlowConfig, True),

@@ -39,7 +39,7 @@ class Encryption(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Algorithm": (str, True),
+        "Algorithm": (str, False),
         "ConstantInitializationVector": (str, False),
         "DeviceId": (str, False),
         "KeyType": (str, False),
@@ -175,8 +175,13 @@ class FlowSource(AWSObject):
         "IngestPort": (integer, False),
         "MaxBitrate": (integer, False),
         "MaxLatency": (integer, False),
+        "MinLatency": (integer, False),
         "Name": (str, True),
         "Protocol": (str, False),
+        "SenderControlPort": (integer, False),
+        "SenderIpAddress": (str, False),
+        "SourceListenerAddress": (str, False),
+        "SourceListenerPort": (integer, False),
         "StreamId": (str, False),
         "VpcInterfaceName": (str, False),
         "WhitelistCidr": (str, False),

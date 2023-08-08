@@ -6746,6 +6746,365 @@ class Theme(AWSObject):
     }
 
 
+class DataAggregation(AWSProperty):
+    """
+    `DataAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-dataaggregation.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatasetRowDateGranularity": (str, False),
+        "DefaultDateColumnName": (str, False),
+    }
+
+
+class CellValueSynonym(AWSProperty):
+    """
+    `CellValueSynonym <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-cellvaluesynonym.html>`__
+    """
+
+    props: PropsDictType = {
+        "CellValue": (str, False),
+        "Synonyms": ([str], False),
+    }
+
+
+class ComparativeOrder(AWSProperty):
+    """
+    `ComparativeOrder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-comparativeorder.html>`__
+    """
+
+    props: PropsDictType = {
+        "SpecifedOrder": ([str], False),
+        "TreatUndefinedSpecifiedValues": (str, False),
+        "UseOrdering": (str, False),
+    }
+
+
+class NegativeFormat(AWSProperty):
+    """
+    `NegativeFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-negativeformat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Prefix": (str, False),
+        "Suffix": (str, False),
+    }
+
+
+class DisplayFormatOptions(AWSProperty):
+    """
+    `DisplayFormatOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-displayformatoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "BlankCellFormat": (str, False),
+        "CurrencySymbol": (str, False),
+        "DateFormat": (str, False),
+        "DecimalSeparator": (str, False),
+        "FractionDigits": (double, False),
+        "GroupingSeparator": (str, False),
+        "NegativeFormat": (NegativeFormat, False),
+        "Prefix": (str, False),
+        "Suffix": (str, False),
+        "UnitScaler": (str, False),
+        "UseBlankCellFormat": (boolean, False),
+        "UseGrouping": (boolean, False),
+    }
+
+
+class DefaultFormatting(AWSProperty):
+    """
+    `DefaultFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-defaultformatting.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayFormat": (str, False),
+        "DisplayFormatOptions": (DisplayFormatOptions, False),
+    }
+
+
+class SemanticType(AWSProperty):
+    """
+    `SemanticType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semantictype.html>`__
+    """
+
+    props: PropsDictType = {
+        "FalseyCellValue": (str, False),
+        "FalseyCellValueSynonyms": ([str], False),
+        "SubTypeName": (str, False),
+        "TruthyCellValue": (str, False),
+        "TruthyCellValueSynonyms": ([str], False),
+        "TypeName": (str, False),
+        "TypeParameters": (dict, False),
+    }
+
+
+class TopicCalculatedField(AWSProperty):
+    """
+    `TopicCalculatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccalculatedfield.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregation": (str, False),
+        "AllowedAggregations": ([str], False),
+        "CalculatedFieldDescription": (str, False),
+        "CalculatedFieldName": (str, True),
+        "CalculatedFieldSynonyms": ([str], False),
+        "CellValueSynonyms": ([CellValueSynonym], False),
+        "ColumnDataRole": (str, False),
+        "ComparativeOrder": (ComparativeOrder, False),
+        "DefaultFormatting": (DefaultFormatting, False),
+        "Expression": (str, True),
+        "IsIncludedInTopic": (boolean, False),
+        "NeverAggregateInFilter": (boolean, False),
+        "NotAllowedAggregations": ([str], False),
+        "SemanticType": (SemanticType, False),
+        "TimeGranularity": (str, False),
+    }
+
+
+class TopicColumn(AWSProperty):
+    """
+    `TopicColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccolumn.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregation": (str, False),
+        "AllowedAggregations": ([str], False),
+        "CellValueSynonyms": ([CellValueSynonym], False),
+        "ColumnDataRole": (str, False),
+        "ColumnDescription": (str, False),
+        "ColumnFriendlyName": (str, False),
+        "ColumnName": (str, True),
+        "ColumnSynonyms": ([str], False),
+        "ComparativeOrder": (ComparativeOrder, False),
+        "DefaultFormatting": (DefaultFormatting, False),
+        "IsIncludedInTopic": (boolean, False),
+        "NeverAggregateInFilter": (boolean, False),
+        "NotAllowedAggregations": ([str], False),
+        "SemanticType": (SemanticType, False),
+        "TimeGranularity": (str, False),
+    }
+
+
+class CollectiveConstant(AWSProperty):
+    """
+    `CollectiveConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-collectiveconstant.html>`__
+    """
+
+    props: PropsDictType = {
+        "ValueList": ([str], False),
+    }
+
+
+class TopicCategoryFilterConstant(AWSProperty):
+    """
+    `TopicCategoryFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilterconstant.html>`__
+    """
+
+    props: PropsDictType = {
+        "CollectiveConstant": (CollectiveConstant, False),
+        "ConstantType": (str, False),
+        "SingularConstant": (str, False),
+    }
+
+
+class TopicCategoryFilter(AWSProperty):
+    """
+    `TopicCategoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topiccategoryfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "CategoryFilterFunction": (str, False),
+        "CategoryFilterType": (str, False),
+        "Constant": (TopicCategoryFilterConstant, False),
+        "Inverse": (boolean, False),
+    }
+
+
+class RangeConstant(AWSProperty):
+    """
+    `RangeConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-rangeconstant.html>`__
+    """
+
+    props: PropsDictType = {
+        "Maximum": (str, False),
+        "Minimum": (str, False),
+    }
+
+
+class TopicRangeFilterConstant(AWSProperty):
+    """
+    `TopicRangeFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrangefilterconstant.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConstantType": (str, False),
+        "RangeConstant": (RangeConstant, False),
+    }
+
+
+class TopicDateRangeFilter(AWSProperty):
+    """
+    `TopicDateRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicdaterangefilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constant": (TopicRangeFilterConstant, False),
+        "Inclusive": (boolean, False),
+    }
+
+
+class TopicSingularFilterConstant(AWSProperty):
+    """
+    `TopicSingularFilterConstant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicsingularfilterconstant.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConstantType": (str, False),
+        "SingularConstant": (str, False),
+    }
+
+
+class TopicNumericEqualityFilter(AWSProperty):
+    """
+    `TopicNumericEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericequalityfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregation": (str, False),
+        "Constant": (TopicSingularFilterConstant, False),
+    }
+
+
+class TopicNumericRangeFilter(AWSProperty):
+    """
+    `TopicNumericRangeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnumericrangefilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregation": (str, False),
+        "Constant": (TopicRangeFilterConstant, False),
+        "Inclusive": (boolean, False),
+    }
+
+
+class TopicRelativeDateFilter(AWSProperty):
+    """
+    `TopicRelativeDateFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicrelativedatefilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Constant": (TopicSingularFilterConstant, False),
+        "RelativeDateFilterFunction": (str, False),
+        "TimeGranularity": (str, False),
+    }
+
+
+class TopicFilter(AWSProperty):
+    """
+    `TopicFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "CategoryFilter": (TopicCategoryFilter, False),
+        "DateRangeFilter": (TopicDateRangeFilter, False),
+        "FilterClass": (str, False),
+        "FilterDescription": (str, False),
+        "FilterName": (str, True),
+        "FilterSynonyms": ([str], False),
+        "FilterType": (str, False),
+        "NumericEqualityFilter": (TopicNumericEqualityFilter, False),
+        "NumericRangeFilter": (TopicNumericRangeFilter, False),
+        "OperandFieldName": (str, True),
+        "RelativeDateFilter": (TopicRelativeDateFilter, False),
+    }
+
+
+class NamedEntityDefinitionMetric(AWSProperty):
+    """
+    `NamedEntityDefinitionMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinitionmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregation": (str, False),
+        "AggregationFunctionParameters": (dict, False),
+    }
+
+
+class NamedEntityDefinition(AWSProperty):
+    """
+    `NamedEntityDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-namedentitydefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldName": (str, False),
+        "Metric": (NamedEntityDefinitionMetric, False),
+        "PropertyName": (str, False),
+        "PropertyRole": (str, False),
+        "PropertyUsage": (str, False),
+    }
+
+
+class SemanticEntityType(AWSProperty):
+    """
+    `SemanticEntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-semanticentitytype.html>`__
+    """
+
+    props: PropsDictType = {
+        "SubTypeName": (str, False),
+        "TypeName": (str, False),
+        "TypeParameters": (dict, False),
+    }
+
+
+class TopicNamedEntity(AWSProperty):
+    """
+    `TopicNamedEntity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicnamedentity.html>`__
+    """
+
+    props: PropsDictType = {
+        "Definition": ([NamedEntityDefinition], False),
+        "EntityDescription": (str, False),
+        "EntityName": (str, True),
+        "EntitySynonyms": ([str], False),
+        "SemanticEntityType": (SemanticEntityType, False),
+    }
+
+
+class DatasetMetadata(AWSProperty):
+    """
+    `DatasetMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-datasetmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "CalculatedFields": ([TopicCalculatedField], False),
+        "Columns": ([TopicColumn], False),
+        "DataAggregation": (DataAggregation, False),
+        "DatasetArn": (str, True),
+        "DatasetDescription": (str, False),
+        "DatasetName": (str, False),
+        "Filters": ([TopicFilter], False),
+        "NamedEntities": ([TopicNamedEntity], False),
+    }
+
+
+class Topic(AWSObject):
+    """
+    `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Topic"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, False),
+        "DataSets": ([DatasetMetadata], False),
+        "Description": (str, False),
+        "Name": (str, False),
+        "TopicId": (str, False),
+    }
+
+
 class VPCConnection(AWSObject):
     """
     `VPCConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-vpcconnection.html>`__

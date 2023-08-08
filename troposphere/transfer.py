@@ -120,6 +120,7 @@ class IdentityProviderDetails(AWSProperty):
         "DirectoryId": (str, False),
         "Function": (str, False),
         "InvocationRole": (str, False),
+        "SftpAuthenticationMethods": (str, False),
         "Url": (str, False),
     }
 

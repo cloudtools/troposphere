@@ -117,6 +117,30 @@ class Authorizer(AWSObject):
     }
 
 
+class BillingGroupProperties(AWSProperty):
+    """
+    `BillingGroupProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-billinggroup-billinggroupproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "BillingGroupDescription": (str, False),
+    }
+
+
+class BillingGroup(AWSObject):
+    """
+    `BillingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-billinggroup.html>`__
+    """
+
+    resource_type = "AWS::IoT::BillingGroup"
+
+    props: PropsDictType = {
+        "BillingGroupName": (str, False),
+        "BillingGroupProperties": (BillingGroupProperties, False),
+        "Tags": (Tags, False),
+    }
+
+
 class RegistrationConfig(AWSProperty):
     """
     `RegistrationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-cacertificate-registrationconfig.html>`__
@@ -726,7 +750,7 @@ class SecurityProfile(AWSObject):
 
 class AttributePayload(AWSProperty):
     """
-    `AttributePayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thing-attributepayload.html>`__
+    `AttributePayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-attributepayload.html>`__
     """
 
     props: PropsDictType = {
@@ -747,6 +771,33 @@ class Thing(AWSObject):
     }
 
 
+class ThingGroupProperties(AWSProperty):
+    """
+    `ThingGroupProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-thinggroupproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributePayload": (AttributePayload, False),
+        "ThingGroupDescription": (str, False),
+    }
+
+
+class ThingGroup(AWSObject):
+    """
+    `ThingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thinggroup.html>`__
+    """
+
+    resource_type = "AWS::IoT::ThingGroup"
+
+    props: PropsDictType = {
+        "ParentGroupName": (str, False),
+        "QueryString": (str, False),
+        "Tags": (Tags, False),
+        "ThingGroupName": (str, False),
+        "ThingGroupProperties": (ThingGroupProperties, False),
+    }
+
+
 class ThingPrincipalAttachment(AWSObject):
     """
     `ThingPrincipalAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingprincipalattachment.html>`__
@@ -757,6 +808,32 @@ class ThingPrincipalAttachment(AWSObject):
     props: PropsDictType = {
         "Principal": (str, True),
         "ThingName": (str, True),
+    }
+
+
+class ThingTypeProperties(AWSProperty):
+    """
+    `ThingTypeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "SearchableAttributes": ([str], False),
+        "ThingTypeDescription": (str, False),
+    }
+
+
+class ThingType(AWSObject):
+    """
+    `ThingType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-thingtype.html>`__
+    """
+
+    resource_type = "AWS::IoT::ThingType"
+
+    props: PropsDictType = {
+        "DeprecateThingType": (boolean, False),
+        "Tags": (Tags, False),
+        "ThingTypeName": (str, False),
+        "ThingTypeProperties": (ThingTypeProperties, False),
     }
 
 
