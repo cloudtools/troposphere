@@ -43,15 +43,6 @@ patches = [
         "path": "/PropertyTypes/AWS::SageMaker::ModelQualityJobDefinition.ModelQualityJobInput/Properties/EndpointInput/Type",
         "value": "ModelQualityEndpointInput",
     },
-    # CreatedBy, LastModifiedBy, and Tag are documented as "Not currently supported by AWS CloudFormation."
-    {
-        "op": "remove",
-        "path": "/ResourceTypes/AWS::SageMaker::ModelPackage/Properties/CreatedBy",
-    },
-    {
-        "op": "remove",
-        "path": "/ResourceTypes/AWS::SageMaker::ModelPackage/Properties/LastModifiedBy",
-    },
     {
         "op": "remove",
         "path": "/PropertyTypes/AWS::SageMaker::ModelPackage.ModelPackageContainerDefinition/Properties/Environment/Type",
