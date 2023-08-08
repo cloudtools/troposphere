@@ -239,6 +239,17 @@ class ResourceRequirement(AWSProperty):
     }
 
 
+class RuntimePlatform(AWSProperty):
+    """
+    `RuntimePlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-runtimeplatform.html>`__
+    """
+
+    props: PropsDictType = {
+        "CpuArchitecture": (str, False),
+        "OperatingSystemFamily": (str, False),
+    }
+
+
 class Ulimit(AWSProperty):
     """
     `Ulimit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ulimit.html>`__
@@ -320,6 +331,7 @@ class ContainerProperties(AWSProperty):
         "Privileged": (boolean, False),
         "ReadonlyRootFilesystem": (boolean, False),
         "ResourceRequirements": ([ResourceRequirement], False),
+        "RuntimePlatform": (RuntimePlatform, False),
         "Secrets": ([Secret], False),
         "Ulimits": ([Ulimit], False),
         "User": (str, False),

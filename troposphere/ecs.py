@@ -251,7 +251,6 @@ class LoadBalancer(AWSProperty):
     props: PropsDictType = {
         "ContainerName": (str, False),
         "ContainerPort": (validate_network_port, False),
-        "LoadBalancerName": (str, False),
         "TargetGroupArn": (str, False),
     }
 

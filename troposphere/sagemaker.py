@@ -580,6 +580,19 @@ class BlueGreenUpdatePolicy(AWSProperty):
     }
 
 
+class RollingUpdatePolicy(AWSProperty):
+    """
+    `RollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-rollingupdatepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumBatchSize": (CapacitySize, True),
+        "MaximumExecutionTimeoutInSeconds": (integer, False),
+        "RollbackMaximumBatchSize": (CapacitySize, False),
+        "WaitIntervalInSeconds": (integer, True),
+    }
+
+
 class DeploymentConfig(AWSProperty):
     """
     `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-deploymentconfig.html>`__
@@ -587,7 +600,8 @@ class DeploymentConfig(AWSProperty):
 
     props: PropsDictType = {
         "AutoRollbackConfiguration": (AutoRollbackConfig, False),
-        "BlueGreenUpdatePolicy": (BlueGreenUpdatePolicy, True),
+        "BlueGreenUpdatePolicy": (BlueGreenUpdatePolicy, False),
+        "RollingUpdatePolicy": (RollingUpdatePolicy, False),
     }
 
 

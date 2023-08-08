@@ -308,6 +308,55 @@ class StorageVirtualMachine(AWSObject):
     }
 
 
+class AutocommitPeriod(AWSProperty):
+    """
+    `AutocommitPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, False),
+    }
+
+
+class RetentionPeriod(AWSProperty):
+    """
+    `RetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-retentionperiod.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, False),
+    }
+
+
+class SnaplockRetentionPeriod(AWSProperty):
+    """
+    `SnaplockRetentionPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-snaplockretentionperiod.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultRetention": (RetentionPeriod, True),
+        "MaximumRetention": (RetentionPeriod, True),
+        "MinimumRetention": (RetentionPeriod, True),
+    }
+
+
+class SnaplockConfiguration(AWSProperty):
+    """
+    `SnaplockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuditLogVolume": (str, False),
+        "AutocommitPeriod": (AutocommitPeriod, False),
+        "PrivilegedDelete": (str, False),
+        "RetentionPeriod": (SnaplockRetentionPeriod, False),
+        "SnaplockType": (str, True),
+        "VolumeAppendModeEnabled": (str, False),
+    }
+
+
 class TieringPolicy(AWSProperty):
     """
     `TieringPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-tieringpolicy.html>`__
@@ -330,6 +379,7 @@ class VolumeOntapConfiguration(AWSProperty):
         "OntapVolumeType": (str, False),
         "SecurityStyle": (str, False),
         "SizeInMegabytes": (str, True),
+        "SnaplockConfiguration": (SnaplockConfiguration, False),
         "SnapshotPolicy": (str, False),
         "StorageEfficiencyEnabled": (str, False),
         "StorageVirtualMachineId": (str, True),

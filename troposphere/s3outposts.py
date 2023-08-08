@@ -132,6 +132,17 @@ class BucketPolicy(AWSObject):
     }
 
 
+class FailedReason(AWSProperty):
+    """
+    `FailedReason <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3outposts-endpoint-failedreason.html>`__
+    """
+
+    props: PropsDictType = {
+        "ErrorCode": (str, False),
+        "Message": (str, False),
+    }
+
+
 class Endpoint(AWSObject):
     """
     `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3outposts-endpoint.html>`__
@@ -142,6 +153,7 @@ class Endpoint(AWSObject):
     props: PropsDictType = {
         "AccessType": (str, False),
         "CustomerOwnedIpv4Pool": (str, False),
+        "FailedReason": (FailedReason, False),
         "OutpostId": (str, True),
         "SecurityGroupId": (str, True),
         "SubnetId": (str, True),

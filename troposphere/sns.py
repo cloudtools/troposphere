@@ -64,6 +64,19 @@ class Topic(AWSObject):
     }
 
 
+class TopicInlinePolicy(AWSObject):
+    """
+    `TopicInlinePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicinlinepolicy.html>`__
+    """
+
+    resource_type = "AWS::SNS::TopicInlinePolicy"
+
+    props: PropsDictType = {
+        "PolicyDocument": (dict, True),
+        "TopicArn": (str, True),
+    }
+
+
 class TopicPolicy(AWSObject):
     """
     `TopicPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html>`__

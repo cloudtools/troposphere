@@ -61,6 +61,20 @@ class Group(AWSObject):
     }
 
 
+class GroupPolicy(AWSObject):
+    """
+    `GroupPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-grouppolicy.html>`__
+    """
+
+    resource_type = "AWS::IAM::GroupPolicy"
+
+    props: PropsDictType = {
+        "GroupName": (str, True),
+        "PolicyDocument": (dict, False),
+        "PolicyName": (str, True),
+    }
+
+
 class InstanceProfile(AWSObject):
     """
     `InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-instanceprofile.html>`__
@@ -144,6 +158,20 @@ class Role(AWSObject):
     }
 
 
+class RolePolicy(AWSObject):
+    """
+    `RolePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-rolepolicy.html>`__
+    """
+
+    resource_type = "AWS::IAM::RolePolicy"
+
+    props: PropsDictType = {
+        "PolicyDocument": (dict, False),
+        "PolicyName": (str, True),
+        "RoleName": (str, True),
+    }
+
+
 class SAMLProvider(AWSObject):
     """
     `SAMLProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html>`__
@@ -216,6 +244,20 @@ class User(AWSObject):
         "Policies": ([Policy], False),
         "Tags": (Tags, False),
         "UserName": (iam_user_name, False),
+    }
+
+
+class UserPolicy(AWSObject):
+    """
+    `UserPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-userpolicy.html>`__
+    """
+
+    resource_type = "AWS::IAM::UserPolicy"
+
+    props: PropsDictType = {
+        "PolicyDocument": (dict, False),
+        "PolicyName": (str, True),
+        "UserName": (str, True),
     }
 
 
