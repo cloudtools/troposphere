@@ -66,7 +66,7 @@ class Topic(AWSObject):
 
 class TopicPolicy(AWSObject):
     """
-    `TopicPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-policy.html>`__
+    `TopicPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sns-topicpolicy.html>`__
     """
 
     resource_type = "AWS::SNS::TopicPolicy"

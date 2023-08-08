@@ -882,6 +882,17 @@ class AmplitudeSourceProperties(AWSProperty):
     }
 
 
+class DataTransferApi(AWSProperty):
+    """
+    `DataTransferApi <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-datatransferapi.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Type": (str, True),
+    }
+
+
 class CustomConnectorSourceProperties(AWSProperty):
     """
     `CustomConnectorSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-customconnectorsourceproperties.html>`__
@@ -889,6 +900,7 @@ class CustomConnectorSourceProperties(AWSProperty):
 
     props: PropsDictType = {
         "CustomProperties": (dict, False),
+        "DataTransferApi": (DataTransferApi, False),
         "EntityName": (str, True),
     }
 
