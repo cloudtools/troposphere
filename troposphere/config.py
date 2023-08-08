@@ -30,6 +30,26 @@ class AggregationAuthorization(AWSObject):
     }
 
 
+class Compliance(AWSProperty):
+    """
+    `Compliance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-compliance.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, False),
+    }
+
+
+class EvaluationModeConfiguration(AWSProperty):
+    """
+    `EvaluationModeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-evaluationmodeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, False),
+    }
+
+
 class Scope(AWSProperty):
     """
     `Scope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-scope.html>`__
@@ -57,7 +77,7 @@ class CustomPolicyDetails(AWSProperty):
 
 class SourceDetails(AWSProperty):
     """
-    `SourceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-source-sourcedetails.html>`__
+    `SourceDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configrule-sourcedetail.html>`__
     """
 
     props: PropsDictType = {
@@ -91,8 +111,10 @@ class ConfigRule(AWSObject):
     resource_type = "AWS::Config::ConfigRule"
 
     props: PropsDictType = {
+        "Compliance": (Compliance, False),
         "ConfigRuleName": (str, False),
         "Description": (str, False),
+        "EvaluationModes": ([EvaluationModeConfiguration], False),
         "InputParameters": (dict, False),
         "MaximumExecutionFrequency": (str, False),
         "Scope": (Scope, False),

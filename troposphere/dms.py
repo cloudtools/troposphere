@@ -457,6 +457,46 @@ class EventSubscription(AWSObject):
     }
 
 
+class ComputeConfig(AWSProperty):
+    """
+    `ComputeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-replicationconfig-computeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "DnsNameServers": (str, False),
+        "KmsKeyId": (str, False),
+        "MaxCapacityUnits": (integer, True),
+        "MinCapacityUnits": (integer, False),
+        "MultiAZ": (boolean, False),
+        "PreferredMaintenanceWindow": (str, False),
+        "ReplicationSubnetGroupId": (str, False),
+        "VpcSecurityGroupIds": ([str], False),
+    }
+
+
+class ReplicationConfig(AWSObject):
+    """
+    `ReplicationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationconfig.html>`__
+    """
+
+    resource_type = "AWS::DMS::ReplicationConfig"
+
+    props: PropsDictType = {
+        "ComputeConfig": (ComputeConfig, False),
+        "ReplicationConfigArn": (str, False),
+        "ReplicationConfigIdentifier": (str, False),
+        "ReplicationSettings": (dict, False),
+        "ReplicationType": (str, False),
+        "ResourceIdentifier": (str, False),
+        "SourceEndpointArn": (str, False),
+        "SupplementalSettings": (dict, False),
+        "TableMappings": (dict, False),
+        "Tags": (Tags, False),
+        "TargetEndpointArn": (str, False),
+    }
+
+
 class ReplicationInstance(AWSObject):
     """
     `ReplicationInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-replicationinstance.html>`__

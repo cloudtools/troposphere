@@ -25,7 +25,9 @@ class CsvClassifier(AWSProperty):
 
     props: PropsDictType = {
         "AllowSingleColumn": (boolean, False),
+        "ContainsCustomDatatype": ([str], False),
         "ContainsHeader": (str, False),
+        "CustomDatatypeConfigured": (boolean, False),
         "Delimiter": (str, False),
         "DisableValueTrimming": (boolean, False),
         "Header": ([str], False),
@@ -193,6 +195,19 @@ class DynamoDBTarget(AWSProperty):
     }
 
 
+class IcebergTarget(AWSProperty):
+    """
+    `IcebergTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionName": (str, False),
+        "Exclusions": ([str], False),
+        "MaximumTraversalDepth": (integer, False),
+        "Paths": ([str], False),
+    }
+
+
 class JdbcTarget(AWSProperty):
     """
     `JdbcTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-jdbctarget.html>`__
@@ -240,6 +255,7 @@ class Targets(AWSProperty):
         "CatalogTargets": ([CatalogTarget], False),
         "DeltaTargets": ([DeltaTarget], False),
         "DynamoDBTargets": ([DynamoDBTarget], False),
+        "IcebergTargets": ([IcebergTarget], False),
         "JdbcTargets": ([JdbcTarget], False),
         "MongoDBTargets": ([MongoDBTarget], False),
         "S3Targets": ([S3Target], False),
@@ -352,6 +368,7 @@ class DatabaseIdentifier(AWSProperty):
     props: PropsDictType = {
         "CatalogId": (str, False),
         "DatabaseName": (str, False),
+        "Region": (str, False),
     }
 
 
@@ -881,6 +898,27 @@ class SecurityConfiguration(AWSObject):
     }
 
 
+class IcebergInput(AWSProperty):
+    """
+    `IcebergInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-iceberginput.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetadataOperation": (str, False),
+        "Version": (str, False),
+    }
+
+
+class OpenTableFormatInput(AWSProperty):
+    """
+    `OpenTableFormatInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-opentableformatinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "IcebergInput": (IcebergInput, False),
+    }
+
+
 class TableIdentifier(AWSProperty):
     """
     `TableIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-table-tableidentifier.html>`__
@@ -890,6 +928,7 @@ class TableIdentifier(AWSProperty):
         "CatalogId": (str, False),
         "DatabaseName": (str, False),
         "Name": (str, False),
+        "Region": (str, False),
     }
 
 
@@ -923,6 +962,7 @@ class Table(AWSObject):
     props: PropsDictType = {
         "CatalogId": (str, True),
         "DatabaseName": (str, True),
+        "OpenTableFormatInput": (OpenTableFormatInput, False),
         "TableInput": (TableInput, True),
     }
 

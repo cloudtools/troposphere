@@ -47,6 +47,7 @@ class DBCluster(AWSObject):
         "DBClusterIdentifier": (str, False),
         "DBClusterParameterGroupName": (str, False),
         "DBInstanceParameterGroupName": (str, False),
+        "DBPort": (integer, False),
         "DBSubnetGroupName": (str, False),
         "DeletionProtection": (boolean, False),
         "EnableCloudwatchLogsExports": ([str], False),
