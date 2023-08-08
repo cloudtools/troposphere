@@ -59,7 +59,7 @@ class ScalableTarget(AWSObject):
         "MaxCapacity": (integer, True),
         "MinCapacity": (integer, True),
         "ResourceId": (str, True),
-        "RoleARN": (str, True),
+        "RoleARN": (str, False),
         "ScalableDimension": (str, True),
         "ScheduledActions": ([ScheduledAction], False),
         "ServiceNamespace": (str, True),
