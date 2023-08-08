@@ -19,6 +19,7 @@ class Channel(AWSObject):
 
     props: PropsDictType = {
         "Authorized": (boolean, False),
+        "InsecureIngest": (boolean, False),
         "LatencyMode": (str, False),
         "Name": (str, False),
         "RecordingConfigurationArn": (str, False),

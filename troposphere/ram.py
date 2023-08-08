@@ -10,6 +10,21 @@ from . import AWSObject, PropsDictType, Tags
 from .validators import boolean
 
 
+class Permission(AWSObject):
+    """
+    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-permission.html>`__
+    """
+
+    resource_type = "AWS::RAM::Permission"
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "PolicyTemplate": (dict, True),
+        "ResourceType": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class ResourceShare(AWSObject):
     """
     `ResourceShare <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ram-resourceshare.html>`__

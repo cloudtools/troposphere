@@ -191,6 +191,22 @@ class Label(AWSObject):
     }
 
 
+class List(AWSObject):
+    """
+    `List <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-list.html>`__
+    """
+
+    resource_type = "AWS::FraudDetector::List"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Elements": ([str], False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "VariableType": (str, False),
+    }
+
+
 class Outcome(AWSObject):
     """
     `Outcome <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-frauddetector-outcome.html>`__

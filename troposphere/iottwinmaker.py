@@ -243,6 +243,7 @@ class Scene(AWSObject):
         "ContentLocation": (str, True),
         "Description": (str, False),
         "SceneId": (str, True),
+        "SceneMetadata": (dict, False),
         "Tags": (dict, False),
         "WorkspaceId": (str, True),
     }

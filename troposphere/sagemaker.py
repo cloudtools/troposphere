@@ -636,6 +636,7 @@ class AsyncInferenceNotificationConfig(AWSProperty):
 
     props: PropsDictType = {
         "ErrorTopic": (str, False),
+        "IncludeInferenceResponseIn": ([str], False),
         "SuccessTopic": (str, False),
     }
 
@@ -648,7 +649,8 @@ class AsyncInferenceOutputConfig(AWSProperty):
     props: PropsDictType = {
         "KmsKeyId": (str, False),
         "NotificationConfig": (AsyncInferenceNotificationConfig, False),
-        "S3OutputPath": (str, True),
+        "S3FailurePath": (str, False),
+        "S3OutputPath": (str, False),
     }
 
 

@@ -54,6 +54,22 @@ class Ac3Settings(AWSProperty):
     }
 
 
+class Eac3AtmosSettings(AWSProperty):
+    """
+    `Eac3AtmosSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3atmossettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bitrate": (double, False),
+        "CodingMode": (str, False),
+        "Dialnorm": (integer, False),
+        "DrcLine": (str, False),
+        "DrcRf": (str, False),
+        "HeightTrim": (double, False),
+        "SurroundTrim": (double, False),
+    }
+
+
 class Eac3Settings(AWSProperty):
     """
     `Eac3Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-eac3settings.html>`__
@@ -123,6 +139,7 @@ class AudioCodecSettings(AWSProperty):
     props: PropsDictType = {
         "AacSettings": (AacSettings, False),
         "Ac3Settings": (Ac3Settings, False),
+        "Eac3AtmosSettings": (Eac3AtmosSettings, False),
         "Eac3Settings": (Eac3Settings, False),
         "Mp2Settings": (Mp2Settings, False),
         "PassThroughSettings": (PassThroughSettings, False),
@@ -162,6 +179,7 @@ class NielsenNaesIiNw(AWSProperty):
     props: PropsDictType = {
         "CheckDigitString": (str, False),
         "Sid": (double, False),
+        "Timezone": (str, False),
     }
 
 
@@ -264,6 +282,21 @@ class AvailBlanking(AWSProperty):
     }
 
 
+class Esam(AWSProperty):
+    """
+    `Esam <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-esam.html>`__
+    """
+
+    props: PropsDictType = {
+        "AcquisitionPointId": (str, False),
+        "AdAvailOffset": (integer, False),
+        "PasswordParam": (str, False),
+        "PoisEndpoint": (str, False),
+        "Username": (str, False),
+        "ZoneIdentity": (str, False),
+    }
+
+
 class Scte35SpliceInsert(AWSProperty):
     """
     `Scte35SpliceInsert <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-scte35spliceinsert.html>`__
@@ -294,6 +327,7 @@ class AvailSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Esam": (Esam, False),
         "Scte35SpliceInsert": (Scte35SpliceInsert, False),
         "Scte35TimeSignalApos": (Scte35TimeSignalApos, False),
     }
@@ -509,6 +543,7 @@ class CaptionDescription(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Accessibility": (str, False),
         "CaptionSelectorName": (str, False),
         "DestinationSettings": (CaptionDestinationSettings, False),
         "LanguageCode": (str, False),
@@ -677,6 +712,7 @@ class M2tsSettings(AWSProperty):
         "Scte27Pids": (str, False),
         "Scte35Control": (str, False),
         "Scte35Pid": (str, False),
+        "Scte35PrerollPullupMilliseconds": (double, False),
         "SegmentationMarkers": (str, False),
         "SegmentationStyle": (str, False),
         "SegmentationTime": (double, False),
@@ -1285,6 +1321,18 @@ class TimecodeConfig(AWSProperty):
     }
 
 
+class TimecodeBurninSettings(AWSProperty):
+    """
+    `TimecodeBurninSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-timecodeburninsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "FontSize": (str, False),
+        "Position": (str, False),
+        "Prefix": (str, False),
+    }
+
+
 class FrameCaptureSettings(AWSProperty):
     """
     `FrameCaptureSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecapturesettings.html>`__
@@ -1293,6 +1341,7 @@ class FrameCaptureSettings(AWSProperty):
     props: PropsDictType = {
         "CaptureInterval": (integer, False),
         "CaptureIntervalUnits": (str, False),
+        "TimecodeBurninSettings": (TimecodeBurninSettings, False),
     }
 
 
@@ -1399,8 +1448,17 @@ class H264Settings(AWSProperty):
         "SubgopLength": (str, False),
         "Syntax": (str, False),
         "TemporalAq": (str, False),
+        "TimecodeBurninSettings": (TimecodeBurninSettings, False),
         "TimecodeInsertion": (str, False),
     }
+
+
+class DolbyVision81Settings(AWSProperty):
+    """
+    `DolbyVision81Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-dolbyvision81settings.html>`__
+    """
+
+    props: PropsDictType = {}
 
 
 class Hdr10Settings(AWSProperty):
@@ -1421,6 +1479,7 @@ class H265ColorSpaceSettings(AWSProperty):
 
     props: PropsDictType = {
         "ColorSpacePassthroughSettings": (ColorSpacePassthroughSettings, False),
+        "DolbyVision81Settings": (DolbyVision81Settings, False),
         "Hdr10Settings": (Hdr10Settings, False),
         "Rec601Settings": (Rec601Settings, False),
         "Rec709Settings": (Rec709Settings, False),
@@ -1471,6 +1530,7 @@ class H265Settings(AWSProperty):
         "SceneChangeDetect": (str, False),
         "Slices": (integer, False),
         "Tier": (str, False),
+        "TimecodeBurninSettings": (TimecodeBurninSettings, False),
         "TimecodeInsertion": (str, False),
     }
 
@@ -1506,6 +1566,7 @@ class Mpeg2Settings(AWSProperty):
         "GopSizeUnits": (str, False),
         "ScanType": (str, False),
         "SubgopLength": (str, False),
+        "TimecodeBurninSettings": (TimecodeBurninSettings, False),
         "TimecodeInsertion": (str, False),
     }
 
@@ -1659,6 +1720,16 @@ class AudioPidSelection(AWSProperty):
     }
 
 
+class AudioDolbyEDecode(AWSProperty):
+    """
+    `AudioDolbyEDecode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiodolbyedecode.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProgramSelection": (str, False),
+    }
+
+
 class AudioTrack(AWSProperty):
     """
     `AudioTrack <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-audiotrack.html>`__
@@ -1675,6 +1746,7 @@ class AudioTrackSelection(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DolbyEDecode": (AudioDolbyEDecode, False),
         "Tracks": ([AudioTrack], False),
     }
 
@@ -1943,6 +2015,17 @@ class InputSpecification(AWSProperty):
     }
 
 
+class MaintenanceCreateSettings(AWSProperty):
+    """
+    `MaintenanceCreateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenancecreatesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaintenanceDay": (str, False),
+        "MaintenanceStartTime": (str, False),
+    }
+
+
 class MediaPackageOutputDestinationSettings(AWSProperty):
     """
     `MediaPackageOutputDestinationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-mediapackageoutputdestinationsettings.html>`__
@@ -2017,6 +2100,7 @@ class Channel(AWSObject):
         "InputAttachments": ([InputAttachment], False),
         "InputSpecification": (InputSpecification, False),
         "LogLevel": (str, False),
+        "Maintenance": (MaintenanceCreateSettings, False),
         "Name": (str, False),
         "RoleArn": (str, False),
         "Tags": (dict, False),
@@ -2128,4 +2212,16 @@ class InputDeviceRequest(AWSProperty):
 
     props: PropsDictType = {
         "Id": (str, False),
+    }
+
+
+class MaintenanceUpdateSettings(AWSProperty):
+    """
+    `MaintenanceUpdateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-maintenanceupdatesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaintenanceDay": (str, False),
+        "MaintenanceScheduledDate": (str, False),
+        "MaintenanceStartTime": (str, False),
     }

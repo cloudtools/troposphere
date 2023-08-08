@@ -205,6 +205,16 @@ class AuthorizerConfig(AWSProperty):
     }
 
 
+class TlsConfig(AWSProperty):
+    """
+    `TlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-tlsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityPolicy": (str, False),
+    }
+
+
 class DomainConfiguration(AWSObject):
     """
     `DomainConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-domainconfiguration.html>`__
@@ -220,6 +230,7 @@ class DomainConfiguration(AWSObject):
         "ServerCertificateArns": ([str], False),
         "ServiceType": (str, False),
         "Tags": (Tags, False),
+        "TlsConfig": (TlsConfig, False),
         "ValidationCertificateArn": (str, False),
     }
 
