@@ -18,6 +18,7 @@ class Graph(AWSObject):
     resource_type = "AWS::Detective::Graph"
 
     props: PropsDictType = {
+        "AutoEnableMembers": (boolean, False),
         "Tags": (Tags, False),
     }
 

@@ -184,6 +184,16 @@ class AmazonopensearchserviceRetryOptions(AWSProperty):
     }
 
 
+class DocumentIdOptions(AWSProperty):
+    """
+    `DocumentIdOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-documentidoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultDocumentIdFormat": (str, True),
+    }
+
+
 class AmazonopensearchserviceDestinationConfiguration(AWSProperty):
     """
     `AmazonopensearchserviceDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-amazonopensearchservicedestinationconfiguration.html>`__
@@ -193,6 +203,7 @@ class AmazonopensearchserviceDestinationConfiguration(AWSProperty):
         "BufferingHints": (AmazonopensearchserviceBufferingHints, False),
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
         "ClusterEndpoint": (str, False),
+        "DocumentIdOptions": (DocumentIdOptions, False),
         "DomainARN": (str, False),
         "IndexName": (str, True),
         "IndexRotationPeriod": (str, False),
@@ -253,6 +264,7 @@ class ElasticsearchDestinationConfiguration(AWSProperty):
         "BufferingHints": (BufferingHints, False),
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
         "ClusterEndpoint": (str, False),
+        "DocumentIdOptions": (DocumentIdOptions, False),
         "DomainARN": (str, False),
         "IndexName": (str, True),
         "IndexRotationPeriod": (index_rotation_period_validator, False),

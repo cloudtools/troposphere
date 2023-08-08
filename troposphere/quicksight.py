@@ -6746,6 +6746,26 @@ class Theme(AWSObject):
     }
 
 
+class VPCConnection(AWSObject):
+    """
+    `VPCConnection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-vpcconnection.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::VPCConnection"
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (str, False),
+        "AwsAccountId": (str, False),
+        "DnsResolvers": ([str], False),
+        "Name": (str, False),
+        "RoleArn": (str, False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
+        "Tags": (Tags, False),
+        "VPCConnectionId": (str, False),
+    }
+
+
 class Entity(AWSProperty):
     """
     `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-entity.html>`__
@@ -6777,6 +6797,20 @@ class DashboardError(AWSProperty):
         "Message": (str, False),
         "Type": (str, False),
         "ViolatedEntities": ([Entity], False),
+    }
+
+
+class NetworkInterface(AWSProperty):
+    """
+    `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-vpcconnection-networkinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "ErrorMessage": (str, False),
+        "NetworkInterfaceId": (str, False),
+        "Status": (str, False),
+        "SubnetId": (str, False),
     }
 
 

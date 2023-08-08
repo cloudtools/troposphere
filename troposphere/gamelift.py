@@ -59,6 +59,7 @@ class Build(AWSObject):
     props: PropsDictType = {
         "Name": (str, False),
         "OperatingSystem": (str, False),
+        "ServerSdkVersion": (str, False),
         "StorageLocation": (StorageLocation, False),
         "Version": (str, False),
     }

@@ -884,6 +884,7 @@ class CpuOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AmdSevSnp": (str, False),
         "CoreCount": (integer, False),
         "ThreadsPerCore": (integer, False),
     }
@@ -1727,6 +1728,30 @@ class NetworkInsightsAnalysis(AWSObject):
     }
 
 
+class FilterPortRange(AWSProperty):
+    """
+    `FilterPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-filterportrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "FromPort": (integer, False),
+        "ToPort": (integer, False),
+    }
+
+
+class PathFilter(AWSProperty):
+    """
+    `PathFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightspath-pathfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationAddress": (str, False),
+        "DestinationPortRange": (FilterPortRange, False),
+        "SourceAddress": (str, False),
+        "SourcePortRange": (FilterPortRange, False),
+    }
+
+
 class NetworkInsightsPath(AWSObject):
     """
     `NetworkInsightsPath <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinsightspath.html>`__
@@ -1738,6 +1763,8 @@ class NetworkInsightsPath(AWSObject):
         "Destination": (str, False),
         "DestinationIp": (str, False),
         "DestinationPort": (integer, False),
+        "FilterAtDestination": (PathFilter, False),
+        "FilterAtSource": (PathFilter, False),
         "Protocol": (str, True),
         "Source": (str, True),
         "SourceIp": (str, False),
@@ -2798,6 +2825,83 @@ class VPNGatewayRoutePropagation(AWSObject):
     props: PropsDictType = {
         "RouteTableIds": ([str], True),
         "VpnGatewayId": (str, True),
+    }
+
+
+class CloudWatchLogs(AWSProperty):
+    """
+    `CloudWatchLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-cloudwatchlogs.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "LogGroup": (str, False),
+    }
+
+
+class KinesisDataFirehose(AWSProperty):
+    """
+    `KinesisDataFirehose <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-kinesisdatafirehose.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeliveryStream": (str, False),
+        "Enabled": (boolean, False),
+    }
+
+
+class S3(AWSProperty):
+    """
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-s3.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, False),
+        "BucketOwner": (str, False),
+        "Enabled": (boolean, False),
+        "Prefix": (str, False),
+    }
+
+
+class VerifiedAccessLogs(AWSProperty):
+    """
+    `VerifiedAccessLogs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesslogs.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogs": (CloudWatchLogs, False),
+        "KinesisDataFirehose": (KinesisDataFirehose, False),
+        "S3": (S3, False),
+    }
+
+
+class VerifiedAccessTrustProvider(AWSProperty):
+    """
+    `VerifiedAccessTrustProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessinstance-verifiedaccesstrustprovider.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DeviceTrustProviderType": (str, False),
+        "TrustProviderType": (str, False),
+        "UserTrustProviderType": (str, False),
+        "VerifiedAccessTrustProviderId": (str, False),
+    }
+
+
+class VerifiedAccessInstance(AWSObject):
+    """
+    `VerifiedAccessInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessinstance.html>`__
+    """
+
+    resource_type = "AWS::EC2::VerifiedAccessInstance"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "LoggingConfigurations": (VerifiedAccessLogs, False),
+        "Tags": (Tags, False),
+        "VerifiedAccessTrustProviderIds": ([str], False),
+        "VerifiedAccessTrustProviders": ([VerifiedAccessTrustProvider], False),
     }
 
 

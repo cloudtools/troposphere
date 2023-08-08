@@ -433,7 +433,7 @@ class DefaultSpaceSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ExecutionRole": (str, False),
+        "ExecutionRole": (str, True),
         "JupyterServerAppSettings": (JupyterServerAppSettings, False),
         "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
         "SecurityGroups": ([str], False),
