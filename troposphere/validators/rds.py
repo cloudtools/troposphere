@@ -442,8 +442,9 @@ def validate_dbinstance(self) -> None:
             min_storage_size = 20
             min_iops_to_allocated_storage_ratio = 0.5
         else:
-            raise ValueError(f"StorageType gp3 is not supported for engine "
-                             f"{engine}")
+            raise ValueError(
+                f"StorageType gp3 is not supported for engine " f"{engine}"
+            )
         # Validate storage size constraints when under certain sizes
         if (
             not isinstance(allocated_storage, AWSHelperFn)
@@ -456,10 +457,13 @@ def validate_dbinstance(self) -> None:
 
         # Validate storage performance constraints for iops ratios
         if not (
-                not isinstance(allocated_storage, AWSHelperFn)
-                and not isinstance(iops, AWSHelperFn)
-                and (
-                    min_iops_to_allocated_storage_ratio < iops / int(allocated_storage) < max_iops_to_allocated_storage_ratio)
+            not isinstance(allocated_storage, AWSHelperFn)
+            and not isinstance(iops, AWSHelperFn)
+            and (
+                min_iops_to_allocated_storage_ratio
+                < iops / int(allocated_storage)
+                < max_iops_to_allocated_storage_ratio
+            )
         ):
             raise ValueError(
                 "Invalid ratio of Iops to AllocatedStorage. Minimum ratio for "
