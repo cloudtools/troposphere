@@ -25,6 +25,7 @@ def validate_allocation_strategy(allocation_strategy):
         "BEST_FIT",
         "BEST_FIT_PROGRESSIVE",
         "SPOT_CAPACITY_OPTIMIZED",
+        "SPOT_PRICE_CAPACITY_OPTIMIZED",
     ]
 
     if allocation_strategy not in valid_strategies:
