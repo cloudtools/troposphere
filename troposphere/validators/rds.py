@@ -368,8 +368,10 @@ def validate_dbinstance(self) -> None:
         )
 
     nonetype = type(None)
+    allocated_storage = self.properties.get("AllocatedStorage")
     avail_zone = self.properties.get("AvailabilityZone", None)
     multi_az = self.properties.get("MultiAZ", None)
+    engine = self.properties.get("Engine")
     if not (
         isinstance(avail_zone, (AWSHelperFn, nonetype))
         and isinstance(multi_az, (AWSHelperFn, nonetype))
@@ -381,18 +383,34 @@ def validate_dbinstance(self) -> None:
             )
 
     storage_type = self.properties.get("StorageType", None)
+    if storage_type and storage_type in ["io1"] and "Iops" not in self.properties:
+        raise ValueError("Must specify Iops if using StorageType io1")
+
     if (
         storage_type
-        and storage_type in ["io1", "gp3"]
-        and "Iops" not in self.properties
+        and engine in ["mariadb", "mysql", "postgres"]
+        and storage_type in ["gp3"]
+        and int(allocated_storage) < 400
+        and "Iops" in self.properties
     ):
-        raise ValueError("Must specify Iops if using StorageType io1 or gp3")
+        raise ValueError(
+            "gp3 storage cannot have Iops specified when storage is less than 400GB for mariadb, mysql, postgres"
+        )
 
-    allocated_storage = self.properties.get("AllocatedStorage")
+    if (
+        storage_type
+        and "oracle" in engine
+        and storage_type in ["gp3"]
+        and int(allocated_storage) < 200
+        and "Iops" in self.properties
+    ):
+        raise ValueError(
+            "gp3 storage cannot have Iops specified when storage is less than 200GB for oracle engine types"
+        )
+
     iops = self.properties.get("Iops", None)
     if iops and not isinstance(iops, AWSHelperFn) and storage_type not in ["gp3"]:
         min_storage_size = 100
-        engine = self.properties.get("Engine")
         if not isinstance(engine, AWSHelperFn) and engine.startswith("sqlserver"):
             min_storage_size = 20
 
@@ -411,4 +429,45 @@ def validate_dbinstance(self) -> None:
         ):
             raise ValueError(
                 "AllocatedStorage must be no less than " "1/50th the provisioned Iops"
+            )
+    if iops and not isinstance(iops, AWSHelperFn) and storage_type in ["gp3"]:
+        # https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage
+        min_iops_to_allocated_storage_ratio = 0.0
+        max_iops_to_allocated_storage_ratio = 500.0
+        if engine in ["mariadb", "mysql", "postgres"]:
+            min_storage_size = 400
+        elif "oracle" in engine:
+            min_storage_size = 200
+        elif "sqlserver" in engine:
+            min_storage_size = 20
+            min_iops_to_allocated_storage_ratio = 0.5
+        else:
+            raise ValueError(
+                f"StorageType gp3 is not supported for engine " f"{engine}"
+            )
+        # Validate storage size constraints when under certain sizes
+        if (
+            not isinstance(allocated_storage, AWSHelperFn)
+            and int(allocated_storage) < min_storage_size
+        ):
+            raise ValueError(
+                f"AllocatedStorage must be at least {min_storage_size} when "
+                "Iops is set."
+            )
+
+        # Validate storage performance constraints for iops ratios
+        if not (
+            not isinstance(allocated_storage, AWSHelperFn)
+            and not isinstance(iops, AWSHelperFn)
+            and (
+                min_iops_to_allocated_storage_ratio
+                < iops / int(allocated_storage)
+                < max_iops_to_allocated_storage_ratio
+            )
+        ):
+            raise ValueError(
+                "Invalid ratio of Iops to AllocatedStorage. Minimum ratio for "
+                f"engine {engine} is {min_iops_to_allocated_storage_ratio} "
+                f"and maximum ratio is {max_iops_to_allocated_storage_ratio}"
+                f"current value is {iops / int(allocated_storage)}"
             )
