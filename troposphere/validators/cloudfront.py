@@ -128,7 +128,13 @@ def cloudfront_origin_request_header_behavior(header_behavior):
     """
     Property: OriginRequestHeadersConfig.HeaderBehavior
     """
-    valid_values = ["none", "whitelist", "allViewer", "allViewerAndWhitelistCloudFront", "allExcept"]
+    valid_values = [
+        "none",
+        "whitelist",
+        "allViewer",
+        "allViewerAndWhitelistCloudFront",
+        "allExcept",
+    ]
     if header_behavior not in valid_values:
         raise ValueError(
             'HeaderBehavior must be one of: "%s"' % (", ".join(valid_values))
