@@ -132,6 +132,7 @@ class VolumeSpecification(AWSProperty):
     props: PropsDictType = {
         "Iops": (integer, False),
         "SizeInGB": (integer, True),
+        "Throughput": (integer, False),
         "VolumeType": (volume_type_validator, True),
     }
 

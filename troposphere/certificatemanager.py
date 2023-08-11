@@ -57,6 +57,7 @@ class Certificate(AWSObject):
         "CertificateTransparencyLoggingPreference": (str, False),
         "DomainName": (str, True),
         "DomainValidationOptions": ([DomainValidationOption], False),
+        "KeyAlgorithm": (str, False),
         "SubjectAlternativeNames": ([str], False),
         "Tags": (validate_tags_or_list, False),
         "ValidationMethod": (str, False),

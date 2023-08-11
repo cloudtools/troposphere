@@ -161,6 +161,26 @@ class ConfigurationAggregator(AWSObject):
     }
 
 
+class ExclusionByResourceTypes(AWSProperty):
+    """
+    `ExclusionByResourceTypes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-exclusionbyresourcetypes.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceTypes": ([str], True),
+    }
+
+
+class RecordingStrategy(AWSProperty):
+    """
+    `RecordingStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordingstrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "UseOnly": (str, True),
+    }
+
+
 class RecordingGroup(AWSProperty):
     """
     `RecordingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-config-configurationrecorder-recordinggroup.html>`__
@@ -168,7 +188,9 @@ class RecordingGroup(AWSProperty):
 
     props: PropsDictType = {
         "AllSupported": (boolean, False),
+        "ExclusionByResourceTypes": (ExclusionByResourceTypes, False),
         "IncludeGlobalResourceTypes": (boolean, False),
+        "RecordingStrategy": (RecordingStrategy, False),
         "ResourceTypes": ([str], False),
     }
 

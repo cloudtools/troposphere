@@ -616,6 +616,21 @@ class TaskTemplate(AWSObject):
     }
 
 
+class TrafficDistributionGroup(AWSObject):
+    """
+    `TrafficDistributionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-trafficdistributiongroup.html>`__
+    """
+
+    resource_type = "AWS::Connect::TrafficDistributionGroup"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class UserIdentityInfo(AWSProperty):
     """
     `UserIdentityInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-useridentityinfo.html>`__

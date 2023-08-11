@@ -1378,11 +1378,11 @@ class Monitoring(AWSProperty):
 
 class Ipv4PrefixSpecification(AWSProperty):
     """
-    `Ipv4PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv4prefixspecification.html>`__
+    `Ipv4PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv4prefixspecification.html>`__
     """
 
     props: PropsDictType = {
-        "Ipv4Prefix": (str, False),
+        "Ipv4Prefix": (str, True),
     }
 
 
@@ -1398,11 +1398,11 @@ class Ipv6Add(AWSProperty):
 
 class Ipv6PrefixSpecification(AWSProperty):
     """
-    `Ipv6PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-ipv6prefixspecification.html>`__
+    `Ipv6PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv6prefixspecification.html>`__
     """
 
     props: PropsDictType = {
-        "Ipv6Prefix": (str, False),
+        "Ipv6Prefix": (str, True),
     }
 
 
@@ -1784,8 +1784,12 @@ class NetworkInterface(AWSObject):
         "Description": (str, False),
         "GroupSet": ([str], False),
         "InterfaceType": (str, False),
+        "Ipv4PrefixCount": (integer, False),
+        "Ipv4Prefixes": ([Ipv4PrefixSpecification], False),
         "Ipv6AddressCount": (integer, False),
         "Ipv6Addresses": ([InstanceIpv6Address], False),
+        "Ipv6PrefixCount": (integer, False),
+        "Ipv6Prefixes": ([Ipv6PrefixSpecification], False),
         "PrivateIpAddress": (str, False),
         "PrivateIpAddresses": ([PrivateIpAddressSpecification], False),
         "SecondaryPrivateIpAddressCount": (integer, False),
@@ -1797,7 +1801,7 @@ class NetworkInterface(AWSObject):
 
 class NetworkInterfaceAttachment(AWSObject):
     """
-    `NetworkInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-interface-attachment.html>`__
+    `NetworkInterfaceAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkinterfaceattachment.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkInterfaceAttachment"
