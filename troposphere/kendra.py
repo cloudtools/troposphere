@@ -548,6 +548,16 @@ class SharePointConfiguration(AWSProperty):
     }
 
 
+class TemplateConfiguration(AWSProperty):
+    """
+    `TemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-templateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Template": (str, True),
+    }
+
+
 class ProxyConfiguration(AWSProperty):
     """
     `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kendra-datasource-proxyconfiguration.html>`__
@@ -661,6 +671,7 @@ class DataSourceConfiguration(AWSProperty):
         "SalesforceConfiguration": (SalesforceConfiguration, False),
         "ServiceNowConfiguration": (ServiceNowConfiguration, False),
         "SharePointConfiguration": (SharePointConfiguration, False),
+        "TemplateConfiguration": (TemplateConfiguration, False),
         "WebCrawlerConfiguration": (WebCrawlerConfiguration, False),
         "WorkDocsConfiguration": (WorkDocsConfiguration, False),
     }

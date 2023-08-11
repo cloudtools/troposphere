@@ -27,6 +27,35 @@ class Agent(AWSObject):
     }
 
 
+class AzureBlobSasConfiguration(AWSProperty):
+    """
+    `AzureBlobSasConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationazureblob-azureblobsasconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AzureBlobSasToken": (str, True),
+    }
+
+
+class LocationAzureBlob(AWSObject):
+    """
+    `LocationAzureBlob <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datasync-locationazureblob.html>`__
+    """
+
+    resource_type = "AWS::DataSync::LocationAzureBlob"
+
+    props: PropsDictType = {
+        "AgentArns": ([str], True),
+        "AzureAccessTier": (str, False),
+        "AzureBlobAuthenticationType": (str, True),
+        "AzureBlobContainerUrl": (str, False),
+        "AzureBlobSasConfiguration": (AzureBlobSasConfiguration, False),
+        "AzureBlobType": (str, False),
+        "Subdirectory": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Ec2Config(AWSProperty):
     """
     `Ec2Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-locationefs-ec2config.html>`__

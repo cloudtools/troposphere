@@ -37,10 +37,11 @@ class Key(AWSObject):
     resource_type = "AWS::KMS::Key"
 
     props: PropsDictType = {
+        "BypassPolicyLockoutSafetyCheck": (boolean, False),
         "Description": (str, False),
         "EnableKeyRotation": (boolean, False),
         "Enabled": (boolean, False),
-        "KeyPolicy": (policytypes, True),
+        "KeyPolicy": (policytypes, False),
         "KeySpec": (str, False),
         "KeyUsage": (key_usage_type, False),
         "MultiRegion": (boolean, False),

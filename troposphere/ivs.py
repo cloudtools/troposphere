@@ -59,7 +59,18 @@ class DestinationConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "S3": (S3DestinationConfiguration, True),
+        "S3": (S3DestinationConfiguration, False),
+    }
+
+
+class RenditionConfiguration(AWSProperty):
+    """
+    `RenditionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-renditionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RenditionSelection": (str, False),
+        "Renditions": ([str], False),
     }
 
 
@@ -69,7 +80,9 @@ class ThumbnailConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "RecordingMode": (str, True),
+        "RecordingMode": (str, False),
+        "Resolution": (str, False),
+        "Storage": ([str], False),
         "TargetIntervalSeconds": (integer, False),
     }
 
@@ -85,6 +98,7 @@ class RecordingConfiguration(AWSObject):
         "DestinationConfiguration": (DestinationConfiguration, True),
         "Name": (str, False),
         "RecordingReconnectWindowSeconds": (integer, False),
+        "RenditionConfiguration": (RenditionConfiguration, False),
         "Tags": (Tags, False),
         "ThumbnailConfiguration": (ThumbnailConfiguration, False),
     }

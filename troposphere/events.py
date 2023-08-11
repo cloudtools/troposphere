@@ -426,7 +426,7 @@ class RedshiftDataParameters(AWSProperty):
         "Database": (str, True),
         "DbUser": (str, False),
         "SecretManagerArn": (str, False),
-        "Sql": (str, True),
+        "Sql": (str, False),
         "StatementName": (str, False),
         "WithEvent": (boolean, False),
     }
