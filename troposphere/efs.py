@@ -9,6 +9,7 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 from .validators.efs import Bursting  # noqa: F401
+from .validators.efs import Elastic  # noqa: F401
 from .validators.efs import Provisioned  # noqa: F401
 from .validators.efs import (
     provisioned_throughput_validator,

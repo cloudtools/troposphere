@@ -23,6 +23,8 @@ from .validators.ec2 import (
     validate_network_acl_entry,
     validate_network_port,
     validate_networkaclentry_rulenumber,
+    validate_placement_spread_level,
+    validate_placement_strategy,
     validate_route,
     validate_security_group_egress,
     validate_security_group_ingress,
@@ -1852,8 +1854,8 @@ class PlacementGroup(AWSObject):
 
     props: PropsDictType = {
         "PartitionCount": (integer, False),
-        "SpreadLevel": (str, False),
-        "Strategy": (str, False),
+        "SpreadLevel": (validate_placement_spread_level, False),
+        "Strategy": (validate_placement_strategy, False),
         "Tags": (Tags, False),
     }
 
