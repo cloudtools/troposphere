@@ -18,8 +18,9 @@ except ImportError:
 def validate_policytype(policy):
     if not isinstance(policy, policytypes):
         raise TypeError(
-            "Invalid policy type: is %s, expected %s" % type(policy), policytypes
+            f"Invalid policy type: is {type(policy)}, expected {policytypes}"
         )
+
     return policy
 
 
