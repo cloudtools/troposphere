@@ -607,11 +607,28 @@ class RequestModel(AWSProperty):
     }
 
 
+def api_function_auth_validator(auth):
+    if not isinstance(auth, (Auth, ApiFunctionAuth)):
+        raise TypeError(
+            f"Value {auth} of type {type(auth)}, expected {Auth} or {ApiFunctionAuth}"
+        )
+
+    if isinstance(auth, Auth):
+        from warnings import warn
+
+        warn(
+            f"The use of {Auth} in ApiEvent is deprecated. Please use {ApiFunctionAuth} instead",
+            DeprecationWarning,
+        )
+
+    return auth
+
+
 class ApiEvent(AWSObject):
     resource_type = "Api"
 
     props: PropsDictType = {
-        "Auth": (ApiFunctionAuth, False),
+        "Auth": (api_function_auth_validator, False),
         "Path": (str, True),
         "Method": (str, True),
         "RequestModel": (RequestModel, False),

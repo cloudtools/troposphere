@@ -5,6 +5,8 @@ from troposphere.s3 import Filter, Rules, S3Key
 from troposphere.serverless import (
     SERVERLESS_TRANSFORM,
     Api,
+    ApiEvent,
+    ApiFunctionAuth,
     ApiGlobals,
     Auth,
     DeadLetterQueue,
@@ -473,6 +475,38 @@ class TestServerless(unittest.TestCase):
         FunctionGlobals(MemorySize=128)
         with self.assertRaises(ValueError):
             FunctionGlobals(MemorySize=64)
+
+    def test_api_event_auth(self):
+        # Verify deprecated Auth
+        api_event = ApiEvent(
+            "SomeApiEvent",
+            Auth=Auth(),
+            Path="some path",
+            Method="some method",
+        )
+        t = Template()
+        t.add_resource(api_event)
+        t.to_json()
+
+        # Verify ApiFunctionAuth
+        api_event = ApiEvent(
+            "SomeApiEvent",
+            Auth=ApiFunctionAuth(),
+            Path="some path",
+            Method="some method",
+        )
+        t = Template()
+        t.add_resource(api_event)
+        t.to_json()
+
+        # Verify TypeError
+        with self.assertRaises(TypeError):
+            api_event = ApiEvent(
+                "SomeApiEvent",
+                Auth="some auth",
+                Path="some path",
+                Method="some method",
+            )
 
 
 if __name__ == "__main__":
