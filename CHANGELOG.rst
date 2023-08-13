@@ -1,3 +1,53 @@
+4.4.0 (2023*08*13)
+-------------------------------
+* Add validator for AWS::RDS::DBCluster.ServerlessV2ScalingConfiguration (#2135)
+* Updates from spec version 116.0.0 (#2133)
+* Updates from spec version 117.0.0 (#2136)
+* update engine types validator for AWS::RDS::DBInstance (#2137)
+* Remove storage size validation for gp3 RDS StorageType (#2142)
+* Updates from spec version 118.1.0 (#2140)
+* Fix black formatting from #2142
+* Fix Macie jsonpatch for spec 119.0.0 changes
+* Updates from spec version 119.0.0 (#2143)
+* Automate fixing and generation of standalone types
+* Updates from spec version 119.1.0
+* Updates from spec version 120.0.0
+* Update S3 patch to remove Encryption changes
+* Omit Connect::EvaluationForm for now due to recursion issues
+* Updates from spec version 121.0.0
+* Updates from spec version 122.0.0
+* Updates from spec version 124.0.0
+* Updates from spec version 125.0.0
+* Updates from spec version 126.0.0
+* Updates from spec version 127.0.0
+* Remove SageMaker CreatedBy and LastModifiedBy patches
+* Updates from spec version 129.0.0
+* Updates from spec version 130.0.0
+* Updates from spec version 131.0.0
+* Updates from spec version 132.0.0
+* Updates from spec version 133.0.0
+* Updates from spec version 134.0.0
+* Fix regex compile error in ec2.py (#2156)
+* Batch validators add support for SPOT_PRICE_CAPACITY_OPTIMIZED (#2167)
+* Update rds validator logic (#2164)
+* Add more Serverless Application Model event sources
+* Add all valid origin_request_policy config behaviors to validators (#2163)
+* Updated the gen.py script example
+* Added Tags into EventBridge Rule
+* Addded RuntimeManagementConfig attribute to serverless Function.
+* Fix black formatting
+* Updates from spec version 135.0.0 (#2170)
+* Support "elastic" throughput mode for EFS
+* AWS::EC2::PlacementGroup validators
+* Run regen to fixup recent changes
+* Add ApiFunctionAuth serverless class for Api Function events (#2145)
+* Fix up previous serverless ApiEvent Auth change
+* TypeError() return the expected Class as last exception argument (#2147)
+* Fix TypeError formatting to reflect the true error (Fixes #2157)
+* Fix black formatting
+* Update requirements for building docs
+* Upgrade black from 22.3.0 to 23.7.0
+
 4.3.2 (2023*03*10)
 -------------------------------
 * Include the troposphere/type_defs package in the build
