@@ -110,7 +110,6 @@ class HealthMonitor(AWSObject):
     }
 
     def validate(self):
-
         if "type" in self.resource:
             mon_type = self.resource["type"]
             if mon_type not in ["PING", "TCP", "HTTP", "HTTPS"]:
@@ -168,7 +167,6 @@ class Pool(AWSObject):
     }
 
     def validate(self):
-
         if "lb_method" in self.resource:
             lb_method = self.resource["lb_method"]
             if lb_method not in ["ROUND_ROBIN", "LEAST_CONNECTIONS", "SOURCE_IP"]:

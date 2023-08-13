@@ -294,7 +294,7 @@ class ResourceSpec:
         UNSUPPORTED_TAG_NAMES = ["TagMap"]
 
         for service_name, service in self.services.items():
-            for (class_name, key, value) in service.get_property_items():
+            for class_name, key, value in service.get_property_items():
                 if key in service.property_validators:
                     continue
                 if value.item_type in UNSUPPORTED_TAG_NAMES:
@@ -345,12 +345,12 @@ class ResourceSpec:
                     dup_class_name
                 )
 
-                for (class_name, key, value) in service.get_property_items():
+                for class_name, key, value in service.get_property_items():
                     update_property(dup_class_name, new_class_name, value)
 
     def _fix_standalone_types(self):
         for service_name, service in self.services.items():
-            for (class_name, key, value) in service.get_property_items():
+            for class_name, key, value in service.get_property_items():
                 if key == "Tags":
                     continue
 
@@ -358,7 +358,6 @@ class ResourceSpec:
                     value.type in service.standalone_types
                     or value.item_type in service.standalone_types
                 ):
-
                     # Determine if matching a type or item_type
                     if value.type in service.standalone_types:
                         update_name = value.type
@@ -646,7 +645,7 @@ class CodeGenerator:
         """
         Walk the resources/properties looking for a specific type.
         """
-        for (class_name, key, value) in self.service.get_property_items():
+        for class_name, key, value in self.service.get_property_items():
             if value.type == check_type:
                 return True
         return False
@@ -655,7 +654,7 @@ class CodeGenerator:
         """
         Walk the resources/properties looking for a specific type via _check_type()
         """
-        for (class_name, key, value) in self.service.get_property_items():
+        for class_name, key, value in self.service.get_property_items():
             # Don't import if we will be overwriting with a validator
             if key in self.property_validators[class_name]:
                 continue
@@ -667,7 +666,7 @@ class CodeGenerator:
         """
         Walk the resources/properties looking for tags
         """
-        for (class_name, key, value) in self.service.get_property_items():
+        for class_name, key, value in self.service.get_property_items():
             # Don't import if we will be overwriting with a validator
             if key in self.property_validators[class_name]:
                 continue

@@ -137,7 +137,6 @@ def validate_simple_scaling_policy_configuration(self):
     """
 
     if "AdjustmentType" in self.properties and "ScalingAdjustment" in self.properties:
-
         valid_values = [
             CHANGE_IN_CAPACITY,
             PERCENT_CHANGE_IN_CAPACITY,

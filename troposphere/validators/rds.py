@@ -321,7 +321,6 @@ def validate_dbinstance(self) -> None:
             )
 
     if "SourceDBInstanceIdentifier" in self.properties:
-
         invalid_replica_properties = (
             "DBName",
             "MasterUsername",

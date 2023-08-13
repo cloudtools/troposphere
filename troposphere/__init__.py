@@ -146,7 +146,6 @@ __BaseAWSObjectTypeVar = TypeVar("__BaseAWSObjectTypeVar", bound="BaseAWSObject"
 
 
 class BaseAWSObject:
-
     attributes: List[str]
     dictname: Optional[str]
     do_validation: bool
