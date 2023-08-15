@@ -46,6 +46,7 @@ __version__ = "4.4.0"
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete: Final = "Delete"
 Retain: Final = "Retain"
+RetainExceptOnCreate: Final = "RetainExceptOnCreate"
 Snapshot: Final = "Snapshot"
 
 # Pseudo Parameters
