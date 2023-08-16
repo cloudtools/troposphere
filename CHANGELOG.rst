@@ -1,3 +1,9 @@
+4.4.1 (2023*08*16)
+-------------------------------
+* Remove EOL Python 3.7 from the tests action
+* Add new DeletionPolicy attribute option, RetainExceptOnCreate (#2174)
+* Fix RDS Validations (#2171)
+
 4.4.0 (2023*08*13)
 -------------------------------
 * Add validator for AWS::RDS::DBCluster.ServerlessV2ScalingConfiguration (#2135)
