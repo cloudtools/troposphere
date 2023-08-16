@@ -367,6 +367,7 @@ def validate_dbinstance(self) -> None:
         )
 
     nonetype = type(None)
+    dbclusteridentifier = self.properties.get("DBClusterIdentifier", None)
     allocated_storage = self.properties.get("AllocatedStorage")
     avail_zone = self.properties.get("AvailabilityZone", None)
     multi_az = self.properties.get("MultiAZ", None)
@@ -382,11 +383,20 @@ def validate_dbinstance(self) -> None:
             )
 
     storage_type = self.properties.get("StorageType", None)
-    if storage_type and storage_type in ["io1"] and "Iops" not in self.properties:
+    if (
+        not dbclusteridentifier
+        and storage_type
+        and storage_type in ["io1"]
+        and "Iops" not in self.properties
+    ):
         raise ValueError("Must specify Iops if using StorageType io1")
 
     if (
-        storage_type
+        not dbclusteridentifier
+        and storage_type
+        and not isinstance(storage_type, (AWSHelperFn, nonetype))
+        and engine
+        and not isinstance(engine, (AWSHelperFn, nonetype))
         and engine in ["mariadb", "mysql", "postgres"]
         and storage_type in ["gp3"]
         and int(allocated_storage) < 400
@@ -397,7 +407,11 @@ def validate_dbinstance(self) -> None:
         )
 
     if (
-        storage_type
+        not dbclusteridentifier
+        and storage_type
+        and not isinstance(storage_type, (AWSHelperFn, nonetype))
+        and engine
+        and not isinstance(engine, (AWSHelperFn, nonetype))
         and "oracle" in engine
         and storage_type in ["gp3"]
         and int(allocated_storage) < 200
@@ -408,7 +422,12 @@ def validate_dbinstance(self) -> None:
         )
 
     iops = self.properties.get("Iops", None)
-    if iops and not isinstance(iops, AWSHelperFn) and storage_type not in ["gp3"]:
+    if (
+        not dbclusteridentifier
+        and iops
+        and not isinstance(iops, AWSHelperFn)
+        and storage_type not in ["gp3"]
+    ):
         min_storage_size = 100
         if not isinstance(engine, AWSHelperFn) and engine.startswith("sqlserver"):
             min_storage_size = 20
@@ -429,7 +448,12 @@ def validate_dbinstance(self) -> None:
             raise ValueError(
                 "AllocatedStorage must be no less than " "1/50th the provisioned Iops"
             )
-    if iops and not isinstance(iops, AWSHelperFn) and storage_type in ["gp3"]:
+    if (
+        not dbclusteridentifier
+        and iops
+        and not isinstance(iops, AWSHelperFn)
+        and storage_type in ["gp3"]
+    ):
         # https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#gp3-storage
         min_iops_to_allocated_storage_ratio = 0.0
         max_iops_to_allocated_storage_ratio = 500.0
