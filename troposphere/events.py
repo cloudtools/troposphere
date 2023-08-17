@@ -134,8 +134,8 @@ class Connection(AWSObject):
     resource_type = "AWS::Events::Connection"
 
     props: PropsDictType = {
-        "AuthParameters": (AuthParameters, True),
-        "AuthorizationType": (str, True),
+        "AuthParameters": (AuthParameters, False),
+        "AuthorizationType": (str, False),
         "Description": (str, False),
         "Name": (str, False),
     }

@@ -182,8 +182,11 @@ class OpenZFSConfiguration(AWSProperty):
         "DailyAutomaticBackupStartTime": (str, False),
         "DeploymentType": (str, True),
         "DiskIopsConfiguration": (DiskIopsConfiguration, False),
+        "EndpointIpAddressRange": (str, False),
         "Options": ([str], False),
+        "PreferredSubnetId": (str, False),
         "RootVolumeConfiguration": (RootVolumeConfiguration, False),
+        "RouteTableIds": ([str], False),
         "ThroughputCapacity": (integer, False),
         "WeeklyMaintenanceStartTime": (str, False),
     }
@@ -229,6 +232,7 @@ class WindowsConfiguration(AWSProperty):
         "CopyTagsToBackups": (boolean, False),
         "DailyAutomaticBackupStartTime": (str, False),
         "DeploymentType": (str, False),
+        "DiskIopsConfiguration": (DiskIopsConfiguration, False),
         "PreferredSubnetId": (str, False),
         "SelfManagedActiveDirectoryConfiguration": (
             SelfManagedActiveDirectoryConfiguration,

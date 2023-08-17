@@ -237,6 +237,83 @@ class PlaybackConfiguration(AWSObject):
     }
 
 
+class SecretsManagerAccessTokenConfiguration(AWSProperty):
+    """
+    `SecretsManagerAccessTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-secretsmanageraccesstokenconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "HeaderName": (str, False),
+        "SecretArn": (str, False),
+        "SecretStringKey": (str, False),
+    }
+
+
+class AccessConfiguration(AWSProperty):
+    """
+    `AccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-accessconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessType": (str, False),
+        "SecretsManagerAccessTokenConfiguration": (
+            SecretsManagerAccessTokenConfiguration,
+            False,
+        ),
+    }
+
+
+class DefaultSegmentDeliveryConfiguration(AWSProperty):
+    """
+    `DefaultSegmentDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-defaultsegmentdeliveryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BaseUrl": (str, False),
+    }
+
+
+class HttpConfiguration(AWSProperty):
+    """
+    `HttpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-httpconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BaseUrl": (str, True),
+    }
+
+
+class SegmentDeliveryConfiguration(AWSProperty):
+    """
+    `SegmentDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-sourcelocation-segmentdeliveryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BaseUrl": (str, False),
+        "Name": (str, False),
+    }
+
+
+class SourceLocation(AWSObject):
+    """
+    `SourceLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-sourcelocation.html>`__
+    """
+
+    resource_type = "AWS::MediaTailor::SourceLocation"
+
+    props: PropsDictType = {
+        "AccessConfiguration": (AccessConfiguration, False),
+        "DefaultSegmentDeliveryConfiguration": (
+            DefaultSegmentDeliveryConfiguration,
+            False,
+        ),
+        "HttpConfiguration": (HttpConfiguration, True),
+        "SegmentDeliveryConfigurations": ([SegmentDeliveryConfiguration], False),
+        "SourceLocationName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class VodSource(AWSObject):
     """
     `VodSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediatailor-vodsource.html>`__

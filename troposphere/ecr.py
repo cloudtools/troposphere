@@ -160,6 +160,7 @@ class Repository(AWSObject):
     resource_type = "AWS::ECR::Repository"
 
     props: PropsDictType = {
+        "EmptyOnDelete": (boolean, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTagMutability": (str, False),

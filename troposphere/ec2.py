@@ -1093,6 +1093,22 @@ class Instance(AWSObject):
     }
 
 
+class InstanceConnectEndpoint(AWSObject):
+    """
+    `InstanceConnectEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instanceconnectendpoint.html>`__
+    """
+
+    resource_type = "AWS::EC2::InstanceConnectEndpoint"
+
+    props: PropsDictType = {
+        "ClientToken": (str, False),
+        "PreserveClientIp": (boolean, False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class InternetGateway(AWSObject):
     """
     `InternetGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-internetgateway.html>`__
