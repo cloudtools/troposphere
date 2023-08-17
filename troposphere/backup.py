@@ -61,6 +61,7 @@ class BackupRuleResourceType(AWSProperty):
         "RecoveryPointTags": (dict, False),
         "RuleName": (str, True),
         "ScheduleExpression": (str, False),
+        "ScheduleExpressionTimezone": (str, False),
         "StartWindowMinutes": (double, False),
         "TargetBackupVault": (str, True),
     }

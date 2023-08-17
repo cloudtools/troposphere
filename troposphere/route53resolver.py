@@ -73,6 +73,22 @@ class FirewallRuleGroupAssociation(AWSObject):
     }
 
 
+class OutpostResolver(AWSObject):
+    """
+    `OutpostResolver <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-outpostresolver.html>`__
+    """
+
+    resource_type = "AWS::Route53Resolver::OutpostResolver"
+
+    props: PropsDictType = {
+        "InstanceCount": (integer, False),
+        "Name": (str, True),
+        "OutpostArn": (str, True),
+        "PreferredInstanceType": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class ResolverConfig(AWSObject):
     """
     `ResolverConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-route53resolver-resolverconfig.html>`__
