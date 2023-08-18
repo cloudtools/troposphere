@@ -21,6 +21,7 @@
 - [AWS::AutoScaling](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScaling.html)
 - [AWS::AutoScalingPlans](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AutoScalingPlans.html)
 - [AWS::Backup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Backup.html)
+- [AWS::BackupGateway](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BackupGateway.html
 - [AWS::Batch](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Batch.html)
 - [AWS::BillingConductor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_BillingConductor.html)
 - [AWS::Budgets](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Budgets.html)
@@ -29,6 +30,7 @@
 - [AWS::Cassandra](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cassandra.html)
 - [AWS::CertificateManager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CertificateManager.html)
 - [AWS::Chatbot](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Chatbot.html)
+- [AWS::CleanRooms](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CleanRooms.html
 - [AWS::Cloud9](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cloud9.html)
 - [AWS::CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CloudFormation.html)
 - [AWS::CloudFront](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CloudFront.html)
@@ -45,6 +47,7 @@
 - [AWS::CodeStarConnections](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStarConnections.html)
 - [AWS::CodeStarNotifications](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_CodeStarNotifications.html)
 - [AWS::Cognito](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Cognito.html)
+- [AWS::Comprehend](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Comprehend.html
 - [AWS::Config](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Config.html)
 - [AWS::Connect](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Connect.html)
 - [AWS::ConnectCampaigns](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ConnectCampaigns.html)
@@ -99,6 +102,7 @@
 - [AWS::ImageBuilder](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ImageBuilder.html)
 - [AWS::Inspector](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Inspector.html)
 - [AWS::InspectorV2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_InspectorV2.html)
+- [AWS::InternetMonitor](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_InternetMonitor.html
 - [AWS::IoT](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT.html)
 - [AWS::IoT1Click](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoT1Click.html)
 - [AWS::IoTAnalytics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTAnalytics.html)
@@ -110,6 +114,7 @@
 - [AWS::IoTThingsGraph](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTThingsGraph.html)
 - [AWS::IoTTwinMaker](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTTwinMaker.html)
 - [AWS::IoTWireless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IoTWireless.html)
+- [AWS::IVSChat](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_IVSChat.html
 - [AWS::KMS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KMS.html)
 - [AWS::KafkaConnect](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_KafkaConnect.html)
 - [AWS::Kendra](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Kendra.html)
@@ -145,7 +150,9 @@
 - [AWS::NetworkFirewall](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkFirewall.html)
 - [AWS::NetworkManager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkManager.html)
 - [AWS::NimbleStudio](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NimbleStudio.html)
+- [AWS::OSIS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OSIS.html
 - [AWS::Oam](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Oam.html)
+- [AWS::Omics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Omics.html
 - [AWS::OpenSearchServerless](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchServerless.html)
 - [AWS::OpenSearchService](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpenSearchService.html)
 - [AWS::OpsWorks](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OpsWorks.html)
@@ -156,6 +163,7 @@
 - [AWS::Pinpoint](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Pinpoint.html)
 - [AWS::PinpointEmail](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_PinpointEmail.html)
 - [AWS::Pipes](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Pipes.html)
+- [AWS::Proton](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Proton.html
 - [AWS::QLDB](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_QLDB.html)
 - [AWS::QuickSight](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_QuickSight.html)
 - [AWS::RAM](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_RAM.html)
@@ -193,13 +201,18 @@
 - [AWS::ServiceCatalog](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalog.html)
 - [AWS::ServiceCatalogAppRegistry](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceCatalogAppRegistry.html)
 - [AWS::ServiceDiscovery](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ServiceDiscovery.html)
+- [AWS::Shield](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Shield.html
 - [AWS::Signer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Signer.html)
+- [AWS::SimSpaceWeaver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SimSpaceWeaver.html
 - [AWS::StepFunctions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_StepFunctions.html)
 - [AWS::SupportApp](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SupportApp.html)
 - [AWS::Synthetics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Synthetics.html)
+- [AWS::SystemsManagerSAP](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SystemsManagerSAP.html
 - [AWS::Timestream](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Timestream.html)
 - [AWS::Transfer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Transfer.html)
+- [AWS::VerifiedPermissions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_VerifiedPermissions.html
 - [AWS::VoiceID](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_VoiceID.html)
+- [AWS::VpcLattice](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_VpcLattice.html
 - [AWS::WAF](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAF.html)
 - [AWS::WAFRegional](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFRegional.html)
 - [AWS::WAFv2](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_WAFv2.html)
