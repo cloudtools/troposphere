@@ -14,6 +14,30 @@ from .validators.resiliencehub import (
 )
 
 
+class EventSubscription(AWSProperty):
+    """
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-eventsubscription.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventType": (str, True),
+        "Name": (str, True),
+        "SnsTopicArn": (str, False),
+    }
+
+
+class PermissionModel(AWSProperty):
+    """
+    `PermissionModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-permissionmodel.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrossAccountRoleArns": ([str], False),
+        "InvokerRoleName": (str, False),
+        "Type": (str, True),
+    }
+
+
 class PhysicalResourceId(AWSProperty):
     """
     `PhysicalResourceId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-app-physicalresourceid.html>`__
@@ -53,7 +77,9 @@ class App(AWSObject):
         "AppAssessmentSchedule": (str, False),
         "AppTemplateBody": (str, True),
         "Description": (str, False),
+        "EventSubscriptions": ([EventSubscription], False),
         "Name": (str, True),
+        "PermissionModel": (PermissionModel, False),
         "ResiliencyPolicyArn": (str, False),
         "ResourceMappings": ([ResourceMapping], True),
         "Tags": (dict, False),

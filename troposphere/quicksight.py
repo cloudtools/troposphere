@@ -174,6 +174,28 @@ class CalculatedField(AWSProperty):
     }
 
 
+class CustomColor(AWSProperty):
+    """
+    `CustomColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customcolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, True),
+        "FieldValue": (str, False),
+        "SpecialValue": (str, False),
+    }
+
+
+class ColorsConfiguration(AWSProperty):
+    """
+    `ColorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-colorsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomColors": ([CustomColor], False),
+    }
+
+
 class ColumnIdentifier(AWSProperty):
     """
     `ColumnIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnidentifier.html>`__
@@ -354,6 +376,7 @@ class ColumnConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ColorsConfiguration": (ColorsConfiguration, False),
         "Column": (ColumnIdentifier, True),
         "FormatConfiguration": (FormatConfiguration, False),
         "Role": (str, False),
@@ -434,6 +457,17 @@ class CategoryFilter(AWSProperty):
     }
 
 
+class AttributeAggregationFunction(AWSProperty):
+    """
+    `AttributeAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-attributeaggregationfunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "SimpleAttributeAggregation": (str, False),
+        "ValueForMultipleValues": (str, False),
+    }
+
+
 class PercentileAggregation(AWSProperty):
     """
     `PercentileAggregation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-percentileaggregation.html>`__
@@ -461,6 +495,7 @@ class AggregationFunction(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AttributeAggregationFunction": (AttributeAggregationFunction, False),
         "CategoricalAggregationFunction": (str, False),
         "DateAggregationFunction": (str, False),
         "NumericalAggregationFunction": (NumericalAggregationFunction, False),

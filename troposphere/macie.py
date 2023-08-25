@@ -107,6 +107,7 @@ class FindingsFilter(AWSObject):
         "FindingCriteria": (FindingCriteria, True),
         "Name": (str, True),
         "Position": (integer, False),
+        "Tags": (Tags, False),
     }
 
 
