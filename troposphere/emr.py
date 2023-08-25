@@ -537,3 +537,16 @@ class StudioSessionMapping(AWSObject):
         "SessionPolicyArn": (str, True),
         "StudioId": (str, True),
     }
+
+
+class WALWorkspace(AWSObject):
+    """
+    `WALWorkspace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-emr-walworkspace.html>`__
+    """
+
+    resource_type = "AWS::EMR::WALWorkspace"
+
+    props: PropsDictType = {
+        "Tags": (Tags, False),
+        "WALWorkspaceName": (str, False),
+    }

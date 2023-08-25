@@ -93,6 +93,17 @@ class AnalysisRuleAggregation(AWSProperty):
     }
 
 
+class AnalysisRuleCustom(AWSProperty):
+    """
+    `AnalysisRuleCustom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedAnalyses": ([str], True),
+        "AllowedAnalysisProviders": ([str], False),
+    }
+
+
 class AnalysisRuleList(AWSProperty):
     """
     `AnalysisRuleList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulelist.html>`__
@@ -112,6 +123,7 @@ class ConfiguredTableAnalysisRulePolicyV1(AWSProperty):
 
     props: PropsDictType = {
         "Aggregation": (AnalysisRuleAggregation, False),
+        "Custom": (AnalysisRuleCustom, False),
         "List": (AnalysisRuleList, False),
     }
 
