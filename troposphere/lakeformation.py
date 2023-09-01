@@ -69,10 +69,12 @@ class DataLakeSettings(AWSObject):
     props: PropsDictType = {
         "Admins": ([DataLakePrincipal], False),
         "AllowExternalDataFiltering": (boolean, False),
+        "AllowFullTableExternalDataAccess": (boolean, False),
         "AuthorizedSessionTagValueList": ([str], False),
         "CreateDatabaseDefaultPermissions": ([], False),
         "CreateTableDefaultPermissions": ([], False),
         "ExternalDataFilteringAllowList": ([], False),
+        "MutationType": (str, False),
         "Parameters": (dict, False),
         "TrustedResourceOwners": ([str], False),
     }

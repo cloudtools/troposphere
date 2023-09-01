@@ -612,14 +612,13 @@ class EIP(AWSObject):
 
 class EIPAssociation(AWSObject):
     """
-    `EIPAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-eip-association.html>`__
+    `EIPAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-eipassociation.html>`__
     """
 
     resource_type = "AWS::EC2::EIPAssociation"
 
     props: PropsDictType = {
         "AllocationId": (str, False),
-        "EIP": (str, False),
         "InstanceId": (str, False),
         "NetworkInterfaceId": (str, False),
         "PrivateIpAddress": (str, False),

@@ -427,6 +427,95 @@ class Options(AWSProperty):
     }
 
 
+class S3(AWSProperty):
+    """
+    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-s3.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketAccessRoleArn": (str, False),
+        "S3BucketArn": (str, False),
+        "Subdirectory": (str, False),
+    }
+
+
+class Destination(AWSProperty):
+    """
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-destination.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (S3, False),
+    }
+
+
+class Deleted(AWSProperty):
+    """
+    `Deleted <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-deleted.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReportLevel": (str, False),
+    }
+
+
+class Skipped(AWSProperty):
+    """
+    `Skipped <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-skipped.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReportLevel": (str, False),
+    }
+
+
+class Transferred(AWSProperty):
+    """
+    `Transferred <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-transferred.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReportLevel": (str, False),
+    }
+
+
+class Verified(AWSProperty):
+    """
+    `Verified <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-verified.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReportLevel": (str, False),
+    }
+
+
+class Overrides(AWSProperty):
+    """
+    `Overrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-overrides.html>`__
+    """
+
+    props: PropsDictType = {
+        "Deleted": (Deleted, False),
+        "Skipped": (Skipped, False),
+        "Transferred": (Transferred, False),
+        "Verified": (Verified, False),
+    }
+
+
+class TaskReportConfig(AWSProperty):
+    """
+    `TaskReportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (Destination, True),
+        "ObjectVersionIds": (str, False),
+        "OutputType": (str, True),
+        "Overrides": (Overrides, False),
+        "ReportLevel": (str, False),
+    }
+
+
 class TaskSchedule(AWSProperty):
     """
     `TaskSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskschedule.html>`__
@@ -454,6 +543,7 @@ class Task(AWSObject):
         "Schedule": (TaskSchedule, False),
         "SourceLocationArn": (str, True),
         "Tags": (Tags, False),
+        "TaskReportConfig": (TaskReportConfig, False),
     }
 
 

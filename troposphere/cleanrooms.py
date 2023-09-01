@@ -10,6 +10,46 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double
 
 
+class AnalysisParameter(AWSProperty):
+    """
+    `AnalysisParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValue": (str, False),
+        "Name": (str, True),
+        "Type": (str, True),
+    }
+
+
+class AnalysisSource(AWSProperty):
+    """
+    `AnalysisSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysissource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Text": (str, True),
+    }
+
+
+class AnalysisTemplate(AWSObject):
+    """
+    `AnalysisTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-analysistemplate.html>`__
+    """
+
+    resource_type = "AWS::CleanRooms::AnalysisTemplate"
+
+    props: PropsDictType = {
+        "AnalysisParameters": ([AnalysisParameter], False),
+        "Description": (str, False),
+        "Format": (str, True),
+        "MembershipIdentifier": (str, True),
+        "Name": (str, True),
+        "Source": (AnalysisSource, True),
+        "Tags": (Tags, False),
+    }
+
+
 class DataEncryptionMetadata(AWSProperty):
     """
     `DataEncryptionMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-dataencryptionmetadata.html>`__
@@ -216,4 +256,14 @@ class Membership(AWSObject):
         "CollaborationIdentifier": (str, True),
         "QueryLogStatus": (str, True),
         "Tags": (Tags, False),
+    }
+
+
+class AnalysisSchema(AWSProperty):
+    """
+    `AnalysisSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReferencedTables": ([str], True),
     }
