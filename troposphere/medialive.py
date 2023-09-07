@@ -44,6 +44,7 @@ class Ac3Settings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AttenuationControl": (str, False),
         "Bitrate": (double, False),
         "BitstreamMode": (str, False),
         "CodingMode": (str, False),
@@ -806,6 +807,8 @@ class M3u8Settings(AWSProperty):
         "AudioFramesPerPes": (integer, False),
         "AudioPids": (str, False),
         "EcmPid": (str, False),
+        "KlvBehavior": (str, False),
+        "KlvDataPids": (str, False),
         "NielsenId3Behavior": (str, False),
         "PatInterval": (integer, False),
         "PcrControl": (str, False),
@@ -1264,6 +1267,7 @@ class RtmpGroupSettings(AWSProperty):
         "CacheFullBehavior": (str, False),
         "CacheLength": (integer, False),
         "CaptionData": (str, False),
+        "IncludeFillerNalUnits": (str, False),
         "InputLossAction": (str, False),
         "RestartDelay": (integer, False),
     }
@@ -1307,6 +1311,16 @@ class OutputGroup(AWSProperty):
         "Name": (str, False),
         "OutputGroupSettings": (OutputGroupSettings, False),
         "Outputs": ([Output], False),
+    }
+
+
+class ThumbnailConfiguration(AWSProperty):
+    """
+    `ThumbnailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-thumbnailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
     }
 
 
@@ -1616,6 +1630,7 @@ class EncoderSettings(AWSProperty):
         "MotionGraphicsConfiguration": (MotionGraphicsConfiguration, False),
         "NielsenConfiguration": (NielsenConfiguration, False),
         "OutputGroups": ([OutputGroup], False),
+        "ThumbnailConfiguration": (ThumbnailConfiguration, False),
         "TimecodeConfig": (TimecodeConfig, False),
         "VideoDescriptions": ([VideoDescription], False),
     }

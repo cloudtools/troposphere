@@ -38,5 +38,6 @@ class ResourceShare(AWSObject):
         "PermissionArns": ([str], False),
         "Principals": ([str], False),
         "ResourceArns": ([str], False),
+        "Sources": ([str], False),
         "Tags": (Tags, False),
     }

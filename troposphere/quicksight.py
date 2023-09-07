@@ -716,6 +716,7 @@ class FilterScopeConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AllSheets": (dict, False),
         "SelectedSheets": (SelectedSheetsFilterScopeConfiguration, False),
     }
 
@@ -961,6 +962,17 @@ class LabelOptions(AWSProperty):
     }
 
 
+class SheetControlInfoIconLabelOptions(AWSProperty):
+    """
+    `SheetControlInfoIconLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrolinfoiconlabeloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfoIconText": (str, False),
+        "Visibility": (str, False),
+    }
+
+
 class DateTimePickerControlDisplayOptions(AWSProperty):
     """
     `DateTimePickerControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html>`__
@@ -968,6 +980,7 @@ class DateTimePickerControlDisplayOptions(AWSProperty):
 
     props: PropsDictType = {
         "DateTimeFormat": (str, False),
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
 
@@ -1023,6 +1036,7 @@ class DropDownControlDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "SelectAllOptions": (ListControlSelectAllOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
@@ -1070,6 +1084,7 @@ class ListControlDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "SearchOptions": (ListControlSearchOptions, False),
         "SelectAllOptions": (ListControlSelectAllOptions, False),
         "TitleOptions": (LabelOptions, False),
@@ -1099,6 +1114,7 @@ class RelativeDateTimeControlDisplayOptions(AWSProperty):
 
     props: PropsDictType = {
         "DateTimeFormat": (str, False),
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
 
@@ -1122,6 +1138,7 @@ class SliderControlDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
 
@@ -1159,6 +1176,7 @@ class TextAreaControlDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "PlaceholderOptions": (TextControlPlaceholderOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
@@ -1184,6 +1202,7 @@ class TextFieldControlDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "PlaceholderOptions": (TextControlPlaceholderOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
@@ -2207,6 +2226,17 @@ class PanelConfiguration(AWSProperty):
     }
 
 
+class SmallMultiplesAxisProperties(AWSProperty):
+    """
+    `SmallMultiplesAxisProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-smallmultiplesaxisproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Placement": (str, False),
+        "Scale": (str, False),
+    }
+
+
 class SmallMultiplesOptions(AWSProperty):
     """
     `SmallMultiplesOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-smallmultiplesoptions.html>`__
@@ -2216,6 +2246,8 @@ class SmallMultiplesOptions(AWSProperty):
         "MaxVisibleColumns": (double, False),
         "MaxVisibleRows": (double, False),
         "PanelConfiguration": (PanelConfiguration, False),
+        "XAxis": (SmallMultiplesAxisProperties, False),
+        "YAxis": (SmallMultiplesAxisProperties, False),
     }
 
 
@@ -3671,7 +3703,7 @@ class ForecastComputation(AWSProperty):
         "PeriodsForward": (double, False),
         "PredictionInterval": (double, False),
         "Seasonality": (str, False),
-        "Time": (DimensionField, True),
+        "Time": (DimensionField, False),
         "UpperBoundary": (double, False),
         "Value": (MeasureField, False),
     }
@@ -3686,7 +3718,7 @@ class GrowthRateComputation(AWSProperty):
         "ComputationId": (str, True),
         "Name": (str, False),
         "PeriodSize": (double, False),
-        "Time": (DimensionField, True),
+        "Time": (DimensionField, False),
         "Value": (MeasureField, False),
     }
 
@@ -3699,7 +3731,7 @@ class MaximumMinimumComputation(AWSProperty):
     props: PropsDictType = {
         "ComputationId": (str, True),
         "Name": (str, False),
-        "Time": (DimensionField, True),
+        "Time": (DimensionField, False),
         "Type": (str, True),
         "Value": (MeasureField, False),
     }
@@ -3712,10 +3744,10 @@ class MetricComparisonComputation(AWSProperty):
 
     props: PropsDictType = {
         "ComputationId": (str, True),
-        "FromValue": (MeasureField, True),
+        "FromValue": (MeasureField, False),
         "Name": (str, False),
-        "TargetValue": (MeasureField, True),
-        "Time": (DimensionField, True),
+        "TargetValue": (MeasureField, False),
+        "Time": (DimensionField, False),
     }
 
 
@@ -3727,7 +3759,7 @@ class PeriodOverPeriodComputation(AWSProperty):
     props: PropsDictType = {
         "ComputationId": (str, True),
         "Name": (str, False),
-        "Time": (DimensionField, True),
+        "Time": (DimensionField, False),
         "Value": (MeasureField, False),
     }
 
@@ -3741,7 +3773,7 @@ class PeriodToDateComputation(AWSProperty):
         "ComputationId": (str, True),
         "Name": (str, False),
         "PeriodTimeGranularity": (str, False),
-        "Time": (DimensionField, True),
+        "Time": (DimensionField, False),
         "Value": (MeasureField, False),
     }
 
@@ -3752,12 +3784,12 @@ class TopBottomMoversComputation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Category": (DimensionField, True),
+        "Category": (DimensionField, False),
         "ComputationId": (str, True),
         "MoverSize": (double, False),
         "Name": (str, False),
         "SortOrder": (str, False),
-        "Time": (DimensionField, True),
+        "Time": (DimensionField, False),
         "Type": (str, True),
         "Value": (MeasureField, False),
     }
@@ -3769,7 +3801,7 @@ class TopBottomRankedComputation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Category": (DimensionField, True),
+        "Category": (DimensionField, False),
         "ComputationId": (str, True),
         "Name": (str, False),
         "ResultSize": (double, False),
@@ -3786,7 +3818,7 @@ class TotalAggregationComputation(AWSProperty):
     props: PropsDictType = {
         "ComputationId": (str, True),
         "Name": (str, False),
-        "Value": (MeasureField, True),
+        "Value": (MeasureField, False),
     }
 
 
@@ -3796,7 +3828,7 @@ class UniqueValuesComputation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Category": (DimensionField, True),
+        "Category": (DimensionField, False),
         "ComputationId": (str, True),
         "Name": (str, False),
     }
@@ -4479,6 +4511,17 @@ class PivotTableFieldWells(AWSProperty):
     }
 
 
+class PivotTableRowsLabelOptions(AWSProperty):
+    """
+    `PivotTableRowsLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottablerowslabeloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomLabel": (str, False),
+        "Visibility": (str, False),
+    }
+
+
 class RowAlternateColorOptions(AWSProperty):
     """
     `RowAlternateColorOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rowalternatecoloroptions.html>`__
@@ -4487,6 +4530,7 @@ class RowAlternateColorOptions(AWSProperty):
     props: PropsDictType = {
         "RowAlternateColors": ([str], False),
         "Status": (str, False),
+        "UsePrimaryBackgroundColor": (str, False),
     }
 
 
@@ -4555,10 +4599,13 @@ class PivotTableOptions(AWSProperty):
         "CollapsedRowDimensionsVisibility": (str, False),
         "ColumnHeaderStyle": (TableCellStyle, False),
         "ColumnNamesVisibility": (str, False),
+        "DefaultCellWidth": (str, False),
         "MetricPlacement": (str, False),
         "RowAlternateColorOptions": (RowAlternateColorOptions, False),
         "RowFieldNamesStyle": (TableCellStyle, False),
         "RowHeaderStyle": (TableCellStyle, False),
+        "RowsLabelOptions": (PivotTableRowsLabelOptions, False),
+        "RowsLayout": (str, False),
         "SingleMetricVisibility": (str, False),
         "ToggleButtonsVisibility": (str, False),
     }
@@ -4645,6 +4692,16 @@ class PivotTableFieldSubtotalOptions(AWSProperty):
     }
 
 
+class TableStyleTarget(AWSProperty):
+    """
+    `TableStyleTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablestyletarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "CellType": (str, True),
+    }
+
+
 class SubtotalOptions(AWSProperty):
     """
     `SubtotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-subtotaloptions.html>`__
@@ -4655,6 +4712,7 @@ class SubtotalOptions(AWSProperty):
         "FieldLevel": (str, False),
         "FieldLevelOptions": ([PivotTableFieldSubtotalOptions], False),
         "MetricHeaderCellStyle": (TableCellStyle, False),
+        "StyleTargets": ([TableStyleTarget], False),
         "TotalCellStyle": (TableCellStyle, False),
         "TotalsVisibility": (str, False),
         "ValueCellStyle": (TableCellStyle, False),

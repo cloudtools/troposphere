@@ -45,6 +45,19 @@ class Profile(AWSObject):
     }
 
 
+class NotificationSetting(AWSProperty):
+    """
+    `NotificationSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-notificationsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "Channel": (str, False),
+        "Enabled": (boolean, True),
+        "Event": (str, True),
+        "Threshold": (double, False),
+    }
+
+
 class SourceData(AWSProperty):
     """
     `SourceData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-trustanchor-sourcedata.html>`__
@@ -77,6 +90,7 @@ class TrustAnchor(AWSObject):
     props: PropsDictType = {
         "Enabled": (boolean, False),
         "Name": (str, True),
+        "NotificationSettings": ([NotificationSetting], False),
         "Source": (Source, True),
         "Tags": (Tags, False),
     }

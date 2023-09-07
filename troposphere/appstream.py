@@ -218,7 +218,8 @@ class ComputeCapacity(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DesiredInstances": (integer, True),
+        "DesiredInstances": (integer, False),
+        "DesiredSessions": (integer, False),
     }
 
 
@@ -254,6 +255,7 @@ class Fleet(AWSObject):
         "ImageName": (str, False),
         "InstanceType": (str, True),
         "MaxConcurrentSessions": (integer, False),
+        "MaxSessionsPerInstance": (integer, False),
         "MaxUserDurationInSeconds": (integer, False),
         "Name": (str, True),
         "Platform": (str, False),
