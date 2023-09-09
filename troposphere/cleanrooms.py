@@ -245,6 +245,39 @@ class ConfiguredTableAssociation(AWSObject):
     }
 
 
+class ProtectedQueryS3OutputConfiguration(AWSProperty):
+    """
+    `ProtectedQueryS3OutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "KeyPrefix": (str, False),
+        "ResultFormat": (str, True),
+    }
+
+
+class MembershipProtectedQueryOutputConfiguration(AWSProperty):
+    """
+    `MembershipProtectedQueryOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (ProtectedQueryS3OutputConfiguration, True),
+    }
+
+
+class MembershipProtectedQueryResultConfiguration(AWSProperty):
+    """
+    `MembershipProtectedQueryResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedqueryresultconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "OutputConfiguration": (MembershipProtectedQueryOutputConfiguration, True),
+        "RoleArn": (str, False),
+    }
+
+
 class Membership(AWSObject):
     """
     `Membership <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-membership.html>`__
@@ -254,6 +287,10 @@ class Membership(AWSObject):
 
     props: PropsDictType = {
         "CollaborationIdentifier": (str, True),
+        "DefaultResultConfiguration": (
+            MembershipProtectedQueryResultConfiguration,
+            False,
+        ),
         "QueryLogStatus": (str, True),
         "Tags": (Tags, False),
     }

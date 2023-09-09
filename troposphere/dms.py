@@ -155,13 +155,21 @@ class MicrosoftSqlServerSettings(AWSProperty):
     props: PropsDictType = {
         "BcpPacketSize": (integer, False),
         "ControlTablesFileGroup": (str, False),
+        "DatabaseName": (str, False),
+        "ForceLobLookup": (boolean, False),
+        "Password": (str, False),
+        "Port": (integer, False),
         "QuerySingleAlwaysOnNode": (boolean, False),
         "ReadBackupOnly": (boolean, False),
         "SafeguardPolicy": (str, False),
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
+        "ServerName": (str, False),
+        "TlogAccessMode": (str, False),
+        "TrimSpaceInChar": (boolean, False),
         "UseBcpFullLoad": (boolean, False),
         "UseThirdPartyBackupDevice": (boolean, False),
+        "Username": (str, False),
     }
 
 
@@ -272,7 +280,9 @@ class PostgreSqlSettings(AWSProperty):
 
     props: PropsDictType = {
         "AfterConnectScript": (str, False),
+        "BabelfishDatabaseName": (str, False),
         "CaptureDdls": (boolean, False),
+        "DatabaseMode": (str, False),
         "DdlArtifactsSchema": (str, False),
         "ExecuteTimeout": (integer, False),
         "FailTasksOnLobTruncation": (boolean, False),

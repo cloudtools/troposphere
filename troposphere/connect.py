@@ -691,3 +691,34 @@ class UserHierarchyGroup(AWSObject):
         "Name": (str, True),
         "ParentGroupArn": (str, False),
     }
+
+
+class View(AWSObject):
+    """
+    `View <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-view.html>`__
+    """
+
+    resource_type = "AWS::Connect::View"
+
+    props: PropsDictType = {
+        "Actions": ([str], True),
+        "Description": (str, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "Template": (dict, True),
+    }
+
+
+class ViewVersion(AWSObject):
+    """
+    `ViewVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-viewversion.html>`__
+    """
+
+    resource_type = "AWS::Connect::ViewVersion"
+
+    props: PropsDictType = {
+        "VersionDescription": (str, False),
+        "ViewArn": (str, True),
+        "ViewContentSha256": (str, False),
+    }

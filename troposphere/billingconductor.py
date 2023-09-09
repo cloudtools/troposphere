@@ -80,6 +80,18 @@ class CustomLineItemPercentageChargeDetails(AWSProperty):
     }
 
 
+class LineItemFilter(AWSProperty):
+    """
+    `LineItemFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-lineitemfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+        "MatchOption": (str, True),
+        "Values": ([str], True),
+    }
+
+
 class CustomLineItemChargeDetails(AWSProperty):
     """
     `CustomLineItemChargeDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-billingconductor-customlineitem-customlineitemchargedetails.html>`__
@@ -87,6 +99,7 @@ class CustomLineItemChargeDetails(AWSProperty):
 
     props: PropsDictType = {
         "Flat": (CustomLineItemFlatChargeDetails, False),
+        "LineItemFilters": ([LineItemFilter], False),
         "Percentage": (CustomLineItemPercentageChargeDetails, False),
         "Type": (str, True),
     }
