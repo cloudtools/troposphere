@@ -670,6 +670,7 @@ class FlowLog(AWSObject):
     resource_type = "AWS::EC2::FlowLog"
 
     props: PropsDictType = {
+        "DeliverCrossAccountRole": (str, False),
         "DeliverLogsPermissionArn": (str, False),
         "DestinationOptions": (DestinationOptions, False),
         "LogDestination": (str, False),

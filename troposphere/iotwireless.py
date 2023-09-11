@@ -22,7 +22,7 @@ class Destination(AWSObject):
         "Expression": (str, True),
         "ExpressionType": (str, True),
         "Name": (str, True),
-        "RoleArn": (str, True),
+        "RoleArn": (str, False),
         "Tags": (Tags, False),
     }
 

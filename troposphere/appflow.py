@@ -988,6 +988,26 @@ class S3SourceProperties(AWSProperty):
     }
 
 
+class SAPODataPaginationConfig(AWSProperty):
+    """
+    `SAPODataPaginationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatapaginationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "maxPageSize": (integer, True),
+    }
+
+
+class SAPODataParallelismConfig(AWSProperty):
+    """
+    `SAPODataParallelismConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodataparallelismconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "maxParallelism": (integer, True),
+    }
+
+
 class SAPODataSourceProperties(AWSProperty):
     """
     `SAPODataSourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appflow-flow-sapodatasourceproperties.html>`__
@@ -995,6 +1015,8 @@ class SAPODataSourceProperties(AWSProperty):
 
     props: PropsDictType = {
         "ObjectPath": (str, True),
+        "paginationConfig": (SAPODataPaginationConfig, False),
+        "parallelismConfig": (SAPODataParallelismConfig, False),
     }
 
 

@@ -16,7 +16,7 @@ class CFNKubernetesAuditLogsConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Enable": (boolean, False),
+        "Enable": (boolean, True),
     }
 
 
@@ -26,7 +26,7 @@ class CFNKubernetesConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AuditLogs": (CFNKubernetesAuditLogsConfiguration, False),
+        "AuditLogs": (CFNKubernetesAuditLogsConfiguration, True),
     }
 
 
@@ -59,7 +59,7 @@ class CFNS3LogsConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Enable": (boolean, False),
+        "Enable": (boolean, True),
     }
 
 
@@ -75,9 +75,9 @@ class CFNDataSourceConfigurations(AWSProperty):
     }
 
 
-class FeatureAdditionalConfiguration(AWSProperty):
+class CFNFeatureAdditionalConfiguration(AWSProperty):
     """
-    `FeatureAdditionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureadditionalconfiguration.html>`__
+    `CFNFeatureAdditionalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureadditionalconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -86,15 +86,26 @@ class FeatureAdditionalConfiguration(AWSProperty):
     }
 
 
-class FeatureConfigurations(AWSProperty):
+class CFNFeatureConfiguration(AWSProperty):
     """
-    `FeatureConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-featureconfigurations.html>`__
+    `CFNFeatureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-cfnfeatureconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "AdditionalConfiguration": ([FeatureAdditionalConfiguration], False),
-        "Name": (str, False),
-        "Status": (str, False),
+        "AdditionalConfiguration": ([CFNFeatureAdditionalConfiguration], False),
+        "Name": (str, True),
+        "Status": (str, True),
+    }
+
+
+class TagItem(AWSProperty):
+    """
+    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-tagitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
     }
 
 
@@ -108,9 +119,9 @@ class Detector(AWSObject):
     props: PropsDictType = {
         "DataSources": (CFNDataSourceConfigurations, False),
         "Enable": (boolean, True),
-        "Features": ([FeatureConfigurations], False),
+        "Features": ([CFNFeatureConfiguration], False),
         "FindingPublishingFrequency": (str, False),
-        "Tags": (Tags, False),
+        "Tags": ([TagItem], False),
     }
 
 

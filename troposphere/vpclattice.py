@@ -326,10 +326,11 @@ class TargetGroupConfig(AWSProperty):
     props: PropsDictType = {
         "HealthCheck": (HealthCheckConfig, False),
         "IpAddressType": (str, False),
-        "Port": (integer, True),
-        "Protocol": (str, True),
+        "LambdaEventStructureVersion": (str, False),
+        "Port": (integer, False),
+        "Protocol": (str, False),
         "ProtocolVersion": (str, False),
-        "VpcIdentifier": (str, True),
+        "VpcIdentifier": (str, False),
     }
 
 
