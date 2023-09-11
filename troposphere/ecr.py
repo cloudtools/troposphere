@@ -116,7 +116,7 @@ class ReplicationConfiguration(AWSObject):
     resource_type = "AWS::ECR::ReplicationConfiguration"
 
     props: PropsDictType = {
-        "ReplicationConfigurationProperty": (ReplicationConfigurationProperty, True),
+        "ReplicationConfiguration": (ReplicationConfigurationProperty, True),
     }
 
 

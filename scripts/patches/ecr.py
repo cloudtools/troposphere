@@ -10,10 +10,4 @@ patches = [
         "path": "/ResourceTypes/AWS::ECR::ReplicationConfiguration/Properties/ReplicationConfiguration/Type",
         "value": "ReplicationConfigurationProperty",
     },
-    # backward compatibility
-    {
-        "op": "move",
-        "from": "/ResourceTypes/AWS::ECR::ReplicationConfiguration/Properties/ReplicationConfiguration",
-        "path": "/ResourceTypes/AWS::ECR::ReplicationConfiguration/Properties/ReplicationConfigurationProperty",
-    },
 ]
