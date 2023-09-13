@@ -171,6 +171,36 @@ class TestRDS(unittest.TestCase):
         )
         i.validate()
 
+    def test_allocated_storage_parameter_oracle(self):
+        db_az = "us-east-1"
+        allocated_storage = Parameter("allocatedstorage", Type="int")
+        i = rds.DBInstance(
+            "NoAZAndMultiAZ",
+            MasterUsername="myuser",
+            MasterUserPassword="mypassword",
+            AllocatedStorage=Ref(allocated_storage),
+            DBInstanceClass="db.m1.small",
+            Engine="oracle-se1",
+            StorageType="gp3",
+            AvailabilityZone=If("db_az", Ref(db_az), Ref(AWS_NO_VALUE)),
+        )
+        i.validate()
+
+    def test_allocated_storage_parameter_postgres(self):
+        db_az = "us-east-1"
+        allocated_storage = Parameter("allocatedstorage", Type="int")
+        i = rds.DBInstance(
+            "NoAZAndMultiAZ",
+            MasterUsername="myuser",
+            MasterUserPassword="mypassword",
+            AllocatedStorage=Ref(allocated_storage),
+            DBInstanceClass="db.m1.small",
+            Engine="postgres",
+            StorageType="gp3",
+            AvailabilityZone=If("db_az", Ref(db_az), Ref(AWS_NO_VALUE)),
+        )
+        i.validate()
+
     def test_io1_storage_type_and_iops(self):
         i = rds.DBInstance(
             "NoAZAndMultiAZ",

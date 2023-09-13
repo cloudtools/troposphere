@@ -399,6 +399,7 @@ def validate_dbinstance(self) -> None:
         and not isinstance(engine, (AWSHelperFn, nonetype))
         and engine in ["mariadb", "mysql", "postgres"]
         and storage_type in ["gp3"]
+        and not isinstance(allocated_storage, AWSHelperFn)
         and int(allocated_storage) < 400
         and "Iops" in self.properties
     ):
@@ -414,6 +415,7 @@ def validate_dbinstance(self) -> None:
         and not isinstance(engine, (AWSHelperFn, nonetype))
         and "oracle" in engine
         and storage_type in ["gp3"]
+        and not isinstance(allocated_storage, AWSHelperFn)
         and int(allocated_storage) < 200
         and "Iops" in self.properties
     ):
