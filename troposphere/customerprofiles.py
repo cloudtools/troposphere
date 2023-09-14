@@ -385,6 +385,7 @@ class ObjectType(AWSObject):
         "Fields": ([FieldMap], False),
         "Keys": ([KeyMap], False),
         "ObjectTypeName": (str, False),
+        "SourceLastUpdatedTimestampFormat": (str, False),
         "Tags": (Tags, False),
         "TemplateId": (str, False),
     }

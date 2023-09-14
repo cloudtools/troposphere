@@ -1445,6 +1445,7 @@ class NetworkInterfaces(AWSProperty):
         "Ipv6Prefixes": ([Ipv6PrefixSpecification], False),
         "NetworkCardIndex": (integer, False),
         "NetworkInterfaceId": (str, False),
+        "PrimaryIpv6": (boolean, False),
         "PrivateIpAddress": (str, False),
         "PrivateIpAddresses": ([PrivateIpAddressSpecification], False),
         "SecondaryPrivateIpAddressCount": (integer, False),
