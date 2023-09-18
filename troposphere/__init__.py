@@ -351,6 +351,10 @@ class BaseAWSObject:
         else:
             return {}
 
+    def to_json(self, *, indent: int = 4, sort_keys: bool = True) -> str:
+        """Object as JSON."""
+        return json.dumps(self.to_dict(), indent=indent, sort_keys=sort_keys)
+
     @classmethod
     def _from_dict(
         cls: Type[__BaseAWSObjectTypeVar], title: Optional[str] = None, **kwargs: Any
@@ -410,6 +414,16 @@ class BaseAWSObject:
                 if title:
                     msg += " (title: %s)" % title
                 raise ValueError(msg)
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, self.__class__):
+            return self.title == other.title and self.to_json() == other.to_json()
+        if isinstance(other, dict):
+            return {"title": self.title, **self.to_dict()} == other
+        return False
+
+    def __ne__(self, other: object) -> bool:
+        return not self == other
 
 
 class AWSObject(BaseAWSObject):
@@ -491,15 +505,29 @@ class AWSHelperFn:
     def to_dict(self) -> Any:
         return encode_to_dict(self.data)
 
+    def to_json(self, *, indent: int = 4, sort_keys: bool = True) -> str:
+        """Object as JSON."""
+        return json.dumps(self.to_dict(), indent=indent, sort_keys=sort_keys)
+
+    def __eq__(self, other: object) -> bool:
+        if isinstance(other, self.__class__):
+            return self.to_json() == other.to_json()
+        if isinstance(other, (dict, list)):
+            return self.to_dict() == other
+        return False
+
+    def __hash__(self) -> int:
+        return hash(self.to_json(indent=0))
+
+    def __ne__(self, other: object) -> bool:
+        return not self == other
+
 
 class GenericHelperFn(AWSHelperFn):
     """Used as a fallback for the template generator"""
 
     def __init__(self, data: Any):
         self.data = self.getdata(data)
-
-    def to_dict(self) -> Any:
-        return encode_to_dict(self.data)
 
 
 class Base64(AWSHelperFn):

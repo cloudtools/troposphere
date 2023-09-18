@@ -5,6 +5,7 @@ from troposphere import (
     AWSObject,
     AWSProperty,
     Cidr,
+    GenericHelperFn,
     If,
     Join,
     NoValue,
@@ -24,7 +25,74 @@ from troposphere.s3 import Bucket, PublicRead
 from troposphere.validators import positive_integer
 
 
+def double(x):
+    return positive_integer(x) * 2
+
+
+def call_correct(x):
+    return x
+
+
+def call_incorrect(x):
+    raise ValueError
+
+
+class FakeAWSProperty(AWSProperty):
+    props = {}
+
+
+class FakeAWSObject(AWSObject):
+    type = "Fake::AWS::Object"
+
+    props = {
+        "callcorrect": (call_correct, False),
+        "callincorrect": (call_incorrect, False),
+        "singlelist": (list, False),
+        "multilist": ([bool, int, float], False),
+        "multituple": ((bool, int), False),
+        "helperfun": (positive_integer, False),
+        "listhelperfun": ([double], False),
+    }
+
+    def validate(self):
+        properties = self.properties
+        title = self.title
+        type = self.type
+        if "callcorrect" in properties and "singlelist" in properties:
+            raise ValueError(
+                (
+                    "Cannot specify both 'callcorrect and 'singlelist' in "
+                    "object %s (type %s)" % (title, type)
+                )
+            )
+
+
 class TestBasic(unittest.TestCase):
+    def test___eq__(self):
+        """Test __eq__."""
+        assert FakeAWSObject("foobar", callcorrect=True) == FakeAWSObject(
+            "foobar", callcorrect=True
+        )
+        assert FakeAWSObject("foobar", callcorrect=True) == {
+            "title": "foobar",
+            "Properties": {"callcorrect": True},
+        }
+        assert GenericHelperFn("foobar") == GenericHelperFn("foobar")
+        assert GenericHelperFn({"foo": "bar"}) == {"foo": "bar"}
+
+    def test___ne__(self):
+        """Test __ne__."""
+        assert FakeAWSObject("foo", callcorrect=True) != FakeAWSObject(
+            "bar", callcorrect=True
+        )
+        assert FakeAWSObject("foobar", callcorrect=True) != FakeAWSObject(
+            "foobar", callcorrect=False
+        )
+        assert FakeAWSObject("foobar", callcorrect=True) != FakeAWSProperty("foobar")
+        assert GenericHelperFn("foobar") != GenericHelperFn("bar")
+        assert GenericHelperFn("foobar") != "foobar"
+        assert GenericHelperFn("foobar") != FakeAWSProperty("foobar")
+
     def test_badproperty(self):
         with self.assertRaises(AttributeError):
             Instance(
@@ -87,48 +155,6 @@ class TestBasic(unittest.TestCase):
         p = pickle.dumps(b)
         b2 = pickle.loads(p)
         self.assertEqual(b2.BucketName, b.BucketName)
-
-
-def double(x):
-    return positive_integer(x) * 2
-
-
-def call_correct(x):
-    return x
-
-
-def call_incorrect(x):
-    raise ValueError
-
-
-class FakeAWSObject(AWSObject):
-    type = "Fake::AWS::Object"
-
-    props = {
-        "callcorrect": (call_correct, False),
-        "callincorrect": (call_incorrect, False),
-        "singlelist": (list, False),
-        "multilist": ([bool, int, float], False),
-        "multituple": ((bool, int), False),
-        "helperfun": (positive_integer, False),
-        "listhelperfun": ([double], False),
-    }
-
-    def validate(self):
-        properties = self.properties
-        title = self.title
-        type = self.type
-        if "callcorrect" in properties and "singlelist" in properties:
-            raise ValueError(
-                (
-                    "Cannot specify both 'callcorrect and 'singlelist' in "
-                    "object %s (type %s)" % (title, type)
-                )
-            )
-
-
-class FakeAWSProperty(AWSProperty):
-    props = {}
 
 
 class TestValidators(unittest.TestCase):
