@@ -10,7 +10,7 @@ expected_find_in_map = {
 }
 
 expected_find_in_map_with_default = {
-    "Fn::FindInMap": ['m', 't', 's', 'd']
+    "Fn::FindInMap": ['m', 't', 's', {'DefaultValue': 'd'}]
 }
 
 map_object = BaseAWSObject(title='m')

@@ -514,7 +514,7 @@ class FindInMap(AWSHelperFn):
         find_in_map_details = [self.getdata(mapname), toplevelkey, secondlevelkey]
 
         if defaultvalue is not None:
-            find_in_map_details.append(defaultvalue)
+            find_in_map_details.append({'DefaultValue': defaultvalue})
 
         self.data = {"Fn::FindInMap": find_in_map_details}
 
