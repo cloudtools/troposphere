@@ -150,6 +150,27 @@ class ContainerServiceDeployment(AWSProperty):
     }
 
 
+class EcrImagePullerRole(AWSProperty):
+    """
+    `EcrImagePullerRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-ecrimagepullerrole.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsActive": (boolean, False),
+        "PrincipalArn": (str, False),
+    }
+
+
+class PrivateRegistryAccess(AWSProperty):
+    """
+    `PrivateRegistryAccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-privateregistryaccess.html>`__
+    """
+
+    props: PropsDictType = {
+        "EcrImagePullerRole": (EcrImagePullerRole, False),
+    }
+
+
 class PublicDomainName(AWSProperty):
     """
     `PublicDomainName <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lightsail-container-publicdomainname.html>`__
@@ -172,6 +193,7 @@ class Container(AWSObject):
         "ContainerServiceDeployment": (ContainerServiceDeployment, False),
         "IsDisabled": (boolean, False),
         "Power": (str, True),
+        "PrivateRegistryAccess": (PrivateRegistryAccess, False),
         "PublicDomainNames": ([PublicDomainName], False),
         "Scale": (integer, True),
         "ServiceName": (str, True),
