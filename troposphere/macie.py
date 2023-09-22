@@ -66,6 +66,7 @@ class CustomDataIdentifier(AWSObject):
         "MaximumMatchDistance": (integer, False),
         "Name": (str, True),
         "Regex": (str, True),
+        "Tags": (Tags, False),
     }
 
 

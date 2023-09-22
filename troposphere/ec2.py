@@ -1915,6 +1915,7 @@ class Route(AWSObject):
         "CarrierGatewayId": (str, False),
         "DestinationCidrBlock": (str, False),
         "DestinationIpv6CidrBlock": (str, False),
+        "DestinationPrefixListId": (str, False),
         "EgressOnlyInternetGatewayId": (str, False),
         "GatewayId": (str, False),
         "InstanceId": (str, False),

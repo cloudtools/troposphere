@@ -93,6 +93,29 @@ class LifecyclePolicy(AWSProperty):
     }
 
 
+class ReplicationDestination(AWSProperty):
+    """
+    `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZoneName": (str, False),
+        "FileSystemId": (str, False),
+        "KmsKeyId": (str, False),
+        "Region": (str, False),
+    }
+
+
+class ReplicationConfiguration(AWSProperty):
+    """
+    `ReplicationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-replicationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destinations": ([ReplicationDestination], False),
+    }
+
+
 class FileSystem(AWSObject):
     """
     `FileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-filesystem.html>`__
@@ -111,6 +134,7 @@ class FileSystem(AWSObject):
         "LifecyclePolicies": ([LifecyclePolicy], False),
         "PerformanceMode": (str, False),
         "ProvisionedThroughputInMibps": (provisioned_throughput_validator, False),
+        "ReplicationConfiguration": (ReplicationConfiguration, False),
         "ThroughputMode": (throughput_mode_validator, False),
     }
 

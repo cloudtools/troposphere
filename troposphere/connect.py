@@ -519,6 +519,24 @@ class SecurityKey(AWSObject):
     }
 
 
+class SecurityProfile(AWSObject):
+    """
+    `SecurityProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html>`__
+    """
+
+    resource_type = "AWS::Connect::SecurityProfile"
+
+    props: PropsDictType = {
+        "AllowedAccessControlTags": (Tags, False),
+        "Description": (str, False),
+        "InstanceArn": (str, True),
+        "Permissions": ([str], False),
+        "SecurityProfileName": (str, True),
+        "TagRestrictedResources": ([str], False),
+        "Tags": (Tags, False),
+    }
+
+
 class FieldIdentifier(AWSProperty):
     """
     `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
