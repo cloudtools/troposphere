@@ -746,7 +746,7 @@ class Bucket(AWSObject):
 
 class BucketPolicy(AWSObject):
     """
-    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-policy.html>`__
+    `BucketPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucketpolicy.html>`__
     """
 
     resource_type = "AWS::S3::BucketPolicy"

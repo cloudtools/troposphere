@@ -735,8 +735,6 @@ class IPAM(AWSObject):
     resource_type = "AWS::EC2::IPAM"
 
     props: PropsDictType = {
-        "DefaultResourceDiscoveryAssociationId": (str, False),
-        "DefaultResourceDiscoveryId": (str, False),
         "Description": (str, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
         "Tags": (Tags, False),

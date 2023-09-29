@@ -1976,6 +1976,7 @@ class ModelPackage(AWSObject):
         "ModelPackageStatusDetails": (ModelPackageStatusDetails, False),
         "ModelPackageVersion": (integer, False),
         "SamplePayloadUrl": (str, False),
+        "SkipModelValidation": (str, False),
         "SourceAlgorithmSpecification": (SourceAlgorithmSpecification, False),
         "Tags": (Tags, False),
         "Task": (str, False),
