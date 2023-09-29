@@ -500,6 +500,29 @@ class KinesisStreamSourceConfiguration(AWSProperty):
     }
 
 
+class AuthenticationConfiguration(AWSProperty):
+    """
+    `AuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-authenticationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Connectivity": (str, True),
+        "RoleARN": (str, True),
+    }
+
+
+class MSKSourceConfiguration(AWSProperty):
+    """
+    `MSKSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-msksourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthenticationConfiguration": (AuthenticationConfiguration, True),
+        "MSKClusterARN": (str, True),
+        "TopicName": (str, True),
+    }
+
+
 class CopyCommand(AWSProperty):
     """
     `CopyCommand <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-copycommand.html>`__
@@ -605,6 +628,7 @@ class DeliveryStream(AWSObject):
             False,
         ),
         "KinesisStreamSourceConfiguration": (KinesisStreamSourceConfiguration, False),
+        "MSKSourceConfiguration": (MSKSourceConfiguration, False),
         "RedshiftDestinationConfiguration": (RedshiftDestinationConfiguration, False),
         "S3DestinationConfiguration": (S3DestinationConfiguration, False),
         "SplunkDestinationConfiguration": (SplunkDestinationConfiguration, False),

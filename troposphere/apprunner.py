@@ -198,6 +198,7 @@ class CodeRepository(AWSProperty):
         "CodeConfiguration": (CodeConfiguration, False),
         "RepositoryUrl": (str, True),
         "SourceCodeVersion": (SourceCodeVersion, True),
+        "SourceDirectory": (str, False),
     }
 
 

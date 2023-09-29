@@ -692,6 +692,7 @@ class DataSource(AWSObject):
         "DataSourceConfiguration": (DataSourceConfiguration, False),
         "Description": (str, False),
         "IndexId": (str, True),
+        "LanguageCode": (str, False),
         "Name": (str, True),
         "RoleArn": (str, False),
         "Schedule": (str, False),

@@ -259,8 +259,9 @@ class ServiceNowConnectorProfileCredentials(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Password": (str, True),
-        "Username": (str, True),
+        "OAuth2Credentials": (OAuth2Credentials, False),
+        "Password": (str, False),
+        "Username": (str, False),
     }
 
 

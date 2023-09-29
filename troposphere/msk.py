@@ -394,6 +394,18 @@ class ClusterPolicy(AWSObject):
     }
 
 
+class LatestRevision(AWSProperty):
+    """
+    `LatestRevision <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-configuration-latestrevision.html>`__
+    """
+
+    props: PropsDictType = {
+        "CreationTime": (str, False),
+        "Description": (str, False),
+        "Revision": (integer, False),
+    }
+
+
 class Configuration(AWSObject):
     """
     `Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-msk-configuration.html>`__
@@ -404,6 +416,7 @@ class Configuration(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "KafkaVersionsList": ([str], False),
+        "LatestRevision": (LatestRevision, False),
         "Name": (str, True),
         "ServerProperties": (str, True),
     }
