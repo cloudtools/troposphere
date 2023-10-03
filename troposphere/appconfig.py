@@ -20,7 +20,7 @@ class Application(AWSObject):
     `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-application.html>`__
     """
 
-    resource_type = "Dev::AppConfig::Application"
+    resource_type = "AWS::AppConfig::Application"
 
     props: PropsDictType = {
         "Description": (str, False),
