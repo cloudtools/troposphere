@@ -13,11 +13,7 @@ patches = [
             "Required": False,
         },
     },
-    # Remove unused Tag and TagEntry (remapped to troposphere Tags)
-    {
-        "op": "remove",
-        "path": "/PropertyTypes/AWS::Events::Rule.Tag",
-    },
+    # Remove unused TagEntry
     {
         "op": "remove",
         "path": "/PropertyTypes/AWS::Events::EventBus.TagEntry",
