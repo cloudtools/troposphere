@@ -1483,7 +1483,7 @@ class LaunchTemplateData(AWSProperty):
         "MaintenanceOptions": (MaintenanceOptions, False),
         "MetadataOptions": (MetadataOptions, False),
         "Monitoring": (Monitoring, False),
-        "NetworkInterfaces": ([NetworkInterfaces], False),
+        "NetworkInterfaces": ([NetworkInterfaceProperty], False),
         "Placement": (Placement, False),
         "PrivateDnsNameOptions": (PrivateDnsNameOptions, False),
         "RamDiskId": (str, False),
