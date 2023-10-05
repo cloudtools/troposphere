@@ -1011,6 +1011,7 @@ class Output(AWSDeclaration):
 class Parameter(AWSDeclaration):
     STRING_PROPERTIES = ["AllowedPattern", "MaxLength", "MinLength"]
     NUMBER_PROPERTIES = ["MaxValue", "MinValue"]
+    COMMA_DELIMITED_LIST = ["AllowedPattern"]
     props = {
         "Type": (str, True),
         "Default": ((str, int, float), False),
@@ -1076,15 +1077,28 @@ class Parameter(AWSDeclaration):
                     if not any(check_type(x, d) for x in allowed):
                         raise ValueError(error_str % (param_type, type(d), dlist))
 
-        if self.properties["Type"] != "String":
-            for p in self.STRING_PROPERTIES:
+        if self.properties["Type"] == "String":
+            not_allowed = [
+                p for p in self.COMMA_DELIMITED_LIST if p not in self.STRING_PROPERTIES
+            ] + self.NUMBER_PROPERTIES
+            for p in not_allowed:
                 if p in self.properties:
                     raise ValueError(
                         "%s can only be used with parameters of " "the String type." % p
                     )
-        if self.properties["Type"] != "Number":
-            for p in self.NUMBER_PROPERTIES:
+        if self.properties["Type"] == "Number":
+            for p in list(set(self.STRING_PROPERTIES + self.COMMA_DELIMITED_LIST)):
                 if p in self.properties:
                     raise ValueError(
                         "%s can only be used with parameters of " "the Number type." % p
+                    )
+        if self.properties["Type"] == "CommaDelimitedList":
+            not_allowed = [
+                p for p in self.STRING_PROPERTIES if p not in self.COMMA_DELIMITED_LIST
+            ] + self.NUMBER_PROPERTIES
+            for p in not_allowed:
+                if p in self.properties:
+                    raise ValueError(
+                        "%s can only be used with parameters of "
+                        "the CommaDelimitedList type." % p
                     )
