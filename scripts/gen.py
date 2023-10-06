@@ -186,7 +186,6 @@ class ResourceSpec:
                         path = p["path"]
                         obj = jsonpointer.JsonPointer(path).to_last(self.spec)
                         print(f"path: {path}", file=sys.stderr)
-                        print(f"obj: {obj}", file=sys.stderr)
                         raise
 
     def parse(self, limit_warnings=None):
