@@ -229,6 +229,7 @@ class EventBus(AWSObject):
     props: PropsDictType = {
         "EventSourceName": (str, False),
         "Name": (str, True),
+        "Policy": (dict, False),
         "Tags": (Tags, False),
     }
 
@@ -426,8 +427,7 @@ class RedshiftDataParameters(AWSProperty):
         "Database": (str, True),
         "DbUser": (str, False),
         "SecretManagerArn": (str, False),
-        "Sql": (str, True),
-        "Sqls": ([str], False),
+        "Sql": (str, False),
         "StatementName": (str, False),
         "WithEvent": (boolean, False),
     }

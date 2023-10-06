@@ -411,6 +411,7 @@ class JobTemplate(AWSObject):
     props: PropsDictType = {
         "AbortConfig": (validate_json_checker, False),
         "Description": (str, True),
+        "DestinationPackageVersions": ([str], False),
         "Document": (str, False),
         "DocumentSource": (str, False),
         "JobArn": (str, False),

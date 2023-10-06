@@ -39,6 +39,7 @@ class HlsPlaylistSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdMarkupType": ([str], False),
         "ManifestWindowSeconds": (double, False),
     }
 

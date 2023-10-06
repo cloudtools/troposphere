@@ -335,7 +335,7 @@ class ListenerRule(AWSObject):
 
 class LoadBalancerAttributes(AWSProperty):
     """
-    `LoadBalancerAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattribute.html>`__
+    `LoadBalancerAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-loadbalancerattributes.html>`__
     """
 
     props: PropsDictType = {
