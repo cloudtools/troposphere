@@ -130,9 +130,9 @@ class CloudFrontOriginAccessIdentity(AWSObject):
     }
 
 
-class SingleHeaderConfig(AWSProperty):
+class SingleHeaderPolicyConfig(AWSProperty):
     """
-    `SingleHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html>`__
+    `SingleHeaderPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderpolicyconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -149,6 +149,28 @@ class SessionStickinessConfig(AWSProperty):
     props: PropsDictType = {
         "IdleTTL": (integer, True),
         "MaximumTTL": (integer, True),
+    }
+
+
+class SingleWeightPolicyConfig(AWSProperty):
+    """
+    `SingleWeightPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleweightpolicyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SessionStickinessConfig": (SessionStickinessConfig, False),
+        "Weight": (double, True),
+    }
+
+
+class SingleHeaderConfig(AWSProperty):
+    """
+    `SingleHeaderConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Header": (str, True),
+        "Value": (str, True),
     }
 
 
@@ -182,8 +204,11 @@ class ContinuousDeploymentPolicyConfig(AWSProperty):
 
     props: PropsDictType = {
         "Enabled": (boolean, True),
+        "SingleHeaderPolicyConfig": (SingleHeaderPolicyConfig, False),
+        "SingleWeightPolicyConfig": (SingleWeightPolicyConfig, False),
         "StagingDistributionDnsNames": ([str], True),
         "TrafficConfig": (TrafficConfig, False),
+        "Type": (str, False),
     }
 
 
