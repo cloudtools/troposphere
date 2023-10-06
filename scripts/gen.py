@@ -293,7 +293,7 @@ class ResourceSpec:
         UNSUPPORTED_TAG_NAMES = ["TagMap"]
 
         for service_name, service in self.services.items():
-            for class_name, key, value in service.get_property_items():
+            for class_name, key, value in [x for x in service.get_property_items()]:
                 if key in service.property_validators:
                     continue
                 if value.item_type in UNSUPPORTED_TAG_NAMES:
