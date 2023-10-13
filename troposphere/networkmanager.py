@@ -158,7 +158,9 @@ class GlobalNetwork(AWSObject):
     resource_type = "AWS::NetworkManager::GlobalNetwork"
 
     props: PropsDictType = {
+        "CreatedAt": (str, False),
         "Description": (str, False),
+        "State": (str, False),
         "Tags": (Tags, False),
     }
 

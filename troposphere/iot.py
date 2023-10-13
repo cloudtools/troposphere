@@ -749,6 +749,36 @@ class SecurityProfile(AWSObject):
     }
 
 
+class SoftwarePackage(AWSObject):
+    """
+    `SoftwarePackage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackage.html>`__
+    """
+
+    resource_type = "AWS::IoT::SoftwarePackage"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "PackageName": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class SoftwarePackageVersion(AWSObject):
+    """
+    `SoftwarePackageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html>`__
+    """
+
+    resource_type = "AWS::IoT::SoftwarePackageVersion"
+
+    props: PropsDictType = {
+        "Attributes": (dict, False),
+        "Description": (str, False),
+        "PackageName": (str, True),
+        "Tags": (Tags, False),
+        "VersionName": (str, False),
+    }
+
+
 class AttributePayload(AWSProperty):
     """
     `AttributePayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thinggroup-attributepayload.html>`__

@@ -10,6 +10,16 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double
 
 
+class AgentlessDialerConfig(AWSProperty):
+    """
+    `AgentlessDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-agentlessdialerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DialingCapacity": (double, False),
+    }
+
+
 class PredictiveDialerConfig(AWSProperty):
     """
     `PredictiveDialerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connectcampaigns-campaign-predictivedialerconfig.html>`__
@@ -17,6 +27,7 @@ class PredictiveDialerConfig(AWSProperty):
 
     props: PropsDictType = {
         "BandwidthAllocation": (double, True),
+        "DialingCapacity": (double, False),
     }
 
 
@@ -27,6 +38,7 @@ class ProgressiveDialerConfig(AWSProperty):
 
     props: PropsDictType = {
         "BandwidthAllocation": (double, True),
+        "DialingCapacity": (double, False),
     }
 
 
@@ -36,6 +48,7 @@ class DialerConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AgentlessDialerConfig": (AgentlessDialerConfig, False),
         "PredictiveDialerConfig": (PredictiveDialerConfig, False),
         "ProgressiveDialerConfig": (ProgressiveDialerConfig, False),
     }
@@ -59,7 +72,7 @@ class OutboundCallConfig(AWSProperty):
     props: PropsDictType = {
         "AnswerMachineDetectionConfig": (AnswerMachineDetectionConfig, False),
         "ConnectContactFlowArn": (str, True),
-        "ConnectQueueArn": (str, True),
+        "ConnectQueueArn": (str, False),
         "ConnectSourcePhoneNumber": (str, False),
     }
 
