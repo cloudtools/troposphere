@@ -388,6 +388,7 @@ class VPCConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Ipv6AllowedForDualStack": (boolean, False),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], False),
     }

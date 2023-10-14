@@ -87,18 +87,8 @@ class Alias(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Status": (str, True),
+        "Status": (str, False),
         "Value": (str, True),
-    }
-
-
-class PolicyStatus(AWSProperty):
-    """
-    `PolicyStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3objectlambda-accesspoint-policystatus.html>`__
-    """
-
-    props: PropsDictType = {
-        "IsPublic": (boolean, False),
     }
 
 

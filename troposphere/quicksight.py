@@ -3889,6 +3889,28 @@ class InsightVisual(AWSProperty):
     }
 
 
+class KPIActualValueConditionalFormatting(AWSProperty):
+    """
+    `KPIActualValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiactualvalueconditionalformatting.html>`__
+    """
+
+    props: PropsDictType = {
+        "Icon": (ConditionalFormattingIcon, False),
+        "TextColor": (ConditionalFormattingColor, False),
+    }
+
+
+class KPIComparisonValueConditionalFormatting(AWSProperty):
+    """
+    `KPIComparisonValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpicomparisonvalueconditionalformatting.html>`__
+    """
+
+    props: PropsDictType = {
+        "Icon": (ConditionalFormattingIcon, False),
+        "TextColor": (ConditionalFormattingColor, False),
+    }
+
+
 class KPIPrimaryValueConditionalFormatting(AWSProperty):
     """
     `KPIPrimaryValueConditionalFormatting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpiprimaryvalueconditionalformatting.html>`__
@@ -3916,6 +3938,8 @@ class KPIConditionalFormattingOption(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ActualValue": (KPIActualValueConditionalFormatting, False),
+        "ComparisonValue": (KPIComparisonValueConditionalFormatting, False),
         "PrimaryValue": (KPIPrimaryValueConditionalFormatting, False),
         "ProgressBar": (KPIProgressBarConditionalFormatting, False),
     }
@@ -3940,6 +3964,39 @@ class KPIFieldWells(AWSProperty):
         "TargetValues": ([MeasureField], False),
         "TrendGroups": ([DimensionField], False),
         "Values": ([MeasureField], False),
+    }
+
+
+class KPISparklineOptions(AWSProperty):
+    """
+    `KPISparklineOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpisparklineoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, False),
+        "TooltipVisibility": (str, False),
+        "Type": (str, True),
+        "Visibility": (str, False),
+    }
+
+
+class KPIVisualStandardLayout(AWSProperty):
+    """
+    `KPIVisualStandardLayout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpivisualstandardlayout.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+    }
+
+
+class KPIVisualLayoutOptions(AWSProperty):
+    """
+    `KPIVisualLayoutOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-kpivisuallayoutoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "StandardLayout": (KPIVisualStandardLayout, False),
     }
 
 
@@ -3985,7 +4042,9 @@ class KPIOptions(AWSProperty):
         "ProgressBar": (ProgressBarOptions, False),
         "SecondaryValue": (SecondaryValueOptions, False),
         "SecondaryValueFontConfiguration": (FontConfiguration, False),
+        "Sparkline": (KPISparklineOptions, False),
         "TrendArrows": (TrendArrowOptions, False),
+        "VisualLayoutOptions": (KPIVisualLayoutOptions, False),
     }
 
 
@@ -5122,6 +5181,16 @@ class TableFieldOption(AWSProperty):
     }
 
 
+class TablePinnedFieldOptions(AWSProperty):
+    """
+    `TablePinnedFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablepinnedfieldoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "PinnedLeftFields": ([str], False),
+    }
+
+
 class TableFieldOptions(AWSProperty):
     """
     `TableFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html>`__
@@ -5129,6 +5198,7 @@ class TableFieldOptions(AWSProperty):
 
     props: PropsDictType = {
         "Order": ([str], False),
+        "PinnedFieldOptions": (TablePinnedFieldOptions, False),
         "SelectedFieldOptions": ([TableFieldOption], False),
     }
 
