@@ -47,6 +47,24 @@ class TestRDS(unittest.TestCase):
         ):
             rds_instance.to_dict()
 
+    def test_it_rds_credentials_using_masteruserpassword(self):
+        rds_instance = rds.DBInstance(
+            "SomeTitle",
+            Engine="MySQL",
+            MasterUsername="user",
+            MasterUserPassword="password",
+        )
+        rds_instance.to_dict()
+
+    def test_it_rds_credentials_using_managemasteruserpassword(self):
+        rds_instance = rds.DBInstance(
+            "SomeTitle",
+            Engine="MySQL",
+            MasterUsername="user",
+            ManageMasterUserPassword=True
+        )
+        rds_instance.to_dict()
+
     def test_it_rds_masteruserpassword_and_managemasteruserpassword_mutually_exclusive(self):
         rds_instance = rds.DBInstance(
             "SomeTitle",
