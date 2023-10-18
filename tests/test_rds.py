@@ -47,6 +47,21 @@ class TestRDS(unittest.TestCase):
         ):
             rds_instance.to_dict()
 
+    def test_it_rds_masteruserpassword_and_managemasteruserpassword_mutually_exclusive(self):
+        rds_instance = rds.DBInstance(
+            "SomeTitle",
+            Engine="MySQL",
+            MasterUsername="user",
+            MasterUserPassword="password",
+            ManageMasterUserPassword=True
+        )
+
+        with self.assertRaisesRegex(
+            ValueError,
+            r"Both MasterUserPassword and ManageMasterUserPassword cannot be set simultaneously.",
+        ):
+            rds_instance.to_dict()
+
     def test_it_allows_an_rds_replica(self):
         rds_instance = rds.DBInstance(
             "SomeTitle",
