@@ -41,7 +41,8 @@ class TestRDS(unittest.TestCase):
 
         with self.assertRaisesRegex(
             ValueError,
-            r"Either \(MasterUsername and MasterUserPassword\) or"
+            r"Either \(MasterUsername and either "
+            r"MasterUserPassword or ManageMasterUserPassword\) or"
             r" DBSnapshotIdentifier are required",
         ):
             rds_instance.to_dict()
