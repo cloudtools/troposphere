@@ -350,14 +350,26 @@ def validate_dbinstance(self) -> None:
         )
         and (
             "MasterUsername" not in self.properties
-            or "MasterUserPassword" not in self.properties
+            or (
+                "MasterUserPassword" not in self.properties
+                and "ManageMasterUserPassword" not in self.properties
+            )
         )
         and ("DBClusterIdentifier" not in self.properties)
     ):
         raise ValueError(
-            r"Either (MasterUsername and MasterUserPassword) or"
+            r"Either (MasterUsername and either MasterUserPassword or ManageMasterUserPassword) or"
             r" DBSnapshotIdentifier are required in type "
             r"AWS::RDS::DBInstance."
+        )
+
+    if (
+        "MasterUserPassword" in self.properties
+        and "ManageMasterUserPassword" in self.properties
+    ):
+        raise ValueError(
+            "Both MasterUserPassword and ManageMasterUserPassword cannot"
+            " be set simultaneously."
         )
 
     if "KmsKeyId" in self.properties and "StorageEncrypted" not in self.properties:

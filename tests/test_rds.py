@@ -41,8 +41,44 @@ class TestRDS(unittest.TestCase):
 
         with self.assertRaisesRegex(
             ValueError,
-            r"Either \(MasterUsername and MasterUserPassword\) or"
+            r"Either \(MasterUsername and either "
+            r"MasterUserPassword or ManageMasterUserPassword\) or"
             r" DBSnapshotIdentifier are required",
+        ):
+            rds_instance.to_dict()
+
+    def test_it_rds_credentials_using_masteruserpassword(self):
+        rds_instance = rds.DBInstance(
+            "SomeTitle",
+            Engine="MySQL",
+            MasterUsername="user",
+            MasterUserPassword="password",
+        )
+        rds_instance.to_dict()
+
+    def test_it_rds_credentials_using_managemasteruserpassword(self):
+        rds_instance = rds.DBInstance(
+            "SomeTitle",
+            Engine="MySQL",
+            MasterUsername="user",
+            ManageMasterUserPassword=True,
+        )
+        rds_instance.to_dict()
+
+    def test_it_rds_masteruserpassword_and_managemasteruserpassword_mutually_exclusive(
+        self,
+    ):
+        rds_instance = rds.DBInstance(
+            "SomeTitle",
+            Engine="MySQL",
+            MasterUsername="user",
+            MasterUserPassword="password",
+            ManageMasterUserPassword=True,
+        )
+
+        with self.assertRaisesRegex(
+            ValueError,
+            r"Both MasterUserPassword and ManageMasterUserPassword cannot be set simultaneously.",
         ):
             rds_instance.to_dict()
 
