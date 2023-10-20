@@ -417,6 +417,7 @@ class Function(AWSObject):
         "Layers": ([str], False),
         "MemorySize": (validate_memory_size, False),
         "PackageType": (validate_package_type, False),
+        "Policy": (dict, False),
         "ReservedConcurrentExecutions": (integer, False),
         "Role": (str, True),
         "Runtime": (str, False),
@@ -523,6 +524,17 @@ class Url(AWSObject):
     }
 
 
+class RuntimePolicy(AWSProperty):
+    """
+    `RuntimePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-version-runtimepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "RuntimeVersionArn": (str, False),
+        "UpdateRuntimeOn": (str, True),
+    }
+
+
 class Version(AWSObject):
     """
     `Version <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-version.html>`__
@@ -535,6 +547,7 @@ class Version(AWSObject):
         "Description": (str, False),
         "FunctionName": (str, True),
         "ProvisionedConcurrencyConfig": (ProvisionedConcurrencyConfiguration, False),
+        "RuntimePolicy": (RuntimePolicy, False),
     }
 
 

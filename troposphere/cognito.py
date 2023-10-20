@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import boolean, double, integer
+from .validators import boolean, integer
 from .validators.cognito import validate_recoveryoption_name
 
 
@@ -94,6 +94,41 @@ class IdentityPoolRoleAttachment(AWSObject):
         "IdentityPoolId": (str, True),
         "RoleMappings": (dict, False),
         "Roles": (dict, False),
+    }
+
+
+class CloudWatchLogsConfiguration(AWSProperty):
+    """
+    `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-cloudwatchlogsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupArn": (str, False),
+    }
+
+
+class LogConfiguration(AWSProperty):
+    """
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-logdeliveryconfiguration-logconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogsConfiguration": (CloudWatchLogsConfiguration, False),
+        "EventSource": (str, False),
+        "LogLevel": (str, False),
+    }
+
+
+class LogDeliveryConfiguration(AWSObject):
+    """
+    `LogDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-logdeliveryconfiguration.html>`__
+    """
+
+    resource_type = "AWS::Cognito::LogDeliveryConfiguration"
+
+    props: PropsDictType = {
+        "LogConfigurations": ([LogConfiguration], False),
+        "UserPoolId": (str, True),
     }
 
 
@@ -459,7 +494,7 @@ class UserPoolGroup(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "GroupName": (str, False),
-        "Precedence": (double, False),
+        "Precedence": (integer, False),
         "RoleArn": (str, False),
         "UserPoolId": (str, True),
     }

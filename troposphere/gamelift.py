@@ -174,6 +174,7 @@ class Fleet(AWSObject):
         "EC2InstanceType": (str, False),
         "FleetType": (str, False),
         "InstanceRoleARN": (str, False),
+        "InstanceRoleCredentialsProvider": (str, False),
         "Locations": ([LocationConfiguration], False),
         "MaxSize": (integer, False),
         "MetricGroups": ([str], False),

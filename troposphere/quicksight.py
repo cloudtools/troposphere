@@ -429,6 +429,7 @@ class FilterListConfiguration(AWSProperty):
     props: PropsDictType = {
         "CategoryValues": ([str], False),
         "MatchOperator": (str, True),
+        "NullOption": (str, False),
         "SelectAllOptions": (str, False),
     }
 
@@ -5739,6 +5740,16 @@ class ResourcePermission(AWSProperty):
     }
 
 
+class ValidationStrategy(AWSProperty):
+    """
+    `ValidationStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-validationstrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Mode": (str, True),
+    }
+
+
 class Analysis(AWSObject):
     """
     `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-analysis.html>`__
@@ -5757,6 +5768,7 @@ class Analysis(AWSObject):
         "Status": (str, False),
         "Tags": (Tags, False),
         "ThemeArn": (str, False),
+        "ValidationStrategy": (ValidationStrategy, False),
     }
 
 
@@ -5958,6 +5970,7 @@ class Dashboard(AWSObject):
         "SourceEntity": (DashboardSourceEntity, False),
         "Tags": (Tags, False),
         "ThemeArn": (str, False),
+        "ValidationStrategy": (ValidationStrategy, False),
         "VersionDescription": (str, False),
     }
 
@@ -7003,6 +7016,7 @@ class Template(AWSObject):
         "SourceEntity": (TemplateSourceEntity, False),
         "Tags": (Tags, False),
         "TemplateId": (str, True),
+        "ValidationStrategy": (ValidationStrategy, False),
         "VersionDescription": (str, False),
     }
 
@@ -7269,6 +7283,7 @@ class TopicCalculatedField(AWSProperty):
         "Expression": (str, True),
         "IsIncludedInTopic": (boolean, False),
         "NeverAggregateInFilter": (boolean, False),
+        "NonAdditive": (boolean, False),
         "NotAllowedAggregations": ([str], False),
         "SemanticType": (SemanticType, False),
         "TimeGranularity": (str, False),
@@ -7293,6 +7308,7 @@ class TopicColumn(AWSProperty):
         "DefaultFormatting": (DefaultFormatting, False),
         "IsIncludedInTopic": (boolean, False),
         "NeverAggregateInFilter": (boolean, False),
+        "NonAdditive": (boolean, False),
         "NotAllowedAggregations": ([str], False),
         "SemanticType": (SemanticType, False),
         "TimeGranularity": (str, False),

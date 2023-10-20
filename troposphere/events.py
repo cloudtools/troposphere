@@ -229,6 +229,7 @@ class EventBus(AWSObject):
     props: PropsDictType = {
         "EventSourceName": (str, False),
         "Name": (str, True),
+        "Policy": (dict, False),
         "Tags": (Tags, False),
     }
 
@@ -427,6 +428,7 @@ class RedshiftDataParameters(AWSProperty):
         "DbUser": (str, False),
         "SecretManagerArn": (str, False),
         "Sql": (str, False),
+        "Sqls": ([str], False),
         "StatementName": (str, False),
         "WithEvent": (boolean, False),
     }
@@ -537,15 +539,4 @@ class Rule(AWSObject):
         "State": (str, False),
         "Tags": (Tags, False),
         "Targets": ([Target], False),
-    }
-
-
-class TagEntry(AWSProperty):
-    """
-    `TagEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-eventbus-tagentry.html>`__
-    """
-
-    props: PropsDictType = {
-        "Key": (str, True),
-        "Value": (str, True),
     }

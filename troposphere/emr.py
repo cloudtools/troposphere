@@ -374,7 +374,7 @@ class ManagedScalingPolicy(AWSProperty):
 
 class HadoopJarStepConfig(AWSProperty):
     """
-    `HadoopJarStepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-step-hadoopjarstepconfig.html>`__
+    `HadoopJarStepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html>`__
     """
 
     props: PropsDictType = {

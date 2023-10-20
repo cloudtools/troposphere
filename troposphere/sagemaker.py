@@ -200,6 +200,7 @@ class BatchTransformInput(AWSProperty):
     props: PropsDictType = {
         "DataCapturedDestinationS3Uri": (str, True),
         "DatasetFormat": (DatasetFormat, True),
+        "ExcludeFeaturesAttribute": (str, False),
         "LocalPath": (str, True),
         "S3DataDistributionType": (str, False),
         "S3InputMode": (str, False),
@@ -213,6 +214,7 @@ class EndpointInput(AWSProperty):
 
     props: PropsDictType = {
         "EndpointName": (str, True),
+        "ExcludeFeaturesAttribute": (str, False),
         "LocalPath": (str, True),
         "S3DataDistributionType": (str, False),
         "S3InputMode": (str, False),
@@ -2155,6 +2157,8 @@ class ScheduleConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DataAnalysisEndTime": (str, False),
+        "DataAnalysisStartTime": (str, False),
         "ScheduleExpression": (str, True),
     }
 

@@ -2876,6 +2876,17 @@ class NetworkInterfaceOptions(AWSProperty):
     }
 
 
+class SseSpecification(AWSProperty):
+    """
+    `SseSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-ssespecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomerManagedKeyEnabled": (boolean, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
 class VerifiedAccessEndpoint(AWSObject):
     """
     `VerifiedAccessEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-verifiedaccessendpoint.html>`__
@@ -2895,6 +2906,7 @@ class VerifiedAccessEndpoint(AWSObject):
         "PolicyDocument": (str, False),
         "PolicyEnabled": (boolean, False),
         "SecurityGroupIds": ([str], False),
+        "SseSpecification": (SseSpecification, False),
         "Tags": (Tags, False),
         "VerifiedAccessGroupId": (str, True),
     }
@@ -2911,6 +2923,7 @@ class VerifiedAccessGroup(AWSObject):
         "Description": (str, False),
         "PolicyDocument": (str, False),
         "PolicyEnabled": (boolean, False),
+        "SseSpecification": (SseSpecification, False),
         "Tags": (Tags, False),
         "VerifiedAccessInstanceId": (str, True),
     }
@@ -2988,6 +3001,7 @@ class VerifiedAccessInstance(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "FipsEnabled": (boolean, False),
         "LoggingConfigurations": (VerifiedAccessLogs, False),
         "Tags": (Tags, False),
         "VerifiedAccessTrustProviderIds": ([str], False),
@@ -3034,6 +3048,7 @@ class VerifiedAccessTrustProvider(AWSObject):
         "DeviceTrustProviderType": (str, False),
         "OidcOptions": (OidcOptions, False),
         "PolicyReferenceName": (str, True),
+        "SseSpecification": (SseSpecification, False),
         "Tags": (Tags, False),
         "TrustProviderType": (str, True),
         "UserTrustProviderType": (str, False),
