@@ -45,7 +45,7 @@ class DataIntegration(AWSObject):
         "KmsKey": (str, True),
         "Name": (str, True),
         "ObjectConfiguration": (dict, False),
-        "ScheduleConfig": (ScheduleConfig, True),
+        "ScheduleConfig": (ScheduleConfig, False),
         "SourceURI": (str, True),
         "Tags": (Tags, False),
     }

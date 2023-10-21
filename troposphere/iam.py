@@ -48,7 +48,7 @@ class Policy(AWSProperty):
 
 class Group(AWSObject):
     """
-    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-group.html>`__
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-group.html>`__
     """
 
     resource_type = "AWS::IAM::Group"

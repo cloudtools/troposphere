@@ -646,6 +646,7 @@ class AWSManagedRulesBotControlRuleSet(AWSProperty):
     """
 
     props: PropsDictType = {
+        "EnableMachineLearning": (boolean, False),
         "InspectionLevel": (str, True),
     }
 

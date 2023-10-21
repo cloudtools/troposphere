@@ -50,6 +50,7 @@ class ConfigurationProfile(AWSObject):
     props: PropsDictType = {
         "ApplicationId": (str, True),
         "Description": (str, False),
+        "KmsKeyIdentifier": (str, False),
         "LocationUri": (str, True),
         "Name": (str, True),
         "RetrievalRoleArn": (str, False),

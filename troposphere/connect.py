@@ -395,6 +395,7 @@ class RoutingProfile(AWSObject):
     resource_type = "AWS::Connect::RoutingProfile"
 
     props: PropsDictType = {
+        "AgentAvailabilityTimer": (str, False),
         "DefaultOutboundQueueArn": (str, True),
         "Description": (str, True),
         "InstanceArn": (str, True),
@@ -708,6 +709,7 @@ class UserHierarchyGroup(AWSObject):
         "InstanceArn": (str, True),
         "Name": (str, True),
         "ParentGroupArn": (str, False),
+        "Tags": (Tags, False),
     }
 
 

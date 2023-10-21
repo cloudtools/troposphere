@@ -541,6 +541,7 @@ class Policy(AWSObject):
     props: PropsDictType = {
         "PolicyDocument": (policytypes, True),
         "PolicyName": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -1106,6 +1107,17 @@ class IotSiteWiseAction(AWSProperty):
     }
 
 
+class KafkaActionHeader(AWSProperty):
+    """
+    `KafkaActionHeader <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaactionheader.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class KafkaAction(AWSProperty):
     """
     `KafkaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-topicrule-kafkaaction.html>`__
@@ -1114,6 +1126,7 @@ class KafkaAction(AWSProperty):
     props: PropsDictType = {
         "ClientProperties": (dict, True),
         "DestinationArn": (str, True),
+        "Headers": ([KafkaActionHeader], False),
         "Key": (str, False),
         "Partition": (str, False),
         "Topic": (str, True),

@@ -64,7 +64,7 @@ class LifecycleHookSpecification(AWSProperty):
 
 class MetricsCollection(AWSProperty):
     """
-    `MetricsCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-metricscollection.html>`__
+    `MetricsCollection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-metricscollection.html>`__
     """
 
     props: PropsDictType = {
@@ -75,7 +75,7 @@ class MetricsCollection(AWSProperty):
 
 class InstancesDistribution(AWSProperty):
     """
-    `InstancesDistribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancesdistribution.html>`__
+    `InstancesDistribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancesdistribution.html>`__
     """
 
     props: PropsDictType = {
@@ -127,8 +127,8 @@ class MemoryGiBPerVCpuRequest(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Max": (integer, False),
-        "Min": (integer, False),
+        "Max": (double, False),
+        "Min": (double, False),
     }
 
 
@@ -171,8 +171,8 @@ class TotalLocalStorageGBRequest(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Max": (integer, False),
-        "Min": (integer, False),
+        "Max": (double, False),
+        "Min": (double, False),
     }
 
 
@@ -189,7 +189,7 @@ class VCpuCountRequest(AWSProperty):
 
 class InstanceRequirements(AWSProperty):
     """
-    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-instancerequirements.html>`__
+    `InstanceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancerequirements.html>`__
     """
 
     props: PropsDictType = {
@@ -221,7 +221,7 @@ class InstanceRequirements(AWSProperty):
 
 class LaunchTemplateOverrides(AWSProperty):
     """
-    `LaunchTemplateOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplateoverrides.html>`__
+    `LaunchTemplateOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplateoverrides.html>`__
     """
 
     props: PropsDictType = {
@@ -234,7 +234,7 @@ class LaunchTemplateOverrides(AWSProperty):
 
 class LaunchTemplate(AWSProperty):
     """
-    `LaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-mixedinstancespolicy-launchtemplate.html>`__
+    `LaunchTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplate.html>`__
     """
 
     props: PropsDictType = {
@@ -245,7 +245,7 @@ class LaunchTemplate(AWSProperty):
 
 class MixedInstancesPolicy(AWSProperty):
     """
-    `MixedInstancesPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/cfn-as-group-mixedinstancespolicy.html>`__
+    `MixedInstancesPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html>`__
     """
 
     props: PropsDictType = {
@@ -256,18 +256,18 @@ class MixedInstancesPolicy(AWSProperty):
 
 class NotificationConfigurations(AWSProperty):
     """
-    `NotificationConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-notificationconfigurations.html>`__
+    `NotificationConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-notificationconfiguration.html>`__
     """
 
     props: PropsDictType = {
         "NotificationTypes": ([str], False),
-        "TopicARN": (str, True),
+        "TopicARN": ([str], True),
     }
 
 
 class AutoScalingGroup(AWSObject):
     """
-    `AutoScalingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-as-group.html>`__
+    `AutoScalingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html>`__
     """
 
     resource_type = "AWS::AutoScaling::AutoScalingGroup"
