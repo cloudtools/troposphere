@@ -184,7 +184,6 @@ class ResourceSpec:
                     except jsonpatch.JsonPatchConflict:
                         print(f"jsonpatch error: {p}", file=sys.stderr)
                         path = p["path"]
-                        obj = jsonpointer.JsonPointer(path).to_last(self.spec)
                         print(f"path: {path}", file=sys.stderr)
                         raise
 
