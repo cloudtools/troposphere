@@ -2490,6 +2490,18 @@ class TransitGatewayConnect(AWSObject):
     }
 
 
+class MulticastDomainOptions(AWSProperty):
+    """
+    `MulticastDomainOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-transitgatewaymulticastdomain-options.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoAcceptSharedAssociations": (str, False),
+        "Igmpv2Support": (str, False),
+        "StaticSourcesSupport": (str, False),
+    }
+
+
 class TransitGatewayMulticastDomain(AWSObject):
     """
     `TransitGatewayMulticastDomain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-transitgatewaymulticastdomain.html>`__
@@ -2498,7 +2510,7 @@ class TransitGatewayMulticastDomain(AWSObject):
     resource_type = "AWS::EC2::TransitGatewayMulticastDomain"
 
     props: PropsDictType = {
-        "Options": (Options, False),
+        "Options": (MulticastDomainOptions, False),
         "Tags": (Tags, False),
         "TransitGatewayId": (str, True),
     }

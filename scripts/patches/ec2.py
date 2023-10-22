@@ -284,12 +284,30 @@ def targetgroupconfig_patches():
     return patches
 
 
+def transitgatewaymulicast_patches():
+    patches = [
+        {
+            "op": "move",
+            "from": "/PropertyTypes/AWS::EC2::TransitGatewayMulticastDomain.Options",
+            "path": "/PropertyTypes/AWS::EC2::TransitGatewayMulticastDomain.MulticastDomainOptions",
+        },
+        {
+            "op": "replace",
+            "path": "/ResourceTypes/AWS::EC2::TransitGatewayMulticastDomain/Properties/Options/Type",
+            "value": "MulticastDomainOptions",
+        },
+    ]
+
+    return patches
+
+
 patches = (
     tagspecification_patches()
     + blockdevice_patches()
     + launchspecification_patches()
     + networkinterfaces_patches()
     + targetgroupconfig_patches()
+    + transitgatewaymulicast_patches()
     + networkinsightsanalysis_patches()
     + [
         # backward compatibility - a combined SecurityGroupRule was used for both Egress and Ingress
