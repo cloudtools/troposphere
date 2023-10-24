@@ -1,3 +1,52 @@
+4.5.0 (2023*10*24)
+-------------------------------
+* Updates from spec version 136.0.0 (#2175)
+* Add AWS::BackupGateway
+* Add AWS::CleanRooms
+* Add AWS::Comprehend
+* Add AWS::InternetMonitor
+* Add AWS::IVSChat
+* Add AWS::Omics
+* Add AWS::OSIS
+* Add AWS::Proton
+* Add AWS::Shield
+* Add AWS::SimSpaceWeaver
+* Add AWS::SystemsManagerSAP
+* Add AWS::VerifiedPermissions
+* Add AWS::VpcLattice
+* Add new AWS services to resource doc
+* Updates from spec version 137.0.0 (#2177)
+* Updates from spec version 138.0.0 (#2178)
+* Updates from spec version 139.0.0 (#2179)
+* Fix incorrect backward compatibility for ReplicationConfiguration
+* Update isort version to fix pip-shims error
+* RDS: allow AllocatedStorage to be a Ref (Fixes #2176)
+* Updates from spec version 140.0.0 (#2181)
+* Updates from spec version 141.0.0 (#2183)
+* Updates from spec version 142.0.0 (#2185)
+* Fixup Events patch due to removal of AWS::Events::Rule.Tag
+* Updates from spec version 142.1.0 (#2187)
+* Add support for object comparison (#2182)
+* Reduce error output when encountering a jsonpatch error
+* Collect all the service items before modifying the service
+* Fixup Events patch due to removal of AWS::Events::EventBus.TagEntry
+* Updates from spec version 143.0.0 (#2192)
+* Updates from spec version 144.0.0 (#2193)
+* Drop support for Python 3.7 (#2190)
+* Run tests against Python 3.12 and add trove classifier (#2189)
+* Fix Parameters.validate incorrect validate for CommaDelimitedList (#2191)
+* Updates from spec version 145.0.0 (#2195)
+* Fix lint error from a previous commit to gen.py
+* RDS: Allow defining ManageMasterUserPassword property instead of the MasterUserPassword property.
+* Adding support for default values in FindInMap
+* Add AWS::EntityResolution
+* Add AWS::HealthImaging
+* Add AWS::MediaPackageV2
+* Add AWS::PCAConnectorAD
+* Add AWS::WorkSpacesWeb
+* Add new AWS services to resource doc and fix some trailing parens
+* Fix EC2::TransitGatewayMulticastDomain.Options conflict
+
 4.4.1 (2023*08*16)
 -------------------------------
 * Remove EOL Python 3.7 from the tests action
