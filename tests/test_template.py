@@ -82,7 +82,7 @@ class TestValidate(unittest.TestCase):
 
 
 class TypeComparator:
-    """ Helper to test the __eq__ protocol """
+    """Helper to test the __eq__ protocol"""
 
     def __init__(self, valid_types):
         self.valid_types = valid_types
