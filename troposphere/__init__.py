@@ -420,7 +420,7 @@ class BaseAWSObject:
             return self.title == other.title and self.to_json() == other.to_json()
         if isinstance(other, dict):
             return {"title": self.title, **self.to_dict()} == other
-        return False
+        return NotImplemented
 
     def __ne__(self, other: object) -> bool:
         return not self == other
@@ -514,7 +514,7 @@ class AWSHelperFn:
             return self.to_json() == other.to_json()
         if isinstance(other, (dict, list)):
             return self.to_dict() == other
-        return False
+        return NotImplemented
 
     def __hash__(self) -> int:
         return hash(self.to_json(indent=0))
@@ -986,10 +986,10 @@ class Template:
         if isinstance(other, Template):
             return self.to_json() == other.to_json()
         else:
-            return False
+            return NotImplemented
 
     def __ne__(self, other: object) -> bool:
-        return not self.__eq__(other)
+        return not self == other
 
     def __hash__(self) -> int:
         return hash(self.to_json())
