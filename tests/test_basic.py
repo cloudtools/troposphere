@@ -2,6 +2,7 @@ import pickle
 import unittest
 
 from troposphere import (
+    AWSHelperFn,
     AWSObject,
     AWSProperty,
     Cidr,
@@ -23,6 +24,19 @@ from troposphere.ec2 import Instance, NetworkInterface, Route, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.s3 import Bucket, PublicRead
 from troposphere.validators import positive_integer
+
+
+class TypeComparator:
+    """ Helper to test the __eq__ protocol """
+
+    def __init__(self, valid_types):
+        self.valid_types = valid_types
+
+    def __eq__(self, other):
+        return isinstance(other, self.valid_types)
+
+    def __ne__(self, other):
+        return not self == other
 
 
 def double(x):
@@ -77,8 +91,13 @@ class TestBasic(unittest.TestCase):
             "title": "foobar",
             "Properties": {"callcorrect": True},
         }
+        assert FakeAWSObject("foobar", callcorrect=True) == TypeComparator(AWSObject)
+        assert TypeComparator(AWSObject) == FakeAWSObject("foobar", callcorrect=True)
+
         assert GenericHelperFn("foobar") == GenericHelperFn("foobar")
         assert GenericHelperFn({"foo": "bar"}) == {"foo": "bar"}
+        assert GenericHelperFn("foobar") == TypeComparator(AWSHelperFn)
+        assert TypeComparator(AWSHelperFn) == GenericHelperFn("foobar")
 
     def test___ne__(self):
         """Test __ne__."""
@@ -89,9 +108,14 @@ class TestBasic(unittest.TestCase):
             "foobar", callcorrect=False
         )
         assert FakeAWSObject("foobar", callcorrect=True) != FakeAWSProperty("foobar")
+        assert FakeAWSObject("foobar", callcorrect=True) != TypeComparator(AWSHelperFn)
+        assert TypeComparator(AWSHelperFn) != FakeAWSObject("foobar", callcorrect=True)
+
         assert GenericHelperFn("foobar") != GenericHelperFn("bar")
         assert GenericHelperFn("foobar") != "foobar"
         assert GenericHelperFn("foobar") != FakeAWSProperty("foobar")
+        assert GenericHelperFn("foobar") != TypeComparator(AWSObject)
+        assert TypeComparator(AWSObject) != GenericHelperFn("foobar")
 
     def test_badproperty(self):
         with self.assertRaises(AttributeError):

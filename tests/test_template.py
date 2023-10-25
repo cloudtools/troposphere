@@ -81,6 +81,19 @@ class TestValidate(unittest.TestCase):
             template.add_mapping("mapping", {"n": "v"})
 
 
+class TypeComparator:
+    """ Helper to test the __eq__ protocol """
+
+    def __init__(self, valid_types):
+        self.valid_types = valid_types
+
+    def __eq__(self, other):
+        return isinstance(other, self.valid_types)
+
+    def __ne__(self, other):
+        return not self == other
+
+
 class TestEquality(unittest.TestCase):
     def test_eq(self):
         metadata = "foo"
@@ -98,6 +111,9 @@ class TestEquality(unittest.TestCase):
 
         self.assertEqual(t1, t2)
 
+        self.assertEqual(t1, TypeComparator(Template))
+        self.assertEqual(TypeComparator(Template), t1)
+
     def test_ne(self):
         t1 = Template(Description="foo1", Metadata="bar1")
         t1.add_resource(Bucket("Baz1"))
@@ -108,6 +124,9 @@ class TestEquality(unittest.TestCase):
         t2.add_output(Output("qux2", Value="qux2"))
 
         self.assertNotEqual(t1, t2)
+
+        self.assertNotEqual(t1, TypeComparator(Output))
+        self.assertNotEqual(TypeComparator(Output), t1)
 
     def test_hash(self):
         metadata = "foo"
