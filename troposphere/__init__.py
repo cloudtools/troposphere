@@ -335,8 +335,8 @@ class BaseAWSObject:
         self.do_validation = False
         return self
 
-    def to_dict(self) -> Dict[str, Any]:
-        if self.do_validation:
+    def to_dict(self, validation: bool = True) -> Dict[str, Any]:
+        if validation and self.do_validation:
             self._validate_props()
             self.validate()
 
@@ -351,9 +351,13 @@ class BaseAWSObject:
         else:
             return {}
 
-    def to_json(self, *, indent: int = 4, sort_keys: bool = True) -> str:
+    def to_json(
+        self, *, indent: int = 4, sort_keys: bool = True, validation: bool = True
+    ) -> str:
         """Object as JSON."""
-        return json.dumps(self.to_dict(), indent=indent, sort_keys=sort_keys)
+        return json.dumps(
+            self.to_dict(validation=validation), indent=indent, sort_keys=sort_keys
+        )
 
     @classmethod
     def _from_dict(
@@ -417,7 +421,9 @@ class BaseAWSObject:
 
     def __eq__(self, other: object) -> bool:
         if isinstance(other, self.__class__):
-            return self.title == other.title and self.to_json() == other.to_json()
+            return self.title == other.title and self.to_json(
+                validation=False
+            ) == other.to_json(validation=False)
         if isinstance(other, dict):
             return {"title": self.title, **self.to_dict()} == other
         return NotImplemented
@@ -1109,3 +1115,6 @@ class Parameter(AWSDeclaration):
                         "%s can only be used with parameters of "
                         "the CommaDelimitedList type." % p
                     )
+
+    def __hash__(self) -> int:
+        return hash(json.dumps({"title": self.title, **self.to_dict()}, indent=0))
