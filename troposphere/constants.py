@@ -1061,7 +1061,115 @@ CACHE_R6GD_16XLARGE: Final = "cache.r6gd.16xlarge"
 CACHE_C1_XLARGE: Final = "cache.c1.xlarge"
 
 #
-# Elasticsearch instance types
+# OpenSearch instance types
+#
+
+SEARCH_C4_LARGE: Final = "c4.large.search"
+SEARCH_C4_XLARGE: Final = "c4.xlarge.search"
+SEARCH_C4_2XLARGE: Final = "c4.2xlarge.search"
+SEARCH_C4_4XLARGE: Final = "c4.4xlarge.search"
+SEARCH_C4_8XLARGE: Final = "c4.8xlarge.search"
+
+SEARCH_C5_LARGE: Final = "c5.large.search"
+SEARCH_C5_XLARGE: Final = "c5.xlarge.search"
+SEARCH_C5_2XLARGE: Final = "c5.2xlarge.search"
+SEARCH_C5_4XLARGE: Final = "c5.4xlarge.search"
+SEARCH_C5_9XLARGE: Final = "c5.9xlarge.search"
+SEARCH_C5_18XLARGE: Final = "c5.18xlarge.search"
+
+SEARCH_C6G_LARGE: Final = "c6g.large.search"
+SEARCH_C6G_XLARGE: Final = "c6g.xlarge.search"
+SEARCH_C6G_2XLARGE: Final = "c6g.2xlarge.search"
+SEARCH_C6G_4XLARGE: Final = "c6g.4xlarge.search"
+SEARCH_C6G_8XLARGE: Final = "c6g.8xlarge.search"
+SEARCH_C6G_12XLARGE: Final = "c6g.12xlarge.search"
+
+SEARCH_I2_XLARGE: Final = "i2.xlarge.search"
+SEARCH_I2_2XLARGE: Final = "i2.2xlarge.search"
+
+SEARCH_I3_LARGE: Final = "i3.large.search"
+SEARCH_I3_XLARGE: Final = "i3.xlarge.search"
+SEARCH_I3_2XLARGE: Final = "i3.2xlarge.search"
+SEARCH_I3_4XLARGE: Final = "i3.4xlarge.search"
+SEARCH_I3_8XLARGE: Final = "i3.8xlarge.search"
+SEARCH_I3_16XLARGE: Final = "i3.16xlarge.search"
+
+SEARCH_IM4GN_LARGE: Final = "im4gn.large.search"
+SEARCH_IM4GN_XLARGE: Final = "im4gn.xlarge.search"
+SEARCH_IM4GN_2XLARGE: Final = "im4gn.2xlarge.search"
+SEARCH_IM4GN_4XLARGE: Final = "im4gn.4xlarge.search"
+SEARCH_IM4GN_8XLARGE: Final = "im4gn.8xlarge.search"
+SEARCH_IM4GN_16XLARGE: Final = "im4gn.16xlarge.search"
+
+SEARCH_M3_MEDIUM: Final = "m3.medium.search"
+SEARCH_M3_LARGE: Final = "m3.large.search"
+SEARCH_M3_XLARGE: Final = "m3.xlarge.search"
+SEARCH_M3_2XLARGE: Final = "m3.2xlarge.search"
+
+SEARCH_M4_LARGE: Final = "m4.large.search"
+SEARCH_M4_XLARGE: Final = "m4.xlarge.search"
+SEARCH_M4_2XLARGE: Final = "m4.2xlarge.search"
+SEARCH_M4_4XLARGE: Final = "m4.4xlarge.search"
+SEARCH_M4_10XLARGE: Final = "m4.10xlarge.search"
+
+SEARCH_M5_LARGE: Final = "m5.large.search"
+SEARCH_M5_XLARGE: Final = "m5.xlarge.search"
+SEARCH_M5_2XLARGE: Final = "m5.2xlarge.search"
+SEARCH_M5_4XLARGE: Final = "m5.4xlarge.search"
+SEARCH_M5_12XLARGE: Final = "m5.12xlarge.search"
+
+SEARCH_M6G_LARGE: Final = "m6g.large.search"
+SEARCH_M6G_XLARGE: Final = "m6g.xlarge.search"
+SEARCH_M6G_2XLARGE: Final = "m6g.2xlarge.search"
+SEARCH_M6G_4XLARGE: Final = "m6g.4xlarge.search"
+SEARCH_M6G_8XLARGE: Final = "m6g.8xlarge.search"
+SEARCH_M6G_12XLARGE: Final = "m6g.12xlarge.search"
+
+SEARCH_R3_LARGE: Final = "r3.large.search"
+SEARCH_R3_XLARGE: Final = "r3.xlarge.search"
+SEARCH_R3_2XLARGE: Final = "r3.2xlarge.search"
+SEARCH_R3_4XLARGE: Final = "r3.4xlarge.search"
+SEARCH_R3_8XLARGE: Final = "r3.8xlarge.search"
+
+SEARCH_R4_LARGE: Final = "r4.large.search"
+SEARCH_R4_XLARGE: Final = "r4.xlarge.search"
+SEARCH_R4_2XLARGE: Final = "r4.2xlarge.search"
+SEARCH_R4_4XLARGE: Final = "r4.4xlarge.search"
+SEARCH_R4_8XLARGE: Final = "r4.8xlarge.search"
+SEARCH_R4_16XLARGE: Final = "r4.16xlarge.search"
+
+SEARCH_R5_LARGE: Final = "r5.large.search"
+SEARCH_R5_XLARGE: Final = "r5.xlarge.search"
+SEARCH_R5_2XLARGE: Final = "r5.2xlarge.search"
+SEARCH_R5_4XLARGE: Final = "r5.4xlarge.search"
+SEARCH_R5_12XLARGE: Final = "r5.12xlarge.search"
+
+SEARCH_R6G_LARGE: Final = "r6g.large.search"
+SEARCH_R6G_XLARGE: Final = "r6g.xlarge.search"
+SEARCH_R6G_2XLARGE: Final = "r6g.2xlarge.search"
+SEARCH_R6G_4XLARGE: Final = "r6g.4xlarge.search"
+SEARCH_R6G_8XLARGE: Final = "r6g.8xlarge.search"
+SEARCH_R6G_12XLARGE: Final = "r6g.12xlarge.search"
+
+SEARCH_R6GD_LARGE: Final = "r6gd.large.search"
+SEARCH_R6GD_XLARGE: Final = "r6gd.xlarge.search"
+SEARCH_R6GD_2XLARGE: Final = "r6gd.2xlarge.search"
+SEARCH_R6GD_4XLARGE: Final = "r6gd.4xlarge.search"
+SEARCH_R6GD_8XLARGE: Final = "r6gd.8xlarge.search"
+SEARCH_R6GD_12XLARGE: Final = "r6gd.12xlarge.search"
+SEARCH_R6GD_16XLARGE: Final = "r6gd.16xlarge.search"
+
+SEARCH_T2_SMALL: Final = "t2.small.search"
+SEARCH_T2_MEDIUM: Final = "t2.medium.search"
+
+SEARCH_T3_SMALL: Final = "t3.small.search"
+SEARCH_T3_MEDIUM: Final = "t3.medium.search"
+
+SEARCH_ULTRAWARM1_MEDIUM: Final = "ultrawarm1.medium.search"
+SEARCH_ULTRAWARM1_LARGE: Final = "ultrawarm1.large.search"
+
+#
+# Deprecated Elasticsearch instance types
 #
 
 # Note: t2.micro.elasticsearch is deprecated.
