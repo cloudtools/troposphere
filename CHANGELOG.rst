@@ -1,3 +1,10 @@
+4.5.1 (2023*10*26)
+-------------------------------
+* Fix __eq__ protocol (#2197)
+* Fix formatting
+* Object equality fixes (#2200)
+* Add new OpenSearch instance names to constants.py (Fixes: #2198) (#2199)
+
 4.5.0 (2023*10*24)
 -------------------------------
 * Updates from spec version 136.0.0 (#2175)
