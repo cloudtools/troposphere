@@ -20,6 +20,7 @@ from troposphere import (
     cloudformation,
     depends_on_helper,
 )
+from troposphere.cloudformation import Stack
 from troposphere.ec2 import Instance, NetworkInterface, Route, SecurityGroupRule
 from troposphere.elasticloadbalancing import HealthCheck
 from troposphere.s3 import Bucket, PublicRead
@@ -116,6 +117,10 @@ class TestBasic(unittest.TestCase):
         assert GenericHelperFn("foobar") != FakeAWSProperty("foobar")
         assert GenericHelperFn("foobar") != TypeComparator(AWSObject)
         assert TypeComparator(AWSObject) != GenericHelperFn("foobar")
+
+        # Testing __ne__ for objects missing required properties
+        assert Parameter("param1") != Parameter("param2")
+        assert Stack("stack1") != Stack("stack2")
 
     def test_badproperty(self):
         with self.assertRaises(AttributeError):
