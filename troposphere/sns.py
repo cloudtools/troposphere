@@ -51,6 +51,7 @@ class Topic(AWSObject):
     resource_type = "AWS::SNS::Topic"
 
     props: PropsDictType = {
+        "ArchivePolicy": (dict, False),
         "ContentBasedDeduplication": (boolean, False),
         "DataProtectionPolicy": (dict, False),
         "DisplayName": (str, False),
