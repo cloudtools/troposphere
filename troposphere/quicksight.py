@@ -591,6 +591,17 @@ class RelativeDatesFilter(AWSProperty):
     }
 
 
+class RollingDateConfiguration(AWSProperty):
+    """
+    `RollingDateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rollingdateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSetIdentifier": (str, False),
+        "Expression": (str, True),
+    }
+
+
 class TimeEqualityFilter(AWSProperty):
     """
     `TimeEqualityFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-timeequalityfilter.html>`__
@@ -600,19 +611,9 @@ class TimeEqualityFilter(AWSProperty):
         "Column": (ColumnIdentifier, True),
         "FilterId": (str, True),
         "ParameterName": (str, False),
+        "RollingDate": (RollingDateConfiguration, False),
         "TimeGranularity": (str, False),
         "Value": (str, False),
-    }
-
-
-class RollingDateConfiguration(AWSProperty):
-    """
-    `RollingDateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-rollingdateconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "DataSetIdentifier": (str, False),
-        "Expression": (str, True),
     }
 
 
@@ -2133,6 +2134,7 @@ class ReferenceLineDataConfiguration(AWSProperty):
     props: PropsDictType = {
         "AxisBinding": (str, False),
         "DynamicConfiguration": (ReferenceLineDynamicDataConfiguration, False),
+        "SeriesType": (str, False),
         "StaticConfiguration": (ReferenceLineStaticDataConfiguration, False),
     }
 
@@ -2312,14 +2314,25 @@ class TooltipOptions(AWSProperty):
     }
 
 
+class DataPathType(AWSProperty):
+    """
+    `DataPathType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathtype.html>`__
+    """
+
+    props: PropsDictType = {
+        "PivotTableDataPathType": (str, False),
+    }
+
+
 class DataPathValue(AWSProperty):
     """
     `DataPathValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathvalue.html>`__
     """
 
     props: PropsDictType = {
-        "FieldId": (str, True),
-        "FieldValue": (str, True),
+        "DataPathType": (DataPathType, False),
+        "FieldId": (str, False),
+        "FieldValue": (str, False),
     }
 
 
@@ -4726,6 +4739,27 @@ class PivotTableSortConfiguration(AWSProperty):
     }
 
 
+class TotalAggregationFunction(AWSProperty):
+    """
+    `TotalAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationfunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "SimpleTotalAggregationFunction": (str, False),
+    }
+
+
+class TotalAggregationOption(AWSProperty):
+    """
+    `TotalAggregationOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-totalaggregationoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldId": (str, True),
+        "TotalAggregationFunction": (TotalAggregationFunction, True),
+    }
+
+
 class PivotTotalOptions(AWSProperty):
     """
     `PivotTotalOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pivottotaloptions.html>`__
@@ -4736,6 +4770,7 @@ class PivotTotalOptions(AWSProperty):
         "MetricHeaderCellStyle": (TableCellStyle, False),
         "Placement": (str, False),
         "ScrollStatus": (str, False),
+        "TotalAggregationOptions": ([TotalAggregationOption], False),
         "TotalCellStyle": (TableCellStyle, False),
         "TotalsVisibility": (str, False),
         "ValueCellStyle": (TableCellStyle, False),
@@ -5314,6 +5349,7 @@ class TotalOptions(AWSProperty):
         "CustomLabel": (str, False),
         "Placement": (str, False),
         "ScrollStatus": (str, False),
+        "TotalAggregationOptions": ([TotalAggregationOption], False),
         "TotalCellStyle": (TableCellStyle, False),
         "TotalsVisibility": (str, False),
     }

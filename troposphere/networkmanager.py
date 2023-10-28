@@ -72,6 +72,7 @@ class ConnectPeer(AWSObject):
         "CoreNetworkAddress": (str, False),
         "InsideCidrBlocks": ([str], False),
         "PeerAddress": (str, True),
+        "SubnetArn": (str, False),
         "Tags": (Tags, False),
     }
 

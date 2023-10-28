@@ -84,6 +84,125 @@ class CalculatedAttributeDefinition(AWSObject):
     }
 
 
+class ConflictResolution(AWSProperty):
+    """
+    `ConflictResolution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-conflictresolution.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConflictResolvingModel": (str, True),
+        "SourceName": (str, False),
+    }
+
+
+class Consolidation(AWSProperty):
+    """
+    `Consolidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-consolidation.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchingAttributesList": (dict, True),
+    }
+
+
+class AutoMerging(AWSProperty):
+    """
+    `AutoMerging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-automerging.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConflictResolution": (ConflictResolution, False),
+        "Consolidation": (Consolidation, False),
+        "Enabled": (boolean, True),
+        "MinAllowedConfidenceScoreForMerging": (double, False),
+    }
+
+
+class S3ExportingConfig(AWSProperty):
+    """
+    `S3ExportingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-s3exportingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3BucketName": (str, True),
+        "S3KeyName": (str, False),
+    }
+
+
+class ExportingConfig(AWSProperty):
+    """
+    `ExportingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-exportingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Exporting": (S3ExportingConfig, False),
+    }
+
+
+class JobSchedule(AWSProperty):
+    """
+    `JobSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-jobschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "DayOfTheWeek": (str, True),
+        "Time": (str, True),
+    }
+
+
+class Matching(AWSProperty):
+    """
+    `Matching <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matching.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoMerging": (AutoMerging, False),
+        "Enabled": (boolean, True),
+        "ExportingConfig": (ExportingConfig, False),
+        "JobSchedule": (JobSchedule, False),
+    }
+
+
+class AttributeTypesSelector(AWSProperty):
+    """
+    `AttributeTypesSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-attributetypesselector.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": ([str], False),
+        "AttributeMatchingModel": (str, True),
+        "EmailAddress": ([str], False),
+        "PhoneNumber": ([str], False),
+    }
+
+
+class MatchingRule(AWSProperty):
+    """
+    `MatchingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-matchingrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Rule": ([str], True),
+    }
+
+
+class RuleBasedMatching(AWSProperty):
+    """
+    `RuleBasedMatching <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-rulebasedmatching.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeTypesSelector": (AttributeTypesSelector, False),
+        "ConflictResolution": (ConflictResolution, False),
+        "Enabled": (boolean, True),
+        "ExportingConfig": (ExportingConfig, False),
+        "MatchingRules": ([MatchingRule], False),
+        "MaxAllowedRuleLevelForMatching": (integer, False),
+        "MaxAllowedRuleLevelForMerging": (integer, False),
+        "Status": (str, False),
+    }
+
+
 class Domain(AWSObject):
     """
     `Domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-domain.html>`__
@@ -96,6 +215,8 @@ class Domain(AWSObject):
         "DefaultEncryptionKey": (str, False),
         "DefaultExpirationDays": (integer, False),
         "DomainName": (str, True),
+        "Matching": (Matching, False),
+        "RuleBasedMatching": (RuleBasedMatching, False),
         "Tags": (Tags, False),
     }
 
@@ -399,4 +520,17 @@ class DestinationDetails(AWSProperty):
     props: PropsDictType = {
         "Status": (str, True),
         "Uri": (str, True),
+    }
+
+
+class DomainStats(AWSProperty):
+    """
+    `DomainStats <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-domain-domainstats.html>`__
+    """
+
+    props: PropsDictType = {
+        "MeteringProfileCount": (double, False),
+        "ObjectCount": (double, False),
+        "ProfileCount": (double, False),
+        "TotalSize": (double, False),
     }

@@ -92,6 +92,16 @@ class App(AWSObject):
     }
 
 
+class Backend(AWSProperty):
+    """
+    `Backend <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-branch-backend.html>`__
+    """
+
+    props: PropsDictType = {
+        "StackArn": (str, False),
+    }
+
+
 class Branch(AWSObject):
     """
     `Branch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-amplify-branch.html>`__
@@ -101,6 +111,7 @@ class Branch(AWSObject):
 
     props: PropsDictType = {
         "AppId": (str, True),
+        "Backend": (Backend, False),
         "BasicAuthConfig": (BasicAuthConfig, False),
         "BranchName": (str, True),
         "BuildSpec": (str, False),

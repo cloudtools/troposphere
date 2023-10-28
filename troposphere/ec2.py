@@ -1623,7 +1623,7 @@ class PortRange(AWSProperty):
 
 class NetworkAclEntry(AWSObject):
     """
-    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-network-acl-entry.html>`__
+    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-networkaclentry.html>`__
     """
 
     resource_type = "AWS::EC2::NetworkAclEntry"
