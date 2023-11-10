@@ -537,6 +537,5 @@ class Rule(AWSObject):
         "RoleArn": (str, False),
         "ScheduleExpression": (str, False),
         "State": (str, False),
-        "Tags": (Tags, False),
         "Targets": ([Target], False),
     }
