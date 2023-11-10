@@ -53,6 +53,19 @@ class ChannelPolicy(AWSObject):
     }
 
 
+class FilterConfiguration(AWSProperty):
+    """
+    `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "End": (str, False),
+        "ManifestFilter": (str, False),
+        "Start": (str, False),
+        "TimeDelaySeconds": (integer, False),
+    }
+
+
 class ScteHls(AWSProperty):
     """
     `ScteHls <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctehls.html>`__
@@ -70,6 +83,7 @@ class HlsManifestConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ChildManifestName": (str, False),
+        "FilterConfiguration": (FilterConfiguration, False),
         "ManifestName": (str, True),
         "ManifestWindowSeconds": (integer, False),
         "ProgramDateTimeIntervalSeconds": (integer, False),
@@ -85,6 +99,7 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ChildManifestName": (str, False),
+        "FilterConfiguration": (FilterConfiguration, False),
         "ManifestName": (str, True),
         "ManifestWindowSeconds": (integer, False),
         "ProgramDateTimeIntervalSeconds": (integer, False),

@@ -331,6 +331,7 @@ class UserSetting(AWSProperty):
 
     props: PropsDictType = {
         "Action": (str, True),
+        "MaximumLength": (integer, False),
         "Permission": (str, True),
     }
 

@@ -156,6 +156,37 @@ class RuntimeConfiguration(AWSProperty):
     }
 
 
+class TargetConfiguration(AWSProperty):
+    """
+    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-targetconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetValue": (double, True),
+    }
+
+
+class ScalingPolicy(AWSProperty):
+    """
+    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComparisonOperator": (str, False),
+        "EvaluationPeriods": (integer, False),
+        "Location": (str, False),
+        "MetricName": (str, True),
+        "Name": (str, True),
+        "PolicyType": (str, False),
+        "ScalingAdjustment": (integer, False),
+        "ScalingAdjustmentType": (str, False),
+        "Status": (str, False),
+        "TargetConfiguration": (TargetConfiguration, False),
+        "Threshold": (double, False),
+        "UpdateStatus": (str, False),
+    }
+
+
 class Fleet(AWSObject):
     """
     `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html>`__
@@ -165,6 +196,7 @@ class Fleet(AWSObject):
 
     props: PropsDictType = {
         "AnywhereConfiguration": (AnywhereConfiguration, False),
+        "ApplyCapacity": (str, False),
         "BuildId": (str, False),
         "CertificateConfiguration": (CertificateConfiguration, False),
         "ComputeType": (str, False),
@@ -185,6 +217,7 @@ class Fleet(AWSObject):
         "PeerVpcId": (str, False),
         "ResourceCreationLimitPolicy": (ResourceCreationLimitPolicy, False),
         "RuntimeConfiguration": (RuntimeConfiguration, False),
+        "ScalingPolicies": ([ScalingPolicy], False),
         "ScriptId": (str, False),
     }
 

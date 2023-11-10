@@ -738,6 +738,7 @@ class IPAM(AWSObject):
         "Description": (str, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
         "Tags": (Tags, False),
+        "Tier": (str, False),
     }
 
 
@@ -2282,8 +2283,10 @@ class Subnet(AWSObject):
         "AvailabilityZoneId": (str, False),
         "CidrBlock": (str, False),
         "EnableDns64": (boolean, False),
+        "Ipv4NetmaskLength": (integer, False),
         "Ipv6CidrBlock": (str, False),
         "Ipv6Native": (boolean, False),
+        "Ipv6NetmaskLength": (integer, False),
         "MapPublicIpOnLaunch": (boolean, False),
         "OutpostArn": (str, False),
         "PrivateDnsNameOptionsOnLaunch": (PrivateDnsNameOptionsOnLaunch, False),
@@ -2762,7 +2765,7 @@ class VPCEndpointServicePermissions(AWSObject):
 
 class VPCGatewayAttachment(AWSObject):
     """
-    `VPCGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpc-gateway-attachment.html>`__
+    `VPCGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcgatewayattachment.html>`__
     """
 
     resource_type = "AWS::EC2::VPCGatewayAttachment"

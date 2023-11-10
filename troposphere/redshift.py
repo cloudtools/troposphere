@@ -72,6 +72,7 @@ class Cluster(AWSObject):
         "ManualSnapshotRetentionPeriod": (integer, False),
         "MasterUserPassword": (str, True),
         "MasterUsername": (str, True),
+        "MultiAZ": (boolean, False),
         "NodeType": (str, True),
         "NumberOfNodes": (integer, False),
         "OwnerAccount": (str, False),

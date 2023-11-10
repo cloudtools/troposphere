@@ -37,7 +37,7 @@ class AccessKey(AWSObject):
 
 class Policy(AWSProperty):
     """
-    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-policy.html>`__
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user-policy.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class LoginProfile(AWSProperty):
 
 class User(AWSObject):
     """
-    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-user.html>`__
+    `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-user.html>`__
     """
 
     resource_type = "AWS::IAM::User"
