@@ -79,13 +79,13 @@ class Environment(AWSProperty):
 
     props: PropsDictType = {
         "Certificate": (str, False),
-        "ComputeType": (str, True),
+        "ComputeType": (str, False),
         "EnvironmentVariables": (validate_environmentvariable_or_list, False),
         "Image": (str, True),
         "ImagePullCredentialsType": (validate_image_pull_credentials, False),
         "PrivilegedMode": (boolean, False),
         "RegistryCredential": (RegistryCredential, False),
-        "Type": (str, True),
+        "Type": (str, False),
     }
 
     def validate(self):
@@ -365,6 +365,16 @@ class SourceCredential(AWSObject):
         "ServerType": (str, True),
         "Token": (str, True),
         "Username": (str, False),
+    }
+
+
+class ProjectFleet(AWSProperty):
+    """
+    `ProjectFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-projectfleet.html>`__
+    """
+
+    props: PropsDictType = {
+        "FleetArn": (str, False),
     }
 
 

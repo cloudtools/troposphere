@@ -34,16 +34,6 @@ class Index(AWSObject):
     }
 
 
-class Filters(AWSProperty):
-    """
-    `Filters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-filters.html>`__
-    """
-
-    props: PropsDictType = {
-        "FilterString": (str, True),
-    }
-
-
 class IncludedProperty(AWSProperty):
     """
     `IncludedProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-includedproperty.html>`__
@@ -51,6 +41,16 @@ class IncludedProperty(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
+    }
+
+
+class SearchFilter(AWSProperty):
+    """
+    `SearchFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resourceexplorer2-view-searchfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilterString": (str, True),
     }
 
 
@@ -62,7 +62,7 @@ class View(AWSObject):
     resource_type = "AWS::ResourceExplorer2::View"
 
     props: PropsDictType = {
-        "Filters": (Filters, False),
+        "Filters": (SearchFilter, False),
         "IncludedProperties": ([IncludedProperty], False),
         "Tags": (dict, False),
         "ViewName": (str, True),

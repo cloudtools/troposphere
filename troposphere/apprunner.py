@@ -116,6 +116,7 @@ class NetworkConfiguration(AWSProperty):
     props: PropsDictType = {
         "EgressConfiguration": (EgressConfiguration, False),
         "IngressConfiguration": (IngressConfiguration, False),
+        "IpAddressType": (str, False),
     }
 
 

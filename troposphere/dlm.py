@@ -128,6 +128,21 @@ class ArchiveRule(AWSProperty):
     }
 
 
+class Script(AWSProperty):
+    """
+    `Script <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-script.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecuteOperationOnScriptFailure": (boolean, False),
+        "ExecutionHandler": (str, False),
+        "ExecutionHandlerService": (str, False),
+        "ExecutionTimeout": (integer, False),
+        "MaximumRetryCount": (integer, False),
+        "Stages": ([str], False),
+    }
+
+
 class CreateRule(AWSProperty):
     """
     `CreateRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-createrule.html>`__
@@ -138,6 +153,7 @@ class CreateRule(AWSProperty):
         "Interval": (validate_interval, False),
         "IntervalUnit": (validate_interval_unit, False),
         "Location": (str, False),
+        "Scripts": ([Script], False),
         "Times": ([str], False),
     }
 

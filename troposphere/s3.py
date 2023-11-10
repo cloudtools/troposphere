@@ -882,6 +882,27 @@ class BucketLevel(AWSProperty):
     }
 
 
+class StorageLensGroupSelectionCriteria(AWSProperty):
+    """
+    `StorageLensGroupSelectionCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgroupselectioncriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exclude": ([str], False),
+        "Include": ([str], False),
+    }
+
+
+class StorageLensGroupLevel(AWSProperty):
+    """
+    `StorageLensGroupLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-storagelensgrouplevel.html>`__
+    """
+
+    props: PropsDictType = {
+        "StorageLensGroupSelectionCriteria": (StorageLensGroupSelectionCriteria, False),
+    }
+
+
 class AccountLevel(AWSProperty):
     """
     `AccountLevel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelens-accountlevel.html>`__
@@ -893,6 +914,7 @@ class AccountLevel(AWSProperty):
         "AdvancedDataProtectionMetrics": (AdvancedDataProtectionMetrics, False),
         "BucketLevel": (BucketLevel, True),
         "DetailedStatusCodesMetrics": (DetailedStatusCodesMetrics, False),
+        "StorageLensGroupLevel": (StorageLensGroupLevel, False),
     }
 
 
