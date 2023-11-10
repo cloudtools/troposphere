@@ -38,7 +38,6 @@ class ConfigurationObject(AWSProperty):
 
     props: PropsDictType = {
         "Classification": (str, True),
-        "Configurations": ([ConfigurationObject], False),
         "Properties": (dict, False),
     }
 
