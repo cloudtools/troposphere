@@ -122,6 +122,17 @@ class TestBasic(unittest.TestCase):
         assert Parameter("param1") != Parameter("param2")
         assert Stack("stack1") != Stack("stack2")
 
+    def test___hash__(self):
+        """Test __hash__."""
+        from troposphere.ec2 import SecurityGroup
+
+        test_sg = SecurityGroup(
+            "TestSg",
+            VpcId="myVPC",
+            GroupDescription="Test Security Group",
+        )
+        _ = hash(test_sg)
+
     def test_badproperty(self):
         with self.assertRaises(AttributeError):
             Instance(

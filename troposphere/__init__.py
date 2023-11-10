@@ -431,6 +431,9 @@ class BaseAWSObject:
     def __ne__(self, other: object) -> bool:
         return not self == other
 
+    def __hash__(self) -> int:
+        return hash(json.dumps({"title": self.title, **self.to_dict()}, indent=0))
+
 
 class AWSObject(BaseAWSObject):
     dictname = "Properties"
@@ -1115,6 +1118,3 @@ class Parameter(AWSDeclaration):
                         "%s can only be used with parameters of "
                         "the CommaDelimitedList type." % p
                     )
-
-    def __hash__(self) -> int:
-        return hash(json.dumps({"title": self.title, **self.to_dict()}, indent=0))
