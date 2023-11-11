@@ -1,3 +1,12 @@
+4.5.2 (2023*11*11)
+-------------------------------
+* Updates from spec version 146.0.0 (#2201)
+* Updates from spec version 148.0.0 (#2202)
+* Remove EMRserverless "Configurations" due to recursive reference to ConfigurationObject
+* Move __hash__ to BaseAWSObject to support objects in dictionaries (Fixes #2204)
+* Add missing patch related to EMRserverless Configurations removal
+* Remove Tags from EventBridge.Rule (Fixes #2203)
+
 4.5.1 (2023*10*26)
 -------------------------------
 * Fix __eq__ protocol (#2197)
