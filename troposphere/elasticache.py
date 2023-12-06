@@ -263,6 +263,63 @@ class SecurityGroupIngress(AWSObject):
     }
 
 
+class DataStorage(AWSProperty):
+    """
+    `DataStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-datastorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "Maximum": (integer, True),
+        "Unit": (str, True),
+    }
+
+
+class ECPUPerSecond(AWSProperty):
+    """
+    `ECPUPerSecond <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-ecpupersecond.html>`__
+    """
+
+    props: PropsDictType = {
+        "Maximum": (integer, True),
+    }
+
+
+class CacheUsageLimits(AWSProperty):
+    """
+    `CacheUsageLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-cacheusagelimits.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataStorage": (DataStorage, False),
+        "ECPUPerSecond": (ECPUPerSecond, False),
+    }
+
+
+class ServerlessCache(AWSObject):
+    """
+    `ServerlessCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html>`__
+    """
+
+    resource_type = "AWS::ElastiCache::ServerlessCache"
+
+    props: PropsDictType = {
+        "CacheUsageLimits": (CacheUsageLimits, False),
+        "DailySnapshotTime": (str, False),
+        "Description": (str, False),
+        "Engine": (str, True),
+        "FinalSnapshotName": (str, False),
+        "KmsKeyId": (str, False),
+        "MajorEngineVersion": (str, False),
+        "SecurityGroupIds": ([str], False),
+        "ServerlessCacheName": (str, True),
+        "SnapshotArnsToRestore": ([str], False),
+        "SnapshotRetentionLimit": (integer, False),
+        "SubnetIds": ([str], False),
+        "Tags": (Tags, False),
+        "UserGroupId": (str, False),
+    }
+
+
 class SubnetGroup(AWSObject):
     """
     `SubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-subnetgroup.html>`__
@@ -320,4 +377,15 @@ class UserGroup(AWSObject):
         "Tags": (Tags, False),
         "UserGroupId": (str, True),
         "UserIds": ([str], True),
+    }
+
+
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "Port": (integer, False),
     }

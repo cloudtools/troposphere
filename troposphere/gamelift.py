@@ -196,7 +196,6 @@ class Fleet(AWSObject):
 
     props: PropsDictType = {
         "AnywhereConfiguration": (AnywhereConfiguration, False),
-        "ApplyCapacity": (str, False),
         "BuildId": (str, False),
         "CertificateConfiguration": (CertificateConfiguration, False),
         "ComputeType": (str, False),
@@ -289,16 +288,6 @@ class GameServerGroup(AWSObject):
     }
 
 
-class Destination(AWSProperty):
-    """
-    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-destination.html>`__
-    """
-
-    props: PropsDictType = {
-        "DestinationArn": (str, False),
-    }
-
-
 class FilterConfiguration(AWSProperty):
     """
     `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-filterconfiguration.html>`__
@@ -306,6 +295,16 @@ class FilterConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AllowedLocations": ([str], False),
+    }
+
+
+class GameSessionQueueDestination(AWSProperty):
+    """
+    `GameSessionQueueDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-gamesessionqueue-gamesessionqueuedestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationArn": (str, False),
     }
 
 
@@ -340,7 +339,7 @@ class GameSessionQueue(AWSObject):
 
     props: PropsDictType = {
         "CustomEventData": (str, False),
-        "Destinations": ([Destination], False),
+        "Destinations": ([GameSessionQueueDestination], False),
         "FilterConfiguration": (FilterConfiguration, False),
         "Name": (str, True),
         "NotificationTarget": (str, False),
@@ -387,6 +386,7 @@ class MatchmakingConfiguration(AWSObject):
         "AcceptanceTimeoutSeconds": (integer, False),
         "AdditionalPlayerCount": (integer, False),
         "BackfillMode": (str, False),
+        "CreationTime": (str, False),
         "CustomEventData": (str, False),
         "Description": (str, False),
         "FlexMatchMode": (str, False),
@@ -396,6 +396,7 @@ class MatchmakingConfiguration(AWSObject):
         "Name": (str, True),
         "NotificationTarget": (str, False),
         "RequestTimeoutSeconds": (integer, True),
+        "RuleSetArn": (str, False),
         "RuleSetName": (str, True),
         "Tags": (Tags, False),
     }

@@ -356,6 +356,7 @@ class S3Settings(AWSProperty):
 
     props: PropsDictType = {
         "AddColumnName": (boolean, False),
+        "AddTrailingPaddingCharacter": (boolean, False),
         "BucketFolder": (str, False),
         "BucketName": (str, False),
         "CannedAclForObjects": (str, False),
@@ -379,7 +380,9 @@ class S3Settings(AWSProperty):
         "EnableStatistics": (boolean, False),
         "EncodingType": (str, False),
         "EncryptionMode": (str, False),
+        "ExpectedBucketOwner": (str, False),
         "ExternalTableDefinition": (str, False),
+        "GlueCatalogGeneration": (boolean, False),
         "IgnoreHeaderRows": (integer, False),
         "IncludeOpForFullLoad": (boolean, False),
         "MaxFileSize": (integer, False),

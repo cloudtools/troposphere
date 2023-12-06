@@ -115,9 +115,11 @@ class OntapConfiguration(AWSProperty):
         "DiskIopsConfiguration": (DiskIopsConfiguration, False),
         "EndpointIpAddressRange": (str, False),
         "FsxAdminPassword": (str, False),
+        "HAPairs": (integer, False),
         "PreferredSubnetId": (str, False),
         "RouteTableIds": ([str], False),
         "ThroughputCapacity": (integer, False),
+        "ThroughputCapacityPerHAPair": (integer, False),
         "WeeklyMaintenanceStartTime": (str, False),
     }
 
@@ -312,6 +314,17 @@ class StorageVirtualMachine(AWSObject):
     }
 
 
+class AggregateConfiguration(AWSProperty):
+    """
+    `AggregateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-aggregateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Aggregates": ([str], False),
+        "ConstituentsPerAggregate": (integer, False),
+    }
+
+
 class AutocommitPeriod(AWSProperty):
     """
     `AutocommitPeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-volume-ontapconfiguration-snaplockconfiguration-autocommitperiod.html>`__
@@ -378,16 +391,19 @@ class VolumeOntapConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AggregateConfiguration": (AggregateConfiguration, False),
         "CopyTagsToBackups": (str, False),
         "JunctionPath": (str, False),
         "OntapVolumeType": (str, False),
         "SecurityStyle": (str, False),
-        "SizeInMegabytes": (str, True),
+        "SizeInBytes": (str, False),
+        "SizeInMegabytes": (str, False),
         "SnaplockConfiguration": (SnaplockConfiguration, False),
         "SnapshotPolicy": (str, False),
         "StorageEfficiencyEnabled": (str, False),
         "StorageVirtualMachineId": (str, True),
         "TieringPolicy": (TieringPolicy, False),
+        "VolumeStyle": (str, False),
     }
 
 

@@ -58,6 +58,7 @@ class Environment(AWSObject):
         "AirflowConfigurationOptions": (dict, False),
         "AirflowVersion": (str, False),
         "DagS3Path": (str, False),
+        "EndpointManagement": (str, False),
         "EnvironmentClass": (str, False),
         "ExecutionRoleArn": (str, False),
         "KmsKey": (str, False),

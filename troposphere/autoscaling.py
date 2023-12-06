@@ -31,6 +31,17 @@ from .validators.autoscaling import (
 )
 
 
+class InstanceMaintenancePolicy(AWSProperty):
+    """
+    `InstanceMaintenancePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancemaintenancepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxHealthyPercentage": (integer, False),
+        "MinHealthyPercentage": (integer, False),
+    }
+
+
 class LaunchTemplateSpecification(AWSProperty):
     """
     `LaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-launchtemplatespecification.html>`__
@@ -284,6 +295,7 @@ class AutoScalingGroup(AWSObject):
         "HealthCheckGracePeriod": (integer, False),
         "HealthCheckType": (str, False),
         "InstanceId": (str, False),
+        "InstanceMaintenancePolicy": (InstanceMaintenancePolicy, False),
         "LaunchConfigurationName": (str, False),
         "LaunchTemplate": (LaunchTemplateSpecification, False),
         "LifecycleHookSpecificationList": ([LifecycleHookSpecification], False),

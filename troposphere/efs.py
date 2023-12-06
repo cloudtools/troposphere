@@ -82,12 +82,23 @@ class BackupPolicy(AWSProperty):
         validate_backup_policy(self)
 
 
+class FileSystemProtection(AWSProperty):
+    """
+    `FileSystemProtection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-filesystemprotection.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReplicationOverwriteProtection": (str, False),
+    }
+
+
 class LifecyclePolicy(AWSProperty):
     """
     `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-efs-filesystem-lifecyclepolicy.html>`__
     """
 
     props: PropsDictType = {
+        "TransitionToArchive": (str, False),
         "TransitionToIA": (str, False),
         "TransitionToPrimaryStorageClass": (str, False),
     }
@@ -129,6 +140,7 @@ class FileSystem(AWSObject):
         "BypassPolicyLockoutSafetyCheck": (boolean, False),
         "Encrypted": (boolean, False),
         "FileSystemPolicy": (dict, False),
+        "FileSystemProtection": (FileSystemProtection, False),
         "FileSystemTags": (Tags, False),
         "KmsKeyId": (str, False),
         "LifecyclePolicies": ([LifecyclePolicy], False),

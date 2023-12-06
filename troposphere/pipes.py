@@ -33,6 +33,53 @@ class PipeEnrichmentParameters(AWSProperty):
     }
 
 
+class CloudwatchLogsLogDestination(AWSProperty):
+    """
+    `CloudwatchLogsLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-cloudwatchlogslogdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogGroupArn": (str, False),
+    }
+
+
+class FirehoseLogDestination(AWSProperty):
+    """
+    `FirehoseLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-firehoselogdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "DeliveryStreamArn": (str, False),
+    }
+
+
+class S3LogDestination(AWSProperty):
+    """
+    `S3LogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-s3logdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, False),
+        "BucketOwner": (str, False),
+        "OutputFormat": (str, False),
+        "Prefix": (str, False),
+    }
+
+
+class PipeLogConfiguration(AWSProperty):
+    """
+    `PipeLogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipelogconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudwatchLogsLogDestination": (CloudwatchLogsLogDestination, False),
+        "FirehoseLogDestination": (FirehoseLogDestination, False),
+        "IncludeExecutionData": ([str], False),
+        "Level": (str, False),
+        "S3LogDestination": (S3LogDestination, False),
+    }
+
+
 class Filter(AWSProperty):
     """
     `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-filter.html>`__
@@ -633,6 +680,7 @@ class Pipe(AWSObject):
         "DesiredState": (str, False),
         "Enrichment": (str, False),
         "EnrichmentParameters": (PipeEnrichmentParameters, False),
+        "LogConfiguration": (PipeLogConfiguration, False),
         "Name": (str, False),
         "RoleArn": (str, True),
         "Source": (str, True),

@@ -70,6 +70,8 @@ class DBInstance(AWSObject):
     props: PropsDictType = {
         "AutoMinorVersionUpgrade": (boolean, False),
         "AvailabilityZone": (str, False),
+        "CACertificateIdentifier": (str, False),
+        "CertificateRotationRestart": (boolean, False),
         "DBClusterIdentifier": (str, True),
         "DBInstanceClass": (str, True),
         "DBInstanceIdentifier": (str, False),
@@ -91,4 +93,21 @@ class DBSubnetGroup(AWSObject):
         "DBSubnetGroupName": (str, False),
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
+    }
+
+
+class EventSubscription(AWSObject):
+    """
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-docdb-eventsubscription.html>`__
+    """
+
+    resource_type = "AWS::DocDB::EventSubscription"
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EventCategories": ([str], False),
+        "SnsTopicArn": (str, True),
+        "SourceIds": ([str], False),
+        "SourceType": (str, False),
+        "SubscriptionName": (str, False),
     }

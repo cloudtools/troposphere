@@ -30,6 +30,50 @@ class AccountPolicy(AWSObject):
     }
 
 
+class Delivery(AWSObject):
+    """
+    `Delivery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-delivery.html>`__
+    """
+
+    resource_type = "AWS::Logs::Delivery"
+
+    props: PropsDictType = {
+        "DeliveryDestinationArn": (str, True),
+        "DeliverySourceName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class DeliveryDestination(AWSObject):
+    """
+    `DeliveryDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverydestination.html>`__
+    """
+
+    resource_type = "AWS::Logs::DeliveryDestination"
+
+    props: PropsDictType = {
+        "DeliveryDestinationPolicy": (dict, False),
+        "DestinationResourceArn": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class DeliverySource(AWSObject):
+    """
+    `DeliverySource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-deliverysource.html>`__
+    """
+
+    resource_type = "AWS::Logs::DeliverySource"
+
+    props: PropsDictType = {
+        "LogType": (str, False),
+        "Name": (str, True),
+        "ResourceArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class Destination(AWSObject):
     """
     `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-destination.html>`__
@@ -45,6 +89,24 @@ class Destination(AWSObject):
     }
 
 
+class LogAnomalyDetector(AWSObject):
+    """
+    `LogAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loganomalydetector.html>`__
+    """
+
+    resource_type = "AWS::Logs::LogAnomalyDetector"
+
+    props: PropsDictType = {
+        "AccountId": (str, False),
+        "AnomalyVisibilityTime": (double, False),
+        "DetectorName": (str, False),
+        "EvaluationFrequency": (str, False),
+        "FilterPattern": (str, False),
+        "KmsKeyId": (str, False),
+        "LogGroupArnList": ([str], False),
+    }
+
+
 class LogGroup(AWSObject):
     """
     `LogGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html>`__
@@ -55,6 +117,7 @@ class LogGroup(AWSObject):
     props: PropsDictType = {
         "DataProtectionPolicy": (dict, False),
         "KmsKeyId": (str, False),
+        "LogGroupClass": (str, False),
         "LogGroupName": (str, False),
         "RetentionInDays": (validate_loggroup_retention_in_days, False),
         "Tags": (Tags, False),

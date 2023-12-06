@@ -35,8 +35,24 @@ class Collection(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "Name": (str, True),
+        "StandbyReplicas": (str, False),
         "Tags": (Tags, False),
         "Type": (str, False),
+    }
+
+
+class LifecyclePolicy(AWSObject):
+    """
+    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-lifecyclepolicy.html>`__
+    """
+
+    resource_type = "AWS::OpenSearchServerless::LifecyclePolicy"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Policy": (str, True),
+        "Type": (str, True),
     }
 
 
