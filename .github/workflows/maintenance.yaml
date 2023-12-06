@@ -15,6 +15,8 @@ jobs:
           python -m pip install -r requirements-dev.txt
           make spec
           make regen
+          make test
+          make lint
       - name: Set spec version variable
         id: vars
         run: |
