@@ -12,6 +12,7 @@ jobs:
         with:
           python-version: "3.10"
       - run: |
+          npm install pyright
           python -m pip install -r requirements-dev.txt
           make spec
           make regen
