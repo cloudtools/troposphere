@@ -1,5 +1,8 @@
+# Currently supported AWS resource types
+
 - [AWS::ACMPCA](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ACMPCA.html)
 - [AWS::APS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_APS.html)
+- [AWS::ARCZonalShift](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_ARCZonalShift.html)
 - [AWS::AccessAnalyzer](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AccessAnalyzer.html)
 - [AWS::AmazonMQ](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_AmazonMQ.html)
 - [AWS::Amplify](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Amplify.html)
@@ -185,6 +188,7 @@
 - [AWS::Route53RecoveryReadiness](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53RecoveryReadiness.html)
 - [AWS::Route53Resolver](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Route53Resolver.html)
 - [AWS::S3](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3.html)
+- [AWS::S3Express](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3Express.html)
 - [AWS::S3ObjectLambda](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3ObjectLambda.html)
 - [AWS::S3Outposts](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_S3Outposts.html)
 - [AWS::SDB](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_SDB.html)
