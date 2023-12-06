@@ -10,6 +10,17 @@ patches = [
         "path": "/PropertyTypes/AWS::S3::StorageLens.StorageLensConfiguration/Properties/DataExport/Type",
         "value": "StorageLensDataExport",
     },
+    # Rename AWS::S3::StorageLensGroup.Filter to AWS::S3::StorageLensGroup.StorageLensFilter due to conflict with AWS::S3::Bucket.Filter
+    {
+        "op": "move",
+        "from": "/PropertyTypes/AWS::S3::StorageLensGroup.Filter",
+        "path": "/PropertyTypes/AWS::S3::StorageLensGroup.StorageLensFilter",
+    },
+    {
+        "op": "replace",
+        "path": "/ResourceTypes/AWS::S3::StorageLensGroup/Properties/Filter/Type",
+        "value": "StorageLensFilter",
+    },
     # Rename AWS::S3::LifecycleConfiguration.Rule to AWS::S3::LifecycleConfiguration.LifecycleRule - backward compatibility
     {
         "op": "move",
