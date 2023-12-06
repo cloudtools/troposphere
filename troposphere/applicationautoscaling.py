@@ -69,7 +69,7 @@ class ScalableTarget(AWSObject):
 
 class StepAdjustment(AWSProperty):
     """
-    `StepAdjustment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepscalingpolicyconfiguration-stepadjustment.html>`__
+    `StepAdjustment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepadjustment.html>`__
     """
 
     props: PropsDictType = {
@@ -104,6 +104,55 @@ class MetricDimension(AWSProperty):
     }
 
 
+class TargetTrackingMetricDimension(AWSProperty):
+    """
+    `TargetTrackingMetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Value": (str, False),
+    }
+
+
+class TargetTrackingMetric(AWSProperty):
+    """
+    `TargetTrackingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dimensions": ([TargetTrackingMetricDimension], False),
+        "MetricName": (str, False),
+        "Namespace": (str, False),
+    }
+
+
+class TargetTrackingMetricStat(AWSProperty):
+    """
+    `TargetTrackingMetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricstat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Metric": (TargetTrackingMetric, False),
+        "Stat": (str, False),
+        "Unit": (str, False),
+    }
+
+
+class TargetTrackingMetricDataQuery(AWSProperty):
+    """
+    `TargetTrackingMetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-targettrackingmetricdataquery.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (str, False),
+        "Id": (str, False),
+        "Label": (str, False),
+        "MetricStat": (TargetTrackingMetricStat, False),
+        "ReturnData": (boolean, False),
+    }
+
+
 class CustomizedMetricSpecification(AWSProperty):
     """
     `CustomizedMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-customizedmetricspecification.html>`__
@@ -111,9 +160,10 @@ class CustomizedMetricSpecification(AWSProperty):
 
     props: PropsDictType = {
         "Dimensions": ([MetricDimension], False),
-        "MetricName": (str, True),
-        "Namespace": (str, True),
-        "Statistic": (str, True),
+        "MetricName": (str, False),
+        "Metrics": ([TargetTrackingMetricDataQuery], False),
+        "Namespace": (str, False),
+        "Statistic": (str, False),
         "Unit": (str, False),
     }
 

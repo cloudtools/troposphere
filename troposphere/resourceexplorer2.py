@@ -64,6 +64,7 @@ class View(AWSObject):
     props: PropsDictType = {
         "Filters": (SearchFilter, False),
         "IncludedProperties": ([IncludedProperty], False),
+        "Scope": (str, False),
         "Tags": (dict, False),
         "ViewName": (str, True),
     }

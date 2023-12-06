@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import double
+from .validators import boolean, double
 
 
 class NetworkAccessControl(AWSProperty):
@@ -103,6 +103,7 @@ class Workspace(AWSObject):
         "OrganizationRoleName": (str, False),
         "OrganizationalUnits": ([str], False),
         "PermissionType": (str, True),
+        "PluginAdminEnabled": (boolean, False),
         "RoleArn": (str, False),
         "SamlConfiguration": (SamlConfiguration, False),
         "StackSetName": (str, False),

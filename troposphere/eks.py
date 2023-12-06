@@ -325,3 +325,19 @@ class Nodegroup(AWSObject):
         "UpdateConfig": (UpdateConfig, False),
         "Version": (str, False),
     }
+
+
+class PodIdentityAssociation(AWSObject):
+    """
+    `PodIdentityAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-podidentityassociation.html>`__
+    """
+
+    resource_type = "AWS::EKS::PodIdentityAssociation"
+
+    props: PropsDictType = {
+        "ClusterName": (str, True),
+        "Namespace": (str, True),
+        "RoleArn": (str, True),
+        "ServiceAccount": (str, True),
+        "Tags": (Tags, False),
+    }

@@ -151,6 +151,16 @@ class ProtocolDetails(AWSProperty):
     }
 
 
+class S3StorageOptions(AWSProperty):
+    """
+    `S3StorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-s3storageoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DirectoryListingOptimization": (str, False),
+    }
+
+
 class WorkflowDetail(AWSProperty):
     """
     `WorkflowDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-workflowdetail.html>`__
@@ -192,6 +202,7 @@ class Server(AWSObject):
         "PreAuthenticationLoginBanner": (str, False),
         "ProtocolDetails": (ProtocolDetails, False),
         "Protocols": ([str], False),
+        "S3StorageOptions": (S3StorageOptions, False),
         "SecurityPolicyName": (str, False),
         "StructuredLogDestinations": ([str], False),
         "Tags": (Tags, False),
@@ -207,6 +218,7 @@ class HomeDirectoryMapEntry(AWSProperty):
     props: PropsDictType = {
         "Entry": (str, True),
         "Target": (str, True),
+        "Type": (str, False),
     }
 
 

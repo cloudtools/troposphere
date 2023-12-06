@@ -11,6 +11,16 @@ from .validators import boolean, double, integer
 from .validators.iottwinmaker import validate_listvalue, validate_nestedtypel
 
 
+class CompositeComponentType(AWSProperty):
+    """
+    `CompositeComponentType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-compositecomponenttype.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComponentTypeId": (str, False),
+    }
+
+
 class LambdaFunction(AWSProperty):
     """
     `LambdaFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-componenttype-lambdafunction.html>`__
@@ -134,6 +144,7 @@ class ComponentType(AWSObject):
 
     props: PropsDictType = {
         "ComponentTypeId": (str, True),
+        "CompositeComponentTypes": (dict, False),
         "Description": (str, False),
         "ExtendsFrom": ([str], False),
         "Functions": (dict, False),
@@ -213,6 +224,22 @@ class Component(AWSProperty):
     }
 
 
+class CompositeComponent(AWSProperty):
+    """
+    `CompositeComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iottwinmaker-entity-compositecomponent.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComponentName": (str, False),
+        "ComponentPath": (str, False),
+        "ComponentTypeId": (str, False),
+        "Description": (str, False),
+        "Properties": (dict, False),
+        "PropertyGroups": (dict, False),
+        "Status": (Status, False),
+    }
+
+
 class Entity(AWSObject):
     """
     `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iottwinmaker-entity.html>`__
@@ -222,6 +249,7 @@ class Entity(AWSObject):
 
     props: PropsDictType = {
         "Components": (dict, False),
+        "CompositeComponents": (dict, False),
         "Description": (str, False),
         "EntityId": (str, False),
         "EntityName": (str, True),

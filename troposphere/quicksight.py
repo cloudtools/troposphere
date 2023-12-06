@@ -6295,6 +6295,7 @@ class CastColumnTypeOperation(AWSProperty):
         "ColumnName": (str, True),
         "Format": (str, False),
         "NewColumnType": (str, True),
+        "SubType": (str, False),
     }
 
 
@@ -6443,6 +6444,7 @@ class InputColumn(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
+        "SubType": (str, False),
         "Type": (str, True),
     }
 
@@ -7722,7 +7724,6 @@ class TemplateVersion(AWSProperty):
         "DataSetConfigurations": ([DataSetConfiguration], False),
         "Description": (str, False),
         "Errors": ([TemplateError], False),
-        "Options": (AssetOptions, False),
         "Sheets": ([Sheet], False),
         "SourceEntityArn": (str, False),
         "Status": (str, False),

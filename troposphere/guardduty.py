@@ -100,7 +100,7 @@ class CFNFeatureConfiguration(AWSProperty):
 
 class TagItem(AWSProperty):
     """
-    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-detector-tagitem.html>`__
+    `TagItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-threatintelset-tagitem.html>`__
     """
 
     props: PropsDictType = {
@@ -183,12 +183,12 @@ class IPSet(AWSObject):
     resource_type = "AWS::GuardDuty::IPSet"
 
     props: PropsDictType = {
-        "Activate": (boolean, True),
-        "DetectorId": (str, True),
+        "Activate": (boolean, False),
+        "DetectorId": (str, False),
         "Format": (str, True),
         "Location": (str, True),
-        "Name": (str, False),
-        "Tags": (Tags, False),
+        "Name": (str, True),
+        "Tags": ([TagItem], False),
     }
 
 
@@ -231,10 +231,10 @@ class ThreatIntelSet(AWSObject):
     resource_type = "AWS::GuardDuty::ThreatIntelSet"
 
     props: PropsDictType = {
-        "Activate": (boolean, True),
-        "DetectorId": (str, True),
+        "Activate": (boolean, False),
+        "DetectorId": (str, False),
         "Format": (str, True),
         "Location": (str, True),
-        "Name": (str, False),
-        "Tags": (Tags, False),
+        "Name": (str, True),
+        "Tags": ([TagItem], False),
     }
