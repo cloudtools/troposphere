@@ -245,12 +245,13 @@ class DeploymentController(AWSProperty):
 
 class LoadBalancer(AWSProperty):
     """
-    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-loadbalancer.html>`__
+    `LoadBalancer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-loadbalancer.html>`__
     """
 
     props: PropsDictType = {
         "ContainerName": (str, False),
         "ContainerPort": (validate_network_port, False),
+        "LoadBalancerName": (str, False),
         "TargetGroupArn": (str, False),
     }
 

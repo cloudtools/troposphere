@@ -65,6 +65,11 @@ patches = [
     },
     # backward compatibility
     {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::ECS::TaskSet.LoadBalancer",
+    },
+    # backward compatibility
+    {
         "op": "move",
         "from": "/PropertyTypes/AWS::ECS::Service.AwsVpcConfiguration",
         "path": "/PropertyTypes/AWS::ECS::Service.AwsvpcConfiguration",
