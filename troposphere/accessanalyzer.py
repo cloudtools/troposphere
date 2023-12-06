@@ -7,7 +7,27 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
+
+
+class UnusedAccessConfiguration(AWSProperty):
+    """
+    `UnusedAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "UnusedAccessAge": (integer, False),
+    }
+
+
+class AnalyzerConfiguration(AWSProperty):
+    """
+    `AnalyzerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analyzerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "UnusedAccessConfiguration": (UnusedAccessConfiguration, False),
+    }
 
 
 class Filter(AWSProperty):
@@ -43,6 +63,7 @@ class Analyzer(AWSObject):
     resource_type = "AWS::AccessAnalyzer::Analyzer"
 
     props: PropsDictType = {
+        "AnalyzerConfiguration": (AnalyzerConfiguration, False),
         "AnalyzerName": (str, False),
         "ArchiveRules": ([ArchiveRule], False),
         "Tags": (Tags, False),

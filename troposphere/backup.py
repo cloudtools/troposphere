@@ -289,3 +289,75 @@ class ReportPlan(AWSObject):
         "ReportPlanTags": (Tags, False),
         "ReportSetting": (ReportSetting, True),
     }
+
+
+class RestoreTestingRecoveryPointSelection(AWSProperty):
+    """
+    `RestoreTestingRecoveryPointSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingplan-restoretestingrecoverypointselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "Algorithm": (str, True),
+        "ExcludeVaults": ([str], False),
+        "IncludeVaults": ([str], True),
+        "RecoveryPointTypes": ([str], True),
+        "SelectionWindowDays": (integer, False),
+    }
+
+
+class RestoreTestingPlan(AWSObject):
+    """
+    `RestoreTestingPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingplan.html>`__
+    """
+
+    resource_type = "AWS::Backup::RestoreTestingPlan"
+
+    props: PropsDictType = {
+        "RecoveryPointSelection": (RestoreTestingRecoveryPointSelection, True),
+        "RestoreTestingPlanName": (str, True),
+        "ScheduleExpression": (str, True),
+        "ScheduleExpressionTimezone": (str, False),
+        "StartWindowHours": (integer, False),
+        "Tags": (Tags, False),
+    }
+
+
+class KeyValue(AWSProperty):
+    """
+    `KeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-keyvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ProtectedResourceConditions(AWSProperty):
+    """
+    `ProtectedResourceConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-restoretestingselection-protectedresourceconditions.html>`__
+    """
+
+    props: PropsDictType = {
+        "StringEquals": ([KeyValue], False),
+        "StringNotEquals": ([KeyValue], False),
+    }
+
+
+class RestoreTestingSelection(AWSObject):
+    """
+    `RestoreTestingSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-restoretestingselection.html>`__
+    """
+
+    resource_type = "AWS::Backup::RestoreTestingSelection"
+
+    props: PropsDictType = {
+        "IamRoleArn": (str, True),
+        "ProtectedResourceArns": ([str], False),
+        "ProtectedResourceConditions": (ProtectedResourceConditions, False),
+        "ProtectedResourceType": (str, True),
+        "RestoreMetadataOverrides": (dict, False),
+        "RestoreTestingPlanName": (str, True),
+        "RestoreTestingSelectionName": (str, True),
+        "ValidationWindowHours": (integer, False),
+    }

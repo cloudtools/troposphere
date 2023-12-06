@@ -796,6 +796,28 @@ class ExplainerConfig(AWSProperty):
     }
 
 
+class ManagedInstanceScaling(AWSProperty):
+    """
+    `ManagedInstanceScaling <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-managedinstancescaling.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxInstanceCount": (integer, False),
+        "MinInstanceCount": (integer, False),
+        "Status": (str, False),
+    }
+
+
+class RoutingConfig(AWSProperty):
+    """
+    `RoutingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-routingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "RoutingStrategy": (str, False),
+    }
+
+
 class ServerlessConfig(AWSProperty):
     """
     `ServerlessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpointconfig-productionvariant-serverlessconfig.html>`__
@@ -818,10 +840,12 @@ class ProductionVariant(AWSProperty):
         "ContainerStartupHealthCheckTimeoutInSeconds": (integer, False),
         "EnableSSMAccess": (boolean, False),
         "InitialInstanceCount": (integer, False),
-        "InitialVariantWeight": (double, True),
+        "InitialVariantWeight": (double, False),
         "InstanceType": (str, False),
+        "ManagedInstanceScaling": (ManagedInstanceScaling, False),
         "ModelDataDownloadTimeoutInSeconds": (integer, False),
-        "ModelName": (str, True),
+        "ModelName": (str, False),
+        "RoutingConfig": (RoutingConfig, False),
         "ServerlessConfig": (ServerlessConfig, False),
         "VariantName": (str, True),
         "VolumeSizeInGB": (integer, False),
@@ -838,12 +862,15 @@ class EndpointConfig(AWSObject):
     props: PropsDictType = {
         "AsyncInferenceConfig": (AsyncInferenceConfig, False),
         "DataCaptureConfig": (DataCaptureConfig, False),
+        "EnableNetworkIsolation": (boolean, False),
         "EndpointConfigName": (str, False),
+        "ExecutionRoleArn": (str, False),
         "ExplainerConfig": (ExplainerConfig, False),
         "KmsKeyId": (str, False),
         "ProductionVariants": ([ProductionVariant], True),
         "ShadowProductionVariants": ([ProductionVariant], False),
         "Tags": (Tags, False),
+        "VpcConfig": (VpcConfig, False),
     }
 
 
@@ -973,6 +1000,101 @@ class ImageVersion(AWSObject):
     }
 
 
+class InferenceComponentRuntimeConfig(AWSProperty):
+    """
+    `InferenceComponentRuntimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CopyCount": (integer, False),
+        "CurrentCopyCount": (integer, False),
+        "DesiredCopyCount": (integer, False),
+    }
+
+
+class InferenceComponentComputeResourceRequirements(AWSProperty):
+    """
+    `InferenceComponentComputeResourceRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcomputeresourcerequirements.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxMemoryRequiredInMb": (integer, False),
+        "MinMemoryRequiredInMb": (integer, False),
+        "NumberOfAcceleratorDevicesRequired": (double, False),
+        "NumberOfCpuCoresRequired": (double, False),
+    }
+
+
+class DeployedImage(AWSProperty):
+    """
+    `DeployedImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-deployedimage.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResolutionTime": (str, False),
+        "ResolvedImage": (str, False),
+        "SpecifiedImage": (str, False),
+    }
+
+
+class InferenceComponentContainerSpecification(AWSProperty):
+    """
+    `InferenceComponentContainerSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcontainerspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ArtifactUrl": (str, False),
+        "DeployedImage": (DeployedImage, False),
+        "Environment": (dict, False),
+        "Image": (str, False),
+    }
+
+
+class InferenceComponentStartupParameters(AWSProperty):
+    """
+    `InferenceComponentStartupParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentstartupparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerStartupHealthCheckTimeoutInSeconds": (integer, False),
+        "ModelDataDownloadTimeoutInSeconds": (integer, False),
+    }
+
+
+class InferenceComponentSpecification(AWSProperty):
+    """
+    `InferenceComponentSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComputeResourceRequirements": (
+            InferenceComponentComputeResourceRequirements,
+            True,
+        ),
+        "Container": (InferenceComponentContainerSpecification, False),
+        "ModelName": (str, False),
+        "StartupParameters": (InferenceComponentStartupParameters, False),
+    }
+
+
+class InferenceComponent(AWSObject):
+    """
+    `InferenceComponent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-inferencecomponent.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::InferenceComponent"
+
+    props: PropsDictType = {
+        "EndpointArn": (str, False),
+        "EndpointName": (str, True),
+        "InferenceComponentName": (str, False),
+        "RuntimeConfig": (InferenceComponentRuntimeConfig, True),
+        "Specification": (InferenceComponentSpecification, True),
+        "Tags": (Tags, False),
+        "VariantName": (str, True),
+    }
+
+
 class DataStorageConfig(AWSProperty):
     """
     `DataStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferenceexperiment-datastorageconfig.html>`__
@@ -1097,6 +1219,27 @@ class ImageConfig(AWSProperty):
     }
 
 
+class S3DataSource(AWSProperty):
+    """
+    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataType": (str, True),
+        "S3Uri": (str, True),
+    }
+
+
+class ModelDataSource(AWSProperty):
+    """
+    `ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataSource": (S3DataSource, True),
+    }
+
+
 class MultiModelConfig(AWSProperty):
     """
     `MultiModelConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-multimodelconfig.html>`__
@@ -1119,6 +1262,7 @@ class ContainerDefinition(AWSProperty):
         "ImageConfig": (ImageConfig, False),
         "InferenceSpecificationName": (str, False),
         "Mode": (str, False),
+        "ModelDataSource": (ModelDataSource, False),
         "ModelDataUrl": (str, False),
         "ModelPackageName": (str, False),
         "MultiModelConfig": (MultiModelConfig, False),
@@ -1145,7 +1289,7 @@ class Model(AWSObject):
     props: PropsDictType = {
         "Containers": ([ContainerDefinition], False),
         "EnableNetworkIsolation": (boolean, False),
-        "ExecutionRoleArn": (str, True),
+        "ExecutionRoleArn": (str, False),
         "InferenceExecutionConfig": (InferenceExecutionConfig, False),
         "ModelName": (str, False),
         "PrimaryContainer": (ContainerDefinition, False),
@@ -1845,17 +1989,6 @@ class SourceAlgorithmSpecification(AWSProperty):
 
     props: PropsDictType = {
         "SourceAlgorithms": ([SourceAlgorithm], True),
-    }
-
-
-class S3DataSource(AWSProperty):
-    """
-    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
-    """
-
-    props: PropsDictType = {
-        "S3DataType": (str, True),
-        "S3Uri": (str, True),
     }
 
 

@@ -1393,6 +1393,27 @@ class Monitoring(AWSProperty):
     }
 
 
+class EnaSrdUdpSpecification(AWSProperty):
+    """
+    `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enasrdudpspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnaSrdUdpEnabled": (boolean, False),
+    }
+
+
+class EnaSrdSpecification(AWSProperty):
+    """
+    `EnaSrdSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enasrdspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnaSrdEnabled": (boolean, False),
+        "EnaSrdUdpSpecification": (EnaSrdUdpSpecification, False),
+    }
+
+
 class Ipv4PrefixSpecification(AWSProperty):
     """
     `Ipv4PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv4prefixspecification.html>`__
@@ -1434,6 +1455,7 @@ class NetworkInterfaces(AWSProperty):
         "DeleteOnTermination": (boolean, False),
         "Description": (str, False),
         "DeviceIndex": (integer, False),
+        "EnaSrdSpecification": (EnaSrdSpecification, False),
         "Groups": ([str], False),
         "InterfaceType": (str, False),
         "Ipv4PrefixCount": (integer, False),

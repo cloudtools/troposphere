@@ -453,3 +453,128 @@ class InfrastructureConfiguration(AWSObject):
         "Tags": (dict, False),
         "TerminateInstanceOnFailure": (boolean, False),
     }
+
+
+class IncludeResources(AWSProperty):
+    """
+    `IncludeResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-includeresources.html>`__
+    """
+
+    props: PropsDictType = {
+        "Amis": (boolean, False),
+        "Containers": (boolean, False),
+        "Snapshots": (boolean, False),
+    }
+
+
+class Action(AWSProperty):
+    """
+    `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-action.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeResources": (IncludeResources, False),
+        "Type": (str, True),
+    }
+
+
+class LastLaunched(AWSProperty):
+    """
+    `LastLaunched <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-lastlaunched.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class AmiExclusionRules(AWSProperty):
+    """
+    `AmiExclusionRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-amiexclusionrules.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsPublic": (boolean, False),
+        "LastLaunched": (LastLaunched, False),
+        "Regions": ([str], False),
+        "SharedAccounts": ([str], False),
+        "TagMap": (dict, False),
+    }
+
+
+class ExclusionRules(AWSProperty):
+    """
+    `ExclusionRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-exclusionrules.html>`__
+    """
+
+    props: PropsDictType = {
+        "Amis": (AmiExclusionRules, False),
+        "TagMap": (dict, False),
+    }
+
+
+class Filter(AWSProperty):
+    """
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetainAtLeast": (integer, False),
+        "Type": (str, True),
+        "Unit": (str, False),
+        "Value": (integer, True),
+    }
+
+
+class PolicyDetail(AWSProperty):
+    """
+    `PolicyDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-policydetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (Action, True),
+        "ExclusionRules": (ExclusionRules, False),
+        "Filter": (Filter, True),
+    }
+
+
+class RecipeSelection(AWSProperty):
+    """
+    `RecipeSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-recipeselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "SemanticVersion": (str, False),
+    }
+
+
+class ResourceSelection(AWSProperty):
+    """
+    `ResourceSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-lifecyclepolicy-resourceselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "Recipes": ([RecipeSelection], False),
+        "TagMap": (dict, False),
+    }
+
+
+class LifecyclePolicy(AWSObject):
+    """
+    `LifecyclePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-lifecyclepolicy.html>`__
+    """
+
+    resource_type = "AWS::ImageBuilder::LifecyclePolicy"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ExecutionRole": (str, True),
+        "Name": (str, True),
+        "PolicyDetails": ([PolicyDetail], True),
+        "ResourceSelection": (ResourceSelection, True),
+        "ResourceType": (str, True),
+        "Status": (str, False),
+        "Tags": (dict, False),
+    }

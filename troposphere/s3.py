@@ -24,6 +24,72 @@ from .validators.s3 import (
 )
 
 
+class AccessGrantsLocationConfiguration(AWSProperty):
+    """
+    `AccessGrantsLocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accessgrant-accessgrantslocationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3SubPrefix": (str, True),
+    }
+
+
+class Grantee(AWSProperty):
+    """
+    `Grantee <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-accessgrant-grantee.html>`__
+    """
+
+    props: PropsDictType = {
+        "GranteeIdentifier": (str, True),
+        "GranteeType": (str, True),
+    }
+
+
+class AccessGrant(AWSObject):
+    """
+    `AccessGrant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrant.html>`__
+    """
+
+    resource_type = "AWS::S3::AccessGrant"
+
+    props: PropsDictType = {
+        "AccessGrantsLocationConfiguration": (AccessGrantsLocationConfiguration, False),
+        "AccessGrantsLocationId": (str, True),
+        "ApplicationArn": (str, False),
+        "Grantee": (Grantee, True),
+        "Permission": (str, True),
+        "S3PrefixType": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class AccessGrantsInstance(AWSObject):
+    """
+    `AccessGrantsInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantsinstance.html>`__
+    """
+
+    resource_type = "AWS::S3::AccessGrantsInstance"
+
+    props: PropsDictType = {
+        "IdentityCenterArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class AccessGrantsLocation(AWSObject):
+    """
+    `AccessGrantsLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-accessgrantslocation.html>`__
+    """
+
+    resource_type = "AWS::S3::AccessGrantsLocation"
+
+    props: PropsDictType = {
+        "IamRoleArn": (str, False),
+        "LocationScope": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class PublicAccessBlockConfiguration(AWSProperty):
     """
     `PublicAccessBlockConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-multiregionaccesspoint-publicaccessblockconfiguration.html>`__
@@ -1022,6 +1088,86 @@ class StorageLens(AWSObject):
 
     props: PropsDictType = {
         "StorageLensConfiguration": (StorageLensConfiguration, True),
+        "Tags": (Tags, False),
+    }
+
+
+class MatchObjectAge(AWSProperty):
+    """
+    `MatchObjectAge <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectage.html>`__
+    """
+
+    props: PropsDictType = {
+        "DaysGreaterThan": (integer, False),
+        "DaysLessThan": (integer, False),
+    }
+
+
+class MatchObjectSize(AWSProperty):
+    """
+    `MatchObjectSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-matchobjectsize.html>`__
+    """
+
+    props: PropsDictType = {
+        "BytesGreaterThan": (integer, False),
+        "BytesLessThan": (integer, False),
+    }
+
+
+class And(AWSProperty):
+    """
+    `And <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-and.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchAnyPrefix": ([str], False),
+        "MatchAnySuffix": ([str], False),
+        "MatchAnyTag": (Tags, False),
+        "MatchObjectAge": (MatchObjectAge, False),
+        "MatchObjectSize": (MatchObjectSize, False),
+    }
+
+
+class Or(AWSProperty):
+    """
+    `Or <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-or.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchAnyPrefix": ([str], False),
+        "MatchAnySuffix": ([str], False),
+        "MatchAnyTag": (Tags, False),
+        "MatchObjectAge": (MatchObjectAge, False),
+        "MatchObjectSize": (MatchObjectSize, False),
+    }
+
+
+class StorageLensFilter(AWSProperty):
+    """
+    `StorageLensFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-storagelensgroup-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "And": (And, False),
+        "MatchAnyPrefix": ([str], False),
+        "MatchAnySuffix": ([str], False),
+        "MatchAnyTag": (Tags, False),
+        "MatchObjectAge": (MatchObjectAge, False),
+        "MatchObjectSize": (MatchObjectSize, False),
+        "Or": (Or, False),
+    }
+
+
+class StorageLensGroup(AWSObject):
+    """
+    `StorageLensGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-storagelensgroup.html>`__
+    """
+
+    resource_type = "AWS::S3::StorageLensGroup"
+
+    props: PropsDictType = {
+        "Filter": (StorageLensFilter, True),
+        "Name": (str, True),
         "Tags": (Tags, False),
     }
 

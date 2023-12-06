@@ -23,3 +23,36 @@ class Connection(AWSObject):
         "ProviderType": (validate_connection_providertype, False),
         "Tags": (Tags, False),
     }
+
+
+class RepositoryLink(AWSObject):
+    """
+    `RepositoryLink <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-repositorylink.html>`__
+    """
+
+    resource_type = "AWS::CodeStarConnections::RepositoryLink"
+
+    props: PropsDictType = {
+        "ConnectionArn": (str, True),
+        "EncryptionKeyArn": (str, False),
+        "OwnerId": (str, True),
+        "RepositoryName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class SyncConfiguration(AWSObject):
+    """
+    `SyncConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codestarconnections-syncconfiguration.html>`__
+    """
+
+    resource_type = "AWS::CodeStarConnections::SyncConfiguration"
+
+    props: PropsDictType = {
+        "Branch": (str, True),
+        "ConfigFile": (str, True),
+        "RepositoryLinkId": (str, True),
+        "ResourceName": (str, True),
+        "RoleArn": (str, True),
+        "SyncType": (str, True),
+    }

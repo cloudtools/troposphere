@@ -714,6 +714,7 @@ class Behavior(AWSProperty):
 
     props: PropsDictType = {
         "Criteria": (BehaviorCriteria, False),
+        "ExportMetric": (boolean, False),
         "Metric": (str, False),
         "MetricDimension": (MetricDimension, False),
         "Name": (str, True),
@@ -727,8 +728,20 @@ class MetricToRetain(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ExportMetric": (boolean, False),
         "Metric": (str, True),
         "MetricDimension": (MetricDimension, False),
+    }
+
+
+class MetricsExportConfig(AWSProperty):
+    """
+    `MetricsExportConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-securityprofile-metricsexportconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MqttTopic": (str, True),
+        "RoleArn": (str, True),
     }
 
 
@@ -743,6 +756,7 @@ class SecurityProfile(AWSObject):
         "AdditionalMetricsToRetainV2": ([MetricToRetain], False),
         "AlertTargets": (dict, False),
         "Behaviors": ([Behavior], False),
+        "MetricsExportConfig": (MetricsExportConfig, False),
         "SecurityProfileDescription": (str, False),
         "SecurityProfileName": (str, False),
         "Tags": (Tags, False),

@@ -48,7 +48,9 @@ class PullThroughCacheRule(AWSObject):
     resource_type = "AWS::ECR::PullThroughCacheRule"
 
     props: PropsDictType = {
+        "CredentialArn": (str, False),
         "EcrRepositoryPrefix": (str, False),
+        "UpstreamRegistry": (str, False),
         "UpstreamRegistryUrl": (str, False),
     }
 

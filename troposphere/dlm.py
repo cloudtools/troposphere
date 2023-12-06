@@ -16,6 +16,18 @@ from .validators.dlm import (
 )
 
 
+class Exclusions(AWSProperty):
+    """
+    `Exclusions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-exclusions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExcludeBootVolumes": (boolean, False),
+        "ExcludeTags": ([], False),
+        "ExcludeVolumeTypes": ([], False),
+    }
+
+
 class CrossRegionCopyRetainRule(AWSProperty):
     """
     `CrossRegionCopyRetainRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopyretainrule.html>`__
@@ -261,11 +273,19 @@ class PolicyDetails(AWSProperty):
 
     props: PropsDictType = {
         "Actions": ([Action], False),
+        "CopyTags": (boolean, False),
+        "CreateInterval": (integer, False),
+        "CrossRegionCopyTargets": ([], False),
         "EventSource": (EventSource, False),
+        "Exclusions": (Exclusions, False),
+        "ExtendDeletion": (boolean, False),
         "Parameters": (Parameters, False),
+        "PolicyLanguage": (str, False),
         "PolicyType": (str, False),
         "ResourceLocations": ([str], False),
+        "ResourceType": (str, False),
         "ResourceTypes": ([str], False),
+        "RetainInterval": (integer, False),
         "Schedules": ([Schedule], False),
         "TargetTags": (validate_tags_or_list, False),
     }
@@ -279,9 +299,26 @@ class LifecyclePolicy(AWSObject):
     resource_type = "AWS::DLM::LifecyclePolicy"
 
     props: PropsDictType = {
+        "CopyTags": (boolean, False),
+        "CreateInterval": (integer, False),
+        "CrossRegionCopyTargets": ([], False),
+        "DefaultPolicy": (str, False),
         "Description": (str, False),
+        "Exclusions": (Exclusions, False),
         "ExecutionRoleArn": (str, False),
+        "ExtendDeletion": (boolean, False),
         "PolicyDetails": (PolicyDetails, False),
+        "RetainInterval": (integer, False),
         "State": (validate_state, False),
         "Tags": (validate_tags_or_list, False),
+    }
+
+
+class CrossRegionCopyTarget(AWSProperty):
+    """
+    `CrossRegionCopyTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dlm-lifecyclepolicy-crossregioncopytarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetRegion": (str, False),
     }

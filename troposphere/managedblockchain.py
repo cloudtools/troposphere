@@ -19,6 +19,7 @@ class Accessor(AWSObject):
 
     props: PropsDictType = {
         "AccessorType": (str, True),
+        "NetworkType": (str, False),
         "Tags": (Tags, False),
     }
 
