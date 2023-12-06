@@ -27,6 +27,7 @@ class TestGuardDuty(unittest.TestCase):
             DetectorId="aaaabbbbccccddddeeeeffff11112222",
             Format="TXT",
             Location="http://example.com/ipset.txt",
+            Name="guardduty-name",
         )
 
         result = ipset.to_dict()
@@ -45,6 +46,7 @@ class TestGuardDuty(unittest.TestCase):
             DetectorId="aaaabbbbccccddddeeeeffff11112222",
             Format="TXT",
             Location="http://example.com/threatintelset.txt",
+            Name="guardduty-name",
         )
 
         result = threat_intel_set.to_dict()
