@@ -41,7 +41,7 @@ if TYPE_CHECKING:
     else:
         from typing import Final
 
-__version__ = "4.5.2"
+__version__ = "4.5.3"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete: Final = "Delete"

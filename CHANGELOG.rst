@@ -1,3 +1,16 @@
+4.5.3 (2023*12*06)
+-------------------------------
+* Upgrade readthedocs config to v2
+* Add tests and lint runs for maintenance action
+* Install correct version of pyright for maintenance action
+* Rename due to conflict: S3::StorageLensGroup.StorageLensFilter
+* Add required Name to GuardDuty.IPSet tests
+* Updates from spec version 149.0.0 (#2207)
+* Add AWS::ARCZonalShift
+* Add AWS::S3Express
+* Add new supported resources to docs
+* Prefer ECS::Service.LoadBalancer (Fixes #2206)
+
 4.5.2 (2023*11*11)
 -------------------------------
 * Updates from spec version 146.0.0 (#2201)
