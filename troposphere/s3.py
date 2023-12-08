@@ -379,6 +379,27 @@ class LifecycleConfiguration(AWSProperty):
     }
 
 
+class PartitionedPrefix(AWSProperty):
+    """
+    `PartitionedPrefix <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat-partitionedprefix.html>`__
+    """
+
+    props: PropsDictType = {
+        "PartitionDateSource": (str, False),
+    }
+
+
+class TargetObjectKeyFormat(AWSProperty):
+    """
+    `TargetObjectKeyFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat.html>`__
+    """
+
+    props: PropsDictType = {
+        "PartitionedPrefix": (PartitionedPrefix, False),
+        "SimplePrefix": (dict, False),
+    }
+
+
 class LoggingConfiguration(AWSProperty):
     """
     `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html>`__
@@ -387,6 +408,7 @@ class LoggingConfiguration(AWSProperty):
     props: PropsDictType = {
         "DestinationBucketName": (validate_s3_bucket_name, False),
         "LogFilePrefix": (str, False),
+        "TargetObjectKeyFormat": (TargetObjectKeyFormat, False),
     }
 
 

@@ -63,6 +63,26 @@ class DataEncryptionMetadata(AWSProperty):
     }
 
 
+class QueryComputePaymentConfig(AWSProperty):
+    """
+    `QueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
+class PaymentConfiguration(AWSProperty):
+    """
+    `PaymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-paymentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "QueryCompute": (QueryComputePaymentConfig, True),
+    }
+
+
 class MemberSpecification(AWSProperty):
     """
     `MemberSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-memberspecification.html>`__
@@ -72,6 +92,7 @@ class MemberSpecification(AWSProperty):
         "AccountId": (str, True),
         "DisplayName": (str, True),
         "MemberAbilities": ([str], True),
+        "PaymentConfiguration": (PaymentConfiguration, False),
     }
 
 
@@ -85,6 +106,7 @@ class Collaboration(AWSObject):
     props: PropsDictType = {
         "CreatorDisplayName": (str, True),
         "CreatorMemberAbilities": ([str], True),
+        "CreatorPaymentConfiguration": (PaymentConfiguration, False),
         "DataEncryptionMetadata": (DataEncryptionMetadata, False),
         "Description": (str, True),
         "Members": ([MemberSpecification], True),
@@ -245,6 +267,26 @@ class ConfiguredTableAssociation(AWSObject):
     }
 
 
+class MembershipQueryComputePaymentConfig(AWSProperty):
+    """
+    `MembershipQueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
+class MembershipPaymentConfiguration(AWSProperty):
+    """
+    `MembershipPaymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershippaymentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "QueryCompute": (MembershipQueryComputePaymentConfig, True),
+    }
+
+
 class ProtectedQueryS3OutputConfiguration(AWSProperty):
     """
     `ProtectedQueryS3OutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedquerys3outputconfiguration.html>`__
@@ -291,6 +333,7 @@ class Membership(AWSObject):
             MembershipProtectedQueryResultConfiguration,
             False,
         ),
+        "PaymentConfiguration": (MembershipPaymentConfiguration, False),
         "QueryLogStatus": (str, True),
         "Tags": (Tags, False),
     }

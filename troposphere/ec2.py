@@ -1393,6 +1393,18 @@ class Monitoring(AWSProperty):
     }
 
 
+class ConnectionTrackingSpecification(AWSProperty):
+    """
+    `ConnectionTrackingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-connectiontrackingspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "TcpEstablishedTimeout": (integer, False),
+        "UdpStreamTimeout": (integer, False),
+        "UdpTimeout": (integer, False),
+    }
+
+
 class EnaSrdUdpSpecification(AWSProperty):
     """
     `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enasrdudpspecification.html>`__
@@ -1452,6 +1464,7 @@ class NetworkInterfaces(AWSProperty):
     props: PropsDictType = {
         "AssociateCarrierIpAddress": (boolean, False),
         "AssociatePublicIpAddress": (boolean, False),
+        "ConnectionTrackingSpecification": (ConnectionTrackingSpecification, False),
         "DeleteOnTermination": (boolean, False),
         "Description": (str, False),
         "DeviceIndex": (integer, False),
@@ -3052,6 +3065,7 @@ class DeviceOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "PublicSigningKeyUrl": (str, False),
         "TenantId": (str, False),
     }
 

@@ -297,7 +297,7 @@ class GatewayResponse(AWSObject):
 
 class IntegrationResponse(AWSProperty):
     """
-    `IntegrationResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration-integrationresponse.html>`__
+    `IntegrationResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integrationresponse.html>`__
     """
 
     props: PropsDictType = {
@@ -311,7 +311,7 @@ class IntegrationResponse(AWSProperty):
 
 class Integration(AWSProperty):
     """
-    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-integration.html>`__
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-integration.html>`__
     """
 
     props: PropsDictType = {
@@ -327,14 +327,14 @@ class Integration(AWSProperty):
         "RequestParameters": (dict, False),
         "RequestTemplates": (dict, False),
         "TimeoutInMillis": (validate_timeout_in_millis, False),
-        "Type": (str, False),
+        "Type": (str, True),
         "Uri": (str, False),
     }
 
 
 class MethodResponse(AWSProperty):
     """
-    `MethodResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apitgateway-method-methodresponse.html>`__
+    `MethodResponse <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigateway-method-methodresponse.html>`__
     """
 
     props: PropsDictType = {

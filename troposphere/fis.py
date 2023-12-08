@@ -24,6 +24,17 @@ class ExperimentTemplateAction(AWSProperty):
     }
 
 
+class ExperimentTemplateExperimentOptions(AWSProperty):
+    """
+    `ExperimentTemplateExperimentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountTargeting": (str, False),
+        "EmptyTargetResolutionMode": (str, False),
+    }
+
+
 class CloudWatchLogsConfiguration(AWSProperty):
     """
     `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchlogsconfiguration.html>`__
@@ -104,9 +115,25 @@ class ExperimentTemplate(AWSObject):
     props: PropsDictType = {
         "Actions": (dict, False),
         "Description": (str, True),
+        "ExperimentOptions": (ExperimentTemplateExperimentOptions, False),
         "LogConfiguration": (ExperimentTemplateLogConfiguration, False),
         "RoleArn": (str, True),
         "StopConditions": ([ExperimentTemplateStopCondition], True),
         "Tags": (dict, True),
         "Targets": (dict, True),
+    }
+
+
+class TargetAccountConfiguration(AWSObject):
+    """
+    `TargetAccountConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-fis-targetaccountconfiguration.html>`__
+    """
+
+    resource_type = "AWS::FIS::TargetAccountConfiguration"
+
+    props: PropsDictType = {
+        "AccountId": (str, True),
+        "Description": (str, False),
+        "ExperimentTemplateId": (str, True),
+        "RoleArn": (str, True),
     }
