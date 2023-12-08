@@ -114,6 +114,49 @@ class DisableInboundStageTransitions(AWSProperty):
     }
 
 
+class GitTagFilterCriteria(AWSProperty):
+    """
+    `GitTagFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Excludes": ([str], False),
+        "Includes": ([str], False),
+    }
+
+
+class GitPushFilter(AWSProperty):
+    """
+    `GitPushFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Tags": (GitTagFilterCriteria, False),
+    }
+
+
+class GitConfiguration(AWSProperty):
+    """
+    `GitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Push": ([GitPushFilter], False),
+        "SourceActionName": (str, True),
+    }
+
+
+class PipelineTriggerDeclaration(AWSProperty):
+    """
+    `PipelineTriggerDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers.html>`__
+    """
+
+    props: PropsDictType = {
+        "GitConfiguration": (GitConfiguration, False),
+        "ProviderType": (str, True),
+    }
+
+
 class ActionTypeId(AWSProperty):
     """
     `ActionTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html>`__
@@ -188,6 +231,18 @@ class Stages(AWSProperty):
     }
 
 
+class VariableDeclaration(AWSProperty):
+    """
+    `VariableDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-variables.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValue": (str, False),
+        "Description": (str, False),
+        "Name": (str, True),
+    }
+
+
 class Pipeline(AWSObject):
     """
     `Pipeline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codepipeline-pipeline.html>`__
@@ -200,10 +255,13 @@ class Pipeline(AWSObject):
         "ArtifactStores": ([ArtifactStoreMap], False),
         "DisableInboundStageTransitions": ([DisableInboundStageTransitions], False),
         "Name": (str, False),
+        "PipelineType": (str, False),
         "RestartExecutionOnUpdate": (boolean, False),
         "RoleArn": (str, True),
         "Stages": ([Stages], True),
         "Tags": (Tags, False),
+        "Triggers": ([PipelineTriggerDeclaration], False),
+        "Variables": ([VariableDeclaration], False),
     }
 
 

@@ -51,6 +51,7 @@ class AutoScalingGroupProvider(AWSProperty):
 
     props: PropsDictType = {
         "AutoScalingGroupArn": (str, True),
+        "ManagedDraining": (str, False),
         "ManagedScaling": (ManagedScaling, False),
         "ManagedTerminationProtection": (str, False),
     }

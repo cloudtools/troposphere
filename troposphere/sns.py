@@ -27,8 +27,22 @@ class SubscriptionResource(AWSObject):
         "RawMessageDelivery": (boolean, False),
         "RedrivePolicy": (dict, False),
         "Region": (str, False),
+        "ReplayPolicy": (dict, False),
         "SubscriptionRoleArn": (str, False),
         "TopicArn": (str, True),
+    }
+
+
+class LoggingConfig(AWSProperty):
+    """
+    `LoggingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sns-topic-loggingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailureFeedbackRoleArn": (str, False),
+        "Protocol": (str, True),
+        "SuccessFeedbackRoleArn": (str, False),
+        "SuccessFeedbackSampleRate": (str, False),
     }
 
 
@@ -54,6 +68,7 @@ class Topic(AWSObject):
         "ArchivePolicy": (dict, False),
         "ContentBasedDeduplication": (boolean, False),
         "DataProtectionPolicy": (dict, False),
+        "DeliveryStatusLogging": ([LoggingConfig], False),
         "DisplayName": (str, False),
         "FifoTopic": (boolean, False),
         "KmsMasterKeyId": (str, False),

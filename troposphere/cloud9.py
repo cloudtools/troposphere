@@ -32,7 +32,7 @@ class EnvironmentEC2(AWSObject):
         "AutomaticStopTimeMinutes": (integer, False),
         "ConnectionType": (str, False),
         "Description": (str, False),
-        "ImageId": (str, False),
+        "ImageId": (str, True),
         "InstanceType": (str, True),
         "Name": (str, False),
         "OwnerArn": (str, False),

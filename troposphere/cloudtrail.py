@@ -83,6 +83,8 @@ class EventDataStore(AWSObject):
     props: PropsDictType = {
         "AdvancedEventSelectors": ([AdvancedEventSelector], False),
         "BillingMode": (str, False),
+        "FederationEnabled": (boolean, False),
+        "FederationRoleArn": (str, False),
         "IngestionEnabled": (boolean, False),
         "InsightSelectors": ([InsightSelector], False),
         "InsightsDestination": (str, False),

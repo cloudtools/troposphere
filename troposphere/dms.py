@@ -28,125 +28,6 @@ class Certificate(AWSObject):
     }
 
 
-class DocDbSettings(AWSProperty):
-    """
-    `DocDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "DocsToInvestigate": (integer, False),
-        "ExtractDocId": (boolean, False),
-        "NestingLevel": (str, False),
-        "SecretsManagerAccessRoleArn": (str, False),
-        "SecretsManagerSecretId": (str, False),
-    }
-
-
-class DynamoDbSettings(AWSProperty):
-    """
-    `DynamoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "ServiceAccessRoleArn": (str, False),
-    }
-
-
-class ElasticsearchSettings(AWSProperty):
-    """
-    `ElasticsearchSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "EndpointUri": (str, False),
-        "ErrorRetryDuration": (integer, False),
-        "FullLoadErrorPercentage": (integer, False),
-        "ServiceAccessRoleArn": (str, False),
-    }
-
-
-class GcpMySQLSettings(AWSProperty):
-    """
-    `GcpMySQLSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-gcpmysqlsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "AfterConnectScript": (str, False),
-        "CleanSourceMetadataOnMismatch": (boolean, False),
-        "DatabaseName": (str, False),
-        "EventsPollInterval": (integer, False),
-        "MaxFileSize": (integer, False),
-        "ParallelLoadThreads": (integer, False),
-        "Password": (str, False),
-        "Port": (integer, False),
-        "SecretsManagerAccessRoleArn": (str, False),
-        "SecretsManagerSecretId": (str, False),
-        "ServerName": (str, False),
-        "ServerTimezone": (str, False),
-        "Username": (str, False),
-    }
-
-
-class IbmDb2Settings(AWSProperty):
-    """
-    `IbmDb2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html>`__
-    """
-
-    props: PropsDictType = {
-        "CurrentLsn": (str, False),
-        "MaxKBytesPerRead": (integer, False),
-        "SecretsManagerAccessRoleArn": (str, False),
-        "SecretsManagerSecretId": (str, False),
-        "SetDataCaptureChanges": (boolean, False),
-    }
-
-
-class KafkaSettings(AWSProperty):
-    """
-    `KafkaSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "Broker": (str, False),
-        "IncludeControlDetails": (boolean, False),
-        "IncludeNullAndEmpty": (boolean, False),
-        "IncludePartitionValue": (boolean, False),
-        "IncludeTableAlterOperations": (boolean, False),
-        "IncludeTransactionDetails": (boolean, False),
-        "MessageFormat": (str, False),
-        "MessageMaxBytes": (integer, False),
-        "NoHexPrefix": (boolean, False),
-        "PartitionIncludeSchemaTable": (boolean, False),
-        "SaslPassword": (str, False),
-        "SaslUserName": (str, False),
-        "SecurityProtocol": (str, False),
-        "SslCaCertificateArn": (str, False),
-        "SslClientCertificateArn": (str, False),
-        "SslClientKeyArn": (str, False),
-        "SslClientKeyPassword": (str, False),
-        "Topic": (str, False),
-    }
-
-
-class KinesisSettings(AWSProperty):
-    """
-    `KinesisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "IncludeControlDetails": (boolean, False),
-        "IncludeNullAndEmpty": (boolean, False),
-        "IncludePartitionValue": (boolean, False),
-        "IncludeTableAlterOperations": (boolean, False),
-        "IncludeTransactionDetails": (boolean, False),
-        "MessageFormat": (str, False),
-        "NoHexPrefix": (boolean, False),
-        "PartitionIncludeSchemaTable": (boolean, False),
-        "ServiceAccessRoleArn": (str, False),
-        "StreamArn": (str, False),
-    }
-
-
 class MicrosoftSqlServerSettings(AWSProperty):
     """
     `MicrosoftSqlServerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html>`__
@@ -173,28 +54,6 @@ class MicrosoftSqlServerSettings(AWSProperty):
     }
 
 
-class MongoDbSettings(AWSProperty):
-    """
-    `MongoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "AuthMechanism": (str, False),
-        "AuthSource": (str, False),
-        "AuthType": (str, False),
-        "DatabaseName": (str, False),
-        "DocsToInvestigate": (str, False),
-        "ExtractDocId": (str, False),
-        "NestingLevel": (str, False),
-        "Password": (str, False),
-        "Port": (validate_network_port, False),
-        "SecretsManagerAccessRoleArn": (str, False),
-        "SecretsManagerSecretId": (str, False),
-        "ServerName": (str, False),
-        "Username": (str, False),
-    }
-
-
 class MySqlSettings(AWSProperty):
     """
     `MySqlSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mysqlsettings.html>`__
@@ -210,22 +69,6 @@ class MySqlSettings(AWSProperty):
         "SecretsManagerSecretId": (str, False),
         "ServerTimezone": (str, False),
         "TargetDbType": (str, False),
-    }
-
-
-class NeptuneSettings(AWSProperty):
-    """
-    `NeptuneSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "ErrorRetryDuration": (integer, False),
-        "IamAuthEnabled": (boolean, False),
-        "MaxFileSize": (integer, False),
-        "MaxRetryCount": (integer, False),
-        "S3BucketFolder": (str, False),
-        "S3BucketName": (str, False),
-        "ServiceAccessRoleArn": (str, False),
     }
 
 
@@ -295,6 +138,198 @@ class PostgreSqlSettings(AWSProperty):
         "SecretsManagerAccessRoleArn": (str, False),
         "SecretsManagerSecretId": (str, False),
         "SlotName": (str, False),
+    }
+
+
+class Settings(AWSProperty):
+    """
+    `Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html>`__
+    """
+
+    props: PropsDictType = {
+        "MicrosoftSqlServerSettings": (MicrosoftSqlServerSettings, False),
+        "MySqlSettings": (MySqlSettings, False),
+        "OracleSettings": (OracleSettings, False),
+        "PostgreSqlSettings": (PostgreSqlSettings, False),
+    }
+
+
+class DataProvider(AWSObject):
+    """
+    `DataProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-dataprovider.html>`__
+    """
+
+    resource_type = "AWS::DMS::DataProvider"
+
+    props: PropsDictType = {
+        "DataProviderIdentifier": (str, False),
+        "DataProviderName": (str, False),
+        "Description": (str, False),
+        "Engine": (str, True),
+        "ExactSettings": (boolean, False),
+        "Settings": (Settings, False),
+        "Tags": (Tags, False),
+    }
+
+
+class DocDbSettings(AWSProperty):
+    """
+    `DocDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DocsToInvestigate": (integer, False),
+        "ExtractDocId": (boolean, False),
+        "NestingLevel": (str, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+    }
+
+
+class DynamoDbSettings(AWSProperty):
+    """
+    `DynamoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-dynamodbsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "ServiceAccessRoleArn": (str, False),
+    }
+
+
+class ElasticsearchSettings(AWSProperty):
+    """
+    `ElasticsearchSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-elasticsearchsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndpointUri": (str, False),
+        "ErrorRetryDuration": (integer, False),
+        "FullLoadErrorPercentage": (integer, False),
+        "ServiceAccessRoleArn": (str, False),
+    }
+
+
+class GcpMySQLSettings(AWSProperty):
+    """
+    `GcpMySQLSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-gcpmysqlsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AfterConnectScript": (str, False),
+        "CleanSourceMetadataOnMismatch": (boolean, False),
+        "DatabaseName": (str, False),
+        "EventsPollInterval": (integer, False),
+        "MaxFileSize": (integer, False),
+        "ParallelLoadThreads": (integer, False),
+        "Password": (str, False),
+        "Port": (integer, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+        "ServerName": (str, False),
+        "ServerTimezone": (str, False),
+        "Username": (str, False),
+    }
+
+
+class IbmDb2Settings(AWSProperty):
+    """
+    `IbmDb2Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-ibmdb2settings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CurrentLsn": (str, False),
+        "KeepCsvFiles": (boolean, False),
+        "LoadTimeout": (integer, False),
+        "MaxFileSize": (integer, False),
+        "MaxKBytesPerRead": (integer, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+        "SetDataCaptureChanges": (boolean, False),
+        "WriteBufferSize": (integer, False),
+    }
+
+
+class KafkaSettings(AWSProperty):
+    """
+    `KafkaSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kafkasettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Broker": (str, False),
+        "IncludeControlDetails": (boolean, False),
+        "IncludeNullAndEmpty": (boolean, False),
+        "IncludePartitionValue": (boolean, False),
+        "IncludeTableAlterOperations": (boolean, False),
+        "IncludeTransactionDetails": (boolean, False),
+        "MessageFormat": (str, False),
+        "MessageMaxBytes": (integer, False),
+        "NoHexPrefix": (boolean, False),
+        "PartitionIncludeSchemaTable": (boolean, False),
+        "SaslPassword": (str, False),
+        "SaslUserName": (str, False),
+        "SecurityProtocol": (str, False),
+        "SslCaCertificateArn": (str, False),
+        "SslClientCertificateArn": (str, False),
+        "SslClientKeyArn": (str, False),
+        "SslClientKeyPassword": (str, False),
+        "Topic": (str, False),
+    }
+
+
+class KinesisSettings(AWSProperty):
+    """
+    `KinesisSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-kinesissettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncludeControlDetails": (boolean, False),
+        "IncludeNullAndEmpty": (boolean, False),
+        "IncludePartitionValue": (boolean, False),
+        "IncludeTableAlterOperations": (boolean, False),
+        "IncludeTransactionDetails": (boolean, False),
+        "MessageFormat": (str, False),
+        "NoHexPrefix": (boolean, False),
+        "PartitionIncludeSchemaTable": (boolean, False),
+        "ServiceAccessRoleArn": (str, False),
+        "StreamArn": (str, False),
+    }
+
+
+class MongoDbSettings(AWSProperty):
+    """
+    `MongoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthMechanism": (str, False),
+        "AuthSource": (str, False),
+        "AuthType": (str, False),
+        "DatabaseName": (str, False),
+        "DocsToInvestigate": (str, False),
+        "ExtractDocId": (str, False),
+        "NestingLevel": (str, False),
+        "Password": (str, False),
+        "Port": (validate_network_port, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+        "ServerName": (str, False),
+        "Username": (str, False),
+    }
+
+
+class NeptuneSettings(AWSProperty):
+    """
+    `NeptuneSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "ErrorRetryDuration": (integer, False),
+        "IamAuthEnabled": (boolean, False),
+        "MaxFileSize": (integer, False),
+        "MaxRetryCount": (integer, False),
+        "S3BucketFolder": (str, False),
+        "S3BucketName": (str, False),
+        "ServiceAccessRoleArn": (str, False),
     }
 
 
@@ -467,6 +502,77 @@ class EventSubscription(AWSObject):
         "SourceType": (str, False),
         "SubscriptionName": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class InstanceProfile(AWSObject):
+    """
+    `InstanceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-instanceprofile.html>`__
+    """
+
+    resource_type = "AWS::DMS::InstanceProfile"
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "Description": (str, False),
+        "InstanceProfileIdentifier": (str, False),
+        "InstanceProfileName": (str, False),
+        "KmsKeyArn": (str, False),
+        "NetworkType": (str, False),
+        "PubliclyAccessible": (boolean, False),
+        "SubnetGroupIdentifier": (str, False),
+        "Tags": (Tags, False),
+        "VpcSecurityGroups": ([str], False),
+    }
+
+
+class DataProviderDescriptor(AWSProperty):
+    """
+    `DataProviderDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-dataproviderdescriptor.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataProviderArn": (str, False),
+        "DataProviderIdentifier": (str, False),
+        "DataProviderName": (str, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+    }
+
+
+class SchemaConversionApplicationAttributes(AWSProperty):
+    """
+    `SchemaConversionApplicationAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-migrationproject-schemaconversionapplicationattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3BucketPath": (str, False),
+        "S3BucketRoleArn": (str, False),
+    }
+
+
+class MigrationProject(AWSObject):
+    """
+    `MigrationProject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-migrationproject.html>`__
+    """
+
+    resource_type = "AWS::DMS::MigrationProject"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InstanceProfileArn": (str, False),
+        "InstanceProfileIdentifier": (str, False),
+        "InstanceProfileName": (str, False),
+        "MigrationProjectIdentifier": (str, False),
+        "MigrationProjectName": (str, False),
+        "SchemaConversionApplicationAttributes": (
+            SchemaConversionApplicationAttributes,
+            False,
+        ),
+        "SourceDataProviderDescriptors": ([DataProviderDescriptor], False),
+        "Tags": (Tags, False),
+        "TargetDataProviderDescriptors": ([DataProviderDescriptor], False),
+        "TransformationRules": (str, False),
     }
 
 

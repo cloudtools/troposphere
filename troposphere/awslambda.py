@@ -431,7 +431,6 @@ class Function(AWSObject):
         "LoggingConfig": (LoggingConfig, False),
         "MemorySize": (validate_memory_size, False),
         "PackageType": (validate_package_type, False),
-        "Policy": (dict, False),
         "ReservedConcurrentExecutions": (integer, False),
         "Role": (str, True),
         "Runtime": (str, False),

@@ -560,6 +560,7 @@ class FeatureActivations(AWSProperty):
 
     props: PropsDictType = {
         "InputPrepareScheduleActions": (str, False),
+        "OutputStaticImageOverlayScheduleActions": (str, False),
     }
 
 
@@ -577,6 +578,36 @@ class InputLossBehavior(AWSProperty):
     }
 
 
+class EpochLockingSettings(AWSProperty):
+    """
+    `EpochLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-epochlockingsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomEpoch": (str, False),
+        "JamSyncTime": (str, False),
+    }
+
+
+class PipelineLockingSettings(AWSProperty):
+    """
+    `PipelineLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-pipelinelockingsettings.html>`__
+    """
+
+    props: PropsDictType = {}
+
+
+class OutputLockingSettings(AWSProperty):
+    """
+    `OutputLockingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-outputlockingsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EpochLockingSettings": (EpochLockingSettings, False),
+        "PipelineLockingSettings": (PipelineLockingSettings, False),
+    }
+
+
 class GlobalConfiguration(AWSProperty):
     """
     `GlobalConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-globalconfiguration.html>`__
@@ -587,6 +618,7 @@ class GlobalConfiguration(AWSProperty):
         "InputEndAction": (str, False),
         "InputLossBehavior": (InputLossBehavior, False),
         "OutputLockingMode": (str, False),
+        "OutputLockingSettings": (OutputLockingSettings, False),
         "OutputTimingSource": (str, False),
         "SupportLowFramerateInputs": (str, False),
     }

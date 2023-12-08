@@ -113,6 +113,7 @@ class CustomLineItem(AWSObject):
     resource_type = "AWS::BillingConductor::CustomLineItem"
 
     props: PropsDictType = {
+        "AccountId": (str, False),
         "BillingGroupArn": (str, True),
         "BillingPeriodRange": (BillingPeriodRange, False),
         "CustomLineItemChargeDetails": (CustomLineItemChargeDetails, False),

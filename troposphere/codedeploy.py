@@ -78,6 +78,29 @@ class TrafficRoutingConfig(AWSProperty):
     }
 
 
+class MinimumHealthyHostsPerZone(AWSProperty):
+    """
+    `MinimumHealthyHostsPerZone <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-minimumhealthyhostsperzone.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class ZonalConfig(AWSProperty):
+    """
+    `ZonalConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codedeploy-deploymentconfig-zonalconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirstZoneMonitorDurationInSeconds": (integer, False),
+        "MinimumHealthyHostsPerZone": (MinimumHealthyHostsPerZone, False),
+        "MonitorDurationInSeconds": (integer, False),
+    }
+
+
 class DeploymentConfig(AWSObject):
     """
     `DeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-codedeploy-deploymentconfig.html>`__
@@ -90,6 +113,7 @@ class DeploymentConfig(AWSObject):
         "DeploymentConfigName": (str, False),
         "MinimumHealthyHosts": (MinimumHealthyHosts, False),
         "TrafficRoutingConfig": (TrafficRoutingConfig, False),
+        "ZonalConfig": (ZonalConfig, False),
     }
 
 
@@ -415,6 +439,7 @@ class DeploymentGroup(AWSObject):
         "OutdatedInstancesStrategy": (str, False),
         "ServiceRoleArn": (str, True),
         "Tags": (Tags, False),
+        "TerminationHookEnabled": (boolean, False),
         "TriggerConfigurations": ([TriggerConfig], False),
     }
 
