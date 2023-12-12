@@ -232,7 +232,7 @@ class BucketEncryption(AWSProperty):
 
 class CorsRules(AWSProperty):
     """
-    `CorsRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors-corsrule.html>`__
+    `CorsRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsrule.html>`__
     """
 
     props: PropsDictType = {
@@ -247,7 +247,7 @@ class CorsRules(AWSProperty):
 
 class CorsConfiguration(AWSProperty):
     """
-    `CorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-cors.html>`__
+    `CorsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-corsconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -308,7 +308,7 @@ class AbortIncompleteMultipartUpload(AWSProperty):
 
 class LifecycleRuleTransition(AWSProperty):
     """
-    `LifecycleRuleTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-transition.html>`__
+    `LifecycleRuleTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-transition.html>`__
     """
 
     props: PropsDictType = {
@@ -320,7 +320,7 @@ class LifecycleRuleTransition(AWSProperty):
 
 class NoncurrentVersionExpiration(AWSProperty):
     """
-    `NoncurrentVersionExpiration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversionexpiration.html>`__
+    `NoncurrentVersionExpiration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversionexpiration.html>`__
     """
 
     props: PropsDictType = {
@@ -331,7 +331,7 @@ class NoncurrentVersionExpiration(AWSProperty):
 
 class NoncurrentVersionTransition(AWSProperty):
     """
-    `NoncurrentVersionTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule-noncurrentversiontransition.html>`__
+    `NoncurrentVersionTransition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-noncurrentversiontransition.html>`__
     """
 
     props: PropsDictType = {
@@ -343,7 +343,7 @@ class NoncurrentVersionTransition(AWSProperty):
 
 class LifecycleRule(AWSProperty):
     """
-    `LifecycleRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig-rule.html>`__
+    `LifecycleRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-rule.html>`__
     """
 
     props: PropsDictType = {
@@ -356,8 +356,8 @@ class LifecycleRule(AWSProperty):
         "NoncurrentVersionExpirationInDays": (integer, False),
         "NoncurrentVersionTransition": (NoncurrentVersionTransition, False),
         "NoncurrentVersionTransitions": ([NoncurrentVersionTransition], False),
-        "ObjectSizeGreaterThan": (integer, False),
-        "ObjectSizeLessThan": (integer, False),
+        "ObjectSizeGreaterThan": (str, False),
+        "ObjectSizeLessThan": (str, False),
         "Prefix": (str, False),
         "Status": (str, True),
         "TagFilters": ([TagFilter], False),
@@ -371,7 +371,7 @@ class LifecycleRule(AWSProperty):
 
 class LifecycleConfiguration(AWSProperty):
     """
-    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfig.html>`__
+    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lifecycleconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -381,7 +381,7 @@ class LifecycleConfiguration(AWSProperty):
 
 class PartitionedPrefix(AWSProperty):
     """
-    `PartitionedPrefix <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat-partitionedprefix.html>`__
+    `PartitionedPrefix <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-partitionedprefix.html>`__
     """
 
     props: PropsDictType = {
@@ -391,7 +391,7 @@ class PartitionedPrefix(AWSProperty):
 
 class TargetObjectKeyFormat(AWSProperty):
     """
-    `TargetObjectKeyFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig-targetobjectkeyformat.html>`__
+    `TargetObjectKeyFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-targetobjectkeyformat.html>`__
     """
 
     props: PropsDictType = {
@@ -402,7 +402,7 @@ class TargetObjectKeyFormat(AWSProperty):
 
 class LoggingConfiguration(AWSProperty):
     """
-    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfig.html>`__
+    `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-loggingconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -427,17 +427,17 @@ class MetricsConfiguration(AWSProperty):
 
 class EventBridgeConfiguration(AWSProperty):
     """
-    `EventBridgeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-eventbridgeconfig.html>`__
+    `EventBridgeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-eventbridgeconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "EventBridgeEnabled": (boolean, False),
+        "EventBridgeEnabled": (boolean, True),
     }
 
 
 class Rules(AWSProperty):
     """
-    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key-rules.html>`__
+    `Rules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-filterrule.html>`__
     """
 
     props: PropsDictType = {
@@ -448,7 +448,7 @@ class Rules(AWSProperty):
 
 class S3Key(AWSProperty):
     """
-    `S3Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter-s3key.html>`__
+    `S3Key <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3keyfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -458,7 +458,7 @@ class S3Key(AWSProperty):
 
 class Filter(AWSProperty):
     """
-    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration-config-filter.html>`__
+    `Filter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -468,7 +468,7 @@ class Filter(AWSProperty):
 
 class LambdaConfigurations(AWSProperty):
     """
-    `LambdaConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-lambdaconfig.html>`__
+    `LambdaConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-lambdaconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -480,7 +480,7 @@ class LambdaConfigurations(AWSProperty):
 
 class QueueConfigurations(AWSProperty):
     """
-    `QueueConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-queueconfig.html>`__
+    `QueueConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-queueconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -492,7 +492,7 @@ class QueueConfigurations(AWSProperty):
 
 class TopicConfigurations(AWSProperty):
     """
-    `TopicConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig-topicconfig.html>`__
+    `TopicConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-topicconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -504,7 +504,7 @@ class TopicConfigurations(AWSProperty):
 
 class NotificationConfiguration(AWSProperty):
     """
-    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfig.html>`__
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-notificationconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -632,7 +632,7 @@ class ReplicationTime(AWSProperty):
 
 class ReplicationConfigurationRulesDestination(AWSProperty):
     """
-    `ReplicationConfigurationRulesDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules-destination.html>`__
+    `ReplicationConfigurationRulesDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationdestination.html>`__
     """
 
     props: PropsDictType = {
@@ -702,7 +702,7 @@ class SourceSelectionCriteria(AWSProperty):
 
 class ReplicationConfigurationRules(AWSProperty):
     """
-    `ReplicationConfigurationRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationconfiguration-rules.html>`__
+    `ReplicationConfigurationRules <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-replicationrule.html>`__
     """
 
     props: PropsDictType = {
@@ -730,7 +730,7 @@ class ReplicationConfiguration(AWSProperty):
 
 class VersioningConfiguration(AWSProperty):
     """
-    `VersioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfig.html>`__
+    `VersioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-versioningconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -740,7 +740,7 @@ class VersioningConfiguration(AWSProperty):
 
 class RedirectAllRequestsTo(AWSProperty):
     """
-    `RedirectAllRequestsTo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-redirectallrequeststo.html>`__
+    `RedirectAllRequestsTo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-redirectallrequeststo.html>`__
     """
 
     props: PropsDictType = {
@@ -751,7 +751,7 @@ class RedirectAllRequestsTo(AWSProperty):
 
 class RedirectRule(AWSProperty):
     """
-    `RedirectRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-redirectrule.html>`__
+    `RedirectRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-redirectrule.html>`__
     """
 
     props: PropsDictType = {
@@ -765,7 +765,7 @@ class RedirectRule(AWSProperty):
 
 class RoutingRuleCondition(AWSProperty):
     """
-    `RoutingRuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules-routingrulecondition.html>`__
+    `RoutingRuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-routingrulecondition.html>`__
     """
 
     props: PropsDictType = {
@@ -776,7 +776,7 @@ class RoutingRuleCondition(AWSProperty):
 
 class RoutingRule(AWSProperty):
     """
-    `RoutingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration-routingrules.html>`__
+    `RoutingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-routingrule.html>`__
     """
 
     props: PropsDictType = {
@@ -787,7 +787,7 @@ class RoutingRule(AWSProperty):
 
 class WebsiteConfiguration(AWSProperty):
     """
-    `WebsiteConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-websiteconfiguration.html>`__
+    `WebsiteConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-websiteconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -800,7 +800,7 @@ class WebsiteConfiguration(AWSProperty):
 
 class Bucket(AWSObject):
     """
-    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket.html>`__
+    `Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3-bucket.html>`__
     """
 
     resource_type = "AWS::S3::Bucket"

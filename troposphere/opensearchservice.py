@@ -249,6 +249,7 @@ class Domain(AWSObject):
         "EBSOptions": (EBSOptions, False),
         "EncryptionAtRestOptions": (EncryptionAtRestOptions, False),
         "EngineVersion": (validate_search_service_engine_version, False),
+        "IPAddressType": (str, False),
         "LogPublishingOptions": (dict, False),
         "NodeToNodeEncryptionOptions": (NodeToNodeEncryptionOptions, False),
         "OffPeakWindowOptions": (OffPeakWindowOptions, False),

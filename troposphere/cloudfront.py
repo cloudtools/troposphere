@@ -648,6 +648,31 @@ class KeyGroup(AWSObject):
     }
 
 
+class ImportSource(AWSProperty):
+    """
+    `ImportSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-keyvaluestore-importsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceArn": (str, True),
+        "SourceType": (str, True),
+    }
+
+
+class KeyValueStore(AWSObject):
+    """
+    `KeyValueStore <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-keyvaluestore.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::KeyValueStore"
+
+    props: PropsDictType = {
+        "Comment": (str, False),
+        "ImportSource": (ImportSource, False),
+        "Name": (str, True),
+    }
+
+
 class RealtimeMetricsSubscriptionConfig(AWSProperty):
     """
     `RealtimeMetricsSubscriptionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-monitoringsubscription-realtimemetricssubscriptionconfig.html>`__

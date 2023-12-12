@@ -439,7 +439,6 @@ class DeploymentGroup(AWSObject):
         "OutdatedInstancesStrategy": (str, False),
         "ServiceRoleArn": (str, True),
         "Tags": (Tags, False),
-        "TerminationHookEnabled": (boolean, False),
         "TriggerConfigurations": ([TriggerConfig], False),
     }
 

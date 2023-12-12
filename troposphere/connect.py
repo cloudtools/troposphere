@@ -126,6 +126,7 @@ class Instance(AWSObject):
         "DirectoryId": (str, False),
         "IdentityManagementType": (str, True),
         "InstanceAlias": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -166,7 +167,7 @@ class KinesisVideoStreamConfig(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EncryptionConfig": (EncryptionConfig, False),
+        "EncryptionConfig": (EncryptionConfig, True),
         "Prefix": (str, True),
         "RetentionPeriodHours": (double, True),
     }

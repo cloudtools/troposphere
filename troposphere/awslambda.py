@@ -103,7 +103,7 @@ class CodeSigningConfig(AWSObject):
 
 class OnFailure(AWSProperty):
     """
-    `OnFailure <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onfailure.html>`__
+    `OnFailure <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onfailure.html>`__
     """
 
     props: PropsDictType = {
@@ -113,7 +113,7 @@ class OnFailure(AWSProperty):
 
 class OnSuccess(AWSProperty):
     """
-    `OnSuccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-destinationconfig-onsuccess.html>`__
+    `OnSuccess <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventinvokeconfig-onsuccess.html>`__
     """
 
     props: PropsDictType = {

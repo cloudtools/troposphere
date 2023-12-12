@@ -1998,7 +1998,7 @@ class SecurityGroup(AWSObject):
 
 class SecurityGroupEgress(AWSObject):
     """
-    `SecurityGroupEgress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-security-group-egress.html>`__
+    `SecurityGroupEgress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupegress.html>`__
     """
 
     resource_type = "AWS::EC2::SecurityGroupEgress"
@@ -2348,7 +2348,7 @@ class SubnetCidrBlock(AWSObject):
 
 class SubnetNetworkAclAssociation(AWSObject):
     """
-    `SubnetNetworkAclAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnet-network-acl-assoc.html>`__
+    `SubnetNetworkAclAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-subnetnetworkaclassociation.html>`__
     """
 
     resource_type = "AWS::EC2::SubnetNetworkAclAssociation"
