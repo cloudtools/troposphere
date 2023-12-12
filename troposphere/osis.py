@@ -10,13 +10,33 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class BufferOptions(AWSProperty):
+    """
+    `BufferOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-bufferoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "PersistentBufferEnabled": (boolean, True),
+    }
+
+
+class EncryptionAtRestOptions(AWSProperty):
+    """
+    `EncryptionAtRestOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-encryptionatrestoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsKeyArn": (str, True),
+    }
+
+
 class CloudWatchLogDestination(AWSProperty):
     """
     `CloudWatchLogDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-cloudwatchlogdestination.html>`__
     """
 
     props: PropsDictType = {
-        "LogGroup": (str, False),
+        "LogGroup": (str, True),
     }
 
 
@@ -38,7 +58,7 @@ class VpcOptions(AWSProperty):
 
     props: PropsDictType = {
         "SecurityGroupIds": ([str], False),
-        "SubnetIds": ([str], False),
+        "SubnetIds": ([str], True),
     }
 
 
@@ -50,6 +70,8 @@ class Pipeline(AWSObject):
     resource_type = "AWS::OSIS::Pipeline"
 
     props: PropsDictType = {
+        "BufferOptions": (BufferOptions, False),
+        "EncryptionAtRestOptions": (EncryptionAtRestOptions, False),
         "LogPublishingOptions": (LogPublishingOptions, False),
         "MaxUnits": (integer, True),
         "MinUnits": (integer, True),

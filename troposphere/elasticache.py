@@ -295,6 +295,17 @@ class CacheUsageLimits(AWSProperty):
     }
 
 
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "Port": (integer, False),
+    }
+
+
 class ServerlessCache(AWSObject):
     """
     `ServerlessCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-serverlesscache.html>`__
@@ -306,10 +317,12 @@ class ServerlessCache(AWSObject):
         "CacheUsageLimits": (CacheUsageLimits, False),
         "DailySnapshotTime": (str, False),
         "Description": (str, False),
+        "Endpoint": (Endpoint, False),
         "Engine": (str, True),
         "FinalSnapshotName": (str, False),
         "KmsKeyId": (str, False),
         "MajorEngineVersion": (str, False),
+        "ReaderEndpoint": (Endpoint, False),
         "SecurityGroupIds": ([str], False),
         "ServerlessCacheName": (str, True),
         "SnapshotArnsToRestore": ([str], False),
@@ -377,15 +390,4 @@ class UserGroup(AWSObject):
         "Tags": (Tags, False),
         "UserGroupId": (str, True),
         "UserIds": ([str], True),
-    }
-
-
-class Endpoint(AWSProperty):
-    """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-serverlesscache-endpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "Address": (str, False),
-        "Port": (integer, False),
     }

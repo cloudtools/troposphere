@@ -939,6 +939,7 @@ class OnlineStoreConfig(AWSProperty):
     props: PropsDictType = {
         "EnableOnlineStore": (boolean, False),
         "SecurityConfig": (OnlineStoreSecurityConfig, False),
+        "StorageType": (str, False),
     }
 
 
