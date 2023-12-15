@@ -196,6 +196,7 @@ class Fleet(AWSObject):
 
     props: PropsDictType = {
         "AnywhereConfiguration": (AnywhereConfiguration, False),
+        "ApplyCapacity": (str, False),
         "BuildId": (str, False),
         "CertificateConfiguration": (CertificateConfiguration, False),
         "ComputeType": (str, False),
