@@ -219,14 +219,14 @@ class InstanceRequirements(AWSProperty):
         "LocalStorage": (str, False),
         "LocalStorageTypes": ([str], False),
         "MemoryGiBPerVCpu": (MemoryGiBPerVCpuRequest, False),
-        "MemoryMiB": (MemoryMiBRequest, False),
+        "MemoryMiB": (MemoryMiBRequest, True),
         "NetworkBandwidthGbps": (NetworkBandwidthGbpsRequest, False),
         "NetworkInterfaceCount": (NetworkInterfaceCountRequest, False),
         "OnDemandMaxPricePercentageOverLowestPrice": (integer, False),
         "RequireHibernateSupport": (boolean, False),
         "SpotMaxPricePercentageOverLowestPrice": (integer, False),
         "TotalLocalStorageGB": (TotalLocalStorageGBRequest, False),
-        "VCpuCount": (VCpuCountRequest, False),
+        "VCpuCount": (VCpuCountRequest, True),
     }
 
 

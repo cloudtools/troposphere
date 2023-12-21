@@ -372,6 +372,17 @@ class ManagedScalingPolicy(AWSProperty):
     }
 
 
+class PlacementGroupConfig(AWSProperty):
+    """
+    `PlacementGroupConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-cluster-placementgroupconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceRole": (str, True),
+        "PlacementStrategy": (str, False),
+    }
+
+
 class HadoopJarStepConfig(AWSProperty):
     """
     `HadoopJarStepConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emr-step-hadoopjarstepconfig.html>`__
@@ -412,7 +423,9 @@ class Cluster(AWSObject):
         "BootstrapActions": ([BootstrapActionConfig], False),
         "Configurations": ([Configuration], False),
         "CustomAmiId": (str, False),
+        "EbsRootVolumeIops": (integer, False),
         "EbsRootVolumeSize": (integer, False),
+        "EbsRootVolumeThroughput": (integer, False),
         "Instances": (JobFlowInstancesConfig, True),
         "JobFlowRole": (str, True),
         "KerberosAttributes": (KerberosAttributes, False),
@@ -421,6 +434,7 @@ class Cluster(AWSObject):
         "ManagedScalingPolicy": (ManagedScalingPolicy, False),
         "Name": (str, True),
         "OSReleaseLabel": (str, False),
+        "PlacementGroupConfigs": ([PlacementGroupConfig], False),
         "ReleaseLabel": (str, False),
         "ScaleDownBehavior": (str, False),
         "SecurityConfiguration": (str, False),

@@ -466,6 +466,93 @@ class DomainSettings(AWSProperty):
     }
 
 
+class CodeEditorAppSettings(AWSProperty):
+    """
+    `CodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultResourceSpec": (ResourceSpec, False),
+        "LifecycleConfigArns": ([str], False),
+    }
+
+
+class EFSFileSystemConfig(AWSProperty):
+    """
+    `EFSFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-efsfilesystemconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileSystemId": (str, True),
+        "FileSystemPath": (str, False),
+    }
+
+
+class CustomFileSystemConfig(AWSProperty):
+    """
+    `CustomFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EFSFileSystemConfig": (EFSFileSystemConfig, False),
+    }
+
+
+class CustomPosixUserConfig(AWSProperty):
+    """
+    `CustomPosixUserConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customposixuserconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Gid": (integer, True),
+        "Uid": (integer, True),
+    }
+
+
+class DefaultEbsStorageSettings(AWSProperty):
+    """
+    `DefaultEbsStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultebsstoragesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultEbsVolumeSizeInGb": (integer, True),
+        "MaximumEbsVolumeSizeInGb": (integer, True),
+    }
+
+
+class DefaultSpaceStorageSettings(AWSProperty):
+    """
+    `DefaultSpaceStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-defaultspacestoragesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultEbsStorageSettings": (DefaultEbsStorageSettings, False),
+    }
+
+
+class CodeRepositoryProperty(AWSProperty):
+    """
+    `CodeRepositoryProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-coderepository.html>`__
+    """
+
+    props: PropsDictType = {
+        "RepositoryUrl": (str, True),
+    }
+
+
+class JupyterLabAppSettings(AWSProperty):
+    """
+    `JupyterLabAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeRepositories": ([CodeRepositoryProperty], False),
+        "CustomImages": ([CustomImage], False),
+        "DefaultResourceSpec": (ResourceSpec, False),
+        "LifecycleConfigArns": ([str], False),
+    }
+
+
 class RStudioServerProAppSettings(AWSProperty):
     """
     `RStudioServerProAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-rstudioserverproappsettings.html>`__
@@ -495,12 +582,19 @@ class UserSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CodeEditorAppSettings": (CodeEditorAppSettings, False),
+        "CustomFileSystemConfigs": ([CustomFileSystemConfig], False),
+        "CustomPosixUserConfig": (CustomPosixUserConfig, False),
+        "DefaultLandingUri": (str, False),
         "ExecutionRole": (str, False),
+        "JupyterLabAppSettings": (JupyterLabAppSettings, False),
         "JupyterServerAppSettings": (JupyterServerAppSettings, False),
         "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
         "RStudioServerProAppSettings": (RStudioServerProAppSettings, False),
         "SecurityGroups": ([str], False),
         "SharingSettings": (SharingSettings, False),
+        "SpaceStorageSettings": (DefaultSpaceStorageSettings, False),
+        "StudioWebPortal": (str, False),
     }
 
 

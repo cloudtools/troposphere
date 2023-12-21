@@ -286,6 +286,21 @@ class Crawler(AWSObject):
     }
 
 
+class CustomEntityType(AWSObject):
+    """
+    `CustomEntityType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-customentitytype.html>`__
+    """
+
+    resource_type = "AWS::Glue::CustomEntityType"
+
+    props: PropsDictType = {
+        "ContextWords": ([str], False),
+        "Name": (str, False),
+        "RegexString": (str, False),
+        "Tags": (dict, False),
+    }
+
+
 class ConnectionPasswordEncryption(AWSProperty):
     """
     `ConnectionPasswordEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-datacatalogencryptionsettings-connectionpasswordencryption.html>`__
