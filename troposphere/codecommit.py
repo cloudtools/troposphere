@@ -59,6 +59,7 @@ class Repository(AWSObject):
 
     props: PropsDictType = {
         "Code": (Code, False),
+        "KmsKeyId": (str, False),
         "RepositoryDescription": (str, False),
         "RepositoryName": (str, True),
         "Tags": (Tags, False),

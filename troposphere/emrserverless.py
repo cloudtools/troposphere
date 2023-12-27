@@ -98,6 +98,31 @@ class MaximumAllowedResources(AWSProperty):
     }
 
 
+class LogTypeMapKeyValuePair(AWSProperty):
+    """
+    `LogTypeMapKeyValuePair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-logtypemapkeyvaluepair.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": ([str], True),
+    }
+
+
+class CloudWatchLoggingConfiguration(AWSProperty):
+    """
+    `CloudWatchLoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-cloudwatchloggingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EncryptionKeyArn": (str, False),
+        "LogGroupName": (str, False),
+        "LogStreamNamePrefix": (str, False),
+        "LogTypeMap": ([LogTypeMapKeyValuePair], False),
+    }
+
+
 class ManagedPersistenceMonitoringConfiguration(AWSProperty):
     """
     `ManagedPersistenceMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-managedpersistencemonitoringconfiguration.html>`__
@@ -126,6 +151,7 @@ class MonitoringConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CloudWatchLoggingConfiguration": (CloudWatchLoggingConfiguration, False),
         "ManagedPersistenceMonitoringConfiguration": (
             ManagedPersistenceMonitoringConfiguration,
             False,

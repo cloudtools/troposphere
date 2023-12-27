@@ -161,6 +161,7 @@ class FirewallPolicyProperty(AWSProperty):
         "StatelessDefaultActions": ([str], True),
         "StatelessFragmentDefaultActions": ([str], True),
         "StatelessRuleGroupReferences": ([StatelessRuleGroupReference], False),
+        "TLSInspectionConfigurationArn": (str, False),
     }
 
 
@@ -308,7 +309,7 @@ class StatefulRule(AWSProperty):
 
 class Address(AWSProperty):
     """
-    `Address <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-address.html>`__
+    `Address <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-address.html>`__
     """
 
     props: PropsDictType = {
@@ -318,7 +319,7 @@ class Address(AWSProperty):
 
 class PortRange(AWSProperty):
     """
-    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-rulegroup-portrange.html>`__
+    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-portrange.html>`__
     """
 
     props: PropsDictType = {
@@ -436,4 +437,77 @@ class RuleGroup(AWSObject):
         "RuleGroupName": (str, True),
         "Tags": (Tags, False),
         "Type": (validate_rule_group_type, True),
+    }
+
+
+class CheckCertificateRevocationStatus(AWSProperty):
+    """
+    `CheckCertificateRevocationStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-checkcertificaterevocationstatus.html>`__
+    """
+
+    props: PropsDictType = {
+        "RevokedStatusAction": (str, False),
+        "UnknownStatusAction": (str, False),
+    }
+
+
+class ServerCertificate(AWSProperty):
+    """
+    `ServerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificate.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceArn": (str, False),
+    }
+
+
+class ServerCertificateScope(AWSProperty):
+    """
+    `ServerCertificateScope <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificatescope.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationPorts": ([PortRange], False),
+        "Destinations": ([Address], False),
+        "Protocols": ([integer], False),
+        "SourcePorts": ([PortRange], False),
+        "Sources": ([Address], False),
+    }
+
+
+class ServerCertificateConfiguration(AWSProperty):
+    """
+    `ServerCertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-servercertificateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateAuthorityArn": (str, False),
+        "CheckCertificateRevocationStatus": (CheckCertificateRevocationStatus, False),
+        "Scopes": ([ServerCertificateScope], False),
+        "ServerCertificates": ([ServerCertificate], False),
+    }
+
+
+class TLSInspectionConfigurationProperty(AWSProperty):
+    """
+    `TLSInspectionConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-tlsinspectionconfiguration-tlsinspectionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ServerCertificateConfigurations": ([ServerCertificateConfiguration], False),
+    }
+
+
+class TLSInspectionConfiguration(AWSObject):
+    """
+    `TLSInspectionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkfirewall-tlsinspectionconfiguration.html>`__
+    """
+
+    resource_type = "AWS::NetworkFirewall::TLSInspectionConfiguration"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "TLSInspectionConfiguration": (TLSInspectionConfigurationProperty, True),
+        "TLSInspectionConfigurationName": (str, True),
+        "Tags": (Tags, False),
     }

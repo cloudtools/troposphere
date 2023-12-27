@@ -540,9 +540,11 @@ class GCMChannel(AWSObject):
     resource_type = "AWS::Pinpoint::GCMChannel"
 
     props: PropsDictType = {
-        "ApiKey": (str, True),
+        "ApiKey": (str, False),
         "ApplicationId": (str, True),
+        "DefaultAuthenticationMethod": (str, False),
         "Enabled": (boolean, False),
+        "ServiceJson": (str, False),
     }
 
 

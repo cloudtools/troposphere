@@ -374,6 +374,48 @@ class ServiceRegistry(AWSProperty):
     }
 
 
+class EBSTagSpecification(AWSProperty):
+    """
+    `EBSTagSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-ebstagspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "PropagateTags": (str, False),
+        "ResourceType": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class ServiceManagedEBSVolumeConfiguration(AWSProperty):
+    """
+    `ServiceManagedEBSVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicemanagedebsvolumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Encrypted": (boolean, False),
+        "FilesystemType": (str, False),
+        "Iops": (integer, False),
+        "KmsKeyId": (str, False),
+        "RoleArn": (str, True),
+        "SizeInGiB": (integer, False),
+        "SnapshotId": (str, False),
+        "TagSpecifications": ([EBSTagSpecification], False),
+        "Throughput": (integer, False),
+        "VolumeType": (str, False),
+    }
+
+
+class ServiceVolumeConfiguration(AWSProperty):
+    """
+    `ServiceVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-servicevolumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ManagedEBSVolume": (ServiceManagedEBSVolumeConfiguration, False),
+        "Name": (str, True),
+    }
+
+
 class Service(AWSObject):
     """
     `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html>`__
@@ -404,6 +446,7 @@ class Service(AWSObject):
         "ServiceRegistries": ([ServiceRegistry], False),
         "Tags": (Tags, False),
         "TaskDefinition": (str, False),
+        "VolumeConfigurations": ([ServiceVolumeConfiguration], False),
     }
 
 

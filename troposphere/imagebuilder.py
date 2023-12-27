@@ -291,6 +291,30 @@ class ImageTestsConfiguration(AWSProperty):
     }
 
 
+class WorkflowParameter(AWSProperty):
+    """
+    `WorkflowParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Value": ([str], False),
+    }
+
+
+class WorkflowConfiguration(AWSProperty):
+    """
+    `WorkflowConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-imagepipeline-workflowconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "OnFailure": (str, False),
+        "ParallelGroup": (str, False),
+        "Parameters": ([WorkflowParameter], False),
+        "WorkflowArn": (str, False),
+    }
+
+
 class Image(AWSObject):
     """
     `Image <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-image.html>`__
@@ -302,11 +326,13 @@ class Image(AWSObject):
         "ContainerRecipeArn": (str, False),
         "DistributionConfigurationArn": (str, False),
         "EnhancedImageMetadataEnabled": (boolean, False),
+        "ExecutionRole": (str, False),
         "ImageRecipeArn": (str, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
         "InfrastructureConfigurationArn": (str, True),
         "Tags": (dict, False),
+        "Workflows": ([WorkflowConfiguration], False),
     }
 
 
@@ -336,6 +362,7 @@ class ImagePipeline(AWSObject):
         "Description": (str, False),
         "DistributionConfigurationArn": (str, False),
         "EnhancedImageMetadataEnabled": (boolean, False),
+        "ExecutionRole": (str, False),
         "ImageRecipeArn": (str, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
@@ -344,6 +371,7 @@ class ImagePipeline(AWSObject):
         "Schedule": (Schedule, False),
         "Status": (imagepipeline_status, False),
         "Tags": (dict, False),
+        "Workflows": ([WorkflowConfiguration], False),
     }
 
 
@@ -577,4 +605,24 @@ class LifecyclePolicy(AWSObject):
         "ResourceType": (str, True),
         "Status": (str, False),
         "Tags": (dict, False),
+    }
+
+
+class Workflow(AWSObject):
+    """
+    `Workflow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-workflow.html>`__
+    """
+
+    resource_type = "AWS::ImageBuilder::Workflow"
+
+    props: PropsDictType = {
+        "ChangeDescription": (str, False),
+        "Data": (str, False),
+        "Description": (str, False),
+        "KmsKeyId": (str, False),
+        "Name": (str, True),
+        "Tags": (dict, False),
+        "Type": (str, True),
+        "Uri": (str, False),
+        "Version": (str, True),
     }

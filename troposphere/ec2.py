@@ -868,7 +868,7 @@ class EBSBlockDevice(AWSProperty):
 
 class BlockDeviceMapping(AWSProperty):
     """
-    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-blockdevicemapping.html>`__
+    `BlockDeviceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-blockdev-mapping.html>`__
     """
 
     props: PropsDictType = {
@@ -987,7 +987,7 @@ class PrivateIpAddressSpecification(AWSProperty):
 
 class NetworkInterfaceProperty(AWSProperty):
     """
-    `NetworkInterfaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-networkinterface.html>`__
+    `NetworkInterfaceProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-network-iface-embedded.html>`__
     """
 
     props: PropsDictType = {
@@ -1021,7 +1021,7 @@ class PrivateDnsNameOptions(AWSProperty):
 
 class AssociationParameters(AWSProperty):
     """
-    `AssociationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-associationparameter.html>`__
+    `AssociationParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations-associationparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -1032,7 +1032,7 @@ class AssociationParameters(AWSProperty):
 
 class SsmAssociations(AWSProperty):
     """
-    `SsmAssociations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociation.html>`__
+    `SsmAssociations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-ssmassociations.html>`__
     """
 
     props: PropsDictType = {
@@ -1043,7 +1043,7 @@ class SsmAssociations(AWSProperty):
 
 class Instance(AWSObject):
     """
-    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-instance.html>`__
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html>`__
     """
 
     resource_type = "AWS::EC2::Instance"
@@ -2331,10 +2331,9 @@ class Subnet(AWSObject):
         "AvailabilityZoneId": (str, False),
         "CidrBlock": (str, False),
         "EnableDns64": (boolean, False),
-        "Ipv4NetmaskLength": (integer, False),
         "Ipv6CidrBlock": (str, False),
+        "Ipv6CidrBlocks": ([str], False),
         "Ipv6Native": (boolean, False),
-        "Ipv6NetmaskLength": (integer, False),
         "MapPublicIpOnLaunch": (boolean, False),
         "OutpostArn": (str, False),
         "PrivateDnsNameOptionsOnLaunch": (PrivateDnsNameOptionsOnLaunch, False),
@@ -3209,13 +3208,21 @@ class Ingress(AWSProperty):
 
 class MountPoint(AWSProperty):
     """
-    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html>`__
+    `MountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html>`__
     """
 
     props: PropsDictType = {
         "Device": (str, True),
         "VolumeId": (str, True),
     }
+
+
+class NoDevice(AWSProperty):
+    """
+    `NoDevice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-nodevice.html>`__
+    """
+
+    props: PropsDictType = {}
 
 
 class PeeringAttachmentStatus(AWSProperty):
@@ -3268,7 +3275,7 @@ class TransitGatewayRouteTableRoute(AWSProperty):
 
 class VolumeProperty(AWSProperty):
     """
-    `VolumeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-volume.html>`__
+    `VolumeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-mount-point.html>`__
     """
 
     props: PropsDictType = {

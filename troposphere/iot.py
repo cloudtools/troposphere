@@ -188,6 +188,21 @@ class Certificate(AWSObject):
     }
 
 
+class CertificateProvider(AWSObject):
+    """
+    `CertificateProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-certificateprovider.html>`__
+    """
+
+    resource_type = "AWS::IoT::CertificateProvider"
+
+    props: PropsDictType = {
+        "AccountDefaultForOperations": ([str], True),
+        "CertificateProviderName": (str, False),
+        "LambdaFunctionArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class CustomMetric(AWSObject):
     """
     `CustomMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html>`__
