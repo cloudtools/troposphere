@@ -1,4 +1,5 @@
 awacs>=2.0.0
+cfn_flip>=1.0.2
 myst_parser==2.0.0
 sphinx==6.2.1
 sphinx_rtd_theme==1.2.2
