@@ -31,4 +31,23 @@ cfninstanceprofile = t.add_resource(
     InstanceProfile("CFNInstanceProfile", Roles=[Ref(cfnrole)])
 )
 
+cfninstancepolicy = t.add_resource(PolicyType(
+    "CFNInstancePolicy",
+    PolicyName="CFNPolicy",
+    PolicyDocument={
+        "Version": "2018-06-14",
+        "Statement": [{
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeAddresses",
+                "ec2:AllocateAddress",
+                "ec2:DescribeInstances",
+                "ec2:AssociateAddress",
+            ],
+            "Resource": "*"
+        }],
+    },
+    Roles=[Ref("cfnrole")],
+))
+
 print(t.to_json())
