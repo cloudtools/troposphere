@@ -263,6 +263,16 @@ class EventBusPolicy(AWSObject):
     }
 
 
+class AppSyncParameters(AWSProperty):
+    """
+    `AppSyncParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-appsyncparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "GraphQLOperation": (str, True),
+    }
+
+
 class BatchArrayProperties(AWSProperty):
     """
     `BatchArrayProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-batcharrayproperties.html>`__
@@ -503,6 +513,7 @@ class Target(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AppSyncParameters": (AppSyncParameters, False),
         "Arn": (str, True),
         "BatchParameters": (BatchParameters, False),
         "DeadLetterConfig": (DeadLetterConfig, False),

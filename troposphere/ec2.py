@@ -1366,6 +1366,7 @@ class MaintenanceOptions(AWSProperty):
 
     props: PropsDictType = {
         "AutoRecovery": (str, False),
+        "RebootMigration": (str, False),
     }
 
 
@@ -2331,9 +2332,13 @@ class Subnet(AWSObject):
         "AvailabilityZoneId": (str, False),
         "CidrBlock": (str, False),
         "EnableDns64": (boolean, False),
+        "Ipv4IpamPoolId": (str, False),
+        "Ipv4NetmaskLength": (integer, False),
         "Ipv6CidrBlock": (str, False),
         "Ipv6CidrBlocks": ([str], False),
+        "Ipv6IpamPoolId": (str, False),
         "Ipv6Native": (boolean, False),
+        "Ipv6NetmaskLength": (integer, False),
         "MapPublicIpOnLaunch": (boolean, False),
         "OutpostArn": (str, False),
         "PrivateDnsNameOptionsOnLaunch": (PrivateDnsNameOptionsOnLaunch, False),
@@ -2353,7 +2358,9 @@ class SubnetCidrBlock(AWSObject):
     resource_type = "AWS::EC2::SubnetCidrBlock"
 
     props: PropsDictType = {
-        "Ipv6CidrBlock": (str, True),
+        "Ipv6CidrBlock": (str, False),
+        "Ipv6IpamPoolId": (str, False),
+        "Ipv6NetmaskLength": (integer, False),
         "SubnetId": (str, True),
     }
 

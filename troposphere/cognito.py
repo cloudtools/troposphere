@@ -224,6 +224,17 @@ class CustomSMSSender(AWSProperty):
     }
 
 
+class PreTokenGenerationConfig(AWSProperty):
+    """
+    `PreTokenGenerationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-pretokengenerationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaArn": (str, False),
+        "LambdaVersion": (str, False),
+    }
+
+
 class LambdaConfig(AWSProperty):
     """
     `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-lambdaconfig.html>`__
@@ -241,6 +252,7 @@ class LambdaConfig(AWSProperty):
         "PreAuthentication": (str, False),
         "PreSignUp": (str, False),
         "PreTokenGeneration": (str, False),
+        "PreTokenGenerationConfig": (PreTokenGenerationConfig, False),
         "UserMigration": (str, False),
         "VerifyAuthChallengeResponse": (str, False),
     }

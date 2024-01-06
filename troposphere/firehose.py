@@ -565,6 +565,17 @@ class RedshiftDestinationConfiguration(AWSProperty):
     }
 
 
+class SplunkBufferingHints(AWSProperty):
+    """
+    `SplunkBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html>`__
+    """
+
+    props: PropsDictType = {
+        "IntervalInSeconds": (integer, False),
+        "SizeInMBs": (integer, False),
+    }
+
+
 class SplunkRetryOptions(AWSProperty):
     """
     `SplunkRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkretryoptions.html>`__
@@ -581,6 +592,7 @@ class SplunkDestinationConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BufferingHints": (SplunkBufferingHints, False),
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
         "HECAcknowledgmentTimeoutInSeconds": (integer, False),
         "HECEndpoint": (str, True),

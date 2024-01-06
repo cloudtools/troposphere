@@ -2719,6 +2719,16 @@ class EndpointMetadata(AWSProperty):
     }
 
 
+class ModelAccessConfig(AWSProperty):
+    """
+    `ModelAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource-modelaccessconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AcceptEula": (boolean, True),
+    }
+
+
 class RSessionAppSettings(AWSProperty):
     """
     `RSessionAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rsessionappsettings.html>`__
