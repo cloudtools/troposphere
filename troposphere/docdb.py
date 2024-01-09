@@ -38,6 +38,7 @@ class DBCluster(AWSObject):
         "SnapshotIdentifier": (str, False),
         "SourceDBClusterIdentifier": (str, False),
         "StorageEncrypted": (boolean, False),
+        "StorageType": (str, False),
         "Tags": (Tags, False),
         "UseLatestRestorableTime": (boolean, False),
         "VpcSecurityGroupIds": ([str], False),

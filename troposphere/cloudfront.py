@@ -587,6 +587,16 @@ class Distribution(AWSObject):
     }
 
 
+class KeyValueStoreAssociation(AWSProperty):
+    """
+    `KeyValueStoreAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-keyvaluestoreassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyValueStoreARN": (str, True),
+    }
+
+
 class FunctionConfig(AWSProperty):
     """
     `FunctionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-function-functionconfig.html>`__
@@ -594,6 +604,7 @@ class FunctionConfig(AWSProperty):
 
     props: PropsDictType = {
         "Comment": (str, True),
+        "KeyValueStoreAssociations": ([KeyValueStoreAssociation], False),
         "Runtime": (str, True),
     }
 

@@ -38,6 +38,7 @@ class EndpointConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AttachmentArn": (str, False),
         "ClientIPPreservationEnabled": (boolean, False),
         "EndpointId": (str, True),
         "Weight": (integer, False),

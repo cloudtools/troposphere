@@ -225,12 +225,37 @@ class PhoneNumber(AWSObject):
     resource_type = "AWS::Connect::PhoneNumber"
 
     props: PropsDictType = {
-        "CountryCode": (str, True),
+        "CountryCode": (str, False),
         "Description": (str, False),
         "Prefix": (str, False),
+        "SourcePhoneNumberArn": (str, False),
         "Tags": (Tags, False),
         "TargetArn": (str, True),
-        "Type": (str, True),
+        "Type": (str, False),
+    }
+
+
+class Values(AWSProperty):
+    """
+    `Values <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-predefinedattribute-values.html>`__
+    """
+
+    props: PropsDictType = {
+        "StringList": ([str], False),
+    }
+
+
+class PredefinedAttribute(AWSObject):
+    """
+    `PredefinedAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-predefinedattribute.html>`__
+    """
+
+    resource_type = "AWS::Connect::PredefinedAttribute"
+
+    props: PropsDictType = {
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "Values": (Values, True),
     }
 
 
@@ -678,6 +703,18 @@ class UserPhoneConfig(AWSProperty):
     }
 
 
+class UserProficiency(AWSProperty):
+    """
+    `UserProficiency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-user-userproficiency.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeName": (str, True),
+        "AttributeValue": (str, True),
+        "Level": (double, True),
+    }
+
+
 class User(AWSObject):
     """
     `User <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-user.html>`__
@@ -695,6 +732,7 @@ class User(AWSObject):
         "RoutingProfileArn": (str, True),
         "SecurityProfileArns": ([str], True),
         "Tags": (Tags, False),
+        "UserProficiencies": ([UserProficiency], False),
         "Username": (str, True),
     }
 
