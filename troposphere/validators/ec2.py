@@ -327,7 +327,7 @@ def validate_subnet(self):
     Class: Subnet
     """
     if self.properties.get("AssignIpv6AddressOnCreation"):
-        if not "Ipv6CidrBlock" in self.properties:
+        if "Ipv6CidrBlock" not in self.properties:
             raise ValueError(
                 "If AssignIpv6AddressOnCreation is set to True, "
                 "Ipv6CidrBlock must be present"
