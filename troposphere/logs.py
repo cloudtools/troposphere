@@ -27,6 +27,7 @@ class AccountPolicy(AWSObject):
         "PolicyName": (str, True),
         "PolicyType": (str, True),
         "Scope": (str, False),
+        "SelectionCriteria": (str, False),
     }
 
 

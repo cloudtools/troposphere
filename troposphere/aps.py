@@ -44,6 +44,7 @@ class Workspace(AWSObject):
     props: PropsDictType = {
         "AlertManagerDefinition": (str, False),
         "Alias": (str, False),
+        "KmsKeyArn": (str, False),
         "LoggingConfiguration": (LoggingConfiguration, False),
         "Tags": (Tags, False),
     }

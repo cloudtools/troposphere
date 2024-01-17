@@ -767,6 +767,19 @@ class ProvisionedCidr(AWSProperty):
     }
 
 
+class SourceResource(AWSProperty):
+    """
+    `SourceResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipampool-sourceresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceId": (str, True),
+        "ResourceOwner": (str, True),
+        "ResourceRegion": (str, True),
+        "ResourceType": (str, True),
+    }
+
+
 class IPAMPool(AWSObject):
     """
     `IPAMPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipampool.html>`__
@@ -789,6 +802,7 @@ class IPAMPool(AWSObject):
         "PublicIpSource": (str, False),
         "PubliclyAdvertisable": (boolean, False),
         "SourceIpamPoolId": (str, False),
+        "SourceResource": (SourceResource, False),
         "Tags": (Tags, False),
     }
 
@@ -1396,7 +1410,7 @@ class Monitoring(AWSProperty):
 
 class ConnectionTrackingSpecification(AWSProperty):
     """
-    `ConnectionTrackingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-connectiontrackingspecification.html>`__
+    `ConnectionTrackingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-connectiontrackingspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1835,6 +1849,7 @@ class NetworkInterface(AWSObject):
     resource_type = "AWS::EC2::NetworkInterface"
 
     props: PropsDictType = {
+        "ConnectionTrackingSpecification": (ConnectionTrackingSpecification, False),
         "Description": (str, False),
         "GroupSet": ([str], False),
         "InterfaceType": (str, False),

@@ -5687,6 +5687,28 @@ class AnalysisDefinition(AWSProperty):
     }
 
 
+class Entity(AWSProperty):
+    """
+    `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-entity.html>`__
+    """
+
+    props: PropsDictType = {
+        "Path": (str, False),
+    }
+
+
+class AnalysisError(AWSProperty):
+    """
+    `AnalysisError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, False),
+        "Type": (str, False),
+        "ViolatedEntities": ([Entity], False),
+    }
+
+
 class DataSetReference(AWSProperty):
     """
     `DataSetReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datasetreference.html>`__
@@ -5784,7 +5806,17 @@ class ResourcePermission(AWSProperty):
     props: PropsDictType = {
         "Actions": ([str], True),
         "Principal": (str, True),
-        "Resource": (str, False),
+    }
+
+
+class Sheet(AWSProperty):
+    """
+    `Sheet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheet.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "SheetId": (str, False),
     }
 
 
@@ -5809,9 +5841,11 @@ class Analysis(AWSObject):
         "AnalysisId": (str, True),
         "AwsAccountId": (str, True),
         "Definition": (AnalysisDefinition, False),
+        "Errors": ([AnalysisError], False),
         "Name": (str, True),
         "Parameters": (Parameters, False),
         "Permissions": ([ResourcePermission], False),
+        "Sheets": ([Sheet], False),
         "SourceEntity": (AnalysisSourceEntity, False),
         "Status": (str, False),
         "Tags": (Tags, False),
@@ -7620,6 +7654,7 @@ class Topic(AWSObject):
         "Description": (str, False),
         "Name": (str, False),
         "TopicId": (str, False),
+        "UserExperienceVersion": (str, False),
     }
 
 
@@ -7640,28 +7675,6 @@ class VPCConnection(AWSObject):
         "SubnetIds": ([str], False),
         "Tags": (Tags, False),
         "VPCConnectionId": (str, False),
-    }
-
-
-class Entity(AWSProperty):
-    """
-    `Entity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-entity.html>`__
-    """
-
-    props: PropsDictType = {
-        "Path": (str, False),
-    }
-
-
-class AnalysisError(AWSProperty):
-    """
-    `AnalysisError <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-analysis-analysiserror.html>`__
-    """
-
-    props: PropsDictType = {
-        "Message": (str, False),
-        "Type": (str, False),
-        "ViolatedEntities": ([Entity], False),
     }
 
 
@@ -7688,17 +7701,6 @@ class NetworkInterface(AWSProperty):
         "NetworkInterfaceId": (str, False),
         "Status": (str, False),
         "SubnetId": (str, False),
-    }
-
-
-class Sheet(AWSProperty):
-    """
-    `Sheet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheet.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, False),
-        "SheetId": (str, False),
     }
 
 

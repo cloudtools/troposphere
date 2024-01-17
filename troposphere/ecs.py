@@ -802,6 +802,7 @@ class Volume(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ConfiguredAtLaunch": (boolean, False),
         "DockerVolumeConfiguration": (DockerVolumeConfiguration, False),
         "EFSVolumeConfiguration": (EFSVolumeConfiguration, False),
         "Host": (Host, False),

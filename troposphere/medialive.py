@@ -553,6 +553,28 @@ class CaptionDescription(AWSProperty):
     }
 
 
+class ColorCorrection(AWSProperty):
+    """
+    `ColorCorrection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrection.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputColorSpace": (str, False),
+        "OutputColorSpace": (str, False),
+        "Uri": (str, False),
+    }
+
+
+class ColorCorrectionSettings(AWSProperty):
+    """
+    `ColorCorrectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-colorcorrectionsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlobalColorCorrections": ([ColorCorrection], False),
+    }
+
+
 class FeatureActivations(AWSProperty):
     """
     `FeatureActivations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-featureactivations.html>`__
@@ -1657,6 +1679,7 @@ class EncoderSettings(AWSProperty):
         "AvailConfiguration": (AvailConfiguration, False),
         "BlackoutSlate": (BlackoutSlate, False),
         "CaptionDescriptions": ([CaptionDescription], False),
+        "ColorCorrectionSettings": (ColorCorrectionSettings, False),
         "FeatureActivations": (FeatureActivations, False),
         "GlobalConfiguration": (GlobalConfiguration, False),
         "MotionGraphicsConfiguration": (MotionGraphicsConfiguration, False),
