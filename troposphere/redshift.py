@@ -27,7 +27,7 @@ class LoggingProperties(AWSProperty):
     """
 
     props: PropsDictType = {
-        "BucketName": (str, True),
+        "BucketName": (str, False),
         "S3KeyPrefix": (str, False),
     }
 
@@ -69,10 +69,13 @@ class Cluster(AWSObject):
         "KmsKeyId": (str, False),
         "LoggingProperties": (LoggingProperties, False),
         "MaintenanceTrackName": (str, False),
+        "ManageMasterPassword": (boolean, False),
         "ManualSnapshotRetentionPeriod": (integer, False),
-        "MasterUserPassword": (str, True),
+        "MasterPasswordSecretKmsKeyId": (str, False),
+        "MasterUserPassword": (str, False),
         "MasterUsername": (str, True),
         "MultiAZ": (boolean, False),
+        "NamespaceResourcePolicy": (dict, False),
         "NodeType": (str, True),
         "NumberOfNodes": (integer, False),
         "OwnerAccount": (str, False),

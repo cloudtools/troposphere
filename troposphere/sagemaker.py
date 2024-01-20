@@ -1037,6 +1037,18 @@ class OnlineStoreConfig(AWSProperty):
     }
 
 
+class ThroughputConfig(AWSProperty):
+    """
+    `ThroughputConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-throughputconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ProvisionedReadCapacityUnits": (integer, False),
+        "ProvisionedWriteCapacityUnits": (integer, False),
+        "ThroughputMode": (str, True),
+    }
+
+
 class FeatureGroup(AWSObject):
     """
     `FeatureGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-featuregroup.html>`__
@@ -1054,6 +1066,7 @@ class FeatureGroup(AWSObject):
         "RecordIdentifierFeatureName": (str, True),
         "RoleArn": (str, False),
         "Tags": (Tags, False),
+        "ThroughputConfig": (ThroughputConfig, False),
     }
 
 

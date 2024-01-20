@@ -244,16 +244,6 @@ class AuthorizerConfig(AWSProperty):
     }
 
 
-class ServerCertificateConfig(AWSProperty):
-    """
-    `ServerCertificateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "EnableOCSPCheck": (boolean, False),
-    }
-
-
 class TlsConfig(AWSProperty):
     """
     `TlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-tlsconfig.html>`__
@@ -277,7 +267,6 @@ class DomainConfiguration(AWSObject):
         "DomainConfigurationStatus": (str, False),
         "DomainName": (str, False),
         "ServerCertificateArns": ([str], False),
-        "ServerCertificateConfig": (ServerCertificateConfig, False),
         "ServiceType": (str, False),
         "Tags": (Tags, False),
         "TlsConfig": (TlsConfig, False),

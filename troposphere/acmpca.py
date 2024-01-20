@@ -250,12 +250,26 @@ class CsrExtensions(AWSProperty):
     }
 
 
+class CrlDistributionPointExtensionConfiguration(AWSProperty):
+    """
+    `CrlDistributionPointExtensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crldistributionpointextensionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "OmitExtension": (boolean, True),
+    }
+
+
 class CrlConfiguration(AWSProperty):
     """
     `CrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-acmpca-certificateauthority-crlconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "CrlDistributionPointExtensionConfiguration": (
+            CrlDistributionPointExtensionConfiguration,
+            False,
+        ),
         "CustomCname": (str, False),
         "Enabled": (boolean, False),
         "ExpirationInDays": (integer, False),

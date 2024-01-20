@@ -187,7 +187,7 @@ class IPSet(AWSObject):
         "DetectorId": (str, False),
         "Format": (str, True),
         "Location": (str, True),
-        "Name": (str, True),
+        "Name": (str, False),
         "Tags": ([TagItem], False),
     }
 
@@ -235,6 +235,6 @@ class ThreatIntelSet(AWSObject):
         "DetectorId": (str, False),
         "Format": (str, True),
         "Location": (str, True),
-        "Name": (str, True),
+        "Name": (str, False),
         "Tags": ([TagItem], False),
     }
