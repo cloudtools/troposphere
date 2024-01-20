@@ -574,7 +574,7 @@ class RecipeSelection(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, True),
-        "SemanticVersion": (str, False),
+        "SemanticVersion": (str, True),
     }
 
 

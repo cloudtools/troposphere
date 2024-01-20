@@ -17,8 +17,8 @@ class CognitoIdentityProvider(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ClientId": (str, False),
-        "ProviderName": (str, False),
+        "ClientId": (str, True),
+        "ProviderName": (str, True),
         "ServerSideTokenCheck": (boolean, False),
     }
 
@@ -80,6 +80,42 @@ class IdentityPoolPrincipalTag(AWSObject):
         "IdentityProviderName": (str, True),
         "PrincipalTags": (dict, False),
         "UseDefaults": (boolean, False),
+    }
+
+
+class MappingRule(AWSProperty):
+    """
+    `MappingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Claim": (str, True),
+        "MatchType": (str, True),
+        "RoleARN": (str, True),
+        "Value": (str, True),
+    }
+
+
+class RulesConfiguration(AWSProperty):
+    """
+    `RulesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html>`__
+    """
+
+    props: PropsDictType = {
+        "Rules": ([MappingRule], True),
+    }
+
+
+class RoleMapping(AWSProperty):
+    """
+    `RoleMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "AmbiguousRoleResolution": (str, False),
+        "IdentityProvider": (str, False),
+        "RulesConfiguration": (RulesConfiguration, False),
+        "Type": (str, True),
     }
 
 
@@ -725,40 +761,4 @@ class UserPoolUserToGroupAttachment(AWSObject):
         "GroupName": (str, True),
         "UserPoolId": (str, True),
         "Username": (str, True),
-    }
-
-
-class MappingRule(AWSProperty):
-    """
-    `MappingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-mappingrule.html>`__
-    """
-
-    props: PropsDictType = {
-        "Claim": (str, True),
-        "MatchType": (str, True),
-        "RoleARN": (str, True),
-        "Value": (str, True),
-    }
-
-
-class RulesConfiguration(AWSProperty):
-    """
-    `RulesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rulesconfigurationtype.html>`__
-    """
-
-    props: PropsDictType = {
-        "Rules": ([MappingRule], True),
-    }
-
-
-class RoleMapping(AWSProperty):
-    """
-    `RoleMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-identitypoolroleattachment-rolemapping.html>`__
-    """
-
-    props: PropsDictType = {
-        "AmbiguousRoleResolution": (str, False),
-        "IdentityProvider": (str, False),
-        "RulesConfiguration": (RulesConfiguration, False),
-        "Type": (str, True),
     }

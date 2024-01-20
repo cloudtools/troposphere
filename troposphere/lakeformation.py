@@ -257,6 +257,7 @@ class Resource(AWSObject):
     resource_type = "AWS::LakeFormation::Resource"
 
     props: PropsDictType = {
+        "HybridAccessEnabled": (boolean, False),
         "ResourceArn": (str, True),
         "RoleArn": (str, False),
         "UseServiceLinkedRole": (boolean, True),

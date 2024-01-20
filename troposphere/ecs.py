@@ -335,6 +335,39 @@ class ServiceConnectClientAlias(AWSProperty):
     }
 
 
+class ServiceConnectTlsCertificateAuthority(AWSProperty):
+    """
+    `ServiceConnectTlsCertificateAuthority <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlscertificateauthority.html>`__
+    """
+
+    props: PropsDictType = {
+        "AwsPcaAuthorityArn": (str, False),
+    }
+
+
+class ServiceConnectTlsConfiguration(AWSProperty):
+    """
+    `ServiceConnectTlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnecttlsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IssuerCertificateAuthority": (ServiceConnectTlsCertificateAuthority, True),
+        "KmsKey": (str, False),
+        "RoleArn": (str, False),
+    }
+
+
+class TimeoutConfiguration(AWSProperty):
+    """
+    `TimeoutConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-timeoutconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdleTimeoutSeconds": (integer, False),
+        "PerRequestTimeoutSeconds": (integer, False),
+    }
+
+
 class ServiceConnectService(AWSProperty):
     """
     `ServiceConnectService <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-serviceconnectservice.html>`__
@@ -345,6 +378,8 @@ class ServiceConnectService(AWSProperty):
         "DiscoveryName": (str, False),
         "IngressPortOverride": (integer, False),
         "PortName": (str, True),
+        "Timeout": (TimeoutConfiguration, False),
+        "Tls": (ServiceConnectTlsConfiguration, False),
     }
 
 

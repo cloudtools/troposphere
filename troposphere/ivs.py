@@ -104,6 +104,19 @@ class RecordingConfiguration(AWSObject):
     }
 
 
+class Stage(AWSObject):
+    """
+    `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html>`__
+    """
+
+    resource_type = "AWS::IVS::Stage"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class StreamKey(AWSObject):
     """
     `StreamKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-streamkey.html>`__

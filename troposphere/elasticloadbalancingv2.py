@@ -378,6 +378,7 @@ class LoadBalancer(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
     props: PropsDictType = {
+        "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": (str, False),
         "IpAddressType": (str, False),
         "LoadBalancerAttributes": ([LoadBalancerAttributes], False),
         "Name": (validate_elb_name, False),
