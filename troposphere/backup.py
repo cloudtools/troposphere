@@ -34,6 +34,7 @@ class LifecycleResourceType(AWSProperty):
     props: PropsDictType = {
         "DeleteAfterDays": (double, False),
         "MoveToColdStorageAfterDays": (double, False),
+        "OptInToArchiveForSupportedResources": (boolean, False),
     }
 
 

@@ -432,6 +432,40 @@ class RoutingProfile(AWSObject):
     }
 
 
+class FieldIdentifier(AWSProperty):
+    """
+    `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class Field(AWSProperty):
+    """
+    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Id": (FieldIdentifier, True),
+        "SingleSelectOptions": ([str], False),
+        "Type": (str, True),
+    }
+
+
+class CreateCaseAction(AWSProperty):
+    """
+    `CreateCaseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-createcaseaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fields": ([Field], True),
+        "TemplateId": (str, True),
+    }
+
+
 class EventBridgeAction(AWSProperty):
     """
     `EventBridgeAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-eventbridgeaction.html>`__
@@ -491,6 +525,16 @@ class TaskAction(AWSProperty):
     }
 
 
+class UpdateCaseAction(AWSProperty):
+    """
+    `UpdateCaseAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-updatecaseaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fields": ([Field], True),
+    }
+
+
 class Actions(AWSProperty):
     """
     `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-actions.html>`__
@@ -498,9 +542,12 @@ class Actions(AWSProperty):
 
     props: PropsDictType = {
         "AssignContactCategoryActions": (Tags, False),
+        "CreateCaseActions": ([CreateCaseAction], False),
+        "EndAssociatedTasksActions": (Tags, False),
         "EventBridgeActions": ([EventBridgeAction], False),
         "SendNotificationActions": ([SendNotificationAction], False),
         "TaskActions": ([TaskAction], False),
+        "UpdateCaseActions": ([UpdateCaseAction], False),
     }
 
 
@@ -564,16 +611,6 @@ class SecurityProfile(AWSObject):
     }
 
 
-class FieldIdentifier(AWSProperty):
-    """
-    `FieldIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-fieldidentifier.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-    }
-
-
 class InvisibleFieldInfo(AWSProperty):
     """
     `InvisibleFieldInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-invisiblefieldinfo.html>`__
@@ -624,19 +661,6 @@ class DefaultFieldValue(AWSProperty):
     props: PropsDictType = {
         "DefaultValue": (str, True),
         "Id": (FieldIdentifier, True),
-    }
-
-
-class Field(AWSProperty):
-    """
-    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-tasktemplate-field.html>`__
-    """
-
-    props: PropsDictType = {
-        "Description": (str, False),
-        "Id": (FieldIdentifier, True),
-        "SingleSelectOptions": ([str], False),
-        "Type": (str, True),
     }
 
 
@@ -780,4 +804,17 @@ class ViewVersion(AWSObject):
         "VersionDescription": (str, False),
         "ViewArn": (str, True),
         "ViewContentSha256": (str, False),
+    }
+
+
+class FieldValue(AWSProperty):
+    """
+    `FieldValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-rule-fieldvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "BooleanValue": (boolean, False),
+        "DoubleValue": (double, False),
+        "EmptyValue": (dict, False),
+        "StringValue": (str, False),
     }

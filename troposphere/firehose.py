@@ -565,6 +565,64 @@ class RedshiftDestinationConfiguration(AWSProperty):
     }
 
 
+class SnowflakeRetryOptions(AWSProperty):
+    """
+    `SnowflakeRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakeretryoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DurationInSeconds": (integer, False),
+    }
+
+
+class SnowflakeRoleConfiguration(AWSProperty):
+    """
+    `SnowflakeRoleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakeroleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "SnowflakeRole": (str, False),
+    }
+
+
+class SnowflakeVpcConfiguration(AWSProperty):
+    """
+    `SnowflakeVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakevpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrivateLinkVpceId": (str, True),
+    }
+
+
+class SnowflakeDestinationConfiguration(AWSProperty):
+    """
+    `SnowflakeDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakedestinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountUrl": (str, True),
+        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
+        "ContentColumnName": (str, False),
+        "DataLoadingOption": (str, False),
+        "Database": (str, True),
+        "KeyPassphrase": (str, False),
+        "MetaDataColumnName": (str, False),
+        "PrivateKey": (str, True),
+        "ProcessingConfiguration": (ProcessingConfiguration, False),
+        "RetryOptions": (SnowflakeRetryOptions, False),
+        "RoleARN": (str, True),
+        "S3BackupMode": (str, False),
+        "S3Configuration": (S3DestinationConfiguration, True),
+        "Schema": (str, True),
+        "SnowflakeRoleConfiguration": (SnowflakeRoleConfiguration, False),
+        "SnowflakeVpcConfiguration": (SnowflakeVpcConfiguration, False),
+        "Table": (str, True),
+        "User": (str, True),
+    }
+
+
 class SplunkBufferingHints(AWSProperty):
     """
     `SplunkBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-splunkbufferinghints.html>`__
@@ -643,6 +701,7 @@ class DeliveryStream(AWSObject):
         "MSKSourceConfiguration": (MSKSourceConfiguration, False),
         "RedshiftDestinationConfiguration": (RedshiftDestinationConfiguration, False),
         "S3DestinationConfiguration": (S3DestinationConfiguration, False),
+        "SnowflakeDestinationConfiguration": (SnowflakeDestinationConfiguration, False),
         "SplunkDestinationConfiguration": (SplunkDestinationConfiguration, False),
         "Tags": (Tags, False),
     }

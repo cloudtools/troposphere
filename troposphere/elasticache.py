@@ -302,7 +302,7 @@ class Endpoint(AWSProperty):
 
     props: PropsDictType = {
         "Address": (str, False),
-        "Port": (integer, False),
+        "Port": (validate_network_port, False),
     }
 
 
