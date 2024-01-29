@@ -153,7 +153,6 @@ class FindingCriteria(AWSProperty):
 
     props: PropsDictType = {
         "Criterion": (dict, False),
-        "ItemType": (Condition, False),
     }
 
 
@@ -165,12 +164,12 @@ class Filter(AWSObject):
     resource_type = "AWS::GuardDuty::Filter"
 
     props: PropsDictType = {
-        "Action": (str, True),
-        "Description": (str, True),
-        "DetectorId": (str, True),
+        "Action": (str, False),
+        "Description": (str, False),
+        "DetectorId": (str, False),
         "FindingCriteria": (FindingCriteria, True),
-        "Name": (str, True),
-        "Rank": (integer, True),
+        "Name": (str, False),
+        "Rank": (integer, False),
         "Tags": (Tags, False),
     }
 

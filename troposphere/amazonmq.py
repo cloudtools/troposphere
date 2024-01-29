@@ -85,6 +85,7 @@ class User(AWSProperty):
         "ConsoleAccess": (boolean, False),
         "Groups": ([str], False),
         "Password": (str, True),
+        "ReplicationUser": (boolean, False),
         "Username": (str, True),
     }
 

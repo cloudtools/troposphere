@@ -39,6 +39,7 @@ class FirewallRule(AWSProperty):
         "BlockResponse": (str, False),
         "FirewallDomainListId": (str, True),
         "Priority": (integer, True),
+        "Qtype": (str, False),
     }
 
 
