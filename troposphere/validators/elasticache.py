@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2024, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -11,6 +11,7 @@ from . import network_port
 def validate_network_port(x):
     """
     Property: ReplicationGroup.Port
+    Property: Endpoint.Port
     """
     return network_port(x)
 
