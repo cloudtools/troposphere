@@ -503,6 +503,23 @@ class GlobalCluster(AWSObject):
     }
 
 
+class Integration(AWSObject):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-integration.html>`__
+    """
+
+    resource_type = "AWS::RDS::Integration"
+
+    props: PropsDictType = {
+        "AdditionalEncryptionContext": (dict, False),
+        "IntegrationName": (str, False),
+        "KMSKeyId": (str, False),
+        "SourceArn": (str, True),
+        "Tags": (Tags, False),
+        "TargetArn": (str, True),
+    }
+
+
 class OptionSetting(AWSProperty):
     """
     `OptionSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-optiongroup-optionsetting.html>`__
