@@ -62,6 +62,7 @@ class MapConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomLayers": ([str], False),
         "PoliticalView": (str, False),
         "Style": (str, True),
     }

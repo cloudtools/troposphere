@@ -39,6 +39,42 @@ class App(AWSObject):
     }
 
 
+class CustomImageContainerEnvironmentVariable(AWSProperty):
+    """
+    `CustomImageContainerEnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-customimagecontainerenvironmentvariable.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ContainerConfig(AWSProperty):
+    """
+    `ContainerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-containerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerArguments": ([str], False),
+        "ContainerEntrypoint": ([str], False),
+        "ContainerEnvironmentVariables": (
+            [CustomImageContainerEnvironmentVariable],
+            False,
+        ),
+    }
+
+
+class JupyterLabAppImageConfig(AWSProperty):
+    """
+    `JupyterLabAppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerConfig": (ContainerConfig, False),
+    }
+
+
 class FileSystemConfig(AWSProperty):
     """
     `FileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-filesystemconfig.html>`__
@@ -82,6 +118,7 @@ class AppImageConfig(AWSObject):
 
     props: PropsDictType = {
         "AppImageConfigName": (str, True),
+        "JupyterLabAppImageConfig": (JupyterLabAppImageConfig, False),
         "KernelGatewayImageConfig": (KernelGatewayImageConfig, False),
         "Tags": (Tags, False),
     }
@@ -442,6 +479,17 @@ class DefaultSpaceSettings(AWSProperty):
     }
 
 
+class DockerSettings(AWSProperty):
+    """
+    `DockerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-dockersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableDockerAccess": (str, False),
+        "VpcOnlyTrustedAccounts": ([str], False),
+    }
+
+
 class RStudioServerProDomainSettings(AWSProperty):
     """
     `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
@@ -461,6 +509,7 @@ class DomainSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DockerSettings": (DockerSettings, False),
         "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
         "SecurityGroupIds": ([str], False),
     }
@@ -2605,14 +2654,100 @@ class Project(AWSObject):
     }
 
 
+class OwnershipSettings(AWSProperty):
+    """
+    `OwnershipSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ownershipsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "OwnerUserProfileName": (str, True),
+    }
+
+
+class EFSFileSystem(AWSProperty):
+    """
+    `EFSFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-efsfilesystem.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileSystemId": (str, True),
+    }
+
+
+class CustomFileSystem(AWSProperty):
+    """
+    `CustomFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html>`__
+    """
+
+    props: PropsDictType = {
+        "EFSFileSystem": (EFSFileSystem, False),
+    }
+
+
+class SpaceCodeEditorAppSettings(AWSProperty):
+    """
+    `SpaceCodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class SpaceJupyterLabAppSettings(AWSProperty):
+    """
+    `SpaceJupyterLabAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacejupyterlabappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CodeRepositories": ([CodeRepositoryProperty], False),
+        "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class EbsStorageSettings(AWSProperty):
+    """
+    `EbsStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-ebsstoragesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EbsVolumeSizeInGb": (integer, True),
+    }
+
+
+class SpaceStorageSettings(AWSProperty):
+    """
+    `SpaceStorageSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacestoragesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EbsStorageSettings": (EbsStorageSettings, False),
+    }
+
+
 class SpaceSettings(AWSProperty):
     """
     `SpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesettings.html>`__
     """
 
     props: PropsDictType = {
+        "AppType": (str, False),
+        "CodeEditorAppSettings": (SpaceCodeEditorAppSettings, False),
+        "CustomFileSystems": ([CustomFileSystem], False),
+        "JupyterLabAppSettings": (SpaceJupyterLabAppSettings, False),
         "JupyterServerAppSettings": (JupyterServerAppSettings, False),
         "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
+        "SpaceStorageSettings": (SpaceStorageSettings, False),
+    }
+
+
+class SpaceSharingSettings(AWSProperty):
+    """
+    `SpaceSharingSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacesharingsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "SharingType": (str, True),
     }
 
 
@@ -2625,8 +2760,11 @@ class Space(AWSObject):
 
     props: PropsDictType = {
         "DomainId": (str, True),
+        "OwnershipSettings": (OwnershipSettings, False),
+        "SpaceDisplayName": (str, False),
         "SpaceName": (str, True),
         "SpaceSettings": (SpaceSettings, False),
+        "SpaceSharingSettings": (SpaceSharingSettings, False),
         "Tags": (Tags, False),
     }
 

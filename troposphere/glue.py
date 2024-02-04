@@ -982,6 +982,33 @@ class Table(AWSObject):
     }
 
 
+class TableOptimizerConfiguration(AWSProperty):
+    """
+    `TableOptimizerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "RoleArn": (str, False),
+    }
+
+
+class TableOptimizer(AWSObject):
+    """
+    `TableOptimizer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-tableoptimizer.html>`__
+    """
+
+    resource_type = "AWS::Glue::TableOptimizer"
+
+    props: PropsDictType = {
+        "CatalogId": (str, True),
+        "DatabaseName": (str, True),
+        "TableName": (str, True),
+        "TableOptimizerConfiguration": (TableOptimizerConfiguration, True),
+        "Type": (str, True),
+    }
+
+
 class Action(AWSProperty):
     """
     `Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-trigger-action.html>`__
