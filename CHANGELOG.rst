@@ -1,3 +1,26 @@
+4.6.0 (2024*01*06)
+-------------------------------
+* Emit pyright version on maintenance run
+* Use package.json to install the correct version of pyright
+* Updates from spec version 150.0.0 (#2210)
+* Add AWS::WorkSpacesThinClient
+* Updates from spec version 150.0.0 (#2211)
+* Updates from spec version 151.0.0 (#2212)
+* Updates from spec version 152.0.0
+* Update docs dependency
+* Updates from spec version 153.0.0 (#2214)
+* Allow EVENT for Glue::Trigger.Type (Fixes #2215)
+* Update readthedocs-sphinx-search to 0.3.2
+* Updates from spec version 154.0.0 (#2218)
+* Fix Batch patches for spec version 155.0.0
+* Updates from spec version 155.0.0
+* Add port validator for ElastiCache::ServerlessCache.Endpoint
+* Keep Tags consistent for GuardDuty::Filter
+* Updates from spec version 156.0.0 (#2219)
+* Invert Ipv6CidrBlock Check (#2216)
+* Fix valid Synthetics canary runtime versions (#2221)
+* Updates from spec version 157.0.0 (#2222)
+
 4.5.3 (2023*12*06)
 -------------------------------
 * Upgrade readthedocs config to v2
