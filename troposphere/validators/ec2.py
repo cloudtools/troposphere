@@ -271,6 +271,7 @@ def validate_route(self):
     ]
     gateway_conds = [
         "CarrierGatewayId",
+        "CoreNetworkArn",
         "EgressOnlyInternetGatewayId",
         "GatewayId",
         "InstanceId",
