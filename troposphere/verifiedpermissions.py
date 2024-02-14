@@ -39,7 +39,7 @@ class IdentitySource(AWSObject):
 
     props: PropsDictType = {
         "Configuration": (IdentitySourceConfiguration, True),
-        "PolicyStoreId": (str, False),
+        "PolicyStoreId": (str, True),
         "PrincipalEntityType": (str, False),
     }
 
@@ -145,7 +145,7 @@ class PolicyTemplate(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "PolicyStoreId": (str, False),
+        "PolicyStoreId": (str, True),
         "Statement": (str, True),
     }
 

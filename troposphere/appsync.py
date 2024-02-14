@@ -366,6 +366,7 @@ class GraphQLApi(AWSObject):
         ),
         "ApiType": (str, False),
         "AuthenticationType": (str, True),
+        "EnvironmentVariables": (dict, False),
         "IntrospectionConfig": (str, False),
         "LambdaAuthorizerConfig": (LambdaAuthorizerConfig, False),
         "LogConfig": (LogConfig, False),

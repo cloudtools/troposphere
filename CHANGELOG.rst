@@ -1,3 +1,7 @@
+4.?.? (2024*??*??)
+-------------------------------
+* Breaking change: AppConfig::Environment.Monitors was renamed to AppConfig::Environment.Monitor
+
 4.6.0 (2024*01*06)
 -------------------------------
 * Emit pyright version on maintenance run

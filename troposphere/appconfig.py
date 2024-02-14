@@ -98,13 +98,13 @@ class DeploymentStrategy(AWSObject):
     }
 
 
-class Monitors(AWSProperty):
+class Monitor(AWSProperty):
     """
-    `Monitors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitors.html>`__
+    `Monitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-environment-monitor.html>`__
     """
 
     props: PropsDictType = {
-        "AlarmArn": (str, False),
+        "AlarmArn": (str, True),
         "AlarmRoleArn": (str, False),
     }
 
@@ -119,7 +119,7 @@ class Environment(AWSObject):
     props: PropsDictType = {
         "ApplicationId": (str, True),
         "Description": (str, False),
-        "Monitors": ([Monitors], False),
+        "Monitors": ([Monitor], False),
         "Name": (str, True),
         "Tags": (Tags, False),
     }
@@ -182,6 +182,6 @@ class HostedConfigurationVersion(AWSObject):
         "Content": (str, True),
         "ContentType": (str, True),
         "Description": (str, False),
-        "LatestVersionNumber": (double, False),
+        "LatestVersionNumber": (integer, False),
         "VersionLabel": (str, False),
     }

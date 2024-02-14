@@ -39,6 +39,56 @@ class Keyspace(AWSObject):
     }
 
 
+class TargetTrackingScalingPolicyConfiguration(AWSProperty):
+    """
+    `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-targettrackingscalingpolicyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisableScaleIn": (boolean, False),
+        "ScaleInCooldown": (integer, False),
+        "ScaleOutCooldown": (integer, False),
+        "TargetValue": (integer, True),
+    }
+
+
+class ScalingPolicy(AWSProperty):
+    """
+    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-scalingpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetTrackingScalingPolicyConfiguration": (
+            TargetTrackingScalingPolicyConfiguration,
+            False,
+        ),
+    }
+
+
+class AutoScalingSetting(AWSProperty):
+    """
+    `AutoScalingSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoScalingDisabled": (boolean, False),
+        "MaximumUnits": (integer, False),
+        "MinimumUnits": (integer, False),
+        "ScalingPolicy": (ScalingPolicy, False),
+    }
+
+
+class AutoScalingSpecification(AWSProperty):
+    """
+    `AutoScalingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-autoscalingspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReadCapacityAutoScaling": (AutoScalingSetting, False),
+        "WriteCapacityAutoScaling": (AutoScalingSetting, False),
+    }
+
+
 class ProvisionedThroughput(AWSProperty):
     """
     `ProvisionedThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-provisionedthroughput.html>`__
@@ -94,6 +144,18 @@ class EncryptionSpecification(AWSProperty):
     }
 
 
+class ReplicaSpecification(AWSProperty):
+    """
+    `ReplicaSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-table-replicaspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReadCapacityAutoScaling": (AutoScalingSetting, False),
+        "ReadCapacityUnits": (integer, False),
+        "Region": (str, True),
+    }
+
+
 class Table(AWSObject):
     """
     `Table <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-table.html>`__
@@ -102,6 +164,7 @@ class Table(AWSObject):
     resource_type = "AWS::Cassandra::Table"
 
     props: PropsDictType = {
+        "AutoScalingSpecifications": (AutoScalingSpecification, False),
         "BillingMode": (BillingMode, False),
         "ClientSideTimestampsEnabled": (boolean, False),
         "ClusteringKeyColumns": ([ClusteringKeyColumn], False),
@@ -111,6 +174,7 @@ class Table(AWSObject):
         "PartitionKeyColumns": ([Column], True),
         "PointInTimeRecoveryEnabled": (boolean, False),
         "RegularColumns": ([Column], False),
+        "ReplicaSpecifications": ([ReplicaSpecification], False),
         "TableName": (str, False),
         "Tags": (Tags, False),
     }

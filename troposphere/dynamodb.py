@@ -145,6 +145,7 @@ class KinesisStreamSpecification(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ApproximateCreationDateTimePrecision": (str, False),
         "StreamArn": (str, True),
     }
 
