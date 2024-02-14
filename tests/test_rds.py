@@ -239,7 +239,6 @@ class TestRDS(unittest.TestCase):
 
     def test_gp3_storage_performance(self):
         # Using a Ref() will disable the gp3 ratio check
-        db_az = "us-east-1"
         allocated_storage = Parameter("allocatedstorage", Type="int")
         i = rds.DBInstance(
             "Database1",
