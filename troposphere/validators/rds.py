@@ -493,18 +493,17 @@ def validate_dbinstance(self) -> None:
             )
 
         # Validate storage performance constraints for iops ratios
-        if not (
+        if (
             not isinstance(allocated_storage, AWSHelperFn)
             and not isinstance(iops, AWSHelperFn)
-            and (
-                min_iops_to_allocated_storage_ratio
-                < iops / int(allocated_storage)
-                < max_iops_to_allocated_storage_ratio
-            )
+        ) and not (
+            min_iops_to_allocated_storage_ratio
+            < iops / int(allocated_storage)
+            < max_iops_to_allocated_storage_ratio
         ):
             raise ValueError(
                 "Invalid ratio of Iops to AllocatedStorage. Minimum ratio for "
                 f"engine {engine} is {min_iops_to_allocated_storage_ratio} "
-                f"and maximum ratio is {max_iops_to_allocated_storage_ratio}"
-                f"current value is {iops / int(allocated_storage)}"
+                f"and maximum ratio is {max_iops_to_allocated_storage_ratio}. "
+                f"Current value is {iops / int(allocated_storage)}"
             )

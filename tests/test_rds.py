@@ -237,6 +237,41 @@ class TestRDS(unittest.TestCase):
         )
         i.validate()
 
+    def test_gp3_storage_performance(self):
+        # Using a Ref() will disable the gp3 ratio check
+        db_az = "us-east-1"
+        allocated_storage = Parameter("allocatedstorage", Type="int")
+        i = rds.DBInstance(
+            "Database1",
+            Engine="postgres",
+            EngineVersion="15.3",
+            StorageType="gp3",
+            AllocatedStorage=Ref(allocated_storage),
+            Iops=12000,
+            StorageThroughput=500,
+            MasterUsername="test",
+            MasterUserPassword="test",
+        )
+        i.validate()
+
+        # Specify invalid ratio for iops/allocated_storage for gp3
+        i = rds.DBInstance(
+            "Database2",
+            Engine="postgres",
+            EngineVersion="15.3",
+            StorageType="gp3",
+            AllocatedStorage="400",
+            Iops=200400,
+            StorageThroughput=500,
+            MasterUsername="test",
+            MasterUserPassword="test",
+        )
+        with self.assertRaisesRegex(
+            ValueError,
+            r"Invalid ratio of Iops to AllocatedStorage",
+        ):
+            i.to_dict()
+
     def test_io1_storage_type_and_iops(self):
         i = rds.DBInstance(
             "NoAZAndMultiAZ",
