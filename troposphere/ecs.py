@@ -695,6 +695,7 @@ class ContainerDefinition(AWSProperty):
     props: PropsDictType = {
         "Command": ([str], False),
         "Cpu": (integer, False),
+        "CredentialSpecs": ([str], False),
         "DependsOn": ([ContainerDependency], False),
         "DisableNetworking": (boolean, False),
         "DnsSearchDomains": ([str], False),
