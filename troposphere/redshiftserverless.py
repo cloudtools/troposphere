@@ -18,6 +18,7 @@ class Namespace(AWSObject):
     resource_type = "AWS::RedshiftServerless::Namespace"
 
     props: PropsDictType = {
+        "AdminPasswordSecretKmsKeyId": (str, False),
         "AdminUserPassword": (str, False),
         "AdminUsername": (str, False),
         "DbName": (str, False),
@@ -27,7 +28,10 @@ class Namespace(AWSObject):
         "IamRoles": ([str], False),
         "KmsKeyId": (str, False),
         "LogExports": ([str], False),
+        "ManageAdminPassword": (boolean, False),
         "NamespaceName": (str, True),
+        "NamespaceResourcePolicy": (dict, False),
+        "RedshiftIdcApplicationArn": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -130,6 +134,8 @@ class NamespaceProperty(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdminPasswordSecretArn": (str, False),
+        "AdminPasswordSecretKmsKeyId": (str, False),
         "AdminUsername": (str, False),
         "CreationDate": (str, False),
         "DbName": (str, False),

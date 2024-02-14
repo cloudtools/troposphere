@@ -182,6 +182,30 @@ class GeoLocation(AWSProperty):
     }
 
 
+class Coordinates(AWSProperty):
+    """
+    `Coordinates <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordsetgroup-coordinates.html>`__
+    """
+
+    props: PropsDictType = {
+        "Latitude": (str, True),
+        "Longitude": (str, True),
+    }
+
+
+class GeoProximityLocation(AWSProperty):
+    """
+    `GeoProximityLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-geoproximitylocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AWSRegion": (str, False),
+        "Bias": (integer, False),
+        "Coordinates": (Coordinates, False),
+        "LocalZoneGroup": (str, False),
+    }
+
+
 class RecordSet(AWSProperty):
     """
     `RecordSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-route53-recordset.html>`__
@@ -192,6 +216,7 @@ class RecordSet(AWSProperty):
         "CidrRoutingConfig": (CidrRoutingConfig, False),
         "Failover": (str, False),
         "GeoLocation": (GeoLocation, False),
+        "GeoProximityLocation": (GeoProximityLocation, False),
         "HealthCheckId": (str, False),
         "HostedZoneId": (str, False),
         "HostedZoneName": (str, False),
@@ -234,6 +259,7 @@ class RecordSetType(AWSObject):
         "Comment": (str, False),
         "Failover": (str, False),
         "GeoLocation": (GeoLocation, False),
+        "GeoProximityLocation": (GeoProximityLocation, False),
         "HealthCheckId": (str, False),
         "HostedZoneId": (str, False),
         "HostedZoneName": (str, False),

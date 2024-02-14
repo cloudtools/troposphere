@@ -114,6 +114,40 @@ class DisableInboundStageTransitions(AWSProperty):
     }
 
 
+class GitBranchFilterCriteria(AWSProperty):
+    """
+    `GitBranchFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Excludes": ([str], False),
+        "Includes": ([str], False),
+    }
+
+
+class GitFilePathFilterCriteria(AWSProperty):
+    """
+    `GitFilePathFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "Excludes": ([str], False),
+        "Includes": ([str], False),
+    }
+
+
+class GitPullRequestFilter(AWSProperty):
+    """
+    `GitPullRequestFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-pull-request-filter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Branches": (GitBranchFilterCriteria, False),
+        "Events": ([str], False),
+        "FilePaths": (GitFilePathFilterCriteria, False),
+    }
+
+
 class GitTagFilterCriteria(AWSProperty):
     """
     `GitTagFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria.html>`__
@@ -131,6 +165,8 @@ class GitPushFilter(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Branches": (GitBranchFilterCriteria, False),
+        "FilePaths": (GitFilePathFilterCriteria, False),
         "Tags": (GitTagFilterCriteria, False),
     }
 
@@ -141,6 +177,7 @@ class GitConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "PullRequest": ([GitPullRequestFilter], False),
         "Push": ([GitPushFilter], False),
         "SourceActionName": (str, True),
     }
@@ -254,6 +291,7 @@ class Pipeline(AWSObject):
         "ArtifactStore": (ArtifactStore, False),
         "ArtifactStores": ([ArtifactStoreMap], False),
         "DisableInboundStageTransitions": ([DisableInboundStageTransitions], False),
+        "ExecutionMode": (str, False),
         "Name": (str, False),
         "PipelineType": (str, False),
         "RestartExecutionOnUpdate": (boolean, False),
