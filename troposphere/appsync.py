@@ -22,6 +22,7 @@ class ApiCache(AWSObject):
         "ApiCachingBehavior": (str, True),
         "ApiId": (str, True),
         "AtRestEncryptionEnabled": (boolean, False),
+        "HealthMetricsConfig": (str, False),
         "TransitEncryptionEnabled": (boolean, False),
         "Ttl": (double, True),
         "Type": (str, True),
@@ -184,6 +185,7 @@ class DataSource(AWSObject):
         "EventBridgeConfig": (EventBridgeConfig, False),
         "HttpConfig": (HttpConfig, False),
         "LambdaConfig": (LambdaConfig, False),
+        "MetricsConfig": (str, False),
         "Name": (str, True),
         "OpenSearchServiceConfig": (OpenSearchServiceConfig, False),
         "RelationalDatabaseConfig": (RelationalDatabaseConfig, False),
@@ -327,6 +329,18 @@ class AdditionalAuthenticationProvider(AWSProperty):
     }
 
 
+class EnhancedMetricsConfig(AWSProperty):
+    """
+    `EnhancedMetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-enhancedmetricsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSourceLevelMetricsBehavior": (str, True),
+        "OperationLevelMetricsConfig": (str, True),
+        "ResolverLevelMetricsBehavior": (str, True),
+    }
+
+
 class LogConfig(AWSProperty):
     """
     `LogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-logconfig.html>`__
@@ -366,6 +380,7 @@ class GraphQLApi(AWSObject):
         ),
         "ApiType": (str, False),
         "AuthenticationType": (str, True),
+        "EnhancedMetricsConfig": (EnhancedMetricsConfig, False),
         "EnvironmentVariables": (dict, False),
         "IntrospectionConfig": (str, False),
         "LambdaAuthorizerConfig": (LambdaAuthorizerConfig, False),
@@ -434,6 +449,7 @@ class Resolver(AWSObject):
         "FieldName": (str, True),
         "Kind": (resolver_kind_validator, False),
         "MaxBatchSize": (integer, False),
+        "MetricsConfig": (str, False),
         "PipelineConfig": (PipelineConfig, False),
         "RequestMappingTemplate": (str, False),
         "RequestMappingTemplateS3Location": (str, False),

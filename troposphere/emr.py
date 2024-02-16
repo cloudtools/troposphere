@@ -331,6 +331,7 @@ class JobFlowInstancesConfig(AWSProperty):
         "TaskInstanceGroup": ([InstanceGroupConfigProperty], False),
         "TaskInstanceGroups": ([InstanceGroupConfigProperty], False),
         "TerminationProtected": (boolean, False),
+        "UnhealthyNodeReplacement": (boolean, False),
     }
 
 

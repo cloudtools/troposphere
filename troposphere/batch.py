@@ -228,6 +228,16 @@ class NetworkConfiguration(AWSProperty):
     }
 
 
+class RepositoryCredentials(AWSProperty):
+    """
+    `RepositoryCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-repositorycredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "CredentialsParameter": (str, True),
+    }
+
+
 class ResourceRequirement(AWSProperty):
     """
     `ResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-resourcerequirement.html>`__
@@ -330,6 +340,7 @@ class ContainerProperties(AWSProperty):
         "NetworkConfiguration": (NetworkConfiguration, False),
         "Privileged": (boolean, False),
         "ReadonlyRootFilesystem": (boolean, False),
+        "RepositoryCredentials": (RepositoryCredentials, False),
         "ResourceRequirements": ([ResourceRequirement], False),
         "RuntimePlatform": (RuntimePlatform, False),
         "Secrets": ([Secret], False),

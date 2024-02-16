@@ -9,6 +9,33 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class Parameter(AWSProperty):
+    """
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-controltower-enabledbaseline-parameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, False),
+        "Value": (dict, False),
+    }
+
+
+class EnabledBaseline(AWSObject):
+    """
+    `EnabledBaseline <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-controltower-enabledbaseline.html>`__
+    """
+
+    resource_type = "AWS::ControlTower::EnabledBaseline"
+
+    props: PropsDictType = {
+        "BaselineIdentifier": (str, True),
+        "BaselineVersion": (str, True),
+        "Parameters": ([Parameter], False),
+        "Tags": (Tags, False),
+        "TargetIdentifier": (str, True),
+    }
+
+
 class EnabledControlParameter(AWSProperty):
     """
     `EnabledControlParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-controltower-enabledcontrol-enabledcontrolparameter.html>`__
