@@ -212,12 +212,23 @@ class ReplicaSpecification(AWSProperty):
     }
 
 
+class ResourcePolicy(AWSProperty):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-resourcepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "PolicyDocument": (dict, True),
+    }
+
+
 class StreamSpecification(AWSProperty):
     """
     `StreamSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-streamspecification.html>`__
     """
 
     props: PropsDictType = {
+        "ResourcePolicy": (ResourcePolicy, False),
         "StreamViewType": (str, True),
     }
 
@@ -360,6 +371,7 @@ class Table(AWSObject):
         "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
         "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
         "ProvisionedThroughput": (ProvisionedThroughput, False),
+        "ResourcePolicy": (ResourcePolicy, False),
         "SSESpecification": (SSESpecification, False),
         "StreamSpecification": (StreamSpecification, False),
         "TableClass": (table_class_validator, False),

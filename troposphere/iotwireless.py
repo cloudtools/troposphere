@@ -362,6 +362,28 @@ class AbpV11(AWSProperty):
     }
 
 
+class Application(AWSProperty):
+    """
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-application.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationName": (str, False),
+        "FPort": (integer, False),
+        "Type": (str, False),
+    }
+
+
+class FPorts(AWSProperty):
+    """
+    `FPorts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-fports.html>`__
+    """
+
+    props: PropsDictType = {
+        "Applications": ([Application], False),
+    }
+
+
 class OtaaV10x(AWSProperty):
     """
     `OtaaV10x <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotwireless-wirelessdevice-otaav10x.html>`__
@@ -395,6 +417,7 @@ class LoRaWANDevice(AWSProperty):
         "AbpV11": (AbpV11, False),
         "DevEui": (str, False),
         "DeviceProfileId": (str, False),
+        "FPorts": (FPorts, False),
         "OtaaV10x": (OtaaV10x, False),
         "OtaaV11": (OtaaV11, False),
         "ServiceProfileId": (str, False),
