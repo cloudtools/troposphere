@@ -15,6 +15,7 @@ def canary_runtime_version(runtime_version):
         "syn-nodejs-puppeteer-5.1",
         "syn-nodejs-puppeteer-6.0",
         "syn-nodejs-puppeteer-6.1",
+        "syn-nodejs-puppeteer-6.2",
     ]
     if runtime_version not in valid_runtime_versions:
         raise ValueError(
