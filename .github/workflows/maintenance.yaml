@@ -23,7 +23,7 @@ jobs:
         id: vars
         run: |
           echo "pr_title=Updates from spec version $(jq -r .ResourceSpecificationVersion CloudFormationResourceSpecification.json)" >> $GITHUB_OUTPUT
-      - uses: peter-evans/create-pull-request@v5
+      - uses: peter-evans/create-pull-request@v6
         with:
           commit-message: |
             ${{ steps.vars.outputs.pr_title }}
