@@ -127,6 +127,29 @@ class Branch(AWSObject):
     }
 
 
+class Certificate(AWSProperty):
+    """
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-certificate.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateArn": (str, False),
+        "CertificateType": (str, False),
+        "CertificateVerificationDNSRecord": (str, False),
+    }
+
+
+class CertificateSettings(AWSProperty):
+    """
+    `CertificateSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-certificatesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateType": (str, False),
+        "CustomCertificateArn": (str, False),
+    }
+
+
 class SubDomainSetting(AWSProperty):
     """
     `SubDomainSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-amplify-domain-subdomainsetting.html>`__
@@ -149,7 +172,10 @@ class Domain(AWSObject):
         "AppId": (str, True),
         "AutoSubDomainCreationPatterns": ([str], False),
         "AutoSubDomainIAMRole": (str, False),
+        "Certificate": (Certificate, False),
+        "CertificateSettings": (CertificateSettings, False),
         "DomainName": (str, True),
         "EnableAutoSubDomain": (boolean, False),
         "SubDomainSettings": ([SubDomainSetting], True),
+        "UpdateStatus": (str, False),
     }

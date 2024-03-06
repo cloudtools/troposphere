@@ -213,7 +213,7 @@ class Domain(AWSObject):
     props: PropsDictType = {
         "DeadLetterQueueUrl": (str, False),
         "DefaultEncryptionKey": (str, False),
-        "DefaultExpirationDays": (integer, False),
+        "DefaultExpirationDays": (integer, True),
         "DomainName": (str, True),
         "Matching": (Matching, False),
         "RuleBasedMatching": (RuleBasedMatching, False),
@@ -499,13 +499,13 @@ class ObjectType(AWSObject):
 
     props: PropsDictType = {
         "AllowProfileCreation": (boolean, False),
-        "Description": (str, False),
+        "Description": (str, True),
         "DomainName": (str, True),
         "EncryptionKey": (str, False),
         "ExpirationDays": (integer, False),
         "Fields": ([FieldMap], False),
         "Keys": ([KeyMap], False),
-        "ObjectTypeName": (str, False),
+        "ObjectTypeName": (str, True),
         "SourceLastUpdatedTimestampFormat": (str, False),
         "Tags": (Tags, False),
         "TemplateId": (str, False),

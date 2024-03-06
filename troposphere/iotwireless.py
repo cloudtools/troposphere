@@ -437,6 +437,7 @@ class WirelessDevice(AWSObject):
         "LastUplinkReceivedAt": (str, False),
         "LoRaWAN": (LoRaWANDevice, False),
         "Name": (str, False),
+        "Positioning": (str, False),
         "Tags": (Tags, False),
         "ThingArn": (str, False),
         "Type": (str, True),

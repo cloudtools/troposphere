@@ -902,5 +902,6 @@ class TaskSet(AWSObject):
         "Scale": (Scale, False),
         "Service": (str, True),
         "ServiceRegistries": ([ServiceRegistry], False),
+        "Tags": (Tags, False),
         "TaskDefinition": (str, True),
     }
