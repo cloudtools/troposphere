@@ -6057,6 +6057,7 @@ class Dashboard(AWSObject):
         "DashboardId": (str, True),
         "DashboardPublishOptions": (DashboardPublishOptions, False),
         "Definition": (DashboardVersionDefinition, False),
+        "LinkEntities": ([str], False),
         "LinkSharingConfiguration": (LinkSharingConfiguration, False),
         "Name": (str, True),
         "Parameters": (Parameters, False),

@@ -1424,7 +1424,7 @@ class ConnectionTrackingSpecification(AWSProperty):
 
 class EnaSrdUdpSpecification(AWSProperty):
     """
-    `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enasrdudpspecification.html>`__
+    `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1434,7 +1434,7 @@ class EnaSrdUdpSpecification(AWSProperty):
 
 class EnaSrdSpecification(AWSProperty):
     """
-    `EnaSrdSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-enasrdspecification.html>`__
+    `EnaSrdSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html>`__
     """
 
     props: PropsDictType = {
@@ -1880,6 +1880,7 @@ class NetworkInterfaceAttachment(AWSObject):
     props: PropsDictType = {
         "DeleteOnTermination": (boolean, False),
         "DeviceIndex": (validate_int_to_str, True),
+        "EnaSrdSpecification": (EnaSrdSpecification, False),
         "InstanceId": (str, True),
         "NetworkInterfaceId": (str, True),
     }
