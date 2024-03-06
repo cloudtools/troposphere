@@ -423,6 +423,7 @@ class InstanceRequirementsRequest(AWSProperty):
         "InstanceGenerations": ([str], False),
         "LocalStorage": (str, False),
         "LocalStorageTypes": ([str], False),
+        "MaxSpotPriceAsPercentageOfOptimalOnDemandPrice": (integer, False),
         "MemoryGiBPerVCpu": (MemoryGiBPerVCpuRequest, False),
         "MemoryMiB": (MemoryMiBRequest, False),
         "NetworkBandwidthGbps": (NetworkBandwidthGbpsRequest, False),

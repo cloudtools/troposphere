@@ -156,7 +156,7 @@ class GlobalReplicationGroup(AWSObject):
 
 class ParameterGroup(AWSObject):
     """
-    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticache-parametergroup.html>`__
+    `ParameterGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticache-parameter-group.html>`__
     """
 
     resource_type = "AWS::ElastiCache::ParameterGroup"

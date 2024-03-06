@@ -1074,6 +1074,17 @@ class OnlineStoreSecurityConfig(AWSProperty):
     }
 
 
+class TtlDuration(AWSProperty):
+    """
+    `TtlDuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-ttlduration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, False),
+        "Value": (integer, False),
+    }
+
+
 class OnlineStoreConfig(AWSProperty):
     """
     `OnlineStoreConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-featuregroup-onlinestoreconfig.html>`__
@@ -1083,6 +1094,7 @@ class OnlineStoreConfig(AWSProperty):
         "EnableOnlineStore": (boolean, False),
         "SecurityConfig": (OnlineStoreSecurityConfig, False),
         "StorageType": (str, False),
+        "TtlDuration": (TtlDuration, False),
     }
 
 

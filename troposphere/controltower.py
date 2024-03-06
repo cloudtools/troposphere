@@ -57,6 +57,7 @@ class EnabledControl(AWSObject):
     props: PropsDictType = {
         "ControlIdentifier": (str, True),
         "Parameters": ([EnabledControlParameter], False),
+        "Tags": (Tags, False),
         "TargetIdentifier": (str, True),
     }
 
