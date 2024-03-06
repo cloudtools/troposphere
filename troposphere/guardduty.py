@@ -213,10 +213,10 @@ class Member(AWSObject):
     resource_type = "AWS::GuardDuty::Member"
 
     props: PropsDictType = {
-        "DetectorId": (str, True),
+        "DetectorId": (str, False),
         "DisableEmailNotification": (boolean, False),
         "Email": (str, True),
-        "MemberId": (str, True),
+        "MemberId": (str, False),
         "Message": (str, False),
         "Status": (str, False),
     }

@@ -319,6 +319,7 @@ class EncryptionAtRest(AWSProperty):
 
     props: PropsDictType = {
         "CatalogEncryptionMode": (str, False),
+        "CatalogEncryptionServiceRole": (str, False),
         "SseAwsKmsKeyId": (str, False),
     }
 
@@ -988,8 +989,8 @@ class TableOptimizerConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Enabled": (boolean, False),
-        "RoleArn": (str, False),
+        "Enabled": (boolean, True),
+        "RoleArn": (str, True),
     }
 
 
