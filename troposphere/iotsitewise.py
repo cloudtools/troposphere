@@ -103,7 +103,9 @@ class AssetHierarchy(AWSProperty):
 
     props: PropsDictType = {
         "ChildAssetId": (str, True),
-        "LogicalId": (str, True),
+        "ExternalId": (str, False),
+        "Id": (str, False),
+        "LogicalId": (str, False),
     }
 
 
@@ -114,7 +116,9 @@ class AssetProperty(AWSProperty):
 
     props: PropsDictType = {
         "Alias": (str, False),
-        "LogicalId": (str, True),
+        "ExternalId": (str, False),
+        "Id": (str, False),
+        "LogicalId": (str, False),
         "NotificationState": (str, False),
         "Unit": (str, False),
     }
@@ -129,6 +133,7 @@ class Asset(AWSObject):
 
     props: PropsDictType = {
         "AssetDescription": (str, False),
+        "AssetExternalId": (str, False),
         "AssetHierarchies": ([AssetHierarchy], False),
         "AssetModelId": (str, True),
         "AssetName": (str, True),
@@ -147,14 +152,29 @@ class Attribute(AWSProperty):
     }
 
 
+class PropertyPathDefinition(AWSProperty):
+    """
+    `PropertyPathDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-propertypathdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
 class VariableValue(AWSProperty):
     """
     `VariableValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-assetmodel-variablevalue.html>`__
     """
 
     props: PropsDictType = {
+        "HierarchyExternalId": (str, False),
+        "HierarchyId": (str, False),
         "HierarchyLogicalId": (str, False),
-        "PropertyLogicalId": (str, True),
+        "PropertyExternalId": (str, False),
+        "PropertyId": (str, False),
+        "PropertyLogicalId": (str, False),
+        "PropertyPath": ([PropertyPathDefinition], False),
     }
 
 
@@ -234,7 +254,9 @@ class AssetModelProperty(AWSProperty):
     props: PropsDictType = {
         "DataType": (str, True),
         "DataTypeSpec": (str, False),
-        "LogicalId": (str, True),
+        "ExternalId": (str, False),
+        "Id": (str, False),
+        "LogicalId": (str, False),
         "Name": (str, True),
         "Type": (PropertyType, True),
         "Unit": (str, False),
@@ -247,9 +269,14 @@ class AssetModelCompositeModel(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ComposedAssetModelId": (str, False),
         "CompositeModelProperties": ([AssetModelProperty], False),
         "Description": (str, False),
+        "ExternalId": (str, False),
+        "Id": (str, False),
         "Name": (str, True),
+        "ParentAssetModelCompositeModelExternalId": (str, False),
+        "Path": ([str], False),
         "Type": (str, True),
     }
 
@@ -261,7 +288,9 @@ class AssetModelHierarchy(AWSProperty):
 
     props: PropsDictType = {
         "ChildAssetModelId": (str, True),
-        "LogicalId": (str, True),
+        "ExternalId": (str, False),
+        "Id": (str, False),
+        "LogicalId": (str, False),
         "Name": (str, True),
     }
 
@@ -276,9 +305,11 @@ class AssetModel(AWSObject):
     props: PropsDictType = {
         "AssetModelCompositeModels": ([AssetModelCompositeModel], False),
         "AssetModelDescription": (str, False),
+        "AssetModelExternalId": (str, False),
         "AssetModelHierarchies": ([AssetModelHierarchy], False),
         "AssetModelName": (str, True),
         "AssetModelProperties": ([AssetModelProperty], False),
+        "AssetModelType": (str, False),
         "Tags": (Tags, False),
     }
 

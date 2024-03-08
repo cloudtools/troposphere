@@ -126,7 +126,7 @@ class Environment(AWSProperty):
 
 class EphemeralStorage(AWSProperty):
     """
-    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-ephemeralstorage.html>`__
+    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-ephemeralstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -170,7 +170,7 @@ class Tmpfs(AWSProperty):
 
 class LinuxParameters(AWSProperty):
     """
-    `LinuxParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-linuxparameters.html>`__
+    `LinuxParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class Secret(AWSProperty):
 
 class LogConfiguration(AWSProperty):
     """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-logconfiguration.html>`__
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -220,7 +220,7 @@ class MountPoints(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -230,7 +230,7 @@ class NetworkConfiguration(AWSProperty):
 
 class RepositoryCredentials(AWSProperty):
     """
-    `RepositoryCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-repositorycredentials.html>`__
+    `RepositoryCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-repositorycredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -251,7 +251,7 @@ class ResourceRequirement(AWSProperty):
 
 class RuntimePlatform(AWSProperty):
     """
-    `RuntimePlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-runtimeplatform.html>`__
+    `RuntimePlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html>`__
     """
 
     props: PropsDictType = {
@@ -348,6 +348,71 @@ class ContainerProperties(AWSProperty):
         "User": (str, False),
         "Vcpus": (integer, False),
         "Volumes": ([Volumes], False),
+    }
+
+
+class TaskContainerDependency(AWSProperty):
+    """
+    `TaskContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerdependency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Condition": (str, True),
+        "ContainerName": (str, True),
+    }
+
+
+class TaskContainerProperties(AWSProperty):
+    """
+    `TaskContainerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Command": ([str], False),
+        "DependsOn": ([TaskContainerDependency], False),
+        "Environment": ([Environment], False),
+        "Essential": (boolean, False),
+        "Image": (str, True),
+        "LinuxParameters": (LinuxParameters, False),
+        "LogConfiguration": (LogConfiguration, False),
+        "MountPoints": ([MountPoints], False),
+        "Name": (str, False),
+        "Privileged": (boolean, False),
+        "ReadonlyRootFilesystem": (boolean, False),
+        "RepositoryCredentials": (RepositoryCredentials, False),
+        "ResourceRequirements": ([ResourceRequirement], False),
+        "Secrets": ([Secret], False),
+        "Ulimits": ([Ulimit], False),
+        "User": (str, False),
+    }
+
+
+class EcsTaskProperties(AWSProperty):
+    """
+    `EcsTaskProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Containers": ([TaskContainerProperties], False),
+        "EphemeralStorage": (EphemeralStorage, False),
+        "ExecutionRoleArn": (str, False),
+        "IpcMode": (str, False),
+        "NetworkConfiguration": (NetworkConfiguration, False),
+        "PidMode": (str, False),
+        "PlatformVersion": (str, False),
+        "RuntimePlatform": (RuntimePlatform, False),
+        "TaskRoleArn": (str, False),
+        "Volumes": ([Volumes], False),
+    }
+
+
+class EcsProperties(AWSProperty):
+    """
+    `EcsProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecsproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "TaskProperties": ([EcsTaskProperties], True),
     }
 
 
@@ -481,8 +546,10 @@ class PodProperties(AWSProperty):
         "Containers": ([EksContainer], False),
         "DnsPolicy": (str, False),
         "HostNetwork": (boolean, False),
+        "InitContainers": ([EksContainer], False),
         "Metadata": (Metadata, False),
         "ServiceAccountName": (str, False),
+        "ShareProcessNamespace": (boolean, False),
         "Volumes": ([EksVolume], False),
     }
 
@@ -504,6 +571,8 @@ class NodeRangeProperty(AWSProperty):
 
     props: PropsDictType = {
         "Container": (ContainerProperties, False),
+        "EcsProperties": (EcsProperties, False),
+        "InstanceTypes": ([str], False),
         "TargetNodes": (str, True),
     }
 
@@ -563,6 +632,7 @@ class JobDefinition(AWSObject):
 
     props: PropsDictType = {
         "ContainerProperties": (ContainerProperties, False),
+        "EcsProperties": (EcsProperties, False),
         "EksProperties": (EksProperties, False),
         "JobDefinitionName": (str, False),
         "NodeProperties": (NodeProperties, False),
