@@ -372,6 +372,16 @@ class Headers(AWSProperty):
     }
 
 
+class JA3Fingerprint(AWSProperty):
+    """
+    `JA3Fingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ja3fingerprint.html>`__
+    """
+
+    props: PropsDictType = {
+        "FallbackBehavior": (str, True),
+    }
+
+
 class JsonMatchPattern(AWSProperty):
     """
     `JsonMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html>`__
@@ -416,6 +426,7 @@ class FieldToMatch(AWSProperty):
         "Body": (Body, False),
         "Cookies": (Cookies, False),
         "Headers": (Headers, False),
+        "JA3Fingerprint": (JA3Fingerprint, False),
         "JsonBody": (JsonBody, False),
         "Method": (dict, False),
         "QueryString": (dict, False),
@@ -802,6 +813,7 @@ class RateBasedStatement(AWSProperty):
     props: PropsDictType = {
         "AggregateKeyType": (str, True),
         "CustomKeys": ([RateBasedStatementCustomKey], False),
+        "EvaluationWindowSec": (integer, False),
         "ForwardedIPConfig": (ForwardedIPConfiguration, False),
         "Limit": (integer, True),
         "ScopeDownStatement": (validate_statement, False),
