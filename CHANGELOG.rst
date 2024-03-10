@@ -1,6 +1,23 @@
-4.?.? (2024*??*??)
+4.7.0 (2024*03*10)
 -------------------------------
 * Breaking change: AppConfig::Environment.Monitors was renamed to AppConfig::Environment.Monitor
+* Validate CoreNetworkArn for a valid EC2 Route descriptor
+* Fix RDS validator for gp3 iops/allocated_storage ratio check (#2225)
+* Fix lint issue in recent change to test_rds.py
+* Updates from spec version 158.0.0
+* Updates from spec version 159.0.0
+* Updates from spec version 160.0.0 (#2226)
+* Add syn-nodejs-puppeteer-6.2 as valid canary runtime (#2228)
+* Updates from spec version 161.0.0
+* Updates from spec version 162.0.0
+* Update actions for node 16 => 20
+* Update to peter-evans/create-pull-request@v6
+* Updates from spec version 163.0.0 (#2227)
+* Updates from spec version 164.0.0 (#2229)
+* Add AWS:B2BI
+* Add AWS::DataZone
+* Add AWS::NeptuneGraph
+* Add new AWS services to resource doc
 
 4.6.0 (2024*01*06)
 -------------------------------
