@@ -297,6 +297,7 @@ class DHCPOptions(AWSObject):
     props: PropsDictType = {
         "DomainName": (str, False),
         "DomainNameServers": ([str], False),
+        "Ipv6AddressPreferredLeaseTime": (integer, False),
         "NetbiosNameServers": ([str], False),
         "NetbiosNodeType": (integer, False),
         "NtpServers": ([str], False),
@@ -2001,7 +2002,7 @@ class RouteTable(AWSObject):
 
 class SecurityGroup(AWSObject):
     """
-    `SecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html>`__
+    `SecurityGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroup.html>`__
     """
 
     resource_type = "AWS::EC2::SecurityGroup"
@@ -3197,7 +3198,7 @@ class EbsBlockDevice(AWSProperty):
 
 class Egress(AWSProperty):
     """
-    `Egress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html>`__
+    `Egress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-egress.html>`__
     """
 
     props: PropsDictType = {
@@ -3208,13 +3209,14 @@ class Egress(AWSProperty):
         "DestinationSecurityGroupId": (str, False),
         "FromPort": (integer, False),
         "IpProtocol": (str, True),
+        "SourceSecurityGroupId": (str, False),
         "ToPort": (integer, False),
     }
 
 
 class Ingress(AWSProperty):
     """
-    `Ingress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html>`__
+    `Ingress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html>`__
     """
 
     props: PropsDictType = {
@@ -3263,7 +3265,7 @@ class PeeringAttachmentStatus(AWSProperty):
 
 class SecurityGroupRule(AWSProperty):
     """
-    `SecurityGroupRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group-rule.html>`__
+    `SecurityGroupRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-securitygroup-ingress.html>`__
     """
 
     props: PropsDictType = {

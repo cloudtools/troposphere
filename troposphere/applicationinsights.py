@@ -81,6 +81,40 @@ class Log(AWSProperty):
     }
 
 
+class NetWeaverPrometheusExporter(AWSProperty):
+    """
+    `NetWeaverPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-netweaverprometheusexporter.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceNumbers": ([str], True),
+        "PrometheusPort": (str, False),
+        "SAPSID": (str, True),
+    }
+
+
+class Process(AWSProperty):
+    """
+    `Process <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-process.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlarmMetrics": ([AlarmMetric], True),
+        "ProcessName": (str, True),
+    }
+
+
+class SQLServerPrometheusExporter(AWSProperty):
+    """
+    `SQLServerPrometheusExporter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-sqlserverprometheusexporter.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrometheusPort": (str, True),
+        "SQLSecretName": (str, True),
+    }
+
+
 class WindowsEvent(AWSProperty):
     """
     `WindowsEvent <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationinsights-application-windowsevent.html>`__
@@ -106,6 +140,9 @@ class ConfigurationDetails(AWSProperty):
         "HANAPrometheusExporter": (HANAPrometheusExporter, False),
         "JMXPrometheusExporter": (JMXPrometheusExporter, False),
         "Logs": ([Log], False),
+        "NetWeaverPrometheusExporter": (NetWeaverPrometheusExporter, False),
+        "Processes": ([Process], False),
+        "SQLServerPrometheusExporter": (SQLServerPrometheusExporter, False),
         "WindowsEvents": ([WindowsEvent], False),
     }
 
@@ -118,6 +155,7 @@ class SubComponentConfigurationDetails(AWSProperty):
     props: PropsDictType = {
         "AlarmMetrics": ([AlarmMetric], False),
         "Logs": ([Log], False),
+        "Processes": ([Process], False),
         "WindowsEvents": ([WindowsEvent], False),
     }
 
@@ -201,6 +239,7 @@ class Application(AWSObject):
     resource_type = "AWS::ApplicationInsights::Application"
 
     props: PropsDictType = {
+        "AttachMissingPermission": (boolean, False),
         "AutoConfigurationEnabled": (boolean, False),
         "CWEMonitorEnabled": (boolean, False),
         "ComponentMonitoringSettings": ([ComponentMonitoringSetting], False),

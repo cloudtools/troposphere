@@ -467,6 +467,16 @@ class ConsumerGroupReplication(AWSProperty):
     }
 
 
+class ReplicationStartingPosition(AWSProperty):
+    """
+    `ReplicationStartingPosition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationstartingposition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, False),
+    }
+
+
 class TopicReplication(AWSProperty):
     """
     `TopicReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html>`__
@@ -476,6 +486,7 @@ class TopicReplication(AWSProperty):
         "CopyAccessControlListsForTopics": (boolean, False),
         "CopyTopicConfigurations": (boolean, False),
         "DetectAndCopyNewTopics": (boolean, False),
+        "StartingPosition": (ReplicationStartingPosition, False),
         "TopicsToExclude": ([str], False),
         "TopicsToReplicate": ([str], True),
     }

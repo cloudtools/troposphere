@@ -60,6 +60,18 @@ class ConfigurationProfile(AWSObject):
     }
 
 
+class DynamicExtensionParameters(AWSProperty):
+    """
+    `DynamicExtensionParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appconfig-deployment-dynamicextensionparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExtensionReference": (str, False),
+        "ParameterName": (str, False),
+        "ParameterValue": (str, False),
+    }
+
+
 class Deployment(AWSObject):
     """
     `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appconfig-deployment.html>`__
@@ -73,6 +85,7 @@ class Deployment(AWSObject):
         "ConfigurationVersion": (str, True),
         "DeploymentStrategyId": (str, True),
         "Description": (str, False),
+        "DynamicExtensionParameters": ([DynamicExtensionParameters], False),
         "EnvironmentId": (str, True),
         "KmsKeyIdentifier": (str, False),
         "Tags": (Tags, False),
@@ -132,6 +145,7 @@ class Parameter(AWSProperty):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "Dynamic": (boolean, False),
         "Required": (boolean, True),
     }
 
