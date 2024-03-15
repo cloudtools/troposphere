@@ -496,6 +496,7 @@ class EmailChannel(AWSObject):
         "Enabled": (boolean, False),
         "FromAddress": (str, True),
         "Identity": (str, True),
+        "OrchestrationSendingRoleArn": (str, False),
         "RoleArn": (str, False),
     }
 

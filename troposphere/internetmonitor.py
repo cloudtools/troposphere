@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double, integer
+from .validators import boolean, double, integer
 
 
 class LocalHealthEventsConfig(AWSProperty):
@@ -66,7 +66,9 @@ class Monitor(AWSObject):
 
     props: PropsDictType = {
         "HealthEventsConfig": (HealthEventsConfig, False),
+        "IncludeLinkedAccounts": (boolean, False),
         "InternetMeasurementsLogDelivery": (InternetMeasurementsLogDelivery, False),
+        "LinkedAccountId": (str, False),
         "MaxCityNetworksToMonitor": (integer, False),
         "MonitorName": (str, True),
         "Resources": ([str], False),

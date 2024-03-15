@@ -242,6 +242,7 @@ class Actions(AWSProperty):
         "Region": (str, False),
         "RoleArn": (str, False),
         "RunOrder": (integer, False),
+        "TimeoutInMinutes": (integer, False),
     }
 
 
