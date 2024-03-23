@@ -593,6 +593,17 @@ class SecurityKey(AWSObject):
     }
 
 
+class Application(AWSProperty):
+    """
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-securityprofile-application.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationPermissions": ([str], True),
+        "Namespace": (str, True),
+    }
+
+
 class SecurityProfile(AWSObject):
     """
     `SecurityProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-securityprofile.html>`__
@@ -601,8 +612,11 @@ class SecurityProfile(AWSObject):
     resource_type = "AWS::Connect::SecurityProfile"
 
     props: PropsDictType = {
+        "AllowedAccessControlHierarchyGroupId": (str, False),
         "AllowedAccessControlTags": (Tags, False),
+        "Applications": ([Application], False),
         "Description": (str, False),
+        "HierarchyRestrictedResources": ([str], False),
         "InstanceArn": (str, True),
         "Permissions": ([str], False),
         "SecurityProfileName": (str, True),
