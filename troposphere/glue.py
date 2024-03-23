@@ -127,6 +127,17 @@ class Connection(AWSObject):
     }
 
 
+class LakeFormationConfiguration(AWSProperty):
+    """
+    `LakeFormationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-lakeformationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountId": (str, False),
+        "UseLakeFormationCredentials": (boolean, False),
+    }
+
+
 class RecrawlPolicy(AWSProperty):
     """
     `RecrawlPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-recrawlpolicy.html>`__
@@ -275,6 +286,7 @@ class Crawler(AWSObject):
         "CrawlerSecurityConfiguration": (str, False),
         "DatabaseName": (str, False),
         "Description": (str, False),
+        "LakeFormationConfiguration": (LakeFormationConfiguration, False),
         "Name": (str, False),
         "RecrawlPolicy": (RecrawlPolicy, False),
         "Role": (str, True),

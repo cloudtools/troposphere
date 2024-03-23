@@ -361,6 +361,16 @@ class GreengrassV2(AWSProperty):
     }
 
 
+class SiemensIE(AWSProperty):
+    """
+    `SiemensIE <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-siemensie.html>`__
+    """
+
+    props: PropsDictType = {
+        "IotCoreThingName": (str, True),
+    }
+
+
 class GatewayPlatform(AWSProperty):
     """
     `GatewayPlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewayplatform.html>`__
@@ -369,6 +379,7 @@ class GatewayPlatform(AWSProperty):
     props: PropsDictType = {
         "Greengrass": (Greengrass, False),
         "GreengrassV2": (GreengrassV2, False),
+        "SiemensIE": (SiemensIE, False),
     }
 
 
