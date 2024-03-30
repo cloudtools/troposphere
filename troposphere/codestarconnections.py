@@ -51,8 +51,10 @@ class SyncConfiguration(AWSObject):
     props: PropsDictType = {
         "Branch": (str, True),
         "ConfigFile": (str, True),
+        "PublishDeploymentStatus": (str, False),
         "RepositoryLinkId": (str, True),
         "ResourceName": (str, True),
         "RoleArn": (str, True),
         "SyncType": (str, True),
+        "TriggerResourceUpdateOn": (str, False),
     }

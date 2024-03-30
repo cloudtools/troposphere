@@ -512,6 +512,8 @@ class Integration(AWSObject):
 
     props: PropsDictType = {
         "AdditionalEncryptionContext": (dict, False),
+        "DataFilter": (str, False),
+        "Description": (str, False),
         "IntegrationName": (str, False),
         "KMSKeyId": (str, False),
         "SourceArn": (str, True),

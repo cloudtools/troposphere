@@ -155,6 +155,26 @@ class AnalysisRuleAggregation(AWSProperty):
     }
 
 
+class DifferentialPrivacyColumn(AWSProperty):
+    """
+    `DifferentialPrivacyColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacycolumn.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class DifferentialPrivacy(AWSProperty):
+    """
+    `DifferentialPrivacy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-differentialprivacy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Columns": ([DifferentialPrivacyColumn], True),
+    }
+
+
 class AnalysisRuleCustom(AWSProperty):
     """
     `AnalysisRuleCustom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-analysisrulecustom.html>`__
@@ -163,6 +183,7 @@ class AnalysisRuleCustom(AWSProperty):
     props: PropsDictType = {
         "AllowedAnalyses": ([str], True),
         "AllowedAnalysisProviders": ([str], False),
+        "DifferentialPrivacy": (DifferentialPrivacy, False),
     }
 
 

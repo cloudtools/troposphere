@@ -24,6 +24,74 @@ class RuleGroupsNamespace(AWSObject):
     }
 
 
+class AmpConfiguration(AWSProperty):
+    """
+    `AmpConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-ampconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "WorkspaceArn": (str, True),
+    }
+
+
+class Destination(AWSProperty):
+    """
+    `Destination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-destination.html>`__
+    """
+
+    props: PropsDictType = {
+        "AmpConfiguration": (AmpConfiguration, True),
+    }
+
+
+class ScrapeConfiguration(AWSProperty):
+    """
+    `ScrapeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConfigurationBlob": (str, True),
+    }
+
+
+class EksConfiguration(AWSProperty):
+    """
+    `EksConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-eksconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClusterArn": (str, True),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], True),
+    }
+
+
+class Source(AWSProperty):
+    """
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-source.html>`__
+    """
+
+    props: PropsDictType = {
+        "EksConfiguration": (EksConfiguration, True),
+    }
+
+
+class Scraper(AWSObject):
+    """
+    `Scraper <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-aps-scraper.html>`__
+    """
+
+    resource_type = "AWS::APS::Scraper"
+
+    props: PropsDictType = {
+        "Alias": (str, False),
+        "Destination": (Destination, True),
+        "ScrapeConfiguration": (ScrapeConfiguration, True),
+        "Source": (Source, True),
+        "Tags": (Tags, False),
+    }
+
+
 class LoggingConfiguration(AWSProperty):
     """
     `LoggingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-workspace-loggingconfiguration.html>`__

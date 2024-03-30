@@ -1383,7 +1383,6 @@ class MaintenanceOptions(AWSProperty):
 
     props: PropsDictType = {
         "AutoRecovery": (str, False),
-        "RebootMigration": (str, False),
     }
 
 
@@ -2351,6 +2350,7 @@ class Subnet(AWSObject):
         "AvailabilityZoneId": (str, False),
         "CidrBlock": (str, False),
         "EnableDns64": (boolean, False),
+        "EnableLniAtDeviceIndex": (integer, False),
         "Ipv4IpamPoolId": (str, False),
         "Ipv4NetmaskLength": (integer, False),
         "Ipv6CidrBlock": (str, False),
