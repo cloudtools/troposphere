@@ -403,6 +403,41 @@ class FilterRule(AWSProperty):
     }
 
 
+class ManifestConfigSourceS3(AWSProperty):
+    """
+    `ManifestConfigSourceS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfigsources3.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketAccessRoleArn": (str, False),
+        "ManifestObjectPath": (str, False),
+        "ManifestObjectVersionId": (str, False),
+        "S3BucketArn": (str, False),
+    }
+
+
+class Source(AWSProperty):
+    """
+    `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-source.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (ManifestConfigSourceS3, False),
+    }
+
+
+class ManifestConfig(AWSProperty):
+    """
+    `ManifestConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-manifestconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, False),
+        "Format": (str, False),
+        "Source": (Source, True),
+    }
+
+
 class Options(AWSProperty):
     """
     `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-options.html>`__
@@ -427,9 +462,9 @@ class Options(AWSProperty):
     }
 
 
-class S3(AWSProperty):
+class TaskReportConfigDestinationS3(AWSProperty):
     """
-    `S3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-s3.html>`__
+    `TaskReportConfigDestinationS3 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datasync-task-taskreportconfigdestinations3.html>`__
     """
 
     props: PropsDictType = {
@@ -445,7 +480,7 @@ class Destination(AWSProperty):
     """
 
     props: PropsDictType = {
-        "S3": (S3, False),
+        "S3": (TaskReportConfigDestinationS3, False),
     }
 
 
@@ -538,6 +573,7 @@ class Task(AWSObject):
         "DestinationLocationArn": (str, True),
         "Excludes": ([FilterRule], False),
         "Includes": ([FilterRule], False),
+        "ManifestConfig": (ManifestConfig, False),
         "Name": (str, False),
         "Options": (Options, False),
         "Schedule": (TaskSchedule, False),

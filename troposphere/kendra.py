@@ -701,6 +701,7 @@ class Faq(AWSObject):
         "Description": (str, False),
         "FileFormat": (str, False),
         "IndexId": (str, True),
+        "LanguageCode": (str, False),
         "Name": (str, True),
         "RoleArn": (str, True),
         "S3Path": (S3Path, True),

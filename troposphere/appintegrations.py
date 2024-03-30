@@ -9,6 +9,43 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class ExternalUrlConfig(AWSProperty):
+    """
+    `ExternalUrlConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-externalurlconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessUrl": (str, True),
+        "ApprovedOrigins": ([str], True),
+    }
+
+
+class ApplicationSourceConfig(AWSProperty):
+    """
+    `ApplicationSourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-application-applicationsourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExternalUrlConfig": (ExternalUrlConfig, True),
+    }
+
+
+class Application(AWSObject):
+    """
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appintegrations-application.html>`__
+    """
+
+    resource_type = "AWS::AppIntegrations::Application"
+
+    props: PropsDictType = {
+        "ApplicationSourceConfig": (ApplicationSourceConfig, True),
+        "Description": (str, True),
+        "Name": (str, True),
+        "Namespace": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class FileConfiguration(AWSProperty):
     """
     `FileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appintegrations-dataintegration-fileconfiguration.html>`__

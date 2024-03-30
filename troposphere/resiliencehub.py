@@ -97,6 +97,19 @@ class FailurePolicy(AWSProperty):
     }
 
 
+class PolicyMap(AWSProperty):
+    """
+    `PolicyMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resiliencehub-resiliencypolicy-policymap.html>`__
+    """
+
+    props: PropsDictType = {
+        "AZ": (FailurePolicy, True),
+        "Hardware": (FailurePolicy, True),
+        "Region": (FailurePolicy, False),
+        "Software": (FailurePolicy, True),
+    }
+
+
 class ResiliencyPolicy(AWSObject):
     """
     `ResiliencyPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resiliencehub-resiliencypolicy.html>`__
