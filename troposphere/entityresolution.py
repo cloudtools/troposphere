@@ -50,7 +50,8 @@ class IdMappingWorkflowInputSource(AWSProperty):
 
     props: PropsDictType = {
         "InputSourceARN": (str, True),
-        "SchemaArn": (str, True),
+        "SchemaArn": (str, False),
+        "Type": (str, False),
     }
 
 
@@ -76,7 +77,7 @@ class IdMappingWorkflow(AWSObject):
         "Description": (str, False),
         "IdMappingTechniques": (IdMappingTechniques, True),
         "InputSourceConfig": ([IdMappingWorkflowInputSource], True),
-        "OutputSourceConfig": ([IdMappingWorkflowOutputSource], True),
+        "OutputSourceConfig": ([IdMappingWorkflowOutputSource], False),
         "RoleArn": (str, True),
         "Tags": (Tags, False),
         "WorkflowName": (str, True),

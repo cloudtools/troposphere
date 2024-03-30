@@ -174,9 +174,9 @@ class LogDelivery(AWSProperty):
     }
 
 
-class CustomPlugin(AWSProperty):
+class CustomPluginProperty(AWSProperty):
     """
-    `CustomPlugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html>`__
+    `CustomPluginProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-customplugin.html>`__
     """
 
     props: PropsDictType = {
@@ -191,13 +191,13 @@ class Plugin(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CustomPlugin": (CustomPlugin, True),
+        "CustomPlugin": (CustomPluginProperty, True),
     }
 
 
-class WorkerConfiguration(AWSProperty):
+class WorkerConfigurationProperty(AWSProperty):
     """
-    `WorkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html>`__
+    `WorkerConfigurationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-connector-workerconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -226,5 +226,69 @@ class Connector(AWSObject):
         "Plugins": ([Plugin], True),
         "ServiceExecutionRoleArn": (str, True),
         "Tags": (Tags, False),
-        "WorkerConfiguration": (WorkerConfiguration, False),
+        "WorkerConfiguration": (WorkerConfigurationProperty, False),
+    }
+
+
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketArn": (str, True),
+        "FileKey": (str, True),
+        "ObjectVersion": (str, False),
+    }
+
+
+class CustomPluginLocation(AWSProperty):
+    """
+    `CustomPluginLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginlocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Location": (S3Location, True),
+    }
+
+
+class CustomPlugin(AWSObject):
+    """
+    `CustomPlugin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-customplugin.html>`__
+    """
+
+    resource_type = "AWS::KafkaConnect::CustomPlugin"
+
+    props: PropsDictType = {
+        "ContentType": (str, True),
+        "Description": (str, False),
+        "Location": (CustomPluginLocation, True),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class WorkerConfiguration(AWSObject):
+    """
+    `WorkerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kafkaconnect-workerconfiguration.html>`__
+    """
+
+    resource_type = "AWS::KafkaConnect::WorkerConfiguration"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "PropertiesFileContent": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class CustomPluginFileDescription(AWSProperty):
+    """
+    `CustomPluginFileDescription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kafkaconnect-customplugin-custompluginfiledescription.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileMd5": (str, False),
+        "FileSize": (integer, False),
     }

@@ -142,6 +142,7 @@ class SingleMetricAnomalyDetector(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AccountId": (str, False),
         "Dimensions": ([MetricDimension], False),
         "MetricName": (str, False),
         "Namespace": (str, False),
