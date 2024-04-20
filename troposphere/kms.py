@@ -47,6 +47,7 @@ class Key(AWSObject):
         "MultiRegion": (boolean, False),
         "Origin": (str, False),
         "PendingWindowInDays": (validate_pending_window_in_days, False),
+        "RotationPeriodInDays": (integer, False),
         "Tags": (validate_tags_or_list, False),
     }
 

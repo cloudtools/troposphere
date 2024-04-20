@@ -822,6 +822,29 @@ class EFSVolumeConfiguration(AWSProperty):
     }
 
 
+class FSxAuthorizationConfig(AWSProperty):
+    """
+    `FSxAuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxauthorizationconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CredentialsParameter": (str, True),
+        "Domain": (str, True),
+    }
+
+
+class FSxWindowsFileServerVolumeConfiguration(AWSProperty):
+    """
+    `FSxWindowsFileServerVolumeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-fsxwindowsfileservervolumeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationConfig": (FSxAuthorizationConfig, False),
+        "FileSystemId": (str, True),
+        "RootDirectory": (str, True),
+    }
+
+
 class Host(AWSProperty):
     """
     `Host <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-hostvolumeproperties.html>`__
@@ -841,6 +864,10 @@ class Volume(AWSProperty):
         "ConfiguredAtLaunch": (boolean, False),
         "DockerVolumeConfiguration": (DockerVolumeConfiguration, False),
         "EFSVolumeConfiguration": (EFSVolumeConfiguration, False),
+        "FSxWindowsFileServerVolumeConfiguration": (
+            FSxWindowsFileServerVolumeConfiguration,
+            False,
+        ),
         "Host": (Host, False),
         "Name": (str, False),
     }

@@ -86,6 +86,7 @@ class Channel(AWSObject):
     resource_type = "AWS::MediaTailor::Channel"
 
     props: PropsDictType = {
+        "Audiences": ([str], False),
         "ChannelName": (str, True),
         "FillerSlate": (SlateSource, False),
         "LogConfiguration": (LogConfigurationForChannel, False),

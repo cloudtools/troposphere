@@ -39,6 +39,7 @@ class GlueRunConfigurationInput(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AutoImportDataQualityResult": (boolean, False),
         "DataAccessRole": (str, False),
         "RelationalFilterConfigurations": ([RelationalFilterConfiguration], True),
     }

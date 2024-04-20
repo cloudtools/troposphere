@@ -65,6 +65,16 @@ class ContainerConfig(AWSProperty):
     }
 
 
+class CodeEditorAppImageConfig(AWSProperty):
+    """
+    `CodeEditorAppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-codeeditorappimageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerConfig": (ContainerConfig, False),
+    }
+
+
 class JupyterLabAppImageConfig(AWSProperty):
     """
     `JupyterLabAppImageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-appimageconfig-jupyterlabappimageconfig.html>`__
@@ -118,6 +128,7 @@ class AppImageConfig(AWSObject):
 
     props: PropsDictType = {
         "AppImageConfigName": (str, True),
+        "CodeEditorAppImageConfig": (CodeEditorAppImageConfig, False),
         "JupyterLabAppImageConfig": (JupyterLabAppImageConfig, False),
         "KernelGatewayImageConfig": (KernelGatewayImageConfig, False),
         "Tags": (Tags, False),
@@ -521,6 +532,7 @@ class CodeEditorAppSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
         "LifecycleConfigArns": ([str], False),
     }

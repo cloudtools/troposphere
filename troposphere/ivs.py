@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class Channel(AWSObject):
@@ -29,6 +29,33 @@ class Channel(AWSObject):
     }
 
 
+class Video(AWSProperty):
+    """
+    `Video <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-encoderconfiguration-video.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bitrate": (integer, False),
+        "Framerate": (double, False),
+        "Height": (integer, False),
+        "Width": (integer, False),
+    }
+
+
+class EncoderConfiguration(AWSObject):
+    """
+    `EncoderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-encoderconfiguration.html>`__
+    """
+
+    resource_type = "AWS::IVS::EncoderConfiguration"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Tags": (Tags, False),
+        "Video": (Video, False),
+    }
+
+
 class PlaybackKeyPair(AWSObject):
     """
     `PlaybackKeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html>`__
@@ -39,6 +66,22 @@ class PlaybackKeyPair(AWSObject):
     props: PropsDictType = {
         "Name": (str, False),
         "PublicKeyMaterial": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class PlaybackRestrictionPolicy(AWSObject):
+    """
+    `PlaybackRestrictionPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackrestrictionpolicy.html>`__
+    """
+
+    resource_type = "AWS::IVS::PlaybackRestrictionPolicy"
+
+    props: PropsDictType = {
+        "AllowedCountries": ([str], True),
+        "AllowedOrigins": ([str], True),
+        "EnableStrictOriginEnforcement": (boolean, False),
+        "Name": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -113,6 +156,30 @@ class Stage(AWSObject):
 
     props: PropsDictType = {
         "Name": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class S3StorageConfiguration(AWSProperty):
+    """
+    `S3StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-storageconfiguration-s3storageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+    }
+
+
+class StorageConfiguration(AWSObject):
+    """
+    `StorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-storageconfiguration.html>`__
+    """
+
+    resource_type = "AWS::IVS::StorageConfiguration"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "S3": (S3StorageConfiguration, True),
         "Tags": (Tags, False),
     }
 
