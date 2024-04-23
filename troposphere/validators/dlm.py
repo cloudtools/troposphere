@@ -22,7 +22,7 @@ def validate_interval(interval):
     Property: CreateRule.Interval
     """
 
-    VALID_INTERVALS = (2, 3, 4, 6, 8, 12, 24)
+    VALID_INTERVALS = (1, 2, 3, 4, 6, 8, 12, 24)
 
     if interval not in VALID_INTERVALS:
         raise ValueError(
