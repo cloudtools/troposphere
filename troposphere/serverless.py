@@ -571,6 +571,7 @@ class KinesisEvent(AWSObject):
         "BisectBatchOnFunctionError": (bool, False),
         "DestinationConfig": (DestinationConfig, False),
         "Enabled": (bool, False),
+        "FilterCriteria": (FilterCriteria, False),
         "MaximumBatchingWindowInSeconds": (positive_integer, False),
         "MaximumRecordAgeInSeconds": (integer_range(60, 604800), False),
         "MaximumRetryAttempts": (positive_integer, False),
