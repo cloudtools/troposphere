@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, double
+from .validators import boolean, double, integer
 
 
 class AnalysisParameter(AWSProperty):
@@ -356,6 +356,33 @@ class Membership(AWSObject):
         ),
         "PaymentConfiguration": (MembershipPaymentConfiguration, False),
         "QueryLogStatus": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class Parameters(AWSProperty):
+    """
+    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-privacybudgettemplate-parameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "Epsilon": (integer, True),
+        "UsersNoisePerQuery": (integer, True),
+    }
+
+
+class PrivacyBudgetTemplate(AWSObject):
+    """
+    `PrivacyBudgetTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cleanrooms-privacybudgettemplate.html>`__
+    """
+
+    resource_type = "AWS::CleanRooms::PrivacyBudgetTemplate"
+
+    props: PropsDictType = {
+        "AutoRefresh": (str, True),
+        "MembershipIdentifier": (str, True),
+        "Parameters": (Parameters, True),
+        "PrivacyBudgetType": (str, True),
         "Tags": (Tags, False),
     }
 

@@ -280,6 +280,7 @@ class CustomerGateway(AWSObject):
 
     props: PropsDictType = {
         "BgpAsn": (integer, True),
+        "CertificateArn": (str, False),
         "DeviceName": (str, False),
         "IpAddress": (str, True),
         "Tags": (validate_tags_or_list, False),
