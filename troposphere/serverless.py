@@ -770,7 +770,7 @@ class MQEvent(AWSObject):
         "MaximumBatchingWindowInSeconds": (integer, False),
         "Queues": ([str], True),
         "SecretsManagerKmsKeyId": (str, False),
-        "SourceAccessConfigurations": ([str], True),
+        "SourceAccessConfigurations": ([SourceAccessConfiguration], True),
     }
 
 
