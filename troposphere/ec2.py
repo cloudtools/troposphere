@@ -279,7 +279,8 @@ class CustomerGateway(AWSObject):
     resource_type = "AWS::EC2::CustomerGateway"
 
     props: PropsDictType = {
-        "BgpAsn": (integer, True),
+        "BgpAsn": (integer, False),
+        "BgpAsnExtended": (double, False),
         "CertificateArn": (str, False),
         "DeviceName": (str, False),
         "IpAddress": (str, True),

@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class Database(AWSObject):
@@ -34,6 +34,42 @@ class S3Configuration(AWSProperty):
         "EncryptionOption": (str, True),
         "KmsKeyId": (str, False),
         "ObjectKeyPrefix": (str, False),
+    }
+
+
+class LogDeliveryConfiguration(AWSProperty):
+    """
+    `LogDeliveryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-timestream-influxdbinstance-logdeliveryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Configuration": (S3Configuration, True),
+    }
+
+
+class InfluxDBInstance(AWSObject):
+    """
+    `InfluxDBInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-timestream-influxdbinstance.html>`__
+    """
+
+    resource_type = "AWS::Timestream::InfluxDBInstance"
+
+    props: PropsDictType = {
+        "AllocatedStorage": (integer, False),
+        "Bucket": (str, False),
+        "DbInstanceType": (str, False),
+        "DbParameterGroupIdentifier": (str, False),
+        "DbStorageType": (str, False),
+        "DeploymentType": (str, False),
+        "LogDeliveryConfiguration": (LogDeliveryConfiguration, False),
+        "Name": (str, False),
+        "Organization": (str, False),
+        "Password": (str, False),
+        "PubliclyAccessible": (boolean, False),
+        "Tags": (Tags, False),
+        "Username": (str, False),
+        "VpcSecurityGroupIds": ([str], False),
+        "VpcSubnetIds": ([str], False),
     }
 
 

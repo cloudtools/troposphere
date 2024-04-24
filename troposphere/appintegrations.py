@@ -16,7 +16,7 @@ class ExternalUrlConfig(AWSProperty):
 
     props: PropsDictType = {
         "AccessUrl": (str, True),
-        "ApprovedOrigins": ([str], True),
+        "ApprovedOrigins": ([str], False),
     }
 
 
@@ -42,6 +42,7 @@ class Application(AWSObject):
         "Description": (str, True),
         "Name": (str, True),
         "Namespace": (str, False),
+        "Permissions": ([str], False),
         "Tags": (Tags, False),
     }
 
