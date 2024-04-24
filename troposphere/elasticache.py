@@ -269,7 +269,8 @@ class DataStorage(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Maximum": (integer, True),
+        "Maximum": (integer, False),
+        "Minimum": (integer, False),
         "Unit": (str, True),
     }
 
@@ -280,7 +281,8 @@ class ECPUPerSecond(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Maximum": (integer, True),
+        "Maximum": (integer, False),
+        "Minimum": (integer, False),
     }
 
 

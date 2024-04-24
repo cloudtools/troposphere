@@ -94,6 +94,7 @@ class Alarm(AWSObject):
         "OKActions": ([str], False),
         "Period": (integer, False),
         "Statistic": (str, False),
+        "Tags": (Tags, False),
         "Threshold": (double, False),
         "ThresholdMetricId": (str, False),
         "TreatMissingData": (validate_treat_missing_data, False),
@@ -186,6 +187,7 @@ class CompositeAlarm(AWSObject):
         "AlarmRule": (str, True),
         "InsufficientDataActions": ([str], False),
         "OKActions": ([str], False),
+        "Tags": (Tags, False),
     }
 
 

@@ -3209,7 +3209,6 @@ class Egress(AWSProperty):
         "DestinationSecurityGroupId": (str, False),
         "FromPort": (integer, False),
         "IpProtocol": (str, True),
-        "SourceSecurityGroupId": (str, False),
         "ToPort": (integer, False),
     }
 
