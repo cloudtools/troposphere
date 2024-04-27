@@ -235,6 +235,7 @@ class DBInstance(AWSObject):
         "AllowMajorVersionUpgrade": (boolean, False),
         "AssociatedRoles": ([DBInstanceRole], False),
         "AutoMinorVersionUpgrade": (boolean, False),
+        "AutomaticBackupReplicationKmsKeyId": (str, False),
         "AutomaticBackupReplicationRegion": (str, False),
         "AvailabilityZone": (str, False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),

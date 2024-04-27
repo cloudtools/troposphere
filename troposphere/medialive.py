@@ -246,12 +246,14 @@ class AudioDescription(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AudioDashRoles": ([str], False),
         "AudioNormalizationSettings": (AudioNormalizationSettings, False),
         "AudioSelectorName": (str, False),
         "AudioType": (str, False),
         "AudioTypeControl": (str, False),
         "AudioWatermarkingSettings": (AudioWatermarkSettings, False),
         "CodecSettings": (AudioCodecSettings, False),
+        "DvbDashAccessibility": (str, False),
         "LanguageCode": (str, False),
         "LanguageCodeControl": (str, False),
         "Name": (str, False),
@@ -545,8 +547,10 @@ class CaptionDescription(AWSProperty):
 
     props: PropsDictType = {
         "Accessibility": (str, False),
+        "CaptionDashRoles": ([str], False),
         "CaptionSelectorName": (str, False),
         "DestinationSettings": (CaptionDestinationSettings, False),
+        "DvbDashAccessibility": (str, False),
         "LanguageCode": (str, False),
         "LanguageDescription": (str, False),
         "Name": (str, False),
@@ -809,6 +813,16 @@ class ArchiveOutputSettings(AWSProperty):
     }
 
 
+class CmafIngestOutputSettings(AWSProperty):
+    """
+    `CmafIngestOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestoutputsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "NameModifier": (str, False),
+    }
+
+
 class FrameCaptureOutputSettings(AWSProperty):
     """
     `FrameCaptureOutputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-framecaptureoutputsettings.html>`__
@@ -1011,6 +1025,7 @@ class OutputSettings(AWSProperty):
 
     props: PropsDictType = {
         "ArchiveOutputSettings": (ArchiveOutputSettings, False),
+        "CmafIngestOutputSettings": (CmafIngestOutputSettings, False),
         "FrameCaptureOutputSettings": (FrameCaptureOutputSettings, False),
         "HlsOutputSettings": (HlsOutputSettings, False),
         "MediaPackageOutputSettings": (MediaPackageOutputSettings, False),
@@ -1064,6 +1079,21 @@ class ArchiveGroupSettings(AWSProperty):
         "ArchiveCdnSettings": (ArchiveCdnSettings, False),
         "Destination": (OutputLocationRef, False),
         "RolloverInterval": (integer, False),
+    }
+
+
+class CmafIngestGroupSettings(AWSProperty):
+    """
+    `CmafIngestGroupSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-cmafingestgroupsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (OutputLocationRef, False),
+        "NielsenId3Behavior": (str, False),
+        "Scte35Type": (str, False),
+        "SegmentLength": (integer, False),
+        "SegmentLengthUnits": (str, False),
+        "SendDelayMs": (integer, False),
     }
 
 
@@ -1346,6 +1376,7 @@ class OutputGroupSettings(AWSProperty):
 
     props: PropsDictType = {
         "ArchiveGroupSettings": (ArchiveGroupSettings, False),
+        "CmafIngestGroupSettings": (CmafIngestGroupSettings, False),
         "FrameCaptureGroupSettings": (FrameCaptureGroupSettings, False),
         "HlsGroupSettings": (HlsGroupSettings, False),
         "MediaPackageGroupSettings": (MediaPackageGroupSettings, False),
@@ -1589,6 +1620,8 @@ class H265Settings(AWSProperty):
         "LookAheadRateControl": (str, False),
         "MaxBitrate": (integer, False),
         "MinIInterval": (integer, False),
+        "MvOverPictureBoundaries": (str, False),
+        "MvTemporalPredictor": (str, False),
         "ParDenominator": (integer, False),
         "ParNumerator": (integer, False),
         "Profile": (str, False),
@@ -1598,8 +1631,12 @@ class H265Settings(AWSProperty):
         "SceneChangeDetect": (str, False),
         "Slices": (integer, False),
         "Tier": (str, False),
+        "TileHeight": (integer, False),
+        "TilePadding": (str, False),
+        "TileWidth": (integer, False),
         "TimecodeBurninSettings": (TimecodeBurninSettings, False),
         "TimecodeInsertion": (str, False),
+        "TreeblockSize": (str, False),
     }
 
 

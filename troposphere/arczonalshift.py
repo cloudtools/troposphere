@@ -42,6 +42,6 @@ class ZonalAutoshiftConfiguration(AWSObject):
 
     props: PropsDictType = {
         "PracticeRunConfiguration": (PracticeRunConfiguration, False),
-        "ResourceIdentifier": (str, False),
+        "ResourceIdentifier": (str, True),
         "ZonalAutoshiftStatus": (str, False),
     }
