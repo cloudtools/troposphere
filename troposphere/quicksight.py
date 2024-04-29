@@ -457,6 +457,297 @@ class CategoryFilterConfiguration(AWSProperty):
     }
 
 
+class FontSize(AWSProperty):
+    """
+    `FontSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontsize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Relative": (str, False),
+    }
+
+
+class FontWeight(AWSProperty):
+    """
+    `FontWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontweight.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+    }
+
+
+class FontConfiguration(AWSProperty):
+    """
+    `FontConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FontColor": (str, False),
+        "FontDecoration": (str, False),
+        "FontSize": (FontSize, False),
+        "FontStyle": (str, False),
+        "FontWeight": (FontWeight, False),
+    }
+
+
+class LabelOptions(AWSProperty):
+    """
+    `LabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-labeloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomLabel": (str, False),
+        "FontConfiguration": (FontConfiguration, False),
+        "Visibility": (str, False),
+    }
+
+
+class SheetControlInfoIconLabelOptions(AWSProperty):
+    """
+    `SheetControlInfoIconLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrolinfoiconlabeloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfoIconText": (str, False),
+        "Visibility": (str, False),
+    }
+
+
+class DateTimePickerControlDisplayOptions(AWSProperty):
+    """
+    `DateTimePickerControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DateTimeFormat": (str, False),
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
+        "TitleOptions": (LabelOptions, False),
+    }
+
+
+class DefaultDateTimePickerControlOptions(AWSProperty):
+    """
+    `DefaultDateTimePickerControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultdatetimepickercontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayOptions": (DateTimePickerControlDisplayOptions, False),
+        "Type": (str, False),
+    }
+
+
+class ListControlSelectAllOptions(AWSProperty):
+    """
+    `ListControlSelectAllOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolselectalloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Visibility": (str, False),
+    }
+
+
+class DropDownControlDisplayOptions(AWSProperty):
+    """
+    `DropDownControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dropdowncontroldisplayoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
+        "SelectAllOptions": (ListControlSelectAllOptions, False),
+        "TitleOptions": (LabelOptions, False),
+    }
+
+
+class FilterSelectableValues(AWSProperty):
+    """
+    `FilterSelectableValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterselectablevalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "Values": ([str], False),
+    }
+
+
+class DefaultFilterDropDownControlOptions(AWSProperty):
+    """
+    `DefaultFilterDropDownControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfilterdropdowncontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayOptions": (DropDownControlDisplayOptions, False),
+        "SelectableValues": (FilterSelectableValues, False),
+        "Type": (str, False),
+    }
+
+
+class ListControlSearchOptions(AWSProperty):
+    """
+    `ListControlSearchOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolsearchoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Visibility": (str, False),
+    }
+
+
+class ListControlDisplayOptions(AWSProperty):
+    """
+    `ListControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontroldisplayoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
+        "SearchOptions": (ListControlSearchOptions, False),
+        "SelectAllOptions": (ListControlSelectAllOptions, False),
+        "TitleOptions": (LabelOptions, False),
+    }
+
+
+class DefaultFilterListControlOptions(AWSProperty):
+    """
+    `DefaultFilterListControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfilterlistcontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayOptions": (ListControlDisplayOptions, False),
+        "SelectableValues": (FilterSelectableValues, False),
+        "Type": (str, False),
+    }
+
+
+class RelativeDateTimeControlDisplayOptions(AWSProperty):
+    """
+    `RelativeDateTimeControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DateTimeFormat": (str, False),
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
+        "TitleOptions": (LabelOptions, False),
+    }
+
+
+class DefaultRelativeDateTimeControlOptions(AWSProperty):
+    """
+    `DefaultRelativeDateTimeControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultrelativedatetimecontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayOptions": (RelativeDateTimeControlDisplayOptions, False),
+    }
+
+
+class SliderControlDisplayOptions(AWSProperty):
+    """
+    `SliderControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-slidercontroldisplayoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
+        "TitleOptions": (LabelOptions, False),
+    }
+
+
+class DefaultSliderControlOptions(AWSProperty):
+    """
+    `DefaultSliderControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultslidercontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayOptions": (SliderControlDisplayOptions, False),
+        "MaximumValue": (double, True),
+        "MinimumValue": (double, True),
+        "StepSize": (double, True),
+        "Type": (str, False),
+    }
+
+
+class TextControlPlaceholderOptions(AWSProperty):
+    """
+    `TextControlPlaceholderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textcontrolplaceholderoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Visibility": (str, False),
+    }
+
+
+class TextAreaControlDisplayOptions(AWSProperty):
+    """
+    `TextAreaControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textareacontroldisplayoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
+        "PlaceholderOptions": (TextControlPlaceholderOptions, False),
+        "TitleOptions": (LabelOptions, False),
+    }
+
+
+class DefaultTextAreaControlOptions(AWSProperty):
+    """
+    `DefaultTextAreaControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaulttextareacontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Delimiter": (str, False),
+        "DisplayOptions": (TextAreaControlDisplayOptions, False),
+    }
+
+
+class TextFieldControlDisplayOptions(AWSProperty):
+    """
+    `TextFieldControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textfieldcontroldisplayoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
+        "PlaceholderOptions": (TextControlPlaceholderOptions, False),
+        "TitleOptions": (LabelOptions, False),
+    }
+
+
+class DefaultTextFieldControlOptions(AWSProperty):
+    """
+    `DefaultTextFieldControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaulttextfieldcontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisplayOptions": (TextFieldControlDisplayOptions, False),
+    }
+
+
+class DefaultFilterControlOptions(AWSProperty):
+    """
+    `DefaultFilterControlOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontroloptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultDateTimePickerOptions": (DefaultDateTimePickerControlOptions, False),
+        "DefaultDropdownOptions": (DefaultFilterDropDownControlOptions, False),
+        "DefaultListOptions": (DefaultFilterListControlOptions, False),
+        "DefaultRelativeDateTimeOptions": (
+            DefaultRelativeDateTimeControlOptions,
+            False,
+        ),
+        "DefaultSliderOptions": (DefaultSliderControlOptions, False),
+        "DefaultTextAreaOptions": (DefaultTextAreaControlOptions, False),
+        "DefaultTextFieldOptions": (DefaultTextFieldControlOptions, False),
+    }
+
+
+class DefaultFilterControlConfiguration(AWSProperty):
+    """
+    `DefaultFilterControlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-defaultfiltercontrolconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ControlOptions": (DefaultFilterControlOptions, True),
+        "Title": (str, True),
+    }
+
+
 class CategoryFilter(AWSProperty):
     """
     `CategoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryfilter.html>`__
@@ -465,6 +756,7 @@ class CategoryFilter(AWSProperty):
     props: PropsDictType = {
         "Column": (ColumnIdentifier, True),
         "Configuration": (CategoryFilterConfiguration, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
         "FilterId": (str, True),
     }
 
@@ -522,6 +814,7 @@ class NumericEqualityFilter(AWSProperty):
     props: PropsDictType = {
         "AggregationFunction": (AggregationFunction, False),
         "Column": (ColumnIdentifier, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
         "FilterId": (str, True),
         "MatchOperator": (str, True),
         "NullOption": (str, True),
@@ -550,6 +843,7 @@ class NumericRangeFilter(AWSProperty):
     props: PropsDictType = {
         "AggregationFunction": (AggregationFunction, False),
         "Column": (ColumnIdentifier, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
         "FilterId": (str, True),
         "IncludeMaximum": (boolean, False),
         "IncludeMinimum": (boolean, False),
@@ -591,6 +885,7 @@ class RelativeDatesFilter(AWSProperty):
     props: PropsDictType = {
         "AnchorDateConfiguration": (AnchorDateConfiguration, True),
         "Column": (ColumnIdentifier, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
         "ExcludePeriodConfiguration": (ExcludePeriodConfiguration, False),
         "FilterId": (str, True),
         "MinimumGranularity": (str, False),
@@ -620,6 +915,7 @@ class TimeEqualityFilter(AWSProperty):
 
     props: PropsDictType = {
         "Column": (ColumnIdentifier, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
         "FilterId": (str, True),
         "ParameterName": (str, False),
         "RollingDate": (RollingDateConfiguration, False),
@@ -647,6 +943,7 @@ class TimeRangeFilter(AWSProperty):
 
     props: PropsDictType = {
         "Column": (ColumnIdentifier, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
         "ExcludePeriodConfiguration": (ExcludePeriodConfiguration, False),
         "FilterId": (str, True),
         "IncludeMaximum": (boolean, False),
@@ -678,6 +975,7 @@ class TopBottomFilter(AWSProperty):
     props: PropsDictType = {
         "AggregationSortConfigurations": ([AggregationSortConfiguration], True),
         "Column": (ColumnIdentifier, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
         "FilterId": (str, True),
         "Limit": (double, False),
         "ParameterName": (str, False),
@@ -929,89 +1227,6 @@ class ParameterDeclaration(AWSProperty):
     }
 
 
-class FontSize(AWSProperty):
-    """
-    `FontSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontsize.html>`__
-    """
-
-    props: PropsDictType = {
-        "Relative": (str, False),
-    }
-
-
-class FontWeight(AWSProperty):
-    """
-    `FontWeight <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontweight.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, False),
-    }
-
-
-class FontConfiguration(AWSProperty):
-    """
-    `FontConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-fontconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "FontColor": (str, False),
-        "FontDecoration": (str, False),
-        "FontSize": (FontSize, False),
-        "FontStyle": (str, False),
-        "FontWeight": (FontWeight, False),
-    }
-
-
-class LabelOptions(AWSProperty):
-    """
-    `LabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-labeloptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomLabel": (str, False),
-        "FontConfiguration": (FontConfiguration, False),
-        "Visibility": (str, False),
-    }
-
-
-class SheetControlInfoIconLabelOptions(AWSProperty):
-    """
-    `SheetControlInfoIconLabelOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetcontrolinfoiconlabeloptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "InfoIconText": (str, False),
-        "Visibility": (str, False),
-    }
-
-
-class DateTimePickerControlDisplayOptions(AWSProperty):
-    """
-    `DateTimePickerControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datetimepickercontroldisplayoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "DateTimeFormat": (str, False),
-        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
-        "TitleOptions": (LabelOptions, False),
-    }
-
-
-class FilterDateTimePickerControl(AWSProperty):
-    """
-    `FilterDateTimePickerControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdatetimepickercontrol.html>`__
-    """
-
-    props: PropsDictType = {
-        "DisplayOptions": (DateTimePickerControlDisplayOptions, False),
-        "FilterControlId": (str, True),
-        "SourceFilterId": (str, True),
-        "Title": (str, True),
-        "Type": (str, False),
-    }
-
-
 class CascadingControlSource(AWSProperty):
     """
     `CascadingControlSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-cascadingcontrolsource.html>`__
@@ -1033,35 +1248,29 @@ class CascadingControlConfiguration(AWSProperty):
     }
 
 
-class ListControlSelectAllOptions(AWSProperty):
+class FilterCrossSheetControl(AWSProperty):
     """
-    `ListControlSelectAllOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolselectalloptions.html>`__
+    `FilterCrossSheetControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtercrosssheetcontrol.html>`__
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "CascadingControlConfiguration": (CascadingControlConfiguration, False),
+        "FilterControlId": (str, True),
+        "SourceFilterId": (str, True),
     }
 
 
-class DropDownControlDisplayOptions(AWSProperty):
+class FilterDateTimePickerControl(AWSProperty):
     """
-    `DropDownControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-dropdowncontroldisplayoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
-        "SelectAllOptions": (ListControlSelectAllOptions, False),
-        "TitleOptions": (LabelOptions, False),
-    }
-
-
-class FilterSelectableValues(AWSProperty):
-    """
-    `FilterSelectableValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterselectablevalues.html>`__
+    `FilterDateTimePickerControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterdatetimepickercontrol.html>`__
     """
 
     props: PropsDictType = {
-        "Values": ([str], False),
+        "DisplayOptions": (DateTimePickerControlDisplayOptions, False),
+        "FilterControlId": (str, True),
+        "SourceFilterId": (str, True),
+        "Title": (str, True),
+        "Type": (str, False),
     }
 
 
@@ -1081,29 +1290,6 @@ class FilterDropDownControl(AWSProperty):
     }
 
 
-class ListControlSearchOptions(AWSProperty):
-    """
-    `ListControlSearchOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontrolsearchoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "Visibility": (str, False),
-    }
-
-
-class ListControlDisplayOptions(AWSProperty):
-    """
-    `ListControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-listcontroldisplayoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
-        "SearchOptions": (ListControlSearchOptions, False),
-        "SelectAllOptions": (ListControlSelectAllOptions, False),
-        "TitleOptions": (LabelOptions, False),
-    }
-
-
 class FilterListControl(AWSProperty):
     """
     `FilterListControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterlistcontrol.html>`__
@@ -1120,18 +1306,6 @@ class FilterListControl(AWSProperty):
     }
 
 
-class RelativeDateTimeControlDisplayOptions(AWSProperty):
-    """
-    `RelativeDateTimeControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-relativedatetimecontroldisplayoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "DateTimeFormat": (str, False),
-        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
-        "TitleOptions": (LabelOptions, False),
-    }
-
-
 class FilterRelativeDateTimeControl(AWSProperty):
     """
     `FilterRelativeDateTimeControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filterrelativedatetimecontrol.html>`__
@@ -1142,17 +1316,6 @@ class FilterRelativeDateTimeControl(AWSProperty):
         "FilterControlId": (str, True),
         "SourceFilterId": (str, True),
         "Title": (str, True),
-    }
-
-
-class SliderControlDisplayOptions(AWSProperty):
-    """
-    `SliderControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-slidercontroldisplayoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
-        "TitleOptions": (LabelOptions, False),
     }
 
 
@@ -1173,28 +1336,6 @@ class FilterSliderControl(AWSProperty):
     }
 
 
-class TextControlPlaceholderOptions(AWSProperty):
-    """
-    `TextControlPlaceholderOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textcontrolplaceholderoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "Visibility": (str, False),
-    }
-
-
-class TextAreaControlDisplayOptions(AWSProperty):
-    """
-    `TextAreaControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textareacontroldisplayoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
-        "PlaceholderOptions": (TextControlPlaceholderOptions, False),
-        "TitleOptions": (LabelOptions, False),
-    }
-
-
 class FilterTextAreaControl(AWSProperty):
     """
     `FilterTextAreaControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-filtertextareacontrol.html>`__
@@ -1206,18 +1347,6 @@ class FilterTextAreaControl(AWSProperty):
         "FilterControlId": (str, True),
         "SourceFilterId": (str, True),
         "Title": (str, True),
-    }
-
-
-class TextFieldControlDisplayOptions(AWSProperty):
-    """
-    `TextFieldControlDisplayOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-textfieldcontroldisplayoptions.html>`__
-    """
-
-    props: PropsDictType = {
-        "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
-        "PlaceholderOptions": (TextControlPlaceholderOptions, False),
-        "TitleOptions": (LabelOptions, False),
     }
 
 
@@ -1240,6 +1369,7 @@ class FilterControl(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CrossSheet": (FilterCrossSheetControl, False),
         "DateTimePicker": (FilterDateTimePickerControl, False),
         "Dropdown": (FilterDropDownControl, False),
         "List": (FilterListControl, False),

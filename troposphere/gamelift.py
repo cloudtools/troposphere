@@ -65,6 +65,115 @@ class Build(AWSObject):
     }
 
 
+class ContainerDependency(AWSProperty):
+    """
+    `ContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Condition": (str, True),
+        "ContainerName": (str, True),
+    }
+
+
+class ContainerEnvironment(AWSProperty):
+    """
+    `ContainerEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerenvironment.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ContainerHealthCheck(AWSProperty):
+    """
+    `ContainerHealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html>`__
+    """
+
+    props: PropsDictType = {
+        "Command": ([str], True),
+        "Interval": (integer, False),
+        "Retries": (integer, False),
+        "StartPeriod": (integer, False),
+        "Timeout": (integer, False),
+    }
+
+
+class MemoryLimits(AWSProperty):
+    """
+    `MemoryLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-memorylimits.html>`__
+    """
+
+    props: PropsDictType = {
+        "HardLimit": (integer, False),
+        "SoftLimit": (integer, False),
+    }
+
+
+class ContainerPortRange(AWSProperty):
+    """
+    `ContainerPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "FromPort": (integer, True),
+        "Protocol": (str, True),
+        "ToPort": (integer, True),
+    }
+
+
+class PortConfiguration(AWSProperty):
+    """
+    `PortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerPortRanges": ([ContainerPortRange], True),
+    }
+
+
+class ContainerDefinition(AWSProperty):
+    """
+    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Command": ([str], False),
+        "ContainerName": (str, True),
+        "Cpu": (integer, False),
+        "DependsOn": ([ContainerDependency], False),
+        "EntryPoint": ([str], False),
+        "Environment": ([ContainerEnvironment], False),
+        "Essential": (boolean, False),
+        "HealthCheck": (ContainerHealthCheck, False),
+        "ImageUri": (str, True),
+        "MemoryLimits": (MemoryLimits, False),
+        "PortConfiguration": (PortConfiguration, False),
+        "ResolvedImageDigest": (str, False),
+        "WorkingDirectory": (str, False),
+    }
+
+
+class ContainerGroupDefinition(AWSObject):
+    """
+    `ContainerGroupDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html>`__
+    """
+
+    resource_type = "AWS::GameLift::ContainerGroupDefinition"
+
+    props: PropsDictType = {
+        "ContainerDefinitions": ([ContainerDefinition], True),
+        "Name": (str, True),
+        "OperatingSystem": (str, True),
+        "SchedulingStrategy": (str, False),
+        "Tags": (Tags, False),
+        "TotalCpuLimit": (integer, True),
+        "TotalMemoryLimit": (integer, True),
+    }
+
+
 class AnywhereConfiguration(AWSProperty):
     """
     `AnywhereConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html>`__
@@ -82,6 +191,40 @@ class CertificateConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "CertificateType": (str, True),
+    }
+
+
+class ConnectionPortRange(AWSProperty):
+    """
+    `ConnectionPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-connectionportrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "FromPort": (integer, True),
+        "ToPort": (integer, True),
+    }
+
+
+class ContainerGroupsPerInstance(AWSProperty):
+    """
+    `ContainerGroupsPerInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsperinstance.html>`__
+    """
+
+    props: PropsDictType = {
+        "DesiredReplicaContainerGroupsPerInstance": (integer, False),
+        "MaxReplicaContainerGroupsPerInstance": (integer, False),
+    }
+
+
+class ContainerGroupsConfiguration(AWSProperty):
+    """
+    `ContainerGroupsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionPortRange": (ConnectionPortRange, True),
+        "ContainerGroupDefinitionNames": ([str], True),
+        "ContainerGroupsPerInstance": (ContainerGroupsPerInstance, False),
     }
 
 
@@ -200,6 +343,7 @@ class Fleet(AWSObject):
         "BuildId": (str, False),
         "CertificateConfiguration": (CertificateConfiguration, False),
         "ComputeType": (str, False),
+        "ContainerGroupsConfiguration": (ContainerGroupsConfiguration, False),
         "Description": (str, False),
         "DesiredEC2Instances": (integer, False),
         "EC2InboundPermissions": ([IpPermission], False),

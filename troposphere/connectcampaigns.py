@@ -60,6 +60,7 @@ class AnswerMachineDetectionConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AwaitAnswerMachinePrompt": (boolean, False),
         "EnableAnswerMachineDetection": (boolean, True),
     }
 

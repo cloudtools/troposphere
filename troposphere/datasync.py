@@ -557,7 +557,8 @@ class TaskSchedule(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ScheduleExpression": (str, True),
+        "ScheduleExpression": (str, False),
+        "Status": (str, False),
     }
 
 
