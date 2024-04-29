@@ -7,6 +7,7 @@ that should be integers fail to validate and need to be represented as
 strings. For this reason, we duplicate the AWS::AutoScaling::AutoScalingGroup
 and change these types.
 """
+
 # Copyright (c) 2012-2013, Mark Peek <mark@peek.org>
 # Copyright (c) 2014, Andy Botting <andy.botting@theguardian.com>
 # All rights reserved.

@@ -83,18 +83,15 @@ def is_aws_object_subclass(cls: Any) -> bool:
 @overload
 def encode_to_dict(
     obj: Union[Dict[str, Any], JSONreprProtocol, ToDictProtocol]
-) -> Dict[str, Any]:
-    ...
+) -> Dict[str, Any]: ...
 
 
 @overload
-def encode_to_dict(obj: Union[List[Any], Tuple[Any]]) -> List[Dict[str, Any]]:
-    ...
+def encode_to_dict(obj: Union[List[Any], Tuple[Any]]) -> List[Dict[str, Any]]: ...
 
 
 @overload
-def encode_to_dict(obj: Optional[str]) -> Optional[str]:
-    ...
+def encode_to_dict(obj: Optional[str]) -> Optional[str]: ...
 
 
 def encode_to_dict(

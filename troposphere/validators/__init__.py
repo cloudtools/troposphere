@@ -28,13 +28,11 @@ __T = TypeVar("__T")
 
 
 @overload
-def boolean(x: Literal[True, 1, "true", "True"]) -> Literal[True]:
-    ...
+def boolean(x: Literal[True, 1, "true", "True"]) -> Literal[True]: ...
 
 
 @overload
-def boolean(x: Literal[False, 0, "false", "False"]) -> Literal[False]:
-    ...
+def boolean(x: Literal[False, 0, "false", "False"]) -> Literal[False]: ...
 
 
 def boolean(x: Any) -> bool:
