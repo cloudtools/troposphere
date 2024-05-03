@@ -5593,6 +5593,28 @@ class TreeMapVisual(AWSProperty):
     }
 
 
+class WaterfallChartGroupColorConfiguration(AWSProperty):
+    """
+    `WaterfallChartGroupColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartgroupcolorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "NegativeBarColor": (str, False),
+        "PositiveBarColor": (str, False),
+        "TotalBarColor": (str, False),
+    }
+
+
+class WaterfallChartColorConfiguration(AWSProperty):
+    """
+    `WaterfallChartColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartcolorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupColorConfiguration": (WaterfallChartGroupColorConfiguration, False),
+    }
+
+
 class WaterfallChartAggregatedFieldWells(AWSProperty):
     """
     `WaterfallChartAggregatedFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-waterfallchartaggregatedfieldwells.html>`__
@@ -5647,6 +5669,7 @@ class WaterfallChartConfiguration(AWSProperty):
     props: PropsDictType = {
         "CategoryAxisDisplayOptions": (AxisDisplayOptions, False),
         "CategoryAxisLabelOptions": (ChartAxisLabelOptions, False),
+        "ColorConfiguration": (WaterfallChartColorConfiguration, False),
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (WaterfallChartFieldWells, False),
         "Legend": (LegendOptions, False),

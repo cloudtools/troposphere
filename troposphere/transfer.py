@@ -89,6 +89,7 @@ class Connector(AWSObject):
         "AccessRole": (str, True),
         "As2Config": (As2Config, False),
         "LoggingRole": (str, False),
+        "SecurityPolicyName": (str, False),
         "SftpConfig": (SftpConfig, False),
         "Tags": (Tags, False),
         "Url": (str, True),
@@ -330,11 +331,11 @@ class DecryptStepDetails(AWSProperty):
     """
 
     props: PropsDictType = {
-        "DestinationFileLocation": (InputFileLocation, False),
+        "DestinationFileLocation": (InputFileLocation, True),
         "Name": (str, False),
         "OverwriteExisting": (str, False),
         "SourceFileLocation": (str, False),
-        "Type": (str, False),
+        "Type": (str, True),
     }
 
 

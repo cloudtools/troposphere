@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, integer
 from .validators.fms import validate_json_checker
 
 
@@ -32,6 +32,67 @@ class IEMap(AWSProperty):
     props: PropsDictType = {
         "ACCOUNT": ([str], False),
         "ORGUNIT": ([str], False),
+    }
+
+
+class IcmpTypeCode(AWSProperty):
+    """
+    `IcmpTypeCode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-icmptypecode.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (integer, True),
+        "Type": (integer, True),
+    }
+
+
+class PortRange(AWSProperty):
+    """
+    `PortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-portrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "From": (integer, True),
+        "To": (integer, True),
+    }
+
+
+class NetworkAclEntry(AWSProperty):
+    """
+    `NetworkAclEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "CidrBlock": (str, False),
+        "Egress": (boolean, True),
+        "IcmpTypeCode": (IcmpTypeCode, False),
+        "Ipv6CidrBlock": (str, False),
+        "PortRange": (PortRange, False),
+        "Protocol": (str, True),
+        "RuleAction": (str, True),
+    }
+
+
+class NetworkAclEntrySet(AWSProperty):
+    """
+    `NetworkAclEntrySet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclentryset.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirstEntries": ([NetworkAclEntry], False),
+        "ForceRemediateForFirstEntries": (boolean, True),
+        "ForceRemediateForLastEntries": (boolean, True),
+        "LastEntries": ([NetworkAclEntry], False),
+    }
+
+
+class NetworkAclCommonPolicy(AWSProperty):
+    """
+    `NetworkAclCommonPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fms-policy-networkaclcommonpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "NetworkAclEntrySet": (NetworkAclEntrySet, True),
     }
 
 
@@ -61,6 +122,7 @@ class PolicyOption(AWSProperty):
     """
 
     props: PropsDictType = {
+        "NetworkAclCommonPolicy": (NetworkAclCommonPolicy, False),
         "NetworkFirewallPolicy": (NetworkFirewallPolicy, False),
         "ThirdPartyFirewallPolicy": (ThirdPartyFirewallPolicy, False),
     }
