@@ -51,6 +51,16 @@ class Projection(AWSProperty):
     }
 
 
+class WriteOnDemandThroughputSettings(AWSProperty):
+    """
+    `WriteOnDemandThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeondemandthroughputsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxWriteRequestUnits": (integer, False),
+    }
+
+
 class TargetTrackingScalingPolicyConfiguration(AWSProperty):
     """
     `TargetTrackingScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-targettrackingscalingpolicyconfiguration.html>`__
@@ -99,6 +109,7 @@ class GlobalTableGlobalSecondaryIndex(AWSProperty):
         "IndexName": (str, True),
         "KeySchema": ([KeySchema], True),
         "Projection": (Projection, True),
+        "WriteOnDemandThroughputSettings": (WriteOnDemandThroughputSettings, False),
         "WriteProvisionedThroughputSettings": (
             WriteProvisionedThroughputSettings,
             False,
@@ -160,6 +171,16 @@ class PointInTimeRecoverySpecification(AWSProperty):
     }
 
 
+class ReadOnDemandThroughputSettings(AWSProperty):
+    """
+    `ReadOnDemandThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readondemandthroughputsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxReadRequestUnits": (integer, False),
+    }
+
+
 class ReadProvisionedThroughputSettings(AWSProperty):
     """
     `ReadProvisionedThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-readprovisionedthroughputsettings.html>`__
@@ -179,6 +200,7 @@ class ReplicaGlobalSecondaryIndexSpecification(AWSProperty):
     props: PropsDictType = {
         "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
         "IndexName": (str, True),
+        "ReadOnDemandThroughputSettings": (ReadOnDemandThroughputSettings, False),
         "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
     }
 
@@ -224,6 +246,7 @@ class ReplicaSpecification(AWSProperty):
         "GlobalSecondaryIndexes": ([ReplicaGlobalSecondaryIndexSpecification], False),
         "KinesisStreamSpecification": (KinesisStreamSpecification, False),
         "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
+        "ReadOnDemandThroughputSettings": (ReadOnDemandThroughputSettings, False),
         "ReadProvisionedThroughputSettings": (ReadProvisionedThroughputSettings, False),
         "Region": (str, True),
         "ReplicaStreamSpecification": (ReplicaStreamSpecification, False),
@@ -274,10 +297,22 @@ class GlobalTable(AWSObject):
         "StreamSpecification": (StreamSpecification, False),
         "TableName": (str, False),
         "TimeToLiveSpecification": (TimeToLiveSpecification, False),
+        "WriteOnDemandThroughputSettings": (WriteOnDemandThroughputSettings, False),
         "WriteProvisionedThroughputSettings": (
             WriteProvisionedThroughputSettings,
             False,
         ),
+    }
+
+
+class OnDemandThroughput(AWSProperty):
+    """
+    `OnDemandThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-ondemandthroughput.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxReadRequestUnits": (integer, False),
+        "MaxWriteRequestUnits": (integer, False),
     }
 
 
@@ -301,6 +336,7 @@ class GlobalSecondaryIndex(AWSProperty):
         "ContributorInsightsSpecification": (ContributorInsightsSpecification, False),
         "IndexName": (str, True),
         "KeySchema": ([KeySchema], True),
+        "OnDemandThroughput": (OnDemandThroughput, False),
         "Projection": (Projection, True),
         "ProvisionedThroughput": (ProvisionedThroughput, False),
     }
@@ -381,6 +417,7 @@ class Table(AWSObject):
         "KeySchema": ([KeySchema], True),
         "KinesisStreamSpecification": (KinesisStreamSpecification, False),
         "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
+        "OnDemandThroughput": (OnDemandThroughput, False),
         "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
         "ProvisionedThroughput": (ProvisionedThroughput, False),
         "ResourcePolicy": (ResourcePolicy, False),

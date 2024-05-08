@@ -168,6 +168,7 @@ class S3DataSourceConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "BucketArn": (str, True),
+        "BucketOwnerAccountId": (str, False),
         "InclusionPrefixes": ([str], False),
     }
 
@@ -233,6 +234,7 @@ class DataSource(AWSObject):
     resource_type = "AWS::Bedrock::DataSource"
 
     props: PropsDictType = {
+        "DataDeletionPolicy": (str, False),
         "DataSourceConfiguration": (DataSourceConfiguration, True),
         "Description": (str, False),
         "KnowledgeBaseId": (str, True),
