@@ -3276,6 +3276,17 @@ class SecurityGroupRule(AWSProperty):
     }
 
 
+class State(AWSProperty):
+    """
+    `State <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance-state.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, False),
+        "Name": (str, False),
+    }
+
+
 class TransitGatewayRouteTableRoute(AWSProperty):
     """
     `TransitGatewayRouteTableRoute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinsightsanalysis-transitgatewayroutetableroute.html>`__

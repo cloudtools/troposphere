@@ -135,3 +135,19 @@ class DBSubnetGroup(AWSObject):
         "SubnetIds": ([str], True),
         "Tags": (Tags, False),
     }
+
+
+class EventSubscription(AWSObject):
+    """
+    `EventSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-neptune-eventsubscription.html>`__
+    """
+
+    resource_type = "AWS::Neptune::EventSubscription"
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "EventCategories": ([str], False),
+        "SnsTopicArn": (str, False),
+        "SourceIds": ([str], False),
+        "SourceType": (str, False),
+    }

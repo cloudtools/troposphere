@@ -38,6 +38,7 @@ class FirewallRule(AWSProperty):
         "BlockOverrideTtl": (integer, False),
         "BlockResponse": (str, False),
         "FirewallDomainListId": (str, True),
+        "FirewallDomainRedirectionAction": (str, False),
         "Priority": (integer, True),
         "Qtype": (str, False),
     }

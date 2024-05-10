@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import integer
+from .validators import double, integer
 
 
 class BridgeNetworkOutput(AWSProperty):
@@ -170,6 +170,61 @@ class BridgeSource(AWSObject):
     }
 
 
+class Maintenance(AWSProperty):
+    """
+    `Maintenance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-maintenance.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaintenanceDay": (str, True),
+        "MaintenanceStartHour": (str, True),
+    }
+
+
+class Fmtp(AWSProperty):
+    """
+    `Fmtp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-fmtp.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelOrder": (str, False),
+        "Colorimetry": (str, False),
+        "ExactFramerate": (str, False),
+        "Par": (str, False),
+        "Range": (str, False),
+        "ScanMode": (str, False),
+        "Tcs": (str, False),
+    }
+
+
+class MediaStreamAttributes(AWSProperty):
+    """
+    `MediaStreamAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "Fmtp": (Fmtp, False),
+        "Lang": (str, False),
+    }
+
+
+class MediaStream(AWSProperty):
+    """
+    `MediaStream <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastream.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attributes": (MediaStreamAttributes, False),
+        "ClockRate": (integer, False),
+        "Description": (str, False),
+        "Fmt": (integer, False),
+        "MediaStreamId": (integer, True),
+        "MediaStreamName": (str, True),
+        "MediaStreamType": (str, True),
+        "VideoFormat": (str, False),
+    }
+
+
 class Encryption(AWSProperty):
     """
     `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html>`__
@@ -199,6 +254,39 @@ class GatewayBridgeSource(AWSProperty):
     }
 
 
+class Interface(AWSProperty):
+    """
+    `Interface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-interface.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class InputConfiguration(AWSProperty):
+    """
+    `InputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-inputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputPort": (integer, True),
+        "Interface": (Interface, True),
+    }
+
+
+class MediaStreamSourceConfiguration(AWSProperty):
+    """
+    `MediaStreamSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-mediastreamsourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EncodingName": (str, True),
+        "InputConfigurations": ([InputConfiguration], False),
+        "MediaStreamName": (str, True),
+    }
+
+
 class Source(AWSProperty):
     """
     `Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-source.html>`__
@@ -213,6 +301,8 @@ class Source(AWSProperty):
         "IngestPort": (integer, False),
         "MaxBitrate": (integer, False),
         "MaxLatency": (integer, False),
+        "MaxSyncBuffer": (integer, False),
+        "MediaStreamSourceConfigurations": ([MediaStreamSourceConfiguration], False),
         "MinLatency": (integer, False),
         "Name": (str, False),
         "Protocol": (str, False),
@@ -228,6 +318,21 @@ class Source(AWSProperty):
     }
 
 
+class VpcInterface(AWSProperty):
+    """
+    `VpcInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "NetworkInterfaceIds": ([str], False),
+        "NetworkInterfaceType": (str, False),
+        "RoleArn": (str, True),
+        "SecurityGroupIds": ([str], True),
+        "SubnetId": (str, True),
+    }
+
+
 class Flow(AWSObject):
     """
     `Flow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flow.html>`__
@@ -237,9 +342,12 @@ class Flow(AWSObject):
 
     props: PropsDictType = {
         "AvailabilityZone": (str, False),
+        "Maintenance": (Maintenance, False),
+        "MediaStreams": ([MediaStream], False),
         "Name": (str, True),
         "Source": (Source, True),
         "SourceFailoverConfig": (FailoverConfig, False),
+        "VpcInterfaces": ([VpcInterface], False),
     }
 
 
@@ -274,6 +382,42 @@ class FlowOutputEncryption(AWSProperty):
     }
 
 
+class DestinationConfiguration(AWSProperty):
+    """
+    `DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-destinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationIp": (str, True),
+        "DestinationPort": (integer, True),
+        "Interface": (Interface, True),
+    }
+
+
+class EncodingParameters(AWSProperty):
+    """
+    `EncodingParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-encodingparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompressionFactor": (double, True),
+        "EncoderProfile": (str, False),
+    }
+
+
+class MediaStreamOutputConfiguration(AWSProperty):
+    """
+    `MediaStreamOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowoutput-mediastreamoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationConfigurations": ([DestinationConfiguration], False),
+        "EncodingName": (str, True),
+        "EncodingParameters": (EncodingParameters, False),
+        "MediaStreamName": (str, True),
+    }
+
+
 class FlowOutput(AWSObject):
     """
     `FlowOutput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediaconnect-flowoutput.html>`__
@@ -288,6 +432,7 @@ class FlowOutput(AWSObject):
         "Encryption": (FlowOutputEncryption, False),
         "FlowArn": (str, True),
         "MaxLatency": (integer, False),
+        "MediaStreamOutputConfigurations": ([MediaStreamOutputConfiguration], False),
         "MinLatency": (integer, False),
         "Name": (str, False),
         "Port": (integer, False),
