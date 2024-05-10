@@ -6262,9 +6262,9 @@ class LookbackWindow(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ColumnName": (str, False),
-        "Size": (double, False),
-        "SizeUnit": (str, False),
+        "ColumnName": (str, True),
+        "Size": (double, True),
+        "SizeUnit": (str, True),
     }
 
 
@@ -6274,7 +6274,7 @@ class IncrementalRefresh(AWSProperty):
     """
 
     props: PropsDictType = {
-        "LookbackWindow": (LookbackWindow, False),
+        "LookbackWindow": (LookbackWindow, True),
     }
 
 
@@ -6284,7 +6284,7 @@ class RefreshConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "IncrementalRefresh": (IncrementalRefresh, False),
+        "IncrementalRefresh": (IncrementalRefresh, True),
     }
 
 
@@ -6294,7 +6294,7 @@ class DataSetRefreshProperties(AWSProperty):
     """
 
     props: PropsDictType = {
-        "RefreshConfiguration": (RefreshConfiguration, False),
+        "RefreshConfiguration": (RefreshConfiguration, True),
     }
 
 
@@ -6597,6 +6597,17 @@ class TagColumnOperation(AWSProperty):
     }
 
 
+class UntagColumnOperation(AWSProperty):
+    """
+    `UntagColumnOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-untagcolumnoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "TagNames": ([str], True),
+    }
+
+
 class TransformOperation(AWSProperty):
     """
     `TransformOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-transformoperation.html>`__
@@ -6610,6 +6621,7 @@ class TransformOperation(AWSProperty):
         "ProjectOperation": (ProjectOperation, False),
         "RenameColumnOperation": (RenameColumnOperation, False),
         "TagColumnOperation": (TagColumnOperation, False),
+        "UntagColumnOperation": (UntagColumnOperation, False),
     }
 
 
@@ -6910,6 +6922,16 @@ class RdsParameters(AWSProperty):
     }
 
 
+class IdentityCenterConfiguration(AWSProperty):
+    """
+    `IdentityCenterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-identitycenterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableIdentityPropagation": (boolean, False),
+    }
+
+
 class RedshiftParameters(AWSProperty):
     """
     `RedshiftParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html>`__
@@ -6919,6 +6941,7 @@ class RedshiftParameters(AWSProperty):
         "ClusterId": (str, False),
         "Database": (str, True),
         "Host": (str, False),
+        "IdentityCenterConfiguration": (IdentityCenterConfiguration, False),
         "Port": (double, False),
     }
 
@@ -7115,11 +7138,11 @@ class DataSource(AWSObject):
         "DataSourceId": (str, False),
         "DataSourceParameters": (DataSourceParameters, False),
         "ErrorInfo": (DataSourceErrorInfo, False),
-        "Name": (str, False),
+        "Name": (str, True),
         "Permissions": ([ResourcePermission], False),
         "SslProperties": (SslProperties, False),
         "Tags": (Tags, False),
-        "Type": (str, False),
+        "Type": (str, True),
         "VpcConnectionProperties": (VpcConnectionProperties, False),
     }
 
@@ -7558,6 +7581,7 @@ class TopicCalculatedField(AWSProperty):
         "ColumnDataRole": (str, False),
         "ComparativeOrder": (ComparativeOrder, False),
         "DefaultFormatting": (DefaultFormatting, False),
+        "DisableIndexing": (boolean, False),
         "Expression": (str, True),
         "IsIncludedInTopic": (boolean, False),
         "NeverAggregateInFilter": (boolean, False),
@@ -7584,6 +7608,7 @@ class TopicColumn(AWSProperty):
         "ColumnSynonyms": ([str], False),
         "ComparativeOrder": (ComparativeOrder, False),
         "DefaultFormatting": (DefaultFormatting, False),
+        "DisableIndexing": (boolean, False),
         "IsIncludedInTopic": (boolean, False),
         "NeverAggregateInFilter": (boolean, False),
         "NonAdditive": (boolean, False),

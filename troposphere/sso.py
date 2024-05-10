@@ -9,6 +9,60 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class SignInOptions(AWSProperty):
+    """
+    `SignInOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-application-signinoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationUrl": (str, False),
+        "Origin": (str, True),
+    }
+
+
+class PortalOptionsConfiguration(AWSProperty):
+    """
+    `PortalOptionsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sso-application-portaloptionsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SignInOptions": (SignInOptions, False),
+        "Visibility": (str, False),
+    }
+
+
+class Application(AWSObject):
+    """
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-application.html>`__
+    """
+
+    resource_type = "AWS::SSO::Application"
+
+    props: PropsDictType = {
+        "ApplicationProviderArn": (str, True),
+        "Description": (str, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "PortalOptions": (PortalOptionsConfiguration, False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ApplicationAssignment(AWSObject):
+    """
+    `ApplicationAssignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-applicationassignment.html>`__
+    """
+
+    resource_type = "AWS::SSO::ApplicationAssignment"
+
+    props: PropsDictType = {
+        "ApplicationArn": (str, True),
+        "PrincipalId": (str, True),
+        "PrincipalType": (str, True),
+    }
+
+
 class Assignment(AWSObject):
     """
     `Assignment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-assignment.html>`__
@@ -23,6 +77,19 @@ class Assignment(AWSObject):
         "PrincipalType": (str, True),
         "TargetId": (str, True),
         "TargetType": (str, True),
+    }
+
+
+class Instance(AWSObject):
+    """
+    `Instance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sso-instance.html>`__
+    """
+
+    resource_type = "AWS::SSO::Instance"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Tags": (Tags, False),
     }
 
 
