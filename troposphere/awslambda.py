@@ -559,6 +559,7 @@ class Version(AWSObject):
         "CodeSha256": (str, False),
         "Description": (str, False),
         "FunctionName": (str, True),
+        "Policy": (dict, False),
         "ProvisionedConcurrencyConfig": (ProvisionedConcurrencyConfiguration, False),
         "RuntimePolicy": (RuntimePolicy, False),
     }

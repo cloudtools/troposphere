@@ -444,100 +444,6 @@ class DeviceFleet(AWSObject):
     }
 
 
-class JupyterServerAppSettings(AWSProperty):
-    """
-    `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "DefaultResourceSpec": (ResourceSpec, False),
-    }
-
-
-class CustomImage(AWSProperty):
-    """
-    `CustomImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html>`__
-    """
-
-    props: PropsDictType = {
-        "AppImageConfigName": (str, True),
-        "ImageName": (str, True),
-        "ImageVersionNumber": (integer, False),
-    }
-
-
-class KernelGatewayAppSettings(AWSProperty):
-    """
-    `KernelGatewayAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomImages": ([CustomImage], False),
-        "DefaultResourceSpec": (ResourceSpec, False),
-    }
-
-
-class DefaultSpaceSettings(AWSProperty):
-    """
-    `DefaultSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "ExecutionRole": (str, True),
-        "JupyterServerAppSettings": (JupyterServerAppSettings, False),
-        "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
-        "SecurityGroups": ([str], False),
-    }
-
-
-class DockerSettings(AWSProperty):
-    """
-    `DockerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-dockersettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "EnableDockerAccess": (str, False),
-        "VpcOnlyTrustedAccounts": ([str], False),
-    }
-
-
-class RStudioServerProDomainSettings(AWSProperty):
-    """
-    `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "DefaultResourceSpec": (ResourceSpec, False),
-        "DomainExecutionRoleArn": (str, True),
-        "RStudioConnectUrl": (str, False),
-        "RStudioPackageManagerUrl": (str, False),
-    }
-
-
-class DomainSettings(AWSProperty):
-    """
-    `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "DockerSettings": (DockerSettings, False),
-        "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
-        "SecurityGroupIds": ([str], False),
-    }
-
-
-class CodeEditorAppSettings(AWSProperty):
-    """
-    `CodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomImages": ([CustomImage], False),
-        "DefaultResourceSpec": (ResourceSpec, False),
-        "LifecycleConfigArns": ([str], False),
-    }
-
-
 class EFSFileSystemConfig(AWSProperty):
     """
     `EFSFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-efsfilesystemconfig.html>`__
@@ -601,6 +507,18 @@ class CodeRepositoryProperty(AWSProperty):
     }
 
 
+class CustomImage(AWSProperty):
+    """
+    `CustomImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customimage.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppImageConfigName": (str, True),
+        "ImageName": (str, True),
+        "ImageVersionNumber": (integer, False),
+    }
+
+
 class JupyterLabAppSettings(AWSProperty):
     """
     `JupyterLabAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterlabappsettings.html>`__
@@ -608,6 +526,92 @@ class JupyterLabAppSettings(AWSProperty):
 
     props: PropsDictType = {
         "CodeRepositories": ([CodeRepositoryProperty], False),
+        "CustomImages": ([CustomImage], False),
+        "DefaultResourceSpec": (ResourceSpec, False),
+        "LifecycleConfigArns": ([str], False),
+    }
+
+
+class JupyterServerAppSettings(AWSProperty):
+    """
+    `JupyterServerAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-jupyterserverappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class KernelGatewayAppSettings(AWSProperty):
+    """
+    `KernelGatewayAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-kernelgatewayappsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomImages": ([CustomImage], False),
+        "DefaultResourceSpec": (ResourceSpec, False),
+    }
+
+
+class DefaultSpaceSettings(AWSProperty):
+    """
+    `DefaultSpaceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-defaultspacesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomFileSystemConfigs": ([CustomFileSystemConfig], False),
+        "CustomPosixUserConfig": (CustomPosixUserConfig, False),
+        "ExecutionRole": (str, True),
+        "JupyterLabAppSettings": (JupyterLabAppSettings, False),
+        "JupyterServerAppSettings": (JupyterServerAppSettings, False),
+        "KernelGatewayAppSettings": (KernelGatewayAppSettings, False),
+        "SecurityGroups": ([str], False),
+        "SpaceStorageSettings": (DefaultSpaceStorageSettings, False),
+    }
+
+
+class DockerSettings(AWSProperty):
+    """
+    `DockerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-dockersettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnableDockerAccess": (str, False),
+        "VpcOnlyTrustedAccounts": ([str], False),
+    }
+
+
+class RStudioServerProDomainSettings(AWSProperty):
+    """
+    `RStudioServerProDomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-rstudioserverprodomainsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultResourceSpec": (ResourceSpec, False),
+        "DomainExecutionRoleArn": (str, True),
+        "RStudioConnectUrl": (str, False),
+        "RStudioPackageManagerUrl": (str, False),
+    }
+
+
+class DomainSettings(AWSProperty):
+    """
+    `DomainSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-domain-domainsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DockerSettings": (DockerSettings, False),
+        "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
+        "SecurityGroupIds": ([str], False),
+    }
+
+
+class CodeEditorAppSettings(AWSProperty):
+    """
+    `CodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-codeeditorappsettings.html>`__
+    """
+
+    props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
         "LifecycleConfigArns": ([str], False),
