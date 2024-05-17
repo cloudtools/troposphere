@@ -386,6 +386,49 @@ class ProductSubscription(AWSObject):
     }
 
 
+class ParameterValue(AWSProperty):
+    """
+    `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parametervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Boolean": (boolean, False),
+        "Double": (double, False),
+        "Enum": (str, False),
+        "EnumList": ([str], False),
+        "Integer": (integer, False),
+        "IntegerList": ([integer], False),
+        "String": (str, False),
+        "StringList": ([str], False),
+    }
+
+
+class ParameterConfiguration(AWSProperty):
+    """
+    `ParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parameterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (ParameterValue, False),
+        "ValueType": (str, True),
+    }
+
+
+class SecurityControl(AWSObject):
+    """
+    `SecurityControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-securitycontrol.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::SecurityControl"
+
+    props: PropsDictType = {
+        "LastUpdateReason": (str, False),
+        "Parameters": (dict, True),
+        "SecurityControlArn": (str, False),
+        "SecurityControlId": (str, False),
+    }
+
+
 class StandardsControl(AWSProperty):
     """
     `StandardsControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-standard-standardscontrol.html>`__

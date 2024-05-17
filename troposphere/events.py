@@ -219,6 +219,16 @@ class Endpoint(AWSObject):
     }
 
 
+class DeadLetterConfig(AWSProperty):
+    """
+    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+    }
+
+
 class EventBus(AWSObject):
     """
     `EventBus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-events-eventbus.html>`__
@@ -227,7 +237,10 @@ class EventBus(AWSObject):
     resource_type = "AWS::Events::EventBus"
 
     props: PropsDictType = {
+        "DeadLetterConfig": (DeadLetterConfig, False),
+        "Description": (str, False),
         "EventSourceName": (str, False),
+        "KmsKeyIdentifier": (str, False),
         "Name": (str, True),
         "Policy": (dict, False),
         "Tags": (Tags, False),
@@ -303,16 +316,6 @@ class BatchParameters(AWSProperty):
         "JobDefinition": (str, True),
         "JobName": (str, True),
         "RetryStrategy": (BatchRetryStrategy, False),
-    }
-
-
-class DeadLetterConfig(AWSProperty):
-    """
-    `DeadLetterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-rule-deadletterconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "Arn": (str, False),
     }
 
 

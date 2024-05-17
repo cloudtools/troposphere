@@ -257,6 +257,16 @@ class Blockers(AWSProperty):
     }
 
 
+class FailureConditions(AWSProperty):
+    """
+    `FailureConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-failure-conditions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Result": (str, True),
+    }
+
+
 class Stages(AWSProperty):
     """
     `Stages <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html>`__
@@ -266,6 +276,7 @@ class Stages(AWSProperty):
         "Actions": ([Actions], True),
         "Blockers": ([Blockers], False),
         "Name": (str, True),
+        "OnFailure": (FailureConditions, False),
     }
 
 
