@@ -144,6 +144,7 @@ class AvailSuppression(AWSProperty):
     """
 
     props: PropsDictType = {
+        "FillPolicy": (str, False),
         "Mode": (str, False),
         "Value": (str, False),
     }

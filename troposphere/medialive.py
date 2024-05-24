@@ -343,6 +343,7 @@ class AvailConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AvailSettings": (AvailSettings, False),
+        "Scte35SegmentationScope": (str, False),
     }
 
 
