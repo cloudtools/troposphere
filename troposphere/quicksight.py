@@ -6932,6 +6932,19 @@ class IdentityCenterConfiguration(AWSProperty):
     }
 
 
+class RedshiftIAMParameters(AWSProperty):
+    """
+    `RedshiftIAMParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftiamparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoCreateDatabaseUser": (boolean, False),
+        "DatabaseGroups": ([str], False),
+        "DatabaseUser": (str, False),
+        "RoleArn": (str, True),
+    }
+
+
 class RedshiftParameters(AWSProperty):
     """
     `RedshiftParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-redshiftparameters.html>`__
@@ -6941,6 +6954,7 @@ class RedshiftParameters(AWSProperty):
         "ClusterId": (str, False),
         "Database": (str, True),
         "Host": (str, False),
+        "IAMParameters": (RedshiftIAMParameters, False),
         "IdentityCenterConfiguration": (IdentityCenterConfiguration, False),
         "Port": (double, False),
     }

@@ -271,6 +271,20 @@ class EnvironmentProfile(AWSObject):
     }
 
 
+class GroupProfile(AWSObject):
+    """
+    `GroupProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-groupprofile.html>`__
+    """
+
+    resource_type = "AWS::DataZone::GroupProfile"
+
+    props: PropsDictType = {
+        "DomainIdentifier": (str, True),
+        "GroupIdentifier": (str, True),
+        "Status": (str, False),
+    }
+
+
 class Project(AWSObject):
     """
     `Project <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-project.html>`__
@@ -283,6 +297,32 @@ class Project(AWSObject):
         "DomainIdentifier": (str, True),
         "GlossaryTerms": ([str], False),
         "Name": (str, True),
+    }
+
+
+class Member(AWSProperty):
+    """
+    `Member <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-projectmembership-member.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupIdentifier": (str, False),
+        "UserIdentifier": (str, False),
+    }
+
+
+class ProjectMembership(AWSObject):
+    """
+    `ProjectMembership <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-projectmembership.html>`__
+    """
+
+    resource_type = "AWS::DataZone::ProjectMembership"
+
+    props: PropsDictType = {
+        "Designation": (str, True),
+        "DomainIdentifier": (str, True),
+        "Member": (Member, True),
+        "ProjectIdentifier": (str, True),
     }
 
 
@@ -314,4 +354,52 @@ class SubscriptionTarget(AWSObject):
         "Provider": (str, False),
         "SubscriptionTargetConfig": ([SubscriptionTargetForm], True),
         "Type": (str, True),
+    }
+
+
+class UserProfile(AWSObject):
+    """
+    `UserProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-userprofile.html>`__
+    """
+
+    resource_type = "AWS::DataZone::UserProfile"
+
+    props: PropsDictType = {
+        "DomainIdentifier": (str, True),
+        "Status": (str, False),
+        "UserIdentifier": (str, True),
+        "UserType": (str, False),
+    }
+
+
+class IamUserProfileDetails(AWSProperty):
+    """
+    `IamUserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-iamuserprofiledetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+    }
+
+
+class SsoUserProfileDetails(AWSProperty):
+    """
+    `SsoUserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-ssouserprofiledetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "FirstName": (str, False),
+        "LastName": (str, False),
+        "Username": (str, False),
+    }
+
+
+class UserProfileDetails(AWSProperty):
+    """
+    `UserProfileDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-userprofile-userprofiledetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iam": (IamUserProfileDetails, False),
+        "Sso": (SsoUserProfileDetails, False),
     }
