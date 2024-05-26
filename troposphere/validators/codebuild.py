@@ -188,6 +188,8 @@ def validate_source(self):
         "CODEPIPELINE",
         "GITHUB",
         "GITHUB_ENTERPRISE",
+        "GITLAB",
+        "GITLAB_SELF_MANAGED",
         "NO_SOURCE",
         "S3",
     ]
