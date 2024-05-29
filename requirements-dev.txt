@@ -1,6 +1,8 @@
 # troposphere
 # -------------------------------------
 
+setuptools
+
 # ---- Need libraries installed by setup.py
 cfn_flip>=1.0.2
 awacs>=2.0.0
