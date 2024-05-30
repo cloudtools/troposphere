@@ -57,6 +57,17 @@ class AccessEntry(AWSObject):
     }
 
 
+class PodIdentityAssociationProperty(AWSProperty):
+    """
+    `PodIdentityAssociationProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-addon-podidentityassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "RoleArn": (str, True),
+        "ServiceAccount": (str, True),
+    }
+
+
 class Addon(AWSObject):
     """
     `Addon <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-addon.html>`__
@@ -69,6 +80,7 @@ class Addon(AWSObject):
         "AddonVersion": (str, False),
         "ClusterName": (str, True),
         "ConfigurationValues": (str, False),
+        "PodIdentityAssociations": ([PodIdentityAssociationProperty], False),
         "PreserveOnDelete": (boolean, False),
         "ResolveConflicts": (str, False),
         "ServiceAccountRoleArn": (str, False),

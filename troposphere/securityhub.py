@@ -204,6 +204,94 @@ class AutomationRule(AWSObject):
     }
 
 
+class ParameterValue(AWSProperty):
+    """
+    `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parametervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Boolean": (boolean, False),
+        "Double": (double, False),
+        "Enum": (str, False),
+        "EnumList": ([str], False),
+        "Integer": (integer, False),
+        "IntegerList": ([integer], False),
+        "String": (str, False),
+        "StringList": ([str], False),
+    }
+
+
+class ParameterConfiguration(AWSProperty):
+    """
+    `ParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parameterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (ParameterValue, False),
+        "ValueType": (str, True),
+    }
+
+
+class SecurityControlCustomParameter(AWSProperty):
+    """
+    `SecurityControlCustomParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolcustomparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Parameters": (dict, False),
+        "SecurityControlId": (str, False),
+    }
+
+
+class SecurityControlsConfiguration(AWSProperty):
+    """
+    `SecurityControlsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securitycontrolsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DisabledSecurityControlIdentifiers": ([str], False),
+        "EnabledSecurityControlIdentifiers": ([str], False),
+        "SecurityControlCustomParameters": ([SecurityControlCustomParameter], False),
+    }
+
+
+class SecurityHubPolicy(AWSProperty):
+    """
+    `SecurityHubPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-securityhubpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnabledStandardIdentifiers": ([str], False),
+        "SecurityControlsConfiguration": (SecurityControlsConfiguration, False),
+        "ServiceEnabled": (boolean, False),
+    }
+
+
+class Policy(AWSProperty):
+    """
+    `Policy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-configurationpolicy-policy.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityHub": (SecurityHubPolicy, False),
+    }
+
+
+class ConfigurationPolicy(AWSObject):
+    """
+    `ConfigurationPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-configurationpolicy.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::ConfigurationPolicy"
+
+    props: PropsDictType = {
+        "ConfigurationPolicy": (Policy, True),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (dict, False),
+    }
+
+
 class DelegatedAdmin(AWSObject):
     """
     `DelegatedAdmin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-delegatedadmin.html>`__
@@ -213,6 +301,19 @@ class DelegatedAdmin(AWSObject):
 
     props: PropsDictType = {
         "AdminAccountId": (str, True),
+    }
+
+
+class FindingAggregator(AWSObject):
+    """
+    `FindingAggregator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-findingaggregator.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::FindingAggregator"
+
+    props: PropsDictType = {
+        "RegionLinkingMode": (str, True),
+        "Regions": ([str], False),
     }
 
 
@@ -374,6 +475,34 @@ class Insight(AWSObject):
     }
 
 
+class OrganizationConfiguration(AWSObject):
+    """
+    `OrganizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-organizationconfiguration.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::OrganizationConfiguration"
+
+    props: PropsDictType = {
+        "AutoEnable": (boolean, True),
+        "AutoEnableStandards": (str, False),
+        "ConfigurationType": (str, False),
+    }
+
+
+class PolicyAssociation(AWSObject):
+    """
+    `PolicyAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-policyassociation.html>`__
+    """
+
+    resource_type = "AWS::SecurityHub::PolicyAssociation"
+
+    props: PropsDictType = {
+        "ConfigurationPolicyId": (str, True),
+        "TargetId": (str, True),
+        "TargetType": (str, True),
+    }
+
+
 class ProductSubscription(AWSObject):
     """
     `ProductSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securityhub-productsubscription.html>`__
@@ -383,34 +512,6 @@ class ProductSubscription(AWSObject):
 
     props: PropsDictType = {
         "ProductArn": (str, True),
-    }
-
-
-class ParameterValue(AWSProperty):
-    """
-    `ParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parametervalue.html>`__
-    """
-
-    props: PropsDictType = {
-        "Boolean": (boolean, False),
-        "Double": (double, False),
-        "Enum": (str, False),
-        "EnumList": ([str], False),
-        "Integer": (integer, False),
-        "IntegerList": ([integer], False),
-        "String": (str, False),
-        "StringList": ([str], False),
-    }
-
-
-class ParameterConfiguration(AWSProperty):
-    """
-    `ParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securityhub-securitycontrol-parameterconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "Value": (ParameterValue, False),
-        "ValueType": (str, True),
     }
 
 
