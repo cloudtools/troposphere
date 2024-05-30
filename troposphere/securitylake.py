@@ -154,3 +154,41 @@ class Subscriber(AWSObject):
         "SubscriberName": (str, True),
         "Tags": (Tags, False),
     }
+
+
+class HttpsNotificationConfiguration(AWSProperty):
+    """
+    `HttpsNotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscribernotification-httpsnotificationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationApiKeyName": (str, False),
+        "AuthorizationApiKeyValue": (str, False),
+        "Endpoint": (str, True),
+        "HttpMethod": (str, False),
+        "TargetRoleArn": (str, True),
+    }
+
+
+class NotificationConfiguration(AWSProperty):
+    """
+    `NotificationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-securitylake-subscribernotification-notificationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "HttpsNotificationConfiguration": (HttpsNotificationConfiguration, False),
+        "SqsNotificationConfiguration": (dict, False),
+    }
+
+
+class SubscriberNotification(AWSObject):
+    """
+    `SubscriberNotification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-securitylake-subscribernotification.html>`__
+    """
+
+    resource_type = "AWS::SecurityLake::SubscriberNotification"
+
+    props: PropsDictType = {
+        "NotificationConfiguration": (NotificationConfiguration, True),
+        "SubscriberArn": (str, True),
+    }

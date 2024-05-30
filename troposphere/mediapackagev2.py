@@ -53,6 +53,17 @@ class ChannelPolicy(AWSObject):
     }
 
 
+class DashUtcTiming(AWSProperty):
+    """
+    `DashUtcTiming <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashutctiming.html>`__
+    """
+
+    props: PropsDictType = {
+        "TimingMode": (str, False),
+        "TimingSource": (str, False),
+    }
+
+
 class FilterConfiguration(AWSProperty):
     """
     `FilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-filterconfiguration.html>`__
@@ -63,6 +74,36 @@ class FilterConfiguration(AWSProperty):
         "ManifestFilter": (str, False),
         "Start": (str, False),
         "TimeDelaySeconds": (integer, False),
+    }
+
+
+class ScteDash(AWSProperty):
+    """
+    `ScteDash <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-sctedash.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdMarkerDash": (str, False),
+    }
+
+
+class DashManifestConfiguration(AWSProperty):
+    """
+    `DashManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-dashmanifestconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DrmSignaling": (str, False),
+        "FilterConfiguration": (FilterConfiguration, False),
+        "ManifestName": (str, True),
+        "ManifestWindowSeconds": (integer, False),
+        "MinBufferTimeSeconds": (integer, False),
+        "MinUpdatePeriodSeconds": (integer, False),
+        "PeriodTriggers": ([str], False),
+        "ScteDash": (ScteDash, False),
+        "SegmentTemplateFormat": (str, False),
+        "SuggestedPresentationDelaySeconds": (integer, False),
+        "UtcTiming": (DashUtcTiming, False),
     }
 
 
@@ -194,6 +235,7 @@ class OriginEndpoint(AWSObject):
         "ChannelGroupName": (str, True),
         "ChannelName": (str, True),
         "ContainerType": (str, False),
+        "DashManifests": ([DashManifestConfiguration], False),
         "Description": (str, False),
         "HlsManifests": ([HlsManifestConfiguration], False),
         "LowLatencyHlsManifests": ([LowLatencyHlsManifestConfiguration], False),
