@@ -65,6 +65,17 @@ class DataRepositoryAssociation(AWSObject):
     }
 
 
+class MetadataConfiguration(AWSProperty):
+    """
+    `MetadataConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration-metadataconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Iops": (integer, False),
+        "Mode": (str, False),
+    }
+
+
 class LustreConfiguration(AWSProperty):
     """
     `LustreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-lustreconfiguration.html>`__
@@ -81,6 +92,7 @@ class LustreConfiguration(AWSProperty):
         "ExportPath": (str, False),
         "ImportPath": (str, False),
         "ImportedFileChunkSize": (integer, False),
+        "MetadataConfiguration": (MetadataConfiguration, False),
         "PerUnitStorageThroughput": (
             validate_lustreconfiguration_perunitstoragethroughput,
             False,

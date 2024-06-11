@@ -2661,7 +2661,7 @@ class TransitGatewayRoute(AWSObject):
 
     props: PropsDictType = {
         "Blackhole": (boolean, False),
-        "DestinationCidrBlock": (str, False),
+        "DestinationCidrBlock": (str, True),
         "TransitGatewayAttachmentId": (str, False),
         "TransitGatewayRouteTableId": (str, True),
     }
