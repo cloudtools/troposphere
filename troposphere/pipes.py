@@ -644,6 +644,70 @@ class PipeTargetStateMachineParameters(AWSProperty):
     }
 
 
+class DimensionMapping(AWSProperty):
+    """
+    `DimensionMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-dimensionmapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionName": (str, True),
+        "DimensionValue": (str, True),
+        "DimensionValueType": (str, True),
+    }
+
+
+class MultiMeasureAttributeMapping(AWSProperty):
+    """
+    `MultiMeasureAttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasureattributemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "MeasureValue": (str, True),
+        "MeasureValueType": (str, True),
+        "MultiMeasureAttributeName": (str, True),
+    }
+
+
+class MultiMeasureMapping(AWSProperty):
+    """
+    `MultiMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-multimeasuremapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "MultiMeasureAttributeMappings": ([MultiMeasureAttributeMapping], True),
+        "MultiMeasureName": (str, True),
+    }
+
+
+class SingleMeasureMapping(AWSProperty):
+    """
+    `SingleMeasureMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-singlemeasuremapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "MeasureName": (str, True),
+        "MeasureValue": (str, True),
+        "MeasureValueType": (str, True),
+    }
+
+
+class PipeTargetTimestreamParameters(AWSProperty):
+    """
+    `PipeTargetTimestreamParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargettimestreamparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionMappings": ([DimensionMapping], True),
+        "EpochTimeUnit": (str, False),
+        "MultiMeasureMappings": ([MultiMeasureMapping], False),
+        "SingleMeasureMappings": ([SingleMeasureMapping], False),
+        "TimeFieldType": (str, False),
+        "TimeValue": (str, True),
+        "TimestampFormat": (str, False),
+        "VersionValue": (str, True),
+    }
+
+
 class PipeTargetParameters(AWSProperty):
     """
     `PipeTargetParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-pipes-pipe-pipetargetparameters.html>`__
@@ -665,6 +729,7 @@ class PipeTargetParameters(AWSProperty):
         "SageMakerPipelineParameters": (PipeTargetSageMakerPipelineParameters, False),
         "SqsQueueParameters": (PipeTargetSqsQueueParameters, False),
         "StepFunctionStateMachineParameters": (PipeTargetStateMachineParameters, False),
+        "TimestreamParameters": (PipeTargetTimestreamParameters, False),
     }
 
 

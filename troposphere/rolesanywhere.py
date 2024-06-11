@@ -26,6 +26,27 @@ class CRL(AWSObject):
     }
 
 
+class MappingRule(AWSProperty):
+    """
+    `MappingRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-mappingrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Specifier": (str, True),
+    }
+
+
+class AttributeMapping(AWSProperty):
+    """
+    `AttributeMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rolesanywhere-profile-attributemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateField": (str, True),
+        "MappingRules": ([MappingRule], True),
+    }
+
+
 class Profile(AWSObject):
     """
     `Profile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rolesanywhere-profile.html>`__
@@ -34,6 +55,7 @@ class Profile(AWSObject):
     resource_type = "AWS::RolesAnywhere::Profile"
 
     props: PropsDictType = {
+        "AttributeMappings": ([AttributeMapping], False),
         "DurationSeconds": (double, False),
         "Enabled": (boolean, False),
         "ManagedPolicyArns": ([str], False),

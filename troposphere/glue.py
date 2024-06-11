@@ -226,6 +226,7 @@ class JdbcTarget(AWSProperty):
 
     props: PropsDictType = {
         "ConnectionName": (str, False),
+        "EnableAdditionalMetadata": ([str], False),
         "Exclusions": ([str], False),
         "Path": (str, False),
     }

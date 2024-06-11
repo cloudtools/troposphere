@@ -109,6 +109,17 @@ class ExecuteCommandConfiguration(AWSProperty):
     }
 
 
+class ManagedStorageConfiguration(AWSProperty):
+    """
+    `ManagedStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-managedstorageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FargateEphemeralStorageKmsKeyId": (str, False),
+        "KmsKeyId": (str, False),
+    }
+
+
 class ClusterConfiguration(AWSProperty):
     """
     `ClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-cluster-clusterconfiguration.html>`__
@@ -116,6 +127,7 @@ class ClusterConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ExecuteCommandConfiguration": (ExecuteCommandConfiguration, False),
+        "ManagedStorageConfiguration": (ManagedStorageConfiguration, False),
     }
 
 

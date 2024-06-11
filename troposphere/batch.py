@@ -584,6 +584,7 @@ class NodeRangeProperty(AWSProperty):
     props: PropsDictType = {
         "Container": (ContainerProperties, False),
         "EcsProperties": (EcsProperties, False),
+        "EksProperties": (EksProperties, False),
         "InstanceTypes": ([str], False),
         "TargetNodes": (str, True),
     }
