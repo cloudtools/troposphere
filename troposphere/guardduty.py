@@ -191,6 +191,62 @@ class IPSet(AWSObject):
     }
 
 
+class CFNTagging(AWSProperty):
+    """
+    `CFNTagging <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfntagging.html>`__
+    """
+
+    props: PropsDictType = {
+        "Status": (str, False),
+    }
+
+
+class CFNActions(AWSProperty):
+    """
+    `CFNActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfnactions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Tagging": (CFNTagging, False),
+    }
+
+
+class S3Bucket(AWSProperty):
+    """
+    `S3Bucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-s3bucket.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, False),
+        "ObjectPrefixes": ([str], False),
+    }
+
+
+class CFNProtectedResource(AWSProperty):
+    """
+    `CFNProtectedResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfnprotectedresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Bucket": (S3Bucket, True),
+    }
+
+
+class MalwareProtectionPlan(AWSObject):
+    """
+    `MalwareProtectionPlan <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-malwareprotectionplan.html>`__
+    """
+
+    resource_type = "AWS::GuardDuty::MalwareProtectionPlan"
+
+    props: PropsDictType = {
+        "Actions": (CFNActions, False),
+        "ProtectedResource": (CFNProtectedResource, True),
+        "Role": (str, True),
+        "Tags": ([TagItem], False),
+    }
+
+
 class Master(AWSObject):
     """
     `Master <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-master.html>`__
@@ -236,4 +292,15 @@ class ThreatIntelSet(AWSObject):
         "Location": (str, True),
         "Name": (str, False),
         "Tags": ([TagItem], False),
+    }
+
+
+class CFNStatusReasons(AWSProperty):
+    """
+    `CFNStatusReasons <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-malwareprotectionplan-cfnstatusreasons.html>`__
+    """
+
+    props: PropsDictType = {
+        "Code": (str, False),
+        "Message": (str, False),
     }

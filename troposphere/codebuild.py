@@ -398,6 +398,16 @@ class SourceCredential(AWSObject):
     }
 
 
+class ScopeConfiguration(AWSProperty):
+    """
+    `ScopeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-scopeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
 class WebhookFilter(AWSProperty):
     """
     `WebhookFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-project-webhookfilter.html>`__

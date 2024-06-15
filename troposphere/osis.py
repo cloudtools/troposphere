@@ -59,6 +59,7 @@ class VpcOptions(AWSProperty):
     props: PropsDictType = {
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
+        "VpcEndpointManagement": (str, False),
     }
 
 
