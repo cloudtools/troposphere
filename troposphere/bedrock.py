@@ -106,6 +106,17 @@ class AgentKnowledgeBase(AWSProperty):
     }
 
 
+class GuardrailConfiguration(AWSProperty):
+    """
+    `GuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-guardrailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GuardrailIdentifier": (str, False),
+        "GuardrailVersion": (str, False),
+    }
+
+
 class InferenceConfiguration(AWSProperty):
     """
     `InferenceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-inferenceconfiguration.html>`__
@@ -161,6 +172,7 @@ class Agent(AWSObject):
         "CustomerEncryptionKeyArn": (str, False),
         "Description": (str, False),
         "FoundationModel": (str, False),
+        "GuardrailConfiguration": (GuardrailConfiguration, False),
         "IdleSessionTTLInSeconds": (double, False),
         "Instruction": (str, False),
         "KnowledgeBases": ([AgentKnowledgeBase], False),

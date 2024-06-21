@@ -473,6 +473,18 @@ class HttpEndpointRequestConfiguration(AWSProperty):
     }
 
 
+class SecretsManagerConfiguration(AWSProperty):
+    """
+    `SecretsManagerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "RoleARN": (str, False),
+        "SecretARN": (str, False),
+    }
+
+
 class HttpEndpointDestinationConfiguration(AWSProperty):
     """
     `HttpEndpointDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-httpendpointdestinationconfiguration.html>`__
@@ -488,6 +500,7 @@ class HttpEndpointDestinationConfiguration(AWSProperty):
         "RoleARN": (str, False),
         "S3BackupMode": (str, False),
         "S3Configuration": (S3DestinationConfiguration, True),
+        "SecretsManagerConfiguration": (SecretsManagerConfiguration, False),
     }
 
 
@@ -556,14 +569,15 @@ class RedshiftDestinationConfiguration(AWSProperty):
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
         "ClusterJDBCURL": (str, True),
         "CopyCommand": (CopyCommand, True),
-        "Password": (str, True),
+        "Password": (str, False),
         "ProcessingConfiguration": (ProcessingConfiguration, False),
         "RetryOptions": (RedshiftRetryOptions, False),
         "RoleARN": (str, True),
         "S3BackupConfiguration": (S3DestinationConfiguration, False),
         "S3BackupMode": (str, False),
         "S3Configuration": (S3Configuration, True),
-        "Username": (str, True),
+        "SecretsManagerConfiguration": (SecretsManagerConfiguration, False),
+        "Username": (str, False),
     }
 
 
@@ -611,17 +625,18 @@ class SnowflakeDestinationConfiguration(AWSProperty):
         "Database": (str, True),
         "KeyPassphrase": (str, False),
         "MetaDataColumnName": (str, False),
-        "PrivateKey": (str, True),
+        "PrivateKey": (str, False),
         "ProcessingConfiguration": (ProcessingConfiguration, False),
         "RetryOptions": (SnowflakeRetryOptions, False),
         "RoleARN": (str, True),
         "S3BackupMode": (str, False),
         "S3Configuration": (S3DestinationConfiguration, True),
         "Schema": (str, True),
+        "SecretsManagerConfiguration": (SecretsManagerConfiguration, False),
         "SnowflakeRoleConfiguration": (SnowflakeRoleConfiguration, False),
         "SnowflakeVpcConfiguration": (SnowflakeVpcConfiguration, False),
         "Table": (str, True),
-        "User": (str, True),
+        "User": (str, False),
     }
 
 
@@ -657,11 +672,12 @@ class SplunkDestinationConfiguration(AWSProperty):
         "HECAcknowledgmentTimeoutInSeconds": (integer, False),
         "HECEndpoint": (str, True),
         "HECEndpointType": (str, True),
-        "HECToken": (str, True),
+        "HECToken": (str, False),
         "ProcessingConfiguration": (ProcessingConfiguration, False),
         "RetryOptions": (SplunkRetryOptions, False),
         "S3BackupMode": (str, False),
         "S3Configuration": (S3DestinationConfiguration, True),
+        "SecretsManagerConfiguration": (SecretsManagerConfiguration, False),
     }
 
 

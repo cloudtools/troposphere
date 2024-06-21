@@ -210,6 +210,7 @@ class Cluster(AWSObject):
 
     props: PropsDictType = {
         "AccessConfig": (AccessConfig, False),
+        "BootstrapSelfManagedAddons": (boolean, False),
         "EncryptionConfig": ([EncryptionConfig], False),
         "KubernetesNetworkConfig": (KubernetesNetworkConfig, False),
         "Logging": (Logging, False),
