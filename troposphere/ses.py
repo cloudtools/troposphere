@@ -132,6 +132,16 @@ class CloudWatchDestination(AWSProperty):
     }
 
 
+class EventBridgeDestination(AWSProperty):
+    """
+    `EventBridgeDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-eventbridgedestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventBusArn": (str, True),
+    }
+
+
 class KinesisFirehoseDestination(AWSProperty):
     """
     `KinesisFirehoseDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-configurationseteventdestination-kinesisfirehosedestination.html>`__
@@ -161,6 +171,7 @@ class EventDestination(AWSProperty):
     props: PropsDictType = {
         "CloudWatchDestination": (CloudWatchDestination, False),
         "Enabled": (boolean, False),
+        "EventBridgeDestination": (EventBridgeDestination, False),
         "KinesisFirehoseDestination": (KinesisFirehoseDestination, False),
         "MatchingEventTypes": ([str], True),
         "Name": (str, False),

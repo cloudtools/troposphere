@@ -166,9 +166,9 @@ class Filter(AWSObject):
     props: PropsDictType = {
         "Action": (str, False),
         "Description": (str, False),
-        "DetectorId": (str, False),
+        "DetectorId": (str, True),
         "FindingCriteria": (FindingCriteria, True),
-        "Name": (str, False),
+        "Name": (str, True),
         "Rank": (integer, False),
         "Tags": (Tags, False),
     }

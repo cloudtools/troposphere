@@ -56,6 +56,16 @@ class ApplicationSnapshotConfiguration(AWSProperty):
     }
 
 
+class ApplicationSystemRollbackConfiguration(AWSProperty):
+    """
+    `ApplicationSystemRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-applicationsystemrollbackconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RollbackEnabled": (boolean, True),
+    }
+
+
 class PropertyGroup(AWSProperty):
     """
     `PropertyGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisanalyticsv2-application-propertygroup.html>`__
@@ -376,6 +386,10 @@ class ApplicationConfiguration(AWSProperty):
     props: PropsDictType = {
         "ApplicationCodeConfiguration": (ApplicationCodeConfiguration, False),
         "ApplicationSnapshotConfiguration": (ApplicationSnapshotConfiguration, False),
+        "ApplicationSystemRollbackConfiguration": (
+            ApplicationSystemRollbackConfiguration,
+            False,
+        ),
         "EnvironmentProperties": (EnvironmentProperties, False),
         "FlinkApplicationConfiguration": (FlinkApplicationConfiguration, False),
         "SqlApplicationConfiguration": (SqlApplicationConfiguration, False),

@@ -60,6 +60,7 @@ class WorkerConfiguration(AWSProperty):
     props: PropsDictType = {
         "Cpu": (str, True),
         "Disk": (str, False),
+        "DiskType": (str, False),
         "Memory": (str, True),
     }
 
