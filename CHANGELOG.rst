@@ -1,3 +1,22 @@
+4.8.1 (2024*06*28)
+-------------------------------
+* Update copyright year in generated files
+* Update black and isort
+* Updates from spec version 172.0.0 (#2241)
+* Updates from spec version 173.0.0 (#2242)
+* Updates from spec version 174.0.0 (#2243)
+* Updates from spec version 175.0.0 (#2244)
+* Add support for GitLab sources in CodeBuild projects (#2246)
+* Add SnapStart to Serverless Function (#2248)
+* Add setuptools as a dev requirement
+* Updates from spec version 176.0.0 (#2249)
+* Update glue ConnectionType validatorto allow SNOWFLAKE (#2247)
+* Updates from spec version 177.0.0 (#2250)
+* Updates from spec version 178.0.0 (#2251)
+* Add LoggingConfig to Serverless::Function (#2253)
+* Updates from spec version 179.0.0 (#2254)
+* Updates from spec version 180.0.0 (#2255)
+
 4.8.0 (2024*04*29)
 -------------------------------
 * Updates from spec version 165.0.0 (#2230)
