@@ -31,13 +31,71 @@ class CognitoUserPoolConfiguration(AWSProperty):
     }
 
 
+class OpenIdConnectGroupConfiguration(AWSProperty):
+    """
+    `OpenIdConnectGroupConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectgroupconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GroupClaim": (str, True),
+        "GroupEntityType": (str, True),
+    }
+
+
+class OpenIdConnectAccessTokenConfiguration(AWSProperty):
+    """
+    `OpenIdConnectAccessTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectaccesstokenconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Audiences": ([str], False),
+        "PrincipalIdClaim": (str, False),
+    }
+
+
+class OpenIdConnectIdentityTokenConfiguration(AWSProperty):
+    """
+    `OpenIdConnectIdentityTokenConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectidentitytokenconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientIds": ([str], False),
+        "PrincipalIdClaim": (str, False),
+    }
+
+
+class OpenIdConnectTokenSelection(AWSProperty):
+    """
+    `OpenIdConnectTokenSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnecttokenselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessTokenOnly": (OpenIdConnectAccessTokenConfiguration, False),
+        "IdentityTokenOnly": (OpenIdConnectIdentityTokenConfiguration, False),
+    }
+
+
+class OpenIdConnectConfiguration(AWSProperty):
+    """
+    `OpenIdConnectConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-openidconnectconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EntityIdPrefix": (str, False),
+        "GroupConfiguration": (OpenIdConnectGroupConfiguration, False),
+        "Issuer": (str, True),
+        "TokenSelection": (OpenIdConnectTokenSelection, True),
+    }
+
+
 class IdentitySourceConfiguration(AWSProperty):
     """
     `IdentitySourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-verifiedpermissions-identitysource-identitysourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "CognitoUserPoolConfiguration": (CognitoUserPoolConfiguration, True),
+        "CognitoUserPoolConfiguration": (CognitoUserPoolConfiguration, False),
+        "OpenIdConnectConfiguration": (OpenIdConnectConfiguration, False),
     }
 
 

@@ -603,7 +603,6 @@ class ReplicationConfig(AWSObject):
 
     props: PropsDictType = {
         "ComputeConfig": (ComputeConfig, False),
-        "ReplicationConfigArn": (str, False),
         "ReplicationConfigIdentifier": (str, False),
         "ReplicationSettings": (dict, False),
         "ReplicationType": (str, False),
