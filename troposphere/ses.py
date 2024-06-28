@@ -57,7 +57,7 @@ class TrackingOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CustomRedirectDomain": (str, False),
+        "CustomRedirectDomain": (str, True),
     }
 
 

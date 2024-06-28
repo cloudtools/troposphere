@@ -99,7 +99,7 @@ class Broker(AWSObject):
 
     props: PropsDictType = {
         "AuthenticationStrategy": (str, False),
-        "AutoMinorVersionUpgrade": (boolean, True),
+        "AutoMinorVersionUpgrade": (boolean, False),
         "BrokerName": (str, True),
         "Configuration": (ConfigurationId, False),
         "DataReplicationMode": (str, False),
@@ -107,7 +107,7 @@ class Broker(AWSObject):
         "DeploymentMode": (str, True),
         "EncryptionOptions": (EncryptionOptions, False),
         "EngineType": (str, True),
-        "EngineVersion": (str, True),
+        "EngineVersion": (str, False),
         "HostInstanceType": (str, True),
         "LdapServerMetadata": (LdapServerMetadata, False),
         "Logs": (LogsConfiguration, False),
@@ -133,7 +133,7 @@ class Configuration(AWSObject):
         "Data": (str, True),
         "Description": (str, False),
         "EngineType": (str, True),
-        "EngineVersion": (str, True),
+        "EngineVersion": (str, False),
         "Name": (str, True),
         "Tags": (Tags, False),
     }

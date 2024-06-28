@@ -503,6 +503,7 @@ class GlobalCluster(AWSObject):
     props: PropsDictType = {
         "DeletionProtection": (boolean, False),
         "Engine": (str, False),
+        "EngineLifecycleSupport": (str, False),
         "EngineVersion": (str, False),
         "GlobalClusterIdentifier": (str, False),
         "SourceDBClusterIdentifier": (str, False),
