@@ -95,8 +95,11 @@ def operating_system(os):
     """
 
     valid_os = [
+        "ALMA_LINUX",
         "AMAZON_LINUX",
         "AMAZON_LINUX_2",
+        "AMAZON_LINUX_2022",
+        "AMAZON_LINUX_2023",
         "CENTOS",
         "DEBIAN",
         "MACOS",
