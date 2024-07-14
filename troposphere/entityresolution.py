@@ -10,6 +10,30 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean
 
 
+class Rule(AWSProperty):
+    """
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rule.html>`__
+    """
+
+    props: PropsDictType = {
+        "MatchingKeys": ([str], True),
+        "RuleName": (str, True),
+    }
+
+
+class IdMappingRuleBasedProperties(AWSProperty):
+    """
+    `IdMappingRuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idmappingworkflow-idmappingrulebasedproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeMatchingModel": (str, True),
+        "RecordMatchingModel": (str, True),
+        "RuleDefinitionType": (str, False),
+        "Rules": ([Rule], False),
+    }
+
+
 class IntermediateSourceConfiguration(AWSProperty):
     """
     `IntermediateSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-intermediatesourceconfiguration.html>`__
@@ -39,7 +63,9 @@ class IdMappingTechniques(AWSProperty):
 
     props: PropsDictType = {
         "IdMappingType": (str, False),
+        "NormalizationVersion": (str, False),
         "ProviderProperties": (ProviderProperties, False),
+        "RuleBasedProperties": (IdMappingRuleBasedProperties, False),
     }
 
 
@@ -95,6 +121,19 @@ class NamespaceProviderProperties(AWSProperty):
     }
 
 
+class NamespaceRuleBasedProperties(AWSProperty):
+    """
+    `NamespaceRuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-namespacerulebasedproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttributeMatchingModel": (str, False),
+        "RecordMatchingModels": ([str], False),
+        "RuleDefinitionTypes": ([str], False),
+        "Rules": ([Rule], False),
+    }
+
+
 class IdNamespaceIdMappingWorkflowProperties(AWSProperty):
     """
     `IdNamespaceIdMappingWorkflowProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-idnamespace-idnamespaceidmappingworkflowproperties.html>`__
@@ -103,6 +142,7 @@ class IdNamespaceIdMappingWorkflowProperties(AWSProperty):
     props: PropsDictType = {
         "IdMappingType": (str, True),
         "ProviderProperties": (NamespaceProviderProperties, False),
+        "RuleBasedProperties": (NamespaceRuleBasedProperties, False),
     }
 
 
@@ -174,17 +214,6 @@ class OutputSource(AWSProperty):
     }
 
 
-class Rule(AWSProperty):
-    """
-    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rule.html>`__
-    """
-
-    props: PropsDictType = {
-        "MatchingKeys": ([str], True),
-        "RuleName": (str, True),
-    }
-
-
 class RuleBasedProperties(AWSProperty):
     """
     `RuleBasedProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-rulebasedproperties.html>`__
@@ -192,6 +221,7 @@ class RuleBasedProperties(AWSProperty):
 
     props: PropsDictType = {
         "AttributeMatchingModel": (str, True),
+        "MatchPurpose": (str, False),
         "Rules": ([Rule], True),
     }
 
@@ -251,6 +281,7 @@ class SchemaInputAttribute(AWSProperty):
     props: PropsDictType = {
         "FieldName": (str, True),
         "GroupName": (str, False),
+        "Hashed": (boolean, False),
         "MatchKey": (str, False),
         "SubType": (str, False),
         "Type": (str, True),

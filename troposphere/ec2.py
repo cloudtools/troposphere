@@ -2453,6 +2453,7 @@ class TrafficMirrorFilterRule(AWSObject):
         "RuleNumber": (integer, True),
         "SourceCidrBlock": (str, True),
         "SourcePortRange": (TrafficMirrorPortRange, False),
+        "Tags": (Tags, False),
         "TrafficDirection": (str, True),
         "TrafficMirrorFilterId": (str, True),
     }

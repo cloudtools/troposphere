@@ -234,6 +234,7 @@ class OperationPreferences(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ConcurrencyMode": (str, False),
         "FailureToleranceCount": (integer, False),
         "FailureTolerancePercentage": (integer, False),
         "MaxConcurrentCount": (integer, False),

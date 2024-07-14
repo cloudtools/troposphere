@@ -226,11 +226,8 @@ class MeteredProduct(AWSObject):
     resource_type = "AWS::Deadline::MeteredProduct"
 
     props: PropsDictType = {
-        "Family": (str, False),
         "LicenseEndpointId": (str, False),
-        "Port": (integer, False),
         "ProductId": (str, False),
-        "Vendor": (str, False),
     }
 
 

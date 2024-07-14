@@ -71,7 +71,7 @@ class CustomActionType(AWSObject):
 
 class EncryptionKey(AWSProperty):
     """
-    `EncryptionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-artifactstore-encryptionkey.html>`__
+    `EncryptionKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-encryptionkey.html>`__
     """
 
     props: PropsDictType = {
@@ -105,7 +105,7 @@ class ArtifactStoreMap(AWSProperty):
 
 class DisableInboundStageTransitions(AWSProperty):
     """
-    `DisableInboundStageTransitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-disableinboundstagetransitions.html>`__
+    `DisableInboundStageTransitions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagetransition.html>`__
     """
 
     props: PropsDictType = {
@@ -116,7 +116,7 @@ class DisableInboundStageTransitions(AWSProperty):
 
 class GitBranchFilterCriteria(AWSProperty):
     """
-    `GitBranchFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-branch-filter-criteria.html>`__
+    `GitBranchFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitbranchfiltercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -127,7 +127,7 @@ class GitBranchFilterCriteria(AWSProperty):
 
 class GitFilePathFilterCriteria(AWSProperty):
     """
-    `GitFilePathFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-file-path-filter-criteria.html>`__
+    `GitFilePathFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitfilepathfiltercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -138,7 +138,7 @@ class GitFilePathFilterCriteria(AWSProperty):
 
 class GitPullRequestFilter(AWSProperty):
     """
-    `GitPullRequestFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-pull-request-filter.html>`__
+    `GitPullRequestFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpullrequestfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -150,7 +150,7 @@ class GitPullRequestFilter(AWSProperty):
 
 class GitTagFilterCriteria(AWSProperty):
     """
-    `GitTagFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-tag-filter-criteria.html>`__
+    `GitTagFilterCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gittagfiltercriteria.html>`__
     """
 
     props: PropsDictType = {
@@ -161,7 +161,7 @@ class GitTagFilterCriteria(AWSProperty):
 
 class GitPushFilter(AWSProperty):
     """
-    `GitPushFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-push-filter.html>`__
+    `GitPushFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitpushfilter.html>`__
     """
 
     props: PropsDictType = {
@@ -173,7 +173,7 @@ class GitPushFilter(AWSProperty):
 
 class GitConfiguration(AWSProperty):
     """
-    `GitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers-git-configuration.html>`__
+    `GitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-gitconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -185,7 +185,7 @@ class GitConfiguration(AWSProperty):
 
 class PipelineTriggerDeclaration(AWSProperty):
     """
-    `PipelineTriggerDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-triggers.html>`__
+    `PipelineTriggerDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-pipelinetriggerdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -196,7 +196,7 @@ class PipelineTriggerDeclaration(AWSProperty):
 
 class ActionTypeId(AWSProperty):
     """
-    `ActionTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-actiontypeid.html>`__
+    `ActionTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiontypeid.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +209,7 @@ class ActionTypeId(AWSProperty):
 
 class InputArtifacts(AWSProperty):
     """
-    `InputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-inputartifacts.html>`__
+    `InputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html>`__
     """
 
     props: PropsDictType = {
@@ -219,7 +219,7 @@ class InputArtifacts(AWSProperty):
 
 class OutputArtifacts(AWSProperty):
     """
-    `OutputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions-outputartifacts.html>`__
+    `OutputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-outputartifact.html>`__
     """
 
     props: PropsDictType = {
@@ -229,7 +229,7 @@ class OutputArtifacts(AWSProperty):
 
 class Actions(AWSProperty):
     """
-    `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-actions.html>`__
+    `Actions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-actiondeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -248,7 +248,7 @@ class Actions(AWSProperty):
 
 class Blockers(AWSProperty):
     """
-    `Blockers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-blockers.html>`__
+    `Blockers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -259,17 +259,17 @@ class Blockers(AWSProperty):
 
 class FailureConditions(AWSProperty):
     """
-    `FailureConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages-failure-conditions.html>`__
+    `FailureConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html>`__
     """
 
     props: PropsDictType = {
-        "Result": (str, True),
+        "Result": (str, False),
     }
 
 
 class Stages(AWSProperty):
     """
-    `Stages <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stages.html>`__
+    `Stages <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-stagedeclaration.html>`__
     """
 
     props: PropsDictType = {
@@ -282,7 +282,7 @@ class Stages(AWSProperty):
 
 class VariableDeclaration(AWSProperty):
     """
-    `VariableDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-variables.html>`__
+    `VariableDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-variabledeclaration.html>`__
     """
 
     props: PropsDictType = {

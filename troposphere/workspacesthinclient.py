@@ -37,6 +37,7 @@ class Environment(AWSObject):
         "DesiredSoftwareSetId": (str, False),
         "DesktopArn": (str, True),
         "DesktopEndpoint": (str, False),
+        "DeviceCreationTags": (Tags, False),
         "KmsKeyArn": (str, False),
         "MaintenanceWindow": (MaintenanceWindow, False),
         "Name": (str, False),

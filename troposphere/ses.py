@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, double
 
 
 class DeliveryOptions(AWSProperty):
@@ -303,6 +303,523 @@ class EmailIdentity(AWSObject):
     }
 
 
+class MailManagerAddonInstance(AWSObject):
+    """
+    `MailManagerAddonInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddoninstance.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerAddonInstance"
+
+    props: PropsDictType = {
+        "AddonSubscriptionId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class MailManagerAddonSubscription(AWSObject):
+    """
+    `MailManagerAddonSubscription <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageraddonsubscription.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerAddonSubscription"
+
+    props: PropsDictType = {
+        "AddonName": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class ArchiveRetention(AWSProperty):
+    """
+    `ArchiveRetention <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerarchive-archiveretention.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetentionPeriod": (str, True),
+    }
+
+
+class MailManagerArchive(AWSObject):
+    """
+    `MailManagerArchive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerarchive.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerArchive"
+
+    props: PropsDictType = {
+        "ArchiveName": (str, False),
+        "KmsKeyArn": (str, False),
+        "Retention": (ArchiveRetention, False),
+        "Tags": (Tags, False),
+    }
+
+
+class IngressPointConfiguration(AWSProperty):
+    """
+    `IngressPointConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-ingresspointconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, False),
+        "SmtpPassword": (str, False),
+    }
+
+
+class MailManagerIngressPoint(AWSObject):
+    """
+    `MailManagerIngressPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerIngressPoint"
+
+    props: PropsDictType = {
+        "IngressPointConfiguration": (IngressPointConfiguration, False),
+        "IngressPointName": (str, False),
+        "RuleSetId": (str, True),
+        "StatusToUpdate": (str, False),
+        "Tags": (Tags, False),
+        "TrafficPolicyId": (str, True),
+        "Type": (str, True),
+    }
+
+
+class RelayAuthentication(AWSProperty):
+    """
+    `RelayAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerrelay-relayauthentication.html>`__
+    """
+
+    props: PropsDictType = {
+        "NoAuthentication": (dict, False),
+        "SecretArn": (str, False),
+    }
+
+
+class MailManagerRelay(AWSObject):
+    """
+    `MailManagerRelay <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerrelay.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerRelay"
+
+    props: PropsDictType = {
+        "Authentication": (RelayAuthentication, True),
+        "RelayName": (str, False),
+        "ServerName": (str, True),
+        "ServerPort": (double, True),
+        "Tags": (Tags, False),
+    }
+
+
+class AddHeaderAction(AWSProperty):
+    """
+    `AddHeaderAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "HeaderName": (str, True),
+        "HeaderValue": (str, True),
+    }
+
+
+class ArchiveAction(AWSProperty):
+    """
+    `ArchiveAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-archiveaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "TargetArchive": (str, True),
+    }
+
+
+class DeliverToMailboxAction(AWSProperty):
+    """
+    `DeliverToMailboxAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertomailboxaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "MailboxArn": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
+class MailManagerS3Action(AWSProperty):
+    """
+    `MailManagerS3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-s3action.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "RoleArn": (str, True),
+        "S3Bucket": (str, True),
+        "S3Prefix": (str, False),
+        "S3SseKmsKeyId": (str, False),
+    }
+
+
+class RelayAction(AWSProperty):
+    """
+    `RelayAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-relayaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "MailFrom": (str, False),
+        "Relay": (str, True),
+    }
+
+
+class ReplaceRecipientAction(AWSProperty):
+    """
+    `ReplaceRecipientAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-replacerecipientaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReplaceWith": ([str], False),
+    }
+
+
+class SendAction(AWSProperty):
+    """
+    `SendAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-sendaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "RoleArn": (str, True),
+    }
+
+
+class RuleAction(AWSProperty):
+    """
+    `RuleAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "AddHeader": (AddHeaderAction, False),
+        "Archive": (ArchiveAction, False),
+        "DeliverToMailbox": (DeliverToMailboxAction, False),
+        "Drop": (dict, False),
+        "Relay": (RelayAction, False),
+        "ReplaceRecipient": (ReplaceRecipientAction, False),
+        "Send": (SendAction, False),
+        "WriteToS3": (MailManagerS3Action, False),
+    }
+
+
+class RuleBooleanToEvaluate(AWSProperty):
+    """
+    `RuleBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleantoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class RuleBooleanExpression(AWSProperty):
+    """
+    `RuleBooleanExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleanexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (RuleBooleanToEvaluate, True),
+        "Operator": (str, True),
+    }
+
+
+class RuleDmarcExpression(AWSProperty):
+    """
+    `RuleDmarcExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruledmarcexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Operator": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class RuleIpToEvaluate(AWSProperty):
+    """
+    `RuleIpToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleiptoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class RuleIpExpression(AWSProperty):
+    """
+    `RuleIpExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleipexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (RuleIpToEvaluate, True),
+        "Operator": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class RuleNumberToEvaluate(AWSProperty):
+    """
+    `RuleNumberToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumbertoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class RuleNumberExpression(AWSProperty):
+    """
+    `RuleNumberExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulenumberexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (RuleNumberToEvaluate, True),
+        "Operator": (str, True),
+        "Value": (double, True),
+    }
+
+
+class RuleStringToEvaluate(AWSProperty):
+    """
+    `RuleStringToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringtoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class RuleStringExpression(AWSProperty):
+    """
+    `RuleStringExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulestringexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (RuleStringToEvaluate, True),
+        "Operator": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class Analysis(AWSProperty):
+    """
+    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-analysis.html>`__
+    """
+
+    props: PropsDictType = {
+        "Analyzer": (str, True),
+        "ResultField": (str, True),
+    }
+
+
+class RuleVerdictToEvaluate(AWSProperty):
+    """
+    `RuleVerdictToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdicttoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Analysis": (Analysis, False),
+        "Attribute": (str, False),
+    }
+
+
+class RuleVerdictExpression(AWSProperty):
+    """
+    `RuleVerdictExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-ruleverdictexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (RuleVerdictToEvaluate, True),
+        "Operator": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class RuleCondition(AWSProperty):
+    """
+    `RuleCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulecondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "BooleanExpression": (RuleBooleanExpression, False),
+        "DmarcExpression": (RuleDmarcExpression, False),
+        "IpExpression": (RuleIpExpression, False),
+        "NumberExpression": (RuleNumberExpression, False),
+        "StringExpression": (RuleStringExpression, False),
+        "VerdictExpression": (RuleVerdictExpression, False),
+    }
+
+
+class MailManagerRule(AWSProperty):
+    """
+    `MailManagerRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Actions": ([RuleAction], True),
+        "Conditions": ([RuleCondition], False),
+        "Name": (str, False),
+        "Unless": ([RuleCondition], False),
+    }
+
+
+class MailManagerRuleSet(AWSObject):
+    """
+    `MailManagerRuleSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagerruleset.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerRuleSet"
+
+    props: PropsDictType = {
+        "RuleSetName": (str, False),
+        "Rules": ([MailManagerRule], True),
+        "Tags": (Tags, False),
+    }
+
+
+class IngressAnalysis(AWSProperty):
+    """
+    `IngressAnalysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressanalysis.html>`__
+    """
+
+    props: PropsDictType = {
+        "Analyzer": (str, True),
+        "ResultField": (str, True),
+    }
+
+
+class IngressBooleanToEvaluate(AWSProperty):
+    """
+    `IngressBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleantoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Analysis": (IngressAnalysis, True),
+    }
+
+
+class IngressBooleanExpression(AWSProperty):
+    """
+    `IngressBooleanExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressbooleanexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (IngressBooleanToEvaluate, True),
+        "Operator": (str, True),
+    }
+
+
+class IngressIpToEvaluate(AWSProperty):
+    """
+    `IngressIpToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressiptoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class IngressIpv4Expression(AWSProperty):
+    """
+    `IngressIpv4Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv4expression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (IngressIpToEvaluate, True),
+        "Operator": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class IngressStringToEvaluate(AWSProperty):
+    """
+    `IngressStringToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class IngressStringExpression(AWSProperty):
+    """
+    `IngressStringExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (IngressStringToEvaluate, True),
+        "Operator": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class IngressTlsProtocolToEvaluate(AWSProperty):
+    """
+    `IngressTlsProtocolToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocoltoevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class IngressTlsProtocolExpression(AWSProperty):
+    """
+    `IngressTlsProtocolExpression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingresstlsprotocolexpression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (IngressTlsProtocolToEvaluate, True),
+        "Operator": (str, True),
+        "Value": (str, True),
+    }
+
+
+class PolicyCondition(AWSProperty):
+    """
+    `PolicyCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policycondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "BooleanExpression": (IngressBooleanExpression, False),
+        "IpExpression": (IngressIpv4Expression, False),
+        "StringExpression": (IngressStringExpression, False),
+        "TlsExpression": (IngressTlsProtocolExpression, False),
+    }
+
+
+class PolicyStatement(AWSProperty):
+    """
+    `PolicyStatement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-policystatement.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "Conditions": ([PolicyCondition], True),
+    }
+
+
+class MailManagerTrafficPolicy(AWSObject):
+    """
+    `MailManagerTrafficPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanagertrafficpolicy.html>`__
+    """
+
+    resource_type = "AWS::SES::MailManagerTrafficPolicy"
+
+    props: PropsDictType = {
+        "DefaultAction": (str, True),
+        "MaxMessageSizeBytes": (double, False),
+        "PolicyStatements": ([PolicyStatement], True),
+        "Tags": (Tags, False),
+        "TrafficPolicyName": (str, False),
+    }
+
+
 class IpFilter(AWSProperty):
     """
     `IpFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptfilter-ipfilter.html>`__
@@ -334,17 +851,6 @@ class ReceiptFilter(AWSObject):
 
     props: PropsDictType = {
         "Filter": (Filter, True),
-    }
-
-
-class AddHeaderAction(AWSProperty):
-    """
-    `AddHeaderAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-addheaderaction.html>`__
-    """
-
-    props: PropsDictType = {
-        "HeaderName": (str, True),
-        "HeaderValue": (str, True),
     }
 
 
