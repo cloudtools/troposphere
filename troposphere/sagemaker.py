@@ -641,6 +641,17 @@ class SharingSettings(AWSProperty):
     }
 
 
+class StudioWebPortalSettings(AWSProperty):
+    """
+    `StudioWebPortalSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-studiowebportalsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "HiddenAppTypes": ([str], False),
+        "HiddenMlTools": ([str], False),
+    }
+
+
 class UserSettings(AWSProperty):
     """
     `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-usersettings.html>`__
@@ -660,6 +671,7 @@ class UserSettings(AWSProperty):
         "SharingSettings": (SharingSettings, False),
         "SpaceStorageSettings": (DefaultSpaceStorageSettings, False),
         "StudioWebPortal": (str, False),
+        "StudioWebPortalSettings": (StudioWebPortalSettings, False),
     }
 
 
@@ -1380,6 +1392,25 @@ class InferenceExperiment(AWSObject):
         "StatusReason": (str, False),
         "Tags": (Tags, False),
         "Type": (str, True),
+    }
+
+
+class MlflowTrackingServer(AWSObject):
+    """
+    `MlflowTrackingServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-mlflowtrackingserver.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::MlflowTrackingServer"
+
+    props: PropsDictType = {
+        "ArtifactStoreUri": (str, True),
+        "AutomaticModelRegistration": (boolean, False),
+        "MlflowVersion": (str, False),
+        "RoleArn": (str, True),
+        "Tags": (Tags, False),
+        "TrackingServerName": (str, True),
+        "TrackingServerSize": (str, False),
+        "WeeklyMaintenanceWindowStart": (str, False),
     }
 
 
@@ -2895,6 +2926,16 @@ class EndpointMetadata(AWSProperty):
         "EndpointConfigName": (str, False),
         "EndpointName": (str, True),
         "EndpointStatus": (str, False),
+    }
+
+
+class HubAccessConfig(AWSProperty):
+    """
+    `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource-hubaccessconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "HubContentArn": (str, True),
     }
 
 

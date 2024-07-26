@@ -21,6 +21,7 @@ class Channel(AWSObject):
         "ChannelGroupName": (str, True),
         "ChannelName": (str, True),
         "Description": (str, False),
+        "InputType": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -104,6 +105,16 @@ class DashManifestConfiguration(AWSProperty):
         "SegmentTemplateFormat": (str, False),
         "SuggestedPresentationDelaySeconds": (integer, False),
         "UtcTiming": (DashUtcTiming, False),
+    }
+
+
+class ForceEndpointErrorConfiguration(AWSProperty):
+    """
+    `ForceEndpointErrorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-forceendpointerrorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EndpointErrorConditions": ([str], False),
     }
 
 
@@ -237,6 +248,7 @@ class OriginEndpoint(AWSObject):
         "ContainerType": (str, False),
         "DashManifests": ([DashManifestConfiguration], False),
         "Description": (str, False),
+        "ForceEndpointErrorConfiguration": (ForceEndpointErrorConfiguration, False),
         "HlsManifests": ([HlsManifestConfiguration], False),
         "LowLatencyHlsManifests": ([LowLatencyHlsManifestConfiguration], False),
         "OriginEndpointName": (str, True),

@@ -36,7 +36,7 @@ class AliasRoutingConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AdditionalVersionWeights": ([VersionWeight], True),
+        "AdditionalVersionWeights": ([VersionWeight], False),
     }
 
 

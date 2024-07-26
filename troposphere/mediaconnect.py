@@ -435,6 +435,7 @@ class FlowOutput(AWSObject):
         "MediaStreamOutputConfigurations": ([MediaStreamOutputConfiguration], False),
         "MinLatency": (integer, False),
         "Name": (str, False),
+        "OutputStatus": (str, False),
         "Port": (integer, False),
         "Protocol": (str, True),
         "RemoteId": (str, False),

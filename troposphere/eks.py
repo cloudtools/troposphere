@@ -201,6 +201,16 @@ class ResourcesVpcConfig(AWSProperty):
     }
 
 
+class UpgradePolicy(AWSProperty):
+    """
+    `UpgradePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-upgradepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "SupportType": (str, False),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html>`__
@@ -219,6 +229,7 @@ class Cluster(AWSObject):
         "ResourcesVpcConfig": (ResourcesVpcConfig, True),
         "RoleArn": (str, True),
         "Tags": (Tags, False),
+        "UpgradePolicy": (UpgradePolicy, False),
         "Version": (str, False),
     }
 

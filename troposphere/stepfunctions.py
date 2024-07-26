@@ -10,6 +10,18 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class EncryptionConfiguration(AWSProperty):
+    """
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-stepfunctions-statemachine-encryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KmsDataKeyReusePeriodSeconds": (integer, False),
+        "KmsKeyId": (str, False),
+        "Type": (str, True),
+    }
+
+
 class Activity(AWSObject):
     """
     `Activity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-stepfunctions-activity.html>`__
@@ -18,6 +30,7 @@ class Activity(AWSObject):
     resource_type = "AWS::StepFunctions::Activity"
 
     props: PropsDictType = {
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
         "Name": (str, True),
         "Tags": (Tags, False),
     }
@@ -89,6 +102,7 @@ class StateMachine(AWSObject):
         "DefinitionS3Location": (S3Location, False),
         "DefinitionString": (str, False),
         "DefinitionSubstitutions": (dict, False),
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
         "LoggingConfiguration": (LoggingConfiguration, False),
         "RoleArn": (str, True),
         "StateMachineName": (str, False),

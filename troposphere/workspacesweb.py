@@ -171,6 +171,7 @@ class UserSettings(AWSObject):
         ),
         "CopyAllowed": (str, True),
         "CustomerManagedKey": (str, False),
+        "DeepLinkAllowed": (str, False),
         "DisconnectTimeoutInMinutes": (double, False),
         "DownloadAllowed": (str, True),
         "IdleDisconnectTimeoutInMinutes": (double, False),

@@ -38,7 +38,8 @@ class Resource(AWSProperty):
     """
 
     props: PropsDictType = {
-        "EndpointId": (str, True),
+        "Cidr": (str, False),
+        "EndpointId": (str, False),
         "Region": (str, False),
     }
 

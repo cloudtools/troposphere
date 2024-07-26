@@ -117,7 +117,7 @@ class OIDCProvider(AWSObject):
     props: PropsDictType = {
         "ClientIdList": ([str], False),
         "Tags": (Tags, False),
-        "ThumbprintList": ([str], True),
+        "ThumbprintList": ([str], False),
         "Url": (str, False),
     }
 
