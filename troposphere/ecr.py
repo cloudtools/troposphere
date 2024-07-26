@@ -182,6 +182,7 @@ class RepositoryCreationTemplate(AWSObject):
 
     props: PropsDictType = {
         "AppliedFor": ([str], True),
+        "CustomRoleArn": (str, False),
         "Description": (str, False),
         "EncryptionConfiguration": (EncryptionConfiguration, False),
         "ImageTagMutability": (str, False),

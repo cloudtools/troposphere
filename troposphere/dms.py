@@ -602,16 +602,16 @@ class ReplicationConfig(AWSObject):
     resource_type = "AWS::DMS::ReplicationConfig"
 
     props: PropsDictType = {
-        "ComputeConfig": (ComputeConfig, False),
-        "ReplicationConfigIdentifier": (str, False),
+        "ComputeConfig": (ComputeConfig, True),
+        "ReplicationConfigIdentifier": (str, True),
         "ReplicationSettings": (dict, False),
-        "ReplicationType": (str, False),
+        "ReplicationType": (str, True),
         "ResourceIdentifier": (str, False),
-        "SourceEndpointArn": (str, False),
+        "SourceEndpointArn": (str, True),
         "SupplementalSettings": (dict, False),
-        "TableMappings": (dict, False),
+        "TableMappings": (dict, True),
         "Tags": (Tags, False),
-        "TargetEndpointArn": (str, False),
+        "TargetEndpointArn": (str, True),
     }
 
 
