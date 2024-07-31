@@ -4,7 +4,7 @@
 # See LICENSE file for full license.
 
 
-from . import integer_range, json_checker, positive_integer
+from . import json_checker, positive_integer
 
 
 def dict_or_string(x):
@@ -21,7 +21,10 @@ def validate_timeout_in_millis(x):
     """
     Property: Integration.TimeoutInMillis
     """
-    return integer_range(50, 29000)(x)
+    int(x)
+    if x < 50:
+        raise ValueError(f"TimeoutInMillis of {x} must be greater than 50")
+    return x
 
 
 def validate_integration_type(integration_type):
