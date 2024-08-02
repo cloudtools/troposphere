@@ -17,6 +17,7 @@ class ResourceSpec(AWSProperty):
 
     props: PropsDictType = {
         "InstanceType": (str, False),
+        "LifecycleConfigArn": (str, False),
         "SageMakerImageArn": (str, False),
         "SageMakerImageVersionArn": (str, False),
     }
@@ -539,6 +540,7 @@ class JupyterServerAppSettings(AWSProperty):
 
     props: PropsDictType = {
         "DefaultResourceSpec": (ResourceSpec, False),
+        "LifecycleConfigArns": ([str], False),
     }
 
 
@@ -550,6 +552,7 @@ class KernelGatewayAppSettings(AWSProperty):
     props: PropsDictType = {
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
+        "LifecycleConfigArns": ([str], False),
     }
 
 
@@ -2824,6 +2827,21 @@ class Space(AWSObject):
         "SpaceName": (str, True),
         "SpaceSettings": (SpaceSettings, False),
         "SpaceSharingSettings": (SpaceSharingSettings, False),
+        "Tags": (Tags, False),
+    }
+
+
+class StudioLifecycleConfig(AWSObject):
+    """
+    `StudioLifecycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-studiolifecycleconfig.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::StudioLifecycleConfig"
+
+    props: PropsDictType = {
+        "StudioLifecycleConfigAppType": (str, True),
+        "StudioLifecycleConfigContent": (str, True),
+        "StudioLifecycleConfigName": (str, True),
         "Tags": (Tags, False),
     }
 
