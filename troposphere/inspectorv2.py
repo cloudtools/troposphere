@@ -85,11 +85,11 @@ class CisScanConfiguration(AWSObject):
     resource_type = "AWS::InspectorV2::CisScanConfiguration"
 
     props: PropsDictType = {
-        "ScanName": (str, False),
-        "Schedule": (Schedule, False),
-        "SecurityLevel": (str, False),
+        "ScanName": (str, True),
+        "Schedule": (Schedule, True),
+        "SecurityLevel": (str, True),
         "Tags": (dict, False),
-        "Targets": (CisTargets, False),
+        "Targets": (CisTargets, True),
     }
 
 

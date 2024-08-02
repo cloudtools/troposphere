@@ -504,6 +504,47 @@ class HttpEndpointDestinationConfiguration(AWSProperty):
     }
 
 
+class CatalogConfiguration(AWSProperty):
+    """
+    `CatalogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-catalogconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CatalogArn": (str, False),
+    }
+
+
+class DestinationTableConfiguration(AWSProperty):
+    """
+    `DestinationTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-destinationtableconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationDatabaseName": (str, True),
+        "DestinationTableName": (str, True),
+        "S3ErrorOutputPrefix": (str, False),
+        "UniqueKeys": ([str], False),
+    }
+
+
+class IcebergDestinationConfiguration(AWSProperty):
+    """
+    `IcebergDestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-icebergdestinationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BufferingHints": (BufferingHints, False),
+        "CatalogConfiguration": (CatalogConfiguration, True),
+        "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
+        "DestinationTableConfigurationList": ([DestinationTableConfiguration], False),
+        "ProcessingConfiguration": (ProcessingConfiguration, False),
+        "RetryOptions": (RetryOptions, False),
+        "RoleARN": (str, True),
+        "S3Configuration": (S3DestinationConfiguration, True),
+        "s3BackupMode": (str, False),
+    }
+
+
 class KinesisStreamSourceConfiguration(AWSProperty):
     """
     `KinesisStreamSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-kinesisstreamsourceconfiguration.html>`__
@@ -581,6 +622,17 @@ class RedshiftDestinationConfiguration(AWSProperty):
     }
 
 
+class SnowflakeBufferingHints(AWSProperty):
+    """
+    `SnowflakeBufferingHints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakebufferinghints.html>`__
+    """
+
+    props: PropsDictType = {
+        "IntervalInSeconds": (integer, False),
+        "SizeInMBs": (integer, False),
+    }
+
+
 class SnowflakeRetryOptions(AWSProperty):
     """
     `SnowflakeRetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-snowflakeretryoptions.html>`__
@@ -619,6 +671,7 @@ class SnowflakeDestinationConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "AccountUrl": (str, True),
+        "BufferingHints": (SnowflakeBufferingHints, False),
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
         "ContentColumnName": (str, False),
         "DataLoadingOption": (str, False),
@@ -715,6 +768,7 @@ class DeliveryStream(AWSObject):
             HttpEndpointDestinationConfiguration,
             False,
         ),
+        "IcebergDestinationConfiguration": (IcebergDestinationConfiguration, False),
         "KinesisStreamSourceConfiguration": (KinesisStreamSourceConfiguration, False),
         "MSKSourceConfiguration": (MSKSourceConfiguration, False),
         "RedshiftDestinationConfiguration": (RedshiftDestinationConfiguration, False),

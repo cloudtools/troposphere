@@ -87,6 +87,17 @@ class InitialCapacityConfigKeyValuePair(AWSProperty):
     }
 
 
+class InteractiveConfiguration(AWSProperty):
+    """
+    `InteractiveConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-interactiveconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LivyEndpointEnabled": (boolean, False),
+        "StudioEnabled": (boolean, False),
+    }
+
+
 class MaximumAllowedResources(AWSProperty):
     """
     `MaximumAllowedResources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-maximumallowedresources.html>`__
@@ -195,6 +206,7 @@ class Application(AWSObject):
         "AutoStopConfiguration": (AutoStopConfiguration, False),
         "ImageConfiguration": (ImageConfigurationInput, False),
         "InitialCapacity": ([InitialCapacityConfigKeyValuePair], False),
+        "InteractiveConfiguration": (InteractiveConfiguration, False),
         "MaximumCapacity": (MaximumAllowedResources, False),
         "MonitoringConfiguration": (MonitoringConfiguration, False),
         "Name": (str, False),

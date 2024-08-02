@@ -2890,6 +2890,7 @@ class VPNConnection(AWSObject):
 
     props: PropsDictType = {
         "CustomerGatewayId": (str, True),
+        "EnableAcceleration": (boolean, False),
         "StaticRoutesOnly": (boolean, False),
         "Tags": (validate_tags_or_list, False),
         "TransitGatewayId": (str, False),

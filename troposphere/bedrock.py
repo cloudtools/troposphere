@@ -648,6 +648,27 @@ class ContentPolicyConfig(AWSProperty):
     }
 
 
+class ContextualGroundingFilterConfig(AWSProperty):
+    """
+    `ContextualGroundingFilterConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingfilterconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Threshold": (double, True),
+        "Type": (str, True),
+    }
+
+
+class ContextualGroundingPolicyConfig(AWSProperty):
+    """
+    `ContextualGroundingPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-contextualgroundingpolicyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FiltersConfig": ([ContextualGroundingFilterConfig], True),
+    }
+
+
 class PiiEntityConfig(AWSProperty):
     """
     `PiiEntityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-guardrail-piientityconfig.html>`__
@@ -748,6 +769,7 @@ class Guardrail(AWSObject):
         "BlockedInputMessaging": (str, True),
         "BlockedOutputsMessaging": (str, True),
         "ContentPolicyConfig": (ContentPolicyConfig, False),
+        "ContextualGroundingPolicyConfig": (ContextualGroundingPolicyConfig, False),
         "Description": (str, False),
         "KmsKeyArn": (str, False),
         "Name": (str, True),

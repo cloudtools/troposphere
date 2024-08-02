@@ -9,6 +9,18 @@
 from . import AWSObject, AWSProperty, PropsDictType
 
 
+class AutoshiftObserverNotificationStatus(AWSObject):
+    """
+    `AutoshiftObserverNotificationStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-arczonalshift-autoshiftobservernotificationstatus.html>`__
+    """
+
+    resource_type = "AWS::ARCZonalShift::AutoshiftObserverNotificationStatus"
+
+    props: PropsDictType = {
+        "Status": (str, True),
+    }
+
+
 class ControlCondition(AWSProperty):
     """
     `ControlCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-arczonalshift-zonalautoshiftconfiguration-controlcondition.html>`__
