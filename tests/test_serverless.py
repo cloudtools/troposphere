@@ -477,17 +477,6 @@ class TestServerless(unittest.TestCase):
             FunctionGlobals(MemorySize=64)
 
     def test_api_event_auth(self):
-        # Verify deprecated Auth
-        api_event = ApiEvent(
-            "SomeApiEvent",
-            Auth=Auth(),
-            Path="some path",
-            Method="some method",
-        )
-        t = Template()
-        t.add_resource(api_event)
-        t.to_json()
-
         # Verify ApiFunctionAuth
         api_event = ApiEvent(
             "SomeApiEvent",

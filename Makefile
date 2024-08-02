@@ -86,4 +86,4 @@ spec:
 	ln -f CloudFormationResourceSpecification.json .backup/CloudFormationResourceSpecification_$${SPECVERSION}.json
 
 test: ## run tests
-	@python setup.py test
+	@pytest tests
