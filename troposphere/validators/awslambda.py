@@ -69,7 +69,6 @@ def validate_variables_name(variables):
         "AWS_SESSION_TOKEN",
         "LAMBDA_RUNTIME_DIR",
         "LAMBDA_TASK_ROOT",
-        "TZ",
     ]
     ENVIRONMENT_VARIABLES_NAME_PATTERN = r"[a-zA-Z][a-zA-Z0-9_]+"
 
