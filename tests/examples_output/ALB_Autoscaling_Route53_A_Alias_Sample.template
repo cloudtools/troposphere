@@ -1,0 +1,436 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "Template for auto-scaling in an Applicationload balancer target group. The ALB will be used as an A Alias target for a specified Route53 hosted zone. This template also showcases Metadata Parameter Grouping, Special AWS Parameter Types, and Cloudformation Outputs with Exportswhich can be imported into other templates.",
+    "Mappings": {
+        "windowsAMI": {
+            "eu-central-1": {
+                "AMI": "ami-c0f237af"
+            },
+            "eu-west-1": {
+                "AMI": "ami-32792a41"
+            },
+            "eu-west-2": {
+                "AMI": "ami-29353f4d"
+            },
+            "us-east-1": {
+                "AMI": "ami-b06249a7"
+            },
+            "us-east-2": {
+                "AMI": "ami-20683245"
+            },
+            "us-west-1": {
+                "AMI": "ami-d3a8fdb3"
+            },
+            "us-west-2": {
+                "AMI": "ami-b9b71ad9"
+            }
+        }
+    },
+    "Metadata": {
+        "AWS::CloudFormation::Interface": {
+            "ParameterGroups": [
+                {
+                    "Label": {
+                        "default": "Global parameters"
+                    },
+                    "Parameters": [
+                        "environment"
+                    ]
+                },
+                {
+                    "Label": {
+                        "default": "Application Loadbalancer"
+                    },
+                    "Parameters": [
+                        "albSubnets",
+                        "loadbalancerPrefix",
+                        "loadBalancerArn",
+                        "albPaths",
+                        "albPort"
+                    ]
+                },
+                {
+                    "Label": {
+                        "default": "VPC"
+                    },
+                    "Parameters": [
+                        "ec2Subnets",
+                        "VPC",
+                        "securityGroup"
+                    ]
+                },
+                {
+                    "Label": {
+                        "default": "EC2"
+                    },
+                    "Parameters": [
+                        "ec2Name",
+                        "ec2Type",
+                        "ec2Key"
+                    ]
+                },
+                {
+                    "Label": {
+                        "default": "Auto-scaling"
+                    },
+                    "Parameters": [
+                        "asgCapacity",
+                        "asgMinSize",
+                        "asgMaxSize",
+                        "asgCooldown",
+                        "asgHealthGrace"
+                    ]
+                },
+                {
+                    "Label": {
+                        "default": "Route53"
+                    },
+                    "Parameters": [
+                        "route53HostedZoneId",
+                        "route53HostedZoneName"
+                    ]
+                }
+            ]
+        }
+    },
+    "Outputs": {
+        "URL": {
+            "Description": "URL of the website",
+            "Export": {
+                "Name": {
+                    "Fn::Sub": "${AWS::StackName}-URL"
+                }
+            },
+            "Value": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "http://",
+                        {
+                            "Fn::GetAtt": [
+                                "applicationLoadBalancer",
+                                "DNSName"
+                            ]
+                        },
+                        {
+                            "Fn::Select": [
+                                "0",
+                                {
+                                    "Ref": "albPaths"
+                                }
+                            ]
+                        }
+                    ]
+                ]
+            }
+        }
+    },
+    "Parameters": {
+        "VPC": {
+            "Default": "",
+            "Description": "Environment VPC",
+            "Type": "AWS::EC2::VPC::Id"
+        },
+        "albPaths": {
+            "Default": "/",
+            "Description": "Path-patterns you want the loadbalancer to point to in your application",
+            "Type": "CommaDelimitedList"
+        },
+        "albPort": {
+            "Default": "80",
+            "Description": "Which loadbalancer port to use",
+            "Type": "Number"
+        },
+        "albSubnets": {
+            "Default": "",
+            "Description": "Public subnets for the load balancer.",
+            "Type": "List<AWS::EC2::Subnet::Id>"
+        },
+        "asgCapacity": {
+            "Default": "0",
+            "Description": "Number of instances",
+            "Type": "Number"
+        },
+        "asgCooldown": {
+            "Default": "300",
+            "Description": "Cooldown before starting/stopping another instance",
+            "Type": "Number"
+        },
+        "asgHealthGrace": {
+            "Default": "300",
+            "Description": "Wait before starting/stopping another instance",
+            "Type": "Number"
+        },
+        "asgMaxSize": {
+            "Default": "1",
+            "Description": "Maximum size of AutoScalingGroup",
+            "Type": "Number"
+        },
+        "asgMinSize": {
+            "Default": "0",
+            "Description": "Minimum size of AutoScalingGroup",
+            "Type": "Number"
+        },
+        "ec2Key": {
+            "Default": "",
+            "Description": "EC2 Key Pair",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "ec2Name": {
+            "Default": "myApplication",
+            "Description": "Name of the instances",
+            "Type": "String"
+        },
+        "ec2Subnets": {
+            "Default": "",
+            "Description": "Private subnets for the instances.",
+            "Type": "List<AWS::EC2::Subnet::Id>"
+        },
+        "ec2Type": {
+            "Default": "t2.large",
+            "Description": "Instance type.",
+            "Type": "String"
+        },
+        "environment": {
+            "AllowedValues": [
+                "dev",
+                "prod"
+            ],
+            "ConstraintDescription": "dev or prod",
+            "Default": "dev",
+            "Description": "Development or Production environment",
+            "Type": "String"
+        },
+        "loadbalancerPrefix": {
+            "Default": "",
+            "Description": "Specify a prefix for your loadbalancer",
+            "Type": "String"
+        },
+        "route53HostedZoneId": {
+            "Default": "",
+            "Description": "Route53 DNS zone ID",
+            "Type": "AWS::Route53::HostedZone::Id"
+        },
+        "route53HostedZoneName": {
+            "Default": "my.aws.dns.com",
+            "Description": "Route53 hosted zone name",
+            "Type": "String"
+        },
+        "securityGroup": {
+            "Default": "",
+            "Description": "Which security groups to use",
+            "Type": "List<AWS::EC2::SecurityGroup::Id>"
+        }
+    },
+    "Resources": {
+        "EC2LaunchConfiguration": {
+            "Properties": {
+                "AssociatePublicIpAddress": "false",
+                "ImageId": {
+                    "Fn::FindInMap": [
+                        "windowsAMI",
+                        {
+                            "Ref": "AWS::Region"
+                        },
+                        "AMI"
+                    ]
+                },
+                "InstanceType": {
+                    "Ref": "ec2Type"
+                },
+                "KeyName": {
+                    "Ref": "ec2Key"
+                },
+                "SecurityGroups": {
+                    "Ref": "securityGroup"
+                }
+            },
+            "Type": "AWS::AutoScaling::LaunchConfiguration"
+        },
+        "albListener": {
+            "Properties": {
+                "DefaultActions": [
+                    {
+                        "TargetGroupArn": {
+                            "Ref": "albTargetGroup"
+                        },
+                        "Type": "forward"
+                    }
+                ],
+                "LoadBalancerArn": {
+                    "Ref": "applicationLoadBalancer"
+                },
+                "Port": {
+                    "Ref": "albPort"
+                },
+                "Protocol": "HTTP"
+            },
+            "Type": "AWS::ElasticLoadBalancingV2::Listener"
+        },
+        "albListenerRule": {
+            "Properties": {
+                "Actions": [
+                    {
+                        "TargetGroupArn": {
+                            "Ref": "albTargetGroup"
+                        },
+                        "Type": "forward"
+                    }
+                ],
+                "Conditions": [
+                    {
+                        "Field": "path-pattern",
+                        "Values": {
+                            "Ref": "albPaths"
+                        }
+                    }
+                ],
+                "ListenerArn": {
+                    "Ref": "albListener"
+                },
+                "Priority": "1"
+            },
+            "Type": "AWS::ElasticLoadBalancingV2::ListenerRule"
+        },
+        "albTargetGroup": {
+            "Properties": {
+                "HealthCheckIntervalSeconds": "30",
+                "HealthCheckPath": {
+                    "Fn::Select": [
+                        "0",
+                        {
+                            "Ref": "albPaths"
+                        }
+                    ]
+                },
+                "HealthCheckProtocol": "HTTP",
+                "HealthCheckTimeoutSeconds": "10",
+                "HealthyThresholdCount": "4",
+                "Matcher": {
+                    "HttpCode": "200"
+                },
+                "Name": {
+                    "Ref": "ec2Name"
+                },
+                "Port": 80,
+                "Protocol": "HTTP",
+                "UnhealthyThresholdCount": "3",
+                "VpcId": {
+                    "Ref": "VPC"
+                }
+            },
+            "Type": "AWS::ElasticLoadBalancingV2::TargetGroup"
+        },
+        "applicationLoadBalancer": {
+            "Properties": {
+                "Name": {
+                    "Ref": "loadbalancerPrefix"
+                },
+                "Scheme": "internet-facing",
+                "SecurityGroups": {
+                    "Ref": "securityGroup"
+                },
+                "Subnets": {
+                    "Ref": "albSubnets"
+                }
+            },
+            "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer"
+        },
+        "autoScalingGroup": {
+            "Properties": {
+                "Cooldown": {
+                    "Ref": "asgCooldown"
+                },
+                "DesiredCapacity": {
+                    "Ref": "asgCapacity"
+                },
+                "HealthCheckGracePeriod": {
+                    "Ref": "asgHealthGrace"
+                },
+                "HealthCheckType": "EC2",
+                "LaunchConfigurationName": {
+                    "Ref": "EC2LaunchConfiguration"
+                },
+                "MaxSize": {
+                    "Ref": "asgMaxSize"
+                },
+                "MinSize": {
+                    "Ref": "asgMinSize"
+                },
+                "Tags": [
+                    {
+                        "Key": "Environment",
+                        "PropagateAtLaunch": "true",
+                        "Value": {
+                            "Ref": "environment"
+                        }
+                    }
+                ],
+                "TargetGroupARNs": [
+                    {
+                        "Ref": "albTargetGroup"
+                    }
+                ],
+                "VPCZoneIdentifier": {
+                    "Ref": "ec2Subnets"
+                }
+            },
+            "Type": "AWS::AutoScaling::AutoScalingGroup"
+        },
+        "route53RoundRobin": {
+            "Properties": {
+                "HostedZoneId": {
+                    "Ref": "route53HostedZoneId"
+                },
+                "RecordSets": [
+                    {
+                        "AliasTarget": {
+                            "DNSName": {
+                                "Fn::GetAtt": [
+                                    "applicationLoadBalancer",
+                                    "DNSName"
+                                ]
+                            },
+                            "HostedZoneId": {
+                                "Fn::GetAtt": [
+                                    "applicationLoadBalancer",
+                                    "CanonicalHostedZoneID"
+                                ]
+                            }
+                        },
+                        "Name": {
+                            "Fn::Join": [
+                                ".",
+                                [
+                                    {
+                                        "Ref": "environment"
+                                    },
+                                    {
+                                        "Ref": "route53HostedZoneName"
+                                    }
+                                ]
+                            ]
+                        },
+                        "SetIdentifier": {
+                            "Fn::Join": [
+                                ".",
+                                [
+                                    {
+                                        "Ref": "environment"
+                                    },
+                                    {
+                                        "Ref": "route53HostedZoneName"
+                                    },
+                                    "ELB"
+                                ]
+                            ]
+                        },
+                        "Type": "A",
+                        "Weight": 1
+                    }
+                ]
+            },
+            "Type": "AWS::Route53::RecordSetGroup"
+        }
+    }
+}
