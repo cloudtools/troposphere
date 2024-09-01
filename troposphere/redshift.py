@@ -28,6 +28,8 @@ class LoggingProperties(AWSProperty):
 
     props: PropsDictType = {
         "BucketName": (str, False),
+        "LogDestinationType": (str, False),
+        "LogExports": ([str], False),
         "S3KeyPrefix": (str, False),
     }
 

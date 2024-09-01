@@ -403,7 +403,7 @@ class DatabaseIdentifier(AWSProperty):
 
 class FederatedDatabase(AWSProperty):
     """
-    `FederatedDatabase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-databaseinput-federateddatabase.html>`__
+    `FederatedDatabase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-database-federateddatabase.html>`__
     """
 
     props: PropsDictType = {
@@ -459,6 +459,7 @@ class Database(AWSObject):
     props: PropsDictType = {
         "CatalogId": (str, True),
         "DatabaseInput": (DatabaseInput, True),
+        "DatabaseName": (str, False),
     }
 
 

@@ -262,6 +262,7 @@ class EventSourceMapping(AWSObject):
         "FilterCriteria": (FilterCriteria, False),
         "FunctionName": (str, True),
         "FunctionResponseTypes": ([str], False),
+        "KmsKeyArn": (str, False),
         "MaximumBatchingWindowInSeconds": (integer, False),
         "MaximumRecordAgeInSeconds": (integer, False),
         "MaximumRetryAttempts": (integer, False),
@@ -288,6 +289,7 @@ class Code(AWSProperty):
         "S3Bucket": (str, False),
         "S3Key": (str, False),
         "S3ObjectVersion": (str, False),
+        "SourceKMSKeyArn": (str, False),
         "ZipFile": (str, False),
     }
 
@@ -431,6 +433,7 @@ class Function(AWSObject):
         "LoggingConfig": (LoggingConfig, False),
         "MemorySize": (validate_memory_size, False),
         "PackageType": (validate_package_type, False),
+        "RecursiveLoop": (str, False),
         "ReservedConcurrentExecutions": (integer, False),
         "Role": (str, True),
         "Runtime": (str, False),

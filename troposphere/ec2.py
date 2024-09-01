@@ -740,6 +740,7 @@ class IPAM(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "EnablePrivateGua": (boolean, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
         "Tags": (Tags, False),
         "Tier": (str, False),
@@ -2356,7 +2357,6 @@ class Subnet(AWSObject):
         "Ipv4IpamPoolId": (str, False),
         "Ipv4NetmaskLength": (integer, False),
         "Ipv6CidrBlock": (str, False),
-        "Ipv6CidrBlocks": ([str], False),
         "Ipv6IpamPoolId": (str, False),
         "Ipv6Native": (boolean, False),
         "Ipv6NetmaskLength": (integer, False),
@@ -2891,9 +2891,16 @@ class VPNConnection(AWSObject):
     props: PropsDictType = {
         "CustomerGatewayId": (str, True),
         "EnableAcceleration": (boolean, False),
+        "LocalIpv4NetworkCidr": (str, False),
+        "LocalIpv6NetworkCidr": (str, False),
+        "OutsideIpAddressType": (str, False),
+        "RemoteIpv4NetworkCidr": (str, False),
+        "RemoteIpv6NetworkCidr": (str, False),
         "StaticRoutesOnly": (boolean, False),
         "Tags": (validate_tags_or_list, False),
         "TransitGatewayId": (str, False),
+        "TransportTransitGatewayAttachmentId": (str, False),
+        "TunnelInsideIpVersion": (str, False),
         "Type": (str, True),
         "VpnGatewayId": (str, False),
         "VpnTunnelOptionsSpecifications": ([VpnTunnelOptionsSpecification], False),

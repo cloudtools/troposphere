@@ -44,6 +44,17 @@ class CollectionScheme(AWSProperty):
     }
 
 
+class MqttTopicConfig(AWSProperty):
+    """
+    `MqttTopicConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-mqtttopicconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecutionRoleArn": (str, True),
+        "MqttTopicArn": (str, True),
+    }
+
+
 class S3Config(AWSProperty):
     """
     `S3Config <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-s3config.html>`__
@@ -74,6 +85,7 @@ class DataDestinationConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MqttTopicConfig": (MqttTopicConfig, False),
         "S3Config": (S3Config, False),
         "TimestreamConfig": (TimestreamConfig, False),
     }
@@ -116,114 +128,6 @@ class Campaign(AWSObject):
         "StartTime": (str, False),
         "Tags": (Tags, False),
         "TargetArn": (str, True),
-    }
-
-
-class CanInterface(AWSProperty):
-    """
-    `CanInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "ProtocolName": (str, False),
-        "ProtocolVersion": (str, False),
-    }
-
-
-class ObdInterface(AWSProperty):
-    """
-    `ObdInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html>`__
-    """
-
-    props: PropsDictType = {
-        "DtcRequestIntervalSeconds": (str, False),
-        "HasTransmissionEcu": (str, False),
-        "Name": (str, True),
-        "ObdStandard": (str, False),
-        "PidRequestIntervalSeconds": (str, False),
-        "RequestMessageId": (str, True),
-        "UseExtendedIds": (str, False),
-    }
-
-
-class NetworkInterfacesItems(AWSProperty):
-    """
-    `NetworkInterfacesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html>`__
-    """
-
-    props: PropsDictType = {
-        "CanInterface": (CanInterface, False),
-        "InterfaceId": (str, True),
-        "ObdInterface": (ObdInterface, False),
-        "Type": (str, True),
-    }
-
-
-class CanSignal(AWSProperty):
-    """
-    `CanSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html>`__
-    """
-
-    props: PropsDictType = {
-        "Factor": (str, True),
-        "IsBigEndian": (str, True),
-        "IsSigned": (str, True),
-        "Length": (str, True),
-        "MessageId": (str, True),
-        "Name": (str, False),
-        "Offset": (str, True),
-        "StartBit": (str, True),
-    }
-
-
-class ObdSignal(AWSProperty):
-    """
-    `ObdSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html>`__
-    """
-
-    props: PropsDictType = {
-        "BitMaskLength": (str, False),
-        "BitRightShift": (str, False),
-        "ByteLength": (str, True),
-        "Offset": (str, True),
-        "Pid": (str, True),
-        "PidResponseLength": (str, True),
-        "Scaling": (str, True),
-        "ServiceMode": (str, True),
-        "StartByte": (str, True),
-    }
-
-
-class SignalDecodersItems(AWSProperty):
-    """
-    `SignalDecodersItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html>`__
-    """
-
-    props: PropsDictType = {
-        "CanSignal": (CanSignal, False),
-        "FullyQualifiedName": (str, True),
-        "InterfaceId": (str, True),
-        "ObdSignal": (ObdSignal, False),
-        "Type": (str, True),
-    }
-
-
-class DecoderManifest(AWSObject):
-    """
-    `DecoderManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html>`__
-    """
-
-    resource_type = "AWS::IoTFleetWise::DecoderManifest"
-
-    props: PropsDictType = {
-        "Description": (str, False),
-        "ModelManifestArn": (str, True),
-        "Name": (str, True),
-        "NetworkInterfaces": ([NetworkInterfacesItems], False),
-        "SignalDecoders": ([SignalDecodersItems], False),
-        "Status": (str, False),
-        "Tags": (Tags, False),
     }
 
 

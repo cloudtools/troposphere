@@ -55,6 +55,7 @@ class Profile(AWSObject):
     resource_type = "AWS::RolesAnywhere::Profile"
 
     props: PropsDictType = {
+        "AcceptRoleSessionName": (boolean, False),
         "AttributeMappings": ([AttributeMapping], False),
         "DurationSeconds": (double, False),
         "Enabled": (boolean, False),

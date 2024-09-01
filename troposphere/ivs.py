@@ -86,6 +86,20 @@ class PlaybackRestrictionPolicy(AWSObject):
     }
 
 
+class PublicKey(AWSObject):
+    """
+    `PublicKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-publickey.html>`__
+    """
+
+    resource_type = "AWS::IVS::PublicKey"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "PublicKeyMaterial": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class S3DestinationConfiguration(AWSProperty):
     """
     `S3DestinationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-recordingconfiguration-s3destinationconfiguration.html>`__
@@ -147,6 +161,17 @@ class RecordingConfiguration(AWSObject):
     }
 
 
+class AutoParticipantRecordingConfiguration(AWSProperty):
+    """
+    `AutoParticipantRecordingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-stage-autoparticipantrecordingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MediaTypes": ([str], False),
+        "StorageConfigurationArn": (str, True),
+    }
+
+
 class Stage(AWSObject):
     """
     `Stage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-stage.html>`__
@@ -155,6 +180,10 @@ class Stage(AWSObject):
     resource_type = "AWS::IVS::Stage"
 
     props: PropsDictType = {
+        "AutoParticipantRecordingConfiguration": (
+            AutoParticipantRecordingConfiguration,
+            False,
+        ),
         "Name": (str, False),
         "Tags": (Tags, False),
     }

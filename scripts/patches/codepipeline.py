@@ -31,6 +31,11 @@ patches = [
         "value": "InputArtifacts",
     },
     {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::CodePipeline::Pipeline.RuleDeclaration/Properties/InputArtifacts/ItemType",
+        "value": "InputArtifacts",
+    },
+    {
         "op": "move",
         "from": "/PropertyTypes/AWS::CodePipeline::Pipeline.OutputArtifact",
         "path": "/PropertyTypes/AWS::CodePipeline::Pipeline.OutputArtifacts",

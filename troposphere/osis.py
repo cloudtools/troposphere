@@ -51,6 +51,17 @@ class LogPublishingOptions(AWSProperty):
     }
 
 
+class VpcAttachmentOptions(AWSProperty):
+    """
+    `VpcAttachmentOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcattachmentoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AttachToVpc": (boolean, True),
+        "CidrBlock": (str, True),
+    }
+
+
 class VpcOptions(AWSProperty):
     """
     `VpcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-osis-pipeline-vpcoptions.html>`__
@@ -59,6 +70,7 @@ class VpcOptions(AWSProperty):
     props: PropsDictType = {
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
+        "VpcAttachmentOptions": (VpcAttachmentOptions, False),
         "VpcEndpointManagement": (str, False),
     }
 
