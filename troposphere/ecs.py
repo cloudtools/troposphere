@@ -665,6 +665,18 @@ class ResourceRequirement(AWSProperty):
     }
 
 
+class RestartPolicy(AWSProperty):
+    """
+    `RestartPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-restartpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "IgnoredExitCodes": ([integer], False),
+        "RestartAttemptPeriod": (integer, False),
+    }
+
+
 class SystemControl(AWSProperty):
     """
     `SystemControl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskdefinition-systemcontrol.html>`__
@@ -737,6 +749,7 @@ class ContainerDefinition(AWSProperty):
         "ReadonlyRootFilesystem": (boolean, False),
         "RepositoryCredentials": (RepositoryCredentials, False),
         "ResourceRequirements": ([ResourceRequirement], False),
+        "RestartPolicy": (RestartPolicy, False),
         "Secrets": ([Secret], False),
         "StartTimeout": (integer, False),
         "StopTimeout": (integer, False),

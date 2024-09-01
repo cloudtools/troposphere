@@ -2269,6 +2269,41 @@ class MediaConnectFlowRequest(AWSProperty):
     }
 
 
+class SrtCallerDecryptionRequest(AWSProperty):
+    """
+    `SrtCallerDecryptionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallerdecryptionrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Algorithm": (str, False),
+        "PassphraseSecretArn": (str, False),
+    }
+
+
+class SrtCallerSourceRequest(AWSProperty):
+    """
+    `SrtCallerSourceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtcallersourcerequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Decryption": (SrtCallerDecryptionRequest, False),
+        "MinimumLatency": (integer, False),
+        "SrtListenerAddress": (str, False),
+        "SrtListenerPort": (str, False),
+        "StreamId": (str, False),
+    }
+
+
+class SrtSettingsRequest(AWSProperty):
+    """
+    `SrtSettingsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-srtsettingsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "SrtCallerSources": ([SrtCallerSourceRequest], False),
+    }
+
+
 class Input(AWSObject):
     """
     `Input <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-input.html>`__
@@ -2284,6 +2319,7 @@ class Input(AWSObject):
         "Name": (str, False),
         "RoleArn": (str, False),
         "Sources": ([InputSourceRequest], False),
+        "SrtSettings": (SrtSettingsRequest, False),
         "Tags": (dict, False),
         "Type": (str, False),
         "Vpc": (InputVpcRequest, False),
@@ -2453,7 +2489,6 @@ class Multiplexprogram(AWSObject):
     resource_type = "AWS::MediaLive::Multiplexprogram"
 
     props: PropsDictType = {
-        "ChannelId": (str, False),
         "MultiplexId": (str, False),
         "MultiplexProgramSettings": (MultiplexProgramSettings, False),
         "PacketIdentifiersMap": (MultiplexProgramPacketIdentifiersMap, False),

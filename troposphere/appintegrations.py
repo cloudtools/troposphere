@@ -41,7 +41,7 @@ class Application(AWSObject):
         "ApplicationSourceConfig": (ApplicationSourceConfig, True),
         "Description": (str, True),
         "Name": (str, True),
-        "Namespace": (str, False),
+        "Namespace": (str, True),
         "Permissions": ([str], False),
         "Tags": (Tags, False),
     }

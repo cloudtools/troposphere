@@ -195,7 +195,7 @@ class Fleet(AWSObject):
         "Configuration": (FleetConfiguration, True),
         "Description": (str, False),
         "DisplayName": (str, True),
-        "FarmId": (str, False),
+        "FarmId": (str, True),
         "MaxWorkerCount": (integer, True),
         "MinWorkerCount": (integer, False),
         "RoleArn": (str, True),
@@ -303,7 +303,7 @@ class Queue(AWSObject):
         "DefaultBudgetAction": (str, False),
         "Description": (str, False),
         "DisplayName": (str, True),
-        "FarmId": (str, False),
+        "FarmId": (str, True),
         "JobAttachmentSettings": (JobAttachmentSettings, False),
         "JobRunAsUser": (JobRunAsUser, False),
         "RequiredFileSystemLocationNames": ([str], False),
@@ -363,7 +363,7 @@ class StorageProfile(AWSObject):
 
     props: PropsDictType = {
         "DisplayName": (str, True),
-        "FarmId": (str, False),
+        "FarmId": (str, True),
         "FileSystemLocations": ([FileSystemLocation], False),
         "OsFamily": (str, True),
     }

@@ -209,6 +209,73 @@ class AgentAlias(AWSObject):
     }
 
 
+class PatternObjectFilter(AWSProperty):
+    """
+    `PatternObjectFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExclusionFilters": ([str], False),
+        "InclusionFilters": ([str], False),
+        "ObjectType": (str, True),
+    }
+
+
+class PatternObjectFilterConfiguration(AWSProperty):
+    """
+    `PatternObjectFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-patternobjectfilterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Filters": ([PatternObjectFilter], True),
+    }
+
+
+class CrawlFilterConfiguration(AWSProperty):
+    """
+    `CrawlFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-crawlfilterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PatternObjectFilter": (PatternObjectFilterConfiguration, False),
+        "Type": (str, True),
+    }
+
+
+class ConfluenceCrawlerConfiguration(AWSProperty):
+    """
+    `ConfluenceCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencecrawlerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilterConfiguration": (CrawlFilterConfiguration, False),
+    }
+
+
+class ConfluenceSourceConfiguration(AWSProperty):
+    """
+    `ConfluenceSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencesourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthType": (str, True),
+        "CredentialsSecretArn": (str, True),
+        "HostType": (str, True),
+        "HostUrl": (str, True),
+    }
+
+
+class ConfluenceDataSourceConfiguration(AWSProperty):
+    """
+    `ConfluenceDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-confluencedatasourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrawlerConfiguration": (ConfluenceCrawlerConfiguration, False),
+        "SourceConfiguration": (ConfluenceSourceConfiguration, True),
+    }
+
+
 class S3DataSourceConfiguration(AWSProperty):
     """
     `S3DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-s3datasourceconfiguration.html>`__
@@ -221,14 +288,151 @@ class S3DataSourceConfiguration(AWSProperty):
     }
 
 
+class SalesforceCrawlerConfiguration(AWSProperty):
+    """
+    `SalesforceCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcecrawlerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilterConfiguration": (CrawlFilterConfiguration, False),
+    }
+
+
+class SalesforceSourceConfiguration(AWSProperty):
+    """
+    `SalesforceSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcesourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthType": (str, True),
+        "CredentialsSecretArn": (str, True),
+        "HostUrl": (str, True),
+    }
+
+
+class SalesforceDataSourceConfiguration(AWSProperty):
+    """
+    `SalesforceDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-salesforcedatasourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrawlerConfiguration": (SalesforceCrawlerConfiguration, False),
+        "SourceConfiguration": (SalesforceSourceConfiguration, True),
+    }
+
+
+class SharePointCrawlerConfiguration(AWSProperty):
+    """
+    `SharePointCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointcrawlerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilterConfiguration": (CrawlFilterConfiguration, False),
+    }
+
+
+class SharePointSourceConfiguration(AWSProperty):
+    """
+    `SharePointSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointsourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthType": (str, True),
+        "CredentialsSecretArn": (str, True),
+        "Domain": (str, True),
+        "HostType": (str, True),
+        "SiteUrls": ([str], True),
+        "TenantId": (str, False),
+    }
+
+
+class SharePointDataSourceConfiguration(AWSProperty):
+    """
+    `SharePointDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-sharepointdatasourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrawlerConfiguration": (SharePointCrawlerConfiguration, False),
+        "SourceConfiguration": (SharePointSourceConfiguration, True),
+    }
+
+
+class WebCrawlerLimits(AWSProperty):
+    """
+    `WebCrawlerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerlimits.html>`__
+    """
+
+    props: PropsDictType = {
+        "RateLimit": (integer, False),
+    }
+
+
+class WebCrawlerConfiguration(AWSProperty):
+    """
+    `WebCrawlerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webcrawlerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrawlerLimits": (WebCrawlerLimits, False),
+        "ExclusionFilters": ([str], False),
+        "InclusionFilters": ([str], False),
+        "Scope": (str, False),
+    }
+
+
+class SeedUrl(AWSProperty):
+    """
+    `SeedUrl <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-seedurl.html>`__
+    """
+
+    props: PropsDictType = {
+        "Url": (str, True),
+    }
+
+
+class UrlConfiguration(AWSProperty):
+    """
+    `UrlConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-urlconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SeedUrls": ([SeedUrl], True),
+    }
+
+
+class WebSourceConfiguration(AWSProperty):
+    """
+    `WebSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-websourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "UrlConfiguration": (UrlConfiguration, True),
+    }
+
+
+class WebDataSourceConfiguration(AWSProperty):
+    """
+    `WebDataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-webdatasourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CrawlerConfiguration": (WebCrawlerConfiguration, False),
+        "SourceConfiguration": (WebSourceConfiguration, True),
+    }
+
+
 class DataSourceConfiguration(AWSProperty):
     """
     `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-datasourceconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "S3Configuration": (S3DataSourceConfiguration, True),
+        "ConfluenceConfiguration": (ConfluenceDataSourceConfiguration, False),
+        "S3Configuration": (S3DataSourceConfiguration, False),
+        "SalesforceConfiguration": (SalesforceDataSourceConfiguration, False),
+        "SharePointConfiguration": (SharePointDataSourceConfiguration, False),
         "Type": (str, True),
+        "WebConfiguration": (WebDataSourceConfiguration, False),
     }
 
 
@@ -253,6 +457,39 @@ class FixedSizeChunkingConfiguration(AWSProperty):
     }
 
 
+class HierarchicalChunkingLevelConfiguration(AWSProperty):
+    """
+    `HierarchicalChunkingLevelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkinglevelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxTokens": (integer, True),
+    }
+
+
+class HierarchicalChunkingConfiguration(AWSProperty):
+    """
+    `HierarchicalChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-hierarchicalchunkingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LevelConfigurations": ([HierarchicalChunkingLevelConfiguration], True),
+        "OverlapTokens": (integer, True),
+    }
+
+
+class SemanticChunkingConfiguration(AWSProperty):
+    """
+    `SemanticChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-semanticchunkingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BreakpointPercentileThreshold": (integer, True),
+        "BufferSize": (integer, True),
+        "MaxTokens": (integer, True),
+    }
+
+
 class ChunkingConfiguration(AWSProperty):
     """
     `ChunkingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-chunkingconfiguration.html>`__
@@ -261,6 +498,107 @@ class ChunkingConfiguration(AWSProperty):
     props: PropsDictType = {
         "ChunkingStrategy": (str, True),
         "FixedSizeChunkingConfiguration": (FixedSizeChunkingConfiguration, False),
+        "HierarchicalChunkingConfiguration": (HierarchicalChunkingConfiguration, False),
+        "SemanticChunkingConfiguration": (SemanticChunkingConfiguration, False),
+    }
+
+
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "Version": (str, False),
+    }
+
+
+class IntermediateStorage(AWSProperty):
+    """
+    `IntermediateStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-intermediatestorage.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Location": (S3Location, True),
+    }
+
+
+class TransformationLambdaConfiguration(AWSProperty):
+    """
+    `TransformationLambdaConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformationlambdaconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaArn": (str, True),
+    }
+
+
+class TransformationFunction(AWSProperty):
+    """
+    `TransformationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformationfunction.html>`__
+    """
+
+    props: PropsDictType = {
+        "TransformationLambdaConfiguration": (TransformationLambdaConfiguration, True),
+    }
+
+
+class Transformation(AWSProperty):
+    """
+    `Transformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-transformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "StepToApply": (str, True),
+        "TransformationFunction": (TransformationFunction, True),
+    }
+
+
+class CustomTransformationConfiguration(AWSProperty):
+    """
+    `CustomTransformationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-customtransformationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IntermediateStorage": (IntermediateStorage, True),
+        "Transformations": ([Transformation], True),
+    }
+
+
+class ParsingPrompt(AWSProperty):
+    """
+    `ParsingPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingprompt.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParsingPromptText": (str, True),
+    }
+
+
+class BedrockFoundationModelConfiguration(AWSProperty):
+    """
+    `BedrockFoundationModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelArn": (str, True),
+        "ParsingPrompt": (ParsingPrompt, False),
+    }
+
+
+class ParsingConfiguration(AWSProperty):
+    """
+    `ParsingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockFoundationModelConfiguration": (
+            BedrockFoundationModelConfiguration,
+            False,
+        ),
+        "ParsingStrategy": (str, True),
     }
 
 
@@ -271,6 +609,8 @@ class VectorIngestionConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ChunkingConfiguration": (ChunkingConfiguration, False),
+        "CustomTransformationConfiguration": (CustomTransformationConfiguration, False),
+        "ParsingConfiguration": (ParsingConfiguration, False),
     }
 
 
@@ -551,18 +891,6 @@ class FlowDefinition(AWSProperty):
     props: PropsDictType = {
         "Connections": ([FlowConnection], False),
         "Nodes": ([FlowNode], False),
-    }
-
-
-class S3Location(AWSProperty):
-    """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-s3location.html>`__
-    """
-
-    props: PropsDictType = {
-        "Bucket": (str, True),
-        "Key": (str, True),
-        "Version": (str, False),
     }
 
 

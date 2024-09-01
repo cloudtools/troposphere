@@ -57,7 +57,7 @@ class TrackingOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CustomRedirectDomain": (str, True),
+        "CustomRedirectDomain": (str, False),
     }
 
 
@@ -887,6 +887,7 @@ class S3Action(AWSProperty):
 
     props: PropsDictType = {
         "BucketName": (str, True),
+        "IamRoleArn": (str, False),
         "KmsKeyArn": (str, False),
         "ObjectKeyPrefix": (str, False),
         "TopicArn": (str, False),

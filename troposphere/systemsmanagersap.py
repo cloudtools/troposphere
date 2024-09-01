@@ -32,6 +32,7 @@ class Application(AWSObject):
         "ApplicationId": (str, True),
         "ApplicationType": (str, True),
         "Credentials": ([Credential], False),
+        "DatabaseArn": (str, False),
         "Instances": ([str], False),
         "SapInstanceNumber": (str, False),
         "Sid": (str, False),

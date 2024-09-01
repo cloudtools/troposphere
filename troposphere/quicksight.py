@@ -761,6 +761,41 @@ class CategoryFilter(AWSProperty):
     }
 
 
+class CategoryInnerFilter(AWSProperty):
+    """
+    `CategoryInnerFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-categoryinnerfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Column": (ColumnIdentifier, True),
+        "Configuration": (CategoryFilterConfiguration, True),
+        "DefaultFilterControlConfiguration": (DefaultFilterControlConfiguration, False),
+    }
+
+
+class InnerFilter(AWSProperty):
+    """
+    `InnerFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-innerfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "CategoryInnerFilter": (CategoryInnerFilter, False),
+    }
+
+
+class NestedFilter(AWSProperty):
+    """
+    `NestedFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-nestedfilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Column": (ColumnIdentifier, True),
+        "FilterId": (str, True),
+        "IncludeInnerSet": (boolean, True),
+        "InnerFilter": (InnerFilter, True),
+    }
+
+
 class AttributeAggregationFunction(AWSProperty):
     """
     `AttributeAggregationFunction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-attributeaggregationfunction.html>`__
@@ -990,6 +1025,7 @@ class Filter(AWSProperty):
 
     props: PropsDictType = {
         "CategoryFilter": (CategoryFilter, False),
+        "NestedFilter": (NestedFilter, False),
         "NumericEqualityFilter": (NumericEqualityFilter, False),
         "NumericRangeFilter": (NumericRangeFilter, False),
         "RelativeDatesFilter": (RelativeDatesFilter, False),
@@ -6294,7 +6330,7 @@ class DataSetRefreshProperties(AWSProperty):
     """
 
     props: PropsDictType = {
-        "RefreshConfiguration": (RefreshConfiguration, True),
+        "RefreshConfiguration": (RefreshConfiguration, False),
     }
 
 

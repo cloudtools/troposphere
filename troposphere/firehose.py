@@ -575,6 +575,7 @@ class MSKSourceConfiguration(AWSProperty):
     props: PropsDictType = {
         "AuthenticationConfiguration": (AuthenticationConfiguration, True),
         "MSKClusterARN": (str, True),
+        "ReadFromTimestamp": (str, False),
         "TopicName": (str, True),
     }
 

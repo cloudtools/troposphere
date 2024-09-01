@@ -177,6 +177,16 @@ class IdNamespace(AWSObject):
     }
 
 
+class IncrementalRunConfig(AWSProperty):
+    """
+    `IncrementalRunConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-incrementalrunconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IncrementalRunType": (str, True),
+    }
+
+
 class InputSource(AWSProperty):
     """
     `InputSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-entityresolution-matchingworkflow-inputsource.html>`__
@@ -246,6 +256,7 @@ class MatchingWorkflow(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "IncrementalRunConfig": (IncrementalRunConfig, False),
         "InputSourceConfig": ([InputSource], True),
         "OutputSourceConfig": ([OutputSource], True),
         "ResolutionTechniques": (ResolutionTechniques, True),

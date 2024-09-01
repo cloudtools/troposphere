@@ -50,6 +50,7 @@ class Fleet(AWSObject):
         "EnvironmentType": (str, False),
         "FleetServiceRole": (str, False),
         "FleetVpcConfig": (VpcConfig, False),
+        "ImageId": (str, False),
         "Name": (str, False),
         "OverflowBehavior": (str, False),
         "Tags": (Tags, False),

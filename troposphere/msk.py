@@ -477,6 +477,16 @@ class ReplicationStartingPosition(AWSProperty):
     }
 
 
+class ReplicationTopicNameConfiguration(AWSProperty):
+    """
+    `ReplicationTopicNameConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-replicationtopicnameconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, False),
+    }
+
+
 class TopicReplication(AWSProperty):
     """
     `TopicReplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-msk-replicator-topicreplication.html>`__
@@ -487,6 +497,7 @@ class TopicReplication(AWSProperty):
         "CopyTopicConfigurations": (boolean, False),
         "DetectAndCopyNewTopics": (boolean, False),
         "StartingPosition": (ReplicationStartingPosition, False),
+        "TopicNameConfiguration": (ReplicationTopicNameConfiguration, False),
         "TopicsToExclude": ([str], False),
         "TopicsToReplicate": ([str], True),
     }

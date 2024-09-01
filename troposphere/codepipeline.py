@@ -246,6 +246,55 @@ class Actions(AWSProperty):
     }
 
 
+class RuleTypeId(AWSProperty):
+    """
+    `RuleTypeId <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruletypeid.html>`__
+    """
+
+    props: PropsDictType = {
+        "Category": (str, False),
+        "Owner": (str, False),
+        "Provider": (str, False),
+        "Version": (str, False),
+    }
+
+
+class RuleDeclaration(AWSProperty):
+    """
+    `RuleDeclaration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-ruledeclaration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Configuration": (dict, False),
+        "InputArtifacts": ([InputArtifacts], False),
+        "Name": (str, False),
+        "Region": (str, False),
+        "RoleArn": (str, False),
+        "RuleTypeId": (RuleTypeId, False),
+    }
+
+
+class Condition(AWSProperty):
+    """
+    `Condition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-condition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Result": (str, False),
+        "Rules": ([RuleDeclaration], False),
+    }
+
+
+class BeforeEntryConditions(AWSProperty):
+    """
+    `BeforeEntryConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-beforeentryconditions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Conditions": ([Condition], False),
+    }
+
+
 class Blockers(AWSProperty):
     """
     `Blockers <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-blockerdeclaration.html>`__
@@ -263,7 +312,18 @@ class FailureConditions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Conditions": ([Condition], False),
         "Result": (str, False),
+    }
+
+
+class SuccessConditions(AWSProperty):
+    """
+    `SuccessConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-successconditions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Conditions": ([Condition], False),
     }
 
 
@@ -274,9 +334,11 @@ class Stages(AWSProperty):
 
     props: PropsDictType = {
         "Actions": ([Actions], True),
+        "BeforeEntry": (BeforeEntryConditions, False),
         "Blockers": ([Blockers], False),
         "Name": (str, True),
         "OnFailure": (FailureConditions, False),
+        "OnSuccess": (SuccessConditions, False),
     }
 
 

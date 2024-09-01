@@ -193,12 +193,12 @@ class AutomationRule(AWSObject):
     resource_type = "AWS::SecurityHub::AutomationRule"
 
     props: PropsDictType = {
-        "Actions": ([AutomationRulesAction], False),
-        "Criteria": (AutomationRulesFindingFilters, False),
-        "Description": (str, False),
+        "Actions": ([AutomationRulesAction], True),
+        "Criteria": (AutomationRulesFindingFilters, True),
+        "Description": (str, True),
         "IsTerminal": (boolean, False),
-        "RuleName": (str, False),
-        "RuleOrder": (integer, False),
+        "RuleName": (str, True),
+        "RuleOrder": (integer, True),
         "RuleStatus": (str, False),
         "Tags": (dict, False),
     }

@@ -1438,12 +1438,24 @@ class ImageConfig(AWSProperty):
     }
 
 
-class S3DataSource(AWSProperty):
+class ModelAccessConfig(AWSProperty):
     """
-    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
+    `ModelAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelaccessconfig.html>`__
     """
 
     props: PropsDictType = {
+        "AcceptEula": (boolean, True),
+    }
+
+
+class S3ModelDataSource(AWSProperty):
+    """
+    `S3ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3modeldatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CompressionType": (str, True),
+        "ModelAccessConfig": (ModelAccessConfig, False),
         "S3DataType": (str, True),
         "S3Uri": (str, True),
     }
@@ -1451,11 +1463,11 @@ class S3DataSource(AWSProperty):
 
 class ModelDataSource(AWSProperty):
     """
-    `ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource.html>`__
+    `ModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modeldatasource.html>`__
     """
 
     props: PropsDictType = {
-        "S3DataSource": (S3DataSource, True),
+        "S3DataSource": (S3ModelDataSource, False),
     }
 
 
@@ -1733,6 +1745,7 @@ class ModelPackageContainerDefinition(AWSProperty):
         "FrameworkVersion": (str, False),
         "Image": (str, True),
         "ImageDigest": (str, False),
+        "ModelDataSource": (ModelDataSource, False),
         "ModelDataUrl": (str, False),
         "ModelInput": (ModelInput, False),
         "NearestModelName": (str, False),
@@ -1898,11 +1911,11 @@ class Content(AWSProperty):
 
 class SecurityConfig(AWSProperty):
     """
-    `SecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-securityconfig.html>`__
+    `SecurityConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-securityconfig.html>`__
     """
 
     props: PropsDictType = {
-        "KmsKeyId": (str, False),
+        "KmsKeyId": (str, True),
     }
 
 
@@ -2122,6 +2135,17 @@ class MetadataProperties(AWSProperty):
     }
 
 
+class ModelCardProperty(AWSProperty):
+    """
+    `ModelCardProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-modelcard.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelCardContent": (str, True),
+        "ModelCardStatus": (str, True),
+    }
+
+
 class Bias(AWSProperty):
     """
     `Bias <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-bias.html>`__
@@ -2208,6 +2232,17 @@ class SourceAlgorithmSpecification(AWSProperty):
 
     props: PropsDictType = {
         "SourceAlgorithms": ([SourceAlgorithm], True),
+    }
+
+
+class S3DataSource(AWSProperty):
+    """
+    `S3DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelpackage-s3datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3DataType": (str, True),
+        "S3Uri": (str, True),
     }
 
 
@@ -2323,6 +2358,7 @@ class ModelPackage(AWSObject):
         "LastModifiedTime": (str, False),
         "MetadataProperties": (MetadataProperties, False),
         "ModelApprovalStatus": (str, False),
+        "ModelCard": (ModelCardProperty, False),
         "ModelMetrics": (ModelMetrics, False),
         "ModelPackageDescription": (str, False),
         "ModelPackageGroupName": (str, False),
@@ -2330,8 +2366,10 @@ class ModelPackage(AWSObject):
         "ModelPackageStatusDetails": (ModelPackageStatusDetails, False),
         "ModelPackageVersion": (integer, False),
         "SamplePayloadUrl": (str, False),
+        "SecurityConfig": (SecurityConfig, False),
         "SkipModelValidation": (str, False),
         "SourceAlgorithmSpecification": (SourceAlgorithmSpecification, False),
+        "SourceUri": (str, False),
         "Tags": (Tags, False),
         "Task": (str, False),
         "ValidationSpecification": (ValidationSpecification, False),
@@ -2954,16 +2992,6 @@ class HubAccessConfig(AWSProperty):
 
     props: PropsDictType = {
         "HubContentArn": (str, True),
-    }
-
-
-class ModelAccessConfig(AWSProperty):
-    """
-    `ModelAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource-modelaccessconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "AcceptEula": (boolean, True),
     }
 
 
