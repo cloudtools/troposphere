@@ -974,19 +974,11 @@ DB_CR1_8XLARGE: Final = "db.cr1.8xlarge"
 # ElastiCache node types
 #
 
+# v T1, M1, M2, M3, R3 will be final EOL 2024-10-15
+# Likely C1 is EOL at the same time
+CACHE_C1_XLARGE: Final = "cache.c1.xlarge"
+
 CACHE_T1_MICRO: Final = "cache.t1.micro"
-
-CACHE_T2_MICRO: Final = "cache.t2.micro"
-CACHE_T2_SMALL: Final = "cache.t2.small"
-CACHE_T2_MEDIUM: Final = "cache.t2.medium"
-
-CACHE_T3_MICRO: Final = "cache.t3.micro"
-CACHE_T3_SMALL: Final = "cache.t3.small"
-CACHE_T3_MEDIUM: Final = "cache.t3.medium"
-
-CACHE_T4G_MICRO: Final = "cache.t4g.micro"
-CACHE_T4G_SMALL: Final = "cache.t4g.small"
-CACHE_T4G_MEDIUM: Final = "cache.t4g.medium"
 
 CACHE_M1_SMALL: Final = "cache.m1.small"
 CACHE_M1_MEDIUM: Final = "cache.m1.medium"
@@ -1001,6 +993,21 @@ CACHE_M3_MEDIUM: Final = "cache.m3.medium"
 CACHE_M3_LARGE: Final = "cache.m3.large"
 CACHE_M3_XLARGE: Final = "cache.m3.xlarge"
 CACHE_M3_2XLARGE: Final = "cache.m3.2xlarge"
+
+CACHE_R3_LARGE: Final = "cache.r3.large"
+CACHE_R3_XLARGE: Final = "cache.r3.xlarge"
+CACHE_R3_2XLARGE: Final = "cache.r3.2xlarge"
+CACHE_R3_4XLARGE: Final = "cache.r3.4xlarge"
+CACHE_R3_8XLARGE: Final = "cache.r3.8xlarge"
+# ^ EOL 2024-10-15
+
+CACHE_C7GN_LARGE: Final = "cache.c7gn.large"
+CACHE_C7GN_XLARGE: Final = "cache.c7gn.xlarge"
+CACHE_C7GN_2XLARGE: Final = "cache.c7gn.2xlarge"
+CACHE_C7GN_4XLARGE: Final = "cache.c7gn.4xlarge"
+CACHE_C7GN_8XLARGE: Final = "cache.c7gn.8xlarge"
+CACHE_C7GN_12XLARGE: Final = "cache.c7gn.12xlarge"
+CACHE_C7GN_16XLARGE: Final = "cache.c7gn.16xlarge"
 
 CACHE_M4_LARGE: Final = "cache.m4.large"
 CACHE_M4_XLARGE: Final = "cache.m4.xlarge"
@@ -1023,11 +1030,13 @@ CACHE_M6G_8XLARGE: Final = "cache.m6g.8xlarge"
 CACHE_M6G_12XLARGE: Final = "cache.m6g.12xlarge"
 CACHE_M6G_16XLARGE: Final = "cache.m6g.16xlarge"
 
-CACHE_R3_LARGE: Final = "cache.r3.large"
-CACHE_R3_XLARGE: Final = "cache.r3.xlarge"
-CACHE_R3_2XLARGE: Final = "cache.r3.2xlarge"
-CACHE_R3_4XLARGE: Final = "cache.r3.4xlarge"
-CACHE_R3_8XLARGE: Final = "cache.r3.8xlarge"
+CACHE_M7G_LARGE: Final = "cache.m7g.large"
+CACHE_M7G_XLARGE: Final = "cache.m7g.xlarge"
+CACHE_M7G_2XLARGE: Final = "cache.m7g.2xlarge"
+CACHE_M7G_4XLARGE: Final = "cache.m7g.4xlarge"
+CACHE_M7G_8XLARGE: Final = "cache.m7g.8xlarge"
+CACHE_M7G_12XLARGE: Final = "cache.m7g.12xlarge"
+CACHE_M7G_16XLARGE: Final = "cache.m7g.16xlarge"
 
 CACHE_R4_LARGE: Final = "cache.r4.large"
 CACHE_R4_XLARGE: Final = "cache.r4.xlarge"
@@ -1058,7 +1067,25 @@ CACHE_R6GD_8XLARGE: Final = "cache.r6gd.8xlarge"
 CACHE_R6GD_12XLARGE: Final = "cache.r6gd.12xlarge"
 CACHE_R6GD_16XLARGE: Final = "cache.r6gd.16xlarge"
 
-CACHE_C1_XLARGE: Final = "cache.c1.xlarge"
+CACHE_R7G_LARGE: Final = "cache.r7g.large"
+CACHE_R7G_XLARGE: Final = "cache.r7g.xlarge"
+CACHE_R7G_2XLARGE: Final = "cache.r7g.2xlarge"
+CACHE_R7G_4XLARGE: Final = "cache.r7g.4xlarge"
+CACHE_R7G_8XLARGE: Final = "cache.r7g.8xlarge"
+CACHE_R7G_12XLARGE: Final = "cache.r7g.12xlarge"
+CACHE_R7G_16XLARGE: Final = "cache.r7g.16xlarge"
+
+CACHE_T2_MICRO: Final = "cache.t2.micro"
+CACHE_T2_SMALL: Final = "cache.t2.small"
+CACHE_T2_MEDIUM: Final = "cache.t2.medium"
+
+CACHE_T3_MICRO: Final = "cache.t3.micro"
+CACHE_T3_SMALL: Final = "cache.t3.small"
+CACHE_T3_MEDIUM: Final = "cache.t3.medium"
+
+CACHE_T4G_MICRO: Final = "cache.t4g.micro"
+CACHE_T4G_SMALL: Final = "cache.t4g.small"
+CACHE_T4G_MEDIUM: Final = "cache.t4g.medium"
 
 #
 # OpenSearch instance types
