@@ -10,7 +10,7 @@ def validate_logginglevel(slackchannelconfiguration_logginglevel):
     Property: SlackChannelConfiguration.LoggingLevel
     """
 
-    VALID_SLACKCHANNELCONFIGURATION_LOGGINGLEVEL = ("ERROR", "INFO", "NODE")
+    VALID_SLACKCHANNELCONFIGURATION_LOGGINGLEVEL = ("ERROR", "INFO", "NONE")
 
     if (
         slackchannelconfiguration_logginglevel
