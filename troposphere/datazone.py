@@ -216,11 +216,41 @@ class Environment(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "DomainIdentifier": (str, True),
-        "EnvironmentProfileIdentifier": (str, True),
+        "EnvironmentAccountIdentifier": (str, False),
+        "EnvironmentAccountRegion": (str, False),
+        "EnvironmentProfileIdentifier": (str, False),
+        "EnvironmentRoleArn": (str, False),
         "GlossaryTerms": ([str], False),
         "Name": (str, True),
         "ProjectIdentifier": (str, True),
         "UserParameters": ([EnvironmentParameter], False),
+    }
+
+
+class AwsConsoleLinkParameters(AWSProperty):
+    """
+    `AwsConsoleLinkParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-environmentactions-awsconsolelinkparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "Uri": (str, False),
+    }
+
+
+class EnvironmentActions(AWSObject):
+    """
+    `EnvironmentActions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-environmentactions.html>`__
+    """
+
+    resource_type = "AWS::DataZone::EnvironmentActions"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DomainIdentifier": (str, False),
+        "EnvironmentIdentifier": (str, False),
+        "Identifier": (str, False),
+        "Name": (str, True),
+        "Parameters": (AwsConsoleLinkParameters, False),
     }
 
 

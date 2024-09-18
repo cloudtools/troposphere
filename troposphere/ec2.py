@@ -2939,7 +2939,7 @@ class VPNGateway(AWSObject):
 
 class VPNGatewayRoutePropagation(AWSObject):
     """
-    `VPNGatewayRoutePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpn-gatewayrouteprop.html>`__
+    `VPNGatewayRoutePropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpngatewayroutepropagation.html>`__
     """
 
     resource_type = "AWS::EC2::VPNGatewayRoutePropagation"

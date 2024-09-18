@@ -548,6 +548,7 @@ class Job(AWSObject):
         "ExecutionClass": (str, False),
         "ExecutionProperty": (ExecutionProperty, False),
         "GlueVersion": (str, False),
+        "JobMode": (str, False),
         "LogUri": (str, False),
         "MaintenanceWindow": (str, False),
         "MaxCapacity": (double, False),

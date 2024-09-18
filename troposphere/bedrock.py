@@ -678,6 +678,16 @@ class FlowConnection(AWSProperty):
     }
 
 
+class AgentFlowNodeConfiguration(AWSProperty):
+    """
+    `AgentFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-agentflownodeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentAliasArn": (str, True),
+    }
+
+
 class FlowCondition(AWSProperty):
     """
     `FlowCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flowcondition.html>`__
@@ -830,19 +840,84 @@ class PromptFlowNodeConfiguration(AWSProperty):
     }
 
 
+class RetrievalFlowNodeS3Configuration(AWSProperty):
+    """
+    `RetrievalFlowNodeS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodes3configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+    }
+
+
+class RetrievalFlowNodeServiceConfiguration(AWSProperty):
+    """
+    `RetrievalFlowNodeServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodeserviceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (RetrievalFlowNodeS3Configuration, False),
+    }
+
+
+class RetrievalFlowNodeConfiguration(AWSProperty):
+    """
+    `RetrievalFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-retrievalflownodeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ServiceConfiguration": (RetrievalFlowNodeServiceConfiguration, True),
+    }
+
+
+class StorageFlowNodeS3Configuration(AWSProperty):
+    """
+    `StorageFlowNodeS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodes3configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+    }
+
+
+class StorageFlowNodeServiceConfiguration(AWSProperty):
+    """
+    `StorageFlowNodeServiceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeserviceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (StorageFlowNodeS3Configuration, False),
+    }
+
+
+class StorageFlowNodeConfiguration(AWSProperty):
+    """
+    `StorageFlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-storageflownodeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ServiceConfiguration": (StorageFlowNodeServiceConfiguration, True),
+    }
+
+
 class FlowNodeConfiguration(AWSProperty):
     """
     `FlowNodeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-flownodeconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "Agent": (AgentFlowNodeConfiguration, False),
+        "Collector": (dict, False),
         "Condition": (ConditionFlowNodeConfiguration, False),
         "Input": (dict, False),
+        "Iterator": (dict, False),
         "KnowledgeBase": (KnowledgeBaseFlowNodeConfiguration, False),
         "LambdaFunction": (LambdaFunctionFlowNodeConfiguration, False),
         "Lex": (LexFlowNodeConfiguration, False),
         "Output": (dict, False),
         "Prompt": (PromptFlowNodeConfiguration, False),
+        "Retrieval": (RetrievalFlowNodeConfiguration, False),
+        "Storage": (StorageFlowNodeConfiguration, False),
     }
 
 
@@ -1341,6 +1416,7 @@ class PromptVersion(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "PromptArn": (str, True),
+        "Tags": (dict, False),
     }
 
 
@@ -1353,6 +1429,16 @@ class AgentAliasHistoryEvent(AWSProperty):
         "EndDate": (str, False),
         "RoutingConfiguration": ([AgentAliasRoutingConfigurationListItem], False),
         "StartDate": (str, False),
+    }
+
+
+class FlowValidation(AWSProperty):
+    """
+    `FlowValidation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-flowvalidation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Message": (str, True),
     }
 
 

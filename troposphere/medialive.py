@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double, integer
+from .validators import boolean, double, integer
 
 
 class CdiInputSpecification(AWSProperty):
@@ -2216,6 +2216,138 @@ class Channel(AWSObject):
     }
 
 
+class ChannelPlacementGroup(AWSObject):
+    """
+    `ChannelPlacementGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-channelplacementgroup.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::ChannelPlacementGroup"
+
+    props: PropsDictType = {
+        "ClusterId": (str, False),
+        "Name": (str, False),
+        "Nodes": ([str], False),
+        "Tags": (Tags, False),
+    }
+
+
+class CloudWatchAlarmTemplate(AWSObject):
+    """
+    `CloudWatchAlarmTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplate.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::CloudWatchAlarmTemplate"
+
+    props: PropsDictType = {
+        "ComparisonOperator": (str, True),
+        "DatapointsToAlarm": (double, False),
+        "Description": (str, False),
+        "EvaluationPeriods": (double, True),
+        "GroupIdentifier": (str, True),
+        "MetricName": (str, True),
+        "Name": (str, True),
+        "Period": (double, True),
+        "Statistic": (str, True),
+        "Tags": (dict, False),
+        "TargetResourceType": (str, True),
+        "Threshold": (double, True),
+        "TreatMissingData": (str, True),
+    }
+
+
+class CloudWatchAlarmTemplateGroup(AWSObject):
+    """
+    `CloudWatchAlarmTemplateGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cloudwatchalarmtemplategroup.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::CloudWatchAlarmTemplateGroup"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (dict, False),
+    }
+
+
+class InterfaceMapping(AWSProperty):
+    """
+    `InterfaceMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-interfacemapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogicalInterfaceName": (str, False),
+        "NetworkId": (str, False),
+    }
+
+
+class ClusterNetworkSettings(AWSProperty):
+    """
+    `ClusterNetworkSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-cluster-clusternetworksettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultRoute": (str, False),
+        "InterfaceMappings": ([InterfaceMapping], False),
+    }
+
+
+class Cluster(AWSObject):
+    """
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-cluster.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::Cluster"
+
+    props: PropsDictType = {
+        "ClusterType": (str, False),
+        "InstanceRoleArn": (str, False),
+        "Name": (str, False),
+        "NetworkSettings": (ClusterNetworkSettings, False),
+        "Tags": (Tags, False),
+    }
+
+
+class EventBridgeRuleTemplateTarget(AWSProperty):
+    """
+    `EventBridgeRuleTemplateTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-eventbridgeruletemplate-eventbridgeruletemplatetarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+    }
+
+
+class EventBridgeRuleTemplate(AWSObject):
+    """
+    `EventBridgeRuleTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplate.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::EventBridgeRuleTemplate"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "EventTargets": ([EventBridgeRuleTemplateTarget], False),
+        "EventType": (str, True),
+        "GroupIdentifier": (str, True),
+        "Name": (str, True),
+        "Tags": (dict, False),
+    }
+
+
+class EventBridgeRuleTemplateGroup(AWSObject):
+    """
+    `EventBridgeRuleTemplateGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-eventbridgeruletemplategroup.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::EventBridgeRuleTemplateGroup"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (dict, False),
+    }
+
+
 class InputDestinationRequest(AWSProperty):
     """
     `InputDestinationRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdestinationrequest.html>`__
@@ -2498,6 +2630,75 @@ class Multiplexprogram(AWSObject):
     }
 
 
+class IpPool(AWSProperty):
+    """
+    `IpPool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-network-ippool.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cidr": (str, False),
+    }
+
+
+class Route(AWSProperty):
+    """
+    `Route <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-network-route.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cidr": (str, False),
+        "Gateway": (str, False),
+    }
+
+
+class Network(AWSObject):
+    """
+    `Network <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-network.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::Network"
+
+    props: PropsDictType = {
+        "IpPools": ([IpPool], True),
+        "Name": (str, True),
+        "Routes": ([Route], False),
+        "Tags": (Tags, False),
+    }
+
+
+class SdiSource(AWSObject):
+    """
+    `SdiSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-sdisource.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::SdiSource"
+
+    props: PropsDictType = {
+        "Mode": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "Type": (str, True),
+    }
+
+
+class SignalMap(AWSObject):
+    """
+    `SignalMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-medialive-signalmap.html>`__
+    """
+
+    resource_type = "AWS::MediaLive::SignalMap"
+
+    props: PropsDictType = {
+        "CloudWatchAlarmTemplateGroupIdentifiers": ([str], False),
+        "Description": (str, False),
+        "DiscoveryEntryPointArn": (str, True),
+        "EventBridgeRuleTemplateGroupIdentifiers": ([str], False),
+        "ForceRediscovery": (boolean, False),
+        "Name": (str, True),
+        "Tags": (dict, False),
+    }
+
+
 class InputDeviceRequest(AWSProperty):
     """
     `InputDeviceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-input-inputdevicerequest.html>`__
@@ -2517,4 +2718,50 @@ class MaintenanceUpdateSettings(AWSProperty):
         "MaintenanceDay": (str, False),
         "MaintenanceScheduledDate": (str, False),
         "MaintenanceStartTime": (str, False),
+    }
+
+
+class MediaResourceNeighbor(AWSProperty):
+    """
+    `MediaResourceNeighbor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresourceneighbor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+        "Name": (str, False),
+    }
+
+
+class MediaResource(AWSProperty):
+    """
+    `MediaResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-mediaresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destinations": ([MediaResourceNeighbor], False),
+        "Name": (str, False),
+        "Sources": ([MediaResourceNeighbor], False),
+    }
+
+
+class MonitorDeployment(AWSProperty):
+    """
+    `MonitorDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-monitordeployment.html>`__
+    """
+
+    props: PropsDictType = {
+        "DetailsUri": (str, False),
+        "ErrorMessage": (str, False),
+        "Status": (str, True),
+    }
+
+
+class SuccessfulMonitorDeployment(AWSProperty):
+    """
+    `SuccessfulMonitorDeployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-signalmap-successfulmonitordeployment.html>`__
+    """
+
+    props: PropsDictType = {
+        "DetailsUri": (str, True),
+        "Status": (str, True),
     }

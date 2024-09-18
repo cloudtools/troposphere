@@ -98,6 +98,7 @@ class CodeSigningConfig(AWSObject):
         "AllowedPublishers": (AllowedPublishers, True),
         "CodeSigningPolicies": (CodeSigningPolicies, False),
         "Description": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -274,6 +275,7 @@ class EventSourceMapping(AWSObject):
         "SourceAccessConfigurations": ([SourceAccessConfiguration], False),
         "StartingPosition": (str, False),
         "StartingPositionTimestamp": (double, False),
+        "Tags": (Tags, False),
         "Topics": ([str], False),
         "TumblingWindowInSeconds": (integer, False),
     }

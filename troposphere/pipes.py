@@ -745,6 +745,7 @@ class Pipe(AWSObject):
         "DesiredState": (str, False),
         "Enrichment": (str, False),
         "EnrichmentParameters": (PipeEnrichmentParameters, False),
+        "KmsKeyIdentifier": (str, False),
         "LogConfiguration": (PipeLogConfiguration, False),
         "Name": (str, False),
         "RoleArn": (str, True),

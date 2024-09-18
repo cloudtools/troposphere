@@ -10,6 +10,25 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class AgentStatus(AWSObject):
+    """
+    `AgentStatus <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-agentstatus.html>`__
+    """
+
+    resource_type = "AWS::Connect::AgentStatus"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DisplayOrder": (integer, False),
+        "InstanceArn": (str, True),
+        "Name": (str, True),
+        "ResetOrderNumber": (boolean, False),
+        "State": (str, True),
+        "Tags": (Tags, False),
+        "Type": (str, False),
+    }
+
+
 class ApprovedOrigin(AWSObject):
     """
     `ApprovedOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-approvedorigin.html>`__
@@ -798,6 +817,93 @@ class UserHierarchyGroup(AWSObject):
         "Name": (str, True),
         "ParentGroupArn": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class LevelFive(AWSProperty):
+    """
+    `LevelFive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelfive.html>`__
+    """
+
+    props: PropsDictType = {
+        "HierarchyLevelArn": (str, False),
+        "HierarchyLevelId": (str, False),
+        "Name": (str, True),
+    }
+
+
+class LevelFour(AWSProperty):
+    """
+    `LevelFour <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelfour.html>`__
+    """
+
+    props: PropsDictType = {
+        "HierarchyLevelArn": (str, False),
+        "HierarchyLevelId": (str, False),
+        "Name": (str, True),
+    }
+
+
+class LevelOne(AWSProperty):
+    """
+    `LevelOne <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelone.html>`__
+    """
+
+    props: PropsDictType = {
+        "HierarchyLevelArn": (str, False),
+        "HierarchyLevelId": (str, False),
+        "Name": (str, True),
+    }
+
+
+class LevelThree(AWSProperty):
+    """
+    `LevelThree <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-levelthree.html>`__
+    """
+
+    props: PropsDictType = {
+        "HierarchyLevelArn": (str, False),
+        "HierarchyLevelId": (str, False),
+        "Name": (str, True),
+    }
+
+
+class LevelTwo(AWSProperty):
+    """
+    `LevelTwo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-leveltwo.html>`__
+    """
+
+    props: PropsDictType = {
+        "HierarchyLevelArn": (str, False),
+        "HierarchyLevelId": (str, False),
+        "Name": (str, True),
+    }
+
+
+class UserHierarchyStructureProperty(AWSProperty):
+    """
+    `UserHierarchyStructureProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-userhierarchystructure-userhierarchystructure.html>`__
+    """
+
+    props: PropsDictType = {
+        "LevelFive": (LevelFive, False),
+        "LevelFour": (LevelFour, False),
+        "LevelOne": (LevelOne, False),
+        "LevelThree": (LevelThree, False),
+        "LevelTwo": (LevelTwo, False),
+    }
+
+
+class UserHierarchyStructure(AWSObject):
+    """
+    `UserHierarchyStructure <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-userhierarchystructure.html>`__
+    """
+
+    resource_type = "AWS::Connect::UserHierarchyStructure"
+
+    props: PropsDictType = {
+        "InstanceArn": (str, True),
+        "UserHierarchyStructure": (UserHierarchyStructureProperty, False),
     }
 
 

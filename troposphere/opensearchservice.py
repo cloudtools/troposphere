@@ -11,6 +11,19 @@ from .validators import boolean, integer
 from .validators.opensearchservice import validate_search_service_engine_version
 
 
+class JWTOptions(AWSProperty):
+    """
+    `JWTOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "PublicKey": (str, False),
+        "RolesKey": (str, False),
+        "SubjectKey": (str, False),
+    }
+
+
 class MasterUserOptions(AWSProperty):
     """
     `MasterUserOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-masteruseroptions.html>`__
@@ -60,6 +73,7 @@ class AdvancedSecurityOptionsInput(AWSProperty):
         "AnonymousAuthEnabled": (boolean, False),
         "Enabled": (boolean, False),
         "InternalUserDatabaseEnabled": (boolean, False),
+        "JWTOptions": (JWTOptions, False),
         "MasterUserOptions": (MasterUserOptions, False),
         "SAMLOptions": (SAMLOptions, False),
     }
@@ -264,6 +278,7 @@ class Domain(AWSObject):
         "LogPublishingOptions": (dict, False),
         "NodeToNodeEncryptionOptions": (NodeToNodeEncryptionOptions, False),
         "OffPeakWindowOptions": (OffPeakWindowOptions, False),
+        "SkipShardMigrationWait": (boolean, False),
         "SnapshotOptions": (SnapshotOptions, False),
         "SoftwareUpdateOptions": (SoftwareUpdateOptions, False),
         "Tags": (Tags, False),
