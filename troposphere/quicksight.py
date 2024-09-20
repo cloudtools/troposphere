@@ -1263,6 +1263,16 @@ class ParameterDeclaration(AWSProperty):
     }
 
 
+class QueryExecutionOptions(AWSProperty):
+    """
+    `QueryExecutionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-queryexecutionoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "QueryExecutionMode": (str, False),
+    }
+
+
 class CascadingControlSource(AWSProperty):
     """
     `CascadingControlSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-cascadingcontrolsource.html>`__
@@ -2440,6 +2450,7 @@ class ColumnTooltipItem(AWSProperty):
         "Aggregation": (AggregationFunction, False),
         "Column": (ColumnIdentifier, True),
         "Label": (str, False),
+        "TooltipTarget": (str, False),
         "Visibility": (str, False),
     }
 
@@ -2452,6 +2463,7 @@ class FieldTooltipItem(AWSProperty):
     props: PropsDictType = {
         "FieldId": (str, True),
         "Label": (str, False),
+        "TooltipTarget": (str, False),
         "Visibility": (str, False),
     }
 
@@ -3017,6 +3029,26 @@ class ComboChartSortConfiguration(AWSProperty):
     }
 
 
+class YAxisOptions(AWSProperty):
+    """
+    `YAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-yaxisoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "YAxis": (str, True),
+    }
+
+
+class SingleAxisOptions(AWSProperty):
+    """
+    `SingleAxisOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-singleaxisoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "YAxisOptions": (YAxisOptions, False),
+    }
+
+
 class ComboChartConfiguration(AWSProperty):
     """
     `ComboChartConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-combochartconfiguration.html>`__
@@ -3036,6 +3068,7 @@ class ComboChartConfiguration(AWSProperty):
         "ReferenceLines": ([ReferenceLine], False),
         "SecondaryYAxisDisplayOptions": (AxisDisplayOptions, False),
         "SecondaryYAxisLabelOptions": (ChartAxisLabelOptions, False),
+        "SingleAxisOptions": (SingleAxisOptions, False),
         "SortConfiguration": (ComboChartSortConfiguration, False),
         "Tooltip": (TooltipOptions, False),
         "VisualPalette": (VisualPalette, False),
@@ -4498,6 +4531,7 @@ class LineChartConfiguration(AWSProperty):
         "SecondaryYAxisDisplayOptions": (LineSeriesAxisDisplayOptions, False),
         "SecondaryYAxisLabelOptions": (ChartAxisLabelOptions, False),
         "Series": ([SeriesItem], False),
+        "SingleAxisOptions": (SingleAxisOptions, False),
         "SmallMultiplesOptions": (SmallMultiplesOptions, False),
         "SortConfiguration": (LineChartSortConfiguration, False),
         "Tooltip": (TooltipOptions, False),
@@ -5872,6 +5906,7 @@ class AnalysisDefinition(AWSProperty):
         "FilterGroups": ([FilterGroup], False),
         "Options": (AssetOptions, False),
         "ParameterDeclarations": ([ParameterDeclaration], False),
+        "QueryExecutionOptions": (QueryExecutionOptions, False),
         "Sheets": ([SheetDefinition], False),
     }
 
@@ -6669,7 +6704,7 @@ class LogicalTable(AWSProperty):
     props: PropsDictType = {
         "Alias": (str, True),
         "DataTransforms": ([TransformOperation], False),
-        "Source": (LogicalTableSource, True),
+        "Source": (LogicalTableSource, False),
     }
 
 
@@ -6805,6 +6840,7 @@ class DataSet(AWSObject):
         "DataSetUsageConfiguration": (DataSetUsageConfiguration, False),
         "DatasetParameters": ([DatasetParameter], False),
         "FieldFolders": (dict, False),
+        "FolderArns": ([str], False),
         "ImportMode": (str, False),
         "IngestionWaitPolicy": (IngestionWaitPolicy, False),
         "LogicalTableMap": (dict, False),
@@ -7348,6 +7384,7 @@ class TemplateVersionDefinition(AWSProperty):
         "FilterGroups": ([FilterGroup], False),
         "Options": (AssetOptions, False),
         "ParameterDeclarations": ([ParameterDeclaration], False),
+        "QueryExecutionOptions": (QueryExecutionOptions, False),
         "Sheets": ([SheetDefinition], False),
     }
 

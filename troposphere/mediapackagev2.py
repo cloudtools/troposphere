@@ -245,7 +245,7 @@ class OriginEndpoint(AWSObject):
     props: PropsDictType = {
         "ChannelGroupName": (str, True),
         "ChannelName": (str, True),
-        "ContainerType": (str, False),
+        "ContainerType": (str, True),
         "DashManifests": ([DashManifestConfiguration], False),
         "Description": (str, False),
         "ForceEndpointErrorConfiguration": (ForceEndpointErrorConfiguration, False),

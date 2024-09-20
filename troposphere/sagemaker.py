@@ -136,6 +136,103 @@ class AppImageConfig(AWSObject):
     }
 
 
+class ClusterEbsVolumeConfig(AWSProperty):
+    """
+    `ClusterEbsVolumeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterebsvolumeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "VolumeSizeInGB": (integer, False),
+    }
+
+
+class ClusterInstanceStorageConfig(AWSProperty):
+    """
+    `ClusterInstanceStorageConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancestorageconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "EbsVolumeConfig": (ClusterEbsVolumeConfig, False),
+    }
+
+
+class ClusterLifeCycleConfig(AWSProperty):
+    """
+    `ClusterLifeCycleConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterlifecycleconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "OnCreate": (str, True),
+        "SourceS3Uri": (str, True),
+    }
+
+
+class ClusterInstanceGroup(AWSProperty):
+    """
+    `ClusterInstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "CurrentCount": (integer, False),
+        "ExecutionRole": (str, True),
+        "InstanceCount": (integer, True),
+        "InstanceGroupName": (str, True),
+        "InstanceStorageConfigs": ([ClusterInstanceStorageConfig], False),
+        "InstanceType": (str, True),
+        "LifeCycleConfig": (ClusterLifeCycleConfig, True),
+        "OnStartDeepHealthChecks": ([str], False),
+        "ThreadsPerCore": (integer, False),
+    }
+
+
+class ClusterOrchestratorEksConfig(AWSProperty):
+    """
+    `ClusterOrchestratorEksConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterorchestratoreksconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClusterArn": (str, True),
+    }
+
+
+class Orchestrator(AWSProperty):
+    """
+    `Orchestrator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-orchestrator.html>`__
+    """
+
+    props: PropsDictType = {
+        "Eks": (ClusterOrchestratorEksConfig, True),
+    }
+
+
+class VpcConfig(AWSProperty):
+    """
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "Subnets": ([str], True),
+    }
+
+
+class Cluster(AWSObject):
+    """
+    `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-cluster.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::Cluster"
+
+    props: PropsDictType = {
+        "ClusterName": (str, False),
+        "InstanceGroups": ([ClusterInstanceGroup], True),
+        "NodeRecovery": (str, False),
+        "Orchestrator": (Orchestrator, False),
+        "Tags": (Tags, False),
+        "VpcConfig": (VpcConfig, False),
+    }
+
+
 class GitConfig(AWSProperty):
     """
     `GitConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-coderepository-gitconfig.html>`__
@@ -337,17 +434,6 @@ class MonitoringResources(AWSProperty):
     }
 
 
-class VpcConfig(AWSProperty):
-    """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "SecurityGroupIds": ([str], True),
-        "Subnets": ([str], True),
-    }
-
-
 class NetworkConfig(AWSProperty):
     """
     `NetworkConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-networkconfig.html>`__
@@ -498,6 +584,29 @@ class DefaultSpaceStorageSettings(AWSProperty):
     }
 
 
+class IdleSettings(AWSProperty):
+    """
+    `IdleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-idlesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdleTimeoutInMinutes": (integer, False),
+        "LifecycleManagement": (str, False),
+        "MaxIdleTimeoutInMinutes": (integer, False),
+        "MinIdleTimeoutInMinutes": (integer, False),
+    }
+
+
+class AppLifecycleManagement(AWSProperty):
+    """
+    `AppLifecycleManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-applifecyclemanagement.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdleSettings": (IdleSettings, False),
+    }
+
+
 class CodeRepositoryProperty(AWSProperty):
     """
     `CodeRepositoryProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-coderepository.html>`__
@@ -526,6 +635,7 @@ class JupyterLabAppSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AppLifecycleManagement": (AppLifecycleManagement, False),
         "CodeRepositories": ([CodeRepositoryProperty], False),
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
@@ -615,6 +725,7 @@ class CodeEditorAppSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AppLifecycleManagement": (AppLifecycleManagement, False),
         "CustomImages": ([CustomImage], False),
         "DefaultResourceSpec": (ResourceSpec, False),
         "LifecycleConfigArns": ([str], False),
@@ -2784,12 +2895,33 @@ class CustomFileSystem(AWSProperty):
     }
 
 
+class SpaceIdleSettings(AWSProperty):
+    """
+    `SpaceIdleSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceidlesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdleTimeoutInMinutes": (integer, False),
+    }
+
+
+class SpaceAppLifecycleManagement(AWSProperty):
+    """
+    `SpaceAppLifecycleManagement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spaceapplifecyclemanagement.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdleSettings": (SpaceIdleSettings, False),
+    }
+
+
 class SpaceCodeEditorAppSettings(AWSProperty):
     """
     `SpaceCodeEditorAppSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-spacecodeeditorappsettings.html>`__
     """
 
     props: PropsDictType = {
+        "AppLifecycleManagement": (SpaceAppLifecycleManagement, False),
         "DefaultResourceSpec": (ResourceSpec, False),
     }
 
@@ -2800,6 +2932,7 @@ class SpaceJupyterLabAppSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AppLifecycleManagement": (SpaceAppLifecycleManagement, False),
         "CodeRepositories": ([CodeRepositoryProperty], False),
         "DefaultResourceSpec": (ResourceSpec, False),
     }
@@ -2961,6 +3094,17 @@ class Workteam(AWSObject):
     }
 
 
+class AdditionalModelDataSource(AWSProperty):
+    """
+    `AdditionalModelDataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-additionalmodeldatasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChannelName": (str, True),
+        "S3DataSource": (S3DataSource, True),
+    }
+
+
 class Container(AWSProperty):
     """
     `Container <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-modelcard-container.html>`__
@@ -2987,7 +3131,7 @@ class EndpointMetadata(AWSProperty):
 
 class HubAccessConfig(AWSProperty):
     """
-    `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-containerdefinition-modeldatasource-s3datasource-hubaccessconfig.html>`__
+    `HubAccessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-model-s3datasource-hubaccessconfig.html>`__
     """
 
     props: PropsDictType = {

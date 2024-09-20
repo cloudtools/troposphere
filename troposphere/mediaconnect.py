@@ -318,6 +318,16 @@ class Source(AWSProperty):
     }
 
 
+class SourceMonitoringConfig(AWSProperty):
+    """
+    `SourceMonitoringConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcemonitoringconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ThumbnailState": (str, True),
+    }
+
+
 class VpcInterface(AWSProperty):
     """
     `VpcInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-vpcinterface.html>`__
@@ -347,6 +357,7 @@ class Flow(AWSObject):
         "Name": (str, True),
         "Source": (Source, True),
         "SourceFailoverConfig": (FailoverConfig, False),
+        "SourceMonitoringConfig": (SourceMonitoringConfig, False),
         "VpcInterfaces": ([VpcInterface], False),
     }
 

@@ -91,6 +91,51 @@ class DataDestinationConfig(AWSProperty):
     }
 
 
+class ConditionBasedSignalFetchConfig(AWSProperty):
+    """
+    `ConditionBasedSignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionExpression": (str, True),
+        "TriggerMode": (str, True),
+    }
+
+
+class TimeBasedSignalFetchConfig(AWSProperty):
+    """
+    `TimeBasedSignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-timebasedsignalfetchconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExecutionFrequencyMs": (double, True),
+    }
+
+
+class SignalFetchConfig(AWSProperty):
+    """
+    `SignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionBased": (ConditionBasedSignalFetchConfig, False),
+        "TimeBased": (TimeBasedSignalFetchConfig, False),
+    }
+
+
+class SignalFetchInformation(AWSProperty):
+    """
+    `SignalFetchInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalfetchinformation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Actions": ([str], True),
+        "ConditionLanguageVersion": (double, False),
+        "FullyQualifiedName": (str, True),
+        "SignalFetchConfig": (SignalFetchConfig, True),
+    }
+
+
 class SignalInformation(AWSProperty):
     """
     `SignalInformation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-signalinformation.html>`__
@@ -124,10 +169,119 @@ class Campaign(AWSObject):
         "Priority": (integer, False),
         "SignalCatalogArn": (str, True),
         "SignalsToCollect": ([SignalInformation], False),
+        "SignalsToFetch": ([SignalFetchInformation], False),
         "SpoolingMode": (str, False),
         "StartTime": (str, False),
         "Tags": (Tags, False),
         "TargetArn": (str, True),
+    }
+
+
+class CanInterface(AWSProperty):
+    """
+    `CanInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-caninterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "ProtocolName": (str, False),
+        "ProtocolVersion": (str, False),
+    }
+
+
+class ObdInterface(AWSProperty):
+    """
+    `ObdInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "DtcRequestIntervalSeconds": (str, False),
+        "HasTransmissionEcu": (str, False),
+        "Name": (str, True),
+        "ObdStandard": (str, False),
+        "PidRequestIntervalSeconds": (str, False),
+        "RequestMessageId": (str, True),
+        "UseExtendedIds": (str, False),
+    }
+
+
+class NetworkInterfacesItems(AWSProperty):
+    """
+    `NetworkInterfacesItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-networkinterfacesitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "CanInterface": (CanInterface, False),
+        "InterfaceId": (str, True),
+        "ObdInterface": (ObdInterface, False),
+        "Type": (str, True),
+    }
+
+
+class CanSignal(AWSProperty):
+    """
+    `CanSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-cansignal.html>`__
+    """
+
+    props: PropsDictType = {
+        "Factor": (str, True),
+        "IsBigEndian": (str, True),
+        "IsSigned": (str, True),
+        "Length": (str, True),
+        "MessageId": (str, True),
+        "Name": (str, False),
+        "Offset": (str, True),
+        "StartBit": (str, True),
+    }
+
+
+class ObdSignal(AWSProperty):
+    """
+    `ObdSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdsignal.html>`__
+    """
+
+    props: PropsDictType = {
+        "BitMaskLength": (str, False),
+        "BitRightShift": (str, False),
+        "ByteLength": (str, True),
+        "Offset": (str, True),
+        "Pid": (str, True),
+        "PidResponseLength": (str, True),
+        "Scaling": (str, True),
+        "ServiceMode": (str, True),
+        "StartByte": (str, True),
+    }
+
+
+class SignalDecodersItems(AWSProperty):
+    """
+    `SignalDecodersItems <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-signaldecodersitems.html>`__
+    """
+
+    props: PropsDictType = {
+        "CanSignal": (CanSignal, False),
+        "FullyQualifiedName": (str, True),
+        "InterfaceId": (str, True),
+        "ObdSignal": (ObdSignal, False),
+        "Type": (str, True),
+    }
+
+
+class DecoderManifest(AWSObject):
+    """
+    `DecoderManifest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-decodermanifest.html>`__
+    """
+
+    resource_type = "AWS::IoTFleetWise::DecoderManifest"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "ModelManifestArn": (str, True),
+        "Name": (str, True),
+        "NetworkInterfaces": ([NetworkInterfacesItems], False),
+        "SignalDecoders": ([SignalDecodersItems], False),
+        "Status": (str, False),
+        "Tags": (Tags, False),
     }
 
 

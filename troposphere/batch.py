@@ -102,6 +102,7 @@ class ComputeEnvironment(AWSObject):
     props: PropsDictType = {
         "ComputeEnvironmentName": (str, False),
         "ComputeResources": (ComputeResources, False),
+        "Context": (str, False),
         "EksConfiguration": (EksConfiguration, False),
         "ReplaceComputeEnvironment": (boolean, False),
         "ServiceRole": (str, False),

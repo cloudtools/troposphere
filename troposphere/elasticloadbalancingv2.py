@@ -160,6 +160,17 @@ class Certificate(AWSProperty):
     }
 
 
+class ListenerAttribute(AWSProperty):
+    """
+    `ListenerAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-listenerattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, False),
+        "Value": (str, False),
+    }
+
+
 class MutualAuthentication(AWSProperty):
     """
     `MutualAuthentication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-listener-mutualauthentication.html>`__
@@ -183,6 +194,7 @@ class Listener(AWSObject):
         "AlpnPolicy": ([str], False),
         "Certificates": ([Certificate], False),
         "DefaultActions": ([Action], True),
+        "ListenerAttributes": ([ListenerAttribute], False),
         "LoadBalancerArn": (str, True),
         "MutualAuthentication": (MutualAuthentication, False),
         "Port": (validate_network_port, False),
