@@ -119,6 +119,7 @@ class Canary(AWSObject):
         "ExecutionRoleArn": (str, True),
         "FailureRetentionPeriod": (integer, False),
         "Name": (str, True),
+        "ResourcesToReplicateTags": ([str], False),
         "RunConfig": (RunConfig, False),
         "RuntimeVersion": (canary_runtime_version, True),
         "Schedule": (Schedule, True),

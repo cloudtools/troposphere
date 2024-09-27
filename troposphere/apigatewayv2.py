@@ -261,6 +261,27 @@ class DomainName(AWSObject):
     }
 
 
+class ResponseParameter(AWSProperty):
+    """
+    `ResponseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (str, False),
+        "Source": (str, False),
+    }
+
+
+class ResponseParameterMap(AWSProperty):
+    """
+    `ResponseParameterMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparametermap.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResponseParameters": ([ResponseParameter], False),
+    }
+
+
 class TlsConfig(AWSProperty):
     """
     `TlsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-tlsconfig.html>`__
@@ -422,25 +443,4 @@ class VpcLink(AWSObject):
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], True),
         "Tags": (dict, False),
-    }
-
-
-class ResponseParameter(AWSProperty):
-    """
-    `ResponseParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameter.html>`__
-    """
-
-    props: PropsDictType = {
-        "Destination": (str, True),
-        "Source": (str, True),
-    }
-
-
-class ResponseParameterList(AWSProperty):
-    """
-    `ResponseParameterList <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-apigatewayv2-integration-responseparameterlist.html>`__
-    """
-
-    props: PropsDictType = {
-        "ResponseParameters": ([ResponseParameter], False),
     }

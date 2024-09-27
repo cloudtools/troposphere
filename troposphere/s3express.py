@@ -30,6 +30,7 @@ class DirectoryBucket(AWSObject):
     resource_type = "AWS::S3Express::DirectoryBucket"
 
     props: PropsDictType = {
+        "BucketEncryption": (dict, False),
         "BucketName": (str, False),
         "DataRedundancy": (str, True),
         "LocationName": (str, True),

@@ -508,6 +508,7 @@ class GlobalCluster(AWSObject):
         "GlobalClusterIdentifier": (str, False),
         "SourceDBClusterIdentifier": (str, False),
         "StorageEncrypted": (boolean, False),
+        "Tags": (Tags, False),
     }
 
 
