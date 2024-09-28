@@ -156,7 +156,7 @@ class Campaign(AWSObject):
     resource_type = "AWS::IoTFleetWise::Campaign"
 
     props: PropsDictType = {
-        "Action": (str, True),
+        "Action": (str, False),
         "CollectionScheme": (CollectionScheme, True),
         "Compression": (str, False),
         "DataDestinationConfigs": ([DataDestinationConfig], False),
