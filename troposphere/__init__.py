@@ -252,9 +252,11 @@ class BaseAWSObject:
             expected_type = self.props[name][0]
 
             # If the value is a AWSHelperFn we can't do much validation
-            # we'll have to leave that to Amazon.  Maybe there's another way
+            # we'll have to leave that to Amazon. Maybe there's another way
             # to deal with this that we'll come up with eventually
-            if isinstance(value, AWSHelperFn):
+            #
+            # Don't do this for Tags since we can validate the assigned type below
+            if isinstance(value, AWSHelperFn) and name != "Tags":
                 return self.properties.__setitem__(name, value)
 
             # If it's a function, call it...
