@@ -73,6 +73,47 @@ class TestTags(unittest.TestCase):
         with self.assertRaises(TypeError):
             Tags({}, "key", "value")
 
+    def test_json_tags(self):
+        from troposphere.batch import ContainerProperties, JobDefinition
+
+        JobDefinition(
+            "myjobdef",
+            Type="container",
+            ContainerProperties=ContainerProperties(
+                Image="image",
+                Vcpus=2,
+                Memory=2000,
+                Command=["echo", "foobar"],
+            ),
+            Tags={"foo": "bar"},
+        )
+
+        with self.assertRaises(TypeError):
+            JobDefinition(
+                "myjobdef",
+                Type="container",
+                ContainerProperties=ContainerProperties(
+                    Image="image",
+                    Vcpus=2,
+                    Memory=2000,
+                    Command=["echo", "foobar"],
+                ),
+                Tags=Tags({"foo": "bar"}),
+            )
+
+        with self.assertRaises(TypeError):
+            JobDefinition(
+                "myjobdef",
+                Type="container",
+                ContainerProperties=ContainerProperties(
+                    Image="image",
+                    Vcpus=2,
+                    Memory=2000,
+                    Command=["echo", "foobar"],
+                ),
+                Tags="string",
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
