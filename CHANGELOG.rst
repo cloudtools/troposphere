@@ -1,3 +1,22 @@
+4.8.2 (2024*09*30)
+-------------------------------
+* Update SSM OperatingSystem validator (#2256)
+* Updates from spec version 180.0.0 (updated)
+* Updates from spec version 182.0.0 (#2257)
+* The APIGateway Integration timeout can now be increased beyond 29,000 milliseconds. Removing upper limit. (#2258)
+* Convert to using pytest instead of "setup.py test"
+* Updates from spec version 183.0.0 (#2259)
+* Allow TZ as a lambda env var
+* Updates from spec version 184.0.0 (#2263)
+* Update ElastiCache instance types (#2262)
+* Fix Chatbot::SlackChannelConfiguration LoggingLevel validation (Fixes #2264)
+* Update node from 17 to 22 for test action
+* Updates from spec version 185.0.0 (#2267)
+* Update kinesisanalyticsv2 VALID_RUNTIME_ENVIRONMENTS (#2266)
+* Updates from spec version 185.0.1 (#2269)
+* Validate the type for Tags (#2270)
+* Add new AWS resources
+
 4.8.1 (2024*06*28)
 -------------------------------
 * Update copyright year in generated files
