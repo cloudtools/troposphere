@@ -256,7 +256,7 @@ class BaseAWSObject:
             # to deal with this that we'll come up with eventually
             #
             # Don't do this for Tags since we can validate the assigned type below
-            if isinstance(value, AWSHelperFn) and name != "Tags":
+            if isinstance(value, AWSHelperFn) and not isinstance(value, Tags):
                 return self.properties.__setitem__(name, value)
 
             # If it's a function, call it...
