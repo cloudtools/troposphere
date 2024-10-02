@@ -1308,6 +1308,7 @@ class ImageVersion(AWSObject):
         "ProgrammingLang": (str, False),
         "ReleaseNotes": (str, False),
         "VendorGuidance": (str, False),
+        "Version": (integer, False),
     }
 
 

@@ -590,7 +590,8 @@ class RuleStringToEvaluate(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Attribute": (str, True),
+        "Attribute": (str, False),
+        "MimeHeaderAttribute": (str, False),
     }
 
 

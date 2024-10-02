@@ -463,6 +463,8 @@ class UserPool(AWSObject):
         "AutoVerifiedAttributes": ([str], False),
         "DeletionProtection": (str, False),
         "DeviceConfiguration": (DeviceConfiguration, False),
+        "EmailAuthenticationMessage": (str, False),
+        "EmailAuthenticationSubject": (str, False),
         "EmailConfiguration": (EmailConfiguration, False),
         "EmailVerificationMessage": (str, False),
         "EmailVerificationSubject": (str, False),

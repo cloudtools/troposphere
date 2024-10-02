@@ -37,6 +37,7 @@ class IdentityProvider(AWSObject):
         "IdentityProviderName": (str, True),
         "IdentityProviderType": (str, True),
         "PortalArn": (str, False),
+        "Tags": (Tags, False),
     }
 
 
