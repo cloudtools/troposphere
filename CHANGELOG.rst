@@ -1,3 +1,8 @@
+4.8.3 (2024*10*02)
+-------------------------------
+* Allow AWSHelperFn for Tag properties (#2271)
+* Updates from spec version 185.0.1 (#2272)
+
 4.8.2 (2024*09*30)
 -------------------------------
 * Update SSM OperatingSystem validator (#2256)
