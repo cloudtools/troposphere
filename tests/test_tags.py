@@ -1,6 +1,6 @@
 import unittest
 
-from troposphere import If, Sub, Tag, Tags
+from troposphere import GetAtt, If, Sub, Tag, Tags
 from troposphere.autoscaling import Tags as ASTags
 
 
@@ -88,6 +88,18 @@ class TestTags(unittest.TestCase):
             Tags={"foo": "bar"},
         )
 
+        JobDefinition(
+            "myjobdef",
+            Type="container",
+            ContainerProperties=ContainerProperties(
+                Image="image",
+                Vcpus=2,
+                Memory=2000,
+                Command=["echo", "foobar"],
+            ),
+            Tags=GetAtt("resource", "tags"),
+        )
+
         with self.assertRaises(TypeError):
             JobDefinition(
                 "myjobdef",
@@ -111,6 +123,39 @@ class TestTags(unittest.TestCase):
                     Memory=2000,
                     Command=["echo", "foobar"],
                 ),
+                Tags="string",
+            )
+
+    def test_object_tags(self):
+        from troposphere.dynamodb import KeySchema, Table
+
+        Table(
+            "mytable",
+            KeySchema=[KeySchema(KeyType="HASH", AttributeName="id")],
+            BillingMode="PAY_PER_REQUEST",
+            Tags=Tags(Name="Example"),
+        )
+
+        Table(
+            "mytable",
+            KeySchema=[KeySchema(KeyType="HASH", AttributeName="id")],
+            BillingMode="PAY_PER_REQUEST",
+            Tags=GetAtt("resource", "tags"),
+        )
+
+        with self.assertRaises(TypeError):
+            Table(
+                "mytable",
+                KeySchema=[KeySchema(KeyType="HASH", AttributeName="id")],
+                BillingMode="PAY_PER_REQUEST",
+                Tags={"Name": "Example"},
+            )
+
+        with self.assertRaises(TypeError):
+            Table(
+                "mytable",
+                KeySchema=[KeySchema(KeyType="HASH", AttributeName="id")],
+                BillingMode="PAY_PER_REQUEST",
                 Tags="string",
             )
 
