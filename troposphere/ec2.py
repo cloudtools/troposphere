@@ -2511,6 +2511,7 @@ class TransitGateway(AWSObject):
         "DnsSupport": (str, False),
         "MulticastSupport": (str, False),
         "PropagationDefaultRouteTableId": (str, False),
+        "SecurityGroupReferencingSupport": (str, False),
         "Tags": (validate_tags_or_list, False),
         "TransitGatewayCidrBlocks": ([str], False),
         "VpnEcmpSupport": (str, False),
@@ -2526,6 +2527,7 @@ class Options(AWSProperty):
         "ApplianceModeSupport": (str, False),
         "DnsSupport": (str, False),
         "Ipv6Support": (str, False),
+        "SecurityGroupReferencingSupport": (str, False),
     }
 
 

@@ -211,6 +211,16 @@ class UpgradePolicy(AWSProperty):
     }
 
 
+class ZonalShiftConfig(AWSProperty):
+    """
+    `ZonalShiftConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-eks-cluster-zonalshiftconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+    }
+
+
 class Cluster(AWSObject):
     """
     `Cluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-eks-cluster.html>`__
@@ -231,6 +241,7 @@ class Cluster(AWSObject):
         "Tags": (Tags, False),
         "UpgradePolicy": (UpgradePolicy, False),
         "Version": (str, False),
+        "ZonalShiftConfig": (ZonalShiftConfig, False),
     }
 
 
