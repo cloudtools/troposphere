@@ -532,6 +532,7 @@ class DefaultDateTimePickerControlOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CommitMode": (str, False),
         "DisplayOptions": (DateTimePickerControlDisplayOptions, False),
         "Type": (str, False),
     }
@@ -575,6 +576,7 @@ class DefaultFilterDropDownControlOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CommitMode": (str, False),
         "DisplayOptions": (DropDownControlDisplayOptions, False),
         "SelectableValues": (FilterSelectableValues, False),
         "Type": (str, False),
@@ -634,6 +636,7 @@ class DefaultRelativeDateTimeControlOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CommitMode": (str, False),
         "DisplayOptions": (RelativeDateTimeControlDisplayOptions, False),
     }
 
@@ -1312,6 +1315,7 @@ class FilterDateTimePickerControl(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CommitMode": (str, False),
         "DisplayOptions": (DateTimePickerControlDisplayOptions, False),
         "FilterControlId": (str, True),
         "SourceFilterId": (str, True),
@@ -1327,6 +1331,7 @@ class FilterDropDownControl(AWSProperty):
 
     props: PropsDictType = {
         "CascadingControlConfiguration": (CascadingControlConfiguration, False),
+        "CommitMode": (str, False),
         "DisplayOptions": (DropDownControlDisplayOptions, False),
         "FilterControlId": (str, True),
         "SelectableValues": (FilterSelectableValues, False),
@@ -1358,6 +1363,7 @@ class FilterRelativeDateTimeControl(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CommitMode": (str, False),
         "DisplayOptions": (RelativeDateTimeControlDisplayOptions, False),
         "FilterControlId": (str, True),
         "SourceFilterId": (str, True),
@@ -1689,6 +1695,7 @@ class ParameterDropDownControl(AWSProperty):
 
     props: PropsDictType = {
         "CascadingControlConfiguration": (CascadingControlConfiguration, False),
+        "CommitMode": (str, False),
         "DisplayOptions": (DropDownControlDisplayOptions, False),
         "ParameterControlId": (str, True),
         "SelectableValues": (ParameterSelectableValues, False),
@@ -7230,6 +7237,25 @@ class DataSource(AWSObject):
         "Tags": (Tags, False),
         "Type": (str, True),
         "VpcConnectionProperties": (VpcConnectionProperties, False),
+    }
+
+
+class Folder(AWSObject):
+    """
+    `Folder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-folder.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::Folder"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, False),
+        "FolderId": (str, False),
+        "FolderType": (str, False),
+        "Name": (str, False),
+        "ParentFolderArn": (str, False),
+        "Permissions": ([ResourcePermission], False),
+        "SharingModel": (str, False),
+        "Tags": (Tags, False),
     }
 
 
