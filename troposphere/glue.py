@@ -549,6 +549,7 @@ class Job(AWSObject):
         "ExecutionProperty": (ExecutionProperty, False),
         "GlueVersion": (str, False),
         "JobMode": (str, False),
+        "JobRunQueuingEnabled": (boolean, False),
         "LogUri": (str, False),
         "MaintenanceWindow": (str, False),
         "MaxCapacity": (double, False),
@@ -1095,6 +1096,45 @@ class Trigger(AWSObject):
         "Tags": (dict, False),
         "Type": (trigger_type_validator, True),
         "WorkflowName": (str, False),
+    }
+
+
+class ConfigurationObject(AWSProperty):
+    """
+    `ConfigurationObject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-configurationobject.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedValues": ([str], False),
+        "DefaultValue": (str, False),
+        "MaxValue": (str, False),
+        "MinValue": (str, False),
+    }
+
+
+class ProfileConfiguration(AWSProperty):
+    """
+    `ProfileConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-usageprofile-profileconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "JobConfiguration": (dict, False),
+        "SessionConfiguration": (dict, False),
+    }
+
+
+class UsageProfile(AWSObject):
+    """
+    `UsageProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-glue-usageprofile.html>`__
+    """
+
+    resource_type = "AWS::Glue::UsageProfile"
+
+    props: PropsDictType = {
+        "Configuration": (ProfileConfiguration, False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
     }
 
 
