@@ -244,6 +244,16 @@ class AuthorizerConfig(AWSProperty):
     }
 
 
+class ClientCertificateConfig(AWSProperty):
+    """
+    `ClientCertificateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-clientcertificateconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientCertificateCallbackArn": (str, False),
+    }
+
+
 class ServerCertificateConfig(AWSProperty):
     """
     `ServerCertificateConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-domainconfiguration-servercertificateconfig.html>`__
@@ -272,7 +282,10 @@ class DomainConfiguration(AWSObject):
     resource_type = "AWS::IoT::DomainConfiguration"
 
     props: PropsDictType = {
+        "ApplicationProtocol": (str, False),
+        "AuthenticationType": (str, False),
         "AuthorizerConfig": (AuthorizerConfig, False),
+        "ClientCertificateConfig": (ClientCertificateConfig, False),
         "DomainConfigurationName": (str, False),
         "DomainConfigurationStatus": (str, False),
         "DomainName": (str, False),

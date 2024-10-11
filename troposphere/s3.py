@@ -376,6 +376,7 @@ class LifecycleConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Rules": ([LifecycleRule], True),
+        "TransitionDefaultMinimumObjectSize": (str, False),
     }
 
 

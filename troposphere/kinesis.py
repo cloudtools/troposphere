@@ -11,6 +11,19 @@ from .validators import integer
 from .validators.kinesis import kinesis_stream_mode, validate_tags_or_list
 
 
+class ResourcePolicy(AWSObject):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-resourcepolicy.html>`__
+    """
+
+    resource_type = "AWS::Kinesis::ResourcePolicy"
+
+    props: PropsDictType = {
+        "ResourceArn": (str, True),
+        "ResourcePolicy": (dict, True),
+    }
+
+
 class StreamEncryption(AWSProperty):
     """
     `StreamEncryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesis-stream-streamencryption.html>`__

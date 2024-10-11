@@ -630,6 +630,7 @@ class ReplicationInstance(AWSObject):
         "EngineVersion": (str, False),
         "KmsKeyId": (str, False),
         "MultiAZ": (boolean, False),
+        "NetworkType": (str, False),
         "PreferredMaintenanceWindow": (str, False),
         "PubliclyAccessible": (boolean, False),
         "ReplicationInstanceClass": (str, True),
