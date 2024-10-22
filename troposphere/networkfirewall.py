@@ -103,12 +103,23 @@ class PolicyVariables(AWSProperty):
     }
 
 
+class FlowTimeouts(AWSProperty):
+    """
+    `FlowTimeouts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-flowtimeouts.html>`__
+    """
+
+    props: PropsDictType = {
+        "TcpIdleTimeoutSeconds": (integer, False),
+    }
+
+
 class StatefulEngineOptions(AWSProperty):
     """
     `StatefulEngineOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-networkfirewall-firewallpolicy-statefulengineoptions.html>`__
     """
 
     props: PropsDictType = {
+        "FlowTimeouts": (FlowTimeouts, False),
         "RuleOrder": (str, False),
         "StreamExceptionPolicy": (str, False),
     }

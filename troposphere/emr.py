@@ -84,6 +84,18 @@ class Configuration(AWSProperty):
     }
 
 
+class OnDemandCapacityReservationOptions(AWSProperty):
+    """
+    `OnDemandCapacityReservationOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandcapacityreservationoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationPreference": (str, False),
+        "CapacityReservationResourceGroupArn": (str, False),
+        "UsageStrategy": (str, False),
+    }
+
+
 class OnDemandProvisioningSpecification(AWSProperty):
     """
     `OnDemandProvisioningSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandprovisioningspecification.html>`__
@@ -91,6 +103,7 @@ class OnDemandProvisioningSpecification(AWSProperty):
 
     props: PropsDictType = {
         "AllocationStrategy": (str, True),
+        "CapacityReservationOptions": (OnDemandCapacityReservationOptions, False),
     }
 
     def validate(self):
@@ -121,6 +134,40 @@ class InstanceFleetProvisioningSpecifications(AWSProperty):
     props: PropsDictType = {
         "OnDemandSpecification": (OnDemandProvisioningSpecification, False),
         "SpotSpecification": (SpotProvisioningSpecification, False),
+    }
+
+
+class OnDemandResizingSpecification(AWSProperty):
+    """
+    `OnDemandResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-ondemandresizingspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllocationStrategy": (str, False),
+        "CapacityReservationOptions": (OnDemandCapacityReservationOptions, False),
+        "TimeoutDurationMinutes": (integer, False),
+    }
+
+
+class SpotResizingSpecification(AWSProperty):
+    """
+    `SpotResizingSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-spotresizingspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllocationStrategy": (str, False),
+        "TimeoutDurationMinutes": (integer, False),
+    }
+
+
+class InstanceFleetResizingSpecifications(AWSProperty):
+    """
+    `InstanceFleetResizingSpecifications <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticmapreduce-instancefleetconfig-instancefleetresizingspecifications.html>`__
+    """
+
+    props: PropsDictType = {
+        "OnDemandResizeSpecification": (OnDemandResizingSpecification, False),
+        "SpotResizeSpecification": (SpotResizingSpecification, False),
     }
 
 
@@ -171,6 +218,7 @@ class InstanceTypeConfig(AWSProperty):
         "CustomAmiId": (str, False),
         "EbsConfiguration": (EbsConfiguration, False),
         "InstanceType": (str, True),
+        "Priority": (double, False),
         "WeightedCapacity": (integer, False),
     }
 
@@ -184,6 +232,7 @@ class InstanceFleetConfigProperty(AWSProperty):
         "InstanceTypeConfigs": ([InstanceTypeConfig], False),
         "LaunchSpecifications": (InstanceFleetProvisioningSpecifications, False),
         "Name": (str, False),
+        "ResizeSpecifications": (InstanceFleetResizingSpecifications, False),
         "TargetOnDemandCapacity": (integer, False),
         "TargetSpotCapacity": (integer, False),
     }
@@ -460,6 +509,7 @@ class InstanceFleetConfig(AWSObject):
         "InstanceTypeConfigs": ([InstanceTypeConfig], False),
         "LaunchSpecifications": (InstanceFleetProvisioningSpecifications, False),
         "Name": (str, False),
+        "ResizeSpecifications": (InstanceFleetResizingSpecifications, False),
         "TargetOnDemandCapacity": (integer, False),
         "TargetSpotCapacity": (integer, False),
     }

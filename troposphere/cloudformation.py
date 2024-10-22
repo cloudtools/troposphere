@@ -31,6 +31,7 @@ class CustomResource(AWSObject):
     resource_type = "AWS::CloudFormation::CustomResource"
 
     props: PropsDictType = {
+        "ServiceTimeout": (integer, False),
         "ServiceToken": (str, True),
     }
 
