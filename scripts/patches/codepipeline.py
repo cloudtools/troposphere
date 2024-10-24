@@ -65,4 +65,14 @@ patches = [
         "path": "/PropertyTypes/AWS::CodePipeline::Pipeline.Stages/Properties/Blockers/ItemType",
         "value": "Blockers",
     },
+    # Add missing OutputArtifact.Files
+    {
+        "op": "add",
+        "path": "/PropertyTypes/AWS::CodePipeline::Pipeline.OutputArtifacts/Properties/Files",
+        "value": {
+            "PrimitiveItemType": "String",
+            "Required": False,
+            "Type": "List",
+        },
+    },
 ]
