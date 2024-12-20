@@ -223,6 +223,7 @@ class OutputArtifacts(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Files": ([str], False),
         "Name": (str, True),
     }
 
