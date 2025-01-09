@@ -188,14 +188,6 @@ tests.test\_int\_type module
    :undoc-members:
    :show-inheritance:
 
-tests.test\_iot1click module
-----------------------------
-
-.. automodule:: tests.test_iot1click
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 tests.test\_logs module
 -----------------------
 

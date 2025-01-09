@@ -773,14 +773,6 @@ troposphere.iot module
    :undoc-members:
    :show-inheritance:
 
-troposphere.iot1click module
-----------------------------
-
-.. automodule:: troposphere.iot1click
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 troposphere.iotanalytics module
 -------------------------------
 
