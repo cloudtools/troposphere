@@ -114,6 +114,9 @@ class ReplicationDestination(AWSProperty):
         "FileSystemId": (str, False),
         "KmsKeyId": (str, False),
         "Region": (str, False),
+        "RoleArn": (str, False),
+        "Status": (str, False),
+        "StatusMessage": (str, False),
     }
 
 

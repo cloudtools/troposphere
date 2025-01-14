@@ -580,6 +580,7 @@ class Task(AWSObject):
         "Schedule": (TaskSchedule, False),
         "SourceLocationArn": (str, True),
         "Tags": (Tags, False),
+        "TaskMode": (str, False),
         "TaskReportConfig": (TaskReportConfig, False),
     }
 

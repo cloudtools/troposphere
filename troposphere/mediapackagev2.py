@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 
 
 class Channel(AWSObject):
@@ -71,6 +71,7 @@ class FilterConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ClipStartTime": (str, False),
         "End": (str, False),
         "ManifestFilter": (str, False),
         "Start": (str, False),
@@ -128,6 +129,17 @@ class ScteHls(AWSProperty):
     }
 
 
+class StartTag(AWSProperty):
+    """
+    `StartTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-starttag.html>`__
+    """
+
+    props: PropsDictType = {
+        "Precise": (boolean, False),
+        "TimeOffset": (double, True),
+    }
+
+
 class HlsManifestConfiguration(AWSProperty):
     """
     `HlsManifestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-originendpoint-hlsmanifestconfiguration.html>`__
@@ -140,6 +152,7 @@ class HlsManifestConfiguration(AWSProperty):
         "ManifestWindowSeconds": (integer, False),
         "ProgramDateTimeIntervalSeconds": (integer, False),
         "ScteHls": (ScteHls, False),
+        "StartTag": (StartTag, False),
         "Url": (str, False),
     }
 
@@ -156,6 +169,7 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
         "ManifestWindowSeconds": (integer, False),
         "ProgramDateTimeIntervalSeconds": (integer, False),
         "ScteHls": (ScteHls, False),
+        "StartTag": (StartTag, False),
         "Url": (str, False),
     }
 

@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType
-from .validators import boolean
+from .validators import boolean, integer
 
 
 class BucketPolicy(AWSObject):
@@ -55,6 +55,42 @@ class BucketEncryption(AWSProperty):
     }
 
 
+class AbortIncompleteMultipartUpload(AWSProperty):
+    """
+    `AbortIncompleteMultipartUpload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-abortincompletemultipartupload.html>`__
+    """
+
+    props: PropsDictType = {
+        "DaysAfterInitiation": (integer, True),
+    }
+
+
+class Rule(AWSProperty):
+    """
+    `Rule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-rule.html>`__
+    """
+
+    props: PropsDictType = {
+        "AbortIncompleteMultipartUpload": (AbortIncompleteMultipartUpload, False),
+        "ExpirationInDays": (integer, False),
+        "Id": (str, False),
+        "ObjectSizeGreaterThan": (str, False),
+        "ObjectSizeLessThan": (str, False),
+        "Prefix": (str, False),
+        "Status": (str, True),
+    }
+
+
+class LifecycleConfiguration(AWSProperty):
+    """
+    `LifecycleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3express-directorybucket-lifecycleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Rules": ([Rule], True),
+    }
+
+
 class DirectoryBucket(AWSObject):
     """
     `DirectoryBucket <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3express-directorybucket.html>`__
@@ -66,5 +102,6 @@ class DirectoryBucket(AWSObject):
         "BucketEncryption": (BucketEncryption, False),
         "BucketName": (str, False),
         "DataRedundancy": (str, True),
+        "LifecycleConfiguration": (LifecycleConfiguration, False),
         "LocationName": (str, True),
     }

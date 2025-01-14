@@ -37,8 +37,11 @@ class FirewallRule(AWSProperty):
         "BlockOverrideDomain": (str, False),
         "BlockOverrideTtl": (integer, False),
         "BlockResponse": (str, False),
-        "FirewallDomainListId": (str, True),
+        "ConfidenceThreshold": (str, False),
+        "DnsThreatProtection": (str, False),
+        "FirewallDomainListId": (str, False),
         "FirewallDomainRedirectionAction": (str, False),
+        "FirewallThreatProtectionId": (str, False),
         "Priority": (integer, True),
         "Qtype": (str, False),
     }
@@ -184,6 +187,7 @@ class TargetAddress(AWSProperty):
         "Ipv6": (str, False),
         "Port": (str, False),
         "Protocol": (str, False),
+        "ServerNameIndication": (str, False),
     }
 
 
@@ -195,7 +199,6 @@ class ResolverRule(AWSObject):
     resource_type = "AWS::Route53Resolver::ResolverRule"
 
     props: PropsDictType = {
-        "DelegationRecord": (str, False),
         "DomainName": (str, False),
         "Name": (str, False),
         "ResolverEndpointId": (str, False),

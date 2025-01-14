@@ -49,10 +49,12 @@ class Cluster(AWSObject):
         "ClusterName": (str, True),
         "DataTiering": (str, False),
         "Description": (str, False),
+        "Engine": (str, False),
         "EngineVersion": (str, False),
         "FinalSnapshotName": (str, False),
         "KmsKeyId": (str, False),
         "MaintenanceWindow": (str, False),
+        "MultiRegionClusterName": (str, False),
         "NodeType": (str, True),
         "NumReplicasPerShard": (integer, False),
         "NumShards": (integer, False),
@@ -68,6 +70,27 @@ class Cluster(AWSObject):
         "SubnetGroupName": (str, False),
         "TLSEnabled": (boolean, False),
         "Tags": (Tags, False),
+    }
+
+
+class MultiRegionCluster(AWSObject):
+    """
+    `MultiRegionCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-memorydb-multiregioncluster.html>`__
+    """
+
+    resource_type = "AWS::MemoryDB::MultiRegionCluster"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "Engine": (str, False),
+        "EngineVersion": (str, False),
+        "MultiRegionClusterNameSuffix": (str, False),
+        "MultiRegionParameterGroupName": (str, False),
+        "NodeType": (str, True),
+        "NumShards": (integer, False),
+        "TLSEnabled": (boolean, False),
+        "Tags": (Tags, False),
+        "UpdateStrategy": (str, False),
     }
 
 

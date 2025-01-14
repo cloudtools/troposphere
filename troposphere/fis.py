@@ -35,6 +35,60 @@ class ExperimentTemplateExperimentOptions(AWSProperty):
     }
 
 
+class CloudWatchDashboard(AWSProperty):
+    """
+    `CloudWatchDashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchdashboard.html>`__
+    """
+
+    props: PropsDictType = {
+        "DashboardIdentifier": (str, True),
+    }
+
+
+class DataSources(AWSProperty):
+    """
+    `DataSources <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-datasources.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchDashboards": ([CloudWatchDashboard], False),
+    }
+
+
+class ExperimentReportS3Configuration(AWSProperty):
+    """
+    `ExperimentReportS3Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimentreports3configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "Prefix": (str, False),
+    }
+
+
+class Outputs(AWSProperty):
+    """
+    `Outputs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-outputs.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExperimentReportS3Configuration": (ExperimentReportS3Configuration, True),
+    }
+
+
+class ExperimentTemplateExperimentReportConfiguration(AWSProperty):
+    """
+    `ExperimentTemplateExperimentReportConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-experimenttemplateexperimentreportconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSources": (DataSources, False),
+        "Outputs": (Outputs, True),
+        "PostExperimentDuration": (str, False),
+        "PreExperimentDuration": (str, False),
+    }
+
+
 class CloudWatchLogsConfiguration(AWSProperty):
     """
     `CloudWatchLogsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fis-experimenttemplate-cloudwatchlogsconfiguration.html>`__
@@ -116,6 +170,10 @@ class ExperimentTemplate(AWSObject):
         "Actions": (dict, False),
         "Description": (str, True),
         "ExperimentOptions": (ExperimentTemplateExperimentOptions, False),
+        "ExperimentReportConfiguration": (
+            ExperimentTemplateExperimentReportConfiguration,
+            False,
+        ),
         "LogConfiguration": (ExperimentTemplateLogConfiguration, False),
         "RoleArn": (str, True),
         "StopConditions": ([ExperimentTemplateStopCondition], True),

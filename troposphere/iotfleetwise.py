@@ -91,6 +91,63 @@ class DataDestinationConfig(AWSProperty):
     }
 
 
+class StorageMaximumSize(AWSProperty):
+    """
+    `StorageMaximumSize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storagemaximumsize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class StorageMinimumTimeToLive(AWSProperty):
+    """
+    `StorageMinimumTimeToLive <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-storageminimumtimetolive.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class DataPartitionStorageOptions(AWSProperty):
+    """
+    `DataPartitionStorageOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionstorageoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumSize": (StorageMaximumSize, True),
+        "MinimumTimeToLive": (StorageMinimumTimeToLive, True),
+        "StorageLocation": (str, True),
+    }
+
+
+class DataPartitionUploadOptions(AWSProperty):
+    """
+    `DataPartitionUploadOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartitionuploadoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionLanguageVersion": (integer, False),
+        "Expression": (str, True),
+    }
+
+
+class DataPartition(AWSProperty):
+    """
+    `DataPartition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-datapartition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
+        "StorageOptions": (DataPartitionStorageOptions, True),
+        "UploadOptions": (DataPartitionUploadOptions, False),
+    }
+
+
 class ConditionBasedSignalFetchConfig(AWSProperty):
     """
     `ConditionBasedSignalFetchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-campaign-conditionbasedsignalfetchconfig.html>`__
@@ -142,6 +199,7 @@ class SignalInformation(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DataPartitionId": (str, False),
         "MaxSampleCount": (double, False),
         "MinimumSamplingIntervalMs": (double, False),
         "Name": (str, True),
@@ -161,6 +219,7 @@ class Campaign(AWSObject):
         "Compression": (str, False),
         "DataDestinationConfigs": ([DataDestinationConfig], False),
         "DataExtraDimensions": ([str], False),
+        "DataPartitions": ([DataPartition], False),
         "Description": (str, False),
         "DiagnosticsMode": (str, False),
         "ExpiryTime": (str, False),
@@ -189,6 +248,16 @@ class CanInterface(AWSProperty):
     }
 
 
+class CustomDecodingInterface(AWSProperty):
+    """
+    `CustomDecodingInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodinginterface.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
 class ObdInterface(AWSProperty):
     """
     `ObdInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-obdinterface.html>`__
@@ -212,6 +281,7 @@ class NetworkInterfacesItems(AWSProperty):
 
     props: PropsDictType = {
         "CanInterface": (CanInterface, False),
+        "CustomDecodingInterface": (CustomDecodingInterface, False),
         "InterfaceId": (str, True),
         "ObdInterface": (ObdInterface, False),
         "Type": (str, True),
@@ -232,6 +302,16 @@ class CanSignal(AWSProperty):
         "Name": (str, False),
         "Offset": (str, True),
         "StartBit": (str, True),
+    }
+
+
+class CustomDecodingSignal(AWSProperty):
+    """
+    `CustomDecodingSignal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-decodermanifest-customdecodingsignal.html>`__
+    """
+
+    props: PropsDictType = {
+        "Id": (str, True),
     }
 
 
@@ -260,6 +340,7 @@ class SignalDecodersItems(AWSProperty):
 
     props: PropsDictType = {
         "CanSignal": (CanSignal, False),
+        "CustomDecodingSignal": (CustomDecodingSignal, False),
         "FullyQualifiedName": (str, True),
         "InterfaceId": (str, True),
         "ObdSignal": (ObdSignal, False),
@@ -275,6 +356,7 @@ class DecoderManifest(AWSObject):
     resource_type = "AWS::IoTFleetWise::DecoderManifest"
 
     props: PropsDictType = {
+        "DefaultForUnmappedSignals": (str, False),
         "Description": (str, False),
         "ModelManifestArn": (str, True),
         "Name": (str, True),
@@ -418,6 +500,24 @@ class SignalCatalog(AWSObject):
         "Name": (str, False),
         "NodeCounts": (NodeCounts, False),
         "Nodes": ([Node], False),
+        "Tags": (Tags, False),
+    }
+
+
+class StateTemplate(AWSObject):
+    """
+    `StateTemplate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-statetemplate.html>`__
+    """
+
+    resource_type = "AWS::IoTFleetWise::StateTemplate"
+
+    props: PropsDictType = {
+        "DataExtraDimensions": ([str], False),
+        "Description": (str, False),
+        "MetadataExtraDimensions": ([str], False),
+        "Name": (str, True),
+        "SignalCatalogArn": (str, True),
+        "StateTemplateProperties": ([str], True),
         "Tags": (Tags, False),
     }
 

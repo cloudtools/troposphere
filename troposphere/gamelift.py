@@ -65,138 +65,9 @@ class Build(AWSObject):
     }
 
 
-class ContainerDependency(AWSProperty):
-    """
-    `ContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html>`__
-    """
-
-    props: PropsDictType = {
-        "Condition": (str, True),
-        "ContainerName": (str, True),
-    }
-
-
-class ContainerEnvironment(AWSProperty):
-    """
-    `ContainerEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerenvironment.html>`__
-    """
-
-    props: PropsDictType = {
-        "Name": (str, True),
-        "Value": (str, True),
-    }
-
-
-class ContainerHealthCheck(AWSProperty):
-    """
-    `ContainerHealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html>`__
-    """
-
-    props: PropsDictType = {
-        "Command": ([str], True),
-        "Interval": (integer, False),
-        "Retries": (integer, False),
-        "StartPeriod": (integer, False),
-        "Timeout": (integer, False),
-    }
-
-
-class MemoryLimits(AWSProperty):
-    """
-    `MemoryLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-memorylimits.html>`__
-    """
-
-    props: PropsDictType = {
-        "HardLimit": (integer, False),
-        "SoftLimit": (integer, False),
-    }
-
-
-class ContainerPortRange(AWSProperty):
-    """
-    `ContainerPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html>`__
-    """
-
-    props: PropsDictType = {
-        "FromPort": (integer, True),
-        "Protocol": (str, True),
-        "ToPort": (integer, True),
-    }
-
-
-class PortConfiguration(AWSProperty):
-    """
-    `PortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "ContainerPortRanges": ([ContainerPortRange], True),
-    }
-
-
-class ContainerDefinition(AWSProperty):
-    """
-    `ContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdefinition.html>`__
-    """
-
-    props: PropsDictType = {
-        "Command": ([str], False),
-        "ContainerName": (str, True),
-        "Cpu": (integer, False),
-        "DependsOn": ([ContainerDependency], False),
-        "EntryPoint": ([str], False),
-        "Environment": ([ContainerEnvironment], False),
-        "Essential": (boolean, False),
-        "HealthCheck": (ContainerHealthCheck, False),
-        "ImageUri": (str, True),
-        "MemoryLimits": (MemoryLimits, False),
-        "PortConfiguration": (PortConfiguration, False),
-        "ResolvedImageDigest": (str, False),
-        "WorkingDirectory": (str, False),
-    }
-
-
-class ContainerGroupDefinition(AWSObject):
-    """
-    `ContainerGroupDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html>`__
-    """
-
-    resource_type = "AWS::GameLift::ContainerGroupDefinition"
-
-    props: PropsDictType = {
-        "ContainerDefinitions": ([ContainerDefinition], True),
-        "Name": (str, True),
-        "OperatingSystem": (str, True),
-        "SchedulingStrategy": (str, False),
-        "Tags": (Tags, False),
-        "TotalCpuLimit": (integer, True),
-        "TotalMemoryLimit": (integer, True),
-    }
-
-
-class AnywhereConfiguration(AWSProperty):
-    """
-    `AnywhereConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "Cost": (str, True),
-    }
-
-
-class CertificateConfiguration(AWSProperty):
-    """
-    `CertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "CertificateType": (str, True),
-    }
-
-
 class ConnectionPortRange(AWSProperty):
     """
-    `ConnectionPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-connectionportrange.html>`__
+    `ConnectionPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-connectionportrange.html>`__
     """
 
     props: PropsDictType = {
@@ -205,26 +76,26 @@ class ConnectionPortRange(AWSProperty):
     }
 
 
-class ContainerGroupsPerInstance(AWSProperty):
+class DeploymentConfiguration(AWSProperty):
     """
-    `ContainerGroupsPerInstance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsperinstance.html>`__
+    `DeploymentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "DesiredReplicaContainerGroupsPerInstance": (integer, False),
-        "MaxReplicaContainerGroupsPerInstance": (integer, False),
+        "ImpairmentStrategy": (str, False),
+        "MinimumHealthyPercentage": (integer, False),
+        "ProtectionStrategy": (str, False),
     }
 
 
-class ContainerGroupsConfiguration(AWSProperty):
+class GameSessionCreationLimitPolicy(AWSProperty):
     """
-    `ContainerGroupsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-containergroupsconfiguration.html>`__
+    `GameSessionCreationLimitPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-gamesessioncreationlimitpolicy.html>`__
     """
 
     props: PropsDictType = {
-        "ConnectionPortRange": (ConnectionPortRange, True),
-        "ContainerGroupDefinitionNames": ([str], True),
-        "ContainerGroupsPerInstance": (ContainerGroupsPerInstance, False),
+        "NewGameSessionsPerCreator": (integer, False),
+        "PolicyPeriodInMinutes": (integer, False),
     }
 
 
@@ -255,12 +126,231 @@ class LocationCapacity(AWSProperty):
 
 class LocationConfiguration(AWSProperty):
     """
-    `LocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-locationconfiguration.html>`__
+    `LocationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-locationconfiguration.html>`__
     """
 
     props: PropsDictType = {
         "Location": (str, True),
         "LocationCapacity": (LocationCapacity, False),
+        "StoppedActions": ([str], False),
+    }
+
+
+class LogConfiguration(AWSProperty):
+    """
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-logconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogDestination": (str, False),
+        "S3BucketName": (str, False),
+    }
+
+
+class TargetConfiguration(AWSProperty):
+    """
+    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-targetconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetValue": (double, True),
+    }
+
+
+class ScalingPolicy(AWSProperty):
+    """
+    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComparisonOperator": (str, False),
+        "EvaluationPeriods": (integer, False),
+        "Location": (str, False),
+        "MetricName": (str, True),
+        "Name": (str, True),
+        "PolicyType": (str, False),
+        "ScalingAdjustment": (integer, False),
+        "ScalingAdjustmentType": (str, False),
+        "Status": (str, False),
+        "TargetConfiguration": (TargetConfiguration, False),
+        "Threshold": (double, False),
+        "UpdateStatus": (str, False),
+    }
+
+
+class ContainerFleet(AWSObject):
+    """
+    `ContainerFleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containerfleet.html>`__
+    """
+
+    resource_type = "AWS::GameLift::ContainerFleet"
+
+    props: PropsDictType = {
+        "BillingType": (str, False),
+        "DeploymentConfiguration": (DeploymentConfiguration, False),
+        "Description": (str, False),
+        "FleetRoleArn": (str, True),
+        "GameServerContainerGroupDefinitionName": (str, False),
+        "GameServerContainerGroupsPerInstance": (integer, False),
+        "GameSessionCreationLimitPolicy": (GameSessionCreationLimitPolicy, False),
+        "InstanceConnectionPortRange": (ConnectionPortRange, False),
+        "InstanceInboundPermissions": ([IpPermission], False),
+        "InstanceType": (str, False),
+        "Locations": ([LocationConfiguration], False),
+        "LogConfiguration": (LogConfiguration, False),
+        "MetricGroups": ([str], False),
+        "NewGameSessionProtectionPolicy": (str, False),
+        "PerInstanceContainerGroupDefinitionName": (str, False),
+        "ScalingPolicies": ([ScalingPolicy], False),
+        "Tags": (Tags, False),
+    }
+
+
+class ContainerDependency(AWSProperty):
+    """
+    `ContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerdependency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Condition": (str, True),
+        "ContainerName": (str, True),
+    }
+
+
+class ContainerEnvironment(AWSProperty):
+    """
+    `ContainerEnvironment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerenvironment.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
+class ContainerMountPoint(AWSProperty):
+    """
+    `ContainerMountPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containermountpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessLevel": (str, False),
+        "ContainerPath": (str, False),
+        "InstancePath": (str, True),
+    }
+
+
+class ContainerPortRange(AWSProperty):
+    """
+    `ContainerPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerportrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "FromPort": (integer, True),
+        "Protocol": (str, True),
+        "ToPort": (integer, True),
+    }
+
+
+class PortConfiguration(AWSProperty):
+    """
+    `PortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-portconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerPortRanges": ([ContainerPortRange], True),
+    }
+
+
+class GameServerContainerDefinition(AWSProperty):
+    """
+    `GameServerContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-gameservercontainerdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerName": (str, True),
+        "DependsOn": ([ContainerDependency], False),
+        "EnvironmentOverride": ([ContainerEnvironment], False),
+        "ImageUri": (str, True),
+        "MountPoints": ([ContainerMountPoint], False),
+        "PortConfiguration": (PortConfiguration, False),
+        "ResolvedImageDigest": (str, False),
+        "ServerSdkVersion": (str, True),
+    }
+
+
+class ContainerHealthCheck(AWSProperty):
+    """
+    `ContainerHealthCheck <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-containerhealthcheck.html>`__
+    """
+
+    props: PropsDictType = {
+        "Command": ([str], True),
+        "Interval": (integer, False),
+        "Retries": (integer, False),
+        "StartPeriod": (integer, False),
+        "Timeout": (integer, False),
+    }
+
+
+class SupportContainerDefinition(AWSProperty):
+    """
+    `SupportContainerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containergroupdefinition-supportcontainerdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainerName": (str, True),
+        "DependsOn": ([ContainerDependency], False),
+        "EnvironmentOverride": ([ContainerEnvironment], False),
+        "Essential": (boolean, False),
+        "HealthCheck": (ContainerHealthCheck, False),
+        "ImageUri": (str, True),
+        "MemoryHardLimitMebibytes": (integer, False),
+        "MountPoints": ([ContainerMountPoint], False),
+        "PortConfiguration": (PortConfiguration, False),
+        "ResolvedImageDigest": (str, False),
+        "Vcpu": (double, False),
+    }
+
+
+class ContainerGroupDefinition(AWSObject):
+    """
+    `ContainerGroupDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-containergroupdefinition.html>`__
+    """
+
+    resource_type = "AWS::GameLift::ContainerGroupDefinition"
+
+    props: PropsDictType = {
+        "ContainerGroupType": (str, False),
+        "GameServerContainerDefinition": (GameServerContainerDefinition, False),
+        "Name": (str, True),
+        "OperatingSystem": (str, True),
+        "SourceVersionNumber": (integer, False),
+        "SupportContainerDefinitions": ([SupportContainerDefinition], False),
+        "Tags": (Tags, False),
+        "TotalMemoryLimitMebibytes": (integer, True),
+        "TotalVcpuLimit": (double, True),
+        "VersionDescription": (str, False),
+    }
+
+
+class AnywhereConfiguration(AWSProperty):
+    """
+    `AnywhereConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-anywhereconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cost": (str, True),
+    }
+
+
+class CertificateConfiguration(AWSProperty):
+    """
+    `CertificateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-certificateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateType": (str, True),
     }
 
 
@@ -299,37 +389,6 @@ class RuntimeConfiguration(AWSProperty):
     }
 
 
-class TargetConfiguration(AWSProperty):
-    """
-    `TargetConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-targetconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "TargetValue": (double, True),
-    }
-
-
-class ScalingPolicy(AWSProperty):
-    """
-    `ScalingPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-fleet-scalingpolicy.html>`__
-    """
-
-    props: PropsDictType = {
-        "ComparisonOperator": (str, False),
-        "EvaluationPeriods": (integer, False),
-        "Location": (str, False),
-        "MetricName": (str, True),
-        "Name": (str, True),
-        "PolicyType": (str, False),
-        "ScalingAdjustment": (integer, False),
-        "ScalingAdjustmentType": (str, False),
-        "Status": (str, False),
-        "TargetConfiguration": (TargetConfiguration, False),
-        "Threshold": (double, False),
-        "UpdateStatus": (str, False),
-    }
-
-
 class Fleet(AWSObject):
     """
     `Fleet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-gamelift-fleet.html>`__
@@ -343,7 +402,6 @@ class Fleet(AWSObject):
         "BuildId": (str, False),
         "CertificateConfiguration": (CertificateConfiguration, False),
         "ComputeType": (str, False),
-        "ContainerGroupsConfiguration": (ContainerGroupsConfiguration, False),
         "Description": (str, False),
         "DesiredEC2Instances": (integer, False),
         "EC2InboundPermissions": ([IpPermission], False),
@@ -586,4 +644,14 @@ class Script(AWSObject):
         "StorageLocation": (S3Location, True),
         "Tags": (Tags, False),
         "Version": (str, False),
+    }
+
+
+class DeploymentDetails(AWSProperty):
+    """
+    `DeploymentDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-gamelift-containerfleet-deploymentdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "LatestDeploymentId": (str, False),
     }

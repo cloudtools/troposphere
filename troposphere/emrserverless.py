@@ -183,6 +183,17 @@ class NetworkConfiguration(AWSProperty):
     }
 
 
+class SchedulerConfiguration(AWSProperty):
+    """
+    `SchedulerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-schedulerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxConcurrentRuns": (integer, False),
+        "QueueTimeoutMinutes": (integer, False),
+    }
+
+
 class WorkerTypeSpecificationInput(AWSProperty):
     """
     `WorkerTypeSpecificationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-workertypespecificationinput.html>`__
@@ -213,6 +224,7 @@ class Application(AWSObject):
         "NetworkConfiguration": (NetworkConfiguration, False),
         "ReleaseLabel": (str, True),
         "RuntimeConfiguration": ([ConfigurationObject], False),
+        "SchedulerConfiguration": (SchedulerConfiguration, False),
         "Tags": (Tags, False),
         "Type": (str, True),
         "WorkerTypeSpecifications": (dict, False),

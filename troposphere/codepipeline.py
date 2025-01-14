@@ -223,6 +223,7 @@ class OutputArtifacts(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Files": ([str], False),
         "Name": (str, True),
     }
 
@@ -234,11 +235,13 @@ class Actions(AWSProperty):
 
     props: PropsDictType = {
         "ActionTypeId": (ActionTypeId, True),
+        "Commands": ([str], False),
         "Configuration": (dict, False),
         "InputArtifacts": ([InputArtifacts], False),
         "Name": (str, True),
         "Namespace": (str, False),
         "OutputArtifacts": ([OutputArtifacts], False),
+        "OutputVariables": ([str], False),
         "Region": (str, False),
         "RoleArn": (str, False),
         "RunOrder": (integer, False),
@@ -306,6 +309,16 @@ class Blockers(AWSProperty):
     }
 
 
+class RetryConfiguration(AWSProperty):
+    """
+    `RetryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-retryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RetryMode": (str, False),
+    }
+
+
 class FailureConditions(AWSProperty):
     """
     `FailureConditions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-failureconditions.html>`__
@@ -314,6 +327,7 @@ class FailureConditions(AWSProperty):
     props: PropsDictType = {
         "Conditions": ([Condition], False),
         "Result": (str, False),
+        "RetryConfiguration": (RetryConfiguration, False),
     }
 
 

@@ -10,12 +10,34 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, integer
 
 
+class AnalysisRuleCriteria(AWSProperty):
+    """
+    `AnalysisRuleCriteria <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrulecriteria.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountIds": ([str], False),
+        "ResourceTags": (dict, False),
+    }
+
+
+class AnalysisRule(AWSProperty):
+    """
+    `AnalysisRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-analysisrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exclusions": ([AnalysisRuleCriteria], False),
+    }
+
+
 class UnusedAccessConfiguration(AWSProperty):
     """
     `UnusedAccessConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-accessanalyzer-analyzer-unusedaccessconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "AnalysisRule": (AnalysisRule, False),
         "UnusedAccessAge": (integer, False),
     }
 

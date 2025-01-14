@@ -217,6 +217,96 @@ class AmazonopensearchserviceDestinationConfiguration(AWSProperty):
     }
 
 
+class DatabaseColumns(AWSProperty):
+    """
+    `DatabaseColumns <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasecolumns.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exclude": ([str], False),
+        "Include": ([str], False),
+    }
+
+
+class SecretsManagerConfiguration(AWSProperty):
+    """
+    `SecretsManagerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, True),
+        "RoleARN": (str, False),
+        "SecretARN": (str, False),
+    }
+
+
+class DatabaseSourceAuthenticationConfiguration(AWSProperty):
+    """
+    `DatabaseSourceAuthenticationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceauthenticationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretsManagerConfiguration": (SecretsManagerConfiguration, True),
+    }
+
+
+class DatabaseSourceVPCConfiguration(AWSProperty):
+    """
+    `DatabaseSourceVPCConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourcevpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcEndpointServiceName": (str, True),
+    }
+
+
+class DatabaseTables(AWSProperty):
+    """
+    `DatabaseTables <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasetables.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exclude": ([str], False),
+        "Include": ([str], False),
+    }
+
+
+class Databases(AWSProperty):
+    """
+    `Databases <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databases.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exclude": ([str], False),
+        "Include": ([str], False),
+    }
+
+
+class DatabaseSourceConfiguration(AWSProperty):
+    """
+    `DatabaseSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-databasesourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Columns": (DatabaseColumns, False),
+        "DatabaseSourceAuthenticationConfiguration": (
+            DatabaseSourceAuthenticationConfiguration,
+            True,
+        ),
+        "DatabaseSourceVPCConfiguration": (DatabaseSourceVPCConfiguration, True),
+        "Databases": (Databases, True),
+        "Digest": (str, False),
+        "Endpoint": (str, True),
+        "Port": (integer, True),
+        "PublicCertificate": (str, False),
+        "SSLMode": (str, False),
+        "SnapshotWatermarkTable": (str, True),
+        "SurrogateKeys": ([str], False),
+        "Tables": (DatabaseTables, True),
+        "Type": (str, True),
+    }
+
+
 class DeliveryStreamEncryptionConfigurationInput(AWSProperty):
     """
     `DeliveryStreamEncryptionConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-deliverystreamencryptionconfigurationinput.html>`__
@@ -470,18 +560,6 @@ class HttpEndpointRequestConfiguration(AWSProperty):
     props: PropsDictType = {
         "CommonAttributes": ([HttpEndpointCommonAttribute], False),
         "ContentEncoding": (str, False),
-    }
-
-
-class SecretsManagerConfiguration(AWSProperty):
-    """
-    `SecretsManagerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-secretsmanagerconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "Enabled": (boolean, True),
-        "RoleARN": (str, False),
-        "SecretARN": (str, False),
     }
 
 
@@ -751,6 +829,7 @@ class DeliveryStream(AWSObject):
             AmazonopensearchserviceDestinationConfiguration,
             False,
         ),
+        "DatabaseSourceConfiguration": (DatabaseSourceConfiguration, False),
         "DeliveryStreamEncryptionConfigurationInput": (
             DeliveryStreamEncryptionConfigurationInput,
             False,

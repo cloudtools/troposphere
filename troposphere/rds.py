@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 from .validators.rds import (
     validate_backtrack_window,
     validate_backup_retention_period,
@@ -94,6 +94,7 @@ class ServerlessV2ScalingConfiguration(AWSProperty):
     props: PropsDictType = {
         "MaxCapacity": (validate_v2_max_capacity, False),
         "MinCapacity": (validate_v2_capacity, False),
+        "SecondsUntilAutoPause": (integer, False),
     }
 
 
@@ -111,6 +112,7 @@ class DBCluster(AWSObject):
         "AvailabilityZones": ([str], False),
         "BacktrackWindow": (validate_backtrack_window, False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),
+        "ClusterScalabilityType": (str, False),
         "CopyTagsToSnapshot": (boolean, False),
         "DBClusterIdentifier": (str, False),
         "DBClusterInstanceClass": (str, False),
@@ -118,6 +120,7 @@ class DBCluster(AWSObject):
         "DBInstanceParameterGroupName": (str, False),
         "DBSubnetGroupName": (str, False),
         "DBSystemId": (str, False),
+        "DatabaseInsightsMode": (str, False),
         "DatabaseName": (str, False),
         "DeletionProtection": (boolean, False),
         "Domain": (str, False),
@@ -256,6 +259,7 @@ class DBInstance(AWSObject):
         "DBSecurityGroups": (list, False),
         "DBSnapshotIdentifier": (str, False),
         "DBSubnetGroupName": (str, False),
+        "DBSystemId": (str, False),
         "DedicatedLogVolume": (boolean, False),
         "DeleteAutomatedBackups": (boolean, False),
         "DeletionProtection": (boolean, False),
@@ -460,6 +464,24 @@ class DBSecurityGroupIngress(AWSObject):
     }
 
 
+class DBShardGroup(AWSObject):
+    """
+    `DBShardGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbshardgroup.html>`__
+    """
+
+    resource_type = "AWS::RDS::DBShardGroup"
+
+    props: PropsDictType = {
+        "ComputeRedundancy": (integer, False),
+        "DBClusterIdentifier": (str, True),
+        "DBShardGroupIdentifier": (str, False),
+        "MaxACU": (double, True),
+        "MinACU": (double, False),
+        "PubliclyAccessible": (boolean, False),
+        "Tags": (Tags, False),
+    }
+
+
 class DBSubnetGroup(AWSObject):
     """
     `DBSubnetGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-dbsubnetgroup.html>`__
@@ -493,6 +515,16 @@ class EventSubscription(AWSObject):
     }
 
 
+class GlobalEndpoint(AWSProperty):
+    """
+    `GlobalEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-globalcluster-globalendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+    }
+
+
 class GlobalCluster(AWSObject):
     """
     `GlobalCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html>`__
@@ -506,6 +538,7 @@ class GlobalCluster(AWSObject):
         "EngineLifecycleSupport": (str, False),
         "EngineVersion": (str, False),
         "GlobalClusterIdentifier": (str, False),
+        "GlobalEndpoint": (GlobalEndpoint, False),
         "SourceDBClusterIdentifier": (str, False),
         "StorageEncrypted": (boolean, False),
         "Tags": (Tags, False),

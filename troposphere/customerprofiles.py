@@ -437,6 +437,7 @@ class Integration(AWSObject):
 
     props: PropsDictType = {
         "DomainName": (str, True),
+        "EventTriggerNames": ([str], False),
         "FlowDefinition": (FlowDefinition, False),
         "ObjectTypeName": (str, False),
         "ObjectTypeNames": ([ObjectTypeMapping], False),
@@ -509,6 +510,191 @@ class ObjectType(AWSObject):
         "SourceLastUpdatedTimestampFormat": (str, False),
         "Tags": (Tags, False),
         "TemplateId": (str, False),
+    }
+
+
+class RangeOverride(AWSProperty):
+    """
+    `RangeOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-rangeoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "End": (integer, False),
+        "Start": (integer, True),
+        "Unit": (str, True),
+    }
+
+
+class ConditionOverrides(AWSProperty):
+    """
+    `ConditionOverrides <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-conditionoverrides.html>`__
+    """
+
+    props: PropsDictType = {
+        "Range": (RangeOverride, False),
+    }
+
+
+class CalculatedAttributeDimension(AWSProperty):
+    """
+    `CalculatedAttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-calculatedattributedimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConditionOverrides": (ConditionOverrides, False),
+        "DimensionType": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class ProfileDimension(AWSProperty):
+    """
+    `ProfileDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profiledimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionType": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class AddressDimension(AWSProperty):
+    """
+    `AddressDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-addressdimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "City": (ProfileDimension, False),
+        "Country": (ProfileDimension, False),
+        "County": (ProfileDimension, False),
+        "PostalCode": (ProfileDimension, False),
+        "Province": (ProfileDimension, False),
+        "State": (ProfileDimension, False),
+    }
+
+
+class AttributeDimension(AWSProperty):
+    """
+    `AttributeDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-attributedimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionType": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class DateDimension(AWSProperty):
+    """
+    `DateDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-datedimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionType": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class ExtraLengthValueProfileDimension(AWSProperty):
+    """
+    `ExtraLengthValueProfileDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-extralengthvalueprofiledimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionType": (str, True),
+        "Values": ([str], True),
+    }
+
+
+class ProfileAttributes(AWSProperty):
+    """
+    `ProfileAttributes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-profileattributes.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountNumber": (ProfileDimension, False),
+        "AdditionalInformation": (ExtraLengthValueProfileDimension, False),
+        "Address": (AddressDimension, False),
+        "Attributes": (dict, False),
+        "BillingAddress": (AddressDimension, False),
+        "BirthDate": (DateDimension, False),
+        "BusinessEmailAddress": (ProfileDimension, False),
+        "BusinessName": (ProfileDimension, False),
+        "BusinessPhoneNumber": (ProfileDimension, False),
+        "EmailAddress": (ProfileDimension, False),
+        "FirstName": (ProfileDimension, False),
+        "GenderString": (ProfileDimension, False),
+        "HomePhoneNumber": (ProfileDimension, False),
+        "LastName": (ProfileDimension, False),
+        "MailingAddress": (AddressDimension, False),
+        "MiddleName": (ProfileDimension, False),
+        "MobilePhoneNumber": (ProfileDimension, False),
+        "PartyTypeString": (ProfileDimension, False),
+        "PersonalEmailAddress": (ProfileDimension, False),
+        "PhoneNumber": (ProfileDimension, False),
+        "ShippingAddress": (AddressDimension, False),
+    }
+
+
+class Dimension(AWSProperty):
+    """
+    `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-dimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "CalculatedAttributes": (dict, False),
+        "ProfileAttributes": (ProfileAttributes, False),
+    }
+
+
+class SourceSegment(AWSProperty):
+    """
+    `SourceSegment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-sourcesegment.html>`__
+    """
+
+    props: PropsDictType = {
+        "SegmentDefinitionName": (str, False),
+    }
+
+
+class Group(AWSProperty):
+    """
+    `Group <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-group.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dimensions": ([Dimension], False),
+        "SourceSegments": ([SourceSegment], False),
+        "SourceType": (str, False),
+        "Type": (str, False),
+    }
+
+
+class SegmentGroup(AWSProperty):
+    """
+    `SegmentGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-segmentdefinition-segmentgroup.html>`__
+    """
+
+    props: PropsDictType = {
+        "Groups": ([Group], False),
+        "Include": (str, False),
+    }
+
+
+class SegmentDefinition(AWSObject):
+    """
+    `SegmentDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-segmentdefinition.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::SegmentDefinition"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DisplayName": (str, True),
+        "DomainName": (str, True),
+        "SegmentDefinitionName": (str, True),
+        "SegmentGroups": (SegmentGroup, True),
+        "Tags": (Tags, False),
     }
 
 

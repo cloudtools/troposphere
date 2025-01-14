@@ -409,6 +409,16 @@ class Alarms(AWSProperty):
     }
 
 
+class PortalTypeEntry(AWSProperty):
+    """
+    `PortalTypeEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-portal-portaltypeentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "PortalTools": ([str], True),
+    }
+
+
 class Portal(AWSObject):
     """
     `Portal <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-portal.html>`__
@@ -423,6 +433,8 @@ class Portal(AWSObject):
         "PortalContactEmail": (str, True),
         "PortalDescription": (str, False),
         "PortalName": (str, True),
+        "PortalType": (str, False),
+        "PortalTypeConfiguration": (dict, False),
         "RoleArn": (str, True),
         "Tags": (Tags, False),
     }

@@ -11,6 +11,57 @@ from .validators import boolean, integer
 from .validators.opensearchservice import validate_search_service_engine_version
 
 
+class AppConfig(AWSProperty):
+    """
+    `AppConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-application-appconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
+class DataSource(AWSProperty):
+    """
+    `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-application-datasource.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSourceArn": (str, True),
+        "DataSourceDescription": (str, False),
+    }
+
+
+class IamIdentityCenterOptions(AWSProperty):
+    """
+    `IamIdentityCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-application-iamidentitycenteroptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "IamIdentityCenterInstanceArn": (str, False),
+        "IamRoleForIdentityCenterApplicationArn": (str, False),
+    }
+
+
+class Application(AWSObject):
+    """
+    `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchservice-application.html>`__
+    """
+
+    resource_type = "AWS::OpenSearchService::Application"
+
+    props: PropsDictType = {
+        "AppConfigs": ([AppConfig], False),
+        "DataSources": ([DataSource], False),
+        "Endpoint": (str, False),
+        "IamIdentityCenterOptions": (IamIdentityCenterOptions, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class JWTOptions(AWSProperty):
     """
     `JWTOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-jwtoptions.html>`__
@@ -89,6 +140,29 @@ class ColdStorageOptions(AWSProperty):
     }
 
 
+class NodeConfig(AWSProperty):
+    """
+    `NodeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodeconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Count": (integer, False),
+        "Enabled": (boolean, False),
+        "Type": (str, False),
+    }
+
+
+class NodeOption(AWSProperty):
+    """
+    `NodeOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-nodeoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "NodeConfig": (NodeConfig, False),
+        "NodeType": (str, False),
+    }
+
+
 class ZoneAwarenessConfig(AWSProperty):
     """
     `ZoneAwarenessConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-zoneawarenessconfig.html>`__
@@ -112,6 +186,7 @@ class ClusterConfig(AWSProperty):
         "InstanceCount": (integer, False),
         "InstanceType": (str, False),
         "MultiAZWithStandbyEnabled": (boolean, False),
+        "NodeOptions": ([NodeOption], False),
         "WarmCount": (integer, False),
         "WarmEnabled": (boolean, False),
         "WarmType": (str, False),
@@ -169,6 +244,21 @@ class EncryptionAtRestOptions(AWSProperty):
     props: PropsDictType = {
         "Enabled": (boolean, False),
         "KmsKeyId": (str, False),
+    }
+
+
+class IdentityCenterOptions(AWSProperty):
+    """
+    `IdentityCenterOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchservice-domain-identitycenteroptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnabledAPIAccess": (boolean, False),
+        "IdentityCenterApplicationARN": (str, False),
+        "IdentityCenterInstanceARN": (str, False),
+        "IdentityStoreId": (str, False),
+        "RolesKey": (str, False),
+        "SubjectKey": (str, False),
     }
 
 
@@ -275,6 +365,7 @@ class Domain(AWSObject):
         "EncryptionAtRestOptions": (EncryptionAtRestOptions, False),
         "EngineVersion": (validate_search_service_engine_version, False),
         "IPAddressType": (str, False),
+        "IdentityCenterOptions": (IdentityCenterOptions, False),
         "LogPublishingOptions": (dict, False),
         "NodeToNodeEncryptionOptions": (NodeToNodeEncryptionOptions, False),
         "OffPeakWindowOptions": (OffPeakWindowOptions, False),

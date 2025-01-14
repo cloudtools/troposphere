@@ -203,6 +203,69 @@ class CertificateProvider(AWSObject):
     }
 
 
+class CommandParameterValue(AWSProperty):
+    """
+    `CommandParameterValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparametervalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "B": (boolean, False),
+        "BIN": (str, False),
+        "D": (double, False),
+        "I": (integer, False),
+        "L": (str, False),
+        "S": (str, False),
+        "UL": (str, False),
+    }
+
+
+class CommandParameter(AWSProperty):
+    """
+    `CommandParameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandparameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultValue": (CommandParameterValue, False),
+        "Description": (str, False),
+        "Name": (str, True),
+        "Value": (CommandParameterValue, False),
+    }
+
+
+class CommandPayload(AWSProperty):
+    """
+    `CommandPayload <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-command-commandpayload.html>`__
+    """
+
+    props: PropsDictType = {
+        "Content": (str, False),
+        "ContentType": (str, False),
+    }
+
+
+class Command(AWSObject):
+    """
+    `Command <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-command.html>`__
+    """
+
+    resource_type = "AWS::IoT::Command"
+
+    props: PropsDictType = {
+        "CommandId": (str, True),
+        "CreatedAt": (str, False),
+        "Deprecated": (boolean, False),
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "LastUpdatedAt": (str, False),
+        "MandatoryParameters": ([CommandParameter], False),
+        "Namespace": (str, False),
+        "Payload": (CommandPayload, False),
+        "PendingDeletion": (boolean, False),
+        "RoleArn": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class CustomMetric(AWSObject):
     """
     `CustomMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-custommetric.html>`__
@@ -261,6 +324,8 @@ class ServerCertificateConfig(AWSProperty):
 
     props: PropsDictType = {
         "EnableOCSPCheck": (boolean, False),
+        "OcspAuthorizedResponderArn": (str, False),
+        "OcspLambdaArn": (str, False),
     }
 
 
@@ -896,12 +961,35 @@ class ThingPrincipalAttachment(AWSObject):
     }
 
 
+class PropagatingAttribute(AWSProperty):
+    """
+    `PropagatingAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-propagatingattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionAttribute": (str, False),
+        "ThingAttribute": (str, False),
+        "UserPropertyKey": (str, True),
+    }
+
+
+class Mqtt5Configuration(AWSProperty):
+    """
+    `Mqtt5Configuration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-mqtt5configuration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PropagatingAttributes": ([PropagatingAttribute], False),
+    }
+
+
 class ThingTypeProperties(AWSProperty):
     """
     `ThingTypeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-thingtype-thingtypeproperties.html>`__
     """
 
     props: PropsDictType = {
+        "Mqtt5Configuration": (Mqtt5Configuration, False),
         "SearchableAttributes": ([str], False),
         "ThingTypeDescription": (str, False),
     }

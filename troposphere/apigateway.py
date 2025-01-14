@@ -97,6 +97,21 @@ class BasePathMapping(AWSObject):
     }
 
 
+class BasePathMappingV2(AWSObject):
+    """
+    `BasePathMappingV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-basepathmappingv2.html>`__
+    """
+
+    resource_type = "AWS::ApiGateway::BasePathMappingV2"
+
+    props: PropsDictType = {
+        "BasePath": (str, False),
+        "DomainNameArn": (str, True),
+        "RestApiId": (str, True),
+        "Stage": (str, False),
+    }
+
+
 class ClientCertificate(AWSObject):
     """
     `ClientCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-clientcertificate.html>`__
@@ -274,6 +289,38 @@ class DomainName(AWSObject):
         "MutualTlsAuthentication": (MutualTlsAuthentication, False),
         "OwnershipVerificationCertificateArn": (str, False),
         "RegionalCertificateArn": (str, False),
+        "SecurityPolicy": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class DomainNameAccessAssociation(AWSObject):
+    """
+    `DomainNameAccessAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnameaccessassociation.html>`__
+    """
+
+    resource_type = "AWS::ApiGateway::DomainNameAccessAssociation"
+
+    props: PropsDictType = {
+        "AccessAssociationSource": (str, True),
+        "AccessAssociationSourceType": (str, True),
+        "DomainNameArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class DomainNameV2(AWSObject):
+    """
+    `DomainNameV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-apigateway-domainnamev2.html>`__
+    """
+
+    resource_type = "AWS::ApiGateway::DomainNameV2"
+
+    props: PropsDictType = {
+        "CertificateArn": (str, False),
+        "DomainName": (str, False),
+        "EndpointConfiguration": (EndpointConfiguration, False),
+        "Policy": (dict, False),
         "SecurityPolicy": (str, False),
         "Tags": (Tags, False),
     }

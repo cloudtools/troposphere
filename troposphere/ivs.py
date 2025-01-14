@@ -56,6 +56,23 @@ class EncoderConfiguration(AWSObject):
     }
 
 
+class IngestConfiguration(AWSObject):
+    """
+    `IngestConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-ingestconfiguration.html>`__
+    """
+
+    resource_type = "AWS::IVS::IngestConfiguration"
+
+    props: PropsDictType = {
+        "IngestProtocol": (str, False),
+        "InsecureIngest": (boolean, False),
+        "Name": (str, False),
+        "StageArn": (str, False),
+        "Tags": (Tags, False),
+        "UserId": (str, False),
+    }
+
+
 class PlaybackKeyPair(AWSObject):
     """
     `PlaybackKeyPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-playbackkeypair.html>`__

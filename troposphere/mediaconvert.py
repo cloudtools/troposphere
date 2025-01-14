@@ -77,6 +77,7 @@ class Queue(AWSObject):
     resource_type = "AWS::MediaConvert::Queue"
 
     props: PropsDictType = {
+        "ConcurrentJobs": (integer, False),
         "Description": (str, False),
         "Name": (str, False),
         "PricingPlan": (str, False),

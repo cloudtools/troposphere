@@ -191,6 +191,37 @@ class LogDeliveryConfiguration(AWSObject):
     }
 
 
+class AssetType(AWSProperty):
+    """
+    `AssetType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-managedloginbranding-assettype.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bytes": (str, False),
+        "Category": (str, True),
+        "ColorMode": (str, True),
+        "Extension": (str, True),
+        "ResourceId": (str, False),
+    }
+
+
+class ManagedLoginBranding(AWSObject):
+    """
+    `ManagedLoginBranding <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cognito-managedloginbranding.html>`__
+    """
+
+    resource_type = "AWS::Cognito::ManagedLoginBranding"
+
+    props: PropsDictType = {
+        "Assets": ([AssetType], False),
+        "ClientId": (str, False),
+        "ReturnMergedResources": (boolean, False),
+        "Settings": (dict, False),
+        "UseCognitoProvidedValues": (boolean, False),
+        "UserPoolId": (str, True),
+    }
+
+
 class RecoveryOption(AWSProperty):
     """
     `RecoveryOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-recoveryoption.html>`__
@@ -333,6 +364,16 @@ class PasswordPolicy(AWSProperty):
     }
 
 
+class SignInPolicy(AWSProperty):
+    """
+    `SignInPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-signinpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllowedFirstAuthFactors": ([str], False),
+    }
+
+
 class Policies(AWSProperty):
     """
     `Policies <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpool-policies.html>`__
@@ -340,6 +381,7 @@ class Policies(AWSProperty):
 
     props: PropsDictType = {
         "PasswordPolicy": (PasswordPolicy, False),
+        "SignInPolicy": (SignInPolicy, False),
     }
 
 
@@ -480,9 +522,12 @@ class UserPool(AWSObject):
         "UserPoolAddOns": (UserPoolAddOns, False),
         "UserPoolName": (str, False),
         "UserPoolTags": (dict, False),
+        "UserPoolTier": (str, False),
         "UsernameAttributes": ([str], False),
         "UsernameConfiguration": (UsernameConfiguration, False),
         "VerificationMessageTemplate": (VerificationMessageTemplate, False),
+        "WebAuthnRelyingPartyID": (str, False),
+        "WebAuthnUserVerification": (str, False),
     }
 
 
@@ -565,6 +610,7 @@ class UserPoolDomain(AWSObject):
     props: PropsDictType = {
         "CustomDomainConfig": (CustomDomainConfigType, False),
         "Domain": (str, True),
+        "ManagedLoginVersion": (integer, False),
         "UserPoolId": (str, True),
     }
 
@@ -595,7 +641,7 @@ class UserPoolIdentityProvider(AWSObject):
     props: PropsDictType = {
         "AttributeMapping": (dict, False),
         "IdpIdentifiers": ([str], False),
-        "ProviderDetails": (dict, False),
+        "ProviderDetails": (dict, True),
         "ProviderName": (str, True),
         "ProviderType": (str, True),
         "UserPoolId": (str, True),

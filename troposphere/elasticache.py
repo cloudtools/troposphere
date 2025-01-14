@@ -145,6 +145,7 @@ class GlobalReplicationGroup(AWSObject):
         "AutomaticFailoverEnabled": (boolean, False),
         "CacheNodeType": (str, False),
         "CacheParameterGroupName": (str, False),
+        "Engine": (str, False),
         "EngineVersion": (str, False),
         "GlobalNodeGroupCount": (integer, False),
         "GlobalReplicationGroupDescription": (str, False),

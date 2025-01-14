@@ -56,6 +56,21 @@ class LifecyclePolicy(AWSObject):
     }
 
 
+class IamIdentityCenterConfigOptions(AWSProperty):
+    """
+    `IamIdentityCenterConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-iamidentitycenterconfigoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationArn": (str, False),
+        "ApplicationDescription": (str, False),
+        "ApplicationName": (str, False),
+        "GroupAttribute": (str, False),
+        "InstanceArn": (str, True),
+        "UserAttribute": (str, False),
+    }
+
+
 class SamlConfigOptions(AWSProperty):
     """
     `SamlConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-securityconfig-samlconfigoptions.html>`__
@@ -78,6 +93,7 @@ class SecurityConfig(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
+        "IamIdentityCenterOptions": (IamIdentityCenterConfigOptions, False),
         "Name": (str, False),
         "SamlOptions": (SamlConfigOptions, False),
         "Type": (str, False),

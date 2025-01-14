@@ -89,6 +89,7 @@ class LustreConfiguration(AWSProperty):
         "DataCompressionType": (str, False),
         "DeploymentType": (validate_lustreconfiguration_deploymenttype, False),
         "DriveCacheType": (str, False),
+        "EfaEnabled": (boolean, False),
         "ExportPath": (str, False),
         "ImportPath": (str, False),
         "ImportedFileChunkSize": (integer, False),
@@ -133,6 +134,17 @@ class OntapConfiguration(AWSProperty):
         "ThroughputCapacity": (integer, False),
         "ThroughputCapacityPerHAPair": (integer, False),
         "WeeklyMaintenanceStartTime": (str, False),
+    }
+
+
+class ReadCacheConfiguration(AWSProperty):
+    """
+    `ReadCacheConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-fsx-filesystem-openzfsconfiguration-readcacheconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SizeGiB": (integer, False),
+        "SizingMode": (str, False),
     }
 
 
@@ -199,6 +211,7 @@ class OpenZFSConfiguration(AWSProperty):
         "EndpointIpAddressRange": (str, False),
         "Options": ([str], False),
         "PreferredSubnetId": (str, False),
+        "ReadCacheConfiguration": (ReadCacheConfiguration, False),
         "RootVolumeConfiguration": (RootVolumeConfiguration, False),
         "RouteTableIds": ([str], False),
         "ThroughputCapacity": (integer, False),

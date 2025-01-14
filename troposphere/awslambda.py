@@ -191,6 +191,27 @@ class FilterCriteria(AWSProperty):
     }
 
 
+class MetricsConfig(AWSProperty):
+    """
+    `MetricsConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-metricsconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Metrics": ([str], False),
+    }
+
+
+class ProvisionedPollerConfig(AWSProperty):
+    """
+    `ProvisionedPollerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-provisionedpollerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumPollers": (integer, False),
+        "MinimumPollers": (integer, False),
+    }
+
+
 class ScalingConfig(AWSProperty):
     """
     `ScalingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lambda-eventsourcemapping-scalingconfig.html>`__
@@ -267,7 +288,9 @@ class EventSourceMapping(AWSObject):
         "MaximumBatchingWindowInSeconds": (integer, False),
         "MaximumRecordAgeInSeconds": (integer, False),
         "MaximumRetryAttempts": (integer, False),
+        "MetricsConfig": (MetricsConfig, False),
         "ParallelizationFactor": (integer, False),
+        "ProvisionedPollerConfig": (ProvisionedPollerConfig, False),
         "Queues": ([str], False),
         "ScalingConfig": (ScalingConfig, False),
         "SelfManagedEventSource": (SelfManagedEventSource, False),
@@ -564,7 +587,6 @@ class Version(AWSObject):
         "CodeSha256": (str, False),
         "Description": (str, False),
         "FunctionName": (str, True),
-        "Policy": (dict, False),
         "ProvisionedConcurrencyConfig": (ProvisionedConcurrencyConfiguration, False),
         "RuntimePolicy": (RuntimePolicy, False),
     }

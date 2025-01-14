@@ -25,6 +25,75 @@ class BrowserSettings(AWSObject):
     }
 
 
+class CustomPattern(AWSProperty):
+    """
+    `CustomPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-custompattern.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeywordRegex": (str, False),
+        "PatternDescription": (str, False),
+        "PatternName": (str, True),
+        "PatternRegex": (str, True),
+    }
+
+
+class RedactionPlaceHolder(AWSProperty):
+    """
+    `RedactionPlaceHolder <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-redactionplaceholder.html>`__
+    """
+
+    props: PropsDictType = {
+        "RedactionPlaceHolderText": (str, False),
+        "RedactionPlaceHolderType": (str, True),
+    }
+
+
+class InlineRedactionPattern(AWSProperty):
+    """
+    `InlineRedactionPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionpattern.html>`__
+    """
+
+    props: PropsDictType = {
+        "BuiltInPatternId": (str, False),
+        "ConfidenceLevel": (double, False),
+        "CustomPattern": (CustomPattern, False),
+        "EnforcedUrls": ([str], False),
+        "ExemptUrls": ([str], False),
+        "RedactionPlaceHolder": (RedactionPlaceHolder, True),
+    }
+
+
+class InlineRedactionConfiguration(AWSProperty):
+    """
+    `InlineRedactionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-dataprotectionsettings-inlineredactionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlobalConfidenceLevel": (double, False),
+        "GlobalEnforcedUrls": ([str], False),
+        "GlobalExemptUrls": ([str], False),
+        "InlineRedactionPatterns": ([InlineRedactionPattern], True),
+    }
+
+
+class DataProtectionSettings(AWSObject):
+    """
+    `DataProtectionSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-dataprotectionsettings.html>`__
+    """
+
+    resource_type = "AWS::WorkSpacesWeb::DataProtectionSettings"
+
+    props: PropsDictType = {
+        "AdditionalEncryptionContext": (dict, False),
+        "CustomerManagedKey": (str, False),
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "InlineRedactionConfiguration": (InlineRedactionConfiguration, False),
+        "Tags": (Tags, False),
+    }
+
+
 class IdentityProvider(AWSObject):
     """
     `IdentityProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-identityprovider.html>`__
@@ -96,6 +165,7 @@ class Portal(AWSObject):
         "AuthenticationType": (str, False),
         "BrowserSettingsArn": (str, False),
         "CustomerManagedKey": (str, False),
+        "DataProtectionSettingsArn": (str, False),
         "DisplayName": (str, False),
         "InstanceType": (str, False),
         "IpAccessSettingsArn": (str, False),

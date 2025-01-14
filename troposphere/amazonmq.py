@@ -84,6 +84,7 @@ class User(AWSProperty):
     props: PropsDictType = {
         "ConsoleAccess": (boolean, False),
         "Groups": ([str], False),
+        "JolokiaApiAccess": (str, False),
         "Password": (str, True),
         "ReplicationUser": (boolean, False),
         "Username": (str, True),
@@ -130,7 +131,7 @@ class Configuration(AWSObject):
 
     props: PropsDictType = {
         "AuthenticationStrategy": (str, False),
-        "Data": (str, True),
+        "Data": (str, False),
         "Description": (str, False),
         "EngineType": (str, True),
         "EngineVersion": (str, False),

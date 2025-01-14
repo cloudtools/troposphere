@@ -81,3 +81,18 @@ class Group(AWSObject):
         "Resources": ([str], False),
         "Tags": (Tags, False),
     }
+
+
+class TagSyncTask(AWSObject):
+    """
+    `TagSyncTask <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-resourcegroups-tagsynctask.html>`__
+    """
+
+    resource_type = "AWS::ResourceGroups::TagSyncTask"
+
+    props: PropsDictType = {
+        "Group": (str, True),
+        "RoleArn": (str, True),
+        "TagKey": (str, True),
+        "TagValue": (str, True),
+    }

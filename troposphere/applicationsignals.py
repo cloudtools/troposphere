@@ -10,6 +10,16 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class BurnRateConfiguration(AWSProperty):
+    """
+    `BurnRateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "LookBackWindowMinutes": (integer, True),
+    }
+
+
 class CalendarInterval(AWSProperty):
     """
     `CalendarInterval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-calendarinterval.html>`__
@@ -178,6 +188,7 @@ class ServiceLevelObjective(AWSObject):
     resource_type = "AWS::ApplicationSignals::ServiceLevelObjective"
 
     props: PropsDictType = {
+        "BurnRateConfigurations": ([BurnRateConfiguration], False),
         "Description": (str, False),
         "Goal": (Goal, False),
         "Name": (str, True),

@@ -186,6 +186,7 @@ class Dataset(AWSObject):
         "Input": (Input, True),
         "Name": (str, True),
         "PathOptions": (PathOptions, False),
+        "Source": (str, False),
         "Tags": (Tags, False),
     }
 

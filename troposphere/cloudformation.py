@@ -36,6 +36,107 @@ class CustomResource(AWSObject):
     }
 
 
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Uri": (str, True),
+        "VersionId": (str, False),
+    }
+
+
+class Options(AWSProperty):
+    """
+    `Options <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-guardhook-options.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputParams": (S3Location, False),
+    }
+
+
+class StackNames(AWSProperty):
+    """
+    `StackNames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stacknames.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exclude": ([str], False),
+        "Include": ([str], False),
+    }
+
+
+class StackRoles(AWSProperty):
+    """
+    `StackRoles <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stackroles.html>`__
+    """
+
+    props: PropsDictType = {
+        "Exclude": ([str], False),
+        "Include": ([str], False),
+    }
+
+
+class StackFilters(AWSProperty):
+    """
+    `StackFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-stackfilters.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilteringCriteria": (str, True),
+        "StackNames": (StackNames, False),
+        "StackRoles": (StackRoles, False),
+    }
+
+
+class HookTarget(AWSProperty):
+    """
+    `HookTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-hooktarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "InvocationPoint": (str, True),
+        "TargetName": (str, True),
+    }
+
+
+class TargetFilters(AWSProperty):
+    """
+    `TargetFilters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudformation-lambdahook-targetfilters.html>`__
+    """
+
+    props: PropsDictType = {
+        "Actions": ([str], False),
+        "InvocationPoints": ([str], False),
+        "TargetNames": ([str], False),
+        "Targets": ([HookTarget], False),
+    }
+
+
+class GuardHook(AWSObject):
+    """
+    `GuardHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-guardhook.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::GuardHook"
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "ExecutionRole": (str, True),
+        "FailureMode": (str, True),
+        "HookStatus": (str, True),
+        "LogBucket": (str, False),
+        "Options": (Options, False),
+        "RuleLocation": (S3Location, True),
+        "StackFilters": (StackFilters, False),
+        "TargetFilters": (TargetFilters, False),
+        "TargetOperations": ([str], True),
+    }
+
+
 class HookDefaultVersion(AWSObject):
     """
     `HookDefaultVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-hookdefaultversion.html>`__
@@ -88,6 +189,25 @@ class HookVersion(AWSObject):
         "LoggingConfig": (LoggingConfig, False),
         "SchemaHandlerPackage": (str, True),
         "TypeName": (str, True),
+    }
+
+
+class LambdaHook(AWSObject):
+    """
+    `LambdaHook <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudformation-lambdahook.html>`__
+    """
+
+    resource_type = "AWS::CloudFormation::LambdaHook"
+
+    props: PropsDictType = {
+        "Alias": (str, True),
+        "ExecutionRole": (str, True),
+        "FailureMode": (str, True),
+        "HookStatus": (str, True),
+        "LambdaFunction": (str, True),
+        "StackFilters": (StackFilters, False),
+        "TargetFilters": (TargetFilters, False),
+        "TargetOperations": ([str], True),
     }
 
 

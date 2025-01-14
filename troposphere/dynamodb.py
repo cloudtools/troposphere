@@ -51,6 +51,17 @@ class Projection(AWSProperty):
     }
 
 
+class WarmThroughput(AWSProperty):
+    """
+    `WarmThroughput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-warmthroughput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReadUnitsPerSecond": (integer, False),
+        "WriteUnitsPerSecond": (integer, False),
+    }
+
+
 class WriteOnDemandThroughputSettings(AWSProperty):
     """
     `WriteOnDemandThroughputSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-globaltable-writeondemandthroughputsettings.html>`__
@@ -109,6 +120,7 @@ class GlobalTableGlobalSecondaryIndex(AWSProperty):
         "IndexName": (str, True),
         "KeySchema": ([KeySchema], True),
         "Projection": (Projection, True),
+        "WarmThroughput": (WarmThroughput, False),
         "WriteOnDemandThroughputSettings": (WriteOnDemandThroughputSettings, False),
         "WriteProvisionedThroughputSettings": (
             WriteProvisionedThroughputSettings,
@@ -140,6 +152,17 @@ class LocalSecondaryIndex(AWSProperty):
     }
 
 
+class PointInTimeRecoverySpecification(AWSProperty):
+    """
+    `PointInTimeRecoverySpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "PointInTimeRecoveryEnabled": (boolean, False),
+        "RecoveryPeriodInDays": (integer, False),
+    }
+
+
 class ContributorInsightsSpecification(AWSProperty):
     """
     `ContributorInsightsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html>`__
@@ -158,16 +181,6 @@ class KinesisStreamSpecification(AWSProperty):
     props: PropsDictType = {
         "ApproximateCreationDateTimePrecision": (str, False),
         "StreamArn": (str, True),
-    }
-
-
-class PointInTimeRecoverySpecification(AWSProperty):
-    """
-    `PointInTimeRecoverySpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "PointInTimeRecoveryEnabled": (boolean, False),
     }
 
 
@@ -292,11 +305,13 @@ class GlobalTable(AWSObject):
         "GlobalSecondaryIndexes": ([GlobalTableGlobalSecondaryIndex], False),
         "KeySchema": ([KeySchema], True),
         "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
+        "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
         "Replicas": ([ReplicaSpecification], True),
         "SSESpecification": (GlobalTableSSESpecification, False),
         "StreamSpecification": (StreamSpecification, False),
         "TableName": (str, False),
         "TimeToLiveSpecification": (TimeToLiveSpecification, False),
+        "WarmThroughput": (WarmThroughput, False),
         "WriteOnDemandThroughputSettings": (WriteOnDemandThroughputSettings, False),
         "WriteProvisionedThroughputSettings": (
             WriteProvisionedThroughputSettings,
@@ -339,6 +354,7 @@ class GlobalSecondaryIndex(AWSProperty):
         "OnDemandThroughput": (OnDemandThroughput, False),
         "Projection": (Projection, True),
         "ProvisionedThroughput": (ProvisionedThroughput, False),
+        "WarmThroughput": (WarmThroughput, False),
     }
 
 
@@ -427,6 +443,7 @@ class Table(AWSObject):
         "TableName": (str, False),
         "Tags": (Tags, False),
         "TimeToLiveSpecification": (TimeToLiveSpecification, False),
+        "WarmThroughput": (WarmThroughput, False),
     }
 
     def validate(self):

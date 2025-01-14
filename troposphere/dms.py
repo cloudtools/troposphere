@@ -28,6 +28,77 @@ class Certificate(AWSObject):
     }
 
 
+class DataMigrationSettings(AWSProperty):
+    """
+    `DataMigrationSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-datamigration-datamigrationsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudwatchLogsEnabled": (boolean, False),
+        "NumberOfJobs": (integer, False),
+        "SelectionRules": (str, False),
+    }
+
+
+class SourceDataSettings(AWSProperty):
+    """
+    `SourceDataSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-datamigration-sourcedatasettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CDCStartPosition": (str, False),
+        "CDCStartTime": (str, False),
+        "CDCStopTime": (str, False),
+        "SlotName": (str, False),
+    }
+
+
+class DataMigration(AWSObject):
+    """
+    `DataMigration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dms-datamigration.html>`__
+    """
+
+    resource_type = "AWS::DMS::DataMigration"
+
+    props: PropsDictType = {
+        "DataMigrationIdentifier": (str, False),
+        "DataMigrationName": (str, False),
+        "DataMigrationSettings": (DataMigrationSettings, False),
+        "DataMigrationType": (str, True),
+        "MigrationProjectIdentifier": (str, True),
+        "ServiceAccessRoleArn": (str, True),
+        "SourceDataSettings": ([SourceDataSettings], False),
+        "Tags": (Tags, False),
+    }
+
+
+class DocDbSettings(AWSProperty):
+    """
+    `DocDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "DocsToInvestigate": (integer, False),
+        "ExtractDocId": (boolean, False),
+        "NestingLevel": (str, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+    }
+
+
+class MariaDbSettings(AWSProperty):
+    """
+    `MariaDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mariadbsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateArn": (str, False),
+        "Port": (integer, True),
+        "ServerName": (str, True),
+        "SslMode": (str, True),
+    }
+
+
 class MicrosoftSqlServerSettings(AWSProperty):
     """
     `MicrosoftSqlServerSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-microsoftsqlserversettings.html>`__
@@ -50,6 +121,28 @@ class MicrosoftSqlServerSettings(AWSProperty):
         "TrimSpaceInChar": (boolean, False),
         "UseBcpFullLoad": (boolean, False),
         "UseThirdPartyBackupDevice": (boolean, False),
+        "Username": (str, False),
+    }
+
+
+class MongoDbSettings(AWSProperty):
+    """
+    `MongoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthMechanism": (str, False),
+        "AuthSource": (str, False),
+        "AuthType": (str, False),
+        "DatabaseName": (str, False),
+        "DocsToInvestigate": (str, False),
+        "ExtractDocId": (str, False),
+        "NestingLevel": (str, False),
+        "Password": (str, False),
+        "Port": (validate_network_port, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+        "ServerName": (str, False),
         "Username": (str, False),
     }
 
@@ -141,16 +234,55 @@ class PostgreSqlSettings(AWSProperty):
     }
 
 
+class RedshiftSettings(AWSProperty):
+    """
+    `RedshiftSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "AcceptAnyDate": (boolean, False),
+        "AfterConnectScript": (str, False),
+        "BucketFolder": (str, False),
+        "BucketName": (str, False),
+        "CaseSensitiveNames": (boolean, False),
+        "CompUpdate": (boolean, False),
+        "ConnectionTimeout": (integer, False),
+        "DateFormat": (str, False),
+        "EmptyAsNull": (boolean, False),
+        "EncryptionMode": (str, False),
+        "ExplicitIds": (boolean, False),
+        "FileTransferUploadStreams": (integer, False),
+        "LoadTimeout": (integer, False),
+        "MapBooleanAsBoolean": (boolean, False),
+        "MaxFileSize": (integer, False),
+        "RemoveQuotes": (boolean, False),
+        "ReplaceChars": (str, False),
+        "ReplaceInvalidChars": (str, False),
+        "SecretsManagerAccessRoleArn": (str, False),
+        "SecretsManagerSecretId": (str, False),
+        "ServerSideEncryptionKmsKeyId": (str, False),
+        "ServiceAccessRoleArn": (str, False),
+        "TimeFormat": (str, False),
+        "TrimBlanks": (boolean, False),
+        "TruncateColumns": (boolean, False),
+        "WriteBufferSize": (integer, False),
+    }
+
+
 class Settings(AWSProperty):
     """
     `Settings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-settings.html>`__
     """
 
     props: PropsDictType = {
+        "DocDbSettings": (DocDbSettings, False),
+        "MariaDbSettings": (MariaDbSettings, False),
         "MicrosoftSqlServerSettings": (MicrosoftSqlServerSettings, False),
+        "MongoDbSettings": (MongoDbSettings, False),
         "MySqlSettings": (MySqlSettings, False),
         "OracleSettings": (OracleSettings, False),
         "PostgreSqlSettings": (PostgreSqlSettings, False),
+        "RedshiftSettings": (RedshiftSettings, False),
     }
 
 
@@ -169,20 +301,6 @@ class DataProvider(AWSObject):
         "ExactSettings": (boolean, False),
         "Settings": (Settings, False),
         "Tags": (Tags, False),
-    }
-
-
-class DocDbSettings(AWSProperty):
-    """
-    `DocDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-docdbsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "DocsToInvestigate": (integer, False),
-        "ExtractDocId": (boolean, False),
-        "NestingLevel": (str, False),
-        "SecretsManagerAccessRoleArn": (str, False),
-        "SecretsManagerSecretId": (str, False),
     }
 
 
@@ -295,28 +413,6 @@ class KinesisSettings(AWSProperty):
     }
 
 
-class MongoDbSettings(AWSProperty):
-    """
-    `MongoDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-mongodbsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "AuthMechanism": (str, False),
-        "AuthSource": (str, False),
-        "AuthType": (str, False),
-        "DatabaseName": (str, False),
-        "DocsToInvestigate": (str, False),
-        "ExtractDocId": (str, False),
-        "NestingLevel": (str, False),
-        "Password": (str, False),
-        "Port": (validate_network_port, False),
-        "SecretsManagerAccessRoleArn": (str, False),
-        "SecretsManagerSecretId": (str, False),
-        "ServerName": (str, False),
-        "Username": (str, False),
-    }
-
-
 class NeptuneSettings(AWSProperty):
     """
     `NeptuneSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-neptunesettings.html>`__
@@ -346,41 +442,6 @@ class RedisSettings(AWSProperty):
         "ServerName": (str, False),
         "SslCaCertificateArn": (str, False),
         "SslSecurityProtocol": (str, False),
-    }
-
-
-class RedshiftSettings(AWSProperty):
-    """
-    `RedshiftSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-endpoint-redshiftsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "AcceptAnyDate": (boolean, False),
-        "AfterConnectScript": (str, False),
-        "BucketFolder": (str, False),
-        "BucketName": (str, False),
-        "CaseSensitiveNames": (boolean, False),
-        "CompUpdate": (boolean, False),
-        "ConnectionTimeout": (integer, False),
-        "DateFormat": (str, False),
-        "EmptyAsNull": (boolean, False),
-        "EncryptionMode": (str, False),
-        "ExplicitIds": (boolean, False),
-        "FileTransferUploadStreams": (integer, False),
-        "LoadTimeout": (integer, False),
-        "MapBooleanAsBoolean": (boolean, False),
-        "MaxFileSize": (integer, False),
-        "RemoveQuotes": (boolean, False),
-        "ReplaceChars": (str, False),
-        "ReplaceInvalidChars": (str, False),
-        "SecretsManagerAccessRoleArn": (str, False),
-        "SecretsManagerSecretId": (str, False),
-        "ServerSideEncryptionKmsKeyId": (str, False),
-        "ServiceAccessRoleArn": (str, False),
-        "TimeFormat": (str, False),
-        "TrimBlanks": (boolean, False),
-        "TruncateColumns": (boolean, False),
-        "WriteBufferSize": (integer, False),
     }
 
 

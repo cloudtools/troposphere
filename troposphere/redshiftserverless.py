@@ -60,6 +60,17 @@ class ConfigParameter(AWSProperty):
     }
 
 
+class PerformanceTarget(AWSProperty):
+    """
+    `PerformanceTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-performancetarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "Level": (integer, False),
+        "Status": (str, False),
+    }
+
+
 class NetworkInterface(AWSProperty):
     """
     `NetworkInterface <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshiftserverless-workgroup-networkinterface.html>`__
@@ -110,6 +121,7 @@ class WorkgroupProperty(AWSProperty):
         "EnhancedVpcRouting": (boolean, False),
         "MaxCapacity": (integer, False),
         "NamespaceName": (str, False),
+        "PricePerformanceTarget": (PerformanceTarget, False),
         "PubliclyAccessible": (boolean, False),
         "SecurityGroupIds": ([str], False),
         "Status": (str, False),
@@ -134,6 +146,7 @@ class Workgroup(AWSObject):
         "MaxCapacity": (integer, False),
         "NamespaceName": (str, False),
         "Port": (integer, False),
+        "PricePerformanceTarget": (PerformanceTarget, False),
         "PubliclyAccessible": (boolean, False),
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], False),

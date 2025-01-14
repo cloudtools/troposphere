@@ -168,6 +168,26 @@ class Device(AWSObject):
     }
 
 
+class DirectConnectGatewayAttachment(AWSObject):
+    """
+    `DirectConnectGatewayAttachment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-directconnectgatewayattachment.html>`__
+    """
+
+    resource_type = "AWS::NetworkManager::DirectConnectGatewayAttachment"
+
+    props: PropsDictType = {
+        "CoreNetworkId": (str, True),
+        "DirectConnectGatewayArn": (str, True),
+        "EdgeLocations": ([str], True),
+        "ProposedNetworkFunctionGroupChange": (
+            ProposedNetworkFunctionGroupChange,
+            False,
+        ),
+        "ProposedSegmentChange": (ProposedSegmentChange, False),
+        "Tags": (Tags, False),
+    }
+
+
 class GlobalNetwork(AWSObject):
     """
     `GlobalNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-networkmanager-globalnetwork.html>`__

@@ -28,6 +28,19 @@ class Ec2ConfigurationObject(AWSProperty):
     }
 
 
+class LaunchTemplateSpecificationOverride(AWSProperty):
+    """
+    `LaunchTemplateSpecificationOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecificationoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "LaunchTemplateId": (str, False),
+        "LaunchTemplateName": (str, False),
+        "TargetInstanceTypes": ([str], False),
+        "Version": (str, False),
+    }
+
+
 class LaunchTemplateSpecification(AWSProperty):
     """
     `LaunchTemplateSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-computeenvironment-launchtemplatespecification.html>`__
@@ -36,6 +49,7 @@ class LaunchTemplateSpecification(AWSProperty):
     props: PropsDictType = {
         "LaunchTemplateId": (str, False),
         "LaunchTemplateName": (str, False),
+        "Overrides": ([LaunchTemplateSpecificationOverride], False),
         "Version": (str, False),
     }
 
@@ -127,7 +141,7 @@ class Environment(AWSProperty):
 
 class EphemeralStorage(AWSProperty):
     """
-    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-ephemeralstorage.html>`__
+    `EphemeralStorage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ephemeralstorage.html>`__
     """
 
     props: PropsDictType = {
@@ -137,7 +151,7 @@ class EphemeralStorage(AWSProperty):
 
 class FargatePlatformConfiguration(AWSProperty):
     """
-    `FargatePlatformConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-containerproperties-fargateplatformconfiguration.html>`__
+    `FargatePlatformConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-fargateplatformconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -171,7 +185,7 @@ class Tmpfs(AWSProperty):
 
 class LinuxParameters(AWSProperty):
     """
-    `LinuxParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-linuxparameters.html>`__
+    `LinuxParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-linuxparameters.html>`__
     """
 
     props: PropsDictType = {
@@ -197,7 +211,7 @@ class Secret(AWSProperty):
 
 class LogConfiguration(AWSProperty):
     """
-    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-logconfiguration.html>`__
+    `LogConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-logconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -209,7 +223,7 @@ class LogConfiguration(AWSProperty):
 
 class MountPoints(AWSProperty):
     """
-    `MountPoints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoints.html>`__
+    `MountPoints <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-mountpoint.html>`__
     """
 
     props: PropsDictType = {
@@ -221,7 +235,7 @@ class MountPoints(AWSProperty):
 
 class NetworkConfiguration(AWSProperty):
     """
-    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-networkconfiguration.html>`__
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-networkconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -231,7 +245,7 @@ class NetworkConfiguration(AWSProperty):
 
 class RepositoryCredentials(AWSProperty):
     """
-    `RepositoryCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerproperties-repositorycredentials.html>`__
+    `RepositoryCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-repositorycredentials.html>`__
     """
 
     props: PropsDictType = {
@@ -252,7 +266,7 @@ class ResourceRequirement(AWSProperty):
 
 class RuntimePlatform(AWSProperty):
     """
-    `RuntimePlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ecstaskproperties-runtimeplatform.html>`__
+    `RuntimePlatform <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-runtimeplatform.html>`__
     """
 
     props: PropsDictType = {
@@ -275,7 +289,7 @@ class Ulimit(AWSProperty):
 
 class AuthorizationConfig(AWSProperty):
     """
-    `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-authorizationconfig.html>`__
+    `AuthorizationConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-efsauthorizationconfig.html>`__
     """
 
     props: PropsDictType = {
@@ -300,7 +314,7 @@ class EfsVolumeConfiguration(AWSProperty):
 
 class VolumesHost(AWSProperty):
     """
-    `VolumesHost <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumeshost.html>`__
+    `VolumesHost <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-host.html>`__
     """
 
     props: PropsDictType = {
@@ -310,7 +324,7 @@ class VolumesHost(AWSProperty):
 
 class Volumes(AWSProperty):
     """
-    `Volumes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volumes.html>`__
+    `Volumes <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-volume.html>`__
     """
 
     props: PropsDictType = {
@@ -332,7 +346,6 @@ class ContainerProperties(AWSProperty):
         "ExecutionRoleArn": (str, False),
         "FargatePlatformConfiguration": (FargatePlatformConfiguration, False),
         "Image": (str, True),
-        "InstanceType": (str, False),
         "JobRoleArn": (str, False),
         "LinuxParameters": (LinuxParameters, False),
         "LogConfiguration": (LogConfiguration, False),
@@ -535,13 +548,13 @@ class ImagePullSecret(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Name": (str, True),
+        "Name": (str, False),
     }
 
 
 class Metadata(AWSProperty):
     """
-    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties-metadata.html>`__
+    `Metadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-eksmetadata.html>`__
     """
 
     props: PropsDictType = {
@@ -551,7 +564,7 @@ class Metadata(AWSProperty):
 
 class PodProperties(AWSProperty):
     """
-    `PodProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-podproperties.html>`__
+    `PodProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekspodproperties.html>`__
     """
 
     props: PropsDictType = {
@@ -577,14 +590,69 @@ class EksProperties(AWSProperty):
     }
 
 
+class MultiNodeContainerProperties(AWSProperty):
+    """
+    `MultiNodeContainerProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-multinodecontainerproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Command": ([str], False),
+        "Environment": ([Environment], False),
+        "EphemeralStorage": (EphemeralStorage, False),
+        "ExecutionRoleArn": (str, False),
+        "Image": (str, True),
+        "InstanceType": (str, False),
+        "JobRoleArn": (str, False),
+        "LinuxParameters": (LinuxParameters, False),
+        "LogConfiguration": (LogConfiguration, False),
+        "Memory": (integer, False),
+        "MountPoints": ([MountPoints], False),
+        "Privileged": (boolean, False),
+        "ReadonlyRootFilesystem": (boolean, False),
+        "RepositoryCredentials": (RepositoryCredentials, False),
+        "ResourceRequirements": ([ResourceRequirement], False),
+        "RuntimePlatform": (RuntimePlatform, False),
+        "Secrets": ([Secret], False),
+        "Ulimits": ([Ulimit], False),
+        "User": (str, False),
+        "Vcpus": (integer, False),
+        "Volumes": ([Volumes], False),
+    }
+
+
+class MultiNodeEcsTaskProperties(AWSProperty):
+    """
+    `MultiNodeEcsTaskProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-multinodeecstaskproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "Containers": ([TaskContainerProperties], False),
+        "ExecutionRoleArn": (str, False),
+        "IpcMode": (str, False),
+        "PidMode": (str, False),
+        "TaskRoleArn": (str, False),
+        "Volumes": ([Volumes], False),
+    }
+
+
+class MultiNodeEcsProperties(AWSProperty):
+    """
+    `MultiNodeEcsProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-multinodeecsproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "TaskProperties": ([MultiNodeEcsTaskProperties], True),
+    }
+
+
 class NodeRangeProperty(AWSProperty):
     """
     `NodeRangeProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-noderangeproperty.html>`__
     """
 
     props: PropsDictType = {
-        "Container": (ContainerProperties, False),
-        "EcsProperties": (EcsProperties, False),
+        "Container": (MultiNodeContainerProperties, False),
+        "EcsProperties": (MultiNodeEcsProperties, False),
         "EksProperties": (EksProperties, False),
         "InstanceTypes": ([str], False),
         "TargetNodes": (str, True),
@@ -629,7 +697,7 @@ class RetryStrategy(AWSProperty):
 
 class Timeout(AWSProperty):
     """
-    `Timeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-timeout.html>`__
+    `Timeout <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-jobtimeout.html>`__
     """
 
     props: PropsDictType = {

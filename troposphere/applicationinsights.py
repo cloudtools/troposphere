@@ -249,5 +249,6 @@ class Application(AWSObject):
         "OpsCenterEnabled": (boolean, False),
         "OpsItemSNSTopicArn": (str, False),
         "ResourceGroupName": (str, True),
+        "SNSNotificationArn": (str, False),
         "Tags": (Tags, False),
     }

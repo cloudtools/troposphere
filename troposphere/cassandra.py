@@ -33,6 +33,7 @@ class Keyspace(AWSObject):
     resource_type = "AWS::Cassandra::Keyspace"
 
     props: PropsDictType = {
+        "ClientSideTimestampsEnabled": (boolean, False),
         "KeyspaceName": (str, False),
         "ReplicationSpecification": (ReplicationSpecification, False),
         "Tags": (Tags, False),
@@ -177,4 +178,29 @@ class Table(AWSObject):
         "ReplicaSpecifications": ([ReplicaSpecification], False),
         "TableName": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class Field(AWSProperty):
+    """
+    `Field <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cassandra-type-field.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldName": (str, True),
+        "FieldType": (str, True),
+    }
+
+
+class Type(AWSObject):
+    """
+    `Type <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cassandra-type.html>`__
+    """
+
+    resource_type = "AWS::Cassandra::Type"
+
+    props: PropsDictType = {
+        "Fields": ([Field], True),
+        "KeyspaceName": (str, True),
+        "TypeName": (str, True),
     }

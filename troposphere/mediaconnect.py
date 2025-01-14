@@ -55,6 +55,16 @@ class BridgeFlowSource(AWSProperty):
     }
 
 
+class MulticastSourceSettings(AWSProperty):
+    """
+    `MulticastSourceSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-multicastsourcesettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "MulticastSourceIp": (str, False),
+    }
+
+
 class BridgeNetworkSource(AWSProperty):
     """
     `BridgeNetworkSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-bridgesource-bridgenetworksource.html>`__
@@ -62,6 +72,7 @@ class BridgeNetworkSource(AWSProperty):
 
     props: PropsDictType = {
         "MulticastIp": (str, True),
+        "MulticastSourceSettings": (MulticastSourceSettings, False),
         "NetworkName": (str, True),
         "Port": (integer, True),
         "Protocol": (str, True),
