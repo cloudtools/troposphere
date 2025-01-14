@@ -12,4 +12,8 @@ patches = [
         "op": "remove",
         "path": "/PropertyTypes/AWS::QuickSight::Dashboard.DashboardVersion",
     },
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::QuickSight::Template.Visual",
+    },
 ]
