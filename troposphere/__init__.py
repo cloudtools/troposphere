@@ -1,4 +1,4 @@
-# Copyright (c) 2012-2022, Mark Peek <mark@peek.org>
+# Copyright (c) 2012-2025, Mark Peek <mark@peek.org>
 # All rights reserved.
 #
 # See LICENSE file for full license.
@@ -41,7 +41,7 @@ if TYPE_CHECKING:
     else:
         from typing import Final
 
-__version__ = "4.8.3"
+__version__ = "4.9.0"
 
 # constants for DeletionPolicy and UpdateReplacePolicy
 Delete: Final = "Delete"

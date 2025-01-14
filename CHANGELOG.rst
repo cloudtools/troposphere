@@ -1,3 +1,17 @@
+4.9.0 (2025*01*14)
+-------------------------------
+* Updates from spec version 186.0.0 (#2273)
+* Update list of valid Synthetics::Canary runtime versions (#2276)
+* AWS::Transfer patches are not needed with spec 188.0.0
+* Remove deprecated AWS::IoT1Click
+* Allow "object" to be used as a property type
+* Patches needed for spec 188.0.0
+* Add new AWS resources
+* Patch AWS::Batch again for backward compatibility
+* Tweak GameLift patches
+* Updates from spec version 188.0.0 (#2278)
+* Update copyright year in generated files
+
 4.8.3 (2024*10*02)
 -------------------------------
 * Allow AWSHelperFn for Tag properties (#2271)
