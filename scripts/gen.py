@@ -599,6 +599,10 @@ class CodeGenerator:
             if property_name == "List":
                 continue
 
+            # Allow generic object for recursive use cases
+            if property_name == "object":
+                continue
+
             try:
                 child = self._build_tree(
                     property_name,
