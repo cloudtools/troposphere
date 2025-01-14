@@ -16,6 +16,7 @@ class DeliveryOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MaxDeliverySeconds": (double, False),
         "SendingPoolName": (str, False),
         "TlsPolicy": (str, False),
     }
@@ -444,6 +445,19 @@ class DeliverToMailboxAction(AWSProperty):
     }
 
 
+class DeliverToQBusinessAction(AWSProperty):
+    """
+    `DeliverToQBusinessAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-delivertoqbusinessaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionFailurePolicy": (str, False),
+        "ApplicationId": (str, True),
+        "IndexId": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
 class MailManagerS3Action(AWSProperty):
     """
     `MailManagerS3Action <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-s3action.html>`__
@@ -500,6 +514,7 @@ class RuleAction(AWSProperty):
         "AddHeader": (AddHeaderAction, False),
         "Archive": (ArchiveAction, False),
         "DeliverToMailbox": (DeliverToMailboxAction, False),
+        "DeliverToQBusiness": (DeliverToQBusinessAction, False),
         "Drop": (dict, False),
         "Relay": (RelayAction, False),
         "ReplaceRecipient": (ReplaceRecipientAction, False),
@@ -869,6 +884,17 @@ class BounceAction(AWSProperty):
     }
 
 
+class ConnectAction(AWSProperty):
+    """
+    `ConnectAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-connectaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "IAMRoleARN": (str, True),
+        "InstanceARN": (str, True),
+    }
+
+
 class LambdaAction(AWSProperty):
     """
     `LambdaAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-receiptrule-lambdaaction.html>`__
@@ -936,6 +962,7 @@ class Action(AWSProperty):
     props: PropsDictType = {
         "AddHeaderAction": (AddHeaderAction, False),
         "BounceAction": (BounceAction, False),
+        "ConnectAction": (ConnectAction, False),
         "LambdaAction": (LambdaAction, False),
         "S3Action": (S3Action, False),
         "SNSAction": (SNSAction, False),

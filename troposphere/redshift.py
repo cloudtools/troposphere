@@ -216,6 +216,23 @@ class EventSubscription(AWSObject):
     }
 
 
+class Integration(AWSObject):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-redshift-integration.html>`__
+    """
+
+    resource_type = "AWS::Redshift::Integration"
+
+    props: PropsDictType = {
+        "AdditionalEncryptionContext": (dict, False),
+        "IntegrationName": (str, False),
+        "KMSKeyId": (str, False),
+        "SourceArn": (str, True),
+        "Tags": (Tags, False),
+        "TargetArn": (str, True),
+    }
+
+
 class PauseClusterMessage(AWSProperty):
     """
     `PauseClusterMessage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-redshift-scheduledaction-pauseclustermessage.html>`__

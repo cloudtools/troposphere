@@ -174,7 +174,7 @@ class LockConfigurationType(AWSProperty):
 
 class NotificationObjectType(AWSProperty):
     """
-    `NotificationObjectType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupvault-notificationobjecttype.html>`__
+    `NotificationObjectType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-logicallyairgappedbackupvault-notificationobjecttype.html>`__
     """
 
     props: PropsDictType = {
@@ -247,6 +247,25 @@ class Framework(AWSObject):
         "FrameworkDescription": (str, False),
         "FrameworkName": (str, False),
         "FrameworkTags": (Tags, False),
+    }
+
+
+class LogicallyAirGappedBackupVault(AWSObject):
+    """
+    `LogicallyAirGappedBackupVault <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-backup-logicallyairgappedbackupvault.html>`__
+    """
+
+    resource_type = "AWS::Backup::LogicallyAirGappedBackupVault"
+
+    props: PropsDictType = {
+        "AccessPolicy": (dict, False),
+        "BackupVaultName": (str, True),
+        "BackupVaultTags": (dict, False),
+        "MaxRetentionDays": (integer, True),
+        "MinRetentionDays": (integer, True),
+        "Notifications": (NotificationObjectType, False),
+        "VaultState": (str, False),
+        "VaultType": (str, False),
     }
 
 

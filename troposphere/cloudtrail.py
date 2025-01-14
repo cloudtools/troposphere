@@ -36,6 +36,57 @@ class Channel(AWSObject):
     }
 
 
+class Frequency(AWSProperty):
+    """
+    `Frequency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-frequency.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class RefreshSchedule(AWSProperty):
+    """
+    `RefreshSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-refreshschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Frequency": (Frequency, False),
+        "Status": (str, False),
+        "TimeOfDay": (str, False),
+    }
+
+
+class Widget(AWSProperty):
+    """
+    `Widget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-dashboard-widget.html>`__
+    """
+
+    props: PropsDictType = {
+        "QueryParameters": ([str], False),
+        "QueryStatement": (str, True),
+        "ViewProperties": (dict, False),
+    }
+
+
+class Dashboard(AWSObject):
+    """
+    `Dashboard <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudtrail-dashboard.html>`__
+    """
+
+    resource_type = "AWS::CloudTrail::Dashboard"
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "RefreshSchedule": (RefreshSchedule, False),
+        "Tags": (Tags, False),
+        "TerminationProtectionEnabled": (boolean, False),
+        "Widgets": ([Widget], False),
+    }
+
+
 class AdvancedFieldSelector(AWSProperty):
     """
     `AdvancedFieldSelector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudtrail-trail-advancedfieldselector.html>`__

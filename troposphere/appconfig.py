@@ -49,6 +49,7 @@ class ConfigurationProfile(AWSObject):
 
     props: PropsDictType = {
         "ApplicationId": (str, True),
+        "DeletionProtectionCheck": (str, False),
         "Description": (str, False),
         "KmsKeyIdentifier": (str, False),
         "LocationUri": (str, True),
@@ -131,6 +132,7 @@ class Environment(AWSObject):
 
     props: PropsDictType = {
         "ApplicationId": (str, True),
+        "DeletionProtectionCheck": (str, False),
         "Description": (str, False),
         "Monitors": ([Monitor], False),
         "Name": (str, True),

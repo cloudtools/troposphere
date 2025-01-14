@@ -89,6 +89,27 @@ class ConnectionHttpParameters(AWSProperty):
     }
 
 
+class ResourceParameters(AWSProperty):
+    """
+    `ResourceParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-resourceparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceAssociationArn": (str, False),
+        "ResourceConfigurationArn": (str, True),
+    }
+
+
+class ConnectivityParameters(AWSProperty):
+    """
+    `ConnectivityParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-connectivityparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceParameters": (ResourceParameters, True),
+    }
+
+
 class ClientParameters(AWSProperty):
     """
     `ClientParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-clientparameters.html>`__
@@ -121,8 +142,19 @@ class AuthParameters(AWSProperty):
     props: PropsDictType = {
         "ApiKeyAuthParameters": (ApiKeyAuthParameters, False),
         "BasicAuthParameters": (BasicAuthParameters, False),
+        "ConnectivityParameters": (ConnectivityParameters, False),
         "InvocationHttpParameters": (ConnectionHttpParameters, False),
         "OAuthParameters": (OAuthParameters, False),
+    }
+
+
+class InvocationConnectivityParameters(AWSProperty):
+    """
+    `InvocationConnectivityParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-events-connection-invocationconnectivityparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceParameters": (ResourceParameters, True),
     }
 
 
@@ -137,6 +169,7 @@ class Connection(AWSObject):
         "AuthParameters": (AuthParameters, False),
         "AuthorizationType": (str, False),
         "Description": (str, False),
+        "InvocationConnectivityParameters": (InvocationConnectivityParameters, False),
         "Name": (str, False),
     }
 

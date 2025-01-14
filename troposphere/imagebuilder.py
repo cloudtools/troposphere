@@ -330,7 +330,7 @@ class Image(AWSObject):
         "ImageRecipeArn": (str, False),
         "ImageScanningConfiguration": (ImageScanningConfiguration, False),
         "ImageTestsConfiguration": (ImageTestsConfiguration, False),
-        "InfrastructureConfigurationArn": (str, True),
+        "InfrastructureConfigurationArn": (str, False),
         "Tags": (dict, False),
         "Workflows": ([WorkflowConfiguration], False),
     }
@@ -459,6 +459,19 @@ class Logging(AWSProperty):
     }
 
 
+class Placement(AWSProperty):
+    """
+    `Placement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-infrastructureconfiguration-placement.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "HostId": (str, False),
+        "HostResourceGroupArn": (str, False),
+        "Tenancy": (str, False),
+    }
+
+
 class InfrastructureConfiguration(AWSObject):
     """
     `InfrastructureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-imagebuilder-infrastructureconfiguration.html>`__
@@ -474,6 +487,7 @@ class InfrastructureConfiguration(AWSObject):
         "KeyPair": (str, False),
         "Logging": (Logging, False),
         "Name": (str, True),
+        "Placement": (Placement, False),
         "ResourceTags": (dict, False),
         "SecurityGroupIds": ([str], False),
         "SnsTopicArn": (str, False),

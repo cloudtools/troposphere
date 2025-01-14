@@ -829,7 +829,7 @@ class Schema(AWSObject):
         "Description": (str, False),
         "Name": (str, True),
         "Registry": (RegistryProperty, False),
-        "SchemaDefinition": (str, True),
+        "SchemaDefinition": (str, False),
         "Tags": (Tags, False),
     }
 

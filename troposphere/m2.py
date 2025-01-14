@@ -29,13 +29,27 @@ class Application(AWSObject):
     resource_type = "AWS::M2::Application"
 
     props: PropsDictType = {
-        "Definition": (Definition, True),
+        "Definition": (Definition, False),
         "Description": (str, False),
         "EngineType": (str, True),
         "KmsKeyId": (str, False),
         "Name": (str, True),
         "RoleArn": (str, False),
         "Tags": (dict, False),
+    }
+
+
+class Deployment(AWSObject):
+    """
+    `Deployment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-m2-deployment.html>`__
+    """
+
+    resource_type = "AWS::M2::Deployment"
+
+    props: PropsDictType = {
+        "ApplicationId": (str, True),
+        "ApplicationVersion": (integer, True),
+        "EnvironmentId": (str, True),
     }
 
 
@@ -97,6 +111,7 @@ class Environment(AWSObject):
         "InstanceType": (str, True),
         "KmsKeyId": (str, False),
         "Name": (str, True),
+        "NetworkType": (str, False),
         "PreferredMaintenanceWindow": (str, False),
         "PubliclyAccessible": (boolean, False),
         "SecurityGroupIds": ([str], False),

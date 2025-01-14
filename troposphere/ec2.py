@@ -70,6 +70,7 @@ class CapacityReservation(AWSObject):
         "PlacementGroupArn": (str, False),
         "TagSpecifications": ([TagSpecifications], False),
         "Tenancy": (str, False),
+        "UnusedReservationBillingOwnerId": (str, False),
     }
 
 
@@ -340,6 +341,36 @@ class BaselineEbsBandwidthMbpsRequest(AWSProperty):
     }
 
 
+class PerformanceFactorReferenceRequest(AWSProperty):
+    """
+    `PerformanceFactorReferenceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-performancefactorreferencerequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceFamily": (str, False),
+    }
+
+
+class CpuPerformanceFactorRequest(AWSProperty):
+    """
+    `CpuPerformanceFactorRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-cpuperformancefactorrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "References": ([PerformanceFactorReferenceRequest], False),
+    }
+
+
+class BaselinePerformanceFactorsRequest(AWSProperty):
+    """
+    `BaselinePerformanceFactorsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-baselineperformancefactorsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cpu": (CpuPerformanceFactorRequest, False),
+    }
+
+
 class MemoryGiBPerVCpuRequest(AWSProperty):
     """
     `MemoryGiBPerVCpuRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-memorygibpervcpurequest.html>`__
@@ -420,6 +451,7 @@ class InstanceRequirementsRequest(AWSProperty):
         "AllowedInstanceTypes": ([str], False),
         "BareMetal": (str, False),
         "BaselineEbsBandwidthMbps": (BaselineEbsBandwidthMbpsRequest, False),
+        "BaselinePerformanceFactors": (BaselinePerformanceFactorsRequest, False),
         "BurstablePerformance": (str, False),
         "CpuManufacturers": ([str], False),
         "ExcludedInstanceTypes": ([str], False),
@@ -605,8 +637,10 @@ class EIP(AWSObject):
     resource_type = "AWS::EC2::EIP"
 
     props: PropsDictType = {
+        "Address": (str, False),
         "Domain": (str, False),
         "InstanceId": (str, False),
+        "IpamPoolId": (str, False),
         "NetworkBorderGroup": (str, False),
         "PublicIpv4Pool": (str, False),
         "Tags": (Tags, False),
@@ -1246,6 +1280,36 @@ class BaselineEbsBandwidthMbps(AWSProperty):
     }
 
 
+class Reference(AWSProperty):
+    """
+    `Reference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-reference.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceFamily": (str, False),
+    }
+
+
+class Cpu(AWSProperty):
+    """
+    `Cpu <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-cpu.html>`__
+    """
+
+    props: PropsDictType = {
+        "References": ([Reference], False),
+    }
+
+
+class BaselinePerformanceFactors(AWSProperty):
+    """
+    `BaselinePerformanceFactors <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-baselineperformancefactors.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cpu": (Cpu, False),
+    }
+
+
 class MemoryGiBPerVCpu(AWSProperty):
     """
     `MemoryGiBPerVCpu <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-memorygibpervcpu.html>`__
@@ -1326,6 +1390,7 @@ class InstanceRequirements(AWSProperty):
         "AllowedInstanceTypes": ([str], False),
         "BareMetal": (str, False),
         "BaselineEbsBandwidthMbps": (BaselineEbsBandwidthMbps, False),
+        "BaselinePerformanceFactors": (BaselinePerformanceFactors, False),
         "BurstablePerformance": (str, False),
         "CpuManufacturers": ([str], False),
         "ExcludedInstanceTypes": ([str], False),
@@ -1540,6 +1605,7 @@ class LaunchTemplateData(AWSProperty):
         "MetadataOptions": (MetadataOptions, False),
         "Monitoring": (Monitoring, False),
         "NetworkInterfaces": ([NetworkInterfaces], False),
+        "NetworkPerformanceOptions": (dict, False),
         "Placement": (Placement, False),
         "PrivateDnsNameOptions": (PrivateDnsNameOptions, False),
         "RamDiskId": (str, False),
@@ -2066,6 +2132,19 @@ class SecurityGroupIngress(AWSObject):
 
     def validate(self):
         validate_security_group_ingress(self)
+
+
+class SecurityGroupVpcAssociation(AWSObject):
+    """
+    `SecurityGroupVpcAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-securitygroupvpcassociation.html>`__
+    """
+
+    resource_type = "AWS::EC2::SecurityGroupVpcAssociation"
+
+    props: PropsDictType = {
+        "GroupId": (str, True),
+        "VpcId": (str, True),
+    }
 
 
 class SnapshotBlockPublicAccess(AWSObject):
@@ -2745,6 +2824,33 @@ class VPC(AWSObject):
     }
 
 
+class VPCBlockPublicAccessExclusion(AWSObject):
+    """
+    `VPCBlockPublicAccessExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessexclusion.html>`__
+    """
+
+    resource_type = "AWS::EC2::VPCBlockPublicAccessExclusion"
+
+    props: PropsDictType = {
+        "InternetGatewayExclusionMode": (str, True),
+        "SubnetId": (str, False),
+        "Tags": (Tags, False),
+        "VpcId": (str, False),
+    }
+
+
+class VPCBlockPublicAccessOptions(AWSObject):
+    """
+    `VPCBlockPublicAccessOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcblockpublicaccessoptions.html>`__
+    """
+
+    resource_type = "AWS::EC2::VPCBlockPublicAccessOptions"
+
+    props: PropsDictType = {
+        "InternetGatewayBlockMode": (str, True),
+    }
+
+
 class VPCCidrBlock(AWSObject):
     """
     `VPCCidrBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpccidrblock.html>`__
@@ -2758,6 +2864,7 @@ class VPCCidrBlock(AWSObject):
         "Ipv4IpamPoolId": (str, False),
         "Ipv4NetmaskLength": (integer, False),
         "Ipv6CidrBlock": (str, False),
+        "Ipv6CidrBlockNetworkBorderGroup": (str, False),
         "Ipv6IpamPoolId": (str, False),
         "Ipv6NetmaskLength": (integer, False),
         "Ipv6Pool": (str, False),
@@ -2778,6 +2885,17 @@ class VPCDHCPOptionsAssociation(AWSObject):
     }
 
 
+class DnsOptionsSpecification(AWSProperty):
+    """
+    `DnsOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpcendpoint-dnsoptionsspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "DnsRecordIpType": (str, False),
+        "PrivateDnsOnlyForInboundResolverEndpoint": (str, False),
+    }
+
+
 class VPCEndpoint(AWSObject):
     """
     `VPCEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-vpcendpoint.html>`__
@@ -2786,12 +2904,17 @@ class VPCEndpoint(AWSObject):
     resource_type = "AWS::EC2::VPCEndpoint"
 
     props: PropsDictType = {
+        "DnsOptions": (DnsOptionsSpecification, False),
+        "IpAddressType": (str, False),
         "PolicyDocument": (policytypes, False),
         "PrivateDnsEnabled": (boolean, False),
+        "ResourceConfigurationArn": (str, False),
         "RouteTableIds": ([str], False),
         "SecurityGroupIds": ([str], False),
-        "ServiceName": (str, True),
+        "ServiceName": (str, False),
+        "ServiceNetworkArn": (str, False),
         "SubnetIds": ([str], False),
+        "Tags": (Tags, False),
         "VpcEndpointType": (vpc_endpoint_type, False),
         "VpcId": (str, True),
     }
@@ -2825,6 +2948,7 @@ class VPCEndpointService(AWSObject):
         "GatewayLoadBalancerArns": ([str], False),
         "NetworkLoadBalancerArns": ([str], False),
         "PayerResponsibility": (str, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -2872,14 +2996,136 @@ class VPCPeeringConnection(AWSObject):
     }
 
 
+class IKEVersionsRequestListValue(AWSProperty):
+    """
+    `IKEVersionsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-ikeversionsrequestlistvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (str, False),
+    }
+
+
+class Phase1DHGroupNumbersRequestListValue(AWSProperty):
+    """
+    `Phase1DHGroupNumbersRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1dhgroupnumbersrequestlistvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (integer, False),
+    }
+
+
+class Phase1EncryptionAlgorithmsRequestListValue(AWSProperty):
+    """
+    `Phase1EncryptionAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1encryptionalgorithmsrequestlistvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (str, False),
+    }
+
+
+class Phase1IntegrityAlgorithmsRequestListValue(AWSProperty):
+    """
+    `Phase1IntegrityAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase1integrityalgorithmsrequestlistvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (str, False),
+    }
+
+
+class Phase2DHGroupNumbersRequestListValue(AWSProperty):
+    """
+    `Phase2DHGroupNumbersRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2dhgroupnumbersrequestlistvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (integer, False),
+    }
+
+
+class Phase2EncryptionAlgorithmsRequestListValue(AWSProperty):
+    """
+    `Phase2EncryptionAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2encryptionalgorithmsrequestlistvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (str, False),
+    }
+
+
+class Phase2IntegrityAlgorithmsRequestListValue(AWSProperty):
+    """
+    `Phase2IntegrityAlgorithmsRequestListValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-phase2integrityalgorithmsrequestlistvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Value": (str, False),
+    }
+
+
+class CloudwatchLogOptionsSpecification(AWSProperty):
+    """
+    `CloudwatchLogOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-cloudwatchlogoptionsspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "LogEnabled": (boolean, False),
+        "LogGroupArn": (str, False),
+        "LogOutputFormat": (str, False),
+    }
+
+
+class VpnTunnelLogOptionsSpecification(AWSProperty):
+    """
+    `VpnTunnelLogOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunnellogoptionsspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudwatchLogOptions": (CloudwatchLogOptionsSpecification, False),
+    }
+
+
 class VpnTunnelOptionsSpecification(AWSProperty):
     """
     `VpnTunnelOptionsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-vpnconnection-vpntunneloptionsspecification.html>`__
     """
 
     props: PropsDictType = {
+        "DPDTimeoutAction": (str, False),
+        "DPDTimeoutSeconds": (integer, False),
+        "EnableTunnelLifecycleControl": (boolean, False),
+        "IKEVersions": ([IKEVersionsRequestListValue], False),
+        "LogOptions": (VpnTunnelLogOptionsSpecification, False),
+        "Phase1DHGroupNumbers": ([Phase1DHGroupNumbersRequestListValue], False),
+        "Phase1EncryptionAlgorithms": (
+            [Phase1EncryptionAlgorithmsRequestListValue],
+            False,
+        ),
+        "Phase1IntegrityAlgorithms": (
+            [Phase1IntegrityAlgorithmsRequestListValue],
+            False,
+        ),
+        "Phase1LifetimeSeconds": (integer, False),
+        "Phase2DHGroupNumbers": ([Phase2DHGroupNumbersRequestListValue], False),
+        "Phase2EncryptionAlgorithms": (
+            [Phase2EncryptionAlgorithmsRequestListValue],
+            False,
+        ),
+        "Phase2IntegrityAlgorithms": (
+            [Phase2IntegrityAlgorithmsRequestListValue],
+            False,
+        ),
+        "Phase2LifetimeSeconds": (integer, False),
         "PreSharedKey": (vpn_pre_shared_key, False),
+        "RekeyFuzzPercentage": (integer, False),
+        "RekeyMarginTimeSeconds": (integer, False),
+        "ReplayWindowSize": (integer, False),
+        "StartupAction": (str, False),
         "TunnelInsideCidr": (vpn_tunnel_inside_cidr, False),
+        "TunnelInsideIpv6Cidr": (str, False),
     }
 
 

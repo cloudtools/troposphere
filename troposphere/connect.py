@@ -77,6 +77,22 @@ class ContactFlowModule(AWSObject):
     }
 
 
+class EmailAddress(AWSObject):
+    """
+    `EmailAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html>`__
+    """
+
+    resource_type = "AWS::Connect::EmailAddress"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DisplayName": (str, False),
+        "EmailAddress": (str, True),
+        "InstanceArn": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class HoursOfOperationTimeSlice(AWSProperty):
     """
     `HoursOfOperationTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationtimeslice.html>`__
@@ -100,6 +116,44 @@ class HoursOfOperationConfig(AWSProperty):
     }
 
 
+class OverrideTimeSlice(AWSProperty):
+    """
+    `OverrideTimeSlice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-overridetimeslice.html>`__
+    """
+
+    props: PropsDictType = {
+        "Hours": (integer, True),
+        "Minutes": (integer, True),
+    }
+
+
+class HoursOfOperationOverrideConfig(AWSProperty):
+    """
+    `HoursOfOperationOverrideConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverrideconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Day": (str, True),
+        "EndTime": (OverrideTimeSlice, True),
+        "StartTime": (OverrideTimeSlice, True),
+    }
+
+
+class HoursOfOperationOverride(AWSProperty):
+    """
+    `HoursOfOperationOverride <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-hoursofoperation-hoursofoperationoverride.html>`__
+    """
+
+    props: PropsDictType = {
+        "EffectiveFrom": (str, True),
+        "EffectiveTill": (str, True),
+        "HoursOfOperationOverrideId": (str, False),
+        "OverrideConfig": ([HoursOfOperationOverrideConfig], True),
+        "OverrideDescription": (str, False),
+        "OverrideName": (str, True),
+    }
+
+
 class HoursOfOperation(AWSObject):
     """
     `HoursOfOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-hoursofoperation.html>`__
@@ -110,6 +164,7 @@ class HoursOfOperation(AWSObject):
     props: PropsDictType = {
         "Config": ([HoursOfOperationConfig], True),
         "Description": (str, False),
+        "HoursOfOperationOverrides": ([HoursOfOperationOverride], False),
         "InstanceArn": (str, True),
         "Name": (str, True),
         "Tags": (Tags, False),
@@ -306,6 +361,16 @@ class OutboundCallerConfig(AWSProperty):
     }
 
 
+class OutboundEmailConfig(AWSProperty):
+    """
+    `OutboundEmailConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-connect-queue-outboundemailconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "OutboundEmailAddressId": (str, False),
+    }
+
+
 class Queue(AWSObject):
     """
     `Queue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-queue.html>`__
@@ -320,6 +385,7 @@ class Queue(AWSObject):
         "MaxContacts": (integer, False),
         "Name": (str, True),
         "OutboundCallerConfig": (OutboundCallerConfig, False),
+        "OutboundEmailConfig": (OutboundEmailConfig, False),
         "QuickConnectArns": ([str], False),
         "Status": (str, False),
         "Tags": (Tags, False),
@@ -724,6 +790,7 @@ class TaskTemplate(AWSObject):
         "Fields": ([Field], False),
         "InstanceArn": (str, True),
         "Name": (str, False),
+        "SelfAssignContactFlowArn": (str, False),
         "Status": (str, False),
         "Tags": (Tags, False),
     }

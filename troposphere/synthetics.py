@@ -77,6 +77,7 @@ class VPCConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Ipv6AllowedForDualStack": (boolean, False),
         "SecurityGroupIds": ([str], True),
         "SubnetIds": ([str], True),
         "VpcId": (str, False),
@@ -119,6 +120,7 @@ class Canary(AWSObject):
         "ExecutionRoleArn": (str, True),
         "FailureRetentionPeriod": (integer, False),
         "Name": (str, True),
+        "ProvisionedResourceCleanup": (str, False),
         "ResourcesToReplicateTags": ([str], False),
         "RunConfig": (RunConfig, False),
         "RuntimeVersion": (canary_runtime_version, True),

@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean, integer
+from .validators import boolean, double, integer
 from .validators.codebuild import (
     validate_artifacts,
     validate_credentials_provider,
@@ -23,6 +23,65 @@ from .validators.codebuild import (
     validate_status,
     validate_webhookfilter_type,
 )
+
+
+class ComputeConfiguration(AWSProperty):
+    """
+    `ComputeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-computeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "disk": (integer, False),
+        "machineType": (str, False),
+        "memory": (integer, False),
+        "vCpu": (integer, False),
+    }
+
+
+class FleetProxyRule(AWSProperty):
+    """
+    `FleetProxyRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-fleetproxyrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Effect": (str, False),
+        "Entities": ([str], False),
+        "Type": (str, False),
+    }
+
+
+class ProxyConfiguration(AWSProperty):
+    """
+    `ProxyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-proxyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultBehavior": (str, False),
+        "OrderedProxyRules": ([FleetProxyRule], False),
+    }
+
+
+class TargetTrackingScalingConfiguration(AWSProperty):
+    """
+    `TargetTrackingScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-targettrackingscalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricType": (str, False),
+        "TargetValue": (double, False),
+    }
+
+
+class ScalingConfigurationInput(AWSProperty):
+    """
+    `ScalingConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codebuild-fleet-scalingconfigurationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxCapacity": (integer, False),
+        "ScalingType": (str, False),
+        "TargetTrackingScalingConfigs": ([TargetTrackingScalingConfiguration], False),
+    }
 
 
 class VpcConfig(AWSProperty):
@@ -46,13 +105,16 @@ class Fleet(AWSObject):
 
     props: PropsDictType = {
         "BaseCapacity": (integer, False),
+        "ComputeConfiguration": (ComputeConfiguration, False),
         "ComputeType": (str, False),
         "EnvironmentType": (str, False),
+        "FleetProxyConfiguration": (ProxyConfiguration, False),
         "FleetServiceRole": (str, False),
         "FleetVpcConfig": (VpcConfig, False),
         "ImageId": (str, False),
         "Name": (str, False),
         "OverflowBehavior": (str, False),
+        "ScalingConfiguration": (ScalingConfigurationInput, False),
         "Tags": (Tags, False),
     }
 
@@ -327,6 +389,7 @@ class Project(AWSObject):
 
     props: PropsDictType = {
         "Artifacts": (Artifacts, True),
+        "AutoRetryLimit": (integer, False),
         "BadgeEnabled": (boolean, False),
         "BuildBatchConfig": (ProjectBuildBatchConfig, False),
         "Cache": (ProjectCache, False),

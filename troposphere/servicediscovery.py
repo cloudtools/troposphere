@@ -158,6 +158,7 @@ class Service(AWSObject):
         "HealthCheckCustomConfig": (HealthCheckCustomConfig, False),
         "Name": (str, False),
         "NamespaceId": (str, False),
+        "ServiceAttributes": (dict, False),
         "Tags": (Tags, False),
         "Type": (str, False),
     }

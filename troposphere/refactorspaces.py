@@ -47,8 +47,8 @@ class Environment(AWSObject):
 
     props: PropsDictType = {
         "Description": (str, False),
-        "Name": (str, True),
-        "NetworkFabricType": (str, True),
+        "Name": (str, False),
+        "NetworkFabricType": (str, False),
         "Tags": (Tags, False),
     }
 

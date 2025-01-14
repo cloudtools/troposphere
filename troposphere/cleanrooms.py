@@ -104,6 +104,7 @@ class Collaboration(AWSObject):
     resource_type = "AWS::CleanRooms::Collaboration"
 
     props: PropsDictType = {
+        "AnalyticsEngine": (str, False),
         "CreatorDisplayName": (str, True),
         "CreatorMemberAbilities": ([str], True),
         "CreatorPaymentConfiguration": (PaymentConfiguration, False),
@@ -236,6 +237,19 @@ class AnalysisRule(AWSProperty):
     }
 
 
+class AthenaTableReference(AWSProperty):
+    """
+    `AthenaTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-athenatablereference.html>`__
+    """
+
+    props: PropsDictType = {
+        "DatabaseName": (str, True),
+        "OutputLocation": (str, False),
+        "TableName": (str, True),
+        "WorkGroup": (str, True),
+    }
+
+
 class GlueTableReference(AWSProperty):
     """
     `GlueTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-gluetablereference.html>`__
@@ -247,13 +261,51 @@ class GlueTableReference(AWSProperty):
     }
 
 
+class SnowflakeTableSchemaV1(AWSProperty):
+    """
+    `SnowflakeTableSchemaV1 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschemav1.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnName": (str, True),
+        "ColumnType": (str, True),
+    }
+
+
+class SnowflakeTableSchema(AWSProperty):
+    """
+    `SnowflakeTableSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketableschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "V1": ([SnowflakeTableSchemaV1], True),
+    }
+
+
+class SnowflakeTableReference(AWSProperty):
+    """
+    `SnowflakeTableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-snowflaketablereference.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccountIdentifier": (str, True),
+        "DatabaseName": (str, True),
+        "SchemaName": (str, True),
+        "SecretArn": (str, True),
+        "TableName": (str, True),
+        "TableSchema": (SnowflakeTableSchema, True),
+    }
+
+
 class TableReference(AWSProperty):
     """
     `TableReference <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-configuredtable-tablereference.html>`__
     """
 
     props: PropsDictType = {
-        "Glue": (GlueTableReference, True),
+        "Athena": (AthenaTableReference, False),
+        "Glue": (GlueTableReference, False),
+        "Snowflake": (SnowflakeTableReference, False),
     }
 
 
@@ -457,6 +509,7 @@ class ProtectedQueryS3OutputConfiguration(AWSProperty):
         "Bucket": (str, True),
         "KeyPrefix": (str, False),
         "ResultFormat": (str, True),
+        "SingleFileOutput": (boolean, False),
     }
 
 

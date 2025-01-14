@@ -61,6 +61,16 @@ class QAppsConfiguration(AWSProperty):
     }
 
 
+class QuickSightConfiguration(AWSProperty):
+    """
+    `QuickSightConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-application-quicksightconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClientNamespace": (str, True),
+    }
+
+
 class Application(AWSObject):
     """
     `Application <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-application.html>`__
@@ -80,19 +90,9 @@ class Application(AWSObject):
         "IdentityType": (str, False),
         "PersonalizationConfiguration": (PersonalizationConfiguration, False),
         "QAppsConfiguration": (QAppsConfiguration, False),
+        "QuickSightConfiguration": (QuickSightConfiguration, False),
         "RoleArn": (str, False),
         "Tags": (Tags, False),
-    }
-
-
-class DataSourceVpcConfiguration(AWSProperty):
-    """
-    `DataSourceVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-datasourcevpcconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "SecurityGroupIds": ([str], True),
-        "SubnetIds": ([str], True),
     }
 
 
@@ -106,6 +106,84 @@ class DocumentAttributeValue(AWSProperty):
         "LongValue": (double, False),
         "StringListValue": ([str], False),
         "StringValue": (str, False),
+    }
+
+
+class DocumentAttribute(AWSProperty):
+    """
+    `DocumentAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-documentattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (DocumentAttributeValue, True),
+    }
+
+
+class AttributeFilter(AWSProperty):
+    """
+    `AttributeFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-attributefilter.html>`__
+    """
+
+    props: PropsDictType = {
+        "AndAllFilters": ([object], False),
+        "ContainsAll": (DocumentAttribute, False),
+        "ContainsAny": (DocumentAttribute, False),
+        "EqualsTo": (DocumentAttribute, False),
+        "GreaterThan": (DocumentAttribute, False),
+        "GreaterThanOrEquals": (DocumentAttribute, False),
+        "LessThan": (DocumentAttribute, False),
+        "LessThanOrEquals": (DocumentAttribute, False),
+        "NotFilter": (object, False),
+        "OrAllFilters": ([object], False),
+    }
+
+
+class ActionFilterConfiguration(AWSProperty):
+    """
+    `ActionFilterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-actionfilterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DocumentAttributeFilter": (AttributeFilter, True),
+    }
+
+
+class ActionConfiguration(AWSProperty):
+    """
+    `ActionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-dataaccessor-actionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "FilterConfiguration": (ActionFilterConfiguration, False),
+    }
+
+
+class DataAccessor(AWSObject):
+    """
+    `DataAccessor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-dataaccessor.html>`__
+    """
+
+    resource_type = "AWS::QBusiness::DataAccessor"
+
+    props: PropsDictType = {
+        "ActionConfigurations": ([ActionConfiguration], True),
+        "ApplicationId": (str, True),
+        "DisplayName": (str, True),
+        "Principal": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class DataSourceVpcConfiguration(AWSProperty):
+    """
+    `DataSourceVpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-datasourcevpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "SubnetIds": ([str], True),
     }
 
 
@@ -170,6 +248,26 @@ class DocumentEnrichmentConfiguration(AWSProperty):
     }
 
 
+class ImageExtractionConfiguration(AWSProperty):
+    """
+    `ImageExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-imageextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageExtractionStatus": (str, True),
+    }
+
+
+class MediaExtractionConfiguration(AWSProperty):
+    """
+    `MediaExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageExtractionConfiguration": (ImageExtractionConfiguration, False),
+    }
+
+
 class DataSource(AWSObject):
     """
     `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-datasource.html>`__
@@ -184,6 +282,7 @@ class DataSource(AWSObject):
         "DisplayName": (str, True),
         "DocumentEnrichmentConfiguration": (DocumentEnrichmentConfiguration, False),
         "IndexId": (str, True),
+        "MediaExtractionConfiguration": (MediaExtractionConfiguration, False),
         "RoleArn": (str, False),
         "SyncSchedule": (str, False),
         "Tags": (Tags, False),
@@ -228,6 +327,21 @@ class Index(AWSObject):
         "DocumentAttributeConfigurations": ([DocumentAttributeConfiguration], False),
         "Tags": (Tags, False),
         "Type": (str, False),
+    }
+
+
+class Permission(AWSObject):
+    """
+    `Permission <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-qbusiness-permission.html>`__
+    """
+
+    resource_type = "AWS::QBusiness::Permission"
+
+    props: PropsDictType = {
+        "Actions": ([str], True),
+        "ApplicationId": (str, True),
+        "Principal": (str, True),
+        "StatementId": (str, True),
     }
 
 
@@ -282,8 +396,10 @@ class OAuth2ClientCredentialConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AuthorizationUrl": (str, False),
         "RoleArn": (str, True),
         "SecretArn": (str, True),
+        "TokenUrl": (str, False),
     }
 
 
@@ -310,7 +426,7 @@ class Plugin(AWSObject):
     resource_type = "AWS::QBusiness::Plugin"
 
     props: PropsDictType = {
-        "ApplicationId": (str, True),
+        "ApplicationId": (str, False),
         "AuthConfiguration": (PluginAuthConfiguration, True),
         "CustomPluginConfiguration": (CustomPluginConfiguration, False),
         "DisplayName": (str, True),
@@ -369,6 +485,19 @@ class Retriever(AWSObject):
     }
 
 
+class CustomizationConfiguration(AWSProperty):
+    """
+    `CustomizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-customizationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomCSSUrl": (str, False),
+        "FaviconUrl": (str, False),
+        "FontUrl": (str, False),
+        "LogoUrl": (str, False),
+    }
+
+
 class OpenIDConnectProviderConfiguration(AWSProperty):
     """
     `OpenIDConnectProviderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-openidconnectproviderconfiguration.html>`__
@@ -410,7 +539,9 @@ class WebExperience(AWSObject):
 
     props: PropsDictType = {
         "ApplicationId": (str, True),
+        "CustomizationConfiguration": (CustomizationConfiguration, False),
         "IdentityProviderConfiguration": (IdentityProviderConfiguration, False),
+        "Origins": ([str], False),
         "RoleArn": (str, False),
         "SamplePromptsControlMode": (str, False),
         "Subtitle": (str, False),

@@ -255,7 +255,7 @@ class ThousandSeparatorOptions(AWSProperty):
 
     props: PropsDictType = {
         "Symbol": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -499,7 +499,7 @@ class LabelOptions(AWSProperty):
     props: PropsDictType = {
         "CustomLabel": (str, False),
         "FontConfiguration": (FontConfiguration, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -510,7 +510,7 @@ class SheetControlInfoIconLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "InfoIconText": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -544,7 +544,7 @@ class ListControlSelectAllOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -589,7 +589,7 @@ class ListControlSearchOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -672,7 +672,7 @@ class TextControlPlaceholderOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -1439,7 +1439,7 @@ class FreeFormLayoutElementBackgroundStyle(AWSProperty):
 
     props: PropsDictType = {
         "Color": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -1450,7 +1450,7 @@ class FreeFormLayoutElementBorderStyle(AWSProperty):
 
     props: PropsDictType = {
         "Color": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -1460,7 +1460,7 @@ class LoadingAnimation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -1470,7 +1470,7 @@ class SheetElementConfigurationOverrides(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -1499,7 +1499,7 @@ class FreeFormLayoutElement(AWSProperty):
         "LoadingAnimation": (LoadingAnimation, False),
         "RenderingRules": ([SheetElementRenderingRule], False),
         "SelectedBorderStyle": (FreeFormLayoutElementBorderStyle, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
         "Width": (str, True),
         "XAxisLocation": (str, True),
         "YAxisLocation": (str, True),
@@ -1799,6 +1799,209 @@ class SheetControlLayout(AWSProperty):
     }
 
 
+class LocalNavigationConfiguration(AWSProperty):
+    """
+    `LocalNavigationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-localnavigationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TargetSheetId": (str, True),
+    }
+
+
+class CustomActionNavigationOperation(AWSProperty):
+    """
+    `CustomActionNavigationOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionnavigationoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "LocalNavigationConfiguration": (LocalNavigationConfiguration, False),
+    }
+
+
+class CustomParameterValues(AWSProperty):
+    """
+    `CustomParameterValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customparametervalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "DateTimeValues": ([str], False),
+        "DecimalValues": ([double], False),
+        "IntegerValues": ([double], False),
+        "StringValues": ([str], False),
+    }
+
+
+class CustomValuesConfiguration(AWSProperty):
+    """
+    `CustomValuesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customvaluesconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomValues": (CustomParameterValues, True),
+        "IncludeNullValue": (boolean, False),
+    }
+
+
+class DestinationParameterValueConfiguration(AWSProperty):
+    """
+    `DestinationParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-destinationparametervalueconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomValuesConfiguration": (CustomValuesConfiguration, False),
+        "SelectAllValueOptions": (str, False),
+        "SourceColumn": (ColumnIdentifier, False),
+        "SourceField": (str, False),
+        "SourceParameterName": (str, False),
+    }
+
+
+class SetParameterValueConfiguration(AWSProperty):
+    """
+    `SetParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-setparametervalueconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationParameterName": (str, True),
+        "Value": (DestinationParameterValueConfiguration, True),
+    }
+
+
+class CustomActionSetParametersOperation(AWSProperty):
+    """
+    `CustomActionSetParametersOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionsetparametersoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParameterValueConfigurations": ([SetParameterValueConfiguration], True),
+    }
+
+
+class CustomActionURLOperation(AWSProperty):
+    """
+    `CustomActionURLOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionurloperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "URLTarget": (str, True),
+        "URLTemplate": (str, True),
+    }
+
+
+class ImageCustomActionOperation(AWSProperty):
+    """
+    `ImageCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomactionoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "NavigationOperation": (CustomActionNavigationOperation, False),
+        "SetParametersOperation": (CustomActionSetParametersOperation, False),
+        "URLOperation": (CustomActionURLOperation, False),
+    }
+
+
+class ImageCustomAction(AWSProperty):
+    """
+    `ImageCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagecustomaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionOperations": ([ImageCustomActionOperation], True),
+        "CustomActionId": (str, True),
+        "Name": (str, True),
+        "Status": (str, False),
+        "Trigger": (str, True),
+    }
+
+
+class ImageMenuOption(AWSProperty):
+    """
+    `ImageMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imagemenuoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (dict, False),
+    }
+
+
+class ImageInteractionOptions(AWSProperty):
+    """
+    `ImageInteractionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-imageinteractionoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageMenuOption": (ImageMenuOption, False),
+    }
+
+
+class SheetImageScalingConfiguration(AWSProperty):
+    """
+    `SheetImageScalingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagescalingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScalingType": (str, False),
+    }
+
+
+class SheetImageStaticFileSource(AWSProperty):
+    """
+    `SheetImageStaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagestaticfilesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticFileId": (str, True),
+    }
+
+
+class SheetImageSource(AWSProperty):
+    """
+    `SheetImageSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "SheetImageStaticFileSource": (SheetImageStaticFileSource, False),
+    }
+
+
+class SheetImageTooltipText(AWSProperty):
+    """
+    `SheetImageTooltipText <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltiptext.html>`__
+    """
+
+    props: PropsDictType = {
+        "PlainText": (str, False),
+    }
+
+
+class SheetImageTooltipConfiguration(AWSProperty):
+    """
+    `SheetImageTooltipConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimagetooltipconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "TooltipText": (SheetImageTooltipText, False),
+        "Visibility": (dict, False),
+    }
+
+
+class SheetImage(AWSProperty):
+    """
+    `SheetImage <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheetimage.html>`__
+    """
+
+    props: PropsDictType = {
+        "Actions": ([ImageCustomAction], False),
+        "ImageContentAltText": (str, False),
+        "Interactions": (ImageInteractionOptions, False),
+        "Scaling": (SheetImageScalingConfiguration, False),
+        "SheetImageId": (str, True),
+        "Source": (SheetImageSource, True),
+        "Tooltip": (SheetImageTooltipConfiguration, False),
+    }
+
+
 class SheetTextBox(AWSProperty):
     """
     `SheetTextBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sheettextbox.html>`__
@@ -1816,7 +2019,7 @@ class DateAxisOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "MissingDateVisibility": (str, False),
+        "MissingDateVisibility": (dict, False),
     }
 
 
@@ -1934,7 +2137,7 @@ class ScrollBarOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
         "VisibleRange": (VisibleRangeOptions, False),
     }
 
@@ -1945,10 +2148,10 @@ class AxisDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AxisLineVisibility": (str, False),
+        "AxisLineVisibility": (dict, False),
         "AxisOffset": (str, False),
         "DataOptions": (AxisDataOptions, False),
-        "GridLineVisibility": (str, False),
+        "GridLineVisibility": (dict, False),
         "ScrollbarOptions": (ScrollBarOptions, False),
         "TickLabelOptions": (AxisTickLabelOptions, False),
     }
@@ -2182,8 +2385,8 @@ class ChartAxisLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "AxisLabelOptions": ([AxisLabelOptions], False),
-        "SortIconVisibility": (str, False),
-        "Visibility": (str, False),
+        "SortIconVisibility": (dict, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2206,7 +2409,7 @@ class DataPathLabelType(AWSProperty):
     props: PropsDictType = {
         "FieldId": (str, False),
         "FieldValue": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2217,7 +2420,7 @@ class FieldLabelType(AWSProperty):
 
     props: PropsDictType = {
         "FieldId": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2227,7 +2430,7 @@ class MaximumLabelType(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2237,7 +2440,7 @@ class MinimumLabelType(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2247,7 +2450,7 @@ class RangeEndsLabelType(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2271,16 +2474,16 @@ class DataLabelOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CategoryLabelVisibility": (str, False),
+        "CategoryLabelVisibility": (dict, False),
         "DataLabelTypes": ([DataLabelType], False),
         "LabelColor": (str, False),
         "LabelContent": (str, False),
         "LabelFontConfiguration": (FontConfiguration, False),
-        "MeasureLabelVisibility": (str, False),
+        "MeasureLabelVisibility": (dict, False),
         "Overlap": (str, False),
         "Position": (str, False),
-        "TotalsVisibility": (str, False),
-        "Visibility": (str, False),
+        "TotalsVisibility": (dict, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2293,7 +2496,8 @@ class LegendOptions(AWSProperty):
         "Height": (str, False),
         "Position": (str, False),
         "Title": (LabelOptions, False),
-        "Visibility": (str, False),
+        "ValueFontConfiguration": (FontConfiguration, False),
+        "Visibility": (dict, False),
         "Width": (str, False),
     }
 
@@ -2401,7 +2605,7 @@ class PanelTitleOptions(AWSProperty):
     props: PropsDictType = {
         "FontConfiguration": (FontConfiguration, False),
         "HorizontalTextAlignment": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2412,13 +2616,13 @@ class PanelConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "BackgroundColor": (str, False),
-        "BackgroundVisibility": (str, False),
+        "BackgroundVisibility": (dict, False),
         "BorderColor": (str, False),
         "BorderStyle": (str, False),
         "BorderThickness": (str, False),
-        "BorderVisibility": (str, False),
+        "BorderVisibility": (dict, False),
         "GutterSpacing": (str, False),
-        "GutterVisibility": (str, False),
+        "GutterVisibility": (dict, False),
         "Title": (PanelTitleOptions, False),
     }
 
@@ -2458,7 +2662,7 @@ class ColumnTooltipItem(AWSProperty):
         "Column": (ColumnIdentifier, True),
         "Label": (str, False),
         "TooltipTarget": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2471,7 +2675,7 @@ class FieldTooltipItem(AWSProperty):
         "FieldId": (str, True),
         "Label": (str, False),
         "TooltipTarget": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2492,7 +2696,7 @@ class FieldBasedTooltip(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AggregationVisibility": (str, False),
+        "AggregationVisibility": (dict, False),
         "TooltipFields": ([TooltipItem], False),
         "TooltipTitleType": (str, False),
     }
@@ -2506,7 +2710,7 @@ class TooltipOptions(AWSProperty):
     props: PropsDictType = {
         "FieldBasedTooltip": (FieldBasedTooltip, False),
         "SelectedTooltipType": (str, False),
-        "TooltipVisibility": (str, False),
+        "TooltipVisibility": (dict, False),
     }
 
 
@@ -2724,96 +2928,6 @@ class CustomActionFilterOperation(AWSProperty):
     }
 
 
-class LocalNavigationConfiguration(AWSProperty):
-    """
-    `LocalNavigationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-localnavigationconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "TargetSheetId": (str, True),
-    }
-
-
-class CustomActionNavigationOperation(AWSProperty):
-    """
-    `CustomActionNavigationOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionnavigationoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "LocalNavigationConfiguration": (LocalNavigationConfiguration, False),
-    }
-
-
-class CustomParameterValues(AWSProperty):
-    """
-    `CustomParameterValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customparametervalues.html>`__
-    """
-
-    props: PropsDictType = {
-        "DateTimeValues": ([str], False),
-        "DecimalValues": ([double], False),
-        "IntegerValues": ([double], False),
-        "StringValues": ([str], False),
-    }
-
-
-class CustomValuesConfiguration(AWSProperty):
-    """
-    `CustomValuesConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customvaluesconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomValues": (CustomParameterValues, True),
-        "IncludeNullValue": (boolean, False),
-    }
-
-
-class DestinationParameterValueConfiguration(AWSProperty):
-    """
-    `DestinationParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-destinationparametervalueconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "CustomValuesConfiguration": (CustomValuesConfiguration, False),
-        "SelectAllValueOptions": (str, False),
-        "SourceColumn": (ColumnIdentifier, False),
-        "SourceField": (str, False),
-        "SourceParameterName": (str, False),
-    }
-
-
-class SetParameterValueConfiguration(AWSProperty):
-    """
-    `SetParameterValueConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-setparametervalueconfiguration.html>`__
-    """
-
-    props: PropsDictType = {
-        "DestinationParameterName": (str, True),
-        "Value": (DestinationParameterValueConfiguration, True),
-    }
-
-
-class CustomActionSetParametersOperation(AWSProperty):
-    """
-    `CustomActionSetParametersOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionsetparametersoperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "ParameterValueConfigurations": ([SetParameterValueConfiguration], True),
-    }
-
-
-class CustomActionURLOperation(AWSProperty):
-    """
-    `CustomActionURLOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-customactionurloperation.html>`__
-    """
-
-    props: PropsDictType = {
-        "URLTarget": (str, True),
-        "URLTemplate": (str, True),
-    }
-
-
 class VisualCustomActionOperation(AWSProperty):
     """
     `VisualCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualcustomactionoperation.html>`__
@@ -2859,7 +2973,7 @@ class VisualSubtitleLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "FormatText": (LongFormatText, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2881,7 +2995,7 @@ class VisualTitleLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "FormatText": (ShortFormatText, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -2896,6 +3010,7 @@ class BarChartVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -2937,8 +3052,8 @@ class BoxPlotOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AllDataPointsVisibility": (str, False),
-        "OutlierVisibility": (str, False),
+        "AllDataPointsVisibility": (dict, False),
+        "OutlierVisibility": (dict, False),
         "StyleOptions": (BoxPlotStyleOptions, False),
     }
 
@@ -2996,6 +3111,7 @@ class BoxPlotVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3093,6 +3209,7 @@ class ComboChartVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3120,6 +3237,7 @@ class CustomContentVisual(AWSProperty):
         "DataSetIdentifier": (str, True),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3324,6 +3442,7 @@ class FilledMapVisual(AWSProperty):
         "ConditionalFormatting": (FilledMapConditionalFormatting, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3334,13 +3453,13 @@ class FunnelChartDataLabelOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "CategoryLabelVisibility": (str, False),
+        "CategoryLabelVisibility": (dict, False),
         "LabelColor": (str, False),
         "LabelFontConfiguration": (FontConfiguration, False),
         "MeasureDataLabelStyle": (str, False),
-        "MeasureLabelVisibility": (str, False),
+        "MeasureLabelVisibility": (dict, False),
         "Position": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -3403,6 +3522,7 @@ class FunnelChartVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3616,6 +3736,7 @@ class GaugeChartVisual(AWSProperty):
         "ConditionalFormatting": (GaugeChartConditionalFormatting, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3741,6 +3862,7 @@ class GeospatialMapVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3831,6 +3953,7 @@ class HeatMapVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -3916,6 +4039,7 @@ class HistogramVisual(AWSProperty):
         "ChartConfiguration": (HistogramConfiguration, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -4116,6 +4240,7 @@ class InsightVisual(AWSProperty):
         "InsightConfiguration": (InsightConfiguration, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -4205,9 +4330,9 @@ class KPISparklineOptions(AWSProperty):
 
     props: PropsDictType = {
         "Color": (str, False),
-        "TooltipVisibility": (str, False),
+        "TooltipVisibility": (dict, False),
         "Type": (str, True),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -4237,7 +4362,7 @@ class ProgressBarOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -4247,7 +4372,7 @@ class SecondaryValueOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -4257,7 +4382,7 @@ class TrendArrowOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -4313,6 +4438,380 @@ class KPIVisual(AWSProperty):
         "ConditionalFormatting": (KPIConditionalFormatting, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
+        "VisualId": (str, True),
+    }
+
+
+class GeospatialStaticFileSource(AWSProperty):
+    """
+    `GeospatialStaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialstaticfilesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticFileId": (str, True),
+    }
+
+
+class GeospatialDataSourceItem(AWSProperty):
+    """
+    `GeospatialDataSourceItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialdatasourceitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "StaticFileDataSource": (GeospatialStaticFileSource, False),
+    }
+
+
+class GeospatialCategoricalDataColor(AWSProperty):
+    """
+    `GeospatialCategoricalDataColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricaldatacolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, True),
+        "DataValue": (str, True),
+    }
+
+
+class GeospatialNullSymbolStyle(AWSProperty):
+    """
+    `GeospatialNullSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialnullsymbolstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "FillColor": (str, False),
+        "StrokeColor": (str, False),
+        "StrokeWidth": (double, False),
+    }
+
+
+class GeospatialNullDataSettings(AWSProperty):
+    """
+    `GeospatialNullDataSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialnulldatasettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "SymbolStyle": (GeospatialNullSymbolStyle, True),
+    }
+
+
+class GeospatialCategoricalColor(AWSProperty):
+    """
+    `GeospatialCategoricalColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcategoricalcolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "CategoryDataColors": ([GeospatialCategoricalDataColor], True),
+        "DefaultOpacity": (double, False),
+        "NullDataSettings": (GeospatialNullDataSettings, False),
+        "NullDataVisibility": (str, False),
+    }
+
+
+class GeospatialGradientStepColor(AWSProperty):
+    """
+    `GeospatialGradientStepColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialgradientstepcolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, True),
+        "DataValue": (double, True),
+    }
+
+
+class GeospatialGradientColor(AWSProperty):
+    """
+    `GeospatialGradientColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialgradientcolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "DefaultOpacity": (double, False),
+        "NullDataSettings": (GeospatialNullDataSettings, False),
+        "NullDataVisibility": (str, False),
+        "StepColors": ([GeospatialGradientStepColor], True),
+    }
+
+
+class GeospatialSolidColor(AWSProperty):
+    """
+    `GeospatialSolidColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialsolidcolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Color": (str, True),
+        "State": (str, False),
+    }
+
+
+class GeospatialColor(AWSProperty):
+    """
+    `GeospatialColor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcolor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Categorical": (GeospatialCategoricalColor, False),
+        "Gradient": (GeospatialGradientColor, False),
+        "Solid": (GeospatialSolidColor, False),
+    }
+
+
+class GeospatialLineWidth(AWSProperty):
+    """
+    `GeospatialLineWidth <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinewidth.html>`__
+    """
+
+    props: PropsDictType = {
+        "LineWidth": (double, False),
+    }
+
+
+class GeospatialLineSymbolStyle(AWSProperty):
+    """
+    `GeospatialLineSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinesymbolstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "FillColor": (GeospatialColor, False),
+        "LineWidth": (GeospatialLineWidth, False),
+    }
+
+
+class GeospatialLineStyle(AWSProperty):
+    """
+    `GeospatialLineStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinestyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "LineSymbolStyle": (GeospatialLineSymbolStyle, False),
+    }
+
+
+class GeospatialLineLayer(AWSProperty):
+    """
+    `GeospatialLineLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallinelayer.html>`__
+    """
+
+    props: PropsDictType = {
+        "Style": (GeospatialLineStyle, True),
+    }
+
+
+class GeospatialCircleRadius(AWSProperty):
+    """
+    `GeospatialCircleRadius <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcircleradius.html>`__
+    """
+
+    props: PropsDictType = {
+        "Radius": (double, False),
+    }
+
+
+class GeospatialCircleSymbolStyle(AWSProperty):
+    """
+    `GeospatialCircleSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialcirclesymbolstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "CircleRadius": (GeospatialCircleRadius, False),
+        "FillColor": (GeospatialColor, False),
+        "StrokeColor": (GeospatialColor, False),
+        "StrokeWidth": (GeospatialLineWidth, False),
+    }
+
+
+class GeospatialPointStyle(AWSProperty):
+    """
+    `GeospatialPointStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "CircleSymbolStyle": (GeospatialCircleSymbolStyle, False),
+    }
+
+
+class GeospatialPointLayer(AWSProperty):
+    """
+    `GeospatialPointLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpointlayer.html>`__
+    """
+
+    props: PropsDictType = {
+        "Style": (GeospatialPointStyle, True),
+    }
+
+
+class GeospatialPolygonSymbolStyle(AWSProperty):
+    """
+    `GeospatialPolygonSymbolStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonsymbolstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "FillColor": (GeospatialColor, False),
+        "StrokeColor": (GeospatialColor, False),
+        "StrokeWidth": (GeospatialLineWidth, False),
+    }
+
+
+class GeospatialPolygonStyle(AWSProperty):
+    """
+    `GeospatialPolygonStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "PolygonSymbolStyle": (GeospatialPolygonSymbolStyle, False),
+    }
+
+
+class GeospatialPolygonLayer(AWSProperty):
+    """
+    `GeospatialPolygonLayer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialpolygonlayer.html>`__
+    """
+
+    props: PropsDictType = {
+        "Style": (GeospatialPolygonStyle, True),
+    }
+
+
+class GeospatialLayerDefinition(AWSProperty):
+    """
+    `GeospatialLayerDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "LineLayer": (GeospatialLineLayer, False),
+        "PointLayer": (GeospatialPointLayer, False),
+        "PolygonLayer": (GeospatialPolygonLayer, False),
+    }
+
+
+class GeospatialLayerColorField(AWSProperty):
+    """
+    `GeospatialLayerColorField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayercolorfield.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColorDimensionsFields": ([DimensionField], False),
+        "ColorValuesFields": ([MeasureField], False),
+    }
+
+
+class UnaggregatedField(AWSProperty):
+    """
+    `UnaggregatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-unaggregatedfield.html>`__
+    """
+
+    props: PropsDictType = {
+        "Column": (ColumnIdentifier, True),
+        "FieldId": (str, True),
+        "FormatConfiguration": (FormatConfiguration, False),
+    }
+
+
+class GeospatialLayerJoinDefinition(AWSProperty):
+    """
+    `GeospatialLayerJoinDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayerjoindefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColorField": (GeospatialLayerColorField, False),
+        "DatasetKeyField": (UnaggregatedField, False),
+        "ShapeKeyField": (str, False),
+    }
+
+
+class LayerCustomActionOperation(AWSProperty):
+    """
+    `LayerCustomActionOperation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomactionoperation.html>`__
+    """
+
+    props: PropsDictType = {
+        "FilterOperation": (CustomActionFilterOperation, False),
+        "NavigationOperation": (CustomActionNavigationOperation, False),
+        "SetParametersOperation": (CustomActionSetParametersOperation, False),
+        "URLOperation": (CustomActionURLOperation, False),
+    }
+
+
+class LayerCustomAction(AWSProperty):
+    """
+    `LayerCustomAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layercustomaction.html>`__
+    """
+
+    props: PropsDictType = {
+        "ActionOperations": ([LayerCustomActionOperation], True),
+        "CustomActionId": (str, True),
+        "Name": (str, True),
+        "Status": (str, False),
+        "Trigger": (str, True),
+    }
+
+
+class GeospatialLayerItem(AWSProperty):
+    """
+    `GeospatialLayerItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayeritem.html>`__
+    """
+
+    props: PropsDictType = {
+        "Actions": ([LayerCustomAction], False),
+        "DataSource": (GeospatialDataSourceItem, False),
+        "JoinDefinition": (GeospatialLayerJoinDefinition, False),
+        "Label": (str, False),
+        "LayerDefinition": (GeospatialLayerDefinition, False),
+        "LayerId": (str, True),
+        "LayerType": (str, False),
+        "Tooltip": (TooltipOptions, False),
+        "Visibility": (str, False),
+    }
+
+
+class GeospatialMapState(AWSProperty):
+    """
+    `GeospatialMapState <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapstate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bounds": (GeospatialCoordinateBounds, False),
+        "MapNavigation": (str, False),
+    }
+
+
+class GeospatialMapStyle(AWSProperty):
+    """
+    `GeospatialMapStyle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatialmapstyle.html>`__
+    """
+
+    props: PropsDictType = {
+        "BackgroundColor": (str, False),
+        "BaseMapStyle": (str, False),
+        "BaseMapVisibility": (str, False),
+    }
+
+
+class GeospatialLayerMapConfiguration(AWSProperty):
+    """
+    `GeospatialLayerMapConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-geospatiallayermapconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Interactions": (dict, False),
+        "Legend": (LegendOptions, False),
+        "MapLayers": ([GeospatialLayerItem], False),
+        "MapState": (GeospatialMapState, False),
+        "MapStyle": (GeospatialMapStyle, False),
+    }
+
+
+class LayerMapVisual(AWSProperty):
+    """
+    `LayerMapVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-layermapvisual.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChartConfiguration": (GeospatialLayerMapConfiguration, False),
+        "DataSetIdentifier": (str, True),
+        "Subtitle": (VisualSubtitleLabelOptions, False),
+        "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -4385,7 +4884,7 @@ class LineChartLineStyleSettings(AWSProperty):
     props: PropsDictType = {
         "LineInterpolation": (str, False),
         "LineStyle": (str, False),
-        "LineVisibility": (str, False),
+        "LineVisibility": (dict, False),
         "LineWidth": (str, False),
     }
 
@@ -4399,7 +4898,7 @@ class LineChartMarkerStyleSettings(AWSProperty):
         "MarkerColor": (str, False),
         "MarkerShape": (str, False),
         "MarkerSize": (str, False),
-        "MarkerVisibility": (str, False),
+        "MarkerVisibility": (dict, False),
     }
 
 
@@ -4560,6 +5059,7 @@ class LineChartVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -4580,7 +5080,7 @@ class DonutCenterOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "LabelVisibility": (str, False),
+        "LabelVisibility": (dict, False),
     }
 
 
@@ -4661,6 +5161,7 @@ class PieChartVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -4764,7 +5265,7 @@ class PivotTableFieldOption(AWSProperty):
     props: PropsDictType = {
         "CustomLabel": (str, False),
         "FieldId": (str, True),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -4809,7 +5310,7 @@ class PivotTableRowsLabelOptions(AWSProperty):
 
     props: PropsDictType = {
         "CustomLabel": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -4876,7 +5377,7 @@ class TableCellStyle(AWSProperty):
         "HorizontalTextAlignment": (str, False),
         "TextWrap": (str, False),
         "VerticalTextAlignment": (str, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -4887,9 +5388,9 @@ class PivotTableOptions(AWSProperty):
 
     props: PropsDictType = {
         "CellStyle": (TableCellStyle, False),
-        "CollapsedRowDimensionsVisibility": (str, False),
+        "CollapsedRowDimensionsVisibility": (dict, False),
         "ColumnHeaderStyle": (TableCellStyle, False),
-        "ColumnNamesVisibility": (str, False),
+        "ColumnNamesVisibility": (dict, False),
         "DefaultCellWidth": (str, False),
         "MetricPlacement": (str, False),
         "RowAlternateColorOptions": (RowAlternateColorOptions, False),
@@ -4897,8 +5398,8 @@ class PivotTableOptions(AWSProperty):
         "RowHeaderStyle": (TableCellStyle, False),
         "RowsLabelOptions": (PivotTableRowsLabelOptions, False),
         "RowsLayout": (str, False),
-        "SingleMetricVisibility": (str, False),
-        "ToggleButtonsVisibility": (str, False),
+        "SingleMetricVisibility": (dict, False),
+        "ToggleButtonsVisibility": (dict, False),
     }
 
 
@@ -4908,8 +5409,8 @@ class PivotTablePaginatedReportOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "OverflowColumnHeaderVisibility": (str, False),
-        "VerticalOverflowVisibility": (str, False),
+        "OverflowColumnHeaderVisibility": (dict, False),
+        "VerticalOverflowVisibility": (dict, False),
     }
 
 
@@ -4990,7 +5491,7 @@ class PivotTotalOptions(AWSProperty):
         "ScrollStatus": (str, False),
         "TotalAggregationOptions": ([TotalAggregationOption], False),
         "TotalCellStyle": (TableCellStyle, False),
-        "TotalsVisibility": (str, False),
+        "TotalsVisibility": (dict, False),
         "ValueCellStyle": (TableCellStyle, False),
     }
 
@@ -5027,7 +5528,7 @@ class SubtotalOptions(AWSProperty):
         "MetricHeaderCellStyle": (TableCellStyle, False),
         "StyleTargets": ([TableStyleTarget], False),
         "TotalCellStyle": (TableCellStyle, False),
-        "TotalsVisibility": (str, False),
+        "TotalsVisibility": (dict, False),
         "ValueCellStyle": (TableCellStyle, False),
     }
 
@@ -5071,6 +5572,99 @@ class PivotTableVisual(AWSProperty):
         "ConditionalFormatting": (PivotTableConditionalFormatting, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
+        "VisualId": (str, True),
+    }
+
+
+class PluginVisualFieldWell(AWSProperty):
+    """
+    `PluginVisualFieldWell <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualfieldwell.html>`__
+    """
+
+    props: PropsDictType = {
+        "AxisName": (str, False),
+        "Dimensions": ([DimensionField], False),
+        "Measures": ([MeasureField], False),
+        "Unaggregated": ([UnaggregatedField], False),
+    }
+
+
+class PluginVisualProperty(AWSProperty):
+    """
+    `PluginVisualProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualproperty.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Value": (str, False),
+    }
+
+
+class PluginVisualOptions(AWSProperty):
+    """
+    `PluginVisualOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "VisualProperties": ([PluginVisualProperty], False),
+    }
+
+
+class PluginVisualItemsLimitConfiguration(AWSProperty):
+    """
+    `PluginVisualItemsLimitConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualitemslimitconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ItemsLimit": (double, False),
+    }
+
+
+class PluginVisualTableQuerySort(AWSProperty):
+    """
+    `PluginVisualTableQuerySort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualtablequerysort.html>`__
+    """
+
+    props: PropsDictType = {
+        "ItemsLimitConfiguration": (PluginVisualItemsLimitConfiguration, False),
+        "RowSort": ([FieldSortOptions], False),
+    }
+
+
+class PluginVisualSortConfiguration(AWSProperty):
+    """
+    `PluginVisualSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualsortconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PluginVisualTableQuerySort": (PluginVisualTableQuerySort, False),
+    }
+
+
+class PluginVisualConfiguration(AWSProperty):
+    """
+    `PluginVisualConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisualconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldWells": ([PluginVisualFieldWell], False),
+        "SortConfiguration": (PluginVisualSortConfiguration, False),
+        "VisualOptions": (PluginVisualOptions, False),
+    }
+
+
+class PluginVisual(AWSProperty):
+    """
+    `PluginVisual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-pluginvisual.html>`__
+    """
+
+    props: PropsDictType = {
+        "ChartConfiguration": (PluginVisualConfiguration, False),
+        "PluginArn": (str, True),
+        "Subtitle": (VisualSubtitleLabelOptions, False),
+        "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -5103,7 +5697,7 @@ class RadarChartAreaStyleSettings(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
     }
 
 
@@ -5136,7 +5730,7 @@ class RadarChartConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AlternateBandColorsVisibility": (str, False),
+        "AlternateBandColorsVisibility": (dict, False),
         "AlternateBandEvenColor": (str, False),
         "AlternateBandOddColor": (str, False),
         "AxesRangeScale": (str, False),
@@ -5165,6 +5759,7 @@ class RadarChartVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -5225,6 +5820,7 @@ class SankeyDiagramVisual(AWSProperty):
         "ChartConfiguration": (SankeyDiagramChartConfiguration, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -5300,6 +5896,7 @@ class ScatterPlotVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -5430,7 +6027,7 @@ class TableFieldOption(AWSProperty):
         "CustomLabel": (str, False),
         "FieldId": (str, True),
         "URLStyling": (TableFieldURLConfiguration, False),
-        "Visibility": (str, False),
+        "Visibility": (dict, False),
         "Width": (str, False),
     }
 
@@ -5465,18 +6062,6 @@ class TableAggregatedFieldWells(AWSProperty):
     props: PropsDictType = {
         "GroupBy": ([DimensionField], False),
         "Values": ([MeasureField], False),
-    }
-
-
-class UnaggregatedField(AWSProperty):
-    """
-    `UnaggregatedField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-unaggregatedfield.html>`__
-    """
-
-    props: PropsDictType = {
-        "Column": (ColumnIdentifier, True),
-        "FieldId": (str, True),
-        "FormatConfiguration": (FormatConfiguration, False),
     }
 
 
@@ -5542,8 +6127,8 @@ class TablePaginatedReportOptions(AWSProperty):
     """
 
     props: PropsDictType = {
-        "OverflowColumnHeaderVisibility": (str, False),
-        "VerticalOverflowVisibility": (str, False),
+        "OverflowColumnHeaderVisibility": (dict, False),
+        "VerticalOverflowVisibility": (dict, False),
     }
 
 
@@ -5569,7 +6154,7 @@ class TotalOptions(AWSProperty):
         "ScrollStatus": (str, False),
         "TotalAggregationOptions": ([TotalAggregationOption], False),
         "TotalCellStyle": (TableCellStyle, False),
-        "TotalsVisibility": (str, False),
+        "TotalsVisibility": (dict, False),
     }
 
 
@@ -5600,6 +6185,7 @@ class TableVisual(AWSProperty):
         "ConditionalFormatting": (TableConditionalFormatting, False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -5666,6 +6252,7 @@ class TreeMapVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -5769,6 +6356,7 @@ class WaterfallVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
@@ -5844,13 +6432,14 @@ class WordCloudVisual(AWSProperty):
         "ColumnHierarchies": ([ColumnHierarchy], False),
         "Subtitle": (VisualSubtitleLabelOptions, False),
         "Title": (VisualTitleLabelOptions, False),
+        "VisualContentAltText": (str, False),
         "VisualId": (str, True),
     }
 
 
 class Visual(AWSProperty):
     """
-    `Visual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visual.html>`__
+    `Visual <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visual.html>`__
     """
 
     props: PropsDictType = {
@@ -5867,9 +6456,11 @@ class Visual(AWSProperty):
         "HistogramVisual": (HistogramVisual, False),
         "InsightVisual": (InsightVisual, False),
         "KPIVisual": (KPIVisual, False),
+        "LayerMapVisual": (LayerMapVisual, False),
         "LineChartVisual": (LineChartVisual, False),
         "PieChartVisual": (PieChartVisual, False),
         "PivotTableVisual": (PivotTableVisual, False),
+        "PluginVisual": (PluginVisual, False),
         "RadarChartVisual": (RadarChartVisual, False),
         "SankeyDiagramVisual": (SankeyDiagramVisual, False),
         "ScatterPlotVisual": (ScatterPlotVisual, False),
@@ -5889,6 +6480,7 @@ class SheetDefinition(AWSProperty):
         "ContentType": (str, False),
         "Description": (str, False),
         "FilterControls": ([FilterControl], False),
+        "Images": ([SheetImage], False),
         "Layouts": ([Layout], False),
         "Name": (str, False),
         "ParameterControls": ([ParameterControl], False),
@@ -5897,6 +6489,72 @@ class SheetDefinition(AWSProperty):
         "TextBoxes": ([SheetTextBox], False),
         "Title": (str, False),
         "Visuals": ([Visual], False),
+    }
+
+
+class StaticFileS3SourceOptions(AWSProperty):
+    """
+    `StaticFileS3SourceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfiles3sourceoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "BucketName": (str, True),
+        "ObjectKey": (str, True),
+        "Region": (str, True),
+    }
+
+
+class StaticFileUrlSourceOptions(AWSProperty):
+    """
+    `StaticFileUrlSourceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfileurlsourceoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Url": (str, True),
+    }
+
+
+class StaticFileSource(AWSProperty):
+    """
+    `StaticFileSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfilesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Options": (StaticFileS3SourceOptions, False),
+        "UrlOptions": (StaticFileUrlSourceOptions, False),
+    }
+
+
+class ImageStaticFile(AWSProperty):
+    """
+    `ImageStaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-imagestaticfile.html>`__
+    """
+
+    props: PropsDictType = {
+        "Source": (StaticFileSource, False),
+        "StaticFileId": (str, True),
+    }
+
+
+class SpatialStaticFile(AWSProperty):
+    """
+    `SpatialStaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-spatialstaticfile.html>`__
+    """
+
+    props: PropsDictType = {
+        "Source": (StaticFileSource, False),
+        "StaticFileId": (str, True),
+    }
+
+
+class StaticFile(AWSProperty):
+    """
+    `StaticFile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-staticfile.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImageStaticFile": (ImageStaticFile, False),
+        "SpatialStaticFile": (SpatialStaticFile, False),
     }
 
 
@@ -5915,6 +6573,7 @@ class AnalysisDefinition(AWSProperty):
         "ParameterDeclarations": ([ParameterDeclaration], False),
         "QueryExecutionOptions": (QueryExecutionOptions, False),
         "Sheets": ([SheetDefinition], False),
+        "StaticFiles": ([StaticFile], False),
     }
 
 
@@ -6046,6 +6705,7 @@ class Sheet(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Images": ([SheetImage], False),
         "Name": (str, False),
         "SheetId": (str, False),
     }
@@ -6073,6 +6733,7 @@ class Analysis(AWSObject):
         "AwsAccountId": (str, True),
         "Definition": (AnalysisDefinition, False),
         "Errors": ([AnalysisError], False),
+        "FolderArns": ([str], False),
         "Name": (str, True),
         "Parameters": (Parameters, False),
         "Permissions": ([ResourcePermission], False),
@@ -6082,6 +6743,47 @@ class Analysis(AWSObject):
         "Tags": (Tags, False),
         "ThemeArn": (str, False),
         "ValidationStrategy": (ValidationStrategy, False),
+    }
+
+
+class Capabilities(AWSProperty):
+    """
+    `Capabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-custompermissions-capabilities.html>`__
+    """
+
+    props: PropsDictType = {
+        "AddOrRunAnomalyDetectionForAnalyses": (str, False),
+        "CreateAndUpdateDashboardEmailReports": (str, False),
+        "CreateAndUpdateDataSources": (str, False),
+        "CreateAndUpdateDatasets": (str, False),
+        "CreateAndUpdateThemes": (str, False),
+        "CreateAndUpdateThresholdAlerts": (str, False),
+        "CreateSPICEDataset": (str, False),
+        "CreateSharedFolders": (str, False),
+        "ExportToCsv": (str, False),
+        "ExportToExcel": (str, False),
+        "RenameSharedFolders": (str, False),
+        "ShareAnalyses": (str, False),
+        "ShareDashboards": (str, False),
+        "ShareDataSources": (str, False),
+        "ShareDatasets": (str, False),
+        "SubscribeDashboardEmailReports": (str, False),
+        "ViewAccountSPICECapacity": (str, False),
+    }
+
+
+class CustomPermissions(AWSObject):
+    """
+    `CustomPermissions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-custompermissions.html>`__
+    """
+
+    resource_type = "AWS::QuickSight::CustomPermissions"
+
+    props: PropsDictType = {
+        "AwsAccountId": (str, True),
+        "Capabilities": (Capabilities, False),
+        "CustomPermissionsName": (str, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -6195,16 +6897,6 @@ class VisualAxisSortOption(AWSProperty):
     }
 
 
-class VisualMenuOption(AWSProperty):
-    """
-    `VisualMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-visualmenuoption.html>`__
-    """
-
-    props: PropsDictType = {
-        "AvailabilityStatus": (str, False),
-    }
-
-
 class DashboardPublishOptions(AWSProperty):
     """
     `DashboardPublishOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dashboard-dashboardpublishoptions.html>`__
@@ -6223,7 +6915,7 @@ class DashboardPublishOptions(AWSProperty):
             False,
         ),
         "VisualAxisSortOption": (VisualAxisSortOption, False),
-        "VisualMenuOption": (VisualMenuOption, False),
+        "VisualMenuOption": (dict, False),
         "VisualPublishOptions": (DashboardVisualPublishOptions, False),
     }
 
@@ -6263,6 +6955,7 @@ class DashboardVersionDefinition(AWSProperty):
         "Options": (AssetOptions, False),
         "ParameterDeclarations": ([ParameterDeclaration], False),
         "Sheets": ([SheetDefinition], False),
+        "StaticFiles": ([StaticFile], False),
     }
 
 
@@ -6288,6 +6981,7 @@ class Dashboard(AWSObject):
         "DashboardId": (str, True),
         "DashboardPublishOptions": (DashboardPublishOptions, False),
         "Definition": (DashboardVersionDefinition, False),
+        "FolderArns": ([str], False),
         "LinkEntities": ([str], False),
         "LinkSharingConfiguration": (LinkSharingConfiguration, False),
         "Name": (str, True),
@@ -6715,6 +7409,26 @@ class LogicalTable(AWSProperty):
     }
 
 
+class UniqueKey(AWSProperty):
+    """
+    `UniqueKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uniquekey.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnNames": ([str], True),
+    }
+
+
+class PerformanceConfiguration(AWSProperty):
+    """
+    `PerformanceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-performanceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "UniqueKeys": ([UniqueKey], False),
+    }
+
+
 class InputColumn(AWSProperty):
     """
     `InputColumn <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-inputcolumn.html>`__
@@ -6733,7 +7447,7 @@ class CustomSql(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Columns": ([InputColumn], True),
+        "Columns": ([InputColumn], False),
         "DataSourceArn": (str, True),
         "Name": (str, True),
         "SqlQuery": (str, True),
@@ -6748,23 +7462,9 @@ class RelationalTable(AWSProperty):
     props: PropsDictType = {
         "Catalog": (str, False),
         "DataSourceArn": (str, True),
-        "InputColumns": ([InputColumn], True),
+        "InputColumns": ([InputColumn], False),
         "Name": (str, True),
         "Schema": (str, False),
-    }
-
-
-class UploadSettings(AWSProperty):
-    """
-    `UploadSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html>`__
-    """
-
-    props: PropsDictType = {
-        "ContainsHeader": (boolean, False),
-        "Delimiter": (str, False),
-        "Format": (str, False),
-        "StartFromRow": (double, False),
-        "TextQualifier": (str, False),
     }
 
 
@@ -6776,7 +7476,7 @@ class S3Source(AWSProperty):
     props: PropsDictType = {
         "DataSourceArn": (str, True),
         "InputColumns": ([InputColumn], True),
-        "UploadSettings": (UploadSettings, False),
+        "UploadSettings": (dict, False),
     }
 
 
@@ -6852,6 +7552,7 @@ class DataSet(AWSObject):
         "IngestionWaitPolicy": (IngestionWaitPolicy, False),
         "LogicalTableMap": (dict, False),
         "Name": (str, False),
+        "PerformanceConfiguration": (PerformanceConfiguration, False),
         "Permissions": ([ResourcePermission], False),
         "PhysicalTableMap": (dict, False),
         "RowLevelPermissionDataSet": (RowLevelPermissionDataSet, False),
@@ -7061,14 +7762,40 @@ class S3Parameters(AWSProperty):
     }
 
 
+class VpcConnectionProperties(AWSProperty):
+    """
+    `VpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcConnectionArn": (str, True),
+    }
+
+
+class OAuthParameters(AWSProperty):
+    """
+    `OAuthParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-oauthparameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "IdentityProviderResourceUri": (str, False),
+        "IdentityProviderVpcConnectionProperties": (VpcConnectionProperties, False),
+        "OAuthScope": (str, False),
+        "TokenProviderUrl": (str, True),
+    }
+
+
 class SnowflakeParameters(AWSProperty):
     """
     `SnowflakeParameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-snowflakeparameters.html>`__
     """
 
     props: PropsDictType = {
+        "AuthenticationType": (str, False),
         "Database": (str, True),
+        "DatabaseAccessControlRole": (str, False),
         "Host": (str, True),
+        "OAuthParameters": (OAuthParameters, False),
         "Warehouse": (str, True),
     }
 
@@ -7102,8 +7829,11 @@ class StarburstParameters(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AuthenticationType": (str, False),
         "Catalog": (str, True),
+        "DatabaseAccessControlRole": (str, False),
         "Host": (str, True),
+        "OAuthParameters": (OAuthParameters, False),
         "Port": (double, True),
         "ProductType": (str, False),
     }
@@ -7207,16 +7937,6 @@ class SslProperties(AWSProperty):
     }
 
 
-class VpcConnectionProperties(AWSProperty):
-    """
-    `VpcConnectionProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-datasource-vpcconnectionproperties.html>`__
-    """
-
-    props: PropsDictType = {
-        "VpcConnectionArn": (str, True),
-    }
-
-
 class DataSource(AWSObject):
     """
     `DataSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-datasource.html>`__
@@ -7231,6 +7951,7 @@ class DataSource(AWSObject):
         "DataSourceId": (str, False),
         "DataSourceParameters": (DataSourceParameters, False),
         "ErrorInfo": (DataSourceErrorInfo, False),
+        "FolderArns": ([str], False),
         "Name": (str, True),
         "Permissions": ([ResourcePermission], False),
         "SslProperties": (SslProperties, False),

@@ -64,6 +64,7 @@ class Function(AWSProperty):
         "Description": (str, False),
         "Name": (str, True),
         "Parameters": (dict, False),
+        "RequireConfirmation": (str, False),
     }
 
 
@@ -108,7 +109,7 @@ class AgentKnowledgeBase(AWSProperty):
 
 class GuardrailConfiguration(AWSProperty):
     """
-    `GuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-guardrailconfiguration.html>`__
+    `GuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-guardrailconfiguration.html>`__
     """
 
     props: PropsDictType = {
@@ -206,6 +207,31 @@ class AgentAlias(AWSObject):
         "Description": (str, False),
         "RoutingConfiguration": ([AgentAliasRoutingConfigurationListItem], False),
         "Tags": (dict, False),
+    }
+
+
+class InferenceProfileModelSource(AWSProperty):
+    """
+    `InferenceProfileModelSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodelsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "CopyFrom": (str, True),
+    }
+
+
+class ApplicationInferenceProfile(AWSObject):
+    """
+    `ApplicationInferenceProfile <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-applicationinferenceprofile.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::ApplicationInferenceProfile"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InferenceProfileName": (str, True),
+        "ModelSource": (InferenceProfileModelSource, False),
+        "Tags": (Tags, False),
     }
 
 
@@ -505,13 +531,11 @@ class ChunkingConfiguration(AWSProperty):
 
 class S3Location(AWSProperty):
     """
-    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flow-s3location.html>`__
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html>`__
     """
 
     props: PropsDictType = {
-        "Bucket": (str, True),
-        "Key": (str, True),
-        "Version": (str, False),
+        "URI": (str, True),
     }
 
 
@@ -567,6 +591,16 @@ class CustomTransformationConfiguration(AWSProperty):
     }
 
 
+class BedrockDataAutomationConfiguration(AWSProperty):
+    """
+    `BedrockDataAutomationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockdataautomationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParsingModality": (str, False),
+    }
+
+
 class ParsingPrompt(AWSProperty):
     """
     `ParsingPrompt <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-parsingprompt.html>`__
@@ -584,6 +618,7 @@ class BedrockFoundationModelConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ModelArn": (str, True),
+        "ParsingModality": (str, False),
         "ParsingPrompt": (ParsingPrompt, False),
     }
 
@@ -594,6 +629,10 @@ class ParsingConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BedrockDataAutomationConfiguration": (
+            BedrockDataAutomationConfiguration,
+            False,
+        ),
         "BedrockFoundationModelConfiguration": (
             BedrockFoundationModelConfiguration,
             False,
@@ -715,6 +754,7 @@ class KnowledgeBaseFlowNodeConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "GuardrailConfiguration": (GuardrailConfiguration, False),
         "KnowledgeBaseId": (str, True),
         "ModelId": (str, False),
     }
@@ -750,7 +790,6 @@ class PromptModelInferenceConfiguration(AWSProperty):
         "MaxTokens": (double, False),
         "StopSequences": ([str], False),
         "Temperature": (double, False),
-        "TopK": (double, False),
         "TopP": (double, False),
     }
 
@@ -765,6 +804,27 @@ class PromptInferenceConfiguration(AWSProperty):
     }
 
 
+class ContentBlock(AWSProperty):
+    """
+    `ContentBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-contentblock.html>`__
+    """
+
+    props: PropsDictType = {
+        "Text": (str, True),
+    }
+
+
+class Message(AWSProperty):
+    """
+    `Message <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-message.html>`__
+    """
+
+    props: PropsDictType = {
+        "Content": ([ContentBlock], True),
+        "Role": (str, True),
+    }
+
+
 class PromptInputVariable(AWSProperty):
     """
     `PromptInputVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptinputvariable.html>`__
@@ -772,6 +832,94 @@ class PromptInputVariable(AWSProperty):
 
     props: PropsDictType = {
         "Name": (str, False),
+    }
+
+
+class SystemContentBlock(AWSProperty):
+    """
+    `SystemContentBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-systemcontentblock.html>`__
+    """
+
+    props: PropsDictType = {
+        "Text": (str, True),
+    }
+
+
+class ToolInputSchema(AWSProperty):
+    """
+    `ToolInputSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-toolinputschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "Json": (dict, True),
+    }
+
+
+class ToolSpecification(AWSProperty):
+    """
+    `ToolSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-toolspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "InputSchema": (ToolInputSchema, True),
+        "Name": (str, True),
+    }
+
+
+class Tool(AWSProperty):
+    """
+    `Tool <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-tool.html>`__
+    """
+
+    props: PropsDictType = {
+        "ToolSpec": (ToolSpecification, True),
+    }
+
+
+class SpecificToolChoice(AWSProperty):
+    """
+    `SpecificToolChoice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-specifictoolchoice.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+    }
+
+
+class ToolChoice(AWSProperty):
+    """
+    `ToolChoice <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-toolchoice.html>`__
+    """
+
+    props: PropsDictType = {
+        "Any": (dict, False),
+        "Auto": (dict, False),
+        "Tool": (SpecificToolChoice, False),
+    }
+
+
+class ToolConfiguration(AWSProperty):
+    """
+    `ToolConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-toolconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ToolChoice": (ToolChoice, False),
+        "Tools": ([Tool], True),
+    }
+
+
+class ChatPromptTemplateConfiguration(AWSProperty):
+    """
+    `ChatPromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-chatprompttemplateconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "InputVariables": ([PromptInputVariable], False),
+        "Messages": ([Message], True),
+        "System": ([SystemContentBlock], False),
+        "ToolConfiguration": (ToolConfiguration, False),
     }
 
 
@@ -788,11 +936,12 @@ class TextPromptTemplateConfiguration(AWSProperty):
 
 class PromptTemplateConfiguration(AWSProperty):
     """
-    `PromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-prompttemplateconfiguration.html>`__
+    `PromptTemplateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-prompttemplateconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "Text": (TextPromptTemplateConfiguration, True),
+        "Chat": (ChatPromptTemplateConfiguration, False),
+        "Text": (TextPromptTemplateConfiguration, False),
     }
 
 
@@ -836,6 +985,7 @@ class PromptFlowNodeConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "GuardrailConfiguration": (GuardrailConfiguration, False),
         "SourceConfiguration": (PromptFlowNodeSourceConfiguration, True),
     }
 
@@ -1196,6 +1346,16 @@ class GuardrailVersion(AWSObject):
     }
 
 
+class KendraKnowledgeBaseConfiguration(AWSProperty):
+    """
+    `KendraKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-kendraknowledgebaseconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KendraIndexArn": (str, True),
+    }
+
+
 class BedrockEmbeddingModelConfiguration(AWSProperty):
     """
     `BedrockEmbeddingModelConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-bedrockembeddingmodelconfiguration.html>`__
@@ -1219,6 +1379,27 @@ class EmbeddingModelConfiguration(AWSProperty):
     }
 
 
+class SupplementalDataStorageLocation(AWSProperty):
+    """
+    `SupplementalDataStorageLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastoragelocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Location": (S3Location, False),
+        "SupplementalDataStorageLocationType": (str, True),
+    }
+
+
+class SupplementalDataStorageConfiguration(AWSProperty):
+    """
+    `SupplementalDataStorageConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-supplementaldatastorageconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SupplementalDataStorageLocations": ([SupplementalDataStorageLocation], True),
+    }
+
+
 class VectorKnowledgeBaseConfiguration(AWSProperty):
     """
     `VectorKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-vectorknowledgebaseconfiguration.html>`__
@@ -1227,6 +1408,10 @@ class VectorKnowledgeBaseConfiguration(AWSProperty):
     props: PropsDictType = {
         "EmbeddingModelArn": (str, True),
         "EmbeddingModelConfiguration": (EmbeddingModelConfiguration, False),
+        "SupplementalDataStorageConfiguration": (
+            SupplementalDataStorageConfiguration,
+            False,
+        ),
     }
 
 
@@ -1236,8 +1421,9 @@ class KnowledgeBaseConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "KendraKnowledgeBaseConfiguration": (KendraKnowledgeBaseConfiguration, False),
         "Type": (str, True),
-        "VectorKnowledgeBaseConfiguration": (VectorKnowledgeBaseConfiguration, True),
+        "VectorKnowledgeBaseConfiguration": (VectorKnowledgeBaseConfiguration, False),
     }
 
 
@@ -1370,7 +1556,7 @@ class KnowledgeBase(AWSObject):
         "KnowledgeBaseConfiguration": (KnowledgeBaseConfiguration, True),
         "Name": (str, True),
         "RoleArn": (str, True),
-        "StorageConfiguration": (StorageConfiguration, True),
+        "StorageConfiguration": (StorageConfiguration, False),
         "Tags": (dict, False),
     }
 
@@ -1384,7 +1570,7 @@ class PromptVariant(AWSProperty):
         "InferenceConfiguration": (PromptInferenceConfiguration, False),
         "ModelId": (str, False),
         "Name": (str, True),
-        "TemplateConfiguration": (PromptTemplateConfiguration, False),
+        "TemplateConfiguration": (PromptTemplateConfiguration, True),
         "TemplateType": (str, True),
     }
 
@@ -1439,6 +1625,36 @@ class FlowValidation(AWSProperty):
 
     props: PropsDictType = {
         "Message": (str, True),
+    }
+
+
+class InferenceProfileModel(AWSProperty):
+    """
+    `InferenceProfileModel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-applicationinferenceprofile-inferenceprofilemodel.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelArn": (str, False),
+    }
+
+
+class PromptAgentResource(AWSProperty):
+    """
+    `PromptAgentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptagentresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentIdentifier": (str, True),
+    }
+
+
+class PromptGenAiResource(AWSProperty):
+    """
+    `PromptGenAiResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-prompt-promptgenairesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Agent": (PromptAgentResource, True),
     }
 
 

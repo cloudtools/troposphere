@@ -31,6 +31,49 @@ from .validators.autoscaling import (
 )
 
 
+class AvailabilityZoneDistribution(AWSProperty):
+    """
+    `AvailabilityZoneDistribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzonedistribution.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityDistributionStrategy": (str, False),
+    }
+
+
+class AvailabilityZoneImpairmentPolicy(AWSProperty):
+    """
+    `AvailabilityZoneImpairmentPolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-availabilityzoneimpairmentpolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "ImpairedZoneHealthCheckBehavior": (str, True),
+        "ZonalShiftEnabled": (boolean, True),
+    }
+
+
+class CapacityReservationTarget(AWSProperty):
+    """
+    `CapacityReservationTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationtarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationIds": ([str], False),
+        "CapacityReservationResourceGroupArns": ([str], False),
+    }
+
+
+class CapacityReservationSpecification(AWSProperty):
+    """
+    `CapacityReservationSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-capacityreservationspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityReservationPreference": (str, True),
+        "CapacityReservationTarget": (CapacityReservationTarget, False),
+    }
+
+
 class InstanceMaintenancePolicy(AWSProperty):
     """
     `InstanceMaintenancePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-instancemaintenancepolicy.html>`__
@@ -132,6 +175,36 @@ class BaselineEbsBandwidthMbpsRequest(AWSProperty):
     }
 
 
+class PerformanceFactorReferenceRequest(AWSProperty):
+    """
+    `PerformanceFactorReferenceRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-performancefactorreferencerequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "InstanceFamily": (str, False),
+    }
+
+
+class CpuPerformanceFactorRequest(AWSProperty):
+    """
+    `CpuPerformanceFactorRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-cpuperformancefactorrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "References": ([PerformanceFactorReferenceRequest], False),
+    }
+
+
+class BaselinePerformanceFactorsRequest(AWSProperty):
+    """
+    `BaselinePerformanceFactorsRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-baselineperformancefactorsrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cpu": (CpuPerformanceFactorRequest, False),
+    }
+
+
 class MemoryGiBPerVCpuRequest(AWSProperty):
     """
     `MemoryGiBPerVCpuRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-memorygibpervcpurequest.html>`__
@@ -212,6 +285,7 @@ class InstanceRequirements(AWSProperty):
         "AllowedInstanceTypes": ([str], False),
         "BareMetal": (str, False),
         "BaselineEbsBandwidthMbps": (BaselineEbsBandwidthMbpsRequest, False),
+        "BaselinePerformanceFactors": (BaselinePerformanceFactorsRequest, False),
         "BurstablePerformance": (str, False),
         "CpuManufacturers": ([str], False),
         "ExcludedInstanceTypes": ([str], False),
@@ -277,6 +351,17 @@ class NotificationConfigurations(AWSProperty):
     }
 
 
+class TrafficSourceIdentifier(AWSProperty):
+    """
+    `TrafficSourceIdentifier <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-trafficsourceidentifier.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identifier": (str, True),
+        "Type": (str, True),
+    }
+
+
 class AutoScalingGroup(AWSObject):
     """
     `AutoScalingGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html>`__
@@ -286,8 +371,11 @@ class AutoScalingGroup(AWSObject):
 
     props: PropsDictType = {
         "AutoScalingGroupName": (str, False),
+        "AvailabilityZoneDistribution": (AvailabilityZoneDistribution, False),
+        "AvailabilityZoneImpairmentPolicy": (AvailabilityZoneImpairmentPolicy, False),
         "AvailabilityZones": ([str], False),
         "CapacityRebalance": (boolean, False),
+        "CapacityReservationSpecification": (CapacityReservationSpecification, False),
         "Context": (str, False),
         "Cooldown": (str, False),
         "DefaultInstanceWarmup": (integer, False),
@@ -310,9 +398,11 @@ class AutoScalingGroup(AWSObject):
         "NotificationConfigurations": ([NotificationConfigurations], False),
         "PlacementGroup": (str, False),
         "ServiceLinkedRoleARN": (str, False),
+        "SkipZonalShiftValidation": (boolean, False),
         "Tags": (validate_tags_or_list, False),
         "TargetGroupARNs": ([str], False),
         "TerminationPolicies": ([str], False),
+        "TrafficSources": ([TrafficSourceIdentifier], False),
         "VPCZoneIdentifier": ([str], False),
     }
 
@@ -589,6 +679,7 @@ class TargetTrackingMetricStat(AWSProperty):
 
     props: PropsDictType = {
         "Metric": (Metric, True),
+        "Period": (integer, False),
         "Stat": (str, True),
         "Unit": (str, False),
     }
@@ -604,6 +695,7 @@ class TargetTrackingMetricDataQuery(AWSProperty):
         "Id": (str, True),
         "Label": (str, False),
         "MetricStat": (TargetTrackingMetricStat, False),
+        "Period": (integer, False),
         "ReturnData": (boolean, False),
     }
 
@@ -618,6 +710,7 @@ class CustomizedMetricSpecification(AWSProperty):
         "MetricName": (str, False),
         "Metrics": ([TargetTrackingMetricDataQuery], False),
         "Namespace": (str, False),
+        "Period": (integer, False),
         "Statistic": (str, False),
         "Unit": (str, False),
     }

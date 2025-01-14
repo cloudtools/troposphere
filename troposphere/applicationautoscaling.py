@@ -67,6 +67,166 @@ class ScalableTarget(AWSObject):
     }
 
 
+class PredictiveScalingMetricDimension(AWSProperty):
+    """
+    `PredictiveScalingMetricDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Value": (str, False),
+    }
+
+
+class PredictiveScalingMetric(AWSProperty):
+    """
+    `PredictiveScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dimensions": ([PredictiveScalingMetricDimension], False),
+        "MetricName": (str, False),
+        "Namespace": (str, False),
+    }
+
+
+class PredictiveScalingMetricStat(AWSProperty):
+    """
+    `PredictiveScalingMetricStat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricstat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Metric": (PredictiveScalingMetric, False),
+        "Stat": (str, False),
+        "Unit": (str, False),
+    }
+
+
+class PredictiveScalingMetricDataQuery(AWSProperty):
+    """
+    `PredictiveScalingMetricDataQuery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricdataquery.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (str, False),
+        "Id": (str, False),
+        "Label": (str, False),
+        "MetricStat": (PredictiveScalingMetricStat, False),
+        "ReturnData": (boolean, False),
+    }
+
+
+class PredictiveScalingCustomizedCapacityMetric(AWSProperty):
+    """
+    `PredictiveScalingCustomizedCapacityMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedcapacitymetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricDataQueries": ([PredictiveScalingMetricDataQuery], True),
+    }
+
+
+class PredictiveScalingCustomizedLoadMetric(AWSProperty):
+    """
+    `PredictiveScalingCustomizedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedloadmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricDataQueries": ([PredictiveScalingMetricDataQuery], True),
+    }
+
+
+class PredictiveScalingCustomizedScalingMetric(AWSProperty):
+    """
+    `PredictiveScalingCustomizedScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingcustomizedscalingmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetricDataQueries": ([PredictiveScalingMetricDataQuery], True),
+    }
+
+
+class PredictiveScalingPredefinedLoadMetric(AWSProperty):
+    """
+    `PredictiveScalingPredefinedLoadMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedloadmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "PredefinedMetricType": (str, True),
+        "ResourceLabel": (str, False),
+    }
+
+
+class PredictiveScalingPredefinedMetricPair(AWSProperty):
+    """
+    `PredictiveScalingPredefinedMetricPair <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedmetricpair.html>`__
+    """
+
+    props: PropsDictType = {
+        "PredefinedMetricType": (str, True),
+        "ResourceLabel": (str, False),
+    }
+
+
+class PredictiveScalingPredefinedScalingMetric(AWSProperty):
+    """
+    `PredictiveScalingPredefinedScalingMetric <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpredefinedscalingmetric.html>`__
+    """
+
+    props: PropsDictType = {
+        "PredefinedMetricType": (str, True),
+        "ResourceLabel": (str, False),
+    }
+
+
+class PredictiveScalingMetricSpecification(AWSProperty):
+    """
+    `PredictiveScalingMetricSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingmetricspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomizedCapacityMetricSpecification": (
+            PredictiveScalingCustomizedCapacityMetric,
+            False,
+        ),
+        "CustomizedLoadMetricSpecification": (
+            PredictiveScalingCustomizedLoadMetric,
+            False,
+        ),
+        "CustomizedScalingMetricSpecification": (
+            PredictiveScalingCustomizedScalingMetric,
+            False,
+        ),
+        "PredefinedLoadMetricSpecification": (
+            PredictiveScalingPredefinedLoadMetric,
+            False,
+        ),
+        "PredefinedMetricPairSpecification": (
+            PredictiveScalingPredefinedMetricPair,
+            False,
+        ),
+        "PredefinedScalingMetricSpecification": (
+            PredictiveScalingPredefinedScalingMetric,
+            False,
+        ),
+        "TargetValue": (double, True),
+    }
+
+
+class PredictiveScalingPolicyConfiguration(AWSProperty):
+    """
+    `PredictiveScalingPolicyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-predictivescalingpolicyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxCapacityBreachBehavior": (str, False),
+        "MaxCapacityBuffer": (integer, False),
+        "MetricSpecifications": ([PredictiveScalingMetricSpecification], True),
+        "Mode": (str, False),
+        "SchedulingBufferTime": (integer, False),
+    }
+
+
 class StepAdjustment(AWSProperty):
     """
     `StepAdjustment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationautoscaling-scalingpolicy-stepadjustment.html>`__
@@ -204,6 +364,10 @@ class ScalingPolicy(AWSObject):
     props: PropsDictType = {
         "PolicyName": (str, True),
         "PolicyType": (str, True),
+        "PredictiveScalingPolicyConfiguration": (
+            PredictiveScalingPolicyConfiguration,
+            False,
+        ),
         "ResourceId": (str, False),
         "ScalableDimension": (str, False),
         "ScalingTargetId": (str, False),

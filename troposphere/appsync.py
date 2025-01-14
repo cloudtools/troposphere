@@ -11,6 +11,106 @@ from .validators import boolean, double, integer
 from .validators.appsync import resolver_kind_validator
 
 
+class AuthMode(AWSProperty):
+    """
+    `AuthMode <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-authmode.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthType": (str, False),
+    }
+
+
+class CognitoConfig(AWSProperty):
+    """
+    `CognitoConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-cognitoconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AppIdClientRegex": (str, False),
+        "AwsRegion": (str, True),
+        "UserPoolId": (str, True),
+    }
+
+
+class LambdaAuthorizerConfig(AWSProperty):
+    """
+    `LambdaAuthorizerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizerResultTtlInSeconds": (double, False),
+        "AuthorizerUri": (str, False),
+        "IdentityValidationExpression": (str, False),
+    }
+
+
+class OpenIDConnectConfig(AWSProperty):
+    """
+    `OpenIDConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthTTL": (double, False),
+        "ClientId": (str, False),
+        "IatTTL": (double, False),
+        "Issuer": (str, False),
+    }
+
+
+class AuthProvider(AWSProperty):
+    """
+    `AuthProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-authprovider.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthType": (str, True),
+        "CognitoConfig": (CognitoConfig, False),
+        "LambdaAuthorizerConfig": (LambdaAuthorizerConfig, False),
+        "OpenIDConnectConfig": (OpenIDConnectConfig, False),
+    }
+
+
+class EventLogConfig(AWSProperty):
+    """
+    `EventLogConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventlogconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "CloudWatchLogsRoleArn": (str, True),
+        "LogLevel": (str, True),
+    }
+
+
+class EventConfig(AWSProperty):
+    """
+    `EventConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-eventconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthProviders": ([AuthProvider], True),
+        "ConnectionAuthModes": ([AuthMode], True),
+        "DefaultPublishAuthModes": ([AuthMode], True),
+        "DefaultSubscribeAuthModes": ([AuthMode], True),
+        "LogConfig": (EventLogConfig, False),
+    }
+
+
+class Api(AWSObject):
+    """
+    `Api <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-api.html>`__
+    """
+
+    resource_type = "AWS::AppSync::Api"
+
+    props: PropsDictType = {
+        "EventConfig": (EventConfig, False),
+        "Name": (str, True),
+        "OwnerContact": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class ApiCache(AWSObject):
     """
     `ApiCache <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-apicache.html>`__
@@ -41,6 +141,24 @@ class ApiKey(AWSObject):
         "ApiKeyId": (str, False),
         "Description": (str, False),
         "Expires": (double, False),
+    }
+
+
+class ChannelNamespace(AWSObject):
+    """
+    `ChannelNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html>`__
+    """
+
+    resource_type = "AWS::AppSync::ChannelNamespace"
+
+    props: PropsDictType = {
+        "ApiId": (str, True),
+        "CodeHandlers": (str, False),
+        "CodeS3Location": (str, False),
+        "Name": (str, True),
+        "PublishAuthModes": ([AuthMode], False),
+        "SubscribeAuthModes": ([AuthMode], False),
+        "Tags": (Tags, False),
     }
 
 
@@ -291,31 +409,6 @@ class CognitoUserPoolConfig(AWSProperty):
     }
 
 
-class LambdaAuthorizerConfig(AWSProperty):
-    """
-    `LambdaAuthorizerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-lambdaauthorizerconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "AuthorizerResultTtlInSeconds": (double, False),
-        "AuthorizerUri": (str, False),
-        "IdentityValidationExpression": (str, False),
-    }
-
-
-class OpenIDConnectConfig(AWSProperty):
-    """
-    `OpenIDConnectConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-openidconnectconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "AuthTTL": (double, False),
-        "ClientId": (str, False),
-        "IatTTL": (double, False),
-        "Issuer": (str, False),
-    }
-
-
 class AdditionalAuthenticationProvider(AWSProperty):
     """
     `AdditionalAuthenticationProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-graphqlapi-additionalauthenticationprovider.html>`__
@@ -483,4 +576,15 @@ class SourceApiAssociation(AWSObject):
         "MergedApiIdentifier": (str, False),
         "SourceApiAssociationConfig": (SourceApiAssociationConfig, False),
         "SourceApiIdentifier": (str, False),
+    }
+
+
+class DnsMap(AWSProperty):
+    """
+    `DnsMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-api-dnsmap.html>`__
+    """
+
+    props: PropsDictType = {
+        "Http": (str, False),
+        "Realtime": (str, False),
     }

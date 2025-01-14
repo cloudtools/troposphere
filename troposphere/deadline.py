@@ -122,6 +122,28 @@ class CustomerManagedFleetConfiguration(AWSProperty):
     }
 
 
+class AcceleratorSelection(AWSProperty):
+    """
+    `AcceleratorSelection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorselection.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Runtime": (str, False),
+    }
+
+
+class AcceleratorCapabilities(AWSProperty):
+    """
+    `AcceleratorCapabilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-acceleratorcapabilities.html>`__
+    """
+
+    props: PropsDictType = {
+        "Count": (AcceleratorCountRange, False),
+        "Selections": ([AcceleratorSelection], True),
+    }
+
+
 class Ec2EbsVolume(AWSProperty):
     """
     `Ec2EbsVolume <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-deadline-fleet-ec2ebsvolume.html>`__
@@ -140,6 +162,7 @@ class ServiceManagedEc2InstanceCapabilities(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AcceleratorCapabilities": (AcceleratorCapabilities, False),
         "AllowedInstanceTypes": ([str], False),
         "CpuArchitectureType": (str, True),
         "CustomAmounts": ([FleetAmountCapability], False),

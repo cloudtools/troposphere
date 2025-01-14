@@ -17,7 +17,7 @@ class CisTargets(AWSProperty):
 
     props: PropsDictType = {
         "AccountIds": ([str], True),
-        "TargetResourceTags": (dict, False),
+        "TargetResourceTags": (dict, True),
     }
 
 

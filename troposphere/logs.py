@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import double
+from .validators import boolean, double, integer
 from .validators.logs import policytypes  # noqa: F401
 from .validators.logs import (
     validate_loggroup_retention_in_days,
@@ -41,6 +41,10 @@ class Delivery(AWSObject):
     props: PropsDictType = {
         "DeliveryDestinationArn": (str, True),
         "DeliverySourceName": (str, True),
+        "FieldDelimiter": (str, False),
+        "RecordFields": ([str], False),
+        "S3EnableHiveCompatiblePath": (boolean, False),
+        "S3SuffixPath": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -56,6 +60,7 @@ class DeliveryDestination(AWSObject):
         "DeliveryDestinationPolicy": (dict, False),
         "DestinationResourceArn": (str, False),
         "Name": (str, True),
+        "OutputFormat": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -90,6 +95,44 @@ class Destination(AWSObject):
     }
 
 
+class OpenSearchResourceConfig(AWSProperty):
+    """
+    `OpenSearchResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-opensearchresourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationARN": (str, False),
+        "DashboardViewerPrincipals": ([str], True),
+        "DataSourceRoleArn": (str, True),
+        "KmsKeyArn": (str, False),
+        "RetentionDays": (integer, False),
+    }
+
+
+class ResourceConfig(AWSProperty):
+    """
+    `ResourceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-integration-resourceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "OpenSearchResourceConfig": (OpenSearchResourceConfig, False),
+    }
+
+
+class Integration(AWSObject):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-integration.html>`__
+    """
+
+    resource_type = "AWS::Logs::Integration"
+
+    props: PropsDictType = {
+        "IntegrationName": (str, True),
+        "IntegrationType": (str, True),
+        "ResourceConfig": (ResourceConfig, True),
+    }
+
+
 class LogAnomalyDetector(AWSObject):
     """
     `LogAnomalyDetector <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loganomalydetector.html>`__
@@ -117,6 +160,7 @@ class LogGroup(AWSObject):
 
     props: PropsDictType = {
         "DataProtectionPolicy": (dict, False),
+        "FieldIndexPolicies": (Tags, False),
         "KmsKeyId": (str, False),
         "LogGroupClass": (str, False),
         "LogGroupName": (str, False),
@@ -172,6 +216,7 @@ class MetricFilter(AWSObject):
     resource_type = "AWS::Logs::MetricFilter"
 
     props: PropsDictType = {
+        "ApplyOnTransformedLogs": (boolean, False),
         "FilterName": (str, False),
         "FilterPattern": (str, True),
         "LogGroupName": (str, True),
@@ -189,6 +234,7 @@ class QueryDefinition(AWSObject):
     props: PropsDictType = {
         "LogGroupNames": ([str], False),
         "Name": (str, True),
+        "QueryLanguage": (str, False),
         "QueryString": (str, True),
     }
 
@@ -214,10 +260,379 @@ class SubscriptionFilter(AWSObject):
     resource_type = "AWS::Logs::SubscriptionFilter"
 
     props: PropsDictType = {
+        "ApplyOnTransformedLogs": (boolean, False),
         "DestinationArn": (str, True),
         "Distribution": (str, False),
         "FilterName": (str, False),
         "FilterPattern": (str, True),
         "LogGroupName": (str, True),
         "RoleArn": (str, False),
+    }
+
+
+class AddKeyEntry(AWSProperty):
+    """
+    `AddKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-addkeyentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "OverwriteIfExists": (boolean, False),
+        "Value": (str, True),
+    }
+
+
+class AddKeys(AWSProperty):
+    """
+    `AddKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-addkeys.html>`__
+    """
+
+    props: PropsDictType = {
+        "Entries": ([AddKeyEntry], True),
+    }
+
+
+class CopyValueEntry(AWSProperty):
+    """
+    `CopyValueEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-copyvalueentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "OverwriteIfExists": (boolean, False),
+        "Source": (str, True),
+        "Target": (str, True),
+    }
+
+
+class CopyValue(AWSProperty):
+    """
+    `CopyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-copyvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Entries": ([CopyValueEntry], True),
+    }
+
+
+class Csv(AWSProperty):
+    """
+    `Csv <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-csv.html>`__
+    """
+
+    props: PropsDictType = {
+        "Columns": ([str], False),
+        "Delimiter": (str, False),
+        "QuoteCharacter": (str, False),
+        "Source": (str, False),
+    }
+
+
+class DateTimeConverter(AWSProperty):
+    """
+    `DateTimeConverter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-datetimeconverter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Locale": (str, False),
+        "MatchPatterns": ([str], True),
+        "Source": (str, True),
+        "SourceTimezone": (str, False),
+        "Target": (str, True),
+        "TargetFormat": (str, False),
+        "TargetTimezone": (str, False),
+    }
+
+
+class DeleteKeys(AWSProperty):
+    """
+    `DeleteKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-deletekeys.html>`__
+    """
+
+    props: PropsDictType = {
+        "WithKeys": ([str], True),
+    }
+
+
+class Grok(AWSProperty):
+    """
+    `Grok <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-grok.html>`__
+    """
+
+    props: PropsDictType = {
+        "Match": (str, True),
+        "Source": (str, False),
+    }
+
+
+class ListToMap(AWSProperty):
+    """
+    `ListToMap <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-listtomap.html>`__
+    """
+
+    props: PropsDictType = {
+        "Flatten": (boolean, False),
+        "FlattenedElement": (str, False),
+        "Key": (str, True),
+        "Source": (str, True),
+        "Target": (str, False),
+        "ValueKey": (str, False),
+    }
+
+
+class LowerCaseString(AWSProperty):
+    """
+    `LowerCaseString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-lowercasestring.html>`__
+    """
+
+    props: PropsDictType = {
+        "WithKeys": ([str], True),
+    }
+
+
+class MoveKeyEntry(AWSProperty):
+    """
+    `MoveKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-movekeyentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "OverwriteIfExists": (boolean, False),
+        "Source": (str, True),
+        "Target": (str, True),
+    }
+
+
+class MoveKeys(AWSProperty):
+    """
+    `MoveKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-movekeys.html>`__
+    """
+
+    props: PropsDictType = {
+        "Entries": ([MoveKeyEntry], True),
+    }
+
+
+class ParseCloudfront(AWSProperty):
+    """
+    `ParseCloudfront <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsecloudfront.html>`__
+    """
+
+    props: PropsDictType = {
+        "Source": (str, False),
+    }
+
+
+class ParseJSON(AWSProperty):
+    """
+    `ParseJSON <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsejson.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (str, False),
+        "Source": (str, False),
+    }
+
+
+class ParseKeyValue(AWSProperty):
+    """
+    `ParseKeyValue <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsekeyvalue.html>`__
+    """
+
+    props: PropsDictType = {
+        "Destination": (str, False),
+        "FieldDelimiter": (str, False),
+        "KeyPrefix": (str, False),
+        "KeyValueDelimiter": (str, False),
+        "NonMatchValue": (str, False),
+        "OverwriteIfExists": (boolean, False),
+        "Source": (str, False),
+    }
+
+
+class ParsePostgres(AWSProperty):
+    """
+    `ParsePostgres <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsepostgres.html>`__
+    """
+
+    props: PropsDictType = {
+        "Source": (str, False),
+    }
+
+
+class ParseRoute53(AWSProperty):
+    """
+    `ParseRoute53 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parseroute53.html>`__
+    """
+
+    props: PropsDictType = {
+        "Source": (str, False),
+    }
+
+
+class ParseVPC(AWSProperty):
+    """
+    `ParseVPC <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsevpc.html>`__
+    """
+
+    props: PropsDictType = {
+        "Source": (str, False),
+    }
+
+
+class ParseWAF(AWSProperty):
+    """
+    `ParseWAF <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-parsewaf.html>`__
+    """
+
+    props: PropsDictType = {
+        "Source": (str, False),
+    }
+
+
+class RenameKeyEntry(AWSProperty):
+    """
+    `RenameKeyEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-renamekeyentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "OverwriteIfExists": (boolean, False),
+        "RenameTo": (str, True),
+    }
+
+
+class RenameKeys(AWSProperty):
+    """
+    `RenameKeys <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-renamekeys.html>`__
+    """
+
+    props: PropsDictType = {
+        "Entries": ([RenameKeyEntry], True),
+    }
+
+
+class SplitStringEntry(AWSProperty):
+    """
+    `SplitStringEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-splitstringentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Delimiter": (str, True),
+        "Source": (str, True),
+    }
+
+
+class SplitString(AWSProperty):
+    """
+    `SplitString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-splitstring.html>`__
+    """
+
+    props: PropsDictType = {
+        "Entries": ([SplitStringEntry], True),
+    }
+
+
+class SubstituteStringEntry(AWSProperty):
+    """
+    `SubstituteStringEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-substitutestringentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "From": (str, True),
+        "Source": (str, True),
+        "To": (str, True),
+    }
+
+
+class SubstituteString(AWSProperty):
+    """
+    `SubstituteString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-substitutestring.html>`__
+    """
+
+    props: PropsDictType = {
+        "Entries": ([SubstituteStringEntry], True),
+    }
+
+
+class TrimString(AWSProperty):
+    """
+    `TrimString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-trimstring.html>`__
+    """
+
+    props: PropsDictType = {
+        "WithKeys": ([str], True),
+    }
+
+
+class TypeConverterEntry(AWSProperty):
+    """
+    `TypeConverterEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-typeconverterentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Type": (str, True),
+    }
+
+
+class TypeConverter(AWSProperty):
+    """
+    `TypeConverter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-typeconverter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Entries": ([TypeConverterEntry], True),
+    }
+
+
+class UpperCaseString(AWSProperty):
+    """
+    `UpperCaseString <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-uppercasestring.html>`__
+    """
+
+    props: PropsDictType = {
+        "WithKeys": ([str], True),
+    }
+
+
+class Processor(AWSProperty):
+    """
+    `Processor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-logs-transformer-processor.html>`__
+    """
+
+    props: PropsDictType = {
+        "AddKeys": (AddKeys, False),
+        "CopyValue": (CopyValue, False),
+        "Csv": (Csv, False),
+        "DateTimeConverter": (DateTimeConverter, False),
+        "DeleteKeys": (DeleteKeys, False),
+        "Grok": (Grok, False),
+        "ListToMap": (ListToMap, False),
+        "LowerCaseString": (LowerCaseString, False),
+        "MoveKeys": (MoveKeys, False),
+        "ParseCloudfront": (ParseCloudfront, False),
+        "ParseJSON": (ParseJSON, False),
+        "ParseKeyValue": (ParseKeyValue, False),
+        "ParsePostgres": (ParsePostgres, False),
+        "ParseRoute53": (ParseRoute53, False),
+        "ParseVPC": (ParseVPC, False),
+        "ParseWAF": (ParseWAF, False),
+        "RenameKeys": (RenameKeys, False),
+        "SplitString": (SplitString, False),
+        "SubstituteString": (SubstituteString, False),
+        "TrimString": (TrimString, False),
+        "TypeConverter": (TypeConverter, False),
+        "UpperCaseString": (UpperCaseString, False),
+    }
+
+
+class Transformer(AWSObject):
+    """
+    `Transformer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-transformer.html>`__
+    """
+
+    resource_type = "AWS::Logs::Transformer"
+
+    props: PropsDictType = {
+        "LogGroupIdentifier": (str, True),
+        "TransformerConfig": ([Processor], True),
     }

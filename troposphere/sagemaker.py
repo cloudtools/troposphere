@@ -167,6 +167,17 @@ class ClusterLifeCycleConfig(AWSProperty):
     }
 
 
+class VpcConfig(AWSProperty):
+    """
+    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecurityGroupIds": ([str], True),
+        "Subnets": ([str], True),
+    }
+
+
 class ClusterInstanceGroup(AWSProperty):
     """
     `ClusterInstanceGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-cluster-clusterinstancegroup.html>`__
@@ -181,6 +192,7 @@ class ClusterInstanceGroup(AWSProperty):
         "InstanceType": (str, True),
         "LifeCycleConfig": (ClusterLifeCycleConfig, True),
         "OnStartDeepHealthChecks": ([str], False),
+        "OverrideVpcConfig": (VpcConfig, False),
         "ThreadsPerCore": (integer, False),
     }
 
@@ -202,17 +214,6 @@ class Orchestrator(AWSProperty):
 
     props: PropsDictType = {
         "Eks": (ClusterOrchestratorEksConfig, True),
-    }
-
-
-class VpcConfig(AWSProperty):
-    """
-    `VpcConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-monitoringschedule-vpcconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "SecurityGroupIds": ([str], True),
-        "Subnets": ([str], True),
     }
 
 
@@ -542,6 +543,17 @@ class EFSFileSystemConfig(AWSProperty):
     }
 
 
+class FSxLustreFileSystemConfig(AWSProperty):
+    """
+    `FSxLustreFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-fsxlustrefilesystemconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileSystemId": (str, True),
+        "FileSystemPath": (str, False),
+    }
+
+
 class CustomFileSystemConfig(AWSProperty):
     """
     `CustomFileSystemConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-userprofile-customfilesystemconfig.html>`__
@@ -549,6 +561,7 @@ class CustomFileSystemConfig(AWSProperty):
 
     props: PropsDictType = {
         "EFSFileSystemConfig": (EFSFileSystemConfig, False),
+        "FSxLustreFileSystemConfig": (FSxLustreFileSystemConfig, False),
     }
 
 
@@ -714,6 +727,7 @@ class DomainSettings(AWSProperty):
 
     props: PropsDictType = {
         "DockerSettings": (DockerSettings, False),
+        "ExecutionRoleIdentityConfig": (str, False),
         "RStudioServerProDomainSettings": (RStudioServerProDomainSettings, False),
         "SecurityGroupIds": ([str], False),
     }
@@ -806,6 +820,7 @@ class Domain(AWSObject):
         "DomainSettings": (DomainSettings, False),
         "KmsKeyId": (str, False),
         "SubnetIds": ([str], True),
+        "TagPropagation": (str, False),
         "Tags": (Tags, False),
         "VpcId": (str, True),
     }
@@ -1121,7 +1136,6 @@ class ProductionVariant(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AcceleratorType": (str, False),
         "ContainerStartupHealthCheckTimeoutInSeconds": (integer, False),
         "EnableSSMAccess": (boolean, False),
         "InitialInstanceCount": (integer, False),
@@ -1308,7 +1322,6 @@ class ImageVersion(AWSObject):
         "ProgrammingLang": (str, False),
         "ReleaseNotes": (str, False),
         "VendorGuidance": (str, False),
-        "Version": (integer, False),
     }
 
 
@@ -1379,9 +1392,10 @@ class InferenceComponentSpecification(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BaseInferenceComponentName": (str, False),
         "ComputeResourceRequirements": (
             InferenceComponentComputeResourceRequirements,
-            True,
+            False,
         ),
         "Container": (InferenceComponentContainerSpecification, False),
         "ModelName": (str, False),
@@ -1400,10 +1414,10 @@ class InferenceComponent(AWSObject):
         "EndpointArn": (str, False),
         "EndpointName": (str, True),
         "InferenceComponentName": (str, False),
-        "RuntimeConfig": (InferenceComponentRuntimeConfig, True),
+        "RuntimeConfig": (InferenceComponentRuntimeConfig, False),
         "Specification": (InferenceComponentSpecification, True),
         "Tags": (Tags, False),
-        "VariantName": (str, True),
+        "VariantName": (str, False),
     }
 
 
@@ -2760,6 +2774,47 @@ class NotebookInstanceLifecycleConfig(AWSObject):
     }
 
 
+class PartnerAppConfig(AWSProperty):
+    """
+    `PartnerAppConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdminUsers": ([str], False),
+        "Arguments": (dict, False),
+    }
+
+
+class PartnerAppMaintenanceConfig(AWSProperty):
+    """
+    `PartnerAppMaintenanceConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-partnerapp-partnerappmaintenanceconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaintenanceWindowStart": (str, True),
+    }
+
+
+class PartnerApp(AWSObject):
+    """
+    `PartnerApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-sagemaker-partnerapp.html>`__
+    """
+
+    resource_type = "AWS::SageMaker::PartnerApp"
+
+    props: PropsDictType = {
+        "ApplicationConfig": (PartnerAppConfig, False),
+        "AuthType": (str, True),
+        "EnableIamSessionBasedIdentity": (boolean, False),
+        "ExecutionRoleArn": (str, True),
+        "MaintenanceConfig": (PartnerAppMaintenanceConfig, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+        "Tier": (str, True),
+        "Type": (str, True),
+    }
+
+
 class ParallelismConfiguration(AWSProperty):
     """
     `ParallelismConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-pipeline-parallelismconfiguration.html>`__
@@ -2886,6 +2941,16 @@ class EFSFileSystem(AWSProperty):
     }
 
 
+class FSxLustreFileSystem(AWSProperty):
+    """
+    `FSxLustreFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-fsxlustrefilesystem.html>`__
+    """
+
+    props: PropsDictType = {
+        "FileSystemId": (str, True),
+    }
+
+
 class CustomFileSystem(AWSProperty):
     """
     `CustomFileSystem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-space-customfilesystem.html>`__
@@ -2893,6 +2958,7 @@ class CustomFileSystem(AWSProperty):
 
     props: PropsDictType = {
         "EFSFileSystem": (EFSFileSystem, False),
+        "FSxLustreFileSystem": (FSxLustreFileSystem, False),
     }
 
 

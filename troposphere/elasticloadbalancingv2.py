@@ -177,6 +177,7 @@ class MutualAuthentication(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdvertiseTrustStoreCaNames": (str, False),
         "IgnoreClientCertificateExpiry": (boolean, False),
         "Mode": (str, False),
         "TrustStoreArn": (str, False),
@@ -369,6 +370,16 @@ class LoadBalancerAttributes(AWSProperty):
     }
 
 
+class MinimumLoadBalancerCapacity(AWSProperty):
+    """
+    `MinimumLoadBalancerCapacity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-minimumloadbalancercapacity.html>`__
+    """
+
+    props: PropsDictType = {
+        "CapacityUnits": (integer, True),
+    }
+
+
 class SubnetMapping(AWSProperty):
     """
     `SubnetMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-elasticloadbalancingv2-loadbalancer-subnetmapping.html>`__
@@ -378,6 +389,7 @@ class SubnetMapping(AWSProperty):
         "AllocationId": (str, False),
         "IPv6Address": (str, False),
         "PrivateIPv4Address": (str, False),
+        "SourceNatIpv6Prefix": (str, False),
         "SubnetId": (str, True),
     }
 
@@ -390,9 +402,11 @@ class LoadBalancer(AWSObject):
     resource_type = "AWS::ElasticLoadBalancingV2::LoadBalancer"
 
     props: PropsDictType = {
+        "EnablePrefixForIpv6SourceNat": (str, False),
         "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": (str, False),
         "IpAddressType": (str, False),
         "LoadBalancerAttributes": ([LoadBalancerAttributes], False),
+        "MinimumLoadBalancerCapacity": (MinimumLoadBalancerCapacity, False),
         "Name": (validate_elb_name, False),
         "Scheme": (str, False),
         "SecurityGroups": ([str], False),

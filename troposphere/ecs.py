@@ -65,7 +65,7 @@ class CapacityProvider(AWSObject):
     resource_type = "AWS::ECS::CapacityProvider"
 
     props: PropsDictType = {
-        "AutoScalingGroupProvider": (AutoScalingGroupProvider, True),
+        "AutoScalingGroupProvider": (AutoScalingGroupProvider, False),
         "Name": (str, False),
         "Tags": (Tags, False),
     }
@@ -73,7 +73,7 @@ class CapacityProvider(AWSObject):
 
 class CapacityProviderStrategyItem(AWSProperty):
     """
-    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-capacityproviderstrategyitem.html>`__
+    `CapacityProviderStrategyItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-taskset-capacityproviderstrategyitem.html>`__
     """
 
     props: PropsDictType = {
@@ -463,6 +463,18 @@ class ServiceVolumeConfiguration(AWSProperty):
     }
 
 
+class VpcLatticeConfiguration(AWSProperty):
+    """
+    `VpcLatticeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecs-service-vpclatticeconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PortName": (str, True),
+        "RoleArn": (str, True),
+        "TargetGroupArn": (str, True),
+    }
+
+
 class Service(AWSObject):
     """
     `Service <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecs-service.html>`__
@@ -471,6 +483,7 @@ class Service(AWSObject):
     resource_type = "AWS::ECS::Service"
 
     props: PropsDictType = {
+        "AvailabilityZoneRebalancing": (str, False),
         "CapacityProviderStrategy": ([CapacityProviderStrategyItem], False),
         "Cluster": (str, False),
         "DeploymentConfiguration": (DeploymentConfiguration, False),
@@ -494,6 +507,7 @@ class Service(AWSObject):
         "Tags": (Tags, False),
         "TaskDefinition": (str, False),
         "VolumeConfigurations": ([ServiceVolumeConfiguration], False),
+        "VpcLatticeConfigurations": ([VpcLatticeConfiguration], False),
     }
 
 
@@ -756,6 +770,7 @@ class ContainerDefinition(AWSProperty):
         "SystemControls": ([SystemControl], False),
         "Ulimits": ([Ulimit], False),
         "User": (str, False),
+        "VersionConsistency": (str, False),
         "VolumesFrom": ([VolumesFrom], False),
         "WorkingDirectory": (str, False),
     }
@@ -908,6 +923,7 @@ class TaskDefinition(AWSObject):
     props: PropsDictType = {
         "ContainerDefinitions": ([ContainerDefinition], False),
         "Cpu": (str, False),
+        "EnableFaultInjection": (boolean, False),
         "EphemeralStorage": (EphemeralStorage, False),
         "ExecutionRoleArn": (str, False),
         "Family": (str, False),
@@ -945,6 +961,7 @@ class TaskSet(AWSObject):
     resource_type = "AWS::ECS::TaskSet"
 
     props: PropsDictType = {
+        "CapacityProviderStrategy": ([CapacityProviderStrategyItem], False),
         "Cluster": (str, True),
         "ExternalId": (str, False),
         "LaunchType": (str, False),

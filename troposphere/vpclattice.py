@@ -20,6 +20,7 @@ class AccessLogSubscription(AWSObject):
     props: PropsDictType = {
         "DestinationArn": (str, True),
         "ResourceIdentifier": (str, False),
+        "ServiceNetworkLogType": (str, False),
         "Tags": (Tags, False),
     }
 
@@ -93,6 +94,67 @@ class Listener(AWSObject):
         "Protocol": (str, True),
         "ServiceIdentifier": (str, False),
         "Tags": (Tags, False),
+    }
+
+
+class DnsResource(AWSProperty):
+    """
+    `DnsResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-dnsresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainName": (str, True),
+        "IpAddressType": (str, True),
+    }
+
+
+class ResourceConfigurationDefinition(AWSProperty):
+    """
+    `ResourceConfigurationDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-resourceconfiguration-resourceconfigurationdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "ArnResource": (str, False),
+        "DnsResource": (DnsResource, False),
+        "IpResource": (str, False),
+    }
+
+
+class ResourceConfiguration(AWSObject):
+    """
+    `ResourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourceconfiguration.html>`__
+    """
+
+    resource_type = "AWS::VpcLattice::ResourceConfiguration"
+
+    props: PropsDictType = {
+        "AllowAssociationToSharableServiceNetwork": (boolean, False),
+        "Name": (str, False),
+        "PortRanges": ([str], False),
+        "ProtocolType": (str, False),
+        "ResourceConfigurationAuthType": (str, False),
+        "ResourceConfigurationDefinition": (ResourceConfigurationDefinition, False),
+        "ResourceConfigurationGroupId": (str, False),
+        "ResourceConfigurationType": (str, False),
+        "ResourceGatewayId": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ResourceGateway(AWSObject):
+    """
+    `ResourceGateway <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-resourcegateway.html>`__
+    """
+
+    resource_type = "AWS::VpcLattice::ResourceGateway"
+
+    props: PropsDictType = {
+        "IpAddressType": (str, False),
+        "Name": (str, False),
+        "SecurityGroupIds": ([str], False),
+        "SubnetIds": ([str], False),
+        "Tags": (Tags, False),
+        "VpcIdentifier": (str, False),
     }
 
 
@@ -234,6 +296,16 @@ class Service(AWSObject):
     }
 
 
+class SharingConfig(AWSProperty):
+    """
+    `SharingConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-vpclattice-servicenetwork-sharingconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "enabled": (boolean, True),
+    }
+
+
 class ServiceNetwork(AWSObject):
     """
     `ServiceNetwork <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetwork.html>`__
@@ -244,6 +316,21 @@ class ServiceNetwork(AWSObject):
     props: PropsDictType = {
         "AuthType": (str, False),
         "Name": (str, False),
+        "SharingConfig": (SharingConfig, False),
+        "Tags": (Tags, False),
+    }
+
+
+class ServiceNetworkResourceAssociation(AWSObject):
+    """
+    `ServiceNetworkResourceAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-vpclattice-servicenetworkresourceassociation.html>`__
+    """
+
+    resource_type = "AWS::VpcLattice::ServiceNetworkResourceAssociation"
+
+    props: PropsDictType = {
+        "ResourceConfigurationId": (str, False),
+        "ServiceNetworkId": (str, False),
         "Tags": (Tags, False),
     }
 

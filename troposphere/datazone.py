@@ -99,6 +99,16 @@ class RedshiftRunConfigurationInput(AWSProperty):
     }
 
 
+class SageMakerRunConfigurationInput(AWSProperty):
+    """
+    `SageMakerRunConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-sagemakerrunconfigurationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "TrackingAssets": (dict, True),
+    }
+
+
 class DataSourceConfigurationInput(AWSProperty):
     """
     `DataSourceConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-datasource-datasourceconfigurationinput.html>`__
@@ -107,6 +117,7 @@ class DataSourceConfigurationInput(AWSProperty):
     props: PropsDictType = {
         "GlueRunConfiguration": (GlueRunConfigurationInput, False),
         "RedshiftRunConfiguration": (RedshiftRunConfigurationInput, False),
+        "SageMakerRunConfiguration": (SageMakerRunConfigurationInput, False),
     }
 
 
@@ -379,7 +390,7 @@ class SubscriptionTarget(AWSObject):
         "AuthorizedPrincipals": ([str], True),
         "DomainIdentifier": (str, True),
         "EnvironmentIdentifier": (str, True),
-        "ManageAccessRole": (str, True),
+        "ManageAccessRole": (str, False),
         "Name": (str, True),
         "Provider": (str, False),
         "SubscriptionTargetConfig": ([SubscriptionTargetForm], True),
