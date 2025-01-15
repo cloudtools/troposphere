@@ -30,6 +30,10 @@ includes some basic support for `OpenStack resources`_ via Heat.
 To facilitate catching CloudFormation or JSON errors early the library has
 property and type checking built into the classes.
 
+About this fork
+===============
+This is a fork kept in order to guarantee that Troposphere is always available in our organization. For instructions on how to work with this fork internally see `here`: https://github.com/nentgroup/troposphere/blob/master/VIAPLAY_CONTRIBUTING.md
+
 Installation
 ============
 
