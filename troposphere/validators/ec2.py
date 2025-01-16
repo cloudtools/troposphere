@@ -268,6 +268,7 @@ def validate_route(self):
     cidr_conds = [
         "DestinationCidrBlock",
         "DestinationIpv6CidrBlock",
+        "DestinationPrefixListId"
     ]
     gateway_conds = [
         "CarrierGatewayId",
