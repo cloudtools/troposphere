@@ -469,6 +469,7 @@ class UpdateConfig(AWSProperty):
     props: PropsDictType = {
         "MaxUnavailable": (double, False),
         "MaxUnavailablePercentage": (double, False),
+        "UpdateStrategy": (str, False),
     }
 
 

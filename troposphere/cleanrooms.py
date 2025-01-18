@@ -63,6 +63,47 @@ class DataEncryptionMetadata(AWSProperty):
     }
 
 
+class MLMemberAbilities(AWSProperty):
+    """
+    `MLMemberAbilities <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlmemberabilities.html>`__
+    """
+
+    props: PropsDictType = {
+        "CustomMLMemberAbilities": ([str], True),
+    }
+
+
+class ModelInferencePaymentConfig(AWSProperty):
+    """
+    `ModelInferencePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-modelinferencepaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
+class ModelTrainingPaymentConfig(AWSProperty):
+    """
+    `ModelTrainingPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-modeltrainingpaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
+class MLPaymentConfig(AWSProperty):
+    """
+    `MLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-mlpaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelInference": (ModelInferencePaymentConfig, False),
+        "ModelTraining": (ModelTrainingPaymentConfig, False),
+    }
+
+
 class QueryComputePaymentConfig(AWSProperty):
     """
     `QueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-querycomputepaymentconfig.html>`__
@@ -79,6 +120,7 @@ class PaymentConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MachineLearning": (MLPaymentConfig, False),
         "QueryCompute": (QueryComputePaymentConfig, True),
     }
 
@@ -91,6 +133,7 @@ class MemberSpecification(AWSProperty):
     props: PropsDictType = {
         "AccountId": (str, True),
         "DisplayName": (str, True),
+        "MLMemberAbilities": (MLMemberAbilities, False),
         "MemberAbilities": ([str], True),
         "PaymentConfiguration": (PaymentConfiguration, False),
     }
@@ -106,6 +149,7 @@ class Collaboration(AWSObject):
     props: PropsDictType = {
         "AnalyticsEngine": (str, False),
         "CreatorDisplayName": (str, True),
+        "CreatorMLMemberAbilities": (MLMemberAbilities, False),
         "CreatorMemberAbilities": ([str], True),
         "CreatorPaymentConfiguration": (PaymentConfiguration, False),
         "DataEncryptionMetadata": (DataEncryptionMetadata, False),
@@ -480,6 +524,37 @@ class IdNamespaceAssociation(AWSObject):
     }
 
 
+class MembershipModelInferencePaymentConfig(AWSProperty):
+    """
+    `MembershipModelInferencePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmodelinferencepaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
+class MembershipModelTrainingPaymentConfig(AWSProperty):
+    """
+    `MembershipModelTrainingPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmodeltrainingpaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
+class MembershipMLPaymentConfig(AWSProperty):
+    """
+    `MembershipMLPaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmlpaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModelInference": (MembershipModelInferencePaymentConfig, False),
+        "ModelTraining": (MembershipModelTrainingPaymentConfig, False),
+    }
+
+
 class MembershipQueryComputePaymentConfig(AWSProperty):
     """
     `MembershipQueryComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipquerycomputepaymentconfig.html>`__
@@ -496,6 +571,7 @@ class MembershipPaymentConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MachineLearning": (MembershipMLPaymentConfig, False),
         "QueryCompute": (MembershipQueryComputePaymentConfig, True),
     }
 

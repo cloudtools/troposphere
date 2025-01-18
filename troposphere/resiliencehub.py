@@ -80,6 +80,7 @@ class App(AWSObject):
         "EventSubscriptions": ([EventSubscription], False),
         "Name": (str, True),
         "PermissionModel": (PermissionModel, False),
+        "RegulatoryPolicyArn": (str, False),
         "ResiliencyPolicyArn": (str, False),
         "ResourceMappings": ([ResourceMapping], True),
         "Tags": (dict, False),
