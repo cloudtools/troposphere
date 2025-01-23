@@ -830,6 +830,16 @@ class DataPrivacy(AWSProperty):
     }
 
 
+class Replication(AWSProperty):
+    """
+    `Replication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-replication.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReplicaRegions": ([str], True),
+    }
+
+
 class S3Location(AWSProperty):
     """
     `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-s3location.html>`__
@@ -1000,6 +1010,7 @@ class Bot(AWSObject):
         "Description": (str, False),
         "IdleSessionTTLInSeconds": (integer, True),
         "Name": (str, True),
+        "Replication": (Replication, False),
         "RoleArn": (str, True),
         "TestBotAliasSettings": (TestBotAliasSettings, False),
         "TestBotAliasTags": (Tags, False),

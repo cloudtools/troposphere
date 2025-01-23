@@ -146,6 +146,16 @@ class ManagedPersistenceMonitoringConfiguration(AWSProperty):
     }
 
 
+class PrometheusMonitoringConfiguration(AWSProperty):
+    """
+    `PrometheusMonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-prometheusmonitoringconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "RemoteWriteUrl": (str, False),
+    }
+
+
 class S3MonitoringConfiguration(AWSProperty):
     """
     `S3MonitoringConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-emrserverless-application-s3monitoringconfiguration.html>`__
@@ -168,6 +178,7 @@ class MonitoringConfiguration(AWSProperty):
             ManagedPersistenceMonitoringConfiguration,
             False,
         ),
+        "PrometheusMonitoringConfiguration": (PrometheusMonitoringConfiguration, False),
         "S3MonitoringConfiguration": (S3MonitoringConfiguration, False),
     }
 

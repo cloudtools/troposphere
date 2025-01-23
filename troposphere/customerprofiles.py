@@ -236,6 +236,83 @@ class EventStream(AWSObject):
     }
 
 
+class ObjectAttribute(AWSProperty):
+    """
+    `ObjectAttribute <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-objectattribute.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComparisonOperator": (str, True),
+        "FieldName": (str, False),
+        "Source": (str, False),
+        "Values": ([str], True),
+    }
+
+
+class EventTriggerDimension(AWSProperty):
+    """
+    `EventTriggerDimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-eventtriggerdimension.html>`__
+    """
+
+    props: PropsDictType = {
+        "ObjectAttributes": ([ObjectAttribute], True),
+    }
+
+
+class EventTriggerCondition(AWSProperty):
+    """
+    `EventTriggerCondition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-eventtriggercondition.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventTriggerDimensions": ([EventTriggerDimension], True),
+        "LogicalOperator": (str, True),
+    }
+
+
+class Period(AWSProperty):
+    """
+    `Period <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-period.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxInvocationsPerProfile": (integer, False),
+        "Unit": (str, True),
+        "Unlimited": (boolean, False),
+        "Value": (integer, True),
+    }
+
+
+class EventTriggerLimits(AWSProperty):
+    """
+    `EventTriggerLimits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-eventtrigger-eventtriggerlimits.html>`__
+    """
+
+    props: PropsDictType = {
+        "EventExpiration": (integer, False),
+        "Periods": ([Period], False),
+    }
+
+
+class EventTrigger(AWSObject):
+    """
+    `EventTrigger <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-customerprofiles-eventtrigger.html>`__
+    """
+
+    resource_type = "AWS::CustomerProfiles::EventTrigger"
+
+    props: PropsDictType = {
+        "Description": (str, False),
+        "DomainName": (str, True),
+        "EventTriggerConditions": ([EventTriggerCondition], True),
+        "EventTriggerLimits": (EventTriggerLimits, False),
+        "EventTriggerName": (str, True),
+        "ObjectTypeName": (str, True),
+        "SegmentFilter": (str, False),
+        "Tags": (Tags, False),
+    }
+
+
 class IncrementalPullConfig(AWSProperty):
     """
     `IncrementalPullConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-customerprofiles-integration-incrementalpullconfig.html>`__

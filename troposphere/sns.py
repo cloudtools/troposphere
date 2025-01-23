@@ -70,6 +70,7 @@ class Topic(AWSObject):
         "DataProtectionPolicy": (dict, False),
         "DeliveryStatusLogging": ([LoggingConfig], False),
         "DisplayName": (str, False),
+        "FifoThroughputScope": (str, False),
         "FifoTopic": (boolean, False),
         "KmsMasterKeyId": (str, False),
         "SignatureVersion": (str, False),
