@@ -13,6 +13,9 @@ def validate_policy_type(policy_type):
         "BACKUP_POLICY",
         "SERVICE_CONTROL_POLICY",
         "TAG_POLICY",
+        "CHATBOT_POLICY",
+        "RESOURCE_CONTROL_POLICY,
+        "DECLARATIVE_POLICY_EC2",
     ]
     if policy_type not in valid_types:
         raise ValueError("Type must be one of: %s" % ", ".join(valid_types))
