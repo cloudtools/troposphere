@@ -11,6 +11,9 @@ def validate_policy_type(policy_type):
     valid_types = [
         "AISERVICES_OPT_OUT_POLICY",
         "BACKUP_POLICY",
+        "CHATBOT_POLICY",
+        "DECLARATIVE_POLICY_EC2",
+        "RESOURCE_CONTROL_POLICY",
         "SERVICE_CONTROL_POLICY",
         "TAG_POLICY",
     ]

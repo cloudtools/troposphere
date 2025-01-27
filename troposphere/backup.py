@@ -264,8 +264,6 @@ class LogicallyAirGappedBackupVault(AWSObject):
         "MaxRetentionDays": (integer, True),
         "MinRetentionDays": (integer, True),
         "Notifications": (NotificationObjectType, False),
-        "VaultState": (str, False),
-        "VaultType": (str, False),
     }
 
 

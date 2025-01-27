@@ -268,6 +268,7 @@ class RuleDeclaration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Commands": ([str], False),
         "Configuration": (dict, False),
         "InputArtifacts": ([InputArtifacts], False),
         "Name": (str, False),

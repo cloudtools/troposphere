@@ -231,6 +231,7 @@ class ClientVpnEndpoint(AWSObject):
         "ClientLoginBannerOptions": (ClientLoginBannerOptions, False),
         "ConnectionLogOptions": (ConnectionLogOptions, True),
         "Description": (str, False),
+        "DisconnectOnSessionTimeout": (boolean, False),
         "DnsServers": ([str], False),
         "SecurityGroupIds": ([str], False),
         "SelfServicePortal": (validate_clientvpnendpoint_selfserviceportal, False),
