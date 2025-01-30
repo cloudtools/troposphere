@@ -57,7 +57,8 @@ class CapacityReservation(AWSObject):
     resource_type = "AWS::EC2::CapacityReservation"
 
     props: PropsDictType = {
-        "AvailabilityZone": (str, True),
+        "AvailabilityZone": (str, False),
+        "AvailabilityZoneId": (str, False),
         "EbsOptimized": (boolean, False),
         "EndDate": (str, False),
         "EndDateType": (str, False),
@@ -3199,6 +3200,30 @@ class VPNGatewayRoutePropagation(AWSObject):
     }
 
 
+class CidrOptions(AWSProperty):
+    """
+    `CidrOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-cidroptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Cidr": (str, False),
+        "PortRanges": ([PortRange], False),
+        "Protocol": (str, False),
+        "SubnetIds": ([str], False),
+    }
+
+
+class VerifiedAccessEndpointPortRange(AWSProperty):
+    """
+    `VerifiedAccessEndpointPortRange <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-portrange.html>`__
+    """
+
+    props: PropsDictType = {
+        "FromPort": (integer, False),
+        "ToPort": (integer, False),
+    }
+
+
 class LoadBalancerOptions(AWSProperty):
     """
     `LoadBalancerOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-loadbalanceroptions.html>`__
@@ -3207,6 +3232,7 @@ class LoadBalancerOptions(AWSProperty):
     props: PropsDictType = {
         "LoadBalancerArn": (str, False),
         "Port": (integer, False),
+        "PortRanges": ([VerifiedAccessEndpointPortRange], False),
         "Protocol": (str, False),
         "SubnetIds": ([str], False),
     }
@@ -3220,7 +3246,24 @@ class NetworkInterfaceOptions(AWSProperty):
     props: PropsDictType = {
         "NetworkInterfaceId": (str, False),
         "Port": (integer, False),
+        "PortRanges": ([PortRange], False),
         "Protocol": (str, False),
+    }
+
+
+class RdsOptions(AWSProperty):
+    """
+    `RdsOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccessendpoint-rdsoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Port": (integer, False),
+        "Protocol": (str, False),
+        "RdsDbClusterArn": (str, False),
+        "RdsDbInstanceArn": (str, False),
+        "RdsDbProxyArn": (str, False),
+        "RdsEndpoint": (str, False),
+        "SubnetIds": ([str], False),
     }
 
 
@@ -3243,16 +3286,18 @@ class VerifiedAccessEndpoint(AWSObject):
     resource_type = "AWS::EC2::VerifiedAccessEndpoint"
 
     props: PropsDictType = {
-        "ApplicationDomain": (str, True),
+        "ApplicationDomain": (str, False),
         "AttachmentType": (str, True),
+        "CidrOptions": (CidrOptions, False),
         "Description": (str, False),
-        "DomainCertificateArn": (str, True),
-        "EndpointDomainPrefix": (str, True),
+        "DomainCertificateArn": (str, False),
+        "EndpointDomainPrefix": (str, False),
         "EndpointType": (str, True),
         "LoadBalancerOptions": (LoadBalancerOptions, False),
         "NetworkInterfaceOptions": (NetworkInterfaceOptions, False),
         "PolicyDocument": (str, False),
         "PolicyEnabled": (boolean, False),
+        "RdsOptions": (RdsOptions, False),
         "SecurityGroupIds": ([str], False),
         "SseSpecification": (SseSpecification, False),
         "Tags": (Tags, False),
@@ -3348,6 +3393,7 @@ class VerifiedAccessInstance(AWSObject):
     resource_type = "AWS::EC2::VerifiedAccessInstance"
 
     props: PropsDictType = {
+        "CidrEndpointsCustomSubDomain": (str, False),
         "Description": (str, False),
         "FipsEnabled": (boolean, False),
         "LoggingConfigurations": (VerifiedAccessLogs, False),
@@ -3365,6 +3411,23 @@ class DeviceOptions(AWSProperty):
     props: PropsDictType = {
         "PublicSigningKeyUrl": (str, False),
         "TenantId": (str, False),
+    }
+
+
+class NativeApplicationOidcOptions(AWSProperty):
+    """
+    `NativeApplicationOidcOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-verifiedaccesstrustprovider-nativeapplicationoidcoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationEndpoint": (str, False),
+        "ClientId": (str, False),
+        "ClientSecret": (str, False),
+        "Issuer": (str, False),
+        "PublicSigningKeyEndpoint": (str, False),
+        "Scope": (str, False),
+        "TokenEndpoint": (str, False),
+        "UserInfoEndpoint": (str, False),
     }
 
 
@@ -3395,6 +3458,7 @@ class VerifiedAccessTrustProvider(AWSObject):
         "Description": (str, False),
         "DeviceOptions": (DeviceOptions, False),
         "DeviceTrustProviderType": (str, False),
+        "NativeApplicationOidcOptions": (NativeApplicationOidcOptions, False),
         "OidcOptions": (OidcOptions, False),
         "PolicyReferenceName": (str, True),
         "SseSpecification": (SseSpecification, False),
