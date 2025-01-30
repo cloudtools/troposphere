@@ -301,6 +301,23 @@ def transitgatewaymulicast_patches():
     return patches
 
 
+def verifiedaccessendpoint_patches():
+    patches = [
+        {
+            "op": "move",
+            "from": "/PropertyTypes/AWS::EC2::VerifiedAccessEndpoint.PortRange",
+            "path": "/PropertyTypes/AWS::EC2::VerifiedAccessEndpoint.VerifiedAccessEndpointPortRange",
+        },
+        {
+            "op": "replace",
+            "path": "/PropertyTypes/AWS::EC2::VerifiedAccessEndpoint.LoadBalancerOptions/Properties/PortRanges/ItemType",
+            "value": "VerifiedAccessEndpointPortRange",
+        },
+    ]
+
+    return patches
+
+
 patches = (
     tagspecification_patches()
     + blockdevice_patches()
@@ -309,6 +326,7 @@ patches = (
     + targetgroupconfig_patches()
     + transitgatewaymulicast_patches()
     + networkinsightsanalysis_patches()
+    + verifiedaccessendpoint_patches()
     + [
         # backward compatibility - a combined SecurityGroupRule was used for both Egress and Ingress
         {
