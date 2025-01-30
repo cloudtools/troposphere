@@ -8654,6 +8654,16 @@ class DatasetMetadata(AWSProperty):
     }
 
 
+class TopicConfigOptions(AWSProperty):
+    """
+    `TopicConfigOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-topic-topicconfigoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "QBusinessInsightsEnabled": (boolean, False),
+    }
+
+
 class Topic(AWSObject):
     """
     `Topic <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-quicksight-topic.html>`__
@@ -8663,8 +8673,10 @@ class Topic(AWSObject):
 
     props: PropsDictType = {
         "AwsAccountId": (str, False),
+        "ConfigOptions": (TopicConfigOptions, False),
         "DataSets": ([DatasetMetadata], False),
         "Description": (str, False),
+        "FolderArns": ([str], False),
         "Name": (str, False),
         "TopicId": (str, False),
         "UserExperienceVersion": (str, False),
