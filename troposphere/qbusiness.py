@@ -485,6 +485,16 @@ class Retriever(AWSObject):
     }
 
 
+class BrowserExtensionConfiguration(AWSProperty):
+    """
+    `BrowserExtensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-browserextensionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnabledBrowserExtensions": ([str], True),
+    }
+
+
 class CustomizationConfiguration(AWSProperty):
     """
     `CustomizationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-webexperience-customizationconfiguration.html>`__
@@ -539,6 +549,7 @@ class WebExperience(AWSObject):
 
     props: PropsDictType = {
         "ApplicationId": (str, True),
+        "BrowserExtensionConfiguration": (BrowserExtensionConfiguration, False),
         "CustomizationConfiguration": (CustomizationConfiguration, False),
         "IdentityProviderConfiguration": (IdentityProviderConfiguration, False),
         "Origins": ([str], False),

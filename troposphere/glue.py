@@ -87,6 +87,82 @@ class Classifier(AWSObject):
     }
 
 
+class BasicAuthenticationCredentials(AWSProperty):
+    """
+    `BasicAuthenticationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-basicauthenticationcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "Password": (str, False),
+        "Username": (str, False),
+    }
+
+
+class AuthorizationCodeProperties(AWSProperty):
+    """
+    `AuthorizationCodeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-authorizationcodeproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationCode": (str, False),
+        "RedirectUri": (str, False),
+    }
+
+
+class OAuth2ClientApplication(AWSProperty):
+    """
+    `OAuth2ClientApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2clientapplication.html>`__
+    """
+
+    props: PropsDictType = {
+        "AWSManagedClientApplicationReference": (str, False),
+        "UserManagedClientApplicationClientId": (str, False),
+    }
+
+
+class OAuth2Credentials(AWSProperty):
+    """
+    `OAuth2Credentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2credentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessToken": (str, False),
+        "JwtToken": (str, False),
+        "RefreshToken": (str, False),
+        "UserManagedClientApplicationClientSecret": (str, False),
+    }
+
+
+class OAuth2PropertiesInput(AWSProperty):
+    """
+    `OAuth2PropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-oauth2propertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationCodeProperties": (AuthorizationCodeProperties, False),
+        "OAuth2ClientApplication": (OAuth2ClientApplication, False),
+        "OAuth2Credentials": (OAuth2Credentials, False),
+        "OAuth2GrantType": (str, False),
+        "TokenUrl": (str, False),
+        "TokenUrlParametersMap": (dict, False),
+    }
+
+
+class AuthenticationConfigurationInput(AWSProperty):
+    """
+    `AuthenticationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-authenticationconfigurationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthenticationType": (str, True),
+        "BasicAuthenticationCredentials": (BasicAuthenticationCredentials, False),
+        "CustomAuthenticationCredentials": (dict, False),
+        "KmsKeyArn": (str, False),
+        "OAuth2Properties": (OAuth2PropertiesInput, False),
+        "SecretArn": (str, False),
+    }
+
+
 class PhysicalConnectionRequirements(AWSProperty):
     """
     `PhysicalConnectionRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-connection-physicalconnectionrequirements.html>`__
@@ -105,12 +181,18 @@ class ConnectionInput(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AthenaProperties": (dict, False),
+        "AuthenticationConfiguration": (AuthenticationConfigurationInput, False),
         "ConnectionProperties": (dict, False),
         "ConnectionType": (connection_type_validator, True),
         "Description": (str, False),
         "MatchCriteria": ([str], False),
         "Name": (str, False),
         "PhysicalConnectionRequirements": (PhysicalConnectionRequirements, False),
+        "PythonProperties": (dict, False),
+        "SparkProperties": (dict, False),
+        "ValidateCredentials": (boolean, False),
+        "ValidateForComputeEnvironments": ([str], False),
     }
 
 
@@ -1000,6 +1082,47 @@ class Table(AWSObject):
     }
 
 
+class IcebergConfiguration(AWSProperty):
+    """
+    `IcebergConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration-icebergconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Location": (str, False),
+        "OrphanFileRetentionPeriodInDays": (integer, False),
+    }
+
+
+class OrphanFileDeletionConfiguration(AWSProperty):
+    """
+    `OrphanFileDeletionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-orphanfiledeletionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IcebergConfiguration": (IcebergConfiguration, False),
+    }
+
+
+class RetentionConfiguration(AWSProperty):
+    """
+    `RetentionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-retentionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IcebergConfiguration": (IcebergConfiguration, False),
+    }
+
+
+class VpcConfiguration(AWSProperty):
+    """
+    `VpcConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration-vpcconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlueConnectionName": (str, False),
+    }
+
+
 class TableOptimizerConfiguration(AWSProperty):
     """
     `TableOptimizerConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-tableoptimizer-tableoptimizerconfiguration.html>`__
@@ -1007,7 +1130,10 @@ class TableOptimizerConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Enabled": (boolean, True),
+        "OrphanFileDeletionConfiguration": (OrphanFileDeletionConfiguration, False),
+        "RetentionConfiguration": (RetentionConfiguration, False),
         "RoleArn": (str, True),
+        "VpcConfiguration": (VpcConfiguration, False),
     }
 
 
