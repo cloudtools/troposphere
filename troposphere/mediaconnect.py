@@ -329,13 +329,70 @@ class Source(AWSProperty):
     }
 
 
+class SilentAudio(AWSProperty):
+    """
+    `SilentAudio <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-silentaudio.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+        "ThresholdSeconds": (integer, False),
+    }
+
+
+class AudioMonitoringSetting(AWSProperty):
+    """
+    `AudioMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-audiomonitoringsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "SilentAudio": (SilentAudio, False),
+    }
+
+
+class BlackFrames(AWSProperty):
+    """
+    `BlackFrames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-blackframes.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+        "ThresholdSeconds": (integer, False),
+    }
+
+
+class FrozenFrames(AWSProperty):
+    """
+    `FrozenFrames <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-frozenframes.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+        "ThresholdSeconds": (integer, False),
+    }
+
+
+class VideoMonitoringSetting(AWSProperty):
+    """
+    `VideoMonitoringSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-videomonitoringsetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "BlackFrames": (BlackFrames, False),
+        "FrozenFrames": (FrozenFrames, False),
+    }
+
+
 class SourceMonitoringConfig(AWSProperty):
     """
     `SourceMonitoringConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-sourcemonitoringconfig.html>`__
     """
 
     props: PropsDictType = {
-        "ThumbnailState": (str, True),
+        "AudioMonitoringSettings": ([AudioMonitoringSetting], False),
+        "ContentQualityAnalysisState": (str, False),
+        "ThumbnailState": (str, False),
+        "VideoMonitoringSettings": ([VideoMonitoringSetting], False),
     }
 
 

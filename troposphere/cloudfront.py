@@ -1176,6 +1176,34 @@ class StreamingDistribution(AWSObject):
     }
 
 
+class VpcOriginEndpointConfig(AWSProperty):
+    """
+    `VpcOriginEndpointConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-vpcorigin-vpcoriginendpointconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, True),
+        "HTTPPort": (integer, False),
+        "HTTPSPort": (integer, False),
+        "Name": (str, True),
+        "OriginProtocolPolicy": (str, False),
+        "OriginSSLProtocols": ([str], False),
+    }
+
+
+class VpcOrigin(AWSObject):
+    """
+    `VpcOrigin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-vpcorigin.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::VpcOrigin"
+
+    props: PropsDictType = {
+        "Tags": (Tags, False),
+        "VpcOriginEndpointConfig": (VpcOriginEndpointConfig, True),
+    }
+
+
 class AnycastIpListProperty(AWSProperty):
     """
     `AnycastIpListProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-anycastiplist.html>`__

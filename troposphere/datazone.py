@@ -40,6 +40,7 @@ class GlueRunConfigurationInput(AWSProperty):
 
     props: PropsDictType = {
         "AutoImportDataQualityResult": (boolean, False),
+        "CatalogName": (str, False),
         "DataAccessRole": (str, False),
         "RelationalFilterConfigurations": ([RelationalFilterConfiguration], True),
     }
@@ -93,8 +94,8 @@ class RedshiftRunConfigurationInput(AWSProperty):
 
     props: PropsDictType = {
         "DataAccessRole": (str, False),
-        "RedshiftCredentialConfiguration": (RedshiftCredentialConfiguration, True),
-        "RedshiftStorage": (RedshiftStorage, True),
+        "RedshiftCredentialConfiguration": (RedshiftCredentialConfiguration, False),
+        "RedshiftStorage": (RedshiftStorage, False),
         "RelationalFilterConfigurations": ([RelationalFilterConfiguration], True),
     }
 
@@ -165,10 +166,11 @@ class DataSource(AWSObject):
     props: PropsDictType = {
         "AssetFormsInput": ([FormInput], False),
         "Configuration": (DataSourceConfigurationInput, False),
+        "ConnectionIdentifier": (str, False),
         "Description": (str, False),
         "DomainIdentifier": (str, True),
         "EnableSetting": (str, False),
-        "EnvironmentIdentifier": (str, True),
+        "EnvironmentIdentifier": (str, False),
         "Name": (str, True),
         "ProjectIdentifier": (str, True),
         "PublishOnImport": (boolean, False),

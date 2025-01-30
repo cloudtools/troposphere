@@ -420,5 +420,16 @@ patches = (
             "op": "remove",
             "path": "/PropertyTypes/AWS::EC2::NetworkInsightsAnalysis.AdditionalDetail",
         },
+        # Handle duplicate PortRange
+        {
+            "op": "move",
+            "from": "/PropertyTypes/AWS::EC2::NetworkAclEntry.PortRange",
+            "path": "/PropertyTypes/AWS::EC2::NetworkAclEntry.NetworkAclEntryPortRange",
+        },
+        {
+            "op": "replace",
+            "path": "/ResourceTypes/AWS::EC2::NetworkAclEntry/Properties/PortRange/Type",
+            "value": "NetworkAclEntryPortRange",
+        },
     ]
 )

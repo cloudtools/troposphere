@@ -156,6 +156,7 @@ class Policy(AWSObject):
         "PolicyName": (str, True),
         "RemediationEnabled": (boolean, True),
         "ResourceSetIds": ([str], False),
+        "ResourceTagLogicalOperator": (str, False),
         "ResourceTags": (Tags, False),
         "ResourceType": (str, False),
         "ResourceTypeList": ([str], False),

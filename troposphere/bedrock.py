@@ -1539,6 +1539,7 @@ class BedrockEmbeddingModelConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "Dimensions": (integer, False),
+        "EmbeddingDataType": (str, False),
     }
 
 
