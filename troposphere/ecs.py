@@ -448,7 +448,6 @@ class ServiceManagedEBSVolumeConfiguration(AWSProperty):
         "SnapshotId": (str, False),
         "TagSpecifications": ([EBSTagSpecification], False),
         "Throughput": (integer, False),
-        "VolumeInitializationRate": (integer, False),
         "VolumeType": (str, False),
     }
 
