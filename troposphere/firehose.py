@@ -318,6 +318,16 @@ class DeliveryStreamEncryptionConfigurationInput(AWSProperty):
     }
 
 
+class DirectPutSourceConfiguration(AWSProperty):
+    """
+    `DirectPutSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-directputsourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ThroughputHintInMBs": (integer, False),
+    }
+
+
 class RetryOptions(AWSProperty):
     """
     `RetryOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-kinesisfirehose-deliverystream-retryoptions.html>`__
@@ -611,6 +621,7 @@ class IcebergDestinationConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AppendOnly": (boolean, False),
         "BufferingHints": (BufferingHints, False),
         "CatalogConfiguration": (CatalogConfiguration, True),
         "CloudWatchLoggingOptions": (CloudWatchLoggingOptions, False),
@@ -836,6 +847,7 @@ class DeliveryStream(AWSObject):
         ),
         "DeliveryStreamName": (str, False),
         "DeliveryStreamType": (delivery_stream_type_validator, False),
+        "DirectPutSourceConfiguration": (DirectPutSourceConfiguration, False),
         "ElasticsearchDestinationConfiguration": (
             ElasticsearchDestinationConfiguration,
             False,

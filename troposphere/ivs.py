@@ -10,6 +10,18 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class MultitrackInputConfiguration(AWSProperty):
+    """
+    `MultitrackInputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ivs-channel-multitrackinputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "MaximumResolution": (str, False),
+        "Policy": (str, False),
+    }
+
+
 class Channel(AWSObject):
     """
     `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ivs-channel.html>`__
@@ -19,8 +31,10 @@ class Channel(AWSObject):
 
     props: PropsDictType = {
         "Authorized": (boolean, False),
+        "ContainerFormat": (str, False),
         "InsecureIngest": (boolean, False),
         "LatencyMode": (str, False),
+        "MultitrackInputConfiguration": (MultitrackInputConfiguration, False),
         "Name": (str, False),
         "Preset": (str, False),
         "RecordingConfigurationArn": (str, False),

@@ -413,6 +413,29 @@ class LoggingConfiguration(AWSProperty):
     }
 
 
+class S3TablesDestination(AWSProperty):
+    """
+    `S3TablesDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-s3tablesdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "TableArn": (str, False),
+        "TableBucketArn": (str, True),
+        "TableName": (str, True),
+        "TableNamespace": (str, False),
+    }
+
+
+class MetadataTableConfiguration(AWSProperty):
+    """
+    `MetadataTableConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metadatatableconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3TablesDestination": (S3TablesDestination, True),
+    }
+
+
 class MetricsConfiguration(AWSProperty):
     """
     `MetricsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3-bucket-metricsconfiguration.html>`__
@@ -817,6 +840,7 @@ class Bucket(AWSObject):
         "InventoryConfigurations": ([InventoryConfiguration], False),
         "LifecycleConfiguration": (LifecycleConfiguration, False),
         "LoggingConfiguration": (LoggingConfiguration, False),
+        "MetadataTableConfiguration": (MetadataTableConfiguration, False),
         "MetricsConfigurations": ([MetricsConfiguration], False),
         "NotificationConfiguration": (NotificationConfiguration, False),
         "ObjectLockConfiguration": (ObjectLockConfiguration, False),

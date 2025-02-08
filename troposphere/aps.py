@@ -44,6 +44,17 @@ class Destination(AWSProperty):
     }
 
 
+class RoleConfiguration(AWSProperty):
+    """
+    `RoleConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-roleconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceRoleArn": (str, False),
+        "TargetRoleArn": (str, False),
+    }
+
+
 class ScrapeConfiguration(AWSProperty):
     """
     `ScrapeConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-aps-scraper-scrapeconfiguration.html>`__
@@ -86,6 +97,7 @@ class Scraper(AWSObject):
     props: PropsDictType = {
         "Alias": (str, False),
         "Destination": (Destination, True),
+        "RoleConfiguration": (RoleConfiguration, False),
         "ScrapeConfiguration": (ScrapeConfiguration, True),
         "Source": (Source, True),
         "Tags": (Tags, False),

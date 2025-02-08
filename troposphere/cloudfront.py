@@ -451,6 +451,18 @@ class S3OriginConfig(AWSProperty):
     }
 
 
+class VpcOriginConfig(AWSProperty):
+    """
+    `VpcOriginConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-vpcoriginconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "OriginKeepaliveTimeout": (integer, False),
+        "OriginReadTimeout": (integer, False),
+        "VpcOriginId": (str, True),
+    }
+
+
 class Origin(AWSProperty):
     """
     `Origin <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-origin.html>`__
@@ -467,6 +479,7 @@ class Origin(AWSProperty):
         "OriginPath": (str, False),
         "OriginShield": (OriginShield, False),
         "S3OriginConfig": (S3OriginConfig, False),
+        "VpcOriginConfig": (VpcOriginConfig, False),
     }
 
 

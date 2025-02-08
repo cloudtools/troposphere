@@ -51,5 +51,6 @@ class VirtualCluster(AWSObject):
     props: PropsDictType = {
         "ContainerProvider": (ContainerProvider, True),
         "Name": (str, True),
+        "SecurityConfigurationId": (str, False),
         "Tags": (Tags, False),
     }
