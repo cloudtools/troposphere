@@ -22,8 +22,10 @@ class Agreement(AWSObject):
         "AccessRole": (str, True),
         "BaseDirectory": (str, True),
         "Description": (str, False),
+        "EnforceMessageSigning": (str, False),
         "LocalProfileId": (str, True),
         "PartnerProfileId": (str, True),
+        "PreserveFilename": (str, False),
         "ServerId": (str, True),
         "Status": (str, False),
         "Tags": (Tags, False),
@@ -63,6 +65,7 @@ class As2Config(AWSProperty):
         "MdnSigningAlgorithm": (str, False),
         "MessageSubject": (str, False),
         "PartnerProfileId": (str, False),
+        "PreserveContentType": (str, False),
         "SigningAlgorithm": (str, False),
     }
 

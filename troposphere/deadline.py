@@ -241,6 +241,22 @@ class LicenseEndpoint(AWSObject):
     }
 
 
+class Limit(AWSObject):
+    """
+    `Limit <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-limit.html>`__
+    """
+
+    resource_type = "AWS::Deadline::Limit"
+
+    props: PropsDictType = {
+        "AmountRequirementName": (str, True),
+        "Description": (str, False),
+        "DisplayName": (str, True),
+        "FarmId": (str, True),
+        "MaxCount": (integer, True),
+    }
+
+
 class MeteredProduct(AWSObject):
     """
     `MeteredProduct <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-meteredproduct.html>`__
@@ -361,6 +377,20 @@ class QueueFleetAssociation(AWSObject):
     props: PropsDictType = {
         "FarmId": (str, True),
         "FleetId": (str, True),
+        "QueueId": (str, True),
+    }
+
+
+class QueueLimitAssociation(AWSObject):
+    """
+    `QueueLimitAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-deadline-queuelimitassociation.html>`__
+    """
+
+    resource_type = "AWS::Deadline::QueueLimitAssociation"
+
+    props: PropsDictType = {
+        "FarmId": (str, True),
+        "LimitId": (str, True),
         "QueueId": (str, True),
     }
 

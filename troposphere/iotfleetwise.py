@@ -522,6 +522,49 @@ class StateTemplate(AWSObject):
     }
 
 
+class TimePeriod(AWSProperty):
+    """
+    `TimePeriod <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-timeperiod.html>`__
+    """
+
+    props: PropsDictType = {
+        "Unit": (str, True),
+        "Value": (double, True),
+    }
+
+
+class PeriodicStateTemplateUpdateStrategy(AWSProperty):
+    """
+    `PeriodicStateTemplateUpdateStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-periodicstatetemplateupdatestrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "StateTemplateUpdateRate": (TimePeriod, True),
+    }
+
+
+class StateTemplateUpdateStrategy(AWSProperty):
+    """
+    `StateTemplateUpdateStrategy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-statetemplateupdatestrategy.html>`__
+    """
+
+    props: PropsDictType = {
+        "OnChange": (dict, False),
+        "Periodic": (PeriodicStateTemplateUpdateStrategy, False),
+    }
+
+
+class StateTemplateAssociation(AWSProperty):
+    """
+    `StateTemplateAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotfleetwise-vehicle-statetemplateassociation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Identifier": (str, True),
+        "StateTemplateUpdateStrategy": (StateTemplateUpdateStrategy, True),
+    }
+
+
 class Vehicle(AWSObject):
     """
     `Vehicle <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotfleetwise-vehicle.html>`__
@@ -535,5 +578,6 @@ class Vehicle(AWSObject):
         "DecoderManifestArn": (str, True),
         "ModelManifestArn": (str, True),
         "Name": (str, True),
+        "StateTemplates": ([StateTemplateAssociation], False),
         "Tags": (Tags, False),
     }

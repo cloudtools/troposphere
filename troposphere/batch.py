@@ -476,6 +476,7 @@ class EksContainerVolumeMount(AWSProperty):
         "MountPath": (str, False),
         "Name": (str, False),
         "ReadOnly": (boolean, False),
+        "SubPath": (str, False),
     }
 
 
@@ -518,6 +519,17 @@ class EksHostPath(AWSProperty):
     }
 
 
+class EksPersistentVolumeClaim(AWSProperty):
+    """
+    `EksPersistentVolumeClaim <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekspersistentvolumeclaim.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClaimName": (str, True),
+        "ReadOnly": (boolean, False),
+    }
+
+
 class EksSecret(AWSProperty):
     """
     `EksSecret <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-ekssecret.html>`__
@@ -538,6 +550,7 @@ class EksVolume(AWSProperty):
         "EmptyDir": (EksEmptyDir, False),
         "HostPath": (EksHostPath, False),
         "Name": (str, True),
+        "PersistentVolumeClaim": (EksPersistentVolumeClaim, False),
         "Secret": (EksSecret, False),
     }
 
@@ -558,7 +571,9 @@ class Metadata(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Annotations": (dict, False),
         "Labels": (dict, False),
+        "Namespace": (str, False),
     }
 
 

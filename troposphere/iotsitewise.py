@@ -341,22 +341,13 @@ class GatewayCapabilitySummary(AWSProperty):
     }
 
 
-class Greengrass(AWSProperty):
-    """
-    `Greengrass <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrass.html>`__
-    """
-
-    props: PropsDictType = {
-        "GroupArn": (str, True),
-    }
-
-
 class GreengrassV2(AWSProperty):
     """
     `GreengrassV2 <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-greengrassv2.html>`__
     """
 
     props: PropsDictType = {
+        "CoreDeviceOperatingSystem": (str, False),
         "CoreDeviceThingName": (str, True),
     }
 
@@ -377,7 +368,6 @@ class GatewayPlatform(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Greengrass": (Greengrass, False),
         "GreengrassV2": (GreengrassV2, False),
         "SiemensIE": (SiemensIE, False),
     }
@@ -394,6 +384,7 @@ class Gateway(AWSObject):
         "GatewayCapabilitySummaries": ([GatewayCapabilitySummary], False),
         "GatewayName": (str, True),
         "GatewayPlatform": (GatewayPlatform, True),
+        "GatewayVersion": (str, False),
         "Tags": (Tags, False),
     }
 
