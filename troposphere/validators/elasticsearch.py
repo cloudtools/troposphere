@@ -54,6 +54,7 @@ def validate_tls_security_policy(tls_security_policy):
     VALID_TLS_SECURITY_POLICIES = (
         "Policy-Min-TLS-1-0-2019-07",
         "Policy-Min-TLS-1-2-2019-07",
+        "Policy-Min-TLS-1-2-PFS-2023-10",
     )
 
     if tls_security_policy not in VALID_TLS_SECURITY_POLICIES:
