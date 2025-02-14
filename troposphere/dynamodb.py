@@ -152,17 +152,6 @@ class LocalSecondaryIndex(AWSProperty):
     }
 
 
-class PointInTimeRecoverySpecification(AWSProperty):
-    """
-    `PointInTimeRecoverySpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "PointInTimeRecoveryEnabled": (boolean, False),
-        "RecoveryPeriodInDays": (integer, False),
-    }
-
-
 class ContributorInsightsSpecification(AWSProperty):
     """
     `ContributorInsightsSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-contributorinsightsspecification.html>`__
@@ -181,6 +170,17 @@ class KinesisStreamSpecification(AWSProperty):
     props: PropsDictType = {
         "ApproximateCreationDateTimePrecision": (str, False),
         "StreamArn": (str, True),
+    }
+
+
+class PointInTimeRecoverySpecification(AWSProperty):
+    """
+    `PointInTimeRecoverySpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dynamodb-table-pointintimerecoveryspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "PointInTimeRecoveryEnabled": (boolean, False),
+        "RecoveryPeriodInDays": (integer, False),
     }
 
 
@@ -305,7 +305,6 @@ class GlobalTable(AWSObject):
         "GlobalSecondaryIndexes": ([GlobalTableGlobalSecondaryIndex], False),
         "KeySchema": ([KeySchema], True),
         "LocalSecondaryIndexes": ([LocalSecondaryIndex], False),
-        "PointInTimeRecoverySpecification": (PointInTimeRecoverySpecification, False),
         "Replicas": ([ReplicaSpecification], True),
         "SSESpecification": (GlobalTableSSESpecification, False),
         "StreamSpecification": (StreamSpecification, False),

@@ -288,6 +288,19 @@ class DynamoDBTarget(AWSProperty):
     }
 
 
+class HudiTarget(AWSProperty):
+    """
+    `HudiTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-huditarget.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConnectionName": (str, False),
+        "Exclusions": ([str], False),
+        "MaximumTraversalDepth": (integer, False),
+        "Paths": ([str], False),
+    }
+
+
 class IcebergTarget(AWSProperty):
     """
     `IcebergTarget <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-glue-crawler-icebergtarget.html>`__
@@ -349,6 +362,7 @@ class Targets(AWSProperty):
         "CatalogTargets": ([CatalogTarget], False),
         "DeltaTargets": ([DeltaTarget], False),
         "DynamoDBTargets": ([DynamoDBTarget], False),
+        "HudiTargets": ([HudiTarget], False),
         "IcebergTargets": ([IcebergTarget], False),
         "JdbcTargets": ([JdbcTarget], False),
         "MongoDBTargets": ([MongoDBTarget], False),
