@@ -145,15 +145,13 @@ class EndpointDetails(AWSProperty):
 
 class IdentityProviderDetails(AWSProperty):
     """
-    `IdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-server-identityproviderdetails.html>`__
+    `IdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-identityproviderdetails.html>`__
     """
 
     props: PropsDictType = {
-        "DirectoryId": (str, False),
-        "Function": (str, False),
-        "InvocationRole": (str, False),
-        "SftpAuthenticationMethods": (str, False),
-        "Url": (str, False),
+        "ApplicationArn": (str, False),
+        "InstanceArn": (str, False),
+        "Role": (str, False),
     }
 
 
