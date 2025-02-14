@@ -79,6 +79,7 @@ class SamlConfigOptions(AWSProperty):
     props: PropsDictType = {
         "GroupAttribute": (str, False),
         "Metadata": (str, True),
+        "OpenSearchServerlessEntityId": (str, False),
         "SessionTimeout": (integer, False),
         "UserAttribute": (str, False),
     }

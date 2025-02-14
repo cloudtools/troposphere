@@ -238,6 +238,7 @@ class DBInstance(AWSObject):
     props: PropsDictType = {
         "AllocatedStorage": (validate_str_or_int, False),
         "AllowMajorVersionUpgrade": (boolean, False),
+        "ApplyImmediately": (boolean, False),
         "AssociatedRoles": ([DBInstanceRole], False),
         "AutoMinorVersionUpgrade": (boolean, False),
         "AutomaticBackupReplicationKmsKeyId": (str, False),
