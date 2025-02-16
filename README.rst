@@ -1,5 +1,5 @@
 ===========
-troposphere
+troposphere / troppan
 ===========
 
 .. image:: https://img.shields.io/pypi/v/troposphere.svg
@@ -30,9 +30,11 @@ includes some basic support for `OpenStack resources`_ via Heat.
 To facilitate catching CloudFormation or JSON errors early the library has
 property and type checking built into the classes.
 
-About this fork
+About the Viaplay Fork
 ===============
-This is a fork kept in order to guarantee that Troposphere is always available in our organization. For instructions on how to work with this fork internally see `here`: https://github.com/nentgroup/troposphere/blob/master/VIAPLAY_CONTRIBUTING.md
+This is a fork kept in order to guarantee that Troposphere is always available in our organization. It is also used to use new versions of the Cloudformation specs that have not been released yet in the official Troposphere. For instructions on how to work with this fork internally see `here`: https://github.com/nentgroup/troposphere/blob/master/VIAPLAY_CONTRIBUTING.md
+
+The release package that this project generates is called ``troppan`` instead of ``troposphere``. The reason is to always be able to switch to the "official" troposphere without any version collisions in the local Python installations. This setting can be changed though in `setup.cfg`.  
 
 Installation
 ============
@@ -42,14 +44,14 @@ issuing:
 
 .. code:: sh
 
-    $ pip install troposphere
+    $ pip install troppan
 
 To install troposphere with `awacs <https://github.com/cloudtools/awacs>`_
 (recommended soft dependency):
 
 .. code:: sh
 
-    $ pip install troposphere[policy]
+    $ pip install troppan[policy]
 
 Alternatively, you can use `setup.py` to install by cloning this repository
 and issuing:
