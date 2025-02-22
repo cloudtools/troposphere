@@ -322,6 +322,7 @@ class StreamsKmsKey(AWSProperty):
 
     props: PropsDictType = {
         "KmsAliasArn": (str, False),
+        "KmsAliasName": (str, False),
         "KmsKeyArn": (str, False),
     }
 

@@ -49,6 +49,16 @@ class CopyActionResourceType(AWSProperty):
     }
 
 
+class IndexActionsResourceType(AWSProperty):
+    """
+    `IndexActionsResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-indexactionsresourcetype.html>`__
+    """
+
+    props: PropsDictType = {
+        "ResourceTypes": ([str], False),
+    }
+
+
 class BackupRuleResourceType(AWSProperty):
     """
     `BackupRuleResourceType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-backup-backupplan-backupruleresourcetype.html>`__
@@ -58,6 +68,7 @@ class BackupRuleResourceType(AWSProperty):
         "CompletionWindowMinutes": (double, False),
         "CopyActions": ([CopyActionResourceType], False),
         "EnableContinuousBackup": (boolean, False),
+        "IndexActions": ([IndexActionsResourceType], False),
         "Lifecycle": (LifecycleResourceType, False),
         "RecoveryPointTags": (dict, False),
         "RuleName": (str, True),

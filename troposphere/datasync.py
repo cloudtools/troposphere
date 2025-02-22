@@ -342,13 +342,18 @@ class LocationSMB(AWSObject):
 
     props: PropsDictType = {
         "AgentArns": ([str], True),
+        "AuthenticationType": (str, False),
+        "DnsIpAddresses": ([str], False),
         "Domain": (str, False),
+        "KerberosKeytab": (str, False),
+        "KerberosKrb5Conf": (str, False),
+        "KerberosPrincipal": (str, False),
         "MountOptions": (MountOptions, False),
         "Password": (str, False),
         "ServerHostname": (str, False),
         "Subdirectory": (str, False),
         "Tags": (Tags, False),
-        "User": (str, True),
+        "User": (str, False),
     }
 
 

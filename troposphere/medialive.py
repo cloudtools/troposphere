@@ -31,6 +31,16 @@ class CdiInputSpecification(AWSProperty):
     }
 
 
+class ChannelEngineVersionRequest(AWSProperty):
+    """
+    `ChannelEngineVersionRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-channelengineversionrequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "Version": (str, False),
+    }
+
+
 class AacSettings(AWSProperty):
     """
     `AacSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-medialive-channel-aacsettings.html>`__
@@ -1150,7 +1160,13 @@ class CmafIngestGroupSettings(AWSProperty):
 
     props: PropsDictType = {
         "Destination": (OutputLocationRef, False),
+        "Id3Behavior": (str, False),
+        "Id3NameModifier": (str, False),
+        "KlvBehavior": (str, False),
+        "KlvNameModifier": (str, False),
         "NielsenId3Behavior": (str, False),
+        "NielsenId3NameModifier": (str, False),
+        "Scte35NameModifier": (str, False),
         "Scte35Type": (str, False),
         "SegmentLength": (integer, False),
         "SegmentLengthUnits": (str, False),
@@ -1733,6 +1749,7 @@ class H265Settings(AWSProperty):
         "BufSize": (integer, False),
         "ColorMetadata": (str, False),
         "ColorSpaceSettings": (H265ColorSpaceSettings, False),
+        "Deblocking": (str, False),
         "FilterSettings": (H265FilterSettings, False),
         "FixedAfd": (str, False),
         "FlickerAq": (str, False),
@@ -2278,7 +2295,9 @@ class MediaPackageOutputDestinationSettings(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ChannelGroup": (str, False),
         "ChannelId": (str, False),
+        "ChannelName": (str, False),
     }
 
 
@@ -2355,7 +2374,9 @@ class Channel(AWSObject):
         "AnywhereSettings": (AnywhereSettings, False),
         "CdiInputSpecification": (CdiInputSpecification, False),
         "ChannelClass": (str, False),
+        "ChannelEngineVersion": (ChannelEngineVersionRequest, False),
         "Destinations": ([OutputDestination], False),
+        "DryRun": (boolean, False),
         "EncoderSettings": (EncoderSettings, False),
         "InputAttachments": ([InputAttachment], False),
         "InputSpecification": (InputSpecification, False),

@@ -259,6 +259,56 @@ class User(AWSObject):
     }
 
 
+class WebAppCustomization(AWSProperty):
+    """
+    `WebAppCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-webappcustomization.html>`__
+    """
+
+    props: PropsDictType = {
+        "FaviconFile": (str, False),
+        "LogoFile": (str, False),
+        "Title": (str, False),
+    }
+
+
+class WebAppIdentityProviderDetails(AWSProperty):
+    """
+    `WebAppIdentityProviderDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-identityproviderdetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "ApplicationArn": (str, False),
+        "InstanceArn": (str, False),
+        "Role": (str, False),
+    }
+
+
+class WebAppUnits(AWSProperty):
+    """
+    `WebAppUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-webapp-webappunits.html>`__
+    """
+
+    props: PropsDictType = {
+        "Provisioned": (integer, True),
+    }
+
+
+class WebApp(AWSObject):
+    """
+    `WebApp <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-webapp.html>`__
+    """
+
+    resource_type = "AWS::Transfer::WebApp"
+
+    props: PropsDictType = {
+        "AccessEndpoint": (str, False),
+        "IdentityProviderDetails": (WebAppIdentityProviderDetails, True),
+        "Tags": (Tags, False),
+        "WebAppCustomization": (WebAppCustomization, False),
+        "WebAppUnits": (WebAppUnits, False),
+    }
+
+
 class S3InputFileLocation(AWSProperty):
     """
     `S3InputFileLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-workflow-s3inputfilelocation.html>`__

@@ -77,6 +77,19 @@ class ContactFlowModule(AWSObject):
     }
 
 
+class ContactFlowVersion(AWSObject):
+    """
+    `ContactFlowVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-contactflowversion.html>`__
+    """
+
+    resource_type = "AWS::Connect::ContactFlowVersion"
+
+    props: PropsDictType = {
+        "ContactFlowId": (str, True),
+        "Description": (str, False),
+    }
+
+
 class EmailAddress(AWSObject):
     """
     `EmailAddress <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-connect-emailaddress.html>`__

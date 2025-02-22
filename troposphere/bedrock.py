@@ -804,13 +804,24 @@ class PromptInferenceConfiguration(AWSProperty):
     }
 
 
+class CachePointBlock(AWSProperty):
+    """
+    `CachePointBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-cachepointblock.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+    }
+
+
 class ContentBlock(AWSProperty):
     """
     `ContentBlock <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-contentblock.html>`__
     """
 
     props: PropsDictType = {
-        "Text": (str, True),
+        "CachePoint": (CachePointBlock, False),
+        "Text": (str, False),
     }
 
 
@@ -841,7 +852,8 @@ class SystemContentBlock(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Text": (str, True),
+        "CachePoint": (CachePointBlock, False),
+        "Text": (str, False),
     }
 
 
@@ -873,7 +885,8 @@ class Tool(AWSProperty):
     """
 
     props: PropsDictType = {
-        "ToolSpec": (ToolSpecification, True),
+        "CachePoint": (CachePointBlock, False),
+        "ToolSpec": (ToolSpecification, False),
     }
 
 
@@ -929,6 +942,7 @@ class TextPromptTemplateConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CachePoint": (CachePointBlock, False),
         "InputVariables": ([PromptInputVariable], False),
         "Text": (str, True),
     }
@@ -1765,6 +1779,7 @@ class PromptVariant(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdditionalModelRequestFields": (dict, False),
         "GenAiResource": (PromptGenAiResource, False),
         "InferenceConfiguration": (PromptInferenceConfiguration, False),
         "ModelId": (str, False),
