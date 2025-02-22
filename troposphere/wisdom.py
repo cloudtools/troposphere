@@ -122,6 +122,17 @@ class SelfServiceAIAgentConfiguration(AWSProperty):
     }
 
 
+class SessionSummarizationAIAgentConfiguration(AWSProperty):
+    """
+    `SessionSummarizationAIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-sessionsummarizationaiagentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Locale": (str, False),
+        "SessionSummarizationAIPromptId": (str, False),
+    }
+
+
 class AIAgentConfiguration(AWSProperty):
     """
     `AIAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wisdom-aiagent-aiagentconfiguration.html>`__
@@ -134,6 +145,10 @@ class AIAgentConfiguration(AWSProperty):
         ),
         "ManualSearchAIAgentConfiguration": (ManualSearchAIAgentConfiguration, False),
         "SelfServiceAIAgentConfiguration": (SelfServiceAIAgentConfiguration, False),
+        "SessionSummarizationAIAgentConfiguration": (
+            SessionSummarizationAIAgentConfiguration,
+            False,
+        ),
     }
 
 
