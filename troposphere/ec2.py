@@ -767,6 +767,16 @@ class IpamOperatingRegion(AWSProperty):
     }
 
 
+class IpamOrganizationalUnitExclusion(AWSProperty):
+    """
+    `IpamOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipam-ipamorganizationalunitexclusion.html>`__
+    """
+
+    props: PropsDictType = {
+        "OrganizationsEntityPath": (str, True),
+    }
+
+
 class IPAM(AWSObject):
     """
     `IPAM <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipam.html>`__
@@ -775,6 +785,10 @@ class IPAM(AWSObject):
     resource_type = "AWS::EC2::IPAM"
 
     props: PropsDictType = {
+        "DefaultResourceDiscoveryOrganizationalUnitExclusions": (
+            [IpamOrganizationalUnitExclusion],
+            False,
+        ),
         "Description": (str, False),
         "EnablePrivateGua": (boolean, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
@@ -862,6 +876,16 @@ class IPAMPoolCidr(AWSObject):
     }
 
 
+class IpamResourceDiscoveryOrganizationalUnitExclusion(AWSProperty):
+    """
+    `IpamResourceDiscoveryOrganizationalUnitExclusion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-ipamresourcediscovery-ipamresourcediscoveryorganizationalunitexclusion.html>`__
+    """
+
+    props: PropsDictType = {
+        "OrganizationsEntityPath": (str, True),
+    }
+
+
 class IPAMResourceDiscovery(AWSObject):
     """
     `IPAMResourceDiscovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-ipamresourcediscovery.html>`__
@@ -872,6 +896,10 @@ class IPAMResourceDiscovery(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "OperatingRegions": ([IpamOperatingRegion], False),
+        "OrganizationalUnitExclusions": (
+            [IpamResourceDiscoveryOrganizationalUnitExclusion],
+            False,
+        ),
         "Tags": (Tags, False),
     }
 
