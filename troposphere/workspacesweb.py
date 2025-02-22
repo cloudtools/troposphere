@@ -227,6 +227,19 @@ class CookieSynchronizationConfiguration(AWSProperty):
     }
 
 
+class ToolbarConfiguration(AWSProperty):
+    """
+    `ToolbarConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-workspacesweb-usersettings-toolbarconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "HiddenToolbarItems": ([str], False),
+        "MaxDisplayResolution": (str, False),
+        "ToolbarType": (str, False),
+        "VisualMode": (str, False),
+    }
+
+
 class UserSettings(AWSObject):
     """
     `UserSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-workspacesweb-usersettings.html>`__
@@ -249,5 +262,6 @@ class UserSettings(AWSObject):
         "PasteAllowed": (str, True),
         "PrintAllowed": (str, True),
         "Tags": (Tags, False),
+        "ToolbarConfiguration": (ToolbarConfiguration, False),
         "UploadAllowed": (str, True),
     }

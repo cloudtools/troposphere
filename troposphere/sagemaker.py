@@ -1138,6 +1138,7 @@ class ProductionVariant(AWSProperty):
     props: PropsDictType = {
         "ContainerStartupHealthCheckTimeoutInSeconds": (integer, False),
         "EnableSSMAccess": (boolean, False),
+        "InferenceAmiVersion": (str, False),
         "InitialInstanceCount": (integer, False),
         "InitialVariantWeight": (double, False),
         "InstanceType": (str, False),

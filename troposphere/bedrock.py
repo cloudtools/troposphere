@@ -95,6 +95,29 @@ class AgentActionGroup(AWSProperty):
     }
 
 
+class AgentDescriptor(AWSProperty):
+    """
+    `AgentDescriptor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentdescriptor.html>`__
+    """
+
+    props: PropsDictType = {
+        "AliasArn": (str, False),
+    }
+
+
+class AgentCollaborator(AWSProperty):
+    """
+    `AgentCollaborator <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentcollaborator.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentDescriptor": (AgentDescriptor, True),
+        "CollaborationInstruction": (str, True),
+        "CollaboratorName": (str, True),
+        "RelayConversationHistory": (str, False),
+    }
+
+
 class AgentKnowledgeBase(AWSProperty):
     """
     `AgentKnowledgeBase <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-agentknowledgebase.html>`__
@@ -107,6 +130,26 @@ class AgentKnowledgeBase(AWSProperty):
     }
 
 
+class OrchestrationExecutor(AWSProperty):
+    """
+    `OrchestrationExecutor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-orchestrationexecutor.html>`__
+    """
+
+    props: PropsDictType = {
+        "Lambda": (str, True),
+    }
+
+
+class CustomOrchestration(AWSProperty):
+    """
+    `CustomOrchestration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-customorchestration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Executor": (OrchestrationExecutor, False),
+    }
+
+
 class GuardrailConfiguration(AWSProperty):
     """
     `GuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-flowversion-guardrailconfiguration.html>`__
@@ -115,6 +158,28 @@ class GuardrailConfiguration(AWSProperty):
     props: PropsDictType = {
         "GuardrailIdentifier": (str, False),
         "GuardrailVersion": (str, False),
+    }
+
+
+class SessionSummaryConfiguration(AWSProperty):
+    """
+    `SessionSummaryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-sessionsummaryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaxRecentSessions": (double, False),
+    }
+
+
+class MemoryConfiguration(AWSProperty):
+    """
+    `MemoryConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-agent-memoryconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnabledMemoryTypes": ([str], False),
+        "SessionSummaryConfiguration": (SessionSummaryConfiguration, False),
+        "StorageDays": (double, False),
     }
 
 
@@ -139,6 +204,7 @@ class PromptConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "BasePromptTemplate": (str, False),
+        "FoundationModel": (str, False),
         "InferenceConfiguration": (InferenceConfiguration, False),
         "ParserMode": (str, False),
         "PromptCreationMode": (str, False),
@@ -167,9 +233,12 @@ class Agent(AWSObject):
 
     props: PropsDictType = {
         "ActionGroups": ([AgentActionGroup], False),
+        "AgentCollaboration": (str, False),
+        "AgentCollaborators": ([AgentCollaborator], False),
         "AgentName": (str, True),
         "AgentResourceRoleArn": (str, False),
         "AutoPrepare": (boolean, False),
+        "CustomOrchestration": (CustomOrchestration, False),
         "CustomerEncryptionKeyArn": (str, False),
         "Description": (str, False),
         "FoundationModel": (str, False),
@@ -177,6 +246,8 @@ class Agent(AWSObject):
         "IdleSessionTTLInSeconds": (double, False),
         "Instruction": (str, False),
         "KnowledgeBases": ([AgentKnowledgeBase], False),
+        "MemoryConfiguration": (MemoryConfiguration, False),
+        "OrchestrationType": (str, False),
         "PromptOverrideConfiguration": (PromptOverrideConfiguration, False),
         "SkipResourceInUseCheckOnDelete": (boolean, False),
         "Tags": (dict, False),

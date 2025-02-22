@@ -10,6 +10,26 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class InputSwitchConfiguration(AWSProperty):
+    """
+    `InputSwitchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-inputswitchconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "MQCSInputSwitching": (boolean, False),
+    }
+
+
+class OutputHeaderConfiguration(AWSProperty):
+    """
+    `OutputHeaderConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediapackagev2-channel-outputheaderconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PublishMQCS": (boolean, False),
+    }
+
+
 class Channel(AWSObject):
     """
     `Channel <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-mediapackagev2-channel.html>`__
@@ -21,7 +41,9 @@ class Channel(AWSObject):
         "ChannelGroupName": (str, True),
         "ChannelName": (str, True),
         "Description": (str, False),
+        "InputSwitchConfiguration": (InputSwitchConfiguration, False),
         "InputType": (str, False),
+        "OutputHeaderConfiguration": (OutputHeaderConfiguration, False),
         "Tags": (Tags, False),
     }
 
