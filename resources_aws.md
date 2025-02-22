@@ -165,7 +165,6 @@
 - [AWS::NeptuneGraph](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NeptuneGraph.html)
 - [AWS::NetworkFirewall](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkFirewall.html)
 - [AWS::NetworkManager](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NetworkManager.html)
-- [AWS::NimbleStudio](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_NimbleStudio.html)
 - [AWS::OSIS](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_OSIS.html)
 - [AWS::Oam](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Oam.html)
 - [AWS::Omics](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/AWS_Omics.html)
