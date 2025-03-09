@@ -104,4 +104,10 @@ patches = [
         "path": "/PropertyTypes/AWS::CloudFront::StreamingDistribution.S3Origin/Properties/OriginAccessIdentity/Required",
         "value": False,
     },
+    # CloudFront introduced yet another way to specify Tags. Since this conflicts with other uses of Tags in CloudFront,
+    # We will remove it and handle it via a custom validator.
+    {
+        "op": "remove",
+        "path": "/PropertyTypes/AWS::CloudFront::AnycastIpList.Tags",
+    },
 ]

@@ -159,6 +159,51 @@ class TestTags(unittest.TestCase):
                 Tags="string",
             )
 
+    def test_tags_items_array(self):
+        from troposphere.cloudfront import AnycastIpList
+
+        AnycastIpList(
+            "AnycastIpList",
+            IpCount=1,
+            Name="test",
+            Tags={"Items": [Tag("bar", "bar"), Tag("baz", "baz")]},
+        )
+
+        # Zero Tag elements
+        AnycastIpList(
+            "AnycastIpList",
+            IpCount=1,
+            Name="test",
+            Tags={"Items": []},
+        )
+
+        # Test for Tags not being a dict
+        with self.assertRaises(ValueError):
+            AnycastIpList(
+                "AnycastIpList",
+                IpCount=1,
+                Name="test",
+                Tags=[Tag("key1", "value")],
+            )
+
+        # Test for Tags having more than one key
+        with self.assertRaises(ValueError):
+            AnycastIpList(
+                "AnycastIpList",
+                IpCount=1,
+                Name="test",
+                Tags={"Items": [], "Items2": []},
+            )
+
+        # Test for Tags having a non-Tag item
+        with self.assertRaises(ValueError):
+            AnycastIpList(
+                "AnycastIpList",
+                IpCount=1,
+                Name="test",
+                Tags={"Items": [Tag("bar", "bar"), "foobar"]},
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

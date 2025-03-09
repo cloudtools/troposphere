@@ -4,6 +4,7 @@
 # See LICENSE file for full license.
 
 
+from .. import Tag
 from . import network_port, tags_or_list
 
 
@@ -21,6 +22,20 @@ def validate_tags_or_list(x):
     Property: StreamingDistribution.Tags
     """
     return tags_or_list(x)
+
+
+def validate_tags_items_array(x: dict) -> dict:
+    """
+    Property: AnycastIpList.Tags
+    """
+    if not isinstance(x, dict) or len(x) != 1 or "Items" not in x:
+        raise ValueError("Tags must be a dictionary with a single key 'Items'")
+    for item in x["Items"]:
+        if not isinstance(item, Tag):
+            raise ValueError(
+                f"Items array in Tags must contain Tag objects, found {item}"
+            )
+    return x
 
 
 def cloudfront_access_control_allow_methods(access_control_allow_methods):

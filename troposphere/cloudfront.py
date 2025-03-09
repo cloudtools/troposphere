@@ -24,6 +24,7 @@ from .validators.cloudfront import (
     cloudfront_viewer_protocol_policy,
     priceclass_type,
     validate_network_port,
+    validate_tags_items_array,
     validate_tags_or_list,
 )
 
@@ -38,7 +39,7 @@ class AnycastIpList(AWSObject):
     props: PropsDictType = {
         "IpCount": (integer, True),
         "Name": (str, True),
-        "Tags": (Tags, False),
+        "Tags": (validate_tags_items_array, False),
     }
 
 
@@ -1230,14 +1231,4 @@ class AnycastIpListProperty(AWSProperty):
         "LastModifiedTime": (str, True),
         "Name": (str, True),
         "Status": (str, True),
-    }
-
-
-class Tags(AWSProperty):
-    """
-    `Tags <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-anycastiplist-tags.html>`__
-    """
-
-    props: PropsDictType = {
-        "Items": (Tags, False),
     }
