@@ -1364,7 +1364,7 @@ LOGS_ALLOWED_RETENTION_DAYS: Final = [
     2557,
     2922,
     3288,
-    3653
+    3653,
 ]
 
 #
