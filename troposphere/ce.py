@@ -12,7 +12,7 @@ from .validators import double
 
 class ResourceTag(AWSProperty):
     """
-    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-anomalysubscription-resourcetag.html>`__
+    `ResourceTag <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ce-costcategory-resourcetag.html>`__
     """
 
     props: PropsDictType = {
@@ -80,4 +80,5 @@ class CostCategory(AWSObject):
         "RuleVersion": (str, True),
         "Rules": (str, True),
         "SplitChargeRules": (str, False),
+        "Tags": ([ResourceTag], False),
     }

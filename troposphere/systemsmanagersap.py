@@ -9,6 +9,18 @@
 from . import AWSObject, AWSProperty, PropsDictType, Tags
 
 
+class ComponentInfo(AWSProperty):
+    """
+    `ComponentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-componentinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComponentType": (str, False),
+        "Ec2InstanceId": (str, False),
+        "Sid": (str, False),
+    }
+
+
 class Credential(AWSProperty):
     """
     `Credential <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-systemsmanagersap-application-credential.html>`__
@@ -31,6 +43,7 @@ class Application(AWSObject):
     props: PropsDictType = {
         "ApplicationId": (str, True),
         "ApplicationType": (str, True),
+        "ComponentsInfo": ([ComponentInfo], False),
         "Credentials": ([Credential], False),
         "DatabaseArn": (str, False),
         "Instances": ([str], False),

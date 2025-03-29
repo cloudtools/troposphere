@@ -828,7 +828,7 @@ class Domain(AWSObject):
 
 class Alarm(AWSProperty):
     """
-    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-endpoint-alarm.html>`__
+    `Alarm <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-alarm.html>`__
     """
 
     props: PropsDictType = {
@@ -1326,6 +1326,51 @@ class ImageVersion(AWSObject):
     }
 
 
+class AutoRollbackConfiguration(AWSProperty):
+    """
+    `AutoRollbackConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-autorollbackconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Alarms": ([Alarm], True),
+    }
+
+
+class InferenceComponentCapacitySize(AWSProperty):
+    """
+    `InferenceComponentCapacitySize <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentcapacitysize.html>`__
+    """
+
+    props: PropsDictType = {
+        "Type": (str, True),
+        "Value": (integer, True),
+    }
+
+
+class InferenceComponentRollingUpdatePolicy(AWSProperty):
+    """
+    `InferenceComponentRollingUpdatePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentrollingupdatepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "MaximumBatchSize": (InferenceComponentCapacitySize, False),
+        "MaximumExecutionTimeoutInSeconds": (integer, False),
+        "RollbackMaximumBatchSize": (InferenceComponentCapacitySize, False),
+        "WaitIntervalInSeconds": (integer, False),
+    }
+
+
+class InferenceComponentDeploymentConfig(AWSProperty):
+    """
+    `InferenceComponentDeploymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentdeploymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "AutoRollbackConfiguration": (AutoRollbackConfiguration, False),
+        "RollingUpdatePolicy": (InferenceComponentRollingUpdatePolicy, False),
+    }
+
+
 class InferenceComponentRuntimeConfig(AWSProperty):
     """
     `InferenceComponentRuntimeConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-sagemaker-inferencecomponent-inferencecomponentruntimeconfig.html>`__
@@ -1412,6 +1457,7 @@ class InferenceComponent(AWSObject):
     resource_type = "AWS::SageMaker::InferenceComponent"
 
     props: PropsDictType = {
+        "DeploymentConfig": (InferenceComponentDeploymentConfig, False),
         "EndpointArn": (str, False),
         "EndpointName": (str, True),
         "InferenceComponentName": (str, False),

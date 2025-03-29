@@ -16,6 +16,7 @@ class VpcInformation(AWSProperty):
     """
 
     props: PropsDictType = {
+        "IpAddressType": (str, False),
         "SecurityGroupIds": ([str], True),
     }
 

@@ -254,6 +254,7 @@ class ThousandSeparatorOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "GroupingStyle": (str, False),
         "Symbol": (str, False),
         "Visibility": (dict, False),
     }
@@ -463,6 +464,7 @@ class FontSize(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Absolute": (str, False),
         "Relative": (str, False),
     }
 
@@ -485,6 +487,7 @@ class FontConfiguration(AWSProperty):
     props: PropsDictType = {
         "FontColor": (str, False),
         "FontDecoration": (str, False),
+        "FontFamily": (str, False),
         "FontSize": (FontSize, False),
         "FontStyle": (str, False),
         "FontWeight": (FontWeight, False),
@@ -520,7 +523,9 @@ class DateTimePickerControlDisplayOptions(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DateIconVisibility": (dict, False),
         "DateTimeFormat": (str, False),
+        "HelperTextVisibility": (dict, False),
         "InfoIconLabelOptions": (SheetControlInfoIconLabelOptions, False),
         "TitleOptions": (LabelOptions, False),
     }
@@ -1573,6 +1578,59 @@ class BodySectionContent(AWSProperty):
     }
 
 
+class ColumnSort(AWSProperty):
+    """
+    `ColumnSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnsort.html>`__
+    """
+
+    props: PropsDictType = {
+        "AggregationFunction": (AggregationFunction, False),
+        "Direction": (str, True),
+        "SortBy": (ColumnIdentifier, True),
+    }
+
+
+class BodySectionDynamicCategoryDimensionConfiguration(AWSProperty):
+    """
+    `BodySectionDynamicCategoryDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectiondynamiccategorydimensionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Column": (ColumnIdentifier, True),
+        "Limit": (double, False),
+        "SortByMetrics": ([ColumnSort], False),
+    }
+
+
+class BodySectionDynamicNumericDimensionConfiguration(AWSProperty):
+    """
+    `BodySectionDynamicNumericDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectiondynamicnumericdimensionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Column": (ColumnIdentifier, True),
+        "Limit": (double, False),
+        "SortByMetrics": ([ColumnSort], False),
+    }
+
+
+class BodySectionRepeatDimensionConfiguration(AWSProperty):
+    """
+    `BodySectionRepeatDimensionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionrepeatdimensionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DynamicCategoryDimensionConfiguration": (
+            BodySectionDynamicCategoryDimensionConfiguration,
+            False,
+        ),
+        "DynamicNumericDimensionConfiguration": (
+            BodySectionDynamicNumericDimensionConfiguration,
+            False,
+        ),
+    }
+
+
 class SectionAfterPageBreak(AWSProperty):
     """
     `SectionAfterPageBreak <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-sectionafterpagebreak.html>`__
@@ -1580,6 +1638,28 @@ class SectionAfterPageBreak(AWSProperty):
 
     props: PropsDictType = {
         "Status": (str, False),
+    }
+
+
+class BodySectionRepeatPageBreakConfiguration(AWSProperty):
+    """
+    `BodySectionRepeatPageBreakConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionrepeatpagebreakconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "After": (SectionAfterPageBreak, False),
+    }
+
+
+class BodySectionRepeatConfiguration(AWSProperty):
+    """
+    `BodySectionRepeatConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-bodysectionrepeatconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DimensionConfigurations": ([BodySectionRepeatDimensionConfiguration], False),
+        "NonRepeatingVisuals": ([str], False),
+        "PageBreakConfiguration": (BodySectionRepeatPageBreakConfiguration, False),
     }
 
 
@@ -1612,6 +1692,7 @@ class BodySectionConfiguration(AWSProperty):
     props: PropsDictType = {
         "Content": (BodySectionContent, True),
         "PageBreakConfiguration": (SectionPageBreakConfiguration, False),
+        "RepeatConfiguration": (BodySectionRepeatConfiguration, False),
         "SectionId": (str, True),
         "Style": (SectionStyle, False),
     }
@@ -1921,7 +2002,7 @@ class ImageMenuOption(AWSProperty):
     """
 
     props: PropsDictType = {
-        "AvailabilityStatus": (dict, False),
+        "AvailabilityStatus": (str, False),
     }
 
 
@@ -2292,18 +2373,6 @@ class BarChartFieldWells(AWSProperty):
 
     props: PropsDictType = {
         "BarChartAggregatedFieldWells": (BarChartAggregatedFieldWells, False),
-    }
-
-
-class ColumnSort(AWSProperty):
-    """
-    `ColumnSort <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-columnsort.html>`__
-    """
-
-    props: PropsDictType = {
-        "AggregationFunction": (AggregationFunction, False),
-        "Direction": (str, True),
-        "SortBy": (ColumnIdentifier, True),
     }
 
 
@@ -2714,6 +2783,37 @@ class TooltipOptions(AWSProperty):
     }
 
 
+class ContextMenuOption(AWSProperty):
+    """
+    `ContextMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-contextmenuoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (str, False),
+    }
+
+
+class VisualMenuOption(AWSProperty):
+    """
+    `VisualMenuOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualmenuoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityStatus": (str, False),
+    }
+
+
+class VisualInteractionOptions(AWSProperty):
+    """
+    `VisualInteractionOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-visualinteractionoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContextMenuOption": (ContextMenuOption, False),
+        "VisualMenuOption": (VisualMenuOption, False),
+    }
+
+
 class DataPathType(AWSProperty):
     """
     `DataPathType <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-datapathtype.html>`__
@@ -2772,6 +2872,7 @@ class BarChartConfiguration(AWSProperty):
         "ContributionAnalysisDefaults": ([ContributionAnalysisDefault], False),
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (BarChartFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "Orientation": (str, False),
         "ReferenceLines": ([ReferenceLine], False),
@@ -3090,6 +3191,7 @@ class BoxPlotChartConfiguration(AWSProperty):
         "CategoryAxis": (AxisDisplayOptions, False),
         "CategoryLabelOptions": (ChartAxisLabelOptions, False),
         "FieldWells": (BoxPlotFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "PrimaryYAxisDisplayOptions": (AxisDisplayOptions, False),
         "PrimaryYAxisLabelOptions": (ChartAxisLabelOptions, False),
@@ -3184,6 +3286,7 @@ class ComboChartConfiguration(AWSProperty):
         "CategoryLabelOptions": (ChartAxisLabelOptions, False),
         "ColorLabelOptions": (ChartAxisLabelOptions, False),
         "FieldWells": (ComboChartFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "LineDataLabels": (DataLabelOptions, False),
         "PrimaryYAxisDisplayOptions": (AxisDisplayOptions, False),
@@ -3223,6 +3326,7 @@ class CustomContentConfiguration(AWSProperty):
         "ContentType": (str, False),
         "ContentUrl": (str, False),
         "ImageScaling": (str, False),
+        "Interactions": (VisualInteractionOptions, False),
     }
 
 
@@ -3422,6 +3526,7 @@ class FilledMapConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "FieldWells": (FilledMapFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "MapStyleOptions": (GeospatialMapStyleOptions, False),
         "SortConfiguration": (FilledMapSortConfiguration, False),
@@ -3504,6 +3609,7 @@ class FunnelChartConfiguration(AWSProperty):
         "CategoryLabelOptions": (ChartAxisLabelOptions, False),
         "DataLabelOptions": (FunnelChartDataLabelOptions, False),
         "FieldWells": (FunnelChartFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "SortConfiguration": (FunnelChartSortConfiguration, False),
         "Tooltip": (TooltipOptions, False),
         "ValueLabelOptions": (ChartAxisLabelOptions, False),
@@ -3628,6 +3734,17 @@ class GaugeChartConditionalFormatting(AWSProperty):
     }
 
 
+class GaugeChartColorConfiguration(AWSProperty):
+    """
+    `GaugeChartColorConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartcolorconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BackgroundColor": (str, False),
+        "ForegroundColor": (str, False),
+    }
+
+
 class GaugeChartFieldWells(AWSProperty):
     """
     `GaugeChartFieldWells <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-gaugechartfieldwells.html>`__
@@ -3717,9 +3834,11 @@ class GaugeChartConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ColorConfiguration": (GaugeChartColorConfiguration, False),
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (GaugeChartFieldWells, False),
         "GaugeChartOptions": (GaugeChartOptions, False),
+        "Interactions": (VisualInteractionOptions, False),
         "TooltipOptions": (TooltipOptions, False),
         "VisualPalette": (VisualPalette, False),
     }
@@ -3935,6 +4054,7 @@ class HeatMapConfiguration(AWSProperty):
         "ColumnLabelOptions": (ChartAxisLabelOptions, False),
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (HeatMapFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "RowLabelOptions": (ChartAxisLabelOptions, False),
         "SortConfiguration": (HeatMapSortConfiguration, False),
@@ -4021,6 +4141,7 @@ class HistogramConfiguration(AWSProperty):
         "BinOptions": (HistogramBinOptions, False),
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (HistogramFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Tooltip": (TooltipOptions, False),
         "VisualPalette": (VisualPalette, False),
         "XAxisDisplayOptions": (AxisDisplayOptions, False),
@@ -4226,6 +4347,7 @@ class InsightConfiguration(AWSProperty):
     props: PropsDictType = {
         "Computations": ([Computation], False),
         "CustomNarrative": (CustomNarrativeOptions, False),
+        "Interactions": (VisualInteractionOptions, False),
     }
 
 
@@ -4421,6 +4543,7 @@ class KPIConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "FieldWells": (KPIFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "KPIOptions": (KPIOptions, False),
         "SortConfiguration": (KPISortConfiguration, False),
     }
@@ -4793,7 +4916,7 @@ class GeospatialLayerMapConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Interactions": (dict, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "MapLayers": ([GeospatialLayerItem], False),
         "MapState": (GeospatialMapState, False),
@@ -5030,6 +5153,7 @@ class LineChartConfiguration(AWSProperty):
         "DefaultSeriesSettings": (LineChartDefaultSeriesSettings, False),
         "FieldWells": (LineChartFieldWells, False),
         "ForecastConfigurations": ([ForecastConfiguration], False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "PrimaryYAxisDisplayOptions": (LineSeriesAxisDisplayOptions, False),
         "PrimaryYAxisLabelOptions": (ChartAxisLabelOptions, False),
@@ -5141,6 +5265,7 @@ class PieChartConfiguration(AWSProperty):
         "DataLabels": (DataLabelOptions, False),
         "DonutOptions": (DonutOptions, False),
         "FieldWells": (PieChartFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "SmallMultiplesOptions": (SmallMultiplesOptions, False),
         "SortConfiguration": (PieChartSortConfiguration, False),
@@ -5554,6 +5679,7 @@ class PivotTableConfiguration(AWSProperty):
     props: PropsDictType = {
         "FieldOptions": (PivotTableFieldOptions, False),
         "FieldWells": (PivotTableFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "PaginatedReportOptions": (PivotTablePaginatedReportOptions, False),
         "SortConfiguration": (PivotTableSortConfiguration, False),
         "TableOptions": (PivotTableOptions, False),
@@ -5740,6 +5866,7 @@ class RadarChartConfiguration(AWSProperty):
         "ColorAxis": (AxisDisplayOptions, False),
         "ColorLabelOptions": (ChartAxisLabelOptions, False),
         "FieldWells": (RadarChartFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "Shape": (str, False),
         "SortConfiguration": (RadarChartSortConfiguration, False),
@@ -5806,6 +5933,7 @@ class SankeyDiagramChartConfiguration(AWSProperty):
     props: PropsDictType = {
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (SankeyDiagramFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "SortConfiguration": (SankeyDiagramSortConfiguration, False),
     }
 
@@ -5867,6 +5995,16 @@ class ScatterPlotFieldWells(AWSProperty):
     }
 
 
+class ScatterPlotSortConfiguration(AWSProperty):
+    """
+    `ScatterPlotSortConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotsortconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ScatterPlotLimitConfiguration": (ItemsLimitConfiguration, False),
+    }
+
+
 class ScatterPlotConfiguration(AWSProperty):
     """
     `ScatterPlotConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-scatterplotconfiguration.html>`__
@@ -5875,7 +6013,9 @@ class ScatterPlotConfiguration(AWSProperty):
     props: PropsDictType = {
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (ScatterPlotFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
+        "SortConfiguration": (ScatterPlotSortConfiguration, False),
         "Tooltip": (TooltipOptions, False),
         "VisualPalette": (VisualPalette, False),
         "XAxisDisplayOptions": (AxisDisplayOptions, False),
@@ -6166,6 +6306,7 @@ class TableConfiguration(AWSProperty):
     props: PropsDictType = {
         "FieldOptions": (TableFieldOptions, False),
         "FieldWells": (TableFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "PaginatedReportOptions": (TablePaginatedReportOptions, False),
         "SortConfiguration": (TableSortConfiguration, False),
         "TableInlineVisualizations": ([TableInlineVisualization], False),
@@ -6234,6 +6375,7 @@ class TreeMapConfiguration(AWSProperty):
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (TreeMapFieldWells, False),
         "GroupLabelOptions": (ChartAxisLabelOptions, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "SizeLabelOptions": (ChartAxisLabelOptions, False),
         "SortConfiguration": (TreeMapSortConfiguration, False),
@@ -6336,6 +6478,7 @@ class WaterfallChartConfiguration(AWSProperty):
         "ColorConfiguration": (WaterfallChartColorConfiguration, False),
         "DataLabels": (DataLabelOptions, False),
         "FieldWells": (WaterfallChartFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "Legend": (LegendOptions, False),
         "PrimaryYAxisDisplayOptions": (AxisDisplayOptions, False),
         "PrimaryYAxisLabelOptions": (ChartAxisLabelOptions, False),
@@ -6416,6 +6559,7 @@ class WordCloudChartConfiguration(AWSProperty):
     props: PropsDictType = {
         "CategoryLabelOptions": (ChartAxisLabelOptions, False),
         "FieldWells": (WordCloudFieldWells, False),
+        "Interactions": (VisualInteractionOptions, False),
         "SortConfiguration": (WordCloudSortConfiguration, False),
         "WordCloudOptions": (WordCloudOptions, False),
     }
@@ -6705,7 +6849,6 @@ class Sheet(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Images": ([SheetImage], False),
         "Name": (str, False),
         "SheetId": (str, False),
     }
@@ -6915,7 +7058,7 @@ class DashboardPublishOptions(AWSProperty):
             False,
         ),
         "VisualAxisSortOption": (VisualAxisSortOption, False),
-        "VisualMenuOption": (dict, False),
+        "VisualMenuOption": (VisualMenuOption, False),
         "VisualPublishOptions": (DashboardVisualPublishOptions, False),
     }
 
@@ -7060,12 +7203,33 @@ class RefreshConfiguration(AWSProperty):
     }
 
 
+class RefreshFailureEmailAlert(AWSProperty):
+    """
+    `RefreshFailureEmailAlert <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshfailureemailalert.html>`__
+    """
+
+    props: PropsDictType = {
+        "AlertStatus": (str, False),
+    }
+
+
+class RefreshFailureConfiguration(AWSProperty):
+    """
+    `RefreshFailureConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-refreshfailureconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EmailAlert": (RefreshFailureEmailAlert, False),
+    }
+
+
 class DataSetRefreshProperties(AWSProperty):
     """
     `DataSetRefreshProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-datasetrefreshproperties.html>`__
     """
 
     props: PropsDictType = {
+        "FailureConfiguration": (RefreshFailureConfiguration, False),
         "RefreshConfiguration": (RefreshConfiguration, False),
     }
 
@@ -7277,7 +7441,7 @@ class CreateColumnsOperation(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Columns": ([CalculatedColumn], True),
+        "Columns": ([CalculatedColumn], False),
     }
 
 
@@ -7333,7 +7497,7 @@ class RenameColumnOperation(AWSProperty):
 
     props: PropsDictType = {
         "ColumnName": (str, True),
-        "NewColumnName": (str, True),
+        "NewColumnName": (str, False),
     }
 
 
@@ -7468,6 +7632,20 @@ class RelationalTable(AWSProperty):
     }
 
 
+class UploadSettings(AWSProperty):
+    """
+    `UploadSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-uploadsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "ContainsHeader": (boolean, False),
+        "Delimiter": (str, False),
+        "Format": (str, False),
+        "StartFromRow": (double, False),
+        "TextQualifier": (str, False),
+    }
+
+
 class S3Source(AWSProperty):
     """
     `S3Source <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-dataset-s3source.html>`__
@@ -7475,8 +7653,8 @@ class S3Source(AWSProperty):
 
     props: PropsDictType = {
         "DataSourceArn": (str, True),
-        "InputColumns": ([InputColumn], True),
-        "UploadSettings": (dict, False),
+        "InputColumns": ([InputColumn], False),
+        "UploadSettings": (UploadSettings, False),
     }
 
 
@@ -7561,6 +7739,7 @@ class DataSet(AWSObject):
             False,
         ),
         "Tags": (Tags, False),
+        "UseAs": (str, False),
     }
 
 

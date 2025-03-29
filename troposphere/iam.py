@@ -172,6 +172,17 @@ class RolePolicy(AWSObject):
     }
 
 
+class SAMLPrivateKey(AWSProperty):
+    """
+    `SAMLPrivateKey <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iam-samlprovider-samlprivatekey.html>`__
+    """
+
+    props: PropsDictType = {
+        "KeyId": (str, True),
+        "Timestamp": (str, True),
+    }
+
+
 class SAMLProvider(AWSObject):
     """
     `SAMLProvider <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iam-samlprovider.html>`__
@@ -180,8 +191,12 @@ class SAMLProvider(AWSObject):
     resource_type = "AWS::IAM::SAMLProvider"
 
     props: PropsDictType = {
+        "AddPrivateKey": (str, False),
+        "AssertionEncryptionMode": (str, False),
         "Name": (str, False),
-        "SamlMetadataDocument": (str, True),
+        "PrivateKeyList": ([SAMLPrivateKey], False),
+        "RemovePrivateKey": (str, False),
+        "SamlMetadataDocument": (str, False),
         "Tags": (Tags, False),
     }
 

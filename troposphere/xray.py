@@ -83,3 +83,15 @@ class SamplingRule(AWSObject):
         "SamplingRule": (SamplingRuleProperty, False),
         "Tags": (Tags, False),
     }
+
+
+class TransactionSearchConfig(AWSObject):
+    """
+    `TransactionSearchConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-xray-transactionsearchconfig.html>`__
+    """
+
+    resource_type = "AWS::XRay::TransactionSearchConfig"
+
+    props: PropsDictType = {
+        "IndexingPercentage": (double, False),
+    }

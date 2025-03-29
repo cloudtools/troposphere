@@ -2416,7 +2416,7 @@ class CloudWatchAlarmTemplate(AWSObject):
         "DatapointsToAlarm": (double, False),
         "Description": (str, False),
         "EvaluationPeriods": (double, True),
-        "GroupIdentifier": (str, True),
+        "GroupIdentifier": (str, False),
         "MetricName": (str, True),
         "Name": (str, True),
         "Period": (double, True),
@@ -2501,7 +2501,7 @@ class EventBridgeRuleTemplate(AWSObject):
         "Description": (str, False),
         "EventTargets": ([EventBridgeRuleTemplateTarget], False),
         "EventType": (str, True),
-        "GroupIdentifier": (str, True),
+        "GroupIdentifier": (str, False),
         "Name": (str, True),
         "Tags": (dict, False),
     }

@@ -382,6 +382,16 @@ class JA3Fingerprint(AWSProperty):
     }
 
 
+class JA4Fingerprint(AWSProperty):
+    """
+    `JA4Fingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ja4fingerprint.html>`__
+    """
+
+    props: PropsDictType = {
+        "FallbackBehavior": (str, True),
+    }
+
+
 class JsonMatchPattern(AWSProperty):
     """
     `JsonMatchPattern <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-jsonmatchpattern.html>`__
@@ -416,6 +426,16 @@ class SingleQueryArgument(AWSProperty):
     }
 
 
+class UriFragment(AWSProperty):
+    """
+    `UriFragment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-urifragment.html>`__
+    """
+
+    props: PropsDictType = {
+        "FallbackBehavior": (str, False),
+    }
+
+
 class FieldToMatch(AWSProperty):
     """
     `FieldToMatch <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtomatch.html>`__
@@ -427,11 +447,13 @@ class FieldToMatch(AWSProperty):
         "Cookies": (Cookies, False),
         "Headers": (Headers, False),
         "JA3Fingerprint": (JA3Fingerprint, False),
+        "JA4Fingerprint": (JA4Fingerprint, False),
         "JsonBody": (JsonBody, False),
         "Method": (dict, False),
         "QueryString": (dict, False),
         "SingleHeader": (SingleHeader, False),
         "SingleQueryArgument": (SingleQueryArgument, False),
+        "UriFragment": (UriFragment, False),
         "UriPath": (dict, False),
     }
 
@@ -746,6 +768,26 @@ class RateLimitHeader(AWSProperty):
     }
 
 
+class RateLimitJA3Fingerprint(AWSProperty):
+    """
+    `RateLimitJA3Fingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitja3fingerprint.html>`__
+    """
+
+    props: PropsDictType = {
+        "FallbackBehavior": (str, True),
+    }
+
+
+class RateLimitJA4Fingerprint(AWSProperty):
+    """
+    `RateLimitJA4Fingerprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitja4fingerprint.html>`__
+    """
+
+    props: PropsDictType = {
+        "FallbackBehavior": (str, True),
+    }
+
+
 class RateLimitLabelNamespace(AWSProperty):
     """
     `RateLimitLabelNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-ratelimitlabelnamespace.html>`__
@@ -798,6 +840,8 @@ class RateBasedStatementCustomKey(AWSProperty):
         "HTTPMethod": (dict, False),
         "Header": (RateLimitHeader, False),
         "IP": (dict, False),
+        "JA3Fingerprint": (RateLimitJA3Fingerprint, False),
+        "JA4Fingerprint": (RateLimitJA4Fingerprint, False),
         "LabelNamespace": (RateLimitLabelNamespace, False),
         "QueryArgument": (RateLimitQueryArgument, False),
         "QueryString": (RateLimitQueryString, False),
@@ -986,6 +1030,40 @@ class AssociationConfig(AWSProperty):
     }
 
 
+class FieldToProtect(AWSProperty):
+    """
+    `FieldToProtect <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-fieldtoprotect.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldKeys": ([str], False),
+        "FieldType": (str, True),
+    }
+
+
+class DataProtect(AWSProperty):
+    """
+    `DataProtect <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-dataprotect.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, True),
+        "ExcludeRateBasedDetails": (boolean, False),
+        "ExcludeRuleMatchDetails": (boolean, False),
+        "Field": (FieldToProtect, True),
+    }
+
+
+class DataProtectionConfig(AWSProperty):
+    """
+    `DataProtectionConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-dataprotectionconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataProtections": ([DataProtect], True),
+    }
+
+
 class DefaultAction(AWSProperty):
     """
     `DefaultAction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-wafv2-webacl-defaultaction.html>`__
@@ -1038,6 +1116,7 @@ class WebACL(AWSObject):
         "CaptchaConfig": (CaptchaConfig, False),
         "ChallengeConfig": (ChallengeConfig, False),
         "CustomResponseBodies": (validate_custom_response_bodies, False),
+        "DataProtectionConfig": (DataProtectionConfig, False),
         "DefaultAction": (DefaultAction, True),
         "Description": (str, False),
         "Name": (str, False),
