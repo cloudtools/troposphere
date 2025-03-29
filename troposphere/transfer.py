@@ -11,6 +11,20 @@ from .validators import double, integer
 from .validators.transfer import validate_homedirectory_type
 
 
+class CustomDirectories(AWSProperty):
+    """
+    `CustomDirectories <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-transfer-agreement-customdirectories.html>`__
+    """
+
+    props: PropsDictType = {
+        "FailedFilesDirectory": (str, True),
+        "MdnFilesDirectory": (str, True),
+        "PayloadFilesDirectory": (str, True),
+        "StatusFilesDirectory": (str, True),
+        "TemporaryFilesDirectory": (str, True),
+    }
+
+
 class Agreement(AWSObject):
     """
     `Agreement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-transfer-agreement.html>`__
@@ -20,7 +34,8 @@ class Agreement(AWSObject):
 
     props: PropsDictType = {
         "AccessRole": (str, True),
-        "BaseDirectory": (str, True),
+        "BaseDirectory": (str, False),
+        "CustomDirectories": (CustomDirectories, False),
         "Description": (str, False),
         "EnforceMessageSigning": (str, False),
         "LocalProfileId": (str, True),

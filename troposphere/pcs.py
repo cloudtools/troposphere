@@ -76,7 +76,7 @@ class CustomLaunchTemplate(AWSProperty):
     """
 
     props: PropsDictType = {
-        "Id": (str, True),
+        "TemplateId": (str, False),
         "Version": (str, True),
     }
 

@@ -49,9 +49,11 @@ class PullThroughCacheRule(AWSObject):
 
     props: PropsDictType = {
         "CredentialArn": (str, False),
+        "CustomRoleArn": (str, False),
         "EcrRepositoryPrefix": (str, False),
         "UpstreamRegistry": (str, False),
         "UpstreamRegistryUrl": (str, False),
+        "UpstreamRepositoryPrefix": (str, False),
     }
 
 

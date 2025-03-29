@@ -7,7 +7,315 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import boolean
+from .validators import boolean, double
+
+
+class AwsLocation(AWSProperty):
+    """
+    `AwsLocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-awslocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessRole": (str, False),
+        "AwsAccountId": (str, False),
+        "AwsRegion": (str, False),
+        "IamConnectionId": (str, False),
+    }
+
+
+class AthenaPropertiesInput(AWSProperty):
+    """
+    `AthenaPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-athenapropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "WorkgroupName": (str, True),
+    }
+
+
+class BasicAuthenticationCredentials(AWSProperty):
+    """
+    `BasicAuthenticationCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-basicauthenticationcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "Password": (str, False),
+        "UserName": (str, False),
+    }
+
+
+class AuthorizationCodeProperties(AWSProperty):
+    """
+    `AuthorizationCodeProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authorizationcodeproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationCode": (str, False),
+        "RedirectUri": (str, False),
+    }
+
+
+class GlueOAuth2Credentials(AWSProperty):
+    """
+    `GlueOAuth2Credentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueoauth2credentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "AccessToken": (str, False),
+        "JwtToken": (str, False),
+        "RefreshToken": (str, False),
+        "UserManagedClientApplicationClientSecret": (str, False),
+    }
+
+
+class OAuth2ClientApplication(AWSProperty):
+    """
+    `OAuth2ClientApplication <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2clientapplication.html>`__
+    """
+
+    props: PropsDictType = {
+        "AWSManagedClientApplicationReference": (str, False),
+        "UserManagedClientApplicationClientId": (str, False),
+    }
+
+
+class OAuth2Properties(AWSProperty):
+    """
+    `OAuth2Properties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-oauth2properties.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthorizationCodeProperties": (AuthorizationCodeProperties, False),
+        "OAuth2ClientApplication": (OAuth2ClientApplication, False),
+        "OAuth2Credentials": (GlueOAuth2Credentials, False),
+        "OAuth2GrantType": (str, False),
+        "TokenUrl": (str, False),
+        "TokenUrlParametersMap": (dict, False),
+    }
+
+
+class AuthenticationConfigurationInput(AWSProperty):
+    """
+    `AuthenticationConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-authenticationconfigurationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AuthenticationType": (str, False),
+        "BasicAuthenticationCredentials": (BasicAuthenticationCredentials, False),
+        "CustomAuthenticationCredentials": (dict, False),
+        "KmsKeyArn": (str, False),
+        "OAuth2Properties": (OAuth2Properties, False),
+        "SecretArn": (str, False),
+    }
+
+
+class PhysicalConnectionRequirements(AWSProperty):
+    """
+    `PhysicalConnectionRequirements <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-physicalconnectionrequirements.html>`__
+    """
+
+    props: PropsDictType = {
+        "AvailabilityZone": (str, False),
+        "SecurityGroupIdList": ([str], False),
+        "SubnetId": (str, False),
+        "SubnetIdList": ([str], False),
+    }
+
+
+class GlueConnectionInput(AWSProperty):
+    """
+    `GlueConnectionInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-glueconnectioninput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AthenaProperties": (dict, False),
+        "AuthenticationConfiguration": (AuthenticationConfigurationInput, False),
+        "ConnectionProperties": (dict, False),
+        "ConnectionType": (str, False),
+        "Description": (str, False),
+        "MatchCriteria": (str, False),
+        "Name": (str, False),
+        "PhysicalConnectionRequirements": (PhysicalConnectionRequirements, False),
+        "PythonProperties": (dict, False),
+        "SparkProperties": (dict, False),
+        "ValidateCredentials": (boolean, False),
+        "ValidateForComputeEnvironments": ([str], False),
+    }
+
+
+class GluePropertiesInput(AWSProperty):
+    """
+    `GluePropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-gluepropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlueConnectionInput": (GlueConnectionInput, False),
+    }
+
+
+class HyperPodPropertiesInput(AWSProperty):
+    """
+    `HyperPodPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-hyperpodpropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClusterName": (str, True),
+    }
+
+
+class IamPropertiesInput(AWSProperty):
+    """
+    `IamPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-iampropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "GlueLineageSyncEnabled": (boolean, False),
+    }
+
+
+class UsernamePassword(AWSProperty):
+    """
+    `UsernamePassword <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-usernamepassword.html>`__
+    """
+
+    props: PropsDictType = {
+        "Password": (str, True),
+        "Username": (str, True),
+    }
+
+
+class RedshiftCredentials(AWSProperty):
+    """
+    `RedshiftCredentials <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftcredentials.html>`__
+    """
+
+    props: PropsDictType = {
+        "SecretArn": (str, False),
+        "UsernamePassword": (UsernamePassword, False),
+    }
+
+
+class LineageSyncSchedule(AWSProperty):
+    """
+    `LineageSyncSchedule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-lineagesyncschedule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Schedule": (str, False),
+    }
+
+
+class RedshiftLineageSyncConfigurationInput(AWSProperty):
+    """
+    `RedshiftLineageSyncConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftlineagesyncconfigurationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enabled": (boolean, False),
+        "Schedule": (LineageSyncSchedule, False),
+    }
+
+
+class RedshiftStorageProperties(AWSProperty):
+    """
+    `RedshiftStorageProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftstorageproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ClusterName": (str, False),
+        "WorkgroupName": (str, False),
+    }
+
+
+class RedshiftPropertiesInput(AWSProperty):
+    """
+    `RedshiftPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-redshiftpropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Credentials": (RedshiftCredentials, False),
+        "DatabaseName": (str, False),
+        "Host": (str, False),
+        "LineageSync": (RedshiftLineageSyncConfigurationInput, False),
+        "Port": (double, False),
+        "Storage": (RedshiftStorageProperties, False),
+    }
+
+
+class SparkEmrPropertiesInput(AWSProperty):
+    """
+    `SparkEmrPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkemrpropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "ComputeArn": (str, False),
+        "InstanceProfileArn": (str, False),
+        "JavaVirtualEnv": (str, False),
+        "LogUri": (str, False),
+        "PythonVirtualEnv": (str, False),
+        "RuntimeRole": (str, False),
+        "TrustedCertificatesS3Uri": (str, False),
+    }
+
+
+class SparkGlueArgs(AWSProperty):
+    """
+    `SparkGlueArgs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkglueargs.html>`__
+    """
+
+    props: PropsDictType = {
+        "Connection": (str, False),
+    }
+
+
+class SparkGluePropertiesInput(AWSProperty):
+    """
+    `SparkGluePropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-sparkgluepropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalArgs": (SparkGlueArgs, False),
+        "GlueConnectionName": (str, False),
+        "GlueVersion": (str, False),
+        "IdleTimeout": (double, False),
+        "JavaVirtualEnv": (str, False),
+        "NumberOfWorkers": (double, False),
+        "PythonVirtualEnv": (str, False),
+        "WorkerType": (str, False),
+    }
+
+
+class ConnectionPropertiesInput(AWSProperty):
+    """
+    `ConnectionPropertiesInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-datazone-connection-connectionpropertiesinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "AthenaProperties": (AthenaPropertiesInput, False),
+        "GlueProperties": (GluePropertiesInput, False),
+        "HyperPodProperties": (HyperPodPropertiesInput, False),
+        "IamProperties": (IamPropertiesInput, False),
+        "RedshiftProperties": (RedshiftPropertiesInput, False),
+        "SparkEmrProperties": (SparkEmrPropertiesInput, False),
+        "SparkGlueProperties": (SparkGluePropertiesInput, False),
+    }
+
+
+class Connection(AWSObject):
+    """
+    `Connection <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-datazone-connection.html>`__
+    """
+
+    resource_type = "AWS::DataZone::Connection"
+
+    props: PropsDictType = {
+        "AwsLocation": (AwsLocation, False),
+        "Description": (str, False),
+        "DomainIdentifier": (str, True),
+        "EnvironmentIdentifier": (str, True),
+        "Name": (str, True),
+        "Props": (ConnectionPropertiesInput, False),
+    }
 
 
 class FilterExpression(AWSProperty):
@@ -201,8 +509,10 @@ class Domain(AWSObject):
     props: PropsDictType = {
         "Description": (str, False),
         "DomainExecutionRole": (str, True),
+        "DomainVersion": (str, False),
         "KmsKeyIdentifier": (str, False),
         "Name": (str, True),
+        "ServiceRole": (str, False),
         "SingleSignOn": (SingleSignOn, False),
         "Tags": (Tags, False),
     }

@@ -307,6 +307,7 @@ class Cluster(AWSObject):
         "BootstrapSelfManagedAddons": (boolean, False),
         "ComputeConfig": (ComputeConfig, False),
         "EncryptionConfig": ([EncryptionConfig], False),
+        "Force": (boolean, False),
         "KubernetesNetworkConfig": (KubernetesNetworkConfig, False),
         "Logging": (Logging, False),
         "Name": (str, False),

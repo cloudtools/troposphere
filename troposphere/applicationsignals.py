@@ -10,6 +10,16 @@ from . import AWSObject, AWSProperty, PropsDictType, Tags
 from .validators import boolean, double, integer
 
 
+class Discovery(AWSObject):
+    """
+    `Discovery <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-applicationsignals-discovery.html>`__
+    """
+
+    resource_type = "AWS::ApplicationSignals::Discovery"
+
+    props: PropsDictType = {}
+
+
 class BurnRateConfiguration(AWSProperty):
     """
     `BurnRateConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-burnrateconfiguration.html>`__
@@ -17,6 +27,40 @@ class BurnRateConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "LookBackWindowMinutes": (integer, True),
+    }
+
+
+class RecurrenceRule(AWSProperty):
+    """
+    `RecurrenceRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-recurrencerule.html>`__
+    """
+
+    props: PropsDictType = {
+        "Expression": (str, True),
+    }
+
+
+class Window(AWSProperty):
+    """
+    `Window <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-window.html>`__
+    """
+
+    props: PropsDictType = {
+        "Duration": (integer, True),
+        "DurationUnit": (str, True),
+    }
+
+
+class ExclusionWindow(AWSProperty):
+    """
+    `ExclusionWindow <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-exclusionwindow.html>`__
+    """
+
+    props: PropsDictType = {
+        "Reason": (str, False),
+        "RecurrenceRule": (RecurrenceRule, False),
+        "StartTime": (str, False),
+        "Window": (Window, True),
     }
 
 
@@ -190,6 +234,7 @@ class ServiceLevelObjective(AWSObject):
     props: PropsDictType = {
         "BurnRateConfigurations": ([BurnRateConfiguration], False),
         "Description": (str, False),
+        "ExclusionWindows": ([ExclusionWindow], False),
         "Goal": (Goal, False),
         "Name": (str, True),
         "RequestBasedSli": (RequestBasedSli, False),

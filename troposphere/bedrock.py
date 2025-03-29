@@ -203,6 +203,7 @@ class PromptConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "AdditionalModelRequestFields": (dict, False),
         "BasePromptTemplate": (str, False),
         "FoundationModel": (str, False),
         "InferenceConfiguration": (InferenceConfiguration, False),
@@ -302,6 +303,342 @@ class ApplicationInferenceProfile(AWSObject):
         "Description": (str, False),
         "InferenceProfileName": (str, True),
         "ModelSource": (InferenceProfileModelSource, False),
+        "Tags": (Tags, False),
+    }
+
+
+class Blueprint(AWSObject):
+    """
+    `Blueprint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-blueprint.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::Blueprint"
+
+    props: PropsDictType = {
+        "BlueprintName": (str, True),
+        "KmsEncryptionContext": (dict, False),
+        "KmsKeyId": (str, False),
+        "Schema": (dict, True),
+        "Tags": (Tags, False),
+        "Type": (str, True),
+    }
+
+
+class BlueprintItem(AWSProperty):
+    """
+    `BlueprintItem <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-blueprintitem.html>`__
+    """
+
+    props: PropsDictType = {
+        "BlueprintArn": (str, True),
+        "BlueprintStage": (str, False),
+        "BlueprintVersion": (str, False),
+    }
+
+
+class CustomOutputConfiguration(AWSProperty):
+    """
+    `CustomOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-customoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Blueprints": ([BlueprintItem], False),
+    }
+
+
+class SplitterConfiguration(AWSProperty):
+    """
+    `SplitterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-splitterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+    }
+
+
+class DocumentOverrideConfiguration(AWSProperty):
+    """
+    `DocumentOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoverrideconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Splitter": (SplitterConfiguration, False),
+    }
+
+
+class OverrideConfiguration(AWSProperty):
+    """
+    `OverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-overrideconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Document": (DocumentOverrideConfiguration, False),
+    }
+
+
+class AudioExtractionCategory(AWSProperty):
+    """
+    `AudioExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audioextractioncategory.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "Types": ([str], False),
+    }
+
+
+class AudioStandardExtraction(AWSProperty):
+    """
+    `AudioStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiostandardextraction.html>`__
+    """
+
+    props: PropsDictType = {
+        "Category": (AudioExtractionCategory, True),
+    }
+
+
+class AudioStandardGenerativeField(AWSProperty):
+    """
+    `AudioStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiostandardgenerativefield.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "Types": ([str], False),
+    }
+
+
+class AudioStandardOutputConfiguration(AWSProperty):
+    """
+    `AudioStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiostandardoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Extraction": (AudioStandardExtraction, False),
+        "GenerativeField": (AudioStandardGenerativeField, False),
+    }
+
+
+class DocumentOutputAdditionalFileFormat(AWSProperty):
+    """
+    `DocumentOutputAdditionalFileFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoutputadditionalfileformat.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class DocumentOutputTextFormat(AWSProperty):
+    """
+    `DocumentOutputTextFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoutputtextformat.html>`__
+    """
+
+    props: PropsDictType = {
+        "Types": ([str], False),
+    }
+
+
+class DocumentOutputFormat(AWSProperty):
+    """
+    `DocumentOutputFormat <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentoutputformat.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalFileFormat": (DocumentOutputAdditionalFileFormat, True),
+        "TextFormat": (DocumentOutputTextFormat, True),
+    }
+
+
+class DocumentBoundingBox(AWSProperty):
+    """
+    `DocumentBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentboundingbox.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class DocumentExtractionGranularity(AWSProperty):
+    """
+    `DocumentExtractionGranularity <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentextractiongranularity.html>`__
+    """
+
+    props: PropsDictType = {
+        "Types": ([str], False),
+    }
+
+
+class DocumentStandardExtraction(AWSProperty):
+    """
+    `DocumentStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentstandardextraction.html>`__
+    """
+
+    props: PropsDictType = {
+        "BoundingBox": (DocumentBoundingBox, True),
+        "Granularity": (DocumentExtractionGranularity, True),
+    }
+
+
+class DocumentStandardGenerativeField(AWSProperty):
+    """
+    `DocumentStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentstandardgenerativefield.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class DocumentStandardOutputConfiguration(AWSProperty):
+    """
+    `DocumentStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-documentstandardoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Extraction": (DocumentStandardExtraction, False),
+        "GenerativeField": (DocumentStandardGenerativeField, False),
+        "OutputFormat": (DocumentOutputFormat, False),
+    }
+
+
+class ImageBoundingBox(AWSProperty):
+    """
+    `ImageBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imageboundingbox.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class ImageExtractionCategory(AWSProperty):
+    """
+    `ImageExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imageextractioncategory.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "Types": ([str], False),
+    }
+
+
+class ImageStandardExtraction(AWSProperty):
+    """
+    `ImageStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imagestandardextraction.html>`__
+    """
+
+    props: PropsDictType = {
+        "BoundingBox": (ImageBoundingBox, True),
+        "Category": (ImageExtractionCategory, True),
+    }
+
+
+class ImageStandardGenerativeField(AWSProperty):
+    """
+    `ImageStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imagestandardgenerativefield.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "Types": ([str], False),
+    }
+
+
+class ImageStandardOutputConfiguration(AWSProperty):
+    """
+    `ImageStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imagestandardoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Extraction": (ImageStandardExtraction, False),
+        "GenerativeField": (ImageStandardGenerativeField, False),
+    }
+
+
+class VideoBoundingBox(AWSProperty):
+    """
+    `VideoBoundingBox <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videoboundingbox.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+    }
+
+
+class VideoExtractionCategory(AWSProperty):
+    """
+    `VideoExtractionCategory <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videoextractioncategory.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "Types": ([str], False),
+    }
+
+
+class VideoStandardExtraction(AWSProperty):
+    """
+    `VideoStandardExtraction <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videostandardextraction.html>`__
+    """
+
+    props: PropsDictType = {
+        "BoundingBox": (VideoBoundingBox, True),
+        "Category": (VideoExtractionCategory, True),
+    }
+
+
+class VideoStandardGenerativeField(AWSProperty):
+    """
+    `VideoStandardGenerativeField <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videostandardgenerativefield.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, True),
+        "Types": ([str], False),
+    }
+
+
+class VideoStandardOutputConfiguration(AWSProperty):
+    """
+    `VideoStandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videostandardoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Extraction": (VideoStandardExtraction, False),
+        "GenerativeField": (VideoStandardGenerativeField, False),
+    }
+
+
+class StandardOutputConfiguration(AWSProperty):
+    """
+    `StandardOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-standardoutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Audio": (AudioStandardOutputConfiguration, False),
+        "Document": (DocumentStandardOutputConfiguration, False),
+        "Image": (ImageStandardOutputConfiguration, False),
+        "Video": (VideoStandardOutputConfiguration, False),
+    }
+
+
+class DataAutomationProject(AWSObject):
+    """
+    `DataAutomationProject <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-bedrock-dataautomationproject.html>`__
+    """
+
+    resource_type = "AWS::Bedrock::DataAutomationProject"
+
+    props: PropsDictType = {
+        "CustomOutputConfiguration": (CustomOutputConfiguration, False),
+        "KmsEncryptionContext": (dict, False),
+        "KmsKeyId": (str, False),
+        "OverrideConfiguration": (OverrideConfiguration, False),
+        "ProjectDescription": (str, False),
+        "ProjectName": (str, True),
+        "StandardOutputConfiguration": (StandardOutputConfiguration, False),
         "Tags": (Tags, False),
     }
 
@@ -460,6 +797,7 @@ class WebCrawlerLimits(AWSProperty):
     """
 
     props: PropsDictType = {
+        "MaxPages": (integer, False),
         "RateLimit": (integer, False),
     }
 
@@ -474,6 +812,8 @@ class WebCrawlerConfiguration(AWSProperty):
         "ExclusionFilters": ([str], False),
         "InclusionFilters": ([str], False),
         "Scope": (str, False),
+        "UserAgent": (str, False),
+        "UserAgentHeader": (str, False),
     }
 
 
@@ -600,6 +940,41 @@ class ChunkingConfiguration(AWSProperty):
     }
 
 
+class EnrichmentStrategyConfiguration(AWSProperty):
+    """
+    `EnrichmentStrategyConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-enrichmentstrategyconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Method": (str, True),
+    }
+
+
+class BedrockFoundationModelContextEnrichmentConfiguration(AWSProperty):
+    """
+    `BedrockFoundationModelContextEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-bedrockfoundationmodelcontextenrichmentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnrichmentStrategyConfiguration": (EnrichmentStrategyConfiguration, True),
+        "ModelArn": (str, True),
+    }
+
+
+class ContextEnrichmentConfiguration(AWSProperty):
+    """
+    `ContextEnrichmentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-datasource-contextenrichmentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockFoundationModelConfiguration": (
+            BedrockFoundationModelContextEnrichmentConfiguration,
+            False,
+        ),
+        "Type": (str, True),
+    }
+
+
 class S3Location(AWSProperty):
     """
     `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-s3location.html>`__
@@ -719,6 +1094,7 @@ class VectorIngestionConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "ChunkingConfiguration": (ChunkingConfiguration, False),
+        "ContextEnrichmentConfiguration": (ContextEnrichmentConfiguration, False),
         "CustomTransformationConfiguration": (CustomTransformationConfiguration, False),
         "ParsingConfiguration": (ParsingConfiguration, False),
     }
@@ -1718,6 +2094,28 @@ class MongoDbAtlasConfiguration(AWSProperty):
     }
 
 
+class NeptuneAnalyticsFieldMapping(AWSProperty):
+    """
+    `NeptuneAnalyticsFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-neptuneanalyticsfieldmapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetadataField": (str, True),
+        "TextField": (str, True),
+    }
+
+
+class NeptuneAnalyticsConfiguration(AWSProperty):
+    """
+    `NeptuneAnalyticsConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-neptuneanalyticsconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "FieldMapping": (NeptuneAnalyticsFieldMapping, True),
+        "GraphArn": (str, True),
+    }
+
+
 class OpenSearchServerlessFieldMapping(AWSProperty):
     """
     `OpenSearchServerlessFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessfieldmapping.html>`__
@@ -1800,6 +2198,7 @@ class StorageConfiguration(AWSProperty):
 
     props: PropsDictType = {
         "MongoDbAtlasConfiguration": (MongoDbAtlasConfiguration, False),
+        "NeptuneAnalyticsConfiguration": (NeptuneAnalyticsConfiguration, False),
         "OpensearchServerlessConfiguration": (OpenSearchServerlessConfiguration, False),
         "PineconeConfiguration": (PineconeConfiguration, False),
         "RdsConfiguration": (RdsConfiguration, False),
@@ -1844,6 +2243,17 @@ class PromptGenAiResource(AWSProperty):
     }
 
 
+class PromptMetadataEntry(AWSProperty):
+    """
+    `PromptMetadataEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmetadataentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class PromptVariant(AWSProperty):
     """
     `PromptVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptvariant.html>`__
@@ -1853,6 +2263,7 @@ class PromptVariant(AWSProperty):
         "AdditionalModelRequestFields": (dict, False),
         "GenAiResource": (PromptGenAiResource, False),
         "InferenceConfiguration": (PromptInferenceConfiguration, False),
+        "Metadata": ([PromptMetadataEntry], False),
         "ModelId": (str, False),
         "Name": (str, True),
         "TemplateConfiguration": (PromptTemplateConfiguration, True),

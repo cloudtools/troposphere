@@ -86,6 +86,34 @@ class DocDbSettings(AWSProperty):
     }
 
 
+class IbmDb2LuwSettings(AWSProperty):
+    """
+    `IbmDb2LuwSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2luwsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateArn": (str, False),
+        "DatabaseName": (str, True),
+        "Port": (integer, True),
+        "ServerName": (str, True),
+        "SslMode": (str, True),
+    }
+
+
+class IbmDb2zOsSettings(AWSProperty):
+    """
+    `IbmDb2zOsSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-ibmdb2zossettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateArn": (str, False),
+        "DatabaseName": (str, True),
+        "Port": (integer, True),
+        "ServerName": (str, True),
+        "SslMode": (str, True),
+    }
+
+
 class MariaDbSettings(AWSProperty):
     """
     `MariaDbSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-dms-dataprovider-mariadbsettings.html>`__
@@ -276,6 +304,8 @@ class Settings(AWSProperty):
 
     props: PropsDictType = {
         "DocDbSettings": (DocDbSettings, False),
+        "IbmDb2LuwSettings": (IbmDb2LuwSettings, False),
+        "IbmDb2zOsSettings": (IbmDb2zOsSettings, False),
         "MariaDbSettings": (MariaDbSettings, False),
         "MicrosoftSqlServerSettings": (MicrosoftSqlServerSettings, False),
         "MongoDbSettings": (MongoDbSettings, False),

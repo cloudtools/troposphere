@@ -67,6 +67,38 @@ class CustomEvents(AWSProperty):
     }
 
 
+class JavaScriptSourceMaps(AWSProperty):
+    """
+    `JavaScriptSourceMaps <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-javascriptsourcemaps.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Uri": (str, False),
+        "Status": (str, True),
+    }
+
+
+class DeobfuscationConfiguration(AWSProperty):
+    """
+    `DeobfuscationConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-deobfuscationconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "JavaScriptSourceMaps": (JavaScriptSourceMaps, False),
+    }
+
+
+class ResourcePolicy(AWSProperty):
+    """
+    `ResourcePolicy <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rum-appmonitor-resourcepolicy.html>`__
+    """
+
+    props: PropsDictType = {
+        "PolicyDocument": (str, True),
+        "PolicyRevisionId": (str, False),
+    }
+
+
 class AppMonitor(AWSObject):
     """
     `AppMonitor <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rum-appmonitor.html>`__
@@ -78,7 +110,10 @@ class AppMonitor(AWSObject):
         "AppMonitorConfiguration": (AppMonitorConfiguration, False),
         "CustomEvents": (CustomEvents, False),
         "CwLogEnabled": (boolean, False),
-        "Domain": (str, True),
+        "DeobfuscationConfiguration": (DeobfuscationConfiguration, False),
+        "Domain": (str, False),
+        "DomainList": ([str], False),
         "Name": (str, True),
+        "ResourcePolicy": (ResourcePolicy, False),
         "Tags": (Tags, False),
     }

@@ -405,6 +405,7 @@ class LoadBalancer(AWSObject):
         "EnablePrefixForIpv6SourceNat": (str, False),
         "EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": (str, False),
         "IpAddressType": (str, False),
+        "Ipv4IpamPoolId": (str, False),
         "LoadBalancerAttributes": ([LoadBalancerAttributes], False),
         "MinimumLoadBalancerCapacity": (MinimumLoadBalancerCapacity, False),
         "Name": (validate_elb_name, False),

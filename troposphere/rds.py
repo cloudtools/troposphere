@@ -183,17 +183,6 @@ class DBClusterParameterGroup(AWSObject):
     }
 
 
-class CertificateDetails(AWSProperty):
-    """
-    `CertificateDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html>`__
-    """
-
-    props: PropsDictType = {
-        "CAIdentifier": (str, False),
-        "ValidTill": (str, False),
-    }
-
-
 class DBInstanceRole(AWSProperty):
     """
     `DBInstanceRole <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-dbinstancerole.html>`__
@@ -202,18 +191,6 @@ class DBInstanceRole(AWSProperty):
     props: PropsDictType = {
         "FeatureName": (str, True),
         "RoleArn": (str, True),
-    }
-
-
-class Endpoint(AWSProperty):
-    """
-    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "Address": (str, False),
-        "HostedZoneId": (str, False),
-        "Port": (str, False),
     }
 
 
@@ -243,10 +220,10 @@ class DBInstance(AWSObject):
         "AutoMinorVersionUpgrade": (boolean, False),
         "AutomaticBackupReplicationKmsKeyId": (str, False),
         "AutomaticBackupReplicationRegion": (str, False),
+        "AutomaticBackupReplicationRetentionPeriod": (integer, False),
         "AvailabilityZone": (str, False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),
         "CACertificateIdentifier": (str, False),
-        "CertificateDetails": (CertificateDetails, False),
         "CertificateRotationRestart": (boolean, False),
         "CharacterSetName": (str, False),
         "CopyTagsToSnapshot": (boolean, False),
@@ -273,7 +250,6 @@ class DBInstance(AWSObject):
         "EnableCloudwatchLogsExports": ([str], False),
         "EnableIAMDatabaseAuthentication": (boolean, False),
         "EnablePerformanceInsights": (boolean, False),
-        "Endpoint": (Endpoint, False),
         "Engine": (validate_engine, False),
         "EngineLifecycleSupport": (str, False),
         "EngineVersion": (str, False),
@@ -516,16 +492,6 @@ class EventSubscription(AWSObject):
     }
 
 
-class GlobalEndpoint(AWSProperty):
-    """
-    `GlobalEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-globalcluster-globalendpoint.html>`__
-    """
-
-    props: PropsDictType = {
-        "Address": (str, False),
-    }
-
-
 class GlobalCluster(AWSObject):
     """
     `GlobalCluster <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-rds-globalcluster.html>`__
@@ -539,7 +505,6 @@ class GlobalCluster(AWSObject):
         "EngineLifecycleSupport": (str, False),
         "EngineVersion": (str, False),
         "GlobalClusterIdentifier": (str, False),
-        "GlobalEndpoint": (GlobalEndpoint, False),
         "SourceDBClusterIdentifier": (str, False),
         "StorageEncrypted": (boolean, False),
         "Tags": (Tags, False),
@@ -605,6 +570,39 @@ class OptionGroup(AWSObject):
         "OptionGroupDescription": (str, True),
         "OptionGroupName": (str, False),
         "Tags": (validate_tags_or_list, False),
+    }
+
+
+class CertificateDetails(AWSProperty):
+    """
+    `CertificateDetails <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-certificatedetails.html>`__
+    """
+
+    props: PropsDictType = {
+        "CAIdentifier": (str, False),
+        "ValidTill": (str, False),
+    }
+
+
+class Endpoint(AWSProperty):
+    """
+    `Endpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-dbinstance-endpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
+        "HostedZoneId": (str, False),
+        "Port": (str, False),
+    }
+
+
+class GlobalEndpoint(AWSProperty):
+    """
+    `GlobalEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-rds-globalcluster-globalendpoint.html>`__
+    """
+
+    props: PropsDictType = {
+        "Address": (str, False),
     }
 
 
