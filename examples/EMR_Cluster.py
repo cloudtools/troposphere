@@ -35,8 +35,6 @@ security_configuration = {
 
 
 def generate_rules(rules_name):
-    global emr, scaling_policy
-
     rules = [
         emr.ScalingRule(
             Name=rules_name,
