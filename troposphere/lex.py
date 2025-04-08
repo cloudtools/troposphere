@@ -536,6 +536,116 @@ class OutputContext(AWSProperty):
     }
 
 
+class BedrockGuardrailConfiguration(AWSProperty):
+    """
+    `BedrockGuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockguardrailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockGuardrailIdentifier": (str, False),
+        "BedrockGuardrailVersion": (str, False),
+    }
+
+
+class BedrockModelSpecification(AWSProperty):
+    """
+    `BedrockModelSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockmodelspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockGuardrailConfiguration": (BedrockGuardrailConfiguration, False),
+        "BedrockModelCustomPrompt": (str, False),
+        "BedrockTraceStatus": (str, False),
+        "ModelArn": (str, True),
+    }
+
+
+class BKBExactResponseFields(AWSProperty):
+    """
+    `BKBExactResponseFields <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bkbexactresponsefields.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnswerField": (str, False),
+    }
+
+
+class BedrockKnowledgeStoreConfiguration(AWSProperty):
+    """
+    `BedrockKnowledgeStoreConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockknowledgestoreconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BKBExactResponseFields": (BKBExactResponseFields, False),
+        "BedrockKnowledgeBaseArn": (str, False),
+        "ExactResponse": (boolean, False),
+    }
+
+
+class ExactResponseFields(AWSProperty):
+    """
+    `ExactResponseFields <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-exactresponsefields.html>`__
+    """
+
+    props: PropsDictType = {
+        "AnswerField": (str, False),
+        "QuestionField": (str, False),
+    }
+
+
+class OpensearchConfiguration(AWSProperty):
+    """
+    `OpensearchConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-opensearchconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainEndpoint": (str, False),
+        "ExactResponse": (boolean, False),
+        "ExactResponseFields": (ExactResponseFields, False),
+        "IncludeFields": ([str], False),
+        "IndexName": (str, False),
+    }
+
+
+class QnAKendraConfiguration(AWSProperty):
+    """
+    `QnAKendraConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qnakendraconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ExactResponse": (boolean, True),
+        "KendraIndex": (str, True),
+        "QueryFilterString": (str, False),
+        "QueryFilterStringEnabled": (boolean, True),
+    }
+
+
+class DataSourceConfiguration(AWSProperty):
+    """
+    `DataSourceConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-datasourceconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockKnowledgeStoreConfiguration": (
+            BedrockKnowledgeStoreConfiguration,
+            False,
+        ),
+        "KendraConfiguration": (QnAKendraConfiguration, False),
+        "OpensearchConfiguration": (OpensearchConfiguration, False),
+    }
+
+
+class QnAIntentConfiguration(AWSProperty):
+    """
+    `QnAIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qnaintentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockModelConfiguration": (BedrockModelSpecification, True),
+        "DataSourceConfiguration": (DataSourceConfiguration, True),
+    }
+
+
 class SampleUtterance(AWSProperty):
     """
     `SampleUtterance <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-sampleutterance.html>`__
@@ -687,6 +797,7 @@ class Intent(AWSProperty):
         "Name": (str, True),
         "OutputContexts": ([OutputContext], False),
         "ParentIntentSignature": (str, False),
+        "QnAIntentConfiguration": (QnAIntentConfiguration, False),
         "SampleUtterances": ([SampleUtterance], False),
         "SlotPriorities": ([SlotPriority], False),
         "Slots": ([Slot], False),

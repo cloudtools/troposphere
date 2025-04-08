@@ -278,6 +278,32 @@ class Member(AWSObject):
     }
 
 
+class CFNDestinationProperties(AWSProperty):
+    """
+    `CFNDestinationProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-guardduty-publishingdestination-cfndestinationproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "DestinationArn": (str, False),
+        "KmsKeyArn": (str, False),
+    }
+
+
+class PublishingDestination(AWSObject):
+    """
+    `PublishingDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-publishingdestination.html>`__
+    """
+
+    resource_type = "AWS::GuardDuty::PublishingDestination"
+
+    props: PropsDictType = {
+        "DestinationProperties": (CFNDestinationProperties, True),
+        "DestinationType": (str, True),
+        "DetectorId": (str, True),
+        "Tags": ([TagItem], False),
+    }
+
+
 class ThreatIntelSet(AWSObject):
     """
     `ThreatIntelSet <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-guardduty-threatintelset.html>`__

@@ -111,9 +111,13 @@ class SequenceStore(AWSObject):
     resource_type = "AWS::Omics::SequenceStore"
 
     props: PropsDictType = {
+        "AccessLogLocation": (str, False),
         "Description": (str, False),
+        "ETagAlgorithmFamily": (str, False),
         "FallbackLocation": (str, False),
         "Name": (str, True),
+        "PropagatedSetLevelTags": ([str], False),
+        "S3AccessPolicy": (dict, False),
         "SseConfig": (SseConfig, False),
         "Tags": (dict, False),
     }

@@ -21,6 +21,48 @@ class AuditCheckConfiguration(AWSProperty):
     }
 
 
+class CertAgeCheckCustomConfiguration(AWSProperty):
+    """
+    `CertAgeCheckCustomConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-certagecheckcustomconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertAgeThresholdInDays": (str, False),
+    }
+
+
+class DeviceCertAgeAuditCheckConfiguration(AWSProperty):
+    """
+    `DeviceCertAgeAuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-devicecertageauditcheckconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Configuration": (CertAgeCheckCustomConfiguration, False),
+        "Enabled": (boolean, False),
+    }
+
+
+class CertExpirationCheckCustomConfiguration(AWSProperty):
+    """
+    `CertExpirationCheckCustomConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-certexpirationcheckcustomconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertExpirationThresholdInDays": (str, False),
+    }
+
+
+class DeviceCertExpirationAuditCheckConfiguration(AWSProperty):
+    """
+    `DeviceCertExpirationAuditCheckConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-devicecertexpirationauditcheckconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Configuration": (CertExpirationCheckCustomConfiguration, False),
+        "Enabled": (boolean, False),
+    }
+
+
 class AuditCheckConfigurations(AWSProperty):
     """
     `AuditCheckConfigurations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-accountauditconfiguration-auditcheckconfigurations.html>`__
@@ -34,7 +76,11 @@ class AuditCheckConfigurations(AWSProperty):
         "CaCertificateExpiringCheck": (AuditCheckConfiguration, False),
         "CaCertificateKeyQualityCheck": (AuditCheckConfiguration, False),
         "ConflictingClientIdsCheck": (AuditCheckConfiguration, False),
-        "DeviceCertificateExpiringCheck": (AuditCheckConfiguration, False),
+        "DeviceCertificateAgeCheck": (DeviceCertAgeAuditCheckConfiguration, False),
+        "DeviceCertificateExpiringCheck": (
+            DeviceCertExpirationAuditCheckConfiguration,
+            False,
+        ),
         "DeviceCertificateKeyQualityCheck": (AuditCheckConfiguration, False),
         "DeviceCertificateSharedCheck": (AuditCheckConfiguration, False),
         "IntermediateCaRevokedForActiveDeviceCertificatesCheck": (
@@ -882,6 +928,38 @@ class SoftwarePackage(AWSObject):
     }
 
 
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-softwarepackageversion-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Key": (str, True),
+        "Version": (str, True),
+    }
+
+
+class PackageVersionArtifact(AWSProperty):
+    """
+    `PackageVersionArtifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-softwarepackageversion-packageversionartifact.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Location": (S3Location, True),
+    }
+
+
+class Sbom(AWSProperty):
+    """
+    `Sbom <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iot-softwarepackageversion-sbom.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3Location": (S3Location, True),
+    }
+
+
 class SoftwarePackageVersion(AWSObject):
     """
     `SoftwarePackageVersion <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iot-softwarepackageversion.html>`__
@@ -890,9 +968,12 @@ class SoftwarePackageVersion(AWSObject):
     resource_type = "AWS::IoT::SoftwarePackageVersion"
 
     props: PropsDictType = {
+        "Artifact": (PackageVersionArtifact, False),
         "Attributes": (dict, False),
         "Description": (str, False),
         "PackageName": (str, True),
+        "Recipe": (str, False),
+        "Sbom": (Sbom, False),
         "Tags": (Tags, False),
         "VersionName": (str, False),
     }

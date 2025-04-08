@@ -79,6 +79,7 @@ class MicrosoftTeamsChannelConfiguration(AWSObject):
         "Tags": (Tags, False),
         "TeamId": (str, True),
         "TeamsChannelId": (str, True),
+        "TeamsChannelName": (str, False),
         "TeamsTenantId": (str, True),
         "UserRoleRequired": (boolean, False),
     }

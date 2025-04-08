@@ -32,6 +32,7 @@ class Firewall(AWSObject):
     props: PropsDictType = {
         "DeleteProtection": (boolean, False),
         "Description": (str, False),
+        "EnabledAnalysisTypes": ([str], False),
         "FirewallName": (str, True),
         "FirewallPolicyArn": (str, True),
         "FirewallPolicyChangeProtection": (boolean, False),

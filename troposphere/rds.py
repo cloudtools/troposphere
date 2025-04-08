@@ -243,6 +243,7 @@ class DBInstance(AWSObject):
         "AutoMinorVersionUpgrade": (boolean, False),
         "AutomaticBackupReplicationKmsKeyId": (str, False),
         "AutomaticBackupReplicationRegion": (str, False),
+        "AutomaticBackupReplicationRetentionPeriod": (integer, False),
         "AvailabilityZone": (str, False),
         "BackupRetentionPeriod": (validate_backup_retention_period, False),
         "CACertificateIdentifier": (str, False),

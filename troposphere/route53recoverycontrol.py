@@ -19,6 +19,7 @@ class Cluster(AWSObject):
 
     props: PropsDictType = {
         "Name": (str, True),
+        "NetworkType": (str, False),
         "Tags": (Tags, False),
     }
 

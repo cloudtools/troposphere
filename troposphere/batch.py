@@ -128,6 +128,42 @@ class ComputeEnvironment(AWSObject):
     }
 
 
+class ConsumableResource(AWSObject):
+    """
+    `ConsumableResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-batch-consumableresource.html>`__
+    """
+
+    resource_type = "AWS::Batch::ConsumableResource"
+
+    props: PropsDictType = {
+        "ConsumableResourceName": (str, False),
+        "ResourceType": (str, True),
+        "Tags": (dict, False),
+        "TotalQuantity": (integer, True),
+    }
+
+
+class ConsumableResourceRequirement(AWSProperty):
+    """
+    `ConsumableResourceRequirement <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-consumableresourcerequirement.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConsumableResource": (str, True),
+        "Quantity": (integer, True),
+    }
+
+
+class ConsumableResourceProperties(AWSProperty):
+    """
+    `ConsumableResourceProperties <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-consumableresourceproperties.html>`__
+    """
+
+    props: PropsDictType = {
+        "ConsumableResourceList": ([ConsumableResourceRequirement], True),
+    }
+
+
 class Environment(AWSProperty):
     """
     `Environment <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-environment.html>`__
@@ -666,6 +702,7 @@ class NodeRangeProperty(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ConsumableResourceProperties": (ConsumableResourceProperties, False),
         "Container": (MultiNodeContainerProperties, False),
         "EcsProperties": (MultiNodeEcsProperties, False),
         "EksProperties": (EksProperties, False),
@@ -728,6 +765,7 @@ class JobDefinition(AWSObject):
     resource_type = "AWS::Batch::JobDefinition"
 
     props: PropsDictType = {
+        "ConsumableResourceProperties": (ConsumableResourceProperties, False),
         "ContainerProperties": (ContainerProperties, False),
         "EcsProperties": (EcsProperties, False),
         "EksProperties": (EksProperties, False),

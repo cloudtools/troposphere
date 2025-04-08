@@ -263,6 +263,7 @@ class ProjectCache(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CacheNamespace": (str, False),
         "Location": (str, False),
         "Modes": ([str], False),
         "Type": (str, True),

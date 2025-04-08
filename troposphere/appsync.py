@@ -323,6 +323,7 @@ class DomainName(AWSObject):
         "CertificateArn": (str, True),
         "Description": (str, False),
         "DomainName": (str, True),
+        "Tags": (Tags, False),
     }
 
 

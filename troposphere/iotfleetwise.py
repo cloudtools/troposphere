@@ -301,6 +301,7 @@ class CanSignal(AWSProperty):
         "MessageId": (str, True),
         "Name": (str, False),
         "Offset": (str, True),
+        "SignalValueType": (str, False),
         "StartBit": (str, True),
     }
 
@@ -324,11 +325,13 @@ class ObdSignal(AWSProperty):
         "BitMaskLength": (str, False),
         "BitRightShift": (str, False),
         "ByteLength": (str, True),
+        "IsSigned": (str, False),
         "Offset": (str, True),
         "Pid": (str, True),
         "PidResponseLength": (str, True),
         "Scaling": (str, True),
         "ServiceMode": (str, True),
+        "SignalValueType": (str, False),
         "StartByte": (str, True),
     }
 
