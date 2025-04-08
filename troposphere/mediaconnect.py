@@ -236,6 +236,30 @@ class MediaStream(AWSProperty):
     }
 
 
+class NdiDiscoveryServerConfig(AWSProperty):
+    """
+    `NdiDiscoveryServerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndidiscoveryserverconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DiscoveryServerAddress": (str, True),
+        "DiscoveryServerPort": (integer, False),
+        "VpcInterfaceAdapter": (str, True),
+    }
+
+
+class NdiConfig(AWSProperty):
+    """
+    `NdiConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flow-ndiconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "MachineName": (str, False),
+        "NdiDiscoveryServers": ([NdiDiscoveryServerConfig], False),
+        "NdiState": (str, False),
+    }
+
+
 class Encryption(AWSProperty):
     """
     `Encryption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediaconnect-flowsource-encryption.html>`__
@@ -420,9 +444,11 @@ class Flow(AWSObject):
 
     props: PropsDictType = {
         "AvailabilityZone": (str, False),
+        "FlowSize": (str, False),
         "Maintenance": (Maintenance, False),
         "MediaStreams": ([MediaStream], False),
         "Name": (str, True),
+        "NdiConfig": (NdiConfig, False),
         "Source": (Source, True),
         "SourceFailoverConfig": (FailoverConfig, False),
         "SourceMonitoringConfig": (SourceMonitoringConfig, False),
@@ -514,6 +540,8 @@ class FlowOutput(AWSObject):
         "MediaStreamOutputConfigurations": ([MediaStreamOutputConfiguration], False),
         "MinLatency": (integer, False),
         "Name": (str, False),
+        "NdiProgramName": (str, False),
+        "NdiSpeedHqQuality": (integer, False),
         "OutputStatus": (str, False),
         "Port": (integer, False),
         "Protocol": (str, True),

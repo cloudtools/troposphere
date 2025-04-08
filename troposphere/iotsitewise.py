@@ -330,6 +330,54 @@ class Dashboard(AWSObject):
     }
 
 
+class KendraSourceDetail(AWSProperty):
+    """
+    `KendraSourceDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-kendrasourcedetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "KnowledgeBaseArn": (str, True),
+        "RoleArn": (str, True),
+    }
+
+
+class SourceDetail(AWSProperty):
+    """
+    `SourceDetail <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-sourcedetail.html>`__
+    """
+
+    props: PropsDictType = {
+        "Kendra": (KendraSourceDetail, False),
+    }
+
+
+class DatasetSource(AWSProperty):
+    """
+    `DatasetSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-dataset-datasetsource.html>`__
+    """
+
+    props: PropsDictType = {
+        "SourceDetail": (SourceDetail, False),
+        "SourceFormat": (str, True),
+        "SourceType": (str, True),
+    }
+
+
+class Dataset(AWSObject):
+    """
+    `Dataset <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-iotsitewise-dataset.html>`__
+    """
+
+    resource_type = "AWS::IoTSiteWise::Dataset"
+
+    props: PropsDictType = {
+        "DatasetDescription": (str, False),
+        "DatasetName": (str, True),
+        "DatasetSource": (DatasetSource, True),
+        "Tags": (Tags, False),
+    }
+
+
 class GatewayCapabilitySummary(AWSProperty):
     """
     `GatewayCapabilitySummary <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-iotsitewise-gateway-gatewaycapabilitysummary.html>`__

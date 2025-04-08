@@ -126,6 +126,7 @@ class WorkgroupProperty(AWSProperty):
         "SecurityGroupIds": ([str], False),
         "Status": (str, False),
         "SubnetIds": ([str], False),
+        "TrackName": (str, False),
         "WorkgroupArn": (str, False),
         "WorkgroupId": (str, False),
         "WorkgroupName": (str, False),
@@ -151,6 +152,7 @@ class Workgroup(AWSObject):
         "SecurityGroupIds": ([str], False),
         "SubnetIds": ([str], False),
         "Tags": (Tags, False),
+        "TrackName": (str, False),
         "Workgroup": (WorkgroupProperty, False),
         "WorkgroupName": (str, True),
     }

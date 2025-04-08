@@ -7,7 +7,7 @@
 
 
 from . import AWSObject, AWSProperty, PropsDictType, Tags
-from .validators import integer
+from .validators import boolean, integer
 
 
 class AccessPolicy(AWSObject):
@@ -38,6 +38,92 @@ class Collection(AWSObject):
         "StandbyReplicas": (str, False),
         "Tags": (Tags, False),
         "Type": (str, False),
+    }
+
+
+class IndexProperty(AWSProperty):
+    """
+    `IndexProperty <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-index.html>`__
+    """
+
+    props: PropsDictType = {
+        "Knn": (boolean, False),
+        "KnnAlgoParamEfSearch": (integer, False),
+        "RefreshInterval": (str, False),
+    }
+
+
+class IndexSettings(AWSProperty):
+    """
+    `IndexSettings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-indexsettings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Index": (IndexProperty, False),
+    }
+
+
+class Parameters(AWSProperty):
+    """
+    `Parameters <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-parameters.html>`__
+    """
+
+    props: PropsDictType = {
+        "EfConstruction": (integer, False),
+        "M": (integer, False),
+    }
+
+
+class Method(AWSProperty):
+    """
+    `Method <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-method.html>`__
+    """
+
+    props: PropsDictType = {
+        "Engine": (str, True),
+        "Name": (str, True),
+        "Parameters": (Parameters, False),
+        "SpaceType": (str, False),
+    }
+
+
+class PropertyMapping(AWSProperty):
+    """
+    `PropertyMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-propertymapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "Dimension": (integer, False),
+        "Index": (boolean, False),
+        "Method": (Method, False),
+        "Properties": (dict, False),
+        "Type": (str, True),
+        "Value": (str, False),
+    }
+
+
+class Mappings(AWSProperty):
+    """
+    `Mappings <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-opensearchserverless-index-mappings.html>`__
+    """
+
+    props: PropsDictType = {
+        "Properties": (dict, False),
+    }
+
+
+class Index(AWSObject):
+    """
+    `Index <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-opensearchserverless-index.html>`__
+    """
+
+    resource_type = "AWS::OpenSearchServerless::Index"
+
+    props: PropsDictType = {
+        "CollectionEndpoint": (str, True),
+        "IndexName": (str, True),
+        "Mappings": (Mappings, False),
+        "Settings": (IndexSettings, False),
     }
 
 

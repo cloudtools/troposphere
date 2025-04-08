@@ -1057,6 +1057,27 @@ class LicenseSpecification(AWSProperty):
     }
 
 
+class EnaSrdUdpSpecification(AWSProperty):
+    """
+    `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnaSrdUdpEnabled": (boolean, False),
+    }
+
+
+class EnaSrdSpecification(AWSProperty):
+    """
+    `EnaSrdSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "EnaSrdEnabled": (boolean, False),
+        "EnaSrdUdpSpecification": (EnaSrdUdpSpecification, False),
+    }
+
+
 class PrivateIpAddressSpecification(AWSProperty):
     """
     `PrivateIpAddressSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-spotfleet-privateipaddressspecification.html>`__
@@ -1079,6 +1100,7 @@ class NetworkInterfaceProperty(AWSProperty):
         "DeleteOnTermination": (boolean, False),
         "Description": (str, False),
         "DeviceIndex": (validate_int_to_str, True),
+        "EnaSrdSpecification": (EnaSrdSpecification, False),
         "GroupSet": ([str], False),
         "Ipv6AddressCount": (integer, False),
         "Ipv6Addresses": ([InstanceIpv6Address], False),
@@ -1520,27 +1542,6 @@ class ConnectionTrackingSpecification(AWSProperty):
     }
 
 
-class EnaSrdUdpSpecification(AWSProperty):
-    """
-    `EnaSrdUdpSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdudpspecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "EnaSrdUdpEnabled": (boolean, False),
-    }
-
-
-class EnaSrdSpecification(AWSProperty):
-    """
-    `EnaSrdSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterfaceattachment-enasrdspecification.html>`__
-    """
-
-    props: PropsDictType = {
-        "EnaSrdEnabled": (boolean, False),
-        "EnaSrdUdpSpecification": (EnaSrdUdpSpecification, False),
-    }
-
-
 class Ipv4PrefixSpecification(AWSProperty):
     """
     `Ipv4PrefixSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-networkinterface-ipv4prefixspecification.html>`__
@@ -1602,6 +1603,16 @@ class NetworkInterfaces(AWSProperty):
     }
 
 
+class NetworkPerformanceOptions(AWSProperty):
+    """
+    `NetworkPerformanceOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-networkperformanceoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "BandwidthWeighting": (str, False),
+    }
+
+
 class LaunchTemplateData(AWSProperty):
     """
     `LaunchTemplateData <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-launchtemplate-launchtemplatedata.html>`__
@@ -1635,7 +1646,7 @@ class LaunchTemplateData(AWSProperty):
         "MetadataOptions": (MetadataOptions, False),
         "Monitoring": (Monitoring, False),
         "NetworkInterfaces": ([NetworkInterfaces], False),
-        "NetworkPerformanceOptions": (dict, False),
+        "NetworkPerformanceOptions": (NetworkPerformanceOptions, False),
         "Placement": (Placement, False),
         "PrivateDnsNameOptions": (PrivateDnsNameOptions, False),
         "RamDiskId": (str, False),
@@ -2978,6 +2989,8 @@ class VPCEndpointService(AWSObject):
         "GatewayLoadBalancerArns": ([str], False),
         "NetworkLoadBalancerArns": ([str], False),
         "PayerResponsibility": (str, False),
+        "SupportedIpAddressTypes": ([str], False),
+        "SupportedRegions": ([str], False),
         "Tags": (Tags, False),
     }
 
@@ -3530,6 +3543,28 @@ class VolumeAttachment(AWSObject):
         "Device": (str, False),
         "InstanceId": (str, True),
         "VolumeId": (str, True),
+    }
+
+
+class CapacityAllocation(AWSProperty):
+    """
+    `CapacityAllocation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-capacityallocation.html>`__
+    """
+
+    props: PropsDictType = {
+        "AllocationType": (str, False),
+        "Count": (integer, False),
+    }
+
+
+class CommitmentInfo(AWSProperty):
+    """
+    `CommitmentInfo <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-capacityreservation-commitmentinfo.html>`__
+    """
+
+    props: PropsDictType = {
+        "CommitmentEndDate": (str, False),
+        "CommittedInstanceCount": (integer, False),
     }
 
 

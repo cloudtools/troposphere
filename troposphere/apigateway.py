@@ -259,6 +259,7 @@ class EndpointConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "IpAddressType": (str, False),
         "Types": ([str], False),
         "VpcEndpointIds": ([str], False),
     }

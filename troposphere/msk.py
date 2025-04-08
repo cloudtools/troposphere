@@ -525,7 +525,6 @@ class Replicator(AWSObject):
     resource_type = "AWS::MSK::Replicator"
 
     props: PropsDictType = {
-        "CurrentVersion": (str, False),
         "Description": (str, False),
         "KafkaClusters": ([KafkaCluster], True),
         "ReplicationInfoList": ([ReplicationInfo], True),

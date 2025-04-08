@@ -54,9 +54,12 @@ class DataCatalog(AWSObject):
     resource_type = "AWS::Athena::DataCatalog"
 
     props: PropsDictType = {
+        "ConnectionType": (str, False),
         "Description": (str, False),
+        "Error": (str, False),
         "Name": (str, True),
         "Parameters": (dict, False),
+        "Status": (str, False),
         "Tags": (Tags, False),
         "Type": (str, True),
     }
