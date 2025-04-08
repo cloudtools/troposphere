@@ -1,3 +1,23 @@
+4.9.1 (2025*04*08)
+-------------------------------
+* EC2: Validate prefix list IDs as route destinations (#2280)
+* Add missing AWS Org policy types to validator (#2282)
+* Updates from spec version 188.1.0 (#2281)
+* Add patch for VerifiedAccessEndpoint.PortRange
+* Updates from spec version 189.0.0 (#2285)
+* Updates from spec version 190.0.0 (#2286)
+* Add "Policy-Min-TLS-1-2-PFS-2023-10" as valid value TlsSecurityPolicy (#2288)
+* Patch AWS::Transfer for spec 191.0.0
+* Updates from spec version 191.0.0
+* Remove deprecated AWS::NimbleStudio
+* Updates from spec version 192.0.0 (#2289)
+* Add new type of Tags due to CloudFront::AnycastIpList
+* Switch pyright reportUnnecessaryIsInstance to None
+* [Cloudwatch Logs] Include new retention-in-days values (#2296)
+* Fix lint errors in examples/EMR_Cluster.py
+* Patch RDS to being back some missing properties
+* Updates from spec version 193.0.0 (#2297)
+
 4.9.0 (2025*01*14)
 -------------------------------
 * Updates from spec version 186.0.0 (#2273)
