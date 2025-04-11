@@ -2223,6 +2223,37 @@ class KnowledgeBase(AWSObject):
     }
 
 
+class PromptAgentResource(AWSProperty):
+    """
+    `PromptAgentResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptagentresource.html>`__
+    """
+
+    props: PropsDictType = {
+        "AgentIdentifier": (str, True),
+    }
+
+
+class PromptGenAiResource(AWSProperty):
+    """
+    `PromptGenAiResource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptgenairesource.html>`__
+    """
+
+    props: PropsDictType = {
+        "Agent": (PromptAgentResource, True),
+    }
+
+
+class PromptMetadataEntry(AWSProperty):
+    """
+    `PromptMetadataEntry <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptmetadataentry.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, True),
+        "Value": (str, True),
+    }
+
+
 class PromptVariant(AWSProperty):
     """
     `PromptVariant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-promptversion-promptvariant.html>`__
