@@ -2928,7 +2928,7 @@ Changes
 * Add missing return in integer\_range [GH*10]
 * integer\_range validator for ELB HealthyCheckInt
 * Convert RDS::DBInstance::VPCSecurityGroups to new list type checking
-* VPCSecurityGroups for RDS should be a list, not a basestring 
+* VPCSecurityGroups for RDS should be a list, not a basestring
 
 0.2.9 (2013*05*07)
 ------------------
