@@ -2854,6 +2854,7 @@ class PartnerApp(AWSObject):
         "AuthType": (str, True),
         "EnableIamSessionBasedIdentity": (boolean, False),
         "ExecutionRoleArn": (str, True),
+        "KmsKeyId": (str, False),
         "MaintenanceConfig": (PartnerAppMaintenanceConfig, False),
         "Name": (str, True),
         "Tags": (Tags, False),

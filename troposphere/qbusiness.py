@@ -248,6 +248,16 @@ class DocumentEnrichmentConfiguration(AWSProperty):
     }
 
 
+class AudioExtractionConfiguration(AWSProperty):
+    """
+    `AudioExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-audioextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AudioExtractionStatus": (str, True),
+    }
+
+
 class ImageExtractionConfiguration(AWSProperty):
     """
     `ImageExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-imageextractionconfiguration.html>`__
@@ -258,13 +268,25 @@ class ImageExtractionConfiguration(AWSProperty):
     }
 
 
+class VideoExtractionConfiguration(AWSProperty):
+    """
+    `VideoExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-videoextractionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VideoExtractionStatus": (str, True),
+    }
+
+
 class MediaExtractionConfiguration(AWSProperty):
     """
     `MediaExtractionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-qbusiness-datasource-mediaextractionconfiguration.html>`__
     """
 
     props: PropsDictType = {
+        "AudioExtractionConfiguration": (AudioExtractionConfiguration, False),
         "ImageExtractionConfiguration": (ImageExtractionConfiguration, False),
+        "VideoExtractionConfiguration": (VideoExtractionConfiguration, False),
     }
 
 

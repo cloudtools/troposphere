@@ -33,6 +33,7 @@ class Alias(AWSObject):
         "Description": (str, False),
         "Name": (str, True),
         "RoutingStrategy": (RoutingStrategy, True),
+        "Tags": (Tags, False),
     }
 
 
@@ -61,6 +62,7 @@ class Build(AWSObject):
         "OperatingSystem": (str, False),
         "ServerSdkVersion": (str, False),
         "StorageLocation": (StorageLocation, False),
+        "Tags": (Tags, False),
         "Version": (str, False),
     }
 

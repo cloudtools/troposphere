@@ -304,7 +304,9 @@ class ScopeConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Domain": (str, False),
         "Name": (str, True),
+        "Scope": (str, False),
     }
 
 

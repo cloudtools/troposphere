@@ -110,6 +110,17 @@ class Goal(AWSProperty):
     }
 
 
+class DependencyConfig(AWSProperty):
+    """
+    `DependencyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dependencyconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "DependencyKeyAttributes": (dict, True),
+        "DependencyOperationName": (str, True),
+    }
+
+
 class Dimension(AWSProperty):
     """
     `Dimension <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-applicationsignals-servicelevelobjective-dimension.html>`__
@@ -177,6 +188,7 @@ class RequestBasedSliMetric(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DependencyConfig": (DependencyConfig, False),
         "KeyAttributes": (dict, False),
         "MetricType": (str, False),
         "MonitoredRequestCountMetric": (MonitoredRequestCountMetric, False),
@@ -203,6 +215,7 @@ class SliMetric(AWSProperty):
     """
 
     props: PropsDictType = {
+        "DependencyConfig": (DependencyConfig, False),
         "KeyAttributes": (dict, False),
         "MetricDataQueries": ([MetricDataQuery], False),
         "MetricType": (str, False),

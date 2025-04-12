@@ -2096,6 +2096,88 @@ class Route(AWSObject):
         validate_route(self)
 
 
+class RouteServer(AWSObject):
+    """
+    `RouteServer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserver.html>`__
+    """
+
+    resource_type = "AWS::EC2::RouteServer"
+
+    props: PropsDictType = {
+        "AmazonSideAsn": (integer, True),
+        "PersistRoutes": (str, False),
+        "PersistRoutesDuration": (integer, False),
+        "SnsNotificationsEnabled": (boolean, False),
+        "Tags": (Tags, False),
+    }
+
+
+class RouteServerAssociation(AWSObject):
+    """
+    `RouteServerAssociation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverassociation.html>`__
+    """
+
+    resource_type = "AWS::EC2::RouteServerAssociation"
+
+    props: PropsDictType = {
+        "RouteServerId": (str, True),
+        "VpcId": (str, True),
+    }
+
+
+class RouteServerEndpoint(AWSObject):
+    """
+    `RouteServerEndpoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverendpoint.html>`__
+    """
+
+    resource_type = "AWS::EC2::RouteServerEndpoint"
+
+    props: PropsDictType = {
+        "RouteServerId": (str, True),
+        "SubnetId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class BgpOptions(AWSProperty):
+    """
+    `BgpOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-routeserverpeer-bgpoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "PeerAsn": (integer, False),
+        "PeerLivenessDetection": (str, False),
+    }
+
+
+class RouteServerPeer(AWSObject):
+    """
+    `RouteServerPeer <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverpeer.html>`__
+    """
+
+    resource_type = "AWS::EC2::RouteServerPeer"
+
+    props: PropsDictType = {
+        "BgpOptions": (BgpOptions, True),
+        "PeerAddress": (str, True),
+        "RouteServerEndpointId": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
+class RouteServerPropagation(AWSObject):
+    """
+    `RouteServerPropagation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routeserverpropagation.html>`__
+    """
+
+    resource_type = "AWS::EC2::RouteServerPropagation"
+
+    props: PropsDictType = {
+        "RouteServerId": (str, True),
+        "RouteTableId": (str, True),
+    }
+
+
 class RouteTable(AWSObject):
     """
     `RouteTable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ec2-routetable.html>`__

@@ -346,7 +346,6 @@ class RestoreTestingPlan(AWSObject):
         "RestoreTestingPlanName": (str, True),
         "ScheduleExpression": (str, True),
         "ScheduleExpressionTimezone": (str, False),
-        "ScheduleStatus": (str, False),
         "StartWindowHours": (integer, False),
         "Tags": (Tags, False),
     }

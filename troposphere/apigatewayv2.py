@@ -67,6 +67,7 @@ class Api(AWSObject):
         "DisableExecuteApiEndpoint": (boolean, False),
         "DisableSchemaValidation": (boolean, False),
         "FailOnWarnings": (boolean, False),
+        "IpAddressType": (str, False),
         "Name": (str, False),
         "ProtocolType": (str, False),
         "RouteKey": (str, False),
@@ -230,6 +231,7 @@ class DomainNameConfiguration(AWSProperty):
         "CertificateArn": (str, False),
         "CertificateName": (str, False),
         "EndpointType": (str, False),
+        "IpAddressType": (str, False),
         "OwnershipVerificationCertificateArn": (str, False),
         "SecurityPolicy": (str, False),
     }

@@ -53,6 +53,7 @@ class Stream(AWSObject):
     resource_type = "AWS::Kinesis::Stream"
 
     props: PropsDictType = {
+        "DesiredShardLevelMetrics": ([str], False),
         "Name": (str, False),
         "RetentionPeriodHours": (integer, False),
         "ShardCount": (integer, False),

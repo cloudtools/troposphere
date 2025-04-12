@@ -129,13 +129,13 @@ class ResourceConfiguration(AWSObject):
 
     props: PropsDictType = {
         "AllowAssociationToSharableServiceNetwork": (boolean, False),
-        "Name": (str, False),
+        "Name": (str, True),
         "PortRanges": ([str], False),
         "ProtocolType": (str, False),
         "ResourceConfigurationAuthType": (str, False),
         "ResourceConfigurationDefinition": (ResourceConfigurationDefinition, False),
         "ResourceConfigurationGroupId": (str, False),
-        "ResourceConfigurationType": (str, False),
+        "ResourceConfigurationType": (str, True),
         "ResourceGatewayId": (str, False),
         "Tags": (Tags, False),
     }
@@ -150,11 +150,11 @@ class ResourceGateway(AWSObject):
 
     props: PropsDictType = {
         "IpAddressType": (str, False),
-        "Name": (str, False),
+        "Name": (str, True),
         "SecurityGroupIds": ([str], False),
-        "SubnetIds": ([str], False),
+        "SubnetIds": ([str], True),
         "Tags": (Tags, False),
-        "VpcIdentifier": (str, False),
+        "VpcIdentifier": (str, True),
     }
 
 
