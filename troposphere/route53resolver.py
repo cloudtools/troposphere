@@ -161,6 +161,7 @@ class ResolverQueryLoggingConfig(AWSObject):
     props: PropsDictType = {
         "DestinationArn": (str, False),
         "Name": (str, False),
+        "Tags": (Tags, False),
     }
 
 

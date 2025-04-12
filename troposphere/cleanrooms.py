@@ -22,13 +22,88 @@ class AnalysisParameter(AWSProperty):
     }
 
 
+class AnalysisSchema(AWSProperty):
+    """
+    `AnalysisSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "ReferencedTables": ([str], True),
+    }
+
+
+class S3Location(AWSProperty):
+    """
+    `S3Location <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-s3location.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "Key": (str, True),
+    }
+
+
+class AnalysisTemplateArtifact(AWSProperty):
+    """
+    `AnalysisTemplateArtifact <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifact.html>`__
+    """
+
+    props: PropsDictType = {
+        "Location": (S3Location, True),
+    }
+
+
+class AnalysisTemplateArtifacts(AWSProperty):
+    """
+    `AnalysisTemplateArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifacts.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalArtifacts": ([AnalysisTemplateArtifact], False),
+        "EntryPoint": (AnalysisTemplateArtifact, True),
+        "RoleArn": (str, True),
+    }
+
+
 class AnalysisSource(AWSProperty):
     """
     `AnalysisSource <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysissource.html>`__
     """
 
     props: PropsDictType = {
-        "Text": (str, True),
+        "Artifacts": (AnalysisTemplateArtifacts, False),
+        "Text": (str, False),
+    }
+
+
+class Hash(AWSProperty):
+    """
+    `Hash <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-hash.html>`__
+    """
+
+    props: PropsDictType = {
+        "Sha256": (str, False),
+    }
+
+
+class AnalysisTemplateArtifactMetadata(AWSProperty):
+    """
+    `AnalysisTemplateArtifactMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysistemplateartifactmetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "AdditionalArtifactHashes": ([Hash], False),
+        "EntryPointHash": (Hash, True),
+    }
+
+
+class AnalysisSourceMetadata(AWSProperty):
+    """
+    `AnalysisSourceMetadata <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysissourcemetadata.html>`__
+    """
+
+    props: PropsDictType = {
+        "Artifacts": (AnalysisTemplateArtifactMetadata, True),
     }
 
 
@@ -45,7 +120,9 @@ class AnalysisTemplate(AWSObject):
         "Format": (str, True),
         "MembershipIdentifier": (str, True),
         "Name": (str, True),
+        "Schema": (AnalysisSchema, False),
         "Source": (AnalysisSource, True),
+        "SourceMetadata": (AnalysisSourceMetadata, False),
         "Tags": (Tags, False),
     }
 
@@ -70,6 +147,16 @@ class MLMemberAbilities(AWSProperty):
 
     props: PropsDictType = {
         "CustomMLMemberAbilities": ([str], True),
+    }
+
+
+class JobComputePaymentConfig(AWSProperty):
+    """
+    `JobComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-collaboration-jobcomputepaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
     }
 
 
@@ -120,6 +207,7 @@ class PaymentConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "JobCompute": (JobComputePaymentConfig, False),
         "MachineLearning": (MLPaymentConfig, False),
         "QueryCompute": (QueryComputePaymentConfig, True),
     }
@@ -154,6 +242,7 @@ class Collaboration(AWSObject):
         "CreatorPaymentConfiguration": (PaymentConfiguration, False),
         "DataEncryptionMetadata": (DataEncryptionMetadata, False),
         "Description": (str, True),
+        "JobLogStatus": (str, False),
         "Members": ([MemberSpecification], True),
         "Name": (str, True),
         "QueryLogStatus": (str, True),
@@ -366,6 +455,7 @@ class ConfiguredTable(AWSObject):
         "AnalysisRules": ([AnalysisRule], False),
         "Description": (str, False),
         "Name": (str, True),
+        "SelectedAnalysisMethods": ([str], False),
         "TableReference": (TableReference, True),
         "Tags": (Tags, False),
     }
@@ -524,6 +614,16 @@ class IdNamespaceAssociation(AWSObject):
     }
 
 
+class MembershipJobComputePaymentConfig(AWSProperty):
+    """
+    `MembershipJobComputePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipjobcomputepaymentconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "IsResponsible": (boolean, True),
+    }
+
+
 class MembershipModelInferencePaymentConfig(AWSProperty):
     """
     `MembershipModelInferencePaymentConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipmodelinferencepaymentconfig.html>`__
@@ -571,8 +671,41 @@ class MembershipPaymentConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "JobCompute": (MembershipJobComputePaymentConfig, False),
         "MachineLearning": (MembershipMLPaymentConfig, False),
         "QueryCompute": (MembershipQueryComputePaymentConfig, True),
+    }
+
+
+class ProtectedJobS3OutputConfigurationInput(AWSProperty):
+    """
+    `ProtectedJobS3OutputConfigurationInput <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-protectedjobs3outputconfigurationinput.html>`__
+    """
+
+    props: PropsDictType = {
+        "Bucket": (str, True),
+        "KeyPrefix": (str, False),
+    }
+
+
+class MembershipProtectedJobOutputConfiguration(AWSProperty):
+    """
+    `MembershipProtectedJobOutputConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedjoboutputconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "S3": (ProtectedJobS3OutputConfigurationInput, True),
+    }
+
+
+class MembershipProtectedJobResultConfiguration(AWSProperty):
+    """
+    `MembershipProtectedJobResultConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-membership-membershipprotectedjobresultconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "OutputConfiguration": (MembershipProtectedJobOutputConfiguration, True),
+        "RoleArn": (str, True),
     }
 
 
@@ -619,10 +752,15 @@ class Membership(AWSObject):
 
     props: PropsDictType = {
         "CollaborationIdentifier": (str, True),
+        "DefaultJobResultConfiguration": (
+            MembershipProtectedJobResultConfiguration,
+            False,
+        ),
         "DefaultResultConfiguration": (
             MembershipProtectedQueryResultConfiguration,
             False,
         ),
+        "JobLogStatus": (str, False),
         "PaymentConfiguration": (MembershipPaymentConfiguration, False),
         "QueryLogStatus": (str, True),
         "Tags": (Tags, False),
@@ -653,16 +791,6 @@ class PrivacyBudgetTemplate(AWSObject):
         "Parameters": (Parameters, True),
         "PrivacyBudgetType": (str, True),
         "Tags": (Tags, False),
-    }
-
-
-class AnalysisSchema(AWSProperty):
-    """
-    `AnalysisSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cleanrooms-analysistemplate-analysisschema.html>`__
-    """
-
-    props: PropsDictType = {
-        "ReferencedTables": ([str], True),
     }
 
 

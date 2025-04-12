@@ -6182,6 +6182,18 @@ class TablePinnedFieldOptions(AWSProperty):
     }
 
 
+class TransposedTableOption(AWSProperty):
+    """
+    `TransposedTableOption <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-transposedtableoption.html>`__
+    """
+
+    props: PropsDictType = {
+        "ColumnIndex": (double, False),
+        "ColumnType": (str, True),
+        "ColumnWidth": (str, False),
+    }
+
+
 class TableFieldOptions(AWSProperty):
     """
     `TableFieldOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-quicksight-template-tablefieldoptions.html>`__
@@ -6191,6 +6203,7 @@ class TableFieldOptions(AWSProperty):
         "Order": ([str], False),
         "PinnedFieldOptions": (TablePinnedFieldOptions, False),
         "SelectedFieldOptions": ([TableFieldOption], False),
+        "TransposedTableOptions": ([TransposedTableOption], False),
     }
 
 

@@ -1646,7 +1646,9 @@ class ContentFilterConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InputModalities": ([str], False),
         "InputStrength": (str, True),
+        "OutputModalities": ([str], False),
         "OutputStrength": (str, True),
         "Type": (str, True),
     }
@@ -2116,6 +2118,31 @@ class NeptuneAnalyticsConfiguration(AWSProperty):
     }
 
 
+class OpenSearchManagedClusterFieldMapping(AWSProperty):
+    """
+    `OpenSearchManagedClusterFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterfieldmapping.html>`__
+    """
+
+    props: PropsDictType = {
+        "MetadataField": (str, True),
+        "TextField": (str, True),
+        "VectorField": (str, True),
+    }
+
+
+class OpenSearchManagedClusterConfiguration(AWSProperty):
+    """
+    `OpenSearchManagedClusterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchmanagedclusterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DomainArn": (str, True),
+        "DomainEndpoint": (str, True),
+        "FieldMapping": (OpenSearchManagedClusterFieldMapping, True),
+        "VectorIndexName": (str, True),
+    }
+
+
 class OpenSearchServerlessFieldMapping(AWSProperty):
     """
     `OpenSearchServerlessFieldMapping <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-knowledgebase-opensearchserverlessfieldmapping.html>`__
@@ -2199,6 +2226,10 @@ class StorageConfiguration(AWSProperty):
     props: PropsDictType = {
         "MongoDbAtlasConfiguration": (MongoDbAtlasConfiguration, False),
         "NeptuneAnalyticsConfiguration": (NeptuneAnalyticsConfiguration, False),
+        "OpensearchManagedClusterConfiguration": (
+            OpenSearchManagedClusterConfiguration,
+            False,
+        ),
         "OpensearchServerlessConfiguration": (OpenSearchServerlessConfiguration, False),
         "PineconeConfiguration": (PineconeConfiguration, False),
         "RdsConfiguration": (RdsConfiguration, False),

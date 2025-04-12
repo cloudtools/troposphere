@@ -718,6 +718,7 @@ class ReplicationInstance(AWSObject):
         "AllowMajorVersionUpgrade": (boolean, False),
         "AutoMinorVersionUpgrade": (boolean, False),
         "AvailabilityZone": (str, False),
+        "DnsNameServers": (str, False),
         "EngineVersion": (str, False),
         "KmsKeyId": (str, False),
         "MultiAZ": (boolean, False),
