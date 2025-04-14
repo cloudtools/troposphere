@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+
+
+class SecurityGroupIngress():
+
+    def __init__(self):
+        self.ruleList = [] 
+
+    def addRule(self, ipProtocol="", fromPort="", toPort="", cidrIp=""):
+        ruleDictionary = {"IpProtocol" : ipProtocol, "FromPort" : fromPort, "ToPort" : toPort, "CidrIp" : cidrIp}
+        self.ruleList.append(ruleDictionary)
+    
+    def toList(self):
+        return self.ruleList
