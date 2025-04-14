@@ -1,0 +1,40 @@
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  TransformExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: 
+              - lambda.amazonaws.com
+            Action: 
+            - 'sts:AssumeRole'
+      Path: /
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: 2012-10-17
+            Statement:
+              - Effect: Allow
+                Action: 
+                - 'logs:*'
+                Resource: 'arn:aws:logs:*:*:*'
+
+  MacroFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: python3.6
+      CodeUri: source/
+      Handler: macro.handler
+      Role: !GetAtt TransformExecutionRole.Arn
+      Timeout: 300
+
+  Macro:
+    Type: AWS::CloudFormation::Macro
+    Properties:
+      Name: Troposhere
+      FunctionName: !GetAtt MacroFunction.Arn
