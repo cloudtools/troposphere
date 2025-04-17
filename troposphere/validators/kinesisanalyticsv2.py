@@ -18,6 +18,7 @@ def validate_runtime_environment(runtime_environment):
         "FLINK-1_15",
         "FLINK-1_18",
         "FLINK-1_19",
+        "FLINK-1_20",
         "SQL-1_0",
         "ZEPPELIN-FLINK-1_0",
         "ZEPPELIN-FLINK-2_0",
