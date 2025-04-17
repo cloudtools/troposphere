@@ -1,3 +1,8 @@
+4.9.2 (2025*04*17)
+-------------------------------
+* Updates from spec version 194.0.0 (#2298)
+* Add support for FLINK-1_20 in validate_runtime_environment (#2300)
+
 4.9.1 (2025*04*08)
 -------------------------------
 * EC2: Validate prefix list IDs as route destinations (#2280)
