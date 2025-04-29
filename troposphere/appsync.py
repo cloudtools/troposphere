@@ -144,6 +144,49 @@ class ApiKey(AWSObject):
     }
 
 
+class LambdaConfig(AWSProperty):
+    """
+    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "LambdaFunctionArn": (str, True),
+    }
+
+
+class Integration(AWSProperty):
+    """
+    `Integration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-integration.html>`__
+    """
+
+    props: PropsDictType = {
+        "DataSourceName": (str, True),
+        "LambdaConfig": (LambdaConfig, False),
+    }
+
+
+class HandlerConfig(AWSProperty):
+    """
+    `HandlerConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-handlerconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "Behavior": (str, True),
+        "Integration": (Integration, True),
+    }
+
+
+class HandlerConfigs(AWSProperty):
+    """
+    `HandlerConfigs <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-channelnamespace-handlerconfigs.html>`__
+    """
+
+    props: PropsDictType = {
+        "OnPublish": (HandlerConfig, False),
+        "OnSubscribe": (HandlerConfig, False),
+    }
+
+
 class ChannelNamespace(AWSObject):
     """
     `ChannelNamespace <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-appsync-channelnamespace.html>`__
@@ -155,6 +198,7 @@ class ChannelNamespace(AWSObject):
         "ApiId": (str, True),
         "CodeHandlers": (str, False),
         "CodeS3Location": (str, False),
+        "HandlerConfigs": (HandlerConfigs, False),
         "Name": (str, True),
         "PublishAuthModes": ([AuthMode], False),
         "SubscribeAuthModes": ([AuthMode], False),
@@ -239,16 +283,6 @@ class HttpConfig(AWSProperty):
     props: PropsDictType = {
         "AuthorizationConfig": (AuthorizationConfig, False),
         "Endpoint": (str, True),
-    }
-
-
-class LambdaConfig(AWSProperty):
-    """
-    `LambdaConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-appsync-datasource-lambdaconfig.html>`__
-    """
-
-    props: PropsDictType = {
-        "LambdaFunctionArn": (str, True),
     }
 
 

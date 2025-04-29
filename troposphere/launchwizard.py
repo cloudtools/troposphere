@@ -19,7 +19,7 @@ class Deployment(AWSObject):
     props: PropsDictType = {
         "DeploymentPatternName": (str, True),
         "Name": (str, True),
-        "Specifications": (dict, True),
+        "Specifications": (dict, False),
         "Tags": (Tags, False),
         "WorkloadName": (str, True),
     }

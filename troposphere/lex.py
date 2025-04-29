@@ -33,6 +33,66 @@ class CustomVocabulary(AWSProperty):
     }
 
 
+class BedrockAgentConfiguration(AWSProperty):
+    """
+    `BedrockAgentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockAgentAliasId": (str, False),
+        "BedrockAgentId": (str, False),
+    }
+
+
+class BedrockGuardrailConfiguration(AWSProperty):
+    """
+    `BedrockGuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockguardrailconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockGuardrailIdentifier": (str, False),
+        "BedrockGuardrailVersion": (str, False),
+    }
+
+
+class BedrockModelSpecification(AWSProperty):
+    """
+    `BedrockModelSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockmodelspecification.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockGuardrailConfiguration": (BedrockGuardrailConfiguration, False),
+        "BedrockModelCustomPrompt": (str, False),
+        "BedrockTraceStatus": (str, False),
+        "ModelArn": (str, True),
+    }
+
+
+class BedrockAgentIntentKnowledgeBaseConfiguration(AWSProperty):
+    """
+    `BedrockAgentIntentKnowledgeBaseConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentintentknowledgebaseconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockKnowledgeBaseArn": (str, True),
+        "BedrockModelConfiguration": (BedrockModelSpecification, True),
+    }
+
+
+class BedrockAgentIntentConfiguration(AWSProperty):
+    """
+    `BedrockAgentIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockagentintentconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "BedrockAgentConfiguration": (BedrockAgentConfiguration, False),
+        "BedrockAgentIntentKnowledgeBaseConfiguration": (
+            BedrockAgentIntentKnowledgeBaseConfiguration,
+            False,
+        ),
+    }
+
+
 class DialogCodeHookSetting(AWSProperty):
     """
     `DialogCodeHookSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-dialogcodehooksetting.html>`__
@@ -536,27 +596,23 @@ class OutputContext(AWSProperty):
     }
 
 
-class BedrockGuardrailConfiguration(AWSProperty):
+class QInConnectAssistantConfiguration(AWSProperty):
     """
-    `BedrockGuardrailConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockguardrailconfiguration.html>`__
+    `QInConnectAssistantConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qinconnectassistantconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "BedrockGuardrailIdentifier": (str, False),
-        "BedrockGuardrailVersion": (str, False),
+        "AssistantArn": (str, True),
     }
 
 
-class BedrockModelSpecification(AWSProperty):
+class QInConnectIntentConfiguration(AWSProperty):
     """
-    `BedrockModelSpecification <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-bedrockmodelspecification.html>`__
+    `QInConnectIntentConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-qinconnectintentconfiguration.html>`__
     """
 
     props: PropsDictType = {
-        "BedrockGuardrailConfiguration": (BedrockGuardrailConfiguration, False),
-        "BedrockModelCustomPrompt": (str, False),
-        "BedrockTraceStatus": (str, False),
-        "ModelArn": (str, True),
+        "QInConnectAssistantConfiguration": (QInConnectAssistantConfiguration, False),
     }
 
 
@@ -786,6 +842,7 @@ class Intent(AWSProperty):
     """
 
     props: PropsDictType = {
+        "BedrockAgentIntentConfiguration": (BedrockAgentIntentConfiguration, False),
         "Description": (str, False),
         "DialogCodeHook": (DialogCodeHookSetting, False),
         "FulfillmentCodeHook": (FulfillmentCodeHookSetting, False),
@@ -797,10 +854,32 @@ class Intent(AWSProperty):
         "Name": (str, True),
         "OutputContexts": ([OutputContext], False),
         "ParentIntentSignature": (str, False),
+        "QInConnectIntentConfiguration": (QInConnectIntentConfiguration, False),
         "QnAIntentConfiguration": (QnAIntentConfiguration, False),
         "SampleUtterances": ([SampleUtterance], False),
         "SlotPriorities": ([SlotPriority], False),
         "Slots": ([Slot], False),
+    }
+
+
+class SubSlotTypeComposition(AWSProperty):
+    """
+    `SubSlotTypeComposition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-subslottypecomposition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "SlotTypeId": (str, True),
+    }
+
+
+class CompositeSlotTypeSetting(AWSProperty):
+    """
+    `CompositeSlotTypeSetting <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-lex-bot-compositeslottypesetting.html>`__
+    """
+
+    props: PropsDictType = {
+        "SubSlots": ([SubSlotTypeComposition], False),
     }
 
 
@@ -895,6 +974,7 @@ class SlotType(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CompositeSlotTypeSetting": (CompositeSlotTypeSetting, False),
         "Description": (str, False),
         "ExternalSourceSetting": (ExternalSourceSetting, False),
         "Name": (str, True),

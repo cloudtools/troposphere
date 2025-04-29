@@ -207,6 +207,17 @@ class ActionTypeId(AWSProperty):
     }
 
 
+class EnvironmentVariable(AWSProperty):
+    """
+    `EnvironmentVariable <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-environmentvariable.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, True),
+        "Value": (str, True),
+    }
+
+
 class InputArtifacts(AWSProperty):
     """
     `InputArtifacts <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-codepipeline-pipeline-inputartifact.html>`__
@@ -237,6 +248,7 @@ class Actions(AWSProperty):
         "ActionTypeId": (ActionTypeId, True),
         "Commands": ([str], False),
         "Configuration": (dict, False),
+        "EnvironmentVariables": ([EnvironmentVariable], False),
         "InputArtifacts": ([InputArtifacts], False),
         "Name": (str, True),
         "Namespace": (str, False),

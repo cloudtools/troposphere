@@ -367,6 +367,37 @@ class IngressPointConfiguration(AWSProperty):
     }
 
 
+class PrivateNetworkConfiguration(AWSProperty):
+    """
+    `PrivateNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-privatenetworkconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "VpcEndpointId": (str, True),
+    }
+
+
+class PublicNetworkConfiguration(AWSProperty):
+    """
+    `PublicNetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-publicnetworkconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "IpType": (dict, True),
+    }
+
+
+class NetworkConfiguration(AWSProperty):
+    """
+    `NetworkConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanageringresspoint-networkconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "PrivateNetworkConfiguration": (PrivateNetworkConfiguration, False),
+        "PublicNetworkConfiguration": (PublicNetworkConfiguration, False),
+    }
+
+
 class MailManagerIngressPoint(AWSObject):
     """
     `MailManagerIngressPoint <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ses-mailmanageringresspoint.html>`__
@@ -377,6 +408,7 @@ class MailManagerIngressPoint(AWSObject):
     props: PropsDictType = {
         "IngressPointConfiguration": (IngressPointConfiguration, False),
         "IngressPointName": (str, False),
+        "NetworkConfiguration": (NetworkConfiguration, False),
         "RuleSetId": (str, True),
         "StatusToUpdate": (str, False),
         "Tags": (Tags, False),
@@ -524,13 +556,25 @@ class RuleAction(AWSProperty):
     }
 
 
+class Analysis(AWSProperty):
+    """
+    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-analysis.html>`__
+    """
+
+    props: PropsDictType = {
+        "Analyzer": (str, True),
+        "ResultField": (str, True),
+    }
+
+
 class RuleBooleanToEvaluate(AWSProperty):
     """
     `RuleBooleanToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-rulebooleantoevaluate.html>`__
     """
 
     props: PropsDictType = {
-        "Attribute": (str, True),
+        "Analysis": (Analysis, False),
+        "Attribute": (str, False),
     }
 
 
@@ -606,6 +650,7 @@ class RuleStringToEvaluate(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Analysis": (Analysis, False),
         "Attribute": (str, False),
         "MimeHeaderAttribute": (str, False),
     }
@@ -620,17 +665,6 @@ class RuleStringExpression(AWSProperty):
         "Evaluate": (RuleStringToEvaluate, True),
         "Operator": (str, True),
         "Values": ([str], True),
-    }
-
-
-class Analysis(AWSProperty):
-    """
-    `Analysis <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagerruleset-analysis.html>`__
-    """
-
-    props: PropsDictType = {
-        "Analyzer": (str, True),
-        "ResultField": (str, True),
     }
 
 
@@ -753,13 +787,36 @@ class IngressIpv4Expression(AWSProperty):
     }
 
 
+class IngressIpv6ToEvaluate(AWSProperty):
+    """
+    `IngressIpv6ToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6toevaluate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Attribute": (str, True),
+    }
+
+
+class IngressIpv6Expression(AWSProperty):
+    """
+    `IngressIpv6Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressipv6expression.html>`__
+    """
+
+    props: PropsDictType = {
+        "Evaluate": (IngressIpv6ToEvaluate, True),
+        "Operator": (str, True),
+        "Values": ([str], True),
+    }
+
+
 class IngressStringToEvaluate(AWSProperty):
     """
     `IngressStringToEvaluate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ses-mailmanagertrafficpolicy-ingressstringtoevaluate.html>`__
     """
 
     props: PropsDictType = {
-        "Attribute": (str, True),
+        "Analysis": (IngressAnalysis, False),
+        "Attribute": (str, False),
     }
 
 
@@ -805,6 +862,7 @@ class PolicyCondition(AWSProperty):
     props: PropsDictType = {
         "BooleanExpression": (IngressBooleanExpression, False),
         "IpExpression": (IngressIpv4Expression, False),
+        "Ipv6Expression": (IngressIpv6Expression, False),
         "StringExpression": (IngressStringExpression, False),
         "TlsExpression": (IngressTlsProtocolExpression, False),
     }

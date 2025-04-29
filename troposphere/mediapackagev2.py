@@ -176,6 +176,7 @@ class HlsManifestConfiguration(AWSProperty):
         "ScteHls": (ScteHls, False),
         "StartTag": (StartTag, False),
         "Url": (str, False),
+        "UrlEncodeChildManifest": (boolean, False),
     }
 
 
@@ -193,6 +194,7 @@ class LowLatencyHlsManifestConfiguration(AWSProperty):
         "ScteHls": (ScteHls, False),
         "StartTag": (StartTag, False),
         "Url": (str, False),
+        "UrlEncodeChildManifest": (boolean, False),
     }
 
 

@@ -62,6 +62,7 @@ class Key(AWSObject):
     resource_type = "AWS::PaymentCryptography::Key"
 
     props: PropsDictType = {
+        "DeriveKeyUsage": (str, False),
         "Enabled": (boolean, False),
         "Exportable": (boolean, True),
         "KeyAttributes": (KeyAttributes, True),
