@@ -377,6 +377,7 @@ class ContainerProperties(AWSProperty):
 
     props: PropsDictType = {
         "Command": ([str], False),
+        "EnableExecuteCommand": (boolean, False),
         "Environment": ([Environment], False),
         "EphemeralStorage": (EphemeralStorage, False),
         "ExecutionRoleArn": (str, False),
@@ -401,6 +402,17 @@ class ContainerProperties(AWSProperty):
     }
 
 
+class FirelensConfiguration(AWSProperty):
+    """
+    `FirelensConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-firelensconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "Options": (dict, False),
+        "Type": (str, True),
+    }
+
+
 class TaskContainerDependency(AWSProperty):
     """
     `TaskContainerDependency <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-batch-jobdefinition-taskcontainerdependency.html>`__
@@ -422,6 +434,7 @@ class TaskContainerProperties(AWSProperty):
         "DependsOn": ([TaskContainerDependency], False),
         "Environment": ([Environment], False),
         "Essential": (boolean, False),
+        "FirelensConfiguration": (FirelensConfiguration, False),
         "Image": (str, True),
         "LinuxParameters": (LinuxParameters, False),
         "LogConfiguration": (LogConfiguration, False),
@@ -444,6 +457,7 @@ class EcsTaskProperties(AWSProperty):
 
     props: PropsDictType = {
         "Containers": ([TaskContainerProperties], False),
+        "EnableExecuteCommand": (boolean, False),
         "EphemeralStorage": (EphemeralStorage, False),
         "ExecutionRoleArn": (str, False),
         "IpcMode": (str, False),
@@ -648,6 +662,7 @@ class MultiNodeContainerProperties(AWSProperty):
 
     props: PropsDictType = {
         "Command": ([str], False),
+        "EnableExecuteCommand": (boolean, False),
         "Environment": ([Environment], False),
         "EphemeralStorage": (EphemeralStorage, False),
         "ExecutionRoleArn": (str, False),
@@ -678,6 +693,7 @@ class MultiNodeEcsTaskProperties(AWSProperty):
 
     props: PropsDictType = {
         "Containers": ([TaskContainerProperties], False),
+        "EnableExecuteCommand": (boolean, False),
         "ExecutionRoleArn": (str, False),
         "IpcMode": (str, False),
         "PidMode": (str, False),

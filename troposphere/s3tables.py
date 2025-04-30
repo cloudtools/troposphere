@@ -10,6 +10,17 @@ from . import AWSObject, AWSProperty, PropsDictType
 from .validators import integer
 
 
+class EncryptionConfiguration(AWSProperty):
+    """
+    `EncryptionConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-encryptionconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "KMSKeyArn": (str, False),
+        "SSEAlgorithm": (str, False),
+    }
+
+
 class UnreferencedFileRemoval(AWSProperty):
     """
     `UnreferencedFileRemoval <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-s3tables-tablebucket-unreferencedfileremoval.html>`__
@@ -30,6 +41,7 @@ class TableBucket(AWSObject):
     resource_type = "AWS::S3Tables::TableBucket"
 
     props: PropsDictType = {
+        "EncryptionConfiguration": (EncryptionConfiguration, False),
         "TableBucketName": (str, True),
         "UnreferencedFileRemoval": (UnreferencedFileRemoval, False),
     }

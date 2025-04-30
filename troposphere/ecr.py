@@ -69,17 +69,6 @@ class RegistryPolicy(AWSObject):
     }
 
 
-class ReplicationDestination(AWSProperty):
-    """
-    `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html>`__
-    """
-
-    props: PropsDictType = {
-        "Region": (str, True),
-        "RegistryId": (str, True),
-    }
-
-
 class RepositoryFilter(AWSProperty):
     """
     `RepositoryFilter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-repositoryfilter.html>`__
@@ -88,6 +77,41 @@ class RepositoryFilter(AWSProperty):
     props: PropsDictType = {
         "Filter": (str, True),
         "FilterType": (str, True),
+    }
+
+
+class ScanningRule(AWSProperty):
+    """
+    `ScanningRule <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-registryscanningconfiguration-scanningrule.html>`__
+    """
+
+    props: PropsDictType = {
+        "RepositoryFilters": ([RepositoryFilter], True),
+        "ScanFrequency": (str, True),
+    }
+
+
+class RegistryScanningConfiguration(AWSObject):
+    """
+    `RegistryScanningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-ecr-registryscanningconfiguration.html>`__
+    """
+
+    resource_type = "AWS::ECR::RegistryScanningConfiguration"
+
+    props: PropsDictType = {
+        "Rules": ([ScanningRule], True),
+        "ScanType": (str, True),
+    }
+
+
+class ReplicationDestination(AWSProperty):
+    """
+    `ReplicationDestination <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ecr-replicationconfiguration-replicationdestination.html>`__
+    """
+
+    props: PropsDictType = {
+        "Region": (str, True),
+        "RegistryId": (str, True),
     }
 
 

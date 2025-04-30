@@ -320,6 +320,7 @@ class WebApp(AWSObject):
         "IdentityProviderDetails": (WebAppIdentityProviderDetails, True),
         "Tags": (Tags, False),
         "WebAppCustomization": (WebAppCustomization, False),
+        "WebAppEndpointPolicy": (str, False),
         "WebAppUnits": (WebAppUnits, False),
     }
 

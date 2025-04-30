@@ -3036,6 +3036,7 @@ class VPCEndpoint(AWSObject):
         "SecurityGroupIds": ([str], False),
         "ServiceName": (str, False),
         "ServiceNetworkArn": (str, False),
+        "ServiceRegion": (str, False),
         "SubnetIds": ([str], False),
         "Tags": (Tags, False),
         "VpcEndpointType": (vpc_endpoint_type, False),

@@ -145,6 +145,22 @@ class CloudFrontOriginAccessIdentity(AWSObject):
     }
 
 
+class ConnectionGroup(AWSObject):
+    """
+    `ConnectionGroup <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-connectiongroup.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::ConnectionGroup"
+
+    props: PropsDictType = {
+        "AnycastIpListId": (str, False),
+        "Enabled": (boolean, False),
+        "Ipv6Enabled": (boolean, False),
+        "Name": (str, True),
+        "Tags": (Tags, False),
+    }
+
+
 class SingleHeaderPolicyConfig(AWSProperty):
     """
     `SingleHeaderPolicyConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-continuousdeploymentpolicy-singleheaderpolicyconfig.html>`__
@@ -571,6 +587,49 @@ class Restrictions(AWSProperty):
     }
 
 
+class StringSchema(AWSProperty):
+    """
+    `StringSchema <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-stringschema.html>`__
+    """
+
+    props: PropsDictType = {
+        "Comment": (str, False),
+        "DefaultValue": (str, False),
+        "Required": (boolean, True),
+    }
+
+
+class Definition(AWSProperty):
+    """
+    `Definition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-definition.html>`__
+    """
+
+    props: PropsDictType = {
+        "StringSchema": (StringSchema, False),
+    }
+
+
+class ParameterDefinition(AWSProperty):
+    """
+    `ParameterDefinition <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-parameterdefinition.html>`__
+    """
+
+    props: PropsDictType = {
+        "Definition": (Definition, True),
+        "Name": (str, True),
+    }
+
+
+class TenantConfig(AWSProperty):
+    """
+    `TenantConfig <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-tenantconfig.html>`__
+    """
+
+    props: PropsDictType = {
+        "ParameterDefinitions": ([ParameterDefinition], False),
+    }
+
+
 class ViewerCertificate(AWSProperty):
     """
     `ViewerCertificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distribution-viewercertificate.html>`__
@@ -596,6 +655,7 @@ class DistributionConfig(AWSProperty):
         "CNAMEs": ([str], False),
         "CacheBehaviors": ([CacheBehavior], False),
         "Comment": (str, False),
+        "ConnectionMode": (str, False),
         "ContinuousDeploymentPolicyId": (str, False),
         "CustomErrorResponses": ([CustomErrorResponse], False),
         "CustomOrigin": (LegacyCustomOrigin, False),
@@ -611,6 +671,7 @@ class DistributionConfig(AWSProperty):
         "Restrictions": (Restrictions, False),
         "S3Origin": (LegacyS3Origin, False),
         "Staging": (boolean, False),
+        "TenantConfig": (TenantConfig, False),
         "ViewerCertificate": (ViewerCertificate, False),
         "WebACLId": (str, False),
     }
@@ -626,6 +687,93 @@ class Distribution(AWSObject):
     props: PropsDictType = {
         "DistributionConfig": (DistributionConfig, True),
         "Tags": (validate_tags_or_list, False),
+    }
+
+
+class Certificate(AWSProperty):
+    """
+    `Certificate <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-certificate.html>`__
+    """
+
+    props: PropsDictType = {
+        "Arn": (str, False),
+    }
+
+
+class GeoRestrictionCustomization(AWSProperty):
+    """
+    `GeoRestrictionCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-georestrictioncustomization.html>`__
+    """
+
+    props: PropsDictType = {
+        "Locations": ([str], False),
+        "RestrictionType": (str, False),
+    }
+
+
+class WebAclCustomization(AWSProperty):
+    """
+    `WebAclCustomization <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-webaclcustomization.html>`__
+    """
+
+    props: PropsDictType = {
+        "Action": (str, False),
+        "Arn": (str, False),
+    }
+
+
+class Customizations(AWSProperty):
+    """
+    `Customizations <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-customizations.html>`__
+    """
+
+    props: PropsDictType = {
+        "Certificate": (Certificate, False),
+        "GeoRestrictions": (GeoRestrictionCustomization, False),
+        "WebAcl": (WebAclCustomization, False),
+    }
+
+
+class ManagedCertificateRequest(AWSProperty):
+    """
+    `ManagedCertificateRequest <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-managedcertificaterequest.html>`__
+    """
+
+    props: PropsDictType = {
+        "CertificateTransparencyLoggingPreference": (str, False),
+        "PrimaryDomainName": (str, False),
+        "ValidationTokenHost": (str, False),
+    }
+
+
+class Parameter(AWSProperty):
+    """
+    `Parameter <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-parameter.html>`__
+    """
+
+    props: PropsDictType = {
+        "Name": (str, False),
+        "Value": (str, False),
+    }
+
+
+class DistributionTenant(AWSObject):
+    """
+    `DistributionTenant <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-cloudfront-distributiontenant.html>`__
+    """
+
+    resource_type = "AWS::CloudFront::DistributionTenant"
+
+    props: PropsDictType = {
+        "ConnectionGroupId": (str, False),
+        "Customizations": (Customizations, False),
+        "DistributionId": (str, True),
+        "Domains": ([str], True),
+        "Enabled": (boolean, False),
+        "ManagedCertificateRequest": (ManagedCertificateRequest, False),
+        "Name": (str, True),
+        "Parameters": ([Parameter], False),
+        "Tags": (Tags, False),
     }
 
 
@@ -1231,4 +1379,15 @@ class AnycastIpListProperty(AWSProperty):
         "LastModifiedTime": (str, True),
         "Name": (str, True),
         "Status": (str, True),
+    }
+
+
+class DomainResult(AWSProperty):
+    """
+    `DomainResult <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cloudfront-distributiontenant-domainresult.html>`__
+    """
+
+    props: PropsDictType = {
+        "Domain": (str, False),
+        "Status": (str, False),
     }

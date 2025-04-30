@@ -38,6 +38,7 @@ class Archive(AWSObject):
         "ArchiveName": (str, False),
         "Description": (str, False),
         "EventPattern": (dict, False),
+        "KmsKeyIdentifier": (str, False),
         "RetentionDays": (integer, False),
         "SourceArn": (str, True),
     }
@@ -170,6 +171,7 @@ class Connection(AWSObject):
         "AuthorizationType": (str, False),
         "Description": (str, False),
         "InvocationConnectivityParameters": (InvocationConnectivityParameters, False),
+        "KmsKeyIdentifier": (str, False),
         "Name": (str, False),
     }
 

@@ -262,6 +262,7 @@ class DBInstance(AWSObject):
         "DBSnapshotIdentifier": (str, False),
         "DBSubnetGroupName": (str, False),
         "DBSystemId": (str, False),
+        "DatabaseInsightsMode": (str, False),
         "DedicatedLogVolume": (boolean, False),
         "DeleteAutomatedBackups": (boolean, False),
         "DeletionProtection": (boolean, False),

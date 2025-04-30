@@ -494,6 +494,7 @@ class SingleSignOn(AWSProperty):
     """
 
     props: PropsDictType = {
+        "IdcInstanceArn": (str, False),
         "Type": (str, False),
         "UserAssignment": (str, False),
     }

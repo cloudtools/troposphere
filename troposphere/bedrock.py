@@ -346,6 +346,26 @@ class CustomOutputConfiguration(AWSProperty):
     }
 
 
+class ModalityProcessingConfiguration(AWSProperty):
+    """
+    `ModalityProcessingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityprocessingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "State": (str, False),
+    }
+
+
+class AudioOverrideConfiguration(AWSProperty):
+    """
+    `AudioOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-audiooverrideconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModalityProcessing": (ModalityProcessingConfiguration, False),
+    }
+
+
 class SplitterConfiguration(AWSProperty):
     """
     `SplitterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-splitterconfiguration.html>`__
@@ -362,7 +382,41 @@ class DocumentOverrideConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "ModalityProcessing": (ModalityProcessingConfiguration, False),
         "Splitter": (SplitterConfiguration, False),
+    }
+
+
+class ImageOverrideConfiguration(AWSProperty):
+    """
+    `ImageOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-imageoverrideconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModalityProcessing": (ModalityProcessingConfiguration, False),
+    }
+
+
+class ModalityRoutingConfiguration(AWSProperty):
+    """
+    `ModalityRoutingConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-modalityroutingconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "jpeg": (str, False),
+        "mov": (str, False),
+        "mp4": (str, False),
+        "png": (str, False),
+    }
+
+
+class VideoOverrideConfiguration(AWSProperty):
+    """
+    `VideoOverrideConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-bedrock-dataautomationproject-videooverrideconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "ModalityProcessing": (ModalityProcessingConfiguration, False),
     }
 
 
@@ -372,7 +426,11 @@ class OverrideConfiguration(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Audio": (AudioOverrideConfiguration, False),
         "Document": (DocumentOverrideConfiguration, False),
+        "Image": (ImageOverrideConfiguration, False),
+        "ModalityRouting": (ModalityRoutingConfiguration, False),
+        "Video": (VideoOverrideConfiguration, False),
     }
 
 
@@ -1646,8 +1704,12 @@ class ContentFilterConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InputAction": (str, False),
+        "InputEnabled": (boolean, False),
         "InputModalities": ([str], False),
         "InputStrength": (str, True),
+        "OutputAction": (str, False),
+        "OutputEnabled": (boolean, False),
         "OutputModalities": ([str], False),
         "OutputStrength": (str, True),
         "Type": (str, True),
@@ -1670,6 +1732,8 @@ class ContextualGroundingFilterConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "Action": (str, False),
+        "Enabled": (boolean, False),
         "Threshold": (double, True),
         "Type": (str, True),
     }
@@ -1692,6 +1756,10 @@ class PiiEntityConfig(AWSProperty):
 
     props: PropsDictType = {
         "Action": (str, True),
+        "InputAction": (str, False),
+        "InputEnabled": (boolean, False),
+        "OutputAction": (str, False),
+        "OutputEnabled": (boolean, False),
         "Type": (str, True),
     }
 
@@ -1704,7 +1772,11 @@ class RegexConfig(AWSProperty):
     props: PropsDictType = {
         "Action": (str, True),
         "Description": (str, False),
+        "InputAction": (str, False),
+        "InputEnabled": (boolean, False),
         "Name": (str, True),
+        "OutputAction": (str, False),
+        "OutputEnabled": (boolean, False),
         "Pattern": (str, True),
     }
 
@@ -1728,7 +1800,11 @@ class TopicConfig(AWSProperty):
     props: PropsDictType = {
         "Definition": (str, True),
         "Examples": ([str], False),
+        "InputAction": (str, False),
+        "InputEnabled": (boolean, False),
         "Name": (str, True),
+        "OutputAction": (str, False),
+        "OutputEnabled": (boolean, False),
         "Type": (str, True),
     }
 
@@ -1749,6 +1825,10 @@ class ManagedWordsConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InputAction": (str, False),
+        "InputEnabled": (boolean, False),
+        "OutputAction": (str, False),
+        "OutputEnabled": (boolean, False),
         "Type": (str, True),
     }
 
@@ -1759,6 +1839,10 @@ class WordConfig(AWSProperty):
     """
 
     props: PropsDictType = {
+        "InputAction": (str, False),
+        "InputEnabled": (boolean, False),
+        "OutputAction": (str, False),
+        "OutputEnabled": (boolean, False),
         "Text": (str, True),
     }
 
@@ -2092,6 +2176,7 @@ class MongoDbAtlasConfiguration(AWSProperty):
         "Endpoint": (str, True),
         "EndpointServiceName": (str, False),
         "FieldMapping": (MongoDbAtlasFieldMapping, True),
+        "TextIndexName": (str, False),
         "VectorIndexName": (str, True),
     }
 
@@ -2197,6 +2282,7 @@ class RdsFieldMapping(AWSProperty):
     """
 
     props: PropsDictType = {
+        "CustomMetadataField": (str, False),
         "MetadataField": (str, True),
         "PrimaryKeyField": (str, True),
         "TextField": (str, True),
