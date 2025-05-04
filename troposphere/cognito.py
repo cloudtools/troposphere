@@ -545,6 +545,17 @@ class AnalyticsConfiguration(AWSProperty):
     }
 
 
+class RefreshTokenRotation(AWSProperty):
+    """
+    `RefreshTokenRotation <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-refreshtokenrotation.html>`__
+    """
+
+    props: PropsDictType = {
+        "Feature": (str, False),
+        "RetryGracePeriodSeconds": (integer, False),
+    }
+
+
 class TokenValidityUnits(AWSProperty):
     """
     `TokenValidityUnits <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-cognito-userpoolclient-tokenvalidityunits.html>`__
@@ -582,6 +593,7 @@ class UserPoolClient(AWSObject):
         "LogoutURLs": ([str], False),
         "PreventUserExistenceErrors": (str, False),
         "ReadAttributes": ([str], False),
+        "RefreshTokenRotation": (RefreshTokenRotation, False),
         "RefreshTokenValidity": (integer, False),
         "SupportedIdentityProviders": ([str], False),
         "TokenValidityUnits": (TokenValidityUnits, False),

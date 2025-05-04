@@ -51,6 +51,57 @@ class CostTypes(AWSProperty):
     }
 
 
+class CostCategoryValues(AWSProperty):
+    """
+    `CostCategoryValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-costcategoryvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, False),
+        "MatchOptions": ([str], False),
+        "Values": ([str], False),
+    }
+
+
+class ExpressionDimensionValues(AWSProperty):
+    """
+    `ExpressionDimensionValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-expressiondimensionvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, False),
+        "MatchOptions": ([str], False),
+        "Values": ([str], False),
+    }
+
+
+class TagValues(AWSProperty):
+    """
+    `TagValues <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-tagvalues.html>`__
+    """
+
+    props: PropsDictType = {
+        "Key": (str, False),
+        "MatchOptions": ([str], False),
+        "Values": ([str], False),
+    }
+
+
+class Expression(AWSProperty):
+    """
+    `Expression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-expression.html>`__
+    """
+
+    props: PropsDictType = {
+        "And": ([object], False),
+        "CostCategories": (CostCategoryValues, False),
+        "Dimensions": (ExpressionDimensionValues, False),
+        "Not": (object, False),
+        "Or": ([object], False),
+        "Tags": (TagValues, False),
+    }
+
+
 class Spend(AWSProperty):
     """
     `Spend <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-budgets-budget-spend.html>`__
@@ -85,6 +136,8 @@ class BudgetData(AWSProperty):
         "BudgetType": (str, True),
         "CostFilters": (dict, False),
         "CostTypes": (CostTypes, False),
+        "FilterExpression": (Expression, False),
+        "Metrics": ([str], False),
         "PlannedBudgetLimits": (dict, False),
         "TimePeriod": (TimePeriod, False),
         "TimeUnit": (str, True),

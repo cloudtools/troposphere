@@ -225,6 +225,18 @@ class LaunchTemplateConfiguration(AWSProperty):
     }
 
 
+class SsmParameterConfiguration(AWSProperty):
+    """
+    `SsmParameterConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-ssmparameterconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "AmiAccountId": (str, False),
+        "DataType": (str, False),
+        "ParameterName": (str, True),
+    }
+
+
 class Distribution(AWSProperty):
     """
     `Distribution <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-imagebuilder-distributionconfiguration-distribution.html>`__
@@ -240,6 +252,7 @@ class Distribution(AWSProperty):
         "LaunchTemplateConfigurations": ([LaunchTemplateConfiguration], False),
         "LicenseConfigurationArns": ([str], False),
         "Region": (str, True),
+        "SsmParameterConfigurations": ([SsmParameterConfiguration], False),
     }
 
 
