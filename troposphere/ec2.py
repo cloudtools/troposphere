@@ -206,6 +206,16 @@ class ClientLoginBannerOptions(AWSProperty):
     }
 
 
+class ClientRouteEnforcementOptions(AWSProperty):
+    """
+    `ClientRouteEnforcementOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-clientrouteenforcementoptions.html>`__
+    """
+
+    props: PropsDictType = {
+        "Enforced": (boolean, False),
+    }
+
+
 class ConnectionLogOptions(AWSProperty):
     """
     `ConnectionLogOptions <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-clientvpnendpoint-connectionlogoptions.html>`__
@@ -230,6 +240,7 @@ class ClientVpnEndpoint(AWSObject):
         "ClientCidrBlock": (str, True),
         "ClientConnectOptions": (ClientConnectOptions, False),
         "ClientLoginBannerOptions": (ClientLoginBannerOptions, False),
+        "ClientRouteEnforcementOptions": (ClientRouteEnforcementOptions, False),
         "ConnectionLogOptions": (ConnectionLogOptions, True),
         "Description": (str, False),
         "DisconnectOnSessionTimeout": (boolean, False),

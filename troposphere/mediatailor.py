@@ -138,6 +138,16 @@ class LiveSource(AWSObject):
     }
 
 
+class AdConditioningConfiguration(AWSProperty):
+    """
+    `AdConditioningConfiguration <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-adconditioningconfiguration.html>`__
+    """
+
+    props: PropsDictType = {
+        "StreamingMediaFileConditioning": (str, True),
+    }
+
+
 class AvailSuppression(AWSProperty):
     """
     `AvailSuppression <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-mediatailor-playbackconfiguration-availsuppression.html>`__
@@ -233,6 +243,7 @@ class PlaybackConfiguration(AWSObject):
     resource_type = "AWS::MediaTailor::PlaybackConfiguration"
 
     props: PropsDictType = {
+        "AdConditioningConfiguration": (AdConditioningConfiguration, False),
         "AdDecisionServerUrl": (str, True),
         "AvailSuppression": (AvailSuppression, False),
         "Bumper": (Bumper, False),
