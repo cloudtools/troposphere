@@ -10,4 +10,19 @@ patches = [
         "path": "/ResourceTypes/AWS::Budgets::BudgetsAction/Properties/Subscribers/ItemType",
         "value": "ActionSubscriber",
     },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::Budgets::Budget.Expression/Properties/And/ItemType",
+        "value": "object",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::Budgets::Budget.Expression/Properties/Not/Type",
+        "value": "object",
+    },
+    {
+        "op": "replace",
+        "path": "/PropertyTypes/AWS::Budgets::Budget.Expression/Properties/Or/ItemType",
+        "value": "object",
+    },
 ]
